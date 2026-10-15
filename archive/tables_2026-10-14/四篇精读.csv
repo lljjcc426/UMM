@@ -1,0 +1,13 @@
+﻿四篇精读,,,,,,
+DP-Font → DiffInk → Handwriting Trajectory Recovery → Inverse Painting；区分模型机制、实验和代码口径。,,,,,,
+,,,,,,
+研究,记录类型,输入—机制—输出,关键证据,限制与复核事项,可检验的后续问题,来源
+A01 DP-Font,核心内容,条件：字符/笔顺/风格；输出静态图；PINN约束墨水扩散相关残差。,Table3：SSIM0.699→0.735，FID24.91→22.34。,不测真实运笔/逐笔视频；PSNR方向冲突需核查。,调查先验能否改善固定正确率下的采样效率，而不只提高静态分数。,https://www.ijcai.org/proceedings/2024/0863.pdf
+A03 DiffInk,核心内容,InkVAE潜在表示；字符与风格辅助监督；InkDiT整行在线轨迹生成。,最长52字；5步AR94.38%；1步36.23%；潜在重建相近却生成质量不同。,AR非笔顺；专门蒸馏上限未知；测试长度/前缀条件需独立核查。,先固定表示研究少步，再固定少步研究latent与事件，避免所有模块同时改变。,"https://arxiv.org/html/2509.23624v3
+https://github.com/awei669/DiffInk/blob/main/trainer/dit_trainer.py"
+A03 DiffInk,实现核对,公开infer_diffink使用20步；配置val_batch_size=1000；OCR/style可仅为no_grad日志。,论文/源码版本和测速协议需要显式对齐。,看到日志中的loss名，不代表该阶段训练反传；使用测试长度信息需说明部署协议。,记录commit、配置、输入信息和墙钟分解；不能凭默认运行宣称复现论文速度。,"https://arxiv.org/html/2509.23624v3
+https://github.com/awei669/DiffInk/blob/main/trainer/dit_trainer.py"
+A05 HTR-Diffusion,核心内容,静态64×64图→坐标和笔状态；多尺度图像条件；1000步DDPM。,LDTW1.574/AIoU0.745；1/8尺度1.625/0.736。,实际书写顺序不等于规范；DTW混合两类误差；线宽和缺损有退化。,少步恢复是否先破坏抬笔/交叉/短笔；按条件不确定性请求细尺度。,"https://arxiv.org/html/2607.03422v1
+https://link.springer.com/chapter/10.1007/978-3-032-36023-6_12"
+B07 Inverse Painting,核心内容,LLaVA规划语义内容；掩码规划更新区域；diffusion生成画布。,完整IoU0.418；去mask0.175；去text0.400。,外部模块链，不是原生UMM；语义画面步骤不是笔尖轨迹。,高层事件调用+快速局部执行；与外部VLM/区域控制基线公平比较。,https://arxiv.org/html/2409.20556v2
+B07 Inverse Painting,效率核对,附录每次25步/A100约4秒。,20秒属于希望推进的绘画时长条件，而非墙钟运行。,未计入完整视频的全部规划/渲染/重试时，不能直接给端到端结论。,分解语义规划、mask生成、视觉执行、重试、渲染开销。,https://arxiv.org/html/2409.20556v2

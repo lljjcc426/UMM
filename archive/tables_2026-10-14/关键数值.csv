@@ -1,0 +1,28 @@
+﻿关键数值,,,,,,,,
+18条数值/配置记录。不同指标、不同硬件、NFE、KV、墙钟不可混用。不是独立复现。,,,,,,,,
+,,,,,,,,
+编号,研究,评测位置/范围,指标及方向,基线/条件1,结果/条件2,比较口径,不能推导的结论,来源
+K01,A01 DP-Font,Table 3，静态字图,SSIM ↑,0.699,0.735,无先验基础 → 笔顺+PINN,不是笔顺视频正确率；PSNR口径有冲突，不作支持项,https://www.ijcai.org/proceedings/2024/0863.pdf
+K02,A01 DP-Font,同上,FID ↓,24.91,22.34,同一实验设置,没有完整墙钟测速曲线支持固定提速倍数,https://www.ijcai.org/proceedings/2024/0863.pdf
+K03,A03 DiffInk,同一模型，DDIM采样消融,AR (%) ↑,1步36.23；2步79.70；3步89.93,5步94.38；10步95.35,改变采样步数，不是分别训练单步学生,AR不是整行全对/规范笔順率；专门蒸馏可能有不同结果,"https://arxiv.org/html/2509.23624v3
+https://github.com/awei669/DiffInk/blob/main/trainer/dit_trainer.py"
+K04,A03 DiffInk,附录Table 4,风格指标 ↑,1步35.85；2步66.31；3步73.51,5步77.38；10步78.32,与内容指标分别报告,风格指标不能替代内容或过程合法性,"https://arxiv.org/html/2509.23624v3
+https://github.com/awei669/DiffInk/blob/main/trainer/dit_trainer.py"
+K05,A03 DiffInk,潜在表示训练消融,后续生成AR (%) ↑,74.77（重建/KL条件）,94.38（加入识别和风格监督）,潜在重建能力相近而后续可生成性不同,不要说所有识别和风格损失在每一DiT阶段反传,"https://arxiv.org/html/2509.23624v3
+https://github.com/awei669/DiffInk/blob/main/trainer/dit_trainer.py"
+K06,A03 DiffInk,论文与公开infer_diffink配置,DDIM采样次数,论文讨论默认5步,代码infer_diffink为20步,不同配置，不是同口径时延,默认脚本不能自动当作论文测速复现,"https://arxiv.org/html/2509.23624v3
+https://github.com/awei669/DiffInk/blob/main/trainer/dit_trainer.py"
+K07,A05 HTR-Diffusion,论文重实现基线比较,LDTW ↓ / AIoU ↑,PEN-Net：2.728 / 0.607,本文：1.574 / 0.745,相同论文比较；真实轨迹作参考,LDTW混合顺序与几何；不是规范字典笔顺,"https://arxiv.org/html/2607.03422v1
+https://link.springer.com/chapter/10.1007/978-3-032-36023-6_12"
+K08,A05 HTR-Diffusion,视觉尺度消融,LDTW ↓ / AIoU ↑,全局：2.629 / 0.605；1/8：1.625 / 0.736,多尺度：1.574 / 0.745,说明局部与全局条件贡献,1/8接近不证明任何多尺度模块都冗余,"https://arxiv.org/html/2607.03422v1
+https://link.springer.com/chapter/10.1007/978-3-032-36023-6_12"
+K09,A05 HTR-Diffusion,渲染宽度测试,LDTW ↓,宽度1：1.574,宽度3：2.121,该受控输入设置,不能直接宣称所有毛笔/艺术字都失败,"https://arxiv.org/html/2607.03422v1
+https://link.springer.com/chapter/10.1007/978-3-032-36023-6_12"
+K10,A05 HTR-Diffusion,推理配置,采样步数,DDPM,1000,原文设置,步数多提示优化入口，不是普适最小需要步数,"https://arxiv.org/html/2607.03422v1
+https://link.springer.com/chapter/10.1007/978-3-032-36023-6_12"
+K11,B07 Inverse Painting,更新区域消融,区域IoU ↑,去掩码：0.175；去文字：0.400,完整：0.418,同一绘制过程实验,不能推论语言普遍不重要,https://arxiv.org/html/2409.20556v2
+K12,B07 Inverse Painting,附录，A100,每画布更新时延,25步去噪,约4秒,单次画布更新；不是整视频,20秒是绘画进度条件，不是实测延迟,https://arxiv.org/html/2409.20556v2
+K13,C03 Hyper-Bagel,图像生成GenEval,GenEval ↑,100 NFE：0.8640,6 NFE：0.8647；1 NFE：0.7962,相同报告中的质量—调用数,NFE降低不等于完整系统同比提速,https://arxiv.org/html/2509.18824v1
+K14,C04 Flash-Unified,Show-o2-7B一组测试,时延 ↓ / DPG ↑,11.30秒 / 86.14,5.89秒 / 84.39,训练外加速，有质量折中,不能说相对原模型完全无损,https://arxiv.org/html/2603.15271v1
+K15,C05 UniCache,任务与长上下文分别测量,缓存压缩 / 吞吐,理解和编辑KV约5×压缩,长上下文吞吐最高约1.78×,不是每个任务同一倍率,KV不是总显存；最高吞吐条件不能泛化,https://arxiv.org/html/2609.32831v1
+K18,D07 Salt,自回归视频消融,视频综合评分 ↑,基础84.62；单加一致性83.83,匹配混合步85.02；完整85.08,不同训练项的影响,不是准确率；常规模块叠加不保证正收益,https://arxiv.org/html/2604.03118v2

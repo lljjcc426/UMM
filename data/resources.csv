@@ -1,0 +1,32 @@
+﻿编号,类别,研究论文,版本,声明,方法,针对问题,结论,缺口,原始来源,核查状态,最近原文核查日,历史核查说明,历史编号,整合状态
+R01,工具与数据资源（不计作研究论文）,Hanzi Writer（工具，不是论文）,[来源](https://hanziwriter.org/docs.html),为常见字提供笔顺演示与书写练习。,有序SVG/笔画数据驱动动画；速度、颜色、间隔和多字串联由API控制。,无需学习模型也能制作标准笔顺动画。,官方文档已有单字、多字依次动画与属性控制。,覆盖及正确性依赖字库；不自动生成陌生艺术字形、毛笔物理或任意布局风格。,https://hanziwriter.org/docs.html,historical_record_not_rechecked,,官方文档；本次访问成功,"web_bundle:R01
+local_focused:M071
+local_handwriting:R71
+user_survey:资源R01",merged_from_existing_research
+R02,工具与数据资源（不计作研究论文）,Make Me a Hanzi（数据/工程资源）,[来源](https://github.com/skishore/makemeahanzi/blob/master/README.md),提供9000多个常见简繁汉字的有序笔画图形。,strokes为按笔顺排列的SVG外轮廓；medians为对应近似中心线；另有部件匹配。,建立规范化笔顺参考与可渲染的轨迹条件。,README明确数据跟随PRC笔顺，部分地区顺序不同；可生成基准和确定性渲染对照。,不是所有汉字/书体的统一金标准；轮廓不等于真实笔尖轨迹；字典、图形许可分开。,https://github.com/skishore/makemeahanzi/blob/master/README.md,historical_record_not_rechecked,,官方README；GitHub连接器读取,"web_bundle:R02
+local_focused:M070
+local_handwriting:R70
+user_survey:资源R02",merged_from_existing_research
+R03,工具与数据资源（不计作研究论文）,CASIA-HWDB / CASIA-OLHWDB（数据）,[来源](https://nlpr.ia.ac.cn/databases/handwriting/home.html),提供中文离线图像与在线手写记录。,实际书写坐标、笔状态、标签与字符/文本数据。,训练内容与个人风格、轨迹恢复和在线笔迹生成。,多个核心方法使用此类记录；能提供真实时间信息。,记录的是实际写法，不自动等于所有样本均符合某套规范；许可需依官方说明核查。,https://nlpr.ia.ac.cn/databases/handwriting/home.html,historical_record_not_rechecked,,官方数据说明,"web_bundle:R03
+local_focused:M073
+local_handwriting:R73
+user_survey:资源R03",merged_from_existing_research
+R04,工具与数据资源（不计作研究论文）,IAM-OnDB（数据）,[来源](https://fki.tic.heia-fr.ch/databases/iam-on-line-handwriting-database),提供在线英语手写数据，用于轨迹研究。,在线笔迹序列及对应文字等标注。,英文序列生成/风格与跨语言对照。,相关生成文献与DiffInk项目列为数据来源。,不是中文笔顺数据；官方页面本次未成功访问，具体版本/许可需另查，不声称已经下载验证。,https://fki.tic.heia-fr.ch/databases/iam-on-line-handwriting-database,historical_record_not_rechecked,,原方法引用；官网本次访问失败,"web_bundle:R04
+local_focused:M115
+user_survey:资源R04",merged_from_existing_research
+R05,工具与数据资源（不计作研究论文）,Mobao（Moyun配套静态书法数据）,[来源](https://arxiv.org/abs/2410.07618),以大规模书法图像支持字符、书体、书家样式研究。,Moyun报告超过190万张带相关类别条件的书法图像。,学习静态风格与字形。,可作为静态风格监督来源候选。,不提供与每张图对应的真实逐笔视频；不得推断为规范轨迹金标准。,https://arxiv.org/abs/2410.07618,historical_record_not_rechecked,,原论文数据描述,"web_bundle:R05
+local_focused:M116
+user_survey:资源R05",merged_from_existing_research
+R06,R 工具与数据,通用规范汉字笔顺规范,教育部官方PDF,官方规范页面索引注明8105字范围。,规范性笔画次序，作为选定正字法的参考，不是学习模型。,实验需要明确规范、地区、简繁和书体。,找到官方来源；本轮PDF直接打开失败，仅确认索引范围，不编造页码和条文。,规范不提供任意艺术字形的真实压力/时间轨迹；数据库图形许可与规范文本分别核对。,"https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/202103/W020210318300204215237.pdf
+https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/202103/t20210318_520473.html",primary_metadata_only,2026-10-15,,"web_bundle:R06
+local_focused:M069
+local_handwriting:R69",merged_from_existing_research
+R07,R 工具与数据,OpenHandWrite_Toolbox与笔画级数据,对应N07,提供笔画级实际中文书写记录与分析工具。,数位板采集与过程处理；字段/下载入口依原文。,模型合成过程缺少真实时间对照。,可作为数据候选；未下载数据，未检查许可全文。,真实轨迹不直接等于规范金标准；测量压力与推断压力应分开。,https://link.springer.com/article/10.3758/s13428-026-03001-4,primary_sections_read,2026-10-15,,web_bundle:R07,merged_from_existing_research
+L044,本地调研整合,CalligraphyBench / Haize，2026 项目,版本见原始来源及历史记录,原记录概述该研究的目标和方法；未另行摘录作者声明。,代理用绘图工具输出字形和笔画，视觉模型评估,原记录将问题与方法合并叙述，见方法栏。,88 字/20 书家；顺序分非整字通过率；不含图像生成模型评测,结果栏包含既有核读所确认的任务边界；未新增独立复现实验。,https://huggingface.co/datasets/haizelabs/calligraphy-bench,historical_record_not_rechecked,,既有调查 A/D,"local_focused:M065
+local_handwriting:R65",merged_from_existing_research
+L048,本地调研整合,Tegaki,版本见原始来源及历史记录,原记录概述该研究的目标和方法；未另行摘录作者声明。,字体轮廓中心线与已知笔顺匹配、动画,原记录将问题与方法合并叙述，见方法栏。,匹配失败的几何回退不保证笔顺；不当作无误标注器,结果栏包含既有核读所确认的任务边界；未新增独立复现实验。,https://tegaki.ink/,historical_record_not_rechecked,,既有调查 D,"local_focused:M072
+local_handwriting:R72",merged_from_existing_research
+L049,本地调研整合,SCUT-COUCH2009-TL,版本见原始来源及历史记录,原记录概述该研究的目标和方法；未另行摘录作者声明。,中文在线整行数据,原记录将问题与方法合并叙述，见方法栏。,主要是普通手写，非艺术毛笔视频,结果栏包含既有核读所确认的任务边界；未新增独立复现实验。,https://pagesperso.ls2n.fr/~mouchere-h/pdf/SCUT-COUCH2009_ICFHR2010.pdf,historical_record_not_rechecked,,既有调查 B/D,"local_focused:M074
+local_handwriting:R74",merged_from_existing_research
+L050,本地调研整合,CASIA-OHFC,版本见原始来源及历史记录,原记录概述该研究的目标和方法；未另行摘录作者声明。,InkML 具有 X/Y/F/S/T 通道,原记录将问题与方法合并叙述，见方法栏。,流程图领域，只说明有多通道采集基础，不是直接目标数据,结果栏包含既有核读所确认的任务边界；未新增独立复现实验。,https://nlpr.ia.ac.cn/databases/CASIA-OHFC/,historical_record_not_rechecked,,既有调查 D,"local_focused:M075
+local_handwriting:R75",merged_from_existing_research

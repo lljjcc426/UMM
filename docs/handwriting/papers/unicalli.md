@@ -1,0 +1,28 @@
+# N01 · UniCalli: A Unified Diffusion Framework for Column-Level Generation and Recognition of Chinese Calligraphy
+
+核查日期：2026-10-15；层级：`primary_sections_read`。并非每篇都完成全部附录阅读或代码复现。
+
+## 来源与版本
+- https://arxiv.org/html/2510.13745v2
+- https://www.yingcong.me/publication/2026-xu-unicalli/
+版本：arXiv v2 2026-02-02；作者机构页列ICLR 2026
+阅读范围：§3—4、附录限制与预处理
+
+## 作者声明
+作者主张：列级书法识别与生成联合训练可改善字形、风格和布局。
+
+## 输入—机制—输出
+FLUX/MMDiT；标准字体图、书法图、box map三种潜变量；非对称加噪切换读写方向；Duplicate RoPE；合成/标注/未标注数据混合。
+
+## 针对问题
+单字生成忽略行气和连带，整列生成又容易错字；独立识别与生成不能充分交换知识。
+
+## 目前可支持的结论
+实验单位包含五个连续字的128×640裁剪；约8000幅作品、4000幅标注、93书家。识别与生成均有报告，草书识别仍较弱，不是各书体全胜。
+
+## 边界与候选缺口
+【边界】静态列级图像不是逐笔视频。【推断】“中文书法+统一识别生成”已有直接前作；应比较额外的时间状态、实际执行和效率，而非只组合任务。
+
+## 应怎样放进研究对照
+该记录不是“论文质量评价”。是否用作主要基线，取决于输入信息、输出对象和评价目标是否相同。
+请与[最新重点复核](../01_focused_update_2026-10-15.md)和[实验协议](../../experiments/benchmark_protocol.md)一起阅读。

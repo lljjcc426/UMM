@@ -1,0 +1,115 @@
+> 本文由本地笔顺专项整合；文中原文缓存路径指本地research目录，公开仓库提供来源链接。
+
+> 历史调研的公开整理副本；原始阅读口径不升级为本轮重读。最新整合见[项目状态](../project/STATUS.md)。原始材料和缓存保留本地。
+
+# 笔顺专项：新增文献、原文定位与检索边界
+
+日期：2026-10-15。主报告为[专项研究方案](05_stroke_order_umm.md)。本文件补充此前综合文献表，不覆盖用户原始调查与 PDF。
+
+## 1. 本轮补读材料与关键定位
+
+“已保存全文文本”仅表示取得原始材料；以下单列实际核读范围，不把下载自动等同于通篇精读。
+
+| 文献 | 原始来源与本地副本 | 本轮核读范围 | 对选题的影响 |
+|---|---|---|---|
+| XMP-Font: Self-Supervised Cross-Modality Pre-training for Few-Shot Font Generation，Wei Liu 等，CVPR 2022 | [论文](https://arxiv.org/html/2204.05084)；`sources/xmp_font.txt` | §3.1–3.4 的输入、掩码预训练、下游损失；表 1、表 2 | “笔顺预测器监督静态生成”已有明确先例；LSTM 特征损失不是实际视频顺序损失 |
+| Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors，Lei Wang 等，2026 | [期刊全文](https://link.springer.com/article/10.1007/s44443-026-01050-5)；`sources/hierarchical_o2o.txt` | 方法及先验、损失式 (23)–(27)、数据 §4.1.1、指标式 (28)、消融 §4.3、限制 §4.5 | 可借鉴分层布局／轨迹与双域先验；91.2% 写字综合分不可改称笔顺准确率 |
+| Representing Online Handwriting for Recognition in Large Vision-Language Models，2024 首次公开 | [论文](https://arxiv.org/html/2402.15307)；`sources/online_ink_vlm.txt` | §3.1 坐标表示、§3.2 时间与距离渲染、训练与评价对象 | “时序墨迹＋图像输入 VLM”也有前作；顺序信息需要显式表示，不能假设最终图自然保留 |
+| Think in Strokes, Not Pixels: Process-Driven Image Generation via Interleaved Reasoning，2026 | [论文](https://arxiv.org/html/2604.04746)；`sources/think_in_strokes.txt` | §3 的交错计划／草图／检查／修订及场景图数据；训练、实验表格定位 | 标题中的 strokes 不能直接解释为汉字标准笔画；已覆盖一般过程生成与自检查主张 |
+| UM-Text: A Unified Multimodal Model for Image Understanding and Visual Text Editing，Lichen Ma 等，2026 | [论文](https://arxiv.org/html/2601.08321)；`sources/um_text.txt` | §3 的 UM-Designer、条件融合、区域一致损失及三阶段训练 | 文字领域已有 VLM 辅助布局与字形生成；输出是静态视觉文字，未提供笔顺视频实验 |
+| PaintFlow: A Unified Framework for Interactive Oil Paintings Editing and Generation，Zhangli Hu 等，2025 | [论文](https://arxiv.org/html/2512.08534)；`sources/paintflow.txt` | 摘要、基于 Stable Diffusion 的方法、SBR 数据构造与交互条件 | “unified multimodal framework”在此指多条件油画生成／编辑；不能仅因标题归类为中文笔顺 UMM |
+| Drawing and Recognizing Chinese Characters with Recurrent Neural Network，Xu-Yao Zhang 等，2016 首次公开，TPAMI 2018 | [原文 PDF](https://arxiv.org/pdf/1606.06539)；`sources/drawing_recognizing_rnn.txt` | 摘要、判别模型与条件生成模型的任务定位 | 读写两个方向使用神经模型的历史很早；不能据题名宣称它就是现代共享参数 UMM |
+| Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding，Mobai Xue 等，Pattern Recognition 140 (2023), 109538 | [作者 PDF](https://sprateam-ustc.github.io/Publications/Mobai-2023.pdf)；`sources/joint_tree_gen_rec.txt` | 摘要、部件树表示、对比学习与 dual learning 的方法定位 | 汉字识别与静态生成互促、结构表示与闭环训练已有前作；不以物理书写事件为目标 |
+
+以上八份材料下载与文本提取均成功，URL 与状态保存于 `sources/新增原始资料索引.json`。其中 Think in Strokes 是已有总表中的条目，本次补读不能再计作一篇新增文献。
+
+## 2. 当前已有材料中，本轮重点复核的证据
+
+### InkSight
+
+来源：[arXiv v4](https://arxiv.org/html/2402.05804v4)，[TMLR 原文](https://openreview.net/pdf?id=pSyUfV5BqA)。本地副本位于 `../2026-10-15-中文笔顺视频/sources/inksight.txt`。
+
+- §3.1：ViT＋mT5 encoder-decoder；文字与 ink token 共享词表。ViT 使用预训练权重，mT5 encoder-decoder 随机初始化；不能笼统说“全部来自预训练语言模型”。
+- §3.2、表 1：五种任务，训练混合各占 20%；包括识别、去渲染、联合输出。
+- §4.1.2：公开数字笔迹含 SCUT-Couch；内部数字笔迹 Mandarin 占 37%、Japanese 占 23%。这与其主要 OCR 测试集分布是两回事。
+- 附录语言讨论：公开模型训练包含中文、英文、越南语。
+- §4.6、表 3：删除识别任务后，部分去渲染准确性指标下降；不是每项指标都同向变化，不能宣称所有指标全面改善。
+- 附录 O.3：作者测试了空图／图文不匹配条件下的开放生成限制。不能把去渲染能力直接当作纯文字到任意笔迹生成能力。
+
+结论：本题必须正面比较该类读写联合路线；同时保留“训练有中文”和“严格验证中文规范笔顺”之间的区别。
+
+### Autoregressive Ordered Stroke Instance Prediction
+
+来源：[论文](https://arxiv.org/abs/2609.02251)。本地副本 `../2026-10-15-中文笔顺视频/sources/ordered_stroke_recovery.txt`。
+
+- Evaluation metrics 段：严格 Order Acc. 包含笔画数一致、mask IoU≥0.50 的一一对应、完整顺序一致。
+- 方法对照表：GT strokes＋Transformer Pointer 92.27%；MaskDINO＋Transformer Pointer 65.90%；联合自回归 67.03%。
+- 类别泛化表：已见类别 67.03%、未见类别 52.06%；两个集合笔画复杂度也不同，不能把下降全部归因于“未见”一个变量。
+
+结论：比只看 OCR 更贴近本题，但其严格率同时受分割、匹配、笔画数和排序影响，不是“已知完美笔画后的纯排序准确率”。也不能不经验证就当作新视频的自动真值工具。
+
+### UniCalli
+
+来源：[论文](https://arxiv.org/abs/2510.13745)。本地副本 `../2026-10-15-中文笔顺视频/sources/unicalli.txt`。
+
+研究对象是书法列图的识别与生成。此前已核对 FID 消融：52.90→46.42→41.78→37.69 对应逐步加入不同组件。不能把从基础到完整方案的全部收益归因于联合任务，更不能将 FID 变化解释为笔顺成功率。
+
+### LVGM
+
+来源：[论文](https://arxiv.org/abs/2511.11119)。本地副本 `../2026-10-15-补充整合/sources/lvgm.txt`。
+
+笔画 embedding＋next-stroke 训练，含词语、成语、诗句的 SVG 数据，907,267 个样本。已直接覆盖“利用 LLM 逐笔生成中文矢量字”的宽泛设想。SVG 闭合轮廓的序列不是自动具备真实笔尖速度、压力的书写录像；仍须评价规范与视觉执行。
+
+## 3. 由本轮核查导出的实现参考
+
+### 时序输入不能只保留最后一张图
+
+[Representing Online Handwriting](https://arxiv.org/html/2402.15307) 用时间采样、归一化、相对坐标及笔段分隔压缩笔迹；还把时间／距离编码到图像颜色中。其文本表示在笔内等间隔重采样后省略时间值，也丢弃了笔间停顿时长。
+
+可迁移的是“图像保留几何、序列保留先后”的双表示。若研究速度或抬笔停顿，则必须重新保留相应时间，不能照搬省略后的表示。它做的是识别，不能直接证明这种输入会改善生成。
+
+颜色时间编码若用作理解条件，应与用户要求的作品颜色分开；评测模型若直接看到答案级彩色序号，则测的是读取辅助编码，而不是从原始黑色书写视频发现顺序。
+
+### 有序轨迹与渲染桥接
+
+- [DiffInk](https://arxiv.org/html/2509.23624v3)：可借鉴轨迹潜空间和条件生成，但其识别率不能当作严格笔顺率。
+- [OLHWG](https://arxiv.org/abs/2410.02309)：布局与字符轨迹分治，说明“由单字到整行”已有直接研究。
+- [OnOff](https://arxiv.org/abs/2608.03198)：轨迹与物理笔刷渲染桥接，适合研究执行与外观的联系；不是通用理解—生成 UMM 的直接实证。
+- [DP-Font](https://www.ijcai.org/proceedings/2024/0863.pdf)：笔顺条件与物理信息已有静态书法生成先例；墨水扩散、模型去噪时间、书写视频时间是不同变量。
+- [VideoSketcher](https://arxiv.org/abs/2602.15819)：计划与视频扩散的直接近邻，需要控制同帧出现多个不相连的新笔画。
+- [Draw This First](https://arxiv.org/abs/2608.12064)：顺序场已有前作；不能仅提出“给每笔一个时间颜色”就宣称机制新颖。
+
+这些条目的详细结果与此前代码／样例核查保留在综合报告中，本轮没有重跑它们的模型。
+
+### 更早的语言模型读画联合
+
+[Painter: Teaching Auto-Regressive Language Models to Draw Sketches](https://openaccess.thecvf.com/content/ICCV2023W/MMFM/html/Pourreza_Painter_Teaching_Auto-Regressive_Language_Models_to_Draw_Sketches_ICCVW_2023_paper.html)，ICCV Workshops 2023，作者官方摘要明确包含文字到笔触序列、删除对象、草图对象检测与分类。本轮核查层级为官方摘要，未将其全部实验宣称已精读。它进一步限制了“第一次让 LLM 既看笔画又画笔画”的创新主张；但不是中文规范笔顺实验。
+
+### 规范来源
+
+[教育部公开《通用规范汉字笔顺规范》PDF，GF 0023—2020](https://hudong.moe.gov.cn/jyb_sjzl/ziliao/A19/202103/W020210318300204215237.pdf)。
+
+[Make Me a Hanzi](https://github.com/skishore/makemeahanzi) 和 [Hanzi Writer](https://hanziwriter.org/docs.html) 是有序笔画资源／工程工具；不是证明陌生艺术字顺序恢复已解决的论文。字形、地区规范与数据许可应记录在具体数据版本中。
+
+## 4. 本次检索如何支持“未找到完全匹配工作”？
+
+沿四条证据链检索，并从论文引用追溯：
+
+1. `"unified multimodal" "stroke order"`、`"统一多模态" "笔顺"`、`"Chinese" "stroke order" "BAGEL"`。
+2. `"Chinese stroke order" "video generation"`、`"unified" "stroke-order" handwriting generation`。
+3. `"stroke order" "multimodal model" generation`，结合 InkSight、UniCalli、LVGM、UM-Text 等具体题名查原文。
+4. 从读写联合、静态字体笔顺监督，追到轨迹恢复、在线手写表示及过程生成 UMM。
+
+判定完全匹配需要检查任务、数据、方法、输出、指标，不能只看摘要出现“unified”“stroke”“Chinese”。医疗卒中类 stroke 检索结果排除。仅称“生成更完整笔画”的图像工作，也不等于研究实际书写先后。
+
+网上还出现把 GLM-Image 描述成“显式建模中文笔顺”的二手文字。本次官方 [GitHub](https://github.com/zai-org/GLM-Image) 与 [模型卡](https://huggingface.co/zai-org/GLM-Image) 能确认的是 AR＋diffusion 与 Glyph Encoder 的图像文字生成机制；这些官方说明不足以支持它已经验证中文书写视频笔顺，因此没有据二手摘要加入“笔顺已解决”的证据。
+
+负面检索结论的边界：未被检索收录的材料、未公开研究、不同命名以及后续版本均可能改变结论。准确表述是“在截至本次核读的公开材料中未找到四项要求同时满足的工作”，而不是“世界上没人做”。
+
+## 5. 本轮文件变更说明
+
+- 新建 `research/2026-10-15-笔顺专项/UMM_生成笔顺_专项分析与研究方案.md`：集中回答是否有直接 UMM 前作、如何定义实际笔顺、方案、数据、对照与评测。
+- 新建本文件：记录原文位置、关键限制和新增引用。
+- 新建 `sources/` 中八份原始网页／PDF 的文本提取副本与一份来源索引 JSON。
+- 没有删除文件；没有覆盖用户原始资料、四篇 PDF 或此前综合报告。
+- 本轮为研究与方案整理，没有宣称完成模型复现、训练或新视频测试，也没有使用 skill 或子代理。
