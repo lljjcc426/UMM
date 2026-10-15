@@ -1,0 +1,40 @@
+name: Import prepared public research bundle
+
+on:
+  push:
+    branches: [main]
+    paths: ['.research-import/READY']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: import-public-research
+  cancel-in-progress: false
+
+jobs:
+  import:
+    if: github.repository == 'lljjcc426/UMM'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the exact reviewed import commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - name: Unpack and verify prepared research files
+        run: python3 .research-import/import_bundle.py
+      - name: Validate local references and research record structure
+        run: |
+          python3 scripts/validate_catalog.py
+          python3 -m unittest discover -s tests -v
+          python3 scripts/stroke_metrics.py examples/toy_events.json
+      - name: Publish expanded files without rewriting history
+        run: |
+          python3 .research-import/finalize.py
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'docs: publish verified UMM and Chinese handwriting research collection'
+          git push origin HEAD:main
