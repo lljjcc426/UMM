@@ -7,13 +7,20 @@ from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
 ROOT = Path(__file__).resolve().parents[1]
-HEADER = ["编号","类别","研究论文","版本","声明","方法","针对问题","结论","缺口","原始来源","核查状态","最近原文核查日","历史核查说明","历史编号","整合状态"]
+HEADER = ["编号","类别","研究论文","版本","声明","方法","针对问题","结论","缺口","原始来源","核查状态","最近原文核查日","历史核查说明","历史编号"]
+VERIFICATION_LABELS = {
+    "historical_record_not_rechecked": "历史记录，待复核",
+    "primary_sections_read": "相关原文章节已核查",
+    "primary_abstract_read": "原始摘要已核查",
+    "primary_metadata_only": "仅核查元数据",
+    "historical_record_unresolved": "原始来源待核",
+}
 
 def cells(r):
     vals = [r["id"],r["category"],r["title"],r["version"],r["claim"],r["method"],r["problem"],
             r["conclusion"],r["gap"],"\n".join(r["source_urls"]),r["verification"],
             r.get("checked_on") or "",r.get("previous_evidence") or "",
-            "\n".join(r.get("aliases",[])), r.get("integration_status","")]
+            "\n".join(r.get("aliases",[]))]
     return ["'"+v if isinstance(v,str) and v.startswith(("=","+","-","@")) else v for v in vals]
 
 def md(recs, title):
@@ -23,9 +30,7 @@ def md(recs, title):
     for r in recs:
         lead = f'**{r["id"]} · {r["title"]}**<br>{r["version"]}<br>'
         lead += " / ".join(f"[来源{i+1}]({u})" for i,u in enumerate(r["source_urls"]))
-        lead += f'<br>核查：`{r["verification"]}`'
-        if r.get("aliases"):
-            lead += '<br>历史编号：' + '；'.join(r['aliases'])
+        lead += f'<br>核查：{VERIFICATION_LABELS[r["verification"]]}'
         vals = [lead] + [r[k] for k in ("claim","method","problem","conclusion","gap")]
         lines.append("| "+" | ".join(str(v).replace("|",r"\|").replace("\n","<br>") for v in vals)+" |")
     return "\n".join(lines)+"\n"
@@ -47,9 +52,9 @@ def main():
     targets = {
         "docs/all_literature.md":(rows,"全部公开文献与资源"),
         "docs/umm/literature.md":(groups["umm"],"UMM架构、协同、推理与效率文献表"),
-        "docs/handwriting/new_literature.md":(groups["new_handwriting"],"网页版13项重点文献（整合修订视图）"),
+        "docs/handwriting/new_literature.md":(groups["new_handwriting"],"书写过程重点文献"),
         "docs/handwriting/literature.md":([r for r in rows if r["scope"]!="umm"],"中文书写及相关研究"),
-        "docs/local_additions.md":(groups["local_additions"],"本地调研补入的文献与资源"),
+        "docs/local_additions.md":(groups["local_additions"],"补充文献与资源"),
     }
     for path,(recs,title) in targets.items():
         (ROOT/path).write_text(md(recs,title),encoding="utf-8")
@@ -65,7 +70,7 @@ def main():
         for cell in sheet[1]:
             cell.font=Font(bold=True,color="FFFFFF")
             cell.fill=PatternFill("solid",fgColor="284B63")
-        widths=[12,24,65,32,46,65,45,65,70,58,32,22,46,58,36]
+        widths=[12,24,65,32,46,65,45,65,70,58,32,22,46,58]
         for i,width in enumerate(widths,1):sheet.column_dimensions[get_column_letter(i)].width=width
         for row in sheet.iter_rows(min_row=2):
             for cell in row:cell.alignment=Alignment(vertical="top",wrap_text=True)
@@ -76,7 +81,7 @@ def main():
     sheet.freeze_panes="C2";sheet.auto_filter.ref=sheet.dimensions
     sheet.column_dimensions['B'].width=90;sheet.column_dimensions['F'].width=55
     workbook.save(ROOT/"data/literature_public.xlsx")
-    print(f"Rendered {len(rows)} catalog records and {len(candidates)} discovery records; no remote operation.")
+    print(f"Rendered {len(rows)} catalog records and {len(candidates)} discovery records.")
 
 if __name__ == "__main__":
     main()

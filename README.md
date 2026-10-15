@@ -1,76 +1,43 @@
-# UMM × 中文书写过程生成研究库
+# UMM 与中文书写过程生成
 
-**从统一理解与生成，到笔顺、笔迹、艺术字书写视频及效率优化。**
+研究统一多模态模型（Unified Multimodal Model，UMM）如何结合理解与生成，重点关注中文书写视频中的笔画顺序、实际执行和艺术风格控制。
 
-整理日期：**2026-10-15**。本仓库是本次研究的持续记录与跟进仓库，已整合网页版目录包和本地历轮调查，并成功推送至 `main`。网页版连接曾返回403；本次通过本地 Git 完成同步。实际提交见 [交付状态](reports/delivery_status.json)，历史与当前方式见 [发布说明](PUBLISH_TO_GITHUB.md)。
+核心问题是：模型能否根据已经发生的书写过程，判断下一笔并正确生成？在相同数据、输入和计算预算下，统一训练是否优于规则渲染、专门轨迹模型或外部视觉语言模型指导？
 
-## 从哪里开始
+## 阅读导航
 
-| 想了解什么 | 入口 |
+| 内容 | 入口 |
 |---|---|
-| 当前做到哪里，接下来做什么？ | **[项目状态](docs/project/STATUS.md)** / [研究决策](docs/project/DECISIONS.md) / [实验跟进](docs/project/EXPERIMENTS.md) |
-| 两套资料整合后怎样判断方向？ | **[综合研究地图](docs/RESEARCH_MAP.md)** |
-| UMM有没有专门做笔顺，我们具体如何做？ | **[笔顺专项研究方案](docs/handwriting/05_stroke_order_umm.md)** / [原文证据核查](docs/handwriting/06_stroke_order_evidence.md) |
-| 这轮新增研究如何改变选题？ | **[重点调研与修订](docs/handwriting/01_focused_update_2026-10-15.md)** |
-| UMM是什么、如何统一、怎样做科研？ | [UMM总览](docs/umm/00_overview.md) |
-| UMM架构、推理、协同和效率文献 | [UMM文献表](docs/umm/literature.md) |
-| 中文笔顺、轨迹、艺术字、视频和相关机制 | [书写专题文献表](docs/handwriting/literature.md) |
-| 网页版新增的13项直接/邻近前作 | [网页重点文献表](docs/handwriting/new_literature.md) |
-| 本地历轮调查补入的研究 | [本地补充文献视图](docs/local_additions.md) / [历轮笔记](archive/local/README.md) |
-| 全部公开记录，按六字段整理 | [文献总表](docs/all_literature.md) |
-| 网页版四篇指定论文精读 | [DP-Font / DiffInk / HTR / Inverse Painting](docs/handwriting/papers/README.md) |
-| 本地附件对应的可公开研究 | [Timage / BoxTuning / ORVOS 公开预印本分析](docs/evidence/public_preprint_reviews.md) |
-| 当前能力到哪里、哪些尚未证明？ | [能力矩阵](docs/handwriting/02_capability_matrix.md) |
-| 规范、数据与标注 | [数据与标准](docs/handwriting/03_data_and_standards.md) |
-| 如何设置强基线、效率与UMM归因？ | [模型与效率](docs/handwriting/04_baselines_and_efficiency.md) |
-| 准备开展什么实验？ | [评测协议](docs/experiments/benchmark_protocol.md) / [研究假设](docs/experiments/research_hypotheses.md) / [五个决定性实验](docs/experiments/minimum_experiments.md) |
+| 研究范围、主要发现与开放问题 | [综合分析](docs/RESEARCH_MAP.md) |
+| 中文笔顺生成的直接前作、方法与实验设计 | [笔顺专项](docs/handwriting/05_stroke_order_umm.md) · [证据核查](docs/handwriting/06_stroke_order_evidence.md) |
+| UMM架构、理解与生成协同 | [UMM综述](docs/umm/00_overview.md) · [相关文献](docs/umm/literature.md) |
+| 书写轨迹、艺术字与视频生成 | [能力与问题](docs/handwriting/02_capability_matrix.md) · [相关文献](docs/handwriting/literature.md) |
+| 重点论文的方法、结果与限制 | [论文精读](docs/handwriting/papers/README.md) · [ORVOS、BoxTuning与Timage](docs/evidence/public_preprint_reviews.md) |
+| 数据、标准与评价 | [数据与标准](docs/handwriting/03_data_and_standards.md) · [评测协议](docs/experiments/benchmark_protocol.md) |
+| 研究进展与后续实验 | [研究进展](docs/project/STATUS.md) · [结论依据](docs/project/DECISIONS.md) · [实验计划](docs/project/EXPERIMENTS.md) |
+| 全部文献 | [文献总表](docs/all_literature.md) · [CSV](data/literature.csv) · [Excel](data/literature_public.xlsx) |
 
-## 包含的记录
+## 主要判断
 
-- **269项公开论文／研究记录、11项资源，共280条主记录**。包括预印本、基准及相邻研究，不是280篇全文精读或280个原生UMM。
-- 原始网页版99条记录、本地116条可公开专题记录、143条通用UMM记录和7条专项补充形成365条来源记录，经论文标识与资源实体去重归并。
-- 另存 **573条arXiv检索元数据、200条综述仓库候选**，二者有重叠，不相加作为已读论文数；1条撤回记录单列，不作结论依据。
-- 四份原附件及未公开材料保留本地。三项已核对公开预印本，公开笔记只依公开版本；其余继续保留私有占位。
-- [JSON](data/literature.json)、[CSV](data/literature.csv)、[Excel](data/literature_public.xlsx)提供可检索版本。
-- [历史目录](archive/README.md)保留两版公开安全笔记和原Excel八张表的CSV；不是静默覆盖历史。
-- [整合说明](docs/evidence/integration_2026-10-15.md)记录去重、版本、修订和文件变更；[历史编号映射](data/record_aliases.json)连接365条来源记录与主目录。
+- **读写联合与中文书法统一生成已有前作。** [InkSight](https://arxiv.org/abs/2402.05804)联合识别与笔迹恢复，[UniCalli](https://arxiv.org/abs/2510.13745)统一列级书法识别与静态生成。研究贡献需要具体到过程理解及其对生成的作用。
+- **笔顺条件不等于过程正确。** 静态字形、最终帧OCR和文字笔顺问答都不能独立证明实际生成顺序；需要检查具体笔画的身份、先后、方向与落笔状态。
+- **轨迹、物理渲染和视频文字控制已有可比较的方法。** [OnOff](https://arxiv.org/abs/2608.03198)连接轨迹与墨迹渲染；[VidScribe](https://arxiv.org/abs/2609.36598)和[VTR-Bench](https://arxiv.org/abs/2610.01499)提供视频文字评测。它们的指标与规范笔顺验证仍有区别。
+- **UMM的额外收益尚需实验确认。** 先比较过程理解与生成执行，再扩展多字、布局、风格和效率。不能仅凭一个模型同时支持理解和生成就认定二者互相促进。
 
-## 本轮最重要的修订
+## 文献与证据
 
-“UMM+中文书法”并非空白：[UniCalli](https://arxiv.org/abs/2510.13745)已有列级识别/生成联合模型。
-“轨迹+接触+累计墨迹+外观增强”并非空白：[OnOff](https://arxiv.org/abs/2608.03198)已建立物理渲染桥接。
-视频文字并非没有专门评测：[VidScribe](https://arxiv.org/abs/2609.36598)、[VTR-Bench](https://arxiv.org/abs/2610.01499)已有多因素研究，前者包含手写演化。
-但这些不等于已经证明中文指定规范的逐笔身份、顺序、方向、接触及长程状态全部正确。
+主目录包含 **269项论文／研究记录、11项资源，共280条记录**。每项记录包括研究主张、方法、问题、结果、限制、原始来源、版本及核查范围。数量不代表全文精读数量；文献中的数值为作者报告。
 
-因此候选贡献应落到**具体过程正确性、实际执行、少步事件保持、任务相关缓存或低监督泛化**，并与规则渲染、专门模型和外部VLM比较，而不是预设UMM一定最好。
+[候选目录](data/discovery/README.md)另含573条arXiv检索记录和200条综述目录候选，两者有重叠，也与主目录重叠。详细记录规则见[核查方法](docs/evidence/method_and_status.md)，早期分析见[研究档案](archive/README.md)。
 
-按当前用户重点，**实际笔顺正确性与UMM归因是主线，效率是第二阶段问题**。InkSight已有含中文的读写联合训练，XMP-Font已有静态笔顺预测损失，LVGM已有逐笔矢量生成。需证明实际过程理解能改善生成执行，而不只是认字、背规则或提高最终帧OCR。
+## 数据维护
 
-层级双域HTR的91.2%是起点、笔画数与总长度的综合分，不能解释为严格笔顺正确率。更多结论修订见[研究决策](docs/project/DECISIONS.md)。
-
-## 阅读与证据规则
-
-所有文献按 **研究论文—声明—方法—针对问题—结论—缺口** 组织，并增加来源、版本和核查状态。
-历史记录、本轮摘要阅读、本轮方法/实验阅读分别标记；数值是作者报告，不是本次复现。
-没有统一评测不等于模型一定失败；未查到前作不等于确证新颖性。
-详见 [核查口径](docs/evidence/method_and_status.md)、[更新日志](docs/evidence/updates_2026-10-15.md)、[搜索记录](docs/evidence/search_log.md)。
-
-## 验证整理文件
-
-在本目录运行（Python 3.10+；检查与事件指标使用标准库）：
+`data/literature.json` 为文献主数据。安装依赖后生成Markdown、CSV和Excel视图，并检查记录及仓库内链接：
 
 ```bash
+python -m pip install -r requirements.txt
+python scripts/render_catalog.py
 python scripts/validate_catalog.py
-python -m unittest discover -s tests -v
-python scripts/stroke_metrics.py examples/toy_events.json
 ```
 
-最后一条只是手工标注事件ID的玩具测试，不会从视频提取笔画，不代表任何模型成绩。真实模型结果模板在 `data/experiment_template.csv`，尚未填写。
-
-## 发布与材料边界
-
-本包不含字体文件、受限数据、模型权重、论文PDF和匿名投稿原稿。第三方来源遵守各自许可；本库笔记不授予第三方素材的再分发权。详细说明见 [PRIVATE_MATERIALS](docs/PRIVATE_MATERIALS.md)。
-
-后续维护建议：新增来源先登记核查层级，记录模型/论文版本，保留失败访问与观点修订，再更新研究假设；不要只增加方法名称。
-
-更新 `data/literature.json` 后，安装 `requirements.txt` 中的 openpyxl，运行 `python scripts/render_catalog.py` 同步Markdown、CSV和Excel。候选数据放在 `data/discovery/`。每次实质工作同步项目状态及变更日志；具体约定见 [AGENTS.md](AGENTS.md)。
+`scripts/stroke_metrics.py` 提供已标注事件序列的指标示例，不负责从视频识别笔画。实验设计与模型结果分开记录，当前尚无模型实验结果。

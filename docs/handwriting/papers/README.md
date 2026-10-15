@@ -1,17 +1,17 @@
 # 精读与核查卡片索引
 
-## 用户指定的四篇
+## 书写生成与过程建模
 
 | 顺序 | 笔记 | 最重要的辨析 |
 |---|---|---|
 | 1 | [DP-Font](dp_font.md) | 笔顺条件、静态图、物理先验与实际过程的差别 |
 | 2 | [DiffInk](diffink.md) | 潜在可生成性、少步质量、实现和评价信息 |
 | 3 | [HTR Diffusion](htr_diffusion.md) | 实际记录与规范、几何与顺序、1000步与多尺度 |
-| 4 | [Inverse Painting](inverse_painting.md) | 高层规划、区域执行、真实墙钟与绘画进度 |
+| 4 | [Inverse Painting](inverse_painting.md) | 高层规划、区域执行、实际运行时间与绘画进度 |
 
 以上继承2026-10-13/14研究笔记，不标为本次独立复现。
 
-## 本轮应补入的直接前作
+## 直接相关研究
 
 - [UniCalli](unicalli.md)：统一书法识别与生成。
 - [OnOff](onoff.md)：在线笔迹、物理渲染与离线外观。

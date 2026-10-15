@@ -15,7 +15,7 @@
     "problem": "单字生成忽略行气和连带，整列生成又容易错字；独立识别与生成不能充分交换知识。",
     "conclusion": "实验单位包含五个连续字的128×640裁剪；约8000幅作品、4000幅标注、93书家。识别与生成均有报告，草书识别仍较弱，不是各书体全胜。",
     "gap": "【边界】静态列级图像不是逐笔视频。【推断】“中文书法+统一识别生成”已有直接前作；应比较额外的时间状态、实际执行和效率，而非只组合任务。",
-    "provenance": "2026-10-15 本轮公开来源核查",
+    "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
     "checked_on": "2026-10-15",
     "record_type": "paper",
@@ -44,11 +44,11 @@
       {
         "title": "UniCalli，ICLR 2026",
         "version": "版本见原始来源及历史记录",
-        "claim": "原记录概述该研究的目标和方法；未另行摘录作者声明。",
-        "problem": "原记录将问题与方法合并叙述，见方法栏。",
+        "claim": "未单独摘录。",
+        "problem": "与方法合并记录，见方法栏。",
         "method": "共享扩散框架，非对称加噪，统一列级书法识别和生成",
         "conclusion": "直接先例；联合训练消融 FID 52.90→46.42，完整 37.69；静态、没有笔顺视频评价",
-        "gap": "结果栏包含既有核读所确认的任务边界；未新增独立复现实验。",
+        "gap": "研究范围与限制见结论栏。",
         "verification": "historical_record_not_rechecked",
         "checked_on": null,
         "origin": "local_focused",
@@ -61,8 +61,7 @@
       "web_bundle:N01",
       "local_focused:M001",
       "local_handwriting:R01"
-    ],
-    "integration_status": "merged_from_existing_research"
+    ]
   },
   {
     "id": "N02",
@@ -80,7 +79,7 @@
     "problem": "在线细线与真实粗细墨迹存在模态差距，静态生成又缺少可执行轨迹。",
     "conclusion": "已提供轨迹—笔刷—墨迹—可选增强链路；本轮阅读方法和限制，并检查PDF方法与渲染页。",
     "gap": "【边界】速度推压力不等于传感器真压力；简化模型不包含全部3D刷毛、湿度和纸吸收；增强后是否仍严格对应轨迹须另验。【推断】累计墨迹+物理渲染不再是空白机制。",
-    "provenance": "2026-10-15 本轮公开来源核查",
+    "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
     "checked_on": "2026-10-15",
     "record_type": "paper",
@@ -109,11 +108,11 @@
       {
         "title": "OnOff，ECCV 2026",
         "version": "版本见原始来源及历史记录",
-        "claim": "原记录概述该研究的目标和方法；未另行摘录作者声明。",
-        "problem": "原记录将问题与方法合并叙述，见方法栏。",
+        "claim": "未单独摘录。",
+        "problem": "与方法合并记录，见方法栏。",
         "method": "轨迹、笔刷参数估计、可微物理渲染和可选扩散增强",
         "conclusion": "有机器人执行；词级限制、物理参数需校准；外观提升可能伴随 CER 变差",
-        "gap": "结果栏包含既有核读所确认的任务边界；未新增独立复现实验。",
+        "gap": "研究范围与限制见结论栏。",
         "verification": "historical_record_not_rechecked",
         "checked_on": null,
         "origin": "local_focused",
@@ -126,8 +125,7 @@
       "web_bundle:N02",
       "local_focused:M004",
       "local_handwriting:R04"
-    ],
-    "integration_status": "merged_from_existing_research"
+    ]
   },
   {
     "id": "N03",
@@ -143,7 +141,7 @@
     "problem": "单模态方法难兼顾笔画细节与整体风格，不同书体的笔画与顺序存在差异。",
     "conclusion": "已有图像—序列双分支的中文书法生成；不能把联合两种表示作为首次贡献。",
     "gap": "【边界】字体合成、轨迹与完整写字视频仍不同；书体有效笔画划分不能强用一套楷书规则。",
-    "provenance": "2026-10-15 本轮公开来源核查",
+    "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
     "checked_on": "2026-10-15",
     "record_type": "paper",
@@ -172,8 +170,7 @@
     ],
     "aliases": [
       "web_bundle:N03"
-    ],
-    "integration_status": "merged_from_existing_research"
+    ]
   },
   {
     "id": "N04",
@@ -190,7 +187,7 @@
     "problem": "最终读得出来仍可能形变、漂移、编辑失配，单一OCR无法覆盖。",
     "conclusion": "已测试11个系统并包含手写演化因素；论文A1/A2相关性较弱，提示读对与结构对要分开测。",
     "gap": "【边界】A2字形拓扑并非逐笔规范序列、方向和接触评分；协议并非每例都从完全空白开始。【推断】不能再声称没有中文/手写因素的视频文字基准。",
-    "provenance": "2026-10-15 本轮公开来源核查",
+    "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
     "checked_on": "2026-10-15",
     "record_type": "paper",
@@ -219,11 +216,11 @@
       {
         "title": "VidScribe，2026",
         "version": "版本见原始来源及历史记录",
-        "claim": "原记录概述该研究的目标和方法；未另行摘录作者声明。",
-        "problem": "原记录将问题与方法合并叙述，见方法栏。",
+        "claim": "未单独摘录。",
+        "problem": "与方法合并记录，见方法栏。",
         "method": "四任务、12 因素，含逐笔书写；公开视频",
         "conclusion": "本次 8 段样例的来源；总分不等于严格规范笔顺",
-        "gap": "结果栏包含既有核读所确认的任务边界；未新增独立复现实验。",
+        "gap": "研究范围与限制见结论栏。",
         "verification": "historical_record_not_rechecked",
         "checked_on": null,
         "origin": "local_focused",
@@ -236,8 +233,7 @@
       "web_bundle:N04",
       "local_focused:M061",
       "local_handwriting:R61"
-    ],
-    "integration_status": "merged_from_existing_research"
+    ]
   },
   {
     "id": "N05",
@@ -254,7 +250,7 @@
     "problem": "视频整体逼真但文字错，且可读内容与周围条件容易混评。",
     "conclusion": "作者测试中最低总体WER为0.250；完整框架相对指定基线WER降低32.5%（相对值），不是笔顺正确率。",
     "gap": "【边界】文字呈现/编辑不等于笔尖运笔；多候选框架须与同尝试数比较。【推断】“VLM反馈改善视频文字”已有直接前作。",
-    "provenance": "2026-10-15 本轮公开来源核查",
+    "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
     "checked_on": "2026-10-15",
     "record_type": "paper",
@@ -283,11 +279,11 @@
       {
         "title": "VTR-Bench，2026",
         "version": "版本见原始来源及历史记录",
-        "claim": "原记录概述该研究的目标和方法；未另行摘录作者声明。",
-        "problem": "原记录将问题与方法合并叙述，见方法栏。",
+        "claim": "未单独摘录。",
+        "problem": "与方法合并记录，见方法栏。",
         "method": "视频场景文字渲染基准；300 提示/11 模型",
         "conclusion": "WER .250 不是 25% 视频失败；可借文字真实性压力测试",
-        "gap": "结果栏包含既有核读所确认的任务边界；未新增独立复现实验。",
+        "gap": "研究范围与限制见结论栏。",
         "verification": "historical_record_not_rechecked",
         "checked_on": null,
         "origin": "local_focused",
@@ -300,8 +296,7 @@
       "web_bundle:N05",
       "local_focused:M062",
       "local_handwriting:R62"
-    ],
-    "integration_status": "merged_from_existing_research"
+    ]
   },
   {
     "id": "N06",
@@ -317,7 +312,7 @@
     "problem": "视频生成能力是否可转用于感知、编辑、模拟和程序式操作。",
     "conclusion": "Figure 30包含Omniglot逐笔复制示例，作者示例成功率0.5；颜色/编号标注为事后添加。",
     "gap": "【边界】这是该任务的示例/局部实验，不是中文规范笔顺总体50%准确率；没有完整字符/书体大样本协议。【推断】须把公开个案与系统基准分开。",
-    "provenance": "2026-10-15 本轮公开来源核查",
+    "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
     "checked_on": "2026-10-15",
     "record_type": "paper",
@@ -346,8 +341,7 @@
     ],
     "aliases": [
       "web_bundle:N06"
-    ],
-    "integration_status": "merged_from_existing_research"
+    ]
   },
   {
     "id": "N07",
@@ -362,9 +356,9 @@
     "claim": "作者主张：笔画级真实书写数据及工具支持中文书写过程研究。",
     "method": "42名书写者、1200个目标汉字；数位板200Hz采集；时间/轨迹分笔及行为标记。",
     "problem": "静态字图缺少真实时间、笔画和过程信息，细粒度研究缺数据。",
-    "conclusion": "提供真实过程数据与处理工具的研究资源；不将用户实际书写自动判为规范金标准。",
+    "conclusion": "提供真实过程数据与处理工具的研究资源；不将采集到的实际书写自动判为规范金标准。",
     "gap": "【边界】特定采集人群和目标字表；许可/原始字段需按数据文档核对。【推断】可对照速度代理压力、真实事件时长和合成轨迹分布。",
-    "provenance": "2026-10-15 本轮公开来源核查",
+    "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
     "checked_on": "2026-10-15",
     "record_type": "paper",
@@ -381,7 +375,7 @@
         "claim": "作者主张：笔画级真实书写数据及工具支持中文书写过程研究。",
         "problem": "静态字图缺少真实时间、笔画和过程信息，细粒度研究缺数据。",
         "method": "42名书写者、1200个目标汉字；数位板200Hz采集；时间/轨迹分笔及行为标记。",
-        "conclusion": "提供真实过程数据与处理工具的研究资源；不将用户实际书写自动判为规范金标准。",
+        "conclusion": "提供真实过程数据与处理工具的研究资源；不将采集到的实际书写自动判为规范金标准。",
         "gap": "【边界】特定采集人群和目标字表；许可/原始字段需按数据文档核对。【推断】可对照速度代理压力、真实事件时长和合成轨迹分布。",
         "verification": "primary_sections_read",
         "checked_on": "2026-10-15",
@@ -393,8 +387,7 @@
     ],
     "aliases": [
       "web_bundle:N07"
-    ],
-    "integration_status": "merged_from_existing_research"
+    ]
   },
   {
     "id": "N08",
@@ -410,7 +403,7 @@
     "problem": "单体图像编码欠缺笔画层次，轨迹易结构漂移且运动不自然。",
     "conclusion": "论文报告加入双域先验后LDTW 2.45→1.95，写字综合分S_w 78.5→91.2。",
     "gap": "S_w为整体起点、笔画数和总长度一致性的均值，不是严格笔顺率。行草过度分笔、启发式伪轨迹偏差仍存在。",
-    "provenance": "2026-10-15 本轮公开来源核查",
+    "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
     "checked_on": "2026-10-15",
     "record_type": "paper",
@@ -439,8 +432,7 @@
     ],
     "aliases": [
       "web_bundle:N08"
-    ],
-    "integration_status": "merged_from_existing_research"
+    ]
   },
   {
     "id": "N09",
@@ -456,7 +448,7 @@
     "problem": "运动和视角变化时文字内容难保持、定位难控制。",
     "conclusion": "已提出专门的文字视频生成机制；为中文书写视频提供相邻强基线。",
     "gap": "【边界】载体文字正确与逐笔写入顺序不同；相机控制不等于接触/沉积建模。",
-    "provenance": "2026-10-15 本轮公开来源核查",
+    "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
     "checked_on": "2026-10-15",
     "record_type": "paper",
@@ -485,8 +477,7 @@
     ],
     "aliases": [
       "web_bundle:N09"
-    ],
-    "integration_status": "merged_from_existing_research"
+    ]
   },
   {
     "id": "N10",
@@ -502,7 +493,7 @@
     "problem": "视频中字符随时间漂移或失真，文字视频训练稀缺。",
     "conclusion": "已存在基于合成数据的专用文字保持训练；本轮只核查任务与方法概述。",
     "gap": "【边界】保持已经存在的文字不是新笔迹事件生成；同一渲染器训练测试会高估泛化，需另设跨域测试。",
-    "provenance": "2026-10-15 本轮公开来源核查",
+    "provenance": "2026-10-15原始来源核查",
     "verification": "primary_abstract_read",
     "checked_on": "2026-10-15",
     "record_type": "paper",
@@ -531,8 +522,7 @@
     ],
     "aliases": [
       "web_bundle:N10"
-    ],
-    "integration_status": "merged_from_existing_research"
+    ]
   },
   {
     "id": "N11",
@@ -548,7 +538,7 @@
     "problem": "已有静态书法控制与个性化不够灵活。",
     "conclusion": "是Calliffusion后续版本，说明多模态书法控制已有演进；此项只据摘要。",
     "gap": "【待核】尚未逐表核查；不能把摘要的自然书法解释为规范运笔视频。",
-    "provenance": "2026-10-15 本轮公开来源核查",
+    "provenance": "2026-10-15原始来源核查",
     "verification": "primary_abstract_read",
     "checked_on": "2026-10-15",
     "record_type": "paper",
@@ -577,8 +567,7 @@
     ],
     "aliases": [
       "web_bundle:N11"
-    ],
-    "integration_status": "merged_from_existing_research"
+    ]
   },
   {
     "id": "N12",
@@ -594,7 +583,7 @@
     "problem": "全图重生成难保持已有内容，局部书法需要补全。",
     "conclusion": "局部书法修复/续画已有专门前作；此项为摘要层级核查。",
     "gap": "【边界】静态inpainting不验证写入历史；在线不能把擦除等同撤回已发生事件。",
-    "provenance": "2026-10-15 本轮公开来源核查",
+    "provenance": "2026-10-15原始来源核查",
     "verification": "primary_abstract_read",
     "checked_on": "2026-10-15",
     "record_type": "paper",
@@ -623,8 +612,7 @@
     ],
     "aliases": [
       "web_bundle:N12"
-    ],
-    "integration_status": "merged_from_existing_research"
+    ]
   },
   {
     "id": "N13",
@@ -641,7 +629,7 @@
     "problem": "静态识字强不代表理解实际书写动力学；多模态融合可能误用证据。",
     "conclusion": "作者报告人机差距和某些融合退化；不能直接解释为中文笔顺模型能力。",
     "gap": "【边界】无墨迹词推断不是中文规范视频生成；本文不使用摘要日期异常来推定首发时间。",
-    "provenance": "2026-10-15 本轮公开来源核查",
+    "provenance": "2026-10-15原始来源核查",
     "verification": "primary_abstract_read",
     "checked_on": "2026-10-15",
     "record_type": "paper",
@@ -670,7 +658,6 @@
     ],
     "aliases": [
       "web_bundle:N13"
-    ],
-    "integration_status": "merged_from_existing_research"
+    ]
   }
 ]
