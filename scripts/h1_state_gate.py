@@ -379,6 +379,7 @@ def evaluate(data, predictions, split, form, output, view=None, audit=False):
         raise ValueError('Prediction IDs do not match the selected split and format.')
     groups = defaultdict(lambda: defaultdict(list))
     paired = defaultdict(dict)
+    states, confusion = defaultdict(dict), defaultdict(lambda: defaultdict(Counter))
     detail = []
     # Missing rows count as failures; partial runs cannot silently improve the denominator.
     for sid, inp in inputs.items():
@@ -386,21 +387,34 @@ def evaluate(data, predictions, split, form, output, view=None, audit=False):
         answer = parse(pred.get(sid, {}).get('raw_response', ''), form, lab['allowed'])
         valid, correct = answer is not None, answer == lab['expected']
         key = f'{inp["view"]}/{inp["task"]}'
+        confusion[key][lab['expected']][answer or 'invalid'] += 1
         for metric, value in [('format', valid), ('correct', correct),
                               (f'class_{lab["expected"]}', correct),
                               (f'wording_{inp["wording"]}', correct)]:
             groups[f'{key}/{metric}'][inp['group_id']].append(int(value))
+        if inp.get('layout'):
+            groups[f'{key}/layout_{inp["layout"]}'][inp['group_id']].append(int(correct))
+        states[(inp['view'], inp['case_id'], inp['wording'], inp['group_id'])][inp['task']] = (answer, correct)
         paired[(key, inp['case_id'])][inp['wording']] = correct
         if lab['reference_pair'] and inp['task'] == 'completion' and inp['view'] == 'reference_current':
             paired[(f'{key}/reference_pair_q{inp["wording"]}', lab['reference_pair'])][inp['case_id']] = correct
         detail.append(dict(sample_id=sid, expected=lab['expected'], parsed=answer,
                            valid=valid, correct=correct, missing=sid not in pred))
+    for (input_view, _, _, group), state in states.items():
+        if 'presence' in state and 'completion' in state:
+            presence, presence_correct = state['presence']
+            completion, completion_correct = state['completion']
+            groups[f'{input_view}/joint_state/correct'][group].append(int(presence_correct and completion_correct))
+            consistent = (presence is not None and completion is not None and
+                          ((presence == '无') == (completion == '未出现')))
+            groups[f'{input_view}/joint_state/logical_consistency'][group].append(int(consistent))
     for (key, case), values in paired.items():
         group = next(r['group_id'] for r in inputs.values()
                      if r['case_id'] == case or r['group_id'] == case)
         groups[key + '/both_correct'][group].append(int(len(values) == 2 and all(values.values())))
     report = dict(split=split, response_format=form, view=view, expected_rows=len(inputs),
-                  attempted_rows=len(pred), missing_rows=len(inputs) - len(pred), metrics={})
+                  attempted_rows=len(pred), missing_rows=len(inputs) - len(pred),
+                  confusion=confusion, metrics={})
     for name, grouped in sorted(groups.items()):
         values = [v for group in grouped.values() for v in group]
         report['metrics'][name] = dict(correct=sum(values), n=len(values),
@@ -417,7 +431,7 @@ def evaluate(data, predictions, split, form, output, view=None, audit=False):
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('command', choices=['build', 'build-training', 'build-text-test', 'build-basic-control', 'build-relation-control', 'build-region-control', 'score'])
+    p.add_argument('command', choices=['build', 'build-training', 'build-visual-training', 'build-text-test', 'build-basic-control', 'build-relation-control', 'build-region-control', 'score'])
     p.add_argument('--data', type=Path)
     p.add_argument('--predictions', type=Path)
     p.add_argument('--split', choices=['dev', 'test'], default='dev')
@@ -426,7 +440,9 @@ if __name__ == '__main__':
     p.add_argument('--view', choices=['oracle_text', 'reference_current', 'current_only'])
     p.add_argument('--audit-words', action='store_true', help='Separately interpret exact answer words after scoring.')
     args = p.parse_args()
-    defaults = {'build-training': ROOT / 'data/h1/state_training_v1', 'build-text-test': ROOT / 'data/h1/state_text_test_v1'}
+    defaults = {'build-training': ROOT / 'data/h1/state_training_v1',
+                'build-visual-training': ROOT / 'data/h1/state_visual_training_v1',
+                'build-text-test': ROOT / 'data/h1/state_text_test_v1'}
     args.data = args.data or defaults.get(args.command, DEFAULT)
     if args.command == 'build':
         build(args.data)
@@ -436,6 +452,9 @@ if __name__ == '__main__':
     elif args.command == 'build-text-test':
         build(args.data, [('test',8,40519)], ['oracle_text'], ['json'], 'state_text_test_v1',
               stretch_y=True, exclude_from=ROOT / 'data/h1/state_training_v1')
+    elif args.command == 'build-visual-training':
+        build(args.data, [('train',3,50623)], ['reference_current', 'current_only'], ['json'],
+              'state_visual_training_v1', stretch_y=True)
     elif args.command == 'build-basic-control':
         build_basic_control(args.data)
     elif args.command == 'build-relation-control':

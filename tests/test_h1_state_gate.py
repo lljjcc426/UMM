@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from PIL import Image
 
 from scripts.h1_state_gate import DEFAULT, evaluate, parse, read_jsonl, render, write_jsonl
 from scripts.h1_compare_state_runs import compare
@@ -50,6 +51,28 @@ class StateGateTest(unittest.TestCase):
         for variant, expected in [('short', '完整'), ('long', '部分')]:
             self.assertEqual(labels[prefix + variant + '-reference_current-completion-q0-plain']['expected'], expected)
             self.assertEqual(labels[prefix + variant + '-current_only-completion-q0-plain']['expected'], '未知')
+
+    def test_same_pixels_with_different_names_are_one_input(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            rows, labels, predictions = [], [], []
+            for case, color, expected in [('a','white','无'), ('b','white','无'), ('c','black','有')]:
+                Image.new('RGB', (8,8), color).save(root / f'{case}.png')
+                for wording in range(2):
+                    sid = f'{case}-{wording}'
+                    rows.append(dict(sample_id=sid, case_id=case, group_id=color, split='dev',
+                                     view='current_only', task='presence', response_format='json',
+                                     wording=wording, images=[f'{case}.png'], prompt=f'question {wording}'))
+                    labels.append(dict(sample_id=sid, expected=expected, allowed=['有','无']))
+                    predictions.append(dict(sample_id=sid, raw_response='{"answer":"无"}'))
+            for name, values in [('inputs',rows), ('labels',labels), ('predictions',predictions)]:
+                write_jsonl(root / f'{name}.jsonl', values)
+            compare(root,root,root,root/'comparison.json',view='current_only')
+            report = json.loads((root/'comparison.json').read_text())
+            metric = report['metrics']['presence']
+            self.assertEqual((report['unique_inputs'], metric['after_correct'], metric['n']), (4,2,4))
+            paired = metric['unique_cases_both_wordings']
+            self.assertEqual((paired['after_correct'], paired['n']), (1,2))
 
     def test_missing_answer_and_one_wrong_paraphrase_cannot_pass_pair(self):
         with tempfile.TemporaryDirectory() as directory:

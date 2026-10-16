@@ -1,4 +1,4 @@
-"""Small local LoRA adaptation of the complete UMM on accurate text state only."""
+"""Local state LoRA adaptation of the complete UMM, with optional visual supervision."""
 from __future__ import annotations
 
 import argparse
@@ -14,7 +14,8 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from h1_run_showo import ROOT, SOURCE_REVISION, MODEL_REVISION, load_model, text_prompt_ids
+from h1_run_showo import (ROOT, SOURCE_REVISION, MODEL_REVISION, load_model,
+                          text_prompt_ids, StateImageEncoder, image_prompt_embeds)
 
 
 class LoRALinear(nn.Module):
@@ -51,8 +52,18 @@ def load_adapter(model, path, device):
 def run(args):
     from h1_state_gate import read_jsonl, write_jsonl
     rows = [r for r in read_jsonl(args.data / 'inputs.jsonl') if r['split'] == 'train'
-            and r['view'] == 'oracle_text' and r['response_format'] == 'json']
+            and r['view'] in args.views and r['response_format'] == 'json']
     labels = {r['sample_id']: r for r in read_jsonl(args.data / 'labels.jsonl')}
+    for row in rows:
+        row['dataset'] = str(args.data.resolve().relative_to(ROOT))
+    image_roots = {r['sample_id']: args.data for r in rows}
+    if args.text_replay:
+        replay = [r for r in read_jsonl(args.text_replay / 'inputs.jsonl') if r['split'] == 'train'
+                  and r['view'] == 'oracle_text' and r['response_format'] == 'json']
+        for row in replay:
+            row['dataset'] = str(args.text_replay.resolve().relative_to(ROOT))
+        rows.extend(replay)
+        labels.update({r['sample_id']: r for r in read_jsonl(args.text_replay / 'labels.jsonl')})
     args.output.mkdir(parents=True, exist_ok=False)
     args.adapter.parent.mkdir(parents=True, exist_ok=True)
     if args.adapter.exists():
@@ -62,27 +73,33 @@ def run(args):
     model, tokenizer, token_ids = load_model(args.source, args.model, args.assets, args.device)
     from models import omni_attn_mask_naive
     torch.manual_seed(args.seed)
-    adapter_config = dict(rank=args.rank, alpha=args.rank * 2,
-                          layers=list(range(len(model.showo.model.layers) - args.last_layers,
-                                            len(model.showo.model.layers))),
-                          projections=['q_proj', 'v_proj'],
-                          training_run=str(args.output.resolve().relative_to(ROOT)))
-    add_adapter(model, adapter_config)
+    if args.init_adapter:
+        adapter_config = load_adapter(model, args.init_adapter, args.device)
+        adapter_config['initial_adapter'] = str(args.init_adapter.resolve().relative_to(ROOT))
+    else:
+        adapter_config = dict(rank=args.rank, alpha=args.rank * 2,
+                              layers=list(range(len(model.showo.model.layers) - args.last_layers,
+                                                len(model.showo.model.layers))),
+                              projections=['q_proj', 'v_proj'])
+        add_adapter(model, adapter_config)
+    adapter_config['training_run'] = str(args.output.resolve().relative_to(ROOT))
     model.showo.train()
     parameters = [p for p in model.parameters() if p.requires_grad]
     optimizer = torch.optim.AdamW(parameters, lr=args.lr, weight_decay=0.01)
     encoded = []
     for row in rows:
-        prompt = text_prompt_ids(tokenizer, token_ids, row['prompt'])
+        prompt = text_prompt_ids(tokenizer, token_ids, row['prompt']) if not row['images'] else None
         answer = json.dumps({'answer': labels[row['sample_id']]['expected']}, ensure_ascii=False, separators=(',', ':'))
         answer_ids = tokenizer(answer, add_special_tokens=False).input_ids
-        encoded.append((prompt + answer_ids, answer_ids + [tokenizer.eos_token_id]))
+        encoded.append((prompt, answer_ids, answer_ids + [tokenizer.eos_token_id]))
     steps_per_epoch = math.ceil(len(rows) / args.accumulation)
     total_steps = steps_per_epoch * args.epochs
     metadata = dict(model_id='showlab/show-o2-1.5B-w-video-und', model_revision=MODEL_REVISION,
-                    source_revision=SOURCE_REVISION, stage='accurate_text_state_only',
-                    train_rows=len(rows), train_cases=len({r['case_id'] for r in rows}),
-                    train_groups=len({r['group_id'] for r in rows}), adapter_config=adapter_config,
+                    source_revision=SOURCE_REVISION,
+                    stage='visual_state_with_text_replay' if any(r['images'] for r in rows) else 'accurate_text_state_only',
+                    rows_by_view={v: sum(r['view'] == v for r in rows) for v in sorted({r['view'] for r in rows})},
+                    train_rows=len(rows), train_cases=len({(r['dataset'], r['case_id']) for r in rows}),
+                    train_groups=len({(r['dataset'], r['group_id']) for r in rows}), adapter_config=adapter_config,
                     trainable_parameters=sum(p.numel() for p in parameters),
                     base_dtype='bfloat16', adapter_dtype='float32', device=args.device,
                     epochs=args.epochs, steps=total_steps, accumulation=args.accumulation,
@@ -91,11 +108,25 @@ def run(args):
                     loss='Mean answer-token cross entropy including EOS; prompt tokens not supervised.',
                     eval_policy='Evaluate frozen and final model on dev; no intermediate checkpoint selection.',
                     data=str(args.data.resolve().relative_to(ROOT)),
+                    text_replay=str(args.text_replay.resolve().relative_to(ROOT)) if args.text_replay else None,
+                    initial_adapter=str(args.init_adapter.resolve().relative_to(ROOT)) if args.init_adapter else None,
+                    image_path=f'Frozen Wan CPU fp32, fusion {args.device.upper()} bf16; seed 0 per image; shared upstream MMU template/mask; no crop.' if any(r['images'] for r in rows) else None,
                     adapter_path=str(args.adapter.resolve().relative_to(ROOT)),
                     started_utc=datetime.now(timezone.utc).isoformat(),
                     packages={p: importlib.metadata.version(p) for p in ['torch', 'transformers', 'diffusers']})
     (args.output / 'run.json').write_text(json.dumps(metadata, indent=2) + '\n')
     print(f'{len(rows)} training rows; {metadata["trainable_parameters"]:,} trainable adapter parameters; {total_steps} steps', flush=True)
+    preparation_started = time.perf_counter()
+    encoder = StateImageEncoder(model, args.assets, args.device) if any(r['images'] for r in rows) else None
+    if encoder:
+        image_paths = sorted({image_roots[r['sample_id']] / r['images'][0] for r in rows if r['images']})
+        for index, path in enumerate(image_paths, 1):
+            encoder.encode(path)
+            if index == 1 or index % 25 == 0 or index == len(image_paths):
+                print(f'Frozen image encoding {index}/{len(image_paths)}; {time.perf_counter() - preparation_started:.1f}s', flush=True)
+        # VAE is no longer needed once every training image is encoded.
+        encoder.vae = None
+    metadata['image_preparation_seconds'] = time.perf_counter() - preparation_started
     rng, step = random.Random(args.seed), 0
     started = time.perf_counter()
     with (args.output / 'training.jsonl').open('w') as log:
@@ -112,12 +143,22 @@ def run(args):
                     group['lr'] = args.lr * scale
                 loss_sum = 0.0
                 for index in selected:
-                    input_ids, target_ids = encoded[index]
-                    ids = torch.tensor([input_ids], device=args.device)
+                    prompt_ids, answer_ids, target_ids = encoded[index]
                     targets = torch.tensor(target_ids, device=args.device)
-                    mask = omni_attn_mask_naive(B=1, LEN=ids.shape[1], modalities=torch.empty((1,0,2), dtype=torch.long),
+                    with torch.no_grad():
+                        if rows[index]['images']:
+                            vision = encoder.encode(image_roots[rows[index]['sample_id']] / rows[index]['images'][0])
+                            prompt_embeds, modalities = image_prompt_embeds(
+                                model, tokenizer, token_ids, rows[index]['prompt'], vision, args.device)
+                            answer_embeds = model.showo.model.embed_tokens(torch.tensor([answer_ids], device=args.device))
+                            embeds = torch.cat([prompt_embeds, answer_embeds], dim=1)
+                        else:
+                            ids = torch.tensor([prompt_ids + answer_ids], device=args.device)
+                            embeds = model.showo.model.embed_tokens(ids)
+                            modalities = torch.empty((1,0,2), dtype=torch.long)
+                    mask = omni_attn_mask_naive(B=1, LEN=embeds.shape[1], modalities=modalities,
                                                device=args.device, inverted=True).to(torch.bfloat16)
-                    logits = model.showo(input_ids=ids, attention_mask=mask, use_cache=False,
+                    logits = model.showo(inputs_embeds=embeds, attention_mask=mask, use_cache=False,
                                          num_logits_to_keep=len(target_ids))['logits'][0]
                     loss = F.cross_entropy(logits.float(), targets)
                     (loss / len(selected)).backward()
@@ -151,6 +192,9 @@ if __name__ == '__main__':
     p.add_argument('--device', choices=['cpu','mps','cuda'], default='mps')
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--adapter', type=Path, required=True)
+    p.add_argument('--views', nargs='+', choices=['oracle_text', 'reference_current', 'current_only'], default=['oracle_text'])
+    p.add_argument('--text-replay', type=Path, help='Mix all train/oracle_text/JSON rows from this dataset.')
+    p.add_argument('--init-adapter', type=Path, help='Continue a previous state adapter; keep its architecture.')
     p.add_argument('--rank', type=int, default=8)
     p.add_argument('--last-layers', type=int, default=8)
     p.add_argument('--epochs', type=int, default=2)

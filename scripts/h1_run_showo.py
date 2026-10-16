@@ -59,6 +59,59 @@ def text_prompt_ids(tokenizer, token_ids, prompt, template='tokenizer'):
                                    tokenizer(part, add_special_tokens=False).input_ids]
 
 
+class StateImageEncoder:
+    """Frozen native image path shared by state training and evaluation."""
+    def __init__(self, model, assets, device):
+        import torch
+        from models import WanVAE
+        self.model, self.device = model, device
+        self.vae = WanVAE(vae_pth=str(assets / 'Wan2.1_VAE.pth'), dtype=torch.float32, device='cpu')
+        self.vae.model.float()
+        for name in ['image_embedder_und', 'image_embedder_gen', 'position_embedding',
+                     'und_trans', 'fusion_proj', 'time_embed', 'time_embed_proj']:
+            getattr(model, name).to(device)
+        model.image_position_ids = model.image_position_ids.to(device)
+        self.cache = {}
+
+    def encode(self, path=None):
+        import torch
+        import numpy as np
+        from PIL import Image
+        key = str(path) if path is not None else 'blank'
+        if key not in self.cache:
+            image = Image.open(path).convert('RGB') if path is not None else Image.new('RGB', (432, 432), 'white')
+            if image.size != (432, 432):
+                raise ValueError('This state benchmark requires uncropped 432x432 images.')
+            # no_grad keeps features usable as constants in later adapter autograd.
+            with torch.no_grad():
+                pixels = torch.from_numpy(np.asarray(image).copy()).permute(2, 0, 1).float() / 127.5 - 1
+                torch.manual_seed(0)
+                latents = self.vae.sample(pixels[None, :, None]).squeeze(2).to(self.device, torch.bfloat16)
+                und = self.model.image_embedder_und(latents)
+                gen = self.model.image_embedder_gen(latents)
+                und = self.model.und_trans(und + self.model.position_embedding(self.model.image_position_ids))['last_hidden_state']
+                self.cache[key] = self.model.fusion_proj(torch.cat([und, gen], dim=-1)).cpu()
+        return self.cache[key].to(self.device)
+
+
+def image_prompt_embeds(model, tokenizer, token_ids, prompt, vision, device):
+    """Keep the upstream MMU prompt and modality mask convention unchanged."""
+    import torch
+    system = tokenizer('system\nYou are a helpful assistant.<|im_end|>', add_special_tokens=False).input_ids
+    user = tokenizer('\n<|im_start|>user\n', add_special_tokens=False).input_ids
+    assistant = tokenizer('\n<|im_start|>assistant\n', add_special_tokens=False).input_ids
+    a = torch.tensor([[token_ids['bos_id']] + system + user], device=device)
+    b = torch.tensor([[token_ids['boi_id'], token_ids['eoi_id']] + tokenizer(
+        prompt, add_special_tokens=False).input_ids + assistant], device=device)
+    a_embeds = model.showo.model.embed_tokens(a)
+    b_embeds = model.showo.model.embed_tokens(b)
+    time_embed = model.time_embed(torch.tensor([[1.0]], device=device), a_embeds.dtype)
+    time_embed = model.time_embed_proj(time_embed)
+    embeds = torch.cat([a_embeds, b_embeds[:, :1], time_embed, vision, b_embeds[:, 1:]], dim=1)
+    modalities = torch.tensor([[[a.shape[1] + 2, vision.shape[1] + 1]]], device=device)
+    return embeds, modalities
+
+
 def constrained_state_generate(model, tokenizer, embeds, modalities, task):
     """Greedy decoding inside a fixed answer trie; no ground-truth label is read."""
     import torch
@@ -105,15 +158,7 @@ def run(args):
         adapter_config = load_adapter(model, args.adapter, args.device)
         model.eval().requires_grad_(False)
     visual = args.blank_image or any(r['images'] for r in rows)
-    if visual:
-        from models import WanVAE
-        vae = WanVAE(vae_pth=str(args.assets / 'Wan2.1_VAE.pth'), dtype=torch.float32, device='cpu')
-        vae.model.float()
-        for name in ['image_embedder_und', 'image_embedder_gen', 'position_embedding',
-                     'und_trans', 'fusion_proj', 'time_embed', 'time_embed_proj']:
-            getattr(model, name).to(args.device)
-        model.image_position_ids = model.image_position_ids.to(args.device)
-    image_cache = {}
+    encoder = StateImageEncoder(model, args.assets, args.device) if visual else None
     metadata = dict(
         model_id='showlab/show-o2-1.5B-w-video-und', model_revision=MODEL_REVISION,
         download_source='ModelScope', source_revision=SOURCE_REVISION,
@@ -142,9 +187,6 @@ def run(args):
                   ['torch', 'transformers', 'diffusers', 'accelerate', 'timm', 'Pillow']})
     (args.output / 'run.json').write_text(json.dumps(metadata, indent=2) + '\n')
     print(f'Loaded full UMM: {metadata["total_parameters"]:,} parameters', flush=True)
-    system = tokenizer('system\nYou are a helpful assistant.<|im_end|>', add_special_tokens=False).input_ids
-    user = tokenizer('\n<|im_start|>user\n', add_special_tokens=False).input_ids
-    assistant = tokenizer('\n<|im_start|>assistant\n', add_special_tokens=False).input_ids
 
     def synchronize():
         if args.device == 'cuda':
@@ -152,39 +194,12 @@ def run(args):
         elif args.device == 'mps':
             torch.mps.synchronize()
 
-    def encode_image(row):
-        from PIL import Image
-        import numpy as np
-        key = 'blank' if args.blank_image else row['images'][0]
-        if key not in image_cache:
-            image = Image.new('RGB', (432, 432), 'white') if args.blank_image else Image.open(
-                args.inputs.parent / key).convert('RGB')
-            if image.size != (432, 432):
-                raise ValueError('This state benchmark requires uncropped 432x432 images.')
-            pixels = torch.from_numpy(np.asarray(image).copy()).permute(2, 0, 1).float() / 127.5 - 1
-            torch.manual_seed(0)
-            latents = vae.sample(pixels[None, :, None]).squeeze(2).to(args.device, torch.bfloat16)
-            und = model.image_embedder_und(latents)
-            gen = model.image_embedder_gen(latents)
-            und = model.und_trans(und + model.position_embedding(model.image_position_ids))['last_hidden_state']
-            image_cache[key] = model.fusion_proj(torch.cat([und, gen], dim=-1))
-        return image_cache[key]
-
     with (args.output / 'predictions.jsonl').open('w') as out, torch.inference_mode():
         for index, row in enumerate(rows, 1):
             encode_started = time.perf_counter()
             if visual:
-                vision = encode_image(row)
-                a = torch.tensor([[token_ids['bos_id']] + system + user], device=args.device)
-                b = torch.tensor([[token_ids['boi_id'], token_ids['eoi_id']] + tokenizer(
-                    row['prompt'], add_special_tokens=False).input_ids + assistant], device=args.device)
-                a_embeds = model.showo.model.embed_tokens(a)
-                b_embeds = model.showo.model.embed_tokens(b)
-                time_embed = model.time_embed(torch.tensor([[1.0]], device=args.device), a_embeds.dtype)
-                time_embed = model.time_embed_proj(time_embed)
-                embeds = torch.cat([a_embeds, b_embeds[:, :1], time_embed, vision, b_embeds[:, 1:]], dim=1)
-                # Preserve the upstream image MMU modality block convention.
-                modalities = torch.tensor([[[a.shape[1] + 2, vision.shape[1] + 1]]], device=args.device)
+                vision = encoder.encode(None if args.blank_image else args.inputs.parent / row['images'][0])
+                embeds, modalities = image_prompt_embeds(model, tokenizer, token_ids, row['prompt'], vision, args.device)
             else:
                 ids = text_prompt_ids(tokenizer, token_ids, row['prompt'], args.chat_template)
             if not visual:

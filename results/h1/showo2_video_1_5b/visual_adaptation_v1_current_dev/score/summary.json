@@ -1,0 +1,288 @@
+{
+  "split": "dev",
+  "response_format": "json",
+  "view": "current_only",
+  "expected_rows": 104,
+  "attempted_rows": 104,
+  "missing_rows": 0,
+  "confusion": {
+    "current_only/presence": {
+      "无": {
+        "无": 7,
+        "有": 5
+      },
+      "有": {
+        "有": 40
+      }
+    },
+    "current_only/completion": {
+      "未出现": {
+        "未出现": 6,
+        "未知": 6
+      },
+      "未知": {
+        "未知": 40
+      }
+    }
+  },
+  "metrics": {
+    "current_only/completion/both_correct": {
+      "correct": 23,
+      "n": 26,
+      "rate": 0.8846153846153846,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        0.7857142857142857,
+        0.9642857142857143
+      ]
+    },
+    "current_only/completion/class_未出现": {
+      "correct": 6,
+      "n": 12,
+      "rate": 0.5,
+      "independent_groups": 6,
+      "cluster_bootstrap_95": [
+        0.16666666666666666,
+        0.8333333333333334
+      ]
+    },
+    "current_only/completion/class_未知": {
+      "correct": 40,
+      "n": 40,
+      "rate": 1.0,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "current_only/completion/correct": {
+      "correct": 46,
+      "n": 52,
+      "rate": 0.8846153846153846,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        0.7857142857142857,
+        0.9642857142857143
+      ]
+    },
+    "current_only/completion/format": {
+      "correct": 52,
+      "n": 52,
+      "rate": 1.0,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "current_only/completion/layout_cross": {
+      "correct": 6,
+      "n": 8,
+      "rate": 0.75,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/completion/layout_fold": {
+      "correct": 8,
+      "n": 8,
+      "rate": 1.0,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/completion/layout_parallel_h": {
+      "correct": 6,
+      "n": 8,
+      "rate": 0.75,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/completion/layout_parallel_v": {
+      "correct": 6,
+      "n": 8,
+      "rate": 0.75,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/completion/layout_reference_control": {
+      "correct": 4,
+      "n": 4,
+      "rate": 1.0,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/completion/layout_single_h": {
+      "correct": 8,
+      "n": 8,
+      "rate": 1.0,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/completion/layout_single_v": {
+      "correct": 8,
+      "n": 8,
+      "rate": 1.0,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/completion/wording_0": {
+      "correct": 23,
+      "n": 26,
+      "rate": 0.8846153846153846,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        0.7857142857142857,
+        0.9642857142857143
+      ]
+    },
+    "current_only/completion/wording_1": {
+      "correct": 23,
+      "n": 26,
+      "rate": 0.8846153846153846,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        0.7857142857142857,
+        0.9642857142857143
+      ]
+    },
+    "current_only/joint_state/correct": {
+      "correct": 46,
+      "n": 52,
+      "rate": 0.8846153846153846,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        0.7857142857142857,
+        0.9642857142857143
+      ]
+    },
+    "current_only/joint_state/logical_consistency": {
+      "correct": 51,
+      "n": 52,
+      "rate": 0.9807692307692307,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        0.9423076923076923,
+        1.0
+      ]
+    },
+    "current_only/presence/both_correct": {
+      "correct": 23,
+      "n": 26,
+      "rate": 0.8846153846153846,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        0.7857142857142857,
+        0.9642857142857143
+      ]
+    },
+    "current_only/presence/class_无": {
+      "correct": 7,
+      "n": 12,
+      "rate": 0.5833333333333334,
+      "independent_groups": 6,
+      "cluster_bootstrap_95": [
+        0.16666666666666666,
+        0.9166666666666666
+      ]
+    },
+    "current_only/presence/class_有": {
+      "correct": 40,
+      "n": 40,
+      "rate": 1.0,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "current_only/presence/correct": {
+      "correct": 47,
+      "n": 52,
+      "rate": 0.9038461538461539,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        0.8214285714285714,
+        0.9807692307692307
+      ]
+    },
+    "current_only/presence/format": {
+      "correct": 52,
+      "n": 52,
+      "rate": 1.0,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "current_only/presence/layout_cross": {
+      "correct": 7,
+      "n": 8,
+      "rate": 0.875,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/presence/layout_fold": {
+      "correct": 8,
+      "n": 8,
+      "rate": 1.0,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/presence/layout_parallel_h": {
+      "correct": 6,
+      "n": 8,
+      "rate": 0.75,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/presence/layout_parallel_v": {
+      "correct": 6,
+      "n": 8,
+      "rate": 0.75,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/presence/layout_reference_control": {
+      "correct": 4,
+      "n": 4,
+      "rate": 1.0,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/presence/layout_single_h": {
+      "correct": 8,
+      "n": 8,
+      "rate": 1.0,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/presence/layout_single_v": {
+      "correct": 8,
+      "n": 8,
+      "rate": 1.0,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "current_only/presence/wording_0": {
+      "correct": 24,
+      "n": 26,
+      "rate": 0.9230769230769231,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        0.8214285714285714,
+        1.0
+      ]
+    },
+    "current_only/presence/wording_1": {
+      "correct": 23,
+      "n": 26,
+      "rate": 0.8846153846153846,
+      "independent_groups": 7,
+      "cluster_bootstrap_95": [
+        0.7857142857142857,
+        0.9642857142857143
+      ]
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "view": "reference_current",
+  "split": "dev",
+  "source_rows": 104,
+  "unique_inputs": 104,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "results/h1/showo2_video_1_5b/text_adaptation_v1_trained_visual_dev",
+  "after": "results/h1/showo2_video_1_5b/visual_adaptation_v1_reference_dev",
+  "metrics": {
+    "presence": {
+      "n": 52,
+      "groups": 7,
+      "before_correct": 19,
+      "after_correct": 47,
+      "accuracy_difference": 0.5384615384615384,
+      "before_cluster_bootstrap_95": [
+        0.25,
+        0.48214285714285715
+      ],
+      "after_cluster_bootstrap_95": [
+        0.8214285714285714,
+        0.9807692307692307
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.375,
+        0.7045454545454546
+      ],
+      "unique_cases_both_wordings": {
+        "n": 26,
+        "before_correct": 4,
+        "after_correct": 23,
+        "before_cluster_bootstrap_95": [
+          0.045454545454545456,
+          0.23076923076923078
+        ],
+        "after_cluster_bootstrap_95": [
+          0.7857142857142857,
+          0.9642857142857143
+        ],
+        "paired_change_bootstrap_95": [
+          0.6071428571428571,
+          0.875
+        ]
+      }
+    },
+    "completion": {
+      "n": 52,
+      "groups": 7,
+      "before_correct": 15,
+      "after_correct": 35,
+      "accuracy_difference": 0.38461538461538464,
+      "before_cluster_bootstrap_95": [
+        0.25,
+        0.35
+      ],
+      "after_cluster_bootstrap_95": [
+        0.5714285714285714,
+        0.7727272727272727
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.2708333333333333,
+        0.4807692307692308
+      ],
+      "unique_cases_both_wordings": {
+        "n": 26,
+        "before_correct": 7,
+        "after_correct": 17,
+        "before_cluster_bootstrap_95": [
+          0.25,
+          0.3181818181818182
+        ],
+        "after_cluster_bootstrap_95": [
+          0.5384615384615384,
+          0.7727272727272727
+        ],
+        "paired_change_bootstrap_95": [
+          0.2857142857142857,
+          0.4642857142857143
+        ]
+      }
+    }
+  }
+}

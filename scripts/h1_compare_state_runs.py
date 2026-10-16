@@ -1,10 +1,11 @@
-"""Compare paired state predictions, counting identical text inputs only once."""
+"""Compare paired state predictions, counting identical visible inputs only once."""
 from __future__ import annotations
 
 import argparse
 from collections import defaultdict
 import json
 from pathlib import Path
+from PIL import Image
 
 if __package__:
     from .h1_state_gate import read_jsonl, parse, interval
@@ -19,9 +20,18 @@ def compare(data, before, after, output, view='oracle_text', split='dev'):
     runs = [{r['sample_id']: r for r in read_jsonl(p / 'predictions.jsonl')} for p in (before, after)]
     tasks, seen = defaultdict(list), set()
     input_cases = defaultdict(list)
+    images = {}
+    def visible_images(inp):
+        for path in inp['images']:
+            if path not in images:
+                with Image.open(data / path) as image:
+                    rgb = image.convert('RGB')
+                    images[path] = (rgb.size, rgb.tobytes())
+        return tuple(images[path] for path in inp['images'])
+
     for inp in inputs:
         input_cases[(inp['task'], inp['case_id'])].append(inp)
-        key = (inp['prompt'], tuple(inp['images']))
+        key = (inp['prompt'], visible_images(inp))
         if key in seen:
             continue
         seen.add(key)
@@ -31,7 +41,7 @@ def compare(data, before, after, output, view='oracle_text', split='dev'):
         tasks[inp['task']].append(dict(sample_id=sid, group_id=inp['group_id'],
                                        before=scores[0], after=scores[1], delta=scores[1] - scores[0]))
     report = dict(view=view, split=split, source_rows=len(inputs), unique_inputs=len(seen),
-                  method='Exact prompt and image-path duplicates counted once; paired bootstrap over input groups.',
+                  method='Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.',
                   before=str(before), after=str(after), metrics={})
     for task, rows in tasks.items():
         grouped, before_values, after_values = defaultdict(list), defaultdict(list), defaultdict(list)
@@ -48,7 +58,7 @@ def compare(data, before, after, output, view='oracle_text', split='dev'):
                                        paired_cluster_bootstrap_95=interval(grouped))
     seen_cases, case_scores = set(), defaultdict(list)
     for (task, _), rows in input_cases.items():
-        signature = tuple(sorted((r['wording'], r['prompt'], tuple(r['images'])) for r in rows))
+        signature = tuple(sorted((r['wording'], r['prompt'], visible_images(r)) for r in rows))
         if (task, signature) in seen_cases:
             continue
         seen_cases.add((task, signature))

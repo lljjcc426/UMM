@@ -1,0 +1,336 @@
+{
+  "split": "dev",
+  "response_format": "json",
+  "view": "oracle_text",
+  "expected_rows": 208,
+  "attempted_rows": 208,
+  "missing_rows": 0,
+  "confusion": {
+    "oracle_text/presence": {
+      "无": {
+        "无": 24
+      },
+      "有": {
+        "有": 80
+      }
+    },
+    "oracle_text/completion": {
+      "未出现": {
+        "未出现": 24
+      },
+      "部分": {
+        "部分": 52
+      },
+      "完整": {
+        "完整": 27,
+        "部分": 1
+      }
+    }
+  },
+  "metrics": {
+    "oracle_text/completion/both_correct": {
+      "correct": 51,
+      "n": 52,
+      "rate": 0.9807692307692307,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        0.9375,
+        1.0
+      ]
+    },
+    "oracle_text/completion/class_完整": {
+      "correct": 27,
+      "n": 28,
+      "rate": 0.9642857142857143,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        0.8846153846153846,
+        1.0
+      ]
+    },
+    "oracle_text/completion/class_未出现": {
+      "correct": 24,
+      "n": 24,
+      "rate": 1.0,
+      "independent_groups": 11,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/completion/class_部分": {
+      "correct": 52,
+      "n": 52,
+      "rate": 1.0,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/completion/correct": {
+      "correct": 103,
+      "n": 104,
+      "rate": 0.9903846153846154,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        0.96875,
+        1.0
+      ]
+    },
+    "oracle_text/completion/format": {
+      "correct": 104,
+      "n": 104,
+      "rate": 1.0,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/completion/layout_cross": {
+      "correct": 16,
+      "n": 16,
+      "rate": 1.0,
+      "independent_groups": 2,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/completion/layout_fold": {
+      "correct": 16,
+      "n": 16,
+      "rate": 1.0,
+      "independent_groups": 2,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/completion/layout_parallel_h": {
+      "correct": 16,
+      "n": 16,
+      "rate": 1.0,
+      "independent_groups": 2,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/completion/layout_parallel_v": {
+      "correct": 15,
+      "n": 16,
+      "rate": 0.9375,
+      "independent_groups": 2,
+      "cluster_bootstrap_95": [
+        0.875,
+        1.0
+      ]
+    },
+    "oracle_text/completion/layout_reference_control": {
+      "correct": 8,
+      "n": 8,
+      "rate": 1.0,
+      "independent_groups": 2,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/completion/layout_single_h": {
+      "correct": 16,
+      "n": 16,
+      "rate": 1.0,
+      "independent_groups": 2,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/completion/layout_single_v": {
+      "correct": 16,
+      "n": 16,
+      "rate": 1.0,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "oracle_text/completion/wording_0": {
+      "correct": 51,
+      "n": 52,
+      "rate": 0.9807692307692307,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        0.9375,
+        1.0
+      ]
+    },
+    "oracle_text/completion/wording_1": {
+      "correct": 52,
+      "n": 52,
+      "rate": 1.0,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/joint_state/correct": {
+      "correct": 103,
+      "n": 104,
+      "rate": 0.9903846153846154,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        0.96875,
+        1.0
+      ]
+    },
+    "oracle_text/joint_state/logical_consistency": {
+      "correct": 104,
+      "n": 104,
+      "rate": 1.0,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/both_correct": {
+      "correct": 52,
+      "n": 52,
+      "rate": 1.0,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/class_无": {
+      "correct": 24,
+      "n": 24,
+      "rate": 1.0,
+      "independent_groups": 11,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/class_有": {
+      "correct": 80,
+      "n": 80,
+      "rate": 1.0,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/correct": {
+      "correct": 104,
+      "n": 104,
+      "rate": 1.0,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/format": {
+      "correct": 104,
+      "n": 104,
+      "rate": 1.0,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/layout_cross": {
+      "correct": 16,
+      "n": 16,
+      "rate": 1.0,
+      "independent_groups": 2,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/layout_fold": {
+      "correct": 16,
+      "n": 16,
+      "rate": 1.0,
+      "independent_groups": 2,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/layout_parallel_h": {
+      "correct": 16,
+      "n": 16,
+      "rate": 1.0,
+      "independent_groups": 2,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/layout_parallel_v": {
+      "correct": 16,
+      "n": 16,
+      "rate": 1.0,
+      "independent_groups": 2,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/layout_reference_control": {
+      "correct": 8,
+      "n": 8,
+      "rate": 1.0,
+      "independent_groups": 2,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/layout_single_h": {
+      "correct": 16,
+      "n": 16,
+      "rate": 1.0,
+      "independent_groups": 2,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/layout_single_v": {
+      "correct": 16,
+      "n": 16,
+      "rate": 1.0,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "oracle_text/presence/wording_0": {
+      "correct": 52,
+      "n": 52,
+      "rate": 1.0,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/wording_1": {
+      "correct": 52,
+      "n": 52,
+      "rate": 1.0,
+      "independent_groups": 13,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    }
+  }
+}
