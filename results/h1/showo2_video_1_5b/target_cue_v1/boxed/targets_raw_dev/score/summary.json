@@ -1,0 +1,249 @@
+{
+  "split": "dev",
+  "response_format": "json",
+  "view": "reference_current",
+  "expected_rows": 112,
+  "attempted_rows": 112,
+  "missing_rows": 0,
+  "confusion": {
+    "reference_current/presence": {
+      "无": {
+        "有": 1,
+        "无": 5
+      },
+      "有": {
+        "有": 44,
+        "无": 6
+      }
+    },
+    "reference_current/completion": {
+      "未出现": {
+        "完整": 2,
+        "未出现": 4
+      },
+      "完整": {
+        "完整": 17,
+        "部分": 5
+      },
+      "部分": {
+        "部分": 11,
+        "完整": 10,
+        "未出现": 7
+      }
+    }
+  },
+  "metrics": {
+    "reference_current/completion/both_correct": {
+      "correct": 15,
+      "n": 28,
+      "rate": 0.5357142857142857,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.375,
+        0.6666666666666666
+      ]
+    },
+    "reference_current/completion/class_完整": {
+      "correct": 17,
+      "n": 22,
+      "rate": 0.7727272727272727,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.5,
+        1.0
+      ]
+    },
+    "reference_current/completion/class_未出现": {
+      "correct": 4,
+      "n": 6,
+      "rate": 0.6666666666666666,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.0,
+        1.0
+      ]
+    },
+    "reference_current/completion/class_部分": {
+      "correct": 11,
+      "n": 28,
+      "rate": 0.39285714285714285,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.3333333333333333,
+        0.5
+      ]
+    },
+    "reference_current/completion/correct": {
+      "correct": 32,
+      "n": 56,
+      "rate": 0.5714285714285714,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.5,
+        0.6666666666666666
+      ]
+    },
+    "reference_current/completion/format": {
+      "correct": 56,
+      "n": 56,
+      "rate": 1.0,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "reference_current/completion/layout_cross": {
+      "correct": 8,
+      "n": 16,
+      "rate": 0.5,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "reference_current/completion/layout_parallel_h": {
+      "correct": 16,
+      "n": 24,
+      "rate": 0.6666666666666666,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "reference_current/completion/layout_parallel_v": {
+      "correct": 8,
+      "n": 16,
+      "rate": 0.5,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "reference_current/completion/wording_0": {
+      "correct": 17,
+      "n": 28,
+      "rate": 0.6071428571428571,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.5,
+        0.6666666666666666
+      ]
+    },
+    "reference_current/completion/wording_1": {
+      "correct": 15,
+      "n": 28,
+      "rate": 0.5357142857142857,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.375,
+        0.6666666666666666
+      ]
+    },
+    "reference_current/joint_state/correct": {
+      "correct": 30,
+      "n": 56,
+      "rate": 0.5357142857142857,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.5,
+        0.5833333333333334
+      ]
+    },
+    "reference_current/joint_state/logical_consistency": {
+      "correct": 50,
+      "n": 56,
+      "rate": 0.8928571428571429,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.8125,
+        1.0
+      ]
+    },
+    "reference_current/presence/both_correct": {
+      "correct": 23,
+      "n": 28,
+      "rate": 0.8214285714285714,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.75,
+        0.875
+      ]
+    },
+    "reference_current/presence/class_无": {
+      "correct": 5,
+      "n": 6,
+      "rate": 0.8333333333333334,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.5,
+        1.0
+      ]
+    },
+    "reference_current/presence/class_有": {
+      "correct": 44,
+      "n": 50,
+      "rate": 0.88,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.8571428571428571,
+        0.9090909090909091
+      ]
+    },
+    "reference_current/presence/correct": {
+      "correct": 49,
+      "n": 56,
+      "rate": 0.875,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.875,
+        0.875
+      ]
+    },
+    "reference_current/presence/format": {
+      "correct": 56,
+      "n": 56,
+      "rate": 1.0,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "reference_current/presence/layout_cross": {
+      "correct": 14,
+      "n": 16,
+      "rate": 0.875,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "reference_current/presence/layout_parallel_h": {
+      "correct": 21,
+      "n": 24,
+      "rate": 0.875,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "reference_current/presence/layout_parallel_v": {
+      "correct": 14,
+      "n": 16,
+      "rate": 0.875,
+      "independent_groups": 1,
+      "cluster_bootstrap_95": null
+    },
+    "reference_current/presence/wording_0": {
+      "correct": 25,
+      "n": 28,
+      "rate": 0.8928571428571429,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.875,
+        0.9166666666666666
+      ]
+    },
+    "reference_current/presence/wording_1": {
+      "correct": 24,
+      "n": 28,
+      "rate": 0.8571428571428571,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.8333333333333334,
+        0.875
+      ]
+    }
+  }
+}

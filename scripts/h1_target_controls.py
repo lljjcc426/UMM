@@ -241,7 +241,7 @@ def score_different_targets(directory, run, output):
     grouped = defaultdict(lambda: defaultdict(list))
     for row in outcomes:
         grouped[row['task']][row['group_id']].append(row['correct'])
-    report = dict(role='Both differently labelled targets in the same image must be correct; wordings counted separately.',
+    report = dict(role='Both differently labelled targets in the same underlying scene must be correct; wordings counted separately. Target-specific cues may change the input image.',
                   run=str(run.resolve().relative_to(ROOT)), metrics={}, pairs=outcomes)
     for task, groups in grouped.items():
         values = [v for group in groups.values() for v in group]
@@ -252,12 +252,12 @@ def score_different_targets(directory, run, output):
 
 
 def compare_different_targets(directory, before, after, output):
-    """Require both targets to be correct when one image contains different states."""
+    """Require both targets to be correct when one scene contains different states."""
     outcomes = [different_target_outcomes(directory, run) for run in (before, after)]
     metrics = defaultdict(lambda: defaultdict(list))
     for a, b in zip(*outcomes):
         metrics[a['task']][a['group_id']].append((a['correct'], b['correct']))
-    report = dict(role='Two differently labelled targets in the same image must both be correct.',
+    report = dict(role='Two differently labelled targets in the same underlying scene must both be correct. Target-specific cues may change the input image.',
                   before=str(before.resolve().relative_to(ROOT)), after=str(after.resolve().relative_to(ROOT)), metrics={})
     for task, grouped in metrics.items():
         values = [s for group in grouped.values() for s in group]

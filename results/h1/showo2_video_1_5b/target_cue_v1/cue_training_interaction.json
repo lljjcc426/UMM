@@ -1,0 +1,146 @@
+{
+  "role": "Four completed final-checkpoint conditions on the same underlying scenes; target boxes change with the queried target.",
+  "unit": "Both differently labelled targets correct, for one wording; geometry-group bootstrap.",
+  "formulas": {
+    "training_effect_on_raw": "boxed-trained/raw-input minus raw-trained/raw-input",
+    "training_effect_on_boxed": "boxed-trained/boxed-input minus raw-trained/boxed-input",
+    "cue_effect_in_raw_model": "raw-trained/boxed-input minus raw-trained/raw-input",
+    "cue_effect_in_boxed_model": "boxed-trained/boxed-input minus boxed-trained/raw-input",
+    "cue_by_training_interaction": "cue effect in boxed-trained model minus cue effect in raw-trained model"
+  },
+  "limitations": "Three development geometry groups and one seed; assisted localization and task adaptation only, not independent H1 or UMM generation benefit.",
+  "cells": {
+    "presence": {
+      "raw_training/raw_input": {
+        "correct": 2,
+        "n": 8
+      },
+      "raw_training/boxed_input": {
+        "correct": 0,
+        "n": 8
+      },
+      "boxed_training/raw_input": {
+        "correct": 0,
+        "n": 8
+      },
+      "boxed_training/boxed_input": {
+        "correct": 8,
+        "n": 8
+      }
+    },
+    "completion": {
+      "raw_training/raw_input": {
+        "correct": 0,
+        "n": 20
+      },
+      "raw_training/boxed_input": {
+        "correct": 0,
+        "n": 20
+      },
+      "boxed_training/raw_input": {
+        "correct": 1,
+        "n": 20
+      },
+      "boxed_training/boxed_input": {
+        "correct": 18,
+        "n": 20
+      }
+    }
+  },
+  "contrasts": {
+    "presence": {
+      "training_effect_on_raw": {
+        "difference": -0.25,
+        "n_pairs": 8,
+        "geometry_groups": 3,
+        "cluster_bootstrap_95": [
+          -1.0,
+          0.0
+        ]
+      },
+      "training_effect_on_boxed": {
+        "difference": 1.0,
+        "n_pairs": 8,
+        "geometry_groups": 3,
+        "cluster_bootstrap_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "cue_effect_in_raw_model": {
+        "difference": -0.25,
+        "n_pairs": 8,
+        "geometry_groups": 3,
+        "cluster_bootstrap_95": [
+          -1.0,
+          0.0
+        ]
+      },
+      "cue_effect_in_boxed_model": {
+        "difference": 1.0,
+        "n_pairs": 8,
+        "geometry_groups": 3,
+        "cluster_bootstrap_95": [
+          1.0,
+          1.0
+        ]
+      },
+      "cue_by_training_interaction": {
+        "difference": 1.25,
+        "n_pairs": 8,
+        "geometry_groups": 3,
+        "cluster_bootstrap_95": [
+          1.0,
+          2.0
+        ]
+      }
+    },
+    "completion": {
+      "training_effect_on_raw": {
+        "difference": 0.05,
+        "n_pairs": 20,
+        "geometry_groups": 3,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.25
+        ]
+      },
+      "training_effect_on_boxed": {
+        "difference": 0.9,
+        "n_pairs": 20,
+        "geometry_groups": 3,
+        "cluster_bootstrap_95": [
+          0.5,
+          1.0
+        ]
+      },
+      "cue_effect_in_raw_model": {
+        "difference": 0.0,
+        "n_pairs": 20,
+        "geometry_groups": 3,
+        "cluster_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      },
+      "cue_effect_in_boxed_model": {
+        "difference": 0.85,
+        "n_pairs": 20,
+        "geometry_groups": 3,
+        "cluster_bootstrap_95": [
+          0.5,
+          1.0
+        ]
+      },
+      "cue_by_training_interaction": {
+        "difference": 0.85,
+        "n_pairs": 20,
+        "geometry_groups": 3,
+        "cluster_bootstrap_95": [
+          0.5,
+          1.0
+        ]
+      }
+    }
+  }
+}

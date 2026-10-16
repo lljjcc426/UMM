@@ -1,0 +1,84 @@
+{
+  "view": "reference_current",
+  "split": "dev",
+  "source_rows": 104,
+  "unique_inputs": 104,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/target_cue_v1/raw/reference_dev",
+  "after": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/target_cue_v1/boxed/reference_dev",
+  "metrics": {
+    "presence": {
+      "n": 52,
+      "groups": 7,
+      "before_correct": 48,
+      "after_correct": 50,
+      "accuracy_difference": 0.038461538461538464,
+      "before_cluster_bootstrap_95": [
+        0.8214285714285714,
+        1.0
+      ],
+      "after_cluster_bootstrap_95": [
+        0.8846153846153846,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        -0.08333333333333333,
+        0.15384615384615385
+      ],
+      "unique_cases_both_wordings": {
+        "n": 26,
+        "before_correct": 24,
+        "after_correct": 25,
+        "before_cluster_bootstrap_95": [
+          0.8214285714285714,
+          1.0
+        ],
+        "after_cluster_bootstrap_95": [
+          0.8846153846153846,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          -0.08333333333333333,
+          0.15384615384615385
+        ]
+      }
+    },
+    "completion": {
+      "n": 52,
+      "groups": 7,
+      "before_correct": 41,
+      "after_correct": 51,
+      "accuracy_difference": 0.19230769230769232,
+      "before_cluster_bootstrap_95": [
+        0.7045454545454546,
+        0.875
+      ],
+      "after_cluster_bootstrap_95": [
+        0.9423076923076923,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.10714285714285714,
+        0.2916666666666667
+      ],
+      "unique_cases_both_wordings": {
+        "n": 26,
+        "before_correct": 20,
+        "after_correct": 25,
+        "before_cluster_bootstrap_95": [
+          0.6818181818181818,
+          0.8571428571428571
+        ],
+        "after_cluster_bootstrap_95": [
+          0.8846153846153846,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.10714285714285714,
+          0.2916666666666667
+        ]
+      }
+    }
+  },
+  "comparison_scope": "Matched state IDs and prompts; both training and evaluation images differ by reference-derived cues."
+}

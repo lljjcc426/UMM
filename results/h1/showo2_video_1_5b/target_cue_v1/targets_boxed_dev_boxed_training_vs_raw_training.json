@@ -1,0 +1,84 @@
+{
+  "view": "reference_current",
+  "split": "dev",
+  "source_rows": 112,
+  "unique_inputs": 112,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/target_cue_v1/raw/targets_boxed_dev",
+  "after": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/target_cue_v1/boxed/targets_boxed_dev",
+  "metrics": {
+    "presence": {
+      "n": 56,
+      "groups": 3,
+      "before_correct": 50,
+      "after_correct": 54,
+      "accuracy_difference": 0.07142857142857142,
+      "before_cluster_bootstrap_95": [
+        0.875,
+        0.9166666666666666
+      ],
+      "after_cluster_bootstrap_95": [
+        0.9375,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.041666666666666664,
+        0.125
+      ],
+      "unique_cases_both_wordings": {
+        "n": 28,
+        "before_correct": 25,
+        "after_correct": 26,
+        "before_cluster_bootstrap_95": [
+          0.875,
+          0.9166666666666666
+        ],
+        "after_cluster_bootstrap_95": [
+          0.875,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.125
+        ]
+      }
+    },
+    "completion": {
+      "n": 56,
+      "groups": 3,
+      "before_correct": 25,
+      "after_correct": 52,
+      "accuracy_difference": 0.48214285714285715,
+      "before_cluster_bootstrap_95": [
+        0.2916666666666667,
+        0.75
+      ],
+      "after_cluster_bootstrap_95": [
+        0.75,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.25,
+        0.7083333333333334
+      ],
+      "unique_cases_both_wordings": {
+        "n": 28,
+        "before_correct": 11,
+        "after_correct": 26,
+        "before_cluster_bootstrap_95": [
+          0.25,
+          0.75
+        ],
+        "after_cluster_bootstrap_95": [
+          0.75,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.25,
+          0.75
+        ]
+      }
+    }
+  },
+  "comparison_scope": "Identical evaluation inputs; models differ in whether reference-current training images carried cues."
+}

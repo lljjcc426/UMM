@@ -1,0 +1,27 @@
+{
+  "role": "Both differently labelled targets in the same underlying scene must be correct; wordings counted separately. Target-specific cues may change the input image.",
+  "before": "results/h1/showo2_video_1_5b/target_cue_v1/raw/targets_raw_dev",
+  "after": "results/h1/showo2_video_1_5b/target_cue_v1/boxed/targets_raw_dev",
+  "metrics": {
+    "presence": {
+      "n_target_pairs": 8,
+      "geometry_groups": 3,
+      "before_correct": 2,
+      "after_correct": 0,
+      "paired_cluster_bootstrap_95": [
+        -1.0,
+        0.0
+      ]
+    },
+    "completion": {
+      "n_target_pairs": 20,
+      "geometry_groups": 3,
+      "before_correct": 0,
+      "after_correct": 1,
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.25
+      ]
+    }
+  }
+}
