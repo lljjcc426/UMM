@@ -81,25 +81,26 @@
   {
     "id": "C02",
     "category": "C UMM与组内关联",
-    "title": "Show-o2（arXiv:2506.15564）",
-    "version": "NeurIPS 2025；原文与项目版本需对应",
+    "title": "Show-o2: Improved Native Unified Multimodal Models",
+    "version": "arXiv:2506.15564v2；官方代码核查于2026-10-16",
     "source_urls": [
-      "https://arxiv.org/abs/2506.15564"
+      "https://arxiv.org/html/2506.15564v2",
+      "https://github.com/showlab/Show-o/tree/main/show-o2"
     ],
     "previous_evidence": "原论文机制与项目说明",
     "claim": "作者主张：统一文本、图像和视频理解/生成，并减少不同模态建模的割裂。",
     "method": "文本自回归、视觉流匹配；3D因果VAE和统一时空表示。",
     "problem": "图像级统一框架向视频和交错模态推广困难。",
     "conclusion": "报告图像、视频及混合模态建模能力，是Flash-Unified等工作的加速基座。",
-    "gap": "【边界】某个视频理解权重不自动支持所有视频生成任务；需逐项核查检查点和接口；未验证规范汉字过程。",
+    "gap": "论文支持视频建模；官方TODO仍未勾选T2V/I2V权重发布。公开视频理解权重不能当视频生成底座；未验证规范汉字过程。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-16",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文机制与项目说明",
-    "last_updated": "2026-10-15",
+    "sections_read": "v2架构、图像/视频训练与结果；官方README公开权重及TODO",
+    "last_updated": "2026-10-16",
     "canonical_key": "paper:arxiv:2506.15564",
     "evidence_history": [
       {
@@ -146,6 +147,23 @@
         "legacy_id": "P15",
         "note_path": "archive/local/2026-10-15/文献矩阵.md",
         "previous_evidence": "正文 v3，表 5—6"
+      },
+      {
+        "title": "Show-o2: Improved Native Unified Multimodal Models",
+        "version": "arXiv:2506.15564v2；官方代码核查于2026-10-16",
+        "claim": "作者主张：统一文本、图像和视频理解/生成，并减少不同模态建模的割裂。",
+        "problem": "图像级统一框架向视频和交错模态推广困难。",
+        "method": "文本自回归、视觉流匹配；3D因果VAE和统一时空表示。",
+        "conclusion": "报告图像、视频及混合模态建模能力，是Flash-Unified等工作的加速基座。",
+        "gap": "论文支持视频建模；官方TODO仍未勾选T2V/I2V权重发布。公开视频理解权重不能当视频生成底座；未验证规范汉字过程。",
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v2架构、图像/视频训练与结果；官方README公开权重及TODO",
+        "source_urls": [
+          "https://arxiv.org/html/2506.15564v2",
+          "https://github.com/showlab/Show-o/tree/main/show-o2"
+        ],
+        "note_path": "docs/experiments/stroke_order_pilot.md"
       }
     ],
     "aliases": [
@@ -155,7 +173,7 @@
       "user_survey:C02",
       "local_umm_core:P15"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/experiments/stroke_order_pilot.md"
   },
   {
     "id": "C03",
@@ -1418,24 +1436,24 @@
     "id": "U17",
     "category": "U UMM基础与协同补全",
     "title": "Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "arXiv:2609.01607v1",
     "source_urls": [
-      "https://arxiv.org/abs/2609.01607"
+      "https://arxiv.org/html/2609.01607v1"
     ],
     "previous_evidence": null,
     "claim": "作者主张：共享知识和合适计算分工可出现双向协同。",
-    "method": "受控研究表示、任务和系统配置。",
+    "method": "控制表示和计算，比较全共享、模态分支和任务分支；再比较领域读写任务与系统分工。",
     "problem": "联合训练为何可能正迁移或负迁移。",
-    "conclusion": "在特定原生建模设置支持有条件协同。",
+    "conclusion": "作者报告特定SVG读写任务和图像任务的正迁移，但共享方式和任务差异会引入冲突；不是所有任务一致受益。",
     "gap": "【边界/推断】须控制数据/初始化/任务知识；不能跨设置宣布一种共享结构永远最优。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-16",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
-    "last_updated": "2026-10-15",
+    "sections_read": "v1表示/任务/系统实验；共享分支对照与SVG表格",
+    "last_updated": "2026-10-16",
     "canonical_key": "paper:arxiv:2609.01607",
     "evidence_history": [
       {
@@ -1467,13 +1485,29 @@
         "legacy_id": "P27",
         "note_path": "archive/local/2026-10-15/文献矩阵.md",
         "previous_evidence": "正文 v1，表 1—2、§3.4"
+      },
+      {
+        "title": "Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System",
+        "version": "arXiv:2609.01607v1",
+        "claim": "作者主张：共享知识和合适计算分工可出现双向协同。",
+        "problem": "联合训练为何可能正迁移或负迁移。",
+        "method": "控制表示和计算，比较全共享、模态分支和任务分支；再比较领域读写任务与系统分工。",
+        "conclusion": "作者报告特定SVG读写任务和图像任务的正迁移，但共享方式和任务差异会引入冲突；不是所有任务一致受益。",
+        "gap": "【边界/推断】须控制数据/初始化/任务知识；不能跨设置宣布一种共享结构永远最优。",
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v1表示/任务/系统实验；共享分支对照与SVG表格",
+        "source_urls": [
+          "https://arxiv.org/html/2609.01607v1"
+        ],
+        "note_path": "docs/experiments/stroke_order_pilot.md"
       }
     ],
     "aliases": [
       "web_bundle:U17",
       "local_umm_core:P27"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/experiments/stroke_order_pilot.md"
   },
   {
     "id": "U18",
@@ -2184,6 +2218,152 @@
       "local_umm_expanded:X067"
     ],
     "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+  },
+  {
+    "title": "UniVideo",
+    "source_urls": [
+      "https://arxiv.org/html/2510.08377v2",
+      "https://github.com/KlingAIResearch/UniVideo"
+    ],
+    "method": "冻结Qwen2.5-VL-7B，经连接器条件化HunyuanVideo-13B并结合稠密视觉条件。",
+    "conclusion": "提供理解引导视频任务的组装式实现，适合与原生共享系统比较。",
+    "gap": "理解主干冻结，不能把其理解分数或生成改进当作联合共享训练收益；未验证中文笔顺。",
+    "problem": "视频生成器难以统一利用复杂多模态语义和视觉条件。",
+    "claim": "以统一框架连接视频理解、生成与编辑任务。",
+    "version": "arXiv:2510.08377v2",
+    "scope": "umm",
+    "category": "本地调研整合",
+    "record_type": "paper",
+    "privacy": "public_source_note",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-16",
+    "provenance": "2026-10-15专题文献目录",
+    "last_updated": "2026-10-16",
+    "previous_evidence": "既有调查 A",
+    "id": "L026",
+    "canonical_key": "paper:arxiv:2510.08377",
+    "evidence_history": [
+      {
+        "title": "UniVideo，2025 起",
+        "version": "版本见原始来源及历史记录",
+        "claim": "未单独摘录。",
+        "problem": "与方法合并记录，见方法栏。",
+        "method": "冻结 MLLM 语义条件＋视频生成骨干与稠密视觉条件",
+        "conclusion": "可直接接视频；理解分数来自冻结骨干，非联合学习增益",
+        "gap": "研究范围与限制见结论栏。",
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "origin": "local_focused",
+        "legacy_id": "M039",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
+        "previous_evidence": "既有调查 A"
+      },
+      {
+        "title": "UniVideo",
+        "version": "arXiv:2510.08377v2",
+        "claim": "以统一框架连接视频理解、生成与编辑任务。",
+        "problem": "视频生成器难以统一利用复杂多模态语义和视觉条件。",
+        "method": "冻结Qwen2.5-VL-7B，经连接器条件化HunyuanVideo-13B并结合稠密视觉条件。",
+        "conclusion": "提供理解引导视频任务的组装式实现，适合与原生共享系统比较。",
+        "gap": "理解主干冻结，不能把其理解分数或生成改进当作联合共享训练收益；未验证中文笔顺。",
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v2架构与训练；官方代码说明",
+        "source_urls": [
+          "https://arxiv.org/html/2510.08377v2",
+          "https://github.com/KlingAIResearch/UniVideo"
+        ],
+        "note_path": "docs/experiments/stroke_order_pilot.md"
+      }
+    ],
+    "aliases": [
+      "local_focused:M039",
+      "local_handwriting:R39"
+    ],
+    "note_path": "docs/experiments/stroke_order_pilot.md",
+    "sections_read": "v2架构与训练；官方代码说明"
+  },
+  {
+    "title": "Lance: Unified Multimodal Modeling by Multi-Task Synergy",
+    "source_urls": [
+      "https://arxiv.org/html/2605.18678v1",
+      "https://github.com/bytedance/Lance",
+      "https://github.com/bytedance/Lance/blob/main/train.md"
+    ],
+    "method": "3B激活参数，双流专家与共享交错上下文、模态RoPE；文字CE＋视觉FM；继承Qwen2.5-VL和Wan2.2 VAE。",
+    "conclusion": "已公开视频检查点及理解/生成/联合微调入口，可作为过程联合训练底座候选。",
+    "gap": "官方要求CUDA 12.4+、至少40GB显存推理；不等于训练需求。VBench成绩不证明中文事件能力；本项目未运行。",
+    "problem": "跨模态任务协同、细节生成与统一上下文建模。",
+    "claim": "以原生统一架构支持图像/视频理解、生成与编辑。",
+    "version": "arXiv:2605.18678v1；官方代码核查于2026-10-16",
+    "scope": "umm",
+    "category": "本地调研整合",
+    "record_type": "paper",
+    "privacy": "public_source_note",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-16",
+    "provenance": "2026-10-15专题文献目录",
+    "last_updated": "2026-10-16",
+    "previous_evidence": "既有调查 A，前轮资料",
+    "id": "L028",
+    "canonical_key": "paper:arxiv:2605.18678",
+    "evidence_history": [
+      {
+        "title": "Lance，2026",
+        "version": "版本见原始来源及历史记录",
+        "claim": "未单独摘录。",
+        "problem": "与方法合并记录，见方法栏。",
+        "method": "多任务协同与专家设计，支持视频与图像任务",
+        "conclusion": "可研究过程共享；VBench 和模型名称不保证文字事件能力",
+        "gap": "研究范围与限制见结论栏。",
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "origin": "local_focused",
+        "legacy_id": "M042",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
+        "previous_evidence": "既有调查 A，前轮资料"
+      },
+      {
+        "title": "Lance: Unified Multimodal Modeling by Multi-Task Synergy",
+        "version": "Lance，2026",
+        "claim": "未单独摘录。",
+        "problem": "与方法合并记录，见方法栏。",
+        "method": "共享交错上下文、双专家、模态感知 RoPE，分阶段图像/视频多任务训练",
+        "conclusion": "VBench 报告 85.11，使用提示改写；正文继承 Qwen2.5-VL 和 Wan2.2 VAE，“from scratch”不能解作全部随机初始化",
+        "gap": "见结论栏及专题分析。",
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "origin": "local_umm_expanded",
+        "legacy_id": "X055",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md",
+        "previous_evidence": "正文：方法、表 6—7"
+      },
+      {
+        "title": "Lance: Unified Multimodal Modeling by Multi-Task Synergy",
+        "version": "arXiv:2605.18678v1；官方代码核查于2026-10-16",
+        "claim": "以原生统一架构支持图像/视频理解、生成与编辑。",
+        "problem": "跨模态任务协同、细节生成与统一上下文建模。",
+        "method": "3B激活参数，双流专家与共享交错上下文、模态RoPE；文字CE＋视觉FM；继承Qwen2.5-VL和Wan2.2 VAE。",
+        "conclusion": "已公开视频检查点及理解/生成/联合微调入口，可作为过程联合训练底座候选。",
+        "gap": "官方要求CUDA 12.4+、至少40GB显存推理；不等于训练需求。VBench成绩不证明中文事件能力；本项目未运行。",
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v1架构、初始化、训练及视频结果；官方README、train.md、train_dataset.md",
+        "source_urls": [
+          "https://arxiv.org/html/2605.18678v1",
+          "https://github.com/bytedance/Lance",
+          "https://github.com/bytedance/Lance/blob/main/train.md"
+        ],
+        "note_path": "docs/experiments/stroke_order_pilot.md"
+      }
+    ],
+    "aliases": [
+      "local_focused:M042",
+      "local_handwriting:R42",
+      "local_umm_expanded:X055"
+    ],
+    "note_path": "docs/experiments/stroke_order_pilot.md",
+    "sections_read": "v1架构、初始化、训练及视频结果；官方README、train.md、train_dataset.md"
   },
   {
     "title": "Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities",

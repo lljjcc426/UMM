@@ -44,4 +44,6 @@ OpenHandWrite提供真实笔画级过程研究资源。真实记录是实际行�
 
 当前最需要实证回答的三点：过程输入是否真的被利用；这种理解是否改善实际生成；共享是否比信息与预算相同的组合系统更有优势。反例数据、严格实例顺序指标和强基线比增加模块名称更关键。
 
+具体实施入口：[四篇附件精读](evidence/attachment_reviews.md)、[最小研究方案](experiments/stroke_order_pilot.md)。前者区分位置提示、历史理解、决策错误与执行错误，后者落实底座、训练目标、数据和对照。
+
 证据入口：[核查方法](evidence/method_and_status.md)、[最新研究判断](project/DECISIONS.md)、[全部文献](all_literature.md)。

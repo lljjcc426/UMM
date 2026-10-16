@@ -421,24 +421,24 @@
     "note_path": "archive/imports/web_2026-10-15_data_literature.json"
   },
   {
-    "title": "CalligraphyBench / Haize，2026 项目",
+    "title": "CalligraphyBench",
     "source_urls": [
-      "https://huggingface.co/datasets/haizelabs/calligraphy-bench"
+      "https://huggingface.co/datasets/haizelabs/calligraphy-bench/blob/main/README.md"
     ],
-    "method": "代理用绘图工具输出字形和笔画，视觉模型评估",
-    "conclusion": "88 字/20 书家；顺序分非整字通过率；不含图像生成模型评测",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "版本见原始来源及历史记录",
+    "method": "88字、20位书家，4个代理通过MCP/tldraw作画；视觉模型裁判评价匹配笔画。",
+    "conclusion": "官方数据卡报告不同代理匹配笔顺分约77–82%；没有图像生成模型参评。",
+    "gap": "分数不是整字规范全对率；模型裁判、匹配筛选与书法变体需另核验；不是直接视频生成基准。",
+    "problem": "读懂字形与按笔画绘制字形的能力不同。",
+    "claim": "通过绘图工具评估多模态代理临摹书法和笔序。",
+    "version": "官方数据卡，核查于2026-10-16",
     "scope": "resource",
     "category": "本地调研整合",
     "record_type": "resource",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-16",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-16",
     "previous_evidence": "既有调查 A/D",
     "id": "L044",
     "canonical_key": "resource:https://huggingface.co/datasets/haizelabs/calligraphy-bench",
@@ -457,13 +457,30 @@
         "legacy_id": "M065",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
         "previous_evidence": "既有调查 A/D"
+      },
+      {
+        "title": "CalligraphyBench",
+        "version": "官方数据卡，核查于2026-10-16",
+        "claim": "通过绘图工具评估多模态代理临摹书法和笔序。",
+        "problem": "读懂字形与按笔画绘制字形的能力不同。",
+        "method": "88字、20位书家，4个代理通过MCP/tldraw作画；视觉模型裁判评价匹配笔画。",
+        "conclusion": "官方数据卡报告不同代理匹配笔顺分约77–82%；没有图像生成模型参评。",
+        "gap": "分数不是整字规范全对率；模型裁判、匹配筛选与书法变体需另核验；不是直接视频生成基准。",
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "官方README任务、数据构成、工具接口、评价和结果表",
+        "source_urls": [
+          "https://huggingface.co/datasets/haizelabs/calligraphy-bench/blob/main/README.md"
+        ],
+        "note_path": "docs/handwriting/02_capability_matrix.md"
       }
     ],
     "aliases": [
       "local_focused:M065",
       "local_handwriting:R65"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/handwriting/02_capability_matrix.md",
+    "sections_read": "官方README任务、数据构成、工具接口、评价和结果表"
   },
   {
     "title": "Tegaki",

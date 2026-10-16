@@ -1,5 +1,9 @@
 # 精读与核查卡片索引
 
+## 四篇指定论文
+
+[Timage、ORVOS、SC-CoIT、BoxTuning 精读](../../evidence/attachment_reviews.md)依据所提供的实际 PDF，分别说明版本、训练、实验、局限与笔顺研究的联系。公开版本另见[预印本分析](../../evidence/public_preprint_reviews.md)。
+
 ## 书写生成与过程建模
 
 | 顺序 | 笔记 | 最重要的辨析 |

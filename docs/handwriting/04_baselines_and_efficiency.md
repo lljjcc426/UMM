@@ -10,7 +10,7 @@
 
 **视频组**：VACE、Wan-Move、Text-Animator、HunyuanVideo1.5等；其各自输入条件不同。Hunyuan已经含文字编码，不能当“没有文字机制”的弱基线。
 
-**UMM组**：BAGEL/Show-o2实际可用检查点；UniCalli列级联合读写；UMM-Reflection外观修订；与外部VLM+执行器公平比较。
+**UMM组**：BAGEL用于图文交错和逐笔关键帧；Lance已有视频权重与联合微调入口，可用于连续过程；UniCalli用于静态列级读写。UniVideo连接冻结MLLM与视频生成器，适合作为组装式对照。2026-10-16核查时Show-o2官方仍未发布T2V/I2V权重，不能直接作为已可运行的视频底座。具体代码与硬件边界见[最小研究方案](../experiments/stroke_order_pilot.md)。所有联合方法都需与外部VLM＋同执行器比较。
 
 所有来源见[文献表](literature.md)与[UMM表](../umm/literature.md)。
 

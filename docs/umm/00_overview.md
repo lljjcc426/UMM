@@ -45,3 +45,30 @@
 Janus/Transfusion（表示及目标）→ BAGEL/Show-o2（具体基座）→ Zebra-CoT/ThinkMorph（交错推理）→ GapEval/UniG2U/VGUBench（协同是否有效）→ UMM-Reflection/UniCache（恢复和效率）→ UniCalli/InkSight/OnOff（书写直接前作）。
 
 阅读顺序不是研究质量或录用概率排名。每篇核查层级见文献表，未逐篇复现。
+
+## 从 VLM 和生成模型理解 UMM
+
+[LLaVA](https://arxiv.org/abs/2304.08485) 式 VLM 将视觉编码经连接器送入语言模型，常以文字交叉熵学习回答。它能描述图像，但没有因此自动获得像素解码器。视觉语义编码倾向保留“是什么”，逐笔生成还需要精细的“在哪里、怎样变化”。
+
+生成模型大致有两种常见训练方式。[Chameleon](https://arxiv.org/abs/2405.09818)、[Emu3](https://arxiv.org/abs/2409.18869) 将视觉离散化并建模后续 token；[潜空间扩散](https://arxiv.org/abs/2112.10752)学习从噪声恢复视觉潜变量。[Flow Matching](https://arxiv.org/abs/2210.02747) 则回归连接噪声与数据的向量场，积分得到图像或视频。
+
+设数据潜变量为 z、噪声为 ε，一种简化的 flow matching 写法为：
+
+\[
+z_\tau=(1-\tau)\epsilon+\tau z,\qquad
+\mathcal L_{FM}=\mathbb E\|v_\theta(z_\tau,\tau,c)-(z-\epsilon)\|^2.
+\]
+
+这里 τ 是生成求解时间；视频帧 t 是被生成内容的时间；第 k 笔又是离散事件索引。三者不能互换。逐步去噪不等于逐笔书写，生成整段视频也不意味着必须按物理帧顺序进行去噪。
+
+UMM 将文字任务和视觉生成放进一个可训练系统，例如共享上下文后分别用 CE 和 FM。共享程度是一项设计选择：Janus 分开视觉编码，BAGEL 区分理解/生成专家，Show-o2 融合语义与低层视觉路径。视觉编码、tokenizer、主干和训练数据是否共享，应逐项说明，不能仅凭“统一”二字判断。
+
+对汉字研究，可共享的是实例身份、局部几何和历史进度；可保留独立的是高分辨率渲染路径。若先压缩时序时已经丢了短笔，再强的文字推理也无法从相同观测中恢复唯一历史。
+
+## 视频底座的论文能力与公开能力
+
+2026-10-16 核查：BAGEL 适合图文交错与关键帧编辑；Show-o2 论文包含视频生成，但官方仍将 T2V/I2V 权重发布列为 TODO。[Lance](https://github.com/bytedance/Lance) 已提供视频检查点与联合微调入口，是原生视频 UMM 的可执行候选。[UniVideo](https://arxiv.org/html/2510.08377v2) 则连接冻结 MLLM 和视频 DiT，适合作为组装式对照。具体接口及硬件边界见[最小研究方案](../experiments/stroke_order_pilot.md)。
+
+## 四篇附件如何帮助理解这条路线
+
+[附件精读](../evidence/attachment_reviews.md)分别拆解 Timage 的输入覆盖层、ORVOS 的因果历史、SC-CoIT 的跨模态恢复与 BoxTuning 的对象提示。只有 SC-CoIT 直接检验 UMM 的理解—生成恢复；其检测强、立即修复弱的结果说明，共享语义和正确诊断还不能取代执行监督。

@@ -76,7 +76,8 @@ local_focused:M043
 local_handwriting:R43
 user_survey:C01
 local_umm_core:P13"
-C02,C UMM与组内关联,Show-o2（arXiv:2506.15564）,NeurIPS 2025；原文与项目版本需对应,作者主张：统一文本、图像和视频理解/生成，并减少不同模态建模的割裂。,文本自回归、视觉流匹配；3D因果VAE和统一时空表示。,图像级统一框架向视频和交错模态推广困难。,报告图像、视频及混合模态建模能力，是Flash-Unified等工作的加速基座。,【边界】某个视频理解权重不自动支持所有视频生成任务；需逐项核查检查点和接口；未验证规范汉字过程。,https://arxiv.org/abs/2506.15564,historical_record_not_rechecked,,原论文机制与项目说明,"web_bundle:C02
+C02,C UMM与组内关联,Show-o2: Improved Native Unified Multimodal Models,arXiv:2506.15564v2；官方代码核查于2026-10-16,作者主张：统一文本、图像和视频理解/生成，并减少不同模态建模的割裂。,文本自回归、视觉流匹配；3D因果VAE和统一时空表示。,图像级统一框架向视频和交错模态推广困难。,报告图像、视频及混合模态建模能力，是Flash-Unified等工作的加速基座。,论文支持视频建模；官方TODO仍未勾选T2V/I2V权重发布。公开视频理解权重不能当视频生成底座；未验证规范汉字过程。,"https://arxiv.org/html/2506.15564v2
+https://github.com/showlab/Show-o/tree/main/show-o2",primary_sections_read,2026-10-16,原论文机制与项目说明,"web_bundle:C02
 local_focused:M041
 local_handwriting:R41
 user_survey:C02
@@ -244,7 +245,7 @@ U16,U UMM基础与协同补全,Can Unified Generation and Understanding Models M
 local_focused:M048
 local_handwriting:R48
 local_umm_expanded:X085"
-U17,U UMM基础与协同补全,"Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System",arXiv公开版本；会议状态未据此推定,作者主张：共享知识和合适计算分工可出现双向协同。,受控研究表示、任务和系统配置。,联合训练为何可能正迁移或负迁移。,在特定原生建模设置支持有条件协同。,【边界/推断】须控制数据/初始化/任务知识；不能跨设置宣布一种共享结构永远最优。,https://arxiv.org/abs/2609.01607,primary_abstract_read,2026-10-15,,"web_bundle:U17
+U17,U UMM基础与协同补全,"Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System",arXiv:2609.01607v1,作者主张：共享知识和合适计算分工可出现双向协同。,控制表示和计算，比较全共享、模态分支和任务分支；再比较领域读写任务与系统分工。,联合训练为何可能正迁移或负迁移。,作者报告特定SVG读写任务和图像任务的正迁移，但共享方式和任务差异会引入冲突；不是所有任务一致受益。,【边界/推断】须控制数据/初始化/任务知识；不能跨设置宣布一种共享结构永远最优。,https://arxiv.org/html/2609.01607v1,primary_sections_read,2026-10-16,,"web_bundle:U17
 local_umm_core:P27"
 U18,U UMM基础与协同补全,Transferability Between Understanding and Generation in Unified Multimodal Models,arXiv公开版本；会议状态未据此推定,作者主张：研究一侧训练的能力是否迁移到另一侧。,计数、关系等能力在理解/生成任务间做对照。,同一知识在不同输出端可能无法复用。,历史调研记录迁移依赖架构；本轮原文访问未成功。,【边界/推断】【待核】本轮不能升级为全文验证；保留题名和来源线索，关键数值不重用。,https://arxiv.org/abs/2607.04423,historical_record_unresolved,,,"web_bundle:U18
 local_umm_core:P25"
@@ -288,9 +289,10 @@ L008,本地调研整合,Three-Dimensional Trajectory Planning for Robotic Chines
 local_handwriting:R16"
 L009,本地调研整合,Video-Based Handwritten Chinese Character Recognition，2005,版本见原始来源及历史记录,未单独摘录。,从书写视频追踪轨迹、笔画与字符,与方法合并记录，见方法栏。,视频→书写过程不是空白；可作为评价器研究的历史入口,研究范围与限制见结论栏。,https://mmlab.ie.cuhk.edu.hk/archive/2005/01377375.pdf,historical_record_not_rechecked,,既有调查 B,"local_focused:M017
 local_handwriting:R17"
-L010,本地调研整合,VideoSketcher，2026,版本见原始来源及历史记录,未单独摘录。,LLM 分步规划＋Wan 视频扩散；几何时序训练后适配手绘；笔刷条件,与方法合并记录，见方法栏。,最强近邻之一；仍有 19.58%/36.96% 的多笔同帧现象；不是汉字逐笔规范评价,研究范围与限制见结论栏。,https://arxiv.org/abs/2602.15819,historical_record_not_rechecked,,既有调查 A,"local_focused:M018
+L010,本地调研整合,VideoSketcher: Sequential Sketch Generation Using Video Model Priors,本次核读arXiv:2602.15819v1；元数据另有v2,以语言计划和视频扩散生成按指定步骤展开的草图。,LLM分步计划＋Wan视频扩散；先用几何组合学习时序，再用少量手绘例适配风格；另探索自回归。,静态草图模型缺少生成过程，直接语言绘图又受视觉质量限制。,是计划到顺序视频的直接近邻，并支持笔刷风格；作者仍报告同帧多笔等过程失败。,不是汉字规范笔顺基准；步骤偏好和普通草图排序不能替代逐笔实例、方向及整字全对评价。,"https://arxiv.org/html/2602.15819v1
+https://arxiv.org/abs/2602.15819",primary_sections_read,2026-10-16,既有调查 A,"local_focused:M018
 local_handwriting:R18"
-L011,本地调研整合,Draw This First，2026,版本见原始来源及历史记录,未单独摘录。,顺序颜色编码、专用 VAE 头、实例分割与向量恢复,与方法合并记录，见方法栏。,顺序场已有先例；粒度细化后顺序控制下降，路径碎片化，未保留真实时间/压力,研究范围与限制见结论栏。,https://arxiv.org/abs/2608.12064,historical_record_not_rechecked,,既有调查 A,"local_focused:M019
+L011,本地调研整合,Draw This First,arXiv:2608.12064v1,通过二维顺序场控制草图向量笔画的生成顺序。,潜空间flow模型预测颜色编码中间表示；训练VAE头恢复顺序场、掩码与实例，再向量化排序。,既要保留预训练图像生成能力，又要明确控制笔画先后。,区域级、部件级、遍次级顺序Kendall相关分别为0.838、0.461、0.444；细粒度控制仍困难。,产生的笔画数量约为参考的1.7–2.5倍；未恢复真实时间或压力，也未验证中文规范视频。,https://arxiv.org/html/2608.12064v1,primary_sections_read,2026-10-16,既有调查 A,"local_focused:M019
 local_handwriting:R19"
 L012,本地调研整合,SketchAgent，2024/2025,版本见原始来源及历史记录,未单独摘录。,语言模型生成顺序绘画命令，渲染向量笔画并交互编辑,与方法合并记录，见方法栏。,外置规划＋可执行绘图的必要对照；语义计划不等于精细汉字几何,研究范围与限制见结论栏。,https://arxiv.org/abs/2411.17673,historical_record_not_rechecked,,既有调查 B,"local_focused:M020
 local_handwriting:R20"
@@ -320,11 +322,14 @@ L024,本地调研整合,Learning to Compose Stylistic Calligraphy Artwork with E
 local_handwriting:R36"
 L025,本地调研整合,AnyText，2023/2024,版本见原始来源及历史记录,未单独摘录。,字形、位置和 OCR 信息辅助多语言场景文字生成,与方法合并记录，见方法栏。,可借字形/位置条件及识别损失；最终图监督不区分写字先后,研究范围与限制见结论栏。,https://arxiv.org/abs/2311.03054,historical_record_not_rechecked,,既有调查 B,"local_focused:M037
 local_handwriting:R37"
-L026,本地调研整合,UniVideo，2025 起,版本见原始来源及历史记录,未单独摘录。,冻结 MLLM 语义条件＋视频生成骨干与稠密视觉条件,与方法合并记录，见方法栏。,可直接接视频；理解分数来自冻结骨干，非联合学习增益,研究范围与限制见结论栏。,https://arxiv.org/abs/2510.08377,historical_record_not_rechecked,,既有调查 A,"local_focused:M039
+L026,本地调研整合,UniVideo,arXiv:2510.08377v2,以统一框架连接视频理解、生成与编辑任务。,冻结Qwen2.5-VL-7B，经连接器条件化HunyuanVideo-13B并结合稠密视觉条件。,视频生成器难以统一利用复杂多模态语义和视觉条件。,提供理解引导视频任务的组装式实现，适合与原生共享系统比较。,理解主干冻结，不能把其理解分数或生成改进当作联合共享训练收益；未验证中文笔顺。,"https://arxiv.org/html/2510.08377v2
+https://github.com/KlingAIResearch/UniVideo",primary_sections_read,2026-10-16,既有调查 A,"local_focused:M039
 local_handwriting:R39"
 L027,本地调研整合,UniVid，2025,版本见原始来源及历史记录,未单独摘录。,模态对齐和关键帧反思，统一视频理解生成,与方法合并记录，见方法栏。,视频分支候选；通用 VBench 改善不等于笔顺可靠,研究范围与限制见结论栏。,https://arxiv.org/abs/2509.24200,historical_record_not_rechecked,,既有调查 A,"local_focused:M040
 local_handwriting:R40"
-L028,本地调研整合,Lance，2026,版本见原始来源及历史记录,未单独摘录。,多任务协同与专家设计，支持视频与图像任务,与方法合并记录，见方法栏。,可研究过程共享；VBench 和模型名称不保证文字事件能力,研究范围与限制见结论栏。,https://arxiv.org/abs/2605.18678,historical_record_not_rechecked,,既有调查 A，前轮资料,"local_focused:M042
+L028,本地调研整合,Lance: Unified Multimodal Modeling by Multi-Task Synergy,arXiv:2605.18678v1；官方代码核查于2026-10-16,以原生统一架构支持图像/视频理解、生成与编辑。,3B激活参数，双流专家与共享交错上下文、模态RoPE；文字CE＋视觉FM；继承Qwen2.5-VL和Wan2.2 VAE。,跨模态任务协同、细节生成与统一上下文建模。,已公开视频检查点及理解/生成/联合微调入口，可作为过程联合训练底座候选。,官方要求CUDA 12.4+、至少40GB显存推理；不等于训练需求。VBench成绩不证明中文事件能力；本项目未运行。,"https://arxiv.org/html/2605.18678v1
+https://github.com/bytedance/Lance
+https://github.com/bytedance/Lance/blob/main/train.md",primary_sections_read,2026-10-16,既有调查 A，前轮资料,"local_focused:M042
 local_handwriting:R42
 local_umm_expanded:X055"
 L029,本地调研整合,"Think in Strokes, Not Pixels，2026",版本见原始来源及历史记录,未单独摘录。,规划—草图—检查—修正，过程式图文联合训练,与方法合并记录，见方法栏。,GenEval .77→.83，WISE .70→.76；这里的 strokes 不是汉字毛笔事件,研究范围与限制见结论栏。,https://arxiv.org/abs/2604.04746,historical_record_not_rechecked,,既有调查 A,"local_focused:M044
@@ -361,7 +366,7 @@ L042,本地调研整合,TextVBench，2026,版本见原始来源及历史记录,�
 local_handwriting:R63"
 L043,本地调研整合,ViTeX-Bench，2026,版本见原始来源及历史记录,未单独摘录。,视频场景文字编辑，运动对齐字形条件,与方法合并记录，见方法栏。,387 个视频；可借动态文字模板，但编辑与书写不同,研究范围与限制见结论栏。,https://arxiv.org/abs/2609.40356,historical_record_not_rechecked,,既有调查 A,"local_focused:M064
 local_handwriting:R64"
-L044,本地调研整合,CalligraphyBench / Haize，2026 项目,版本见原始来源及历史记录,未单独摘录。,代理用绘图工具输出字形和笔画，视觉模型评估,与方法合并记录，见方法栏。,88 字/20 书家；顺序分非整字通过率；不含图像生成模型评测,研究范围与限制见结论栏。,https://huggingface.co/datasets/haizelabs/calligraphy-bench,historical_record_not_rechecked,,既有调查 A/D,"local_focused:M065
+L044,本地调研整合,CalligraphyBench,官方数据卡，核查于2026-10-16,通过绘图工具评估多模态代理临摹书法和笔序。,88字、20位书家，4个代理通过MCP/tldraw作画；视觉模型裁判评价匹配笔画。,读懂字形与按笔画绘制字形的能力不同。,官方数据卡报告不同代理匹配笔顺分约77–82%；没有图像生成模型参评。,分数不是整字规范全对率；模型裁判、匹配筛选与书法变体需另核验；不是直接视频生成基准。,https://huggingface.co/datasets/haizelabs/calligraphy-bench/blob/main/README.md,primary_sections_read,2026-10-16,既有调查 A/D,"local_focused:M065
 local_handwriting:R65"
 L045,本地调研整合,CalliReader / CalliBench，ICCV 2025,版本见原始来源及历史记录,未单独摘录。,上下文增强中文书法识别与多任务理解,与方法合并记录，见方法栏。,静态书法理解数据；与 R65 不同；无书写时序真值,研究范围与限制见结论栏。,https://arxiv.org/abs/2503.06472,historical_record_not_rechecked,,既有调查 B,"local_focused:M066
 local_handwriting:R66"
@@ -514,3 +519,4 @@ L179,本地调研整合,UM-Text: A Unified Multimodal Model for Image Understand
 L180,本地调研整合,Painter: Teaching Auto-Regressive Language Models to Draw Sketches,版本见原始来源及历史记录,未单独摘录。,微调语言模型自回归生成笔触序列，并支持对象操作与识别。,与方法合并记录，见方法栏。,官方摘要包含文字到草图、删除对象、检测与分类。,本轮仅核查官方摘要；不是中文笔顺实验。,https://arxiv.org/abs/2308.08520,primary_abstract_read,2026-10-15,,local_stroke_order:2308.08520
 L181,本地调研整合,Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding,版本见原始来源及历史记录,未单独摘录。,部件树位置编码、对比学习及dual learning联合优化识别与静态字图生成。,与方法合并记录，见方法栏。,提供汉字识别与生成相互训练的直接前作。,本轮核读摘要及方法定位；不以实际物理笔顺为目标。,"https://sprateam-ustc.github.io/Publications/Mobai-2023.pdf
 https://doi.org/10.1016/j.patcog.2023.109538",primary_abstract_read,2026-10-15,,local_stroke_order:RTN2023
+N14,N 新增中文书写重点调研,SteerVTE: Seamless Video Text Editing with Style and Glyph Control,arXiv:2606.23254v1,通过风格和字形条件引导冻结视频扩散模型进行文字编辑。,文本适配器结合风格编码和行/字双粒度字形编码；字形区域损失、分阶段训练及百万三元组合成数据。,视频文字区域小，文字准确、风格和跨帧一致难以同时保持。,摘要报告视频文字准确性、风格和时序一致性改善；说明视频文字控制已有专门方法。,本次仅核查摘要，未独立核读实验表；任务是编辑视频中文字，不是规范笔顺书写。,https://arxiv.org/abs/2606.23254v1,primary_abstract_read,2026-10-16,,

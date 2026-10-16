@@ -1333,25 +1333,26 @@
   {
     "id": "C02",
     "category": "C UMM与组内关联",
-    "title": "Show-o2（arXiv:2506.15564）",
-    "version": "NeurIPS 2025；原文与项目版本需对应",
+    "title": "Show-o2: Improved Native Unified Multimodal Models",
+    "version": "arXiv:2506.15564v2；官方代码核查于2026-10-16",
     "source_urls": [
-      "https://arxiv.org/abs/2506.15564"
+      "https://arxiv.org/html/2506.15564v2",
+      "https://github.com/showlab/Show-o/tree/main/show-o2"
     ],
     "previous_evidence": "原论文机制与项目说明",
     "claim": "作者主张：统一文本、图像和视频理解/生成，并减少不同模态建模的割裂。",
     "method": "文本自回归、视觉流匹配；3D因果VAE和统一时空表示。",
     "problem": "图像级统一框架向视频和交错模态推广困难。",
     "conclusion": "报告图像、视频及混合模态建模能力，是Flash-Unified等工作的加速基座。",
-    "gap": "【边界】某个视频理解权重不自动支持所有视频生成任务；需逐项核查检查点和接口；未验证规范汉字过程。",
+    "gap": "论文支持视频建模；官方TODO仍未勾选T2V/I2V权重发布。公开视频理解权重不能当视频生成底座；未验证规范汉字过程。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-16",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文机制与项目说明",
-    "last_updated": "2026-10-15",
+    "sections_read": "v2架构、图像/视频训练与结果；官方README公开权重及TODO",
+    "last_updated": "2026-10-16",
     "canonical_key": "paper:arxiv:2506.15564",
     "evidence_history": [
       {
@@ -1398,6 +1399,23 @@
         "legacy_id": "P15",
         "note_path": "archive/local/2026-10-15/文献矩阵.md",
         "previous_evidence": "正文 v3，表 5—6"
+      },
+      {
+        "title": "Show-o2: Improved Native Unified Multimodal Models",
+        "version": "arXiv:2506.15564v2；官方代码核查于2026-10-16",
+        "claim": "作者主张：统一文本、图像和视频理解/生成，并减少不同模态建模的割裂。",
+        "problem": "图像级统一框架向视频和交错模态推广困难。",
+        "method": "文本自回归、视觉流匹配；3D因果VAE和统一时空表示。",
+        "conclusion": "报告图像、视频及混合模态建模能力，是Flash-Unified等工作的加速基座。",
+        "gap": "论文支持视频建模；官方TODO仍未勾选T2V/I2V权重发布。公开视频理解权重不能当视频生成底座；未验证规范汉字过程。",
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v2架构、图像/视频训练与结果；官方README公开权重及TODO",
+        "source_urls": [
+          "https://arxiv.org/html/2506.15564v2",
+          "https://github.com/showlab/Show-o/tree/main/show-o2"
+        ],
+        "note_path": "docs/experiments/stroke_order_pilot.md"
       }
     ],
     "aliases": [
@@ -1407,7 +1425,7 @@
       "user_survey:C02",
       "local_umm_core:P15"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/experiments/stroke_order_pilot.md"
   },
   {
     "id": "C03",
@@ -4951,24 +4969,24 @@
     "id": "U17",
     "category": "U UMM基础与协同补全",
     "title": "Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "arXiv:2609.01607v1",
     "source_urls": [
-      "https://arxiv.org/abs/2609.01607"
+      "https://arxiv.org/html/2609.01607v1"
     ],
     "previous_evidence": null,
     "claim": "作者主张：共享知识和合适计算分工可出现双向协同。",
-    "method": "受控研究表示、任务和系统配置。",
+    "method": "控制表示和计算，比较全共享、模态分支和任务分支；再比较领域读写任务与系统分工。",
     "problem": "联合训练为何可能正迁移或负迁移。",
-    "conclusion": "在特定原生建模设置支持有条件协同。",
+    "conclusion": "作者报告特定SVG读写任务和图像任务的正迁移，但共享方式和任务差异会引入冲突；不是所有任务一致受益。",
     "gap": "【边界/推断】须控制数据/初始化/任务知识；不能跨设置宣布一种共享结构永远最优。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-16",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
-    "last_updated": "2026-10-15",
+    "sections_read": "v1表示/任务/系统实验；共享分支对照与SVG表格",
+    "last_updated": "2026-10-16",
     "canonical_key": "paper:arxiv:2609.01607",
     "evidence_history": [
       {
@@ -5000,13 +5018,29 @@
         "legacy_id": "P27",
         "note_path": "archive/local/2026-10-15/文献矩阵.md",
         "previous_evidence": "正文 v1，表 1—2、§3.4"
+      },
+      {
+        "title": "Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System",
+        "version": "arXiv:2609.01607v1",
+        "claim": "作者主张：共享知识和合适计算分工可出现双向协同。",
+        "problem": "联合训练为何可能正迁移或负迁移。",
+        "method": "控制表示和计算，比较全共享、模态分支和任务分支；再比较领域读写任务与系统分工。",
+        "conclusion": "作者报告特定SVG读写任务和图像任务的正迁移，但共享方式和任务差异会引入冲突；不是所有任务一致受益。",
+        "gap": "【边界/推断】须控制数据/初始化/任务知识；不能跨设置宣布一种共享结构永远最优。",
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v1表示/任务/系统实验；共享分支对照与SVG表格",
+        "source_urls": [
+          "https://arxiv.org/html/2609.01607v1"
+        ],
+        "note_path": "docs/experiments/stroke_order_pilot.md"
       }
     ],
     "aliases": [
       "web_bundle:U17",
       "local_umm_core:P27"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/experiments/stroke_order_pilot.md"
   },
   {
     "id": "U18",
@@ -6232,24 +6266,25 @@
     "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
   },
   {
-    "title": "VideoSketcher，2026",
+    "title": "VideoSketcher: Sequential Sketch Generation Using Video Model Priors",
     "source_urls": [
+      "https://arxiv.org/html/2602.15819v1",
       "https://arxiv.org/abs/2602.15819"
     ],
-    "method": "LLM 分步规划＋Wan 视频扩散；几何时序训练后适配手绘；笔刷条件",
-    "conclusion": "最强近邻之一；仍有 19.58%/36.96% 的多笔同帧现象；不是汉字逐笔规范评价",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "版本见原始来源及历史记录",
+    "method": "LLM分步计划＋Wan视频扩散；先用几何组合学习时序，再用少量手绘例适配风格；另探索自回归。",
+    "conclusion": "是计划到顺序视频的直接近邻，并支持笔刷风格；作者仍报告同帧多笔等过程失败。",
+    "gap": "不是汉字规范笔顺基准；步骤偏好和普通草图排序不能替代逐笔实例、方向及整字全对评价。",
+    "problem": "静态草图模型缺少生成过程，直接语言绘图又受视觉质量限制。",
+    "claim": "以语言计划和视频扩散生成按指定步骤展开的草图。",
+    "version": "本次核读arXiv:2602.15819v1；元数据另有v2",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-16",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-16",
     "previous_evidence": "既有调查 A",
     "id": "L010",
     "canonical_key": "paper:arxiv:2602.15819",
@@ -6268,33 +6303,51 @@
         "legacy_id": "M018",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
         "previous_evidence": "既有调查 A"
+      },
+      {
+        "title": "VideoSketcher: Sequential Sketch Generation Using Video Model Priors",
+        "version": "本次核读arXiv:2602.15819v1；元数据另有v2",
+        "claim": "以语言计划和视频扩散生成按指定步骤展开的草图。",
+        "problem": "静态草图模型缺少生成过程，直接语言绘图又受视觉质量限制。",
+        "method": "LLM分步计划＋Wan视频扩散；先用几何组合学习时序，再用少量手绘例适配风格；另探索自回归。",
+        "conclusion": "是计划到顺序视频的直接近邻，并支持笔刷风格；作者仍报告同帧多笔等过程失败。",
+        "gap": "不是汉字规范笔顺基准；步骤偏好和普通草图排序不能替代逐笔实例、方向及整字全对评价。",
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v1方法、两阶段训练、自回归扩展及失败分析；v2元数据",
+        "source_urls": [
+          "https://arxiv.org/html/2602.15819v1",
+          "https://arxiv.org/abs/2602.15819"
+        ],
+        "note_path": "docs/handwriting/02_capability_matrix.md"
       }
     ],
     "aliases": [
       "local_focused:M018",
       "local_handwriting:R18"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/handwriting/02_capability_matrix.md",
+    "sections_read": "v1方法、两阶段训练、自回归扩展及失败分析；v2元数据"
   },
   {
-    "title": "Draw This First，2026",
+    "title": "Draw This First",
     "source_urls": [
-      "https://arxiv.org/abs/2608.12064"
+      "https://arxiv.org/html/2608.12064v1"
     ],
-    "method": "顺序颜色编码、专用 VAE 头、实例分割与向量恢复",
-    "conclusion": "顺序场已有先例；粒度细化后顺序控制下降，路径碎片化，未保留真实时间/压力",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "版本见原始来源及历史记录",
+    "method": "潜空间flow模型预测颜色编码中间表示；训练VAE头恢复顺序场、掩码与实例，再向量化排序。",
+    "conclusion": "区域级、部件级、遍次级顺序Kendall相关分别为0.838、0.461、0.444；细粒度控制仍困难。",
+    "gap": "产生的笔画数量约为参考的1.7–2.5倍；未恢复真实时间或压力，也未验证中文规范视频。",
+    "problem": "既要保留预训练图像生成能力，又要明确控制笔画先后。",
+    "claim": "通过二维顺序场控制草图向量笔画的生成顺序。",
+    "version": "arXiv:2608.12064v1",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-16",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-16",
     "previous_evidence": "既有调查 A",
     "id": "L011",
     "canonical_key": "paper:arxiv:2608.12064",
@@ -6313,13 +6366,30 @@
         "legacy_id": "M019",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
         "previous_evidence": "既有调查 A"
+      },
+      {
+        "title": "Draw This First",
+        "version": "arXiv:2608.12064v1",
+        "claim": "通过二维顺序场控制草图向量笔画的生成顺序。",
+        "problem": "既要保留预训练图像生成能力，又要明确控制笔画先后。",
+        "method": "潜空间flow模型预测颜色编码中间表示；训练VAE头恢复顺序场、掩码与实例，再向量化排序。",
+        "conclusion": "区域级、部件级、遍次级顺序Kendall相关分别为0.838、0.461、0.444；细粒度控制仍困难。",
+        "gap": "产生的笔画数量约为参考的1.7–2.5倍；未恢复真实时间或压力，也未验证中文规范视频。",
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v1方法、顺序控制表、碎片化及限制",
+        "source_urls": [
+          "https://arxiv.org/html/2608.12064v1"
+        ],
+        "note_path": "docs/handwriting/02_capability_matrix.md"
       }
     ],
     "aliases": [
       "local_focused:M019",
       "local_handwriting:R19"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/handwriting/02_capability_matrix.md",
+    "sections_read": "v1方法、顺序控制表、碎片化及限制"
   },
   {
     "title": "SketchAgent，2024/2025",
@@ -6952,24 +7022,25 @@
     "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
   },
   {
-    "title": "UniVideo，2025 起",
+    "title": "UniVideo",
     "source_urls": [
-      "https://arxiv.org/abs/2510.08377"
+      "https://arxiv.org/html/2510.08377v2",
+      "https://github.com/KlingAIResearch/UniVideo"
     ],
-    "method": "冻结 MLLM 语义条件＋视频生成骨干与稠密视觉条件",
-    "conclusion": "可直接接视频；理解分数来自冻结骨干，非联合学习增益",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "版本见原始来源及历史记录",
-    "scope": "handwriting_or_adjacent",
+    "method": "冻结Qwen2.5-VL-7B，经连接器条件化HunyuanVideo-13B并结合稠密视觉条件。",
+    "conclusion": "提供理解引导视频任务的组装式实现，适合与原生共享系统比较。",
+    "gap": "理解主干冻结，不能把其理解分数或生成改进当作联合共享训练收益；未验证中文笔顺。",
+    "problem": "视频生成器难以统一利用复杂多模态语义和视觉条件。",
+    "claim": "以统一框架连接视频理解、生成与编辑任务。",
+    "version": "arXiv:2510.08377v2",
+    "scope": "umm",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-16",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-16",
     "previous_evidence": "既有调查 A",
     "id": "L026",
     "canonical_key": "paper:arxiv:2510.08377",
@@ -6988,13 +7059,31 @@
         "legacy_id": "M039",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
         "previous_evidence": "既有调查 A"
+      },
+      {
+        "title": "UniVideo",
+        "version": "arXiv:2510.08377v2",
+        "claim": "以统一框架连接视频理解、生成与编辑任务。",
+        "problem": "视频生成器难以统一利用复杂多模态语义和视觉条件。",
+        "method": "冻结Qwen2.5-VL-7B，经连接器条件化HunyuanVideo-13B并结合稠密视觉条件。",
+        "conclusion": "提供理解引导视频任务的组装式实现，适合与原生共享系统比较。",
+        "gap": "理解主干冻结，不能把其理解分数或生成改进当作联合共享训练收益；未验证中文笔顺。",
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v2架构与训练；官方代码说明",
+        "source_urls": [
+          "https://arxiv.org/html/2510.08377v2",
+          "https://github.com/KlingAIResearch/UniVideo"
+        ],
+        "note_path": "docs/experiments/stroke_order_pilot.md"
       }
     ],
     "aliases": [
       "local_focused:M039",
       "local_handwriting:R39"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/experiments/stroke_order_pilot.md",
+    "sections_read": "v2架构与训练；官方代码说明"
   },
   {
     "title": "UniVid，2025",
@@ -7042,24 +7131,26 @@
     "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
   },
   {
-    "title": "Lance，2026",
+    "title": "Lance: Unified Multimodal Modeling by Multi-Task Synergy",
     "source_urls": [
-      "https://arxiv.org/abs/2605.18678"
+      "https://arxiv.org/html/2605.18678v1",
+      "https://github.com/bytedance/Lance",
+      "https://github.com/bytedance/Lance/blob/main/train.md"
     ],
-    "method": "多任务协同与专家设计，支持视频与图像任务",
-    "conclusion": "可研究过程共享；VBench 和模型名称不保证文字事件能力",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "版本见原始来源及历史记录",
-    "scope": "handwriting_or_adjacent",
+    "method": "3B激活参数，双流专家与共享交错上下文、模态RoPE；文字CE＋视觉FM；继承Qwen2.5-VL和Wan2.2 VAE。",
+    "conclusion": "已公开视频检查点及理解/生成/联合微调入口，可作为过程联合训练底座候选。",
+    "gap": "官方要求CUDA 12.4+、至少40GB显存推理；不等于训练需求。VBench成绩不证明中文事件能力；本项目未运行。",
+    "problem": "跨模态任务协同、细节生成与统一上下文建模。",
+    "claim": "以原生统一架构支持图像/视频理解、生成与编辑。",
+    "version": "arXiv:2605.18678v1；官方代码核查于2026-10-16",
+    "scope": "umm",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-16",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-16",
     "previous_evidence": "既有调查 A，前轮资料",
     "id": "L028",
     "canonical_key": "paper:arxiv:2605.18678",
@@ -7093,6 +7184,24 @@
         "legacy_id": "X055",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md",
         "previous_evidence": "正文：方法、表 6—7"
+      },
+      {
+        "title": "Lance: Unified Multimodal Modeling by Multi-Task Synergy",
+        "version": "arXiv:2605.18678v1；官方代码核查于2026-10-16",
+        "claim": "以原生统一架构支持图像/视频理解、生成与编辑。",
+        "problem": "跨模态任务协同、细节生成与统一上下文建模。",
+        "method": "3B激活参数，双流专家与共享交错上下文、模态RoPE；文字CE＋视觉FM；继承Qwen2.5-VL和Wan2.2 VAE。",
+        "conclusion": "已公开视频检查点及理解/生成/联合微调入口，可作为过程联合训练底座候选。",
+        "gap": "官方要求CUDA 12.4+、至少40GB显存推理；不等于训练需求。VBench成绩不证明中文事件能力；本项目未运行。",
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v1架构、初始化、训练及视频结果；官方README、train.md、train_dataset.md",
+        "source_urls": [
+          "https://arxiv.org/html/2605.18678v1",
+          "https://github.com/bytedance/Lance",
+          "https://github.com/bytedance/Lance/blob/main/train.md"
+        ],
+        "note_path": "docs/experiments/stroke_order_pilot.md"
       }
     ],
     "aliases": [
@@ -7100,7 +7209,8 @@
       "local_handwriting:R42",
       "local_umm_expanded:X055"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/experiments/stroke_order_pilot.md",
+    "sections_read": "v1架构、初始化、训练及视频结果；官方README、train.md、train_dataset.md"
   },
   {
     "title": "Think in Strokes, Not Pixels，2026",
@@ -7842,24 +7952,24 @@
     "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
   },
   {
-    "title": "CalligraphyBench / Haize，2026 项目",
+    "title": "CalligraphyBench",
     "source_urls": [
-      "https://huggingface.co/datasets/haizelabs/calligraphy-bench"
+      "https://huggingface.co/datasets/haizelabs/calligraphy-bench/blob/main/README.md"
     ],
-    "method": "代理用绘图工具输出字形和笔画，视觉模型评估",
-    "conclusion": "88 字/20 书家；顺序分非整字通过率；不含图像生成模型评测",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "版本见原始来源及历史记录",
+    "method": "88字、20位书家，4个代理通过MCP/tldraw作画；视觉模型裁判评价匹配笔画。",
+    "conclusion": "官方数据卡报告不同代理匹配笔顺分约77–82%；没有图像生成模型参评。",
+    "gap": "分数不是整字规范全对率；模型裁判、匹配筛选与书法变体需另核验；不是直接视频生成基准。",
+    "problem": "读懂字形与按笔画绘制字形的能力不同。",
+    "claim": "通过绘图工具评估多模态代理临摹书法和笔序。",
+    "version": "官方数据卡，核查于2026-10-16",
     "scope": "resource",
     "category": "本地调研整合",
     "record_type": "resource",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-16",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-16",
     "previous_evidence": "既有调查 A/D",
     "id": "L044",
     "canonical_key": "resource:https://huggingface.co/datasets/haizelabs/calligraphy-bench",
@@ -7878,13 +7988,30 @@
         "legacy_id": "M065",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
         "previous_evidence": "既有调查 A/D"
+      },
+      {
+        "title": "CalligraphyBench",
+        "version": "官方数据卡，核查于2026-10-16",
+        "claim": "通过绘图工具评估多模态代理临摹书法和笔序。",
+        "problem": "读懂字形与按笔画绘制字形的能力不同。",
+        "method": "88字、20位书家，4个代理通过MCP/tldraw作画；视觉模型裁判评价匹配笔画。",
+        "conclusion": "官方数据卡报告不同代理匹配笔顺分约77–82%；没有图像生成模型参评。",
+        "gap": "分数不是整字规范全对率；模型裁判、匹配筛选与书法变体需另核验；不是直接视频生成基准。",
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "官方README任务、数据构成、工具接口、评价和结果表",
+        "source_urls": [
+          "https://huggingface.co/datasets/haizelabs/calligraphy-bench/blob/main/README.md"
+        ],
+        "note_path": "docs/handwriting/02_capability_matrix.md"
       }
     ],
     "aliases": [
       "local_focused:M065",
       "local_handwriting:R65"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/handwriting/02_capability_matrix.md",
+    "sections_read": "官方README任务、数据构成、工具接口、评价和结果表"
   },
   {
     "title": "CalliReader / CalliBench，ICCV 2025",
@@ -13799,5 +13926,42 @@
       "local_stroke_order:RTN2023"
     ],
     "note_path": "docs/handwriting/06_stroke_order_evidence.md"
+  },
+  {
+    "id": "N14",
+    "category": "N 新增中文书写重点调研",
+    "title": "SteerVTE: Seamless Video Text Editing with Style and Glyph Control",
+    "version": "arXiv:2606.23254v1",
+    "claim": "通过风格和字形条件引导冻结视频扩散模型进行文字编辑。",
+    "method": "文本适配器结合风格编码和行/字双粒度字形编码；字形区域损失、分阶段训练及百万三元组合成数据。",
+    "problem": "视频文字区域小，文字准确、风格和跨帧一致难以同时保持。",
+    "conclusion": "摘要报告视频文字准确性、风格和时序一致性改善；说明视频文字控制已有专门方法。",
+    "gap": "本次仅核查摘要，未独立核读实验表；任务是编辑视频中文字，不是规范笔顺书写。",
+    "source_urls": [
+      "https://arxiv.org/abs/2606.23254v1"
+    ],
+    "verification": "primary_abstract_read",
+    "provenance": "2026-10-16原始来源核查",
+    "record_type": "paper",
+    "scope": "handwriting",
+    "privacy": "public_source_note",
+    "checked_on": "2026-10-16",
+    "last_updated": "2026-10-16",
+    "sections_read": "原始摘要和版本元数据",
+    "previous_evidence": null,
+    "canonical_key": "paper:arxiv:2606.23254",
+    "aliases": [],
+    "note_path": "docs/handwriting/02_capability_matrix.md",
+    "evidence_history": [
+      {
+        "version": "arXiv:2606.23254v1",
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "原始摘要和版本元数据",
+        "source_urls": [
+          "https://arxiv.org/abs/2606.23254v1"
+        ]
+      }
+    ]
   }
 ]

@@ -1,0 +1,313 @@
+{
+  "kind": "deterministic_pixel_probe_not_model_evaluation",
+  "observer_inputs": "frame pixels and canonical instance geometry; no rendering events",
+  "environment": {
+    "python": "3.9.6",
+    "numpy": "2.0.2",
+    "pillow": "11.3.0",
+    "machine": "arm64"
+  },
+  "cases": [
+    {
+      "case": "ten_correct",
+      "frames": 29,
+      "sequence": [
+        "ten.horizontal",
+        "ten.vertical"
+      ],
+      "sequence_observable": true,
+      "sequence_exact": true,
+      "direction_exact": true,
+      "complete_before_next": true,
+      "strict_process_correct": true,
+      "final_ink_iou": 1.0,
+      "events": [
+        {
+          "id": "ten.horizontal",
+          "onset_frame": 1,
+          "complete_frame": 12,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "ten.vertical",
+          "onset_frame": 15,
+          "complete_frame": 26,
+          "direction": "forward",
+          "final_coverage": 1.0
+        }
+      ]
+    },
+    {
+      "case": "ten_swapped",
+      "frames": 29,
+      "sequence": [
+        "ten.vertical",
+        "ten.horizontal"
+      ],
+      "sequence_observable": true,
+      "sequence_exact": false,
+      "direction_exact": true,
+      "complete_before_next": true,
+      "strict_process_correct": false,
+      "final_ink_iou": 1.0,
+      "events": [
+        {
+          "id": "ten.horizontal",
+          "onset_frame": 15,
+          "complete_frame": 26,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "ten.vertical",
+          "onset_frame": 1,
+          "complete_frame": 12,
+          "direction": "forward",
+          "final_coverage": 1.0
+        }
+      ]
+    },
+    {
+      "case": "ten_reverse_horizontal",
+      "frames": 29,
+      "sequence": [
+        "ten.horizontal",
+        "ten.vertical"
+      ],
+      "sequence_observable": true,
+      "sequence_exact": true,
+      "direction_exact": false,
+      "complete_before_next": true,
+      "strict_process_correct": false,
+      "final_ink_iou": 1.0,
+      "events": [
+        {
+          "id": "ten.horizontal",
+          "onset_frame": 1,
+          "complete_frame": 12,
+          "direction": "reverse",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "ten.vertical",
+          "onset_frame": 15,
+          "complete_frame": 26,
+          "direction": "forward",
+          "final_coverage": 1.0
+        }
+      ]
+    },
+    {
+      "case": "three_correct",
+      "frames": 43,
+      "sequence": [
+        "three.top",
+        "three.middle",
+        "three.bottom"
+      ],
+      "sequence_observable": true,
+      "sequence_exact": true,
+      "direction_exact": true,
+      "complete_before_next": true,
+      "strict_process_correct": true,
+      "final_ink_iou": 1.0,
+      "events": [
+        {
+          "id": "three.top",
+          "onset_frame": 1,
+          "complete_frame": 12,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "three.middle",
+          "onset_frame": 15,
+          "complete_frame": 26,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "three.bottom",
+          "onset_frame": 29,
+          "complete_frame": 40,
+          "direction": "forward",
+          "final_coverage": 1.0
+        }
+      ]
+    },
+    {
+      "case": "three_swap_lower",
+      "frames": 43,
+      "sequence": [
+        "three.top",
+        "three.bottom",
+        "three.middle"
+      ],
+      "sequence_observable": true,
+      "sequence_exact": false,
+      "direction_exact": true,
+      "complete_before_next": true,
+      "strict_process_correct": false,
+      "final_ink_iou": 1.0,
+      "events": [
+        {
+          "id": "three.top",
+          "onset_frame": 1,
+          "complete_frame": 12,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "three.middle",
+          "onset_frame": 29,
+          "complete_frame": 40,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "three.bottom",
+          "onset_frame": 15,
+          "complete_frame": 26,
+          "direction": "forward",
+          "final_coverage": 1.0
+        }
+      ]
+    },
+    {
+      "case": "phrase_correct",
+      "frames": 71,
+      "sequence": [
+        "ten.horizontal",
+        "ten.vertical",
+        "three.top",
+        "three.middle",
+        "three.bottom"
+      ],
+      "sequence_observable": true,
+      "sequence_exact": true,
+      "direction_exact": true,
+      "complete_before_next": true,
+      "strict_process_correct": true,
+      "final_ink_iou": 1.0,
+      "events": [
+        {
+          "id": "ten.horizontal",
+          "onset_frame": 1,
+          "complete_frame": 12,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "ten.vertical",
+          "onset_frame": 15,
+          "complete_frame": 26,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "three.top",
+          "onset_frame": 29,
+          "complete_frame": 40,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "three.middle",
+          "onset_frame": 43,
+          "complete_frame": 54,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "three.bottom",
+          "onset_frame": 57,
+          "complete_frame": 68,
+          "direction": "forward",
+          "final_coverage": 1.0
+        }
+      ]
+    },
+    {
+      "case": "phrase_interleaved",
+      "frames": 71,
+      "sequence": [
+        "ten.horizontal",
+        "three.top",
+        "ten.vertical",
+        "three.middle",
+        "three.bottom"
+      ],
+      "sequence_observable": true,
+      "sequence_exact": false,
+      "direction_exact": true,
+      "complete_before_next": true,
+      "strict_process_correct": false,
+      "final_ink_iou": 1.0,
+      "events": [
+        {
+          "id": "ten.horizontal",
+          "onset_frame": 1,
+          "complete_frame": 12,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "ten.vertical",
+          "onset_frame": 29,
+          "complete_frame": 40,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "three.top",
+          "onset_frame": 15,
+          "complete_frame": 26,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "three.middle",
+          "onset_frame": 43,
+          "complete_frame": 54,
+          "direction": "forward",
+          "final_coverage": 1.0
+        },
+        {
+          "id": "three.bottom",
+          "onset_frame": 57,
+          "complete_frame": 68,
+          "direction": "forward",
+          "final_coverage": 1.0
+        }
+      ]
+    },
+    {
+      "case": "ten_sparse",
+      "frames": 2,
+      "sequence": null,
+      "sequence_observable": false,
+      "sequence_exact": null,
+      "direction_exact": null,
+      "complete_before_next": null,
+      "strict_process_correct": null,
+      "final_ink_iou": 1.0,
+      "events": [
+        {
+          "id": "ten.horizontal",
+          "onset_frame": 1,
+          "complete_frame": 1,
+          "direction": null,
+          "final_coverage": 1.0
+        },
+        {
+          "id": "ten.vertical",
+          "onset_frame": 1,
+          "complete_frame": 1,
+          "direction": null,
+          "final_coverage": 1.0
+        }
+      ]
+    }
+  ]
+}

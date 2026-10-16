@@ -6,6 +6,8 @@
 
 原始视频不随仓库分发；这些图用于说明可见问题，不能替代逐帧标注或总体错误率评测。
 
+2026-10-16重新查看了三张细节图：Wan“山”在帧51–61的右竖由下向上显现；Gemini“山”在帧4–19先出现左侧短竖；Wan“祎风”的局部在相邻抽样帧间成簇出现，现有采样不足以给出全程逐笔认证。前两项是可见墨迹过程问题；画面没有真实笔尖，不能据此声称测得了物理笔尖轨迹。此复核没有重新调用模型，也没有扩大原8段样例的统计范围。
+
 - [gemini-omni-1.1-flash__TRE-T2V-0048.jpg](gemini-omni-1.1-flash__TRE-T2V-0048.jpg)
 - [gemini-omni-1.1-flash__TRE-T2V-0048__detail.jpg](gemini-omni-1.1-flash__TRE-T2V-0048__detail.jpg)
 - [gemini-omni-1.1-flash__TRE-T2V-r2-018.jpg](gemini-omni-1.1-flash__TRE-T2V-r2-018.jpg)

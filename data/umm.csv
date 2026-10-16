@@ -4,7 +4,8 @@ local_focused:M043
 local_handwriting:R43
 user_survey:C01
 local_umm_core:P13"
-C02,C UMM与组内关联,Show-o2（arXiv:2506.15564）,NeurIPS 2025；原文与项目版本需对应,作者主张：统一文本、图像和视频理解/生成，并减少不同模态建模的割裂。,文本自回归、视觉流匹配；3D因果VAE和统一时空表示。,图像级统一框架向视频和交错模态推广困难。,报告图像、视频及混合模态建模能力，是Flash-Unified等工作的加速基座。,【边界】某个视频理解权重不自动支持所有视频生成任务；需逐项核查检查点和接口；未验证规范汉字过程。,https://arxiv.org/abs/2506.15564,historical_record_not_rechecked,,原论文机制与项目说明,"web_bundle:C02
+C02,C UMM与组内关联,Show-o2: Improved Native Unified Multimodal Models,arXiv:2506.15564v2；官方代码核查于2026-10-16,作者主张：统一文本、图像和视频理解/生成，并减少不同模态建模的割裂。,文本自回归、视觉流匹配；3D因果VAE和统一时空表示。,图像级统一框架向视频和交错模态推广困难。,报告图像、视频及混合模态建模能力，是Flash-Unified等工作的加速基座。,论文支持视频建模；官方TODO仍未勾选T2V/I2V权重发布。公开视频理解权重不能当视频生成底座；未验证规范汉字过程。,"https://arxiv.org/html/2506.15564v2
+https://github.com/showlab/Show-o/tree/main/show-o2",primary_sections_read,2026-10-16,原论文机制与项目说明,"web_bundle:C02
 local_focused:M041
 local_handwriting:R41
 user_survey:C02
@@ -57,7 +58,7 @@ U16,U UMM基础与协同补全,Can Unified Generation and Understanding Models M
 local_focused:M048
 local_handwriting:R48
 local_umm_expanded:X085"
-U17,U UMM基础与协同补全,"Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System",arXiv公开版本；会议状态未据此推定,作者主张：共享知识和合适计算分工可出现双向协同。,受控研究表示、任务和系统配置。,联合训练为何可能正迁移或负迁移。,在特定原生建模设置支持有条件协同。,【边界/推断】须控制数据/初始化/任务知识；不能跨设置宣布一种共享结构永远最优。,https://arxiv.org/abs/2609.01607,primary_abstract_read,2026-10-15,,"web_bundle:U17
+U17,U UMM基础与协同补全,"Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System",arXiv:2609.01607v1,作者主张：共享知识和合适计算分工可出现双向协同。,控制表示和计算，比较全共享、模态分支和任务分支；再比较领域读写任务与系统分工。,联合训练为何可能正迁移或负迁移。,作者报告特定SVG读写任务和图像任务的正迁移，但共享方式和任务差异会引入冲突；不是所有任务一致受益。,【边界/推断】须控制数据/初始化/任务知识；不能跨设置宣布一种共享结构永远最优。,https://arxiv.org/html/2609.01607v1,primary_sections_read,2026-10-16,,"web_bundle:U17
 local_umm_core:P27"
 U18,U UMM基础与协同补全,Transferability Between Understanding and Generation in Unified Multimodal Models,arXiv公开版本；会议状态未据此推定,作者主张：研究一侧训练的能力是否迁移到另一侧。,计数、关系等能力在理解/生成任务间做对照。,同一知识在不同输出端可能无法复用。,历史调研记录迁移依赖架构；本轮原文访问未成功。,【边界/推断】【待核】本轮不能升级为全文验证；保留题名和来源线索，关键数值不重用。,https://arxiv.org/abs/2607.04423,historical_record_unresolved,,,"web_bundle:U18
 local_umm_core:P25"
@@ -78,6 +79,14 @@ U29,U UMM基础与协同补全,Bridging Modality Disconnect in Self-Reflection v
 U30,U UMM基础与协同补全,LatentUM: Unleashing the Potential of Interleaved Cross-Modal Reasoning via a Latent-Space Unified Model,arXiv公开版本；会议状态未据此推定,作者主张：共享潜在推理可减少像素中介并连接跨模态过程。,潜在视觉思维与统一模型交错推理。,解码图像的成本与语义传递瓶颈。,已有潜在UMM推理路线；更正历史讨论中的模糊链接。,【边界/推断】不可把潜在序列准确性直接当作生成视频正确性。,https://arxiv.org/abs/2604.02097,primary_abstract_read,2026-10-15,,web_bundle:U30
 U31,U UMM基础与协同补全,DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement,arXiv公开版本；会议状态未据此推定,作者主张：利用共享与差异化表示而非强迫完全一致，可互相增强。,表示分解与信息交互约束。,理解与生成需求冲突。,是可供协同/表示实验比较的前作。,【边界/推断】本輪摘要级核查；仓库存在不等于权重与完整训练已发布。,https://arxiv.org/abs/2605.25328,primary_abstract_read,2026-10-15,,"web_bundle:U31
 local_umm_expanded:X067"
+L026,本地调研整合,UniVideo,arXiv:2510.08377v2,以统一框架连接视频理解、生成与编辑任务。,冻结Qwen2.5-VL-7B，经连接器条件化HunyuanVideo-13B并结合稠密视觉条件。,视频生成器难以统一利用复杂多模态语义和视觉条件。,提供理解引导视频任务的组装式实现，适合与原生共享系统比较。,理解主干冻结，不能把其理解分数或生成改进当作联合共享训练收益；未验证中文笔顺。,"https://arxiv.org/html/2510.08377v2
+https://github.com/KlingAIResearch/UniVideo",primary_sections_read,2026-10-16,既有调查 A,"local_focused:M039
+local_handwriting:R39"
+L028,本地调研整合,Lance: Unified Multimodal Modeling by Multi-Task Synergy,arXiv:2605.18678v1；官方代码核查于2026-10-16,以原生统一架构支持图像/视频理解、生成与编辑。,3B激活参数，双流专家与共享交错上下文、模态RoPE；文字CE＋视觉FM；继承Qwen2.5-VL和Wan2.2 VAE。,跨模态任务协同、细节生成与统一上下文建模。,已公开视频检查点及理解/生成/联合微调入口，可作为过程联合训练底座候选。,官方要求CUDA 12.4+、至少40GB显存推理；不等于训练需求。VBench成绩不证明中文事件能力；本项目未运行。,"https://arxiv.org/html/2605.18678v1
+https://github.com/bytedance/Lance
+https://github.com/bytedance/Lance/blob/main/train.md",primary_sections_read,2026-10-16,既有调查 A，前轮资料,"local_focused:M042
+local_handwriting:R42
+local_umm_expanded:X055"
 L057,UMM及相邻机制 / 核心脉络,"Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities","Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities，2025 起",未单独摘录。,按 AR、扩散和混合路线整理架构、数据、评测,理解与生成文献分散、技术范式不同,适合作为入口；综述归纳不能代替原论文实验,见结论栏及专题分析。,https://arxiv.org/abs/2505.02567,historical_record_not_rechecked,,,local_umm_core:P01
 L058,UMM及相邻机制 / 核心脉络,"Unified-IO 2: Scaling Autoregressive Multimodal Models with Vision, Language, Audio, and Action",Unified-IO 2，2023 / CVPR 2024,未单独摘录。,统一 token 表示与 encoder–decoder，覆盖视觉、文本、音频和动作,多模态、多任务通常依赖专门模型,报告 GRIT 及 35 个以上基准结果；各任务成熟度不同,见结论栏及专题分析。,https://arxiv.org/abs/2312.17172,historical_record_not_rechecked,,,local_umm_core:P02
 L059,UMM及相邻机制 / 核心脉络,AnyGPT: Unified Multimodal LLM with Discrete Sequence Modeling,AnyGPT，2024,未单独摘录。,将图像、语音、音乐等编码成离散序列，接入 LLM,如何扩展多种模态的输入输出,展示广泛模态转换；广度不代表每项质量均达到专用模型,见结论栏及专题分析。,https://arxiv.org/abs/2402.12226,historical_record_not_rechecked,,,local_umm_core:P03
