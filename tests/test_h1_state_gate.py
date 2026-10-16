@@ -1,0 +1,47 @@
+"""Check evidence controls and scoring, without treating them as model results."""
+import json
+from pathlib import Path
+import tempfile
+import unittest
+
+from scripts.h1_state_gate import DEFAULT, evaluate, parse, read_jsonl, render, write_jsonl
+
+
+class StateGateTest(unittest.TestCase):
+    def test_identical_current_requires_reference_to_decide_completion(self):
+        cases = {r['case_id']: r for r in json.loads((DEFAULT / 'cases.json').read_text())}
+        short, short_current = render(cases['dev-reference-00-short'])
+        long, long_current = render(cases['dev-reference-00-long'])
+        self.assertEqual(short_current.tobytes(), long_current.tobytes())
+        self.assertNotEqual(short.tobytes(), long.tobytes())
+        labels = {r['sample_id']: r for r in read_jsonl(DEFAULT / 'labels.jsonl')}
+        prefix = 'dev-reference-00-'
+        for variant, expected in [('short', '完整'), ('long', '部分')]:
+            self.assertEqual(labels[prefix + variant + '-reference_current-completion-q0-plain']['expected'], expected)
+            self.assertEqual(labels[prefix + variant + '-current_only-completion-q0-plain']['expected'], '未知')
+
+    def test_missing_answer_and_one_wrong_paraphrase_cannot_pass_pair(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            inputs = [dict(sample_id=f'q{i}', split='dev', response_format='plain',
+                           view='oracle_text', task='completion', wording=i,
+                           case_id='case', group_id='geometry') for i in range(2)]
+            labels = [dict(sample_id=f'q{i}', expected='部分', allowed=['部分', '完整'],
+                           reference_pair=None) for i in range(2)]
+            write_jsonl(root / 'inputs.jsonl', inputs)
+            write_jsonl(root / 'labels.jsonl', labels)
+            write_jsonl(root / 'predictions.jsonl', [dict(sample_id='q0', raw_response='部分')])
+            evaluate(root, root / 'predictions.jsonl', 'dev', 'plain', root / 'score', 'oracle_text')
+            report = json.loads((root / 'score/summary.json').read_text())
+            self.assertEqual(report['missing_rows'], 1)
+            self.assertEqual(report['metrics']['oracle_text/completion/correct']['rate'], .5)
+            self.assertEqual(report['metrics']['oracle_text/completion/both_correct']['rate'], 0)
+
+    def test_format_scoring_never_extracts_a_correct_word_from_an_explanation(self):
+        self.assertEqual(parse('{"answer":"部分"}', 'json', ['部分', '完整']), '部分')
+        self.assertIsNone(parse('部分，也可能完整', 'plain', ['部分', '完整']))
+        self.assertIsNone(parse('{"answer":"部分","extra":"完整"}', 'json', ['部分', '完整']))
+
+
+if __name__ == '__main__':
+    unittest.main()
