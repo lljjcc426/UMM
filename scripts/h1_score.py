@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from collections import defaultdict
 from pathlib import Path
 
@@ -57,7 +58,21 @@ def evaluate(inputs_path, labels_path, predictions_path):
         sid = r['sample_id']
         inp, label = inputs[sid], labels[sid]
         metrics = score(r.get('prediction'), label)
-        metrics['json_object'] = isinstance(r.get('prediction'), dict)
+        format_metric = 'parsed_choice' if label.get('score_fields') == ['answer'] else 'json_object'
+        metrics[format_metric] = isinstance(r.get('prediction'), dict)
+        if label.get('score_fields') == ['answer']:
+            # Secondary analysis: accept an explicit letter plus an exact option
+            # echo. The original strict score and prediction remain unchanged.
+            raw=r.get('raw_response','').strip()
+            match=re.fullmatch(r'([A-D])[.。]?|([A-D])[.、．]\s*(.+)',raw)
+            choice=None
+            if match:
+                if match.group(1):
+                    choice=match.group(1)
+                elif match.group(3)==inp['options']['ABCD'.index(match.group(2))]:
+                    choice=match.group(2)
+            metrics['choice_content']=choice==label['expected']['answer']
+            metrics['parsed_choice_content']=choice is not None
         for key, value in metrics.items():
             groups[inp['view']][key][0] += int(value)
             groups[inp['view']][key][1] += 1
@@ -72,6 +87,10 @@ def evaluate(inputs_path, labels_path, predictions_path):
         if x and y:
             pairs.append(dict(cases=[a,b], both_orders_correct=x['metrics']['order'] and y['metrics']['order'],
                               both_judgments_correct=x['metrics']['judgment'] and y['metrics']['judgment']))
+        x, y = by_id.get(a+'-order_mc'), by_id.get(b+'-order_mc')
+        if x and y:
+            pairs.append(dict(cases=[a,b],view='order_mc',
+                              both_orders_correct=x['metrics']['answer'] and y['metrics']['answer']))
     return dict(kind='h1_small_controlled_pilot', attempted=len(predictions),
                 planned=len(inputs), missing=sorted(set(inputs)-set(ids)),
                 by_view=summary, same_final_pairs=pairs, details=detailed)

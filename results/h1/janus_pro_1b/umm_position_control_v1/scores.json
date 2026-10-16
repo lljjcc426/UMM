@@ -1,0 +1,773 @@
+{
+  "kind": "h1_small_controlled_pilot",
+  "attempted": 33,
+  "planned": 33,
+  "missing": [],
+  "by_view": {
+    "seen_mc": {
+      "answer": {
+        "correct": 1,
+        "total": 8,
+        "fraction": 0.125
+      },
+      "all_required": {
+        "correct": 1,
+        "total": 8,
+        "fraction": 0.125
+      },
+      "parsed_choice": {
+        "correct": 2,
+        "total": 8,
+        "fraction": 0.25
+      },
+      "choice_content": {
+        "correct": 3,
+        "total": 8,
+        "fraction": 0.375
+      },
+      "parsed_choice_content": {
+        "correct": 7,
+        "total": 8,
+        "fraction": 0.875
+      }
+    },
+    "completion_mc": {
+      "answer": {
+        "correct": 0,
+        "total": 6,
+        "fraction": 0.0
+      },
+      "all_required": {
+        "correct": 0,
+        "total": 6,
+        "fraction": 0.0
+      },
+      "parsed_choice": {
+        "correct": 0,
+        "total": 6,
+        "fraction": 0.0
+      },
+      "choice_content": {
+        "correct": 1,
+        "total": 6,
+        "fraction": 0.16666666666666666
+      },
+      "parsed_choice_content": {
+        "correct": 6,
+        "total": 6,
+        "fraction": 1.0
+      }
+    },
+    "order_mc": {
+      "answer": {
+        "correct": 0,
+        "total": 4,
+        "fraction": 0.0
+      },
+      "all_required": {
+        "correct": 0,
+        "total": 4,
+        "fraction": 0.0
+      },
+      "parsed_choice": {
+        "correct": 0,
+        "total": 4,
+        "fraction": 0.0
+      },
+      "choice_content": {
+        "correct": 0,
+        "total": 4,
+        "fraction": 0.0
+      },
+      "parsed_choice_content": {
+        "correct": 3,
+        "total": 4,
+        "fraction": 0.75
+      }
+    },
+    "first_error_mc": {
+      "answer": {
+        "correct": 2,
+        "total": 4,
+        "fraction": 0.5
+      },
+      "all_required": {
+        "correct": 2,
+        "total": 4,
+        "fraction": 0.5
+      },
+      "parsed_choice": {
+        "correct": 4,
+        "total": 4,
+        "fraction": 1.0
+      },
+      "choice_content": {
+        "correct": 2,
+        "total": 4,
+        "fraction": 0.5
+      },
+      "parsed_choice_content": {
+        "correct": 4,
+        "total": 4,
+        "fraction": 1.0
+      }
+    },
+    "direction_mc": {
+      "answer": {
+        "correct": 1,
+        "total": 2,
+        "fraction": 0.5
+      },
+      "all_required": {
+        "correct": 1,
+        "total": 2,
+        "fraction": 0.5
+      },
+      "parsed_choice": {
+        "correct": 2,
+        "total": 2,
+        "fraction": 1.0
+      },
+      "choice_content": {
+        "correct": 1,
+        "total": 2,
+        "fraction": 0.5
+      },
+      "parsed_choice_content": {
+        "correct": 2,
+        "total": 2,
+        "fraction": 1.0
+      }
+    },
+    "early_switch_mc": {
+      "answer": {
+        "correct": 1,
+        "total": 2,
+        "fraction": 0.5
+      },
+      "all_required": {
+        "correct": 1,
+        "total": 2,
+        "fraction": 0.5
+      },
+      "parsed_choice": {
+        "correct": 2,
+        "total": 2,
+        "fraction": 1.0
+      },
+      "choice_content": {
+        "correct": 1,
+        "total": 2,
+        "fraction": 0.5
+      },
+      "parsed_choice_content": {
+        "correct": 2,
+        "total": 2,
+        "fraction": 1.0
+      }
+    },
+    "oracle_action_mc": {
+      "answer": {
+        "correct": 1,
+        "total": 5,
+        "fraction": 0.2
+      },
+      "all_required": {
+        "correct": 1,
+        "total": 5,
+        "fraction": 0.2
+      },
+      "parsed_choice": {
+        "correct": 5,
+        "total": 5,
+        "fraction": 1.0
+      },
+      "choice_content": {
+        "correct": 1,
+        "total": 5,
+        "fraction": 0.2
+      },
+      "parsed_choice_content": {
+        "correct": 5,
+        "total": 5,
+        "fraction": 1.0
+      }
+    },
+    "static_unknown_mc": {
+      "answer": {
+        "correct": 0,
+        "total": 2,
+        "fraction": 0.0
+      },
+      "all_required": {
+        "correct": 0,
+        "total": 2,
+        "fraction": 0.0
+      },
+      "parsed_choice": {
+        "correct": 2,
+        "total": 2,
+        "fraction": 1.0
+      },
+      "choice_content": {
+        "correct": 0,
+        "total": 2,
+        "fraction": 0.0
+      },
+      "parsed_choice_content": {
+        "correct": 2,
+        "total": 2,
+        "fraction": 1.0
+      }
+    }
+  },
+  "same_final_pairs": [
+    {
+      "cases": [
+        "c04",
+        "c05"
+      ],
+      "view": "order_mc",
+      "both_orders_correct": false
+    },
+    {
+      "cases": [
+        "c09",
+        "c10"
+      ],
+      "view": "order_mc",
+      "both_orders_correct": false
+    }
+  ],
+  "details": [
+    {
+      "sample_id": "c00-seen_mc",
+      "construction": "blank",
+      "metrics": {
+        "answer": true,
+        "all_required": true,
+        "parsed_choice": true,
+        "choice_content": true,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "B"
+      },
+      "expected": {
+        "answer": "B"
+      }
+    },
+    {
+      "sample_id": "c01-seen_mc",
+      "construction": "partial_first",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "C"
+      }
+    },
+    {
+      "sample_id": "c02-seen_mc",
+      "construction": "complete_first",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "D"
+      }
+    },
+    {
+      "sample_id": "c03-seen_mc",
+      "construction": "partial_second",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": true,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "A"
+      }
+    },
+    {
+      "sample_id": "c04-seen_mc",
+      "construction": "correct",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": false,
+        "parsed_choice_content": false
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "B"
+      }
+    },
+    {
+      "sample_id": "c06-seen_mc",
+      "construction": "wrong_prefix",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": true,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "A"
+      },
+      "expected": {
+        "answer": "C"
+      }
+    },
+    {
+      "sample_id": "c07-seen_mc",
+      "construction": "early_switch",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "D"
+      }
+    },
+    {
+      "sample_id": "c11-seen_mc",
+      "construction": "partial_first",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": true,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "A"
+      }
+    },
+    {
+      "sample_id": "c01-completion_mc",
+      "construction": "partial_first",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "B"
+      }
+    },
+    {
+      "sample_id": "c02-completion_mc",
+      "construction": "complete_first",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "C"
+      }
+    },
+    {
+      "sample_id": "c03-completion_mc",
+      "construction": "partial_second",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "D"
+      }
+    },
+    {
+      "sample_id": "c04-completion_mc",
+      "construction": "correct",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": true,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "A"
+      }
+    },
+    {
+      "sample_id": "c07-completion_mc",
+      "construction": "early_switch",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "B"
+      }
+    },
+    {
+      "sample_id": "c11-completion_mc",
+      "construction": "partial_first",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "C"
+      }
+    },
+    {
+      "sample_id": "c04-order_mc",
+      "construction": "correct",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "D"
+      }
+    },
+    {
+      "sample_id": "c04-first_error_mc",
+      "construction": "correct",
+      "metrics": {
+        "answer": true,
+        "all_required": true,
+        "parsed_choice": true,
+        "choice_content": true,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "A"
+      },
+      "expected": {
+        "answer": "A"
+      }
+    },
+    {
+      "sample_id": "c05-order_mc",
+      "construction": "swapped",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": false,
+        "parsed_choice_content": false
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "B"
+      }
+    },
+    {
+      "sample_id": "c05-first_error_mc",
+      "construction": "swapped",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": true,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "A"
+      },
+      "expected": {
+        "answer": "C"
+      }
+    },
+    {
+      "sample_id": "c09-order_mc",
+      "construction": "correct",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "D"
+      }
+    },
+    {
+      "sample_id": "c09-first_error_mc",
+      "construction": "correct",
+      "metrics": {
+        "answer": true,
+        "all_required": true,
+        "parsed_choice": true,
+        "choice_content": true,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "A"
+      },
+      "expected": {
+        "answer": "A"
+      }
+    },
+    {
+      "sample_id": "c10-order_mc",
+      "construction": "swapped",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": false,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": null,
+      "expected": {
+        "answer": "B"
+      }
+    },
+    {
+      "sample_id": "c10-first_error_mc",
+      "construction": "swapped",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": true,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "A"
+      },
+      "expected": {
+        "answer": "C"
+      }
+    },
+    {
+      "sample_id": "c02-direction_mc",
+      "construction": "complete_first",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": true,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "A"
+      },
+      "expected": {
+        "answer": "D"
+      }
+    },
+    {
+      "sample_id": "c08-direction_mc",
+      "construction": "reverse",
+      "metrics": {
+        "answer": true,
+        "all_required": true,
+        "parsed_choice": true,
+        "choice_content": true,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "A"
+      },
+      "expected": {
+        "answer": "A"
+      }
+    },
+    {
+      "sample_id": "c03-early_switch_mc",
+      "construction": "partial_second",
+      "metrics": {
+        "answer": true,
+        "all_required": true,
+        "parsed_choice": true,
+        "choice_content": true,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "B"
+      },
+      "expected": {
+        "answer": "B"
+      }
+    },
+    {
+      "sample_id": "c07-early_switch_mc",
+      "construction": "early_switch",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": true,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "B"
+      },
+      "expected": {
+        "answer": "C"
+      }
+    },
+    {
+      "sample_id": "c01-oracle_action_mc",
+      "construction": "partial_first",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": true,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "A"
+      },
+      "expected": {
+        "answer": "D"
+      }
+    },
+    {
+      "sample_id": "c02-oracle_action_mc",
+      "construction": "complete_first",
+      "metrics": {
+        "answer": true,
+        "all_required": true,
+        "parsed_choice": true,
+        "choice_content": true,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "A"
+      },
+      "expected": {
+        "answer": "A"
+      }
+    },
+    {
+      "sample_id": "c05-oracle_action_mc",
+      "construction": "swapped",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": true,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "A"
+      },
+      "expected": {
+        "answer": "B"
+      }
+    },
+    {
+      "sample_id": "c07-oracle_action_mc",
+      "construction": "early_switch",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": true,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "A"
+      },
+      "expected": {
+        "answer": "C"
+      }
+    },
+    {
+      "sample_id": "c08-oracle_action_mc",
+      "construction": "reverse",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": true,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "A"
+      },
+      "expected": {
+        "answer": "D"
+      }
+    },
+    {
+      "sample_id": "c04-static_unknown_mc",
+      "construction": "correct",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": true,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "B"
+      },
+      "expected": {
+        "answer": "A"
+      }
+    },
+    {
+      "sample_id": "c09-static_unknown_mc",
+      "construction": "correct",
+      "metrics": {
+        "answer": false,
+        "all_required": false,
+        "parsed_choice": true,
+        "choice_content": false,
+        "parsed_choice_content": true
+      },
+      "prediction": {
+        "answer": "A"
+      },
+      "expected": {
+        "answer": "B"
+      }
+    }
+  ]
+}

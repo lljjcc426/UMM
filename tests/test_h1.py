@@ -1,8 +1,11 @@
 """Focused checks for H1 counterfactuals, observability and score attribution."""
 import unittest
+import json
+import tempfile
+from pathlib import Path
 import numpy as np
 from scripts.h1_dataset import render, annotation
-from scripts.h1_score import score
+from scripts.h1_score import score, evaluate
 
 
 class H1Test(unittest.TestCase):
@@ -45,6 +48,22 @@ class H1Test(unittest.TestCase):
         self.assertEqual(result['first_error'],'unknown')
         self.assertEqual(result['next'],'stop_error')
         self.assertEqual(result,annotation('three',list(reversed(impossible)),'last_frame'))
+
+    def test_choice_echo_analysis_preserves_strict_score_and_rejects_conflict(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            inputs=[dict(sample_id=str(i),view='seen_mc',options=['上横','下横','中横','无']) for i in range(3)]
+            labels=[dict(sample_id=str(i),expected={'answer':'A'},score_fields=['answer'],construction='test') for i in range(3)]
+            predictions=[dict(sample_id='0',raw_response='A. 上横',prediction=None),
+                         dict(sample_id='1',raw_response='A. 下横',prediction=None),
+                         dict(sample_id='2',raw_response='A',prediction={'answer':'A'})]
+            for name,rows in [('inputs',inputs),('labels',labels),('predictions',predictions)]:
+                (root/name).write_text(''.join(json.dumps(r)+'\n' for r in rows))
+            report=evaluate(root/'inputs',root/'labels',root/'predictions')
+            self.assertEqual(report['by_view']['seen_mc']['answer']['correct'],1)
+            self.assertEqual(report['by_view']['seen_mc']['choice_content']['correct'],2)
+            self.assertFalse(report['details'][0]['metrics']['all_required'])
+            self.assertFalse(report['details'][1]['metrics']['choice_content'])
 
 
 if __name__ == '__main__':

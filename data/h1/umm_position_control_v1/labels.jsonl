@@ -1,0 +1,33 @@
+{"sample_id": "c00-seen_mc", "expected": {"answer": "B"}, "score_fields": ["answer"], "expected_text": "无", "semantic_target": [], "construction": "blank"}
+{"sample_id": "c01-seen_mc", "expected": {"answer": "C"}, "score_fields": ["answer"], "expected_text": "上横", "semantic_target": ["top"], "construction": "partial_first"}
+{"sample_id": "c02-seen_mc", "expected": {"answer": "D"}, "score_fields": ["answer"], "expected_text": "上横", "semantic_target": ["top"], "construction": "complete_first"}
+{"sample_id": "c03-seen_mc", "expected": {"answer": "A"}, "score_fields": ["answer"], "expected_text": "上横、中横", "semantic_target": ["top", "middle"], "construction": "partial_second"}
+{"sample_id": "c04-seen_mc", "expected": {"answer": "B"}, "score_fields": ["answer"], "expected_text": "上横、中横、下横", "semantic_target": ["top", "middle", "bottom"], "construction": "correct"}
+{"sample_id": "c06-seen_mc", "expected": {"answer": "C"}, "score_fields": ["answer"], "expected_text": "上横、下横", "semantic_target": ["top", "bottom"], "construction": "wrong_prefix"}
+{"sample_id": "c07-seen_mc", "expected": {"answer": "D"}, "score_fields": ["answer"], "expected_text": "上横、中横", "semantic_target": ["top", "middle"], "construction": "early_switch"}
+{"sample_id": "c11-seen_mc", "expected": {"answer": "A"}, "score_fields": ["answer"], "expected_text": "横", "semantic_target": ["horizontal"], "construction": "partial_first"}
+{"sample_id": "c01-completion_mc", "expected": {"answer": "B"}, "score_fields": ["answer"], "expected_text": "完整：无；未完成：上横", "semantic_target": {"finished": [], "unfinished": ["top"]}, "construction": "partial_first"}
+{"sample_id": "c02-completion_mc", "expected": {"answer": "C"}, "score_fields": ["answer"], "expected_text": "完整：上横；未完成：无", "semantic_target": {"finished": ["top"], "unfinished": []}, "construction": "complete_first"}
+{"sample_id": "c03-completion_mc", "expected": {"answer": "D"}, "score_fields": ["answer"], "expected_text": "完整：上横；未完成：中横", "semantic_target": {"finished": ["top"], "unfinished": ["middle"]}, "construction": "partial_second"}
+{"sample_id": "c04-completion_mc", "expected": {"answer": "A"}, "score_fields": ["answer"], "expected_text": "完整：上横、中横、下横；未完成：无", "semantic_target": {"finished": ["bottom", "middle", "top"], "unfinished": []}, "construction": "correct"}
+{"sample_id": "c07-completion_mc", "expected": {"answer": "B"}, "score_fields": ["answer"], "expected_text": "完整：中横；未完成：上横", "semantic_target": {"finished": ["middle"], "unfinished": ["top"]}, "construction": "early_switch"}
+{"sample_id": "c11-completion_mc", "expected": {"answer": "C"}, "score_fields": ["answer"], "expected_text": "完整：无；未完成：横", "semantic_target": {"finished": [], "unfinished": ["horizontal"]}, "construction": "partial_first"}
+{"sample_id": "c04-order_mc", "expected": {"answer": "D"}, "score_fields": ["answer"], "expected_text": "上横、中横、下横", "semantic_target": ["top", "middle", "bottom"], "construction": "correct"}
+{"sample_id": "c04-first_error_mc", "expected": {"answer": "A"}, "score_fields": ["answer"], "expected_text": "顺序符合规范", "semantic_target": null, "construction": "correct"}
+{"sample_id": "c05-order_mc", "expected": {"answer": "B"}, "score_fields": ["answer"], "expected_text": "上横、下横、中横", "semantic_target": ["top", "bottom", "middle"], "construction": "swapped"}
+{"sample_id": "c05-first_error_mc", "expected": {"answer": "C"}, "score_fields": ["answer"], "expected_text": "首次顺序错误在第2笔", "semantic_target": 2, "construction": "swapped"}
+{"sample_id": "c09-order_mc", "expected": {"answer": "D"}, "score_fields": ["answer"], "expected_text": "横、竖", "semantic_target": ["horizontal", "vertical"], "construction": "correct"}
+{"sample_id": "c09-first_error_mc", "expected": {"answer": "A"}, "score_fields": ["answer"], "expected_text": "顺序符合规范", "semantic_target": null, "construction": "correct"}
+{"sample_id": "c10-order_mc", "expected": {"answer": "B"}, "score_fields": ["answer"], "expected_text": "竖、横", "semantic_target": ["vertical", "horizontal"], "construction": "swapped"}
+{"sample_id": "c10-first_error_mc", "expected": {"answer": "C"}, "score_fields": ["answer"], "expected_text": "首次顺序错误在第1笔", "semantic_target": 1, "construction": "swapped"}
+{"sample_id": "c02-direction_mc", "expected": {"answer": "D"}, "score_fields": ["answer"], "expected_text": "从左向右", "semantic_target": "从左向右", "construction": "complete_first"}
+{"sample_id": "c08-direction_mc", "expected": {"answer": "A"}, "score_fields": ["answer"], "expected_text": "从右向左", "semantic_target": "从右向左", "construction": "reverse"}
+{"sample_id": "c03-early_switch_mc", "expected": {"answer": "B"}, "score_fields": ["answer"], "expected_text": "上一笔已写完，再开始新笔", "semantic_target": null, "construction": "partial_second"}
+{"sample_id": "c07-early_switch_mc", "expected": {"answer": "C"}, "score_fields": ["answer"], "expected_text": "上一笔未写完，就开始新笔", "semantic_target": 2, "construction": "early_switch"}
+{"sample_id": "c01-oracle_action_mc", "expected": {"answer": "D"}, "score_fields": ["answer"], "expected_text": "继续上横", "semantic_target": {"next": "continue", "target": "top"}, "construction": "partial_first"}
+{"sample_id": "c02-oracle_action_mc", "expected": {"answer": "A"}, "score_fields": ["answer"], "expected_text": "开始中横", "semantic_target": {"next": "start", "target": "middle"}, "construction": "complete_first"}
+{"sample_id": "c05-oracle_action_mc", "expected": {"answer": "B"}, "score_fields": ["answer"], "expected_text": "停止并处理已发生的错误", "semantic_target": {"next": "stop_error", "target": null}, "construction": "swapped"}
+{"sample_id": "c07-oracle_action_mc", "expected": {"answer": "C"}, "score_fields": ["answer"], "expected_text": "停止并处理已发生的错误", "semantic_target": {"next": "stop_error", "target": null}, "construction": "early_switch"}
+{"sample_id": "c08-oracle_action_mc", "expected": {"answer": "D"}, "score_fields": ["answer"], "expected_text": "停止并处理已发生的错误", "semantic_target": {"next": "stop_error", "target": null}, "construction": "reverse"}
+{"sample_id": "c04-static_unknown_mc", "expected": {"answer": "A"}, "score_fields": ["answer"], "expected_text": "无法从终态确定", "semantic_target": null, "construction": "correct"}
+{"sample_id": "c09-static_unknown_mc", "expected": {"answer": "B"}, "score_fields": ["answer"], "expected_text": "无法从终态确定", "semantic_target": null, "construction": "correct"}
