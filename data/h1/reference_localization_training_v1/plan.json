@@ -1,0 +1,34 @@
+{
+  "objective": "Teach reference coordinate output while preserving state judgments; H1 prerequisites only.",
+  "training_geometry_groups": 36,
+  "unique_localization_targets": 84,
+  "localization_repeats": 4,
+  "localization_rows": 336,
+  "visual_state_replay_rows": 744,
+  "text_replay_rows": 512,
+  "total_rows": 1592,
+  "train_seed": 731,
+  "geometry_seed": 10418,
+  "initial_adapter": "checkpoints/h1_target_cue_boxed_v1/adapter.pt",
+  "configuration": {
+    "epochs": 3,
+    "steps": 1194,
+    "learning_rate": 0.0002,
+    "accumulation": 4,
+    "last_layers": 8,
+    "rank": 8,
+    "alpha": 16
+  },
+  "output": "Same four-coordinate JSON and prompt as the preceding diagnostic; only answer/EOS tokens supervised.",
+  "input": "Reference-only upper-half image and target name for localization; no current-state information.",
+  "evaluation": [
+    "84 unique training localization targets",
+    "28 prior development targets with actual image",
+    "same 28 targets with blank image",
+    "112 original boxed target development questions",
+    "104 current-only development questions",
+    "208 text development questions"
+  ],
+  "policy": "Final adapter only; fixed budget, no intermediate selection. Original visual test untouched.",
+  "limitations": "Same synthetic shape families and renderer. Prior dev has been inspected; this is development, not independent acceptance."
+}

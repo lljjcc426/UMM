@@ -110,7 +110,9 @@ def run(args):
     encoded = []
     for row in rows:
         prompt = text_prompt_ids(tokenizer, token_ids, row['prompt']) if not row['images'] else None
-        answer = json.dumps({'answer': labels[row['sample_id']]['expected']}, ensure_ascii=False, separators=(',', ':'))
+        label = labels[row['sample_id']]
+        response = label['response'] if 'response' in label else {'answer': label['expected']}
+        answer = json.dumps(response, ensure_ascii=False, separators=(',', ':'))
         answer_ids = tokenizer(answer, add_special_tokens=False).input_ids
         encoded.append((prompt, answer_ids, answer_ids + [tokenizer.eos_token_id]))
     steps_per_epoch = math.ceil(len(rows) / args.accumulation)
@@ -221,7 +223,7 @@ if __name__ == '__main__':
     p.add_argument('--device', choices=['cpu','mps','cuda'], default='mps')
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--adapter', type=Path, required=True)
-    p.add_argument('--views', nargs='+', choices=['oracle_text', 'reference_current', 'current_only'], default=['oracle_text'])
+    p.add_argument('--views', nargs='+', choices=['oracle_text', 'reference_current', 'current_only', 'reference_only'], default=['oracle_text'])
     p.add_argument('--text-replay', type=Path, help='Mix all train/oracle_text/JSON rows from this dataset.')
     p.add_argument('--init-adapter', type=Path, help='Continue a previous state adapter; optionally extend layers with --last-layers.')
     p.add_argument('--rank', type=int, default=8)

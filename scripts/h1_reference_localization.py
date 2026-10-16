@@ -53,31 +53,36 @@ def build():
     print(plan)
 
 
-def run():
+def localization_prompt(target):
+    return (f'图片大小432×432像素，上半部是完整线条参考，下半部空白。请定位上半部的{target}。'
+        '坐标原点为整张图左上角，x向右，y向下。输出这条线中心路径的最小x、最小y、最大x、最大y。'
+        '横线的两个y相同，竖线的两个x相同。只输出JSON：{"box":[最小x,最小y,最大x,最大y]}。')
+
+
+def run(data=DATA, result=RESULT, adapter=ROOT/'checkpoints/h1_target_cue_boxed_v1/adapter.pt', blank=False):
     import torch
     from h1_run_showo import image_prompt_embeds
-    RESULT.mkdir(parents=True,exist_ok=False)
+    result.mkdir(parents=True,exist_ok=False)
     assets=ROOT/'checkpoints/Show-o-assets'
     model,tok,ids=load_model(ROOT/'checkpoints/Show-o-source',ROOT/'checkpoints/Show-o2-1.5B-video',assets,'mps')
-    config=load_adapter(model,ROOT/'checkpoints/h1_target_cue_boxed_v1/adapter.pt','mps')
+    config=load_adapter(model,adapter,'mps')
     model.eval().requires_grad_(False)
     encoder=StateImageEncoder(model,assets,'mps')
     from models import omni_attn_mask_naive
     metadata=dict(model='showlab/show-o2-1.5B-w-video-und',model_revision=MODEL_REVISION,
         source_revision=SOURCE_REVISION,adapter_config=config,device='MPS bf16; VAE CPU fp32',
-        started_utc=datetime.now(timezone.utc).isoformat(),plan=json.loads((DATA/'plan.json').read_text()),
+        adapter=str(adapter.relative_to(ROOT)),blank_image=blank,
+        started_utc=datetime.now(timezone.utc).isoformat(),plan=json.loads((data/'plan.json').read_text()),
         decoding='Greedy token trie over all in-range integer coordinates; fixed JSON punctuation. No candidate boxes or label access.')
-    (RESULT/'run.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n')
-    rows=json.loads((DATA/'cases.json').read_text())
+    (result/'run.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n')
+    rows=json.loads((data/'cases.json').read_text())
     inputs=[{k:v for k,v in r.items() if k!='expected_box'} for r in rows]
-    (RESULT/'inputs.json').write_text(json.dumps(inputs,ensure_ascii=False,indent=2)+'\n')
-    with torch.inference_mode(),(RESULT/'predictions.jsonl').open('w') as out:
+    (result/'inputs.json').write_text(json.dumps(inputs,ensure_ascii=False,indent=2)+'\n')
+    with torch.inference_mode(),(result/'predictions.jsonl').open('w') as out:
         for row in inputs:
-            prompt=(f'图片大小432×432像素，上半部是完整线条参考，下半部空白。请定位上半部的{row["target"]}。'
-                '坐标原点为整张图左上角，x向右，y向下。输出这条线中心路径的最小x、最小y、最大x、最大y。'
-                '横线的两个y相同，竖线的两个x相同。只输出JSON：{"box":[最小x,最小y,最大x,最大y]}。')
+            prompt=localization_prompt(row['target'])
             start=time.perf_counter()
-            emb,mods=image_prompt_embeds(model,tok,ids,prompt,encoder.encode(DATA/row['image']),'mps')
+            emb,mods=image_prompt_embeds(model,tok,ids,prompt,encoder.encode(None if blank else data/row['image']),'mps')
             generated=[]
             def append(token):
                 nonlocal emb
@@ -102,15 +107,15 @@ def run():
             out.write(json.dumps(dict(sample_id=row['sample_id'],prompt=prompt,raw_response=answer,seconds=time.perf_counter()-start),ensure_ascii=False)+'\n')
             out.flush()
     metadata['finished_utc']=datetime.now(timezone.utc).isoformat()
-    (RESULT/'run.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n')
-    score()
+    (result/'run.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n')
+    score(data,result)
 
 
-def score():
+def score(data=DATA, result=RESULT):
     from collections import defaultdict
     from h1_state_gate import interval
-    rows=json.loads((DATA/'cases.json').read_text())
-    predictions={r['sample_id']:r for r in map(json.loads,(RESULT/'predictions.jsonl').read_text().splitlines())}
+    rows=json.loads((data/'cases.json').read_text())
+    predictions={r['sample_id']:r for r in map(json.loads,(result/'predictions.jsonl').read_text().splitlines())}
     scored=[]
     groups=defaultdict(list)
     for row in rows:
@@ -123,11 +128,17 @@ def score():
     report=dict(targets=len(scored),geometry_groups=len(groups),within_12px=sum(r['within_12px'] for r in scored),
         invalid_boxes=sum(not r['valid'] for r in scored),mean_absolute_coordinate_error=sum(sum(r['coordinate_errors']) for r in scored)/(4*len(scored)),
         cluster_bootstrap_95=interval(groups),cases=scored)
-    (RESULT/'score.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+    (result/'score.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
     print({k:v for k,v in report.items() if k!='cases'})
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('command',choices=['build','run','score'])
+    p.add_argument('--data',type=Path,default=DATA)
+    p.add_argument('--output',type=Path,default=RESULT)
+    p.add_argument('--adapter',type=Path,default=ROOT/'checkpoints/h1_target_cue_boxed_v1/adapter.pt')
+    p.add_argument('--blank-image',action='store_true')
     args=p.parse_args()
-    {'build':build,'run':run,'score':score}[args.command]()
+    if args.command=='build': build()
+    elif args.command=='run': run(args.data,args.output,args.adapter,args.blank_image)
+    else: score(args.data,args.output)
