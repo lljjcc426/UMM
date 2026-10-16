@@ -1,0 +1,83 @@
+{
+  "view": "oracle_text",
+  "split": "dev",
+  "source_rows": 208,
+  "unique_inputs": 192,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "results/h1/showo2_video_1_5b/target_contrast_v1_text_dev",
+  "after": "results/h1/showo2_video_1_5b/target_focus_v1/text_dev",
+  "metrics": {
+    "presence": {
+      "n": 96,
+      "groups": 13,
+      "before_correct": 96,
+      "after_correct": 93,
+      "accuracy_difference": -0.03125,
+      "before_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "after_cluster_bootstrap_95": [
+        0.92,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        -0.08,
+        0.0
+      ],
+      "unique_cases_both_wordings": {
+        "n": 48,
+        "before_correct": 48,
+        "after_correct": 46,
+        "before_cluster_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "after_cluster_bootstrap_95": [
+          0.8958333333333334,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          -0.10416666666666667,
+          0.0
+        ]
+      }
+    },
+    "completion": {
+      "n": 96,
+      "groups": 13,
+      "before_correct": 95,
+      "after_correct": 91,
+      "accuracy_difference": -0.041666666666666664,
+      "before_cluster_bootstrap_95": [
+        0.967391304347826,
+        1.0
+      ],
+      "after_cluster_bootstrap_95": [
+        0.89,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        -0.1,
+        0.0
+      ],
+      "unique_cases_both_wordings": {
+        "n": 48,
+        "before_correct": 47,
+        "after_correct": 45,
+        "before_cluster_bootstrap_95": [
+          0.9347826086956522,
+          1.0
+        ],
+        "after_cluster_bootstrap_95": [
+          0.875,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          -0.1,
+          0.0
+        ]
+      }
+    }
+  }
+}

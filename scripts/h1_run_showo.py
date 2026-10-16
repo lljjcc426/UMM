@@ -156,7 +156,9 @@ def run(args):
     if args.adapter:
         from h1_train_state import load_adapter
         adapter_config = load_adapter(model, args.adapter, args.device)
-        model.eval().requires_grad_(False)
+        model.eval()
+        if not args.adapter_grad_forward:
+            model.requires_grad_(False)
     visual = args.blank_image or any(r['images'] for r in rows)
     encoder = StateImageEncoder(model, args.assets, args.device) if visual else None
     metadata = dict(
@@ -181,6 +183,9 @@ def run(args):
         checkpoint_loading='upstream complete state load; SigLIP architecture-only initialization',
         adapter=str(args.adapter.resolve().relative_to(ROOT)) if args.adapter else None,
         adapter_config=adapter_config,
+        forward_mode=('adapter autograd enabled; no backward or parameter updates'
+                      if args.adapter_grad_forward else 'inference_mode; all parameters frozen'),
+        gradient_enabled_parameters=sum(p.numel() for p in model.parameters() if p.requires_grad),
         started_utc=datetime.now(timezone.utc).isoformat(), python=platform.python_version(),
         platform=platform.platform(),
         packages={p: importlib.metadata.version(p) for p in
@@ -194,7 +199,10 @@ def run(args):
         elif args.device == 'mps':
             torch.mps.synchronize()
 
-    with (args.output / 'predictions.jsonl').open('w') as out, torch.inference_mode():
+    # Diagnostic control for the observed MPS/bfloat16 train/inference difference.
+    # Only loaded LoRA parameters retain gradients; labels and optimizers are absent.
+    forward_context = torch.enable_grad() if args.adapter_grad_forward else torch.inference_mode()
+    with (args.output / 'predictions.jsonl').open('w') as out, forward_context:
         for index, row in enumerate(rows, 1):
             encode_started = time.perf_counter()
             if visual:
@@ -248,10 +256,14 @@ if __name__ == '__main__':
     p.add_argument('--view', choices=['oracle_text', 'reference_current', 'current_only'], default='oracle_text')
     p.add_argument('--blank-image', action='store_true', help='Use a blank image with text facts to check native MMU routing.')
     p.add_argument('--adapter', type=Path, help='Local adapter checkpoint from h1_train_state.py.')
+    p.add_argument('--adapter-grad-forward', action='store_true',
+                   help='Diagnostic forward-only control: retain adapter autograd without updating weights.')
     p.add_argument('--constrain-answers', action='store_true', help='Generate only JSON with Chinese state words; format guaranteed by the interface.')
     args = p.parse_args()
     if args.constrain_answers and args.format != 'json':
         p.error('--constrain-answers requires --format json.')
+    if args.adapter_grad_forward and not (args.adapter and args.constrain_answers):
+        p.error('--adapter-grad-forward requires --adapter and --constrain-answers.')
     if args.blank_image and args.view != 'oracle_text':
         p.error('--blank-image is only a control for oracle_text; it cannot replace observed images.')
     if args.blank_image or args.view != 'oracle_text':

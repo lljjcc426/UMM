@@ -1,0 +1,83 @@
+{
+  "view": "reference_current",
+  "split": "dev",
+  "source_rows": 104,
+  "unique_inputs": 104,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "results/h1/showo2_video_1_5b/target_contrast_v1_reference_dev",
+  "after": "results/h1/showo2_video_1_5b/target_focus_v1/reference_dev",
+  "metrics": {
+    "presence": {
+      "n": 52,
+      "groups": 7,
+      "before_correct": 47,
+      "after_correct": 48,
+      "accuracy_difference": 0.019230769230769232,
+      "before_cluster_bootstrap_95": [
+        0.8214285714285714,
+        0.9807692307692307
+      ],
+      "after_cluster_bootstrap_95": [
+        0.8392857142857143,
+        0.9821428571428571
+      ],
+      "paired_cluster_bootstrap_95": [
+        -0.07692307692307693,
+        0.125
+      ],
+      "unique_cases_both_wordings": {
+        "n": 26,
+        "before_correct": 23,
+        "after_correct": 23,
+        "before_cluster_bootstrap_95": [
+          0.7857142857142857,
+          0.9642857142857143
+        ],
+        "after_cluster_bootstrap_95": [
+          0.7692307692307693,
+          0.9642857142857143
+        ],
+        "paired_change_bootstrap_95": [
+          -0.16666666666666666,
+          0.14285714285714285
+        ]
+      }
+    },
+    "completion": {
+      "n": 52,
+      "groups": 7,
+      "before_correct": 36,
+      "after_correct": 44,
+      "accuracy_difference": 0.15384615384615385,
+      "before_cluster_bootstrap_95": [
+        0.6153846153846154,
+        0.75
+      ],
+      "after_cluster_bootstrap_95": [
+        0.7272727272727273,
+        0.9615384615384616
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.30357142857142855
+      ],
+      "unique_cases_both_wordings": {
+        "n": 26,
+        "before_correct": 17,
+        "after_correct": 22,
+        "before_cluster_bootstrap_95": [
+          0.5714285714285714,
+          0.7307692307692307
+        ],
+        "after_cluster_bootstrap_95": [
+          0.7272727272727273,
+          0.9615384615384616
+        ],
+        "paired_change_bootstrap_95": [
+          0.07692307692307693,
+          0.32142857142857145
+        ]
+      }
+    }
+  }
+}

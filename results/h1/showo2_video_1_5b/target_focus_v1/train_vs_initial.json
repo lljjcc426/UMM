@@ -1,0 +1,83 @@
+{
+  "view": "reference_current",
+  "split": "train",
+  "source_rows": 432,
+  "unique_inputs": 432,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "results/h1/showo2_video_1_5b/fit_scope_v1/initial_contrast_train",
+  "after": "results/h1/showo2_video_1_5b/target_focus_v1/train",
+  "metrics": {
+    "presence": {
+      "n": 216,
+      "groups": 6,
+      "before_correct": 175,
+      "after_correct": 187,
+      "accuracy_difference": 0.05555555555555555,
+      "before_cluster_bootstrap_95": [
+        0.7777777777777778,
+        0.8379629629629629
+      ],
+      "after_cluster_bootstrap_95": [
+        0.8425925925925926,
+        0.8842592592592593
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.018518518518518517,
+        0.09259259259259259
+      ],
+      "unique_cases_both_wordings": {
+        "n": 108,
+        "before_correct": 83,
+        "after_correct": 88,
+        "before_cluster_bootstrap_95": [
+          0.7222222222222222,
+          0.8148148148148148
+        ],
+        "after_cluster_bootstrap_95": [
+          0.7962962962962963,
+          0.8333333333333334
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.09259259259259259
+        ]
+      }
+    },
+    "completion": {
+      "n": 216,
+      "groups": 6,
+      "before_correct": 138,
+      "after_correct": 154,
+      "accuracy_difference": 0.07407407407407407,
+      "before_cluster_bootstrap_95": [
+        0.6111111111111112,
+        0.6620370370370371
+      ],
+      "after_cluster_bootstrap_95": [
+        0.6759259259259259,
+        0.75
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.018518518518518517,
+        0.13425925925925927
+      ],
+      "unique_cases_both_wordings": {
+        "n": 108,
+        "before_correct": 67,
+        "after_correct": 72,
+        "before_cluster_bootstrap_95": [
+          0.5648148148148148,
+          0.6574074074074074
+        ],
+        "after_cluster_bootstrap_95": [
+          0.6296296296296297,
+          0.7037037037037037
+        ],
+        "paired_change_bootstrap_95": [
+          -0.027777777777777776,
+          0.12962962962962962
+        ]
+      }
+    }
+  }
+}

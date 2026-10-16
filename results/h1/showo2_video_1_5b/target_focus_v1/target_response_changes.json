@@ -1,0 +1,61 @@
+{
+  "role": "Supplemental response-change count on differently labelled targets; a changed answer is not necessarily correct.",
+  "conditions": {
+    "train": {
+      "before": {
+        "source_run": "results/h1/showo2_video_1_5b/fit_scope_v1/initial_contrast_train",
+        "metrics": {
+          "presence": {
+            "pairs": 56,
+            "different_answers": 9
+          },
+          "completion": {
+            "pairs": 84,
+            "different_answers": 8
+          }
+        }
+      },
+      "after": {
+        "source_run": "results/h1/showo2_video_1_5b/target_focus_v1/train",
+        "metrics": {
+          "presence": {
+            "pairs": 56,
+            "different_answers": 20
+          },
+          "completion": {
+            "pairs": 84,
+            "different_answers": 15
+          }
+        }
+      }
+    },
+    "all_targets_dev": {
+      "before": {
+        "source_run": "results/h1/showo2_video_1_5b/target_contrast_v1_all_targets_dev",
+        "metrics": {
+          "presence": {
+            "pairs": 8,
+            "different_answers": 1
+          },
+          "completion": {
+            "pairs": 20,
+            "different_answers": 0
+          }
+        }
+      },
+      "after": {
+        "source_run": "results/h1/showo2_video_1_5b/target_focus_v1/all_targets_dev",
+        "metrics": {
+          "presence": {
+            "pairs": 8,
+            "different_answers": 1
+          },
+          "completion": {
+            "pairs": 20,
+            "different_answers": 2
+          }
+        }
+      }
+    }
+  }
+}

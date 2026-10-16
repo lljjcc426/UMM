@@ -1,0 +1,27 @@
+{
+  "role": "Two differently labelled targets in the same image must both be correct.",
+  "before": "results/h1/showo2_video_1_5b/fit_scope_v1/initial_contrast_train",
+  "after": "results/h1/showo2_video_1_5b/target_focus_v1/train",
+  "metrics": {
+    "presence": {
+      "n_target_pairs": 56,
+      "geometry_groups": 6,
+      "before_correct": 6,
+      "after_correct": 18,
+      "paired_cluster_bootstrap_95": [
+        0.06666666666666667,
+        0.4166666666666667
+      ]
+    },
+    "completion": {
+      "n_target_pairs": 84,
+      "geometry_groups": 6,
+      "before_correct": 0,
+      "after_correct": 11,
+      "paired_cluster_bootstrap_95": [
+        0.041666666666666664,
+        0.25
+      ]
+    }
+  }
+}

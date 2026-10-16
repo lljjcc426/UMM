@@ -190,3 +190,37 @@ PYTORCH_ENABLE_MPS_FALLBACK=1 python scripts/h1_train_state.py \
 首批损失差异另做了事后数值核查：在同一批4道训练题上，零输出扩展前后推理分数完全一致；让输入同样保留梯度后，训练分数也一致。差异随早期冻结层的梯度路径变化，当前不能作为纯层数变化的严格因果实验。实际核查脚本为`h1_scope_numerics.py`，证据保存在上述结果目录。
 
 最后8层拟合结果出现后，追加检查原同图不同目标适配器在全部新参考＋当前训练题上的成绩：48幅图、108个目标案例、432题、6组，存在175/216、完成138/216，同图不同状态的存在配对6/56、完成配对0/84。该检查保留train标记，证明当前完成目标对应在训练内也未学稳，后续先修订该项学习，不能只把失败归为开发迁移。
+
+## 10. 集中学习同图不同目标的状态
+
+原同图不同目标适配器在已见训练题上的完成目标配对仍0/84，因此保持最后8层q/v LoRA，集中使用这432道参考＋当前训练题。固定6轮、648步、累积4、学习率2e-4、rank 8、alpha 16、种子731，沿用原答案与EOS交叉熵，不新增几何图，也不改变问题、标签或图像。完整UMM和冻结视觉编码器保留。
+
+本轮不混入文字、仅当前或旧视觉数据；同时改变训练暴露次数与任务比例，因此不能把结果归因于某一个因素。只评价最终权重：训练内432题、原参考＋当前开发104题、同图切换目标开发112题、仅当前开发104题和文字开发208题。文字与仅当前条件用于检查能力保持；按既定规则去重。原130例视觉测试仍不使用。
+
+```bash
+PYTORCH_ENABLE_MPS_FALLBACK=1 python scripts/h1_train_state.py \
+  --data data/h1/state_target_controls_v1/contrast_training_subset \
+  --views reference_current \
+  --init-adapter checkpoints/h1_target_contrast_lora_v1/adapter.pt \
+  --epochs 6 \
+  --eval-policy 'Final training-fit, visual development and text retention; no held-out calls.' \
+  --output results/h1/showo2_video_1_5b/new_target_focus_training \
+  --adapter checkpoints/new_target_focus/adapter.pt
+```
+
+训练前配置、实际训练记录与后续逐题评价保存在[集中状态学习实验](../../results/h1/showo2_video_1_5b/target_focus_v1/README.md)。训练内配对成功只支持继续检查开发迁移，不能代替正式H1验收。
+
+实际完成648步，图像编码2.5分钟、梯度训练29.9分钟。训练完成逐题138→154/216，目标完成配对0→11/84；原开发完成36→44/52，但目标切换开发完成配对仅0→1/20。原开发完成两问均对22/26（84.6%），存在两问均对23/26（88.5%），参考配对失败。仅当前开发去重后完成44→12/50，应答未知的38题均被答为未出现；文字完成95→91/96。两项门槛仍未通过，新权重不替代原基线。
+
+针对此前已观察到的MPS／bfloat16梯度路径差异，训练后追加同权重、同112道换目标开发题的前向对照；只保留LoRA梯度，不更新权重，不读取标签。112个答案全部与普通推理相同，目标完成配对仍1/20。以下命令复现该补充诊断，默认推理保持不变：
+
+```bash
+PYTORCH_ENABLE_MPS_FALLBACK=1 python scripts/h1_run_showo.py \
+  --device mps \
+  --inputs data/h1/state_target_controls_v1/all_target_queries/inputs.jsonl \
+  --split dev --view reference_current --format json --constrain-answers \
+  --adapter checkpoints/h1_target_focus_v1/adapter.pt --adapter-grad-forward \
+  --output results/h1/showo2_video_1_5b/new_target_focus_grad_forward
+```
+
+下一步检验目标位置监督与能力保持，仍先检查训练内成对正确、开发迁移及文字／仅当前回归；不进入顺序学习。任何位置提示须由完整参考和目标名称生成，不能利用当前进度或答案，辅助定位成绩与自主定位分报。
