@@ -3,10 +3,12 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from collections import defaultdict
 from PIL import Image
 
 from scripts.h1_state_gate import DEFAULT, evaluate, parse, read_jsonl, render, write_jsonl
 from scripts.h1_compare_state_runs import compare
+from scripts.h1_target_controls import target_box, controlled_image
 
 
 class StateGateTest(unittest.TestCase):
@@ -95,6 +97,54 @@ class StateGateTest(unittest.TestCase):
         self.assertEqual(parse('{"answer":"部分"}', 'json', ['部分', '完整']), '部分')
         self.assertIsNone(parse('部分，也可能完整', 'plain', ['部分', '完整']))
         self.assertIsNone(parse('{"answer":"部分","extra":"完整"}', 'json', ['部分', '完整']))
+
+    def test_target_controls_preserve_labels_and_hide_progress_from_boxes(self):
+        root = DEFAULT.parent / 'state_target_controls_v1'
+        cases = json.loads((root / 'cases.json').read_text())
+        grouped = {}
+        for case in cases:
+            grouped.setdefault(case['group_id'], set()).add(tuple(target_box(case)))
+            current = controlled_image(case, 'target_only').crop((0,216,432,432))
+            contains_ink = current.convert('L').getextrema()[0] == 0
+            self.assertEqual(contains_ink, case['fractions'][case['target']] > 0)
+        self.assertTrue(all(len(bounds) == 1 for bounds in grouped.values()))
+        labels = read_jsonl(root / 'original/labels.jsonl')
+        for condition in ('prompt_only', 'target_boxes', 'target_only'):
+            self.assertEqual(read_jsonl(root / condition / 'labels.jsonl'), labels)
+        for first, second in [('original','target_only'), ('prompt_only','target_boxes')]:
+            a, b = [read_jsonl(root / condition / 'inputs.jsonl') for condition in (first, second)]
+            self.assertEqual([r['prompt'] for r in a], [r['prompt'] for r in b])
+
+    def test_target_contrasts_require_different_answers_for_the_same_image(self):
+        root = DEFAULT.parent / 'state_target_contrast_v1'
+        rows = [r for r in read_jsonl(root / 'inputs.jsonl') if r['source_dataset'] == 'new_target_contrasts']
+        labels = {r['sample_id']: r['expected'] for r in read_jsonl(root / 'labels.jsonl')}
+        scenes = {s['case_id']: s for s in json.loads((root / 'scenes.json').read_text())}
+        paired = defaultdict(list)
+        for row in rows:
+            self.assertEqual(row['split'], 'train')
+            if row['view'] == 'reference_current' and row['wording'] == 0:
+                paired[(row['group_id'], row['images'][0], row['task'])].append(row)
+                fraction = scenes[row['scene_id']]['fractions'][row['target']]
+                expected = ('有' if fraction > 0 else '无') if row['task'] == 'presence' else (
+                    '未出现' if fraction == 0 else '完整' if fraction == 1 else '部分')
+                self.assertEqual(labels[row['sample_id']], expected)
+        for task in ('presence','completion'):
+            groups = {group for (group, _, kind), items in paired.items() if kind == task
+                      and len({labels[r['sample_id']] for r in items}) > 1}
+            self.assertEqual(len(groups), 6)
+
+    def test_reused_target_queries_have_the_exact_original_model_inputs(self):
+        rows = read_jsonl(DEFAULT.parent / 'state_target_controls_v1/all_target_queries/inputs.jsonl')
+        source = {r['sample_id']:r for r in read_jsonl(DEFAULT / 'inputs.jsonl')}
+        directory = DEFAULT.parent / 'state_target_controls_v1/all_target_queries'
+        reused = [r for r in rows if r['source_sample_id']]
+        self.assertEqual(len(reused), 48)
+        self.assertEqual(sum(r['source_sample_id'] is None for r in rows), 64)
+        for row in reused:
+            original = source[row['source_sample_id']]
+            self.assertEqual(row['prompt'], original['prompt'])
+            self.assertEqual((directory/row['images'][0]).resolve(), (DEFAULT/original['images'][0]).resolve())
 
 
 if __name__ == '__main__':

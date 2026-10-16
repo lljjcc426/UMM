@@ -434,7 +434,7 @@ if __name__ == '__main__':
     p.add_argument('command', choices=['build', 'build-training', 'build-visual-training', 'build-text-test', 'build-basic-control', 'build-relation-control', 'build-region-control', 'score'])
     p.add_argument('--data', type=Path)
     p.add_argument('--predictions', type=Path)
-    p.add_argument('--split', choices=['dev', 'test'], default='dev')
+    p.add_argument('--split', choices=['train', 'dev', 'test'], default='dev')
     p.add_argument('--format', choices=['plain', 'json'], default='plain')
     p.add_argument('--output', type=Path)
     p.add_argument('--view', choices=['oracle_text', 'reference_current', 'current_only'])

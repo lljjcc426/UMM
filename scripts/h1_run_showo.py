@@ -240,7 +240,7 @@ if __name__ == '__main__':
     p.add_argument('--inputs', type=Path, default=ROOT / 'data/h1/state_gate_v1/inputs.jsonl')
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--device', choices=['cpu', 'cuda', 'mps'], default='cuda')
-    p.add_argument('--split', choices=['dev', 'test'], default='dev')
+    p.add_argument('--split', choices=['train', 'dev', 'test'], default='dev')
     p.add_argument('--format', choices=['plain', 'json'], default='plain')
     p.add_argument('--max-tokens', type=int, default=32)
     p.add_argument('--limit', type=int)

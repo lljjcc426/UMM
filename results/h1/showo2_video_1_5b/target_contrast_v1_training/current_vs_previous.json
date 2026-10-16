@@ -1,0 +1,83 @@
+{
+  "view": "current_only",
+  "split": "dev",
+  "source_rows": 104,
+  "unique_inputs": 100,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "results/h1/showo2_video_1_5b/visual_adaptation_v1_current_dev",
+  "after": "results/h1/showo2_video_1_5b/target_contrast_v1_current_dev",
+  "metrics": {
+    "presence": {
+      "n": 50,
+      "groups": 7,
+      "before_correct": 45,
+      "after_correct": 45,
+      "accuracy_difference": 0.0,
+      "before_cluster_bootstrap_95": [
+        0.8181818181818182,
+        0.98
+      ],
+      "after_cluster_bootstrap_95": [
+        0.8392857142857143,
+        0.96
+      ],
+      "paired_cluster_bootstrap_95": [
+        -0.05357142857142857,
+        0.06
+      ],
+      "unique_cases_both_wordings": {
+        "n": 25,
+        "before_correct": 22,
+        "after_correct": 21,
+        "before_cluster_bootstrap_95": [
+          0.7857142857142857,
+          0.9642857142857143
+        ],
+        "after_cluster_bootstrap_95": [
+          0.76,
+          0.9285714285714286
+        ],
+        "paired_change_bootstrap_95": [
+          -0.12,
+          0.0
+        ]
+      }
+    },
+    "completion": {
+      "n": 50,
+      "groups": 7,
+      "before_correct": 44,
+      "after_correct": 44,
+      "accuracy_difference": 0.0,
+      "before_cluster_bootstrap_95": [
+        0.7857142857142857,
+        0.9642857142857143
+      ],
+      "after_cluster_bootstrap_95": [
+        0.7857142857142857,
+        0.9642857142857143
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "unique_cases_both_wordings": {
+        "n": 25,
+        "before_correct": 22,
+        "after_correct": 22,
+        "before_cluster_bootstrap_95": [
+          0.7857142857142857,
+          0.9642857142857143
+        ],
+        "after_cluster_bootstrap_95": [
+          0.7857142857142857,
+          0.9642857142857143
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "view": "reference_current",
+  "split": "dev",
+  "source_rows": 112,
+  "unique_inputs": 112,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/target_controls_v1/all_target_baseline",
+  "after": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/target_contrast_v1_all_targets_dev",
+  "metrics": {
+    "presence": {
+      "n": 56,
+      "groups": 3,
+      "before_correct": 51,
+      "after_correct": 51,
+      "accuracy_difference": 0.0,
+      "before_cluster_bootstrap_95": [
+        0.875,
+        0.9375
+      ],
+      "after_cluster_bootstrap_95": [
+        0.875,
+        0.9375
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "unique_cases_both_wordings": {
+        "n": 28,
+        "before_correct": 25,
+        "after_correct": 25,
+        "before_cluster_bootstrap_95": [
+          0.875,
+          0.9166666666666666
+        ],
+        "after_cluster_bootstrap_95": [
+          0.875,
+          0.9166666666666666
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "completion": {
+      "n": 56,
+      "groups": 3,
+      "before_correct": 27,
+      "after_correct": 30,
+      "accuracy_difference": 0.05357142857142857,
+      "before_cluster_bootstrap_95": [
+        0.16666666666666666,
+        0.75
+      ],
+      "after_cluster_bootstrap_95": [
+        0.25,
+        0.75
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.08333333333333333
+      ],
+      "unique_cases_both_wordings": {
+        "n": 28,
+        "before_correct": 13,
+        "after_correct": 13,
+        "before_cluster_bootstrap_95": [
+          0.16666666666666666,
+          0.75
+        ],
+        "after_cluster_bootstrap_95": [
+          0.16666666666666666,
+          0.75
+        ],
+        "paired_change_bootstrap_95": [
+          -0.125,
+          0.125
+        ]
+      }
+    }
+  }
+}

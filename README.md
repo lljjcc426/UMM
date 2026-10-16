@@ -8,7 +8,7 @@
 
 暂定题目：**实际笔顺理解驱动的统一多模态中文书写视频生成**。
 
-通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1主实验使用UMM本体，当前先验证答案接口与当前线条状态，两项稳定后再加入顺序学习。** Show-o2已在M5／16GB本机完成文字及视觉状态LoRA适配。最新参考＋当前开发题的存在判断47/52、完成判断35/52，两问均对分别23/26、17/26；多线条目标缺失与完整程度仍不稳定。原文字适配的独立测试完成两问均对94.9%，新视觉适配保留了文字开发成绩，尚未完成新的独立验收。顺序学习、H2与H3未开始。见[两项前置门槛](docs/experiments/h1_state_gate.md)与[本轮结果](results/h1/showo2_video_1_5b/README.md)。
+通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1主实验使用UMM本体，当前先验证答案接口与当前线条状态，两项稳定后再加入顺序学习。** Show-o2已在M5／16GB本机完成文字、视觉状态适配及同图不同目标的追加监督。最新参考＋当前开发题的存在判断47/52、完成判断36/52，两问均对仍为23/26、17/26；本次追加训练没有带来稳定改善。同图切换目标且两目标状态不同的完成配对仍为0/20（含两种问法、3个几何组），目标对应与完成比较尚未解决。文字开发成绩保持，新的独立验收尚未完成。顺序学习、H2与H3未开始。见[两项前置门槛](docs/experiments/h1_state_gate.md)与[本轮结果](results/h1/showo2_video_1_5b/target_controls_v1/README.md)。
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 

@@ -1,0 +1,51 @@
+{
+  "seed": 70847,
+  "split": "train",
+  "new_scenes": 48,
+  "new_geometry_groups": 6,
+  "new_rows": 864,
+  "new_target_cases": 108,
+  "replay_rows": 624,
+  "visual_total_rows": 1488,
+  "new_rows_by_view": {
+    "reference_current": 432,
+    "current_only": 432
+  },
+  "new_image_files": 96,
+  "source_replay": "data/h1/state_visual_training_v1",
+  "text_replay": "data/h1/state_training_v1",
+  "training_plan": {
+    "initial_adapter": "checkpoints/h1_visual_state_lora_v1/adapter.pt",
+    "epochs": 1,
+    "accumulation": 4,
+    "lr": 0.0002,
+    "seed": 731,
+    "adapter": "same last-eight-layer rank-8 q/v LoRA",
+    "total_rows": 2000,
+    "total_steps": 500
+  },
+  "evaluation": "Fixed final adapter, original visual dev and text dev; no test calls; no mid-training selection.",
+  "scope": "Synthetic whole-image state learning; no target boxes, isolated targets, order, characters or fonts.",
+  "target_blind_per_scene_upper_bound": {
+    "reference_current/presence": {
+      "correct_upper_bound": 172,
+      "n": 216,
+      "rate": 0.7962962962962963
+    },
+    "reference_current/completion": {
+      "correct_upper_bound": 144,
+      "n": 216,
+      "rate": 0.6666666666666666
+    },
+    "current_only/presence": {
+      "correct_upper_bound": 172,
+      "n": 216,
+      "rate": 0.7962962962962963
+    },
+    "current_only/completion": {
+      "correct_upper_bound": 172,
+      "n": 216,
+      "rate": 0.7962962962962963
+    }
+  }
+}

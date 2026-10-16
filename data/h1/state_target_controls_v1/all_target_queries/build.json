@@ -1,0 +1,22 @@
+{
+  "role": "Same original development images, all target names queried; no new held-out claim.",
+  "scenes": 12,
+  "groups": 3,
+  "rows": 112,
+  "target_cases": 28,
+  "reusable_baseline_rows": 48,
+  "new_baseline_rows": 64,
+  "baseline_adapter": "checkpoints/h1_visual_state_lora_v1/adapter.pt",
+  "target_blind_per_scene_upper_bound": {
+    "reference_current/presence": {
+      "correct_upper_bound": 50,
+      "n": 56,
+      "rate": 0.8928571428571429
+    },
+    "reference_current/completion": {
+      "correct_upper_bound": 42,
+      "n": 56,
+      "rate": 0.75
+    }
+  }
+}

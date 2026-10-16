@@ -1,0 +1,84 @@
+{
+  "view": "reference_current",
+  "split": "dev",
+  "source_rows": 48,
+  "unique_inputs": 48,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/target_controls_v1/prompt_only",
+  "after": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/target_controls_v1/target_boxes",
+  "metrics": {
+    "presence": {
+      "n": 24,
+      "groups": 3,
+      "before_correct": 20,
+      "after_correct": 14,
+      "accuracy_difference": -0.25,
+      "before_cluster_bootstrap_95": [
+        0.75,
+        0.875
+      ],
+      "after_cluster_bootstrap_95": [
+        0.5,
+        0.75
+      ],
+      "paired_cluster_bootstrap_95": [
+        -0.375,
+        -0.125
+      ],
+      "unique_cases_both_wordings": {
+        "n": 12,
+        "before_correct": 8,
+        "after_correct": 3,
+        "before_cluster_bootstrap_95": [
+          0.5,
+          0.75
+        ],
+        "after_cluster_bootstrap_95": [
+          0.0,
+          0.75
+        ],
+        "paired_change_bootstrap_95": [
+          -0.75,
+          0.0
+        ]
+      }
+    },
+    "completion": {
+      "n": 24,
+      "groups": 3,
+      "before_correct": 14,
+      "after_correct": 13,
+      "accuracy_difference": -0.041666666666666664,
+      "before_cluster_bootstrap_95": [
+        0.5,
+        0.625
+      ],
+      "after_cluster_bootstrap_95": [
+        0.5,
+        0.625
+      ],
+      "paired_cluster_bootstrap_95": [
+        -0.125,
+        0.0
+      ],
+      "unique_cases_both_wordings": {
+        "n": 12,
+        "before_correct": 6,
+        "after_correct": 6,
+        "before_cluster_bootstrap_95": [
+          0.5,
+          0.5
+        ],
+        "after_cluster_bootstrap_95": [
+          0.5,
+          0.5
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  },
+  "comparison_scope": "Fixed model, matched source cases; input intervention. Deduplication uses after-condition visible inputs."
+}
