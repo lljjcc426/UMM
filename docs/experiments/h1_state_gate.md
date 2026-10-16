@@ -1,6 +1,6 @@
 # H1前置门槛：答案接口与当前线条状态
 
-当前只推进两项：**模型能否稳定回答正确；模型能否区分实际已出现的线条及其完成程度。** 两项获得稳定结果后，再启动顺序学习。Show-o2已运行文字状态开发集，视觉题尚未运行，未开展训练；本页不报告H1通过。
+当前只推进两项：**模型能否稳定回答正确；模型能否区分实际已出现的线条及其完成程度。** 两项获得稳定结果后，再启动顺序学习。Show-o2已在本机接通文字和图像理解路径，开展两项开发诊断；尚未开展训练或通过H1。
 
 ## 1. 两项门槛怎样分开
 
@@ -10,6 +10,8 @@
 | B：当前视觉状态 | 完整参考＋当前画面；另设只给当前画面的对照 | 指定线条是否出现，是否达到完整参考，依据不足时是否回答未知 | 实际先后、运笔方向、生成收益 |
 
 A先比较短答案和单字段JSON，例如 `部分` 与 `{"answer":"部分"}`。不使用A/B/C/D选项，不在主评分中自动补全、纠正或从长解释中抽取答案。格式有效与内容正确分别计数。
+
+另设事后答案词审计：仅对完整的单词回答或单字段JSON中的明确词汇进行中英映射，例如`yes`对应“有”、`part`对应“部分”。映射表、原始回答和审计成绩独立保存，不改变严格评分，不作为门槛通过证据。它用于判断低分来自输出约定、状态错误，还是两者都有。
 
 准确文字条件说明：所有已有线条都沿参考路径从起点连续延伸，没有偏移、隐藏或重复；给出参考完整长度与当前已有长度。这样才能依据长度判断完成程度。仅给两段长度、没有路径对应关系，不能一般性地推出形状完整。
 
@@ -48,7 +50,7 @@ B明确区分：
 
 ## 4. 底座与计算条件
 
-选用 `showlab/show-o2-1.5B-w-video-und`，使用完整统一检查点；当前只调用其文字路径，视觉和生成模块保留在CPU。该版本经视频理解训练，与普通Show-o2-1.5B检查点不同。官方当前仍将视频生成权重列为待发布项，故本次不能证明后续H2的视频生成底座已具备。[官方说明](https://github.com/showlab/Show-o/blob/45a5a2de01d1ebd10cd5864d29310a76476cdf23/show-o2/README.md)
+选用 `showlab/show-o2-1.5B-w-video-und`，使用完整统一检查点；调用文字和图像理解路径，未执行生成模块保留在CPU。该版本经视频理解训练，与普通Show-o2-1.5B检查点不同。官方当前仍将视频生成权重列为待发布项，故本次不能证明后续H2的视频生成底座已具备。[官方说明](https://github.com/showlab/Show-o/blob/45a5a2de01d1ebd10cd5864d29310a76476cdf23/show-o2/README.md)
 
 - 官方源码：`showlab/Show-o@45a5a2de01d1ebd10cd5864d29310a76476cdf23`。
 - 权重：ModelScope同名仓库版本`412f647429897ad888771d18008de4edfb2c42a6`；完整加载后参数量3,063,740,640，名称中的1.5B不能当作整个系统的参数量。
@@ -57,11 +59,13 @@ B明确区分：
 - 可接入设备：RTX 4060 Laptop／8GB、Windows 11、PyTorch 2.6.0+cu124；由设备信息提供，目前尚未通过SSH登录实测。显存还需容纳视觉编码、中间张量和训练状态，不能据参数名称保证训练可行。
 - Lance官方列出推理至少40GB显存，当前4060不满足其公开配置；不作为本轮默认模型。[官方要求](https://github.com/bytedance/Lance#recommended-environment)
 
-远程接入使用Windows OpenSSH Server。管理员PowerShell安装并启动服务后，再配置SSH公钥登录；管理员账户和普通账户的公钥文件位置不同。连接地址、凭据和本机密钥不写入仓库。[安装说明](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse) · [公钥配置](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement)
+**当前在M5／16GB本机继续推进，远程连接不作为前置条件。** 上述4060信息仅保留为后续资源评估；只有本机确实无法完成必要实验时，再重新评估远程计算需求。
 
 ## 5. 运行方式
 
-当前运行器只实现门槛A，不把无图文字回答标为视觉成绩。视觉接入后另行记录预处理、参考输入布局和显存实测。源码、模型与辅助配置放在忽略的`checkpoints/`下。准备环境时安装适合平台的PyTorch/torchvision，再安装`requirements-h1-showo.txt`；远程已有的CUDA环境先核实，避免直接覆盖。
+运行器支持A的文字输入和B的静态图像输入；无图成绩不能解释为视觉成绩，静态图成绩不能解释为视频顺序理解。源码、模型与辅助配置放在忽略的`checkpoints/`下。准备环境时安装适合平台的PyTorch/torchvision，再安装`requirements-h1-showo.txt`。
+
+图像路径沿用上游MMU输入组织与注意力掩码。432×432组合图直接归一化至[-1,1]，不裁剪；Wan VAE使用CPU float32，采样随机种子固定为0，同一图像在一轮内复用编码；双路径视觉表示融合及语言模块使用MPS bfloat16。上、下半部分别对应参考和当前，均保留在同一图像中；本轮不使用视频编码。该实现完成本机运行，不代表与CUDA float32数值完全一致。
 
 运行器默认目录约定：
 
@@ -71,8 +75,9 @@ B明确区分：
 | `checkpoints/Show-o2-1.5B-video/` | 指定视频理解检查点的`config.json`和`pytorch_model.bin` |
 | `checkpoints/Show-o-assets/Qwen2.5-1.5B-Instruct/` | 官方`config.json`、`tokenizer.json`、`tokenizer_config.json`、`vocab.json`、`merges.txt`；无需基础Qwen权重 |
 | `checkpoints/Show-o-assets/siglip/` | 官方`google/siglip-so400m-patch14-384/config.json`；无需基础SigLIP权重 |
+| `checkpoints/Show-o-assets/Wan2.1_VAE.pth` | 官方Wan2.1 VAE；图像路径需要，文字路径不使用 |
 
-本轮辅助配置及来源版本保存为[初始化记录](../../results/h1/showo2_video_1_5b/initialization.json)。门槛A无图，不需要下载Wan VAE；视觉阶段需要单独接入VAE。
+本轮辅助配置、Wan VAE来源及版本保存为[初始化记录](../../results/h1/showo2_video_1_5b/initialization.json)。
 
 ```bash
 python scripts/h1_state_gate.py build
@@ -81,6 +86,16 @@ python scripts/h1_run_showo.py --device mps --split dev --format plain \
 python scripts/h1_state_gate.py score --split dev --format plain --view oracle_text \
   --predictions results/h1/showo2_video_1_5b/new_run/predictions.jsonl \
   --output results/h1/showo2_video_1_5b/new_run/score
+
+PYTORCH_ENABLE_MPS_FALLBACK=1 python scripts/h1_run_showo.py \
+  --device mps --view reference_current --format json \
+  --output results/h1/showo2_video_1_5b/new_visual_run
+python scripts/h1_state_gate.py score --split dev --format json \
+  --view reference_current --audit-words \
+  --predictions results/h1/showo2_video_1_5b/new_visual_run/predictions.jsonl \
+  --output results/h1/showo2_video_1_5b/new_visual_run/score
 ```
 
-每轮输出目录不可覆盖。CUDA主机将`--device`改为`cuda`；这条命令的CUDA路径尚未实测。实际开发集结果与接口修订记录见[本轮结果](../../results/h1/showo2_video_1_5b/README.md)。
+只给当前画面的对照将两条视觉命令中的`reference_current`改为`current_only`，使用另一个输出目录。每轮目录不可覆盖。实际开发集结果与接口修订记录见[本轮结果](../../results/h1/showo2_video_1_5b/README.md)。
+
+`--blank-image`仅是文字题附带空白图的接口排查条件。它同时改变了模态输入和提示模板，且空白图可能与文字记录冲突，不能据此隔离单一原因或评价视觉状态能力。

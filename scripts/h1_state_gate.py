@@ -173,6 +173,74 @@ def build(output):
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
 
+def build_basic_control(output):
+    """Small whole-image control for vision access, without reference matching."""
+    (output / 'images').mkdir(parents=True, exist_ok=True)
+    shapes = {
+        'blank': [],
+        'horizontal': [[(70, 216), (350, 216)]],
+        'vertical': [[(216, 70), (216, 350)]],
+        'three_horizontal': [[(70, y), (350, y)] for y in (105, 216, 325)],
+    }
+    rows, labels = [], []
+    for name, strokes in shapes.items():
+        image = Image.new('RGB', (SIZE, SIZE), 'white')
+        draw = ImageDraw.Draw(image)
+        for points in strokes:
+            draw.line(points, fill='black', width=7)
+        path = f'images/basic-{name}.png'
+        image.save(output / path)
+        for task, questions, expected, allowed in [
+            ('presence', ['Is there any black line in this image?',
+                          'Does this image contain at least one black line?'],
+             'yes' if strokes else 'no', ['yes', 'no']),
+            ('count', ['How many black lines are in this image?',
+                       'What is the number of black lines shown?'],
+             str(len(strokes)), ['0', '1', '2', '3']),
+        ]:
+            ending = ' Answer with exactly yes or no.' if task == 'presence' else ' Answer with a single digit.'
+            for wording, question in enumerate(questions):
+                sid = f'basic-{name}-{task}-q{wording}'
+                rows.append(dict(sample_id=sid, case_id=f'basic-{name}', group_id=f'basic-{name}',
+                                 split='dev', layout=name, view='current_only', task=task,
+                                 wording=wording, response_format='plain', images=[path],
+                                 prompt=question + ending))
+                labels.append(dict(sample_id=sid, expected=expected, allowed=allowed, reference_pair=None))
+    write_jsonl(output / 'basic_visual_controls.jsonl', rows)
+    write_jsonl(output / 'basic_visual_control_labels.jsonl', labels)
+    print(f'{len(shapes)} simple images; {len(rows)} vision-access control questions.')
+
+
+def build_relation_control(output):
+    """Short binary questions on existing single-line reference/current images."""
+    cases = [c for c in json.loads((output / 'cases.json').read_text())
+             if c['split'] == 'dev' and c['layout'] in ('single_h', 'single_v', 'reference_control')]
+    rows, labels = [], []
+    context = ('The top half shows a complete reference line. '
+               'The bottom half shows the current drawing at the same scale. ')
+    for case in cases:
+        cid = case['case_id']
+        fraction = case['fractions'][case['target']]
+        for task, questions, expected in [
+            ('presence', ['Is there a black line in the bottom half?',
+                          'Does the lower half contain any black line?'], 'yes' if fraction > 0 else 'no'),
+            ('completion', ['Is the entire reference line present in the bottom half?',
+                            'Does the bottom half show the full reference line with no part missing?'],
+             'yes' if fraction == 1 else 'no'),
+        ]:
+            for wording, question in enumerate(questions):
+                sid = f'simple-en-{cid}-{task}-q{wording}'
+                rows.append(dict(sample_id=sid, case_id=cid, group_id=case['group_id'], split='dev',
+                                 layout=case['layout'], view='reference_current', task=task,
+                                 wording=wording, response_format='plain', images=[f'images/{cid}.png'],
+                                 prompt=context + question + ' Answer with exactly yes or no.'))
+                labels.append(dict(sample_id=sid, expected=expected, allowed=['yes', 'no'],
+                                   reference_pair=case['reference_pair']))
+    write_jsonl(output / 'simple_relation_controls.jsonl', rows)
+    write_jsonl(output / 'simple_relation_control_labels.jsonl', labels)
+    print(f'{len(cases)} existing dev cases; {len(rows)} short relation-control questions.')
+
+
 def parse(raw, form, allowed):
     value = raw.strip()
     if form == 'json':
@@ -200,7 +268,48 @@ def interval(values_by_group):
     return [estimates[49], estimates[1949]]
 
 
-def evaluate(data, predictions, split, form, output, view=None):
+def word_audit(inputs, labels, predictions):
+    """Post-hoc word interpretation; never replaces the strict interface score."""
+    aliases = {'有': '有', '无': '无', '未出现': '未出现', '部分': '部分',
+               '完整': '完整', '未知': '未知', 'yes': '有', 'no': '无',
+               'absent': '未出现', 'part': '部分', 'partial': '部分', 'partially': '部分',
+               'complete': '完整', 'unknown': '未知'}
+    tasks, pairs, reference_pairs, details = {}, defaultdict(list), defaultdict(list), []
+    for sid, inp in inputs.items():
+        raw = predictions.get(sid, {}).get('raw_response', '').strip()
+        try:
+            value = json.loads(raw)
+        except json.JSONDecodeError:
+            value = raw
+        if isinstance(value, dict) and set(value) == {'answer'}:
+            value = value['answer']
+        answer = aliases.get(value) if isinstance(value, str) else None
+        expected = aliases.get(labels[sid]['expected'], labels[sid]['expected'])
+        correct = answer == expected
+        key = f'{inp["view"]}/{inp["task"]}'
+        task = tasks.setdefault(key, dict(n=0, interpretable=0, correct=0, confusion={}))
+        task['n'] += 1
+        task['interpretable'] += int(answer is not None)
+        task['correct'] += int(correct)
+        confusion = task['confusion'].setdefault(expected, {})
+        confusion[answer or 'uninterpretable'] = confusion.get(answer or 'uninterpretable', 0) + 1
+        pairs[(key, inp['case_id'])].append(correct)
+        ref = labels[sid]['reference_pair']
+        if ref and inp['view'] == 'reference_current' and inp['task'] == 'completion':
+            reference_pairs[(key, ref, inp['wording'])].append(correct)
+        details.append(dict(sample_id=sid, interpreted=answer, expected=expected, correct=correct))
+    for key, task in tasks.items():
+        cases = [values for (k, _), values in pairs.items() if k == key]
+        refs = [values for (k, _, _), values in reference_pairs.items() if k == key]
+        task['both_wordings_correct'] = dict(correct=sum(len(v) == 2 and all(v) for v in cases), n=len(cases))
+        if refs:
+            task['reference_pairs_correct'] = dict(correct=sum(len(v) == 2 and all(v) for v in refs), n=len(refs))
+    return dict(role='Post-hoc diagnostic only; not a replacement for strict scores or a gate pass.',
+                method='Exact standalone word or single-field answer JSON; no explanation extraction.',
+                aliases=aliases, tasks=tasks, details=details)
+
+
+def evaluate(data, predictions, split, form, output, view=None, audit=False):
     inputs = {r['sample_id']: r for r in read_jsonl(data / 'inputs.jsonl')
               if r['split'] == split and r['response_format'] == form
               and (view is None or r['view'] == view)}
@@ -243,22 +352,30 @@ def evaluate(data, predictions, split, form, output, view=None):
     output.mkdir(parents=True, exist_ok=True)
     (output / 'summary.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
     write_jsonl(output / 'scored.jsonl', detail)
+    if audit:
+        (output / 'word_audit.json').write_text(json.dumps(
+            word_audit(inputs, labels, pred), ensure_ascii=False, indent=2) + '\n')
     print(f'{len(pred)}/{len(inputs)} attempted; report: {output / "summary.json"}')
 
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('command', choices=['build', 'score'])
+    p.add_argument('command', choices=['build', 'build-basic-control', 'build-relation-control', 'score'])
     p.add_argument('--data', type=Path, default=DEFAULT)
     p.add_argument('--predictions', type=Path)
     p.add_argument('--split', choices=['dev', 'test'], default='dev')
     p.add_argument('--format', choices=['plain', 'json'], default='plain')
     p.add_argument('--output', type=Path)
     p.add_argument('--view', choices=['oracle_text', 'reference_current', 'current_only'])
+    p.add_argument('--audit-words', action='store_true', help='Separately interpret exact answer words after scoring.')
     args = p.parse_args()
     if args.command == 'build':
         build(args.data)
+    elif args.command == 'build-basic-control':
+        build_basic_control(args.data)
+    elif args.command == 'build-relation-control':
+        build_relation_control(args.data)
     else:
         if not args.predictions or not args.output:
             p.error('score requires --predictions and --output')
-        evaluate(args.data, args.predictions, args.split, args.format, args.output, args.view)
+        evaluate(args.data, args.predictions, args.split, args.format, args.output, args.view, args.audit_words)

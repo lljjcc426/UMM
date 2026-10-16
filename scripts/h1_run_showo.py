@@ -1,4 +1,4 @@
-"""Run the text-state prerequisite through the complete Show-o2 video UMM checkpoint."""
+"""Run answer and current-image-state diagnostics with the complete Show-o2 video UMM."""
 from __future__ import annotations
 
 import argparse
@@ -26,7 +26,7 @@ def run(args):
 
     rows = [json.loads(s) for s in args.inputs.read_text().splitlines()]
     rows = [r for r in rows if r['split'] == args.split
-            and r['response_format'] == args.format and r['view'] == 'oracle_text']
+            and r['response_format'] == args.format and r['view'] == args.view]
     if args.limit:
         rows = rows[:args.limit]
     if not rows:
@@ -50,12 +50,22 @@ def run(args):
             llm_model_path=str(args.assets / 'Qwen2.5-1.5B-Instruct'),
             clip_pretrained_model_path=str(args.assets / 'siglip'))
     model.eval().requires_grad_(False)
-    # Keep unused visual and generation modules on CPU for this text-only gate.
+    # Move only executed components; retain unused generation heads on CPU.
     model.showo.to(args.device)
+    visual = args.blank_image or any(r['images'] for r in rows)
+    if visual:
+        from models import WanVAE
+        vae = WanVAE(vae_pth=str(args.assets / 'Wan2.1_VAE.pth'), dtype=torch.float32, device='cpu')
+        vae.model.float()
+        for name in ['image_embedder_und', 'image_embedder_gen', 'position_embedding',
+                     'und_trans', 'fusion_proj', 'time_embed', 'time_embed_proj']:
+            getattr(model, name).to(args.device)
+        model.image_position_ids = model.image_position_ids.to(args.device)
+    image_cache = {}
     metadata = dict(
         model_id='showlab/show-o2-1.5B-w-video-und', model_revision=MODEL_REVISION,
         download_source='ModelScope', source_revision=SOURCE_REVISION,
-        condition='frozen_full_UMM_text_state_prerequisite',
+        condition='frozen_full_UMM_image_path' if visual else 'frozen_full_UMM_text_state_prerequisite',
         model_components=list(dict(model.named_children())),
         total_parameters=sum(p.numel() for p in model.parameters()),
         understanding_parameters=sum(p.numel() for p in model.showo.parameters()),
@@ -63,6 +73,10 @@ def run(args):
         input_manifest=str(args.inputs.resolve().relative_to(ROOT)),
         samples=[r['sample_id'] for r in rows], split=args.split, response_format=args.format,
         source_prompt=args.chat_template,
+        view=args.view, blank_visual_condition=args.blank_image,
+        image_preprocessing='432x432 RGB [-1,1]; already square input; no crop' if visual else None,
+        vae_device='cpu' if visual else None, vae_dtype='float32' if visual else None,
+        vae_sampling='sample; seed=0 per image; embeddings cached per image' if visual else None,
         decoding='official mmu_generate; top_k=1; seed=0', max_new_tokens=args.max_tokens,
         checkpoint_loading='upstream complete state load; SigLIP architecture-only initialization',
         started_utc=datetime.now(timezone.utc).isoformat(), python=platform.python_version(),
@@ -81,21 +95,55 @@ def run(args):
         elif args.device == 'mps':
             torch.mps.synchronize()
 
+    def encode_image(row):
+        from PIL import Image
+        import numpy as np
+        key = 'blank' if args.blank_image else row['images'][0]
+        if key not in image_cache:
+            image = Image.new('RGB', (432, 432), 'white') if args.blank_image else Image.open(
+                args.inputs.parent / key).convert('RGB')
+            if image.size != (432, 432):
+                raise ValueError('This state benchmark requires uncropped 432x432 images.')
+            pixels = torch.from_numpy(np.asarray(image).copy()).permute(2, 0, 1).float() / 127.5 - 1
+            torch.manual_seed(0)
+            latents = vae.sample(pixels[None, :, None]).squeeze(2).to(args.device, torch.bfloat16)
+            und = model.image_embedder_und(latents)
+            gen = model.image_embedder_gen(latents)
+            und = model.und_trans(und + model.position_embedding(model.image_position_ids))['last_hidden_state']
+            image_cache[key] = model.fusion_proj(torch.cat([und, gen], dim=-1))
+        return image_cache[key]
+
     with (args.output / 'predictions.jsonl').open('w') as out, torch.inference_mode():
         for index, row in enumerate(rows, 1):
-            if args.chat_template == 'official_mmu':
+            encode_started = time.perf_counter()
+            if visual:
+                vision = encode_image(row)
+                a = torch.tensor([[token_ids['bos_id']] + system + user], device=args.device)
+                b = torch.tensor([[token_ids['boi_id'], token_ids['eoi_id']] + tokenizer(
+                    row['prompt'], add_special_tokens=False).input_ids + assistant], device=args.device)
+                a_embeds = model.showo.model.embed_tokens(a)
+                b_embeds = model.showo.model.embed_tokens(b)
+                time_embed = model.time_embed(torch.tensor([[1.0]], device=args.device), a_embeds.dtype)
+                time_embed = model.time_embed_proj(time_embed)
+                embeds = torch.cat([a_embeds, b_embeds[:, :1], time_embed, vision, b_embeds[:, 1:]], dim=1)
+                # Preserve the upstream image MMU modality block convention.
+                modalities = torch.tensor([[[a.shape[1] + 2, vision.shape[1] + 1]]], device=args.device)
+            elif args.chat_template == 'official_mmu':
                 ids = [token_ids['bos_id']] + system + user + tokenizer(
                     row['prompt'], add_special_tokens=False).input_ids + assistant
             else:
                 ids = tokenizer.apply_chat_template([
                     {'role': 'system', 'content': 'You are a helpful assistant.'},
                     {'role': 'user', 'content': row['prompt']}], add_generation_prompt=True)
-            ids = torch.tensor([ids], device=args.device)
-            embeds = model.showo.model.embed_tokens(ids)
+            if not visual:
+                ids = torch.tensor([ids], device=args.device)
+                embeds = model.showo.model.embed_tokens(ids)
+                modalities = torch.empty((1, 0, 2), dtype=torch.long)
             mask = omni_attn_mask_naive(
-                B=1, LEN=ids.shape[1], modalities=torch.empty((1, 0, 2), dtype=torch.long),
+                B=1, LEN=embeds.shape[1], modalities=modalities,
                 device=args.device, inverted=True).to(embeds.dtype)
             synchronize()
+            encode_seconds = time.perf_counter() - encode_started
             started = time.perf_counter()
             tokens = model.mmu_generate(input_embeds=embeds, attention_mask=mask,
                                         top_k=1, max_new_tokens=args.max_tokens,
@@ -103,7 +151,8 @@ def run(args):
             synchronize()
             raw = tokenizer.decode([t.item() for t in tokens], skip_special_tokens=True)
             record = dict(sample_id=row['sample_id'], raw_response=raw,
-                          prompt_tokens=ids.shape[1], generation_tokens=len(tokens),
+                          prompt_tokens=embeds.shape[1], generation_tokens=len(tokens),
+                          input_preparation_seconds=encode_seconds,
                           seconds=time.perf_counter() - started)
             out.write(json.dumps(record, ensure_ascii=False) + '\n')
             out.flush()
@@ -125,4 +174,11 @@ if __name__ == '__main__':
     p.add_argument('--max-tokens', type=int, default=32)
     p.add_argument('--limit', type=int)
     p.add_argument('--chat-template', choices=['official_mmu', 'tokenizer'], default='tokenizer')
-    run(p.parse_args())
+    p.add_argument('--view', choices=['oracle_text', 'reference_current', 'current_only'], default='oracle_text')
+    p.add_argument('--blank-image', action='store_true', help='Use a blank image with text facts to check native MMU routing.')
+    args = p.parse_args()
+    if args.blank_image and args.view != 'oracle_text':
+        p.error('--blank-image is only a control for oracle_text; it cannot replace observed images.')
+    if args.blank_image or args.view != 'oracle_text':
+        args.chat_template = 'official_mmu'
+    run(args)

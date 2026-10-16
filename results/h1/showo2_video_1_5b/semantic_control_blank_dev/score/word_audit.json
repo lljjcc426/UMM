@@ -1,0 +1,134 @@
+{
+  "role": "Post-hoc diagnostic only; not a replacement for strict scores or a gate pass.",
+  "method": "Exact standalone word or single-field answer JSON; no explanation extraction.",
+  "aliases": {
+    "有": "有",
+    "无": "无",
+    "未出现": "未出现",
+    "部分": "部分",
+    "完整": "完整",
+    "未知": "未知",
+    "yes": "有",
+    "no": "无",
+    "absent": "未出现",
+    "part": "部分",
+    "partial": "部分",
+    "partially": "部分",
+    "complete": "完整",
+    "unknown": "未知"
+  },
+  "tasks": {
+    "oracle_text/presence": {
+      "n": 6,
+      "interpretable": 6,
+      "correct": 2,
+      "confusion": {
+        "无": {
+          "无": 2
+        },
+        "有": {
+          "无": 4
+        }
+      },
+      "both_wordings_correct": {
+        "correct": 1,
+        "n": 3
+      }
+    },
+    "oracle_text/completion": {
+      "n": 6,
+      "interpretable": 6,
+      "correct": 5,
+      "confusion": {
+        "未出现": {
+          "未出现": 2
+        },
+        "部分": {
+          "未出现": 1,
+          "部分": 1
+        },
+        "完整": {
+          "完整": 2
+        }
+      },
+      "both_wordings_correct": {
+        "correct": 2,
+        "n": 3
+      }
+    }
+  },
+  "details": [
+    {
+      "sample_id": "semantic-empty-presence-q0",
+      "interpreted": "无",
+      "expected": "无",
+      "correct": true
+    },
+    {
+      "sample_id": "semantic-empty-presence-q1",
+      "interpreted": "无",
+      "expected": "无",
+      "correct": true
+    },
+    {
+      "sample_id": "semantic-empty-completion-q0",
+      "interpreted": "未出现",
+      "expected": "未出现",
+      "correct": true
+    },
+    {
+      "sample_id": "semantic-empty-completion-q1",
+      "interpreted": "未出现",
+      "expected": "未出现",
+      "correct": true
+    },
+    {
+      "sample_id": "semantic-partial-presence-q0",
+      "interpreted": "无",
+      "expected": "有",
+      "correct": false
+    },
+    {
+      "sample_id": "semantic-partial-presence-q1",
+      "interpreted": "无",
+      "expected": "有",
+      "correct": false
+    },
+    {
+      "sample_id": "semantic-partial-completion-q0",
+      "interpreted": "未出现",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "semantic-partial-completion-q1",
+      "interpreted": "部分",
+      "expected": "部分",
+      "correct": true
+    },
+    {
+      "sample_id": "semantic-complete-presence-q0",
+      "interpreted": "无",
+      "expected": "有",
+      "correct": false
+    },
+    {
+      "sample_id": "semantic-complete-presence-q1",
+      "interpreted": "无",
+      "expected": "有",
+      "correct": false
+    },
+    {
+      "sample_id": "semantic-complete-completion-q0",
+      "interpreted": "完整",
+      "expected": "完整",
+      "correct": true
+    },
+    {
+      "sample_id": "semantic-complete-completion-q1",
+      "interpreted": "完整",
+      "expected": "完整",
+      "correct": true
+    }
+  ]
+}

@@ -1,0 +1,694 @@
+{
+  "role": "Post-hoc diagnostic only; not a replacement for strict scores or a gate pass.",
+  "method": "Exact standalone word or single-field answer JSON; no explanation extraction.",
+  "aliases": {
+    "有": "有",
+    "无": "无",
+    "未出现": "未出现",
+    "部分": "部分",
+    "完整": "完整",
+    "未知": "未知",
+    "yes": "有",
+    "no": "无",
+    "absent": "未出现",
+    "part": "部分",
+    "partial": "部分",
+    "partially": "部分",
+    "complete": "完整",
+    "unknown": "未知"
+  },
+  "tasks": {
+    "reference_current/presence": {
+      "n": 52,
+      "interpretable": 52,
+      "correct": 35,
+      "confusion": {
+        "无": {
+          "有": 10,
+          "无": 2
+        },
+        "有": {
+          "无": 7,
+          "有": 33
+        }
+      },
+      "both_wordings_correct": {
+        "correct": 15,
+        "n": 26
+      }
+    },
+    "reference_current/completion": {
+      "n": 52,
+      "interpretable": 52,
+      "correct": 5,
+      "confusion": {
+        "未出现": {
+          "未知": 10,
+          "部分": 2
+        },
+        "部分": {
+          "未知": 21,
+          "部分": 5
+        },
+        "完整": {
+          "未知": 12,
+          "部分": 2
+        }
+      },
+      "both_wordings_correct": {
+        "correct": 0,
+        "n": 26
+      },
+      "reference_pairs_correct": {
+        "correct": 0,
+        "n": 2
+      }
+    }
+  },
+  "details": [
+    {
+      "sample_id": "dev-single_h-00-0-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "无",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_h-00-0-reference_current-presence-q1-json",
+      "interpreted": "无",
+      "expected": "无",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-single_h-00-0-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "未出现",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_h-00-0-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "未出现",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_h-00-1-reference_current-presence-q0-json",
+      "interpreted": "无",
+      "expected": "有",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_h-00-1-reference_current-presence-q1-json",
+      "interpreted": "无",
+      "expected": "有",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_h-00-1-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_h-00-1-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_h-00-2-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-single_h-00-2-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-single_h-00-2-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_h-00-2-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_h-00-3-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-single_h-00-3-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-single_h-00-3-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_h-00-3-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_v-00-0-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "无",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_v-00-0-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "无",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_v-00-0-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "未出现",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_v-00-0-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "未出现",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_v-00-1-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-single_v-00-1-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-single_v-00-1-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_v-00-1-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_v-00-2-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-single_v-00-2-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-single_v-00-2-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_v-00-2-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_v-00-3-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-single_v-00-3-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-single_v-00-3-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-single_v-00-3-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_h-00-0-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "无",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_h-00-0-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "无",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_h-00-0-reference_current-completion-q0-json",
+      "interpreted": "部分",
+      "expected": "未出现",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_h-00-0-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "未出现",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_h-00-1-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_h-00-1-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_h-00-1-reference_current-completion-q0-json",
+      "interpreted": "部分",
+      "expected": "部分",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_h-00-1-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_h-00-2-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_h-00-2-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_h-00-2-reference_current-completion-q0-json",
+      "interpreted": "部分",
+      "expected": "部分",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_h-00-2-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_h-00-3-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_h-00-3-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_h-00-3-reference_current-completion-q0-json",
+      "interpreted": "部分",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_h-00-3-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_v-00-0-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "无",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_v-00-0-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "无",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_v-00-0-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "未出现",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_v-00-0-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "未出现",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_v-00-1-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_v-00-1-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_v-00-1-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_v-00-1-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_v-00-2-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_v-00-2-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_v-00-2-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_v-00-2-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_v-00-3-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_v-00-3-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-parallel_v-00-3-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-parallel_v-00-3-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-cross-00-0-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "无",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-cross-00-0-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "无",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-cross-00-0-reference_current-completion-q0-json",
+      "interpreted": "部分",
+      "expected": "未出现",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-cross-00-0-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "未出现",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-cross-00-1-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-cross-00-1-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-cross-00-1-reference_current-completion-q0-json",
+      "interpreted": "部分",
+      "expected": "部分",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-cross-00-1-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-cross-00-2-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-cross-00-2-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-cross-00-2-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-cross-00-2-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-cross-00-3-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-cross-00-3-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-cross-00-3-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-cross-00-3-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-fold-00-0-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "无",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-fold-00-0-reference_current-presence-q1-json",
+      "interpreted": "无",
+      "expected": "无",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-fold-00-0-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "未出现",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-fold-00-0-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "未出现",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-fold-00-1-reference_current-presence-q0-json",
+      "interpreted": "无",
+      "expected": "有",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-fold-00-1-reference_current-presence-q1-json",
+      "interpreted": "无",
+      "expected": "有",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-fold-00-1-reference_current-completion-q0-json",
+      "interpreted": "部分",
+      "expected": "部分",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-fold-00-1-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-fold-00-2-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-fold-00-2-reference_current-presence-q1-json",
+      "interpreted": "无",
+      "expected": "有",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-fold-00-2-reference_current-completion-q0-json",
+      "interpreted": "部分",
+      "expected": "部分",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-fold-00-2-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-fold-00-3-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-fold-00-3-reference_current-presence-q1-json",
+      "interpreted": "无",
+      "expected": "有",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-fold-00-3-reference_current-completion-q0-json",
+      "interpreted": "部分",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-fold-00-3-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-reference-00-short-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-reference-00-short-reference_current-presence-q1-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-reference-00-short-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-reference-00-short-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "完整",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-reference-00-long-reference_current-presence-q0-json",
+      "interpreted": "有",
+      "expected": "有",
+      "correct": true
+    },
+    {
+      "sample_id": "dev-reference-00-long-reference_current-presence-q1-json",
+      "interpreted": "无",
+      "expected": "有",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-reference-00-long-reference_current-completion-q0-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    },
+    {
+      "sample_id": "dev-reference-00-long-reference_current-completion-q1-json",
+      "interpreted": "未知",
+      "expected": "部分",
+      "correct": false
+    }
+  ]
+}

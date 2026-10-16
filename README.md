@@ -8,7 +8,7 @@
 
 暂定题目：**实际笔顺理解驱动的统一多模态中文书写视频生成**。
 
-通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1主实验使用UMM本体，当前先验证答案接口与当前线条状态，两项稳定后再加入顺序学习。** Show-o2视频理解检查点已完成文字状态开发诊断，内容尚不可靠；视觉题待运行，H2、H3未开始。见[两项前置门槛](docs/experiments/h1_state_gate.md)与[本轮结果](results/h1/showo2_video_1_5b/README.md)。
+通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1主实验使用UMM本体，当前先验证答案接口与当前线条状态，两项稳定后再加入顺序学习。** Show-o2视频理解检查点已在M5／16GB本机接通文字和图像路径，状态判断尚不可靠；顺序学习、H2与H3未开始。见[两项前置门槛](docs/experiments/h1_state_gate.md)与[本轮结果](results/h1/showo2_video_1_5b/README.md)。
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 

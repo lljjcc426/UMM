@@ -51,7 +51,7 @@ SO-02保留为执行诊断：各方法获得相同正确轨迹或掩码，检查
 
 当前先解决[两项前置门槛](../experiments/h1_state_gate.md)：准确文字状态下能否稳定回答正确；给定完整参考与当前画面时，能否区分已出现的线条及其完成程度。两项得到稳定结果后再加入顺序学习。此时再用“三”的上、中、下与上、下、中同终态对照，检查实际顺序及首次偏离位置，并逐步扩展字符与风格。
 
-H1主实验必须检验同时具备理解与视觉生成能力的UMM本体，当前阶段只调用其理解路径。后续过程任务采用具备视频理解能力的版本；本轮使用Show-o2-1.5B-w-video-und完整检查点检查文字接口。已有[像素实验](../experiments/process_probe.md)用于数据构造；[Janus-Pro诊断](../experiments/h1_umm_diagnostic.md)的33题及33题位置对照保持原记录。Qwen3-VL仅保留为[外部辅助对照](../experiments/h1_diagnostic.md)。
+H1主实验必须检验同时具备理解与视觉生成能力的UMM本体，当前阶段只调用其理解路径。后续过程任务采用具备视频理解能力的版本；本轮在M5／16GB本机使用Show-o2-1.5B-w-video-und完整检查点检查文字接口与静态线条状态。已有[像素实验](../experiments/process_probe.md)用于数据构造；[Janus-Pro诊断](../experiments/h1_umm_diagnostic.md)的33题及33题位置对照保持原记录。Qwen3-VL仅保留为[外部辅助对照](../experiments/h1_diagnostic.md)。
 
 ## 5. 评价和推进条件
 
