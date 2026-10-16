@@ -170,10 +170,28 @@ def build_all_target_queries(data):
     print(f'{len(rows)} target-conditioned questions on the same {len(cases)} development images.')
 
 
+def build_contrast_training_subset(data):
+    source = ROOT / 'data/h1/state_target_contrast_v1'
+    directory = data / 'contrast_training_subset'
+    directory.mkdir(parents=True, exist_ok=True)
+    rows = [r for r in read_jsonl(source / 'inputs.jsonl')
+            if r['source_dataset'] == 'new_target_contrasts' and r['view'] == 'reference_current']
+    rows = [dict(r, images=[os.path.relpath(source / r['images'][0], directory)]) for r in rows]
+    ids = {r['sample_id'] for r in rows}
+    write_jsonl(directory / 'inputs.jsonl', rows)
+    write_jsonl(directory / 'labels.jsonl', [r for r in read_jsonl(source / 'labels.jsonl') if r['sample_id'] in ids])
+    (directory / 'build.json').write_text(json.dumps(dict(
+        role='Fit audit of all new same-image target contrasts already used in training; no held-out claim.',
+        source_data=str(source.relative_to(ROOT)), split='train', rows=len(rows),
+        scenes=len({r['scene_id'] for r in rows}), target_cases=len({r['case_id'] for r in rows}),
+        groups=len({r['group_id'] for r in rows}),
+        selection='Every new_target_contrasts reference_current row; original prompts, images and labels retained.'), indent=2)+'\n')
+    print(f'{len(rows)} seen contrast-training questions.')
+
+
 def analyze_target_queries(data, results, after):
     directory = data / 'all_target_queries'
     rows = read_jsonl(directory / 'inputs.jsonl')
-    labels = {r['sample_id']: r for r in read_jsonl(directory / 'labels.jsonl')}
     source = ROOT / 'results/h1/showo2_video_1_5b/visual_adaptation_v1_reference_dev'
     new_source = results / 'all_target_new_queries'
     old = {r['sample_id']: r for r in read_jsonl(source / 'predictions.jsonl')}
@@ -195,36 +213,65 @@ def analyze_target_queries(data, results, after):
     for run in (before,after):
         evaluate(directory, run / 'predictions.jsonl', 'dev', 'json', run / 'score', 'reference_current')
     compare(directory,before,after,results / 'all_target_comparison.json','reference_current')
-    runs = [{r['sample_id']:r for r in read_jsonl(p / 'predictions.jsonl')} for p in (before,after)]
+    compare_different_targets(directory, before, after, results / 'different_target_pairs.json')
+
+
+def different_target_outcomes(directory, run):
+    rows = read_jsonl(directory / 'inputs.jsonl')
+    labels = {r['sample_id']: r for r in read_jsonl(directory / 'labels.jsonl')}
+    predictions = {r['sample_id']: r for r in read_jsonl(run / 'predictions.jsonl')}
     scene_queries = defaultdict(list)
     for row in rows:
-        scene_queries[(row['scene_id'],row['task'],row['wording'])].append(row)
-    metrics = defaultdict(lambda: defaultdict(list))
-    for (_,task,_), queries in scene_queries.items():
-        for a,b in combinations(queries,2):
+        scene_queries[(row['scene_id'], row['task'], row['wording'])].append(row)
+    outcomes = []
+    for (_, task, wording), queries in scene_queries.items():
+        for a, b in combinations(queries, 2):
             if labels[a['sample_id']]['expected'] == labels[b['sample_id']]['expected']:
                 continue
-            correct = []
-            for run in runs:
-                correct.append(int(all(parse(run.get(r['sample_id'],{}).get('raw_response',''),'json',
-                                             labels[r['sample_id']]['allowed']) == labels[r['sample_id']]['expected']
-                                       for r in (a,b))))
-            metrics[task][a['group_id']].append(correct)
+            correct = all(parse(predictions.get(r['sample_id'], {}).get('raw_response', ''), 'json',
+                                labels[r['sample_id']]['allowed']) == labels[r['sample_id']]['expected']
+                          for r in (a, b))
+            outcomes.append(dict(task=task, wording=wording, group_id=a['group_id'],
+                                 sample_ids=[a['sample_id'], b['sample_id']], correct=int(correct)))
+    return outcomes
+
+
+def score_different_targets(directory, run, output):
+    outcomes = different_target_outcomes(directory, run)
+    grouped = defaultdict(lambda: defaultdict(list))
+    for row in outcomes:
+        grouped[row['task']][row['group_id']].append(row['correct'])
+    report = dict(role='Both differently labelled targets in the same image must be correct; wordings counted separately.',
+                  run=str(run.resolve().relative_to(ROOT)), metrics={}, pairs=outcomes)
+    for task, groups in grouped.items():
+        values = [v for group in groups.values() for v in group]
+        report['metrics'][task] = dict(correct=sum(values), n_target_pairs=len(values),
+                                       geometry_groups=len(groups), cluster_bootstrap_95=interval(groups))
+    output.write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
+    return report
+
+
+def compare_different_targets(directory, before, after, output):
+    """Require both targets to be correct when one image contains different states."""
+    outcomes = [different_target_outcomes(directory, run) for run in (before, after)]
+    metrics = defaultdict(lambda: defaultdict(list))
+    for a, b in zip(*outcomes):
+        metrics[a['task']][a['group_id']].append((a['correct'], b['correct']))
     report = dict(role='Two differently labelled targets in the same image must both be correct.',
-                  before=str(before.relative_to(ROOT)), after=str(after.relative_to(ROOT)), metrics={})
-    for task,grouped in metrics.items():
+                  before=str(before.resolve().relative_to(ROOT)), after=str(after.resolve().relative_to(ROOT)), metrics={})
+    for task, grouped in metrics.items():
         values = [s for group in grouped.values() for s in group]
-        changes = {g:[b-a for a,b in v] for g,v in grouped.items()}
+        changes = {g: [b-a for a,b in v] for g,v in grouped.items()}
         report['metrics'][task] = dict(n_target_pairs=len(values), geometry_groups=len(grouped),
                                        before_correct=sum(a for a,b in values), after_correct=sum(b for a,b in values),
                                        paired_cluster_bootstrap_95=interval(changes))
-    (results / 'different_target_pairs.json').write_text(json.dumps(report,ensure_ascii=False,indent=2) + '\n')
-    print(json.dumps(report,ensure_ascii=False,indent=2))
+    output.write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
+    print(json.dumps(report, ensure_ascii=False, indent=2))
 
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('command', choices=['build', 'build-training-subset', 'build-all-target-queries', 'analyze', 'analyze-target-queries'])
+    p.add_argument('command', choices=['build', 'build-training-subset', 'build-all-target-queries', 'build-contrast-training-subset', 'analyze', 'analyze-target-queries'])
     p.add_argument('--data', type=Path, default=DATA)
     p.add_argument('--results', type=Path, default=RESULTS)
     p.add_argument('--after', type=Path, default=ROOT / 'results/h1/showo2_video_1_5b/target_contrast_v1_all_targets_dev')
@@ -236,6 +283,8 @@ if __name__ == '__main__':
         build_training_subset(args.data)
     elif args.command == 'build-all-target-queries':
         build_all_target_queries(args.data)
+    elif args.command == 'build-contrast-training-subset':
+        build_contrast_training_subset(args.data)
     elif args.command == 'analyze-target-queries':
         analyze_target_queries(args.data, args.results, args.after)
     else:

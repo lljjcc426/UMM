@@ -1,0 +1,83 @@
+{
+  "view": "reference_current",
+  "split": "dev",
+  "source_rows": 104,
+  "unique_inputs": 104,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "results/h1/showo2_video_1_5b/fit_scope_v1/last8_reference_dev",
+  "after": "results/h1/showo2_video_1_5b/fit_scope_v1/all28_reference_dev",
+  "metrics": {
+    "presence": {
+      "n": 52,
+      "groups": 7,
+      "before_correct": 48,
+      "after_correct": 49,
+      "accuracy_difference": 0.019230769230769232,
+      "before_cluster_bootstrap_95": [
+        0.8409090909090909,
+        0.9821428571428571
+      ],
+      "after_cluster_bootstrap_95": [
+        0.8653846153846154,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        -0.038461538461538464,
+        0.09090909090909091
+      ],
+      "unique_cases_both_wordings": {
+        "n": 26,
+        "before_correct": 23,
+        "after_correct": 24,
+        "before_cluster_bootstrap_95": [
+          0.7692307692307693,
+          0.9642857142857143
+        ],
+        "after_cluster_bootstrap_95": [
+          0.8214285714285714,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          -0.07692307692307693,
+          0.18181818181818182
+        ]
+      }
+    },
+    "completion": {
+      "n": 52,
+      "groups": 7,
+      "before_correct": 39,
+      "after_correct": 39,
+      "accuracy_difference": 0.0,
+      "before_cluster_bootstrap_95": [
+        0.6458333333333334,
+        0.8571428571428571
+      ],
+      "after_cluster_bootstrap_95": [
+        0.625,
+        0.8571428571428571
+      ],
+      "paired_cluster_bootstrap_95": [
+        -0.05357142857142857,
+        0.05357142857142857
+      ],
+      "unique_cases_both_wordings": {
+        "n": 26,
+        "before_correct": 18,
+        "after_correct": 19,
+        "before_cluster_bootstrap_95": [
+          0.5714285714285714,
+          0.8214285714285714
+        ],
+        "after_cluster_bootstrap_95": [
+          0.6153846153846154,
+          0.8461538461538461
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.10714285714285714
+        ]
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@ from PIL import Image
 
 from scripts.h1_state_gate import DEFAULT, evaluate, parse, read_jsonl, render, write_jsonl
 from scripts.h1_compare_state_runs import compare
-from scripts.h1_target_controls import target_box, controlled_image
+from scripts.h1_target_controls import target_box, controlled_image, different_target_outcomes
 
 
 class StateGateTest(unittest.TestCase):
@@ -145,6 +145,23 @@ class StateGateTest(unittest.TestCase):
             original = source[row['source_sample_id']]
             self.assertEqual(row['prompt'], original['prompt'])
             self.assertEqual((directory/row['images'][0]).resolve(), (DEFAULT/original['images'][0]).resolve())
+
+    def test_target_pair_requires_both_answers_and_keeps_wordings_separate(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            rows, labels, predictions = [], [], []
+            for wording in (0, 1):
+                for target, expected in [('a', '有'), ('b', '无')]:
+                    sid = f'{target}-{wording}'
+                    rows.append(dict(sample_id=sid, scene_id='image', group_id='geometry',
+                                     task='presence', wording=wording))
+                    labels.append(dict(sample_id=sid, expected=expected, allowed=['有', '无']))
+                    answer = expected if wording == 0 else '有'
+                    predictions.append(dict(sample_id=sid, raw_response=json.dumps({'answer': answer}, ensure_ascii=False)))
+            for name, values in [('inputs', rows), ('labels', labels), ('predictions', predictions)]:
+                write_jsonl(root / f'{name}.jsonl', values)
+            pairs = different_target_outcomes(root, root)
+            self.assertEqual([(r['wording'], r['correct']) for r in pairs], [(0, 1), (1, 0)])
 
 
 if __name__ == '__main__':

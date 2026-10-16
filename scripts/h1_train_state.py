@@ -14,8 +14,12 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from h1_run_showo import (ROOT, SOURCE_REVISION, MODEL_REVISION, load_model,
-                          text_prompt_ids, StateImageEncoder, image_prompt_embeds)
+if __package__:
+    from .h1_run_showo import (ROOT, SOURCE_REVISION, MODEL_REVISION, load_model,
+                             text_prompt_ids, StateImageEncoder, image_prompt_embeds)
+else:
+    from h1_run_showo import (ROOT, SOURCE_REVISION, MODEL_REVISION, load_model,
+                            text_prompt_ids, StateImageEncoder, image_prompt_embeds)
 
 
 class LoRALinear(nn.Module):
@@ -49,6 +53,19 @@ def load_adapter(model, path, device):
     return checkpoint['config']
 
 
+def extend_adapter_layers(model, config, last_layers):
+    """Add zero-output adapters in earlier layers, preserving existing updates."""
+    total = len(model.showo.model.layers)
+    if not 1 <= last_layers <= total:
+        raise ValueError(f'last_layers must be between 1 and {total}')
+    requested = set(range(total - last_layers, total))
+    if not set(config['layers']) <= requested:
+        raise ValueError('Continued training can extend, but cannot remove, adapted layers.')
+    added = sorted(requested - set(config['layers']))
+    add_adapter(model, dict(config, layers=added))
+    return dict(config, layers=sorted(requested), added_layers=added)
+
+
 def run(args):
     from h1_state_gate import read_jsonl, write_jsonl
     rows = [r for r in read_jsonl(args.data / 'inputs.jsonl') if r['split'] == 'train'
@@ -76,13 +93,17 @@ def run(args):
     if args.init_adapter:
         adapter_config = load_adapter(model, args.init_adapter, args.device)
         adapter_config['initial_adapter'] = str(args.init_adapter.resolve().relative_to(ROOT))
+        if args.last_layers is not None:
+            adapter_config = extend_adapter_layers(model, adapter_config, args.last_layers)
     else:
         adapter_config = dict(rank=args.rank, alpha=args.rank * 2,
-                              layers=list(range(len(model.showo.model.layers) - args.last_layers,
+                              layers=list(range(len(model.showo.model.layers) - (args.last_layers or 8),
                                                 len(model.showo.model.layers))),
                               projections=['q_proj', 'v_proj'])
         add_adapter(model, adapter_config)
     adapter_config['training_run'] = str(args.output.resolve().relative_to(ROOT))
+    if args.gradient_checkpointing:
+        model.showo.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant': False})
     model.showo.train()
     parameters = [p for p in model.parameters() if p.requires_grad]
     optimizer = torch.optim.AdamW(parameters, lr=args.lr, weight_decay=0.01)
@@ -96,17 +117,19 @@ def run(args):
     total_steps = steps_per_epoch * args.epochs
     metadata = dict(model_id='showlab/show-o2-1.5B-w-video-und', model_revision=MODEL_REVISION,
                     source_revision=SOURCE_REVISION,
-                    stage='visual_state_with_text_replay' if any(r['images'] for r in rows) else 'accurate_text_state_only',
+                    stage=('visual_state_with_text_replay' if args.text_replay else 'visual_state_only')
+                          if any(r['images'] for r in rows) else 'accurate_text_state_only',
                     rows_by_view={v: sum(r['view'] == v for r in rows) for v in sorted({r['view'] for r in rows})},
                     train_rows=len(rows), train_cases=len({(r['dataset'], r['case_id']) for r in rows}),
                     train_groups=len({(r['dataset'], r['group_id']) for r in rows}), adapter_config=adapter_config,
                     trainable_parameters=sum(p.numel() for p in parameters),
                     base_dtype='bfloat16', adapter_dtype='float32', device=args.device,
+                    gradient_checkpointing=args.gradient_checkpointing,
                     epochs=args.epochs, steps=total_steps, accumulation=args.accumulation,
                     learning_rate=args.lr, schedule='10% warmup then cosine to 10% of peak',
                     optimizer='AdamW; weight_decay=0.01; clip_grad_norm=1.0', seed=args.seed,
                     loss='Mean answer-token cross entropy including EOS; prompt tokens not supervised.',
-                    eval_policy='Evaluate frozen and final model on dev; no intermediate checkpoint selection.',
+                    eval_policy=args.eval_policy,
                     data=str(args.data.resolve().relative_to(ROOT)),
                     text_replay=str(args.text_replay.resolve().relative_to(ROOT)) if args.text_replay else None,
                     initial_adapter=str(args.init_adapter.resolve().relative_to(ROOT)) if args.init_adapter else None,
@@ -163,6 +186,12 @@ def run(args):
                     loss = F.cross_entropy(logits.float(), targets)
                     (loss / len(selected)).backward()
                     loss_sum += loss.detach().item()
+                if step == 0:
+                    metadata['first_step_gradient_norm_by_layer'] = {
+                        str(layer): math.sqrt(sum(float(p.grad.detach().square().sum())
+                            for p in model.showo.model.layers[layer].self_attn.parameters()
+                            if p.requires_grad and p.grad is not None))
+                        for layer in adapter_config['layers']}
                 norm = torch.nn.utils.clip_grad_norm_(parameters, 1.0, error_if_nonfinite=True)
                 optimizer.step()
                 step += 1
@@ -194,9 +223,11 @@ if __name__ == '__main__':
     p.add_argument('--adapter', type=Path, required=True)
     p.add_argument('--views', nargs='+', choices=['oracle_text', 'reference_current', 'current_only'], default=['oracle_text'])
     p.add_argument('--text-replay', type=Path, help='Mix all train/oracle_text/JSON rows from this dataset.')
-    p.add_argument('--init-adapter', type=Path, help='Continue a previous state adapter; keep its architecture.')
+    p.add_argument('--init-adapter', type=Path, help='Continue a previous state adapter; optionally extend layers with --last-layers.')
     p.add_argument('--rank', type=int, default=8)
-    p.add_argument('--last-layers', type=int, default=8)
+    p.add_argument('--last-layers', type=int, help='Defaults to 8 for a new adapter; retain existing layers when continuing unless specified.')
+    p.add_argument('--gradient-checkpointing', action='store_true', help='Recompute layer activations during backward to reduce memory.')
+    p.add_argument('--eval-policy', default='Evaluate frozen and final model on dev; no intermediate checkpoint selection.')
     p.add_argument('--epochs', type=int, default=2)
     p.add_argument('--accumulation', type=int, default=4)
     p.add_argument('--lr', type=float, default=2e-4)

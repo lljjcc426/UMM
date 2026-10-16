@@ -1,0 +1,83 @@
+{
+  "view": "reference_current",
+  "split": "dev",
+  "source_rows": 112,
+  "unique_inputs": 112,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "results/h1/showo2_video_1_5b/fit_scope_v1/last8_all_targets_dev",
+  "after": "results/h1/showo2_video_1_5b/fit_scope_v1/all28_all_targets_dev",
+  "metrics": {
+    "presence": {
+      "n": 56,
+      "groups": 3,
+      "before_correct": 48,
+      "after_correct": 49,
+      "accuracy_difference": 0.017857142857142856,
+      "before_cluster_bootstrap_95": [
+        0.8333333333333334,
+        0.875
+      ],
+      "after_cluster_bootstrap_95": [
+        0.875,
+        0.875
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.041666666666666664
+      ],
+      "unique_cases_both_wordings": {
+        "n": 28,
+        "before_correct": 24,
+        "after_correct": 24,
+        "before_cluster_bootstrap_95": [
+          0.8333333333333334,
+          0.875
+        ],
+        "after_cluster_bootstrap_95": [
+          0.8333333333333334,
+          0.875
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "completion": {
+      "n": 56,
+      "groups": 3,
+      "before_correct": 36,
+      "after_correct": 35,
+      "accuracy_difference": -0.017857142857142856,
+      "before_cluster_bootstrap_95": [
+        0.5,
+        0.75
+      ],
+      "after_cluster_bootstrap_95": [
+        0.5,
+        0.75
+      ],
+      "paired_cluster_bootstrap_95": [
+        -0.0625,
+        0.0
+      ],
+      "unique_cases_both_wordings": {
+        "n": 28,
+        "before_correct": 16,
+        "after_correct": 17,
+        "before_cluster_bootstrap_95": [
+          0.5,
+          0.625
+        ],
+        "after_cluster_bootstrap_95": [
+          0.5,
+          0.75
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.125
+        ]
+      }
+    }
+  }
+}

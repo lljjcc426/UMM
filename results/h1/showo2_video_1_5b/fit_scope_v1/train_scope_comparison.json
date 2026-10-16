@@ -1,0 +1,83 @@
+{
+  "view": "reference_current",
+  "split": "train",
+  "source_rows": 48,
+  "unique_inputs": 48,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "results/h1/showo2_video_1_5b/fit_scope_v1/last8_train",
+  "after": "results/h1/showo2_video_1_5b/fit_scope_v1/all28_train",
+  "metrics": {
+    "presence": {
+      "n": 24,
+      "groups": 3,
+      "before_correct": 24,
+      "after_correct": 24,
+      "accuracy_difference": 0.0,
+      "before_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "after_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "unique_cases_both_wordings": {
+        "n": 12,
+        "before_correct": 12,
+        "after_correct": 12,
+        "before_cluster_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "after_cluster_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "completion": {
+      "n": 24,
+      "groups": 3,
+      "before_correct": 24,
+      "after_correct": 24,
+      "accuracy_difference": 0.0,
+      "before_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "after_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "unique_cases_both_wordings": {
+        "n": 12,
+        "before_correct": 12,
+        "after_correct": 12,
+        "before_cluster_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "after_cluster_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

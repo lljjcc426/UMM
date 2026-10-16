@@ -1,0 +1,192 @@
+{
+  "created_utc": "2026-10-16T13:02:50.812575+00:00",
+  "role": "Post-hoc numeric diagnosis of the observed initial-loss difference; no updates or new model selection.",
+  "initial_adapter": "checkpoints/h1_target_contrast_lora_v1/adapter.pt",
+  "sample_ids": [
+    "train-cross-00-0-reference_current-completion-q1-json",
+    "train-parallel_h-00-3-reference_current-presence-q0-json",
+    "train-parallel_h-00-2-reference_current-completion-q1-json",
+    "train-parallel_h-00-0-reference_current-completion-q0-json"
+  ],
+  "original_first_steps": {
+    "last8": {
+      "step": 1,
+      "epoch": 1,
+      "loss": 0.12124325637705624,
+      "lr": 1.4285714285714285e-05,
+      "gradient_norm": 3.4456522464752197,
+      "sample_ids": [
+        "train-cross-00-0-reference_current-completion-q1-json",
+        "train-parallel_h-00-3-reference_current-presence-q0-json",
+        "train-parallel_h-00-2-reference_current-completion-q1-json",
+        "train-parallel_h-00-0-reference_current-completion-q0-json"
+      ],
+      "elapsed_seconds": 3.0020408339987625
+    },
+    "all28": {
+      "step": 1,
+      "epoch": 1,
+      "loss": 0.10468179197050631,
+      "lr": 1.4285714285714285e-05,
+      "gradient_norm": 3.243664026260376,
+      "sample_ids": [
+        "train-cross-00-0-reference_current-completion-q1-json",
+        "train-parallel_h-00-3-reference_current-presence-q0-json",
+        "train-parallel_h-00-2-reference_current-completion-q1-json",
+        "train-parallel_h-00-0-reference_current-completion-q0-json"
+      ],
+      "elapsed_seconds": 7.997372624995478
+    }
+  },
+  "feature_policy": "Encode each image once; reuse identical prompt and answer tensors in every condition.",
+  "conditions": {
+    "last8/inference": {
+      "mean_answer_loss": 0.12432322255335748,
+      "rows": [
+        {
+          "sample_id": "train-cross-00-0-reference_current-completion-q1-json",
+          "answer_loss": 0.17578832805156708,
+          "raw_response": "{\"answer\":\"部分\"}"
+        },
+        {
+          "sample_id": "train-parallel_h-00-3-reference_current-presence-q0-json",
+          "answer_loss": 0.008292674086987972,
+          "raw_response": "{\"answer\":\"有\"}"
+        },
+        {
+          "sample_id": "train-parallel_h-00-2-reference_current-completion-q1-json",
+          "answer_loss": 0.027765870094299316,
+          "raw_response": "{\"answer\":\"部分\"}"
+        },
+        {
+          "sample_id": "train-parallel_h-00-0-reference_current-completion-q0-json",
+          "answer_loss": 0.28544601798057556,
+          "raw_response": "{\"answer\":\"部分\"}"
+        }
+      ]
+    },
+    "last8/train": {
+      "mean_answer_loss": 0.12124325637705624,
+      "rows": [
+        {
+          "sample_id": "train-cross-00-0-reference_current-completion-q1-json",
+          "answer_loss": 0.16501069068908691
+        },
+        {
+          "sample_id": "train-parallel_h-00-3-reference_current-presence-q0-json",
+          "answer_loss": 0.009346996434032917
+        },
+        {
+          "sample_id": "train-parallel_h-00-2-reference_current-completion-q1-json",
+          "answer_loss": 0.02514231950044632
+        },
+        {
+          "sample_id": "train-parallel_h-00-0-reference_current-completion-q0-json",
+          "answer_loss": 0.2854730188846588
+        }
+      ]
+    },
+    "last8/train_input_grad": {
+      "mean_answer_loss": 0.10468179197050631,
+      "rows": [
+        {
+          "sample_id": "train-cross-00-0-reference_current-completion-q1-json",
+          "answer_loss": 0.13223466277122498
+        },
+        {
+          "sample_id": "train-parallel_h-00-3-reference_current-presence-q0-json",
+          "answer_loss": 0.008275791071355343
+        },
+        {
+          "sample_id": "train-parallel_h-00-2-reference_current-completion-q1-json",
+          "answer_loss": 0.024180704727768898
+        },
+        {
+          "sample_id": "train-parallel_h-00-0-reference_current-completion-q0-json",
+          "answer_loss": 0.254036009311676
+        }
+      ]
+    },
+    "all28/inference": {
+      "mean_answer_loss": 0.12432322255335748,
+      "rows": [
+        {
+          "sample_id": "train-cross-00-0-reference_current-completion-q1-json",
+          "answer_loss": 0.17578832805156708,
+          "raw_response": "{\"answer\":\"部分\"}"
+        },
+        {
+          "sample_id": "train-parallel_h-00-3-reference_current-presence-q0-json",
+          "answer_loss": 0.008292674086987972,
+          "raw_response": "{\"answer\":\"有\"}"
+        },
+        {
+          "sample_id": "train-parallel_h-00-2-reference_current-completion-q1-json",
+          "answer_loss": 0.027765870094299316,
+          "raw_response": "{\"answer\":\"部分\"}"
+        },
+        {
+          "sample_id": "train-parallel_h-00-0-reference_current-completion-q0-json",
+          "answer_loss": 0.28544601798057556,
+          "raw_response": "{\"answer\":\"部分\"}"
+        }
+      ]
+    },
+    "all28/train": {
+      "mean_answer_loss": 0.10468179197050631,
+      "rows": [
+        {
+          "sample_id": "train-cross-00-0-reference_current-completion-q1-json",
+          "answer_loss": 0.13223466277122498
+        },
+        {
+          "sample_id": "train-parallel_h-00-3-reference_current-presence-q0-json",
+          "answer_loss": 0.008275791071355343
+        },
+        {
+          "sample_id": "train-parallel_h-00-2-reference_current-completion-q1-json",
+          "answer_loss": 0.024180704727768898
+        },
+        {
+          "sample_id": "train-parallel_h-00-0-reference_current-completion-q0-json",
+          "answer_loss": 0.254036009311676
+        }
+      ]
+    },
+    "all28/train_input_grad": {
+      "mean_answer_loss": 0.10468179197050631,
+      "rows": [
+        {
+          "sample_id": "train-cross-00-0-reference_current-completion-q1-json",
+          "answer_loss": 0.13223466277122498
+        },
+        {
+          "sample_id": "train-parallel_h-00-3-reference_current-presence-q0-json",
+          "answer_loss": 0.008275791071355343
+        },
+        {
+          "sample_id": "train-parallel_h-00-2-reference_current-completion-q1-json",
+          "answer_loss": 0.024180704727768898
+        },
+        {
+          "sample_id": "train-parallel_h-00-0-reference_current-completion-q0-json",
+          "answer_loss": 0.254036009311676
+        }
+      ]
+    }
+  },
+  "logit_comparisons": {
+    "inference": {
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0
+    },
+    "train": {
+      "max_abs_difference": 1.9375,
+      "mean_abs_difference": 0.12626957334578037
+    },
+    "train_input_grad": {
+      "max_abs_difference": 0.0,
+      "mean_abs_difference": 0.0
+    }
+  }
+}
