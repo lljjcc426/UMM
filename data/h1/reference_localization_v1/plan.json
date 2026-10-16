@@ -1,0 +1,11 @@
+{
+  "role": "New development geometry; reference-only localization, not independent H1 acceptance.",
+  "seed": 10417,
+  "groups": 12,
+  "targets": 28,
+  "adapter": "checkpoints/h1_target_cue_boxed_v1/adapter.pt",
+  "input": "Complete reference in top 432x216 region; blank lower half. No current state, candidate boxes, labels or target markers.",
+  "output": "Four integer centerline bounds x_min,y_min,x_max,y_max; fixed syntax, all coordinates in canvas range are eligible.",
+  "scoring": "Mean absolute coordinate error; all four coordinates within 12 pixels; invalid box rate; per geometry group.",
+  "policy": "One prompt, one final adapter, no prompt search or training; no original visual test cases."
+}
