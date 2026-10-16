@@ -1,0 +1,54 @@
+{
+  "created_utc": "2026-10-16T14:29:12.781894+00:00",
+  "objective": "Test trained reference-derived target boxes against matched unmarked training, while retaining text and no-reference judgments.",
+  "initial_adapter": "checkpoints/h1_target_contrast_lora_v1/adapter.pt",
+  "arms": [
+    "raw",
+    "boxed"
+  ],
+  "visual_training_rows": {
+    "reference_current": 432,
+    "current_only": 312
+  },
+  "text_replay_rows": 512,
+  "text_replay": "data/h1/state_training_v1",
+  "training": {
+    "epochs": 3,
+    "steps": 942,
+    "accumulation": 4,
+    "learning_rate": 0.0002,
+    "seed": 731,
+    "rank": 8,
+    "alpha": 16,
+    "layers": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "trainable_parameters": 311296,
+    "gradient_checkpointing": false,
+    "loss": "Same answer and EOS cross entropy."
+  },
+  "controls": "Same initial weights, row order, optimizer, update count and reference-current prompts in both arms. Only those images gain boxes in the boxed arm. Current-only and text replay are identical.",
+  "cue": "Blue bounds from complete reference geometry plus 12-pixel margin, repeated in current panel, independent of current progress; only white pixels painted. No boxes on current-only input.",
+  "interpretation": "Known-reference target-location assistance. Not autonomous target localization. No current-state label determines the cue.",
+  "evaluation": {
+    "policy": "Final checkpoints only; no intermediate selection. Original visual test unused.",
+    "per_arm": [
+      "432 matched training reference questions",
+      "104 matched reference dev questions",
+      "112 raw target dev questions",
+      "112 boxed target dev questions",
+      "104 original current-only dev questions",
+      "208 original text dev questions"
+    ],
+    "primary": "Both differently labelled targets correct; training and dev reported separately.",
+    "retention": "Current-only and text scores deduplicated by actual visible inputs.",
+    "no_claim": "Static synthetic line states do not demonstrate character, font, temporal or generation competence."
+  }
+}

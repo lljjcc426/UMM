@@ -12,6 +12,8 @@
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 
+正在本机运行[目标位置提示的匹配训练](results/h1/showo2_video_1_5b/target_cue_v1/README.md)：两组使用相同训练题、预算和文字／仅当前复习，只改变参考＋当前图是否提供目标框；开发评价同时检查有框、无框和能力保持。本轮尚无最终结果，辅助定位成绩与自主定位分报。
+
 ## 阅读导航
 
 | 内容 | 入口 |

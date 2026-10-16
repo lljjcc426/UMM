@@ -1,0 +1,29 @@
+{
+  "generated_reference_images": 150,
+  "manifests": {
+    "train": 744,
+    "train_reference": 432,
+    "reference_dev": 104,
+    "all_targets_dev": 112
+  },
+  "training_labels_by_view_task": {
+    "reference_current/presence": {
+      "无": 72,
+      "有": 144
+    },
+    "reference_current/completion": {
+      "未出现": 72,
+      "部分": 72,
+      "完整": 72
+    },
+    "current_only/presence": {
+      "无": 36,
+      "有": 120
+    },
+    "current_only/completion": {
+      "未出现": 36,
+      "未知": 120
+    }
+  },
+  "plan": "results/h1/showo2_video_1_5b/target_cue_v1/plan.json"
+}
