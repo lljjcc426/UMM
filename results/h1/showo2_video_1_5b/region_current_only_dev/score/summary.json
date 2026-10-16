@@ -1,0 +1,80 @@
+{
+  "split": "dev",
+  "response_format": "plain",
+  "view": "current_only",
+  "expected_rows": 20,
+  "attempted_rows": 20,
+  "missing_rows": 0,
+  "metrics": {
+    "current_only/presence/both_correct": {
+      "correct": 7,
+      "n": 10,
+      "rate": 0.7,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.25,
+        1.0
+      ]
+    },
+    "current_only/presence/class_no": {
+      "correct": 4,
+      "n": 4,
+      "rate": 1.0,
+      "independent_groups": 2,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "current_only/presence/class_yes": {
+      "correct": 12,
+      "n": 16,
+      "rate": 0.75,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.3333333333333333,
+        1.0
+      ]
+    },
+    "current_only/presence/correct": {
+      "correct": 16,
+      "n": 20,
+      "rate": 0.8,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.5,
+        1.0
+      ]
+    },
+    "current_only/presence/format": {
+      "correct": 20,
+      "n": 20,
+      "rate": 1.0,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "current_only/presence/wording_0": {
+      "correct": 7,
+      "n": 10,
+      "rate": 0.7,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.25,
+        1.0
+      ]
+    },
+    "current_only/presence/wording_1": {
+      "correct": 9,
+      "n": 10,
+      "rate": 0.9,
+      "independent_groups": 3,
+      "cluster_bootstrap_95": [
+        0.75,
+        1.0
+      ]
+    }
+  }
+}

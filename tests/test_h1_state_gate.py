@@ -5,9 +5,40 @@ import tempfile
 import unittest
 
 from scripts.h1_state_gate import DEFAULT, evaluate, parse, read_jsonl, render, write_jsonl
+from scripts.h1_compare_state_runs import compare
 
 
 class StateGateTest(unittest.TestCase):
+    def test_training_text_does_not_leak_into_development(self):
+        rows = read_jsonl(DEFAULT.parent / 'state_training_v1/inputs.jsonl')
+        train = {r['prompt'] for r in rows if r['split'] == 'train'}
+        dev = {r['prompt'] for r in rows if r['split'] == 'dev'}
+        self.assertFalse(train & dev)
+        vertical = {r['group_id'] for r in rows if r['split'] == 'dev' and r['layout'] == 'single_v'}
+        self.assertEqual(len(vertical), 1)
+        held_out = {r['prompt'] for r in read_jsonl(DEFAULT.parent / 'state_text_test_v1/inputs.jsonl')}
+        self.assertFalse((train | dev) & held_out)
+
+    def test_duplicate_correct_cases_cannot_inflate_paired_success(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            rows, labels, predictions = [], [], []
+            for case, prompt, expected in [('a','visible','有'), ('b','visible','有'), ('c','empty','无')]:
+                for wording in range(2):
+                    sid = f'{case}-{wording}'
+                    rows.append(dict(sample_id=sid, case_id=case, group_id=prompt, split='dev',
+                                     view='oracle_text', task='presence', response_format='json',
+                                     wording=wording, images=[], prompt=f'{prompt} q{wording}'))
+                    labels.append(dict(sample_id=sid, expected=expected, allowed=['有','无']))
+                    predictions.append(dict(sample_id=sid, raw_response='{"answer":"有"}'))
+            for name, values in [('inputs',rows), ('labels',labels), ('predictions',predictions)]:
+                write_jsonl(root / f'{name}.jsonl', values)
+            compare(root,root,root,root/'comparison.json')
+            report = json.loads((root/'comparison.json').read_text())
+            paired = report['metrics']['presence']['unique_cases_both_wordings']
+            self.assertEqual(report['unique_inputs'], 4)
+            self.assertEqual((paired['after_correct'], paired['n']), (1, 2))
+
     def test_identical_current_requires_reference_to_decide_completion(self):
         cases = {r['case_id']: r for r in json.loads((DEFAULT / 'cases.json').read_text())}
         short, short_current = render(cases['dev-reference-00-short'])

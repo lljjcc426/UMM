@@ -1,0 +1,83 @@
+{
+  "view": "oracle_text",
+  "split": "test",
+  "source_rows": 784,
+  "unique_inputs": 704,
+  "method": "Exact prompt and image-path duplicates counted once; paired bootstrap over input groups.",
+  "before": "results/h1/showo2_video_1_5b/text_adaptation_v1_frozen_test",
+  "after": "results/h1/showo2_video_1_5b/text_adaptation_v1_trained_test",
+  "metrics": {
+    "presence": {
+      "n": 352,
+      "groups": 46,
+      "before_correct": 274,
+      "after_correct": 346,
+      "accuracy_difference": 0.20454545454545456,
+      "before_cluster_bootstrap_95": [
+        0.7638888888888888,
+        0.7970588235294118
+      ],
+      "after_cluster_bootstrap_95": [
+        0.9655172413793104,
+        0.9971910112359551
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.18181818181818182,
+        0.2247191011235955
+      ],
+      "unique_cases_both_wordings": {
+        "n": 176,
+        "before_correct": 133,
+        "after_correct": 172,
+        "before_cluster_bootstrap_95": [
+          0.7388888888888889,
+          0.7705882352941177
+        ],
+        "after_cluster_bootstrap_95": [
+          0.9545454545454546,
+          0.9944444444444445
+        ],
+        "paired_change_bootstrap_95": [
+          0.19411764705882353,
+          0.24719101123595505
+        ]
+      }
+    },
+    "completion": {
+      "n": 352,
+      "groups": 46,
+      "before_correct": 87,
+      "after_correct": 340,
+      "accuracy_difference": 0.71875,
+      "before_cluster_bootstrap_95": [
+        0.22093023255813954,
+        0.27247191011235955
+      ],
+      "after_cluster_bootstrap_95": [
+        0.9423076923076923,
+        0.9857954545454546
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.6888888888888889,
+        0.7471590909090909
+      ],
+      "unique_cases_both_wordings": {
+        "n": 176,
+        "before_correct": 6,
+        "after_correct": 167,
+        "before_cluster_bootstrap_95": [
+          0.005681818181818182,
+          0.07142857142857142
+        ],
+        "after_cluster_bootstrap_95": [
+          0.9147727272727273,
+          0.9775280898876404
+        ],
+        "paired_change_bootstrap_95": [
+          0.8690476190476191,
+          0.9555555555555556
+        ]
+      }
+    }
+  }
+}

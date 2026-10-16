@@ -1,0 +1,83 @@
+{
+  "view": "oracle_text",
+  "split": "dev",
+  "source_rows": 208,
+  "unique_inputs": 192,
+  "method": "Exact prompt and image-path duplicates counted once; paired bootstrap over input groups.",
+  "before": "results/h1/showo2_video_1_5b/text_adaptation_v1_frozen_dev",
+  "after": "results/h1/showo2_video_1_5b/text_adaptation_v1_trained_dev",
+  "metrics": {
+    "presence": {
+      "n": 96,
+      "groups": 13,
+      "before_correct": 74,
+      "after_correct": 93,
+      "accuracy_difference": 0.19791666666666666,
+      "before_cluster_bootstrap_95": [
+        0.73,
+        0.8152173913043478
+      ],
+      "after_cluster_bootstrap_95": [
+        0.9347826086956522,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.14772727272727273,
+        0.25
+      ],
+      "unique_cases_both_wordings": {
+        "n": 48,
+        "before_correct": 36,
+        "after_correct": 45,
+        "before_cluster_bootstrap_95": [
+          0.7,
+          0.7954545454545454
+        ],
+        "after_cluster_bootstrap_95": [
+          0.8695652173913043,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.10416666666666667,
+          0.2708333333333333
+        ]
+      }
+    },
+    "completion": {
+      "n": 96,
+      "groups": 13,
+      "before_correct": 40,
+      "after_correct": 93,
+      "accuracy_difference": 0.5520833333333334,
+      "before_cluster_bootstrap_95": [
+        0.33695652173913043,
+        0.4807692307692308
+      ],
+      "after_cluster_bootstrap_95": [
+        0.9204545454545454,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.48863636363636365,
+        0.6354166666666666
+      ],
+      "unique_cases_both_wordings": {
+        "n": 48,
+        "before_correct": 17,
+        "after_correct": 45,
+        "before_cluster_bootstrap_95": [
+          0.22916666666666666,
+          0.46153846153846156
+        ],
+        "after_cluster_bootstrap_95": [
+          0.8409090909090909,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.4772727272727273,
+          0.717391304347826
+        ]
+      }
+    }
+  }
+}

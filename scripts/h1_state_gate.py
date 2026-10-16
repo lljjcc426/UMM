@@ -71,18 +71,24 @@ def render(case):
     return reference, current
 
 
-def build(output):
+def build(output, splits=None, views=None, forms=None, version='state_gate_v1', isolate_text=False,
+          stretch_y=False, exclude_from=None):
+    splits = splits or [('dev', 1, 1729), ('test', 5, 2718)]
+    views = views or ['oracle_text', 'reference_current', 'current_only']
+    forms = forms or ['plain', 'json']
     output.mkdir(parents=True, exist_ok=True)
-    (output / 'images').mkdir(exist_ok=True)
+    if any(v != 'oracle_text' for v in views):
+        (output / 'images').mkdir(exist_ok=True)
     cases = []
     # Every state and wording variant of one geometry stays in the same split.
-    for split, count, seed in [('dev', 1, 1729), ('test', 5, 2718)]:
+    for split, count, seed in splits:
         rng = random.Random(seed)
         for layout, template in LAYOUTS.items():
             for index in range(count):
                 dx, dy = rng.randint(-10, 10), rng.randint(-6, 6)
                 sx = rng.uniform(.84, 1.02)
-                strokes = {n: [(round(216 + (x - 216) * sx + dx), y + dy) for x, y in pts]
+                sy = rng.uniform(.8, 1.2) if stretch_y else 1
+                strokes = {n: [(round(216 + (x - 216) * sx + dx), round(105 + (y - 105) * sy + dy)) for x, y in pts]
                            for n, pts in template.items()}
                 target = list(strokes)[index % len(strokes)]
                 others = {n: rng.choice([0, .5, 1]) for n in strokes}
@@ -108,15 +114,16 @@ def build(output):
     inputs, labels = [], []
     for case in cases:
         cid, target = case['case_id'], case['target']
-        reference, current = render(case)
-        reference.save(output / 'images' / f'{cid}.png')
-        current.save(output / 'images' / f'{cid}-current.png')
+        if any(v != 'oracle_text' for v in views):
+            reference, current = render(case)
+            reference.save(output / 'images' / f'{cid}.png')
+            current.save(output / 'images' / f'{cid}-current.png')
         lengths = [(name, round(path_length(points), 2),
                     round(path_length(points) * case['fractions'][name], 2))
                    for name, points in case['strokes'].items()]
         facts = '；'.join(f'{n}：参考完整长度{full}，当前已有长度{seen}' for n, full, seen in lengths)
         frac = case['fractions'][target]
-        for view in ['oracle_text', 'reference_current', 'current_only']:
+        for view in views:
             context = {
                 'oracle_text': '这是纯文字状态题，无需图像。每条线均沿参考路径从起点连续画出，'
                                '已画部分没有偏移、隐藏或重复。以下长度记录准确，单位相同。' + facts +
@@ -148,7 +155,7 @@ def build(output):
                         '没有出现写“未出现”；已出现且达到参考全部形状写“完整”；'
                         '只达到一部分写“部分”；缺少判断完成程度的依据写“未知”。')
                 for wording, question in enumerate(questions[task]):
-                    for form in ['plain', 'json']:
+                    for form in forms:
                         ending = ('只输出判断词，不写解释。' if form == 'plain' else
                                   '只输出一个JSON对象，只含answer字段，值为判断词，不写解释。')
                         sid = f'{cid}-{view}-{task}-q{wording}-{form}'
@@ -160,15 +167,43 @@ def build(output):
                                            prompt=context + question + rule + ending))
                         labels.append(dict(sample_id=sid, expected=expected, allowed=domain,
                                            reference_pair=case['reference_pair']))
+    excluded = []
+    if isolate_text or exclude_from:
+        seen_prompts = ({r['prompt'] for r in read_jsonl(exclude_from / 'inputs.jsonl')} if exclude_from else
+                        {r['prompt'] for r in inputs if r['split'] == 'dev'})
+        excluded = sorted({r['group_id'] for r in inputs
+                           if (exclude_from or r['split'] == 'train') and r['prompt'] in seen_prompts})
+        inputs = [r for r in inputs if r['group_id'] not in excluded]
+        retained = {r['sample_id'] for r in inputs}
+        labels = [r for r in labels if r['sample_id'] in retained]
+        cases = [c for c in cases if c['group_id'] not in excluded]
+        # Geometry hidden from a text-only input cannot create independent evidence.
+        prompts_by_group = defaultdict(set)
+        for row in inputs:
+            prompts_by_group[(row['split'], row['group_id'])].add(row['prompt'])
+        canonical, aliases = {}, {}
+        for (split, group), prompts in prompts_by_group.items():
+            signature = (split, tuple(sorted(prompts)))
+            aliases[group] = canonical.setdefault(signature, group)
+        for row in inputs + cases:
+            row['group_id'] = aliases[row['group_id']]
     write_jsonl(output / 'inputs.jsonl', inputs)
     write_jsonl(output / 'labels.jsonl', labels)
     (output / 'cases.json').write_text(json.dumps(cases, ensure_ascii=False, indent=2) + '\n')
-    summary = dict(version='state_gate_v1', seed_by_split={'dev': 1729, 'test': 2718},
+    summary = dict(version=version, seed_by_split={s: seed for s, _, seed in splits},
                    cases_by_split=dict(Counter(c['split'] for c in cases)),
                    groups_by_split={s: len({c['group_id'] for c in cases if c['split'] == s})
-                                    for s in ['dev', 'test']},
+                                    for s, _, _ in splits},
                    input_rows=len(inputs), contains_model_predictions=False,
                    scope='Synthetic line-state diagnosis only; no order or font generalization claim.')
+    if isolate_text or exclude_from:
+        summary.update(excluded_groups_for_shared_text=excluded,
+                       grouping='Text-equivalent geometry groups merged for confidence intervals.',
+                       unique_prompts_by_split={s: len({r['prompt'] for r in inputs if r['split'] == s}) for s, _, _ in splits})
+    if exclude_from:
+        summary.update(exclude_visible_text_from=str(exclude_from.relative_to(ROOT)),
+                       vertical_scale=[.8, 1.2] if stretch_y else [1, 1],
+                       evaluation_policy='Fixed v1 adapter and fixed-answer decoding before test; no tuning on test results.')
     (output / 'build.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
@@ -239,6 +274,28 @@ def build_relation_control(output):
     write_jsonl(output / 'simple_relation_controls.jsonl', rows)
     write_jsonl(output / 'simple_relation_control_labels.jsonl', labels)
     print(f'{len(cases)} existing dev cases; {len(rows)} short relation-control questions.')
+
+
+def build_region_control(output):
+    """Hold question and current pixels fixed; remove only the upper reference."""
+    source = read_jsonl(output / 'simple_relation_controls.jsonl')
+    source_labels = {r['sample_id']: r for r in read_jsonl(output / 'simple_relation_control_labels.jsonl')}
+    rows, labels = [], []
+    questions = ['Is there a black line in the bottom half of this image?',
+                 'Does the lower half of this image contain any black line?']
+    for inp in source:
+        if inp['task'] != 'presence':
+            continue
+        for view in ['reference_current', 'current_only']:
+            sid = f'region-{inp["case_id"]}-{view}-q{inp["wording"]}'
+            row = dict(inp, sample_id=sid, view=view,
+                       prompt=questions[inp['wording']] + ' Answer with exactly yes or no.',
+                       images=[f'images/{inp["case_id"]}' + ('-current.png' if view == 'current_only' else '.png')])
+            rows.append(row)
+            labels.append(dict(source_labels[inp['sample_id']], sample_id=sid))
+    write_jsonl(output / 'region_controls.jsonl', rows)
+    write_jsonl(output / 'region_control_labels.jsonl', labels)
+    print(f'{len(rows)} questions with matched wording and current pixels.')
 
 
 def parse(raw, form, allowed):
@@ -360,8 +417,8 @@ def evaluate(data, predictions, split, form, output, view=None, audit=False):
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('command', choices=['build', 'build-basic-control', 'build-relation-control', 'score'])
-    p.add_argument('--data', type=Path, default=DEFAULT)
+    p.add_argument('command', choices=['build', 'build-training', 'build-text-test', 'build-basic-control', 'build-relation-control', 'build-region-control', 'score'])
+    p.add_argument('--data', type=Path)
     p.add_argument('--predictions', type=Path)
     p.add_argument('--split', choices=['dev', 'test'], default='dev')
     p.add_argument('--format', choices=['plain', 'json'], default='plain')
@@ -369,12 +426,22 @@ if __name__ == '__main__':
     p.add_argument('--view', choices=['oracle_text', 'reference_current', 'current_only'])
     p.add_argument('--audit-words', action='store_true', help='Separately interpret exact answer words after scoring.')
     args = p.parse_args()
+    defaults = {'build-training': ROOT / 'data/h1/state_training_v1', 'build-text-test': ROOT / 'data/h1/state_text_test_v1'}
+    args.data = args.data or defaults.get(args.command, DEFAULT)
     if args.command == 'build':
         build(args.data)
+    elif args.command == 'build-training':
+        build(args.data, [('train',6,10317),('dev',2,20429)], ['oracle_text'], ['json'],
+              'state_training_v1', isolate_text=True)
+    elif args.command == 'build-text-test':
+        build(args.data, [('test',8,40519)], ['oracle_text'], ['json'], 'state_text_test_v1',
+              stretch_y=True, exclude_from=ROOT / 'data/h1/state_training_v1')
     elif args.command == 'build-basic-control':
         build_basic_control(args.data)
     elif args.command == 'build-relation-control':
         build_relation_control(args.data)
+    elif args.command == 'build-region-control':
+        build_region_control(args.data)
     else:
         if not args.predictions or not args.output:
             p.error('score requires --predictions and --output')

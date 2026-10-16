@@ -1,0 +1,83 @@
+{
+  "view": "oracle_text",
+  "split": "dev",
+  "source_rows": 208,
+  "unique_inputs": 192,
+  "method": "Exact prompt and image-path duplicates counted once; paired bootstrap over input groups.",
+  "before": "results/h1/showo2_video_1_5b/text_adaptation_v1_frozen_constrained_dev",
+  "after": "results/h1/showo2_video_1_5b/text_adaptation_v1_trained_constrained_dev",
+  "metrics": {
+    "presence": {
+      "n": 96,
+      "groups": 13,
+      "before_correct": 75,
+      "after_correct": 96,
+      "accuracy_difference": 0.21875,
+      "before_cluster_bootstrap_95": [
+        0.75,
+        0.8214285714285714
+      ],
+      "after_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.17857142857142858,
+        0.25
+      ],
+      "unique_cases_both_wordings": {
+        "n": 48,
+        "before_correct": 37,
+        "after_correct": 48,
+        "before_cluster_bootstrap_95": [
+          0.75,
+          0.8095238095238095
+        ],
+        "after_cluster_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.19047619047619047,
+          0.25
+        ]
+      }
+    },
+    "completion": {
+      "n": 96,
+      "groups": 13,
+      "before_correct": 29,
+      "after_correct": 95,
+      "accuracy_difference": 0.6875,
+      "before_cluster_bootstrap_95": [
+        0.25,
+        0.358695652173913
+      ],
+      "after_cluster_bootstrap_95": [
+        0.967391304347826,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.63,
+        0.7386363636363636
+      ],
+      "unique_cases_both_wordings": {
+        "n": 48,
+        "before_correct": 5,
+        "after_correct": 47,
+        "before_cluster_bootstrap_95": [
+          0.0,
+          0.21739130434782608
+        ],
+        "after_cluster_bootstrap_95": [
+          0.9347826086956522,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.76,
+          0.9772727272727273
+        ]
+      }
+    }
+  }
+}

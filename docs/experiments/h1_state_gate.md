@@ -1,6 +1,6 @@
 # H1前置门槛：答案接口与当前线条状态
 
-当前只推进两项：**模型能否稳定回答正确；模型能否区分实际已出现的线条及其完成程度。** 两项获得稳定结果后，再启动顺序学习。Show-o2已在本机接通文字和图像理解路径，开展两项开发诊断；尚未开展训练或通过H1。
+当前只推进两项：**模型能否稳定回答正确；模型能否区分实际已出现的线条及其完成程度。** 两项获得稳定结果后，再启动顺序学习。Show-o2已在本机接通文字和图像理解路径，并完成一轮准确文字状态监督适配；尚未通过完整H1。
 
 ## 1. 两项门槛怎样分开
 
@@ -99,3 +99,26 @@ python scripts/h1_state_gate.py score --split dev --format json \
 只给当前画面的对照将两条视觉命令中的`reference_current`改为`current_only`，使用另一个输出目录。每轮目录不可覆盖。实际开发集结果与接口修订记录见[本轮结果](../../results/h1/showo2_video_1_5b/README.md)。
 
 `--blank-image`仅是文字题附带空白图的接口排查条件。它同时改变了模态输入和提示模板，且空白图可能与文字记录冲突，不能据此隔离单一原因或评价视觉状态能力。
+
+## 6. 本机文字状态监督适配
+
+先检验已有失败能否通过有限监督改善，只训练准确文字条件下的存在和完成判断。使用[独立构建的适配数据](../../data/h1/state_training_v1/README.md)：128个训练几何案例、512行问题；52个开发案例、208行问题。排除与开发问题文本重合的整组训练样本，并把仅几何位置不同、可见文字相同的组归并计入置信区间。开发集去重后为192个不同问题、13组；相同模板仍在两集合出现。
+
+从同一完整Show-o2检查点开始，采用[LoRA](https://arxiv.org/abs/2106.09685)冻结基础参数、训练低秩更新。当前在语言模块最后8层的q/v投影中添加rank 8、alpha 16的适配参数，共311,296个；原有视觉和生成模块保留。基础参数使用bfloat16，适配参数与优化器使用float32。
+
+只对答案及结束符计算交叉熵，提示文本不计入损失。固定2轮、256个优化步骤，梯度累积4，AdamW学习率2e-4，前10%步骤预热后余弦下降，梯度范数限制1。训练种子731；只评价最终检查点，没有根据中间开发成绩挑选检查点。本机实测训练约161秒，未训练图像、时间顺序或动作预测。
+
+保留自由生成结果，再对冻结和训练后模型都使用相同的固定答案解码约束。约束仅允许`{"answer":"判断词"}`的合法词表，不读取真值，不修正生成后的错误标签。**其格式有效率由接口保证，内容、两问均对及参考依赖仍需单独检验。**
+
+```bash
+python scripts/h1_state_gate.py build-training
+python scripts/h1_train_state.py \
+  --output results/h1/showo2_video_1_5b/new_text_training \
+  --adapter checkpoints/new_text_training/adapter.pt
+python scripts/h1_run_showo.py --device mps --format json \
+  --inputs data/h1/state_training_v1/inputs.jsonl \
+  --adapter checkpoints/new_text_training/adapter.pt --constrain-answers \
+  --output results/h1/showo2_video_1_5b/new_text_adapted_eval
+```
+
+冻结对照使用相同命令但不指定`--adapter`。适配权重存放于本地忽略的`checkpoints/`；训练配置、全部训练输入与逐步损失，以及评价原始回答保存在结果目录。此实验只能支持文字状态接口的适配可行性，视觉迁移、生成质量保持及完整H1仍需分别验证。

@@ -11,6 +11,7 @@
 - `text_controls_en.jsonl`、`text_control_labels_en.jsonl`：上述12题的英文对照，用于检查语言和任务接口的影响；同样不作为独立新增案例。
 - `basic_visual_controls.jsonl`、`basic_visual_control_labels.jsonl`及`images/basic-*.png`：4张整幅简单图、16题英文存在/数量问答，用于检查基础图像输入与回答能力。不要求上下分区、参考匹配或完成程度判断，不计入156个主诊断案例。使用`python scripts/h1_state_gate.py build-basic-control`重建。
 - `simple_relation_controls.jsonl`、`simple_relation_control_labels.jsonl`：从已有开发集取10个单线与参考对照案例，改用40题简短英文yes/no问题，分别询问当前是否有线、是否已覆盖完整参考。它不包含多实例定位或未知类别；使用`python scripts/h1_state_gate.py build-relation-control`重建。
+- `region_controls.jsonl`、`region_control_labels.jsonl`：保持同一存在问题和当前像素不变，仅移除或保留上半部参考，共40题。提示不宣称上半部一定存在参考，用于检验参考干扰；使用`python scripts/h1_state_gate.py build-region-control`重建。
 
 运行 `python scripts/h1_state_gate.py build` 可重建。同一几何组的全部变体归入相同集合。当前只使用开发集调整接口，留出集尚未运行。相同形状家族和渲染器在两集合中均存在，因此不能声称跨汉字、字体或来源泛化。
 

@@ -1,0 +1,160 @@
+{
+  "split": "test",
+  "response_format": "json",
+  "view": "oracle_text",
+  "expected_rows": 784,
+  "attempted_rows": 784,
+  "missing_rows": 0,
+  "metrics": {
+    "oracle_text/completion/both_correct": {
+      "correct": 187,
+      "n": 196,
+      "rate": 0.9540816326530612,
+      "independent_groups": 46,
+      "cluster_bootstrap_95": [
+        0.9202127659574468,
+        0.9805825242718447
+      ]
+    },
+    "oracle_text/completion/class_完整": {
+      "correct": 102,
+      "n": 104,
+      "rate": 0.9807692307692307,
+      "independent_groups": 46,
+      "cluster_bootstrap_95": [
+        0.95,
+        1.0
+      ]
+    },
+    "oracle_text/completion/class_未出现": {
+      "correct": 87,
+      "n": 92,
+      "rate": 0.9456521739130435,
+      "independent_groups": 42,
+      "cluster_bootstrap_95": [
+        0.875,
+        1.0
+      ]
+    },
+    "oracle_text/completion/class_部分": {
+      "correct": 191,
+      "n": 196,
+      "rate": 0.9744897959183674,
+      "independent_groups": 46,
+      "cluster_bootstrap_95": [
+        0.9414893617021277,
+        1.0
+      ]
+    },
+    "oracle_text/completion/correct": {
+      "correct": 380,
+      "n": 392,
+      "rate": 0.9693877551020408,
+      "independent_groups": 46,
+      "cluster_bootstrap_95": [
+        0.9473684210526315,
+        0.9873737373737373
+      ]
+    },
+    "oracle_text/completion/format": {
+      "correct": 392,
+      "n": 392,
+      "rate": 1.0,
+      "independent_groups": 46,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/completion/wording_0": {
+      "correct": 190,
+      "n": 196,
+      "rate": 0.9693877551020408,
+      "independent_groups": 46,
+      "cluster_bootstrap_95": [
+        0.945054945054945,
+        0.98989898989899
+      ]
+    },
+    "oracle_text/completion/wording_1": {
+      "correct": 190,
+      "n": 196,
+      "rate": 0.9693877551020408,
+      "independent_groups": 46,
+      "cluster_bootstrap_95": [
+        0.9388888888888889,
+        0.9906542056074766
+      ]
+    },
+    "oracle_text/presence/both_correct": {
+      "correct": 192,
+      "n": 196,
+      "rate": 0.9795918367346939,
+      "independent_groups": 46,
+      "cluster_bootstrap_95": [
+        0.9578947368421052,
+        0.9950980392156863
+      ]
+    },
+    "oracle_text/presence/class_无": {
+      "correct": 87,
+      "n": 92,
+      "rate": 0.9456521739130435,
+      "independent_groups": 42,
+      "cluster_bootstrap_95": [
+        0.8723404255319149,
+        1.0
+      ]
+    },
+    "oracle_text/presence/class_有": {
+      "correct": 299,
+      "n": 300,
+      "rate": 0.9966666666666667,
+      "independent_groups": 46,
+      "cluster_bootstrap_95": [
+        0.9895104895104895,
+        1.0
+      ]
+    },
+    "oracle_text/presence/correct": {
+      "correct": 386,
+      "n": 392,
+      "rate": 0.9846938775510204,
+      "independent_groups": 46,
+      "cluster_bootstrap_95": [
+        0.9681372549019608,
+        0.9975
+      ]
+    },
+    "oracle_text/presence/format": {
+      "correct": 392,
+      "n": 392,
+      "rate": 1.0,
+      "independent_groups": 46,
+      "cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ]
+    },
+    "oracle_text/presence/wording_0": {
+      "correct": 194,
+      "n": 196,
+      "rate": 0.9897959183673469,
+      "independent_groups": 46,
+      "cluster_bootstrap_95": [
+        0.9742268041237113,
+        1.0
+      ]
+    },
+    "oracle_text/presence/wording_1": {
+      "correct": 192,
+      "n": 196,
+      "rate": 0.9795918367346939,
+      "independent_groups": 46,
+      "cluster_bootstrap_95": [
+        0.9578947368421052,
+        0.9950980392156863
+      ]
+    }
+  }
+}

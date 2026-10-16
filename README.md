@@ -8,7 +8,7 @@
 
 暂定题目：**实际笔顺理解驱动的统一多模态中文书写视频生成**。
 
-通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1主实验使用UMM本体，当前先验证答案接口与当前线条状态，两项稳定后再加入顺序学习。** Show-o2视频理解检查点已在M5／16GB本机接通文字和图像路径，状态判断尚不可靠；顺序学习、H2与H3未开始。见[两项前置门槛](docs/experiments/h1_state_gate.md)与[本轮结果](results/h1/showo2_video_1_5b/README.md)。
+通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1主实验使用UMM本体，当前先验证答案接口与当前线条状态，两项稳定后再加入顺序学习。** Show-o2已在M5／16GB本机完成文字状态LoRA适配，独立文字测试的存在与完成正确率为98.3%、96.6%，完成两问均对94.9%，仍略低于门槛；视觉状态尚不可靠。顺序学习、H2与H3未开始。见[两项前置门槛](docs/experiments/h1_state_gate.md)与[本轮结果](results/h1/showo2_video_1_5b/README.md)。
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 
@@ -50,4 +50,4 @@ python scripts/validate_catalog.py
 
 `scripts/stroke_metrics.py` 提供已标注事件序列的指标示例，不负责从视频识别笔画。[像素过程小实验](docs/experiments/process_probe.md)验证同终态反例和模板辅助的顺序/方向观测，可用 `python scripts/process_probe.py` 复现并查看[动画](examples/process_probe/comparison.gif)。
 
-本轮Show-o2的[接口与状态诊断](docs/experiments/h1_state_gate.md)使用`requirements-h1-showo.txt`及适合平台的PyTorch，数据、全部原始回答、评分及运行配置已保存。此前[Janus-Pro诊断](docs/experiments/h1_umm_diagnostic.md)使用`requirements-h1-umm.txt`；Qwen3-VL保留为[外部辅助诊断](docs/experiments/h1_diagnostic.md)，使用`requirements-h1.txt`。目前未开展模型训练或视频生成实验。
+本轮Show-o2的[接口与状态诊断](docs/experiments/h1_state_gate.md)使用`requirements-h1-showo.txt`及适合平台的PyTorch，数据、原始回答、评分、文字适配配置及训练损失已保存。此前[Janus-Pro诊断](docs/experiments/h1_umm_diagnostic.md)使用`requirements-h1-umm.txt`；Qwen3-VL保留为[外部辅助诊断](docs/experiments/h1_diagnostic.md)，使用`requirements-h1.txt`。目前已完成文字状态监督适配，尚未开展视觉/顺序监督或视频生成实验。

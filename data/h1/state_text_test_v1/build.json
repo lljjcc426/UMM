@@ -1,0 +1,31 @@
+{
+  "version": "state_text_test_v1",
+  "seed_by_split": {
+    "test": 40519
+  },
+  "cases_by_split": {
+    "test": 196
+  },
+  "groups_by_split": {
+    "test": 46
+  },
+  "input_rows": 784,
+  "contains_model_predictions": false,
+  "scope": "Synthetic line-state diagnosis only; no order or font generalization claim.",
+  "excluded_groups_for_shared_text": [
+    "test-parallel_v-07",
+    "test-reference-06",
+    "test-reference-07",
+    "test-single_h-00"
+  ],
+  "grouping": "Text-equivalent geometry groups merged for confidence intervals.",
+  "unique_prompts_by_split": {
+    "test": 704
+  },
+  "exclude_visible_text_from": "data/h1/state_training_v1",
+  "vertical_scale": [
+    0.8,
+    1.2
+  ],
+  "evaluation_policy": "Fixed v1 adapter and fixed-answer decoding before test; no tuning on test results."
+}
