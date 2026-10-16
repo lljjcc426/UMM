@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import argparse
-from collections import Counter
+from collections import Counter, defaultdict
 import contextlib
 from datetime import datetime, timezone
 import io
@@ -15,12 +15,12 @@ import sys
 from PIL import Image, ImageChops, ImageDraw
 
 if __package__:
-    from .h1_state_gate import ROOT, DEFAULT, read_jsonl, write_jsonl, evaluate
-    from .h1_target_controls import CUE, score_different_targets, compare_different_targets
+    from .h1_state_gate import ROOT, DEFAULT, read_jsonl, write_jsonl, evaluate, interval
+    from .h1_target_controls import CUE, score_different_targets, compare_different_targets, different_target_outcomes
     from .h1_compare_state_runs import compare
 else:
-    from h1_state_gate import ROOT, DEFAULT, read_jsonl, write_jsonl, evaluate
-    from h1_target_controls import CUE, score_different_targets, compare_different_targets
+    from h1_state_gate import ROOT, DEFAULT, read_jsonl, write_jsonl, evaluate, interval
+    from h1_target_controls import CUE, score_different_targets, compare_different_targets, different_target_outcomes
     from h1_compare_state_runs import compare
 
 DATA = ROOT / 'data/h1/state_target_cue_v1'
@@ -189,14 +189,60 @@ def execute(data=DATA, results=RESULTS, adapter_prefix='h1_target_cue'):
     print('ALL MATCHED TARGET CUE RUNS COMPLETED',flush=True)
 
 
+def analyze(data=DATA, results=RESULTS):
+    """Separate training-cue and inference-cue effects on the same target pairs."""
+    runs={}
+    for training in ('raw','boxed'):
+        for observed in ('raw','boxed'):
+            directory=results/training/f'targets_{observed}_dev'
+            metadata=json.loads((directory/'run.json').read_text())
+            if not metadata.get('finished_utc'):
+                raise ValueError(f'Evaluation is still running: {directory}')
+            runs[(training,observed)]=different_target_outcomes(data/observed/'all_targets_dev',directory)
+    report=dict(
+        role='Four completed final-checkpoint conditions on the same underlying scenes; target boxes change with the queried target.',
+        unit='Both differently labelled targets correct, for one wording; geometry-group bootstrap.',
+        formulas={
+            'training_effect_on_raw':'boxed-trained/raw-input minus raw-trained/raw-input',
+            'training_effect_on_boxed':'boxed-trained/boxed-input minus raw-trained/boxed-input',
+            'cue_effect_in_raw_model':'raw-trained/boxed-input minus raw-trained/raw-input',
+            'cue_effect_in_boxed_model':'boxed-trained/boxed-input minus boxed-trained/raw-input',
+            'cue_by_training_interaction':'cue effect in boxed-trained model minus cue effect in raw-trained model'},
+        limitations='Three development geometry groups and one seed; assisted localization and task adaptation only, not independent H1 or UMM generation benefit.',
+        cells={}, contrasts={})
+    for task in ('presence','completion'):
+        cells={key:[r for r in rows if r['task']==task] for key,rows in runs.items()}
+        report['cells'][task]={f'{a}_training/{b}_input':dict(
+            correct=sum(r['correct'] for r in rows), n=len(rows)) for (a,b),rows in cells.items()}
+        grouped=defaultdict(lambda:defaultdict(list))
+        reference=cells[('raw','raw')]
+        indexed={key:{tuple(r['sample_ids']):r['correct'] for r in rows} for key,rows in cells.items()}
+        for row in reference:
+            sid=tuple(row['sample_ids'])
+            rr,rb,br,bb=[indexed[key][sid] for key in [('raw','raw'),('raw','boxed'),('boxed','raw'),('boxed','boxed')]]
+            values=dict(training_effect_on_raw=br-rr,training_effect_on_boxed=bb-rb,
+                        cue_effect_in_raw_model=rb-rr,cue_effect_in_boxed_model=bb-br,
+                        cue_by_training_interaction=(bb-br)-(rb-rr))
+            for name,value in values.items():
+                grouped[name][row['group_id']].append(value)
+        report['contrasts'][task]={name:dict(
+            difference=sum(sum(xs) for xs in groups.values())/sum(map(len,groups.values())),
+            n_pairs=sum(map(len,groups.values())), geometry_groups=len(groups),
+            cluster_bootstrap_95=interval(groups)) for name,groups in grouped.items()}
+    (results/'cue_training_interaction.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+    print(json.dumps(report,ensure_ascii=False,indent=2))
+
+
 if __name__ == '__main__':
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('command',choices=['build','run'])
+    p.add_argument('command',choices=['build','run','analyze'])
     p.add_argument('--data',type=Path,default=DATA)
     p.add_argument('--results',type=Path,default=RESULTS)
     p.add_argument('--adapter-prefix',default='h1_target_cue')
     args=p.parse_args()
     if args.command=='build':
         build(args.data,args.results)
+    elif args.command=='analyze':
+        analyze(args.data,args.results)
     else:
         execute(args.data,args.results,args.adapter_prefix)
