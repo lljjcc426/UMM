@@ -1,0 +1,83 @@
+{
+  "model_id": "mlx-community/Qwen3-VL-2B-Instruct-4bit",
+  "model_revision": "9c4f5209e57b31f4b9dfba735de3fb983739c9cc",
+  "download_source": "ModelScope",
+  "download_revision": "f338871b6a559fe9dc10ea3cf041da8abaff3c50",
+  "condition": "frozen_4bit_local_vlm_multi_image_no_training",
+  "started_utc": "2026-10-16T07:22:55.976405+00:00",
+  "input_manifest": "data/h1/runtime_probe_v1/inputs.jsonl",
+  "samples": [
+    "text_arithmetic",
+    "text_partial",
+    "blank",
+    "one",
+    "three",
+    "cross"
+  ],
+  "max_tokens": 128,
+  "temperature": 0.0,
+  "seed": 0,
+  "image_size": [
+    224,
+    224
+  ],
+  "input_layout": "image roles and chronological order specified in each input prompt",
+  "python": "3.12.14",
+  "platform": "macOS-26.6-arm64-arm-64bit",
+  "hardware": "Apple M5",
+  "system_memory_bytes": 17179869184,
+  "preprocessor_config": {
+    "crop_size": null,
+    "data_format": "channels_first",
+    "default_to_square": true,
+    "device": null,
+    "disable_grouping": null,
+    "do_center_crop": null,
+    "do_convert_rgb": true,
+    "do_normalize": true,
+    "do_pad": null,
+    "do_rescale": true,
+    "do_resize": true,
+    "image_mean": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "image_processor_type": "Qwen2VLImageProcessorFast",
+    "image_std": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "input_data_format": null,
+    "max_pixels": null,
+    "merge_size": 2,
+    "min_pixels": null,
+    "pad_size": null,
+    "patch_size": 16,
+    "processor_class": "Qwen3VLProcessor",
+    "resample": 3,
+    "rescale_factor": 0.00392156862745098,
+    "return_tensors": null,
+    "size": {
+      "longest_edge": 16777216,
+      "shortest_edge": 65536
+    },
+    "temporal_patch_size": 2
+  },
+  "runtime_image_processor": {
+    "class_name": "Qwen3VLImageProcessor",
+    "min_pixels": 65536,
+    "max_pixels": 16777216,
+    "patch_size": 16,
+    "merge_size": 2,
+    "temporal_patch_size": 2
+  },
+  "packages": {
+    "mlx-vlm": "0.7.8",
+    "mlx": "0.32.4",
+    "transformers": "5.20.0",
+    "numpy": "2.5.4",
+    "Pillow": "12.3.0"
+  }
+}

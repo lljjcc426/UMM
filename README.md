@@ -8,7 +8,7 @@
 
 暂定题目：**实际笔顺理解驱动的统一多模态中文书写视频生成**。
 
-通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。当前仍在探索阶段，三个假设尚无模型实验结论。
+通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。当前已启动H1：本机Qwen3-VL-2B 4-bit完成33个首轮诊断输入、30个单项补充及6个基础问答，尚未通过实际过程理解验证；H2、H3未运行。详见[H1诊断报告](docs/experiments/h1_diagnostic.md)。
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 
@@ -48,4 +48,6 @@ python scripts/render_catalog.py
 python scripts/validate_catalog.py
 ```
 
-`scripts/stroke_metrics.py` 提供已标注事件序列的指标示例，不负责从视频识别笔画。[像素过程小实验](docs/experiments/process_probe.md)已运行，验证同终态反例和模板辅助的顺序/方向观测；可用 `python scripts/process_probe.py` 复现并查看[动画](examples/process_probe/comparison.gif)。它不是模型评测，当前尚无模型训练或推理实验结果。
+`scripts/stroke_metrics.py` 提供已标注事件序列的指标示例，不负责从视频识别笔画。[像素过程小实验](docs/experiments/process_probe.md)验证同终态反例和模板辅助的顺序/方向观测，可用 `python scripts/process_probe.py` 复现并查看[动画](examples/process_probe/comparison.gif)。
+
+另有冻结VLM的[H1模型诊断](docs/experiments/h1_diagnostic.md)，数据、原始回答与评分已保存；本机推理依赖独立放在`requirements-h1.txt`。目前未开展模型训练或视频生成实验。

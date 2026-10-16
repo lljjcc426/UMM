@@ -12,7 +12,7 @@ STATUS = {"historical_record_not_rechecked","primary_sections_read","primary_abs
 REQUIRED = {"id","title","claim","method","problem","conclusion","gap","source_urls",
             "verification","provenance","record_type","scope","privacy"}
 PRIVATE_IDS = {"C08","C09","C10","C11"}
-LOCAL_ONLY_DIRS={".git","research","private",".integration","__pycache__",".venv"}
+LOCAL_ONLY_DIRS={".git","research","private",".integration","__pycache__",".venv","checkpoints"}
 
 def publication_files():
     for base,dirs,files in os.walk(ROOT):
@@ -71,7 +71,7 @@ def validate():
     if any(r.get("verification")=="historical_record_unresolved" for r in rows):
         warnings.append("Some historical references remain unresolved; explicitly tagged.")
     warnings.append("External links not availability-tested by this offline validator.")
-    warnings.append("No learned-model inference, accuracy benchmark, or speed test performed.")
+    warnings.append("This offline validator does not assess model performance or validate experiment conclusions.")
     report={"passed":not errors,"records":len(rows),
             "papers":sum(r["record_type"]=="paper" for r in rows),
             "resources":sum(r["record_type"]=="resource" for r in rows),

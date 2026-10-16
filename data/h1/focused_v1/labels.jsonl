@@ -1,0 +1,30 @@
+{"sample_id": "c00-seen_no_reference", "expected": {"seen": []}, "score_fields": ["seen"], "construction": "blank"}
+{"sample_id": "c00-seen_with_reference", "expected": {"seen": []}, "score_fields": ["seen"], "construction": "blank"}
+{"sample_id": "c01-seen_no_reference", "expected": {"seen": ["top"]}, "score_fields": ["seen"], "construction": "partial_first"}
+{"sample_id": "c01-seen_with_reference", "expected": {"seen": ["top"]}, "score_fields": ["seen"], "construction": "partial_first"}
+{"sample_id": "c02-seen_no_reference", "expected": {"seen": ["top"]}, "score_fields": ["seen"], "construction": "complete_first"}
+{"sample_id": "c02-seen_with_reference", "expected": {"seen": ["top"]}, "score_fields": ["seen"], "construction": "complete_first"}
+{"sample_id": "c07-seen_no_reference", "expected": {"seen": ["middle", "top"]}, "score_fields": ["seen"], "construction": "early_switch"}
+{"sample_id": "c07-seen_with_reference", "expected": {"seen": ["middle", "top"]}, "score_fields": ["seen"], "construction": "early_switch"}
+{"sample_id": "c01-completion_only", "expected": {"finished": [], "unfinished": ["top"]}, "score_fields": ["finished", "unfinished"], "construction": "partial_first"}
+{"sample_id": "c02-completion_only", "expected": {"finished": ["top"], "unfinished": []}, "score_fields": ["finished", "unfinished"], "construction": "complete_first"}
+{"sample_id": "c03-completion_only", "expected": {"finished": ["top"], "unfinished": ["middle"]}, "score_fields": ["finished", "unfinished"], "construction": "partial_second"}
+{"sample_id": "c07-completion_only", "expected": {"finished": ["middle"], "unfinished": ["top"]}, "score_fields": ["finished", "unfinished"], "construction": "early_switch"}
+{"sample_id": "c04-order_only", "expected": {"order": ["top", "middle", "bottom"]}, "score_fields": ["order"], "construction": "correct"}
+{"sample_id": "c05-order_only", "expected": {"order": ["top", "bottom", "middle"]}, "score_fields": ["order"], "construction": "swapped"}
+{"sample_id": "c09-order_only", "expected": {"order": ["horizontal", "vertical"]}, "score_fields": ["order"], "construction": "correct"}
+{"sample_id": "c10-order_only", "expected": {"order": ["vertical", "horizontal"]}, "score_fields": ["order"], "construction": "swapped"}
+{"sample_id": "c02-direction_only", "expected": {"direction": "forward"}, "score_fields": ["direction"], "construction": "complete_first"}
+{"sample_id": "c08-direction_only", "expected": {"direction": "reverse"}, "score_fields": ["direction"], "construction": "reverse"}
+{"sample_id": "c01-oracle_judgment", "expected": {"status": "valid"}, "score_fields": ["status"], "construction": "partial_first"}
+{"sample_id": "c01-oracle_action", "expected": {"next": "continue", "target": "top"}, "score_fields": ["next", "target"], "construction": "partial_first"}
+{"sample_id": "c02-oracle_judgment", "expected": {"status": "valid"}, "score_fields": ["status"], "construction": "complete_first"}
+{"sample_id": "c02-oracle_action", "expected": {"next": "start", "target": "middle"}, "score_fields": ["next", "target"], "construction": "complete_first"}
+{"sample_id": "c05-oracle_judgment", "expected": {"status": "invalid"}, "score_fields": ["status"], "construction": "swapped"}
+{"sample_id": "c05-oracle_action", "expected": {"next": "stop_error", "target": null}, "score_fields": ["next", "target"], "construction": "swapped"}
+{"sample_id": "c07-oracle_judgment", "expected": {"status": "invalid"}, "score_fields": ["status"], "construction": "early_switch"}
+{"sample_id": "c07-oracle_action", "expected": {"next": "stop_error", "target": null}, "score_fields": ["next", "target"], "construction": "early_switch"}
+{"sample_id": "c08-oracle_judgment", "expected": {"status": "invalid"}, "score_fields": ["status"], "construction": "reverse"}
+{"sample_id": "c08-oracle_action", "expected": {"next": "stop_error", "target": null}, "score_fields": ["next", "target"], "construction": "reverse"}
+{"sample_id": "c04-static_order_unknown", "expected": {"order": null}, "score_fields": ["order"], "construction": "correct"}
+{"sample_id": "c09-static_order_unknown", "expected": {"order": null}, "score_fields": ["order"], "construction": "correct"}

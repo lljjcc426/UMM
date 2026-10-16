@@ -1,0 +1,771 @@
+{
+  "kind": "h1_small_controlled_pilot",
+  "attempted": 30,
+  "planned": 30,
+  "missing": [],
+  "by_view": {
+    "seen_no_reference": {
+      "seen": {
+        "correct": 0,
+        "total": 4,
+        "fraction": 0.0
+      },
+      "all_required": {
+        "correct": 0,
+        "total": 4,
+        "fraction": 0.0
+      },
+      "json_object": {
+        "correct": 4,
+        "total": 4,
+        "fraction": 1.0
+      }
+    },
+    "seen_with_reference": {
+      "seen": {
+        "correct": 0,
+        "total": 4,
+        "fraction": 0.0
+      },
+      "all_required": {
+        "correct": 0,
+        "total": 4,
+        "fraction": 0.0
+      },
+      "json_object": {
+        "correct": 4,
+        "total": 4,
+        "fraction": 1.0
+      }
+    },
+    "completion_only": {
+      "finished": {
+        "correct": 0,
+        "total": 4,
+        "fraction": 0.0
+      },
+      "unfinished": {
+        "correct": 1,
+        "total": 4,
+        "fraction": 0.25
+      },
+      "all_required": {
+        "correct": 0,
+        "total": 4,
+        "fraction": 0.0
+      },
+      "json_object": {
+        "correct": 4,
+        "total": 4,
+        "fraction": 1.0
+      }
+    },
+    "order_only": {
+      "order": {
+        "correct": 0,
+        "total": 4,
+        "fraction": 0.0
+      },
+      "all_required": {
+        "correct": 0,
+        "total": 4,
+        "fraction": 0.0
+      },
+      "json_object": {
+        "correct": 4,
+        "total": 4,
+        "fraction": 1.0
+      }
+    },
+    "direction_only": {
+      "direction": {
+        "correct": 1,
+        "total": 2,
+        "fraction": 0.5
+      },
+      "all_required": {
+        "correct": 1,
+        "total": 2,
+        "fraction": 0.5
+      },
+      "json_object": {
+        "correct": 2,
+        "total": 2,
+        "fraction": 1.0
+      }
+    },
+    "oracle_judgment": {
+      "status": {
+        "correct": 3,
+        "total": 5,
+        "fraction": 0.6
+      },
+      "all_required": {
+        "correct": 3,
+        "total": 5,
+        "fraction": 0.6
+      },
+      "json_object": {
+        "correct": 5,
+        "total": 5,
+        "fraction": 1.0
+      }
+    },
+    "oracle_action": {
+      "next": {
+        "correct": 0,
+        "total": 5,
+        "fraction": 0.0
+      },
+      "target": {
+        "correct": 0,
+        "total": 5,
+        "fraction": 0.0
+      },
+      "all_required": {
+        "correct": 0,
+        "total": 5,
+        "fraction": 0.0
+      },
+      "json_object": {
+        "correct": 2,
+        "total": 5,
+        "fraction": 0.4
+      }
+    },
+    "static_order_unknown": {
+      "order": {
+        "correct": 0,
+        "total": 2,
+        "fraction": 0.0
+      },
+      "all_required": {
+        "correct": 0,
+        "total": 2,
+        "fraction": 0.0
+      },
+      "json_object": {
+        "correct": 2,
+        "total": 2,
+        "fraction": 1.0
+      }
+    }
+  },
+  "same_final_pairs": [],
+  "details": [
+    {
+      "sample_id": "c00-seen_no_reference",
+      "construction": "blank",
+      "metrics": {
+        "seen": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "seen": [
+          "bottom",
+          "top",
+          "middle"
+        ]
+      },
+      "expected": {
+        "seen": []
+      }
+    },
+    {
+      "sample_id": "c00-seen_with_reference",
+      "construction": "blank",
+      "metrics": {
+        "seen": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "seen": [
+          "bottom",
+          "top",
+          "middle"
+        ]
+      },
+      "expected": {
+        "seen": []
+      }
+    },
+    {
+      "sample_id": "c01-seen_no_reference",
+      "construction": "partial_first",
+      "metrics": {
+        "seen": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "seen": [
+          "bottom",
+          "top",
+          "middle"
+        ]
+      },
+      "expected": {
+        "seen": [
+          "top"
+        ]
+      }
+    },
+    {
+      "sample_id": "c01-seen_with_reference",
+      "construction": "partial_first",
+      "metrics": {
+        "seen": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "seen": [
+          "bottom",
+          "middle",
+          "top"
+        ]
+      },
+      "expected": {
+        "seen": [
+          "top"
+        ]
+      }
+    },
+    {
+      "sample_id": "c02-seen_no_reference",
+      "construction": "complete_first",
+      "metrics": {
+        "seen": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "seen": "bottom"
+      },
+      "expected": {
+        "seen": [
+          "top"
+        ]
+      }
+    },
+    {
+      "sample_id": "c02-seen_with_reference",
+      "construction": "complete_first",
+      "metrics": {
+        "seen": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "seen": [
+          "bottom",
+          "middle",
+          "top"
+        ]
+      },
+      "expected": {
+        "seen": [
+          "top"
+        ]
+      }
+    },
+    {
+      "sample_id": "c07-seen_no_reference",
+      "construction": "early_switch",
+      "metrics": {
+        "seen": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "seen": [
+          "bottom",
+          "top",
+          "middle"
+        ]
+      },
+      "expected": {
+        "seen": [
+          "middle",
+          "top"
+        ]
+      }
+    },
+    {
+      "sample_id": "c07-seen_with_reference",
+      "construction": "early_switch",
+      "metrics": {
+        "seen": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "seen": [
+          "bottom",
+          "middle",
+          "top"
+        ]
+      },
+      "expected": {
+        "seen": [
+          "middle",
+          "top"
+        ]
+      }
+    },
+    {
+      "sample_id": "c01-completion_only",
+      "construction": "partial_first",
+      "metrics": {
+        "finished": false,
+        "unfinished": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "finished": [
+          "top",
+          "middle",
+          "bottom"
+        ],
+        "unfinished": []
+      },
+      "expected": {
+        "finished": [],
+        "unfinished": [
+          "top"
+        ]
+      }
+    },
+    {
+      "sample_id": "c02-completion_only",
+      "construction": "complete_first",
+      "metrics": {
+        "finished": false,
+        "unfinished": true,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "finished": [
+          "top",
+          "middle",
+          "bottom"
+        ],
+        "unfinished": []
+      },
+      "expected": {
+        "finished": [
+          "top"
+        ],
+        "unfinished": []
+      }
+    },
+    {
+      "sample_id": "c03-completion_only",
+      "construction": "partial_second",
+      "metrics": {
+        "finished": false,
+        "unfinished": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "finished": [
+          "top",
+          "middle",
+          "bottom"
+        ],
+        "unfinished": []
+      },
+      "expected": {
+        "finished": [
+          "top"
+        ],
+        "unfinished": [
+          "middle"
+        ]
+      }
+    },
+    {
+      "sample_id": "c07-completion_only",
+      "construction": "early_switch",
+      "metrics": {
+        "finished": false,
+        "unfinished": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "finished": [
+          "top",
+          "middle",
+          "bottom"
+        ],
+        "unfinished": []
+      },
+      "expected": {
+        "finished": [
+          "middle"
+        ],
+        "unfinished": [
+          "top"
+        ]
+      }
+    },
+    {
+      "sample_id": "c04-order_only",
+      "construction": "correct",
+      "metrics": {
+        "order": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "order": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12"
+        ]
+      },
+      "expected": {
+        "order": [
+          "top",
+          "middle",
+          "bottom"
+        ]
+      }
+    },
+    {
+      "sample_id": "c05-order_only",
+      "construction": "swapped",
+      "metrics": {
+        "order": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "order": [
+          "bottom",
+          "top",
+          "middle",
+          "bottom",
+          "top",
+          "middle",
+          "bottom",
+          "top",
+          "middle",
+          "bottom",
+          "top",
+          "middle",
+          "bottom",
+          "top",
+          "middle"
+        ]
+      },
+      "expected": {
+        "order": [
+          "top",
+          "bottom",
+          "middle"
+        ]
+      }
+    },
+    {
+      "sample_id": "c09-order_only",
+      "construction": "correct",
+      "metrics": {
+        "order": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "order": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8"
+        ]
+      },
+      "expected": {
+        "order": [
+          "horizontal",
+          "vertical"
+        ]
+      }
+    },
+    {
+      "sample_id": "c10-order_only",
+      "construction": "swapped",
+      "metrics": {
+        "order": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "order": [
+          "2",
+          "1",
+          "6",
+          "7",
+          "8",
+          "4",
+          "5",
+          "3"
+        ]
+      },
+      "expected": {
+        "order": [
+          "vertical",
+          "horizontal"
+        ]
+      }
+    },
+    {
+      "sample_id": "c02-direction_only",
+      "construction": "complete_first",
+      "metrics": {
+        "direction": true,
+        "all_required": true,
+        "json_object": true
+      },
+      "prediction": {
+        "direction": "forward"
+      },
+      "expected": {
+        "direction": "forward"
+      }
+    },
+    {
+      "sample_id": "c08-direction_only",
+      "construction": "reverse",
+      "metrics": {
+        "direction": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "direction": "forward"
+      },
+      "expected": {
+        "direction": "reverse"
+      }
+    },
+    {
+      "sample_id": "c01-oracle_judgment",
+      "construction": "partial_first",
+      "metrics": {
+        "status": true,
+        "all_required": true,
+        "json_object": true
+      },
+      "prediction": {
+        "status": "valid"
+      },
+      "expected": {
+        "status": "valid"
+      }
+    },
+    {
+      "sample_id": "c01-oracle_action",
+      "construction": "partial_first",
+      "metrics": {
+        "next": false,
+        "target": false,
+        "all_required": false,
+        "json_object": false
+      },
+      "prediction": null,
+      "expected": {
+        "next": "continue",
+        "target": "top"
+      }
+    },
+    {
+      "sample_id": "c02-oracle_judgment",
+      "construction": "complete_first",
+      "metrics": {
+        "status": true,
+        "all_required": true,
+        "json_object": true
+      },
+      "prediction": {
+        "status": "valid"
+      },
+      "expected": {
+        "status": "valid"
+      }
+    },
+    {
+      "sample_id": "c02-oracle_action",
+      "construction": "complete_first",
+      "metrics": {
+        "next": false,
+        "target": false,
+        "all_required": false,
+        "json_object": false
+      },
+      "prediction": null,
+      "expected": {
+        "next": "start",
+        "target": "middle"
+      }
+    },
+    {
+      "sample_id": "c05-oracle_judgment",
+      "construction": "swapped",
+      "metrics": {
+        "status": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "status": "valid"
+      },
+      "expected": {
+        "status": "invalid"
+      }
+    },
+    {
+      "sample_id": "c05-oracle_action",
+      "construction": "swapped",
+      "metrics": {
+        "next": false,
+        "target": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "next": "continue",
+        "target": "bottom"
+      },
+      "expected": {
+        "next": "stop_error",
+        "target": null
+      }
+    },
+    {
+      "sample_id": "c07-oracle_judgment",
+      "construction": "early_switch",
+      "metrics": {
+        "status": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "status": "valid"
+      },
+      "expected": {
+        "status": "invalid"
+      }
+    },
+    {
+      "sample_id": "c07-oracle_action",
+      "construction": "early_switch",
+      "metrics": {
+        "next": false,
+        "target": false,
+        "all_required": false,
+        "json_object": false
+      },
+      "prediction": null,
+      "expected": {
+        "next": "stop_error",
+        "target": null
+      }
+    },
+    {
+      "sample_id": "c08-oracle_judgment",
+      "construction": "reverse",
+      "metrics": {
+        "status": true,
+        "all_required": true,
+        "json_object": true
+      },
+      "prediction": {
+        "status": "invalid"
+      },
+      "expected": {
+        "status": "invalid"
+      }
+    },
+    {
+      "sample_id": "c08-oracle_action",
+      "construction": "reverse",
+      "metrics": {
+        "next": false,
+        "target": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "next": "continue",
+        "target": "continue"
+      },
+      "expected": {
+        "next": "stop_error",
+        "target": null
+      }
+    },
+    {
+      "sample_id": "c04-static_order_unknown",
+      "construction": "correct",
+      "metrics": {
+        "order": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "order": [
+          1,
+          2,
+          3
+        ]
+      },
+      "expected": {
+        "order": null
+      }
+    },
+    {
+      "sample_id": "c09-static_order_unknown",
+      "construction": "correct",
+      "metrics": {
+        "order": false,
+        "all_required": false,
+        "json_object": true
+      },
+      "prediction": {
+        "order": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "expected": {
+        "order": null
+      }
+    }
+  ]
+}
