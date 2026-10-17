@@ -1,0 +1,1234 @@
+{
+  "role": "Post-hoc failure analysis; no checkpoint or threshold changes.",
+  "dev_cases": 317,
+  "completion_errors": 59,
+  "language_presence_completion_disagreements": 26,
+  "comparisons": {
+    "oracle_head/oracle": {
+      "completion_difference": -0.10094637223974763,
+      "paired_cluster_bootstrap95": [
+        -0.15178571428571427,
+        -0.04777070063694268
+      ],
+      "answer_changes": 46
+    },
+    "predicted_head/oracle": {
+      "completion_difference": -0.0473186119873817,
+      "paired_cluster_bootstrap95": [
+        -0.08011869436201781,
+        -0.019736842105263157
+      ],
+      "answer_changes": 33
+    },
+    "predicted_head/swapped_target": {
+      "completion_difference": 0.35646687697160884,
+      "paired_cluster_bootstrap95": [
+        0.30223880597014924,
+        0.4022038567493113
+      ],
+      "answer_changes": 154
+    },
+    "predicted_head/blank_current": {
+      "completion_difference": 0.6340694006309149,
+      "paired_cluster_bootstrap95": [
+        0.5905292479108635,
+        0.6842105263157895
+      ],
+      "answer_changes": 254
+    },
+    "predicted_head/blank_reference": {
+      "completion_difference": 0.2113564668769716,
+      "paired_cluster_bootstrap95": [
+        0.17543859649122806,
+        0.2478134110787172
+      ],
+      "answer_changes": 163
+    }
+  },
+  "near_complete": {
+    "oracle_head/oracle": {
+      "answers": {
+        "部分": 33,
+        "完整": 23
+      },
+      "by_missing_length": {
+        ">=32px": {
+          "n": 12,
+          "correct": 9
+        },
+        "<16px": {
+          "n": 13,
+          "correct": 6
+        },
+        "16-32px": {
+          "n": 31,
+          "correct": 18
+        }
+      }
+    },
+    "predicted_head/predicted": {
+      "answers": {
+        "部分": 16,
+        "完整": 39,
+        "未出现": 1
+      },
+      "by_missing_length": {
+        ">=32px": {
+          "n": 12,
+          "correct": 2
+        },
+        "<16px": {
+          "n": 13,
+          "correct": 4
+        },
+        "16-32px": {
+          "n": 31,
+          "correct": 10
+        }
+      }
+    },
+    "predicted_head/oracle": {
+      "answers": {
+        "完整": 44,
+        "部分": 12
+      },
+      "by_missing_length": {
+        ">=32px": {
+          "n": 12,
+          "correct": 0
+        },
+        "<16px": {
+          "n": 13,
+          "correct": 4
+        },
+        "16-32px": {
+          "n": 31,
+          "correct": 8
+        }
+      }
+    }
+  },
+  "cases": [
+    {
+      "sample_id": "region-dev-parallel_h-00-2-中横",
+      "group_id": "region-dev-parallel_h-00",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        9.310913355875527e-07,
+        0.0005147901829332113,
+        0.9994841814041138,
+        1.2982776631531578e-08
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-00-3-上横",
+      "group_id": "region-dev-parallel_h-00",
+      "kind": "parallel_h",
+      "target": "上横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        2.2950617051265e-07,
+        0.09384003281593323,
+        0.906159520149231,
+        2.1223280555204838e-07
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "完整",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-00-3-下横",
+      "group_id": "region-dev-parallel_h-00",
+      "kind": "parallel_h",
+      "target": "下横",
+      "fraction": 0,
+      "expected": "未出现",
+      "answer": "完整",
+      "probabilities": [
+        0.295121967792511,
+        0.28488025069236755,
+        0.4177262485027313,
+        0.0022714631631970406
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "未出现",
+      "oracle_trained_answer": "未出现",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-01-2-中横",
+      "group_id": "region-dev-parallel_h-01",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        5.971548233674184e-08,
+        0.0008044859278015792,
+        0.999195396900177,
+        5.597135643853335e-09
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-01-3-上横",
+      "group_id": "region-dev-parallel_h-01",
+      "kind": "parallel_h",
+      "target": "上横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        4.4769365104002645e-08,
+        0.01706310361623764,
+        0.9829369187355042,
+        2.2760380247177636e-09
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-01-4-中横",
+      "group_id": "region-dev-parallel_h-01",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 0,
+      "expected": "未出现",
+      "answer": "部分",
+      "probabilities": [
+        0.04837116226553917,
+        0.9516268968582153,
+        1.8395060124021256e-06,
+        1.0922473592245296e-07
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "未出现",
+      "oracle_trained_answer": "未出现",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-02-1-下横",
+      "group_id": "region-dev-parallel_h-02",
+      "kind": "parallel_h",
+      "target": "下横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        0.0010168204316869378,
+        0.0009854891104623675,
+        0.9979972243309021,
+        4.135464450882864e-07
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-02-2-中横",
+      "group_id": "region-dev-parallel_h-02",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        8.14437498775078e-07,
+        6.29936475888826e-05,
+        0.9999361038208008,
+        2.233795370898406e-08
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-02-3-上横",
+      "group_id": "region-dev-parallel_h-02",
+      "kind": "parallel_h",
+      "target": "上横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        5.250184926808288e-07,
+        0.019871672615408897,
+        0.9801279306411743,
+        4.1115386650858454e-09
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-02-3-中横",
+      "group_id": "region-dev-parallel_h-02",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 1,
+      "expected": "完整",
+      "answer": "未出现",
+      "probabilities": [
+        0.6854860186576843,
+        0.08493125438690186,
+        0.22949539124965668,
+        8.73286699061282e-05
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-02-4-下横",
+      "group_id": "region-dev-parallel_h-02",
+      "kind": "parallel_h",
+      "target": "下横",
+      "fraction": 0.15,
+      "expected": "部分",
+      "answer": "未出现",
+      "probabilities": [
+        0.8752056360244751,
+        0.12479186803102493,
+        2.38426787291246e-06,
+        1.263196338641137e-07
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "部分",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-03-1-上横",
+      "group_id": "region-dev-parallel_h-03",
+      "kind": "parallel_h",
+      "target": "上横",
+      "fraction": 0.15,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        8.362068183487281e-05,
+        0.19986702501773834,
+        0.8000240921974182,
+        2.5176752387778834e-05
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "部分",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-03-1-下横",
+      "group_id": "region-dev-parallel_h-03",
+      "kind": "parallel_h",
+      "target": "下横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        3.6607543734135106e-05,
+        0.00037837750278413296,
+        0.9995847344398499,
+        3.476532128843246e-07
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-03-2-上横",
+      "group_id": "region-dev-parallel_h-03",
+      "kind": "parallel_h",
+      "target": "上横",
+      "fraction": 0.45,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        1.6708274415577762e-05,
+        8.430924935964867e-05,
+        0.999886155128479,
+        1.2810946827812586e-05
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "部分",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-03-2-中横",
+      "group_id": "region-dev-parallel_h-03",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        3.4439822229614947e-06,
+        0.3220241963863373,
+        0.6779722571372986,
+        5.3685660361679766e-08
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-03-3-上横",
+      "group_id": "region-dev-parallel_h-03",
+      "kind": "parallel_h",
+      "target": "上横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "未出现",
+      "probabilities": [
+        0.9915660619735718,
+        0.002534674946218729,
+        0.005586286541074514,
+        0.0003129286633338779
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "部分",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-03-4-上横",
+      "group_id": "region-dev-parallel_h-03",
+      "kind": "parallel_h",
+      "target": "上横",
+      "fraction": 1,
+      "expected": "完整",
+      "answer": "未出现",
+      "probabilities": [
+        0.9011613130569458,
+        0.0019430371467024088,
+        0.09624571353197098,
+        0.0006498906877823174
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-04-1-下横",
+      "group_id": "region-dev-parallel_h-04",
+      "kind": "parallel_h",
+      "target": "下横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        1.7728885723045096e-05,
+        7.942759111756459e-06,
+        0.999974250793457,
+        7.193855822151818e-08
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-04-2-中横",
+      "group_id": "region-dev-parallel_h-04",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        3.832459697150625e-06,
+        0.013104274868965149,
+        0.9868918061256409,
+        4.32655333781895e-08
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-04-3-上横",
+      "group_id": "region-dev-parallel_h-04",
+      "kind": "parallel_h",
+      "target": "上横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        2.8942502467543818e-05,
+        0.35080569982528687,
+        0.649165153503418,
+        2.613670062601159e-07
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-04-3-中横",
+      "group_id": "region-dev-parallel_h-04",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 1,
+      "expected": "完整",
+      "answer": "部分",
+      "probabilities": [
+        0.011454085819423199,
+        0.9082833528518677,
+        0.07989750057458878,
+        0.00036511916550807655
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-05-1-下横",
+      "group_id": "region-dev-parallel_h-05",
+      "kind": "parallel_h",
+      "target": "下横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        0.0009142478811554611,
+        0.0766015276312828,
+        0.9224840998649597,
+        1.261770705696108e-07
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-05-2-中横",
+      "group_id": "region-dev-parallel_h-05",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        3.968176827129355e-07,
+        0.00024270874564535916,
+        0.9997568726539612,
+        2.9151678848649e-09
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-05-3-上横",
+      "group_id": "region-dev-parallel_h-05",
+      "kind": "parallel_h",
+      "target": "上横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        1.2850229040850536e-06,
+        0.09378116577863693,
+        0.9062175154685974,
+        5.236359612581509e-08
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "部分",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-05-3-下横",
+      "group_id": "region-dev-parallel_h-05",
+      "kind": "parallel_h",
+      "target": "下横",
+      "fraction": 0,
+      "expected": "未出现",
+      "answer": "完整",
+      "probabilities": [
+        0.04588758572936058,
+        0.003173538949340582,
+        0.9508050680160522,
+        0.00013369732187129557
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "未出现",
+      "oracle_trained_answer": "未出现",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-05-4-下横",
+      "group_id": "region-dev-parallel_h-05",
+      "kind": "parallel_h",
+      "target": "下横",
+      "fraction": 0.15,
+      "expected": "部分",
+      "answer": "未出现",
+      "probabilities": [
+        0.9945001602172852,
+        0.005499750841408968,
+        2.912235430585497e-08,
+        1.125380819644306e-07
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "部分",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-06-2-中横",
+      "group_id": "region-dev-parallel_h-06",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        0.0002018726518144831,
+        0.0032121259719133377,
+        0.9965859651565552,
+        8.684558139293586e-08
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-06-3-上横",
+      "group_id": "region-dev-parallel_h-06",
+      "kind": "parallel_h",
+      "target": "上横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        6.093474894441897e-06,
+        0.26418912410736084,
+        0.735802173614502,
+        2.68412350123981e-06
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-06-3-中横",
+      "group_id": "region-dev-parallel_h-06",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 1,
+      "expected": "完整",
+      "answer": "部分",
+      "probabilities": [
+        0.11670267581939697,
+        0.8382369875907898,
+        0.04462599381804466,
+        0.0004343555774539709
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-06-4-中横",
+      "group_id": "region-dev-parallel_h-06",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 0,
+      "expected": "未出现",
+      "answer": "部分",
+      "probabilities": [
+        0.08526554703712463,
+        0.9146479964256287,
+        8.509672625223175e-05,
+        1.41214127324929e-06
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "未出现",
+      "oracle_trained_answer": "未出现",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-07-0-中横",
+      "group_id": "region-dev-parallel_h-07",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 0.15,
+      "expected": "部分",
+      "answer": "未出现",
+      "probabilities": [
+        0.9295758605003357,
+        0.0704241544008255,
+        1.1862973714471536e-08,
+        2.1133146343998988e-09
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "部分",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-07-1-下横",
+      "group_id": "region-dev-parallel_h-07",
+      "kind": "parallel_h",
+      "target": "下横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        0.00013215962098911405,
+        0.16160894930362701,
+        0.8382578492164612,
+        1.0254840390189202e-06
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-07-3-上横",
+      "group_id": "region-dev-parallel_h-07",
+      "kind": "parallel_h",
+      "target": "上横",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        1.5123904404390487e-06,
+        0.03202325105667114,
+        0.9679752588272095,
+        5.812690329065617e-09
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_h-07-4-中横",
+      "group_id": "region-dev-parallel_h-07",
+      "kind": "parallel_h",
+      "target": "中横",
+      "fraction": 0,
+      "expected": "未出现",
+      "answer": "完整",
+      "probabilities": [
+        0.05275324359536171,
+        0.0005680181784555316,
+        0.9466785788536072,
+        2.451225782351685e-07
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "未出现",
+      "oracle_trained_answer": "未出现",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_v-00-2-右竖",
+      "group_id": "region-dev-parallel_v-00",
+      "kind": "parallel_v",
+      "target": "右竖",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        2.9676759368157946e-05,
+        0.3195710778236389,
+        0.6803990006446838,
+        2.2343581917994015e-07
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-parallel_v-00-3-左竖",
+      "group_id": "region-dev-parallel_v-00",
+      "kind": "parallel_v",
+      "target": "左竖",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        1.2546842675931202e-08,
+        0.007627574261277914,
+        0.9923723936080933,
+        3.3129790022456973e-09
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-parallel_v-01-0-右竖",
+      "group_id": "region-dev-parallel_v-01",
+      "kind": "parallel_v",
+      "target": "右竖",
+      "fraction": 0.15,
+      "expected": "部分",
+      "answer": "未出现",
+      "probabilities": [
+        0.7558981776237488,
+        0.24410177767276764,
+        2.4910914220299674e-08,
+        3.2869738930685344e-08
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "部分",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_v-02-2-右竖",
+      "group_id": "region-dev-parallel_v-02",
+      "kind": "parallel_v",
+      "target": "右竖",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        2.8500384274821045e-08,
+        0.0031670373864471912,
+        0.9968330264091492,
+        4.6559484045971544e-10
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-parallel_v-03-0-右竖",
+      "group_id": "region-dev-parallel_v-03",
+      "kind": "parallel_v",
+      "target": "右竖",
+      "fraction": 0.15,
+      "expected": "部分",
+      "answer": "未出现",
+      "probabilities": [
+        0.9848227500915527,
+        0.015177154913544655,
+        2.358947759351082e-10,
+        3.510490031999325e-08
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "部分",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_v-03-3-左竖",
+      "group_id": "region-dev-parallel_v-03",
+      "kind": "parallel_v",
+      "target": "左竖",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        1.651715919592789e-08,
+        0.14283934235572815,
+        0.8571606874465942,
+        6.049114098516384e-09
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "部分",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_v-04-0-右竖",
+      "group_id": "region-dev-parallel_v-04",
+      "kind": "parallel_v",
+      "target": "右竖",
+      "fraction": 0.15,
+      "expected": "部分",
+      "answer": "未出现",
+      "probabilities": [
+        0.9976992011070251,
+        0.0022967178374528885,
+        1.3822752720216158e-08,
+        4.104974323126953e-06
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "部分",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_v-04-3-左竖",
+      "group_id": "region-dev-parallel_v-04",
+      "kind": "parallel_v",
+      "target": "左竖",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        5.679960679572105e-08,
+        0.005451164674013853,
+        0.9945488572120667,
+        1.0182735543651233e-08
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-parallel_v-04-4-左竖",
+      "group_id": "region-dev-parallel_v-04",
+      "kind": "parallel_v",
+      "target": "左竖",
+      "fraction": 1,
+      "expected": "完整",
+      "answer": "未出现",
+      "probabilities": [
+        0.8570603132247925,
+        0.0013672274071723223,
+        0.14155395328998566,
+        1.8538374206400476e-05
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-parallel_v-05-3-左竖",
+      "group_id": "region-dev-parallel_v-05",
+      "kind": "parallel_v",
+      "target": "左竖",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        7.435956490553508e-07,
+        0.2217743694782257,
+        0.778224766254425,
+        8.873346502014101e-08
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-parallel_v-06-2-右竖",
+      "group_id": "region-dev-parallel_v-06",
+      "kind": "parallel_v",
+      "target": "右竖",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        5.845738892951147e-10,
+        0.000574420380871743,
+        0.9994256496429443,
+        2.4103894435967277e-09
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-parallel_v-06-3-左竖",
+      "group_id": "region-dev-parallel_v-06",
+      "kind": "parallel_v",
+      "target": "左竖",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        1.7068527147223733e-11,
+        0.0007052381988614798,
+        0.9992947578430176,
+        6.492117260448182e-11
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-parallel_v-07-2-右竖",
+      "group_id": "region-dev-parallel_v-07",
+      "kind": "parallel_v",
+      "target": "右竖",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        2.0634056241419785e-08,
+        0.05164623633027077,
+        0.9483537673950195,
+        2.3287172190578076e-09
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-cross-00-2-竖线",
+      "group_id": "region-dev-cross-00",
+      "kind": "cross",
+      "target": "竖线",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        1.7367250393363065e-07,
+        0.19566382467746735,
+        0.8043359518051147,
+        7.516649525030061e-09
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-cross-00-3-横线",
+      "group_id": "region-dev-cross-00",
+      "kind": "cross",
+      "target": "横线",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        1.8399306327410159e-06,
+        0.15287700295448303,
+        0.8471211791038513,
+        4.9122633072329336e-08
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-cross-01-3-横线",
+      "group_id": "region-dev-cross-01",
+      "kind": "cross",
+      "target": "横线",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        3.3064818126149476e-05,
+        0.010637481696903706,
+        0.9893290400505066,
+        4.959055672770774e-07
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-cross-02-2-竖线",
+      "group_id": "region-dev-cross-02",
+      "kind": "cross",
+      "target": "竖线",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        3.9227429624588694e-06,
+        0.28428635001182556,
+        0.7157096266746521,
+        2.1627254653822092e-08
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-cross-02-3-横线",
+      "group_id": "region-dev-cross-02",
+      "kind": "cross",
+      "target": "横线",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        1.6897614841582254e-05,
+        0.00015523930778726935,
+        0.9998277425765991,
+        4.902361538938749e-08
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-cross-03-2-竖线",
+      "group_id": "region-dev-cross-03",
+      "kind": "cross",
+      "target": "竖线",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        1.1934235821797756e-08,
+        0.029573729261755943,
+        0.9704262614250183,
+        1.9796266848004507e-09
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-cross-03-3-横线",
+      "group_id": "region-dev-cross-03",
+      "kind": "cross",
+      "target": "横线",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        1.9910947557377767e-08,
+        0.10110221803188324,
+        0.8988977074623108,
+        2.9008132784724694e-08
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-cross-04-2-竖线",
+      "group_id": "region-dev-cross-04",
+      "kind": "cross",
+      "target": "竖线",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        2.967289560729114e-07,
+        0.04548241198062897,
+        0.9545171856880188,
+        8.450041377727757e-08
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-cross-04-3-横线",
+      "group_id": "region-dev-cross-04",
+      "kind": "cross",
+      "target": "横线",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        2.1886145987082273e-05,
+        0.4904731512069702,
+        0.5095038414001465,
+        1.194639366985939e-06
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "部分",
+      "language_answer": "完整"
+    },
+    {
+      "sample_id": "region-dev-cross-05-2-竖线",
+      "group_id": "region-dev-cross-05",
+      "kind": "cross",
+      "target": "竖线",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        3.6380335188823665e-08,
+        0.104100301861763,
+        0.8958991169929504,
+        5.669218126058695e-07
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "完整",
+      "oracle_trained_answer": "完整",
+      "language_answer": "部分"
+    },
+    {
+      "sample_id": "region-dev-cross-06-0-竖线",
+      "group_id": "region-dev-cross-06",
+      "kind": "cross",
+      "target": "竖线",
+      "fraction": 0.15,
+      "expected": "部分",
+      "answer": "未出现",
+      "probabilities": [
+        0.5802010893821716,
+        0.41979852318763733,
+        1.2257865478204621e-07,
+        2.3965245077306463e-07
+      ],
+      "localization_within_12px": false,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "未出现",
+      "language_answer": "未出现"
+    },
+    {
+      "sample_id": "region-dev-cross-07-3-横线",
+      "group_id": "region-dev-cross-07",
+      "kind": "cross",
+      "target": "横线",
+      "fraction": 0.85,
+      "expected": "部分",
+      "answer": "完整",
+      "probabilities": [
+        1.3205994946474675e-05,
+        0.10768849402666092,
+        0.8922974467277527,
+        7.91903403296601e-07
+      ],
+      "localization_within_12px": true,
+      "same_head_oracle_answer": "部分",
+      "oracle_trained_answer": "部分",
+      "language_answer": "部分"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "created_utc": "2026-10-17T05:40:46.760389+00:00",
+  "model": "showlab/show-o2-1.5B-w-video-und",
+  "model_revision": "412f647429897ad888771d18008de4edfb2c42a6",
+  "source_revision": "45a5a2de01d1ebd10cd5864d29310a76476cdf23",
+  "adapter": "checkpoints/h1_target_cue_boxed_v1/adapter.pt",
+  "role": "Prospective new-state geometry development; no Chinese/font/video or H1 acceptance.",
+  "counts": {
+    "train": {
+      "cases": 520,
+      "groups": 72,
+      "kinds": {
+        "parallel_h": 192,
+        "parallel_v": 128,
+        "cross": 128,
+        "reference_control": 24,
+        "unknown_control": 48
+      }
+    },
+    "dev": {
+      "cases": 322,
+      "groups": 36,
+      "kinds": {
+        "parallel_h": 120,
+        "parallel_v": 80,
+        "cross": 80,
+        "reference_control": 12,
+        "unknown_control": 30
+      }
+    }
+  },
+  "splits": "New geometry seeds 10430/10431. All targets and progress variants of one geometry remain together. Same-current reference pairs remain together.",
+  "progress": {
+    "train": [
+      0,
+      0.25,
+      0.6,
+      1
+    ],
+    "dev": [
+      0,
+      0.15,
+      0.45,
+      0.85,
+      1
+    ]
+  },
+  "input": "Full reference and current images encoded separately in identical top-half coordinates; no colored cues, image cropping or target pixels removed.",
+  "selection": "Oracle target occupancy versus previous frozen UMM question-conditioned target mask intersected with predicted all-ink mask. Fixed .5 thresholds, no dev tuning. No current state enters selection.",
+  "unknown": "Single-target current-only cases use a fixed full upper-region mask, blank reference and reference_available=0; no hidden reference geometry enters the model.",
+  "readout": "Shared 1536->32 GELU projection of aligned reference/current tokens. Masked means of reference/current/absolute difference and masked maximum absolute difference, plus reference-availability flag; 129->64 GELU->4 classifier. Presence derived from four-state output.",
+  "normalization": "Fixed training-only visual mean/std from prior spatial probe.",
+  "training": {
+    "arms": [
+      "oracle",
+      "predicted"
+    ],
+    "steps": 400,
+    "batch_size": 32,
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "seed": 10432,
+    "optimizer": "AdamW",
+    "loss": "Four-class cross entropy, inverse-frequency weights from this training split only.",
+    "policy": "Same initialization and minibatch order; only target mask differs. Final checkpoints only; no dev checkpoint/threshold search."
+  },
+  "controls": [
+    "Cross-evaluate both heads with oracle and predicted masks",
+    "For predicted-trained head: swap target mask within same reference image, retaining original scoring labels",
+    "Replace current tokens with blank-image tokens, retain other inputs; visual dependence diagnostic",
+    "Replace reference tokens with blank-image tokens but retain reference-derived mask; not a no-reference test"
+  ],
+  "language_baseline": "Original unchanged state adapter on the same dev cases, one wording each for presence/completion; predicted reference box painted on composite image. Compare output states, not parameter-matched training. Unknown cases receive no box or reference.",
+  "metrics": "Case accuracy, presence derived from state, class confusion, near-complete subsets, same-current reference pair success, different-target/different-label pair success; bootstrap by whole geometry. Format consistency is structural.",
+  "scope": "Learned auxiliary head on a complete frozen UMM; original language answers are not overwritten. This does not establish unified training benefits. Original 130-case visual test unused.",
+  "visible_input_deduplication": {
+    "declared_before_training": true,
+    "policy": "Deduplicate identical current-only RGB inputs within each split for training and all reported metrics; retain raw rows and predictions. The one empty current-only control is also visually shared across splits; it is a known blank check, not novel geometry evidence.",
+    "retained_counts": {
+      "train": 509,
+      "dev": 317
+    }
+  }
+}

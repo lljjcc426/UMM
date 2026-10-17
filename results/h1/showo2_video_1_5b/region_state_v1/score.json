@@ -1,0 +1,2504 @@
+{
+  "oracle_head/oracle/train": {
+    "all": {
+      "n": 509,
+      "groups": 72,
+      "completion": 509,
+      "presence": 509,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "reference": {
+      "n": 472,
+      "groups": 60,
+      "completion": 472,
+      "presence": 472,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "unknown": {
+      "n": 37,
+      "groups": 12,
+      "completion": 37,
+      "presence": 37,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 113,
+        "correct": 113
+      },
+      "部分": {
+        "n": 236,
+        "correct": 236
+      },
+      "完整": {
+        "n": 124,
+        "correct": 124
+      },
+      "未知": {
+        "n": 36,
+        "correct": 36
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 113,
+        "correct": 113
+      },
+      "0.25": {
+        "n": 124,
+        "correct": 124
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 12
+      },
+      "0.6": {
+        "n": 124,
+        "correct": 124
+      },
+      "1": {
+        "n": 136,
+        "correct": 136
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "未出现": 113
+      },
+      "部分": {
+        "部分": 236
+      },
+      "完整": {
+        "完整": 124
+      },
+      "未知": {
+        "未知": 36
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 128,
+        "completion": 128,
+        "presence": 128
+      },
+      "parallel_h": {
+        "n": 192,
+        "completion": 192,
+        "presence": 192
+      },
+      "parallel_v": {
+        "n": 128,
+        "completion": 128,
+        "presence": 128
+      },
+      "reference_control": {
+        "n": 24,
+        "completion": 24,
+        "presence": 24
+      },
+      "unknown_control": {
+        "n": 37,
+        "completion": 37,
+        "presence": 37
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 112,
+        "correct": 112
+      },
+      "0.25": {
+        "n": 112,
+        "correct": 112
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 12
+      },
+      "0.6": {
+        "n": 112,
+        "correct": 112
+      },
+      "1": {
+        "n": 124,
+        "correct": 124
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 12,
+      "both_correct": 12
+    },
+    "different_target_pairs": {
+      "n": 256,
+      "correct": 256,
+      "ci95": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "oracle_head/oracle/dev": {
+    "all": {
+      "n": 317,
+      "groups": 36,
+      "completion": 290,
+      "presence": 313,
+      "completion_ci95": [
+        0.881578947368421,
+        0.9462025316455697
+      ],
+      "presence_ci95": [
+        0.974169741697417,
+        0.9969512195121951
+      ]
+    },
+    "reference": {
+      "n": 292,
+      "groups": 30,
+      "completion": 265,
+      "presence": 288,
+      "completion_ci95": [
+        0.8724137931034482,
+        0.9416058394160584
+      ],
+      "presence_ci95": [
+        0.9724137931034482,
+        0.996742671009772
+      ]
+    },
+    "unknown": {
+      "n": 25,
+      "groups": 6,
+      "completion": 25,
+      "presence": 25,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 57,
+        "correct": 57
+      },
+      "部分": {
+        "n": 174,
+        "correct": 147
+      },
+      "完整": {
+        "n": 62,
+        "correct": 62
+      },
+      "未知": {
+        "n": 24,
+        "correct": 24
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 57,
+        "correct": 57
+      },
+      "0.15": {
+        "n": 62,
+        "correct": 58
+      },
+      "0.45": {
+        "n": 62,
+        "correct": 62
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 6
+      },
+      "0.85": {
+        "n": 62,
+        "correct": 39
+      },
+      "1": {
+        "n": 68,
+        "correct": 68
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "未出现": 57
+      },
+      "部分": {
+        "部分": 147,
+        "完整": 23,
+        "未出现": 4
+      },
+      "完整": {
+        "完整": 62
+      },
+      "未知": {
+        "未知": 24
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 80,
+        "completion": 71,
+        "presence": 77
+      },
+      "parallel_h": {
+        "n": 120,
+        "completion": 108,
+        "presence": 120
+      },
+      "parallel_v": {
+        "n": 80,
+        "completion": 74,
+        "presence": 79
+      },
+      "reference_control": {
+        "n": 12,
+        "completion": 12,
+        "presence": 12
+      },
+      "unknown_control": {
+        "n": 25,
+        "completion": 25,
+        "presence": 25
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 56,
+        "correct": 56
+      },
+      "0.15": {
+        "n": 56,
+        "correct": 52
+      },
+      "0.45": {
+        "n": 56,
+        "correct": 56
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 6
+      },
+      "0.85": {
+        "n": 56,
+        "correct": 33
+      },
+      "1": {
+        "n": 62,
+        "correct": 62
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 6,
+      "both_correct": 6
+    },
+    "different_target_pairs": {
+      "n": 128,
+      "correct": 106,
+      "ci95": [
+        0.7476635514018691,
+        0.8974358974358975
+      ]
+    }
+  },
+  "oracle_head/predicted/train": {
+    "all": {
+      "n": 509,
+      "groups": 72,
+      "completion": 437,
+      "presence": 484,
+      "completion_ci95": [
+        0.8151571164510166,
+        0.9006772009029346
+      ],
+      "presence_ci95": [
+        0.9317773788150808,
+        0.9695121951219512
+      ]
+    },
+    "reference": {
+      "n": 472,
+      "groups": 60,
+      "completion": 400,
+      "presence": 447,
+      "completion_ci95": [
+        0.8012295081967213,
+        0.8913043478260869
+      ],
+      "presence_ci95": [
+        0.9261603375527426,
+        0.9665071770334929
+      ]
+    },
+    "unknown": {
+      "n": 37,
+      "groups": 12,
+      "completion": 37,
+      "presence": 37,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 113,
+        "correct": 90
+      },
+      "部分": {
+        "n": 236,
+        "correct": 233
+      },
+      "完整": {
+        "n": 124,
+        "correct": 78
+      },
+      "未知": {
+        "n": 36,
+        "correct": 36
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 113,
+        "correct": 90
+      },
+      "0.25": {
+        "n": 124,
+        "correct": 122
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 12
+      },
+      "0.6": {
+        "n": 124,
+        "correct": 123
+      },
+      "1": {
+        "n": 136,
+        "correct": 90
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "未出现": 90,
+        "部分": 23
+      },
+      "部分": {
+        "部分": 233,
+        "完整": 1,
+        "未出现": 2
+      },
+      "完整": {
+        "完整": 78,
+        "部分": 46
+      },
+      "未知": {
+        "未知": 36
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 128,
+        "completion": 126,
+        "presence": 128
+      },
+      "parallel_h": {
+        "n": 192,
+        "completion": 145,
+        "presence": 175
+      },
+      "parallel_v": {
+        "n": 128,
+        "completion": 105,
+        "presence": 120
+      },
+      "reference_control": {
+        "n": 24,
+        "completion": 24,
+        "presence": 24
+      },
+      "unknown_control": {
+        "n": 37,
+        "completion": 37,
+        "presence": 37
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 112,
+        "correct": 89
+      },
+      "0.25": {
+        "n": 112,
+        "correct": 110
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 12
+      },
+      "0.6": {
+        "n": 112,
+        "correct": 111
+      },
+      "1": {
+        "n": 124,
+        "correct": 78
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 12,
+      "both_correct": 12
+    },
+    "different_target_pairs": {
+      "n": 256,
+      "correct": 151,
+      "ci95": [
+        0.4966442953020134,
+        0.7021276595744681
+      ]
+    }
+  },
+  "oracle_head/predicted/dev": {
+    "all": {
+      "n": 317,
+      "groups": 36,
+      "completion": 252,
+      "presence": 294,
+      "completion_ci95": [
+        0.7484848484848485,
+        0.8453947368421053
+      ],
+      "presence_ci95": [
+        0.9041916167664671,
+        0.9525547445255474
+      ]
+    },
+    "reference": {
+      "n": 292,
+      "groups": 30,
+      "completion": 227,
+      "presence": 269,
+      "completion_ci95": [
+        0.73125,
+        0.8295454545454546
+      ],
+      "presence_ci95": [
+        0.8966789667896679,
+        0.9482758620689655
+      ]
+    },
+    "unknown": {
+      "n": 25,
+      "groups": 6,
+      "completion": 25,
+      "presence": 25,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 57,
+        "correct": 48
+      },
+      "部分": {
+        "n": 174,
+        "correct": 141
+      },
+      "完整": {
+        "n": 62,
+        "correct": 39
+      },
+      "未知": {
+        "n": 24,
+        "correct": 24
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 57,
+        "correct": 48
+      },
+      "0.15": {
+        "n": 62,
+        "correct": 49
+      },
+      "0.45": {
+        "n": 62,
+        "correct": 61
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 6
+      },
+      "0.85": {
+        "n": 62,
+        "correct": 43
+      },
+      "1": {
+        "n": 68,
+        "correct": 45
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "未出现": 48,
+        "部分": 9
+      },
+      "部分": {
+        "部分": 141,
+        "完整": 20,
+        "未出现": 13
+      },
+      "完整": {
+        "完整": 39,
+        "部分": 22,
+        "未出现": 1
+      },
+      "未知": {
+        "未知": 24
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 80,
+        "completion": 69,
+        "presence": 76
+      },
+      "parallel_h": {
+        "n": 120,
+        "completion": 84,
+        "presence": 108
+      },
+      "parallel_v": {
+        "n": 80,
+        "completion": 62,
+        "presence": 73
+      },
+      "reference_control": {
+        "n": 12,
+        "completion": 12,
+        "presence": 12
+      },
+      "unknown_control": {
+        "n": 25,
+        "completion": 25,
+        "presence": 25
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 56,
+        "correct": 47
+      },
+      "0.15": {
+        "n": 56,
+        "correct": 43
+      },
+      "0.45": {
+        "n": 56,
+        "correct": 55
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 6
+      },
+      "0.85": {
+        "n": 56,
+        "correct": 37
+      },
+      "1": {
+        "n": 62,
+        "correct": 39
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 6,
+      "both_correct": 6
+    },
+    "different_target_pairs": {
+      "n": 128,
+      "correct": 57,
+      "ci95": [
+        0.35570469798657717,
+        0.543859649122807
+      ]
+    }
+  },
+  "original_language/predicted_box/dev": {
+    "all": {
+      "n": 317,
+      "groups": 36,
+      "completion": 211,
+      "presence": 259,
+      "completion_ci95": [
+        0.6055900621118012,
+        0.7288135593220338
+      ],
+      "presence_ci95": [
+        0.7740112994350282,
+        0.8606811145510835
+      ]
+    },
+    "reference": {
+      "n": 292,
+      "groups": 30,
+      "completion": 189,
+      "presence": 234,
+      "completion_ci95": [
+        0.5858585858585859,
+        0.7104377104377104
+      ],
+      "presence_ci95": [
+        0.7548387096774194,
+        0.8467432950191571
+      ]
+    },
+    "unknown": {
+      "n": 25,
+      "groups": 6,
+      "completion": 22,
+      "presence": 25,
+      "completion_ci95": [
+        0.7916666666666666,
+        0.9629629629629629
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 57,
+        "correct": 52
+      },
+      "部分": {
+        "n": 174,
+        "correct": 95
+      },
+      "完整": {
+        "n": 62,
+        "correct": 43
+      },
+      "未知": {
+        "n": 24,
+        "correct": 21
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 57,
+        "correct": 52
+      },
+      "0.15": {
+        "n": 62,
+        "correct": 22
+      },
+      "0.45": {
+        "n": 62,
+        "correct": 49
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 6
+      },
+      "0.85": {
+        "n": 62,
+        "correct": 33
+      },
+      "1": {
+        "n": 68,
+        "correct": 49
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "未出现": 52,
+        "部分": 1,
+        "完整": 4
+      },
+      "部分": {
+        "未出现": 56,
+        "部分": 95,
+        "完整": 23
+      },
+      "完整": {
+        "完整": 43,
+        "未出现": 4,
+        "部分": 15
+      },
+      "未知": {
+        "未知": 21,
+        "未出现": 3
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 80,
+        "completion": 53,
+        "presence": 65
+      },
+      "parallel_h": {
+        "n": 120,
+        "completion": 73,
+        "presence": 90
+      },
+      "parallel_v": {
+        "n": 80,
+        "completion": 51,
+        "presence": 67
+      },
+      "reference_control": {
+        "n": 12,
+        "completion": 12,
+        "presence": 12
+      },
+      "unknown_control": {
+        "n": 25,
+        "completion": 22,
+        "presence": 25
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 56,
+        "correct": 51
+      },
+      "0.15": {
+        "n": 56,
+        "correct": 18
+      },
+      "0.45": {
+        "n": 56,
+        "correct": 44
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 6
+      },
+      "0.85": {
+        "n": 56,
+        "correct": 27
+      },
+      "1": {
+        "n": 62,
+        "correct": 43
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 6,
+      "both_correct": 6
+    },
+    "different_target_pairs": {
+      "n": 128,
+      "correct": 47,
+      "ci95": [
+        0.24299065420560748,
+        0.5
+      ]
+    }
+  },
+  "predicted_head/blank_current/train": {
+    "all": {
+      "n": 509,
+      "groups": 72,
+      "completion": 113,
+      "presence": 113,
+      "completion_ci95": [
+        0.2076271186440678,
+        0.23316062176165803
+      ],
+      "presence_ci95": [
+        0.2076271186440678,
+        0.23316062176165803
+      ]
+    },
+    "reference": {
+      "n": 472,
+      "groups": 60,
+      "completion": 112,
+      "presence": 112,
+      "completion_ci95": [
+        0.22811059907834103,
+        0.2440944881889764
+      ],
+      "presence_ci95": [
+        0.22811059907834103,
+        0.2440944881889764
+      ]
+    },
+    "unknown": {
+      "n": 37,
+      "groups": 12,
+      "completion": 1,
+      "presence": 1,
+      "completion_ci95": [
+        0.0,
+        0.07692307692307693
+      ],
+      "presence_ci95": [
+        0.0,
+        0.07692307692307693
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 113,
+        "correct": 113
+      },
+      "部分": {
+        "n": 236,
+        "correct": 0
+      },
+      "完整": {
+        "n": 124,
+        "correct": 0
+      },
+      "未知": {
+        "n": 36,
+        "correct": 0
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 113,
+        "correct": 113
+      },
+      "0.25": {
+        "n": 124,
+        "correct": 0
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 0
+      },
+      "0.6": {
+        "n": 124,
+        "correct": 0
+      },
+      "1": {
+        "n": 136,
+        "correct": 0
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "未出现": 113
+      },
+      "部分": {
+        "未出现": 236
+      },
+      "完整": {
+        "未出现": 124
+      },
+      "未知": {
+        "未出现": 36
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 128,
+        "completion": 32,
+        "presence": 32
+      },
+      "parallel_h": {
+        "n": 192,
+        "completion": 48,
+        "presence": 48
+      },
+      "parallel_v": {
+        "n": 128,
+        "completion": 32,
+        "presence": 32
+      },
+      "reference_control": {
+        "n": 24,
+        "completion": 0,
+        "presence": 0
+      },
+      "unknown_control": {
+        "n": 37,
+        "completion": 1,
+        "presence": 1
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 112,
+        "correct": 112
+      },
+      "0.25": {
+        "n": 112,
+        "correct": 0
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 0
+      },
+      "0.6": {
+        "n": 112,
+        "correct": 0
+      },
+      "1": {
+        "n": 124,
+        "correct": 0
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 12,
+      "both_correct": 0
+    },
+    "different_target_pairs": {
+      "n": 256,
+      "correct": 0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "predicted_head/blank_current/dev": {
+    "all": {
+      "n": 317,
+      "groups": 36,
+      "completion": 57,
+      "presence": 57,
+      "completion_ci95": [
+        0.1624548736462094,
+        0.19101123595505617
+      ],
+      "presence_ci95": [
+        0.1624548736462094,
+        0.19101123595505617
+      ]
+    },
+    "reference": {
+      "n": 292,
+      "groups": 30,
+      "completion": 56,
+      "presence": 56,
+      "completion_ci95": [
+        0.18218623481781376,
+        0.19756838905775076
+      ],
+      "presence_ci95": [
+        0.18218623481781376,
+        0.19756838905775076
+      ]
+    },
+    "unknown": {
+      "n": 25,
+      "groups": 6,
+      "completion": 1,
+      "presence": 1,
+      "completion_ci95": [
+        0.0,
+        0.1111111111111111
+      ],
+      "presence_ci95": [
+        0.0,
+        0.1111111111111111
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 57,
+        "correct": 57
+      },
+      "部分": {
+        "n": 174,
+        "correct": 0
+      },
+      "完整": {
+        "n": 62,
+        "correct": 0
+      },
+      "未知": {
+        "n": 24,
+        "correct": 0
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 57,
+        "correct": 57
+      },
+      "0.15": {
+        "n": 62,
+        "correct": 0
+      },
+      "0.45": {
+        "n": 62,
+        "correct": 0
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 0
+      },
+      "0.85": {
+        "n": 62,
+        "correct": 0
+      },
+      "1": {
+        "n": 68,
+        "correct": 0
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "未出现": 57
+      },
+      "部分": {
+        "未出现": 174
+      },
+      "完整": {
+        "未出现": 62
+      },
+      "未知": {
+        "未出现": 24
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 80,
+        "completion": 16,
+        "presence": 16
+      },
+      "parallel_h": {
+        "n": 120,
+        "completion": 24,
+        "presence": 24
+      },
+      "parallel_v": {
+        "n": 80,
+        "completion": 16,
+        "presence": 16
+      },
+      "reference_control": {
+        "n": 12,
+        "completion": 0,
+        "presence": 0
+      },
+      "unknown_control": {
+        "n": 25,
+        "completion": 1,
+        "presence": 1
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 56,
+        "correct": 56
+      },
+      "0.15": {
+        "n": 56,
+        "correct": 0
+      },
+      "0.45": {
+        "n": 56,
+        "correct": 0
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 0
+      },
+      "0.85": {
+        "n": 56,
+        "correct": 0
+      },
+      "1": {
+        "n": 62,
+        "correct": 0
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 6,
+      "both_correct": 0
+    },
+    "different_target_pairs": {
+      "n": 128,
+      "correct": 0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "predicted_head/blank_reference/train": {
+    "all": {
+      "n": 509,
+      "groups": 72,
+      "completion": 282,
+      "presence": 410,
+      "completion_ci95": [
+        0.5185185185185185,
+        0.5914179104477612
+      ],
+      "presence_ci95": [
+        0.7847619047619048,
+        0.8285123966942148
+      ]
+    },
+    "reference": {
+      "n": 472,
+      "groups": 60,
+      "completion": 245,
+      "presence": 373,
+      "completion_ci95": [
+        0.4823008849557522,
+        0.5532786885245902
+      ],
+      "presence_ci95": [
+        0.7696850393700787,
+        0.8127753303964758
+      ]
+    },
+    "unknown": {
+      "n": 37,
+      "groups": 12,
+      "completion": 37,
+      "presence": 37,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 113,
+        "correct": 21
+      },
+      "部分": {
+        "n": 236,
+        "correct": 216
+      },
+      "完整": {
+        "n": 124,
+        "correct": 9
+      },
+      "未知": {
+        "n": 36,
+        "correct": 36
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 113,
+        "correct": 21
+      },
+      "0.25": {
+        "n": 124,
+        "correct": 115
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 6
+      },
+      "0.6": {
+        "n": 124,
+        "correct": 119
+      },
+      "1": {
+        "n": 136,
+        "correct": 21
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "未知": 68,
+        "未出现": 21,
+        "部分": 24
+      },
+      "部分": {
+        "部分": 216,
+        "未知": 20
+      },
+      "完整": {
+        "未知": 23,
+        "未出现": 7,
+        "部分": 85,
+        "完整": 9
+      },
+      "未知": {
+        "未知": 36
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 128,
+        "completion": 74,
+        "presence": 100
+      },
+      "parallel_h": {
+        "n": 192,
+        "completion": 94,
+        "presence": 144
+      },
+      "parallel_v": {
+        "n": 128,
+        "completion": 71,
+        "presence": 105
+      },
+      "reference_control": {
+        "n": 24,
+        "completion": 6,
+        "presence": 24
+      },
+      "unknown_control": {
+        "n": 37,
+        "completion": 37,
+        "presence": 37
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 112,
+        "correct": 20
+      },
+      "0.25": {
+        "n": 112,
+        "correct": 103
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 6
+      },
+      "0.6": {
+        "n": 112,
+        "correct": 107
+      },
+      "1": {
+        "n": 124,
+        "correct": 9
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 12,
+      "both_correct": 0
+    },
+    "different_target_pairs": {
+      "n": 256,
+      "correct": 14,
+      "ci95": [
+        0.02262443438914027,
+        0.09361702127659574
+      ]
+    }
+  },
+  "predicted_head/blank_reference/dev": {
+    "all": {
+      "n": 317,
+      "groups": 36,
+      "completion": 191,
+      "presence": 258,
+      "completion_ci95": [
+        0.5526315789473685,
+        0.6550522648083623
+      ],
+      "presence_ci95": [
+        0.7819148936170213,
+        0.846441947565543
+      ]
+    },
+    "reference": {
+      "n": 292,
+      "groups": 30,
+      "completion": 166,
+      "presence": 233,
+      "completion_ci95": [
+        0.5220883534136547,
+        0.6090534979423868
+      ],
+      "presence_ci95": [
+        0.7683284457478006,
+        0.8277153558052435
+      ]
+    },
+    "unknown": {
+      "n": 25,
+      "groups": 6,
+      "completion": 25,
+      "presence": 25,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 57,
+        "correct": 9
+      },
+      "部分": {
+        "n": 174,
+        "correct": 154
+      },
+      "完整": {
+        "n": 62,
+        "correct": 4
+      },
+      "未知": {
+        "n": 24,
+        "correct": 24
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 57,
+        "correct": 9
+      },
+      "0.15": {
+        "n": 62,
+        "correct": 55
+      },
+      "0.45": {
+        "n": 62,
+        "correct": 59
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 3
+      },
+      "0.85": {
+        "n": 62,
+        "correct": 55
+      },
+      "1": {
+        "n": 68,
+        "correct": 10
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "部分": 10,
+        "未知": 38,
+        "未出现": 9
+      },
+      "部分": {
+        "部分": 154,
+        "未知": 15,
+        "未出现": 3,
+        "完整": 2
+      },
+      "完整": {
+        "未出现": 8,
+        "部分": 36,
+        "未知": 14,
+        "完整": 4
+      },
+      "未知": {
+        "未知": 24
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 80,
+        "completion": 53,
+        "presence": 65
+      },
+      "parallel_h": {
+        "n": 120,
+        "completion": 62,
+        "presence": 90
+      },
+      "parallel_v": {
+        "n": 80,
+        "completion": 48,
+        "presence": 67
+      },
+      "reference_control": {
+        "n": 12,
+        "completion": 3,
+        "presence": 11
+      },
+      "unknown_control": {
+        "n": 25,
+        "completion": 25,
+        "presence": 25
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 56,
+        "correct": 8
+      },
+      "0.15": {
+        "n": 56,
+        "correct": 49
+      },
+      "0.45": {
+        "n": 56,
+        "correct": 53
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 3
+      },
+      "0.85": {
+        "n": 56,
+        "correct": 49
+      },
+      "1": {
+        "n": 62,
+        "correct": 4
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 6,
+      "both_correct": 0
+    },
+    "different_target_pairs": {
+      "n": 128,
+      "correct": 8,
+      "ci95": [
+        0.024793388429752067,
+        0.10743801652892562
+      ]
+    }
+  },
+  "predicted_head/oracle/train": {
+    "all": {
+      "n": 509,
+      "groups": 72,
+      "completion": 507,
+      "presence": 508,
+      "completion_ci95": [
+        0.9873417721518988,
+        1.0
+      ],
+      "presence_ci95": [
+        0.9936708860759493,
+        1.0
+      ]
+    },
+    "reference": {
+      "n": 472,
+      "groups": 60,
+      "completion": 470,
+      "presence": 471,
+      "completion_ci95": [
+        0.986784140969163,
+        1.0
+      ],
+      "presence_ci95": [
+        0.9933920704845814,
+        1.0
+      ]
+    },
+    "unknown": {
+      "n": 37,
+      "groups": 12,
+      "completion": 37,
+      "presence": 37,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 113,
+        "correct": 113
+      },
+      "部分": {
+        "n": 236,
+        "correct": 234
+      },
+      "完整": {
+        "n": 124,
+        "correct": 124
+      },
+      "未知": {
+        "n": 36,
+        "correct": 36
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 113,
+        "correct": 113
+      },
+      "0.25": {
+        "n": 124,
+        "correct": 123
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 12
+      },
+      "0.6": {
+        "n": 124,
+        "correct": 123
+      },
+      "1": {
+        "n": 136,
+        "correct": 136
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "未出现": 113
+      },
+      "部分": {
+        "部分": 234,
+        "完整": 1,
+        "未出现": 1
+      },
+      "完整": {
+        "完整": 124
+      },
+      "未知": {
+        "未知": 36
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 128,
+        "completion": 128,
+        "presence": 128
+      },
+      "parallel_h": {
+        "n": 192,
+        "completion": 190,
+        "presence": 191
+      },
+      "parallel_v": {
+        "n": 128,
+        "completion": 128,
+        "presence": 128
+      },
+      "reference_control": {
+        "n": 24,
+        "completion": 24,
+        "presence": 24
+      },
+      "unknown_control": {
+        "n": 37,
+        "completion": 37,
+        "presence": 37
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 112,
+        "correct": 112
+      },
+      "0.25": {
+        "n": 112,
+        "correct": 111
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 12
+      },
+      "0.6": {
+        "n": 112,
+        "correct": 111
+      },
+      "1": {
+        "n": 124,
+        "correct": 124
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 12,
+      "both_correct": 12
+    },
+    "different_target_pairs": {
+      "n": 256,
+      "correct": 253,
+      "ci95": [
+        0.9617021276595744,
+        1.0
+      ]
+    }
+  },
+  "predicted_head/oracle/dev": {
+    "all": {
+      "n": 317,
+      "groups": 36,
+      "completion": 273,
+      "presence": 317,
+      "completion_ci95": [
+        0.8403361344537815,
+        0.8865030674846626
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "reference": {
+      "n": 292,
+      "groups": 30,
+      "completion": 248,
+      "presence": 292,
+      "completion_ci95": [
+        0.8306709265175719,
+        0.8722466960352423
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "unknown": {
+      "n": 25,
+      "groups": 6,
+      "completion": 25,
+      "presence": 25,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 57,
+        "correct": 57
+      },
+      "部分": {
+        "n": 174,
+        "correct": 130
+      },
+      "完整": {
+        "n": 62,
+        "correct": 62
+      },
+      "未知": {
+        "n": 24,
+        "correct": 24
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 57,
+        "correct": 57
+      },
+      "0.15": {
+        "n": 62,
+        "correct": 62
+      },
+      "0.45": {
+        "n": 62,
+        "correct": 62
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 6
+      },
+      "0.85": {
+        "n": 62,
+        "correct": 18
+      },
+      "1": {
+        "n": 68,
+        "correct": 68
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "未出现": 57
+      },
+      "部分": {
+        "部分": 130,
+        "完整": 44
+      },
+      "完整": {
+        "完整": 62
+      },
+      "未知": {
+        "未知": 24
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 80,
+        "completion": 69,
+        "presence": 80
+      },
+      "parallel_h": {
+        "n": 120,
+        "completion": 99,
+        "presence": 120
+      },
+      "parallel_v": {
+        "n": 80,
+        "completion": 68,
+        "presence": 80
+      },
+      "reference_control": {
+        "n": 12,
+        "completion": 12,
+        "presence": 12
+      },
+      "unknown_control": {
+        "n": 25,
+        "completion": 25,
+        "presence": 25
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 56,
+        "correct": 56
+      },
+      "0.15": {
+        "n": 56,
+        "correct": 56
+      },
+      "0.45": {
+        "n": 56,
+        "correct": 56
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 6
+      },
+      "0.85": {
+        "n": 56,
+        "correct": 12
+      },
+      "1": {
+        "n": 62,
+        "correct": 62
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 6,
+      "both_correct": 6
+    },
+    "different_target_pairs": {
+      "n": 128,
+      "correct": 101,
+      "ci95": [
+        0.7383177570093458,
+        0.84375
+      ]
+    }
+  },
+  "predicted_head/predicted/train": {
+    "all": {
+      "n": 509,
+      "groups": 72,
+      "completion": 509,
+      "presence": 509,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "reference": {
+      "n": 472,
+      "groups": 60,
+      "completion": 472,
+      "presence": 472,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "unknown": {
+      "n": 37,
+      "groups": 12,
+      "completion": 37,
+      "presence": 37,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 113,
+        "correct": 113
+      },
+      "部分": {
+        "n": 236,
+        "correct": 236
+      },
+      "完整": {
+        "n": 124,
+        "correct": 124
+      },
+      "未知": {
+        "n": 36,
+        "correct": 36
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 113,
+        "correct": 113
+      },
+      "0.25": {
+        "n": 124,
+        "correct": 124
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 12
+      },
+      "0.6": {
+        "n": 124,
+        "correct": 124
+      },
+      "1": {
+        "n": 136,
+        "correct": 136
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "未出现": 113
+      },
+      "部分": {
+        "部分": 236
+      },
+      "完整": {
+        "完整": 124
+      },
+      "未知": {
+        "未知": 36
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 128,
+        "completion": 128,
+        "presence": 128
+      },
+      "parallel_h": {
+        "n": 192,
+        "completion": 192,
+        "presence": 192
+      },
+      "parallel_v": {
+        "n": 128,
+        "completion": 128,
+        "presence": 128
+      },
+      "reference_control": {
+        "n": 24,
+        "completion": 24,
+        "presence": 24
+      },
+      "unknown_control": {
+        "n": 37,
+        "completion": 37,
+        "presence": 37
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 112,
+        "correct": 112
+      },
+      "0.25": {
+        "n": 112,
+        "correct": 112
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 12
+      },
+      "0.6": {
+        "n": 112,
+        "correct": 112
+      },
+      "1": {
+        "n": 124,
+        "correct": 124
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 12,
+      "both_correct": 12
+    },
+    "different_target_pairs": {
+      "n": 256,
+      "correct": 256,
+      "ci95": [
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "predicted_head/predicted/dev": {
+    "all": {
+      "n": 317,
+      "groups": 36,
+      "completion": 258,
+      "presence": 301,
+      "completion_ci95": [
+        0.7771883289124668,
+        0.8528301886792453
+      ],
+      "presence_ci95": [
+        0.927170868347339,
+        0.9710982658959537
+      ]
+    },
+    "reference": {
+      "n": 292,
+      "groups": 30,
+      "completion": 233,
+      "presence": 276,
+      "completion_ci95": [
+        0.7627118644067796,
+        0.8359375
+      ],
+      "presence_ci95": [
+        0.9218241042345277,
+        0.9694656488549618
+      ]
+    },
+    "unknown": {
+      "n": 25,
+      "groups": 6,
+      "completion": 25,
+      "presence": 25,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 57,
+        "correct": 52
+      },
+      "部分": {
+        "n": 174,
+        "correct": 125
+      },
+      "完整": {
+        "n": 62,
+        "correct": 57
+      },
+      "未知": {
+        "n": 24,
+        "correct": 24
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 57,
+        "correct": 52
+      },
+      "0.15": {
+        "n": 62,
+        "correct": 54
+      },
+      "0.45": {
+        "n": 62,
+        "correct": 61
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 6
+      },
+      "0.85": {
+        "n": 62,
+        "correct": 22
+      },
+      "1": {
+        "n": 68,
+        "correct": 63
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "未出现": 52,
+        "完整": 3,
+        "部分": 2
+      },
+      "部分": {
+        "部分": 125,
+        "完整": 41,
+        "未出现": 8
+      },
+      "完整": {
+        "完整": 57,
+        "未出现": 3,
+        "部分": 2
+      },
+      "未知": {
+        "未知": 24
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 80,
+        "completion": 68,
+        "presence": 79
+      },
+      "parallel_h": {
+        "n": 120,
+        "completion": 86,
+        "presence": 109
+      },
+      "parallel_v": {
+        "n": 80,
+        "completion": 67,
+        "presence": 76
+      },
+      "reference_control": {
+        "n": 12,
+        "completion": 12,
+        "presence": 12
+      },
+      "unknown_control": {
+        "n": 25,
+        "completion": 25,
+        "presence": 25
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 56,
+        "correct": 51
+      },
+      "0.15": {
+        "n": 56,
+        "correct": 48
+      },
+      "0.45": {
+        "n": 56,
+        "correct": 55
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 6
+      },
+      "0.85": {
+        "n": 56,
+        "correct": 16
+      },
+      "1": {
+        "n": 62,
+        "correct": 57
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 6,
+      "both_correct": 6
+    },
+    "different_target_pairs": {
+      "n": 128,
+      "correct": 70,
+      "ci95": [
+        0.484375,
+        0.6261682242990654
+      ]
+    }
+  },
+  "predicted_head/swapped_target/train": {
+    "all": {
+      "n": 509,
+      "groups": 72,
+      "completion": 157,
+      "presence": 285,
+      "completion_ci95": [
+        0.2688927943760984,
+        0.35891647855530473
+      ],
+      "presence_ci95": [
+        0.536283185840708,
+        0.5897435897435898
+      ]
+    },
+    "reference": {
+      "n": 472,
+      "groups": 60,
+      "completion": 120,
+      "presence": 248,
+      "completion_ci95": [
+        0.22988505747126436,
+        0.28708133971291866
+      ],
+      "presence_ci95": [
+        0.51171875,
+        0.5436893203883495
+      ]
+    },
+    "unknown": {
+      "n": 37,
+      "groups": 12,
+      "completion": 37,
+      "presence": 37,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 113,
+        "correct": 1
+      },
+      "部分": {
+        "n": 236,
+        "correct": 108
+      },
+      "完整": {
+        "n": 124,
+        "correct": 12
+      },
+      "未知": {
+        "n": 36,
+        "correct": 36
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 113,
+        "correct": 1
+      },
+      "0.25": {
+        "n": 124,
+        "correct": 76
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 12
+      },
+      "0.6": {
+        "n": 124,
+        "correct": 44
+      },
+      "1": {
+        "n": 136,
+        "correct": 24
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "部分": 80,
+        "完整": 32,
+        "未出现": 1
+      },
+      "部分": {
+        "部分": 108,
+        "未出现": 48,
+        "完整": 80
+      },
+      "完整": {
+        "部分": 48,
+        "未出现": 64,
+        "完整": 12
+      },
+      "未知": {
+        "未知": 36
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 128,
+        "completion": 32,
+        "presence": 64
+      },
+      "parallel_h": {
+        "n": 192,
+        "completion": 32,
+        "presence": 96
+      },
+      "parallel_v": {
+        "n": 128,
+        "completion": 32,
+        "presence": 64
+      },
+      "reference_control": {
+        "n": 24,
+        "completion": 24,
+        "presence": 24
+      },
+      "unknown_control": {
+        "n": 37,
+        "completion": 37,
+        "presence": 37
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 112,
+        "correct": 0
+      },
+      "0.25": {
+        "n": 112,
+        "correct": 64
+      },
+      "0.5": {
+        "n": 12,
+        "correct": 12
+      },
+      "0.6": {
+        "n": 112,
+        "correct": 32
+      },
+      "1": {
+        "n": 124,
+        "correct": 12
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 12,
+      "both_correct": 12
+    },
+    "different_target_pairs": {
+      "n": 256,
+      "correct": 0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "predicted_head/swapped_target/dev": {
+    "all": {
+      "n": 317,
+      "groups": 36,
+      "completion": 145,
+      "presence": 217,
+      "completion_ci95": [
+        0.4022038567493113,
+        0.528957528957529
+      ],
+      "presence_ci95": [
+        0.653250773993808,
+        0.7238805970149254
+      ]
+    },
+    "reference": {
+      "n": 292,
+      "groups": 30,
+      "completion": 120,
+      "presence": 192,
+      "completion_ci95": [
+        0.36774193548387096,
+        0.46875
+      ],
+      "presence_ci95": [
+        0.6336633663366337,
+        0.6845878136200717
+      ]
+    },
+    "unknown": {
+      "n": 25,
+      "groups": 6,
+      "completion": 25,
+      "presence": 25,
+      "completion_ci95": [
+        1.0,
+        1.0
+      ],
+      "presence_ci95": [
+        1.0,
+        1.0
+      ]
+    },
+    "classes": {
+      "未出现": {
+        "n": 57,
+        "correct": 10
+      },
+      "部分": {
+        "n": 174,
+        "correct": 90
+      },
+      "完整": {
+        "n": 62,
+        "correct": 21
+      },
+      "未知": {
+        "n": 24,
+        "correct": 24
+      }
+    },
+    "by_fraction": {
+      "0": {
+        "n": 57,
+        "correct": 10
+      },
+      "0.15": {
+        "n": 62,
+        "correct": 38
+      },
+      "0.45": {
+        "n": 62,
+        "correct": 33
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 6
+      },
+      "0.85": {
+        "n": 62,
+        "correct": 31
+      },
+      "1": {
+        "n": 68,
+        "correct": 27
+      }
+    },
+    "confusion": {
+      "未出现": {
+        "部分": 25,
+        "完整": 22,
+        "未出现": 10
+      },
+      "部分": {
+        "部分": 90,
+        "未出现": 26,
+        "完整": 58
+      },
+      "完整": {
+        "部分": 14,
+        "完整": 21,
+        "未出现": 27
+      },
+      "未知": {
+        "未知": 24
+      }
+    },
+    "by_kind": {
+      "cross": {
+        "n": 80,
+        "completion": 34,
+        "presence": 49
+      },
+      "parallel_h": {
+        "n": 120,
+        "completion": 37,
+        "presence": 79
+      },
+      "parallel_v": {
+        "n": 80,
+        "completion": 37,
+        "presence": 52
+      },
+      "reference_control": {
+        "n": 12,
+        "completion": 12,
+        "presence": 12
+      },
+      "unknown_control": {
+        "n": 25,
+        "completion": 25,
+        "presence": 25
+      }
+    },
+    "reference_by_fraction": {
+      "0": {
+        "n": 56,
+        "correct": 9
+      },
+      "0.15": {
+        "n": 56,
+        "correct": 32
+      },
+      "0.45": {
+        "n": 56,
+        "correct": 27
+      },
+      "0.5": {
+        "n": 6,
+        "correct": 6
+      },
+      "0.85": {
+        "n": 56,
+        "correct": 25
+      },
+      "1": {
+        "n": 62,
+        "correct": 21
+      }
+    },
+    "same_current_reference_pairs": {
+      "n": 6,
+      "both_correct": 6
+    },
+    "different_target_pairs": {
+      "n": 128,
+      "correct": 1,
+      "ci95": [
+        0.0,
+        0.02631578947368421
+      ]
+    }
+  }
+}
