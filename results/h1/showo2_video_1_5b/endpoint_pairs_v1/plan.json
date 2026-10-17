@@ -1,0 +1,34 @@
+{
+  "created_utc": "2026-10-17T07:14:53.080429+00:00",
+  "question": "Can frozen state heads distinguish complete target strokes from exact endpoint gaps when other strokes remain identical?",
+  "input": "432x432 images; full reference and current separately encoded. All non-target current strokes fixed at 50%; only queried endpoint changes. No crop or colored cue.",
+  "model": "Full frozen Show-o2-1.5B-w-video-und native fused visual features; existing original language adapter and question-conditioned reference localizer unchanged.",
+  "data": {
+    "cases": 336,
+    "targets": 56,
+    "groups": 24,
+    "gaps_px": [
+      0,
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "reused_reference_images": 24,
+    "new_current_images": 336,
+    "geometry": "Reuse previous progress-fresh development geometry: 8 groups per kind, 24 total. Previously used for diagnosis; no independent acceptance claim.",
+    "raster": "Axis-aligned integer endpoints; shortened endpoint differs by exactly gap_px. Pixel delta equals gap_px * width. Background unchanged within each target family."
+  },
+  "conditions": [
+    "replay_oracle/oracle",
+    "coverage_oracle/oracle",
+    "replay_predicted/predicted",
+    "coverage_predicted/predicted",
+    "replay_predicted/oracle",
+    "coverage_predicted/oracle"
+  ],
+  "metrics": "Per-gap state accuracy; complete/partial pair both correct; complete-minus-partial logit ranking with ties separate; all six states correct per target; group bootstrap. Feature differences only test input sensitivity, not successful understanding.",
+  "policy": "No training, threshold adjustment, checkpoint selection or default model replacement. Conditions and gaps fixed before new encoding and scoring.",
+  "scope": "All targets are present and references available. This diagnoses completion boundaries only; no absence, unknown, Chinese, order, free language generation or UMM synergy claim. Original 130-case visual test unused."
+}

@@ -12,7 +12,7 @@
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 
-最新诊断：相同509例、标签与400步预算下，扩大部分进度范围使UMM预测区域头的完成判断322→370/441，90%进度12→52/56；但97%仅17/56，完整判断57→46/62。最大连通区域筛选改善完整判断，却使总分下降，未作为默认替代。下一步用其他笔迹相同、只改变目标末端缺口的配对检验细节读取，继续分开目标区域与状态边界问题。原适配器保持，尚不进入顺序学习。见[进度覆盖对照](results/h1/showo2_video_1_5b/progress_coverage_v1/README.md)。
+最新诊断：固定其他笔迹、只改变目标末端，UMM预测区域状态头的完整／缺1像素配对仅1/56，完整／缺16像素22/56；同一头用正确区域后16像素为37/56。只改变其他线条，完整目标的答案也改变19/56，完整正确40→29/56。8–16像素通常能改变分数方向，尚未形成稳定答案。下一步用目标末端与背景分别变化的配对监督检验改进，保留正确／预测区域对照；原适配器保持，尚不进入顺序学习。见[末端配对诊断](results/h1/showo2_video_1_5b/endpoint_pairs_v1/README.md)与[此前进度覆盖](results/h1/showo2_video_1_5b/progress_coverage_v1/README.md)。
 
 ## 阅读导航
 

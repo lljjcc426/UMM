@@ -66,6 +66,8 @@
 
 完整结果见[score.json](score.json)、[配对比较](paired_comparisons.json)、[逐例预测](predictions.jsonl)、[补充筛选结果](connected_score.json)与[错误分析](diagnosis.json)。各轮训练损失、设置和最终权重用途均保留。
 
+后续已完成[固定其他笔迹的末端缺口诊断](../endpoint_pairs_v1/README.md)：小缺口与完整画面的配对仍不稳定，改变其他线条也会影响完整答案；分数方向与实际分类分开报告。
+
 ## 固定训练样例
 
 按数据顺序，选首个以第一条线为目标、进度为5%、90%、95%的案例。左右两组的目标状态标签都保持部分；完整参考相同。
