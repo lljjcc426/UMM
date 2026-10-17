@@ -1,0 +1,154 @@
+{
+  "finished_utc": "2026-10-17T03:32:46.769591+00:00",
+  "head_parameters": 1537,
+  "umm_updated_parameters": 0,
+  "training_seconds": 2.4047056250000196,
+  "positive_weight": 25.243999481201172,
+  "train_foreground_cells": 1000,
+  "train_cells": 26244,
+  "metrics": {
+    "visual_tokens/train": {
+      "images": 36,
+      "tp": 1000,
+      "fp": 137,
+      "fn": 0,
+      "pooled_precision": 0.8795074758135444,
+      "pooled_recall": 1.0,
+      "macro_iou": 0.8833326068503431,
+      "macro_f1": 0.9335166445420785,
+      "iou_cluster_bootstrap_95": [
+        0.8426323086274299,
+        0.921554069159385
+      ],
+      "f1_cluster_bootstrap_95": [
+        0.9092875116921714,
+        0.9557663317632211
+      ]
+    },
+    "visual_tokens/dev": {
+      "images": 12,
+      "tp": 484,
+      "fp": 47,
+      "fn": 0,
+      "pooled_precision": 0.911487758945386,
+      "pooled_recall": 1.0,
+      "macro_iou": 0.9211350262205386,
+      "macro_f1": 0.9555447563227041,
+      "iou_cluster_bootstrap_95": [
+        0.8573429969880274,
+        0.9764517584723064
+      ],
+      "f1_cluster_bootstrap_95": [
+        0.9175327985127396,
+        0.9879937203220605
+      ]
+    },
+    "position_prior/train": {
+      "images": 36,
+      "tp": 961,
+      "fp": 5159,
+      "fn": 39,
+      "pooled_precision": 0.15702614379084967,
+      "pooled_recall": 0.961,
+      "macro_iou": 0.15575988686291536,
+      "macro_f1": 0.2629880504846187,
+      "iou_cluster_bootstrap_95": [
+        0.13236498311305445,
+        0.1794215699513982
+      ],
+      "f1_cluster_bootstrap_95": [
+        0.22913744099917757,
+        0.29666986851846466
+      ]
+    },
+    "position_prior/dev": {
+      "images": 12,
+      "tp": 364,
+      "fp": 1676,
+      "fn": 120,
+      "pooled_precision": 0.1784313725490196,
+      "pooled_recall": 0.7520661157024794,
+      "macro_iou": 0.16670568321370946,
+      "macro_f1": 0.28011815591062894,
+      "iou_cluster_bootstrap_95": [
+        0.12916017069428348,
+        0.20322386818008867
+      ],
+      "f1_cluster_bootstrap_95": [
+        0.2236030772830543,
+        0.3347108191482959
+      ]
+    },
+    "blank_tokens/train": {
+      "images": 36,
+      "tp": 0,
+      "fp": 36,
+      "fn": 1000,
+      "pooled_precision": 0.0,
+      "pooled_recall": 0.0,
+      "macro_iou": 0.0,
+      "macro_f1": 0.0,
+      "iou_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "f1_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "blank_tokens/dev": {
+      "images": 12,
+      "tp": 0,
+      "fp": 12,
+      "fn": 484,
+      "pooled_precision": 0.0,
+      "pooled_recall": 0.0,
+      "macro_iou": 0.0,
+      "macro_f1": 0.0,
+      "iou_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "f1_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "paired_dev_comparisons": {
+    "position_prior": {
+      "iou": {
+        "mean_difference": 0.7544293430068291,
+        "paired_cluster_bootstrap_95": [
+          0.6870065860841948,
+          0.816759583988287
+        ]
+      },
+      "f1": {
+        "mean_difference": 0.6754266004120751,
+        "paired_cluster_bootstrap_95": [
+          0.6119343922709934,
+          0.7344059150331353
+        ]
+      }
+    },
+    "blank_tokens": {
+      "iou": {
+        "mean_difference": 0.9211350262205386,
+        "paired_cluster_bootstrap_95": [
+          0.8573429969880274,
+          0.9764517584723064
+        ]
+      },
+      "f1": {
+        "mean_difference": 0.9555447563227041,
+        "paired_cluster_bootstrap_95": [
+          0.9175327985127396,
+          0.9879937203220605
+        ]
+      }
+    }
+  },
+  "limitation": "Linear occupancy readout on 12 development geometries; not language grounding or H1 acceptance."
+}

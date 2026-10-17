@@ -12,7 +12,7 @@
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 
-后续坐标监督也已完成：已见定位4/84、开发0/28；真实图平均误差55.06像素，空白图71.52像素，按目标名称返回训练坐标中位数为34.41像素。已有框辅助完成配对保持18/20，文字完成94→92/96。下一步先检查UMM视觉表示中的空间信息，再决定调整定位方式。见[位置监督结果](results/h1/showo2_video_1_5b/reference_localization_training_v1/README.md)。
+最新空间诊断显示：冻结UMM视觉特征的开发笔迹网格IoU为92.1%，位置先验为16.7%。新增空间头结合UMM问题表示后，已见目标定位82/84、开发13/28；同图换问题后开发0/28。粗略位置可读，目标定位泛化仍不足。下一步扩展几何监督并用新留出组验证，再接入实际状态判断。见[空间读出](results/h1/showo2_video_1_5b/spatial_probe_v1/README.md)和[目标空间头](results/h1/showo2_video_1_5b/target_grid_fit_v1/README.md)。
 
 ## 阅读导航
 

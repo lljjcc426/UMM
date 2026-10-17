@@ -1,0 +1,30 @@
+{
+  "created_utc": "2026-10-17T03:30:08.633351+00:00",
+  "model": "showlab/show-o2-1.5B-w-video-und",
+  "source_revision": "45a5a2de01d1ebd10cd5864d29310a76476cdf23",
+  "model_revision": "412f647429897ad888771d18008de4edfb2c42a6",
+  "train_groups": 36,
+  "dev_groups": 12,
+  "input": "Existing complete reference images, one image per geometry; no target names or coordinates.",
+  "features": "729 spatial tokens of 1536 dimensions, after frozen fusion_proj and before language model.",
+  "grid": "27x27, row-major; nominal 16x16 input-pixel cells. A cell is ink if at least 8 pixels have all RGB channels below 128.",
+  "probe": "One shared linear binary readout (1537 parameters), no coordinate input; UMM fully frozen.",
+  "normalization": "Channel mean/std computed on training tokens only; std clamped to 1e-6.",
+  "optimization": {
+    "steps": 300,
+    "batch_size": 4096,
+    "optimizer": "AdamW",
+    "lr": 0.01,
+    "weight_decay": 0.01,
+    "seed": 10419,
+    "loss": "Binary cross entropy, positive weight = training negative/positive cell count."
+  },
+  "prediction_threshold": 0.5,
+  "controls": [
+    "Training foreground frequency at each grid position, with same positive weighting and threshold",
+    "Same fitted head on blank-image UMM tokens, preserving spatial indices"
+  ],
+  "metrics": "Per-image foreground IoU and F1, macro means and geometry bootstrap; pooled precision/recall. No background accuracy claim.",
+  "evaluation": "Only final head; no dev threshold or checkpoint search. Original visual test unused.",
+  "interpretation": "Coarse all-ink decodability only. No queried instance, completion, coordinate generation, order or H1 acceptance."
+}

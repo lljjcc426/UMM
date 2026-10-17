@@ -1,0 +1,104 @@
+{
+  "finished_utc": "2026-10-17T03:45:05.198808+00:00",
+  "head_parameters": 98369,
+  "umm_updated_parameters": 0,
+  "training_seconds": 66.74472674999993,
+  "optimization": {
+    "steps": 1000,
+    "learning_rate": 0.0003,
+    "batch_size": 84,
+    "full_batch": true
+  },
+  "positive_weight": 58.917808532714844,
+  "metrics": {
+    "question_conditioned/train": {
+      "targets": 84,
+      "groups": 36,
+      "hits": 82,
+      "empty": 0,
+      "macro_iou": 0.9846425359976494,
+      "macro_f1": 0.9918486306966101,
+      "hit_cluster_bootstrap_95": [
+        0.926829268292683,
+        1.0
+      ]
+    },
+    "question_conditioned/dev": {
+      "targets": 28,
+      "groups": 12,
+      "hits": 13,
+      "empty": 0,
+      "macro_iou": 0.6195956391809287,
+      "macro_f1": 0.7504732340252815,
+      "hit_cluster_bootstrap_95": [
+        0.25925925925925924,
+        0.6551724137931034
+      ]
+    },
+    "swapped_question/train": {
+      "targets": 84,
+      "groups": 36,
+      "hits": 0,
+      "empty": 0,
+      "macro_iou": 0.022864461782541583,
+      "macro_f1": 0.04277320118355991,
+      "hit_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "swapped_question/dev": {
+      "targets": 28,
+      "groups": 12,
+      "hits": 0,
+      "empty": 0,
+      "macro_iou": 0.10791981762887555,
+      "macro_f1": 0.18110161126022914,
+      "hit_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "all_ink/train": {
+      "targets": 84,
+      "groups": 36,
+      "hits": 20,
+      "empty": 0,
+      "macro_iou": 0.3871740201850219,
+      "macro_f1": 0.5446959564091443,
+      "hit_cluster_bootstrap_95": [
+        0.16666666666666666,
+        0.3058823529411765
+      ]
+    },
+    "all_ink/dev": {
+      "targets": 28,
+      "groups": 12,
+      "hits": 6,
+      "empty": 0,
+      "macro_iou": 0.40221793906130987,
+      "macro_f1": 0.5621527640095889,
+      "hit_cluster_bootstrap_95": [
+        0.10344827586206896,
+        0.32142857142857145
+      ]
+    }
+  },
+  "paired_dev_comparisons": {
+    "swapped_question": {
+      "hit_difference": 0.4642857142857143,
+      "paired_cluster_bootstrap_95": [
+        0.25925925925925924,
+        0.6551724137931034
+      ]
+    },
+    "all_ink": {
+      "hit_difference": 0.25,
+      "paired_cluster_bootstrap_95": [
+        0.07407407407407407,
+        0.4482758620689655
+      ]
+    }
+  },
+  "limitation": "Added supervised spatial head; existing simple-shape development groups, fixed target words; not autonomous language-coordinate generation or H1 acceptance."
+}

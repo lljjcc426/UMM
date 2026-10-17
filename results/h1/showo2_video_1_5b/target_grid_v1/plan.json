@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-10-17T03:37:04.912043+00:00",
+  "model": "showlab/show-o2-1.5B-w-video-und",
+  "model_revision": "412f647429897ad888771d18008de4edfb2c42a6",
+  "source_revision": "45a5a2de01d1ebd10cd5864d29310a76476cdf23",
+  "adapter": "checkpoints/h1_target_cue_boxed_v1/adapter.pt",
+  "train_targets": 84,
+  "train_geometry_groups": 36,
+  "dev_targets": 28,
+  "dev_geometry_groups": 12,
+  "features": "Frozen 729 fusion visual tokens plus final prompt hidden state from the full UMM language path, conditioned on reference image and target question.",
+  "query": "上半部是完整线条参考，下半部为空白。请只定位{target}，不要选择其他线条。",
+  "head": "32-dimensional bilinear visual/question interaction with scalar bias; base UMM and existing state adapter frozen.",
+  "labels": "Selected reference line only, rendered width 5 from training centerline bounds; 27x27 cells, >=8 black pixels per cell.",
+  "normalization": "Visual channel statistics from the preceding training-only cache; question channel statistics from 84 training queries only.",
+  "optimization": {
+    "steps": 400,
+    "batch_size": 8,
+    "lr": 0.003,
+    "optimizer": "AdamW",
+    "weight_decay": 0.01,
+    "seed": 10420,
+    "loss": "Binary cross entropy, positive weight set by all training target cells."
+  },
+  "decoding": "Threshold .5; largest 4-connected component; bounding coordinates are extreme cell centers (16-pixel spacing). Empty mask is a localization failure.",
+  "controls": [
+    "Cycle the other actual target-question hidden states within the same image, keeping scoring labels fixed",
+    "Use the previous all-ink readout mask for every target, with identical largest-component decoding"
+  ],
+  "evaluation": "Final head only; target IoU/F1 and four-coordinate tolerance 12 pixels; grouped by geometry; no test or H1 acceptance.",
+  "scope": "Added spatial head on frozen UMM; no free coordinate generation, no temporal input and no current completion information."
+}
