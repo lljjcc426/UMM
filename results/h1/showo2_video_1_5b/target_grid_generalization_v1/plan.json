@@ -1,0 +1,36 @@
+{
+  "created_utc": "2026-10-17T04:04:16.084309+00:00",
+  "role": "Prospective geometry development diagnostic; no Chinese, style or temporal acceptance.",
+  "model": "showlab/show-o2-1.5B-w-video-und",
+  "model_revision": "412f647429897ad888771d18008de4edfb2c42a6",
+  "source_revision": "45a5a2de01d1ebd10cd5864d29310a76476cdf23",
+  "adapter": "checkpoints/h1_target_cue_boxed_v1/adapter.pt",
+  "data": "data/h1/target_grid_generalization_v1",
+  "train_groups": 144,
+  "train_targets": 336,
+  "dev_groups": 48,
+  "dev_targets": 112,
+  "split": "Independent seeds 10421/10422, split by entire geometry; all questions of an image stay together.",
+  "variations": "Independent horizontal spans, vertical extents, relative spacing, off-center crossings; width 3/5/7/9. Same simple renderer and target words.",
+  "model_input": "Only the complete reference image and target question. No boxes, masks, current-state image, completion labels or coordinates.",
+  "head": "Same 98,369-parameter 32-dimensional bilinear head; frozen complete UMM and original state adapter.",
+  "normalization": "Visual mean/std reused from old training-only occupancy probe. Question mean/std from the 336 new training queries only.",
+  "optimization": {
+    "steps": 1000,
+    "batch": "All 336 training targets per update",
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "optimizer": "AdamW",
+    "seed": 10420,
+    "loss": "BCE, pos_weight = train negative / positive grid cells"
+  },
+  "decoding": "Fixed .5 threshold; largest four-connected component; extreme cell centers; four coordinate errors <=12px.",
+  "controls": [
+    "Previous final target head evaluated unchanged on the same new cases",
+    "New head with cyclically swapped questions within each image",
+    "Previous all-ink linear head with same component decoder"
+  ],
+  "evaluation": "Final checkpoint only; no development-dependent threshold or checkpoint selection. Geometry-cluster bootstrap intervals.",
+  "caveat": "More data and four times as many target presentations as the old 84-target full-batch run; not a fixed-compute data-coverage ablation.",
+  "next": "If target localization remains below 90%, diagnose masks and target selection before any sequence learning. Do not count this as full H1."
+}

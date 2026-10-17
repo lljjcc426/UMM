@@ -1,0 +1,246 @@
+{
+  "metrics": {
+    "expanded_training/train": {
+      "targets": 336,
+      "groups": 144,
+      "hits": 271,
+      "macro_iou": 0.8582845905085257,
+      "macro_f1": 0.9172338994765478,
+      "hit_cluster_bootstrap_95": [
+        0.7565217391304347,
+        0.8545454545454545
+      ],
+      "by_kind": {
+        "parallel_h": {
+          "targets": 144,
+          "hits": 113
+        },
+        "parallel_v": {
+          "targets": 96,
+          "hits": 84
+        },
+        "cross": {
+          "targets": 96,
+          "hits": 74
+        }
+      }
+    },
+    "expanded_training/dev": {
+      "targets": 112,
+      "groups": 48,
+      "hits": 64,
+      "macro_iou": 0.6777884267012014,
+      "macro_f1": 0.7925476269504568,
+      "hit_cluster_bootstrap_95": [
+        0.4778761061946903,
+        0.6637168141592921
+      ],
+      "by_kind": {
+        "parallel_h": {
+          "targets": 48,
+          "hits": 28
+        },
+        "parallel_v": {
+          "targets": 32,
+          "hits": 19
+        },
+        "cross": {
+          "targets": 32,
+          "hits": 17
+        }
+      }
+    },
+    "swapped_question/train": {
+      "targets": 336,
+      "groups": 144,
+      "hits": 0,
+      "macro_iou": 0.052232960158568625,
+      "macro_f1": 0.09316123874451561,
+      "hit_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "by_kind": {
+        "parallel_h": {
+          "targets": 144,
+          "hits": 0
+        },
+        "parallel_v": {
+          "targets": 96,
+          "hits": 0
+        },
+        "cross": {
+          "targets": 96,
+          "hits": 0
+        }
+      }
+    },
+    "swapped_question/dev": {
+      "targets": 112,
+      "groups": 48,
+      "hits": 0,
+      "macro_iou": 0.07280903848225832,
+      "macro_f1": 0.1244552290980402,
+      "hit_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "by_kind": {
+        "parallel_h": {
+          "targets": 48,
+          "hits": 0
+        },
+        "parallel_v": {
+          "targets": 32,
+          "hits": 0
+        },
+        "cross": {
+          "targets": 32,
+          "hits": 0
+        }
+      }
+    },
+    "previous_head/train": {
+      "targets": 336,
+      "groups": 144,
+      "hits": 47,
+      "macro_iou": 0.3254168209907299,
+      "macro_f1": 0.43762128548204077,
+      "hit_cluster_bootstrap_95": [
+        0.09850746268656717,
+        0.18584070796460178
+      ],
+      "by_kind": {
+        "parallel_h": {
+          "targets": 144,
+          "hits": 6
+        },
+        "parallel_v": {
+          "targets": 96,
+          "hits": 25
+        },
+        "cross": {
+          "targets": 96,
+          "hits": 16
+        }
+      }
+    },
+    "previous_head/dev": {
+      "targets": 112,
+      "groups": 48,
+      "hits": 14,
+      "macro_iou": 0.2966122874919664,
+      "macro_f1": 0.40457068988898975,
+      "hit_cluster_bootstrap_95": [
+        0.0603448275862069,
+        0.205607476635514
+      ],
+      "by_kind": {
+        "parallel_h": {
+          "targets": 48,
+          "hits": 0
+        },
+        "parallel_v": {
+          "targets": 32,
+          "hits": 6
+        },
+        "cross": {
+          "targets": 32,
+          "hits": 8
+        }
+      }
+    },
+    "all_ink/train": {
+      "targets": 336,
+      "groups": 144,
+      "hits": 70,
+      "macro_iou": 0.38697370744835574,
+      "macro_f1": 0.5366631629427862,
+      "hit_cluster_bootstrap_95": [
+        0.17365269461077845,
+        0.24251497005988024
+      ],
+      "by_kind": {
+        "parallel_h": {
+          "targets": 144,
+          "hits": 31
+        },
+        "parallel_v": {
+          "targets": 96,
+          "hits": 39
+        },
+        "cross": {
+          "targets": 96,
+          "hits": 0
+        }
+      }
+    },
+    "all_ink/dev": {
+      "targets": 112,
+      "groups": 48,
+      "hits": 26,
+      "macro_iou": 0.3956837937263492,
+      "macro_f1": 0.5437387625595204,
+      "hit_cluster_bootstrap_95": [
+        0.17592592592592593,
+        0.2897196261682243
+      ],
+      "by_kind": {
+        "parallel_h": {
+          "targets": 48,
+          "hits": 12
+        },
+        "parallel_v": {
+          "targets": 32,
+          "hits": 14
+        },
+        "cross": {
+          "targets": 32,
+          "hits": 0
+        }
+      }
+    }
+  },
+  "paired_dev_comparisons": {
+    "previous_head": {
+      "hit_difference": 0.44642857142857145,
+      "paired_cluster_bootstrap_95": [
+        0.32710280373831774,
+        0.5641025641025641
+      ]
+    },
+    "swapped_question": {
+      "hit_difference": 0.5714285714285714,
+      "paired_cluster_bootstrap_95": [
+        0.4778761061946903,
+        0.6637168141592921
+      ]
+    },
+    "all_ink": {
+      "hit_difference": 0.3392857142857143,
+      "paired_cluster_bootstrap_95": [
+        0.23853211009174313,
+        0.44036697247706424
+      ]
+    }
+  },
+  "mask_diagnosis": {
+    "train": {
+      "targets": 336,
+      "correct_instance_overlap": 336,
+      "wrong_instance_overlap": 0,
+      "overlap_tie": 0,
+      "correct_instance_but_bad_boundary": 65,
+      "union_boundary_hits": 135
+    },
+    "dev": {
+      "targets": 112,
+      "correct_instance_overlap": 111,
+      "wrong_instance_overlap": 1,
+      "overlap_tie": 0,
+      "correct_instance_but_bad_boundary": 47,
+      "union_boundary_hits": 19
+    }
+  },
+  "limitation": "48 simple-shape development geometries; added trained head; no current-state, Chinese, style or sequence acceptance."
+}

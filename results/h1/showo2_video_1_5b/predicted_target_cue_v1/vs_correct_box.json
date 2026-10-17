@@ -1,0 +1,83 @@
+{
+  "view": "reference_current",
+  "split": "dev",
+  "source_rows": 112,
+  "unique_inputs": 112,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/target_cue_v1/boxed/targets_boxed_dev",
+  "after": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/predicted_target_cue_v1/state_dev",
+  "metrics": {
+    "presence": {
+      "n": 56,
+      "groups": 3,
+      "before_correct": 54,
+      "after_correct": 56,
+      "accuracy_difference": 0.03571428571428571,
+      "before_cluster_bootstrap_95": [
+        0.9375,
+        1.0
+      ],
+      "after_cluster_bootstrap_95": [
+        1.0,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.0625
+      ],
+      "unique_cases_both_wordings": {
+        "n": 28,
+        "before_correct": 26,
+        "after_correct": 28,
+        "before_cluster_bootstrap_95": [
+          0.875,
+          1.0
+        ],
+        "after_cluster_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.125
+        ]
+      }
+    },
+    "completion": {
+      "n": 56,
+      "groups": 3,
+      "before_correct": 52,
+      "after_correct": 42,
+      "accuracy_difference": -0.17857142857142858,
+      "before_cluster_bootstrap_95": [
+        0.75,
+        1.0
+      ],
+      "after_cluster_bootstrap_95": [
+        0.625,
+        0.875
+      ],
+      "paired_cluster_bootstrap_95": [
+        -0.25,
+        -0.125
+      ],
+      "unique_cases_both_wordings": {
+        "n": 28,
+        "before_correct": 26,
+        "after_correct": 20,
+        "before_cluster_bootstrap_95": [
+          0.75,
+          1.0
+        ],
+        "after_cluster_bootstrap_95": [
+          0.625,
+          0.875
+        ],
+        "paired_change_bootstrap_95": [
+          -0.3333333333333333,
+          -0.125
+        ]
+      }
+    }
+  }
+}

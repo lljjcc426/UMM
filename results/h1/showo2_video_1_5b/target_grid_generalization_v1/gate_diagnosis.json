@@ -1,0 +1,42 @@
+{
+  "created_utc": "2026-10-17T04:17:11.058690+00:00",
+  "role": "Exploratory diagnosis after the primary evaluation; unchanged .5 thresholds, no new training or UMM calls.",
+  "method": "Intersect question-conditioned predicted foreground and old all-ink predicted foreground, then use the same largest-component decoder. Scoring labels are never used in the intersection.",
+  "splits": {
+    "train": {
+      "targets": 336,
+      "hits": 309,
+      "repairs": 38,
+      "regressions": 0,
+      "macro_iou": 0.8839378990945652,
+      "macro_f1": 0.932037362541489,
+      "hit_cluster_bootstrap_95": [
+        0.884272997032641,
+        0.9510703363914373
+      ],
+      "difference": 0.1130952380952381,
+      "paired_cluster_bootstrap_95": [
+        0.07621951219512195,
+        0.1536231884057971
+      ]
+    },
+    "dev": {
+      "targets": 112,
+      "hits": 88,
+      "repairs": 24,
+      "regressions": 0,
+      "macro_iou": 0.7887300483677215,
+      "macro_f1": 0.8673692895881039,
+      "hit_cluster_bootstrap_95": [
+        0.7117117117117117,
+        0.8545454545454545
+      ],
+      "difference": 0.21428571428571427,
+      "paired_cluster_bootstrap_95": [
+        0.13636363636363635,
+        0.29411764705882354
+      ]
+    }
+  },
+  "predictions_file": "gate_predictions.jsonl"
+}

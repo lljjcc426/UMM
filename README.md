@@ -8,11 +8,11 @@
 
 暂定题目：**实际笔顺理解驱动的统一多模态中文书写视频生成**。
 
-通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1主实验使用UMM本体，当前先验证答案接口与当前线条状态，两项稳定后再加入顺序学习。** Show-o2已在M5／16GB完成目标位置提示的匹配训练：有框训练＋有框输入的开发完成配对18/20，移除框后仅1/20；无框训练在两种输入下均0/20。参考位置辅助有效，自主目标对应仍未通过。顺序学习、H2与H3未开始。见[两项前置门槛](docs/experiments/h1_state_gate.md)与[完整匹配结果](results/h1/showo2_video_1_5b/target_cue_v1/README.md)。
+通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1主实验使用UMM本体，当前先验证答案接口与当前线条状态，两项稳定后再加入顺序学习。** Show-o2已在M5／16GB接通预测目标位置与状态判断，存在判断改善，完成程度仍不稳定。顺序学习、H2与H3未开始。见[两项前置门槛](docs/experiments/h1_state_gate.md)。
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 
-最新空间诊断显示：冻结UMM视觉特征的开发笔迹网格IoU为92.1%，位置先验为16.7%。新增空间头结合UMM问题表示后，已见目标定位82/84、开发13/28；同图换问题后开发0/28。粗略位置可读，目标定位泛化仍不足。下一步扩展几何监督并用新留出组验证，再接入实际状态判断。见[空间读出](results/h1/showo2_video_1_5b/spatial_probe_v1/README.md)和[目标空间头](results/h1/showo2_video_1_5b/target_grid_fit_v1/README.md)。
+最新进展：扩展几何监督后，在48组新开发几何中定位64/112，旧头在相同样本上14/112；与已有笔迹预测取交集后88/112。接入既有状态开发题，预测位置下存在56/56、完成42/56，目标完成配对14/20，优于无框1/20，低于正确框18/20。14道完成错误的位置都在12像素容差内，后续需检验状态判断对提示框扰动的敏感性。两项门槛仍未通过。见[扩展几何实验](results/h1/showo2_video_1_5b/target_grid_generalization_v1/README.md)和[预测位置下的状态检验](results/h1/showo2_video_1_5b/predicted_target_cue_v1/README.md)。
 
 ## 阅读导航
 

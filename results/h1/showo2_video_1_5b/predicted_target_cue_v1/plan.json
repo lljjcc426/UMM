@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-10-17T04:19:00.767441+00:00",
+  "role": "Exploratory connection check on previously inspected state development cases, after expanded-geometry and mask-intersection diagnostics; not independent acceptance.",
+  "state_questions": 112,
+  "state_geometries": 3,
+  "reference_targets": 7,
+  "localizer": "Full frozen Show-o2 with original state adapter, expanded target head and old all-ink head; .5 masks intersected, same largest-component box.",
+  "localization_input": "Only reference upper half plus a blank lower half and target question; no coordinate or state label.",
+  "state_adapter": "checkpoints/h1_target_cue_boxed_v1/adapter.pt",
+  "state_cue": "Predicted box plus the existing 12px margin in reference and current panels, only white pixels painted; no current-state-dependent adjustment.",
+  "controls": "Reuse saved no-box and correct-reference-box results from the same state adapter, prompts and state IDs; no retraining.",
+  "interpretation": "Measure downstream sensitivity to predicted positions despite imperfect geometry localization. Formatting remains guaranteed by the existing answer trie.",
+  "caveat": "Only three repeatedly inspected geometries; results do not establish unseen-state, character, font or temporal generalization."
+}
