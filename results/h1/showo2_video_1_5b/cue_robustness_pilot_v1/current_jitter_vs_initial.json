@@ -1,0 +1,83 @@
+{
+  "view": "current_only",
+  "split": "dev",
+  "source_rows": 104,
+  "unique_inputs": 100,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/target_cue_v1/boxed/current_dev",
+  "after": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/cue_robustness_pilot_v1/jitter/current",
+  "metrics": {
+    "presence": {
+      "n": 50,
+      "groups": 7,
+      "before_correct": 47,
+      "after_correct": 44,
+      "accuracy_difference": -0.06,
+      "before_cluster_bootstrap_95": [
+        0.86,
+        1.0
+      ],
+      "after_cluster_bootstrap_95": [
+        0.7857142857142857,
+        0.9642857142857143
+      ],
+      "paired_cluster_bootstrap_95": [
+        -0.14,
+        0.0
+      ],
+      "unique_cases_both_wordings": {
+        "n": 25,
+        "before_correct": 23,
+        "after_correct": 22,
+        "before_cluster_bootstrap_95": [
+          0.8214285714285714,
+          1.0
+        ],
+        "after_cluster_bootstrap_95": [
+          0.7857142857142857,
+          0.9642857142857143
+        ],
+        "paired_change_bootstrap_95": [
+          -0.12,
+          0.0
+        ]
+      }
+    },
+    "completion": {
+      "n": 50,
+      "groups": 7,
+      "before_correct": 46,
+      "after_correct": 46,
+      "accuracy_difference": 0.0,
+      "before_cluster_bootstrap_95": [
+        0.8214285714285714,
+        1.0
+      ],
+      "after_cluster_bootstrap_95": [
+        0.8214285714285714,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "unique_cases_both_wordings": {
+        "n": 25,
+        "before_correct": 23,
+        "after_correct": 23,
+        "before_cluster_bootstrap_95": [
+          0.8214285714285714,
+          1.0
+        ],
+        "after_cluster_bootstrap_95": [
+          0.8214285714285714,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

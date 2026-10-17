@@ -36,7 +36,7 @@
 
 证据：[实际位置预测](localizations.json)、[定位评分](localization_score.json)、[状态原始回答](state_dev/predictions.jsonl)、[状态汇总](state_dev/score/summary.json)、[完成错误](state_error_analysis.json)、[无框配对比较](pairs_vs_no_box.json)、[正确框配对比较](pairs_vs_correct_box.json)。
 
-下一步先固定状态模型，测位置提示轻微扰动是否改变实际状态回答；据此选择带定位误差的状态监督或更直接的目标表示，并使用新状态几何检验。继续保留无参考时的未知判断，完成这两项前置门槛后再进入顺序学习。
+本轮提出固定状态模型检验提示扰动，后续已完成[8种框扰动控制](../cue_perturbation_v1/README.md)和[两组64步匹配训练](../cue_robustness_pilot_v1/README.md)。状态稳定性仍不足，下一步检验更直接的目标区域表示，并加入新状态几何与无参考未知控制；两项前置门槛通过后再进入顺序学习。
 
 ## 复现
 

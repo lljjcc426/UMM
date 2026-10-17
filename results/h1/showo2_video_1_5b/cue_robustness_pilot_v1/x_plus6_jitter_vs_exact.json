@@ -1,0 +1,83 @@
+{
+  "view": "reference_current",
+  "split": "dev",
+  "source_rows": 112,
+  "unique_inputs": 112,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/cue_robustness_pilot_v1/exact/x_plus6",
+  "after": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/cue_robustness_pilot_v1/jitter/x_plus6",
+  "metrics": {
+    "presence": {
+      "n": 56,
+      "groups": 3,
+      "before_correct": 55,
+      "after_correct": 55,
+      "accuracy_difference": 0.0,
+      "before_cluster_bootstrap_95": [
+        0.9375,
+        1.0
+      ],
+      "after_cluster_bootstrap_95": [
+        0.9375,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "unique_cases_both_wordings": {
+        "n": 28,
+        "before_correct": 27,
+        "after_correct": 27,
+        "before_cluster_bootstrap_95": [
+          0.875,
+          1.0
+        ],
+        "after_cluster_bootstrap_95": [
+          0.875,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "completion": {
+      "n": 56,
+      "groups": 3,
+      "before_correct": 52,
+      "after_correct": 52,
+      "accuracy_difference": 0.0,
+      "before_cluster_bootstrap_95": [
+        0.75,
+        1.0
+      ],
+      "after_cluster_bootstrap_95": [
+        0.75,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "unique_cases_both_wordings": {
+        "n": 28,
+        "before_correct": 26,
+        "after_correct": 26,
+        "before_cluster_bootstrap_95": [
+          0.75,
+          1.0
+        ],
+        "after_cluster_bootstrap_95": [
+          0.75,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

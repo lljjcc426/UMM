@@ -1,0 +1,83 @@
+{
+  "view": "reference_current",
+  "split": "dev",
+  "source_rows": 112,
+  "unique_inputs": 112,
+  "method": "Exact prompt and RGB-pixel duplicates counted once; paired bootstrap over input groups.",
+  "before": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/cue_robustness_pilot_v1/exact/width_plus6",
+  "after": "/Users/cc/Documents/UMM/results/h1/showo2_video_1_5b/cue_robustness_pilot_v1/jitter/width_plus6",
+  "metrics": {
+    "presence": {
+      "n": 56,
+      "groups": 3,
+      "before_correct": 53,
+      "after_correct": 54,
+      "accuracy_difference": 0.017857142857142856,
+      "before_cluster_bootstrap_95": [
+        0.875,
+        1.0
+      ],
+      "after_cluster_bootstrap_95": [
+        0.9375,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        0.0,
+        0.0625
+      ],
+      "unique_cases_both_wordings": {
+        "n": 28,
+        "before_correct": 25,
+        "after_correct": 26,
+        "before_cluster_bootstrap_95": [
+          0.75,
+          1.0
+        ],
+        "after_cluster_bootstrap_95": [
+          0.875,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.125
+        ]
+      }
+    },
+    "completion": {
+      "n": 56,
+      "groups": 3,
+      "before_correct": 45,
+      "after_correct": 44,
+      "accuracy_difference": -0.017857142857142856,
+      "before_cluster_bootstrap_95": [
+        0.4375,
+        1.0
+      ],
+      "after_cluster_bootstrap_95": [
+        0.375,
+        1.0
+      ],
+      "paired_cluster_bootstrap_95": [
+        -0.0625,
+        0.0
+      ],
+      "unique_cases_both_wordings": {
+        "n": 28,
+        "before_correct": 22,
+        "after_correct": 22,
+        "before_cluster_bootstrap_95": [
+          0.375,
+          1.0
+        ],
+        "after_cluster_bootstrap_95": [
+          0.375,
+          1.0
+        ],
+        "paired_change_bootstrap_95": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  }
+}

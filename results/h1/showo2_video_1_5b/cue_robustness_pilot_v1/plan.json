@@ -1,0 +1,56 @@
+{
+  "created_utc": "2026-10-17T04:36:44.103386+00:00",
+  "role": "Small matched augmentation pilot, not independent acceptance. Run after the frozen-model cue intervention establishes sensitivity.",
+  "arms": [
+    "exact",
+    "jitter"
+  ],
+  "initial_adapter": "checkpoints/h1_target_cue_boxed_v1/adapter.pt",
+  "training_rows": {
+    "reference_current": 128,
+    "current_only": 64,
+    "oracle_text": 64
+  },
+  "reference_cases": 32,
+  "current_cases": 16,
+  "text_cases": 16,
+  "reference_geometry_groups": 6,
+  "sampling": "Training data only; reference cases stratified by layout and completion class; retention cases stratified by completion class. Seeds 10423/10424/10425.",
+  "cue_assignment": "Fixed round-robin over eight +/-6px translations/length/width changes after shuffling reference geometry+target keys, seed10426. One target uses the same perturbation across all its current states.",
+  "controls": "Same selected questions, labels, initial weights, row order, optimizer and updates; only target-reference cues in the reference_current subset differ.",
+  "optimization": {
+    "epochs": 1,
+    "steps": 64,
+    "accumulation": 4,
+    "learning_rate": 0.0001,
+    "seed": 731,
+    "parameters": 311296,
+    "layers": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "rank": 8,
+    "alpha": 16,
+    "loss": "Existing answer+EOS cross entropy; identical text and current-only replay in both arms."
+  },
+  "evaluations": [
+    "Original correct-cue target dev",
+    "Predicted-cue target dev",
+    "Fixed x_plus6 target dev",
+    "Fixed width_plus6 target dev",
+    "Original current-only dev",
+    "Original text dev"
+  ],
+  "evaluation_policy": "Final checkpoint only. The two perturbations are fixed before reading intervention scores; they do not establish invariance to all eight. No original 130-case visual test.",
+  "primary": "Matched-arm predicted-cue completion and different-target pair outcomes; both-wording consistency; report every regression.",
+  "limitation": "One small update budget, one seed, three repeatedly inspected target geometries; wider geometry/character/font and temporal tests remain required.",
+  "localization_policy": "Predicted cue images are fixed outputs from the preceding localizer and original adapter, shared by both arms. This pilot changes only the state adapter; compatibility of the new adapter with the localization head is not tested.",
+  "additional_stress_test": "y_plus6 chosen after the frozen intervention showed the largest completion drop, declared before training; an exploratory secondary condition, not an independently predeclared test.",
+  "evaluation_cache": "Reuse CPU embeddings of immutable evaluation images across the two language-only adapter conditions; frozen base visual weights unchanged. Language inference recomputed for each adapter. Exact arm pays first image encoding, so wall times are not a matched compute comparison."
+}

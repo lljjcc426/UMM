@@ -139,7 +139,7 @@ def constrained_state_generate(model, tokenizer, embeds, modalities, task):
     return output
 
 
-def run(args):
+def run(args, image_cache=None):
     import torch
     rows = [json.loads(s) for s in args.inputs.read_text().splitlines()]
     rows = [r for r in rows if r['split'] == args.split
@@ -161,6 +161,10 @@ def run(args):
             model.requires_grad_(False)
     visual = args.blank_image or any(r['images'] for r in rows)
     encoder = StateImageEncoder(model, args.assets, args.device) if visual else None
+    # A caller comparing language-only adapters may share the unchanged frozen
+    # visual path's CPU embeddings. Ordinary CLI runs retain their own cache.
+    if encoder is not None and image_cache is not None:
+        encoder.cache = image_cache
     metadata = dict(
         model_id='showlab/show-o2-1.5B-w-video-und', model_revision=MODEL_REVISION,
         download_source='ModelScope', source_revision=SOURCE_REVISION,
@@ -177,6 +181,7 @@ def run(args):
         image_preprocessing='432x432 RGB [-1,1]; already square input; no crop' if visual else None,
         vae_device='cpu' if visual else None, vae_dtype='float32' if visual else None,
         vae_sampling='sample; seed=0 per image; embeddings cached per image' if visual else None,
+        shared_vision_cache_entries_at_start=len(image_cache) if image_cache is not None and visual else None,
         decoding=('greedy fixed-answer trie; shared tokens forced; no label access' if args.constrain_answers else
                   'official mmu_generate; top_k=1; seed=0'), max_new_tokens=args.max_tokens,
         constrained_state_words=STATE_WORDS if args.constrain_answers else None,
@@ -237,6 +242,8 @@ def run(args):
             if index == 1 or index % 25 == 0 or index == len(rows):
                 print(f'{index}/{len(rows)} {row["sample_id"]} {raw!r} {record["seconds"]:.2f}s', flush=True)
     metadata['finished_utc'] = datetime.now(timezone.utc).isoformat()
+    if image_cache is not None and visual:
+        metadata['shared_vision_cache_entries_at_end'] = len(image_cache)
     (args.output / 'run.json').write_text(json.dumps(metadata, indent=2) + '\n')
 
 

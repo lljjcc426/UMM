@@ -1,0 +1,74 @@
+{
+  "model_id": "showlab/show-o2-1.5B-w-video-und",
+  "model_revision": "412f647429897ad888771d18008de4edfb2c42a6",
+  "source_revision": "45a5a2de01d1ebd10cd5864d29310a76476cdf23",
+  "stage": "visual_state_with_text_replay",
+  "rows_by_view": {
+    "current_only": 64,
+    "oracle_text": 64,
+    "reference_current": 128
+  },
+  "train_rows": 256,
+  "train_cases": 64,
+  "train_groups": 30,
+  "adapter_config": {
+    "rank": 8,
+    "alpha": 16,
+    "layers": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "projections": [
+      "q_proj",
+      "v_proj"
+    ],
+    "training_run": "results/h1/showo2_video_1_5b/cue_robustness_pilot_v1/jitter/training",
+    "initial_adapter": "checkpoints/h1_target_cue_boxed_v1/adapter.pt"
+  },
+  "trainable_parameters": 311296,
+  "base_dtype": "bfloat16",
+  "adapter_dtype": "float32",
+  "device": "mps",
+  "gradient_checkpointing": false,
+  "epochs": 1,
+  "steps": 64,
+  "accumulation": 4,
+  "learning_rate": 0.0001,
+  "schedule": "10% warmup then cosine to 10% of peak",
+  "optimizer": "AdamW; weight_decay=0.01; clip_grad_norm=1.0",
+  "seed": 731,
+  "loss": "Mean answer-token cross entropy including EOS; prompt tokens not supervised.",
+  "eval_policy": "Final-only matched 64-step exact/jitter pilot; six declared development/retention conditions. No held-out calls.",
+  "data": "data/h1/cue_robustness_pilot_v1/jitter",
+  "text_replay": "data/h1/cue_robustness_pilot_v1/text_replay",
+  "initial_adapter": "checkpoints/h1_target_cue_boxed_v1/adapter.pt",
+  "image_path": "Frozen Wan CPU fp32, fusion MPS bf16; seed 0 per image; shared upstream MMU template/mask; no crop.",
+  "adapter_path": "checkpoints/h1_cue_robustness_pilot_v1/jitter/adapter.pt",
+  "started_utc": "2026-10-17T04:57:34.168980+00:00",
+  "packages": {
+    "torch": "2.7.1",
+    "transformers": "4.47.0",
+    "diffusers": "0.31.0"
+  },
+  "image_preparation_seconds": 137.77340537500004,
+  "first_step_gradient_norm_by_layer": {
+    "20": 0.2727782307337407,
+    "21": 0.23697805915437703,
+    "22": 0.09737989894300499,
+    "23": 0.10173179148530184,
+    "24": 0.10934644524859113,
+    "25": 0.05825345806538422,
+    "26": 0.089871064211584,
+    "27": 0.1259435983202522
+  },
+  "finished_utc": "2026-10-17T05:02:33.293685+00:00",
+  "elapsed_seconds": 161.41746933299964,
+  "final_loss": 0.005721554117826599,
+  "completed_steps": 64
+}

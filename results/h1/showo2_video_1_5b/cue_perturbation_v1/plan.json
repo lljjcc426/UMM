@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-10-17T04:33:04.582371+00:00",
+  "role": "Paired input intervention on previously inspected development states; no training, no independent acceptance.",
+  "adapter": "checkpoints/h1_target_cue_boxed_v1/adapter.pt",
+  "questions": 896,
+  "source_questions": 112,
+  "geometries": 3,
+  "source_target_cases": 28,
+  "variants": [
+    "x_minus6",
+    "x_plus6",
+    "y_minus6",
+    "y_plus6",
+    "length_minus6",
+    "length_plus6",
+    "width_minus6",
+    "width_plus6"
+  ],
+  "intervention": "Correct reference centerline bounds plus original 12px margin; translate both panels by +/-6px in x/y or expand/contract both ends by 6px along/across the line. Stroke width/color stay unchanged.",
+  "controls": "Same full UMM, state adapter, prompts, labels, constrained decoding and black pixels. Reuse saved correct-cue baseline. Every drawn frame stays defined by the complete reference, independent of current progress.",
+  "geometry": "Frame contractions leave at least 6px padding from the target centerline. Width here means perpendicular frame size, not the 3px border thickness.",
+  "ink_invariant": {
+    "images": 224,
+    "preserved": 224
+  },
+  "metrics": "Presence/completion accuracy, answer changes, correct-to-wrong and wrong-to-correct, both-wording accuracy, different-target pairs and correctness across all variants including baseline. Bootstrap by the three underlying geometries.",
+  "policy": "Fixed eight interventions, one final model; do not select a best test-time cue from development results.",
+  "limitation": "Assisted target location, fixed simple geometry and full reference; no new-character, font, temporal or unknown-state evaluation."
+}

@@ -12,7 +12,7 @@
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 
-最新进展：扩展几何监督后，在48组新开发几何中定位64/112，旧头在相同样本上14/112；与已有笔迹预测取交集后88/112。接入既有状态开发题，预测位置下存在56/56、完成42/56，目标完成配对14/20，优于无框1/20，低于正确框18/20。14道完成错误的位置都在12像素容差内，后续需检验状态判断对提示框扰动的敏感性。两项门槛仍未通过。见[扩展几何实验](results/h1/showo2_video_1_5b/target_grid_generalization_v1/README.md)和[预测位置下的状态检验](results/h1/showo2_video_1_5b/predicted_target_cue_v1/README.md)。
+最新诊断：黑色笔迹保持不变，仅把提示框下移6像素，完成判断从52/56降到42/56。两组同样64步的继续训练中，扰动组在预测框条件下47/56，准确框复习对照45/56；准确框条件下则为48/56与51/56，两组无参考存在判断均退化。尚无稳定的额外收益，新权重不替代原基线。下一步检验直接利用UMM目标区域特征比较参考与当前，并加入新状态几何。见[框扰动诊断](results/h1/showo2_video_1_5b/cue_perturbation_v1/README.md)和[匹配训练结果](results/h1/showo2_video_1_5b/cue_robustness_pilot_v1/README.md)。
 
 ## 阅读导航
 
