@@ -1,0 +1,77 @@
+{
+  "created_utc": "2026-10-17T06:37:29.795623+00:00",
+  "question": "Does broader partial-progress supervision improve completion boundaries at fixed update budget, including new geometry?",
+  "model": "Full frozen Show-o2-1.5B-w-video-und; original state adapter, target head and ink head unchanged.",
+  "arms": [
+    "replay",
+    "coverage"
+  ],
+  "region_sources": [
+    "oracle",
+    "predicted"
+  ],
+  "initialization": "Both continuation arms start from the same previous final head for their respective region source. Optimizer reinitialized identically.",
+  "matched": "Same 509 cases, geometry, target, labels, row order, class weights and minibatch indices. Only partial progress in multi-target current images changes. Reference-pair and current-only controls unchanged.",
+  "training_progress": {
+    "previous": [
+      0,
+      0.25,
+      0.6,
+      1
+    ],
+    "coverage_low": [
+      0.05,
+      0.1,
+      0.15,
+      0.25,
+      0.4
+    ],
+    "coverage_high": [
+      0.6,
+      0.75,
+      0.85,
+      0.9,
+      0.95
+    ],
+    "assignment": "Seed10440; shuffled reference target keys, round-robin levels; fixed per target and old partial-state type."
+  },
+  "training": {
+    "steps": 400,
+    "batch_size": 32,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "seed": 10442,
+    "parameters": 57764,
+    "optimizer": "AdamW",
+    "loss": "Four-class inverse-frequency weighted cross entropy; same weights in both arms."
+  },
+  "evaluation": {
+    "previous_cases": 317,
+    "fresh_cases": 441,
+    "fresh_groups": 36,
+    "fresh_seed": 10441,
+    "progress": [
+      0,
+      0.08,
+      0.3,
+      0.7,
+      0.9,
+      0.97,
+      1
+    ],
+    "co_occurrence": "Cyclic stride 2 across targets, versus previous stride 1.",
+    "stress": "97% progress with reference is separately declared boundary stress before training; retained in overall results as well. Core excludes only these 56 declared stress cases.",
+    "masks": "Initial heads and both continuations evaluated on their own region source; predicted-region continuations additionally evaluated on oracle regions.",
+    "policy": "Final checkpoints only; no threshold or checkpoint selection. Old development is retention, fresh development is prospective. Original 130-case visual test unused."
+  },
+  "metrics": "Completion/presence, class confusion, actual progress, false-complete on partial, false-partial on complete, reference pairs, target pairs, old retention; paired geometry bootstrap.",
+  "costs": {
+    "reused_images": 517,
+    "reused_queries": 204,
+    "new_images": 384,
+    "new_queries": 68,
+    "changed_training_images": 138
+  },
+  "scope": "Continued auxiliary UMM feature readout only. No new language-model benchmark or base-weight update; no order, font, Chinese or unified-learning claim.",
+  "blank": "One visible empty current-only control per evaluation set; shared with training and not novel-geometry evidence."
+}

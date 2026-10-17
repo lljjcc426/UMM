@@ -1,0 +1,9 @@
+{
+  "declared_utc": "2026-10-17T06:56:11.372392+00:00",
+  "role": "Post-hoc diagnostic declared after the matched coverage results; not an independent test.",
+  "question": "Do off-target mask fragments contribute to false partial judgments on complete lines?",
+  "model": "Fixed coverage_predicted final state head; no training or threshold changes.",
+  "rule": "Use the largest four-connected component of the existing thresholded target/ink intersection, the same connectivity rule previously used for box decoding; retain the component mask, not its box.",
+  "evaluation": "All 317 previous and 441 fresh development cases; same inputs except predicted mask filtering. Current-only fixed upper-region masks unchanged. No oracle masks or labels used for filtering.",
+  "metrics": "All original metrics and paired repairs/regressions, with full 97% stress results retained. No selection among alternative connectivity rules."
+}

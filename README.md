@@ -12,7 +12,7 @@
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 
-最新诊断：冻结UMM后，新增区域状态头直接比较参考与当前特征。在新几何开发集上，正确目标区域下完成290/317，UMM预测区域下258/317；缺少参考时25/25正确。主要缺口是接近完成：85%进度的56例，分别只有33例和16例被识别为部分。训练部分进度只有25%和60%，下一步用同预算对照检验短起笔与接近完成的监督，并在新几何验证。新增读出头与原语言回答分报，原适配器保持，尚不进入顺序学习。见[区域状态实验](results/h1/showo2_video_1_5b/region_state_v1/README.md)。
+最新诊断：相同509例、标签与400步预算下，扩大部分进度范围使UMM预测区域头的完成判断322→370/441，90%进度12→52/56；但97%仅17/56，完整判断57→46/62。最大连通区域筛选改善完整判断，却使总分下降，未作为默认替代。下一步用其他笔迹相同、只改变目标末端缺口的配对检验细节读取，继续分开目标区域与状态边界问题。原适配器保持，尚不进入顺序学习。见[进度覆盖对照](results/h1/showo2_video_1_5b/progress_coverage_v1/README.md)。
 
 ## 阅读导航
 
