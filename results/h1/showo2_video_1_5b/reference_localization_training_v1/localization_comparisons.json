@@ -1,0 +1,102 @@
+{
+  "role": "Paired development comparisons; positive values favor the trained model with actual image.",
+  "prior": "Supplementary no-image baseline: rounded component-wise median training coordinates per target name; no development labels used to fit it.",
+  "target_medians": {
+    "上横": [
+      100,
+      38,
+      262,
+      38
+    ],
+    "中横": [
+      100,
+      86,
+      262,
+      86
+    ],
+    "下横": [
+      100,
+      141,
+      262,
+      141
+    ],
+    "左竖": [
+      75,
+      51,
+      75,
+      152
+    ],
+    "右竖": [
+      234,
+      51,
+      234,
+      152
+    ],
+    "横线": [
+      76,
+      102,
+      275,
+      102
+    ],
+    "竖线": [
+      194,
+      42,
+      194,
+      154
+    ]
+  },
+  "comparisons": {
+    "initial_model": {
+      "n": 28,
+      "groups": 12,
+      "baseline_hits": 0,
+      "trained_hits": 0,
+      "baseline_mae": 128.27678571428572,
+      "hit_difference": 0.0,
+      "hit_change_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "mae_reduction": 73.21428571428571,
+      "mae_reduction_cluster_bootstrap_95": [
+        57.40833333333333,
+        92.16666666666667
+      ]
+    },
+    "blank_image": {
+      "n": 28,
+      "groups": 12,
+      "baseline_hits": 0,
+      "trained_hits": 0,
+      "baseline_mae": 71.51785714285714,
+      "hit_difference": 0.0,
+      "hit_change_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "mae_reduction": 16.455357142857142,
+      "mae_reduction_cluster_bootstrap_95": [
+        7.575,
+        27.21153846153846
+      ]
+    },
+    "training_target_median": {
+      "n": 28,
+      "groups": 12,
+      "baseline_hits": 0,
+      "trained_hits": 0,
+      "baseline_mae": 34.410714285714285,
+      "hit_difference": 0.0,
+      "hit_change_cluster_bootstrap_95": [
+        0.0,
+        0.0
+      ],
+      "mae_reduction": -20.651785714285715,
+      "mae_reduction_cluster_bootstrap_95": [
+        -28.12037037037037,
+        -14.660714285714286
+      ]
+    }
+  },
+  "limitations": "One seed, 12 already inspected development groups, same renderer; no independent H1 acceptance."
+}

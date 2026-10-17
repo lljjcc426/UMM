@@ -1,0 +1,65 @@
+{
+  "model": "showlab/show-o2-1.5B-w-video-und",
+  "model_revision": "412f647429897ad888771d18008de4edfb2c42a6",
+  "source_revision": "45a5a2de01d1ebd10cd5864d29310a76476cdf23",
+  "adapter_config": {
+    "rank": 8,
+    "alpha": 16,
+    "layers": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "projections": [
+      "q_proj",
+      "v_proj"
+    ],
+    "training_run": "results/h1/showo2_video_1_5b/reference_localization_training_v1/training",
+    "initial_adapter": "checkpoints/h1_target_cue_boxed_v1/adapter.pt"
+  },
+  "device": "MPS bf16; VAE CPU fp32",
+  "adapter": "checkpoints/h1_reference_localization_v1/adapter.pt",
+  "blank_image": false,
+  "started_utc": "2026-10-17T02:38:49.662063+00:00",
+  "plan": {
+    "objective": "Teach reference coordinate output while preserving state judgments; H1 prerequisites only.",
+    "training_geometry_groups": 36,
+    "unique_localization_targets": 84,
+    "localization_repeats": 4,
+    "localization_rows": 336,
+    "visual_state_replay_rows": 744,
+    "text_replay_rows": 512,
+    "total_rows": 1592,
+    "train_seed": 731,
+    "geometry_seed": 10418,
+    "initial_adapter": "checkpoints/h1_target_cue_boxed_v1/adapter.pt",
+    "configuration": {
+      "epochs": 3,
+      "steps": 1194,
+      "learning_rate": 0.0002,
+      "accumulation": 4,
+      "last_layers": 8,
+      "rank": 8,
+      "alpha": 16
+    },
+    "output": "Same four-coordinate JSON and prompt as the preceding diagnostic; only answer/EOS tokens supervised.",
+    "input": "Reference-only upper-half image and target name for localization; no current-state information.",
+    "evaluation": [
+      "84 unique training localization targets",
+      "28 prior development targets with actual image",
+      "same 28 targets with blank image",
+      "112 original boxed target development questions",
+      "104 current-only development questions",
+      "208 text development questions"
+    ],
+    "policy": "Final adapter only; fixed budget, no intermediate selection. Original visual test untouched.",
+    "limitations": "Same synthetic shape families and renderer. Prior dev has been inspected; this is development, not independent acceptance."
+  },
+  "decoding": "Greedy token trie over all in-range integer coordinates; fixed JSON punctuation. No candidate boxes or label access.",
+  "finished_utc": "2026-10-17T02:47:37.885944+00:00"
+}

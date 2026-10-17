@@ -1,0 +1,12 @@
+{
+  "observed_utc": "2026-10-17T01:45:39.280750+00:00",
+  "status": "process_missing_before_any_saved_update",
+  "evidence": [
+    "Original exec session 9513 missing",
+    "No matching training or driver process in live process table",
+    "No training.jsonl or final adapter present",
+    "Metadata has no image_preparation_seconds or finished_utc"
+  ],
+  "cause": "Not established; no surviving terminal log.",
+  "action": "Retain initial records under interrupted_before_updates; restart the same fixed configuration from the same initial adapter, with persistent local log."
+}

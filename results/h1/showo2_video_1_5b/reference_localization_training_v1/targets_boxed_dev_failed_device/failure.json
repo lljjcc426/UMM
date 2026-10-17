@@ -1,0 +1,6 @@
+{
+  "stage": "model_loading_before_predictions",
+  "error": "Torch not compiled with CUDA enabled",
+  "cause": "Driver omitted --device mps; runner default is cuda.",
+  "fix": "Explicit --device mps; rerun retention only with the saved final adapter."
+}

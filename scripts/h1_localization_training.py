@@ -5,9 +5,11 @@ import random
 import subprocess
 import sys
 from pathlib import Path
+from collections import defaultdict
+from statistics import median
 from PIL import Image, ImageDraw
 from h1_reference_localization import localization_prompt, DATA as DEV
-from h1_state_gate import ROOT, read_jsonl, write_jsonl, evaluate, DEFAULT
+from h1_state_gate import ROOT, read_jsonl, write_jsonl, evaluate, interval, DEFAULT
 from h1_compare_state_runs import compare
 from h1_target_controls import score_different_targets
 
@@ -84,19 +86,70 @@ def run():
     for name,data,blank in [('train_localization',DATA,False),('dev_localization',DEV,False),('blank_dev',DEV,True)]:
         call('h1_reference_localization.py','run','--data',data,'--output',RESULT/name,'--adapter',ADAPTER,
              *(['--blank-image'] if blank else []))
+    evaluate_retention()
+    print('LOCALIZATION TRAINING AND FINAL EVALUATIONS COMPLETED',flush=True)
+
+
+def evaluate_retention():
+    """Run state evaluations independently after a completed localization adapter."""
+    env=dict(os.environ,PYTORCH_ENABLE_MPS_FALLBACK='1')
     for name,data,view in [('targets_boxed_dev',ROOT/'data/h1/state_target_cue_v1/boxed/all_targets_dev','reference_current'),
                            ('current_dev',DEFAULT,'current_only'),('text_dev',ROOT/'data/h1/state_training_v1','oracle_text')]:
         out=RESULT/name
-        call('h1_run_showo.py','--inputs',data/'inputs.jsonl','--split','dev','--view',view,
-             '--format','json','--constrain-answers','--adapter',ADAPTER,'--output',out)
+        subprocess.run([sys.executable,str(ROOT/'scripts/h1_run_showo.py'),'--device','mps',
+            '--inputs',str(data/'inputs.jsonl'),'--split','dev','--view',view,'--format','json',
+            '--constrain-answers','--adapter',str(ADAPTER),'--output',str(out)],env=env,cwd=ROOT,check=True)
         evaluate(data,out/'predictions.jsonl','dev','json',out/'score',view)
         if name=='targets_boxed_dev':
             score_different_targets(data,out,out/'score/different_target_pairs.json')
         compare(data,ROOT/'results/h1/showo2_video_1_5b/target_cue_v1/boxed'/name,out,
                 RESULT/f'{name}_vs_initial.json',view,'dev')
-    print('LOCALIZATION TRAINING AND FINAL EVALUATIONS COMPLETED',flush=True)
+    print('STATE RETENTION EVALUATIONS COMPLETED',flush=True)
+
+
+def analyze():
+    """Reuse final predictions; compare visual input and a training-only position prior."""
+    trained=json.loads((RESULT/'dev_localization/score.json').read_text())['cases']
+    blank=json.loads((RESULT/'blank_dev/score.json').read_text())['cases']
+    initial=json.loads((ROOT/'results/h1/showo2_video_1_5b/reference_localization_v1/score.json').read_text())['cases']
+    train=json.loads((DATA/'cases.json').read_text())
+    by_target=defaultdict(list)
+    for row in train:
+        by_target[row['target']].append(row['expected_box'])
+    prior={name:[round(median(values)) for values in zip(*boxes)] for name,boxes in by_target.items()}
+    comparisons={}
+    for name,baseline in [('initial_model',initial),('blank_image',blank),('training_target_median',None)]:
+        indexed={r['sample_id']:r for r in baseline} if baseline is not None else None
+        hit_change,mae_change=defaultdict(list),defaultdict(list)
+        before_hits=0
+        before_mae=[]
+        for row in trained:
+            if indexed is None:
+                errors=[abs(a-b) for a,b in zip(prior[row['target']],row['expected_box'])]
+                hit=int(max(errors)<=12)
+            else:
+                old=indexed[row['sample_id']]
+                errors=old['coordinate_errors']
+                hit=int(old['within_12px'])
+            old_mae=sum(errors)/4
+            before_hits+=hit
+            before_mae.append(old_mae)
+            hit_change[row['group_id']].append(int(row['within_12px'])-hit)
+            mae_change[row['group_id']].append(old_mae-sum(row['coordinate_errors'])/4)
+        comparisons[name]=dict(n=len(trained),groups=len(hit_change),baseline_hits=before_hits,
+            trained_hits=sum(r['within_12px'] for r in trained),baseline_mae=sum(before_mae)/len(before_mae),
+            hit_difference=sum(map(sum,hit_change.values()))/len(trained),
+            hit_change_cluster_bootstrap_95=interval(hit_change),
+            mae_reduction=sum(map(sum,mae_change.values()))/len(trained),
+            mae_reduction_cluster_bootstrap_95=interval(mae_change))
+    report=dict(role='Paired development comparisons; positive values favor the trained model with actual image.',
+        prior='Supplementary no-image baseline: rounded component-wise median training coordinates per target name; no development labels used to fit it.',
+        target_medians=prior,comparisons=comparisons,
+        limitations='One seed, 12 already inspected development groups, same renderer; no independent H1 acceptance.')
+    (RESULT/'localization_comparisons.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+    print(json.dumps(report,ensure_ascii=False,indent=2))
 
 if __name__=='__main__':
     import argparse
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('command',choices=['build','run'])
-    args=p.parse_args();{'build':build,'run':run}[args.command]()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('command',choices=['build','run','evaluate-retention','analyze'])
+    args=p.parse_args();{'build':build,'run':run,'evaluate-retention':evaluate_retention,'analyze':analyze}[args.command]()

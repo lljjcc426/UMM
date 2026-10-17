@@ -12,7 +12,7 @@
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 
-两组使用相同训练题、更新预算和文字／仅当前复习。缺少参考时完成均46/50，文字完成均94/96，未复现上轮严重退化。目标框来自已知参考标注，开发只有3个目标几何组；辅助成绩不能代替自主定位或独立验收。下一步先测参考目标定位，再检查预测位置下的状态判断。
+后续坐标监督也已完成：已见定位4/84、开发0/28；真实图平均误差55.06像素，空白图71.52像素，按目标名称返回训练坐标中位数为34.41像素。已有框辅助完成配对保持18/20，文字完成94→92/96。下一步先检查UMM视觉表示中的空间信息，再决定调整定位方式。见[位置监督结果](results/h1/showo2_video_1_5b/reference_localization_training_v1/README.md)。
 
 ## 阅读导航
 
