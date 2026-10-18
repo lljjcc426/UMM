@@ -51,7 +51,7 @@ def train_spatial(items):
 def inputs_for(items,a,b,condition):
     out=[]
     for x in items:
-        value=event_inputs(x,a,b,oracle=condition=='B4_oracle',whole=condition=='B4_whole_pool',no_delta=condition=='B4_no_delta')
+        value=event_inputs(x,a,b,oracle=condition=='B4_oracle',whole=condition=='B4_whole_pool',no_delta=condition in ['B4_no_delta','B1_lastframe_head'])
         if condition=='B1_lastframe_head':
             value[:,:,64:128]=0;value[:,:,193:195]=0;value[:,:,-1]=0
         out.append(value)
@@ -131,6 +131,12 @@ def run():
     conditions=['B1_lastframe_head','B3_pointwise','B4','B4_oracle','B4_no_delta','B4_whole_pool','B4_no_progress']
     for condition in conditions:
         torch.manual_seed(42);inputs=inputs_for(items,a,b,condition);models[condition]=train_head(items,inputs,condition,initial);values[condition]=inputs
+        if condition=='B1_lastframe_head':
+            equal=[]
+            for group in sorted(set(x['row']['group'] for x in items)):
+                indices=[next(i for i,x in enumerate(items) if x['row']['group']==group and x['row']['variant']==v) for v in ['correct','swap']]
+                equal.append(dict(group=group,last_input_equal=bool(torch.equal(inputs[indices[0]][-1],inputs[indices[1]][-1]))))
+            save(OUT/'B1_same_final_inputs.json',equal)
     # All heads selected before held-geometry scores are read.
     metrics={};test_indices=[i for i,x in enumerate(items) if x['row']['split']=='test']
     for condition,model in models.items():
