@@ -1,0 +1,740 @@
+{
+  "B1_lastframe_head": {
+    "n_decisions": 150,
+    "n_instances": 330,
+    "state_accuracy": 0.9484848484848485,
+    "state_CI": [
+      0.9,
+      1.0
+    ],
+    "state_macro_f1": 0.9566038549917396,
+    "state_f1": [
+      0.9914529914529915,
+      0.9363295880149812,
+      0.9420289855072463
+    ],
+    "confusion": [
+      [
+        58,
+        0,
+        0
+      ],
+      [
+        1,
+        125,
+        0
+      ],
+      [
+        0,
+        16,
+        130
+      ]
+    ],
+    "partial_as_full": 0,
+    "full_as_partial": 16,
+    "strict_order": 0.7733333333333333,
+    "strict_order_CI": [
+      0.72,
+      0.8266666666666668
+    ],
+    "final_order": 0.5666666666666667,
+    "same_final_pair_both": 0,
+    "pairs": [
+      {
+        "group": "cross-test1",
+        "both_correct": false
+      },
+      {
+        "group": "diagonal-test1",
+        "both_correct": false
+      },
+      {
+        "group": "fold-test1",
+        "both_correct": false
+      },
+      {
+        "group": "parallel_v-test1",
+        "both_correct": false
+      },
+      {
+        "group": "san-test1",
+        "both_correct": false
+      }
+    ],
+    "pair_CI": [
+      0.0,
+      0.0
+    ],
+    "progress_mae": 0.06297687512512008,
+    "direction_accuracy": 0.8099547511312217,
+    "first_error_observable_accuracy": 0.688,
+    "action_only_accuracy": 0.66,
+    "action_all_fields_accuracy": 0.6066666666666667,
+    "active_accuracy": 0.7266666666666667,
+    "start_accuracy": 0.9787878787878788,
+    "completion_event_accuracy": 0.896969696969697,
+    "unknown_true": 25,
+    "unknown_recall": 0.2,
+    "unknown_false_acceptance": 0.8,
+    "unknown_output_coverage": 0.05333333333333334,
+    "observable_answer_coverage": 0.976,
+    "format_valid": 1.0,
+    "format_note": "Deterministic serializer, not autonomous instruction-following gain."
+  },
+  "B3_pointwise": {
+    "n_decisions": 150,
+    "n_instances": 330,
+    "state_accuracy": 0.9545454545454546,
+    "state_CI": [
+      0.9066666666666666,
+      1.0
+    ],
+    "state_macro_f1": 0.9632228667234549,
+    "state_f1": [
+      1.0,
+      0.9438202247191011,
+      0.9458483754512635
+    ],
+    "confusion": [
+      [
+        58,
+        0,
+        0
+      ],
+      [
+        0,
+        126,
+        0
+      ],
+      [
+        0,
+        15,
+        131
+      ]
+    ],
+    "partial_as_full": 0,
+    "full_as_partial": 15,
+    "strict_order": 0.98,
+    "strict_order_CI": [
+      0.96,
+      1.0
+    ],
+    "final_order": 0.9333333333333333,
+    "same_final_pair_both": 3,
+    "pairs": [
+      {
+        "group": "cross-test1",
+        "both_correct": true
+      },
+      {
+        "group": "diagonal-test1",
+        "both_correct": true
+      },
+      {
+        "group": "fold-test1",
+        "both_correct": false
+      },
+      {
+        "group": "parallel_v-test1",
+        "both_correct": true
+      },
+      {
+        "group": "san-test1",
+        "both_correct": false
+      }
+    ],
+    "pair_CI": [
+      0.2,
+      1.0
+    ],
+    "progress_mae": 0.0532739204975466,
+    "direction_accuracy": 0.8733031674208145,
+    "first_error_observable_accuracy": 0.792,
+    "action_only_accuracy": 0.8466666666666667,
+    "action_all_fields_accuracy": 0.8266666666666667,
+    "active_accuracy": 0.98,
+    "start_accuracy": 1.0,
+    "completion_event_accuracy": 0.9636363636363636,
+    "unknown_true": 25,
+    "unknown_recall": 1.0,
+    "unknown_false_acceptance": 0.0,
+    "unknown_output_coverage": 0.16666666666666666,
+    "observable_answer_coverage": 1.0,
+    "format_valid": 1.0,
+    "format_note": "Deterministic serializer, not autonomous instruction-following gain."
+  },
+  "B4": {
+    "n_decisions": 150,
+    "n_instances": 330,
+    "state_accuracy": 0.9545454545454546,
+    "state_CI": [
+      0.9066666666666666,
+      1.0
+    ],
+    "state_macro_f1": 0.9568966490202987,
+    "state_f1": [
+      0.9666666666666667,
+      0.9581749049429658,
+      0.9458483754512635
+    ],
+    "confusion": [
+      [
+        58,
+        0,
+        0
+      ],
+      [
+        0,
+        126,
+        0
+      ],
+      [
+        4,
+        11,
+        131
+      ]
+    ],
+    "partial_as_full": 0,
+    "full_as_partial": 11,
+    "strict_order": 0.9533333333333334,
+    "strict_order_CI": [
+      0.86,
+      1.0
+    ],
+    "final_order": 0.9666666666666667,
+    "same_final_pair_both": 4,
+    "pairs": [
+      {
+        "group": "cross-test1",
+        "both_correct": true
+      },
+      {
+        "group": "diagonal-test1",
+        "both_correct": true
+      },
+      {
+        "group": "fold-test1",
+        "both_correct": true
+      },
+      {
+        "group": "parallel_v-test1",
+        "both_correct": true
+      },
+      {
+        "group": "san-test1",
+        "both_correct": false
+      }
+    ],
+    "pair_CI": [
+      0.4,
+      1.0
+    ],
+    "progress_mae": 0.09764266451820731,
+    "direction_accuracy": 0.9366515837104072,
+    "first_error_observable_accuracy": 0.848,
+    "action_only_accuracy": 0.8733333333333333,
+    "action_all_fields_accuracy": 0.8466666666666667,
+    "active_accuracy": 0.98,
+    "start_accuracy": 1.0,
+    "completion_event_accuracy": 0.9727272727272728,
+    "unknown_true": 25,
+    "unknown_recall": 0.84,
+    "unknown_false_acceptance": 0.16,
+    "unknown_output_coverage": 0.14,
+    "observable_answer_coverage": 1.0,
+    "format_valid": 1.0,
+    "format_note": "Deterministic serializer, not autonomous instruction-following gain."
+  },
+  "B4_oracle": {
+    "n_decisions": 150,
+    "n_instances": 330,
+    "state_accuracy": 1.0,
+    "state_CI": [
+      1.0,
+      1.0
+    ],
+    "state_macro_f1": 1.0,
+    "state_f1": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "confusion": [
+      [
+        58,
+        0,
+        0
+      ],
+      [
+        0,
+        126,
+        0
+      ],
+      [
+        0,
+        0,
+        146
+      ]
+    ],
+    "partial_as_full": 0,
+    "full_as_partial": 0,
+    "strict_order": 0.9666666666666667,
+    "strict_order_CI": [
+      0.9,
+      1.0
+    ],
+    "final_order": 0.9,
+    "same_final_pair_both": 4,
+    "pairs": [
+      {
+        "group": "cross-test1",
+        "both_correct": true
+      },
+      {
+        "group": "diagonal-test1",
+        "both_correct": true
+      },
+      {
+        "group": "fold-test1",
+        "both_correct": true
+      },
+      {
+        "group": "parallel_v-test1",
+        "both_correct": true
+      },
+      {
+        "group": "san-test1",
+        "both_correct": false
+      }
+    ],
+    "pair_CI": [
+      0.4,
+      1.0
+    ],
+    "progress_mae": 0.05289998535066843,
+    "direction_accuracy": 0.9276018099547512,
+    "first_error_observable_accuracy": 0.848,
+    "action_only_accuracy": 0.8933333333333333,
+    "action_all_fields_accuracy": 0.8733333333333333,
+    "active_accuracy": 0.9733333333333334,
+    "start_accuracy": 1.0,
+    "completion_event_accuracy": 1.0,
+    "unknown_true": 25,
+    "unknown_recall": 1.0,
+    "unknown_false_acceptance": 0.0,
+    "unknown_output_coverage": 0.16666666666666666,
+    "observable_answer_coverage": 1.0,
+    "format_valid": 1.0,
+    "format_note": "Deterministic serializer, not autonomous instruction-following gain."
+  },
+  "B4_no_delta": {
+    "n_decisions": 150,
+    "n_instances": 330,
+    "state_accuracy": 0.896969696969697,
+    "state_CI": [
+      0.8544444444444445,
+      0.96
+    ],
+    "state_macro_f1": 0.9114143647889777,
+    "state_f1": [
+      0.9747899159663865,
+      0.8721804511278195,
+      0.8872727272727273
+    ],
+    "confusion": [
+      [
+        58,
+        0,
+        0
+      ],
+      [
+        3,
+        116,
+        7
+      ],
+      [
+        0,
+        24,
+        122
+      ]
+    ],
+    "partial_as_full": 7,
+    "full_as_partial": 24,
+    "strict_order": 0.8866666666666667,
+    "strict_order_CI": [
+      0.8264999999999999,
+      0.9400000000000001
+    ],
+    "final_order": 0.7333333333333333,
+    "same_final_pair_both": 1,
+    "pairs": [
+      {
+        "group": "cross-test1",
+        "both_correct": false
+      },
+      {
+        "group": "diagonal-test1",
+        "both_correct": false
+      },
+      {
+        "group": "fold-test1",
+        "both_correct": false
+      },
+      {
+        "group": "parallel_v-test1",
+        "both_correct": true
+      },
+      {
+        "group": "san-test1",
+        "both_correct": false
+      }
+    ],
+    "pair_CI": [
+      0.0,
+      0.6
+    ],
+    "progress_mae": 0.07487351801246404,
+    "direction_accuracy": 0.9140271493212669,
+    "first_error_observable_accuracy": 0.688,
+    "action_only_accuracy": 0.8066666666666666,
+    "action_all_fields_accuracy": 0.72,
+    "active_accuracy": 0.8333333333333334,
+    "start_accuracy": 0.9818181818181818,
+    "completion_event_accuracy": 0.896969696969697,
+    "unknown_true": 25,
+    "unknown_recall": 1.0,
+    "unknown_false_acceptance": 0.0,
+    "unknown_output_coverage": 0.16666666666666666,
+    "observable_answer_coverage": 1.0,
+    "format_valid": 1.0,
+    "format_note": "Deterministic serializer, not autonomous instruction-following gain."
+  },
+  "B4_whole_pool": {
+    "n_decisions": 150,
+    "n_instances": 330,
+    "state_accuracy": 0.6727272727272727,
+    "state_CI": [
+      0.6599999999999999,
+      0.6833333333333333
+    ],
+    "state_macro_f1": 0.6341217141591715,
+    "state_f1": [
+      0.5344827586206896,
+      0.5627705627705628,
+      0.805111821086262
+    ],
+    "confusion": [
+      [
+        31,
+        21,
+        6
+      ],
+      [
+        26,
+        65,
+        35
+      ],
+      [
+        1,
+        19,
+        126
+      ]
+    ],
+    "partial_as_full": 35,
+    "full_as_partial": 19,
+    "strict_order": 0.5466666666666666,
+    "strict_order_CI": [
+      0.5066666666666666,
+      0.5666666666666667
+    ],
+    "final_order": 0.6666666666666666,
+    "same_final_pair_both": 0,
+    "pairs": [
+      {
+        "group": "cross-test1",
+        "both_correct": false
+      },
+      {
+        "group": "diagonal-test1",
+        "both_correct": false
+      },
+      {
+        "group": "fold-test1",
+        "both_correct": false
+      },
+      {
+        "group": "parallel_v-test1",
+        "both_correct": false
+      },
+      {
+        "group": "san-test1",
+        "both_correct": false
+      }
+    ],
+    "pair_CI": [
+      0.0,
+      0.0
+    ],
+    "progress_mae": 0.2262979440887769,
+    "direction_accuracy": 0.7104072398190046,
+    "first_error_observable_accuracy": 0.424,
+    "action_only_accuracy": 0.4066666666666667,
+    "action_all_fields_accuracy": 0.32666666666666666,
+    "active_accuracy": 0.6133333333333333,
+    "start_accuracy": 0.9242424242424242,
+    "completion_event_accuracy": 0.8787878787878788,
+    "unknown_true": 25,
+    "unknown_recall": 1.0,
+    "unknown_false_acceptance": 0.0,
+    "unknown_output_coverage": 0.16666666666666666,
+    "observable_answer_coverage": 1.0,
+    "format_valid": 1.0,
+    "format_note": "Deterministic serializer, not autonomous instruction-following gain."
+  },
+  "B4_no_progress": {
+    "n_decisions": 150,
+    "n_instances": 330,
+    "state_accuracy": 0.9454545454545454,
+    "state_CI": [
+      0.9,
+      0.99
+    ],
+    "state_macro_f1": 0.9541883960545418,
+    "state_f1": [
+      0.9914529914529915,
+      0.9363295880149812,
+      0.9347826086956522
+    ],
+    "confusion": [
+      [
+        58,
+        0,
+        0
+      ],
+      [
+        0,
+        125,
+        1
+      ],
+      [
+        1,
+        16,
+        129
+      ]
+    ],
+    "partial_as_full": 1,
+    "full_as_partial": 16,
+    "strict_order": 0.9733333333333334,
+    "strict_order_CI": [
+      0.9399999999999998,
+      1.0
+    ],
+    "final_order": 0.9333333333333333,
+    "same_final_pair_both": 3,
+    "pairs": [
+      {
+        "group": "cross-test1",
+        "both_correct": true
+      },
+      {
+        "group": "diagonal-test1",
+        "both_correct": true
+      },
+      {
+        "group": "fold-test1",
+        "both_correct": false
+      },
+      {
+        "group": "parallel_v-test1",
+        "both_correct": true
+      },
+      {
+        "group": "san-test1",
+        "both_correct": false
+      }
+    ],
+    "pair_CI": [
+      0.2,
+      1.0
+    ],
+    "progress_mae": 0.44230443636576333,
+    "direction_accuracy": 0.9638009049773756,
+    "first_error_observable_accuracy": 0.928,
+    "action_only_accuracy": 0.9466666666666667,
+    "action_all_fields_accuracy": 0.94,
+    "active_accuracy": 0.9666666666666667,
+    "start_accuracy": 1.0,
+    "completion_event_accuracy": 0.9636363636363636,
+    "unknown_true": 25,
+    "unknown_recall": 1.0,
+    "unknown_false_acceptance": 0.0,
+    "unknown_output_coverage": 0.16666666666666666,
+    "observable_answer_coverage": 1.0,
+    "format_valid": 1.0,
+    "format_note": "Deterministic serializer, not autonomous instruction-following gain."
+  },
+  "B4_time_shuffle": {
+    "n_decisions": 150,
+    "n_instances": 330,
+    "state_accuracy": 0.9151515151515152,
+    "state_CI": [
+      0.8633333333333333,
+      0.97
+    ],
+    "state_macro_f1": 0.9230466263617835,
+    "state_f1": [
+      0.957983193277311,
+      0.9130434782608695,
+      0.8981132075471698
+    ],
+    "confusion": [
+      [
+        57,
+        1,
+        0
+      ],
+      [
+        0,
+        126,
+        0
+      ],
+      [
+        4,
+        23,
+        119
+      ]
+    ],
+    "partial_as_full": 0,
+    "full_as_partial": 23,
+    "strict_order": 0.9466666666666667,
+    "strict_order_CI": [
+      0.86,
+      1.0
+    ],
+    "final_order": 1.0,
+    "same_final_pair_both": 5,
+    "pairs": [
+      {
+        "group": "cross-test1",
+        "both_correct": true
+      },
+      {
+        "group": "diagonal-test1",
+        "both_correct": true
+      },
+      {
+        "group": "fold-test1",
+        "both_correct": true
+      },
+      {
+        "group": "parallel_v-test1",
+        "both_correct": true
+      },
+      {
+        "group": "san-test1",
+        "both_correct": true
+      }
+    ],
+    "pair_CI": [
+      1.0,
+      1.0
+    ],
+    "progress_mae": 0.11114679051563144,
+    "direction_accuracy": 0.9004524886877828,
+    "first_error_observable_accuracy": 0.8,
+    "action_only_accuracy": 0.82,
+    "action_all_fields_accuracy": 0.7933333333333333,
+    "active_accuracy": 0.8466666666666667,
+    "start_accuracy": 0.9787878787878788,
+    "completion_event_accuracy": 0.9363636363636364,
+    "unknown_true": 25,
+    "unknown_recall": 0.84,
+    "unknown_false_acceptance": 0.16,
+    "unknown_output_coverage": 0.14,
+    "observable_answer_coverage": 1.0,
+    "format_valid": 1.0,
+    "format_note": "Deterministic serializer, not autonomous instruction-following gain."
+  },
+  "B0": {
+    "n_decisions": 150,
+    "n_instances": 330,
+    "state_accuracy": 1.0,
+    "state_CI": [
+      1.0,
+      1.0
+    ],
+    "state_macro_f1": 1.0,
+    "state_f1": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "confusion": [
+      [
+        58,
+        0,
+        0
+      ],
+      [
+        0,
+        126,
+        0
+      ],
+      [
+        0,
+        0,
+        146
+      ]
+    ],
+    "partial_as_full": 0,
+    "full_as_partial": 0,
+    "strict_order": 1.0,
+    "strict_order_CI": [
+      1.0,
+      1.0
+    ],
+    "final_order": 1.0,
+    "same_final_pair_both": 5,
+    "pairs": [
+      {
+        "group": "cross-test1",
+        "both_correct": true
+      },
+      {
+        "group": "diagonal-test1",
+        "both_correct": true
+      },
+      {
+        "group": "fold-test1",
+        "both_correct": true
+      },
+      {
+        "group": "parallel_v-test1",
+        "both_correct": true
+      },
+      {
+        "group": "san-test1",
+        "both_correct": true
+      }
+    ],
+    "pair_CI": [
+      1.0,
+      1.0
+    ],
+    "progress_mae": 0.0024683415576413777,
+    "direction_accuracy": 1.0,
+    "first_error_observable_accuracy": 1.0,
+    "action_only_accuracy": 1.0,
+    "action_all_fields_accuracy": 1.0,
+    "active_accuracy": null,
+    "start_accuracy": null,
+    "completion_event_accuracy": null,
+    "unknown_true": 25,
+    "unknown_recall": 1.0,
+    "unknown_false_acceptance": 0.0,
+    "unknown_output_coverage": 0.16666666666666666,
+    "observable_answer_coverage": 1.0,
+    "format_valid": 1.0,
+    "format_note": "Deterministic serializer, not autonomous instruction-following gain."
+  }
+}

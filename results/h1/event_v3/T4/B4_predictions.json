@@ -1,0 +1,9460 @@
+[
+  {
+    "id": "san-test1-correct",
+    "group": "san-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9738430380821228,
+        0.01001468114554882,
+        0.0016021201154217124
+      ],
+      "geometry_state": [
+        2,
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        true,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999996423721313,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1,
+      0
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.25,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.08924812823534012
+  },
+  {
+    "id": "san-test1-correct",
+    "group": "san-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9644766449928284,
+        0.27153265476226807,
+        0.001553068752400577
+      ],
+      "geometry_state": [
+        2,
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999996423721313,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1,
+      0
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.6875,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.15101458132266998
+  },
+  {
+    "id": "san-test1-correct",
+    "group": "san-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1,
+        2
+      ],
+      "event_order": [
+        0,
+        1,
+        2
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9762820601463318,
+        0.5218257308006287,
+        0.0045523326843976974
+      ],
+      "geometry_state": [
+        2,
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false,
+        true
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999998807907104,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 2,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1,
+      2
+    ],
+    "truth_progress": [
+      1.0,
+      1.0,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.2074466198682785
+  },
+  {
+    "id": "san-test1-correct",
+    "group": "san-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1,
+        2
+      ],
+      "event_order": [
+        0,
+        1,
+        2
+      ],
+      "active_id": 2,
+      "progress": [
+        0.9688445925712585,
+        0.7333572506904602,
+        0.42588070034980774
+      ],
+      "geometry_state": [
+        2,
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999997615814209,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 2,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1,
+      2
+    ],
+    "truth_progress": [
+      1.0,
+      1.0,
+      0.5625
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.14480581879615784
+  },
+  {
+    "id": "san-test1-correct",
+    "group": "san-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1,
+        2
+      ],
+      "event_order": [
+        0,
+        1,
+        2
+      ],
+      "active_id": 2,
+      "progress": [
+        0.972113311290741,
+        0.9646473526954651,
+        0.9899307489395142
+      ],
+      "geometry_state": [
+        2,
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999947547912598,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": null,
+        "action": "end_ink_task"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      2
+    ],
+    "truth_order": [
+      0,
+      1,
+      2
+    ],
+    "truth_progress": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.02443619631230831
+  },
+  {
+    "id": "san-test1-swap",
+    "group": "san-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.012639526277780533,
+        0.4497682452201843,
+        0.002759150229394436
+      ],
+      "geometry_state": [
+        1,
+        1,
+        0
+      ],
+      "stroke_start": [
+        true,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999998807907104,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2,
+      0
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.25,
+      1.0,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.2634504735469818
+  },
+  {
+    "id": "san-test1-swap",
+    "group": "san-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.5460466146469116,
+        0.17742502689361572,
+        0.0027077675331383944
+      ],
+      "geometry_state": [
+        1,
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2,
+      0
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.6875,
+      1.0,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.32224538922309875
+  },
+  {
+    "id": "san-test1-swap",
+    "group": "san-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1,
+        2
+      ],
+      "event_order": [
+        0,
+        1,
+        2
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9925823211669922,
+        0.431910902261734,
+        0.006064476910978556
+      ],
+      "geometry_state": [
+        2,
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false,
+        true
+      ],
+      "stroke_complete": [
+        true,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999996423721313,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 2,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      1
+    ],
+    "truth_order": [
+      1,
+      0,
+      2
+    ],
+    "truth_progress": [
+      1.0,
+      1.0,
+      0.125
+    ],
+    "order_correct": false,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.23148077726364136
+  },
+  {
+    "id": "san-test1-swap",
+    "group": "san-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1,
+        2
+      ],
+      "event_order": [
+        0,
+        1,
+        2
+      ],
+      "active_id": 2,
+      "progress": [
+        0.9758944511413574,
+        0.7538529634475708,
+        0.47661092877388
+      ],
+      "geometry_state": [
+        2,
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999992847442627,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 2,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      1
+    ],
+    "truth_order": [
+      1,
+      0,
+      2
+    ],
+    "truth_progress": [
+      1.0,
+      1.0,
+      0.5625
+    ],
+    "order_correct": false,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.11871388554573059
+  },
+  {
+    "id": "san-test1-swap",
+    "group": "san-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1,
+        2
+      ],
+      "event_order": [
+        0,
+        1,
+        2
+      ],
+      "active_id": 2,
+      "progress": [
+        0.9772475361824036,
+        0.97055983543396,
+        0.9895171523094177
+      ],
+      "geometry_state": [
+        2,
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999918937683105,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": null,
+        "action": "end_ink_task"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      2
+    ],
+    "truth_order": [
+      1,
+      0,
+      2
+    ],
+    "truth_progress": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "order_correct": false,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.0208918247371912
+  },
+  {
+    "id": "san-test1-reverse",
+    "group": "san-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9807207584381104,
+        0.009834145195782185,
+        0.0016108396230265498
+      ],
+      "geometry_state": [
+        2,
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        true,
+        false
+      ],
+      "stroke_complete": [
+        true,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999992847442627,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1,
+      0
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.25,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.08701864629983902
+  },
+  {
+    "id": "san-test1-reverse",
+    "group": "san-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9736977815628052,
+        0.3175674080848694,
+        0.0015292867319658399
+      ],
+      "geometry_state": [
+        2,
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999994039535522,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1,
+      0
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.6875,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.13258802890777588
+  },
+  {
+    "id": "san-test1-reverse",
+    "group": "san-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1,
+        2
+      ],
+      "event_order": [
+        0,
+        1,
+        2
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9817188382148743,
+        0.5743299126625061,
+        0.00491728400811553
+      ],
+      "geometry_state": [
+        2,
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false,
+        true
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999996423721313,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 2,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1,
+      2
+    ],
+    "truth_progress": [
+      1.0,
+      1.0,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.18801133334636688
+  },
+  {
+    "id": "san-test1-reverse",
+    "group": "san-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1,
+        2
+      ],
+      "event_order": [
+        0,
+        1,
+        2
+      ],
+      "active_id": 2,
+      "progress": [
+        0.9762910604476929,
+        0.7716031074523926,
+        0.48188677430152893
+      ],
+      "geometry_state": [
+        2,
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999992847442627,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 2,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1,
+      2
+    ],
+    "truth_progress": [
+      1.0,
+      1.0,
+      0.5625
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.11090635508298874
+  },
+  {
+    "id": "san-test1-reverse",
+    "group": "san-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1,
+        2
+      ],
+      "event_order": [
+        0,
+        1,
+        2
+      ],
+      "active_id": 2,
+      "progress": [
+        0.9786255359649658,
+        0.9718630909919739,
+        0.9916565418243408
+      ],
+      "geometry_state": [
+        2,
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999902248382568,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": null,
+        "action": "end_ink_task"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      2
+    ],
+    "truth_order": [
+      0,
+      1,
+      2
+    ],
+    "truth_progress": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.019284943118691444
+  },
+  {
+    "id": "san-test1-half",
+    "group": "san-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.24944797158241272,
+        0.004845255985856056,
+        0.0034392033703625202
+      ],
+      "geometry_state": [
+        1,
+        0,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.08627883344888687
+  },
+  {
+    "id": "san-test1-half",
+    "group": "san-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.25083789229393005,
+        0.004838615655899048,
+        0.0034146024845540524
+      ],
+      "geometry_state": [
+        1,
+        0,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.08580511063337326
+  },
+  {
+    "id": "san-test1-half",
+    "group": "san-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.2517148554325104,
+        0.004818980116397142,
+        0.003387834643945098
+      ],
+      "geometry_state": [
+        1,
+        0,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.08549731969833374
+  },
+  {
+    "id": "san-test1-half",
+    "group": "san-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.25241222977638245,
+        0.004800000693649054,
+        0.003364346455782652
+      ],
+      "geometry_state": [
+        1,
+        0,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.08525070548057556
+  },
+  {
+    "id": "san-test1-half",
+    "group": "san-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.2530788481235504,
+        0.0047880201600492,
+        0.0033447151072323322
+      ],
+      "geometry_state": [
+        1,
+        0,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.08501795679330826
+  },
+  {
+    "id": "san-test1-early",
+    "group": "san-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.31778794527053833,
+        0.017471373081207275,
+        0.0034353812225162983
+      ],
+      "geometry_state": [
+        1,
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        true,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1,
+      0
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.25,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.13939201831817627
+  },
+  {
+    "id": "san-test1-early",
+    "group": "san-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.27998438477516174,
+        0.22480598092079163,
+        0.00319785182364285
+      ],
+      "geometry_state": [
+        1,
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1,
+      0
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.6875,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.22863583266735077
+  },
+  {
+    "id": "san-test1-early",
+    "group": "san-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1,
+        2
+      ],
+      "event_order": [
+        0,
+        1,
+        2
+      ],
+      "active_id": 2,
+      "progress": [
+        0.2428085207939148,
+        0.2637385427951813,
+        0.00690915621817112
+      ],
+      "geometry_state": [
+        1,
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false,
+        true
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1,
+      2
+    ],
+    "truth_progress": [
+      0.5,
+      1.0,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.3705146014690399
+  },
+  {
+    "id": "san-test1-early",
+    "group": "san-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1,
+        2
+      ],
+      "event_order": [
+        0,
+        1,
+        2
+      ],
+      "active_id": 2,
+      "progress": [
+        0.2872713506221771,
+        0.6188146471977234,
+        0.35528799891471863
+      ],
+      "geometry_state": [
+        1,
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1,
+      2
+    ],
+    "truth_progress": [
+      0.5,
+      1.0,
+      0.5625
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.26704201102256775
+  },
+  {
+    "id": "san-test1-early",
+    "group": "san-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1,
+        2
+      ],
+      "event_order": [
+        0,
+        1,
+        2
+      ],
+      "active_id": 2,
+      "progress": [
+        0.2948724925518036,
+        0.9748241901397705,
+        0.9886702299118042
+      ],
+      "geometry_state": [
+        1,
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999992847442627,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2,
+      2
+    ],
+    "truth_order": [
+      0,
+      1,
+      2
+    ],
+    "truth_progress": [
+      0.5,
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.0805443599820137
+  },
+  {
+    "id": "san-test1-short",
+    "group": "san-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9819988012313843,
+        0.1814785897731781,
+        0.0022390715312212706
+      ],
+      "geometry_state": [
+        2,
+        0,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 0.9463653564453125,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "start"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      0
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0,
+      0.0
+    ],
+    "order_correct": false,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.2795872092247009
+  },
+  {
+    "id": "san-test1-short",
+    "group": "san-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9817274808883667,
+        0.18268078565597534,
+        0.00228144065476954
+      ],
+      "geometry_state": [
+        2,
+        0,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 0.9380844235420227,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "start"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      0
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0,
+      0.0
+    ],
+    "order_correct": false,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.2792910635471344
+  },
+  {
+    "id": "san-test1-short",
+    "group": "san-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9814974069595337,
+        0.18384778499603271,
+        0.0023013439495116472
+      ],
+      "geometry_state": [
+        2,
+        0,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 0.9329053163528442,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "start"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      0
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0,
+      0.0
+    ],
+    "order_correct": false,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.2789853811264038
+  },
+  {
+    "id": "san-test1-short",
+    "group": "san-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9812980890274048,
+        0.18497805297374725,
+        0.0023168327752500772
+      ],
+      "geometry_state": [
+        2,
+        0,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 0.9292542934417725,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "start"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      0
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0,
+      0.0
+    ],
+    "order_correct": false,
+    "state_correct": [
+      true,
+      false,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.2786802351474762
+  },
+  {
+    "id": "san-test1-short",
+    "group": "san-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1,
+        2
+      ],
+      "event_order": null,
+      "active_id": 2,
+      "progress": [
+        0.9857147336006165,
+        0.9797866344451904,
+        0.9665576815605164
+      ],
+      "geometry_state": [
+        2,
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false,
+        true
+      ],
+      "stroke_complete": [
+        false,
+        true,
+        true
+      ],
+      "direction": [
+        "unknown",
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 0.16387398540973663,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.022646984085440636
+  },
+  {
+    "id": "cross-test1-correct",
+    "group": "cross-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.8954726457595825,
+        0.0654345452785492
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.8125,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.07420359551906586
+  },
+  {
+    "id": "cross-test1-correct",
+    "group": "cross-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9881892204284668,
+        0.01883057877421379
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        true
+      ],
+      "stroke_complete": [
+        true,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999958276748657,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.05899009853601456
+  },
+  {
+    "id": "cross-test1-correct",
+    "group": "cross-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9847654104232788,
+        0.3416594862937927
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999982118606567,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.375
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.024287551641464233
+  },
+  {
+    "id": "cross-test1-correct",
+    "group": "cross-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9650508761405945,
+        0.46699193120002747
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.999997615814209,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.6875
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.12772859632968903
+  },
+  {
+    "id": "cross-test1-correct",
+    "group": "cross-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9746673703193665,
+        0.9858988523483276
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999802112579346,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": null,
+        "action": "end_ink_task"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.019716888666152954
+  },
+  {
+    "id": "cross-test1-swap",
+    "group": "cross-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        1
+      ],
+      "event_order": [
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.0035888131242245436,
+        0.5985651612281799
+      ],
+      "geometry_state": [
+        0,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      0,
+      1
+    ],
+    "truth_order": [
+      1
+    ],
+    "truth_progress": [
+      0.0,
+      0.8125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.10876182466745377
+  },
+  {
+    "id": "cross-test1-swap",
+    "group": "cross-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.00786435604095459,
+        0.9833108186721802
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        true,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999998807907104,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.125,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.06691241264343262
+  },
+  {
+    "id": "cross-test1-swap",
+    "group": "cross-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.22502872347831726,
+        0.9563324451446533
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999997615814209,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.375,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.09681941568851471
+  },
+  {
+    "id": "cross-test1-swap",
+    "group": "cross-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.4588201940059662,
+        0.9318346977233887
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999997615814209,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.6875,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.14842255413532257
+  },
+  {
+    "id": "cross-test1-swap",
+    "group": "cross-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.9826399087905884,
+        0.961505651473999
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        true,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999960660934448,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.0279272198677063
+  },
+  {
+    "id": "cross-test1-reverse",
+    "group": "cross-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.9023681879043579,
+        0.01220149826258421
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999997615814209,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.8125,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.0510348416864872
+  },
+  {
+    "id": "cross-test1-reverse",
+    "group": "cross-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9898599982261658,
+        0.02728801779448986
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        true
+      ],
+      "stroke_complete": [
+        true,
+        false
+      ],
+      "direction": [
+        "reverse",
+        "forward"
+      ],
+      "observation_confidence": 0.9999868869781494,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.05392599105834961
+  },
+  {
+    "id": "cross-test1-reverse",
+    "group": "cross-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9862245321273804,
+        0.40425148606300354
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "reverse",
+        "forward"
+      ],
+      "observation_confidence": 0.9999940395355225,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.375
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.021513476967811584
+  },
+  {
+    "id": "cross-test1-reverse",
+    "group": "cross-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9688128232955933,
+        0.5451253652572632
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999902248382568,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.6875
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.08678090572357178
+  },
+  {
+    "id": "cross-test1-reverse",
+    "group": "cross-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9780750274658203,
+        0.9882667660713196
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "reverse",
+        "forward"
+      ],
+      "observation_confidence": 0.9999313354492188,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.016829103231430054
+  },
+  {
+    "id": "cross-test1-half",
+    "group": "cross-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.2624044120311737,
+        0.009797999635338783
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.12369679659605026
+  },
+  {
+    "id": "cross-test1-half",
+    "group": "cross-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.27019938826560974,
+        0.010006747208535671
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.11990367621183395
+  },
+  {
+    "id": "cross-test1-half",
+    "group": "cross-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.2748890519142151,
+        0.010064338333904743
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.11758764088153839
+  },
+  {
+    "id": "cross-test1-half",
+    "group": "cross-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.27874863147735596,
+        0.010072864592075348
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.1156621128320694
+  },
+  {
+    "id": "cross-test1-half",
+    "group": "cross-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.2820170223712921,
+        0.010056540369987488
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.11401975899934769
+  },
+  {
+    "id": "cross-test1-early",
+    "group": "cross-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.2624044120311737,
+        0.009797999635338783
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.12369679659605026
+  },
+  {
+    "id": "cross-test1-early",
+    "group": "cross-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.33297497034072876,
+        0.013674169778823853
+      ],
+      "geometry_state": [
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        true
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.1391754299402237
+  },
+  {
+    "id": "cross-test1-early",
+    "group": "cross-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.2875663638114929,
+        0.19366955757141113
+      ],
+      "geometry_state": [
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.375
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.19688203930854797
+  },
+  {
+    "id": "cross-test1-early",
+    "group": "cross-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.2927466630935669,
+        0.38859325647354126
+      ],
+      "geometry_state": [
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.6875
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.2530800402164459
+  },
+  {
+    "id": "cross-test1-early",
+    "group": "cross-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.2318672090768814,
+        0.9750543236732483
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999997615814209,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.14653924107551575
+  },
+  {
+    "id": "cross-test1-short",
+    "group": "cross-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9734383821487427,
+        0.9740490913391113
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 3.589268317227834e-06,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.026256263256072998
+  },
+  {
+    "id": "cross-test1-short",
+    "group": "cross-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9731616973876953,
+        0.9737492203712463
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 3.5819646200252464e-06,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.026544541120529175
+  },
+  {
+    "id": "cross-test1-short",
+    "group": "cross-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9729763269424438,
+        0.9735466837882996
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 3.5904736250813585e-06,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.026738494634628296
+  },
+  {
+    "id": "cross-test1-short",
+    "group": "cross-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9728052616119385,
+        0.9733594059944153
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 3.610946350818267e-06,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.02691766619682312
+  },
+  {
+    "id": "cross-test1-short",
+    "group": "cross-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9726477265357971,
+        0.9731870889663696
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 3.6371645819599507e-06,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.027082592248916626
+  },
+  {
+    "id": "parallel_v-test1-correct",
+    "group": "parallel_v-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.6692338585853577,
+        0.0010700739221647382
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.8125,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.07216810435056686
+  },
+  {
+    "id": "parallel_v-test1-correct",
+    "group": "parallel_v-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9861260056495667,
+        0.0030642105266451836
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        true
+      ],
+      "stroke_complete": [
+        true,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999994039535522,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.06790488958358765
+  },
+  {
+    "id": "parallel_v-test1-correct",
+    "group": "parallel_v-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9655554890632629,
+        0.20915329456329346
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999990463256836,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.375
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.1001456081867218
+  },
+  {
+    "id": "parallel_v-test1-correct",
+    "group": "parallel_v-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9722022414207458,
+        0.6125620007514954
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999990463256836,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.6875
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.051367878913879395
+  },
+  {
+    "id": "parallel_v-test1-correct",
+    "group": "parallel_v-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9701843857765198,
+        0.9887580871582031
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999792575836182,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": null,
+        "action": "end_ink_task"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.02052876353263855
+  },
+  {
+    "id": "parallel_v-test1-swap",
+    "group": "parallel_v-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        1
+      ],
+      "event_order": [
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.002119034295901656,
+        0.6571849584579468
+      ],
+      "geometry_state": [
+        0,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      0,
+      1
+    ],
+    "truth_order": [
+      1
+    ],
+    "truth_progress": [
+      0.0,
+      0.8125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.07871703803539276
+  },
+  {
+    "id": "parallel_v-test1-swap",
+    "group": "parallel_v-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.005727527663111687,
+        0.9905134439468384
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        true,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999994039535522,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.125,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.06437951326370239
+  },
+  {
+    "id": "parallel_v-test1-swap",
+    "group": "parallel_v-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.28403863310813904,
+        0.9723389148712158
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999992847442627,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.375,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.05931122601032257
+  },
+  {
+    "id": "parallel_v-test1-swap",
+    "group": "parallel_v-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.5635697841644287,
+        0.9711084961891174
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999991655349731,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.6875,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.07641085982322693
+  },
+  {
+    "id": "parallel_v-test1-swap",
+    "group": "parallel_v-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.9836788773536682,
+        0.968870997428894
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        true,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999904632568359,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.023725062608718872
+  },
+  {
+    "id": "parallel_v-test1-reverse",
+    "group": "parallel_v-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.7371513247489929,
+        0.0018542194738984108
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.8125,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.03860144689679146
+  },
+  {
+    "id": "parallel_v-test1-reverse",
+    "group": "parallel_v-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9865641593933105,
+        0.003156346036121249
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        true
+      ],
+      "stroke_complete": [
+        true,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999991655349731,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.06763974577188492
+  },
+  {
+    "id": "parallel_v-test1-reverse",
+    "group": "parallel_v-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9696462154388428,
+        0.21438752114772797
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999979734420776,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.375
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.09548313170671463
+  },
+  {
+    "id": "parallel_v-test1-reverse",
+    "group": "parallel_v-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9754418730735779,
+        0.6411397457122803
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999977350234985,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.6875
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.03545919060707092
+  },
+  {
+    "id": "parallel_v-test1-reverse",
+    "group": "parallel_v-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9741437435150146,
+        0.9897298812866211
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999507665634155,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": null,
+        "action": "end_ink_task"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.01806318759918213
+  },
+  {
+    "id": "parallel_v-test1-half",
+    "group": "parallel_v-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.21970367431640625,
+        0.0020985694136470556
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999998807907104,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.14119744300842285
+  },
+  {
+    "id": "parallel_v-test1-half",
+    "group": "parallel_v-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.22104856371879578,
+        0.0021362679544836283
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.1405438482761383
+  },
+  {
+    "id": "parallel_v-test1-half",
+    "group": "parallel_v-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.2213195115327835,
+        0.002149570034816861
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.1404150426387787
+  },
+  {
+    "id": "parallel_v-test1-half",
+    "group": "parallel_v-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.22159548103809357,
+        0.0021557770669460297
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.14028015732765198
+  },
+  {
+    "id": "parallel_v-test1-half",
+    "group": "parallel_v-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.22182953357696533,
+        0.002158579183742404
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.14016452431678772
+  },
+  {
+    "id": "parallel_v-test1-early",
+    "group": "parallel_v-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.21970367431640625,
+        0.0020985694136470556
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999998807907104,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.14119744300842285
+  },
+  {
+    "id": "parallel_v-test1-early",
+    "group": "parallel_v-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.27929937839508057,
+        0.004514935426414013
+      ],
+      "geometry_state": [
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        true
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.17059284448623657
+  },
+  {
+    "id": "parallel_v-test1-early",
+    "group": "parallel_v-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.3586730360984802,
+        0.1646336317062378
+      ],
+      "geometry_state": [
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.375
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.175846666097641
+  },
+  {
+    "id": "parallel_v-test1-early",
+    "group": "parallel_v-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.2132062017917633,
+        0.5157510042190552
+      ],
+      "geometry_state": [
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.6875
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.22927139699459076
+  },
+  {
+    "id": "parallel_v-test1-early",
+    "group": "parallel_v-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.14661385118961334,
+        0.9810250401496887
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999988079071045,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.18618056178092957
+  },
+  {
+    "id": "parallel_v-test1-short",
+    "group": "parallel_v-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9740391373634338,
+        0.9776672720909119
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 1.3299653573994874e-06,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.02414679527282715
+  },
+  {
+    "id": "parallel_v-test1-short",
+    "group": "parallel_v-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.973813533782959,
+        0.9774671196937561
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 1.3598564692074433e-06,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.024359673261642456
+  },
+  {
+    "id": "parallel_v-test1-short",
+    "group": "parallel_v-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9736685156822205,
+        0.9773403406143188
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 1.3828671399096493e-06,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.024495571851730347
+  },
+  {
+    "id": "parallel_v-test1-short",
+    "group": "parallel_v-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.973530113697052,
+        0.9772235155105591
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 1.404342810928938e-06,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.024623185396194458
+  },
+  {
+    "id": "parallel_v-test1-short",
+    "group": "parallel_v-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.973404586315155,
+        0.9771198630332947
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 1.4249935702537186e-06,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.024737775325775146
+  },
+  {
+    "id": "fold-test1-correct",
+    "group": "fold-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.8363218903541565,
+        0.002898705657571554
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999994039535522,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.8125,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.013360298238694668
+  },
+  {
+    "id": "fold-test1-correct",
+    "group": "fold-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9645257592201233,
+        0.030567189678549767
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        true
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999945163726807,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.0649535208940506
+  },
+  {
+    "id": "fold-test1-correct",
+    "group": "fold-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9514745473861694,
+        0.7116451859474182
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999960660934448,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.375
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.1925853192806244
+  },
+  {
+    "id": "fold-test1-correct",
+    "group": "fold-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9468337297439575,
+        0.6168860197067261
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999872446060181,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.6875
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.0618901252746582
+  },
+  {
+    "id": "fold-test1-correct",
+    "group": "fold-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9480875730514526,
+        0.9772297739982605
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999890327453613,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": null,
+        "action": "end_ink_task"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.03734132647514343
+  },
+  {
+    "id": "fold-test1-swap",
+    "group": "fold-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        1
+      ],
+      "event_order": [
+        1
+      ],
+      "active_id": -1,
+      "progress": [
+        0.007157076615840197,
+        0.4139007329940796
+      ],
+      "geometry_state": [
+        0,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "forward"
+      ],
+      "observation_confidence": 0.9999997615814209,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      0,
+      1
+    ],
+    "truth_order": [
+      1
+    ],
+    "truth_progress": [
+      0.0,
+      0.8125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.2028781771659851
+  },
+  {
+    "id": "fold-test1-swap",
+    "group": "fold-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.010878647677600384,
+        0.9815102815628052
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        true,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999994039535522,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.125,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.06630553305149078
+  },
+  {
+    "id": "fold-test1-swap",
+    "group": "fold-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.46742916107177734,
+        0.9156046509742737
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999991655349731,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.375,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.08841225504875183
+  },
+  {
+    "id": "fold-test1-swap",
+    "group": "fold-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.7934613227844238,
+        0.8702996969223022
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999984502792358,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.6875,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.11783081293106079
+  },
+  {
+    "id": "fold-test1-swap",
+    "group": "fold-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.9741199612617493,
+        0.932666003704071
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        true,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999920129776001,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.046607017517089844
+  },
+  {
+    "id": "fold-test1-reverse",
+    "group": "fold-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.7726730108261108,
+        0.030967121943831444
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "reverse",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999951124191284,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.8125,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.03539705649018288
+  },
+  {
+    "id": "fold-test1-reverse",
+    "group": "fold-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9799428582191467,
+        0.05458080768585205
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        true
+      ],
+      "stroke_complete": [
+        true,
+        false
+      ],
+      "direction": [
+        "reverse",
+        "forward"
+      ],
+      "observation_confidence": 0.9998657703399658,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.04523816704750061
+  },
+  {
+    "id": "fold-test1-reverse",
+    "group": "fold-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9736770987510681,
+        0.7901653051376343
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "reverse",
+        "forward"
+      ],
+      "observation_confidence": 0.999840259552002,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.375
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.22074410319328308
+  },
+  {
+    "id": "fold-test1-reverse",
+    "group": "fold-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9696596264839172,
+        0.669532835483551
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "reverse",
+        "forward"
+      ],
+      "observation_confidence": 0.9993915557861328,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.6875
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.02415376901626587
+  },
+  {
+    "id": "fold-test1-reverse",
+    "group": "fold-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9705461263656616,
+        0.9736299514770508
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "reverse",
+        "forward"
+      ],
+      "observation_confidence": 0.9993232488632202,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.0279119610786438
+  },
+  {
+    "id": "fold-test1-half",
+    "group": "fold-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.5888834595680237,
+        0.006584316957741976
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999994039535522,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.047733888030052185
+  },
+  {
+    "id": "fold-test1-half",
+    "group": "fold-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.601181149482727,
+        0.0067514716647565365
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999994039535522,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.05396630987524986
+  },
+  {
+    "id": "fold-test1-half",
+    "group": "fold-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.6072881817817688,
+        0.006808431353420019
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999994039535522,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.05704830586910248
+  },
+  {
+    "id": "fold-test1-half",
+    "group": "fold-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.6109679937362671,
+        0.006817749701440334
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999994039535522,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.058892872184515
+  },
+  {
+    "id": "fold-test1-half",
+    "group": "fold-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.6134090423583984,
+        0.006807524710893631
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999994039535522,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.060108281672000885
+  },
+  {
+    "id": "fold-test1-early",
+    "group": "fold-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.5888834595680237,
+        0.006584316957741976
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 0.9999994039535522,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.047733888030052185
+  },
+  {
+    "id": "fold-test1-early",
+    "group": "fold-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.6480976343154907,
+        0.016364557668566704
+      ],
+      "geometry_state": [
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        true
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999992847442627,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.12836652994155884
+  },
+  {
+    "id": "fold-test1-early",
+    "group": "fold-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.563068151473999,
+        0.4569533169269562
+      ],
+      "geometry_state": [
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999996423721313,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.375
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.0725107342004776
+  },
+  {
+    "id": "fold-test1-early",
+    "group": "fold-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.5523859262466431,
+        0.27355432510375977
+      ],
+      "geometry_state": [
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999990463256836,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.6875
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.23316580057144165
+  },
+  {
+    "id": "fold-test1-early",
+    "group": "fold-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.5337883234024048,
+        0.8030981421470642
+      ],
+      "geometry_state": [
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999997615814209,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      false
+    ],
+    "action_correct": true,
+    "progress_mae": 0.11534509062767029
+  },
+  {
+    "id": "fold-test1-short",
+    "group": "fold-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9495736956596375,
+        0.9545552730560303
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 0.001127271680161357,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.04793551564216614
+  },
+  {
+    "id": "fold-test1-short",
+    "group": "fold-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9488356113433838,
+        0.9538705945014954
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 0.001117701642215252,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.048646897077560425
+  },
+  {
+    "id": "fold-test1-short",
+    "group": "fold-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9483560919761658,
+        0.9534037709236145
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 0.001134673599153757,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.04912006855010986
+  },
+  {
+    "id": "fold-test1-short",
+    "group": "fold-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9479312896728516,
+        0.9529671669006348
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 0.0011674811830744147,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.049550771713256836
+  },
+  {
+    "id": "fold-test1-short",
+    "group": "fold-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9475497603416443,
+        0.9525675773620605
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 0.00120787532068789,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.04994133114814758
+  },
+  {
+    "id": "diagonal-test1-correct",
+    "group": "diagonal-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.7551868557929993,
+        0.003341942559927702
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.8125,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.03032754361629486
+  },
+  {
+    "id": "diagonal-test1-correct",
+    "group": "diagonal-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9915685057640076,
+        0.008625385351479053
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        true
+      ],
+      "stroke_complete": [
+        true,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999995231628418,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.06240305304527283
+  },
+  {
+    "id": "diagonal-test1-correct",
+    "group": "diagonal-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9820207953453064,
+        0.290303498506546
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999991655349731,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.375
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.05133785307407379
+  },
+  {
+    "id": "diagonal-test1-correct",
+    "group": "diagonal-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9719281792640686,
+        0.5364644527435303
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999988079071045,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.6875
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.08955368399620056
+  },
+  {
+    "id": "diagonal-test1-correct",
+    "group": "diagonal-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9681908488273621,
+        0.9917701482772827
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999721050262451,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": null,
+        "action": "end_ink_task"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.020019501447677612
+  },
+  {
+    "id": "diagonal-test1-swap",
+    "group": "diagonal-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        1
+      ],
+      "event_order": [
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.0034579013008624315,
+        0.7099209427833557
+      ],
+      "geometry_state": [
+        0,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      0,
+      1
+    ],
+    "truth_order": [
+      1
+    ],
+    "truth_progress": [
+      0.0,
+      0.8125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.0530184805393219
+  },
+  {
+    "id": "diagonal-test1-swap",
+    "group": "diagonal-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.009300530888140202,
+        0.9933833479881287
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        true,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999996423721313,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.125,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.061158061027526855
+  },
+  {
+    "id": "diagonal-test1-swap",
+    "group": "diagonal-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.3708685338497162,
+        0.9818211197853088
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999997615814209,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.375,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.011155173182487488
+  },
+  {
+    "id": "diagonal-test1-swap",
+    "group": "diagonal-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.45373043417930603,
+        0.9789102673530579
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999992847442627,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      0.6875,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.12742964923381805
+  },
+  {
+    "id": "diagonal-test1-swap",
+    "group": "diagonal-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        1,
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.9831539988517761,
+        0.9785903692245483
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        true,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999947547912598,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": [
+      1,
+      0
+    ],
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.01912781596183777
+  },
+  {
+    "id": "diagonal-test1-reverse",
+    "group": "diagonal-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": 0,
+      "progress": [
+        0.790488600730896,
+        0.00436179805546999
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.8125,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.01318659819662571
+  },
+  {
+    "id": "diagonal-test1-reverse",
+    "group": "diagonal-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": -1,
+      "progress": [
+        0.9916753768920898,
+        0.010796359740197659
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        true
+      ],
+      "stroke_complete": [
+        true,
+        false
+      ],
+      "direction": [
+        "reverse",
+        "forward"
+      ],
+      "observation_confidence": 0.9999991655349731,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.06126413121819496
+  },
+  {
+    "id": "diagonal-test1-reverse",
+    "group": "diagonal-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9848363995552063,
+        0.31582850217819214
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "reverse",
+        "forward"
+      ],
+      "observation_confidence": 0.9999990463256836,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.375
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.03716754913330078
+  },
+  {
+    "id": "diagonal-test1-reverse",
+    "group": "diagonal-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.976626455783844,
+        0.5619888305664062
+      ],
+      "geometry_state": [
+        2,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999988079071045,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 1,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      2,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      0.6875
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": false,
+    "progress_mae": 0.07444235682487488
+  },
+  {
+    "id": "diagonal-test1-reverse",
+    "group": "diagonal-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.9737334847450256,
+        0.9923589825630188
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "reverse",
+        "forward"
+      ],
+      "observation_confidence": 0.9999721050262451,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.016953766345977783
+  },
+  {
+    "id": "diagonal-test1-half",
+    "group": "diagonal-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.24608181416988373,
+        0.009735411033034325
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.13182678818702698
+  },
+  {
+    "id": "diagonal-test1-half",
+    "group": "diagonal-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.24289539456367493,
+        0.009513162076473236
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.13330888748168945
+  },
+  {
+    "id": "diagonal-test1-half",
+    "group": "diagonal-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.2415902316570282,
+        0.009304916486144066
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.1338573396205902
+  },
+  {
+    "id": "diagonal-test1-half",
+    "group": "diagonal-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.2409783899784088,
+        0.00914479698985815
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.13408319652080536
+  },
+  {
+    "id": "diagonal-test1-half",
+    "group": "diagonal-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.24066214263439178,
+        0.009017215110361576
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.1341775357723236
+  },
+  {
+    "id": "diagonal-test1-early",
+    "group": "diagonal-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0
+      ],
+      "event_order": [
+        0
+      ],
+      "active_id": -1,
+      "progress": [
+        0.24608181416988373,
+        0.009735411033034325
+      ],
+      "geometry_state": [
+        1,
+        0
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "unknown"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      }
+    },
+    "truth_state": [
+      1,
+      0
+    ],
+    "truth_order": [
+      0
+    ],
+    "truth_progress": [
+      0.5,
+      0.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.13182678818702698
+  },
+  {
+    "id": "diagonal-test1-early",
+    "group": "diagonal-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.27965614199638367,
+        0.01778441295027733
+      ],
+      "geometry_state": [
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        true
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.125
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.16377972066402435
+  },
+  {
+    "id": "diagonal-test1-early",
+    "group": "diagonal-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.27252906560897827,
+        0.23402313888072968
+      ],
+      "geometry_state": [
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.375
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.18422389030456543
+  },
+  {
+    "id": "diagonal-test1-early",
+    "group": "diagonal-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.23971426486968994,
+        0.43489429354667664
+      ],
+      "geometry_state": [
+        1,
+        1
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 1.0,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      1
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      0.6875
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.2564457058906555
+  },
+  {
+    "id": "diagonal-test1-early",
+    "group": "diagonal-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": [
+        0,
+        1
+      ],
+      "active_id": 1,
+      "progress": [
+        0.2583460509777069,
+        0.9889227151870728
+      ],
+      "geometry_state": [
+        1,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        true
+      ],
+      "direction": [
+        "forward",
+        "forward"
+      ],
+      "observation_confidence": 0.9999996423721313,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      }
+    },
+    "truth_state": [
+      1,
+      2
+    ],
+    "truth_order": [
+      0,
+      1
+    ],
+    "truth_progress": [
+      0.5,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.12636561691761017
+  },
+  {
+    "id": "diagonal-test1-short",
+    "group": "diagonal-test1",
+    "t": 3,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.979236364364624,
+        0.9845007658004761
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 2.2443916236625228e-07,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.01813143491744995
+  },
+  {
+    "id": "diagonal-test1-short",
+    "group": "diagonal-test1",
+    "t": 4,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9790371656417847,
+        0.9843583106994629
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 2.3188252384898078e-07,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.01830226182937622
+  },
+  {
+    "id": "diagonal-test1-short",
+    "group": "diagonal-test1",
+    "t": 5,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9789075255393982,
+        0.9842666983604431
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 2.368150262554991e-07,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.018412888050079346
+  },
+  {
+    "id": "diagonal-test1-short",
+    "group": "diagonal-test1",
+    "t": 6,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9787859916687012,
+        0.9841815829277039
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 2.4083675498332013e-07,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.018516212701797485
+  },
+  {
+    "id": "diagonal-test1-short",
+    "group": "diagonal-test1",
+    "t": 7,
+    "prediction": {
+      "observed_ids": [
+        0,
+        1
+      ],
+      "event_order": null,
+      "active_id": -1,
+      "progress": [
+        0.9786732792854309,
+        0.9841033220291138
+      ],
+      "geometry_state": [
+        2,
+        2
+      ],
+      "stroke_start": [
+        false,
+        false
+      ],
+      "stroke_complete": [
+        false,
+        false
+      ],
+      "direction": [
+        "unknown",
+        "unknown"
+      ],
+      "observation_confidence": 2.443742914692848e-07,
+      "pen_lift_evidence": "unknown",
+      "decision": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      }
+    },
+    "truth_state": [
+      2,
+      2
+    ],
+    "truth_order": null,
+    "truth_progress": [
+      1.0,
+      1.0
+    ],
+    "order_correct": true,
+    "state_correct": [
+      true,
+      true
+    ],
+    "action_correct": true,
+    "progress_mae": 0.01861169934272766
+  }
+]
