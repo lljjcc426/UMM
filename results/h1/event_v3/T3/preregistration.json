@@ -1,0 +1,32 @@
+{
+  "question": "Can the specified A/B/C fit a fixed small D0 set?",
+  "seed": 42,
+  "train_groups": [
+    "san",
+    "cross",
+    "parallel_v",
+    "fold"
+  ],
+  "dev_groups": [
+    "diagonal"
+  ],
+  "split_scope": "small-fit only; no independent H1 acceptance",
+  "UMM": "frozen all parameters, same cached 27x27 native path",
+  "optimizer": "AdamW",
+  "lr": 0.001,
+  "weight_decay": 0.01,
+  "batch": 8,
+  "epochs_max": 12,
+  "dev_patience": 3,
+  "selected": "minimum dev loss",
+  "A": "256 projection, 2 decoder layers, 4 heads, variable queries <=16",
+  "B": "current/difference UMM + signed RGB-difference, BCE+Dice",
+  "C": "256 causal, 2 layers, 4 heads, dropout .1; L_event+.5L_pair_order+.5SmoothL1",
+  "fit_gate": {
+    "A_instance_IoU50_match": 0.9,
+    "B_new_soft_dice": 0.7,
+    "C_train_state": 0.85,
+    "C_train_final_order": 0.9
+  },
+  "stop": "No extra steps or parameter search. Stage1 gate fails: do not train C; causal interface tested without fitting. T4 blocked until fit evidence exists."
+}

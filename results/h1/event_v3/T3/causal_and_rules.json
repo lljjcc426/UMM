@@ -1,0 +1,467 @@
+{
+  "causal_future_max_differences": {
+    "state": 0.0,
+    "progress": 0.0,
+    "direction": 0.0,
+    "start": 0.0,
+    "complete": 0.0,
+    "order": 0.0,
+    "active": 0.0,
+    "confidence": 0.0
+  },
+  "rule_cases": [
+    {
+      "id": "san-correct",
+      "prediction": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": null,
+        "action": "end_ink_task"
+      },
+      "expected": [
+        "end_ink_task",
+        null,
+        null
+      ],
+      "correct": true
+    },
+    {
+      "id": "san-swap",
+      "prediction": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        0,
+        "wrong_order"
+      ],
+      "correct": true
+    },
+    {
+      "id": "san-reverse",
+      "prediction": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        0,
+        "reverse_direction"
+      ],
+      "correct": true
+    },
+    {
+      "id": "san-half",
+      "prediction": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      },
+      "expected": [
+        "continue",
+        null,
+        null
+      ],
+      "correct": true
+    },
+    {
+      "id": "san-early",
+      "prediction": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        1,
+        "early_switch"
+      ],
+      "correct": true
+    },
+    {
+      "id": "san-short",
+      "prediction": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      },
+      "expected": [
+        "request_observation",
+        null,
+        "unobservable"
+      ],
+      "correct": true
+    },
+    {
+      "id": "cross-correct",
+      "prediction": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": null,
+        "action": "end_ink_task"
+      },
+      "expected": [
+        "end_ink_task",
+        null,
+        null
+      ],
+      "correct": true
+    },
+    {
+      "id": "cross-swap",
+      "prediction": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        0,
+        "wrong_order"
+      ],
+      "correct": true
+    },
+    {
+      "id": "cross-reverse",
+      "prediction": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        0,
+        "reverse_direction"
+      ],
+      "correct": true
+    },
+    {
+      "id": "cross-half",
+      "prediction": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      },
+      "expected": [
+        "continue",
+        null,
+        null
+      ],
+      "correct": true
+    },
+    {
+      "id": "cross-early",
+      "prediction": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        1,
+        "early_switch"
+      ],
+      "correct": true
+    },
+    {
+      "id": "cross-short",
+      "prediction": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      },
+      "expected": [
+        "request_observation",
+        null,
+        "unobservable"
+      ],
+      "correct": true
+    },
+    {
+      "id": "parallel_v-correct",
+      "prediction": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": null,
+        "action": "end_ink_task"
+      },
+      "expected": [
+        "end_ink_task",
+        null,
+        null
+      ],
+      "correct": true
+    },
+    {
+      "id": "parallel_v-swap",
+      "prediction": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        0,
+        "wrong_order"
+      ],
+      "correct": true
+    },
+    {
+      "id": "parallel_v-reverse",
+      "prediction": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        0,
+        "reverse_direction"
+      ],
+      "correct": true
+    },
+    {
+      "id": "parallel_v-half",
+      "prediction": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      },
+      "expected": [
+        "continue",
+        null,
+        null
+      ],
+      "correct": true
+    },
+    {
+      "id": "parallel_v-early",
+      "prediction": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        1,
+        "early_switch"
+      ],
+      "correct": true
+    },
+    {
+      "id": "parallel_v-short",
+      "prediction": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      },
+      "expected": [
+        "request_observation",
+        null,
+        "unobservable"
+      ],
+      "correct": true
+    },
+    {
+      "id": "fold-correct",
+      "prediction": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": null,
+        "action": "end_ink_task"
+      },
+      "expected": [
+        "end_ink_task",
+        null,
+        null
+      ],
+      "correct": true
+    },
+    {
+      "id": "fold-swap",
+      "prediction": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        0,
+        "wrong_order"
+      ],
+      "correct": true
+    },
+    {
+      "id": "fold-reverse",
+      "prediction": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        0,
+        "reverse_direction"
+      ],
+      "correct": true
+    },
+    {
+      "id": "fold-half",
+      "prediction": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      },
+      "expected": [
+        "continue",
+        null,
+        null
+      ],
+      "correct": true
+    },
+    {
+      "id": "fold-early",
+      "prediction": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        1,
+        "early_switch"
+      ],
+      "correct": true
+    },
+    {
+      "id": "fold-short",
+      "prediction": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      },
+      "expected": [
+        "request_observation",
+        null,
+        "unobservable"
+      ],
+      "correct": true
+    },
+    {
+      "id": "diagonal-correct",
+      "prediction": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": null,
+        "action": "end_ink_task"
+      },
+      "expected": [
+        "end_ink_task",
+        null,
+        null
+      ],
+      "correct": true
+    },
+    {
+      "id": "diagonal-swap",
+      "prediction": {
+        "first_error": 0,
+        "error_type": "wrong_order",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        0,
+        "wrong_order"
+      ],
+      "correct": true
+    },
+    {
+      "id": "diagonal-reverse",
+      "prediction": {
+        "first_error": 0,
+        "error_type": "reverse_direction",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        0,
+        "reverse_direction"
+      ],
+      "correct": true
+    },
+    {
+      "id": "diagonal-half",
+      "prediction": {
+        "first_error": null,
+        "error_type": null,
+        "next_legal": 0,
+        "action": "continue"
+      },
+      "expected": [
+        "continue",
+        null,
+        null
+      ],
+      "correct": true
+    },
+    {
+      "id": "diagonal-early",
+      "prediction": {
+        "first_error": 1,
+        "error_type": "early_switch",
+        "next_legal": null,
+        "action": "stop_erroneous_process"
+      },
+      "expected": [
+        "stop_erroneous_process",
+        1,
+        "early_switch"
+      ],
+      "correct": true
+    },
+    {
+      "id": "diagonal-short",
+      "prediction": {
+        "first_error": null,
+        "error_type": "unobservable",
+        "next_legal": null,
+        "action": "request_observation"
+      },
+      "expected": [
+        "request_observation",
+        null,
+        "unobservable"
+      ],
+      "correct": true
+    }
+  ],
+  "rule_correct": 30,
+  "rule_total": 30,
+  "confidence_note": "T3 A.confidence was not included in its loss; untrained and unused. Mask metrics unaffected; repair and preregister shared quality calibration before T4."
+}
