@@ -11,10 +11,10 @@ from h1_event_model import StrokeGrounding,InkChange,EventState,mask_loss,rule_a
 
 def grid(pixels):return F.avg_pool2d(torch.as_tensor(pixels.copy(),dtype=torch.float32).reshape(-1,1,432,432),16).reshape(-1,729)
 
-def prepare():
+def prepare(rows_path=None,features_path=None,manifest_path=None):
     torch.set_num_threads(4);torch.manual_seed(42)
-    feats=torch.load(CACHE/'probe_features.pt',map_location='cpu',weights_only=True)['features'].float()
-    index=json.loads((RESULT/'T2_feature_manifest.json').read_text())['index'];rows=json.loads((DATA/'probe.json').read_text());items=[]
+    feats=torch.load(features_path or CACHE/'probe_features.pt',map_location='cpu',weights_only=True)['features'].float()
+    index=json.loads((manifest_path or RESULT/'T2_feature_manifest.json').read_text())['index'];rows=json.loads((rows_path or DATA/'probe.json').read_text());items=[]
     # Fixed label-free 64-D projection of standardized frozen visual channels.
     normal=torch.load(ROOT/'checkpoints/h1_spatial_probe_v1/readout.pt',map_location='cpu',weights_only=True)
     features=(feats-normal['mean'])/normal['std'];projection=torch.randn(1536,64)/1536**.5
@@ -40,7 +40,7 @@ def prepare():
             state_truth=dict(event_order=observed['event_order'],observed_ids=observed['observed_ids'],progress=p[t].tolist(),direction=observed['direction'])
             truth.append(rule_action(state_truth,list(range(n))))
         items.append(dict(row=row,reference=features[ref],visual=features[ids],small=reduced[ids],ref_small=reduced[ref],kinds=torch.tensor(kinds),hints=torch.tensor(hints,dtype=torch.float32),
-            masks=grid(masks_for(row)),rgb=rgb,change=targets,progress=p,state=state,start=starts.float(),complete=complete.float(),
+            masks=grid(masks_for(row)),ink_grid=current,rgb=rgb,change=targets,progress=p,state=state,start=starts.float(),complete=complete.float(),
             direction=torch.tensor(directions),active=torch.tensor(active),confidence=torch.tensor(confidence,dtype=torch.float32),onsets=onsets,orders=orders,truth=truth))
     return items
 
@@ -90,7 +90,8 @@ def event_inputs(x,a,b,oracle=False,whole=False,no_delta=False):
         weights=mask/mask.sum(-1,keepdim=True).clamp_min(1e-6)
         cur=x['small'];prev=torch.cat([cur[:1],cur[:-1]],0);ref=x['ref_small']
         c=torch.einsum('qp,tpd->tqd',weights,cur);d=torch.einsum('qp,tpd->tqd',weights,cur-prev);r=torch.einsum('qp,tpd->tqd',weights,ref[None]-cur)
-        visual=x['visual'];change=b(torch.cat([visual[:1],visual[:-1]],0),visual,x['rgb']).sigmoid()
+        visual=x['visual']
+        change=b(visual,visual,torch.zeros_like(x['rgb'])).sigmoid() if no_delta else b(torch.cat([visual[:1],visual[:-1]],0),visual,x['rgb']).sigmoid()
         delta=torch.einsum('qp,tcp->tqc',weights,change)
         if no_delta:d.zero_();delta[:,:,1:]=0
         times=torch.tensor(x['row']['indices'],dtype=torch.float32)/24

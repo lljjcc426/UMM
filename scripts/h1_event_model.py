@@ -32,7 +32,7 @@ class EventState(nn.Module):
         if temporal:
             layer=nn.TransformerEncoderLayer(256,4,512,.1,batch_first=True,norm_first=True)
             self.encoder=nn.TransformerEncoder(layer,2,enable_nested_tensor=False)
-        else:self.encoder=nn.Sequential(nn.Linear(256,512),nn.GELU(),nn.Dropout(.1),nn.Linear(512,256),nn.GELU())
+        else:self.encoder=nn.Sequential(nn.Linear(256,2048),nn.GELU(),nn.Dropout(.1),nn.Linear(2048,256),nn.GELU())
         self.state=nn.Linear(256,3);self.progress=nn.Linear(256,1);self.direction=nn.Linear(256,3)
         self.start=nn.Linear(256,1);self.complete=nn.Linear(256,1);self.order=nn.Linear(256,1)
         self.active=nn.Linear(256,1);self.none=nn.Linear(256,1);self.confidence=nn.Linear(256,1)
