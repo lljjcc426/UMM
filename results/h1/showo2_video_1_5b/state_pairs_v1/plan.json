@@ -1,0 +1,82 @@
+{
+  "created_utc": "2026-10-17T07:51:22.043365+00:00",
+  "question": "Do paired endpoint examples improve completion boundaries, and does changing only other strokes add background robustness?",
+  "model": "Full frozen Show-o2-1.5B-w-video-und native visual path; original language adapter, target localizer and ink head unchanged. Only 57,764-parameter state heads continue training.",
+  "arms": {
+    "replay": "Original full and highest partial state, each repeated twice per target.",
+    "endpoint": "Full and assigned pixel gap on half-stroke background, each repeated twice.",
+    "paired": "Same full and gap states, once on half background and once with independently varied other strokes."
+  },
+  "training": {
+    "steps": 400,
+    "batch_size": 32,
+    "original_examples_per_step": 16,
+    "supplemental_families_per_step": 4,
+    "supplemental_examples_per_family": 4,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "seed": 10452,
+    "optimizer": "AdamW",
+    "loss": "Four-class cross entropy only; no additional pair, consistency or ranking loss.",
+    "sampling": "Same original indices and target-family indices for all arms; all four family members appear together.",
+    "class_weights": "Inverse class probability of the 50:50 original/supplement mixture, fixed before training and identical across arms.",
+    "original_counts": [
+      113,
+      236,
+      124,
+      36
+    ],
+    "supplement_counts": [
+      0,
+      224,
+      224,
+      0
+    ],
+    "initialization": "Each region starts from its existing coverage head; optimizer reset. Oracle and predicted regions each run all three arms.",
+    "original_cases": 509,
+    "supplement_slots": 448,
+    "families": 112,
+    "training_geometry_groups": 48,
+    "gap_assignment_seed": 10450,
+    "gap_counts": {
+      "1": 23,
+      "2": 23,
+      "4": 22,
+      "8": 22,
+      "16": 22
+    },
+    "background_levels": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      1
+    ]
+  },
+  "evaluation": {
+    "previous": 317,
+    "fresh": 441,
+    "endpoint": 336,
+    "background": 336,
+    "background_seed": 10451,
+    "new_background_levels": [
+      0.15,
+      0.85
+    ],
+    "new_background_gaps": [
+      0,
+      8,
+      16
+    ],
+    "policy": "All conditions fixed before training. Final weights only; no threshold/checkpoint selection. Baseline, all arms on their own region; predicted-region arms also on oracle regions.",
+    "metrics": "Per-gap and macro completion, full/partial pair both correct, all-gap success, background-pair both correct and answer flips, old presence/unknown/reference/target pairs, training fit. Whole-geometry bootstrap."
+  },
+  "costs": {
+    "prior_images": 901,
+    "endpoint_images": 336,
+    "reused_images": 1237,
+    "new_images": 598
+  },
+  "scope": "Training geometry and development geometry remain disjoint. Development geometry was previously inspected; new backgrounds are prospective inputs, not independent acceptance. No original 130-case test, Chinese/order/H2/H3 or native-language claim.",
+  "interpretation": "Replay versus endpoint changes both gap coverage and context; it is a combined data intervention. Endpoint versus paired isolates the replacement of duplicate half-background slots by varied backgrounds. Sample slots and update budget are matched, unique image diversity is not."
+}

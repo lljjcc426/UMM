@@ -1,0 +1,21 @@
+{
+  "hardware": "Apple M5",
+  "memory_bytes": 17179869184,
+  "platform": "macOS-26.6-arm64-arm-64bit",
+  "torch": "2.7.1",
+  "mps": true,
+  "cuda": false,
+  "disk_free_bytes": 401196662784,
+  "source_revision": "45a5a2de01d1ebd10cd5864d29310a76476cdf23",
+  "head_before_v3": "af4f93d27042c6e91479d6d23b0a1fb200565f10",
+  "running_training": false,
+  "lance_status": "resource_blocked: no CUDA and less than official recommended 40GB GPU memory",
+  "budget": "frozen features on MPS; small A/B/C heads CPU fp32; no UMM LoRA in first batch",
+  "decoder_dependencies": {
+    "av": false,
+    "decord": false,
+    "cv2": false
+  },
+  "source_revision_evidence": "Archived source, pinned in h1_run_showo.py and prior runs; directory has no separate .git, so parent git rev-parse is not source revision.",
+  "model_revision": "412f647429897ad888771d18008de4edfb2c42a6"
+}
