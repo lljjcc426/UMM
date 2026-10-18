@@ -1,0 +1,430 @@
+{
+  "checkpoints/h1_target_cue_boxed_v1/adapter.pt": {
+    "config": {
+      "rank": "8",
+      "alpha": "16",
+      "layers": "[20, 21, 22, 23, 24, 25, 26, 27]",
+      "projections": "['q_proj', 'v_proj']",
+      "training_run": "results/h1/showo2_video_1_5b/target_cue_v1/boxed/training",
+      "initial_adapter": "checkpoints/h1_target_contrast_lora_v1/adapter.pt"
+    },
+    "state_dict": {
+      "showo.model.layers.20.self_attn.q_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.20.self_attn.q_proj.lora_b": {
+        "shape": [
+          1536,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.20.self_attn.v_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.20.self_attn.v_proj.lora_b": {
+        "shape": [
+          256,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.21.self_attn.q_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.21.self_attn.q_proj.lora_b": {
+        "shape": [
+          1536,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.21.self_attn.v_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.21.self_attn.v_proj.lora_b": {
+        "shape": [
+          256,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.22.self_attn.q_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.22.self_attn.q_proj.lora_b": {
+        "shape": [
+          1536,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.22.self_attn.v_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.22.self_attn.v_proj.lora_b": {
+        "shape": [
+          256,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.23.self_attn.q_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.23.self_attn.q_proj.lora_b": {
+        "shape": [
+          1536,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.23.self_attn.v_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.23.self_attn.v_proj.lora_b": {
+        "shape": [
+          256,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.24.self_attn.q_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.24.self_attn.q_proj.lora_b": {
+        "shape": [
+          1536,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.24.self_attn.v_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.24.self_attn.v_proj.lora_b": {
+        "shape": [
+          256,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.25.self_attn.q_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.25.self_attn.q_proj.lora_b": {
+        "shape": [
+          1536,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.25.self_attn.v_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.25.self_attn.v_proj.lora_b": {
+        "shape": [
+          256,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.26.self_attn.q_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.26.self_attn.q_proj.lora_b": {
+        "shape": [
+          1536,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.26.self_attn.v_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.26.self_attn.v_proj.lora_b": {
+        "shape": [
+          256,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.27.self_attn.q_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.27.self_attn.q_proj.lora_b": {
+        "shape": [
+          1536,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.27.self_attn.v_proj.lora_a": {
+        "shape": [
+          8,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "showo.model.layers.27.self_attn.v_proj.lora_b": {
+        "shape": [
+          256,
+          8
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      }
+    }
+  },
+  "checkpoints/h1_target_grid_generalization_v1/readout.pt": {
+    "state_dict": {
+      "bias": {
+        "shape": [],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "v.weight": {
+        "shape": [
+          32,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "v.bias": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "q.weight": {
+        "shape": [
+          32,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "q.bias": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      }
+    },
+    "qmean": {
+      "shape": [
+        1536
+      ],
+      "dtype": "torch.float32",
+      "finite": true
+    },
+    "qstd": {
+      "shape": [
+        1536
+      ],
+      "dtype": "torch.float32",
+      "finite": true
+    },
+    "vmean": {
+      "shape": [
+        1536
+      ],
+      "dtype": "torch.float32",
+      "finite": true
+    },
+    "vstd": {
+      "shape": [
+        1536
+      ],
+      "dtype": "torch.float32",
+      "finite": true
+    }
+  },
+  "checkpoints/h1_spatial_probe_v1/readout.pt": {
+    "state_dict": {
+      "weight": {
+        "shape": [
+          1,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "bias": {
+        "shape": [
+          1
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      }
+    },
+    "mean": {
+      "shape": [
+        1536
+      ],
+      "dtype": "torch.float32",
+      "finite": true
+    },
+    "std": {
+      "shape": [
+        1536
+      ],
+      "dtype": "torch.float32",
+      "finite": true
+    }
+  },
+  "checkpoints/h1_progress_coverage_v1/coverage_predicted.pt": {
+    "state_dict": {
+      "projection.0.weight": {
+        "shape": [
+          32,
+          1536
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "projection.0.bias": {
+        "shape": [
+          32
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "classifier.0.weight": {
+        "shape": [
+          64,
+          129
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "classifier.0.bias": {
+        "shape": [
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "classifier.2.weight": {
+        "shape": [
+          4,
+          64
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      },
+      "classifier.2.bias": {
+        "shape": [
+          4
+        ],
+        "dtype": "torch.float32",
+        "finite": true
+      }
+    }
+  },
+  "checkpoints/h1_state_pairs_v1/new_features.pt": {
+    "features": {
+      "shape": [
+        598,
+        729,
+        1536
+      ],
+      "dtype": "torch.bfloat16",
+      "finite": true
+    }
+  }
+}
