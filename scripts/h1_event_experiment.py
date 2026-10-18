@@ -1,5 +1,6 @@
 """Execute the single preregistered T4 study; no automatic search or extensions."""
-import copy,json,time
+import argparse,copy,json,time
+from pathlib import Path
 import numpy as np
 import torch
 import torch.nn.functional as F
@@ -10,6 +11,9 @@ from h1_event_study import STUDY,OUT
 from h1_event_train import prepare,grid,spatial_metrics,event_inputs,temporal_loss,event_metrics,decode_state
 from h1_event_model import StrokeGrounding,InkChange,EventState,mask_loss,rule_action
 WEIGHTS=CACHE/'T4'
+FEATURES=CACHE/'study_features.pt'
+MANIFEST=OUT/'feature_manifest.json'
+CASES=STUDY/'cases.json'
 
 def pixel_baseline(items):
     records=[]
@@ -118,8 +122,10 @@ def summarize(records,items):
         unknown_output_coverage=float(np.mean([r['prediction']['event_order'] is None for r in records])),observable_answer_coverage=float(np.mean([r['prediction']['event_order'] is not None for r in visible])),format_valid=1.,format_note='Deterministic serializer, not autonomous instruction-following gain.')
 
 def run():
+    if (OUT/'spatial_training.json').exists() or any(WEIGHTS.glob('*.pt')):
+        raise FileExistsError('Preserve existing run. Select fresh --output and --weights paths.')
     WEIGHTS.mkdir(parents=True,exist_ok=True);OUT.mkdir(parents=True,exist_ok=True)
-    items=prepare(STUDY/'cases.json',CACHE/'study_features.pt',OUT/'feature_manifest.json');test=[x for x in items if x['row']['split']=='test']
+    items=prepare(CASES,FEATURES,MANIFEST);test=[x for x in items if x['row']['split']=='test']
     # Gate uses train/dev only; save independent pixel failure evidence before any training.
     baseline=pixel_baseline(items);save(OUT/'B0_predictions.json',baseline)
     if not all(r['order_correct'] and all(r['state_correct']) for r in baseline):
@@ -156,4 +162,10 @@ def run():
 
 def by_split(record,items):return next(x['row']['split'] for x in items if x['row']['id']==record['id'])
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,default=OUT);parser.add_argument('--weights',type=Path,default=WEIGHTS);parser.add_argument('--features',type=Path,default=FEATURES);parser.add_argument('--manifest',type=Path,default=MANIFEST);parser.add_argument('--cases',type=Path,default=CASES);args=parser.parse_args()
+    original_protocol=OUT/'preregistration.json';OUT=args.output;WEIGHTS=args.weights;FEATURES=args.features;MANIFEST=args.manifest;CASES=args.cases
+    if OUT!=original_protocol.parent:
+        OUT.mkdir(parents=True,exist_ok=True)
+        if not (OUT/'preregistration.json').exists():save(OUT/'preregistration.json',json.loads(original_protocol.read_text()))
+    run()

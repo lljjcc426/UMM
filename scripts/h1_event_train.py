@@ -8,6 +8,7 @@ import torch.nn.functional as F
 from h1_event_data import ROOT,DATA,RESULT,save
 from h1_event_observe import CACHE,masks_for,pixel_observer
 from h1_event_model import StrokeGrounding,InkChange,EventState,mask_loss,rule_action
+FIT_WEIGHTS=CACHE
 
 def grid(pixels):return F.avg_pool2d(torch.as_tensor(pixels.copy(),dtype=torch.float32).reshape(-1,1,432,432),16).reshape(-1,729)
 
@@ -76,8 +77,8 @@ def spatial(items,folder):
         else:patience+=1
         if patience>=3:break
     # Preserve final and dev-selected states; evaluate both rather than overwrite.
-    torch.save(dict(a=a.state_dict(),b=b.state_dict()),CACHE/'T3_spatial_final.pt')
-    a.load_state_dict(best_state[0]);b.load_state_dict(best_state[1]);torch.save(dict(a=a.state_dict(),b=b.state_dict()),CACHE/'T3_spatial_best.pt')
+    torch.save(dict(a=a.state_dict(),b=b.state_dict()),FIT_WEIGHTS/'T3_spatial_final.pt')
+    a.load_state_dict(best_state[0]);b.load_state_dict(best_state[1]);torch.save(dict(a=a.state_dict(),b=b.state_dict()),FIT_WEIGHTS/'T3_spatial_best.pt')
     metrics=dict(train=spatial_metrics(a,b,train),dev=spatial_metrics(a,b,dev),parameters=sum(p.numel() for p in a.parameters())+sum(p.numel() for p in b.parameters()),umm_updated_parameters=0,epochs=len(history))
     metrics['fit_pass']=metrics['train']['instance_match_rate']>=.9 and metrics['train']['new_soft_dice']>=.7
     save(folder/'spatial_metrics.json',metrics)
@@ -146,13 +147,16 @@ def temporal(items,a,b,folder,temporal=True,name='B4',epochs=12):
         if validation<best:best=validation;patience=0;best_state=copy.deepcopy(model.state_dict())
         else:patience+=1
         if patience>=3:break
-    torch.save(model.state_dict(),CACHE/(name+'_final.pt'));model.load_state_dict(best_state);torch.save(model.state_dict(),CACHE/(name+'_best.pt'))
+    torch.save(model.state_dict(),FIT_WEIGHTS/(name+'_final.pt'));model.load_state_dict(best_state);torch.save(model.state_dict(),FIT_WEIGHTS/(name+'_best.pt'))
     metrics=dict(train=event_metrics(model,[items[i] for i in train],[inputs[i] for i in train]),dev=event_metrics(model,[items[i] for i in dev],[inputs[i] for i in dev]),epochs=len(history),parameters=sum(p.numel() for p in model.parameters()),umm_updated_parameters=0)
     metrics['fit_pass']=metrics['train']['state_accuracy']>=.85 and metrics['train']['final_order']>=.9
     save(folder/(name+'_metrics.json'),metrics);return model,metrics
 
-def smallfit():
-    folder=RESULT/'T3';folder.mkdir(parents=True,exist_ok=True)
+def smallfit(folder=None):
+    folder=folder or RESULT/'T3'
+    if (folder/'spatial_training.json').exists() or (FIT_WEIGHTS/'T3_spatial_best.pt').exists():
+        raise FileExistsError('Preserve existing run. Select fresh --output and --weights paths.')
+    folder.mkdir(parents=True,exist_ok=True);FIT_WEIGHTS.mkdir(parents=True,exist_ok=True)
     save(folder/'preregistration.json',dict(question='Can the specified A/B/C fit a fixed small D0 set?',seed=42,train_groups=['san','cross','parallel_v','fold'],dev_groups=['diagonal'],
         split_scope='small-fit only; no independent H1 acceptance',UMM='frozen all parameters, same cached 27x27 native path',optimizer='AdamW',lr=.001,weight_decay=.01,batch=8,epochs_max=12,dev_patience=3,selected='minimum dev loss',
         A='256 projection, 2 decoder layers, 4 heads, variable queries <=16',B='current/difference UMM + signed RGB-difference, BCE+Dice',
@@ -165,4 +169,4 @@ def smallfit():
     else:save(folder/'decision.json',dict(status='spatial_fit_failed',C_training='not_started',T4='blocked by fixed small-fit gate',next='Report exact failure; no extra epochs or LoRA.'))
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('stage',choices=['smallfit']);args=parser.parse_args();smallfit()
+    parser=argparse.ArgumentParser();parser.add_argument('stage',choices=['smallfit']);parser.add_argument('--output',type=Path,default=RESULT/'T3');parser.add_argument('--weights',type=Path,default=CACHE);args=parser.parse_args();FIT_WEIGHTS=args.weights;smallfit(args.output)

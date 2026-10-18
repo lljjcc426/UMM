@@ -8,11 +8,13 @@
 
 暂定题目：**实际笔顺理解驱动的统一多模态中文书写视频生成**。
 
-通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1主实验使用UMM本体，当前先验证答案接口与当前线条状态，两项稳定后再加入顺序学习。** Show-o2已在M5／16GB接通预测目标位置与状态判断，存在判断改善，完成程度仍不稳定。顺序学习、H2与H3未开始。见[两项前置门槛](docs/experiments/h1_state_gate.md)。
+通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1-v3首批T1→T5已完成，完整H1尚未通过；H2与H3未开始。** 本批为冻结Show-o2特征上的独立事件读取，不能称为UMM联合训练改善。见[决策报告](results/h1/event_v3/T5_DECISION.md)。
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 
-最新诊断：固定其他笔迹、只改变目标末端，UMM预测区域状态头的完整／缺1像素配对仅1/56，完整／缺16像素22/56；同一头用正确区域后16像素为37/56。只改变其他线条，完整目标的答案也改变19/56，完整正确40→29/56。8–16像素通常能改变分数方向，尚未形成稳定答案。下一步用目标末端与背景分别变化的配对监督检验改进，保留正确／预测区域对照；原适配器保持，尚不进入顺序学习。见[末端配对诊断](results/h1/showo2_video_1_5b/endpoint_pairs_v1/README.md)与[此前进度覆盖](results/h1/showo2_video_1_5b/progress_coverage_v1/README.md)。
+最新结果：固定20组几何／120段受控视频，测试30段。B4因果模块严格顺序95.33%，相同输入的无时序头B3为98%；同终态配对4/5对3/5，尚无稳定全面优势。实例定位仅7/11达到IoU.5，未知21/25；“三”的实际换序仍可能读成规范顺序。全部消融与失败已保留，本批停止训练。入口：[协议](docs/experiments/h1_v3_protocol.md) · [方法](docs/experiments/h1_v3_method.md) · [前作与边界](docs/experiments/RELATED_METHODS_AND_GAPS.md) · [完整结果](results/h1/event_v3/README.md)。1—4像素缺口继续独立保留，当前安排以v3协议为准。
+
+此前静态诊断（v2历史安排）：固定其他笔迹、只改变目标末端，UMM预测区域状态头的完整／缺1像素配对仅1/56，完整／缺16像素22/56；同一头用正确区域后16像素为37/56。只改变其他线条，完整目标的答案也改变19/56，完整正确40→29/56。8–16像素通常能改变分数方向，尚未形成稳定答案。下一步用目标末端与背景分别变化的配对监督检验改进，保留正确／预测区域对照；原适配器保持，尚不进入顺序学习。见[末端配对诊断](results/h1/showo2_video_1_5b/endpoint_pairs_v1/README.md)与[此前进度覆盖](results/h1/showo2_video_1_5b/progress_coverage_v1/README.md)。
 
 ## 阅读导航
 
@@ -52,4 +54,4 @@ python scripts/validate_catalog.py
 
 `scripts/stroke_metrics.py` 提供已标注事件序列的指标示例，不负责从视频识别笔画。[像素过程小实验](docs/experiments/process_probe.md)验证同终态反例和模板辅助的顺序/方向观测，可用 `python scripts/process_probe.py` 复现并查看[动画](examples/process_probe/comparison.gif)。
 
-本轮Show-o2的[接口与状态诊断](docs/experiments/h1_state_gate.md)使用`requirements-h1-showo.txt`及适合平台的PyTorch，数据、原始回答、评分、文字/视觉适配配置及训练损失已保存。此前[Janus-Pro诊断](docs/experiments/h1_umm_diagnostic.md)使用`requirements-h1-umm.txt`；Qwen3-VL保留为[外部辅助诊断](docs/experiments/h1_diagnostic.md)，使用`requirements-h1.txt`。目前已完成文字和静态视觉状态监督适配，顺序监督与视频生成尚未开展。
+本轮Show-o2的[接口与状态诊断](docs/experiments/h1_state_gate.md)使用`requirements-h1-showo.txt`及适合平台的PyTorch，数据、原始回答、评分、文字/视觉适配配置及训练损失已保存。此前[Janus-Pro诊断](docs/experiments/h1_umm_diagnostic.md)使用`requirements-h1-umm.txt`；Qwen3-VL保留为[外部辅助诊断](docs/experiments/h1_diagnostic.md)，使用`requirements-h1.txt`。另已完成H1-v3冻结特征上的时空事件小模块监督与固定消融；视频生成及统一主干的过程联合训练尚未开展。

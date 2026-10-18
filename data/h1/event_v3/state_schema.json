@@ -1,0 +1,16 @@
+{
+  "id_base": 0,
+  "observed_ids": "list[int], predicted visible normative instance IDs",
+  "event_order": "list[int] or null when actual history unobservable; never fill from normative G",
+  "active_id": "int or -1 when no unique currently observed moving stroke; -1 does not imply pen lift",
+  "progress": "per-instance continuous geometric fraction, raw regression",
+  "geometry_state": "per-instance 0 absent / 1 partial / 2 full, independently classified",
+  "stroke_start": "per-instance start event since previous observation",
+  "stroke_complete": "per-instance newly reached geometric coverage, not a pen-up event",
+  "direction": "per-instance unknown / forward / reverse relative to normative reference direction",
+  "observation_confidence": "predicted observability of actual order, not probability that the particular order answer is correct",
+  "pen_lift_evidence": "unknown in D0 with no visible pen tip",
+  "decision": "D output first_error (0-based event position) / error_type / next_legal (normative ID) / action",
+  "decision_fusion": "D uses geometry_state mapped to0/partial<.985/full1; raw progress is reported separately. Inconsistency is retained for diagnosis.",
+  "h2_status": "Draft interface only; not reliable enough to drive autonomous generation. Extra/missing strokes and more than16 reference instances not validated."
+}
