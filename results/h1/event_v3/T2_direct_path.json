@@ -1,0 +1,23 @@
+{
+  "upstream": "inference_mmu_vid.py",
+  "decoder": "PyAV19.0.1 adapter executes unmodified upstream load_video AST",
+  "preserved": [
+    "forced uniform index sampling",
+    "official resize/normalize",
+    "Wan sample with length1 clips",
+    "semantic/generative fusion",
+    "27 to14 bilinear",
+    "time-major flatten",
+    "single diffusion time1",
+    "fixed modality span730",
+    "topk1"
+  ],
+  "local_adaptations": [
+    "CPU fp32 VAE instead of CUDA bf16",
+    "serial frame batches1 to bound memory; same sequence seed42 without per-frame reset",
+    "MPS bf16 fusion/LLM",
+    "8 frames instead of demo32",
+    "max_new_tokens48 instead of300"
+  ],
+  "note": "Official timestamps are not inserted in the prompt. This is a local execution of its algorithm, not a bitwise CUDA reproduction."
+}

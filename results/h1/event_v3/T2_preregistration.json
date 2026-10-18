@@ -1,0 +1,9 @@
+{
+  "question": "Are actual events retained by sampling and 14/27 feature representation?",
+  "cases": 30,
+  "sampling": "8 uniform past frames over the presented prefix; official force_sample=True",
+  "high_sampling": "official 32 indices source audit plus decoded pixel baseline",
+  "train": false,
+  "probe_only": true,
+  "stop": "If pixel oracle fails clean distinguishable events, stop before training."
+}
