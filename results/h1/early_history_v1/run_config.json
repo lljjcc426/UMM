@@ -1,0 +1,22 @@
+{
+  "preregistration": "preregistration.json",
+  "weights": "checkpoints/h1_early_history_v1",
+  "shared_spatial": "spatial_best.pt",
+  "models": [
+    "M0",
+    "M1",
+    "M2",
+    "M3_K4",
+    "M3_K8",
+    "M4",
+    "M5"
+  ],
+  "oracle_region_diagnostic": "same selected weights; no matched oracle retraining",
+  "state_times": 24,
+  "q_main": 5,
+  "q_diagnostic": 3,
+  "torch_threads": 4,
+  "head_device": "CPU fp32",
+  "UMM": "frozen native27 fusion",
+  "additional_training": false
+}
