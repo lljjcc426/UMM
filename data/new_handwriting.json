@@ -694,26 +694,28 @@
     "id": "N13",
     "category": "N 新增中文书写重点调研",
     "title": "The Unwritten Benchmark: A New Challenge for Multimodal Machine Learning in Abstract Perceptual Reasoning",
-    "version": "作者页列CVPR Findings 2026",
+    "version": "The Unwritten Benchmark；arXiv2608.14558v1，页面/正文均写2026-05-15，编号月份与日期不一致，保留来源原状；未核实正式接收",
     "source_urls": [
       "https://arxiv.org/abs/2608.14558",
-      "https://nilayyilmaz.dev/publications/"
+      "https://nilayyilmaz.dev/publications/",
+      "https://arxiv.org/html/2608.14558v1",
+      "https://arxiv.org/pdf/2608.14558v1"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：无可见墨迹下的声音—手部运动识字可检验抽象过程理解。",
-    "method": "移除可见墨迹，仅给同步书写声音、手部运动，比较不同模态组合。",
-    "problem": "静态识字强不代表理解实际书写动力学；多模态融合可能误用证据。",
-    "conclusion": "作者报告人机差距和某些融合退化；不能直接解释为中文笔顺模型能力。",
-    "gap": "【边界】无墨迹词推断不是中文规范视频生成；本文不使用摘要日期异常来推定首发时间。",
+    "claim": "研究目标：不见墨迹时，能否从干笔运动视频和摩擦音推断所写英文单词？",
+    "method": "提出acousto-kinematic word inference基准；实录字母片段拼词和连续整词验证，按三书写风格/三输入模态评估MLLM与人类。没有提出视频生成模型。 采集同步片段、wordfreq筛2–5字母小写词、同风格原始片段依次连接，零样本提示API/开放QwenOmni；模型结构继承各系统，本文没有新骨干。",
+    "problem": "不见墨迹时，能否从干笔运动视频和摩擦音推断所写英文单词？",
+    "conclusion": "Table1人类MV80.78/AV77.01/A19.47，GeminiPro A10.04/MV8.71/AV9.07，Qwen A7.83/MV5.03/AV3.95。摘要“模型均未超10%”不严格，Table2 Retrace音11.69；实录Table3 GeminiPro音13.15/AV6.37。人机差距明确，但不能按摘要给全部分数上限。",
+    "gap": "三书写者与字母复用限制外推；拼接无真实连写协同发音/运动。人类300文件和模型大集不同需匹配。日期元数据不一致需作者确认。音视频融合变差不能唯一归因架构缺因果推理。跨拉丁语言需重做词频/变音符；阿拉伯上下文连写无法由孤立字母简单拼接充分代表。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "摘要、作者发表页",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/papers/unwritten.md",
+    "sections_read": "§1–5主方法、Tables1–3及§6开头；未读完整§6后段/全部附录、未审数据生成代码；无模型执行",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N13.md",
     "canonical_key": "paper:arxiv:2608.14558",
     "evidence_history": [
       {
@@ -734,7 +736,25 @@
     ],
     "aliases": [
       "web_bundle:N13"
-    ]
+    ],
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "摘要、作者发表页",
+        "conclusion": "作者报告人机差距和某些融合退化；不能直接解释为中文笔顺模型能力。",
+        "gap": "【边界】无墨迹词推断不是中文规范视频生成；本文不使用摘要日期异常来推定首发时间。",
+        "note_path": "docs/handwriting/papers/unwritten.md"
+      }
+    ],
+    "review_path": "docs/reviews/N13.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "三位书写者：Standard/Cursive各全字母，Retrace仅17字母。基础409个字母级文件，合成评测10491文件，另309连续实录整词文件；这些是文件数，三模态派生不能当独立书写人数/词数。20名MTurk成人各15trial共300文件人类评测子集。",
+    "framework": "提出acousto-kinematic word inference基准；实录字母片段拼词和连续整词验证，按三书写风格/三输入模态评估MLLM与人类。没有提出视频生成模型。",
+    "architecture": "采集同步片段、wordfreq筛2–5字母小写词、同风格原始片段依次连接，零样本提示API/开放QwenOmni；模型结构继承各系统，本文没有新骨干。",
+    "metrics": "Ordered Letter Accuracy逐位置字符匹配/n，要求预测和真实同长度；全词准确率作者称接近零，无完整主表值。不是字符编辑距离CER。非法词长/解析失败处理未在已读公式完整说明。",
+    "baselines": "GPT4o、Gemini2.5Pro/Flash、Qwen2.5Omni7B；人类参考，缺专用笔尖跟踪/轨迹识别和词频/随机字母基线。",
+    "experimental_conditions": "均zero-shot，prompt给真实词长；GPT4o API不接受合并AV，AV缺项；Qwen30FPS失败逐步降至10FPS，改变视觉观测条件。API精确snapshot/温度/音频重采样/各样本最终FPS未核齐；没有训练预算可报。"
   },
   {
     "id": "N14",

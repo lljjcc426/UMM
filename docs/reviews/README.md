@@ -259,6 +259,14 @@
 | U17 | [Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System](U17.md) | 摘要，§3/Table1与探针，Tables4–5，系统任务说明和SVG诊断附录 |
 | U18 | [Transferability Between Understanding and Generation in Unified Multimodal Models](U18.md) | §3–5；Tables1/3/4/10/11/12；Appendix0.A、0.B.2、0.C、0.E |
 | X01 | [InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write](X01.md) | §3架构/五任务/token，§4.1–4.7数据、Table2/3及限制；AppendixG尚待完整摘录 |
+| N13 | [The Unwritten Benchmark: A New Challenge for Multimodal Machine Learning in Abstract Perceptual Reasoning](N13.md) | §1–5主方法、Tables1–3及§6开头；未读完整§6后段/全部附录、未审数据生成代码；无模型执行 |
+| U07 | [Unified Multimodal Discrete Diffusion (UniDisc)](U07.md) | §3.1–3.4含Eq2/3、§4.1/4.2、AppB1/C/F/H1 Tables3–6；Fig2 PDFp5视觉核。完整检索/大模型训练/AppI/J与全部图未全读；未复现 |
+| U08 | [Zebra-CoT: A Dataset for Interleaved Vision Language Reasoning](U08.md) | §1/§3.1、§5训练/主Table2、AppA1 Table3、Table8 Tetris指定行及脚手架定义；其余类别采集/Bagel补充结果/完整prompt与代码未全读，未复现 |
+| U09 | [ThinkMorph: Emergent Properties in Multimodal Interleaved Chain-of-Thought Reasoning](U09.md) | §2/§3主表2、§5.2指定分析、AppB1–B3/B7 Tables4–6/8与§7；PDFp16视觉核。正式目录确认，OpenReview PDF403；其余形式化分析、全部案例/prompt和代码未全读 |
+| U10 | [Monet: Reasoning in Latent Visual Space Beyond Images and Language](U10.md) | 正式CVPR§3.2–3.4 Eq7/8、§4 Tables2–5；arXiv§3.1–3.3及AppB/C训练Table7/8/梯度surrogate；官方README/launcher、actor135–158与300–303、runner1326–1337等指定行。全pipeline和其余附录未全审，未执行模型；arXivPDFp3 Fig1已渲染视觉核 |
+| U11 | [Omni-R1: Towards the Unified Generative Paradigm for Multimodal Reasoning](U11.md) | §3/§4.1–4.2 Eq1–16、§5 Tables2–4、AppC/D Table6；其余图/协议细节和源码未全读，未复现 |
+| U12 | [WEAVE: Unleashing and Benchmarking the In-Context Interleaved Comprehension and Generation](U12.md) | 正式§3方法、Tables2–4、§4.4指定段；arXivAppB2/B3训练/评分/历史及部分推理配置；固定官方README与summarize82–109核权重。全收集附录/所有分域表及judge执行未全审 |
+| L178 | [Drawing and Recognizing Chinese Characters with Recurrent Neural Network](L178.md) | §II/§III核心表示与优化、§IV TablesI/II、§V生成Eq23–44、§VI实现与质量、§VII指定段；CrossRef期刊卷页日期核。2018正式全文/全部图、相关工作追引/代码未全读，未复现；arXivPDFp8 Fig5与p7 TableIII已渲染视觉核 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

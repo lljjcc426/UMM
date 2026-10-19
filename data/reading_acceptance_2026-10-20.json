@@ -481,6 +481,102 @@
         }
       ],
       "boundary": "五项书面检查；主结果为定量曲线，未虚构主表。指定框架/主结果/消融已视觉核，完整全部附录/代码、计时口试和复现未完成。"
+    },
+    {
+      "id": "U07",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "UniDisc研究如何用同一种mask扩散联合建模静态图与文字。AR固定顺序不方便同时修图和改文字，离散扩散能任意位置补全、并行决定token；代价是当前规模达到相近报告loss需要更多训练计算。作者用同骨干AR与多种采样/CFG和规模实验分析权衡，不应读成所有指标全面胜过AR或已有专用文生图。",
+          "evidence": "本次书面复述，未计时口试。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2左侧文字BPE和冻结LFQ图tokenizer生成离散序列，随机mask两种token，中间双向Transformer预测原token，右侧各自解码成文和图。加权CE只监督masked位置；推理保留条件并从mask逐步恢复，confidence决定计算解码顺序。图中的逐步恢复没有真实画笔运动时间。",
+          "evidence": "arXivv1 PDFp5 Fig2已渲染视觉核；§3.2–3.4。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "核心是同一吸收态目标处理两模态、双向可见上下文和模态dropout学CFG；用相同tokenizer/结构使AR对照更可解释。SoftminSNR控制过重早期项，norm主要服务稳定，不宜把它们都称显著提升指标。",
+          "evidence": "§3.3与AppF。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table5 GenEval.42略低SD1.5 .43，但位置.13高于.04、count.15低于.35，优势按子任务划分。AppF Table3去SoftminSNR PPL93.8→109.6，支持该小模型收敛贡献；去QK92.7略好，不能认定QK必然提高分数。Table4连续时间FID11.4对离散1000步13.8有差距，去CEweight11.35却未变差。",
+          "evidence": "AppH Tables5/6、AppF Tables3/4。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：AR精确似然和扩散上界的13.2倍拟合在更紧似然估计下还成立吗？问题2：少NFE是否在大batch仍省walltime、是否计CFG与tokenizer？问题3：confidence补全会否损伤稀有字细笔画？现有本仓库L110 Muddit、L112 Lumina-DiMOO等离散统一/扩散基础与U10/U09表示路线相关，但计算顺序与规范笔顺是独立目标，不能据此直接宣称新选题。",
+          "evidence": "§4.1似然口径/§4.2与项目页；相关路线仍需系统追引。"
+        }
+      ],
+      "boundary": "已读核心目标/采样、主生成表及选定消融/训练条件；完整检索/所有附录与代码未全审。五项书面检查不替代全文、复现或全域新颖性判断。"
+    },
+    {
+      "id": "U10",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "Monet让QwenVL在文字间插入少量连续隐状态进行视觉推理。显式图token对齐昂贵、只用后续文字CE可能学捷径，作者先从辅助图和关键观察蒸馏，再用结果奖励优化latent距离代理。输出仍是答案；“视觉latent”名称不表示已具备可观看图像生成。",
+          "evidence": "本次书面复述，未计时口试。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig1右上warmup得到共同teacher/student初值，stage2固定teacher读辅助图，student的latent可读辅助图而后续观察只能通过latent获取信息；stage3去辅助图、回warmup初值学习生成目标latent。右下MSFT经VLPO；左边推理由latent起始标记触发连续hidden回馈，固定K后回文字。",
+          "evidence": "arXivv2 PDFp3 Fig1已渲染视觉核，§3.3及正式§3。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "关键是观测token表征监督与latent-only反传，避免非latent路径直接对齐teacher；stage3解决训练可见辅助图与推理不可见的差距。VLPO给连续latent定义高斯距离代理，但确定性rollout和高斯行为分布的一致性需核，不能默认无偏策略梯度。",
+          "evidence": "正式Eq7/8；arXivAppB Eq9/10与官方actor/runner指定行。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "正式Table5 full VisualPuzzles35.02 vsSFT30.48/GRPO31.51，说明该多阶段协议有效。Table2去latent-onlyBP VStar82.20→46.07但OOD30.48→33.65，泛化不是每个模块逐项单调。主表“relative”9.75来自55.50−45.75，是百分点。Ktest选最佳需预先固定验证集。",
+          "evidence": "正式Tables2/3/5；AppTable7训练epoch与正文不一致。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：实际runner sampled=mu而高斯打分，替换真实Gaussian或无latentproxy后收益是否仍在？问题2：辅助图筛选以7B答错/72B答对，是否混入教师能力差或答案文本泄露？问题3：全部三阶段与最佳K代价是否计入？U09图像thought和本库latent路线也在研究中间表示，有相近问题；这些疑问尚不等价创新已经成立。",
+          "evidence": "固定代码08939998d3d643a73a316e349faa34f420429153；U09已读三模式对照。"
+        }
+      ],
+      "boundary": "已核核心流程、主要公式、正式主表/消融、指定代码与附录；未执行跨vLLM/teacher-forcing协议或全审源码，不能把数学代理的疑问断言成整个训练无效。"
+    },
+    {
+      "id": "L178",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "此作从在线汉字轨迹直接识别类别，并按类别生成真实草写轨迹。以往位图识别丢笔时序，生成字表小且规整。作者分别训练辨别RNN与条件生成GRU，轨迹能绘制但没有规范笔顺验证，也没有真实RGB笔纸视频生成。",
+          "evidence": "本次书面复述，未计时口试。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig5a每步把已知位移d、状态s、类别embedding c和前隐状态送GRU，GMM预测下一位移分布、softmax预测下一笔状态，各有训练loss。Fig5b把GMM抽样位移和hardmax状态反馈，状态end即停止。字符条件每步输入，识别器是另一网络。",
+          "evidence": "arXivv1 PDFp8 Fig5已渲染视觉核，§V。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "类别embedding扩到3755类；三状态显式描述抬落笔和结束，状态权重1/5/100补偿不平衡；GMM是30个分量、分量内两坐标独立。生成顺序来自真实轨迹统计，分类可读不保证符合规范顺序。",
+          "evidence": "§V Eq23–44、§VI.B。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "TableIII NET4识别97.76、30子序列ensemble97.89、六网络ensemble98.15；TableII一条drop子序列96.54反低于全序列，多次平均后恢复。这个消融说明信息删减和聚合取舍，不能把98.15写为生成准确率。生成375500样本分布见Fig9，作者未提供本次可引用的全局生成主分数。",
+          "evidence": "PDFp7 TableIII视觉核及TablesI/II文本、§VI.F。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：随机改变stroke次序但保持终态，NET4还会高分吗？问题2：闭集类embedding如何生成OOV、能否按部件组合？问题3：27段压缩轨迹的速度/细笔画损失如何？本库WriteLikeYou、DiffWriter及规则汉字轨迹资源有后续路线，需同split和事件指标比较，不能只凭旧作闭集局限宣称新颖性。",
+          "evidence": "§VI.F识别器与CASIA来源、§VII；后续书写条目仍在全文复核队列。"
+        }
+      ],
+      "boundary": "2016预印本核心生成/识别章、训练/主表与选定消融已读；期刊卷页日期通过CrossRef核，2018正式文版本尚未逐页比对。未取得/执行代码，未复现。"
     }
   ]
 }

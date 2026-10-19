@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 285 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 293 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -71,19 +71,19 @@
 | N10 | Video Text Preservation with Synthetic Text-Rich Videos | primary_sections_read | [结构化分析](../reviews/N10.md) | 未完成 |
 | N11 | CalliffusionV2: Personalized Natural Calligraphy Generation with Flexible Multi-modal Control | primary_sections_read | [结构化分析](../reviews/N11.md) | 未完成 |
 | N12 | CalliPaint: Chinese Calligraphy Inpainting with Diffusion Model | primary_sections_read | [结构化分析](../reviews/N12.md) | 未完成 |
-| N13 | The Unwritten Benchmark: A New Challenge for Multimodal Machine Learning in Abstract Perceptual Reasoning | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
+| N13 | The Unwritten Benchmark: A New Challenge for Multimodal Machine Learning in Abstract Perceptual Reasoning | primary_sections_read | [结构化分析](../reviews/N13.md) | 未完成 |
 | U01 | Chameleon: Mixed-Modal Early-Fusion Foundation Models | primary_sections_read | [结构化分析](../reviews/U01.md) | 未完成 |
 | U02 | Emu3: Next-Token Prediction is All You Need | primary_sections_read | [结构化分析](../reviews/U02.md) | 未完成 |
 | U03 | Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/U03.md) | 未完成 |
 | U04 | Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling | primary_sections_read | [结构化分析](../reviews/U04.md) | 未完成 |
 | U05 | Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model | primary_sections_read | [结构化分析](../reviews/U05.md) | 未完成 |
 | U06 | Show-o: One Single Transformer to Unify Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/U06.md) | 未完成 |
-| U07 | Unified Multimodal Discrete Diffusion (UniDisc) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U08 | Zebra-CoT: A Dataset for Interleaved Vision Language Reasoning | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U09 | ThinkMorph: Emergent Properties in Multimodal Interleaved Chain-of-Thought Reasoning | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U10 | Monet: Reasoning in Latent Visual Space Beyond Images and Language | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U11 | Omni-R1: Towards the Unified Generative Paradigm for Multimodal Reasoning | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U12 | WEAVE: Unleashing and Benchmarking the In-Context Interleaved Comprehension and Generation | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
+| U07 | Unified Multimodal Discrete Diffusion (UniDisc) | primary_sections_read | [结构化分析](../reviews/U07.md) | 五项检查已记录 |
+| U08 | Zebra-CoT: A Dataset for Interleaved Vision Language Reasoning | primary_sections_read | [结构化分析](../reviews/U08.md) | 未完成 |
+| U09 | ThinkMorph: Emergent Properties in Multimodal Interleaved Chain-of-Thought Reasoning | primary_sections_read | [结构化分析](../reviews/U09.md) | 未完成 |
+| U10 | Monet: Reasoning in Latent Visual Space Beyond Images and Language | primary_sections_read | [结构化分析](../reviews/U10.md) | 五项检查已记录 |
+| U11 | Omni-R1: Towards the Unified Generative Paradigm for Multimodal Reasoning | primary_sections_read | [结构化分析](../reviews/U11.md) | 未完成 |
+| U12 | WEAVE: Unleashing and Benchmarking the In-Context Interleaved Comprehension and Generation | primary_sections_read | [结构化分析](../reviews/U12.md) | 未完成 |
 | U13 | Quantifying the Gap between Understanding and Generation within Unified Multimodal Models (GapEval) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | U14 | UniG2U-Bench: Do Unified Models Advance Multimodal Understanding? | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | U15 | RealUnify: Do Unified Models Truly Benefit from Unification? A Comprehensive Benchmark | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
@@ -282,7 +282,7 @@
 | L175 | XMP-Font: Self-Supervised Cross-Modality Pre-training for Few-Shot Font Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | L176 | Representing Online Handwriting for Recognition in Large Vision-Language Models | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | L177 | PaintFlow: A Unified Framework for Interactive Oil Paintings Editing and Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| L178 | Drawing and Recognizing Chinese Characters with Recurrent Neural Network | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
+| L178 | Drawing and Recognizing Chinese Characters with Recurrent Neural Network | primary_sections_read | [结构化分析](../reviews/L178.md) | 五项检查已记录 |
 | L179 | UM-Text: A Unified Multimodal Model for Image Understanding and Visual Text Editing | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | L180 | Painter: Teaching Auto-Regressive Language Models to Draw Sketches | primary_sections_read | [结构化分析](../reviews/L180.md) | 未完成 |
 | L181 | Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding | primary_sections_read | [结构化分析](../reviews/L181.md) | 未完成 |

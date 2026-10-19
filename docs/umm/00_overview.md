@@ -134,3 +134,7 @@ UniFlow是一阶段语义codec重建/理解，并非凭零样本视频重建即�
 ## 全模态及动作世界接口
 
 [第二十三批](../evidence/omni_action_world_and_theory_audit_2026-10-20.md)区分Ming/LongCat的video输入、ERNIE视觉AR+扩散refiner、BagelVLA第三动作专家、WorldBagel两专家动作表示、SenseNova视觉标签生成以及Puffin相机几何。共享名称、专家重叠或“physics”一词不能代替任务接口和因果实验。
+
+## 交错推理与视频过程的边界
+
+[第二十四批](../evidence/interleaved_reasoning_cost_and_latent_policy_audit_2026-10-20.md)区分图文mask联合恢复、辅助图thought、连续hidden思考、多轮静态编辑和真实轨迹生成。去噪迭代、推理图序列和画笔物理时间不能互换；交错训练带来的准确率收益还需干预视觉thought来验证因果作用。

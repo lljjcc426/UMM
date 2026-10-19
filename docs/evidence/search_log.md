@@ -142,3 +142,7 @@ UniFlow v2、InternVL-U v1、Mamoda2.5 v1、SenseNova-U1 v1、Rosetta v1读取�
 ## 2026-10-20 第二十三批
 
 读L161–L168固定版本方法/主表/指定附录，下载30/40/36/29/28/25/48/32页只表来源体量，不计全文完成。MUNI AppB假设/命题与WorldBagel AppA理论进一步核；WorldBagelp24视觉核后给常数函数积分反例。读取Ming/LongCat/SenseNova固定HF卡、SenseNovaTRAIN/YAML/launcher指定段、PuffinWorld发布README。未下载权重、未执行源码；PyYAML模块缺失后直接读取配置文本，没有安装依赖或增加测试。
+
+## 2026-10-20 第二十四批
+
+取得N13/U07–U12/L178固定PDF；PDF页数14/33/37/42/40（Monet以实际文件为准）/20/51/14不计作全文完成。Monet pypdf因surrogate编码失败，改用pdftotext读取，保留原文件；WEAVE CVPR正式11页和Monet正式PDF指定主文另核，ThinkMorph OpenReviewPDF403、正式ICLR目录和arXiv带接收版本交叉。读取Monet固定actor/runner与训练脚本、WEAVE固定README和summarize；未执行代码。L178 DOI经CrossRef确认40(4):849–862/2018年，预印本2016分开。Zebra猜测仓库路径404未当官方资源；WriteLikeYou北大作者PDF成功取得，留待阅读。
