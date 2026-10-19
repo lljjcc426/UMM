@@ -142,3 +142,7 @@ UniFlow是一阶段语义codec重建/理解，并非凭零样本视频重建即�
 ## 辅助生成与推理外化的不同收益
 
 [第二十六批](../evidence/generative_targets_gating_shared_tokens_and_world_models_2026-10-20.md)区分训练时结构辅助目标、测试时是否画图的gate、条件guidance修正、共享离散图token与显式世界状态推理。每种机制的监督、成本、可观测性和可证伪假设不同，不能统一按“UMM协同”归因。
+
+## 原生像素、语义token与工具复核
+
+[第二十七批](../evidence/native_pixels_latent_proxies_and_robot_handwriting_2026-10-20.md)区分SenseNova像素FM、UniModel文字图双向扩散、LatentUM语义码AR+可选像素decoder、LatentUMM对齐代理和MIRROR标记工具闭环。接口统一不自动证明时序/执行能力；“latent生成”必须明确是RGB生成、语义码预测还是可训练MLP映射。

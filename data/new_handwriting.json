@@ -415,25 +415,26 @@
     "id": "N08",
     "category": "N 新增中文书写重点调研",
     "title": "Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors",
-    "version": "JKSU Computer and Information Sciences 38:722；2026-08-21",
+    "version": "Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors；Journal of King Saud University Computer and Information Sciences38:722（2026），DOI10.1007/s44443-026-01050-5；2026-08-21发表；SCI分区年份/类别未核",
     "source_urls": [
-      "https://link.springer.com/article/10.1007/s44443-026-01050-5"
+      "https://link.springer.com/article/10.1007/s44443-026-01050-5",
+      "https://link.springer.com/content/pdf/10.1007/s44443-026-01050-5.pdf"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：结构与书写双域先验改善复杂背景下中文轨迹恢复。",
-    "method": "频域增强+双分支可变形注意力；预测笔画区域/顺序的SLN；层级向量解码；IDS/字库视觉图与方向、顺序、速度—曲率先验。",
-    "problem": "单体图像编码欠缺笔画层次，轨迹易结构漂移且运动不自然。",
-    "conclusion": "论文报告加入双域先验后LDTW 2.45→1.95，写字综合分S_w 78.5→91.2。",
-    "gap": "S_w为整体起点、笔画数和总长度一致性的均值，不是严格笔顺率。行草过度分笔、启发式伪轨迹偏差仍存在。",
+    "claim": "研究目标：静态中文单字在纹理背景、未见字符与时序歧义下，怎样恢复结构清楚且符合书写统计的向量命令？",
+    "method": "结构感知频域+双分支deformableencoder、SLN预测笔区域/顺序、HVD分层命令/参数，加视觉与书写先验对比。另用真实轨迹子集和保形恒速control检测运动统计。 FDE在FFT幅度上径向可学习gate保phase；DDSA全局/局部offsetattention及frequencyfusion。SLNUNet候选框+priororder，HVD命令/几何分支门控交互；loss形状BoundaryIoU+DTChamfer、layoutKL、命令CE/参数NLL/二阶平滑、双域InfoNCE。起笔方向vonMises，轨迹speedcurvatureGMM。",
+    "problem": "静态中文单字在纹理背景、未见字符与时序歧义下，怎样恢复结构清楚且符合书写统计的向量命令？",
+    "conclusion": "Table2seen AIoU89.2/DTW228.5/Sw91.2优FINet87.4/265.4/85.5，但FID28.8劣DiffWriter28.5；unseenFID35.1/LPIPS.160劣DiffWriter32.4/.155。Table7JSD.071/β−.326/velocityr.84，motionprior去除.122/−.286/.70，恒速.246/−.021/.19；不能只报外观而省掉已有动力学控制。",
+    "gap": "作者明确真数据估先验且动态只测真轨迹，但重采样近似速度未核真实timestamps/Δt协议；静态图无法唯一恢复原速度。强顺序先验对草书过切，纹理伪高频使重复描线；伪监督残留偏差。T128/32笔限制复杂字/连写。无完整公开代码证据和分区来源。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-15",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "§1、§3.1—3.3、§3.5及评测描述",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/05_stroke_order_umm.md",
+    "sections_read": "Springer正式PDF§3.1–3.8选定公式/Algorithm1及§4.1–4.5、Tables1–7、Fig2/3PDFp5视觉核；完整Algorithm2/全部参数与用户实验/代码未审，未复现；与L006同作者不同题目和DOI独立记录",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N08.md",
     "canonical_key": "paper:doi:10.1007/s44443-026-01050-5",
     "evidence_history": [
       {
@@ -454,6 +455,29 @@
     ],
     "aliases": [
       "web_bundle:N08"
+    ],
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "§1、§3.1—3.3、§3.5及评测描述",
+        "conclusion": "论文报告加入双域先验后LDTW 2.45→1.95，写字综合分S_w 78.5→91.2。",
+        "gap": "S_w为整体起点、笔画数和总长度一致性的均值，不是严格笔顺率。行草过度分笔、启发式伪轨迹偏差仍存在。",
+        "note_path": "docs/handwriting/05_stroke_order_umm.md",
+        "note": "第二十七批对已有N08补完整主表/动力学控制；临时L187未提交即去重合并"
+      }
+    ],
+    "review_path": "docs/reviews/N08.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "CASIAOLHWDB1.1真实1047000/300writer；ICDAR2013真实224590/60writer仅独立测试；60字体×3490=209400伪轨迹，10%字体样本test，余真/伪8:2trainval。Seen/Unseen字需准确类名单核，不把字体样本隔离当完整fontstyle隔离；roughpaper/stone/gradient构造扩展。",
+    "framework": "结构感知频域+双分支deformableencoder、SLN预测笔区域/顺序、HVD分层命令/参数，加视觉与书写先验对比。另用真实轨迹子集和保形恒速control检测运动统计。",
+    "architecture": "FDE在FFT幅度上径向可学习gate保phase；DDSA全局/局部offsetattention及frequencyfusion。SLNUNet候选框+priororder，HVD命令/几何分支门控交互；loss形状BoundaryIoU+DTChamfer、layoutKL、命令CE/参数NLL/二阶平滑、双域InfoNCE。起笔方向vonMises，轨迹speedcurvatureGMM。",
+    "metrics": "L1/LPIPS/FID/AIoU、DTW/LDTW、Sw=(起点5%canvas容差+笔数+总长一致)/3；Sw本身不直接测全笔顺。动态joint(logv,logκ)JSD、β偏差、10%SakoeChibaDTW后速度Pearson；时间单位/采样保持需代码核。",
+    "baselines": "PenNet/SDT/DiffWriter/FINet同split/增强/训练声明；各原方法条件接口的适配未完整披露或未核。对运动加去prior和同形恒速，缺GHTR等新强基线不能声称全前史覆盖。",
+    "experimental_conditions": "Ubuntu22.04/Python3.9/Torch2.7/RTX4090；maxT128/maxstrokes32，AdamWb512/50epoch/cos5e-4→1e-6。动力学随机方法5seed、确定方法一次；完整λ/先验bank数据排除测试/隐藏维/时间参数未核。",
+    "related_records": [
+      "L006",
+      "L186"
     ]
   },
   {

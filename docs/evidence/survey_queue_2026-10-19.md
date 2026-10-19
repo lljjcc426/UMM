@@ -1,6 +1,6 @@
 # 尚需精读与原始来源追引：可操作队列
 
-第二轮已补VideoSketcher方法/主表/消融、DiffInk及部分UMM和基础理论，见[307份笔记](../reviews/README.md)。截至2026-10-20全部332条的逐条缺项以[阅读台账](reading_ledger_2026-10-19.md)为准；下表保留专题追引和代码复核任务。
+第二轮已补VideoSketcher方法/主表/消融、DiffInk及部分UMM和基础理论，见[316份笔记](../reviews/README.md)。截至2026-10-20全部334条的逐条缺项以[阅读台账](reading_ledger_2026-10-19.md)为准；下表保留专题追引和代码复核任务。
 
 本队列维护“文献/研究找到了”与“已完整精读”之间的差别；不表示后台任务正在执行。2026-10-19 保存到 GitHub 便于逐次人工/模型核验。
 
@@ -92,7 +92,7 @@
 
 C02/L032/L033/L055/L056/L061/L094/N10/N11/N12/N14/E03/E05/L180/L181已新增结构化章节分析，G027已补正式正文/实验；其余未读附录/完整代码仍以笔记为准。优先继续L057–L174其余统一架构、离散/连续扩散、数据、协同训练和综合评价，以及S资源的模型卡/配置/数据实际字段。
 
-新追引候选（未完成全文，不计新增正式论文）：[Evaluating the design space of diffusion-based generative models，NeurIPS2024/arXiv2406.12839](https://arxiv.org/abs/2406.12839)、[Boosting Continuous Control with Consistency Policy，AAMAS2024](https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p335.pdf)。前者可检验EDM设计选择的适用条件；后者与RSS Consistency Policy题名相近但属另一工作，禁止混合实验。L181的Related Work另有2020双向读写/RCN/TAN等，应继续逐项去重追引。
+新追引候选（未完成全文，不计新增正式论文）：[Evaluating the design space of diffusion-based generative models，NeurIPS2024/arXiv2406.12839](https://arxiv.org/abs/2406.12839)、[Boosting Continuous Control with Consistency Policy，AAMAS2024](https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p334.pdf)。前者可检验EDM设计选择的适用条件；后者与RSS Consistency Policy题名相近但属另一工作，禁止混合实验。L181的Related Work另有2020双向读写/RCN/TAN等，应继续逐项去重追引。
 
 ## 第七批之后
 
@@ -161,3 +161,7 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 ## 第二十六批后续
 
 剩11条摘要：A06/L002/L006/L021/L022和U26–U31。六篇可用PDF已下载，待读；其余五份合法全文仍受限。U20/U24补五项书面检查，但各笔记明确未全读附录/代码；完整三遍未计完成。GHTR和HierarchicalO2O两候选正在取得原文，先去重再补主目录；UEval的art属于步骤图生成评测，后续绘画检索需关联这一明确前史。
+
+## 第二十七批后续
+
+剩五条摘要A06/L002/L006/L021/L022均涉及全文访问限制，不能用相关新论文替代它们。316笔记中的完整附录/代码/理解验收还需逐项补。新增L186补充zip/机器人控制链与发布数据尚未核，GitHub固定树只有README；N08时间采样/先验bank隔离和全部训练λ待核。U28论文公式与可训练代码代理要做完整路径比对，U31表间分数冲突、U26 SFT比例含义待核。R08已核HF卡、文件与加载逻辑，未读权重tensor，不把基础模型分数赋给适配器。

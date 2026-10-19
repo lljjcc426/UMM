@@ -1381,5 +1381,43 @@
     "baselines": "卡片未给独立对照；关联论文F04。",
     "experimental_conditions": "未运行；卡片license lgpl-3.0；基础权重、数据及其他依赖许可仍应单独核对。",
     "review_depth": "model_card_and_file_listing_reviewed"
+  },
+  {
+    "id": "R08",
+    "title": "SenseNova-U1.5-8B-MoT-LoRAs：8step与V2蒸馏适配器、加载与训练配置",
+    "canonical_key": "resource:hf:sensenova/SenseNova-U1.5-8B-MoT-LoRAs",
+    "source_urls": [
+      "https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT-LoRAs/tree/f33b8fe0216e6f10e5aed58ebbfdd05f02826732",
+      "https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT-LoRAs/blob/f33b8fe0216e6f10e5aed58ebbfdd05f02826732/README.md",
+      "https://github.com/OpenSenseNova/SenseNova-U1/blob/c35c83b58ef6e238a08b986aa58f3b73303aa42f/docs/base_vs_distill.md",
+      "https://github.com/OpenSenseNova/SenseNova-U1/blob/c35c83b58ef6e238a08b986aa58f3b73303aa42f/src/sensenova_u1/utils/lora.py"
+    ],
+    "scope": "resource",
+    "category": "R 工具与数据",
+    "record_type": "resource",
+    "privacy": "public_source_note",
+    "provenance": "2026-10-20第二十七批由原文追引和官方模型/代码检索补入；标题和DOI/主目录去重",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
+    "last_updated": "2026-10-20",
+    "sections_read": "HF API文件列表与README指定头部/QuickStart/模型表/Limitations/License；GitHubREADME发布及base_vs_distill条件、utils/lora.py指定加载逻辑、trainingREADME范围；未下载权重、未运行或审全训练实现",
+    "review_path": "docs/reviews/R08.md",
+    "review_depth": "resource_reviewed",
+    "note_path": "docs/reviews/R08.md",
+    "dataset": "训练数据/teacher/蒸馏loss/筛选和V2修订量未在已读卡/配置给足；官方卡声称中英和4K，不等新增公开训练数据。",
+    "framework": "官方HF提供8step与8stepV2两safetensors，V2称改善色彩/对比/过锐；本次未找到V2独立论文和完整蒸馏recipe，不把基础报告的OPD自动当8step蒸馏算法。",
+    "architecture": "继承U26pixelFM/MoT；官方utils/lora.py读down/up和alpha，rank从down.shape[0]推断，以strength×alpha/rank×up@down合并linearweight。没有adapter_config.json；实际rank/target全名单未读权重，不猜。",
+    "metrics": "未找到V2独立量化质量/速度表；保留其色彩改善为作者发布主张。基础U26报告分数不能赋给V2。需全链延迟/显存、独立OCR字符串/布局、保留编辑区和多样性。",
+    "baselines": "基础50step/CFG4与8step/CFG1；旧V1/V2和SFT/final不同底座应交叉对照。文档旧版画廊明确是U1，不能当U1.5示例或分数。",
+    "experimental_conditions": "HF固定f33b8fe0216e6f10e5aed58ebbfdd05f02826732；GitHubc35c83b58ef6e238a08b986aa58f3b73303aa42f。V2卡2048²、numsteps8/CFG1/cfgnormnone/shift3，Py3.11/Torch2.8/CUDA12.8参考环境。旧8step文档称在SFT上训、final兼容但未必最优；V2卡指向final且不兼容Preview，不跨版本推定。",
+    "problem": "在现有原生统一模型上如何用公开LoRA减少生成步数，真实检查点兼容性和质量代价是什么？",
+    "method": "官方HF提供8step与8stepV2两safetensors，V2称改善色彩/对比/过锐；本次未找到V2独立论文和完整蒸馏recipe，不把基础报告的OPD自动当8step蒸馏算法。 继承U26pixelFM/MoT；官方utils/lora.py读down/up和alpha，rank从down.shape[0]推断，以strength×alpha/rank×up@down合并linearweight。没有adapter_config.json；实际rank/target全名单未读权重，不猜。",
+    "conclusion": "确认仓库含两个实际权重文件名和中英README（未下载权重/运行）；模型卡Apache2.0且指定final底座。V2颜色/过锐改进只有卡与发布说明，未独立验证；不存在可填FID提升数字。",
+    "gap": "蒸馏可损小字/高频笔画或编辑保留；卡也列dense/mixedtext、精确布局、人手细节、复杂编辑漂移。license声明已核卡与代码LICENSE，训练数据权利未独立核。不是完整RL/OPD开放的证明。",
+    "claim": "研究目标：在现有原生统一模型上如何用公开LoRA减少生成步数，真实检查点兼容性和质量代价是什么？",
+    "version": "SenseNova-U1.5-8B-MoT-LoRAs：8step/V2蒸馏适配器与实际训练/加载配置；2026-09-24发布V2，非独立论文记录，关联U26",
+    "related_records": [
+      "U26"
+    ]
   }
 ]

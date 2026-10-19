@@ -11799,5 +11799,39 @@
     "conclusion": "Figure4作者报告DDPO两变体比RWR更快提高三种奖励，本次未逐点读曲线。AppB wolf50张：base5.95±.03、Universal6.14±.05、DDPO-IS20Kqueries6.63±.03；限该提示和美学预测器。附录A明确出现高频噪声及文字骗过计数VLM的奖励漏洞。",
     "gap": "提示分布窄，reward优化不等于人类正确性。附录A定性展示手工选退化前checkpoint，选点成本须记；IS更新近似、不同硬件和采样量限制计算公平。未读全部图/代码。此经典MDP直接反驳“扩散无状态行动轨迹无法RL”的泛化主张，但不证明所有确定性ODE采样器可直接套同一密度公式。",
     "claim": "研究目标：让扩散模型直接优化黑盒下游奖励，超越似然训练或奖励加权去噪的近似目标。"
+  },
+  {
+    "id": "L186",
+    "title": "Towards Human-Like Robot Handwriting via Contour-Aware Generation",
+    "canonical_key": "paper:cvpr:2026:qin_towards_human_like_robot_handwriting",
+    "source_urls": [
+      "https://openaccess.thecvf.com/content/CVPR2026/html/Qin_Towards_Human-Like_Robot_Handwriting_via_Contour-Aware_Generation_CVPR_2026_paper.html",
+      "https://openaccess.thecvf.com/content/CVPR2026/papers/Qin_Towards_Human-Like_Robot_Handwriting_via_Contour-Aware_Generation_CVPR_2026_paper.pdf",
+      "https://github.com/RittoQin/CHTR/tree/98e6b16756dc61d70e2c3e6c9c6097b206b1eb70"
+    ],
+    "scope": "handwriting",
+    "category": "G 生成理论、视频、绘画与适配",
+    "record_type": "paper",
+    "privacy": "public_source_note",
+    "provenance": "2026-10-20第二十七批由原文追引和官方模型/代码检索补入；标题和DOI/主目录去重",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
+    "last_updated": "2026-10-20",
+    "sections_read": "正式CVF PDF§1/§3–7与Tables1–6、Fig5PDFp6已渲染核；官方CVF元数据/补充zip链接、GitHub树与README。未读supp/逐图或控制代码，未运行机器人/模型",
+    "review_path": "docs/reviews/L186.md",
+    "review_depth": "critical_sections_reviewed",
+    "note_path": "docs/reviews/L186.md",
+    "dataset": "CHTR110540：font10119/60style/9516类，handwriting100421/1020writer/7184类，合并9837类；train88169/test22371（font7997/2122，hand80172/20249）。Founder/CASIAHWDB静态源；SDNet stroke25类+标准组成匹配笔序，CNNLSTM抽轮廓轨迹；5志愿者1500人小时纠错，标注渲染mIoU.972。部分style独占test，具体名单未核。",
+    "framework": "CHTR任务与110540配对数据，轮廓感知骨架图、多尺度图encoder、AR聚合decoder预测(x,y,w,三penstate)，再借现有brush/RL控制链落地机器人。",
+    "architecture": "thinning+聚类关键点、距轮廓最短距离作w、相邻骨架点边及自环；ResNet18+3selfattention，4graphblock含图attention/conv/coarsening，末3scale供crossattentiondecoder。L=.5L1(x/y/w)+penstateCE。图上w的几何定义与控制压力需要校准，不能当真实传感压力。",
+    "metrics": "mIoU轮廓、DTW轨迹、FID/LPIPS/HWD渲染质量；另CASIA传统轨迹。静态mIoU/FID不检测全笔顺，DTW也需事件/方向分项；robot目前已读主文以定性对比。",
+    "baselines": "CrossVAE/DEDNet/PENNet/TrajFormer，原方法改input/output加入width并调优；原版和改版明确对照。robot比CalliRewrite，控制来自已有系统而非全部由本文网络学习。",
+    "experimental_conditions": "CHTR256²/CASIA64²；单RTX4090，Adam1e-4 b48/300Kiter/clip2；GATc512/8heads，每block2attention，最长序列endstatepadding。精确CASIA版本/划分ID、λ/其他控制recipe与seed未全部核。",
+    "problem": "从单字图像恢复同时带自然笔序、几何轨迹和宽度轮廓的序列，使书写机器人更接近目标字形。",
+    "method": "CHTR任务与110540配对数据，轮廓感知骨架图、多尺度图encoder、AR聚合decoder预测(x,y,w,三penstate)，再借现有brush/RL控制链落地机器人。 thinning+聚类关键点、距轮廓最短距离作w、相邻骨架点边及自环；ResNet18+3selfattention，4graphblock含图attention/conv/coarsening，末3scale供crossattentiondecoder。L=.5L1(x/y/w)+penstateCE。图上w的几何定义与控制压力需要校准，不能当真实传感压力。",
+    "conclusion": "Table3全test TrajFormer→ours mIoU.552→.641、DTW18.277→12.765、FID1.475→1.228、LPIPS.092→.066；文称DTW降27.69%/LPIPS降22.83%，按所列原值分别约30.16%/28.26%，百分比不符，保留原值待作者/计算协议核，其他结论不依赖此百分比。Table5 CASIA mIoU.445→.530、DTW23.892→16.264。",
+    "gap": "标签笔顺含标准匹配与人工修订，无原作者真实时间/压力采集；最终图不唯一决定原轨迹。稀有GB2312外字符仍笔顺错误（Fig7/限制）。官方GitHub98e6b167…tree仅README，代码/数据未实际取得；suppzip/控制链/机器人视频未审，不称发布可复现。",
+    "claim": "研究目标：从单字图像恢复同时带自然笔序、几何轨迹和宽度轮廓的序列，使书写机器人更接近目标字形。",
+    "version": "Towards Human-Like Robot Handwriting via Contour-Aware Generation（G-HTR / CHTR-110K）；CVPR2026正式论文，pp31597–31607"
   }
 ]

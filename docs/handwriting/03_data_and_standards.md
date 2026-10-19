@@ -44,3 +44,7 @@
 ## 教程步骤图与严格笔事件
 
 UEval含art步骤图任务及题级rubric（本批U22）。它是绘画步骤生成评价的已有前史，拼格/多图步骤不等连续RGB视频；规范笔顺仍要strokeidentity/方向/顺序/penstate/遮挡及终态一致，不能只用“步骤完整/可读”文字judge。
+
+## 轨迹宽度、规范标签与动力学控制
+
+L186 CHTR-110K包含笔序/宽度/penstate，但标签由静态源自动提取+标准组成匹配+人工纠错，无原作者时间/压力真值。N08区分真实与伪轨迹，用真实子集、去motionprior和同形恒速control评速度—曲率；Sw只有起点/笔数/长度，未直接覆盖全笔顺。见[专题](../evidence/native_pixels_latent_proxies_and_robot_handwriting_2026-10-20.md)。后续数据须同时保采集Δt、真实接触与规范事件，并明确二者不同目标。

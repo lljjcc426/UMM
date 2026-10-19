@@ -705,6 +705,134 @@
         }
       ],
       "boundary": "核心表示/解码和主文字生成表、训练效率/条件已核；部分消融仅定性，全部主图和源码未全读，未做模型执行。"
+    },
+    {
+      "id": "U29",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "MIRROR让VLM反思时重新查验具体图像区域。文字自省可能沿用原误认，作者将不确定描述转成定位关键词、视觉标记和再回答，并用合成修订轨迹训练这个闭环。",
+          "evidence": "本次书面复述，未计时口试。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2原图和问题进入视觉encoder/MLP/LLM；初次回答含反思和工具参数，Molmo定位、可选SAM分割生成标记图，再编码供下一轮回答。输出最终文字答案；工具没有凭空合成新的场景图。",
+          "evidence": "PDFp3 Fig2已渲染核、§3和AppB2。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "创新是反思→定位→标记证据→修订的显式连接，以及ReflectV过滤/一轮多轮混合SFT；单纯添加LoRA或画点不能覆盖全部方法。外部定位器质量影响后续。",
+          "evidence": "§3.3/§4/AppA。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1 MMVet56.60→66.70，Table6仅tools57.90、trained无loop59.91、trainedtools62.70，full66.70。AppTable11 full3.73s高base2.81s，准确收益伴随成本；无loopHallusion68.24低base68.66，不能写所有变体全面提升。",
+          "evidence": "Tables1/2/6及AppTable11。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：Molmo漏定位或密集标记遮挡会不会扩大错误？疑问2：等耗时文字反思/重采样能否达到相近收益？疑问3：筛掉teacher不能单调纠正的样本是否弱化真实失败覆盖？与BoxTuning/SetofMark同属视觉标记相关前史，独特贡献须落在训练与闭环证据连接。",
+          "evidence": "AppB工具依赖；相关视觉标记前史需继续全协议对比。"
+        }
+      ],
+      "boundary": "已核指定方法、表和框架；全代码/其余附录尚未全审，不等完整三遍验收。"
+    },
+    {
+      "id": "U30",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "LatentUM生成可被理解分支直接读取的语义图码，减少交错推理中的像素中转。重建量化未必保留答案信息，因此用冻结VLM答案分布训练量化器，再训练语义码AR生成。",
+          "evidence": "书面复述，未计时。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2a连续视觉特征经MBAQ，教师/量化后特征在同VLM的答案分布KL对齐；b理解和生成分支共享attention、分别FFN/QKVO，图码生成后经理解分支recache；c独立扩散decoder可选转RGB。导航实现仍需RGB回环。",
+          "evidence": "PDFp4 Fig2已渲染核、§3.1及§4导航实现。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "关键是行为分布对齐的量化目标和可直接理解的离散视觉码；MoME/ARhead/独立decoder组成完整链。理论2048^8组合不能代替码利用率，理解自奖励也未经过最终像素检验。",
+          "evidence": "§3.1–3.3/AppA1–A2。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table2GenEval.85→.87→pixelreward.92，但自奖励color.91→.87；Table4 coarse.85/fine.99，fine18K与coarse6K监督量不同。Fig8语义85.0对VQVAE61.8可作支持，尚需同码率/compute控制；MBAQ对MSE/cosine其余柱未全核不引用数值。",
+          "evidence": "Tables2–4/Fig8文字和表述，部分柱图尚未视觉核。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：码正确但decoder画错时，自奖励会不会虚高？疑问2：答案KL是否丢训练VQA不敏感的汉字细笔画？疑问3：VSP收益有多少来自18K数据和更多中间步？UniAR/UniDisc等也追共享码，需按量化监督、recache与像素链比较，不能仅以共享token宣称新颖。",
+          "evidence": "AppB1、自奖励与像素评价分离；同仓相关离散统一前史。"
+        }
+      ],
+      "boundary": "核心架构和选定表已核，完整图/代码及全部后训练配置未完，不等完整三遍。"
+    },
+    {
+      "id": "L186",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "GHTR从静态字图恢复有笔序、宽度和抬落笔的轨迹，服务机器人书写。固定宽在线轨迹难复现目标轮廓，作者建立CHTR数据并用字符拓扑图补视觉encoder。",
+          "evidence": "书面复述，未计时。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig5同一字图分两路：图像encoder和由细化/宽度建立的字符图；图attention/conv多尺度输出作crossattention的key/value，历史点和图像特征提供query，AR输出六维点/状态，另控制链驱动机器人。",
+          "evidence": "正式CVPRPDFp6 Fig5已渲染核、§5。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "贡献涵盖带宽度数据与图多尺度轨迹模型；robot brush/RL控制沿用前人系统。轮廓宽度是几何量，不能无校准解释成真实压力；构造标签包含标准笔序匹配，无法证明恢复原作者历史动作。",
+          "evidence": "§4.1/§5.1与现有控制引用。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table3全test mIoU.552→.641/DTW18.277→12.765；Table6 base/graph/multiscale .532/.596/.641表明逐加帮助。Table4宽度适配使TrajFormer.104→.552，基线必须用适配版。主文降幅百分比与所列数值有不符，引用原值并保留待核。",
+          "evidence": "Tables3/4/6与主文原值计算。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：标准匹配标签与真实书写多解怎样评价？疑问2：细化与局部宽度对交叉/草书是否误导图拓扑？疑问3：统一brushcontroller后的实际接触/压力/执行率优势多大？与PENNet/TrajFormer/CalliRewrite及新L187直接相关，课题不能将轨迹加宽度或机器人落地当空白。",
+          "evidence": "§6.3稀有字失败、官方README仅占位；supp未读。"
+        }
+      ],
+      "boundary": "正式主文选定段和表/框架已核，supp/控制链和代码数据未取得，不等全部复现或三遍完成。"
+    },
+    {
+      "id": "N08",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "HierarchicalO2O处理静态字图到中文向量轨迹，在结构复杂和背景纹理时容易出现拓扑或顺序错误。它把字形结构与真实轨迹统计作为先验，先定笔区域顺序再生成参数。",
+          "evidence": "书面复述，未计时。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2/3左侧Fourier分支提高频，DDSA全局/局部特征经fusion得到Z；SLN结合结构prior给框和顺序，HVD分命令/参数门控交互，输出M/L序列。训练用rasterizedshape与视觉/书写域对比。没有真实手写视频decoder。",
+          "evidence": "SpringerPDFp5 Fig2/3已渲染核，§3。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "核心是层级布局/轨迹和两域先验连接，FDE并非任意高通，依幅度gate保phase。真实与伪监督分开、恒速保形control对应一个具体替代解释。先验拟合速度不能自动唯一恢复原作者时间。",
+          "evidence": "§3.4/3.7/§4.4–4.5。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table2seen Sw91.2高FINet85.5，FID28.8劣于DiffWriter28.5；unseenFID35.1也不优32.4。Table7同形恒速JSD.246/r.19，full.071/.84；去motionprior.122/.70。这支持运动统计收益，仍需timestamps和采样协议核对。",
+          "evidence": "Tables2/5/7；FID越低越好，不能仅报Sw。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：重采样的Δt和原采集时间如何保持，速度指标是否受参数化影响？疑问2：IDS/字体先验是否包含未见测试字信息，怎样定义允许先验？疑问3：强笔序是否将草书合法连写过切？GHTR已给拓扑图/宽度/robot前史，当前工作提供动力学control；下一课题需更明确的真实RGB事件/执行约束。",
+          "evidence": "§3.3/§4.5限制及同作者不同论文L006、L186前史。"
+        }
+      ],
+      "boundary": "公式/选定主表和消融/框架已核，完整代码/时间协议与用户实验待补，不计完整三遍完成。"
     }
   ]
 }

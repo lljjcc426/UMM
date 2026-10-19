@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 307 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 334 条，本批有 316 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -66,7 +66,7 @@
 | N05 | VTR-Bench: A Systematic Benchmark for Evaluating Visual Text Rendering in Video Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | N06 | Video models are zero-shot learners and reasoners | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | N07 | A stroke-level large-scale database of Chinese character handwriting and the OpenHandWrite_Toolbox for handwriting research | primary_sections_read | [结构化分析](../reviews/N07.md) | 未完成 |
-| N08 | Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| N08 | Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors | primary_sections_read | [结构化分析](../reviews/N08.md) | 五项检查已记录 |
 | N09 | Text-Animator: Controllable Visual Text Video Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | N10 | Video Text Preservation with Synthetic Text-Rich Videos | primary_sections_read | [结构化分析](../reviews/N10.md) | 未完成 |
 | N11 | CalliffusionV2: Personalized Natural Calligraphy Generation with Flexible Multi-modal Control | primary_sections_read | [结构化分析](../reviews/N11.md) | 未完成 |
@@ -97,12 +97,12 @@
 | U23 | Self-correction Optimization for Interleaved Multimodal Generation (SCO) | primary_sections_read | [结构化分析](../reviews/U23.md) | 未完成 |
 | U24 | Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification (UniAR) | primary_sections_read | [结构化分析](../reviews/U24.md) | 五项检查已记录 |
 | U25 | Visual Generation Unlocks Human-Like Reasoning through Multimodal World Models (VisWorld-Eval) | primary_sections_read | [结构化分析](../reviews/U25.md) | 未完成 |
-| U26 | SenseNova-U1.5: Towards Native Unified Visual Intelligence | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U27 | UniModel: A Visual-Only Framework for Unified Multimodal Understanding and Generation | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U28 | LatentUMM: Dual Latent Alignment for Unified Multimodal Models | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U29 | Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification (MIRROR) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U30 | LatentUM: Unleashing the Potential of Interleaved Cross-Modal Reasoning via a Latent-Space Unified Model | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U31 | DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
+| U26 | SenseNova-U1.5: Towards Native Unified Visual Intelligence | primary_sections_read | [结构化分析](../reviews/U26.md) | 未完成 |
+| U27 | UniModel: A Visual-Only Framework for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/U27.md) | 未完成 |
+| U28 | LatentUMM: Dual Latent Alignment for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/U28.md) | 未完成 |
+| U29 | Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification (MIRROR) | primary_sections_read | [结构化分析](../reviews/U29.md) | 五项检查已记录 |
+| U30 | LatentUM: Unleashing the Potential of Interleaved Cross-Modal Reasoning via a Latent-Space Unified Model | primary_sections_read | [结构化分析](../reviews/U30.md) | 五项检查已记录 |
+| U31 | DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement | primary_sections_read | [结构化分析](../reviews/U31.md) | 未完成 |
 | R06 | 通用规范汉字笔顺规范 | primary_sections_read | [结构化分析](../reviews/R06.md) | 未完成 |
 | R07 | OpenHandWrite_Toolbox与笔画级数据 | primary_sections_read | [结构化分析](../reviews/R07.md) | 未完成 |
 | L001 | Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026 | primary_sections_read | [结构化分析](../reviews/L001.md) | 未完成 |
@@ -338,3 +338,5 @@
 | L183 | CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization | primary_sections_read | [结构化分析](../reviews/L183.md) | 未完成 |
 | L184 | Stroke-Seg: A deep learning-based framework for chinese stroke segmentation | primary_sections_read | [结构化分析](../reviews/L184.md) | 未完成 |
 | L185 | Training Diffusion Models with Reinforcement Learning（DDPO） | primary_sections_read | [结构化分析](../reviews/L185.md) | 未完成 |
+| L186 | Towards Human-Like Robot Handwriting via Contour-Aware Generation | primary_sections_read | [结构化分析](../reviews/L186.md) | 五项检查已记录 |
+| R08 | SenseNova-U1.5-8B-MoT-LoRAs：8step与V2蒸馏适配器、加载与训练配置 | primary_sections_read | [结构化分析](../reviews/R08.md) | 未完成 |

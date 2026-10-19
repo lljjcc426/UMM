@@ -108,3 +108,7 @@ HermesFlow4997368 train_pairdpo.py549–554用两DPO加权和，和正式/预印
 ## 第二十五批：配置与checkpoint属于研究证据
 
 [本批审查](../evidence/glyph_conditions_paired_benchmarks_and_structural_targets_2026-10-20.md)核WriteLikeYou固定model.py：默认风格4层/20GMM/cycle0，论文3层/λcycle5；均值cycle与随机完整生成要分开。GlyphControl README区分10M与额外TextCaps5K40epoch版本，后者开放原decoder且承认多样性损失；主YAML是resume warmup1，不能当从头10000配置。TextDiffuser README b24/acc4需8卡才对应768。以上为已有论文的配套制品，不增独立论文/无论文资源计数；HF模型卡和权重未取得/执行，不以README指针宣称完成权重复核。
+
+## R08：U1.5八步LoRA与配置资源
+
+新增[逐资源分析](../reviews/R08.md)，官方HF的8step/V2适配器没有单独论文，关联U26基础报告但单列实验条件。核中英模型卡、实际文件名、Apache2.0声明和加载合并代码；不下载权重、不把基础榜分数赋给V2。旧8step文档说训在SFT，V2卡指向final；两版不能混。CFG与步数的推荐不同，100NFE/8NFE应与50/8 solversteps、真实延迟区分。

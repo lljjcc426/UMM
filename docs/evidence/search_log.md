@@ -149,8 +149,12 @@ UniFlow v2、InternVL-U v1、Mamoda2.5 v1、SenseNova-U1 v1、Rosetta v1读取�
 
 ## 2026-10-20 第二十五批
 
-读取WriteLikeYou北大作者正式PDF、NeurIPS2023 TextDiffuser/GlyphControl正式PDF和U13/14/15/16/19固定v2/v1/v2/v1/v3。U14 pypdf输出surrogate失败改pdftotext；页数不计阅读完成。固定WriteLikeYou a335b02f、GlyphControl5891d9b、unilm31c5b904的默认/README/训练YAML指定段。再次尝试OpenReview L021/L022 PDF及API均403，浏览解析页有challenge；A06/L002 SpringerPDF返回订阅HTML，无全文，不再按URL后缀当PDF。L006出版社公开摘要/Introduction/片段可读，方法表未取得。CVF正式目录确认机器人书写题目/页码；Springer新O2O正式页开放，留待全文。
+读取WriteLikeYou北大作者正式PDF、NeurIPS2023 TextDiffuser/GlyphControl正式PDF和U13/14/15/16/19固定v2/v1/v2/v1/v3。U14 pypdf输出surrogate失败改pdftotext；页数不计阅读完成。固定WriteLikeYou a334b02f、GlyphControl5891d9b、unilm31c5b904的默认/README/训练YAML指定段。再次尝试OpenReview L021/L022 PDF及API均403，浏览解析页有challenge；A06/L002 SpringerPDF返回订阅HTML，无全文，不再按URL后缀当PDF。L006出版社公开摘要/Introduction/片段可读，方法表未取得。CVF正式目录确认机器人书写题目/页码；Springer新O2O正式页开放，留待全文。
 
 ## 2026-10-20 第二十六批
 
 U20–U25固定PDF版本v2/v1/v1/v1/v2/v1。读取选定方法、公式、实验/消融及配置，U20PDFp6/U24p4框架渲染核。pdftotext含巨大空白/图中符号时本地压缩连续空白便于阅读，保留原PDF和layout；没有据清洗文本自动修定公式。理论按VisWorld AppA1/A2假设和证明读取，未把条件信息上界当视觉无条件优势。SCO主表/附录规划和GPTjudge原值保留，数值未独立复算模型。
+
+## 2026-10-20 第二十七批
+
+U26–U31读取固定版本PDF方法/选定结果与附录，U29p3/U30p4方法图视觉核。原文追引定位CVF2026正式G-HTR全文及Springer DOI10.1007/s44443-026-01050-5，标题/DOI去重补入L186并深读已有N08，两者p6/p5方法图已视觉核。TorchUMM固定425efa19cb2a18d43278d4d222ed238b5e244546审指定对齐/代理计算；SenseNova固定c35c83b58ef6e238a08b986aa58f3b73303aa42f，HF LoRAs固定f33b8fe0216e6f10e5aed58ebbfdd05f02826732，GHTR固定98e6b16756dc61d70e2c3e6c9c6097b206b1eb70。首次由不完整显示名尝试的单独GitHub/HF地址未找到，已跟随PDF/README真实链接纠正，失败地址不计发布缺失证据；无下载大权重或训练。

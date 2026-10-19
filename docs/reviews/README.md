@@ -281,6 +281,15 @@
 | U23 | [Self-correction Optimization for Interleaved Multimodal Generation (SCO)](U23.md) | §3.1–3.4 Eq1–13、§4.1指定数据/§4.3–4.7指定结果/Tables1–5，AppA1视频与A3指标指定段；完整优化实现/视频数据协议及源码未全审，未复现 |
 | U24 | [Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification (UniAR)](U24.md) | §3.1–3.3核心公式、§4.1训练/§4.2指定主表/§4.3指定组件，Tables1–3/6–9和AppA1–A4/B；全部理解表/源码/所有消融图未审，未复现 |
 | U25 | [Visual Generation Unlocks Human-Like Reasoning through Multimodal World Models (VisWorld-Eval)](U25.md) | §3.1–3.4指定定义/定理、§4.1–4.2、§5.1–5.2指定段与§5结尾限制；AppA1/A2 Theorems3/4及Corollary1证明、AppB1部分/B2 Tables2–4。完整先验分析/其他证明/主图数值/全部附录与代码未审，未复现 |
+| U26 | [SenseNova-U1.5: Towards Native Unified Visual Intelligence](U26.md) | §3.1–3.2主架构及五阶段/OPD，Tables1/2/8/9/11/12/21、官方README发布及training README范围指定段；完整数据§4/全部榜/消融/源码未全读，未复现 |
+| U27 | [UniModel: A Visual-Only Framework for Unified Multimodal Understanding and Generation](U27.md) | §3.1–3.3、§4.1–4.5指定方法和实验/限制；未逐图核全部样例，未审代码或获得缺失训练配置，未复现 |
+| U28 | [LatentUMM: Dual Latent Alignment for Unified Multimodal Models](U28.md) | §3.1–3.3 Eq1–5、§4.1/Tables1–3及4.3指定段/4.5–4.6，AppB效率/C1–C4；TorchUMM425efa19cb2a18d43278d4d222ed238b5e244546 README、stage1 model、stage2辅助脚本、bagel.py374–412及train loss聚合。全源码/消融未全审，未执行模型 |
+| U29 | [Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification (MIRROR)](U29.md) | §3.1–3.3及Fig2视觉核、§4.1–4.3、Tables1/2/4/6；AppA1/A2、B1–B3、D2 Table11。完整12榜实现/其他消融及代码未审，未复现 |
+| U30 | [LatentUM: Unleashing the Potential of Interleaved Cross-Modal Reasoning via a Latent-Space Unified Model](U30.md) | §3.1–3.3、§4.1–4.3及导航实现段、Tables2–4；AppA1/A2/B1和Fig2PDFp4视觉核；完整导航图/所有消融/附录及代码未审，未复现 |
+| U31 | [DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement](U31.md) | §3.1–3.3 Eq4–11、Tables1–4及§4.1指定数据；AppB1/B2 Tables7/8及B3指标。完整诊断图/全部表/代码未核；GenEval数值冲突未解决，未复现 |
+| L186 | [Towards Human-Like Robot Handwriting via Contour-Aware Generation](L186.md) | 正式CVF PDF§1/§3–7与Tables1–6、Fig5PDFp6已渲染核；官方CVF元数据/补充zip链接、GitHub树与README。未读supp/逐图或控制代码，未运行机器人/模型 |
+| N08 | [Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors](N08.md) | Springer正式PDF§3.1–3.8选定公式/Algorithm1及§4.1–4.5、Tables1–7、Fig2/3PDFp5视觉核；完整Algorithm2/全部参数与用户实验/代码未审，未复现；与L006同作者不同题目和DOI独立记录 |
+| R08 | [SenseNova-U1.5-8B-MoT-LoRAs：8step与V2蒸馏适配器、加载与训练配置](R08.md) | HF API文件列表与README指定头部/QuickStart/模型表/Limitations/License；GitHubREADME发布及base_vs_distill条件、utils/lora.py指定加载逻辑、trainingREADME范围；未下载权重、未运行或审全训练实现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

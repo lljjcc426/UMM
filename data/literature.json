@@ -4768,25 +4768,26 @@
     "id": "N08",
     "category": "N 新增中文书写重点调研",
     "title": "Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors",
-    "version": "JKSU Computer and Information Sciences 38:722；2026-08-21",
+    "version": "Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors；Journal of King Saud University Computer and Information Sciences38:722（2026），DOI10.1007/s44443-026-01050-5；2026-08-21发表；SCI分区年份/类别未核",
     "source_urls": [
-      "https://link.springer.com/article/10.1007/s44443-026-01050-5"
+      "https://link.springer.com/article/10.1007/s44443-026-01050-5",
+      "https://link.springer.com/content/pdf/10.1007/s44443-026-01050-5.pdf"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：结构与书写双域先验改善复杂背景下中文轨迹恢复。",
-    "method": "频域增强+双分支可变形注意力；预测笔画区域/顺序的SLN；层级向量解码；IDS/字库视觉图与方向、顺序、速度—曲率先验。",
-    "problem": "单体图像编码欠缺笔画层次，轨迹易结构漂移且运动不自然。",
-    "conclusion": "论文报告加入双域先验后LDTW 2.45→1.95，写字综合分S_w 78.5→91.2。",
-    "gap": "S_w为整体起点、笔画数和总长度一致性的均值，不是严格笔顺率。行草过度分笔、启发式伪轨迹偏差仍存在。",
+    "claim": "研究目标：静态中文单字在纹理背景、未见字符与时序歧义下，怎样恢复结构清楚且符合书写统计的向量命令？",
+    "method": "结构感知频域+双分支deformableencoder、SLN预测笔区域/顺序、HVD分层命令/参数，加视觉与书写先验对比。另用真实轨迹子集和保形恒速control检测运动统计。 FDE在FFT幅度上径向可学习gate保phase；DDSA全局/局部offsetattention及frequencyfusion。SLNUNet候选框+priororder，HVD命令/几何分支门控交互；loss形状BoundaryIoU+DTChamfer、layoutKL、命令CE/参数NLL/二阶平滑、双域InfoNCE。起笔方向vonMises，轨迹speedcurvatureGMM。",
+    "problem": "静态中文单字在纹理背景、未见字符与时序歧义下，怎样恢复结构清楚且符合书写统计的向量命令？",
+    "conclusion": "Table2seen AIoU89.2/DTW228.5/Sw91.2优FINet87.4/265.4/85.5，但FID28.8劣DiffWriter28.5；unseenFID35.1/LPIPS.160劣DiffWriter32.4/.155。Table7JSD.071/β−.326/velocityr.84，motionprior去除.122/−.286/.70，恒速.246/−.021/.19；不能只报外观而省掉已有动力学控制。",
+    "gap": "作者明确真数据估先验且动态只测真轨迹，但重采样近似速度未核真实timestamps/Δt协议；静态图无法唯一恢复原速度。强顺序先验对草书过切，纹理伪高频使重复描线；伪监督残留偏差。T128/32笔限制复杂字/连写。无完整公开代码证据和分区来源。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-15",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "§1、§3.1—3.3、§3.5及评测描述",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/05_stroke_order_umm.md",
+    "sections_read": "Springer正式PDF§3.1–3.8选定公式/Algorithm1及§4.1–4.5、Tables1–7、Fig2/3PDFp5视觉核；完整Algorithm2/全部参数与用户实验/代码未审，未复现；与L006同作者不同题目和DOI独立记录",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N08.md",
     "canonical_key": "paper:doi:10.1007/s44443-026-01050-5",
     "evidence_history": [
       {
@@ -4807,6 +4808,29 @@
     ],
     "aliases": [
       "web_bundle:N08"
+    ],
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "§1、§3.1—3.3、§3.5及评测描述",
+        "conclusion": "论文报告加入双域先验后LDTW 2.45→1.95，写字综合分S_w 78.5→91.2。",
+        "gap": "S_w为整体起点、笔画数和总长度一致性的均值，不是严格笔顺率。行草过度分笔、启发式伪轨迹偏差仍存在。",
+        "note_path": "docs/handwriting/05_stroke_order_umm.md",
+        "note": "第二十七批对已有N08补完整主表/动力学控制；临时L187未提交即去重合并"
+      }
+    ],
+    "review_path": "docs/reviews/N08.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "CASIAOLHWDB1.1真实1047000/300writer；ICDAR2013真实224590/60writer仅独立测试；60字体×3490=209400伪轨迹，10%字体样本test，余真/伪8:2trainval。Seen/Unseen字需准确类名单核，不把字体样本隔离当完整fontstyle隔离；roughpaper/stone/gradient构造扩展。",
+    "framework": "结构感知频域+双分支deformableencoder、SLN预测笔区域/顺序、HVD分层命令/参数，加视觉与书写先验对比。另用真实轨迹子集和保形恒速control检测运动统计。",
+    "architecture": "FDE在FFT幅度上径向可学习gate保phase；DDSA全局/局部offsetattention及frequencyfusion。SLNUNet候选框+priororder，HVD命令/几何分支门控交互；loss形状BoundaryIoU+DTChamfer、layoutKL、命令CE/参数NLL/二阶平滑、双域InfoNCE。起笔方向vonMises，轨迹speedcurvatureGMM。",
+    "metrics": "L1/LPIPS/FID/AIoU、DTW/LDTW、Sw=(起点5%canvas容差+笔数+总长一致)/3；Sw本身不直接测全笔顺。动态joint(logv,logκ)JSD、β偏差、10%SakoeChibaDTW后速度Pearson；时间单位/采样保持需代码核。",
+    "baselines": "PenNet/SDT/DiffWriter/FINet同split/增强/训练声明；各原方法条件接口的适配未完整披露或未核。对运动加去prior和同形恒速，缺GHTR等新强基线不能声称全前史覆盖。",
+    "experimental_conditions": "Ubuntu22.04/Python3.9/Torch2.7/RTX4090；maxT128/maxstrokes32，AdamWb512/50epoch/cos5e-4→1e-6。动力学随机方法5seed、确定方法一次；完整λ/先验bank数据排除测试/隐藏维/时间参数未核。",
+    "related_records": [
+      "L006",
+      "L186"
     ]
   },
   {
@@ -7013,24 +7037,26 @@
     "id": "U26",
     "category": "U UMM基础与协同补全",
     "title": "SenseNova-U1.5: Towards Native Unified Visual Intelligence",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "SenseNova-U1.5: Towards Native Unified Visual Intelligence；arXiv2609.11929v1，2026；技术报告，未核实正式接收",
     "source_urls": [
-      "https://arxiv.org/abs/2609.11929"
+      "https://arxiv.org/abs/2609.11929",
+      "https://arxiv.org/pdf/2609.11929v1",
+      "https://github.com/OpenSenseNova/SenseNova-U1/blob/c35c83b58ef6e238a08b986aa58f3b73303aa42f/training/README.md"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：原生统一视觉接口和后训练可增强综合能力。",
-    "method": "encoder-free/VAE-free方向、多专家与后训练等设计。",
-    "problem": "理解生成接口不统一、复杂视觉编辑失配。",
-    "conclusion": "提供较新的原生统一技术报告。",
-    "gap": "【边界/推断】不使用VAE不等于无需保留信息；不据摘要推定所有任务已可靠。",
+    "claim": "研究目标：原生同一视觉接口能否支撑理解、生成、编辑及复杂中英文字布局，如何合并专长不同的后训练专家？",
+    "method": "无外部视觉encoder/VAE的像素FM与MoT、空间PixelShuffle解码、四专家RL后按学生轨迹做速度场蒸馏。共享接口与分支参数同时存在。 两卷积下采样16再2，32×32像素一个token；理解/生成各8.2B、42层4096维，独立QKVO/归一/FFN但共享注意力交互。像素head以2/2/8 PixelShuffle和3×3卷积恢复空间；near-lossless是作者描述，未据此证明可逆。干净上下文不能反向看噪声块。",
+    "problem": "原生同一视觉接口能否支撑理解、生成、编辑及复杂中英文字布局，如何合并专长不同的后训练专家？",
+    "conclusion": "Table11 CVTG平均.948高U1.940，但两区域.933低U1.945、三区域.941低.954；Table12 LongTextEN/ZH .988/.989，EN低Seedream4.5 .989。OneIG EN总体.552低Emu3.5 .564；ZH .536低QwenImage .548。Table21 OpenING带CoT9.18对U1SFT9.07；不能由此归因单个结构。",
+    "gap": "32²压缩和near-lossless不能免除细字/细笔画误差；OCR集合奖励可忽略排列。多专家/teacher/计划和数据均增加资源。公开training文档可确认U1与U1.5生成PT，未据目录存在就认定U1.5完整RL/OPD和LoRA蒸馏都已开放。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3.1–3.2主架构及五阶段/OPD，Tables1/2/8/9/11/12/21、官方README发布及training README范围指定段；完整数据§4/全部榜/消融/源码未全读，未复现",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2609.11929",
     "evidence_history": [
       {
@@ -7068,30 +7094,52 @@
       "web_bundle:U26",
       "local_umm_core:P28"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/U26.md",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
+        "conclusion": "提供较新的原生统一技术报告。",
+        "gap": "【边界/推断】不使用VAE不等于无需保留信息；不据摘要推定所有任务已可靠。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/U26.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "图生成/编辑/交错与理解数据混训；Stage1末T2I/edit/interleave=.6/.3/.1，mid=.4/.2/.1加.3理解，SFT表理解.3/T2I.4/edit.3/interleave.1，合计1.1，正文仅称similar，采样比例需核不能自行归一。四专家为美学/OCR/图表/编辑；完整样本量、许可证与去污染未核齐。",
+    "framework": "无外部视觉encoder/VAE的像素FM与MoT、空间PixelShuffle解码、四专家RL后按学生轨迹做速度场蒸馏。共享接口与分支参数同时存在。",
+    "architecture": "两卷积下采样16再2，32×32像素一个token；理解/生成各8.2B、42层4096维，独立QKVO/归一/FFN但共享注意力交互。像素head以2/2/8 PixelShuffle和3×3卷积恢复空间；near-lossless是作者描述，未据此证明可逆。干净上下文不能反向看噪声块。",
+    "metrics": "理解榜、GenEval/OneIG中英、CVTG2K/LongText、编辑及OpenING等。OneIG总体含多维，文字子分高不等总体第一；OpenING图文步骤不等真实视频动力学。",
+    "baselines": "U1/SFT及QwenImage/Emu3.5/ERNIE等开源，NanoBanana/Seedream/GPTImage等API参考。各模型参数按生成组件计，不能直接解释整个系统成本。未读完整同预算消融。",
+    "experimental_conditions": "Stage1三阶段180K/100K/185K步，lr2e-4/1e-4/1e-4→2e-5；mid80K lr2e-5、SFT10.5K退火0。FM:AR:LPIPS=1:.1:.1从第3阶段起。OCR专家16候选30步CFG4/shift3、Preciseη1.5、KL.02。OPD800步b128 AdamW2e-5/β.9,.999/wd1e-4，冻结理解/末三生成层/head。完整GPU总时未核。",
+    "related_records": [
+      "R08"
+    ]
   },
   {
     "id": "U27",
     "category": "U UMM基础与协同补全",
     "title": "UniModel: A Visual-Only Framework for Unified Multimodal Understanding and Generation",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "UniModel: A Visual-Only Framework for Unified Multimodal Understanding and Generation；arXiv2511.16917v1；未核实正式接收",
     "source_urls": [
-      "https://arxiv.org/abs/2511.16917"
+      "https://arxiv.org/abs/2511.16917",
+      "https://arxiv.org/pdf/2511.16917v1"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：把文字与图像都表示为像素，可统一输入输出空间。",
-    "method": "文字渲染图像，像素到像素扩散/流模型进行双向任务。",
-    "problem": "文本符号与视觉表示的接口差异。",
-    "conclusion": "视觉原生统一是可探索的模型范式。",
-    "gap": "【边界/推断】绘制文字能被识别不保证笔顺；不存在标准token不等于没有信息瓶颈。",
+    "claim": "研究目标：将文本也画成图后，能否用同一视觉扩散框架实现双向图文任务？",
+    "method": "将caption渲染为固定画布，以共享视觉encoder/VAE和单个MMDiT做RGB↔文字图的双向rectifiedflow。 继承QwenImage式MMDiT/AdaLN，共享视觉encoder接条件、预训练VAE编码目标，另两个可学习任务embedding指明方向。均匀随机交换配对方向，FM目标预测z1−z0；仍有encoder和VAE。",
+    "problem": "将文本也画成图后，能否用同一视觉扩散框架实现双向图文任务？",
+    "conclusion": "论文展示可读caption和语义相关图、图→caption图→图循环；结果只能支持所展示样例可行，无法推出普遍准确或强于token模型。",
+    "gap": "caption长度/字体分辨率导致瓶颈；文字拼写与数学/长文能力未量化。统一输入形式不保证模态gap被消除；同VAE也不保证相同语义几何。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3.1–3.3、§4.1–4.5指定方法和实验/限制；未逐图核全部样例，未审代码或获得缺失训练配置，未复现",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2511.16917",
     "evidence_history": [
       {
@@ -7113,30 +7161,50 @@
     "aliases": [
       "web_bundle:U27"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/U27.md",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
+        "conclusion": "视觉原生统一是可探索的模型范式。",
+        "gap": "【边界/推断】绘制文字能被识别不保证笔顺；不存在标准token不等于没有信息瓶颈。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/U27.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "配对图/caption转换文字图；已读Implementation没有足够明确的数据名/规模/切分和完整训练recipe，不能用别的Qwen数据集补填。",
+    "framework": "将caption渲染为固定画布，以共享视觉encoder/VAE和单个MMDiT做RGB↔文字图的双向rectifiedflow。",
+    "architecture": "继承QwenImage式MMDiT/AdaLN，共享视觉encoder接条件、预训练VAE编码目标，另两个可学习任务embedding指明方向。均匀随机交换配对方向，FM目标预测z1−z0；仍有encoder和VAE。",
+    "metrics": "§4.2明确只给定性展示、未做标准T2I量化比较；没有可引用的FID/OCR/VQA主分数。",
+    "baselines": "无受控数值基线。文字接口不同使直接比较需要适配，但可以设计相同图文内容的OCR/语义/画布预算评测，缺定量仍是限制。",
+    "experimental_conditions": "512²固定字体/行距、等概率两方向；训练GPU、batch、步数、lr、参数冻结与具体encoder型号未在已读实现段说明。可学习任务embedding并不代表所有语义均由像素重学。"
   },
   {
     "id": "U28",
     "category": "U UMM基础与协同补全",
     "title": "LatentUMM: Dual Latent Alignment for Unified Multimodal Models",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "LatentUMM: Dual Latent Alignment for Unified Multimodal Models；arXiv2605.17766v1；未核实正式接收",
     "source_urls": [
-      "https://arxiv.org/abs/2605.17766"
+      "https://arxiv.org/abs/2605.17766",
+      "https://arxiv.org/pdf/2605.17766v1",
+      "https://github.com/AIFrontierLab/TorchUMM/tree/425efa19cb2a18d43278d4d222ed238b5e244546/src/umm/post_training/LatentUMM"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：潜在对齐可加强统一模型的理解和生成。",
-    "method": "双潜在空间/目标对齐，联合不同能力。",
-    "problem": "视觉语义与生成表示可能不一致。",
-    "conclusion": "是表示对齐邻近工作，摘要核查层级。",
-    "gap": "【边界/推断】不要与LatentUM混同；未独立检验在书写任务中的转移。",
+    "claim": "研究目标：如何减少UMM图文生成后再编码的语义漂移，训练时潜空间约束能否改善两项能力？",
+    "method": "双模态/双能力对齐加高斯扰动rollout的余弦偏好项。正文与代码分别记录：代码引入可训练映射并存在嵌入代理循环，不能把代理自动等同真实图像循环。 正文φ=固定E*，Eq1为两固定输入embedding距离，对UMM参数是常数；需可训练映射才产生相应梯度。TorchUMM固定425efa19…的stage1是两层Transformer aligner+MLP，BAGEL代码hidden_to_embed/embed_to_hidden可训练、加GTembedding回归项；task/pref循环用这两个MLP，没有在该loss中生成RGB再调用Gemini。不是据代码缺失断言全部实验不成立。",
+    "problem": "如何减少UMM图文生成后再编码的语义漂移，训练时潜空间约束能否改善两项能力？",
+    "conclusion": "Table2 DPG84.1→85.62，UEval图6.84→8.23/总体30.9→31.8，但文字55.38低SFT55.56。Table1主行MMMU51.9→53.2、MMVet65.9→67.2；RecA MathVista overall51.6低其MC79.81和free64.57，若三列使用同聚合分母有冲突，待协议/作者核，不擅改。",
+    "gap": "正文固定φ公式、可训练代理实现及超参存在差异；维数相同不足保证空间坐标一致。代理MLP往返可趋近自洽而不改善真实RGB，须独立闭环检验。只审指定模块，未运行完整CLI或检验checkpoint。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3.1–3.3 Eq1–5、§4.1/Tables1–3及4.3指定段/4.5–4.6，AppB效率/C1–C4；TorchUMM425efa19cb2a18d43278d4d222ed238b5e244546 README、stage1 model、stage2辅助脚本、bagel.py374–412及train loss聚合。全源码/消融未全审，未执行模型",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2605.17766",
     "evidence_history": [
       {
@@ -7158,30 +7226,49 @@
     "aliases": [
       "web_bundle:U28"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/U28.md",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
+        "conclusion": "是表示对齐邻近工作，摘要核查层级。",
+        "gap": "【边界/推断】不要与LatentUM混同；未独立检验在书写任务中的转移。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/U28.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "TextToImage2M用于所有后训练对照；默认GeminiEmbedding、CLIP/SigLIP替代。外部embedding具体型号、图像支持、预计算策略和全部数据去污染未核齐。",
+    "framework": "双模态/双能力对齐加高斯扰动rollout的余弦偏好项。正文与代码分别记录：代码引入可训练映射并存在嵌入代理循环，不能把代理自动等同真实图像循环。",
+    "architecture": "正文φ=固定E*，Eq1为两固定输入embedding距离，对UMM参数是常数；需可训练映射才产生相应梯度。TorchUMM固定425efa19…的stage1是两层Transformer aligner+MLP，BAGEL代码hidden_to_embed/embed_to_hidden可训练、加GTembedding回归项；task/pref循环用这两个MLP，没有在该loss中生成RGB再调用Gemini。不是据代码缺失断言全部实验不成立。",
+    "metrics": "MME/MMMU/MMVet/MMBench/MathVista、DPG/UEval/WISE和ImgEdit、循环embedding误差。训练/评测同embedding的闭环分数可能自洽但不代表像素正确，需独立评价。",
+    "baselines": "同数据SFT/RecA/UniGame/UniCoT；JanusPro/Harmon另做迁移。正文声称全指标优于对照需逐行核，不沿用泛化主张。",
+    "experimental_conditions": "AppC声称LoRA r16/α32、两阶段各2000步b32，lr1e-4/1e-5，AdamWβ.9/.95 wd.01 warm.03 clip1、σ.05每10步rollout、λtask.09/pref.06；公开stage2脚本r64/α128、task.01/pref.001/modal.01/target.01、K2。CLI可覆盖，不能认定默认等论文。AppB额外rollout约20H100GPUh不含训练。"
   },
   {
     "id": "U29",
     "category": "U UMM基础与协同补全",
     "title": "Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification (MIRROR)",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification（MIRROR）；arXiv2602.18746v3；未核实正式接收",
     "source_urls": [
-      "https://arxiv.org/abs/2602.18746"
+      "https://arxiv.org/abs/2602.18746",
+      "https://arxiv.org/pdf/2602.18746v3"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：反思应主动寻求视觉证据而不是只修改文字。",
-    "method": "draft、critique、region verification、revision；ReflectV训练。",
-    "problem": "反馈脱离图像导致错误继续传播。",
-    "conclusion": "提供证据化反思的VLM路线；本轮页面题名与早期讨论不同。",
-    "gap": "【边界/推断】外部/理解任务反思不等于原生UMM视觉执行；须测误改。",
+    "claim": "研究目标：VLM反思若脱离图像证据，能否用明确定位和标记形成可复核的回答修订闭环？",
+    "method": "ReflectV合成反思轨迹+SFT，使模型请求VisualPromptGenerator定位关键词并覆盖标记，再读图修订。生成器是工具化视觉标记，未提出图像/视频生成UMM。 Qwen2.5VL3B/7B及Qwen3VL8B LoRA；多轮AR损失联合监督answer/reflection/tool specification。Molmo7B给点，SAM2.1 hiera_l给mask。更新图连同历史再输入视觉encoder/MLP/LLM。",
+    "problem": "VLM反思若脱离图像证据，能否用明确定位和标记形成可复核的回答修订闭环？",
+    "conclusion": "Table1 Qwen7B→MIRROR OCRBench83.2→92/MMVet56.60→66.70；无loop59.91。Table2无loop Hallusion68.24低base68.66，full82.02；SEED无loop70.36低70.88。AppTable11 MMVet耗时2.81→3.73s、85.50→112.58token，属于增算力换性能。",
+    "gap": "上游定位/分割错误会被视觉标记强化，密集目标标记遮挡风险；筛选只保留teacher单调改进轨迹可能弱化纠错失败场景。反思文本/attention图不能证明真正因果验证。无规范笔顺/视频生成评价。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3.1–3.3及Fig2视觉核、§4.1–4.3、Tables1/2/4/6；AppA1/A2、B1–B3、D2 Table11。完整12榜实现/其他消融及代码未审，未复现",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2602.18746",
     "evidence_history": [
       {
@@ -7203,30 +7290,49 @@
     "aliases": [
       "web_bundle:U29"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/U29.md",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
+        "conclusion": "提供证据化反思的VLM路线；本轮页面题名与早期讨论不同。",
+        "gap": "【边界/推断】外部/理解任务反思不等于原生UMM视觉执行；须测误改。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/U29.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "ReflectV约24K，COCO/LLaVA/GQA/TextVQA/OCRVQA/DocVQA/DVQA/ChartQA训练来源；teacher成绩严格上升、终分10、与GT一致筛轨迹，再视觉一致筛和一轮/多轮混合。TextVQAVal/ChartQATest保留评测，未独立逐样本查污染。",
+    "framework": "ReflectV合成反思轨迹+SFT，使模型请求VisualPromptGenerator定位关键词并覆盖标记，再读图修订。生成器是工具化视觉标记，未提出图像/视频生成UMM。",
+    "architecture": "Qwen2.5VL3B/7B及Qwen3VL8B LoRA；多轮AR损失联合监督answer/reflection/tool specification。Molmo7B给点，SAM2.1 hiera_l给mask。更新图连同历史再输入视觉encoder/MLP/LLM。",
+    "metrics": "12理解榜的标准准确/评分，必要时GPT5mini judge；MMVet等不能与OCRBench分直接互换。另报每样本秒/生成token和回合分布。",
+    "baselines": "原Qwen/InternVL/LLaVA、vanillaSFT、VL-Rethinker/LookBack/工具推理；loop/tools/data过滤消融。模型和数据/工具访问条件需同时匹配。",
+    "experimental_conditions": "LLaMAFactory、2H100、3epoch、ZeRO3、LoRA r32/α128；已读B1未给lr/globalbatch，保留缺项。推理Molmo7B+SAM2.1；表称同硬件，但全部工具计时边界仍需代码确认。80.2%样本一轮完成。"
   },
   {
     "id": "U30",
     "category": "U UMM基础与协同补全",
     "title": "LatentUM: Unleashing the Potential of Interleaved Cross-Modal Reasoning via a Latent-Space Unified Model",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "Unleashing the Potential of Interleaved Cross-Modal Reasoning via a Latent-Space Unified Model（LatentUM）；arXiv2604.02097v1；未核实正式接收",
     "source_urls": [
-      "https://arxiv.org/abs/2604.02097"
+      "https://arxiv.org/abs/2604.02097",
+      "https://arxiv.org/pdf/2604.02097v1"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：共享潜在推理可减少像素中介并连接跨模态过程。",
-    "method": "潜在视觉思维与统一模型交错推理。",
-    "problem": "解码图像的成本与语义传递瓶颈。",
-    "conclusion": "已有潜在UMM推理路线；更正历史讨论中的模糊链接。",
-    "gap": "【边界/推断】不可把潜在序列准确性直接当作生成视频正确性。",
+    "claim": "研究目标：能否直接生成可被理解分支读取的语义视觉token，交错推理时少做像素解码重编码？",
+    "method": "MBAQ按冻结VLM答案分布KL训练多码本量化，MoME双分支AR预测离散语义码，独立可选FM像素decoder，理解自身生成码用于推理/自奖励。 InternVL3.5-4B视觉特征4096→256，8×32维码块各2048码→2560维LLM。答案位置teacher分布KL+MCQ/熵，STE。复制每层QKVO/norm/MLP形成生成分支，共享attention；3层283M ARhead逐块预测8code。理解pretrain冻结，generation3633M；DiT仅训990M条件分支。",
+    "problem": "能否直接生成可被理解分支读取的语义视觉token，交错推理时少做像素解码重编码？",
+    "conclusion": "Table2 GenEval base.85→selfreward.87→pixelreward.92，count.72→.85但color.91→.87/colorattr.73→.71；Table3GenEval2 21.4/68.1→31.3/72.9。Table4VSPcoarse.85、fine.99，高ThinkMorph.76；fine训练样本3倍，非单变量对照。",
+    "gap": "答案KL可能丢训练VQA不敏感的细笔画，理论码组合2048^8不等实际利用率；自奖励未经过像素decoder，可能奖励码正确而像素错误。导航current实现明确像素回环，不能概括全潜空间worldmodel。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3.1–3.3、§4.1–4.3及导航实现段、Tables2–4；AppA1/A2/B1和Fig2PDFp4视觉核；完整导航图/所有消融/附录及代码未审，未复现",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2604.02097",
     "evidence_history": [
       {
@@ -7248,30 +7354,49 @@
     "aliases": [
       "web_bundle:U30"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/U30.md",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
+        "conclusion": "已有潜在UMM推理路线；更正历史讨论中的模糊链接。",
+        "gap": "【边界/推断】不可把潜在序列准确性直接当作生成视频正确性。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/U30.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "MBAQ LLaVA665K；生成32M BLIP3o含short/long/JourneyDB；VSP coarse6000原ThinkMorph训练样本、fine新18000，不等监督量。导航RECON四上下文帧+文本action预测下一帧；测量像素空间NWM规划。",
+    "framework": "MBAQ按冻结VLM答案分布KL训练多码本量化，MoME双分支AR预测离散语义码，独立可选FM像素decoder，理解自身生成码用于推理/自奖励。",
+    "architecture": "InternVL3.5-4B视觉特征4096→256，8×32维码块各2048码→2560维LLM。答案位置teacher分布KL+MCQ/熵，STE。复制每层QKVO/norm/MLP形成生成分支，共享attention；3层283M ARhead逐块预测8code。理解pretrain冻结，generation3633M；DiT仅训990M条件分支。",
+    "metrics": "理解MME/POPE/SEED/MMBench/MMMU，GenEval/GenEval2、VSPlevel3–6准确及NWM ATE/RPE。自奖励通过理解branch对生成码的多选正确选项首token概率，和最终RGB答案可不同。",
+    "baselines": "pixelVQVAE、MBAQvsMSE/cosine量化，ThinkMorph/Mirage/MVoT等规划、其他UMM静态图；参数/训练数据/视觉步和fine样本量不同，不从主表直接归因latent机制。",
+    "experimental_conditions": "448²=256图token；预训64H100×4天，decoder32H100×2天，前置量化另计。标准采样topk32/topp.95/T.5/CFG3。GRPO16rollouts clip.1 KL.005、CFG1/T.9，实验固定理解只更新生成路径，与§3.3一般式两branch可训区分。全部lr/batch/规划后训练算力未核。"
   },
   {
     "id": "U31",
     "category": "U UMM基础与协同补全",
     "title": "DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement；arXiv2605.25328v1；未核实正式接收",
     "source_urls": [
-      "https://arxiv.org/abs/2605.25328"
+      "https://arxiv.org/abs/2605.25328",
+      "https://arxiv.org/pdf/2605.25328v1"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：利用共享与差异化表示而非强迫完全一致，可互相增强。",
-    "method": "表示分解与信息交互约束。",
-    "problem": "理解与生成需求冲突。",
-    "conclusion": "是可供协同/表示实验比较的前作。",
-    "gap": "【边界/推断】本輪摘要级核查；仓库存在不等于权重与完整训练已发布。",
+    "claim": "研究目标：同骨干理解与生成中间表征差异能否转化为互补，怎样保留各自信息而对齐共有信息？",
+    "method": "caption理解与带文本的inpainting生成两flow，中层共享/独有gatedMLP；先冻骨干用crossflow低秩logit偏置预热encoder，再冻encoder调骨干，以双向stopgrad对比对齐shared、压低unique间互信息。 池化中层图token→3层gatedMLP+LN产生shared/unique；Stage1 rank24读出共享跨flow与自身unique修正logit，加正交；Stage2 InfoNCE shared与NCECLUB unique正则+原loss。Eq4是信息因子分解假设，未证明可识别，未显式处理所有synergy/redundancy项；unique互相独立不自动证明保留task相关信息。",
+    "problem": "同骨干理解与生成中间表征差异能否转化为互补，怎样保留各自信息而对齐共有信息？",
+    "conclusion": "Table1 NexusGen MMMU43.5→49.4/GenEval.77→.83/DPG81.30→87.87；Showo MMMU26.3→32.4/GenEval.57→.64。但Table2/4同名Base/Full GenEval=.69/.75，与Table1/3的.57/.64不一致，当前不能直接合并或取较高值当确定结果。",
+    "gap": "表间GenEval/Showo规模冲突影响可比性；MI上/下界依critic与估计条件，不构成语义因子真正分离的证明。unique collapse可低MI，native损失/预热可缓和但不保证。未审原代码和全部频率诊断。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3.1–3.3 Eq4–11、Tables1–4及§4.1指定数据；AppB1/B2 Tables7/8及B3指标。完整诊断图/全部表/代码未核；GenEval数值冲突未解决，未复现",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2605.25328",
     "evidence_history": [
       {
@@ -7309,7 +7434,25 @@
       "web_bundle:U31",
       "local_umm_expanded:X067"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/U31.md",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
+        "conclusion": "是可供协同/表示实验比较的前作。",
+        "gap": "【边界/推断】本輪摘要级核查；仓库存在不等于权重与完整训练已发布。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/U31.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "200K=60K CapsFusion/InfinityMM筛选+70KJourneyDB+70KMidjourneyV6；Qwen2.5VL32B重写部分caption。两flow相同配对数据，外部teacher信息/数据质量要与方法分开。",
+    "framework": "caption理解与带文本的inpainting生成两flow，中层共享/独有gatedMLP；先冻骨干用crossflow低秩logit偏置预热encoder，再冻encoder调骨干，以双向stopgrad对比对齐shared、压低unique间互信息。",
+    "architecture": "池化中层图token→3层gatedMLP+LN产生shared/unique；Stage1 rank24读出共享跨flow与自身unique修正logit，加正交；Stage2 InfoNCE shared与NCECLUB unique正则+原loss。Eq4是信息因子分解假设，未证明可识别，未显式处理所有synergy/redundancy项；unique互相独立不自动证明保留task相关信息。",
+    "metrics": "MMMU/MME/MMBench/MMVet/POPE、GenEval/DPG/WISE、ImgEdit/GEdit。Table1星号8随机seed，未确认等于8次独立完整训练。",
+    "baselines": "NexusGen/Showo/Liquid为主，vanilla同数据SFT、去unique/去stopgrad、中层范围/encoder/数据规模mask等；其他UMM只作参考，paper参数栏本身需独立核。",
+    "experimental_conditions": "Stage1Nexus/Showo/Liquid 3K/2K/5K步、lr2e-4/2e-4/1.5e-4、每GPU6 acc5/5/8；Stage2 15K/12K/20K、lr5e-5/3e-5/2e-5、每GPU6 acc10/12/18，λsha/uni升至.6，wd.01cosine。8RTX4090约74/46/89h；附录将Showo写8B而Table1为1.5B，保留冲突。"
   },
   {
     "id": "R06",
@@ -21172,5 +21315,77 @@
     "conclusion": "Figure4作者报告DDPO两变体比RWR更快提高三种奖励，本次未逐点读曲线。AppB wolf50张：base5.95±.03、Universal6.14±.05、DDPO-IS20Kqueries6.63±.03；限该提示和美学预测器。附录A明确出现高频噪声及文字骗过计数VLM的奖励漏洞。",
     "gap": "提示分布窄，reward优化不等于人类正确性。附录A定性展示手工选退化前checkpoint，选点成本须记；IS更新近似、不同硬件和采样量限制计算公平。未读全部图/代码。此经典MDP直接反驳“扩散无状态行动轨迹无法RL”的泛化主张，但不证明所有确定性ODE采样器可直接套同一密度公式。",
     "claim": "研究目标：让扩散模型直接优化黑盒下游奖励，超越似然训练或奖励加权去噪的近似目标。"
+  },
+  {
+    "id": "L186",
+    "title": "Towards Human-Like Robot Handwriting via Contour-Aware Generation",
+    "canonical_key": "paper:cvpr:2026:qin_towards_human_like_robot_handwriting",
+    "source_urls": [
+      "https://openaccess.thecvf.com/content/CVPR2026/html/Qin_Towards_Human-Like_Robot_Handwriting_via_Contour-Aware_Generation_CVPR_2026_paper.html",
+      "https://openaccess.thecvf.com/content/CVPR2026/papers/Qin_Towards_Human-Like_Robot_Handwriting_via_Contour-Aware_Generation_CVPR_2026_paper.pdf",
+      "https://github.com/RittoQin/CHTR/tree/98e6b16756dc61d70e2c3e6c9c6097b206b1eb70"
+    ],
+    "scope": "handwriting",
+    "category": "G 生成理论、视频、绘画与适配",
+    "record_type": "paper",
+    "privacy": "public_source_note",
+    "provenance": "2026-10-20第二十七批由原文追引和官方模型/代码检索补入；标题和DOI/主目录去重",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
+    "last_updated": "2026-10-20",
+    "sections_read": "正式CVF PDF§1/§3–7与Tables1–6、Fig5PDFp6已渲染核；官方CVF元数据/补充zip链接、GitHub树与README。未读supp/逐图或控制代码，未运行机器人/模型",
+    "review_path": "docs/reviews/L186.md",
+    "review_depth": "critical_sections_reviewed",
+    "note_path": "docs/reviews/L186.md",
+    "dataset": "CHTR110540：font10119/60style/9516类，handwriting100421/1020writer/7184类，合并9837类；train88169/test22371（font7997/2122，hand80172/20249）。Founder/CASIAHWDB静态源；SDNet stroke25类+标准组成匹配笔序，CNNLSTM抽轮廓轨迹；5志愿者1500人小时纠错，标注渲染mIoU.972。部分style独占test，具体名单未核。",
+    "framework": "CHTR任务与110540配对数据，轮廓感知骨架图、多尺度图encoder、AR聚合decoder预测(x,y,w,三penstate)，再借现有brush/RL控制链落地机器人。",
+    "architecture": "thinning+聚类关键点、距轮廓最短距离作w、相邻骨架点边及自环；ResNet18+3selfattention，4graphblock含图attention/conv/coarsening，末3scale供crossattentiondecoder。L=.5L1(x/y/w)+penstateCE。图上w的几何定义与控制压力需要校准，不能当真实传感压力。",
+    "metrics": "mIoU轮廓、DTW轨迹、FID/LPIPS/HWD渲染质量；另CASIA传统轨迹。静态mIoU/FID不检测全笔顺，DTW也需事件/方向分项；robot目前已读主文以定性对比。",
+    "baselines": "CrossVAE/DEDNet/PENNet/TrajFormer，原方法改input/output加入width并调优；原版和改版明确对照。robot比CalliRewrite，控制来自已有系统而非全部由本文网络学习。",
+    "experimental_conditions": "CHTR256²/CASIA64²；单RTX4090，Adam1e-4 b48/300Kiter/clip2；GATc512/8heads，每block2attention，最长序列endstatepadding。精确CASIA版本/划分ID、λ/其他控制recipe与seed未全部核。",
+    "problem": "从单字图像恢复同时带自然笔序、几何轨迹和宽度轮廓的序列，使书写机器人更接近目标字形。",
+    "method": "CHTR任务与110540配对数据，轮廓感知骨架图、多尺度图encoder、AR聚合decoder预测(x,y,w,三penstate)，再借现有brush/RL控制链落地机器人。 thinning+聚类关键点、距轮廓最短距离作w、相邻骨架点边及自环；ResNet18+3selfattention，4graphblock含图attention/conv/coarsening，末3scale供crossattentiondecoder。L=.5L1(x/y/w)+penstateCE。图上w的几何定义与控制压力需要校准，不能当真实传感压力。",
+    "conclusion": "Table3全test TrajFormer→ours mIoU.552→.641、DTW18.277→12.765、FID1.475→1.228、LPIPS.092→.066；文称DTW降27.69%/LPIPS降22.83%，按所列原值分别约30.16%/28.26%，百分比不符，保留原值待作者/计算协议核，其他结论不依赖此百分比。Table5 CASIA mIoU.445→.530、DTW23.892→16.264。",
+    "gap": "标签笔顺含标准匹配与人工修订，无原作者真实时间/压力采集；最终图不唯一决定原轨迹。稀有GB2312外字符仍笔顺错误（Fig7/限制）。官方GitHub98e6b167…tree仅README，代码/数据未实际取得；suppzip/控制链/机器人视频未审，不称发布可复现。",
+    "claim": "研究目标：从单字图像恢复同时带自然笔序、几何轨迹和宽度轮廓的序列，使书写机器人更接近目标字形。",
+    "version": "Towards Human-Like Robot Handwriting via Contour-Aware Generation（G-HTR / CHTR-110K）；CVPR2026正式论文，pp31597–31607"
+  },
+  {
+    "id": "R08",
+    "title": "SenseNova-U1.5-8B-MoT-LoRAs：8step与V2蒸馏适配器、加载与训练配置",
+    "canonical_key": "resource:hf:sensenova/SenseNova-U1.5-8B-MoT-LoRAs",
+    "source_urls": [
+      "https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT-LoRAs/tree/f33b8fe0216e6f10e5aed58ebbfdd05f02826732",
+      "https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT-LoRAs/blob/f33b8fe0216e6f10e5aed58ebbfdd05f02826732/README.md",
+      "https://github.com/OpenSenseNova/SenseNova-U1/blob/c35c83b58ef6e238a08b986aa58f3b73303aa42f/docs/base_vs_distill.md",
+      "https://github.com/OpenSenseNova/SenseNova-U1/blob/c35c83b58ef6e238a08b986aa58f3b73303aa42f/src/sensenova_u1/utils/lora.py"
+    ],
+    "scope": "resource",
+    "category": "R 工具与数据",
+    "record_type": "resource",
+    "privacy": "public_source_note",
+    "provenance": "2026-10-20第二十七批由原文追引和官方模型/代码检索补入；标题和DOI/主目录去重",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
+    "last_updated": "2026-10-20",
+    "sections_read": "HF API文件列表与README指定头部/QuickStart/模型表/Limitations/License；GitHubREADME发布及base_vs_distill条件、utils/lora.py指定加载逻辑、trainingREADME范围；未下载权重、未运行或审全训练实现",
+    "review_path": "docs/reviews/R08.md",
+    "review_depth": "resource_reviewed",
+    "note_path": "docs/reviews/R08.md",
+    "dataset": "训练数据/teacher/蒸馏loss/筛选和V2修订量未在已读卡/配置给足；官方卡声称中英和4K，不等新增公开训练数据。",
+    "framework": "官方HF提供8step与8stepV2两safetensors，V2称改善色彩/对比/过锐；本次未找到V2独立论文和完整蒸馏recipe，不把基础报告的OPD自动当8step蒸馏算法。",
+    "architecture": "继承U26pixelFM/MoT；官方utils/lora.py读down/up和alpha，rank从down.shape[0]推断，以strength×alpha/rank×up@down合并linearweight。没有adapter_config.json；实际rank/target全名单未读权重，不猜。",
+    "metrics": "未找到V2独立量化质量/速度表；保留其色彩改善为作者发布主张。基础U26报告分数不能赋给V2。需全链延迟/显存、独立OCR字符串/布局、保留编辑区和多样性。",
+    "baselines": "基础50step/CFG4与8step/CFG1；旧V1/V2和SFT/final不同底座应交叉对照。文档旧版画廊明确是U1，不能当U1.5示例或分数。",
+    "experimental_conditions": "HF固定f33b8fe0216e6f10e5aed58ebbfdd05f02826732；GitHubc35c83b58ef6e238a08b986aa58f3b73303aa42f。V2卡2048²、numsteps8/CFG1/cfgnormnone/shift3，Py3.11/Torch2.8/CUDA12.8参考环境。旧8step文档称在SFT上训、final兼容但未必最优；V2卡指向final且不兼容Preview，不跨版本推定。",
+    "problem": "在现有原生统一模型上如何用公开LoRA减少生成步数，真实检查点兼容性和质量代价是什么？",
+    "method": "官方HF提供8step与8stepV2两safetensors，V2称改善色彩/对比/过锐；本次未找到V2独立论文和完整蒸馏recipe，不把基础报告的OPD自动当8step蒸馏算法。 继承U26pixelFM/MoT；官方utils/lora.py读down/up和alpha，rank从down.shape[0]推断，以strength×alpha/rank×up@down合并linearweight。没有adapter_config.json；实际rank/target全名单未读权重，不猜。",
+    "conclusion": "确认仓库含两个实际权重文件名和中英README（未下载权重/运行）；模型卡Apache2.0且指定final底座。V2颜色/过锐改进只有卡与发布说明，未独立验证；不存在可填FID提升数字。",
+    "gap": "蒸馏可损小字/高频笔画或编辑保留；卡也列dense/mixedtext、精确布局、人手细节、复杂编辑漂移。license声明已核卡与代码LICENSE，训练数据权利未独立核。不是完整RL/OPD开放的证明。",
+    "claim": "研究目标：在现有原生统一模型上如何用公开LoRA减少生成步数，真实检查点兼容性和质量代价是什么？",
+    "version": "SenseNova-U1.5-8B-MoT-LoRAs：8step/V2蒸馏适配器与实际训练/加载配置；2026-09-24发布V2，非独立论文记录，关联U26",
+    "related_records": [
+      "U26"
+    ]
   }
 ]
