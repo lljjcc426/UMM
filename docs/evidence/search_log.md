@@ -176,3 +176,8 @@ U26–U31读取固定版本PDF方法/选定结果与附录，U29p3/U30p4方法�
 ## 第三十一批补充
 
 第三十一批核七项完整核心方法/表/消融和框架图；补DiffInk ICLR2026、LVGM WACV2026、PEN-Net ACCV2022正式/补充，固定三库对比配置、mask与loss实现。主表/代码歧义保留。
+
+
+## 第三十二批补充
+
+第三十二批交叉核CVPR2023 SDT正式/补充、AAAI2023 StrokeExtraction、ICCC2023 Calliffusion正式、Moyun v2与DOI登记；固定SDT/StrokeExtraction/Luhman/InkDiffuser/DiffMath源码范围。DiffMath仅README，不以目录存在当代码已发。后续待查CalliECD（S0031320326013385）、Cangjie（10.1049/ipr2.70392）须先与主目录去重，均未在本批假称精读。

@@ -14,18 +14,18 @@
 | A06 | [Font Generation and Keypoint Ranking for Stroke Order of Chinese Characters by Deep Neural Networks](A06.md) | 出版社Abstract/正式书目信息；PDF转回订阅预览，未取得Method/Experiments全文 |
 | A07 | [Complex Handwriting Trajectory Recovery: Evaluation Metrics and Algorithm（PEN-Net）](A07.md) | arXiv Abstract/§3–6主文；ACCV正式§3.1/3.2/4.3及Tables1/2配置/结论复核，supp全文三页扰动/数据统计。Fig5/6 arXivPDFp9、正式p10软min与p13消融勾选视觉核。固定03bc591 README/tree、train.py指定训练段、配置及model.py1–185核心结构/前向/解码；公开默认解码另有取整与可选骨架吸附，未取得主表实际评估调用，未运行，核心三遍完成。 |
 | A08 | [Modality Conversion of Handwritten Patterns by Cross Variational Autoencoders（Cross-VAE）](A08.md) | arXivv1六页Abstract/Introduction/RelatedWork/§III–V含Eq1–9/TableI完整核心文字与Fig2PDFp3视觉核；主办ICDAR程序与作者PDF入口核。未逐图读所有示例、无训练源码/模型执行，核心三遍完成；缺失实验字段明确记未报告。 |
-| A09 | [Disentangling Writer and Character Styles for Handwriting Generation（SDT）](A09.md) | Abstract、§4.1设置；完整消融与训练附录待补 |
-| A10 | [Diffusion Models for Handwriting Generation](A10.md) | Abstract、§5.1、Table1及采样消融 |
-| A11 | [Stroke Extraction of Chinese Character Based on Deep Structure Deformable Image Registration](A11.md) | 摘要、方法三模块、实验数据/训练、Tables2–5及Limitations；代码未运行 |
-| B01 | [Calliffusion: Chinese Calligraphy Generation and Style Transfer with Diffusion Modeling](B01.md) | 方法/训练、Tables1–2及Limitation全文段落；图仅核图注，LoRA配置及原会议论文集待核 |
-| B02 | [Moyun: A Diffusion-Based Model for Style-Specific Chinese Calligraphy Generation](B02.md) | Abstract、§4.1、Table1/2和用户研究说明；训练/消融未完成 |
-| B03 | [InkDiffuser: High-Fidelity One-shot Chinese Calligraphy via Differentiable Morphological Optimization](B03.md) | HTML§IV公式及§V TablesI–III、结论；GitHub固定树/train.py/configs/fontdiffuser.py/dis_loss.py；PDF公式视觉核对与实际训练版本尚未完成 |
+| A09 | [Disentangling Writer and Character Styles for Handwriting Generation（SDT）](A09.md) | 正式主文Abstract/Introduction/Related/§3 Eq1–3/§4 Tables1–3/Conclusion，supp A.1–A.11核心数据/配方/消融Tables1–7；主PDFp4 Fig4、p6 Tables1/2与suppp5损失视觉核。固定dailenson/SDT ba1da572c5c9947a192672e7de639987b878603f的README、loss.py、CHINESE_CASIA配置全文及trainer25–85已读，model仅定位未逐行审。supp全部定性图未逐图读，未模型执行；核心三遍及五项书面检查完成。 |
+| A10 | [Diffusion Models for Handwriting Generation](A10.md) | v1 Abstract/Introduction、§2 Eq1–14/Algorithms1–2、§3架构、§4相关、§5完整设置/Table1/§6；PDFp5 Fig2/Algorithms、p8主表和AppA p13 Fig9/10视觉核。固定tcl9876/Diffusion-Handwriting-Generation 26a2dc33648b26b49eb1d11af118e0dc71fa8698 README/train/inference全文、nn.py1–47与模块定位已读；utils采样实现未审，未逐图看全部附录，未运行；核心三遍完成。 |
+| A11 | [Stroke Extraction of Chinese Character Based on Deep Structure Deformable Image Registration](A11.md) | AAAI正式Abstract/Intro/Related/Method Eq1–6/Experiments Eq7–10 Tables1–5/Limitations/Conclusion核心文字；PDFp2 Fig1/p3 Fig2/p4 Fig3视觉核。固定MengLi-l1/StrokeExtraction 2d273e0eaa1df448aa5354375bb1a0a9c131f66d README、model_of_SDNet.py1–124及utils_loss_val.py134–185评估代码已读；未逐行审全部训练/Seg/Extract模块或运行。核心三遍完成。 |
+| B01 | [Calliffusion: Chinese Calligraphy Generation and Style Transfer with Diffusion Modeling](B01.md) | arXivv1完整核心方法/实验；ICCC正式五页Abstract/Intro/Method Eq1–5/Fig2、数据/配方、主Tables1/2及Limitations/Conclusion交叉核，正式PDFp2框架图视觉核。未运行或取得完整配方；核心三遍/五项书面检查完成。 |
+| B02 | [Moyun: A Diffusion-Based Model for Style-Specific Chinese Calligraphy Generation](B02.md) | v2 Abstract/Intro/Related/§3全部、§4全部Tables1/2及§5，PDFp3 Fig2、p4方法、p7 Table2视觉核；Crossref DOI主办登记数据核到McGE workshop/pp19–26。未读全部参考原文、未取得完整实现或运行；核心三遍完成，缺消融明确记录。 |
+| B03 | [InkDiffuser: High-Fidelity One-shot Chinese Calligraphy via Differentiable Morphological Optimization](B03.md) | v1 Abstract/Intro/Related、§III背景、§IV Eq1–21、§V TablesI–III/§VI核心完整读；PDFp4 Fig2/p5 Eq11/12视觉核。固定4d9f6c1先前已核配置/train入口，本批重读dis_loss.py1–130软形态实现；未完整跑代码或逐图全例。核心三遍与五项书面检查完成。 |
 | B04 | [AnyText2: Visual Text Generation and Editing With Customizable Attributes](B04.md) | 方法框架、训练/推理配置与对比来源说明；数表待补 |
 | B05 | [Kinetic Typography Diffusion Model（KineTy）](B05.md) | 数据/架构、训练设置与基线；主数表待补 |
 | B06 | [Dynamic Typography: Bringing Text to Life via Video Diffusion Prior](B06.md) | 方法、数据和实现/公平比较设置；消融数表待补 |
 | B07 | [Inverse Painting: Reconstructing the Painting Process](B07.md) | §1、3、4、Fig3/5；Appendix A.3、B.3/B.5/B.6 |
 | B08 | [AnimatePainter（arXiv:2503.17029）](B08.md) | Abstract、§4.1/4.2、Table2；完整结构消融尚未抽全 |
-| B09 | [DiffMath: Symbol- and Graph-Aware Latent Diffusion Transformer for Handwritten Mathematical Expression Generation](B09.md) | §3轨迹VAE/RelAST/DiT、Tables2–4、Appendix0.B训练和基线；更多OCR增强结果与代码未全部复核 |
+| B09 | [DiffMath: Symbol- and Graph-Aware Latent Diffusion Transformer for Handwritten Mathematical Expression Generation](B09.md) | v2 Abstract/Intro/Related、§3 Eq1–9/§4 Tables1–4/§5，AppAlgorithm1/A1–3/B1–4/C1–2核心文字；PDFp5 Fig4与p9 Table3/4视觉核。固定ec4aa2c公开tree与README全文已读，只有README，未取得训练/推理实现，未逐图读末尾全部案例或执行；核心三遍完成。 |
 | C01 | [Emerging Properties in Unified Multimodal Pretraining（BAGEL）](C01.md) | §2架构/注意力、§3数据Table1、§4训练Table3、§5–6消融与能力曲线、§7主表相关行；附录评判说明；完整硬件与所有表值未逐项核 |
 | C02 | [Show-o2: Improved Native Unified Multimodal Models](C02.md) | §1/3–4完整结构与训练、Tables3–10、§5；未逐图核查、完整附录/代码/高分辨率checkpoint未审 |
 | C03 | [Hyper-Bagel: A Unified Acceleration Framework for Multimodal Understanding and Generation](C03.md) | §2文字草稿与data，§3全部蒸馏阶段，§4主表/ablation相关行；配置细节和代码尚未完整复核 |

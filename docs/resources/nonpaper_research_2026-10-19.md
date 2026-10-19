@@ -125,3 +125,8 @@ Calligraphy Bench官方卡与公开88行不完全一致：82个不同Unicode字�
 ## 第三十批补充
 
 新增[R09 Datumwell公开10例](../reviews/R09.md)：模拟状态/五维计划关节action/多视角RGB及原生约3Hz→50Hz保持协议。审卡/metadata/loader，未下载完整轨迹视频或运行policy。尚未定位独立论文，权利边界保留。
+
+
+## 第三十二批补充
+
+DiffMath固定ec4aa2c树仅README，代码未发；SDT固定ba1da57默认配方与论文不同且Tamil未同等提供；StrokeExtraction固定2d273e0提供RHSEDB，CCSEDB未见同等下载。论文存在不等配方/数据完整发布，也不能仅因资源有仓库名就判可复现。

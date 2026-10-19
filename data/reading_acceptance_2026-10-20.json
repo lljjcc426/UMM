@@ -1815,6 +1815,244 @@
         }
       ],
       "boundary": "问题/方法和核心公式作用、框架图、主结果/消融与批判性分析已核，五项书面检查完成；原文缺失的条件、歧义及代码差异明确保留。计时口试、全部附录/源码和独立复现单列，不额外作为核心阅读门槛。未运行模型。"
+    },
+    {
+      "id": "A09",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "SDT从内容字体与离线作者参考生成在线字轨迹。它认为作者共性和每字局部特征应分层，通过两种对比正例训练两个分支，再顺序注入decoder。中文主表style与DTW有改进，但各语言另训练，未验证统一跨文字零样本。",
+          "evidence": "完整问题/动机核心章节及独立书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig4中内容字图形成query，同作者15字经ResNet/Transformer分成writer/glyph特征；两writer层再两glyph层，AR预测20混合高斯坐标和三类笔状态。输出含∆xy/down/up/end，没有压力或物理时间。",
+          "evidence": "正式PDFp4 Fig4与p6表，suppp5损失渲染视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "WriterNCE正例同作者，GlyphNCE正例同glyph两随机patch视图。串行层使全局后局部条件作用可分，但频谱差异不证明严格解耦；supp损失印刷缺负号，固定代码使用正确NLL/CE。",
+          "evidence": "核心方法/公式作用；可取得代码范围和差异详见笔记。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1 Style94.50对WLU-v2 72.37是22.13pp。Table2 writer-only91.38、glyph-only90.31、两者94.50，无双NCE85.52；supp串行融合优concat，但容量需匹配。α是在test调参，需独立validation复核。",
+          "evidence": "主表与消融逐值核；缺失作者消融明确保留，未补造。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "stylecritic用测试作者监督且各语种上限不同，会不会形成评价捷径？频谱解耦能否通过换内容/作者干预验证？OLHWG/DiffInk更晚已处理布局/整行，字级研究缺口不能概括成长行尚无前作。",
+          "evidence": "原文失败/协议限制及已读关联先例。"
+        }
+      ],
+      "boundary": "核心问题/方法公式、框架图、主结果及现有消融/缺项、批判性分析和五条书面检查完成；未逐图全附录、未完整源码审计或独立运行。缺失报告与冲突保留，不以口试/复现作为核心阅读额外门槛。"
+    },
+    {
+      "id": "A10",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "Luhman2020用文字和离线风格图生成英文在线行，探索全序列扩散替代AR。连续坐标去噪、二值抬笔另外预测。主量化来自训练数据分布，论文表与文字的指标升降相反，不能概括双指标改善。",
+          "evidence": "完整问题/动机核心章节及独立书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2是MobileNet图像style与字符crossattention后给多尺度1D U-Net；当前坐标噪声、连续噪声级条件共同输入，输出噪声坐标和pen概率。公开推理按16乘文字长设点数，没有独立EOS头。",
+          "evidence": "PDFp5 Fig2/Algorithms、p8 Table1、p13结构渲染视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "pen是离散变量，不跟xy一起高斯加噪；连续噪声等级调制可减少固定步过拟合。Eq12先估x0再前向重采样，噪声方差不同于DDPM后验，也带随机性；其好处必须分别用指标检验。",
+          "evidence": "核心方法/公式作用；可取得代码范围和差异详见笔记。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1 modified FID7.10优standard8.05，但GS3.3e-3劣2.7e-3，表头均↓。这一个采样消融不证明每个模块必要，且无外部SOTA同协议表。主文反述升降需保留冲突。",
+          "evidence": "主表与消融逐值核；缺失作者消融明确保留，未补造。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "训练文本量化是否掩盖未见文本/作者退化？外部长度规则对质量和效率有多大影响？2020已提出在线手写扩散，后续中文/公式工作的首创需限定文字体系与任务，不能忽略经典先例。",
+          "evidence": "原文失败/协议限制及已读关联先例。"
+        }
+      ],
+      "boundary": "核心问题/方法公式、框架图、主结果及现有消融/缺项、批判性分析和五条书面检查完成；未逐图全附录、未完整源码审计或独立运行。缺失报告与冲突保留，不以口试/复现作为核心阅读额外门槛。"
+    },
+    {
+      "id": "A11",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "StrokeExtraction解决已知标准有序笔模板下的目标字逐笔分割。它用配准定位、粗语义区分与STN局部提取协同。输出是按模板编号的mask，顺序从模板继承，真实动态历史并未观测。",
+          "evidence": "完整问题/动机核心章节及独立书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig1–3将参考模板/目标送SDNet，产生全局和局部流；SegNet结合几何先验做7类多标签分割；ExtractNet接单笔先验、语义mask等五输入，STN加局部裁剪输出该笔。",
+          "evidence": "正式PDFp2–4 Fig1–3渲染视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "笔级平均流/导数形成线性近似，避免任意像素形变破坏每笔结构；语义辅助区分交叉。训练目标到参考、推理再逆仿射。所有这些仍依赖正确字身份和模板，无独立笔尖/时序估计。",
+          "evidence": "核心方法/公式作用；可取得代码范围和差异详见笔记。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table3 matched CC.924/RH.917，unmatched.926/.930；unmatched逐输出最大intersection可复用GT，不是严格一一匹配。Table5去prior降.567/.556，去semantic.914/.890，先验贡献更大。Eq9/10缺均值记号，固定评估实际np.mean。",
+          "evidence": "主表与消融逐值核；缺失作者消融明确保留，未补造。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "若OCR字身份错、模板漏笔，整链会怎样？90/10记录划分能否推广未见作者/字？后续BCSS等实例分割需按模板可得性分组；PEN-Net/A05预测轨迹，与静态笔mask任务不能混用结论。",
+          "evidence": "原文失败/协议限制及已读关联先例。"
+        }
+      ],
+      "boundary": "核心问题/方法公式、框架图、主结果及现有消融/缺项、批判性分析和五条书面检查完成；未逐图全附录、未完整源码审计或独立运行。缺失报告与冲突保留，不以口试/复现作为核心阅读额外门槛。"
+    },
+    {
+      "id": "B01",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "Calliffusion针对稀疏字/书体/作者组合，用三段文字条件生成64²书法。LoRA加入一张新字或4/a样本，再调用既有风格。任意新作者/新书体的少样本学习仍列未来工作，不能混成已解决。",
+          "evidence": "完整问题/动机核心章节及独立书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "正式Fig2中中文BERT编码prompt，经crossattention调制像素U-Net；DDPM从噪声逐步恢复静态字图。one-shot更新低秩权；图内没有VAE、在线轨迹或动作decoder。",
+          "evidence": "ICCC正式PDFp2 Fig2渲染视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "三因素条件使缺失组合可采样，LoRA让新内容进入已学风格空间。冻结基础权不保证适配后无遗忘；rank和训练预算缺失使独立复用受限，迁移因素必须明确。",
+          "evidence": "核心方法/公式作用；可取得代码范围和差异详见笔记。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1 script.91→.93、content.84→.85总体提升，但草书content.72→.64变差。人评150人10题识假p.459/识真p.458不显著，不能证明等效。只有style开关有限对照，LoRA缺独立消融，该缺口明确保留。",
+          "evidence": "主表与消融逐值核；缺失作者消融明确保留，未补造。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "生成准确率高于real是否受classifier数据分布影响？10题人评是否足够且题项/参与者独立？Moyun已有三因素离散条件，后续新研究需区别输入形式、架构及同预算证据，不能再宣称三因素控制全新。",
+          "evidence": "原文失败/协议限制及已读关联先例。"
+        }
+      ],
+      "boundary": "核心问题/方法公式、框架图、主结果及现有消融/缺项、批判性分析和五条书面检查完成；未逐图全附录、未完整源码审计或独立运行。缺失报告与冲突保留，不以口试/复现作为核心阅读额外门槛。"
+    },
+    {
+      "id": "B02",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "Moyun把书法静态生成改成VAE latent Mamba扩散，并把作者/书体/字三个ID相加调制。动机是轻量条件和结构表达。资源声称约193万图，但实验仅12985图，应独立评价实际训练协议。",
+          "evidence": "完整问题/动机核心章节及独立书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2中32²×4 latent分patch，TripleLabel经MLP产生scale/shift，Mamba2替换VisionMamba反复处理，再VAE解码256²图。图不含笔尖轨迹或时间事件，组合标签属于已知类别新配对。",
+          "evidence": "v2PDFp3 Fig2/p7 Table2渲染视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "三个embedding的可加性给组合参数化，不能数学保证任意组合泛化。Mamba长程成本优势需同预算UNet/DiT量化，本文没有对应组件消融。",
+          "evidence": "核心方法/公式作用；可取得代码范围和差异详见笔记。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table2 IoU.260被标↓且称优于.325/.348，正文定义却越高越好，因此该项不判优。OCR表生成439/1295、GT622/1295，数值是数量。9人选高质量10题匹配53.3%，不独立证明Mamba/TripleLabel效果；缺消融不补造。",
+          "evidence": "主表与消融逐值核；缺失作者消融明确保留，未补造。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "40×40每pair最多4为何能有12985图，是否另含script单位？清洗面积>100会不会删真实点笔/飞白？McGE是MM附属workshop，Calliffusion已三条件控制，应核算增益的真正来源及正式发表层级。",
+          "evidence": "原文失败/协议限制及已读关联先例。"
+        }
+      ],
+      "boundary": "核心问题/方法公式、框架图、主结果及现有消融/缺项、批判性分析和五条书面检查完成；未逐图全附录、未完整源码审计或独立运行。缺失报告与冲突保留，不以口试/复现作为核心阅读额外门槛。"
+    },
+    {
+      "id": "B03",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "InkDiffuser针对静态中文字体细边/笔芯丢失，以高频支路和形态分区loss补充扩散。结果有部分静态指标收益，也有单模块退化。所谓temporal是去噪步，未建书写物理时间。",
+          "evidence": "完整问题/动机核心章节及独立书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2内容、Sobel高频、风格三个encoder，STAF将调制高频残差加回内容特征，条件U-Net逐步去噪。DIS对输出及目标的笔芯/边界/Laplacian区域监督，最终仍是一张96平方字图。",
+          "evidence": "v1PDFp4 Fig2/p5公式渲染视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "STAF按层/空间/步权重控制高频强度；DIS希望分开结构与边界。Eq11/12的τsigmoid有界于τ，低温趋零而非一般min/max，公开代码改用log-mean-exp，实际训练入口仍未取得完整一致实现。",
+          "evidence": "核心方法/公式作用；可取得代码范围和差异详见笔记。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "TableII base LPIPS.1615，STAF-only.1675更差，DIS-only.1596，full.1573最好；SSIM各有取舍。TableIII零DIS行与另一表DIS-only相同，底座不明。λ.03 LPIPS好于.02，但SSIM更差，不能说.02全指标最佳。",
+          "evidence": "主表与消融逐值核；缺失作者消融明确保留，未补造。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "公式与训练模块究竟哪个对应主表？普通可微min/max或简单edge loss是否同样有效？FontDiffuser等先例已做静态字体扩散，高频/形态组合需匹配预算对照，不能凭物理命名宣称墨水动态已验证。",
+          "evidence": "原文失败/协议限制及已读关联先例。"
+        }
+      ],
+      "boundary": "核心问题/方法公式、框架图、主结果及现有消融/缺项、批判性分析和五条书面检查完成；未逐图全附录、未完整源码审计或独立运行。缺失报告与冲突保留，不以口试/复现作为核心阅读额外门槛。"
+    },
+    {
+      "id": "B09",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "DiffMath要从LaTeX生成内容和二维结构正确的在线数学笔迹，并增强识别。它显式解析RelAST，训练带结构CTC的MathVAE，再用图/深度/符号数条件DiT。主表改善表达识别，但输出未测规范笔顺。",
+          "evidence": "完整问题/动机核心章节及独立书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig4是LaTeXML转符号/关系/深度，VAE把N×4轨迹压成N/4×384，联合OCR正则；冻结后DiT接结构condition和noisy latent，预测x0再解码GMM坐标与两pen类。图的两loss标签不代表两个独立OCR网络。",
+          "evidence": "v2PDFp5 Fig4/p9 Table3渲染视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "显式关系给二维约束，latent CTC保内容，count补全局规模。count系数α可负，后期必增强需以实际训练α验证。未知MathML节点RIGHT回退及解析器宏覆盖会限制任意LaTeX说法；README仓库尚无训练实现。",
+          "evidence": "核心方法/公式作用；可取得代码范围和差异详见笔记。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table3a recon+KL Exp46.23，+symbol65.22，+relation70.70；b加Rel/Depth/Count为63.89/69.83/70.70，count贡献.87pp无CI。主Table2比FormulaGAN+4.84pp；下游增数据且固定一epoch增加steps，收益存在曝光混杂。",
+          "evidence": "主表与消融逐值核；缺失作者消融明确保留，未补造。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "LaTeXML覆盖和PAD终止规则是否足够？同曝光/新LaTeX分布后增强收益还在吗？OneDM/DiffInk已在线手写，FormulaGAN已公式生成，改进应落到结构表示与latent因果证据，并用独立OCR避免单一评价器偏差。",
+          "evidence": "原文失败/协议限制及已读关联先例。"
+        }
+      ],
+      "boundary": "核心问题/方法公式、框架图、主结果及现有消融/缺项、批判性分析和五条书面检查完成；未逐图全附录、未完整源码审计或独立运行。缺失报告与冲突保留，不以口试/复现作为核心阅读额外门槛。"
     }
   ]
 }

@@ -84,3 +84,6 @@
 
 
 第三十一批完成A01/A02/A03/A04/A05/A07/A08七项核心三遍与五条书面检查；另将此前40项已有证据逐项按统一口径确认，属于状态校正。当前339目录/339笔记、334章节或协议/5摘要、51核心三遍；未模型复现。见[中文墨迹生成与恢复专题](../evidence/chinese_ink_generation_and_recovery_core_reading_2026-10-20.md)及[逐文件说明](../evidence/thirty_first_changes_2026-10-20.md)。无删除。
+
+
+第三十二批完成A09/A10/A11/B01/B02/B03/B09七项核心三遍与五条书面检查。当前339目录/339笔记、334章节或协议/5摘要、58核心三遍，未模型复现。见[手写风格/书法/数学审查](../evidence/handwriting_style_diffusion_and_math_core_reading_2026-10-20.md)及[逐文件说明](../evidence/thirty_second_changes_2026-10-20.md)。无删除。
