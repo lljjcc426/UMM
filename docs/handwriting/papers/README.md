@@ -29,3 +29,13 @@
 - [Unwritten](unwritten.md)：在没有可见墨迹时测试真正的过程感知，作为发散评测线索。
 
 每张卡片标注阅读层级。卡片存在不代表已经读完全文或已复现。
+
+## 2026-10-19 实际来源核查与新增卡片
+
+- [VidScribe 三遍阅读](vidscribe.md)：基准任务和11+2指标、数据及DPO实验；无规范笔顺视频生成主张。
+- [Calligraphy Bench](calligraphy_bench.md)：88字符的Agent逐笔书法生成评分；核对事件裁判输入与全字严格率。
+- [VideoSketcher](videosketcher_deep_review.md)：序列素描视频、Wan2.1训练/LoRA/AR，实现证据和待核主表。
+- [Ketaba-OCR-LoRA](ketaba_ocr_lora.md)：NakbaNLP2026论文 + HF adapter + train.yaml，OCR跨书体和集成。
+- [Wuji Writing VAM](wuji_vam_modelcard.md)：机器人数字写字的人类视频条件、视频+动作联合模型卡。
+- [TextDiffuser/GlyphControl](static_text_neurips_baselines.md)：NeurIPS2023静态文字扩散前作；论文完整表格待补。
+- [增量矩阵](../../evidence/scoped_literature_matrix_2026-10-19.md) 和 [无论文资源](../../resources/nonpaper_research_2026-10-19.md)。

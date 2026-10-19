@@ -41,3 +41,14 @@ python scripts/validate_catalog.py
 ```
 
 `scripts/stroke_metrics.py` 提供已标注事件序列的指标示例，不负责从视频识别笔画。[像素过程小实验](docs/experiments/process_probe.md)已运行，验证同终态反例和模板辅助的顺序/方向观测；可用 `python scripts/process_probe.py` 复现并查看[动画](examples/process_probe/comparison.gif)。它不是模型评测，当前尚无模型训练或推理实验结果。
+
+## 2026-10-19：新增来源核查与文献补录
+
+本轮扩展了**基准/生成方法/无论文制品**三类来源核验，新增文档不覆盖已有 281 条主目录记录。原主目录中仍有大量历史未复核条目，见[证据审计](docs/evidence/2026-10-19_quality_audit.md)；新增条目存于独立[来源可追溯 JSON](data/research_additions_2026-10-19.json)，尚未重新生成主目录的 Excel/CSV 视图，不混用两个目录的条目计数。
+
+- [补录研究矩阵](docs/evidence/scoped_literature_matrix_2026-10-19.md)：按任务、数据、结构、指标、比较方法与实验条件区分直接前作和可迁移机制。
+- [VidScribe 精读](docs/handwriting/papers/vidscribe.md)、[Calligraphy Bench](docs/handwriting/papers/calligraphy_bench.md)、[VideoSketcher 精读](docs/handwriting/papers/videosketcher_deep_review.md)：分别对应视频文字评测、书法工具绘制、逐步素描视频生成；三者的笔顺与生成任务不等价。
+- [Ketaba OCR 论文/代码核查](docs/handwriting/papers/ketaba_ocr_lora.md)、[Wuji 视频动作权重](docs/handwriting/papers/wuji_vam_modelcard.md)、[无论文模型及数据资源](docs/resources/nonpaper_research_2026-10-19.md)。
+- [NeurIPS 静态文字扩散前作](docs/handwriting/papers/static_text_neurips_baselines.md)、[可证伪实验设计](docs/experiments/research_gaps_and_tests_2026-10-19.md)、[下一批精读核查队列](docs/evidence/survey_queue_2026-10-19.md)。
+
+**关键新颖性纠偏：**中文书法逐笔 Agent 评价已有 Calligraphy Bench，严格笔顺视频问题仍需证明其独有的像素历史可观测性/时间执行与共享 UMM 收益；VidScribe 评字形拓扑，Calligraphy Bench 评工具笔顺，均不可直接套用为模型生成汉字规范笔顺视频正确率。

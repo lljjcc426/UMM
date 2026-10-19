@@ -1,0 +1,335 @@
+{
+  "date": "2026-10-19",
+  "status": "verified_supplement_independent_of_281_record_master",
+  "schema_version": 1,
+  "description": "Source-scoped additional publications, benchmarks, software, datasets, and released weights. Some entries describe supporting artefacts of papers; do not count all as independent papers.",
+  "records": [
+    {
+      "id": "X2026-001",
+      "title": "Ketaba-OCR at AR-MS NakbaNLP 2026",
+      "kind": "paper",
+      "task": "Arabic manuscript handwritten text recognition",
+      "input": "cropped Arabic line image",
+      "output": "transcribed text",
+      "data": "Omar Al-Saleh Memoir; 15,962 train + 2,095 dev-test final training; 2,671 blind",
+      "framework": "specialized HTR plus QLoRA/DoRA/RSLoRA and ensemble",
+      "architecture": "Qwen2.5-VL based Arabic-English handwritten OCR backbone",
+      "metrics": "blind per-line CER 0.0819 WER 0.2588; corpus-wide 0.0938/0.2996",
+      "baselines": "organizer baseline, specialized HTR, Qari and generic VLM models",
+      "experimental_conditions": "QLoRA 4-bit NF4, r32 alpha64, lr2e-5, batch1 accum4, 1 epoch",
+      "sources": [
+        "https://aclanthology.org/2026.nakbanlp-1.21/",
+        "https://github.com/HasanBGit/Ketaba-OCR-LoRA",
+        "https://huggingface.co/HassanB4/Ketaba-OCR-LoRA"
+      ],
+      "checked": "paper_and_training_code_sections",
+      "next": "independent inference and feature ablation",
+      "note": "docs/handwriting/papers/ketaba_ocr_lora.md"
+    },
+    {
+      "id": "X2026-002",
+      "title": "TextDiffuser: Diffusion Models as Text Painters",
+      "kind": "paper",
+      "task": "static image visual text generation",
+      "input": "text prompt and optional text template",
+      "output": "text-bearing image",
+      "data": "MARIO-10M and MARIO-Eval",
+      "framework": "layout then diffusion",
+      "architecture": "Transformer layout generator plus image diffusion model",
+      "metrics": "OCR and image/text quality; precise figures not checked",
+      "baselines": "not extracted from full paper",
+      "experimental_conditions": "NeurIPS 2023 main track; full hyperparameters pending",
+      "sources": [
+        "https://papers.neurips.cc/paper_files/paper/2023/hash/1df4afb0b4ebf492a41218ce16b6d8df-Abstract-Conference.html"
+      ],
+      "checked": "publisher_abstract",
+      "next": "read PDF Tables 1-5",
+      "note": "docs/handwriting/papers/static_text_neurips_baselines.md"
+    },
+    {
+      "id": "X2026-003",
+      "title": "GlyphControl: Glyph Conditional Control for Visual Text Generation",
+      "kind": "paper",
+      "task": "glyph-guided static image generation",
+      "input": "prompt and glyph/location/size condition",
+      "output": "text-bearing image",
+      "data": "LAION-Glyph",
+      "framework": "glyph-controlled diffusion",
+      "architecture": "Stable Diffusion plus glyph conditioning",
+      "metrics": "OCR, CLIP, FID; numbers not extracted",
+      "baselines": "DeepFloyd IF in publisher abstract",
+      "experimental_conditions": "NeurIPS 2023 main track; hyperparameters pending",
+      "sources": [
+        "https://proceedings.neurips.cc/paper_files/paper/2023/hash/8951bbdcf234132bcce680825e7cb354-Abstract-Conference.html"
+      ],
+      "checked": "publisher_abstract",
+      "next": "read method figure/ablation tables",
+      "note": "docs/handwriting/papers/static_text_neurips_baselines.md"
+    },
+    {
+      "id": "X2026-004",
+      "title": "VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control",
+      "kind": "paper",
+      "task": "sketch-sequence conditioned animation",
+      "input": "hand-drawn sketch keyframes + text prompt",
+      "output": "animated scene video",
+      "data": "author-collected small video sets, 8-12 clips per action category",
+      "framework": "level-based sketch control and TempSpatial attention",
+      "architecture": "video diffusion with inflated T2I adapter",
+      "metrics": "video text/sketch alignment and visual quality; numeric table pending",
+      "baselines": "paper tables pending extraction",
+      "experimental_conditions": "author repo reports RTX4090 training for some action categories",
+      "sources": [
+        "https://arxiv.org/abs/2502.01101",
+        "https://github.com/CSfufu/VidSketch"
+      ],
+      "checked": "preprint_method_sections_and_repo",
+      "next": "read Tables and all ablations",
+      "note": "docs/evidence/scoped_literature_matrix_2026-10-19.md"
+    },
+    {
+      "id": "X2026-005",
+      "title": "VideoSketcher: Video Models Prior Enable Versatile Sequential Sketch Generation",
+      "kind": "paper",
+      "task": "sequential drawing video from plan",
+      "input": "text drawing plan and optional brush reference image",
+      "output": "progressive sketch video",
+      "data": "synthetic primitives and 7 real artist sketch examples for stage2",
+      "framework": "two-stage LoRA plus LLM planning and AR distillation",
+      "architecture": "Wan2.1 video diffusion 14B and 1.3B AR",
+      "metrics": "not independently extracted from paper table",
+      "baselines": "paper tables pending",
+      "experimental_conditions": "README examples: 480p,81 frames,50 steps/14B, A100 16min; AR 11s",
+      "sources": [
+        "https://arxiv.org/abs/2602.15819",
+        "https://github.com/rhfeiyang/VideoSketcher"
+      ],
+      "checked": "repo_readme_and_training_commands",
+      "next": "read paper methods/results and pin git revision",
+      "note": "docs/handwriting/papers/videosketcher_deep_review.md"
+    },
+    {
+      "id": "X2026-006",
+      "title": "Calligraphy Bench: Can AI Write Chinese Calligraphy?",
+      "kind": "benchmark",
+      "task": "agentic Chinese calligraphy drawing",
+      "input": "reference image and API drawing tools",
+      "output": "stroke commands and final canvas",
+      "data": "88 characters; 20 calligraphers",
+      "framework": "Agent-tldraw actions with vision-judge evaluation",
+      "architecture": "external multimodal agents and tldraw canvas",
+      "metrics": "stroke recall/order on matched strokes, visual fidelity 1-5, MJ1 pairwise",
+      "baselines": "GPT-5.4, Claude Opus 4.6, Kimi K2.5, GLM-5",
+      "experimental_conditions": "OpenHands/MCP tool-based; judge process trace details pending",
+      "sources": [
+        "https://huggingface.co/datasets/haizelabs/calligraphy-bench",
+        "https://github.com/haizelabs/calligraphy"
+      ],
+      "checked": "dataset_card_and_repo_readme",
+      "next": "judge audit with same-final-canvas different-action-order",
+      "note": "docs/handwriting/papers/calligraphy_bench.md"
+    },
+    {
+      "id": "X2026-007",
+      "title": "Brush Calligraphy Stroke Segmentation Dataset (BCSS)",
+      "kind": "dataset",
+      "task": "Chinese brush stroke instance segmentation",
+      "input": "single calligraphy image",
+      "output": "per-stroke masks and count priors",
+      "data": "paper-full 1322 images/10653 strokes vs HF processed subset 1212 images",
+      "framework": "instance mask annotations",
+      "architecture": "no generator in data release; companion Stroke-Seg paper",
+      "metrics": "segmentation metrics from paper need lookup",
+      "baselines": "not extracted",
+      "experimental_conditions": "400x400 pixels reported; intersections allow overlap",
+      "sources": [
+        "https://huggingface.co/datasets/Rvosuke/BCSS",
+        "https://github.com/Rvosuke/BCSS"
+      ],
+      "checked": "hf_card_and_owner_repo",
+      "next": "audit each mask to stroke identity and normative order",
+      "note": "docs/resources/nonpaper_research_2026-10-19.md"
+    },
+    {
+      "id": "X2026-008",
+      "title": "Wuji Writing VAM TI2V-5B 30L 0522 0819",
+      "kind": "model_card",
+      "task": "human-reference-conditioned robotic writing",
+      "input": "human egocentric reference video, robot 3-view image, prompt and 54-D state",
+      "output": "3-view video rollout and 54-D actions",
+      "data": "digits 0-9; 487 teleop, 896 ego_ref episodes",
+      "framework": "joint video and action prediction",
+      "architecture": "Wan2.2-TI2V-5B video DiT with ActionMoT/action_dit stream",
+      "metrics": "single validation snapshot action MAE .801526, SSIM .5810; no real success",
+      "baselines": "not reported",
+      "experimental_conditions": "384x320, 9 target frames, 32 action horizon, 69 reference frames",
+      "sources": [
+        "https://huggingface.co/knightnemo/wuji-writing-vam-ti2v5b-30l-0522-0819"
+      ],
+      "checked": "hf_model_card",
+      "next": "source/weights license, smoke test and full benchmark",
+      "note": "docs/handwriting/papers/wuji_vam_modelcard.md"
+    },
+    {
+      "id": "X2026-009",
+      "title": "AnimCJK",
+      "kind": "software_dataset",
+      "task": "CJK character stroke animation",
+      "input": "Unicode codepoint and language-specific SVG",
+      "output": "stroke-reveal SVG/CSS animation",
+      "data": "ZhHans, ZhHant, Ja, Ko glyph collections",
+      "framework": "deterministic ordered SVG clip-path reveal",
+      "architecture": "no trained network",
+      "metrics": "dictionary coverage and order convention; model accuracy not applicable",
+      "baselines": "Hanzi Writer, Make Me a Hanzi, KanjiVG",
+      "experimental_conditions": "README example; license to be audited",
+      "sources": [
+        "https://github.com/parsimonhi/animCJK"
+      ],
+      "checked": "official_readme_and_svg_example",
+      "next": "pin commit and region-specific stroke audit",
+      "note": "docs/resources/nonpaper_research_2026-10-19.md"
+    },
+    {
+      "id": "X2026-010",
+      "title": "KanjiVG",
+      "kind": "software_dataset",
+      "task": "Japanese kanji stroke vector decomposition",
+      "input": "kanji codepoint",
+      "output": "ordered SVG strokes and components",
+      "data": "KanjiVG release and variants",
+      "framework": "annotated vector glyphs",
+      "architecture": "no trained network",
+      "metrics": "not directly comparable to learned generation",
+      "baselines": "AnimCJK Japanese variant",
+      "experimental_conditions": "CC BY-SA 3.0 per repo README",
+      "sources": [
+        "https://github.com/KanjiVG/kanjivg"
+      ],
+      "checked": "official_readme",
+      "next": "language norm/license details",
+      "note": "docs/resources/nonpaper_research_2026-10-19.md"
+    },
+    {
+      "id": "X2026-011",
+      "title": "Qari-OCR-LoRA",
+      "kind": "model_card",
+      "task": "Arabic handwriting image recognition",
+      "input": "cropped line image",
+      "output": "Unicode text",
+      "data": "Omar Al-Saleh memoir",
+      "framework": "LoRA DoRA RSLoRA adaptation",
+      "architecture": "NAMAA-Space/Qari-OCR-v0.3-VL-2B-Instruct",
+      "metrics": "blind CER .2635 / WER .5521",
+      "baselines": "Ketaba HTR family in team comparisons",
+      "experimental_conditions": "~37.6M trainable reported, version details pending",
+      "sources": [
+        "https://github.com/HasanBGit/QARI-OCR-LoRA",
+        "https://huggingface.co/HassanB4/Qari-OCR-LoRA"
+      ],
+      "checked": "repo_readme_and_model_identity",
+      "next": "HF adapter config and training script",
+      "note": "docs/resources/nonpaper_research_2026-10-19.md"
+    },
+    {
+      "id": "X2026-012",
+      "title": "CASIA-HWDB2-line (Teklia HF derivative)",
+      "kind": "dataset",
+      "task": "offline Chinese handwriting line recognition",
+      "input": "line bitmap",
+      "output": "line transcription",
+      "data": "HF packaged CASIA-HWDB2-line",
+      "framework": "public derivative dataset",
+      "architecture": "no model",
+      "metrics": "HTR CER/WER applicable; stroke order absent",
+      "baselines": "CASIA-OLHWDB distinct online data",
+      "experimental_conditions": "data field structure and usage license must be verified",
+      "sources": [
+        "https://huggingface.co/datasets/Teklia/CASIA-HWDB2-line"
+      ],
+      "checked": "hf_data_card",
+      "next": "check licensing and underlying raw data records",
+      "note": "docs/resources/nonpaper_research_2026-10-19.md"
+    },
+    {
+      "id": "X2026-013",
+      "title": "SceneDAPR",
+      "kind": "dataset",
+      "task": "sequential scene-level freehand drawing",
+      "input": "drawn scenes and original stroke sequence",
+      "output": "stroke order and segmentation labels",
+      "data": "1399 scene sketches and 6420 object-level labels claimed in repo",
+      "framework": "recorded stroke and scene annotations",
+      "architecture": "no trained model",
+      "metrics": "dataset annotations; task-specific evaluation pending",
+      "baselines": "Quick Draw and vector sequential drawing",
+      "experimental_conditions": "scene canvas 757x535 per README",
+      "sources": [
+        "https://github.com/DSAIL-SKKU/SceneDAPR"
+      ],
+      "checked": "source_readme",
+      "next": "verify data timestamp/granularity and license",
+      "note": "docs/evidence/scoped_literature_matrix_2026-10-19.md"
+    },
+    {
+      "id": "X2026-014",
+      "title": "sketch-diffusion (ark60 independent implementation)",
+      "kind": "software_model",
+      "task": "stroke sequence sketch diffusion",
+      "input": "Quick Draw vector strokes/category",
+      "output": "generated vector strokes and rendered GIF",
+      "data": "Quick Draw: cat, bus, rabbit per README",
+      "framework": "transformer-based diffusion 1000-step cosine",
+      "architecture": "8-layer transformer per author documentation",
+      "metrics": "FID and KID; published images may be examples rather than measured results",
+      "baselines": "unreported",
+      "experimental_conditions": "notebook plus small GitHub project; local reproducibility pending",
+      "sources": [
+        "https://github.com/ark60/sketch-diffusion"
+      ],
+      "checked": "repo_readme",
+      "next": "inspect actual notebook and rerun with fixed dataset",
+      "note": "docs/evidence/scoped_literature_matrix_2026-10-19.md"
+    },
+    {
+      "id": "X2026-015",
+      "title": "VidSketch sketch animation implementation",
+      "kind": "code_release",
+      "task": "sketch-guided video generation",
+      "input": "ordered sketches and prompt",
+      "output": "animated video",
+      "data": "small action-specific video sets",
+      "framework": "inflated T2I adapter with dynamic control scale",
+      "architecture": "video diffusion and TempSpatial attention",
+      "metrics": "paper results should be checked separately",
+      "baselines": "same corresponding paper X2026-004",
+      "experimental_conditions": "repo claims RTX4090 per action category",
+      "sources": [
+        "https://github.com/CSfufu/VidSketch"
+      ],
+      "checked": "repo_readme",
+      "next": "pin code revision/checkpoints",
+      "note": "docs/evidence/scoped_literature_matrix_2026-10-19.md"
+    },
+    {
+      "id": "X2026-016",
+      "title": "BCSS Stroke-Seg implementation",
+      "kind": "code_release",
+      "task": "calligraphy stroke segmentation",
+      "input": "calligraphy image",
+      "output": "overlapping per-stroke segmentation",
+      "data": "BCSS",
+      "framework": "stroke extraction/segmentation",
+      "architecture": "paper method details pending",
+      "metrics": "paper metrics pending",
+      "baselines": "paper tables pending",
+      "experimental_conditions": "project repository as primary source",
+      "sources": [
+        "https://github.com/Rvosuke/BCSS"
+      ],
+      "checked": "owner_repo_summary",
+      "next": "read original Stroke-Seg journal article and ablations",
+      "note": "docs/resources/nonpaper_research_2026-10-19.md"
+    }
+  ]
+}
