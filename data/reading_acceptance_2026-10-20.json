@@ -161,6 +161,38 @@
         }
       ],
       "boundary": "五项书面理解检查；正式框架图、指定主表/消融和局限已核。未逐行读全部图表、附录与代码，未复现，完整三遍验收仍未完成。"
+    },
+    {
+      "id": "L103",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "HYDRA要让同一视觉通路支持像素重建和语义理解。纯语义特征可能难生成，单独VAE又可能先丢细节。作者把ViT分为结构段、64维瓶颈和语义段，再由共享Qwen接语言/flow双头；结果在若干图像基准较好，但缩放评估、教师初始化及联合训练曝光限制了泛化解释。",
+          "evidence": "本次书面复述，未计时口试。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig3左侧图像先经GenViT，再由GSB预测μ/logvar；采样z供PixelDecoder重建，μ还原维度后进入SemViT，冻结teacher监督两段。右侧生成对Genlatent加噪，再经SemViT成为visualtokens，与texttokens一起输入共享Qwen，双head分别优化视觉flow和文字NTP。不能画成GSB直接连LLM而省略SemViT。",
+          "evidence": "arXivv3 PDF第4页Figure3/Eq2–6已渲染视觉核对，并读公开modeling_hydra_qwen2_5.py的semantic_feats/semantic_proj调用。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "关键是让可重建的紧凑结构latent经过语义恢复后用于两任务，而非仅拼两个独立encoder输出。KL约束尺度，cos维持瓶颈前后方向，多层distill保留teacher语义；这些目标是否真改善各类信息需分别消融，连续表示仍可能损细字。",
+          "evidence": "§2.1–2.2、PDFp4公式与官方路径；未读全部实现。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table3的448→256协议HYDRA PSNR36.39/rFID.08，原448为31.90/.12；FLUX原448为32.91/.08，因此不能称在所有同分辨率重建指标都优于VAE。Table4完整Avg.744/GenEval.86，去II.683/.77支持该阶段有作用；但删阶段也删训练步数和数据，尚不能排除训练量解释。",
+          "evidence": "§3.1–3.2 Tables3/4、AppendixD的训练设置。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：联合/单任务按同150K步比较时，每个任务实际看过多少样本，按等FLOPs和等曝光是否仍互利？问题2：64维瓶颈是否把仅差细笔的小字合并，rFID能否检测这种错？问题3：公开采样1.5B50步与7B200步时性能与成本怎样同时变化？相邻UniCom明确报告压缩后OCR下降，UniFlow已有连续共享表示；这些疑问需与既有方法同条件比较，不能据局限直接认定新课题。",
+          "evidence": "AppD2、公开README采样表，UniCom/L104相关原文Table5与本仓库UniFlow记录。"
+        }
+      ],
+      "boundary": "五项书面理解检查覆盖指定框架图、主表/消融和三项质疑；全部图、数据配方、代码及正式版本未核完，完整三遍验收未完成，未复现。"
     }
   ]
 }

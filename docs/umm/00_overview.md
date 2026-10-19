@@ -92,3 +92,5 @@ UMM 将文字任务和视觉生成放进一个可训练系统，例如共享上�
 ## 视觉码的实验与理论边界（2026-10-20）
 
 [QLIP](../reviews/L095.md)独立LLaVA用连续倒数第二层，统一UM³生成仍弱于其对照；[DualToken](../reviews/L096.md)同塔双码可保留外观/语义但不在每项理解指标更优；[UniToken](../reviews/L097.md)连续旁路缓解干扰，联合仍有退化。[Selftok](../reviews/L098.md)实测RL增益与其“空间码不可RL”理论需分别评价；[DDPO](../reviews/L185.md)早已对扩散定义去噪MDP。[UniCode²](../reviews/L099.md)大码本覆盖率不等于均匀entropy，[Tuna](../reviews/L100.md)1.5B视频与7B静态能力需分开。见[数学、配方与迁移审查](../evidence/tokenizer_theory_and_rl_2026-10-20.md)。
+
+最新表示审查补充：UniCom主模型预测压缩语义特征，公开最终decoder仍调用Flux VAE；Tuna-2/PixelUMM可直接像素预测，RF仍保留理解encoder。EvoTok残差深度与去噪时间都不对应真实笔画事件。具体七字段、退化指标及实验条件见[像素/时间接口专题](../evidence/pixel_interfaces_and_temporal_audit_2026-10-20.md)。

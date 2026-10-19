@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 210 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 218 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -205,14 +205,14 @@
 | L098 | Selftok: Discrete Visual Tokens of Autoregression, by Diffusion, and for Reasoning | primary_sections_read | [结构化分析](../reviews/L098.md) | 未完成 |
 | L099 | UniCode$^2$: Cascaded Large-scale Codebooks for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L099.md) | 未完成 |
 | L100 | TUNA: Taming Unified Visual Representations for Native Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L100.md) | 未完成 |
-| L101 | UniWeTok: An Unified Binary Tokenizer with Codebook Size $\mathit{2^{128}}$ for Unified Multimodal Large Language Model | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L102 | EvoTok: A Unified Image Tokenizer via Residual Latent Evolution for Visual Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L103 | HYDRA: Representation Harmonized Tokenization for Multimodal Generation and Understanding | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L104 | UniCom: Unified Multimodal Modeling via Compressed Continuous Semantic Representations | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L105 | Tuna-2: Pixel Embeddings Beat Vision Encoders for Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L106 | Representation Forcing for Bottleneck-Free Unified Multimodal Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L107 | HYDRA-X: Native Unified Multimodal Models with Holistic Visual Tokenizers | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L108 | PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L101 | UniWeTok: An Unified Binary Tokenizer with Codebook Size $\mathit{2^{128}}$ for Unified Multimodal Large Language Model | primary_sections_read | [结构化分析](../reviews/L101.md) | 未完成 |
+| L102 | EvoTok: A Unified Image Tokenizer via Residual Latent Evolution for Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L102.md) | 未完成 |
+| L103 | HYDRA: Representation Harmonized Tokenization for Multimodal Generation and Understanding | primary_sections_read | [结构化分析](../reviews/L103.md) | 五项检查已记录 |
+| L104 | UniCom: Unified Multimodal Modeling via Compressed Continuous Semantic Representations | primary_sections_read | [结构化分析](../reviews/L104.md) | 未完成 |
+| L105 | Tuna-2: Pixel Embeddings Beat Vision Encoders for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L105.md) | 未完成 |
+| L106 | Representation Forcing for Bottleneck-Free Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L106.md) | 未完成 |
+| L107 | HYDRA-X: Native Unified Multimodal Models with Holistic Visual Tokenizers | primary_sections_read | [结构化分析](../reviews/L107.md) | 未完成 |
+| L108 | PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L108.md) | 未完成 |
 | L109 | FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L110 | Muddit: Liberating Generation Beyond Text-to-Image with a Unified Discrete Diffusion Model | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L111 | Lavida-O: Elastic Large Masked Diffusion Models for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |

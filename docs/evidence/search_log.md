@@ -98,3 +98,7 @@ JanusFlow2411.07975、Orthus2412.00127、Liquid2412.04332、ILLUME2412.06673、M
 ## 2026-10-20 第十二批：tokenizer理论与公开配方
 
 QLIP2502.05178、DualToken2503.14324、UniToken2504.04423、Selftok2505.07538v3、UniCode²2506.20214、Tuna2512.02014。读取范围逐篇记录；UniCode²19页PDF第3–4页渲染核Eq1–3/Fig2；Selftok42页PDF第25页Eq20交叉核。DDPO2305.13301v4与ICLR2024官方proceedings查重后新增L185，方法、奖励、实验、局限及AppA–F指定部分已读，正式PDF23页获取未逐图。DualToken OpenReview匹配标题/ICLR2026 PDF搜索摘要，但直取403，保留正式全文未对读；UniToken CVF搜索命中CVPR2025W/MMFM，主会/Workshop明确分开。代码revision：NVlabs/QLIP cf86fcc5131c2bb008c349fe9456ccbd1e0e1619；songweii/DualToken499e5b1d716bb72f5e5e2a91eae78ab53cf2ef3d；SxJyJay/UniToken9181c61367baf44e67f08984cac8347c1d5a1626，已读各README及指定配置/脚本，未下载权重或运行。
+
+## 2026-10-20：第十三批连续/离散与像素视频接口
+
+读取arXiv2602.14178v3、2603.12108v1、2603.15228v3、2603.10702v1、2604.24763v2、2605.31604v4、2606.13289v1、2609.38597v1的指定方法/实验/附录。arXiv版本页实时核查前四项。官方GitHub EvoTok147b1b2、HYDRAca3e71d、UniCom55b9001与两项HF卡交叉；仅下载源码/配置/卡片/PDF，无模型权重。HYDRAp4、RFp16、PixelUMMp23已渲染核对；正式会场依作者声明和proceedings核查分开。详见[pixel_interfaces_and_temporal_audit_2026-10-20.md](pixel_interfaces_and_temporal_audit_2026-10-20.md)。

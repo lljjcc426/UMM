@@ -184,6 +184,14 @@
 | L099 | [UniCode$^2$: Cascaded Large-scale Codebooks for Unified Multimodal Understanding and Generation](L099.md) | §3.1–3.6、§4.1/4.2本作行与§4.3、§5/Limitations、AppA2/A3；19页PDF第3页Eq1、第4页Fig2/Eq2–3渲染核对。未逐行全部主表/全部图或代码，未复现 |
 | L100 | [TUNA: Taming Unified Visual Representations for Native Unified Multimodal Models](L100.md) | §1定义/动机、§2.1–2.3、§3.1、§3.2本作主行/叙述、Tables5/6本作行、§3.3 Table7全部、§3.4正文、§5；未逐图/全部基线或代码、完整训练协议，未复现 |
 | L185 | [Training Diffusion Models with Reinforcement Learning（DDPO）](L185.md) | §2相关工作/§3部分、§4.1–4.3、§5–7、AppA/B Table1/C/D与E/F正文；官方23页PDF已获取，未逐图视觉核对、未逐行代码/全部公式或独立复现 |
+| L101 | [UniWeTok: An Unified Binary Tokenizer with Codebook Size $\mathit{2^{128}}$ for Unified Multimodal Large Language Model](L101.md) | §3、§4.1 Tables1–7、§4.2本作行与叙述、§5、App6/7叙述和Table14；未逐图/全部33张表或UMM完整协议/代码，未复现 |
+| L102 | [EvoTok: A Unified Image Tokenizer via Residual Latent Evolution for Visual Understanding and Generation](L102.md) | §3.1–3.3、§4.1–4.4 Tables1/4/5及主表本作行、§5；官方README、tokenizer/生成预训/SFT脚本已读固定revision147b1b2；未逐图或全部实现/正式全文，未复现 |
+| L103 | [HYDRA: Representation Harmonized Tokenization for Multimodal Generation and Understanding](L103.md) | §2.1–2.3、§3/3.1–3.2指定主行/表3/4、§4、AppD训练和D1–3；PDFp4 Fig3/Eq2–6视觉核对；官方README/配置/模型入口及ICPlan、HF卡指定段落。未逐图全部实验/实际权重，未复现 |
+| L104 | [UniCom: Unified Multimodal Modeling via Compressed Continuous Semantic Representations](L104.md) | §3.1–3.3、§4.1–4.4 Tables4/5/6及主表本作行、§5、AppA/F/G；官方README、HF卡、pipeline与runtime加载/解码段落固定revision55b9001。未逐图/全部大表/完整训练代码，未复现 |
+| L105 | [Tuna-2: Pixel Embeddings Beat Vision Encoders for Multimodal Understanding and Generation](L105.md) | §1、§2.1–2.3、§3.1–3.6指定主行与完整Table6、§5；未逐图/全部大表/源码或完整硬件采样协议，未复现 |
+| L106 | [Representation Forcing for Bottleneck-Free Unified Multimodal Models](L106.md) | §3.1–3.3、§4.1–4.4 Tables2/3与本作主成绩、§5、Implementation/OnlineVQ附录；PDFp16超参与Algorithm1视觉核对。未逐图/完整数据/代码，未复现 |
+| L107 | [HYDRA-X: Native Unified Multimodal Models with Holistic Visual Tokenizers](L107.md) | §3、§4.1/4.2 Tables1/2、§5.1–5.3 Table3、§6本作主行/叙述、AppA1–A4/E；未逐图/全部大表/源码，未复现 |
+| L108 | [PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation](L108.md) | §2.1–2.4、§3.1 F1/F2/F3/F4/F5/F6/F8及F7部分、§3.2主表本作行、§5；PDFp23 Tables8/9视觉核对。F3全部decoder细节/F7案例/全部图、完整源码与主采样未读，未复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |
