@@ -129,6 +129,38 @@
         }
       ],
       "boundary": "完成五项书面理解检查，已读核心方法/公式、指定主表/消融与两页图表；未逐图、全部SFT超参数或代码，未复现，未计完整三遍验收。"
+    },
+    {
+      "id": "L087",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "Orthus针对离散图像码的量化损失和LLM连续输入衔接困难，保留Chameleon预训练知识，用软量化初始化接收连续图像，文字与下一图像patch分别走语言头和条件扩散头。实验支持低成本适配和部分联合收益，整体开销还包括预训练、解码器与任务微调。",
+          "evidence": "本次书面复述；没有计时口试。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Figure2左侧image autoencoder把图像变成连续patch，每个patch用与码本距离的softmax加权embedding。文字与patch按光栅顺序进入因果LLM；上方LM head输出文字，下方以LLM状态为条件的MLP diffusion head预测下一个patch，最后autoencoder decoder还原像素。AR位置没有被定义为书写动作时间。",
+          "evidence": "PMLR正式PDF第4页Figure2已渲染并视觉核对。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "软映射在τ趋零时接近已有硬查表，τ=1初始化避免随机连续线性投影破坏预训练接口。连续图像目标用条件扩散建模多模态下一patch，替换确定性MSE回归；没有由此证明任意统一表征都优于离散码。",
+          "evidence": "§4及AppA/B；Table5的random/argmin/soft比较。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "主结果GenEval .58高于Chameleon† .43，但仍低于Transfusion .63。Table4联合训练POPE79.6、MME1265.8、GenEval .58，相应单任务78.7、1244.2、.56，未给出完整固定FLOPs及区间。Table5 soft初始化MME1244.2，argmin1064.8、随机linear800.7；随机初始化差异参与了效果，不能全归因连续表示。",
+          "evidence": "正式PDF第8页Table4/5已渲染核对；主表与§5。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：每patch100步DDIM累加的延迟能否被同预算少步头缩小？正式Limitations已承认延迟。问题2：72GPU小时只对应转换，纳入Chameleon、解码器、后训练后成本如何？问题3：联合提升在固定每任务曝光/计算及多seed下是否稳定？已读JanusFlow(L086)与ILLUME(L089)存在部分负迁移，Liquid(L088)增数据对照也不固定总量，这些都约束通用协同结论，当前疑问不构成新颖性证明。",
+          "evidence": "正式PDF第8–9页Limitations；本批邻近原文的对应表格。"
+        }
+      ],
+      "boundary": "五项书面理解检查；正式框架图、指定主表/消融和局限已核。未逐行读全部图表、附录与代码，未复现，完整三遍验收仍未完成。"
     }
   ]
 }

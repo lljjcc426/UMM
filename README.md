@@ -15,7 +15,7 @@
 | 重点论文的方法、结果与限制 | [论文精读](docs/handwriting/papers/README.md) · [四篇指定论文精读](docs/evidence/attachment_reviews.md) · [公开版本对照](docs/evidence/public_preprint_reviews.md) |
 | 数据、标准与评价 | [数据与标准](docs/handwriting/03_data_and_standards.md) · [评测协议](docs/experiments/benchmark_protocol.md) |
 | 研究进展与后续实验 | [研究进展](docs/project/STATUS.md) · [结论依据](docs/project/DECISIONS.md) · [实验计划](docs/project/EXPERIMENTS.md) · [最小研究方案](docs/experiments/stroke_order_pilot.md) |
-| 本轮逐篇阅读、理论与实验迁移 | [195份结构化笔记](docs/reviews/README.md) · [理论与迁移分析](docs/evidence/foundations_and_transfer_2026-10-19.md) · [逐条阅读台账](docs/evidence/reading_ledger_2026-10-19.md) |
+| 本轮逐篇阅读、理论与实验迁移 | [203份结构化笔记](docs/reviews/README.md) · [理论与迁移分析](docs/evidence/foundations_and_transfer_2026-10-19.md) · [逐条阅读台账](docs/evidence/reading_ledger_2026-10-19.md) |
 | 全部文献 | [文献总表](docs/all_literature.md) · [CSV](data/literature.csv) · [Excel](data/literature_public.xlsx) |
 
 ## 主要判断
@@ -58,9 +58,9 @@ python scripts/validate_catalog.py
 
 [本轮审查记录](docs/evidence/second_round_audit_2026-10-19.md)说明实际完成范围和纠错；[修改文件说明](docs/evidence/second_round_changes_2026-10-19.md)记录首批新增与修改文件；[继续复核文件说明](docs/evidence/continued_changes_2026-10-20.md)记录后续修改，无文件删除。
 
-截至2026-10-20，累计形成195份逐篇结构化笔记，其中190份核查相关章节或资源协议，5份仅完成第一遍；包含数据、结构、指标、基线、实验条件、消融、可证伪假设及写作学习。并对原281条、首轮16条补录和32条基础候选的首选来源执行访问审计，得到329条访问事件；这些事件有同研究重复，且**访问成功不等于阅读完成**。
+截至2026-10-20，累计形成203份逐篇结构化笔记，其中198份核查相关章节或资源协议，5份仅完成第一遍；包含数据、结构、指标、基线、实验条件、消融、可证伪假设及写作学习。并对原281条、首轮16条补录和32条基础候选的首选来源执行访问审计，得到329条访问事件；这些事件有同研究重复，且**访问成功不等于阅读完成**。
 
-当前331条目录中：209条已读相关原文或资源章节、33条已核摘要、0条仅元数据、89条历史原文待复核。U18原始来源已解决。**全部文献的三遍精读尚未完成，独立模型复现为0；不能声称达成零遗漏。** 每一条当前状态见[完成台账](docs/evidence/reading_ledger_2026-10-19.md)。
+当前331条目录中：217条已读相关原文或资源章节、33条已核摘要、0条仅元数据、81条历史原文待复核。U18原始来源已解决。**全部文献的三遍精读尚未完成，独立模型复现为0；不能声称达成零遗漏。** 每一条当前状态见[完成台账](docs/evidence/reading_ledger_2026-10-19.md)。
 
 继续复核覆盖23项存量研究：[过程、评价与执行边界](docs/evidence/process_execution_boundaries_2026-10-19.md)比较轨迹恢复、绘画过程与机器人执行；[CoFRIDA-Sharpie资源卡](docs/resources/cofrida_sharpie_card.md)明确模型元数据冲突及论文/权重版本边界。
 
@@ -75,3 +75,5 @@ python scripts/validate_catalog.py
 第七批新增14份规范/资源/论文笔记，并从BCSS追引补录Stroke-Seg正式论文：[资源配置与实现审查](docs/evidence/resource_implementation_review_2026-10-20.md)核对六类/十类标签、验证/外部测试分数、素描扩散编码与公式、HF适配器/训练配置及OSF统计字段。官方笔顺规范PDF已读取定义和初始示例。[逐文件说明](docs/evidence/seventh_changes_2026-10-20.md)。
 
 第十批新增7项：LaVIT/NExT-GPT/DreamLLM/SEED-LLaMA/Emu2/MM-Interleaved/VILA-U，核查动态压缩、条件解码与真实协同证据，并读取VILA-U训练/推理配置：[机制与条件分析](docs/evidence/compression_conditions_and_synergy_2026-10-20.md)、[逐文件说明](docs/evidence/tenth_changes_2026-10-20.md)。
+
+第十一批新增8项：JanusFlow/Orthus/Liquid/ILLUME/MetaMorph/UGen/Harmon/X-Omni，区分固定任务曝光、额外数据、外部教师与中文分支。详见[训练课程、反馈与协同](docs/evidence/curricula_feedback_and_synergy_2026-10-20.md)、[逐文件说明](docs/evidence/eleventh_changes_2026-10-20.md)。

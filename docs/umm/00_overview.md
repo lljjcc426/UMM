@@ -84,3 +84,7 @@ UMM 将文字任务和视觉生成放进一个可训练系统，例如共享上�
 ## 压缩与条件解码的边界（2026-10-20）
 
 [LaVIT](../reviews/L079.md)理解连续/监督离散且混纯文仍有遗忘；[NExT-GPT](../reviews/L080.md)用四模态专家decoder做语义条件连接；[DreamLLM](../reviews/L081.md)让冻结扩散loss回传LLM；[SEED-LLaMA](../reviews/L082.md)改用unCLIP图像条件。[Emu2](../reviews/L083.md)主体保真与文字对齐存在取舍；[MM-Interleaved](../reviews/L084.md)通过细节旁路改善空间访问；[VILA-U](../reviews/L085.md)无需扩散decoder，但作者尚未观察到理解生成显著协同。详见[机制与实验条件](../evidence/compression_conditions_and_synergy_2026-10-20.md)。
+
+## 联合训练与外部反馈（2026-10-20）
+
+[JanusFlow](../reviews/L086.md)固定任务曝光的消融仍有FID/POPE下降；[Orthus](../reviews/L087.md)软量化与条件扩散头有低成本转换证据；[Liquid](../reviews/L088.md)增数据的改善伴计算改变。[ILLUME](../reviews/L089.md)用GPT-4o评估自生成图，[X-Omni](../reviews/L093.md)采用OCR/VLM奖励和中文分支，均须记教师成本。[MetaMorph](../reviews/L090.md)少量T2I之外仍有其他生成监督，[UGen](../reviews/L091.md)渐进词表不能消除全部单任务差距，[Harmon](../reviews/L092.md)MAR表示理解/生成仍有取舍。见[跨方法审查](../evidence/curricula_feedback_and_synergy_2026-10-20.md)。

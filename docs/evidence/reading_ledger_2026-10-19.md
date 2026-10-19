@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 331 条，本批有 195 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 331 条，本批有 203 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -190,14 +190,14 @@
 | L083 | Generative Multimodal Models are In-Context Learners | primary_sections_read | [结构化分析](../reviews/L083.md) | 未完成 |
 | L084 | MM-Interleaved: Interleaved Image-Text Generative Modeling via Multi-modal Feature Synchronizer | primary_sections_read | [结构化分析](../reviews/L084.md) | 五项检查已记录 |
 | L085 | VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L085.md) | 未完成 |
-| L086 | JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L087 | Orthus: Autoregressive Interleaved Image-Text Generation with Modality-Specific Heads | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L088 | Liquid: Language Models are Scalable and Unified Multi-modal Generators | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L089 | ILLUME: Illuminating Your LLMs to See, Draw, and Self-Enhance | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L090 | MetaMorph: Multimodal Understanding and Generation via Instruction Tuning | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L091 | UGen: Unified Autoregressive Multimodal Model with Progressive Vocabulary Learning | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L092 | Harmonizing Visual Representations for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L093 | X-Omni: Reinforcement Learning Makes Discrete Autoregressive Image Generative Models Great Again | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L086 | JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L086.md) | 未完成 |
+| L087 | Orthus: Autoregressive Interleaved Image-Text Generation with Modality-Specific Heads | primary_sections_read | [结构化分析](../reviews/L087.md) | 五项检查已记录 |
+| L088 | Liquid: Language Models are Scalable and Unified Multi-modal Generators | primary_sections_read | [结构化分析](../reviews/L088.md) | 未完成 |
+| L089 | ILLUME: Illuminating Your LLMs to See, Draw, and Self-Enhance | primary_sections_read | [结构化分析](../reviews/L089.md) | 未完成 |
+| L090 | MetaMorph: Multimodal Understanding and Generation via Instruction Tuning | primary_sections_read | [结构化分析](../reviews/L090.md) | 未完成 |
+| L091 | UGen: Unified Autoregressive Multimodal Model with Progressive Vocabulary Learning | primary_sections_read | [结构化分析](../reviews/L091.md) | 未完成 |
+| L092 | Harmonizing Visual Representations for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L092.md) | 未完成 |
+| L093 | X-Omni: Reinforcement Learning Makes Discrete Autoregressive Image Generative Models Great Again | primary_sections_read | [结构化分析](../reviews/L093.md) | 未完成 |
 | L094 | TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L094.md) | 未完成 |
 | L095 | QLIP: Text-Aligned Visual Tokenization Unifies Auto-Regressive Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L096 | DualToken: Towards Unifying Visual Understanding and Generation with Dual Visual Vocabularies | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |

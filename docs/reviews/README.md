@@ -169,6 +169,14 @@
 | L083 | [Generative Multimodal Models are In-Context Learners](L083.md) | §2.1–2.3、§3.1–3.3、Tables3–5、AppA/B含Tables6/7、AppD含Table9、AppE示例选择/Chat协议；未逐行Tables1/2及全部图、未核代码，未复现 |
 | L084 | [MM-Interleaved: Interleaved Image-Text Generative Modeling via Multi-modal Feature Synchronizer](L084.md) | §1/3全部、§4.1–4.3、Tables2/3/6–8、AppA Table9与数据、AppB Tables16/17；PDF第6页Fig4和第13页Tables6/7已渲染视觉核对。未逐行全部主表/下游SFT配置、未复现 |
 | L085 | [VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation](L085.md) | §1/3–6相关方法与Tables1/4/6–9、部分GenAIbench表尾、AppA解释与AppC失败配方；官方README、pretrain.sh/sft.sh、datasets_mixture.py、inference.py已读；未逐行Tables2/3/5、未读全部底层generation实现、未复现 |
+| L086 | [JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation](L086.md) | §1部分、§3.1–3.4、Table1和§4.1–4.4指定主指标、§4.5 Table6全部、§5、AppB/C/D；未逐行全部主理解表与图、未核代码，未复现 |
+| L087 | [Orthus: Autoregressive Interleaved Image-Text Generation with Modality-Specific Heads](L087.md) | arXiv §4–5、Tables3–5、AppA/B/C，正式PMLR第4页Fig2与第8页Tables4/5已渲染视觉核对，正式pp8–9 Limitations已读；未逐行全部理解主表、未核代码，未复现 |
+| L088 | [Liquid: Language Models are Scalable and Unified Multi-modal Generators](L088.md) | §2预备/数据/训练、§3.1–3.3、Table1、§4.1 Table3、§4.2解释、§4.3训练/变体、§4.6和§6；未逐图、未逐行全部主理解/语言表、未核代码，未复现 |
+| L089 | [ILLUME: Illuminating Your LLMs to See, Draw, and Self-Enhance](L089.md) | §3全部、§4自增强、§5.1/Table5、主Table4本作行、Table2/7和§5.4、结论、AppA tokenizer训练；正式题录已核，未逐行全部主表/全部图、未核代码，未复现 |
+| L090 | [MetaMorph: Multimodal Understanding and Generation via Instruction Tuning](L090.md) | §2.1–2.3、§3.1–3.4、主Table1本作行与讨论、AppA.1/A.2、AppB Table3、AppC.1组成、AppD Tables4/5；正式PDF第2页Fig1已视觉核对。未逐图、未逐行AppD Table6/7及全部主表、未复现 |
+| L091 | [UGen: Unified Autoregressive Multimodal Model with Progressive Vocabulary Learning](L091.md) | §2.1–2.3及Algorithm1、§3.1–3.5、Tables1/2、AppA Table4相关行；未逐图/读取全部k曲线与附录细项、未核代码，未复现 |
+| L092 | [Harmonizing Visual Representations for Unified Multimodal Understanding and Generation](L092.md) | §3.1–3.4、Table1/3、§4设置及§4.2 Tables6–8、Fig6正文解释、§5；未视觉核Fig6/完整图、未逐行全部主表/附录、未复现 |
+| L093 | [X-Omni: Reinforcement Learning Makes Discrete Autoregressive Image Generative Models Great Again](L093.md) | §3.1–3.2、§4.1–4.2、Table1和§4.3.1、Tables2/3本作行及协议、§4.4正文、§5、AppA；未视觉读Fig2/6、未逐行全部理解表、未核代码，未复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

@@ -4415,22 +4415,23 @@
   {
     "title": "JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2411.07975"
+      "https://arxiv.org/abs/2411.07975",
+      "https://arxiv.org/html/2411.07975"
     ],
-    "method": "在 LLM 内结合 AR 与 rectified flow，并解耦、对齐两类视觉编码器",
-    "conclusion": "说明 Janus 的接口设计可以与连续生成结合；不能把整个 Janus 家族都归入离散 AR",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "SigLIP理解encoder与VAE+ConvNeXt生成encoder解耦，共享LLM预测连续速度，REPA以干净语义特征对齐带噪中间表示。 增强版DeepSeek1.3B（额外文字语料、不同于Janus起点）、24层/context4096；SigLIP-L/16约300M、SDXL-VAE冻结、生成2×2patchify+两个ConvNeXt/linear，decoder含pixel-shuffle，生成模块约70M。理解与图像生成使用causal LLM；skip连接生成encoder/decoder。第6层特征经3层MLP匹配SigLIP，stop-grad教师。",
+    "conclusion": "主结果MJHQ FID9.51、GenEval.63；不是同消融协议。Table6无REPA→有REPA：FID19.84→17.61、CLIP24.94→26.40，但VQA69.62→69.20下降。单任务按数据比例缩短：理解13K/生成37K，对联合50K；生成only FID16.69优于联合17.61，理解POPE85.03优于联合84.73，联合GQA54.83略高54.23。",
+    "gap": "任务匹配曝光并非匹配总计算；解耦结构与强语义教师贡献需分离。比生成only更差的FID不支持双向正迁移。连续空间/因果mask未监督规范笔画，内部数据、1600GPU-days和VAE重建上限限制复现与迁移。",
+    "problem": "在同一LLM内结合文字AR与连续图像rectified flow，同时降低理解/生成表征冲突。",
+    "claim": "研究目标：在同一LLM内结合文字AR与连续图像rectified flow，同时降低理解/生成表征冲突。",
     "version": "JanusFlow，2024",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L086",
     "canonical_key": "paper:arxiv:2411.07975",
     "evidence_history": [
@@ -4453,27 +4454,48 @@
     "aliases": [
       "local_umm_expanded:X014"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L086.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "说明 Janus 的接口设计可以与连续生成结合；不能把整个 Janus 家族都归入离散 AR",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§1部分、§3.1–3.4、Table1和§4.1–4.4指定主指标、§4.5 Table6全部、§5、AppB/C/D；未逐行全部主理解表与图、未核代码，未复现",
+    "review_path": "docs/reviews/L086.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "理解DetailedCaption/SAM/arXivQA/DenseFusion/MMSci/PixelProse/recaptionLAION/OpenImages/ShareGPT4V/WikiHow/WIT等；生成LAION/DALLE3-1M/SAM/OpenImages/Megalith/YFCC/JourneyDB/PixelProse及2M内部数据；纯文字DeepSeek语料。25%图文用短caption，SFT另有高质指令。",
+    "framework": "SigLIP理解encoder与VAE+ConvNeXt生成encoder解耦，共享LLM预测连续速度，REPA以干净语义特征对齐带噪中间表示。",
+    "architecture": "增强版DeepSeek1.3B（额外文字语料、不同于Janus起点）、24层/context4096；SigLIP-L/16约300M、SDXL-VAE冻结、生成2×2patchify+两个ConvNeXt/linear，decoder含pixel-shuffle，生成模块约70M。理解与图像生成使用causal LLM；skip连接生成encoder/decoder。第6层特征经3层MLP匹配SigLIP，stop-grad教师。",
+    "metrics": "MJHQ FID30k、GenEval、DPGBench及POPE/VQA/GQA/MME等；消融FID10k与CLIP-L/14，评估样本/CFG不同须分开。",
+    "baselines": "Janus、Show-o、VILA-U、专门生成/理解模型；同架构无REPA、共享encoder、分离同结构encoder、理解only/生成only。增强LLM与教师先验需计入跨模型比较。",
+    "experimental_conditions": "三阶段先训随机组件，再全训除理解encoder，SFT解冻SigLIP。AR CE+RF速度MSE+REPA负余弦；t用logit-normal、caption drop10%；lr1e-4/1e-4/2e-5 constant，AdamW β.9/.95、wd0、clip1、warm2000/2000/1000，10K/390K/26K步，b512/512/256，数据比例理解:生成:纯文50:50:0、14:80:6、21:70:9（stageII前10K为30:50:20）。EMA.99、约1600 A100 GPU-days。主384²，30step/CFG2；消融256²、CFG7.5、50K步。"
   },
   {
     "title": "Orthus: Autoregressive Interleaved Image-Text Generation with Modality-Specific Heads",
     "source_urls": [
-      "https://arxiv.org/abs/2412.00127"
+      "https://arxiv.org/abs/2412.00127",
+      "https://arxiv.org/html/2412.00127",
+      "https://proceedings.mlr.press/v267/kou25a.html"
     ],
-    "method": "AR 主干配离散语言头与连续视觉 diffusion head",
-    "conclusion": "获得交错图文生成；“AR 模型”仍可能在视觉输出头内使用扩散",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "Orthus，2024",
+    "method": "从Chameleon离散模型做hard-to-soft视觉embedding迁移，保留AR共享backbone；每个下一patch由小扩散头分布预测，文字仍用LM head。 Chameleon7B，视觉encoder输出未量化patch；softmax(-distance/τ)对旧视觉embedding加权，训练τ1，τ→0恢复最近邻。图像头3个1536dim residual MLP，AdaLN调制时间/当前AR hidden条件；CE+100×patch扩散MSE。连续autoencoder另去VQ并微调decoder，不宜叫原像素无损。",
+    "conclusion": "主表GenEval.58/HPS28.2，对同后训Chameleon .43/26.9，低于Transfusion .63和SDXL HPS30.9。重建PSNR23.7→26.1、SSIM.80→.84。Table4联合POPE79.6/MME1265.8/GQA52.8/GenEval.58，对理解only78.7/1244.2/51.9和生成only.56，支持本配方互利，小差未报CI。",
+    "gap": "论文称连续保输入完整仅相对VQ，encoder/softmax有限表示仍可能丢信息。正式PDF明确推理延迟较高、仅7B。72GPUh只为base迁移，不是包括Chameleon、decoder和后训的完整训练成本。单任务表未给足全预算/曝光匹配细节，无书写事件验证。",
+    "problem": "用干净连续图像patch与文字共享AR，保留视觉信息并支持长交错图文。",
+    "claim": "研究目标：用干净连续图像patch与文字共享AR，保留视觉信息并支持长交错图文。",
+    "version": "ICML2025；arXiv首次2024",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L087",
     "canonical_key": "paper:arxiv:2412.00127",
     "evidence_history": [
@@ -4496,27 +4518,47 @@
     "aliases": [
       "local_umm_expanded:X015"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L087.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "获得交错图文生成；“AR 模型”仍可能在视觉输出头内使用扩散",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "arXiv §4–5、Tables3–5、AppA/B/C，正式PMLR第4页Fig2与第8页Tables4/5已渲染视觉核对，正式pp8–9 Limitations已读；未逐行全部理解主表、未核代码，未复现",
+    "review_path": "docs/reviews/L087.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "Orthus-base首10K LAION-aesthetic图；视觉decoder独立LAION-aesthetic训练，10K held-out重建测试。后训LLaVA665K+JourneyDB/ShareGPT4V-recaptionLAION；编辑InstructPix2Pix、story另用StoryStream，各后训任务模型需分开。",
+    "framework": "从Chameleon离散模型做hard-to-soft视觉embedding迁移，保留AR共享backbone；每个下一patch由小扩散头分布预测，文字仍用LM head。",
+    "architecture": "Chameleon7B，视觉encoder输出未量化patch；softmax(-distance/τ)对旧视觉embedding加权，训练τ1，τ→0恢复最近邻。图像头3个1536dim residual MLP，AdaLN调制时间/当前AR hidden条件；CE+100×patch扩散MSE。连续autoencoder另去VQ并微调decoder，不宜叫原像素无损。",
+    "metrics": "VQA/POPE/GQA/MME-P/MMMU；GenEval/HPSv2、编辑CLIP指标、重建PSNR/SSIM；正式Limitations明确扩散头多轮推理延迟。",
+    "baselines": "Chameleon及同后训数据Chameleon†、Show-o/LWM/SEED-X/SDXL/Transfusion；单任务vs联合、softmax/argmin/随机linear、MSE头vs扩散头。",
+    "experimental_conditions": "base8A10080GB约9h（72GPUh），仅新视觉embedding/扩散头，AdamW β.9/.99 lr1e-4、batch32、15K步；后训35K步lr1e-5/b16，除autoencoder全训。decoder另15K步lr1e-5/b256，不能从总成本扣掉。训练噪声1000step，推理每patch DDIM100step/CFG5，512²；文字greedy。"
   },
   {
     "title": "Liquid: Language Models are Scalable and Unified Multi-modal Generators",
     "source_urls": [
-      "https://arxiv.org/abs/2412.04332"
+      "https://arxiv.org/abs/2412.04332",
+      "https://arxiv.org/html/2412.04332"
     ],
-    "method": "共享图文离散序列，不使用外部 CLIP 输入 embedding；研究规模与联合训练损失",
-    "conclusion": "报告任务干扰随规模减弱；是特定规模区间的经验结果，不是一般性定理",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "不改LLM主体，仅扩8192视觉embedding/head；用纯文/图文混训及多尺寸模型探查loss、预算和任务权衡。 Chameleon VQGAN将512²映成32²=1024码，码本8192；Gemma7B主模型，其他Llama3-1B/Gemma2-2B9B/Qwen2.5-.5B7B32B用于规模实验；文字BPE，统一CE。不同模型家族/原预训随尺寸一起变，不能直接作为纯参数规模因果实验。",
+    "conclusion": "主MJHQ FID5.47；Table1基线gFID19.9/VQAv2 60.7，加10M生成12.8/64.5，加10M理解14.9/63.5，支持扩展数据配方两指标提高。§3.2承认所有尺寸混训视觉验证loss更高，VQAScore损失随规模减小也可能有指标饱和；正文“消除冲突”需收窄。",
+    "gap": "Table1更多总样本/训练量和SFT共同影响，不能据此证明优化方向天然一致或普遍无冲突。VQ损细节，内部合成数据限制复现，主/†/‡变体混写会误导。无完整局部文字/时间指标，多规模结果只在所测分布成立。",
+    "problem": "检验现有LLM增加视觉词表后能否统一图文，并研究规模、任务取舍及数据互促。",
+    "claim": "研究目标：检验现有LLM增加视觉词表后能否统一图文，并研究规模、任务取舍及数据互促。",
     "version": "Liquid，2024",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L088",
     "canonical_key": "paper:arxiv:2412.04332",
     "evidence_history": [
@@ -4539,27 +4581,48 @@
     "aliases": [
       "local_umm_expanded:X016"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L088.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "报告任务干扰随规模减弱；是特定规模区间的经验结果，不是一般性定理",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2预备/数据/训练、§3.1–3.3、Table1、§4.1 Table3、§4.2解释、§4.3训练/变体、§4.6和§6；未逐图、未逐行全部主理解/语言表、未核代码，未复现",
+    "review_path": "docs/reviews/L088.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "DCLM15M/SlimPajama12M/StarCoder3M，约60B纯文token；JourneyDB+内部Midjourney式合成30M图文、约30B图码。20%T2I翻转caption。主SFT3.5M（LMSYS1M+T2I1M+MiniGemini1.5M）。",
+    "framework": "不改LLM主体，仅扩8192视觉embedding/head；用纯文/图文混训及多尺寸模型探查loss、预算和任务权衡。",
+    "architecture": "Chameleon VQGAN将512²映成32²=1024码，码本8192；Gemma7B主模型，其他Llama3-1B/Gemma2-2B9B/Qwen2.5-.5B7B32B用于规模实验；文字BPE，统一CE。不同模型家族/原预训随尺寸一起变，不能直接作为纯参数规模因果实验。",
+    "metrics": "训练/验证CE、token acc、GenAIbench VQAScore；MJHQ FID、WISE；8类纯文基准/MMLU5shot及VQA/GQA/TextVQA/POPE/MME。loss、文字准确率与整体图像指标需分开。",
+    "baselines": "纯文字30M、纯T2I30M、混合60M三组；同尺寸/数据阶段、额外理解/生成数据；Chameleon/LWM/VILA-U/Show-o/SDXL等。主Liquid、加epoch†、UniTok替换‡为不同配方。",
+    "experimental_conditions": "lr2e-5、b1024/context2048、ZeRO3，规模实验constant其余cosine；≥7B早期loss spike用clip.5及max-z loss。三组模型数据30M/30M/60M，Table1基线30M总样本，加一类后40M；已读部分未给统一总GPU/固定曝光条件，不把数据增加直接当固定计算。"
   },
   {
     "title": "ILLUME: Illuminating Your LLMs to See, Draw, and Self-Enhance",
     "source_urls": [
-      "https://arxiv.org/abs/2412.06673"
+      "https://arxiv.org/abs/2412.06673",
+      "https://arxiv.org/html/2412.06673",
+      "https://openaccess.thecvf.com/content/ICCV2025/html/Wang_ILLUME_Illuminating_Your_LLMs_to_See_Draw_and_Self-Enhance_ICCV_2025_paper.html"
     ],
-    "method": "语义视觉 tokenizer、分阶段训练、自评图文一致性",
-    "conclusion": "强调数据效率和自增强对齐；自评是否可靠是后续自训练研究的共同问题",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "ILLUME，2024",
+    "method": "UNIT语义量化+SDXL还原，理解保留连续UNIT特征；三阶段训练后加入自生成图像、GPT4o评价/分析及纠错SFT。 Vicuna7B+UNIT理解encoder/adapter；生成16384码、512²对应256tokens，semantic tokenizer用cosine+smoothL1重建；SDXL attention-only适配恢复像素。理解连续/生成离散，不能称所有表示已同一离散空间。高分辨理解最多9个448²slice，每slice256token。",
+    "conclusion": "主表MJHQ FID7.76、GenEval.61。Table2联合比理解only MME1339→1358.6、POPE84.6→86.4，但MMVet28.0→27.4；生成GenEval.58→.56，GenAIbench同.63。作者明确简单联合未观察到明显互促，不能写成已有全面协同。",
+    "gap": "自生成语料但外部GPT4o提供评估标签，不能称无外部监督自学习；代码未核具体权重/采样/teacher成本。UNIT/SDXL预训加80M图，15M仅LLM对齐阶段。语义量化可能丢文字细节，错误对象奖励没有规范笔顺约束。",
+    "problem": "降低统一图文LLM的对齐数据需求，并通过错误评估训练促进理解/生成。",
+    "claim": "研究目标：降低统一图文LLM的对齐数据需求，并通过错误评估训练促进理解/生成。",
+    "version": "ICCV2025；arXiv首次2024",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L089",
     "canonical_key": "paper:arxiv:2412.06673",
     "evidence_history": [
@@ -4582,27 +4645,48 @@
     "aliases": [
       "local_umm_expanded:X017"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L089.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "强调数据效率和自增强对齐；自评是否可靠是后续自训练研究的共同问题",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3全部、§4自增强、§5.1/Table5、主Table4本作行、Table2/7和§5.4、结论、AppA tokenizer训练；正式题录已核，未逐行全部主表/全部图、未核代码，未复现",
+    "review_path": "docs/reviews/L089.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "StageI LLaVA558K+重建初始化；II15M混纯文、caption/文档、重建/T2I；III指令/高质T2I/混合任务。Tokenizer另80M纯图、2epoch、80K步，SDXL另80K步。自增强从训练prompt生成图片，GPT4o对对象/数目/颜色/空间做评估，约50K好坏样本；bad两轮包含refinement，good仅评估。",
+    "framework": "UNIT语义量化+SDXL还原，理解保留连续UNIT特征；三阶段训练后加入自生成图像、GPT4o评价/分析及纠错SFT。",
+    "architecture": "Vicuna7B+UNIT理解encoder/adapter；生成16384码、512²对应256tokens，semantic tokenizer用cosine+smoothL1重建；SDXL attention-only适配恢复像素。理解连续/生成离散，不能称所有表示已同一离散空间。高分辨理解最多9个448²slice，每slice256token。",
+    "metrics": "POPE/MME/MMBench/SEED/GQA/MMVet/MMMU、MJHQ FID、GenAIbench、GenEval、编辑CLIP指标；评价来源和T2I采样预算仍需完整代码核查。",
+    "baselines": "Janus/Show-o/VILA-U/Chameleon/SDXL等；理解only/生成only/联合；像素tokenizer对语义tokenizer（双方均接扩散decoder）、自增强assessment消融。",
+    "experimental_conditions": "三阶段5000/15000/8000步、b256/1024/1024，StageI adapter1e-3/视觉embedhead2e-4，II adapter/LLM5e-5，III vision2e-6/LLMadapter2e-5；作者称32节点×8Ascend NPU约3天。tokenizer b2048/lr5e-5/80K，SDXL attention b128/lr2e-5/80K，另预训成本不可忽略；自增强消融SFT子集1.3M+50K。"
   },
   {
     "title": "MetaMorph: Multimodal Understanding and Generation via Instruction Tuning",
     "source_urls": [
-      "https://arxiv.org/abs/2412.14164"
+      "https://arxiv.org/abs/2412.14164",
+      "https://arxiv.org/html/2412.14164",
+      "https://openaccess.thecvf.com/content/ICCV2025/html/Tong_MetaMorph_Multimodal_Understanding_and_Generation_via_Instruction_Tuning_ICCV_2025_paper.html"
     ],
-    "method": "Visual-Predictive Instruction Tuning，同时预测离散文本与连续视觉 token",
-    "conclusion": "报告理解数据可有效帮助生成；需要区分数据内容带来的知识和任务形式带来的收益",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "MetaMorph，2024",
+    "method": "VPiT：文字CE与连续视觉余弦预测共享AR，只监督response；独立扩散visualizer把视觉token还原为图像，系统比较数据类型/规模。 Llama3/3.1-8B及Llama3-70B研究，正式主模型Llama3.1-8B；SigLIP-SO400M14-384冻结，插值64视觉tokens、2层GELU input adapter、独立linear视觉head；<image_start/end>标记。SD1.5另训condition投影+UNet，非冻结原始文字到图像模型直接调用。",
+    "conclusion": "主表MMBench75.2/SEED71.8/TextVQA60.5/MVBench48.8/COCO FID11.8。AppD 5K T2I：联合FID19.2 vs生成only116.4；200K有两行重复标签（15.2/110.7与14.7/93.7），保留原表疑点，未擅改成500K。固定200K时+ImageQA18.9 vsnone110.5；+VideoQA26.5。仅固定T2I子集不等于固定总训练量。",
+    "gap": "附加数据同时增总步骤（1epoch）/视觉目标/知识，多教师与预训无法从“5K”扣除；强Pearson相关可由共同数据量/训练进度驱动。AppD重复200K行需核正式supp/code；推理/世界知识例子可能受教师先验影响。没有用图像FID证明事件/笔画。",
+    "problem": "检验视觉预测式指令微调能否以较少额外生成数据激活LLM的图文生成，并研究理解/生成数据互促。",
+    "claim": "研究目标：检验视觉预测式指令微调能否以较少额外生成数据激活LLM的图文生成，并研究理解/生成数据互促。",
+    "version": "ICCV2025；arXiv首次2024",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L090",
     "canonical_key": "paper:arxiv:2412.14164",
     "evidence_history": [
@@ -4625,27 +4709,47 @@
     "aliases": [
       "local_umm_expanded:X018"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L090.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "报告理解数据可有效帮助生成；需要区分数据内容带来的知识和任务形式带来的收益",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2.1–2.3、§3.1–3.4、主Table1本作行与讨论、AppA.1/A.2、AppB Table3、AppC.1组成、AppD Tables4/5；正式PDF第2页Fig1已视觉核对。未逐图、未逐行AppD Table6/7及全部主表、未复现",
+    "review_path": "docs/reviews/L090.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "主数据ImageQA Cambrian7.067M；MetaCLIP T2I5M；VideoStar1.055M/ShareVideo.540M；HowTo1.193M/SmthSmth.220M；VisualCoT.361M/VStar.148M；IP2P.313M/Aurora.169M。VideoQA1fps，纯视频包括未来/过去/重排，其他任务本身也含视觉预测监督，5K“生成样本”仅指T2I子集。",
+    "framework": "VPiT：文字CE与连续视觉余弦预测共享AR，只监督response；独立扩散visualizer把视觉token还原为图像，系统比较数据类型/规模。",
+    "architecture": "Llama3/3.1-8B及Llama3-70B研究，正式主模型Llama3.1-8B；SigLIP-SO400M14-384冻结，插值64视觉tokens、2层GELU input adapter、独立linear视觉head；<image_start/end>标记。SD1.5另训condition投影+UNet，非冻结原始文字到图像模型直接调用。",
+    "metrics": "9个ImageQA基准均值、MVBench、COCO30K FID与CLIP；跨数据量Pearson相关及loss选择。知识/推理可视例子不等同量化推理bench。",
+    "baselines": "生成only、联合其他任务、逐数据类型、VQA-only、L1/cosine、不同LLM；Emu3/Chameleon/Show-o/Janus等主表因训练/教师不同作者亦承认难完全公平。",
+    "experimental_conditions": "两阶段adapter预训去除Cambrian中的LAION，后训除SigLIP全训，H100/ZeRO3，每实验1epoch。8B adapter lr4.90e-5/b768，SFT6.93e-5/b1536、wd0；70B SFT4.90e-5/b768。visualizer另b2112、AdamW β.9/.999 wd.01，2000logwarm到1.1e-5再12000线性decay。AppA称CFG level0.7，其实现含义本次未核，不等同常见推理guidance倍率。"
   },
   {
     "title": "UGen: Unified Autoregressive Multimodal Model with Progressive Vocabulary Learning",
     "source_urls": [
-      "https://arxiv.org/abs/2503.21193"
+      "https://arxiv.org/abs/2503.21193",
+      "https://arxiv.org/html/2503.21193"
     ],
-    "method": "渐进激活视觉词表，缓解一次引入大词表的优化困难",
-    "conclusion": "报告相对普通统一 AR 配方的综合改善；提示训练课程也是变量",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "Progressive Vocabulary Learning：随机按每k步激活一个视觉ID，未激活ID在训练序列替为[MASK]，全部加入后继续联合预训；SFT单一混合模型。 TinyLlama1.1B、32K文本词表/context4096，SBER-MoVQGAN67M、16384视觉词表、空间8倍压缩，256²为32²视觉码；共享CE监督全序列/同loss权重。先有文字预训起点，后混纯文/I2T/T2I；CFG logits默认5。",
+    "conclusion": "Table2 Vanilla文本/理解/生成42.1/61.0/42.5，UGen46.1/66.0/52.1；单任务48.8/66.4/55.9，UGen仍低于单任务综合分。Table4细项UGen VQA70.0/GQA58.2/MME1110(55.5)/POPE80.4，单任务73.1/54.9/1128(56.4)/81.2，有互利与退化。",
+    "gap": "没有消除单任务差距；同配置不自动等每任务曝光/总计算。随机激活应与频率/语义课程及普通mask退火区分；未激活ID若连target也替mask会简化训练目标，课程收益需固定难度评估。内部数据/实际k与上述算法疑点限制复现。",
+    "problem": "缓解统一文字、图像理解与图像生成AR训练中的任务干扰。",
+    "claim": "研究目标：缓解统一文字、图像理解与图像生成AR训练中的任务干扰。",
     "version": "UGen，2025",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L091",
     "canonical_key": "paper:arxiv:2503.21193",
     "evidence_history": [
@@ -4668,27 +4772,47 @@
     "aliases": [
       "local_umm_expanded:X019"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L091.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "报告相对普通统一 AR 配方的综合改善；提示训练课程也是变量",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2.1–2.3及Algorithm1、§3.1–3.5、Tables1/2、AppA Table4相关行；未逐图/读取全部k曲线与附录细项、未核代码，未复现",
+    "review_path": "docs/reviews/L091.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "纯文DCLM15M+SlimPajama15M约30B文字token；30M图文：ImageNet1M/JourneyDB4M/CC12M12M/LAIONaesthetics12M/内部1M，CogVLM统一recaption，I2T/T2I同图翻转。SFT纯文118K+内部1M、理解1.2M+内部1M、生成4.4M+内部1M；captionsdrop10%。",
+    "framework": "Progressive Vocabulary Learning：随机按每k步激活一个视觉ID，未激活ID在训练序列替为[MASK]，全部加入后继续联合预训；SFT单一混合模型。",
+    "architecture": "TinyLlama1.1B、32K文本词表/context4096，SBER-MoVQGAN67M、16384视觉词表、空间8倍压缩，256²为32²视觉码；共享CE监督全序列/同loss权重。先有文字预训起点，后混纯文/I2T/T2I；CFG logits默认5。",
+    "metrics": "8个文本基准宏均值、VQA/GQA/POPE及MME-P/20归一后4项均值、GenEval百分数；困惑度/不同k曲线。综合相对改进不是每项绝对提高13.3点。",
+    "baselines": "同数据/骨干/训练配置的Vanilla Unified AR、三个Task-specific AR；随机初始化训练、不同激活速度；SD/Show-o/Chameleon/Janus跨模型对照仅辅助。",
+    "experimental_conditions": "AdamW lr预训1e-4/SFT3e-5、cosine/wd.01/clip1、warm5K/1K、500K/10K步、b256/128，纯文:I2T:T2I为3:2:5及2:6:2，packing。已读正文未明确最终k的数值与全部激活阶段采样细节，不能伪补；没有完整总GPU时长/每单任务曝光匹配说明。"
   },
   {
     "title": "Harmonizing Visual Representations for Unified Multimodal Understanding and Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2503.21979"
+      "https://arxiv.org/abs/2503.21979",
+      "https://arxiv.org/html/2503.21979"
     ],
-    "method": "复用 masked autoregressive 视觉编码器，将生成中学到的表示用于理解",
-    "conclusion": "是“从生成表示走向理解”的路线；并非所有生成目标都会产生同样的语义特征",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "MAR encoder→LLM→MAR decoder，共享连续图像表示；masked patches由条件扩散头生成，文字用CE；三阶段逐步解冻/增加数据和分辨率。 Harmon.5B=Qwen2.5-.5B-Instruct+MAR-B，1.5B=Qwen2.5-1.5B+MAR-H；已见patch+buffer经encoder送LLM融合文字，再送decoder/mask嵌入，MLP噪声头按预测patch条件扩散。理解全部patch不mask。推理prompt可cache，K64外层MAR步、内层扩散另有成本。",
+    "conclusion": "主.5B COCO/MJHQ FID8.86/6.08，1.5B8.39/5.15；.5B消融MAR vsSigLIP top5probe83.1/95.9，POPE86.1/85.1但MME1123/1203、MMMU33.3/35.2，不能说共享生成encoder理解全面更强。",
+    "gap": "共享MAR与独立SigLIP含预训先验/参数差；训练阶段消融混杂数据、分辨率、步数，协同需要更严格预算对照。正文m_k−m_(k−1)作为生成patch数量与递减mask的符号相反，未核代码不认定执行错误。自然图像结果不能推规范文字/事件。",
+    "problem": "检验具有生成预训的MAR encoder能否同时承载视觉理解，并在共享表示中产生任务互促。",
+    "claim": "研究目标：检验具有生成预训的MAR encoder能否同时承载视觉理解，并在共享表示中产生任务互促。",
     "version": "Harmon，2025",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L092",
     "canonical_key": "paper:arxiv:2503.21979",
     "evidence_history": [
@@ -4711,27 +4835,47 @@
     "aliases": [
       "local_umm_expanded:X020"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L092.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "是“从生成表示走向理解”的路线；并非所有生成目标都会产生同样的语义特征",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3.1–3.4、Table1/3、§4设置及§4.2 Tables6–8、Fig6正文解释、§5；未视觉核Fig6/完整图、未逐行全部主表/附录、未复现",
+    "review_path": "docs/reviews/L092.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "I公开22M densecaption+ImageNet1.2M类名生成；II InfinityMM20M+5Mcaption理解、50M图文生成（LLM改写densecaption）；III LLaVAOneVision较均衡理解、50M筛20%加6M合成。多教师重caption/指令数据需列入成本与信息条件。",
+    "framework": "MAR encoder→LLM→MAR decoder，共享连续图像表示；masked patches由条件扩散头生成，文字用CE；三阶段逐步解冻/增加数据和分辨率。",
+    "architecture": "Harmon.5B=Qwen2.5-.5B-Instruct+MAR-B，1.5B=Qwen2.5-1.5B+MAR-H；已见patch+buffer经encoder送LLM融合文字，再送decoder/mask嵌入，MLP噪声头按预测patch条件扩散。理解全部patch不mask。推理prompt可cache，K64外层MAR步、内层扩散另有成本。",
+    "metrics": "ImageNet top5 linear probe、POPE/MME/MMBench/SEED/GQA/MMMU；COCO30K/MJHQ30K FID、GenEval/WISE；分encoder/训练阶段/分辨率和单任务协同。",
+    "baselines": "SigLIP/VQGAN/VAE/MAR encoder；Janus式双encoder、single-task与联合；自然图像生成/统一模型排行榜。MAR/SigLIP预训目标/数据不同，top5 probe只作语义证据。",
+    "experimental_conditions": "三阶段各50K步，b4096/4096/1024，分辨率256/256/512，纯文:I2T:T2I 0:1:2、1:3:8、1:3:16；decoder lr1e-4/1e-4/2e-5，encoder1e-5/1e-5/2e-6，LLM阶段I冻结、II1e-5、III2e-6。32A10080GB约4/8天（.5/1.5B）。推理文字greedy、MAR K64/CFG3；完整内层扩散步数本次未核。"
   },
   {
     "title": "X-Omni: Reinforcement Learning Makes Discrete Autoregressive Image Generative Models Great Again",
     "source_urls": [
-      "https://arxiv.org/abs/2507.22058"
+      "https://arxiv.org/abs/2507.22058",
+      "https://arxiv.org/html/2507.22058"
     ],
-    "method": "语义视觉 tokenizer、离散 AR 主干、离线扩散像素解码器，结合 RL",
-    "conclusion": "改善生成质量和文字渲染；主干是 AR 不等于整条像素生成链没有扩散",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "SigLIP-VQ+QwenAR+FLUX图像decoder，以整图多奖励GRPO优化AR采样；建立静态LongText-Bench。 SigLIP2-g+16384×2048码本先对齐Qwen2.5-1.5B理解任务，后固定tokenizer；主Qwen2.5-7B前后各4个vision-only transformer block及视觉embedding/head、1DRoPE、height/width前缀。线性适配语义码至FLUX.1-dev中间特征、重建训练decoder；GRPO冻结decoder，用旧策略16rollouts/组relative advantage+clip/KL。",
+    "conclusion": "Table1 OneIG英/中.901/.895、LongText英/中.900/.814；Seedream3 .865/.928/.896/.878，X-Omni中两项均较低，正文称长中文领先所有模型与表不符。GPT4o .857/.650/.956/.619，LongText英文低于GPT4o。GenEval.83含改写；DPG表本作总分87.65，未独立复现。",
+    "gap": "LongText OCR不可靠地保留多段相对顺序，作者因此改用TextAccuracy；该指标不证明全局排版/阅读顺序。训练和评价虽部分使用不同OCR，仍需独立字符/人工及复杂布局核验。静态字形长文和视频事件是不同任务，另有中文分支/提示改写/评测子集差异。",
+    "problem": "提高离散AR图像生成的长文字与复杂指令遵循，缓解AR生成语义码与扩散decoder训练条件的分布差异。",
+    "claim": "研究目标：提高离散AR图像生成的长文字与复杂指令遵循，缓解AR生成语义码与扩散decoder训练条件的分布差异。",
     "version": "X-Omni，2025",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L093",
     "canonical_key": "paper:arxiv:2507.22058",
     "evidence_history": [
@@ -4754,7 +4898,26 @@
     "aliases": [
       "local_umm_expanded:X021"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L093.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "改善生成质量和文字渲染；主干是 AR 不等于整条像素生成链没有扩散",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3.1–3.2、§4.1–4.2、Table1和§4.3.1、Tables2/3本作行及协议、§4.4正文、§5、AppA；未视觉读Fig2/6、未逐行全部理解表、未核代码，未复现",
+    "review_path": "docs/reviews/L093.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "生成约200M COYO/DataComp/LAION高质图，Qwen2.5VL72B densecaption，约600B多模态token；理解59M约100Btoken。SFT BLIP3o30K+合成30K+高质预训数据及LLaVA/Cauldron/Cambrian，共1.5Btoken。RL180Kprompt=80KMidjourney+50K文字长度分桶+50K自然。LongText160prompt/8场景、GPT4o生成后人工复核。",
+    "framework": "SigLIP-VQ+QwenAR+FLUX图像decoder，以整图多奖励GRPO优化AR采样；建立静态LongText-Bench。",
+    "architecture": "SigLIP2-g+16384×2048码本先对齐Qwen2.5-1.5B理解任务，后固定tokenizer；主Qwen2.5-7B前后各4个vision-only transformer block及视觉embedding/head、1DRoPE、height/width前缀。线性适配语义码至FLUX.1-dev中间特征、重建训练decoder；GRPO冻结decoder，用旧策略16rollouts/组relative advantage+clip/KL。",
+    "metrics": "OneIG文字综合EditDistance/Completion/WordAcc；LongText Qwen2.5VL7B OCR后TextAccuracy，每prompt4张；GenEval（有prompt rewriting）、DPG、图像理解。训练奖励HPSv2/UnifiedReward/Qwen2.5VL32B对齐/GOT-OCR2+PaddleOCR。",
+    "baselines": "JanusPro/BLIP3o/BAGEL/OmniGen2/Show-o2、GPT4o、FLUX/Seedream；RL对SFT best-of-N、AR CFG依赖图。GPT4o DPG仅1张且排被拒prompt，不能当相同测试预算/集合。",
+    "experimental_conditions": "图像短边384/长边≤1152保持比例。AR阶段I仅新视觉模块10K步b256/context16384约42Btoken，II全训150K步629Btoken、lr1e-4，III高质42Btoken退火；SFT b64/context16384、lr1e-5→0。RL lr1e-6、200step、b512、每prompt16rollout、KL.01；总decoder/奖励推理成本未给。AR不需要CFG的声明不自动包含FLUX解码成本或CFG设定。"
   },
   {
     "title": "TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation",
