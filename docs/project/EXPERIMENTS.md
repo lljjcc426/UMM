@@ -1,5 +1,7 @@
 # 实验计划
 
+H1-T7按T7-1→T7-6执行：冻结归因→新数据与预注册→等预算A0/A1→Train/Dev固定L1→2×2测试→决策。[T7-1归因](../../results/h1/instance_onset_v1/T7_1_ATTRIBUTION.md)完成，无训练；T6结果不用于本轮模型选择。
+
 SO-01-V3-T6已完成：[早期历史记忆协议](../experiments/h1_t6_early_history_protocol.md)。T6-1至T6-5按序完成；冻结Show-o2，结论REVISE，优先显式记忆与起笔读取。见[完整决策](../../results/h1/early_history_v1/T6_DECISION.md)，本批停止训练，H2／H3未开展。
 
 当前沿固定分支按H1→H2→H3推进。H1-v3首批T1→T5完成，当前停止新增训练，见[协议](../experiments/h1_v3_protocol.md)与[决策](../../results/h1/event_v3/T5_DECISION.md)。细缺口继续独立保留。完整H1未通过，H2／H3未开始。
