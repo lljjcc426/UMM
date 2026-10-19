@@ -31,8 +31,8 @@ def prepare(rows_path=None,features_path=None,manifest_path=None):
             a,b=points[0],points[-1];kinds.append(3 if len(points)>2 else 1 if a[1]==b[1] else 2 if a[0]==b[0] else 4)
         p=torch.tensor(row['label_progress']);state=torch.where(p==1,2,torch.where(p>0,1,0));starts=(p>0)&~torch.cat([torch.zeros_like(p[:1],dtype=torch.bool),p[:-1]>0]);complete=(p==1)&~torch.cat([torch.zeros_like(p[:1],dtype=torch.bool),p[:-1]==1])
         # Labels use the same observations as the task; merged onsets stay unknown.
-        onsets=torch.full((8,n),-1,dtype=torch.long);confidence=[];directions=[];active=[];orders=[];truth=[]
-        for t in range(8):
+        onsets=torch.full((len(row['frames']),n),-1,dtype=torch.long);confidence=[];directions=[];active=[];orders=[];truth=[]
+        for t in range(len(row['frames'])):
             observed=pixel_observer(row,[Image.open(ROOT/path) for path in row['frames'][:t+1]])
             confidence.append(not observed['unknown']);directions.append([['unknown','forward','reverse'].index(s) for s in observed['direction']]);orders.append(observed['event_order'])
             for j in range(n):
@@ -63,14 +63,14 @@ def spatial(items,folder):
     def loss_one(x,t):
         mask,_=a(x['reference'][None],x['kinds'][None],x['hints'][None]);cur=x['visual'][t:t+1];prev=x['visual'][max(0,t-1):max(0,t-1)+1]
         change=b(prev,cur,x['rgb'][t:t+1]);return mask_loss(mask,x['masks'][None])+mask_loss(change,x['change'][t:t+1])
-    pairs=[(i,t) for i in range(len(train)) for t in range(1,8)]
+    pairs=[(i,t) for i in range(len(train)) for t in range(1,len(train[i]['row']['frames']))]
     for epoch in range(12):
         a.train();b.train();total=0;order=torch.randperm(len(pairs),generator=generator).tolist()
         for offset in range(0,len(order),8):
             optimizer.zero_grad();chosen=order[offset:offset+8];loss=sum(loss_one(train[pairs[k][0]],pairs[k][1]) for k in chosen)/len(chosen)
             loss.backward();optimizer.step();total+=float(loss.detach())*len(chosen)
         a.eval();b.eval()
-        with torch.no_grad():validation=float(torch.stack([loss_one(x,t) for x in dev for t in [2,4,7]]).mean())
+        with torch.no_grad():validation=float(torch.stack([loss_one(x,t) for x in dev for t in [min(2,len(x['row']['frames'])-1),len(x['row']['frames'])//2,len(x['row']['frames'])-1]]).mean())
         history.append(dict(epoch=epoch+1,train_loss=total/len(pairs),dev_loss=validation,seconds=time.perf_counter()-start))
         save(folder/'spatial_training.json',history)
         if validation<best:best=validation;patience=0;best_state=copy.deepcopy((a.state_dict(),b.state_dict()))
@@ -122,12 +122,12 @@ def event_metrics(model,items,inputs):
     with torch.no_grad():
         for x,inp in zip(items,inputs):
             output=model(inp[None])
-            for t in range(3,8):
+            for t in x['row'].get('decisions',range(3,len(x['row']['frames']))):
                 state=decode_state(output,x,t);truth=x['state'][t].tolist();order=x['orders'][t]
                 records.append(dict(id=x['row']['id'],group=x['row']['group'],t=t,prediction=state,truth_state=truth,truth_order=order,truth_progress=x['progress'][t].tolist(),
                     order_correct=state['event_order']==order,state_correct=[a==b for a,b in zip(state['geometry_state'],truth)],
                     action_correct=state['decision']==x['truth'][t],progress_mae=float((output['progress'][0,t]-x['progress'][t]).abs().mean())))
-    state_values=[v for r in records for v in r['state_correct']];final=[r for r in records if r['t']==7]
+    state_values=[v for r in records for v in r['state_correct']];lengths={x['row']['id']:len(x['row']['frames']) for x in items};final=[r for r in records if r['t']==lengths[r['id']]-1]
     return dict(state_accuracy=sum(state_values)/len(state_values),strict_order=sum(r['order_correct'] for r in records)/len(records),final_order=sum(r['order_correct'] for r in final)/len(final),
         action_accuracy=sum(r['action_correct'] for r in records)/len(records),progress_mae=float(np.mean([r['progress_mae'] for r in records])),records=records)
 
@@ -135,14 +135,14 @@ def temporal(items,a,b,folder,temporal=True,name='B4',epochs=12):
     a.eval().requires_grad_(False);b.eval().requires_grad_(False)
     inputs=[event_inputs(x,a,b) for x in items];train=[i for i,x in enumerate(items) if x['row']['group']!='diagonal'];dev=[i for i,x in enumerate(items) if x['row']['group']=='diagonal']
     torch.manual_seed(42);model=EventState(temporal=temporal);optimizer=torch.optim.AdamW(model.parameters(),lr=.001,weight_decay=.01);rng=torch.Generator().manual_seed(42)
-    examples=[(i,t) for i in train for t in range(3,8)];history=[];best=float('inf');patience=0;start=time.perf_counter()
+    examples=[(i,t) for i in train for t in range(3,len(items[i]['row']['frames']))];history=[];best=float('inf');patience=0;start=time.perf_counter()
     for epoch in range(epochs):
         model.train();order=torch.randperm(len(examples),generator=rng).tolist();total=0
         for offset in range(0,len(order),8):
             optimizer.zero_grad();chosen=order[offset:offset+8];loss=sum(temporal_loss(model(inputs[examples[k][0]][None]),items[examples[k][0]],examples[k][1]) for k in chosen)/len(chosen)
             loss.backward();optimizer.step();total+=float(loss.detach())*len(chosen)
         model.eval()
-        with torch.no_grad():validation=float(torch.stack([temporal_loss(model(inputs[i][None]),items[i],t) for i in dev for t in [3,5,7]]).mean())
+        with torch.no_grad():validation=float(torch.stack([temporal_loss(model(inputs[i][None]),items[i],t) for i in dev for t in [min(3,len(items[i]['row']['frames'])-1),min(5,len(items[i]['row']['frames'])-1),len(items[i]['row']['frames'])-1]]).mean())
         history.append(dict(epoch=epoch+1,train_loss=total/len(examples),dev_loss=validation,seconds=time.perf_counter()-start));save(folder/(name+'_training.json'),history)
         if validation<best:best=validation;patience=0;best_state=copy.deepcopy(model.state_dict())
         else:patience+=1

@@ -26,10 +26,14 @@ class EventLedger:
         reason='uncertain_onset_detection' if self.unconfirmed else 'merged_onset_interval' if unresolved else None
         order=None if reason else sorted(seen,key=lambda j:self.events[j]['first_observed_interval'][1])
         stored_direction=[self.events[j]['direction'] if j in self.events else direction[j] for j in range(self.q)]
+        entries=copy.deepcopy(list(self.events.values()))
+        for entry in entries:
+            j=entry['instance_id'];entry['uncertain_relations']=[k for g in unresolved if j in g for k in g if k!=j]
+            entry['confirmed_precedence']=[p for p in precedence if j in p]
         state=dict(observed_ids=seen,event_order=order,progress=list(progress),geometry_state=list(geometry),direction=stored_direction,
             onset_intervals={str(j):e['first_observed_interval'][:] for j,e in self.events.items()},confirmed_precedence=precedence,unresolved_order_groups=unresolved,
             uncertain_instance_ids=sorted(self.unconfirmed),uncertainty_reason=reason,observation_confidence=0. if reason else 1.,pen_lift_evidence='unknown',
-            recovery='requires_missing_past_observations' if reason else None,ledger=copy.deepcopy(list(self.events.values())))
+            recovery='requires_missing_past_observations' if reason else None,ledger=entries)
         decision_progress=[0. if c==0 else 1. if c==2 else min(.984,max(.001,p)) for c,p in zip(geometry,progress)]
         state['decision']=rule_action(dict(event_order=order,progress=decision_progress,direction=stored_direction),list(range(self.q)))
         return state

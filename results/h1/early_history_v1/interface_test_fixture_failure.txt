@@ -1,0 +1,17 @@
+...E..
+======================================================================
+ERROR: test_pair_denominator_keeps_reused_correct_history (test_h1_early_history.EarlyHistoryTests.test_pair_denominator_keeps_reused_correct_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/cc/Documents/UMM/tests/test_h1_early_history.py", line 46, in test_pair_denominator_keeps_reused_correct_history
+    pairs=compute_pairs(rs);self.assertEqual(len(pairs),6)
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/scripts/h1_early_history_score.py", line 44, in compute_pairs
+    pairs.append(dict(group=g,variant=v,t=t,both_correct=a['order_correct'] and b['order_correct'],orders=[a['prediction']['event_order'],b['prediction']['event_order']],truth=[a['truth']['event_order'],b['truth']['event_order']]))
+                                                                                                           ~^^^^^^^^^^^^^^
+KeyError: 'prediction'
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.039s
+
+FAILED (errors=1)

@@ -36,11 +36,15 @@ class EventState(nn.Module):
         self.state=nn.Linear(256,3);self.progress=nn.Linear(256,1);self.direction=nn.Linear(256,3)
         self.start=nn.Linear(256,1);self.complete=nn.Linear(256,1);self.order=nn.Linear(256,1)
         self.active=nn.Linear(256,1);self.none=nn.Linear(256,1);self.confidence=nn.Linear(256,1)
+    @staticmethod
+    def causal_mask(t,q,device=None):
+        """Same-time instances can interact; future times are always masked."""
+        times=torch.arange(t,device=device).repeat_interleave(q)
+        return times[None,:]>times[:,None]
     def forward(self,x):
         b,t,q,_=x.shape;h=self.input(x).reshape(b,t*q,256)
         if self.temporal:
-            times=torch.arange(t,device=x.device).repeat_interleave(q);causal=times[None,:]>times[:,None]
-            h=self.encoder(h,mask=causal)
+            h=self.encoder(h,mask=self.causal_mask(t,q,x.device))
         else:h=self.encoder(h)
         h=h.reshape(b,t,q,256);pooled=h.mean(2)
         return dict(state=self.state(h),progress=self.progress(h).squeeze(-1).sigmoid(),direction=self.direction(h),

@@ -1,0 +1,116 @@
+{
+  "groups": {
+    "train": [
+      "train-00-parallel",
+      "train-01-mixed",
+      "train-02-cross",
+      "train-03-fold"
+    ],
+    "dev": [
+      "dev-00-parallel",
+      "dev-01-mixed"
+    ],
+    "test": [
+      "test-00-parallel",
+      "test-01-mixed"
+    ]
+  },
+  "inputs": [
+    {
+      "group": "train-00-parallel",
+      "shape": [
+        24,
+        5,
+        196
+      ]
+    },
+    {
+      "group": "train-01-mixed",
+      "shape": [
+        24,
+        5,
+        196
+      ]
+    },
+    {
+      "group": "train-02-cross",
+      "shape": [
+        24,
+        5,
+        196
+      ]
+    },
+    {
+      "group": "train-03-fold",
+      "shape": [
+        24,
+        5,
+        196
+      ]
+    },
+    {
+      "group": "dev-00-parallel",
+      "shape": [
+        24,
+        5,
+        196
+      ]
+    },
+    {
+      "group": "dev-01-mixed",
+      "shape": [
+        24,
+        5,
+        196
+      ]
+    },
+    {
+      "group": "test-00-parallel",
+      "shape": [
+        24,
+        5,
+        196
+      ]
+    },
+    {
+      "group": "test-01-mixed",
+      "shape": [
+        24,
+        5,
+        196
+      ]
+    }
+  ],
+  "heads": [
+    {
+      "temporal": false,
+      "batch_shape": [
+        8,
+        24,
+        5,
+        196
+      ],
+      "loss": 5.5869669914245605,
+      "finite_gradients": true,
+      "nonzero_gradients": 24,
+      "optimizer_updates": 0
+    },
+    {
+      "temporal": true,
+      "batch_shape": [
+        8,
+        24,
+        5,
+        196
+      ],
+      "loss": 6.038104057312012,
+      "finite_gradients": true,
+      "nonzero_gradients": 44,
+      "optimizer_updates": 0
+    }
+  ],
+  "seconds": 1.4211754589996417,
+  "max_rss_bytes": 1500217344,
+  "test_labels_used_for_gradient": false,
+  "optimizer_updates": 0
+}

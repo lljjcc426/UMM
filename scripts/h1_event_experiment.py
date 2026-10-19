@@ -163,7 +163,12 @@ def run():
 def by_split(record,items):return next(x['row']['split'] for x in items if x['row']['id']==record['id'])
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,default=OUT);parser.add_argument('--weights',type=Path,default=WEIGHTS);parser.add_argument('--features',type=Path,default=FEATURES);parser.add_argument('--manifest',type=Path,default=MANIFEST);parser.add_argument('--cases',type=Path,default=CASES);args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--output',type=Path,default=OUT);parser.add_argument('--weights',type=Path,default=WEIGHTS);parser.add_argument('--features',type=Path,default=FEATURES);parser.add_argument('--manifest',type=Path,default=MANIFEST);parser.add_argument('--cases',type=Path,default=CASES)
+    parser.add_argument('--early-history',choices=['spatial','compact','heads','evaluate'],help='Independent T6 entry; keeps all T4 paths and results intact');args=parser.parse_args()
+    if args.early_history:
+        import h1_early_history_experiment as t6
+        getattr(t6,args.early_history)()
+        raise SystemExit(0)
     original_protocol=OUT/'preregistration.json';OUT=args.output;WEIGHTS=args.weights;FEATURES=args.features;MANIFEST=args.manifest;CASES=args.cases
     if OUT!=original_protocol.parent:
         OUT.mkdir(parents=True,exist_ok=True)
