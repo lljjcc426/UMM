@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 293 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 301 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -84,13 +84,13 @@
 | U10 | Monet: Reasoning in Latent Visual Space Beyond Images and Language | primary_sections_read | [结构化分析](../reviews/U10.md) | 五项检查已记录 |
 | U11 | Omni-R1: Towards the Unified Generative Paradigm for Multimodal Reasoning | primary_sections_read | [结构化分析](../reviews/U11.md) | 未完成 |
 | U12 | WEAVE: Unleashing and Benchmarking the In-Context Interleaved Comprehension and Generation | primary_sections_read | [结构化分析](../reviews/U12.md) | 未完成 |
-| U13 | Quantifying the Gap between Understanding and Generation within Unified Multimodal Models (GapEval) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U14 | UniG2U-Bench: Do Unified Models Advance Multimodal Understanding? | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U15 | RealUnify: Do Unified Models Truly Benefit from Unification? A Comprehensive Benchmark | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U16 | Can Unified Generation and Understanding Models Maintain Semantic Equivalence Across Different Output Modalities? (VGUBench) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
+| U13 | Quantifying the Gap between Understanding and Generation within Unified Multimodal Models (GapEval) | primary_sections_read | [结构化分析](../reviews/U13.md) | 未完成 |
+| U14 | UniG2U-Bench: Do Unified Models Advance Multimodal Understanding? | primary_sections_read | [结构化分析](../reviews/U14.md) | 未完成 |
+| U15 | RealUnify: Do Unified Models Truly Benefit from Unification? A Comprehensive Benchmark | primary_sections_read | [结构化分析](../reviews/U15.md) | 未完成 |
+| U16 | Can Unified Generation and Understanding Models Maintain Semantic Equivalence Across Different Output Modalities? (VGUBench) | primary_sections_read | [结构化分析](../reviews/U16.md) | 未完成 |
 | U17 | Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System | primary_sections_read | [结构化分析](../reviews/U17.md) | 未完成 |
 | U18 | Transferability Between Understanding and Generation in Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/U18.md) | 未完成 |
-| U19 | Generation Enhances Understanding in Unified Multimodal Models via Multi-Representation Generation (UniMRG) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
+| U19 | Generation Enhances Understanding in Unified Multimodal Models via Multi-Representation Generation (UniMRG) | primary_sections_read | [结构化分析](../reviews/U19.md) | 未完成 |
 | U20 | Semantic Generative Tuning for Unified Multimodal Models (SGT) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | U21 | Model Guides You How to Draw: Adaptive Visual Gating for Unified Multimodal Reasoning (AdaViG) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | U22 | UEval: A Benchmark for Unified Multimodal Generation | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
@@ -107,7 +107,7 @@
 | R07 | OpenHandWrite_Toolbox与笔画级数据 | primary_sections_read | [结构化分析](../reviews/R07.md) | 未完成 |
 | L001 | Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026 | primary_sections_read | [结构化分析](../reviews/L001.md) | 未完成 |
 | L002 | Diff-Writer，ICONIP 2023 | primary_abstract_read | [结构化分析](../reviews/L002.md) | 未完成 |
-| L003 | Write Like You，2021 | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
+| L003 | Write Like You，2021 | primary_sections_read | [结构化分析](../reviews/L003.md) | 五项检查已记录 |
 | L004 | Layout Stroke Imitation，2025 | primary_sections_read | [结构化分析](../reviews/L004.md) | 未完成 |
 | L005 | StrokeBank，2014 | primary_sections_read | [结构化分析](../reviews/L005.md) | 未完成 |
 | L006 | Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement，2026 | primary_abstract_read | [结构化分析](../reviews/L006.md) | 未完成 |
@@ -288,8 +288,8 @@
 | L181 | Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding | primary_sections_read | [结构化分析](../reviews/L181.md) | 未完成 |
 | N14 | SteerVTE: Seamless Video Text Editing with Style and Glyph Control | primary_sections_read | [结构化分析](../reviews/N14.md) | 未完成 |
 | S001 | Ketaba-OCR at AR-MS NakbaNLP 2026 | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| S002 | TextDiffuser: Diffusion Models as Text Painters | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| S003 | GlyphControl: Glyph Conditional Control for Visual Text Generation | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
+| S002 | TextDiffuser: Diffusion Models as Text Painters | primary_sections_read | [结构化分析](../reviews/S002.md) | 五项检查已记录 |
+| S003 | GlyphControl: Glyph Conditional Control for Visual Text Generation | primary_sections_read | [结构化分析](../reviews/S003.md) | 未完成 |
 | S004 | VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | S007 | Brush Calligraphy Stroke Segmentation Dataset (BCSS) | primary_sections_read | [结构化分析](../reviews/S007.md) | 未完成 |
 | S008 | Wuji Writing VAM TI2V-5B 30L 0522 0819 | primary_sections_read | [结构化分析](../reviews/S008.md) | 未完成 |

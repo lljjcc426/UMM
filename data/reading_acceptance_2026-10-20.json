@@ -577,6 +577,70 @@
         }
       ],
       "boundary": "2016预印本核心生成/识别章、训练/主表与选定消融已读；期刊卷页日期通过CrossRef核，2018正式文版本尚未逐页比对。未取得/执行代码，未复现。"
+    },
+    {
+      "id": "L003",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "作者想从少量真实作者字样得到可泛化风格，并依标准内容轨迹写新字。固定作者重训代价高，全局风格向量难控制局部笔势；双编码器把内容和风格分开，度量预训使新作者参考更可用。生成对象为带抬落笔的序列，尚未证明规范顺序或真实视频。",
+          "evidence": "本次书面复述，未计时口试。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2上路标准内容轨迹过BiRNN和单调attention，左下M个作者参考字过styleBiRNN，所有局部状态flatten后由ASB按decoder上一时刻hidden取加权和。decoder同时读内容/风格/前一步，输出相关GMM位移及三状态softmax，再反馈下一步，直到end。图中xc本身已经带内容顺序信息。",
+          "evidence": "正式PDFp3 Fig2已渲染视觉核；§4.1–4.4。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "AngularCenterLoss以batch作者中心和margin组织风格空间，ASB逐步访问不同参考局部；两者主要服务新作者和局部笔势。cycle要求生成后风格回到参考特征，但公开代码使用GMM加权均值和hardpen状态，不能等同整段随机生成的一致性。",
+          "evidence": "§4.3/§4.5与固定model.py380–392。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table7 noFT的content.988/style.604/DTW1.487，FT100内容.987而风格.937/DTW1.323，风格收益很大但内容略降。Table4 cycle0到20时style.588→.605，content.994→.946，正是权衡；不能只挑风格列。Table1 ASB无/有.422/.604说明本配置局部聚合有效。",
+          "evidence": "正式Tables1/4/7。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：给定xc标准轨迹后，OOV优势有多少来自额外结构输入？应给所有基线同样oracle。问题2：StyleScore分类器在60测试作者内部怎样划分，能否避免同样本用于训练和打分？问题3：主文三层/λcycle5与代码默认四层/0，复现应使用哪份hparams？L178已有类条件轨迹、DeepImitator/FontRNN是明确历史基线；新课题需检索后续DiffWriter/DiffInk等，不能以零样本命名直接宣称首创。",
+          "evidence": "正式§2/§5与固定代码默认；补充材料和后续研究仍须继续核。"
+        }
+      ],
+      "boundary": "核心流程与主表、选定消融已核。完整补充材料/源码、独立采样与评估未执行；五项书面回答不代表全文三遍完成。"
+    },
+    {
+      "id": "S002",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "TextDiffuser解决静态图里指定文字错拼和布局不稳。CLIP语义条件不能精确决定每个字符像素，所以先预测词框并渲染字符mask，再以mask约束潜扩散；目标同时覆盖整图生成和局部修补。没有预测笔画真实时间。",
+          "evidence": "本次书面复述，未计时口试。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2上路prompt经CLIP/关键词宽度等embedding进两层enc-dec，逐词框由Pillow变字符类别mask。下路噪声latent4、字符条件8、区域mask1、masked原图4拼17通道UNet，文字条件crossattention；冻结字符分割网络从预测干净latent提供CE，最终VAE解码场景图。整图分支把区域全mask，局部分支留背景。",
+          "evidence": "正式PDFp4 Fig2已渲染视觉核；§3.2。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "将文字变空间分割约束并增加character-awareloss，提供逐字符类别监督；用同一扩散分支兼容整图和inpaint。MARIO数据/评价也是独立贡献，制标网络和latentloss网络是两套，不能混写成一个OCR。",
+          "evidence": "§3/§4及AppA/B。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table4 OCR准确.5609优SD/ControlNet/IF，但FID38.758差于IF34.902，图质与拼写应分开。Table2 λchar0→.01准确.396→.494为9.8pp，继续加到1回.400；不是loss越大越好。Table3 σ.5兼顾整图.552与局部SpotF.715，σ1局部.218说明多任务比例重要。",
+          "evidence": "正式Tables2–4。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：95字符mask对中文/非拉丁的能力边界怎样，换字表需要多少制标/预训？问题2：同目标框与字形条件给GlyphControl，收益能否保留？问题3：OCR服务偏差和FID两组样本/来源差异如何影响结论？已核S003 glyphControl静态空间控制与L178真实轨迹不同，不能把扩散迭代当作逐笔视频，也不能只凭终帧OCR推新笔顺模型有效。",
+          "evidence": "§5与AppH协议、S003本批方法/主表；跨文字体系后续仍须追引。"
+        }
+      ],
+      "boundary": "主文核心框架/实现、主表和一组消融已核；附录与代码未全审，未做独立模型执行或完整三遍验收。"
     }
   ]
 }

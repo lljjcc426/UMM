@@ -104,3 +104,7 @@ HermesFlow4997368 train_pairdpo.py549–554用两DPO加权和，和正式/预印
 ## 第十八批：SyncR1发布制品与论文差异
 
 [官方9ca4254子目录](https://github.com/arctanxarc/UniCTokens/tree/9ca4254c4e94dce82f0fe0e131f27632f89424a2/sync_r1_grpo)实际依赖根models/training/llava、原始模型/CLIP/FaceNet权重和逐概念UniCTokens阶段2checkpoint。grpo.py记录每步全图token并按sum做DrGRPO；DGS筛选用CLIP图/文分的.65/.35组合，阈值代码为target−observed后指数与±.005步变动，和论文动量控制式不同。其含义是存在可审实现；未验证能直接重现论文表格。资源关联L135，不增独立论文数。
+
+## 第二十五批：配置与checkpoint属于研究证据
+
+[本批审查](../evidence/glyph_conditions_paired_benchmarks_and_structural_targets_2026-10-20.md)核WriteLikeYou固定model.py：默认风格4层/20GMM/cycle0，论文3层/λcycle5；均值cycle与随机完整生成要分开。GlyphControl README区分10M与额外TextCaps5K40epoch版本，后者开放原decoder且承认多样性损失；主YAML是resume warmup1，不能当从头10000配置。TextDiffuser README b24/acc4需8卡才对应768。以上为已有论文的配套制品，不增独立论文/无论文资源计数；HF模型卡和权重未取得/执行，不以README指针宣称完成权重复核。

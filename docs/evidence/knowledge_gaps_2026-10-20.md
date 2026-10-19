@@ -98,3 +98,7 @@ Fourier特征的有限线性张成与全部三角多项式不同，需含正确�
 ## 确定性latent与概率代理
 
 Monet公式把旧hidden视为固定方差Gaussian动作，发布runner却取均值；需区分可优化距离代理与真实随机行为策略。相同context/参数时距离为零，其梯度也为零，文本更新或数值差异可打破等式；因此不能直接断言训练无效。下一步核两阶段teacher-forcing和旧logprob的真实执行路径。
+
+## 多维评分的锚定与相关检验
+
+GapEval印刷附录联合学θ/β/µ时，有每模态平移对称性；跨模态能力差需锚定，且仅两项全局β不等逐题难度。见[推导条件](glyph_conditions_paired_benchmarks_and_structural_targets_2026-10-20.md)，实现是否有额外约束待核。VGUBench离散评分有ties，Spearman简式不能默认适用；去重答案恢复为多题后的相关需cluster推断，p小与效应大分开。

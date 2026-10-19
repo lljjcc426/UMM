@@ -6003,24 +6003,25 @@
     "id": "U13",
     "category": "U UMM基础与协同补全",
     "title": "Quantifying the Gap between Understanding and Generation within Unified Multimodal Models (GapEval)",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "Quantifying the Gap between Understanding and Generation within Unified Multimodal Models（GapEval）；arXiv2602.02140v2，2026-10-05；未核实正式接收",
     "source_urls": [
-      "https://arxiv.org/abs/2602.02140"
+      "https://arxiv.org/abs/2602.02140",
+      "https://arxiv.org/pdf/2602.02140v2"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：可测量同一模型内部理解与生成知识不一致。",
-    "method": "控制任务或知识变化，比较不同输出端的表现。",
-    "problem": "功能统一不保证知识在两个方向迁移。",
-    "conclusion": "在其设置中发现能力/知识割裂。",
-    "gap": "【边界/推断】不应由局部缺口推出统一模型普遍无效。",
+    "claim": "研究目标：同一语义问题分别要求文字和图像回答时，统一模型两侧是否一致？单侧知识编辑/注入能否迁移？",
+    "method": "646题四类成对图文回答基准、二值judge及MIRT式GapScore；知识注入/编辑后两侧评价。是评价及诊断研究，没有新视频/笔顺生成架构。 现成BAGEL/OneCAT/UniWorld等，附录MIRT对每模型两维能力、仅两项模态全局β、可学习高斯µ/Σ，先边际计数似然再对共成功/共失败加logit奖励惩罚λ各2。主文Eq1简写缺失败项，附录Eq9含全似然，不能据主式断言实际无负样本。",
+    "problem": "同一语义问题分别要求文字和图像回答时，统一模型两侧是否一致？单侧知识编辑/注入能否迁移？",
+    "conclusion": "Table2 BAGEL世界Und88.17/Gen58.50/共成52.24、数量17/8.4/2.4；UniWorld世界93.28/92.74但reasoning36.78/1.44。说明不一致按任务集中，不能仅看总Gap判断所有知识隔离。",
+    "gap": "附录只有模态β，未见逐题β，不能按原文将其解释成逐题IRT难度校正。按已印公式θ→θ+c、β→β+c、µ→µ+c保持likelihood/prior，却可改变两模态θ差，Gap需锚定才可识别；本次为公式条件推导，未核代码是否额外锚定，不能断言公开数值必错。judge和模型集合也影响估计。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
-    "last_updated": "2026-10-15",
+    "sections_read": "§2.1–2.4/§3.1–3.2 Table2、§4.1指定段、AppB1–B4/C/E部分/F2.2/F3；全文其余图表和实现未全审，无模型执行",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2602.02140",
     "evidence_history": [
       {
@@ -6058,30 +6059,50 @@
       "web_bundle:U13",
       "local_umm_core:P20"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/U13.md",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
+        "conclusion": "在其设置中发现能力/知识割裂。",
+        "gap": "【边界/推断】不应由局部缺口推出统一模型普遍无效。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/U13.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "646题：世界知识/数量变换/指令编辑/推理；人工和QwenImage生成筛选、公开任务。注入约100全被候选模型识别/生成失败的未知实体（每项约10图），编辑约50GenEval对象对。筛“未知”依本批模型，不代表普遍未知分布。",
+    "framework": "646题四类成对图文回答基准、二值judge及MIRT式GapScore；知识注入/编辑后两侧评价。是评价及诊断研究，没有新视频/笔顺生成架构。",
+    "architecture": "现成BAGEL/OneCAT/UniWorld等，附录MIRT对每模型两维能力、仅两项模态全局β、可学习高斯µ/Σ，先边际计数似然再对共成功/共失败加logit奖励惩罚λ各2。主文Eq1简写缺失败项，附录Eq9含全似然，不能据主式断言实际无负样本。",
+    "metrics": "Und/Gen/同题共成功与Gap↓；GPT5mini二值judge，200样本与人92%agreement，Gemini3Flash复核rank Pearson.9656。注入用CLIP图相似，编辑用VLM；这些代理不能严格保证新实体每个特征均正确。",
+    "baselines": "表含9开源+2闭源UMM与理解/生成专用组，Table2 caption仍写9UMMs/6nonUMMs与扩展行数不一致。闭源“GPT家族”理解GPT5mini、生成GPTImage1，不足以证明共享一个参数模型。",
+    "experimental_conditions": "OmniGen2/Showo单侧微调；BAGEL单侧会失去另一侧输出，故混入官方标准数据共同训练（AppF2.2）。不同模型干预不同，不能统一称所有都纯单侧训练。优化器/更新范围/训练量/seed及Gap拟合初始化/锚定实现未取得。"
   },
   {
     "id": "U14",
     "category": "U UMM基础与协同补全",
     "title": "UniG2U-Bench: Do Unified Models Advance Multimodal Understanding?",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "UniG2U-Bench: Do Unified Models Advance Multimodal Understanding?；arXiv2603.03241v1；未核实正式接收",
     "source_urls": [
-      "https://arxiv.org/abs/2603.03241"
+      "https://arxiv.org/abs/2603.03241",
+      "https://nssmd.github.io/unig2u.github.io/",
+      "https://arxiv.org/pdf/2603.03241v1"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：要直接检验生成是否真的帮助理解。",
-    "method": "多类任务对照直接回答与生成后回答等路径。",
-    "problem": "中间图像可能有帮助，也可能造成错误证据。",
-    "conclusion": "报告收益不普遍，依赖任务与模型。",
-    "gap": "【边界/推断】不能写成所有视觉生成都伤害理解；需要任务级因果对照。",
+    "claim": "研究目标：相对对应基础VLM，生成—回答和直接回答是否改善理解，哪些任务可从中间图受益？",
+    "method": "3000题/7类30子任务、Direct与Generate-then-Answer两协议、对基础VLM的Δ、中间图RA与答案AL诊断；分类原生/解耦/agentic系统。没有提出新生成骨干。 35系统：11baseVLM/21nativeUMM/3agentic；对应base难取得时用最相近架构/数据VLM替代。RA=.4指令+.3图质+.3相关，AL=.5视觉答案+.3题答+.2逻辑，GPT4o打1–5分。",
+    "problem": "相对对应基础VLM，生成—回答和直接回答是否改善理解，哪些任务可从中间图受益？",
+    "conclusion": "Table4 BAGEL direct35.84(+2.49pp)/GtA36.10(+2.75pp)，本组base33.35；Showo2 direct31.59/GtA26.59，均低base33.35；OvisU1 direct32.15/GtA24.19。生成非普遍益处，不把有利空间子任务概括全部。",
+    "gap": "近似base、预训/后训变化、cap与真实计算差异；自动judge一致性不等机制解释。统计平均受category权重；最大化one-shot/agentic的性能定义若使用测试挑选有选择偏差，需预注册。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3.1–3.2核心定义、§4.1指定段/Table2、§4.2–4.4协议/metrics、Table4及Table6标题；其余长附录/全部主表分域/源码未全读，未复现",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2603.03241",
     "evidence_history": [
       {
@@ -6136,30 +6157,50 @@
       "local_handwriting:R49",
       "local_umm_core:P21"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/U14.md",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
+        "conclusion": "报告收益不普遍，依赖任务与模型。",
+        "gap": "【边界/推断】不能写成所有视觉生成都伤害理解；需要任务级因果对照。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/U14.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "3000跨Geometry3K/PhyX/UniMMMU/RealUnify/ChartQA/MMSIBench/IllusionBench/BabyVision等30subtasks；七类几何/物理/游戏/图表/空间/感知/现实应用。已有公开测试复用，需查训练污染，类别样本不均。",
+    "framework": "3000题/7类30子任务、Direct与Generate-then-Answer两协议、对基础VLM的Δ、中间图RA与答案AL诊断；分类原生/解耦/agentic系统。没有提出新生成骨干。",
+    "architecture": "35系统：11baseVLM/21nativeUMM/3agentic；对应base难取得时用最相近架构/数据VLM替代。RA=.4指令+.3图质+.3相关，AL=.5视觉答案+.3题答+.2逻辑，GPT4o打1–5分。",
+    "metrics": "答案准确/regex或GPT4o判分，ΔDirect/ΔGtA各减本组base；RA/AL均分。base差同时含额外训练和结构变化，不能称已经严格隔离“生成”的因果效应。",
+    "baselines": "按base分组UMM，另GPT4o/Gemini与生成API组合。找不到原始base用closestVLM，配对质量不等；本文将agentic也归广义unified，引用时不能全写共享UMM。",
+    "experimental_conditions": "尽量lmms-eval，兼容失败native栈；文字greedy T0/topp1、cap输出token、图用各模型default，OOM降图分辨率。各图NFE/latency不同，cap文字长度不构成同FLOPs/同观测分辨率预算。具体cap和每题fallback日志尚未全核。"
   },
   {
     "id": "U15",
     "category": "U UMM基础与协同补全",
     "title": "RealUnify: Do Unified Models Truly Benefit from Unification? A Comprehensive Benchmark",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "RealUnify: Do Unified Models Truly Benefit from Unification? A Comprehensive Benchmark；arXiv2509.24897v2，2026-03-20；未核实正式接收",
     "source_urls": [
-      "https://arxiv.org/abs/2509.24897"
+      "https://arxiv.org/abs/2509.24897",
+      "https://github.com/FrankYang-17/RealUnify",
+      "https://arxiv.org/pdf/2509.24897v2"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：同时需要理解与生成的任务才能测到协同。",
-    "method": "联合任务与针对统一能力的评估。",
-    "problem": "各自单任务高分掩盖协同不佳。",
-    "conclusion": "结构/功能统一不自动带来联合任务收益。",
-    "gap": "【边界/推断】新课题应证明真实跨模态增益而非扩大任务集合。",
+    "claim": "研究目标：理解能否帮助复杂指令图像生成，生成辅助图能否帮助多步理解？",
+    "method": "1000题10类32子任务，UEG和GEU两个方向，direct与stepwise协议，图像分解验证问题和Gemini2.5Pro轮询评分。基准/诊断，非新UMM架构。 现成UMM/专用模型；UEG六类世界知识/常识/数学/逻辑/科学/code-to-image；GEU mentalreconstruct/track/注意聚焦/导航四类。judge按核对题逐项是/否，非新训练网络。",
+    "problem": "理解能否帮助复杂指令图像生成，生成辅助图能否帮助多步理解？",
+    "conclusion": "Table3 UEG NanoBanana63.0/GPTImage1 62.2/QwenImage52.2，GEU BAGEL39.3/GeminiPro54.8；Table4 BAGEL UEG32.7→47.7，Geminijudge比人31.5→44.2稍高。Table5最强组合UEG72.7高于Nano63，GEU组合31.8低于BAGEL39.3，两个方向分开。",
+    "gap": "不同system预训和输入接口混杂；缺编辑支持造成step缺测，不能记为零或按更小子集公平排名。大模型judge可能偏科学/字形，配对CI未核；GEU中部分选择题有猜测下界。无规范笔序或执行约束。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3.1指定段/§3.3数据和协议、§4.1指定主文、Tables3–5与Table2部分、AppA3/B2指定段。完整Table2底行、所有细分/配置/源码未读，未复现",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2509.24897",
     "evidence_history": [
       {
@@ -6197,30 +6238,49 @@
       "web_bundle:U15",
       "local_umm_expanded:X080"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/U15.md",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
+        "conclusion": "结构/功能统一不自动带来联合任务收益。",
+        "gap": "【边界/推断】新课题应证明真实跨模态增益而非扩大任务集合。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/U15.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "1000手工/合成任务；10专家curateUEG，3审查者一致保留；GEU重构/跟踪脚本、BLINK/HRBench注意、GoogleSearch地图/合成迷宫，人审。数据来源和单一benchmark构成应去重引用，不能当1000独立新现实视频。",
+    "framework": "1000题10类32子任务，UEG和GEU两个方向，direct与stepwise协议，图像分解验证问题和Gemini2.5Pro轮询评分。基准/诊断，非新UMM架构。",
+    "architecture": "现成UMM/专用模型；UEG六类世界知识/常识/数学/逻辑/科学/code-to-image；GEU mentalreconstruct/track/注意聚焦/导航四类。judge按核对题逐项是/否，非新训练网络。",
+    "metrics": "每类accuracy、UEG/GEU总分及整体，Gemini2.5Pro图像judge；Table4用QwenVL和4位人专家均分复核。按图像细项轮询的正确率不等最终RGB质量/事件时序。",
+    "baselines": "MIO/JanusPro/ILLUME/Showo2/OmniGen2/UniPic2/BAGEL/OneCAT/Ovis/BLIP3o等，NanoBanana；专用GPTImage1/QwenImage/FLUX及GeminiPro/GPT4.1/QwenVL；另Und→Gen/Gen→Und组合。不同代际系统不可直接因果归因统一结构。",
+    "experimental_conditions": "所有模型zero-shot direct/step，不支持图编辑者step缺项；UEG step文字重写，GEU step先图。各官方推理配置/NFE/API snapshot/seed/图分辨率/总token和时间尚未核齐，无本文训练预算可填。"
   },
   {
     "id": "U16",
     "category": "U UMM基础与协同补全",
     "title": "Can Unified Generation and Understanding Models Maintain Semantic Equivalence Across Different Output Modalities? (VGUBench)",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "Can Unified Generation and Understanding Models Maintain Semantic Equivalence Across Different Output Modalities?（VGUBench）；arXiv2602.23711v1，2026-02-27；未核实正式接收",
     "source_urls": [
-      "https://arxiv.org/abs/2602.23711"
+      "https://arxiv.org/abs/2602.23711",
+      "https://arxiv.org/pdf/2602.23711v1"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：文字回答与视觉回答的语义等价性存在缺口。",
-    "method": "文字答案、视觉答案、直接绘图控制任务分离比较。",
-    "problem": "会答与会画不等于能正确画出答案。",
-    "conclusion": "定位理解结果向视觉执行转化的断点。",
-    "gap": "【边界/推断】不等同笔顺序列评测；可借鉴答案形式的控制实验。",
+    "claim": "研究目标：同一文字问题用文字回答与用图片写出答案，是否保留可读性、完整性与正确性？只给已知答案渲染能否诊断瓶颈？",
+    "method": "TGU文字回答/VGU图像回答/Render给GT答案文本再绘图三任务，样本映射与多维VLM评分及关联分析。研究视觉答案文字，不是视频/规范笔顺生成。 7开放UMM+3生成系统，Qwen2.5VL72B直接评图/文本，1–5分三维归一百分数；Render去重后借mapping恢复与VGU的样本对齐。复用Render样本对应多题意味着关联样本非全独立。",
+    "problem": "同一文字问题用文字回答与用图片写出答案，是否保留可读性、完整性与正确性？只给已知答案渲染能否诊断瓶颈？",
+    "conclusion": "Table1 BAGEL TGUAvg84.76/VGU20.80/Render27.85，VGUcorrect.17；UniLIP89.59/22.85/31.01；QwenImage VGU30.16/Render61.66。图中求解渲染差距明显，但Avg包含可读性，不能全写成答案准确率。",
+    "gap": "Render复用/地板效应/ties影响相关和p；Render高不保证未知答案能生成，低相关不证明渲染与求解机制独立或因果无关。风格严格模板和长字图比一般画图分布更窄，VLMjudge字形偏差未充分量化。代码/统计实现未全审。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3.1指定定义/§3.2数据/§3.3评分指定段、§3.4统计、§4.1指定协议、Tables1/2；完整prompt附录/源码/其余分析未全审，未复现",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2602.23711",
     "evidence_history": [
       {
@@ -6275,7 +6335,25 @@
       "local_handwriting:R48",
       "local_umm_expanded:X085"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/U16.md",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
+        "conclusion": "定位理解结果向视觉执行转化的断点。",
+        "gap": "【边界/推断】不等同笔顺序列评测；可借鉴答案形式的控制实验。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/U16.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "MMLU/ARCChallenge/OpenBookQA/CSQA/HellaSwag/BoolQ/GPQA/MATH/HumanEval九源，各随机≤250，总2164问题。答案图参考由脚本生成，Render去重；数学/代码长答案会受512²文字密度影响。未独立确认每源元数据标注。",
+    "framework": "TGU文字回答/VGU图像回答/Render给GT答案文本再绘图三任务，样本映射与多维VLM评分及关联分析。研究视觉答案文字，不是视频/规范笔顺生成。",
+    "architecture": "7开放UMM+3生成系统，Qwen2.5VL72B直接评图/文本，1–5分三维归一百分数；Render去重后借mapping恢复与VGU的样本对齐。复用Render样本对应多题意味着关联样本非全独立。",
+    "metrics": "legibility/completeness/correctness及三维均分，Pearson/Spearman与p值。低分离散有ties，论文无tie修正Spearman简式不能无条件适用；相关系数计算不要求正态，经典小样本t检验才有分布条件。无训练实验。",
+    "baselines": "BAGEL/Emu3/BLIP3o/JanusPro/JanusFlow/Showo/UniLIP；LongCat/QwenImage/VGT只有VGU/Render，没有TGU列。closed模型未测；此LongCat是图像生成系统，勿与L162LongCatFlashOmni混同。",
+    "experimental_conditions": "黑底白字、多prompt随机选，三任务同judge维度；图像采样配置/NFE/seed/resize等未核齐。Appendix judge规则惩罚额外/臆测，直接视觉判分不用OCR先转录；需额外独立OCR/人验证。"
   },
   {
     "id": "U17",
@@ -6455,24 +6533,25 @@
     "id": "U19",
     "category": "U UMM基础与协同补全",
     "title": "Generation Enhances Understanding in Unified Multimodal Models via Multi-Representation Generation (UniMRG)",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "Generation Enhances Understanding in Unified Multimodal Models via Multi-Representation Generation（UniMRG）；arXiv2601.21406v3，2026-05-25；未核实正式接收",
     "source_urls": [
-      "https://arxiv.org/abs/2601.21406"
+      "https://arxiv.org/abs/2601.21406",
+      "https://arxiv.org/pdf/2601.21406v3"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：生成多类视觉表示可帮助理解。",
-    "method": "像素、深度、分割等辅助生成与统一模型训练。",
-    "problem": "单一重建表示未必提供有用语义监督。",
-    "conclusion": "多表征生成已有直接研究。",
-    "gap": "【边界/推断】添加深度或分割本身不是新意；序列规则仍需专用验证。",
+    "claim": "研究目标：在理解后训练之外，生成RGB重建、深度和分割边界辅助目标能否改善理解并保持生成？",
+    "method": "架构不改的四目标后训练：理解CE+RGB重建+深度图+分割边界生成，依原骨干使用扩散或AR loss。额外监督来自DepthAnythingV2/SAM，不宜泛称完全无额外知识。 Showo1.3B离散AR、Harmon1.5B AR+MAR、OpenUni3.6B LLM+扩散connector三族。DepthAnythingV2ViTL resize518²/minmax到0–255再复制3通道；SAMViTH自动32²点，IoU.88稳定.95/NMS.7，最终白边界黑背景，不是带类别语义分割标签图。",
+    "problem": "在理解后训练之外，生成RGB重建、深度和分割边界辅助目标能否改善理解并保持生成？",
+    "conclusion": "Table1 OpenUni base→ours MMVP71.67→74.67/Hallusion60.88→64.56/VSR66.69→73.90；GenEval61.13→68优base但低RecA70.07。HarmonGenEval71.37→85.26，DPG80.52→85.27；相对RecA86.61则降1.34pp，原文“not harming generation”只能局部限定。",
+    "gap": "深度是图内相对值、SAM是边界，不能等同真实几何或语义类别；伪标签噪声/teacher域偏移会迁移。OpenUni有额外生成阶段，增益不唯一归因四loss协同，生成指标相对RecA有退化；未见多seedCI，完整权重和代码未审。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3.1核心loss及§3.2指定动机、§4.1/§4.2 Table1/2和§4.3指定消融段、AppB1–B3。Table3完整/附录其余/源码未全审，未复现",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2601.21406",
     "evidence_history": [
       {
@@ -6510,7 +6589,25 @@
       "web_bundle:U19",
       "local_umm_core:P19"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/U19.md",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "原始摘要/元数据；结合此前主题调研，未标为本轮全文精读",
+        "conclusion": "多表征生成已有直接研究。",
+        "gap": "【边界/推断】添加深度或分割本身不是新意；序列规则仍需专用验证。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/U19.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "LLaVA Mix665K/LLaVANextData理解图，派生RGB/depth/boundary目标；既有图相同不代表教师伪标签无新信息。模型分别384²/512²生成等条件，按数据源留出和teacher失败分布未全核。",
+    "framework": "架构不改的四目标后训练：理解CE+RGB重建+深度图+分割边界生成，依原骨干使用扩散或AR loss。额外监督来自DepthAnythingV2/SAM，不宜泛称完全无额外知识。",
+    "architecture": "Showo1.3B离散AR、Harmon1.5B AR+MAR、OpenUni3.6B LLM+扩散connector三族。DepthAnythingV2ViTL resize518²/minmax到0–255再复制3通道；SAMViTH自动32²点，IoU.88稳定.95/NMS.7，最终白边界黑背景，不是带类别语义分割标签图。",
+    "metrics": "MMBenchEnglishdev/MMVP/HallusionBench/RWQA/VSR，GenEval/DPGBench；不同任务准确/score，不共用一个百分数。不存在笔顺/轨迹指标。",
+    "baselines": "同骨干base、只理解SFT、RecA，再UniMRG；另相近规模专用VLM/UMM表。主表BAGEL列3B身份与常用7B版本不同，未核版本不拿它外推通常BAGEL成绩。",
+    "experimental_conditions": "8H20，AdamW：Harmon1e-5每GPU每任务16/四任务64 acc4/4000step约5h；OpenUni1e-5每任务4/四任务16 acc4/2000step，再冻结理解仅pixel3000step约30min，总约3h；Showo1e-6每任务2/总8 acc5/2500step约8h。λ权重及teacher预处理总成本未核齐，额外OpenUni阶段是重要变量。"
   },
   {
     "id": "U20",
@@ -7385,22 +7482,26 @@
     "title": "Write Like You，2021",
     "source_urls": [
       "https://doi.org/10.1111/cgf.142621",
-      "https://onlinelibrary.wiley.com/doi/10.1111/cgf.142621"
+      "https://onlinelibrary.wiley.com/doi/10.1111/cgf.142621",
+      "https://www.wict.pku.edu.cn/zlian/docs/2021-03/20210325112352381488.pdf",
+      "https://diglib.eg.org/items/5957ad13-921a-4378-98ab-7aaa296cc875",
+      "https://github.com/ShusenTang/WriteLikeYou/tree/a335b02f806d846ba85a6f37f990eb8c2d57b3b6",
+      "https://github.com/ShusenTang/WriteLikeYou/blob/a335b02f806d846ba85a6f37f990eb8c2d57b3b6/model.py"
     ],
-    "method": "度量元学习与序列模型，迁移草写在线中文风格",
-    "conclusion": "草写/风格与在线轨迹已有积累；不能把草书直接套唯一楷书序列",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "版本见原始来源及历史记录",
+    "method": "内容/风格双BiLSTM和自回归LSTM；Angular Center Loss预训练风格度量、attention adaptive style block逐点取参考局部信息、生成轨迹风格cycle约束。meta learning为度量学习路线，未采用MAML式二阶元优化。 输入format3=(dx,dy,stroke-end)，输出format5扩为三状态。内容BiLSTM单层256、风格论文三层256、decoder单层LSTM512；内容单调attention，风格对M×N局部状态Luong attention；相关二维GMM+三状态softmax。固定代码默认风格4层/GMM20，与论文三层需分开。",
+    "conclusion": "Table7 noFT content.988/style.604/DTW1.487，FT100 .987/.937/1.323；DeepImitator .834/.432/1.604，FontRNN .875/.233/1.629，CI见原表。Table6真实同作者34.3%、noFT27.1%、FT10029.6%、他作者9%是四选一风格偏好，不能转成真假鉴别准确率或严格不可区分结论。",
+    "gap": "仅单字在线轨迹，压缩丢速度/细节，不生成笔纸RGB；草写真实顺序未必规范。代码cycle用GMM均值加hard pen-state构造teacher-forced假轨迹，并非完整随机rollout；hard状态没有该阈值路径的梯度。公开配置与论文不同，补充材料及完整采样/分类器切分未审，不能给全量复现结论。",
+    "problem": "给标准汉字内容轨迹及少量目标作者参考轨迹，能否生成保持字符内容和作者草写风格的新轨迹？",
+    "claim": "研究目标：给标准汉字内容轨迹及少量目标作者参考轨迹，能否生成保持字符内容和作者草写风格的新轨迹？",
+    "version": "Write Like You: Synthesizing Your Cursive Online Chinese Handwriting via Metric-based Meta Learning；Computer Graphics Forum40(2):141–151，Eurographics2021；DOI10.1111/cgf.142621（原值已核）",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-19",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-19",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 C",
     "id": "L003",
     "canonical_key": "paper:doi:10.1111/cgf.142621",
@@ -7425,9 +7526,27 @@
       "local_focused:M010",
       "local_handwriting:R10"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
+    "note_path": "docs/reviews/L003.md",
     "source_access_note": "首选DOI的命令行访问403；随后经Wiley正式页面确认题名、DOI10.1111/cgf.142621和摘要，未获得全文。",
-    "sections_read": "Wiley正式出版元数据与摘要（全文未读）"
+    "sections_read": "作者公开正式PDF §2.3–5核心表示/公式/实现、Tables1–7及结论指定段；PDFp3 Fig2已视觉核；固定代码model.py默认/均值cycle与README/train部分。补充材料/完整源码及全部附图未读；未复现",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-19",
+        "sections_read": "Wiley正式出版元数据与摘要（全文未读）",
+        "conclusion": "草写/风格与在线轨迹已有积累；不能把草书直接套唯一楷书序列",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "review_path": "docs/reviews/L003.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "CASIAOLHWDB1.0–1.2约3.7M/1020作者训练，ICDAR2013约.2M/60作者测试；10%字符类别留出。标准字体均匀风格人工标点；RDP epsilon4，约98%短于110点，长序列截110。风格分类器在测试60作者训练用于闭集风格识别，其内部训练/评测划分尚未读补充材料。",
+    "framework": "内容/风格双BiLSTM和自回归LSTM；Angular Center Loss预训练风格度量、attention adaptive style block逐点取参考局部信息、生成轨迹风格cycle约束。meta learning为度量学习路线，未采用MAML式二阶元优化。",
+    "architecture": "输入format3=(dx,dy,stroke-end)，输出format5扩为三状态。内容BiLSTM单层256、风格论文三层256、decoder单层LSTM512；内容单调attention，风格对M×N局部状态Luong attention；相关二维GMM+三状态softmax。固定代码默认风格4层/GMM20，与论文三层需分开。",
+    "metrics": "Content Score专用识字器准确率、Style Score目标作者分类准确率、标准化DTW（表标DTW×10³，保留原值）、95%CI、人类风格偏好；均非规范笔顺或RGB视频物理指标。",
+    "baselines": "DeepImitator、FontRNN，适配无FT/FT100和最近训练作者检索；输入参考/每作者重训条件不同需匹配，不能只比较最终分数。",
+    "experimental_conditions": "Adam b128 lr.001 clip1，风格预训b1024，λstate2/λcycle5/margin.2/M10，坐标缩放.9–1.1及删点.1。GTX1080Ti每epoch约10h，FT100目标作者100字约数百秒。代码默认cycle权重均0且风格4层，必须指定训练hparams，默认运行不等论文主结果。"
   },
   {
     "title": "Layout Stroke Imitation，2025",
@@ -18977,77 +19096,106 @@
     "id": "S002",
     "category": "S 首轮补录整合",
     "title": "TextDiffuser: Diffusion Models as Text Painters",
-    "version": "来源版本见原始页面与首轮笔记",
+    "version": "TextDiffuser: Diffusion Models as Text Painters；NeurIPS2023正式会议PDF",
     "source_urls": [
-      "https://papers.neurips.cc/paper_files/paper/2023/hash/1df4afb0b4ebf492a41218ce16b6d8df-Abstract-Conference.html"
+      "https://papers.neurips.cc/paper_files/paper/2023/hash/1df4afb0b4ebf492a41218ce16b6d8df-Abstract-Conference.html",
+      "https://proceedings.neurips.cc/paper_files/paper/2023/file/1df4afb0b4ebf492a41218ce16b6d8df-Paper-Conference.pdf",
+      "https://github.com/microsoft/unilm/blob/31c5b904ca1bf2afb4c234a6675c683a4e5fc7cd/textdiffuser/README.md"
     ],
     "previous_evidence": "publisher_abstract",
-    "claim": "来源所报告的任务：static image visual text generation",
-    "method": "layout then diffusion；Transformer layout generator plus image diffusion model",
-    "problem": "static image visual text generation",
-    "conclusion": "当前核查范围内：OCR and image/text quality; precise figures not checked",
-    "gap": "待核：read PDF Tables 1-5",
+    "claim": "研究目标：如何让潜空间文生图准确绘出指定英文词并融入场景，同时支持局部文字修补？",
+    "method": "两阶段布局Transformer和字符分割条件扩散，字符感知loss；MARIO10M数据与MARIOEval评价体系。静态文字渲染/编辑，不是文字书写视频或UMM笔顺建模。 CLIP+位置/词标记/字体宽度embedding，2层512dim enc-dec回归框L1，max77token。SD1.5 VAE latent4+字符mask卷积8+区域1+masked原图4=17通道UNet；MSE去噪+冻结latent字符分割UNet对预测干净latent的CE。95字符+null，不将其误读成任意汉字字表。",
+    "problem": "如何让潜空间文生图准确绘出指定英文词并融入场景，同时支持局部文字修补？",
+    "conclusion": "Table4 FID38.758劣于DeepFloyd34.902，CLIP.3436/OCR准确.5609、P.7846/R.7802/F.7824领先所列组；只声称本协议。不能称图质所有项最优。",
+    "gap": "静态95字表；OCR/字体及分割标签噪声，长小字/中文不足。FID两组样本数/来源不同，未给多seedCI；图文相似不直接测规范字形。标注/分割额外训练和API成本不应只计diffusion四天。部分附录和代码尚未全审。",
     "provenance": "2026-10-19第一轮来源补录整合",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-19",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "publisher_abstract",
-    "last_updated": "2026-10-19",
+    "sections_read": "正式§3.1–3.2/§4.2/§5.1–5.2 Tables1–4、AppA/B/H指定段；PDFp4 Fig2已视觉核。固定README训练配置已读；完整数据过滤/附录/训练源码未全审；未复现",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:https://papers.neurips.cc/paper_files/paper/2023/hash/1df4afb0b4ebf492a41218ce16b6d8df-Abstract-Conference.html",
     "aliases": [
       "X2026-002"
     ],
-    "note_path": "docs/handwriting/papers/static_text_neurips_baselines.md",
+    "note_path": "docs/reviews/S002.md",
     "task": "static image visual text generation",
     "input": "text prompt and optional text template",
     "output": "text-bearing image",
-    "dataset": "MARIO-10M and MARIO-Eval",
-    "framework": "layout then diffusion",
-    "architecture": "Transformer layout generator plus image diffusion model",
-    "metrics": "OCR and image/text quality; precise figures not checked",
-    "baselines": "not extracted from full paper",
-    "experimental_conditions": "NeurIPS 2023 main track; full hyperparameters pending",
-    "supplement_id": "X2026-002"
+    "dataset": "MARIO10061720图（10M train/61720 test），LAION/TMDB/OpenLibrary，后者原6.35M筛523684。MARIOEval5414prompt：DrawBenchText21/DrawTextCreative175/ChineseDrawText218及4000/500/500三源配对图。含中文prompt不代表95类字符模型支持中文输出。",
+    "framework": "两阶段布局Transformer和字符分割条件扩散，字符感知loss；MARIO10M数据与MARIOEval评价体系。静态文字渲染/编辑，不是文字书写视频或UMM笔顺建模。",
+    "architecture": "CLIP+位置/词标记/字体宽度embedding，2层512dim enc-dec回归框L1，max77token。SD1.5 VAE latent4+字符mask卷积8+区域1+masked原图4=17通道UNet；MSE去噪+冻结latent字符分割UNet对预测干净latent的CE。95字符+null，不将其误读成任意汉字字表。",
+    "metrics": "FID5414生成对5000真实图，CLIPScore仅三源5000配对集，Microsoft Read OCR全词准确/Precision/Recall/F；人评。附录以缺GT说明不能算其余CLIP，CLIP图文cos本身不必需GT图，该理由需区分指标定义与作者所用样本。",
+    "baselines": "SD1.5、ControlNet、DeepFloyd；外部预训规模/条件输入和API识字偏好非完全一致。无统一模型/动态视频对照，不能据此推断UMM收益。",
+    "experimental_conditions": "阶段二8V10032G四天/2epoch b768 AdamW1e-5，T1000 captiondrop.1，部分框mask.5，50steps CFG7.5。λchar.01、整图/局部训练比例.5；Arial24。latent分割UNet先1epoch Adadelta1，另用于制标的像素分割网络约4M样本10epoch，两网络不能混同。README每设备b24/acc4需8设备才对应全局768。",
+    "supplement_id": "X2026-002",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-19",
+        "sections_read": "publisher_abstract",
+        "conclusion": "当前核查范围内：OCR and image/text quality; precise figures not checked",
+        "gap": "待核：read PDF Tables 1-5",
+        "note_path": "docs/handwriting/papers/static_text_neurips_baselines.md"
+      }
+    ],
+    "review_path": "docs/reviews/S002.md",
+    "review_depth": "critical_sections_reviewed"
   },
   {
     "id": "S003",
     "category": "S 首轮补录整合",
     "title": "GlyphControl: Glyph Conditional Control for Visual Text Generation",
-    "version": "来源版本见原始页面与首轮笔记",
+    "version": "GlyphControl: Glyph Conditional Control for Visual Text Generation；NeurIPS2023正式会议PDF",
     "source_urls": [
-      "https://proceedings.neurips.cc/paper_files/paper/2023/hash/8951bbdcf234132bcce680825e7cb354-Abstract-Conference.html"
+      "https://proceedings.neurips.cc/paper_files/paper/2023/hash/8951bbdcf234132bcce680825e7cb354-Abstract-Conference.html",
+      "https://proceedings.neurips.cc/paper_files/paper/2023/file/8951bbdcf234132bcce680825e7cb354-Paper-Conference.pdf",
+      "https://github.com/AIGText/GlyphControl-release/tree/5891d9b245ac9209c22e3d6d5e933b95d428a230",
+      "https://github.com/AIGText/GlyphControl-release/blob/5891d9b245ac9209c22e3d6d5e933b95d428a230/configs/train_configs/laion_glyph_glyphcontrol_train.yaml"
     ],
     "previous_evidence": "publisher_abstract",
-    "claim": "来源所报告的任务：glyph-guided static image generation",
-    "method": "glyph-controlled diffusion；Stable Diffusion plus glyph conditioning",
-    "problem": "glyph-guided static image generation",
-    "conclusion": "当前核查范围内：OCR, CLIP, FID; numbers not extracted",
-    "gap": "待核：read method figure/ablation tables",
+    "claim": "研究目标：给词、位置、旋转和字框，能否以字形空间条件控制扩散生成可读场景文字？",
+    "method": "在SD2.0base加入渲染字形ControlNet，Pillow glyph instructions；筛LAIONGlyph10M，并用词频分层两基准。继承ControlNet/扩散骨架，未提出书写时间模型。 冻结SD2.0 VAE/CLIP和原UNet，复制可训ControlNet+ZeroConv接收3通道glyph。主训练UNet frozen；后续TextCaps版本解除原decoder冻结，须分checkpoint。总约1.3B不含CLIP354M，勿按全部参数同口径比较。",
+    "problem": "给词、位置、旋转和字框，能否以字形空间条件控制扩散生成可读场景文字？",
+    "conclusion": "Table1 10M Acc42/28%、忽略大小写48/34%、LD1.43/2.40；IFXL Acc.6/1%，忽略大小写33/21%。Table2 FID100K22.04、1M22.19、10M22.22，数据变大OCR好但FID未单调提高。CLIP10M33.9/36.2。",
+    "gap": "过滤>5框偏向短文本，长段小字失败；VAE重建限制/字体颜色不可直接控制，caption可能遗漏OCR内容。README说明TextCaps版本牺牲创造性/多样性。没有中文规范笔顺/动态过程证据，官方代码部分未全审。",
     "provenance": "2026-10-19第一轮来源补录整合",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-19",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "publisher_abstract",
-    "last_updated": "2026-10-19",
+    "sections_read": "正式§3.2–4.2、§4.5 Table3和§5指定段、Tables1/2；固定README与主训练YAML。完整AppendixD/全部源码/框架视觉图未核，未复现",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:https://proceedings.neurips.cc/paper_files/paper/2023/hash/8951bbdcf234132bcce680825e7cb354-Abstract-Conference.html",
     "aliases": [
       "X2026-003"
     ],
-    "note_path": "docs/handwriting/papers/static_text_neurips_baselines.md",
+    "note_path": "docs/reviews/S003.md",
     "task": "glyph-guided static image generation",
     "input": "prompt and glyph/location/size condition",
     "output": "text-bearing image",
-    "dataset": "LAION-Glyph",
-    "framework": "glyph-controlled diffusion",
-    "architecture": "Stable Diffusion plus glyph conditioning",
-    "metrics": "OCR, CLIP, FID; numbers not extracted",
-    "baselines": "DeepFloyd IF in publisher abstract",
-    "experimental_conditions": "NeurIPS 2023 main track; hyperparameters pending",
-    "supplement_id": "X2026-003"
+    "dataset": "LAION2B-en美学≥4.5，PP-OCRv3，丢边缘字/文字总面积<5%/框>5，BLIP2重caption得10M；子集100K/1M/10M。SimpleBench单词标牌与CreativeBench场景模板，各四词频桶100词×4采样，模型主要英语。FID独立10K图。",
+    "framework": "在SD2.0base加入渲染字形ControlNet，Pillow glyph instructions；筛LAIONGlyph10M，并用词频分层两基准。继承ControlNet/扩散骨架，未提出书写时间模型。",
+    "architecture": "冻结SD2.0 VAE/CLIP和原UNet，复制可训ControlNet+ZeroConv接收3通道glyph。主训练UNet frozen；后续TextCaps版本解除原decoder冻结，须分checkpoint。总约1.3B不含CLIP354M，勿按全部参数同口径比较。",
+    "metrics": "大小写敏感Acc、忽略大小写Acc-hat、平均每词Levenshtein距离LD、CLIPscore、FID。原文把exactmatch称1−WER，严格定义需注意：含插入/删除的一般WER可大于1，不能无条件互换。表斜线为Simple/Creative，不是两种OCR输入。",
+    "baselines": "SD2/SDXL/DeepFloyd IF各规模；参数表排除文本encoder，IF有额外超分模型/1024²输出。提供glyph的模型输入信息更强，条件/算力并非严格全匹配。",
+    "experimental_conditions": "100K60epoch/1M20epoch/10M6epoch，512²，ControlNet/ZeroConv lr1e-4；SD/Controlcaptiondrop.1/.5。固定YAMLsd_locked=true、base1e-4、EMA，warmup1备注resume/从头10000，不能直接作所有实验启动配置。训练GPU总时/seed/主batch未核齐。",
+    "supplement_id": "X2026-003",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-19",
+        "sections_read": "publisher_abstract",
+        "conclusion": "当前核查范围内：OCR, CLIP, FID; numbers not extracted",
+        "gap": "待核：read method figure/ablation tables",
+        "note_path": "docs/handwriting/papers/static_text_neurips_baselines.md"
+      }
+    ],
+    "review_path": "docs/reviews/S003.md",
+    "review_depth": "critical_sections_reviewed"
   },
   {
     "id": "S004",

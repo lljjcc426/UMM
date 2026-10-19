@@ -146,3 +146,7 @@ UniFlow v2、InternVL-U v1、Mamoda2.5 v1、SenseNova-U1 v1、Rosetta v1读取�
 ## 2026-10-20 第二十四批
 
 取得N13/U07–U12/L178固定PDF；PDF页数14/33/37/42/40（Monet以实际文件为准）/20/51/14不计作全文完成。Monet pypdf因surrogate编码失败，改用pdftotext读取，保留原文件；WEAVE CVPR正式11页和Monet正式PDF指定主文另核，ThinkMorph OpenReviewPDF403、正式ICLR目录和arXiv带接收版本交叉。读取Monet固定actor/runner与训练脚本、WEAVE固定README和summarize；未执行代码。L178 DOI经CrossRef确认40(4):849–862/2018年，预印本2016分开。Zebra猜测仓库路径404未当官方资源；WriteLikeYou北大作者PDF成功取得，留待阅读。
+
+## 2026-10-20 第二十五批
+
+读取WriteLikeYou北大作者正式PDF、NeurIPS2023 TextDiffuser/GlyphControl正式PDF和U13/14/15/16/19固定v2/v1/v2/v1/v3。U14 pypdf输出surrogate失败改pdftotext；页数不计阅读完成。固定WriteLikeYou a335b02f、GlyphControl5891d9b、unilm31c5b904的默认/README/训练YAML指定段。再次尝试OpenReview L021/L022 PDF及API均403，浏览解析页有challenge；A06/L002 SpringerPDF返回订阅HTML，无全文，不再按URL后缀当PDF。L006出版社公开摘要/Introduction/片段可读，方法表未取得。CVF正式目录确认机器人书写题目/页码；Springer新O2O正式页开放，留待全文。

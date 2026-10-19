@@ -267,6 +267,14 @@
 | U11 | [Omni-R1: Towards the Unified Generative Paradigm for Multimodal Reasoning](U11.md) | §3/§4.1–4.2 Eq1–16、§5 Tables2–4、AppC/D Table6；其余图/协议细节和源码未全读，未复现 |
 | U12 | [WEAVE: Unleashing and Benchmarking the In-Context Interleaved Comprehension and Generation](U12.md) | 正式§3方法、Tables2–4、§4.4指定段；arXivAppB2/B3训练/评分/历史及部分推理配置；固定官方README与summarize82–109核权重。全收集附录/所有分域表及judge执行未全审 |
 | L178 | [Drawing and Recognizing Chinese Characters with Recurrent Neural Network](L178.md) | §II/§III核心表示与优化、§IV TablesI/II、§V生成Eq23–44、§VI实现与质量、§VII指定段；CrossRef期刊卷页日期核。2018正式全文/全部图、相关工作追引/代码未全读，未复现；arXivPDFp8 Fig5与p7 TableIII已渲染视觉核 |
+| L003 | [Write Like You，2021](L003.md) | 作者公开正式PDF §2.3–5核心表示/公式/实现、Tables1–7及结论指定段；PDFp3 Fig2已视觉核；固定代码model.py默认/均值cycle与README/train部分。补充材料/完整源码及全部附图未读；未复现 |
+| S002 | [TextDiffuser: Diffusion Models as Text Painters](S002.md) | 正式§3.1–3.2/§4.2/§5.1–5.2 Tables1–4、AppA/B/H指定段；PDFp4 Fig2已视觉核。固定README训练配置已读；完整数据过滤/附录/训练源码未全审；未复现 |
+| S003 | [GlyphControl: Glyph Conditional Control for Visual Text Generation](S003.md) | 正式§3.2–4.2、§4.5 Table3和§5指定段、Tables1/2；固定README与主训练YAML。完整AppendixD/全部源码/框架视觉图未核，未复现 |
+| U13 | [Quantifying the Gap between Understanding and Generation within Unified Multimodal Models (GapEval)](U13.md) | §2.1–2.4/§3.1–3.2 Table2、§4.1指定段、AppB1–B4/C/E部分/F2.2/F3；全文其余图表和实现未全审，无模型执行 |
+| U14 | [UniG2U-Bench: Do Unified Models Advance Multimodal Understanding?](U14.md) | §3.1–3.2核心定义、§4.1指定段/Table2、§4.2–4.4协议/metrics、Table4及Table6标题；其余长附录/全部主表分域/源码未全读，未复现 |
+| U15 | [RealUnify: Do Unified Models Truly Benefit from Unification? A Comprehensive Benchmark](U15.md) | §3.1指定段/§3.3数据和协议、§4.1指定主文、Tables3–5与Table2部分、AppA3/B2指定段。完整Table2底行、所有细分/配置/源码未读，未复现 |
+| U16 | [Can Unified Generation and Understanding Models Maintain Semantic Equivalence Across Different Output Modalities? (VGUBench)](U16.md) | §3.1指定定义/§3.2数据/§3.3评分指定段、§3.4统计、§4.1指定协议、Tables1/2；完整prompt附录/源码/其余分析未全审，未复现 |
+| U19 | [Generation Enhances Understanding in Unified Multimodal Models via Multi-Representation Generation (UniMRG)](U19.md) | §3.1核心loss及§3.2指定动机、§4.1/§4.2 Table1/2和§4.3指定消融段、AppB1–B3。Table3完整/附录其余/源码未全审，未复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |
