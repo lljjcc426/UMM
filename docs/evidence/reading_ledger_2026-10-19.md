@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 328 条，本批有 81 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 328 条，本批有 100 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”当前统一为未完成，因为独立口述、逐图讲解、完整实验/附录核对和追引没有全部逐篇验收。其余列描述实际完成的工作。
 
@@ -17,22 +17,22 @@
 | A09 | Disentangling Writer and Character Styles for Handwriting Generation（SDT） | primary_sections_read | [结构化分析](../reviews/A09.md) | 未完成 |
 | A10 | Diffusion Models for Handwriting Generation | primary_sections_read | [结构化分析](../reviews/A10.md) | 未完成 |
 | A11 | Stroke Extraction of Chinese Character Based on Deep Structure Deformable Image Registration | primary_sections_read | [结构化分析](../reviews/A11.md) | 未完成 |
-| B01 | Calliffusion: Chinese Calligraphy Generation and Style Transfer with Diffusion Modeling | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| B01 | Calliffusion: Chinese Calligraphy Generation and Style Transfer with Diffusion Modeling | primary_sections_read | [结构化分析](../reviews/B01.md) | 未完成 |
 | B02 | Moyun: A Diffusion-Based Model for Style-Specific Chinese Calligraphy Generation | primary_sections_read | [结构化分析](../reviews/B02.md) | 未完成 |
-| B03 | InkDiffuser: High-Fidelity One-shot Chinese Calligraphy via Differentiable Morphological Optimization | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| B03 | InkDiffuser: High-Fidelity One-shot Chinese Calligraphy via Differentiable Morphological Optimization | primary_sections_read | [结构化分析](../reviews/B03.md) | 未完成 |
 | B04 | AnyText2: Visual Text Generation and Editing With Customizable Attributes | primary_sections_read | [结构化分析](../reviews/B04.md) | 未完成 |
 | B05 | Kinetic Typography Diffusion Model（KineTy） | primary_sections_read | [结构化分析](../reviews/B05.md) | 未完成 |
 | B06 | Dynamic Typography: Bringing Text to Life via Video Diffusion Prior | primary_sections_read | [结构化分析](../reviews/B06.md) | 未完成 |
 | B07 | Inverse Painting: Reconstructing the Painting Process | primary_sections_read | [结构化分析](../reviews/B07.md) | 未完成 |
 | B08 | AnimatePainter（arXiv:2503.17029） | primary_sections_read | [结构化分析](../reviews/B08.md) | 未完成 |
-| B09 | DiffMath: Symbol- and Graph-Aware Latent Diffusion Transformer for Handwritten Mathematical Expression Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| C01 | Emerging Properties in Unified Multimodal Pretraining（BAGEL） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| B09 | DiffMath: Symbol- and Graph-Aware Latent Diffusion Transformer for Handwritten Mathematical Expression Generation | primary_sections_read | [结构化分析](../reviews/B09.md) | 未完成 |
+| C01 | Emerging Properties in Unified Multimodal Pretraining（BAGEL） | primary_sections_read | [结构化分析](../reviews/C01.md) | 未完成 |
 | C02 | Show-o2: Improved Native Unified Multimodal Models | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| C03 | Hyper-Bagel: A Unified Acceleration Framework for Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| C04 | Flash-Unified: A Training-Free and Task-Aware Acceleration Framework for Native Unified Models（FlashU） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| C05 | UniCache: Task- and Type-Aware KV Cache Compression for Unified Multimodal Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| C06 | Reconstruction Alignment Improves Unified Multimodal Models（RecA） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| C07 | Learning Native Reflection in Unified Models with Interleaved Reinforcement Learning（UMM-Reflection） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| C03 | Hyper-Bagel: A Unified Acceleration Framework for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/C03.md) | 未完成 |
+| C04 | Flash-Unified: A Training-Free and Task-Aware Acceleration Framework for Native Unified Models（FlashU） | primary_sections_read | [结构化分析](../reviews/C04.md) | 未完成 |
+| C05 | UniCache: Task- and Type-Aware KV Cache Compression for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/C05.md) | 未完成 |
+| C06 | Reconstruction Alignment Improves Unified Multimodal Models（RecA） | primary_sections_read | [结构化分析](../reviews/C06.md) | 未完成 |
+| C07 | Learning Native Reflection in Unified Models with Interleaved Reinforcement Learning（UMM-Reflection） | primary_sections_read | [结构化分析](../reviews/C07.md) | 未完成 |
 | D01 | HunyuanVideo 1.5 Technical Report | primary_sections_read | [结构化分析](../reviews/D01.md) | 未完成 |
 | D02 | LTX-2: Efficient Joint Audio-Visual Foundation Model | primary_sections_read | [结构化分析](../reviews/D02.md) | 未完成 |
 | D03 | VACE: All-in-One Video Creation and Editing | primary_sections_read | [结构化分析](../reviews/D03.md) | 未完成 |
@@ -108,12 +108,12 @@
 | L001 | Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026 | primary_sections_read | [结构化分析](../reviews/L001.md) | 未完成 |
 | L002 | Diff-Writer，ICONIP 2023 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L003 | Write Like You，2021 | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| L004 | Layout Stroke Imitation，2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L005 | StrokeBank，2014 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L004 | Layout Stroke Imitation，2025 | primary_sections_read | [结构化分析](../reviews/L004.md) | 未完成 |
+| L005 | StrokeBank，2014 | primary_sections_read | [结构化分析](../reviews/L005.md) | 未完成 |
 | L006 | Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L007 | B-BSMG，2024 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L008 | Three-Dimensional Trajectory Planning for Robotic Chinese Calligraphy，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L009 | Video-Based Handwritten Chinese Character Recognition，2005 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L009 | Video-Based Handwritten Chinese Character Recognition，2005 | primary_sections_read | [结构化分析](../reviews/L009.md) | 未完成 |
 | L010 | VideoSketcher: Sequential Sketch Generation Using Video Model Priors | primary_sections_read | [结构化分析](../reviews/L010.md) | 未完成 |
 | L011 | Draw This First | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | L012 | SketchAgent，2024/2025 | primary_sections_read | [结构化分析](../reviews/L012.md) | 未完成 |
@@ -122,8 +122,8 @@
 | L015 | Loomis Painter，2025 | primary_sections_read | [结构化分析](../reviews/L015.md) | 未完成 |
 | L016 | StrokeNUWA，2024 | primary_sections_read | [结构化分析](../reviews/L016.md) | 未完成 |
 | L017 | DiffSketcher，2023 | primary_sections_read | [结构化分析](../reviews/L017.md) | 未完成 |
-| L018 | Diff-Font，2022 起 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L019 | FontDiffuser，AAAI 2024 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L018 | Diff-Font，2022 起 | primary_sections_read | [结构化分析](../reviews/L018.md) | 未完成 |
+| L019 | FontDiffuser，AAAI 2024 | primary_sections_read | [结构化分析](../reviews/L019.md) | 未完成 |
 | L020 | InkSpire，ICLR 2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L021 | Write More at Once，公开投稿版本 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L022 | Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
@@ -150,11 +150,11 @@
 | L043 | ViTeX-Bench，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L044 | CalligraphyBench | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | L045 | CalliReader / CalliBench，ICCV 2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L046 | AWCV100K | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L047 | NüshuVision，EMNLP 2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L048 | Tegaki | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L049 | SCUT-COUCH2009-TL | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L050 | CASIA-OHFC | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L046 | AWCV100K | primary_sections_read | [结构化分析](../reviews/L046.md) | 未完成 |
+| L047 | Recontextualizing Revitalization: A Mixed Media Approach to Reviving the Nüshu Language（NüshuVision / NüshuStrokes） | primary_sections_read | [结构化分析](../reviews/L047.md) | 未完成 |
+| L048 | Tegaki | primary_sections_read | [结构化分析](../reviews/L048.md) | 未完成 |
+| L049 | SCUT-COUCH2009-TL | primary_sections_read | [结构化分析](../reviews/L049.md) | 未完成 |
+| L050 | CASIA-OHFC | primary_sections_read | [结构化分析](../reviews/L050.md) | 未完成 |
 | L051 | Word-As-Image，2023 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L052 | Strike a Chord! Modal Kinetic Typography，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L053 | Timage: A Generative Text-in-Image Paradigm for Fine-Tuning Vision-Language Models；公开预印本版本 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |

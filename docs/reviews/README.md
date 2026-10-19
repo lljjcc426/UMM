@@ -55,6 +55,25 @@
 | E04 | [Discrete Flow Matching](E04.md) | 摘要、§2主要概率路径/采样概念、§3masked命题、§4实验设置与代码结果；AppendixD/G及全部证明未读完 |
 | E06 | [Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model（TeaCache）](E06.md) | 摘要、方法输入差/重标定、§4.1–4.3及限制讨论；多项式系数与代码未独立复核 |
 | E07 | [clDice: A Novel Topology-Preserving Loss Function for Tubular Structure Segmentation](E07.md) | §2定义、§3定理/推论前提、§4softskeleton、§5数据/指标/Table1概述；完整证明与补充训练配置未全部复核 |
+| B01 | [Calliffusion: Chinese Calligraphy Generation and Style Transfer with Diffusion Modeling](B01.md) | 方法/训练、Tables1–2及Limitation全文段落；图仅核图注，LoRA配置及原会议论文集待核 |
+| B03 | [InkDiffuser: High-Fidelity One-shot Chinese Calligraphy via Differentiable Morphological Optimization](B03.md) | HTML§IV公式及§V TablesI–III、结论；GitHub固定树/train.py/configs/fontdiffuser.py/dis_loss.py；PDF公式视觉核对与实际训练版本尚未完成 |
+| B09 | [DiffMath: Symbol- and Graph-Aware Latent Diffusion Transformer for Handwritten Mathematical Expression Generation](B09.md) | §3轨迹VAE/RelAST/DiT、Tables2–4、Appendix0.B训练和基线；更多OCR增强结果与代码未全部复核 |
+| L004 | [Layout Stroke Imitation，2025](L004.md) | §3模块/公式、§4 Tables2–4及Discussion；补充材料超参、原PDF表视觉与代码待核 |
+| L005 | [StrokeBank，2014](L005.md) | 作者6页PDF的方法、公式2–5、Tables1–2、数据及局限；图读取图注，正式书目和源码未核；已视觉核对PDF第3–4页部件图、DEF示意、式2–5与Table1，确认式5方向差异 |
+| L009 | [Video-Based Handwritten Chinese Character Recognition，2005](L009.md) | 作者8页PDF §II–V方法/纠错/实验及Conclusion；TableI细分数字与图像逐项视觉尚待核 |
+| L018 | [Diff-Font，2022 起](L018.md) | §3条件/CFG、§4.1–4.4 Tables1/2/4及跨语种表示；完整版本对齐、韩文实验与全部附录未完成 |
+| L019 | [FontDiffuser，AAAI 2024](L019.md) | Method三模块/对比loss、数据/条件、Tables2–4；Table1大表全部数值及附录未逐项核完 |
+| L046 | [AWCV100K](L046.md) | PDF§III数据、§IV特征/网络、§V设置与TablesIII–V；其他消融表/正式终版与代码待核 |
+| L049 | [SCUT-COUCH2009-TL](L049.md) | PDF采集/标注/算法§2–5、Tables1–4；完整文件规范/授权与当前下载未核 |
+| L048 | [Tegaki](L048.md) | 官网功能、API样例、FAQ全文；源码/版本/实际字体导出与质量尚未验证 |
+| L050 | [CASIA-OHFC](L050.md) | 官方说明的数据/partition/usage/InkML格式；压缩包与配套论文实验尚未完整核查 |
+| L047 | [Recontextualizing Revitalization: A Mixed Media Approach to Reviving the Nüshu Language（NüshuVision / NüshuStrokes）](L047.md) | ACL正式元数据；10页PDF正文、实验Table1、Limitations/Ethics及AppendixA–D文字；官方仓库目录页；未逐图验收/运行代码 |
+| C01 | [Emerging Properties in Unified Multimodal Pretraining（BAGEL）](C01.md) | §2架构/注意力、§3数据Table1、§4训练Table3、§5–6消融与能力曲线、§7主表相关行；附录评判说明；完整硬件与所有表值未逐项核 |
+| C03 | [Hyper-Bagel: A Unified Acceleration Framework for Multimodal Understanding and Generation](C03.md) | §2文字草稿与data，§3全部蒸馏阶段，§4主表/ablation相关行；配置细节和代码尚未完整复核 |
+| C04 | [Flash-Unified: A Training-Free and Task-Aware Acceleration Framework for Native Unified Models（FlashU）](C04.md) | §3完整机制、§4主表/消融Table1–5，附录B Tables7–8及C敏感性；全文所有图曲线未逐图验收 |
+| C05 | [UniCache: Task- and Type-Aware KV Cache Compression for Unified Multimodal Models](C05.md) | §3策略与公式、§4主表/消融Table1/3/4、实现和AppB/E；代码kernel未运行，未验收全部附表 |
+| C06 | [Reconstruction Alignment Improves Unified Multimodal Models（RecA）](C06.md) | §2对齐loss与冻结、§3–4主表相关行及消融、AppB Table8超参、AppC失败与数据重叠；全部种子/表图尚未逐项核完 |
+| C07 | [Learning Native Reflection in Unified Models with Interleaved Reinforcement Learning（UMM-Reflection）](C07.md) | §3–7方法、Table1–3主比较/消融/内部probe说明，AppA Table4全参组/超参；其他附录详细probe/图像案例未全部验收 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

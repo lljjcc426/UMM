@@ -8,19 +8,19 @@
       "https://arxiv.org/abs/2505.14683"
     ],
     "previous_evidence": "原论文方法与作者项目",
-    "claim": "作者主张：大规模交错多模态预训练可同时支持理解、生成、编辑及更复杂的视觉操作。",
-    "method": "MoT专家分工并共享多模态上下文；语义/像素编码；文字自回归和视觉流生成。",
-    "problem": "理解与生成分立，难以在同一上下文中组合复杂任务。",
-    "conclusion": "公开模型展示图像理解、生成、编辑及未来帧/视角操作；可作相关图文推理工作等研究基座。",
-    "gap": "【边界】联合支持任务不自动证明双向迁移；图像检查点不等于成熟长视频模型；无中文书写过程统一基准结果。",
+    "claim": "作者研究目标：在单一自回归上下文中统一视觉理解、连续图像生成和多步图像操作。",
+    "method": "Mixture-of-Transformers模态专家、统一混合注意力及大规模交错图文/视频预训练。 两个Qwen2.5初始化专家共14B/激活7B，复制整套专家参数且共享attention交互；SigLIP2 so400m14支持NaViT，FLUXVAE8倍下采样/16通道/2×2patch；模态内image双向、跨模态因果；CE+.25系数与flowMSE1。",
+    "problem": "在单一自回归上下文中统一视觉理解、连续图像生成和多步图像操作。",
+    "conclusion": "Table5 GenEval无rewriter .82，有rewriter .88；后者不能与无重写同列解释。生成、编辑、理解都强不自动证明协同；视频/导航展示缺严格书写时序量化。",
+    "gap": "专家分工不等于全部参数共享；GPT评判与prompt重写影响比较。静态semantics不足唯一恢复书写历史；IntelligentBench“Human answered image”是GT标签，非真人生成图片。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文方法与作者项目",
-    "last_updated": "2026-10-15",
+    "sections_read": "§2架构/注意力、§3数据Table1、§4训练Table3、§5–6消融与能力曲线、§7主表相关行；附录评判说明；完整硬件与所有表值未逐项核",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2505.14683",
     "evidence_history": [
       {
@@ -76,7 +76,25 @@
       "user_survey:C01",
       "local_umm_core:P13"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/C01.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文方法与作者项目",
+        "conclusion": "公开模型展示图像理解、生成、编辑及未来帧/视角操作；可作相关图文推理工作等研究基座。",
+        "gap": "【边界】联合支持任务不自动证明双向迁移；图像检查点不等于成熟长视频模型；无中文书写过程统一基准结果。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/C01.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "原始数据含400M文本、500M理解、1.6B生成、45M视频、20M交错网页；原始体量不等于实际seen tokens。PT2.5T/CT2.6T/SFT72.7B，含Koala/MVImgNet/OmniCorpus及编辑数据。",
+    "framework": "Mixture-of-Transformers模态专家、统一混合注意力及大规模交错图文/视频预训练。",
+    "architecture": "两个Qwen2.5初始化专家共14B/激活7B，复制整套专家参数且共享attention交互；SigLIP2 so400m14支持NaViT，FLUXVAE8倍下采样/16通道/2×2patch；模态内image双向、跨模态因果；CE+.25系数与flowMSE1。",
+    "metrics": "MME/MMBench/MMMU等理解；GenEval/WISE生成；GEdit与IntelligentBench350题，GPT4o2024-11-20评分；评测模板/重写要分开。",
+    "baselines": "Dense/MoE/MoT同FLOPs1.5B架构实验；JanusPro/Transfusion/MetaQuery/SD3/FLUX等主表多来源，非统一重训。",
+    "experimental_conditions": "四阶段5K/200K/100K/15K，lr1e-3/1e-4/1e-4/2.5e-5，AdamW beta.9/.95 eps1e-15 wd0 clip1；text/ViT/cleanVAE drop .1/.5/.1；序列约32–45K。硬件与globalbatch本笔记未核全。"
   },
   {
     "id": "C02",
@@ -184,19 +202,19 @@
       "https://arxiv.org/html/2509.18824v1"
     ],
     "previous_evidence": "方法与实验表",
-    "claim": "作者主张：同时降低UMM文字解码和图像生成的延迟。",
-    "method": "文字投机解码；图像一致性、分布匹配、对抗和反馈相关多阶段蒸馏，减少NFE。",
-    "problem": "交错上下文、自回归解码与迭代视觉去噪计算量大。",
-    "conclusion": "GenEval示例：100 NFE为0.8640，6 NFE为0.8647，1 NFE为0.7962；低调用数存在质量折中。",
-    "gap": "【边界】该基准上接近原模型不等于全任务无损；NFE倍数不能直接换算完整书写系统墙钟提速。【推断】关键笔事件保持的任务相关蒸馏。",
+    "claim": "作者研究目标：加速BAGEL文字解码和连续图像生成/编辑，维持主要基准质量。",
+    "method": "多层cross-attention草稿器+分阶段CFG/分段对抗/分布匹配蒸馏，prefill用原专家、denoise用蒸馏专家。 EAGLE3草稿网络聚合各层KV再2层decoder，zero初始化残差，forwardKL+.1硬标签；生成先CFG蒸馏、3段TSCD、DMDO至6NFE、ADP+ReFL至1NFE。",
+    "problem": "加速BAGEL文字解码和连续图像生成/编辑，维持主要基准质量。",
+    "conclusion": "文字98.3→212.4TPS；GenEval6NFE .8647 vs100NFE .8640，1NFE .7962下降；GEdit6NFE6.612/6.671，1NFE5.975/5.966。16.67/22倍主要由NFE比得出，不宜当所有任务端到端延时。",
+    "gap": "匹配点估计不构成分布无损；HPS奖励可能偏静态审美；持有两套专家的显存开销要计；不保证轨迹事件稳定。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：方法与实验表",
-    "last_updated": "2026-10-15",
+    "sections_read": "§2文字草稿与data，§3全部蒸馏阶段，§4主表/ablation相关行；配置细节和代码尚未完整复核",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2509.18824",
     "evidence_history": [
       {
@@ -235,7 +253,25 @@
       "local_focused:M090",
       "user_survey:C03"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/C03.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：方法与实验表",
+        "conclusion": "GenEval示例：100 NFE为0.8640，6 NFE为0.8647，1 NFE为0.7962；低调用数存在质量折中。",
+        "gap": "【边界】该基准上接近原模型不等于全任务无损；NFE倍数不能直接换算完整书写系统墙钟提速。【推断】关键笔事件保持的任务相关蒸馏。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/C03.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "4M LLaVAOneVision由target重生回答；4M JourneyDB；SEEDDataEdit52K单轮+21K多轮/95Kpairs。",
+    "framework": "多层cross-attention草稿器+分阶段CFG/分段对抗/分布匹配蒸馏，prefill用原专家、denoise用蒸馏专家。",
+    "architecture": "EAGLE3草稿网络聚合各层KV再2层decoder，zero初始化残差，forwardKL+.1硬标签；生成先CFG蒸馏、3段TSCD、DMDO至6NFE、ADP+ReFL至1NFE。",
+    "metrics": "acceptance length/单A100 tokens/s；GenEval与GEdit；HPSv3奖励。NFE与总延时需分别报告。",
+    "baselines": "原BAGEL、EAGLE3及若干draft变体；蒸馏phase和常规distill设置。",
+    "experimental_conditions": "SGLang单A100理解测试；文字CFGscale1–5、image1–2.5、shift≥3；gen理解专家冻结，保留原生成expert作prefill，部署需原/蒸馏两套。完整训练lr/batch/hardware未核全。"
   },
   {
     "id": "C04",
@@ -246,19 +282,19 @@
       "https://arxiv.org/html/2603.15271v1"
     ],
     "previous_evidence": "全文相关章节与表格",
-    "claim": "作者主张：理解与生成应采用不同加速路径，可无额外训练地减少冗余。",
-    "method": "任务相关剪枝、动态跳层；视觉生成guidance调度/头缓存；理解视觉Token裁剪。",
-    "problem": "统一模型使用静态一刀切优化，忽视任务计算差异。",
-    "conclusion": "Show-o2-7B一组测量：11.30秒/DPG86.14降至5.89秒/84.39；说明有实际加速也有质量变化。",
-    "gap": "【边界】SOTA竞争力不等于对原模型零下降；小面积关键笔画是否被忽略未测。【推断】对任务关键状态分配计算。",
+    "claim": "作者研究目标：无新增梯度训练加速Show-o2统一理解/生成。",
+    "method": "任务FFN掩码、按时步全/剪枝路径切换、层跳过、guidance/headcache与视觉token剪枝。 FFN按activation范数×weightL1剪枝；层依据输入输出cos相似周期重算；生成前低后高CFG；理解第2层剪最高v-norm视觉tokens，依据经验负attention相关。",
+    "problem": "无新增梯度训练加速Show-o2统一理解/生成。",
+    "conclusion": "7B GenEval .76→.72、22.74→11.82s；1.5B .73→.71、10.61→5.28s。DPG7B86.14→84.39、11.30→5.89s；加速伴质量变化。",
+    "gap": "只验证Show-o2为主；cos≈1不保证幅值相近或下游重要性低；attention/vnorm经验关系不保证稀有细节；校准属于额外条件。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：全文相关章节与表格",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3完整机制、§4主表/消融Table1–5，附录B Tables7–8及C敏感性；全文所有图曲线未逐图验收",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2603.15271",
     "evidence_history": [
       {
@@ -297,7 +333,25 @@
       "local_focused:M091",
       "user_survey:C04"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/C04.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：全文相关章节与表格",
+        "conclusion": "Show-o2-7B一组测量：11.30秒/DPG86.14降至5.89秒/84.39；说明有实际加速也有质量变化。",
+        "gap": "【边界】SOTA竞争力不等于对原模型零下降；小面积关键笔画是否被忽略未测。【推断】对任务关键状态分配计算。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/C04.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "使用原预训练权重，无梯度微调；理解20个MME校准样本，生成首次样本激活；校准样本与测试独立性需要核清。",
+    "framework": "任务FFN掩码、按时步全/剪枝路径切换、层跳过、guidance/headcache与视觉token剪枝。",
+    "architecture": "FFN按activation范数×weightL1剪枝；层依据输入输出cos相似周期重算；生成前低后高CFG；理解第2层剪最高v-norm视觉tokens，依据经验负attention相关。",
+    "metrics": "lmms-eval MME/GQA/MMBench/MMMU/MMStar/AI2D，GenEval/DPG；A10080GB延时。",
+    "baselines": "Show-o2 1.5B/7B原始及逐模块移除；其他UMM主表跨架构数值作背景。",
+    "experimental_conditions": "生成FFN.2/layers.2/recalc10/headcache5，hybrid tau.3、guidance .75s0→s0于.3T；理解FFN.1/layers.1、tokens剪.5/maxnew128。正文默认tau.2与附录.3不同，需确认主表使用。"
   },
   {
     "id": "C05",
@@ -308,19 +362,19 @@
       "https://arxiv.org/html/2609.32831v1"
     ],
     "previous_evidence": "方法与实验相关章节",
-    "claim": "作者主张：按任务和KV类型区别处理，可在较少损失下压缩交错上下文。",
-    "method": "区分指令、理解视觉、生成视觉等KV并分配保留/压缩策略。",
-    "problem": "不同角色的上下文被同样压缩会破坏理解和编辑能力。",
-    "conclusion": "报告理解/编辑约5×KV压缩、生成约2.5×，长上下文吞吐最高约1.78×；数字受场景和协议约束。",
-    "gap": "【边界】KV不是全部显存；压缩率不是端到端提速。未证明能保留决定字义的小笔画或长程写入事件。",
+    "claim": "作者研究目标：对UMM理解/图像生成/编辑的历史KV做任务、来源token类型适配压缩。",
+    "method": "先按task/type选eviction或quantization，再分配类型预算并随去噪减历史预算；保护边界token。 10样本/task离线测type top10%attentionmass≥.5则H2O式淘汰，否则KIVI式量化；attentionmass分预算，上限由不可逆保留量决定；原位置顺序packing，FlashAttention/Triton统计。",
+    "problem": "对UMM理解/图像生成/编辑的历史KV做任务、来源token类型适配压缩。",
+    "conclusion": "BAGEL GenEval .781→.780，MME2373.21→2377.36，GEdit6.947→6.965；SenseNova GEdit6.691→6.130显著下落，不能概括所有任务近乎无损。报告至1.78×吞吐和历史KV约减80%，不含weights/激活。",
+    "gap": "压缩后attention统计有选择偏差且无法找回已删token；宽分布VAE信息量可能被均值掩盖；单任务judge/少量校准限制外推。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：方法与实验相关章节",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3策略与公式、§4主表/消融Table1/3/4、实现和AppB/E；代码kernel未运行，未验收全部附表",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2609.32831",
     "evidence_history": [
       {
@@ -359,7 +413,25 @@
       "local_focused:M092",
       "user_survey:C05"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/C05.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：方法与实验相关章节",
+        "conclusion": "报告理解/编辑约5×KV压缩、生成约2.5×，长上下文吞吐最高约1.78×；数字受场景和协议约束。",
+        "gap": "【边界】KV不是全部显存；压缩率不是端到端提速。未证明能保留决定字义的小笔画或长程写入事件。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/C05.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "BAGEL及SenseNova-U1；MME/MMBench/MMMU、GenEval、PIE/GEdit英语；校准集与评测细分待查原制品。",
+    "framework": "先按task/type选eviction或quantization，再分配类型预算并随去噪减历史预算；保护边界token。",
+    "architecture": "10样本/task离线测type top10%attentionmass≥.5则H2O式淘汰，否则KIVI式量化；attentionmass分预算，上限由不可逆保留量决定；原位置顺序packing，FlashAttention/Triton统计。",
+    "metrics": "准确率、GenEval、PIE多指标、GEdit Qwen2.5VL72Bjudge；持久KV量/吞吐量；不等于整个GPU显存。",
+    "baselines": "H2O/KIVI/其他缓存压缩，目标相近预算理解/编辑80%压缩、生成60%；实际比例59–61%有小差异。",
+    "experimental_conditions": "A10040GB BF16，真实KV物理压缩和低比特kernel，至20K每branch；protected/currentlatent另计；统计开销约.45–1.7%。"
   },
   {
     "id": "C06",
@@ -370,19 +442,19 @@
       "https://arxiv.org/html/2509.07295v1"
     ],
     "previous_evidence": "方法与架构相关讨论",
-    "claim": "作者主张：以理解表征为稠密条件的重建，可促进理解与生成联系。",
-    "method": "将理解侧视觉嵌入用于图像重建/后训练，建立不完全依赖文字描述的监督。",
-    "problem": "两种视觉表示割裂；高质量额外文字监督难获取。",
-    "conclusion": "在研究设置中改善统一模型能力；效果依赖架构和预训练状态。",
-    "gap": "【边界】容易复制输入的重建不等于学习时序规则；循环一致可同时保留错误。【推断】少量过程标注加静态风格数据，但须独立过程验证。",
+    "claim": "作者研究目标：通过从自身理解表征重建输入图像，加强UMM语义条件与视觉生成的对齐。",
+    "method": "用无标注图像的内部理解embedding作重建条件，RecA小数据微调可叠加SFT。 兼容Show-o离散AR、Harmon MAR、OpenUni/BAGEL AR+diffusion；底层重建loss CE或flow，lambdaRecA1/T2I0；共享模型额外I2T1防遗忘，部分架构冻结理解expert。",
+    "problem": "通过从自身理解表征重建输入图像，加强UMM语义条件与视觉生成的对齐。",
+    "conclusion": "Harmon1.5B约27GPUh，GenEval .73→.86/DPG80.93→87.21；.90/88.15还包括SFT→RecA额外数据；BAGEL ImgEdit3.38→3.75/GEdit6.94→7.25为作者报告。",
+    "gap": "Show-o离散重建可能一对一过拟合；BLIP3-o已内建重建时无益/反效果；WISE并非各模型提升。静态重建无法唯一推断未观察书写历史。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：方法与架构相关讨论",
-    "last_updated": "2026-10-15",
+    "sections_read": "§2对齐loss与冻结、§3–4主表相关行及消融、AppB Table8超参、AppC失败与数据重叠；全部种子/表图尚未逐项核完",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2509.07295",
     "evidence_history": [
       {
@@ -421,7 +493,25 @@
       "local_focused:M093",
       "user_survey:C06"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/C06.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：方法与架构相关讨论",
+        "conclusion": "在研究设置中改善统一模型能力；效果依赖架构和预训练状态。",
+        "gap": "【边界】容易复制输入的重建不等于学习时序规则；循环一致可同时保留错误。【推断】少量过程标注加静态风格数据，但须独立过程验证。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/C06.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "主要MidjourneyV6高质量8K图；BAGEL用1024px FluxText-to-Image2M分布样本；共享模型另LLaVA665K。SFT增强实验另用GPT4o生成数据，需分离增益。",
+    "framework": "用无标注图像的内部理解embedding作重建条件，RecA小数据微调可叠加SFT。",
+    "architecture": "兼容Show-o离散AR、Harmon MAR、OpenUni/BAGEL AR+diffusion；底层重建loss CE或flow，lambdaRecA1/T2I0；共享模型额外I2T1防遗忘，部分架构冻结理解expert。",
+    "metrics": "GenEval/DPG/WISE与理解保留；ImgEdit/GEdit；重建质量；部分种子协议与标准4图不同，逐表核。",
+    "baselines": "原统一模型、T2I/生成SFT及RecA先后顺序，视觉encoder vs自理解特征，带内在重建BLIP3-o反例。",
+    "experimental_conditions": "多为1A10080GB，BAGEL另例；Show5K lr5e-7，Harmon/OpenUni5K 1e-5，BAGEL1K4e-5；globalbatch8，AdamW wd.01；Harmon有效48×2。完整Table8区分架构。"
   },
   {
     "id": "C07",
@@ -433,19 +523,19 @@
       "https://arxiv.org/abs/2609.35767"
     ],
     "previous_evidence": "原论文方法与作者实验",
-    "claim": "作者主张：整条反思—图像修订轨迹上的联合RL，可学到比SFT更有效的原生修复。",
-    "method": "同一起始图像的成组轨迹，轨迹级优势共同优化反思文字与flow生成；推理不依赖外部裁判。",
-    "problem": "正确诊断不保证有效修改；只训练文字端或图像端不能充分学习多轮修复。",
-    "conclusion": "报告GenEval较反思SFT提高12.05个百分点，且迁移到其他图像生成基准。",
-    "gap": "【边界】图像语义修复不是规范笔顺或不可撤销视频历史；“UMM+反思+RL”已有先例。",
+    "claim": "作者研究目标：让BAGEL基于自己生成图的检查文本逐轮修复，改善组合要求。",
+    "method": "反思轨迹SFT+同轨迹优势同时更新text/flow两路GRPO，终端与多次改善奖励。 28层BAGEL MoT两expert分组优化；初始render detached无直接RLloss，修复共享参数仍会使其变化；flow按SDE两相邻transition PPO，文字token PPO，均KL到SFT。并非所有参数可训，词表head/finalnorm冻结。",
+    "problem": "让BAGEL基于自己生成图的检查文本逐轮修复，改善组合要求。",
+    "conclusion": "GenEval SFT72→RL84（精确主文差12.05pp）；RL初始73→末轮84，repair64.9%/damage8.8%。四图Best-of-4 80，paired McNemar p≤.04作者报告。额外编辑/训练成本须计。",
+    "gap": "训练/测试单backbone和近GenEval任务；奖励多次正改可能鼓励用满3轮，部署成本未等价于one-shot。冻结线性probe AUC相近仅支持该读出，不足证明全局“原来已知道一切”。非纸笔视频或笔顺结果。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文方法与作者实验",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3–7方法、Table1–3主比较/消融/内部probe说明，AppA Table4全参组/超参；其他附录详细probe/图像案例未全部验收",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2609.35767",
     "evidence_history": [
       {
@@ -500,7 +590,25 @@
       "user_survey:C07",
       "local_umm_expanded:X070"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/C07.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文方法与作者实验",
+        "conclusion": "报告GenEval较反思SFT提高12.05个百分点，且迁移到其他图像生成基准。",
+        "gap": "【边界】图像语义修复不是规范笔顺或不可撤销视频历史；“UMM+反思+RL”已有先例。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/C07.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "29529外部轨迹：9000一次/8645自然修复/11884里程碑；GPT5.5 critic、QwenImage生成/编辑。RL3000六类GenEval式prompt、270dev，声称与553测试UID不重合；template分布近仍需分层。",
+    "framework": "反思轨迹SFT+同轨迹优势同时更新text/flow两路GRPO，终端与多次改善奖励。",
+    "architecture": "28层BAGEL MoT两expert分组优化；初始render detached无直接RLloss，修复共享参数仍会使其变化；flow按SDE两相邻transition PPO，文字token PPO，均KL到SFT。并非所有参数可训，词表head/finalnorm冻结。",
+    "metrics": "GenEval六类macro；WISE1000/OneIG695 alignment子集/Comp++2400；repair与damage、协议有效率另报；OneIG不是全部综合维度。",
+    "baselines": "Base、directT2I-RL、Base强制3轮、SFT、head冻结、同4图预算Best-of-4和删reward项。官方BAGEL .82与本地512px/提示协议的.71不可混比。",
+    "experimental_conditions": "SFT一epoch/effective167368records；RL1000updates，16H10080GB约33h，每update2roots×16siblings；20train/50inferdenoisesteps，512²，text/flowlr5e-6、AdamW .9/.999 wd1e-4、clip.2/.1、KL1e-4、temp.9/flowSDE1。"
   },
   {
     "id": "U01",

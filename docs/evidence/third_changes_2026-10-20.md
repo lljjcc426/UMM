@@ -1,0 +1,51 @@
+# 第三批文件变更说明（2026-10-20）
+
+基于1cdc8dd继续，新增19份存量研究的来源限定分析，修订L047正式题名并关联女书笔画资源；总记录数328保持一致。累计100份笔记；仍有161条历史记录待复核，未完成全部三遍验收。没有删除文件。
+
+| 文件 | 操作与原因 |
+| --- | --- |
+| [README.md](../../README.md) | 更新进度、索引、来源窗口、剩余缺项或审计入口。 |
+| [data/critical_reviews_2026-10-19.json](../../data/critical_reviews_2026-10-19.json) | 增加19项结构化分析，记录公式/表格/代码差异及未核字段。 |
+| [data/literature.csv](../../data/literature.csv) | 同步主目录及派生视图的原文阅读状态、来源、实验字段与笔记路径。 |
+| [data/literature.json](../../data/literature.json) | 同步主目录及派生视图的原文阅读状态、来源、实验字段与笔记路径。 |
+| [data/literature_public.xlsx](../../data/literature_public.xlsx) | 同步328条记录及四个正式视图的字段，保留第五候选表与筛选。 |
+| [data/local_additions.csv](../../data/local_additions.csv) | 同步主目录及派生视图的原文阅读状态、来源、实验字段与笔记路径。 |
+| [data/local_additions.json](../../data/local_additions.json) | 同步主目录及派生视图的原文阅读状态、来源、实验字段与笔记路径。 |
+| [data/reading_progress_2026-10-19.json](../../data/reading_progress_2026-10-19.json) | 同步主目录及派生视图的原文阅读状态、来源、实验字段与笔记路径。 |
+| [data/resources.csv](../../data/resources.csv) | 同步主目录及派生视图的原文阅读状态、来源、实验字段与笔记路径。 |
+| [data/resources.json](../../data/resources.json) | 同步主目录及派生视图的原文阅读状态、来源、实验字段与笔记路径。 |
+| [data/third_review_batch_2026-10-20.json](../../data/third_review_batch_2026-10-20.json) | 新增本批ID、基准提交和阅读范围日志。 |
+| [data/umm.csv](../../data/umm.csv) | 同步主目录及派生视图的原文阅读状态、来源、实验字段与笔记路径。 |
+| [data/umm.json](../../data/umm.json) | 同步主目录及派生视图的原文阅读状态、来源、实验字段与笔记路径。 |
+| [docs/all_literature.md](../../docs/all_literature.md) | 同步目录Markdown视图的题名、阅读状态、结论与新笔记。 |
+| [docs/evidence/claims_and_cross_script_2026-10-20.md](../../docs/evidence/claims_and_cross_script_2026-10-20.md) | 新增主张/实验/公式审查、跨文字媒介比较与知识盲区清单。 |
+| [docs/evidence/continued_changes_2026-10-20.md](../../docs/evidence/continued_changes_2026-10-20.md) | 纠正前批说明：忽略目录中的本地校验报告未被提交。 |
+| [docs/evidence/reading_ledger_2026-10-19.md](../../docs/evidence/reading_ledger_2026-10-19.md) | 更新进度、索引、来源窗口、剩余缺项或审计入口。 |
+| [docs/evidence/search_log.md](../../docs/evidence/search_log.md) | 更新进度、索引、来源窗口、剩余缺项或审计入口。 |
+| [docs/evidence/second_round_audit_2026-10-19.md](../../docs/evidence/second_round_audit_2026-10-19.md) | 更新进度、索引、来源窗口、剩余缺项或审计入口。 |
+| [docs/evidence/survey_queue_2026-10-19.md](../../docs/evidence/survey_queue_2026-10-19.md) | 更新进度、索引、来源窗口、剩余缺项或审计入口。 |
+| [docs/evidence/third_changes_2026-10-20.md](../../docs/evidence/third_changes_2026-10-20.md) | 新增所有改动文件的说明。 |
+| [docs/handwriting/literature.md](../../docs/handwriting/literature.md) | 同步目录Markdown视图的题名、阅读状态、结论与新笔记。 |
+| [docs/local_additions.md](../../docs/local_additions.md) | 同步目录Markdown视图的题名、阅读状态、结论与新笔记。 |
+| [docs/project/STATUS.md](../../docs/project/STATUS.md) | 更新进度、索引、来源窗口、剩余缺项或审计入口。 |
+| [docs/reviews/B01.md](../../docs/reviews/B01.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/B03.md](../../docs/reviews/B03.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/B09.md](../../docs/reviews/B09.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/C01.md](../../docs/reviews/C01.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/C03.md](../../docs/reviews/C03.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/C04.md](../../docs/reviews/C04.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/C05.md](../../docs/reviews/C05.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/C06.md](../../docs/reviews/C06.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/C07.md](../../docs/reviews/C07.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/L004.md](../../docs/reviews/L004.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/L005.md](../../docs/reviews/L005.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/L009.md](../../docs/reviews/L009.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/L018.md](../../docs/reviews/L018.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/L019.md](../../docs/reviews/L019.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/L046.md](../../docs/reviews/L046.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/L047.md](../../docs/reviews/L047.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/L048.md](../../docs/reviews/L048.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/L049.md](../../docs/reviews/L049.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/L050.md](../../docs/reviews/L050.md) | 新增逐篇8项笔记、已读范围、实验条件、消融、局限、可证伪假设和写作学习。 |
+| [docs/reviews/README.md](../../docs/reviews/README.md) | 更新进度、索引、来源窗口、剩余缺项或审计入口。 |
+| [docs/umm/literature.md](../../docs/umm/literature.md) | 同步目录Markdown视图的题名、阅读状态、结论与新笔记。 |

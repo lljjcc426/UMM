@@ -54,5 +54,6 @@
 | [docs/reviews/README.md](../../docs/reviews/README.md) | 更新逐篇分析索引至81项。 |
 | [docs/reviews/X01.md](../../docs/reviews/X01.md) | 新增该研究的8项笔记、实验条件、局限及针对性验证假设；未完成内容逐项保留。 |
 | [docs/umm/literature.md](../../docs/umm/literature.md) | 同步主目录及分类Markdown视图中的阅读层级、笔记入口与新增资源。 |
-| [reports/validation.json](../../reports/validation.json) | 刷新字段、路径和内部链接校验结果。 |
 | [scripts/render_reviews.py](../../scripts/render_reviews.py) | 根据目录实际更新日期生成进度日期，避免硬编码日期。 |
+
+校验报告位于本地忽略目录reports/validation.json，不属于提交文件；提交内保留校验脚本及审计中的结果。
