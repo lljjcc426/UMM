@@ -1,5 +1,7 @@
 # 实验计划
 
+当前执行SO-01-V3-T6：[早期历史记忆协议](../experiments/h1_t6_early_history_protocol.md)。按T6-1至T6-5推进，冻结Show-o2，比较局部头、完整／短窗Transformer与在线事件表；不开展H2／H3。
+
 当前沿固定分支按H1→H2→H3推进。H1-v3首批T1→T5完成，当前停止新增训练，见[协议](../experiments/h1_v3_protocol.md)与[决策](../../results/h1/event_v3/T5_DECISION.md)。细缺口继续独立保留。完整H1未通过，H2／H3未开始。
 
 | ID | 任务 | 当前状态 | 输入与主要对照 | 主要指标与判断条件 |
