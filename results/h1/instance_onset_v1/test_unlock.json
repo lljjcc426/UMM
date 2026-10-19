@@ -1,0 +1,38 @@
+{
+  "timestamp": 1792395334.014216,
+  "code_commit": "90bfee4ee4a19d4e2c8846ce473c610f70abc792",
+  "models": {
+    "A0": 8,
+    "A1": 12,
+    "further_training": false,
+    "timestamp": 1792394540.389128
+  },
+  "ledger": {
+    "version": "L1-v1.1",
+    "thresholds": {
+      "presence": 0.5,
+      "start": 0.5,
+      "new_ink": 0.02
+    },
+    "binding_overlap_threshold": 0.5,
+    "development_runs": 2,
+    "rule_variants_tried": 2,
+    "threshold_searches": 0,
+    "rules_changed_after_initial_dev": true,
+    "amendment": "ledger_rule_amendment.json",
+    "training": false,
+    "selection_reason": "One pre-test amendment: persistent ink can confirm a prior change even when writing has finished; original interval retained. Initial Dev results preserved.",
+    "timestamp": 1792395101.661145,
+    "test_labels_read": false
+  },
+  "scoring": "scripts/h1_t7_score.py",
+  "further_model_or_rule_selection": false,
+  "conditions": [
+    "E00",
+    "E01",
+    "E10",
+    "E11",
+    "Oracle_L0",
+    "Oracle_L1"
+  ]
+}

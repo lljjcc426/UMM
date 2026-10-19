@@ -1,0 +1,45 @@
+{
+  "test": {
+    "blocks": {
+      "current": {
+        "A1_minus_A0_RMS": 0.1564522385597229,
+        "A0_oracle_RMS": 0.19761186838150024,
+        "A1_oracle_RMS": 0.16982920467853546
+      },
+      "feature_change": {
+        "A1_minus_A0_RMS": 0.06637518107891083,
+        "A0_oracle_RMS": 0.08288051933050156,
+        "A1_oracle_RMS": 0.05988885834813118
+      },
+      "reference_difference": {
+        "A1_minus_A0_RMS": 0.16623955965042114,
+        "A0_oracle_RMS": 0.21743373572826385,
+        "A1_oracle_RMS": 0.16095033288002014
+      },
+      "current_ink": {
+        "A1_minus_A0_RMS": 0.071470707654953,
+        "A0_oracle_RMS": 0.12891587615013123,
+        "A1_oracle_RMS": 0.11298361420631409
+      },
+      "new_ink": {
+        "A1_minus_A0_RMS": 0.026957031339406967,
+        "A0_oracle_RMS": 0.034920670092105865,
+        "A1_oracle_RMS": 0.025871923193335533
+      },
+      "gone_ink": {
+        "A1_minus_A0_RMS": 1.518397560462681e-11,
+        "A0_oracle_RMS": 1.8772247645237883e-11,
+        "A1_oracle_RMS": 1.8425936124111253e-11
+      },
+      "time": {
+        "A1_minus_A0_RMS": 0.0,
+        "A0_oracle_RMS": 0.0,
+        "A1_oracle_RMS": 0.0
+      }
+    },
+    "M1_A0_A1_state_disagreement": 0.024521073326468468,
+    "M1_A0_oracle_state_disagreement": 0.028831416741013527,
+    "M1_A1_oracle_state_disagreement": 0.025095785036683083,
+    "interpretation": "paired region intervention with fixed M1; RMS is not a calibrated OOD threshold"
+  }
+}
