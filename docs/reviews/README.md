@@ -219,6 +219,11 @@
 | L131 | [UniCorn: Towards Self-Improving Unified Multimodal Models through Self-Generated Supervision](L131.md) | §3全、§4.1/4.3/4.4/Tables2–4、Limitations、AppArecipe/Table5、C全及D1；PDFp19/20理论视觉核；所有主表/图/代码未全读，未复现 |
 | L132 | [Understanding vs. Generation: Navigating Optimization Dilemma in Multimodal Models](L132.md) | §2.1–2.4、3.1/3.2Tables1–5及TIIF自身行、§5、AppA3条件/ITA/VQA/Table7、A5成本；未核全部图坐标、完整理论/源码/maze实验，未复现 |
 | L133 | [Learning to Generate via Understanding: Understanding-Driven Intrinsic Rewarding for Unified Multimodal Models](L133.md) | v1§3全、4.1/4.2/4.3–4.5Tables4/5、5/6；官方project、8203768 README/run_grpo.sh、entry注册和gvu_score201–230、trainer430–505的reward/advantage/policyloss段。全部图/完整模型卡/实际运行及模型卡未核，未复现 |
+| L134 | [LVRPO: Language-Visual Alignment with GRPO for Multimodal Understanding and Generation](L134.md) | v1§3全、§4设置/主表指定BAGEL与本法行/4.3、AppA/B/C全及F局限；17页PDF指定理论/配置文本核；全部图、全部外部行和代码未核，未复现 |
+| L135 | [Uni-Synergy: Bridging Understanding and Generation for Personalized Reasoning via Co-operative Reinforcement Learning](L135.md) | v1§3全、§4设置/主结果/消融、AppB/C/D/E/G；PDFp17/18理论视觉核、layout主表1/2/3/6；官方9ca4254根与子README指定段、grpo.py采样/筛选/奖励组合/更新/控制路径选读；完整源码/数据/图未全核，未复现 |
+| L136 | [Pareto LoRA: Mitigating Modality Imbalance in Unified Multimodal Models via Pareto-Optimal Gradient Integration](L136.md) | v1§3全、§4.1–4.5、Tables1–6指定行/结论；10页PDFp4框架图/闭式解视觉核，其他定性图/完整实现未核，未复现 |
+| L137 | [STBridge: Shared-Target Alignment for Bridging Understanding and Generation in UMMs](L137.md) | v1§3数据全、§4方法全、§5.1/5.2、主结果指定本法/BAGEL行、5.5Tables7–9、结论；全部图片/大表外部行/源代码未全核，未复现 |
+| L138 | [Mutually Adversarial Self-Training with Evolving Data for Unified Multimodal Models](L138.md) | v1§3全、§4.1/4.2本法和基线行/4.3、结论局限、AppB算法1–3及C配置/额外消融/roundtrip；全部图片/外部大表行/发布代码尚未全核，未复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

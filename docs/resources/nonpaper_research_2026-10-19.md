@@ -100,3 +100,7 @@ UniFlow官方配置实际num_sampling_steps为1，与Python类默认100/10的入
 ## 第十七批：训练配方实物核查
 
 HermesFlow4997368 train_pairdpo.py549–554用两DPO加权和，和正式/预印本乘积公式不同；YAML50Ksteps/b1/warm5K与论文3K/b4也分记。GvU8203768 run_grpo.sh包含8进程、LoRA8α32、group2/lr1e-6/β.03，但dataset占位不提供论文完整数据配方；gvu_score/TRL trainer已选读，不把存在脚本写成复现已通过。均关联既有论文，不新增重复资源。
+
+## 第十八批：SyncR1发布制品与论文差异
+
+[官方9ca4254子目录](https://github.com/arctanxarc/UniCTokens/tree/9ca4254c4e94dce82f0fe0e131f27632f89424a2/sync_r1_grpo)实际依赖根models/training/llava、原始模型/CLIP/FaceNet权重和逐概念UniCTokens阶段2checkpoint。grpo.py记录每步全图token并按sum做DrGRPO；DGS筛选用CLIP图/文分的.65/.35组合，阈值代码为target−observed后指数与±.005步变动，和论文动量控制式不同。其含义是存在可审实现；未验证能直接重现论文表格。资源关联L135，不增独立论文数。

@@ -118,3 +118,7 @@ UniFlow v2、InternVL-U v1、Mamoda2.5 v1、SenseNova-U1 v1、Rosetta v1读取�
 ## 2026-10-20 第十七批
 
 读HermesFlow/MindOmni/CoRL/PairUni/UniCorn/R3/GvU指定方法与实验。HermesFlow NeurIPS正式PDF25页，p9/p15视觉核对，arXiv14页p4/p13另核；正式Show-o基线.64与v2.53不同，代码4997368实际两DPO加权和。MindOmni PDFp7方差分母视觉核，UniCorn30页PDFp19/20理论视觉核。GvU8203768入口/奖励/训练配置交叉读取，未运行。
+
+## 2026-10-20 第十八批
+
+核对LVRPO/Uni-Synergy/ParetoLoRA/STBridge/MATE的arXivv1及指定方法/实验/附录。PDF下载17/23/10页仅用于来源核对，不计全文精读；ParetoLoRA第4页、SyncR1第17/18页视觉核数学；标准正态上尾p=.1的条件方差解析计算.169135，反驳其普遍≤p命题。官方UniCTokens9ca4254 sync_r1_grpo的README/采样/筛选/更新/阈值路径选读，实际负反馈方向与论文式不同。

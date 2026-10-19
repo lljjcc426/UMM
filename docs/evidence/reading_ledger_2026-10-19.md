@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 245 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 250 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -238,11 +238,11 @@
 | L131 | UniCorn: Towards Self-Improving Unified Multimodal Models through Self-Generated Supervision | primary_sections_read | [结构化分析](../reviews/L131.md) | 未完成 |
 | L132 | Understanding vs. Generation: Navigating Optimization Dilemma in Multimodal Models | primary_sections_read | [结构化分析](../reviews/L132.md) | 未完成 |
 | L133 | Learning to Generate via Understanding: Understanding-Driven Intrinsic Rewarding for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L133.md) | 未完成 |
-| L134 | LVRPO: Language-Visual Alignment with GRPO for Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L135 | Uni-Synergy: Bridging Understanding and Generation for Personalized Reasoning via Co-operative Reinforcement Learning | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L136 | Pareto LoRA: Mitigating Modality Imbalance in Unified Multimodal Models via Pareto-Optimal Gradient Integration | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L137 | STBridge: Shared-Target Alignment for Bridging Understanding and Generation in UMMs | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L138 | Mutually Adversarial Self-Training with Evolving Data for Unified Multimodal Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L134 | LVRPO: Language-Visual Alignment with GRPO for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L134.md) | 未完成 |
+| L135 | Uni-Synergy: Bridging Understanding and Generation for Personalized Reasoning via Co-operative Reinforcement Learning | primary_sections_read | [结构化分析](../reviews/L135.md) | 未完成 |
+| L136 | Pareto LoRA: Mitigating Modality Imbalance in Unified Multimodal Models via Pareto-Optimal Gradient Integration | primary_sections_read | [结构化分析](../reviews/L136.md) | 五项检查已记录 |
+| L137 | STBridge: Shared-Target Alignment for Bridging Understanding and Generation in UMMs | primary_sections_read | [结构化分析](../reviews/L137.md) | 未完成 |
+| L138 | Mutually Adversarial Self-Training with Evolving Data for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L138.md) | 未完成 |
 | L139 | Does Gradient Conflict Predict the Understanding--Generation Trade-off? A Controlled Audit of Conflict-Metric Validity in Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L139.md) | 未完成 |
 | L140 | Beyond Layers: Position-Resolved Gradient Conflict and Position-Aware Modulation for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L140.md) | 未完成 |
 | L141 | Do Text Edits Generalize to Visual Generation? Benchmarking Cross-Modal Knowledge Editing in UMMs | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
