@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 226 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 233 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -175,7 +175,7 @@
 | L068 | IMUG-Bench: Benchmarking Unified Multimodal Models on Interleaved Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L068.md) | 未完成 |
 | L069 | Unison: Benchmarking Unified Multimodal Models via Synergistic Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L069.md) | 未完成 |
 | L070 | When Does Visual Generation Help Visual Understanding in Unified Multimodal Models? | primary_sections_read | [结构化分析](../reviews/L070.md) | 未完成 |
-| L071 | GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L071 | GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment | primary_sections_read | [结构化分析](../reviews/L071.md) | 未完成 |
 | L072 | UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L073 | OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework | primary_sections_read | [结构化分析](../reviews/L073.md) | 五项检查已记录 |
 | L074 | Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks | primary_sections_read | [结构化分析](../reviews/L074.md) | 未完成 |
@@ -221,12 +221,12 @@
 | L114 | LLaDA2.0-Uni: Unifying Multimodal Understanding and Generation with Diffusion Large Language Model | primary_sections_read | [结构化分析](../reviews/L114.md) | 未完成 |
 | L115 | FullFlow: Upgrading Text-to-Image Flow Matching Models for Bidirectional Vision--Language Generation | primary_sections_read | [结构化分析](../reviews/L115.md) | 未完成 |
 | L116 | Multimodal Flow: Unified Flow Modeling of Language and Vision in Embedding Spaces | primary_sections_read | [结构化分析](../reviews/L116.md) | 未完成 |
-| L117 | BLIP3-o: A Family of Fully Open Unified Multimodal Models-Architecture, Training and Dataset | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L118 | OpenUni: A Simple Baseline for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L119 | UniFork: Exploring Modality Alignment for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L120 | HunyuanImage 3.0 Technical Report | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L121 | DeepGen 1.0: A Lightweight Unified Multimodal Model for Advancing Image Generation and Editing | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L122 | Mobile-O: Unified Multimodal Understanding and Generation on Mobile Device | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L117 | BLIP3-o: A Family of Fully Open Unified Multimodal Models-Architecture, Training and Dataset | primary_sections_read | [结构化分析](../reviews/L117.md) | 未完成 |
+| L118 | OpenUni: A Simple Baseline for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L118.md) | 未完成 |
+| L119 | UniFork: Exploring Modality Alignment for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L119.md) | 未完成 |
+| L120 | HunyuanImage 3.0 Technical Report | primary_sections_read | [结构化分析](../reviews/L120.md) | 未完成 |
+| L121 | DeepGen 1.0: A Lightweight Unified Multimodal Model for Advancing Image Generation and Editing | primary_sections_read | [结构化分析](../reviews/L121.md) | 未完成 |
+| L122 | Mobile-O: Unified Multimodal Understanding and Generation on Mobile Device | primary_sections_read | [结构化分析](../reviews/L122.md) | 五项检查已记录 |
 | L123 | InternVL-U: Democratizing Unified Multimodal Models for Understanding, Reasoning, Generation and Editing | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L124 | Mamoda2.5: Enhancing Unified Multimodal Model with DiT-MoE | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L125 | SenseNova-U1: Unifying Multimodal Understanding and Generation with NEO-unify Architecture | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |

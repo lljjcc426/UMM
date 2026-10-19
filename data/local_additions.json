@@ -4555,22 +4555,23 @@
   {
     "title": "GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment",
     "source_urls": [
-      "https://arxiv.org/abs/2310.11513"
+      "https://arxiv.org/abs/2310.11513",
+      "https://arxiv.org/html/2310.11513"
     ],
-    "method": "对象检测与属性判别，测对象、数量、颜色和位置",
-    "conclusion": "提供可分解指令遵循指标；不覆盖所有视觉质量与物理一致性",
-    "gap": "见结论栏及专题分析。",
-    "problem": "FID/CLIP 总分无法细查组合约束",
-    "claim": "未单独摘录。",
-    "version": "GenEval，2023",
+    "method": "组合已有实例检测/分割、局部颜色分类与规则，按prompt预期逐项验证；构建六类模板和人类一致性实验。 MMDetection Mask2Former/Swin-S在COCO训练；默认检测阈值.3、counting .9；bbox中心与最小距离比例.1判空间。颜色用CLIP ViT-L/14，在bbox裁切/分割灰背景后做11色零样本分类。因此它使用局部CLIP，但整体评分不等于全图CLIPScore。",
+    "conclusion": "GenEval整体人类一致83%，标注者间88%，CLIPScore80%；860张全体一致子集91%vs87%。IFXL整体.61，position.13/attribute binding.35；主表随机seed波动.01–.02。不能把91%外推所有图像。",
+    "gap": "80类COCO和照片风格限制，重叠物体/孔洞分割错、clipart OOD；人几乎全正确时single-object kappa近0。没有美感、文字、视频、动作正确性评价；按模板微调/选优后的高分需另用独立组合验证。",
+    "problem": "评估静态文字到图像的物体存在、数量、颜色、位置和属性绑定，并给出可解释的失败原因。",
+    "claim": "研究目标：评估静态文字到图像的物体存在、数量、颜色、位置和属性绑定，并给出可解释的失败原因。",
+    "version": "GenEval；arXiv:2310.11513v1，2023-10-17；正式会场本次未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L071",
     "canonical_key": "paper:arxiv:2310.11513",
     "evidence_history": [
@@ -4593,7 +4594,26 @@
     "aliases": [
       "local_umm_core:P29"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L071.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "提供可分解指令遵循指标；不覆盖所有视觉质量与物理一致性",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§1、§3.1–3.2、§4、§5.1/5.2关键段/本作比较行、§6、AppA1/A2/Table4、C2/C3检测段；完整标注UI/AppD及全部表格未逐项核，框架图仅文字说明，未运行评价器",
+    "review_path": "docs/reviews/L071.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "553模板prompts，80COCO物类、11基本色、计数2/3/4、四空间方向；每prompt四图全取平均。人评1200图各400来自SD2.1/IF-XL/LAION检索，共6000标注、每图5人。",
+    "framework": "组合已有实例检测/分割、局部颜色分类与规则，按prompt预期逐项验证；构建六类模板和人类一致性实验。",
+    "architecture": "MMDetection Mask2Former/Swin-S在COCO训练；默认检测阈值.3、counting .9；bbox中心与最小距离比例.1判空间。颜色用CLIP ViT-L/14，在bbox裁切/分割灰背景后做11色零样本分类。因此它使用局部CLIP，但整体评分不等于全图CLIPScore。",
+    "metrics": "每图所有条件同时满足才1，先任务内均值再六任务平均；与人类percent agreement和Cohen kappa，分项存在/数量/色/位置；人评并非真实任务全分布的准确率。",
+    "baselines": "CLIPScore阈值按每任务最优设置，比较多个CLIP后选OpenCLIP ViT-H/14；生成模型minDALL-E、SD1/2/XL、IF M/L/XL及LAION CLIP检索。",
+    "experimental_conditions": "各模型默认分辨率/采样方法/步数，IF只到第二级256²，不含第三上采样；SDXL不用refiner。4图全部纳入，检索取top4。未统一NFE/分辨率/算力，评估结果不是纯结构因果对比；阈值选择另有5fold验证。"
   },
   {
     "title": "UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation",
@@ -7437,22 +7457,25 @@
   {
     "title": "BLIP3-o: A Family of Fully Open Unified Multimodal Models-Architecture, Training and Dataset",
     "source_urls": [
-      "https://arxiv.org/abs/2505.09568"
+      "https://arxiv.org/abs/2505.09568",
+      "https://arxiv.org/html/2505.09568",
+      "https://github.com/JiuhaiChen/BLIP3o/tree/418fc44dfede76ece2423c457b76fce9f64e81f5",
+      "https://huggingface.co/BLIP3o/BLIP3o-Model-8B/blob/main/README.md"
     ],
-    "method": "扩散生成语义 CLIP 特征，顺序训练理解再训练生成；公开数据与训练配方",
-    "conclusion": "语义空间生成可提高效率；“全开放”应按各项发布资产核实，不能推导成所有主干都共同训练",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "BLIP3-o，2025",
+    "method": "比较CLIP+MSE、CLIP+FM、VAE+FM；用条件DiT生成语义图像特征，再用预训练扩散decoder成像，冻结VLM顺序训练。 Qwen2.5VL3B/7B+约1.4B语义DiT；AR中间视觉特征条件化DiT，FM采样CLIP特征，再由额外EVA-CLIP/SDXL decoder输出像素。主名4B/8B未涵盖所有外部decoder成本；理解骨干冻结，不能声称双向协同学习。",
+    "conclusion": "论文4B GenEval.81/DPG79.36/WISE.50；8B.84/81.60/.62。当前HF8B公开数据checkpoint为.83/80.73/.52，明确区别私有数据论文版。JanusPro DPG84.19更高，但作者DPG约1000prompt人评更偏好本法；不能把两种指标互代。",
+    "gap": "缺少联合训练证据；私有/公开8B不一致、冻结VLM继承能力、双decoder计算不能省略。HTML FM式X_t自指等记号疑问尚未PDF对读，不判实现错。当前GitHub默认分支为NEXT2510.15857，旧main仍存在，应固定分支/revision。",
+    "problem": "如何把已有视觉语言理解骨干扩展为高效静态图像生成，并选择视觉表示与训练目标？",
+    "claim": "研究目标：如何把已有视觉语言理解骨干扩展为高效静态图像生成，并选择视觉表示与训练目标？",
+    "version": "BLIP3-o；arXiv:2505.09568v1，2025-05-14；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 4. 架构、共享程度与规模",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L117",
     "canonical_key": "paper:arxiv:2505.09568",
     "evidence_history": [
@@ -7475,27 +7498,47 @@
     "aliases": [
       "local_umm_expanded:X046"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L117.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "语义空间生成可提高效率；“全开放”应按各项发布资产核实，不能推导成所有主干都共同训练",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2.1–2.2、§3.1–3.3、§4、§5.1–5.4关键段与本作主表/表头、§6；HF8B模型卡全文、旧main README训练/codec段、NEXT README主要模块；旧训练脚本/公式PDF未核，未复现",
+    "review_path": "docs/reviews/L117.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "表示实验Llama3.2-1B、约25M公开CC12M/SA1B/JourneyDB；4B公开25M+约3M短描述；论文8B再30M私有且约6M短描述。Qwen重标长描述均120token/短20；BLIP3o60K含GPT4o定向手势/物体/地标/简单文字和审美数据。阶段曝光量不等于独立图片数。",
+    "framework": "比较CLIP+MSE、CLIP+FM、VAE+FM；用条件DiT生成语义图像特征，再用预训练扩散decoder成像，冻结VLM顺序训练。",
+    "architecture": "Qwen2.5VL3B/7B+约1.4B语义DiT；AR中间视觉特征条件化DiT，FM采样CLIP特征，再由额外EVA-CLIP/SDXL decoder输出像素。主名4B/8B未涵盖所有外部decoder成本；理解骨干冻结，不能声称双向协同学习。",
+    "metrics": "GenEval/DPG/WISE、MJHQFID、理解VQAv2/MMB/SEED/MMVet/MME/MMMU/RWQA/TextVQA；训练曲线与人类视觉质量/对齐偏好。两阶段扩散总NFE/延迟应单列。",
+    "baselines": "CLIPMSE/VAEFM、JanusPro/Emu/Transfusion等；人评直接BLIP3o8B vs JanusPro7B。MSE版与FM版头结构/参数不同，非仅loss切换。",
+    "experimental_conditions": "表示实验每3200steps评估；主硬件/batch/optimizer与精确步数未从已读正文核齐。原main revision418fc44 README建议pretrain≥150K、cos lr1e-4→1e-5，SFT≥10K lr1e-4→0；这是公开建议，不能冒充论文精确运行。"
   },
   {
     "title": "OpenUni: A Simple Baseline for Unified Multimodal Understanding and Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2505.23661"
+      "https://arxiv.org/abs/2505.23661",
+      "https://arxiv.org/html/2505.23661"
     ],
-    "method": "learnable queries 和轻量连接器桥接现成 MLLM 与扩散模型",
-    "conclusion": "建立低成本可复用基线；证明能力扩展，不自动证明理解端受益",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "OpenUni，2025",
+    "method": "冻结InternVL3，以256learnedqueries和6层connector给SANA提供条件，两阶段先对齐后微调生成器。 Base InternVL3-1B+54Mconnector+SANA.6B512；Large InternVL3-2B+225Mconnector+SANA.6B512或1.6B1024。6层SigLIP式connector，LLM全程冻结；第一阶段仅queries/connector，第二阶段亦训SANA。",
+    "conclusion": "Base无蒸馏GenEval.62/DPG79.04，60K后.84/80.29；Large512.85、1024.86/DPG83.08，WISE均.52。GenEval大幅提高与DPG小幅提高需同时保留。",
+    "gap": "短字/细节生成仍弱，编辑未来；统一接口不意味着单一从零训练骨干。60K覆盖组合/文字任务需独立集验证泛化，当前没有证据断言直接测试泄漏。",
+    "problem": "复用冻结VLM和已有扩散模型，构建简单开放的静态理解/生成基线。",
+    "claim": "研究目标：复用冻结VLM和已有扩散模型，构建简单开放的静态理解/生成基线。",
+    "version": "OpenUni；arXiv:2505.23661v3，2025-06-02；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 4. 架构、共享程度与规模",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L118",
     "canonical_key": "paper:arxiv:2505.23661",
     "evidence_history": [
@@ -7518,27 +7561,47 @@
     "aliases": [
       "local_umm_expanded:X047"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L118.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "建立低成本可复用基线；证明能力扩展，不自动证明理解端受益",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3模型与Table2、§3阶段1/2、§4.1–4.2、§5，主表自身分数/配置行；官方源码/全部采样设置与图未视觉核，未复现",
+    "review_path": "docs/reviews/L118.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "公开23M=Texttoimage2M+LAIONaesthetic6M+Megalith10M+Redcaps5M，VLM长caption；后60K BLIP3o GPT4o蒸馏数据。不能忽略继承InternVL/SANA的预训数据与成本。",
+    "framework": "冻结InternVL3，以256learnedqueries和6层connector给SANA提供条件，两阶段先对齐后微调生成器。",
+    "architecture": "Base InternVL3-1B+54Mconnector+SANA.6B512；Large InternVL3-2B+225Mconnector+SANA.6B512或1.6B1024。6层SigLIP式connector，LLM全程冻结；第一阶段仅queries/connector，第二阶段亦训SANA。",
+    "metrics": "GenEval/DPG/WISE及VLM理解任务，按蒸馏/改写/RL标志区分；Base/Large和512/1024不同配置。",
+    "baselines": "JanusPro/Showo/BLIP3o/MetaQuery等，与无60K微调的自身基线；引用跨工作主表不等于等预算重训。",
+    "experimental_conditions": "Table2两阶段AdamW β.9/.95 wd.05 clip1；lr1e-4/1e-5，b512/256，100K/10Ksteps，cos warm1000/100。硬件、完整采样CFG/NFE及吞吐本次未核齐。"
   },
   {
     "title": "UniFork: Exploring Modality Alignment for Unified Multimodal Understanding and Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2506.17202"
+      "https://arxiv.org/abs/2506.17202",
+      "https://arxiv.org/html/2506.17202"
     ],
-    "method": "分析逐层模态对齐，浅层共享、深层 Y 形分叉",
-    "conclusion": "表明“共享到哪里”比共享比例本身更具体；对齐探针仍需行为结果佐证",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "UniFork，2025",
+    "method": "Y形骨干：前半共享、后半复制为理解/生成分支；共同AR目标，联合学习后冻结共享层分别专门调优。 Qwen2.5-.5B，后半复制，报告总1.21B、active理解.5B/生成.76B；VILA-U256语义对齐RVQ 16384×16，384²输入，RVQ head码内AR、空间外层AR。主模型与小消融的生成head规模不同。",
+    "conclusion": "小消融UniFork GenEval.33/FID16.3，生成专家.36/15.1；理解SEED55.1 vs专家56.6，VQA69.9 vs69.7。主版本GenEval.46/FID10.6，具有数据/分辨率/head同时变化，不能全归架构。",
+    "gap": "tokenizer256预训而主模型384存在分辨率不匹配；作者承认小规模与共享比例固定。kNN取同500分布，缺跨语言/真实图外部验证。所谓模态对齐随深度变差不能直接推出所有统一模型理论上应Y形。",
+    "problem": "理解/生成在不同层所需表示是否一致，如何选择共享与专用层减少任务干扰？",
+    "claim": "研究目标：理解/生成在不同层所需表示是否一致，如何选择共享与专用层减少任务干扰？",
+    "version": "UniFork；arXiv:2506.17202v1，2025-06-20；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 4. 架构、共享程度与规模",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L119",
     "canonical_key": "paper:arxiv:2506.17202",
     "evidence_history": [
@@ -7561,27 +7624,48 @@
     "aliases": [
       "local_umm_expanded:X048"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L119.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "表明“共享到哪里”比共享比例本身更具体；对齐探针仍需行为结果佐证",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3.1–3.4、§4.1/Table1、§4.2消融、§4.3/4.4自身主表行、§4.5及Conclusion/Limitations；框架图未视觉读、代码及全部baseline未核，未复现",
+    "review_path": "docs/reviews/L119.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "I ImageNet模板后30MLAION+10MCOYO；II32.5M生成含内部、16.5M理解InternVL1.5；SFT5M生成含60K+3.8M理解；III复用SFT集。精确去重和私有部分不足以复现全数据。",
+    "framework": "Y形骨干：前半共享、后半复制为理解/生成分支；共同AR目标，联合学习后冻结共享层分别专门调优。",
+    "architecture": "Qwen2.5-.5B，后半复制，报告总1.21B、active理解.5B/生成.76B；VILA-U256语义对齐RVQ 16384×16，384²输入，RVQ head码内AR、空间外层AR。主模型与小消融的生成head规模不同。",
+    "metrics": "MME-P/VQA/SEED/POPE等理解、GenEval/MJHQFID；层间mutualkNN结构对齐分析500GenEval提示生成图及描述。相似曲线不是因果或独立统计验证。",
+    "baselines": "相同小设置比较单理解/生成专家、完全共享、完全分离与UniFork；主表对更大/不同预算模型不隔离架构收益。",
+    "experimental_conditions": "16A100，BF16 AdamW wd0 seq1350；I125K lr1e-4，IIpre170K/SFT23K lr5e-5，IIIgen17Klr3e-5/under15Klr2e-5；batch384、IIIunder256；训练10%drop提示、CFG4。Table1warmup .03按比率理解，勿写.03个step。"
   },
   {
     "title": "HunyuanImage 3.0 Technical Report",
     "source_urls": [
-      "https://arxiv.org/abs/2509.23951"
+      "https://arxiv.org/abs/2509.23951",
+      "https://arxiv.org/html/2509.23951",
+      "https://github.com/Tencent-Hunyuan/HunyuanImage-3.0/tree/6e9113a692a27a0751d82aba3b2015a876646c03"
     ],
-    "method": "80B 级 MoE、13B 激活；理解与图像扩散联合预训练，生成侧后训练",
-    "conclusion": "正文明确视觉侧使用 diffusion，不能因摘要写 AR 就归为全离散 AR；公开生成模块不等于所有统一能力开放",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "HunyuanImage 3.0，2025",
+    "method": "80B总/13Bactive共享MoE，文本AR与连续图像去噪并存，渐进训练、双语层级caption、多种偏好后训练和采样蒸馏。 HunyuanA13B，64experts每token8active+sharedMLP；32通道×16VAE、512ViT双图像条件，残差timeprojector、generalizedcausalattention：文字因果/同生成图块双向。同序多图训练遮蔽未来/其他noisygen；推理每次一个gentoken块后作为cleancond。",
+    "conclusion": "作者GSB相对优势14.10%vs2.1、1.17vsSeedream4、2.64vsNano、5vsGPTimage1；这些是相对评估量，不能读作绝对获胜概率。SSAE图的全部坐标未核，不编具体总分。当前README80B Base≥3×80GB，Instruct/Distil≥8×80GB属官方建议。",
+    "gap": "原v3结尾仍写I2I未来，但当前官方Instruct已发布；按版本分别记录。80→20B TMP/单4090说法需独立模型制品和内存协议核清，不能套80B。SSAE自制数据/MLLM裁判需外部效度，默认配置人评不等计算；未见CI。",
+    "problem": "将大MoE语言先验扩展为原生图文理解、推理与图像生成，并以高质数据和后训练改善遵从。",
+    "claim": "研究目标：将大MoE语言先验扩展为原生图文理解、推理与图像生成，并以高质数据和后训练改善遵从。",
+    "version": "HunyuanImage3.0 TechnicalReport；arXiv:2509.23951v3，2026-06-26；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 4. 架构、共享程度与规模",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L120",
     "canonical_key": "paper:arxiv:2509.23951",
     "evidence_history": [
@@ -7604,27 +7688,47 @@
     "aliases": [
       "local_umm_expanded:X049"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L120.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "正文明确视觉侧使用 diffusion，不能因摘要写 AR 就归为全离散 AR；公开生成模块不等于所有统一能力开放",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2.1/2.2主要过滤/标注、§3.1.1–3.1.4、§4.1/Table1、§4.2–4.4、§5.1–5.3及§6；官方revision6e9113a README新闻/模型表/推理推荐/GSB段；SSAE/GSB图未视觉读、完整代码/配置未核，未复现",
+    "review_path": "docs/reviews/L120.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "10B原图主过滤留<45%，另策略补全，最后近5B；100M以上配对/多图由聚类和视频段筛关系。OCR/IP agent核图文一致，双语30–1000词caption，另CoT合成。广泛文字过滤与后续文字样本补全需分阶段看，不能称全程排除文字。",
+    "framework": "80B总/13Bactive共享MoE，文本AR与连续图像去噪并存，渐进训练、双语层级caption、多种偏好后训练和采样蒸馏。",
+    "architecture": "HunyuanA13B，64experts每token8active+sharedMLP；32通道×16VAE、512ViT双图像条件，残差timeprojector、generalizedcausalattention：文字因果/同生成图块双向。同序多图训练遮蔽未来/其他noisygen；推理每次一个gentoken块后作为cleancond。",
+    "metrics": "SSAE500prompt/3500语义要点/12领域，MLLM逐点判及人工校验；人评GSB1000prompt/100余评者、各模型默认配置单次生成；expert模态偏好KL。评估器精度/盲法/CI待补。",
+    "baselines": "人评Hunyuan2.1/Seedream4/NanoBanana/GPTimage1等；SSAE比较现有模型。§5讨论GenEval受CLIP局限需回原文：GenEval主检测+局部CLIP颜色，不能归成全图CLIPScore。",
+    "experimental_conditions": "四阶段VAE256/256/512/1024，ViT固定512；分别训骨干/ViT/两者/两者，加INTL和CoT。SFT/DPO/MixGRPO/SRPO/ReDA等策略多为描述，完整loss/数据/optimizer/lr/batch/steps/hardware未公开在已读段，无法复现训练。蒸馏称4–8NFE；TMP20B为额外压缩变体。"
   },
   {
     "title": "DeepGen 1.0: A Lightweight Unified Multimodal Model for Advancing Image Generation and Editing",
     "source_urls": [
-      "https://arxiv.org/abs/2602.12205"
+      "https://arxiv.org/abs/2602.12205",
+      "https://arxiv.org/html/2602.12205"
     ],
-    "method": "多层 VLM 特征经 Stacked Channel Bridging 和 think token 指导 DiT；SFT＋MR-GRPO",
-    "conclusion": "小模型通过接口和数据配方提升生成/编辑；跨模型百分比不能直接归因于参数效率",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "DeepGen 1.0，2026",
+    "method": "SCB六层channelconcat+MLP/6层connector，128learnedthinktokens；两阶段对齐/SFT，多奖励分项归一MRGRPO、参考速度正则及每步SFT锚。 Qwen2.5VL3B+SD3.5Medium2B（初始化自SkyworkUniPic2.0），约5B主模块；均匀选低/中/高六层hiddenstates在channel拼接两层MLP对齐DiT，再transformer融合；thinktokens与输入自注意交互。II VLM LoRA64α128drop.05，非全参数VLM微调。",
+    "conclusion": "最终RL GenEval.87/DPG87.90/UniGen75.74。SFT消融表baseDPG87.05/GEdit7.12/WISE.72/RISE13.3，不能将这些都当同RLcheckpoint。1000stepRL消融表text35.06/overall75.69与最终1500step须分开。",
+    "gap": "速度MSE称KL依赖高斯转移/相同方差及时间尺度，式7省方差写法不能无条件当精确policy logprob。正负目标符号需对照代码，本次不判实现错。内部数据、reward和测试集合交叉、warmup冲突未解决；没有标准理解主实验。",
+    "problem": "较小VLM-DiT系统如何保留跨层细节、引入隐式推理并用多奖励RL增强图像生成/编辑与文字渲染？",
+    "claim": "研究目标：较小VLM-DiT系统如何保留跨层细节、引入隐式推理并用多奖励RL增强图像生成/编辑与文字渲染？",
+    "version": "DeepGen1.0；arXiv:2602.12205v2，2026-02-13；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 4. 架构、共享程度与规模",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L121",
     "canonical_key": "paper:arxiv:2602.12205",
     "evidence_history": [
@@ -7647,27 +7751,50 @@
     "aliases": [
       "local_umm_expanded:X050"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L121.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "小模型通过接口和数据配方提升生成/编辑；跨模型百分比不能直接归因于参数效率",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2/SCB三步、§3.1–3.3核心loss/采样、§4数据、§5.1/5.2自身结果/§5.3Tables6/7、§6、App7 Tables8/9及App8采样/奖励/配置/来源；全部基线/公式PDF/官方实现未核，未复现",
+    "review_path": "docs/reviews/L121.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "I35M公开生成+6.6M编辑含内部；II11M生成+6.6M编辑重用+150K推理生成/100K推理编辑+560K中英文字/海报/诗。RL提示用UniGenBench text/general、QwenImage文本caption/BLIP3o/ShareGPT4o/CoREBench；辅助SFT列表含GenEval集合，需检查训练评测重合，当前不能断言泄漏。",
+    "framework": "SCB六层channelconcat+MLP/6层connector，128learnedthinktokens；两阶段对齐/SFT，多奖励分项归一MRGRPO、参考速度正则及每步SFT锚。",
+    "architecture": "Qwen2.5VL3B+SD3.5Medium2B（初始化自SkyworkUniPic2.0），约5B主模块；均匀选低/中/高六层hiddenstates在channel拼接两层MLP对齐DiT，再transformer融合；thinktokens与输入自注意交互。II VLM LoRA64α128drop.05，非全参数VLM微调。",
+    "metrics": "GenEval/DPG/UniGenBench及text子项、WISE/RISE/CoRE、GEdit/ImgEdit；偏好UnifiedRewardThink、OCR匹配、CLIP相似。奖励、测评独立性和文字OCR评估器关联须审计。",
+    "baselines": "BAGEL/QwenImage/HiDream/Hunyuan/编辑模型等；同系统去SCB/think/VLM激活及去RL分项归一/速度KL/SFT。不同5B系统包括继承不同预训练权重，不能据总参数判等成本。",
+    "experimental_conditions": "I200Klr1e-4/b512、II400Klr5e-5/b768，512²，64H200，AdamWcoswd.05clip1；正文warm20K与Table9warmratio.01不一致待源码。RLG8/b256、50stepnoise-preservingSDE η1，1500更新lr2e-6，clip1e-4、β5e-7、λSFT1e-4、每步SFT、timestepfraction.6。"
   },
   {
     "title": "Mobile-O: Unified Multimodal Understanding and Generation on Mobile Device",
     "source_urls": [
-      "https://arxiv.org/abs/2602.20161"
+      "https://arxiv.org/abs/2602.20161",
+      "https://arxiv.org/html/2602.20161",
+      "https://github.com/Amshaker/Mobile-O/tree/91c255080a0130846fe5b5cd54ff5af3c05ab2b9",
+      "https://github.com/Amshaker/Mobile-O/blob/91c255080a0130846fe5b5cd54ff5af3c05ab2b9/Mobile-O-App/export.py",
+      "https://arxiv.org/pdf/2602.20161v2"
     ],
-    "method": "轻量视觉语言—扩散连接，prompt-image-question-answer 四元组后训练",
-    "conclusion": "端侧统一研究；作者报告 iPhone 512px 约 3 秒，硬件和采样设置不可省略",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "Mobile-O，2026",
+    "method": "MCP对VLM末四层learnedfusion、通道压缩、depthwise1Dconv/高效通道attention；共享LLM代替独立Gemma编码器，quadruplet联合CE+FM。 FastVLM.5B（FastViT+Qwen2-.5B）+SANA.6B512+2.4MMCP；主系统total约1.6B。末四层softmax权重随温度anneal，压缩linear+LN/HS，depthwiseconv+ECA，输出linear。1.5B命名指LLM，扩展系统约3.5B。",
+    "conclusion": "SFT理解均60.5/GenEval73.3→quadpost62.1/74.2；pairpost60.6/73.4。扩展系统66.2/78。作者手机20steps512²图3±.5s、视觉102±4ms/TTFT248±10ms、内存<2GB；未独立实测。",
+    "gap": "正文称LLM8bit+所有视觉模块CoreMLFP32；revision91c2550 export.py实际LLM默认4bit、visionFP16、DiT/VAE/MCPFP32，与论文不全一致。600MFP32裸权重约2.4GB，需澄清CoreML加载/驻留/峰值口径才能解释<2GB；app约3.6GB下载/5GB磁盘不能替代运行内存。当前仅源码核对，不能判结果造假或确认可复现。",
+    "problem": "在手机上以有限参数/内存同时做图文理解和静态图像生成，如何高效连接VLM与DiT并联合学习？",
+    "claim": "研究目标：在手机上以有限参数/内存同时做图文理解和静态图像生成，如何高效连接VLM与DiT并联合学习？",
+    "version": "Mobile-O；arXiv:2602.20161v2，2026-02-24；官方仓库标CVPR2026 Demo，非已核主会论文",
     "scope": "umm",
     "category": "UMM及相邻机制 / 4. 架构、共享程度与规模",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L122",
     "canonical_key": "paper:arxiv:2602.20161",
     "evidence_history": [
@@ -7690,7 +7817,26 @@
     "aliases": [
       "local_umm_expanded:X051"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L122.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "端侧统一研究；作者报告 iPhone 512px 约 3 秒，硬件和采样设置不可省略",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3.1–3.4、§4.1及4.4/4.5Tables4–6、§5、App7–9/Table8及§13；PDF第4页Fig2已视觉读。官方README任务/训练段、appREADME前100行、export.py DiT/VAE/MCP/vision导出及LLM量化关键段/默认参数；未编译app/核所有Swift内存逻辑，未运行模型",
+    "review_path": "docs/reviews/L122.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "I9M=4MJourney+5MBLIPshort；II105K=60KBLIP+45KShareGPT4o；III同105K改为生成prompt/图/问题/答案四元，GPT4o补caption和QA。新增QA信息与联合loss同时变化。",
+    "framework": "MCP对VLM末四层learnedfusion、通道压缩、depthwise1Dconv/高效通道attention；共享LLM代替独立Gemma编码器，quadruplet联合CE+FM。",
+    "architecture": "FastVLM.5B（FastViT+Qwen2-.5B）+SANA.6B512+2.4MMCP；主系统total约1.6B。末四层softmax权重随温度anneal，压缩linear+LN/HS，depthwiseconv+ECA，输出linear。1.5B命名指LLM，扩展系统约3.5B。",
+    "metrics": "GenEval、理解多项均分/分项；iPhone17Pro/M2Pro/Jetson延迟、TTFT及内存。tokenforward/TTFT和完整答案延迟需区分，预下载磁盘与运行峰值内存需区分。",
+    "baselines": "Janus/JanusFlow/Showo/BLIP3o等；MCPMLP/单层压缩/多层均值/learned+refine，SFT/pairpost/quadpost。无统一手机部署的所有基线对照。",
+    "experimental_conditions": "8A10080GB BF16，I50K约3天、II20epochs15h、III7epochs5h；Table8却列I5epochs，与正文roughly3epochs/b512×50K÷9M≈2.84有出入。lr2e-4/2e-4/1e-4，b512/384/128，coswd.01β2.95，warm.02/.05/.05；IIIVLM LoRA16α32drop.1，视觉/DiT/MCP亦训、仅VAE冻结。"
   },
   {
     "title": "InternVL-U: Democratizing Unified Multimodal Models for Understanding, Reasoning, Generation and Editing",

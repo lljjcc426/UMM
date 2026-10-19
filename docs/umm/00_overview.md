@@ -98,3 +98,7 @@ UMM 将文字任务和视觉生成放进一个可训练系统，例如共享上�
 ## 离散/连续建模的进一步区分
 
 FUDOKI是非吸收metricCTMC，可修改普通token；Muddit/LaViDa-O/Lumina的mask路径及采样器另有不同。FullFlow连续图像+离散插入文本，LLaDA2Uni离散骨干+连续图像decoder，MultimodalFlow连续embedding骨干+离散文字decoder。统一目标要指出作用模块；采样迭代、空间揭示及块间因果都不直接对应物理书写时间。见[机制与实验审查](../evidence/discrete_paths_and_flow_audit_2026-10-20.md)。
+
+## 开放模型与移动系统的成本口径
+
+BLIP3o8B公开权重与含私有数据论文版分数不同；OpenUni冻结VLM的理解成绩为继承；UniFork小消融在部分指标仍逊单任务专家。DeepGen约5B仍用64H200做两阶段训练；Mobile-O的.5B是语言骨干口径，total约1.6B，导出精度和内存测量需对齐。见[条件与部署审查](../evidence/open_models_and_deployment_audit_2026-10-20.md)。

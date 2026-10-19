@@ -225,6 +225,38 @@
         }
       ],
       "boundary": "五项书面理解检查与指定框架图已记录；正式版对读、全部附录/代码和实验条件仍有待核，完整三遍验收未完成，未复现。"
+    },
+    {
+      "id": "L122",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "Mobile-O要在手机内存/延迟约束下兼顾图文理解与静态成像。作者共享FastVLM语言骨干，用MCP将多层特征接SANA，并以同图生成/问答四元组联合训练。论文主模型报告GenEval74.2、理解均62.1；手机20步512²约3秒，内存/精度协议仍有待核。",
+          "evidence": "书面复述；未计时口述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "PDF第4页Fig2左侧问题/生成prompt和图像经embedding/图像encoder进入AR语言骨干，文字head算I2T CE；末四层hidden进入MCP加权融合、通道压缩、depthwiseconv/ECA及输出投影，条件DiT从噪声预测VAE潜变量，VAEdecode成图，训练T2I FM。训练目标图像由冻结VAEencoder形成target；双loss在quad阶段更新共享模块。",
+          "evidence": "arXivv2 PDF第4页Fig2已渲染视觉阅读。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "关键新增是低成本多层MCP与同图双向四元监督；SANA/FastVLM/CE/FM是继承构件。没有新querytoken和额外大文本编码器有助增量成本，但全部系统仍需vision/LLM/DiT/VAE。",
+          "evidence": "§3.1–3.4；Fig2。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table4无预训MLP68.5→四层learned+refine70.4，头3.3M→2.4M；Table5 SFT理解60.5/GenEval73.3→quad62.1/74.2，pairpost60.6/73.4。前表与主模型预训不同；后表quad增加QA信息，不能单独证明loss组织产生全部协同。",
+          "evidence": "§4.4 Tables4/5与App7多层消融。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：quad与pair若匹配同图QA曝光/更新次数，协同是否保持？疑问2：论文LLM8bit/视觉全FP32与当前export默认4bit/visionFP16怎样对应，600MFP32约2.4GB裸权重如何对应<2GB运行RAM？疑问3：50K×512/9M约2.84epochs，AppTable8列5epochs的实际采样配置是什么？需先核导出/内存/训练脚本，再形成可发表问题。",
+          "evidence": "Table5，AppTable8，官方export.py第154/176/256/257/392行；未实际部署。"
+        }
+      ],
+      "boundary": "五项书面检查与指定框架图已记录；论文全部图表/公式、训练及Swift内存配置和真机独立验证仍未完成；完整三遍验收未完成，未复现。"
     }
   ]
 }

@@ -88,3 +88,7 @@ HF 名称中 HWDB2-line 易使人误认资源“有时序笔划”。这个衍�
 ## 第十四批代码配方核查
 
 Muddit公开train_unified.sh在revisiond048cf7设text_loss_weight=0，按当前脚本不能复现原文联合训练；代码采用cos随机mask和按mask率重加权CE，与原文密度记号需对应。Lumina-DiMOO revision81344e6当前imagegenerator只重采样剩余mask；MLcache为近似。ht_grpo子目录虽写稍后发布，根README已链接arXiv2605.16842，属于有论文配套工程，尚未在本批重复增加记录。详见[专题](../evidence/discrete_paths_and_flow_audit_2026-10-20.md)。
+
+## 第十五批：模型卡与导出配方
+
+BLIP3o8B模型卡公开数据checkpoint GenEval.83/DPG80.73/WISE.52，论文含私有数据版.84/81.60/.62。Mobile-O有公开iOS app/export.py与模型/训练资源；本批未重复增为独立论文，导出LLM默认4bit、visionFP16、DiT/VAE/MCPFP32。论文LLM8bit/视觉FP32及<2GB口径需复核。HunyuanBase/Instruct/Distil按任务区别；TMP已有论文。见[专题](../evidence/open_models_and_deployment_audit_2026-10-20.md)。

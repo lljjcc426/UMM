@@ -58,3 +58,7 @@ L181 Eq17/18/19按文字定义：令A为Root，同时L1=A；首左子为`(A+A)/2
 ## 需要集中补学：路径、速率与调度
 
 区分概率路径p_t、CTMC速率、随机mask概率及其采样密度；给定路径的kinetic最优不等于全局生成最优。插入Poisson count/identity loss与maskCE的不同、双时钟条件一致性、有损bidirectionalcache与因果prefixcache、外部GPT2PPL与flow似然均需按公式及实现学习。Muddit PDF与cosmask代码是具体案例；FullFlow的teacherreferenceFID需与真图FID分别命名。
+
+## 部署与评价效度补学
+
+区分total/active/trainable参数、裸权重字节、编译图精度、按需加载/内存驻留和peakRSS，磁盘下载量不等于RAM。GenEval的检测/局部颜色分类不等价全图CLIP相似度；人类一致率、kappa、全体一致子集与全分布效度各需限定。多奖励归一不能自动解决reward相关/测试提示重用。

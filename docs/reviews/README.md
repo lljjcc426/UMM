@@ -200,6 +200,13 @@
 | L114 | [LLaDA2.0-Uni: Unifying Multimodal Understanding and Generation with Diffusion Large Language Model](L114.md) | §2.1–2.3、§4.1–4.4、主GenEval本作行、§5.5 Tables13/14、§6；未读全部数据细分/主大表/公式PDF/代码，未复现 |
 | L116 | [Multimodal Flow: Unified Flow Modeling of Language and Vision in Embedding Spaces](L116.md) | §2.1–2.4、§3.1–3.5 Tables4–6/主表本作行、AppB1–B3/C1–C3；部分长公式提取只按可见作用解释，未逐图/全部主表/代码/训练超参，未复现 |
 | L115 | [FullFlow: Upgrading Text-to-Image Flow Matching Models for Bidirectional Vision--Language Generation](L115.md) | PDF§2插入loss、§3.1–3.5、§5.1–5.6、§6、AppB1–B7部分；PDFp8 Table4/主captionVQA表与课程图已视觉核对。完整评测附录/所有图/代码未读，未复现 |
+| L071 | [GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment](L071.md) | §1、§3.1–3.2、§4、§5.1/5.2关键段/本作比较行、§6、AppA1/A2/Table4、C2/C3检测段；完整标注UI/AppD及全部表格未逐项核，框架图仅文字说明，未运行评价器 |
+| L117 | [BLIP3-o: A Family of Fully Open Unified Multimodal Models-Architecture, Training and Dataset](L117.md) | §2.1–2.2、§3.1–3.3、§4、§5.1–5.4关键段与本作主表/表头、§6；HF8B模型卡全文、旧main README训练/codec段、NEXT README主要模块；旧训练脚本/公式PDF未核，未复现 |
+| L118 | [OpenUni: A Simple Baseline for Unified Multimodal Understanding and Generation](L118.md) | §3模型与Table2、§3阶段1/2、§4.1–4.2、§5，主表自身分数/配置行；官方源码/全部采样设置与图未视觉核，未复现 |
+| L119 | [UniFork: Exploring Modality Alignment for Unified Multimodal Understanding and Generation](L119.md) | §3.1–3.4、§4.1/Table1、§4.2消融、§4.3/4.4自身主表行、§4.5及Conclusion/Limitations；框架图未视觉读、代码及全部baseline未核，未复现 |
+| L120 | [HunyuanImage 3.0 Technical Report](L120.md) | §2.1/2.2主要过滤/标注、§3.1.1–3.1.4、§4.1/Table1、§4.2–4.4、§5.1–5.3及§6；官方revision6e9113a README新闻/模型表/推理推荐/GSB段；SSAE/GSB图未视觉读、完整代码/配置未核，未复现 |
+| L121 | [DeepGen 1.0: A Lightweight Unified Multimodal Model for Advancing Image Generation and Editing](L121.md) | §2/SCB三步、§3.1–3.3核心loss/采样、§4数据、§5.1/5.2自身结果/§5.3Tables6/7、§6、App7 Tables8/9及App8采样/奖励/配置/来源；全部基线/公式PDF/官方实现未核，未复现 |
+| L122 | [Mobile-O: Unified Multimodal Understanding and Generation on Mobile Device](L122.md) | §3.1–3.4、§4.1及4.4/4.5Tables4–6、§5、App7–9/Table8及§13；PDF第4页Fig2已视觉读。官方README任务/训练段、appREADME前100行、export.py DiT/VAE/MCP/vision导出及LLM量化关键段/默认参数；未编译app/核所有Swift内存逻辑，未运行模型 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

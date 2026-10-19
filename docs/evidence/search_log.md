@@ -106,3 +106,7 @@ QLIP2502.05178、DualToken2503.14324、UniToken2504.04423、Selftok2505.07538v3�
 ## 2026-10-20：离散流/掩码/连续块路径
 
 阅读L109–L116指定方法、主表本作行/消融/附录；FullFlow由abstract入口补PDF36页，Muddit v5 PDF27页、LaViDa-O PDF33页，下载页数不算全文阅读。视觉查看Muddit p4与FullFlow p8，记录实际范围；代码Muddit d048cf7、Lumina81344e6。ICLR正式proceedings确认Muddit会场；根README交叉发现HT-GRPO有论文，未误计无论文资源。
+
+## 2026-10-20 第十五批来源与版本
+
+读取GenEval及BLIP3o/OpenUni/UniFork/HunyuanImage3/DeepGen/Mobile-O指定正文与配置/消融；Mobile-O v2 PDF18页，仅第4页Fig2视觉核查，下载页数不算全读。BLIP3o默认NEXT分支d0b0a1c与旧main418fc44分别核；HF8B公开模型卡与私有论文分数分开。Hunyuan当前README6e9113a区分Base/Instruct/Distil。Mobile-O91c2550的export.py确认LLM默认4bit、visionFP16与论文描述不一致；未部署。
