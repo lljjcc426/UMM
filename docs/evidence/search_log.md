@@ -122,3 +122,7 @@ UniFlow v2、InternVL-U v1、Mamoda2.5 v1、SenseNova-U1 v1、Rosetta v1读取�
 ## 2026-10-20 第十八批
 
 核对LVRPO/Uni-Synergy/ParetoLoRA/STBridge/MATE的arXivv1及指定方法/实验/附录。PDF下载17/23/10页仅用于来源核对，不计全文精读；ParetoLoRA第4页、SyncR1第17/18页视觉核数学；标准正态上尾p=.1的条件方差解析计算.169135，反驳其普遍≤p命题。官方UniCTokens9ca4254 sync_r1_grpo的README/采样/筛选/更新/阈值路径选读，实际负反馈方向与论文式不同。
+
+## 2026-10-20 第十九批
+
+核对六篇arXiv指定版本；取得UniKE的PMLR306正式24页、MME-Unify的ICLR2026正式44页、Uni-MMMU的ACL2026正式17页PDF，选读方法/主表/指定附录，不以下载算全文阅读。UniEval35页/GENIUS23页/SGU21页PDF仅指定文本范围；SGU p4框架和p16证明视觉核。OpenReview访问受限后改用ICLR正式论文页，无绕过证书或身份。

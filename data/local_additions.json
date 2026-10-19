@@ -9017,22 +9017,26 @@
   {
     "title": "Do Text Edits Generalize to Visual Generation? Benchmarking Cross-Modal Knowledge Editing in UMMs",
     "source_urls": [
-      "https://arxiv.org/abs/2606.00477"
+      "https://arxiv.org/abs/2606.00477",
+      "https://arxiv.org/html/2606.00477v1",
+      "https://arxiv.org/pdf/2606.00477v1",
+      "https://proceedings.mlr.press/v306/gao26ag.html",
+      "https://raw.githubusercontent.com/mlresearch/v306/main/assets/gao26ag/gao26ag.pdf"
     ],
-    "method": "修改文本知识后测图像生成是否同步更新；加入先推理再生成",
-    "conclusion": "2,971 编辑主体；文本修改成功远高于视觉迁移，说明共享参数不保证知识更新同步",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "UniKE，2026",
+    "method": "构造跨模态编辑基准UniKE，分可视属性与关系知识，比较直接生成和先由已编辑模型显式回忆再生成；分析语言及DiT条件漂移。 OvisU1、BLIP3o4B、OmniGen2；MEMIT/PMET/AlphaEdit按中层顺序编辑，Ovis4–8层、另两者6–10。AlphaEdit在BLIP/Omni用Ptilde=αP+(1−α)I，α.7/.6并协方差正则，故带星号版本不可当原版。",
+    "conclusion": "正式Table3 OvisPMET Eff72.18%、图VQA9.71→28.32、Reason53.57；BLIPAlphaEdit* Eff77.88、VQA16.12→17.33；OmniPMET Eff76.20、VQA11.43→16.01。摘要约92%来自Omni关系子域Eff91.93，不能写为总体。",
+    "gap": "首token成功高估完整事实编辑；可视关系代理/强裁判/合成筛选限制外推。推理序列长度、prompt内容改变与语义方向混杂；均值cos不证明瓶颈唯一位置。软化投影放松保持约束，需系统测locality/原始正确知识保持。未评视频、笔画事件、长期多编辑冲突。",
+    "problem": "仅编辑UMM语言骨干中的事实，能否同时改变静态图像生成，以及为什么正确文字回忆不能自动迁移？",
+    "claim": "研究目标：仅编辑UMM语言骨干中的事实，能否同时改变静态图像生成，以及为什么正确文字回忆不能自动迁移？",
+    "version": "UniKE；ICML2026/PMLR306:33775–33798；arXiv2606.00477v1与正式24页PDF交叉核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 6. 机制诊断：统一之后知识是否真的能流动",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L141",
     "canonical_key": "paper:arxiv:2606.00477",
     "evidence_history": [
@@ -9055,27 +9059,50 @@
     "aliases": [
       "local_umm_expanded:X077"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L141.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "2,971 编辑主体；文本修改成功远高于视觉迁移，说明共享参数不保证知识更新同步",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "v1§3、§4.1–4.6指定主表/漂移段；正式PDF Table3/4及AppB/C软投影、F温度文本核。AppD传播/SVD完整推导、全部图、代码和其余附录未全核，未复现",
+    "review_path": "docs/reviews/L141.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "2971编辑主体：964属性主体形成3528stage实例，2007关系，共5535评测实例。属性色/材质/形状/大小/纹理由Gemini3Flash合成，四stage959/874/858/837，视觉可测性筛选；关系来自CounterFact/MQuAKE过滤非可视及答案泄漏。总分按主体合并口径，不能混同stage数。",
+    "framework": "构造跨模态编辑基准UniKE，分可视属性与关系知识，比较直接生成和先由已编辑模型显式回忆再生成；分析语言及DiT条件漂移。",
+    "architecture": "OvisU1、BLIP3o4B、OmniGen2；MEMIT/PMET/AlphaEdit按中层顺序编辑，Ovis4–8层、另两者6–10。AlphaEdit在BLIP/Omni用Ptilde=αP+(1−α)I，α.7/.6并协方差正则，故带星号版本不可当原版。",
+    "metrics": "Eff只检验目标答案首token；Reason按归一字符串包含；VQA由Qwen3VL235BA22B判断目标属性/关系是否可见。首token或包含可误收错误绑定/否定；VLM二值判断未经本次人标复验。阶段归一保持率需要核对配对子集。",
+    "baselines": "三模型×MEMIT/PMET/AlphaEdit*，Direct与ReasonAug、四stage、语言/DiT漂移；需补未编辑行为、等长中性caption和图像分支直接编辑对照。",
+    "experimental_conditions": "顺序中层编辑；数据生成Gemini温度1，judge温度.1（不能称严格确定性）。漂移实验PMET100例、条件token均值及DiT t=.5；硬件/图像分辨率/NFE/CFG/编辑lr等未在本次所读部分核齐，完整代码未核。"
   },
   {
     "title": "MME-Unify: A Comprehensive Benchmark for Unified Multimodal Understanding and Generation Models",
     "source_urls": [
-      "https://arxiv.org/abs/2504.03641"
+      "https://arxiv.org/abs/2504.03641",
+      "https://arxiv.org/html/2504.03641v2",
+      "https://arxiv.org/pdf/2504.03641v2",
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/d8308c2c45cf95bfebb736be377f0982-Abstract-Conference.html",
+      "https://proceedings.iclr.cc/paper_files/paper/2026/file/d8308c2c45cf95bfebb736be377f0982-Paper-Conference.pdf"
     ],
-    "method": "统一传统任务评价，并加入五类混合模态任务",
-    "conclusion": "缓解各论文自行挑指标的问题；原始摘要与会议版模型数量不同，引用时应绑定版本",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "MME-Unify，2025",
+    "method": "组合理解、生成、统一任务三组协议；统一任务包含CSQ、编辑解释、找不同、几何辅助线与多轮迷宫；由分项归一再组内/组间平均。 对模型使用原生接口；多选题选项随机重排，图答案以候选中CLIPI最大相似判选；文本按MC答案或CLIPT，组合acc_avg平均两侧，acc+要求都对。迷宫同时评方向/坐标/图及完整路径。",
+    "conclusion": "正式Table2总分Gemini2.5FlashImage50.04、RecA42.60、GPT4oImage41.06、BAGEL40.35；BAGEL三组60.26/24.98/35.80。DALL-E专用TIG51.4但生成均8.57/总2.86，主要受覆盖项零分，不能据总分推其T2I差。",
+    "gap": "样本数跨表冲突需数据核。平均合成分混合覆盖、接口支持、质量与不同数据分布；CLIP近似候选检索可能在局部文字/颜色/错误图仍判对。静态几何/迷宫的图像状态不等价真实RGB书写过程；未对全部模态等成本比较。",
+    "problem": "如何同时测理解、六类生成和理解生成组合任务，并比较能力覆盖及协作表现？",
+    "claim": "研究目标：如何同时测理解、六类生成和理解生成组合任务，并比较能力覆盖及协作表现？",
+    "version": "MME-Unify；ICLR2026正式44页PDF；arXiv2504.03641v2为较早22模型版本，正式版31模型/17统一模型",
     "scope": "umm",
     "category": "UMM及相邻机制 / 7. 评测：从分别打分转向检查联系",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L142",
     "canonical_key": "paper:arxiv:2504.03641",
     "evidence_history": [
@@ -9098,27 +9125,48 @@
     "aliases": [
       "local_umm_expanded:X078"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L142.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "缓解各论文自行挑指标的问题；原始摘要与会议版模型数量不同，引用时应绑定版本",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "旧v2§2全、§3指定分析/§4限制；正式版§2构造与评分、§3设置/Table2全行、AppH2归一及Table13文本核。其余44页图/全部附录与源码未全读，未复现",
+    "review_path": "docs/reviews/L142.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "理解源MME/MMBench/MMERealWorld/SEEDBench2/VideoMME；生成COCO/ImageNet/EmuEdit/ImagenHub/TIPI2V/MSRVTT/Pexels；统一任务合成加人工构造。正式Table2总4104=1964理解+1594生成+546统一；正文写1900理解，Table13总4100且CIVG/TIE的200/600与Table2的600/200交换，SpotDiff/CSQ列也不一，待公开数据核，不能擅定唯一样本数。",
+    "framework": "组合理解、生成、统一任务三组协议；统一任务包含CSQ、编辑解释、找不同、几何辅助线与多轮迷宫；由分项归一再组内/组间平均。",
+    "architecture": "对模型使用原生接口；多选题选项随机重排，图答案以候选中CLIPI最大相似判选；文本按MC答案或CLIPT，组合acc_avg平均两侧，acc+要求都对。迷宫同时评方向/坐标/图及完整路径。",
+    "metrics": "理解准确率、视频/图生成FID/FVD/CLIP等、统一acc_avg/acc+；AppH2把FID/FVD假设[1,1000]后映射100(1−(s−1)/999)，同分另置100。分布距离不等价逐例正确率或同量纲效用，总分不应解释为物理比例质量。",
+    "baselines": "31种商业/开源及理解/生成专用系统；Gemini2.5FlashImage、GPT4oImage、RecA、BAGEL、Showo/Hermes等。正式版本和旧版不同，应按各版表而非拼接排行。",
+    "experimental_conditions": "不支持视频文件时抽6帧，单图模型只取第一图/帧，导致可见信息不同；不支持子任务按组聚合相当于零分。默认模型配置，精确硬件/重复seed/视频NFE/各版本API日期未全核；FID/FVD样本口径和实现需要代码确认。"
   },
   {
     "title": "UniEval: Unified Holistic Evaluation for Unified Multimodal Understanding and Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2505.10483"
+      "https://arxiv.org/abs/2505.10483",
+      "https://arxiv.org/html/2505.10483v1",
+      "https://arxiv.org/pdf/2505.10483v1"
     ],
-    "method": "UniBench、UniScore，尝试以模型内部理解减少额外评估资源",
-    "conclusion": "整体评价方便，但评价器与被评模型的关联偏差需要考虑",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "UniEval，2025",
+    "method": "构建UniBench的13一级/81二级标签，1234prompt和4231QA；每prompt4图再同模型回答，层级均值得UniScore；生成专用模型用外部VLM。 多标签组合采样、QWQ校核与人工复核；每二级标签先平均，一级内平均二级，再等权平均13一级。作者称micro但实际为层级均衡，不等于所有QA统一micro。case平均及所有问题全对为补充。",
+    "conclusion": "Table2 JanusPro7B.572、JanusFlow1.3B.508、UniTokenII.492、VILA-U.456、Showo.367、VARGPT.204；JanusPro7B text.456/doc.477不意味着逐字正确。人评平均Pearson.716，对照CLIP.372/VQA.575，范围限所采三生成器。",
+    "gap": "自问自答可能共享盲点；更高自评分可来自校准/选项偏差或自分布适配。自读−外部读图未独立隔离理解能力。人评样本和排除规则限制泛化，Pearson仍受取样范围/分布影响；对精确文字、运动、事件无验证。",
+    "problem": "可否用同一UMM对自己的图像做多选QA，得到细粒度统一评测并减少外部裁判依赖？",
+    "claim": "研究目标：可否用同一UMM对自己的图像做多选QA，得到细粒度统一评测并减少外部裁判依赖？",
+    "version": "UniEval；arXiv2505.10483v1，2025-05-15；正式会场未确认",
     "scope": "umm",
     "category": "UMM及相邻机制 / 7. 评测：从分别打分转向检查联系",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L143",
     "canonical_key": "paper:arxiv:2505.10483",
     "evidence_history": [
@@ -9141,27 +9189,50 @@
     "aliases": [
       "local_umm_expanded:X079"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L143.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "整体评价方便，但评价器与被评模型的关联偏差需要考虑",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "v1§3.1–3.3、§4设置/主Table2与4.4、结论，AppC构造指定段/I局限；35页PDF主表2指定全部统一模型行文本核。全部图片/其它表和源码未核，未复现",
+    "review_path": "docs/reviews/L143.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "3285候选关键词由DeepSeekR1-70B五次生成取至少两次支持；采样标签数Gaussian均/标准差6，2000候选筛至1234。Text/Doc/UI标签有文字体系/类型，但作者限制明确尚不测特定字符串逐字正确，不能充作精确OCR基准。",
+    "framework": "构建UniBench的13一级/81二级标签，1234prompt和4231QA；每prompt4图再同模型回答，层级均值得UniScore；生成专用模型用外部VLM。",
+    "architecture": "多标签组合采样、QWQ校核与人工复核；每二级标签先平均，一级内平均二级，再等权平均13一级。作者称micro但实际为层级均衡，不等于所有QA统一micro。case平均及所有问题全对为补充。",
+    "metrics": "分层UniScore、case宏均值/完美case、与人评Pearson；.2随机准确率对应五项均匀猜，若只猜四个有效选项则需另一null，不能视所有策略统一随机底线。",
+    "baselines": "10统一模型和10T2I；Showo、TokenFlow、VARGPT、Janus/Flow/Pro、VILA-U、UniToken；CLIPScore/VQAScore及Qwen2.5VL7B/72B外部读图评测。",
+    "experimental_conditions": "官方PyTorch代码/权重，各模型原生224–512或1024分辨率；每模型16924QA判断，解析先格式字母后最后匹配选项关键词，失败/无图计0。人评3模型各100case×4图×3标注者；标签说明先0unknown后写4unknown不一致；不确定样本排除使相关性有选择条件。GPU/推理总计算及全部原生采样参数未本次核齐。"
   },
   {
     "title": "Uni-MMMU: A Massive Multi-discipline Multimodal Unified Benchmark",
     "source_urls": [
-      "https://arxiv.org/abs/2510.13759"
+      "https://arxiv.org/abs/2510.13759",
+      "https://arxiv.org/html/2510.13759v3",
+      "https://arxiv.org/pdf/2510.13759v3",
+      "https://aclanthology.org/2026.acl-long.40/",
+      "https://aclanthology.org/2026.acl-long.40.pdf"
     ],
-    "method": "八类学科领域，双向耦合理解与生成，检查中间步骤与可验证答案",
-    "conclusion": "对“画图帮助解题”和“知识指导作图”分别检验",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "Uni-MMMU，2025",
+    "method": "八领域885例，分生成辅助理解59.2%与理解辅助生成40.8%；逐步状态解析、DreamSim和VLM裁判，文本/图分开评分。 迷宫6×6 DFS树+BFS最短路2–10，滑块3×3可解唯一最优，几何GeoL辅助线，拼图缺块候选；科学初末状态合成后人审，SVG三难度程序化。迷宫75%/滑块80%调色板阈值解析，文本路径严格匹配；图step/sample全程正确分开。",
+    "conclusion": "正式Table2平均GPT4.1+GPTimage44.1、nano37.3、BAGEL22.0；BAGEL maze/sliding图step/sample均0，nano maze1.8/0、sliding1.0/0。GPT系统maze图.8/.7、文本49.0/18.1，说明图中间状态与最后文字表现不同。",
+    "gap": "默认预算/历史与模型调用差异混杂共享机制；GT条件额外信息，不能当可达单模型上界。解析器对颜色/线宽敏感，强VLMjudge需罕见错误校准；κ二值验证不覆盖整个量表。静态任务/唯一解限制对开放创作和连续过程外推。",
+    "problem": "生成可验证的中间视觉状态能否帮助推理，理解程序/科学规律能否约束准确静态合成？",
+    "claim": "研究目标：生成可验证的中间视觉状态能否帮助推理，理解程序/科学规律能否约束准确静态合成？",
+    "version": "Uni-MMMU；ACL2026长文pp908–924；arXiv2510.13759v3，2026-04-18与正式17页PDF交叉核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 7. 评测：从分别打分转向检查联系",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L144",
     "canonical_key": "paper:arxiv:2510.13759",
     "evidence_history": [
@@ -9184,27 +9255,48 @@
     "aliases": [
       "local_umm_expanded:X081"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L144.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "对“画图帮助解题”和“知识指导作图”分别检验",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "v3§3任务/评分、§4.1–4.4主表/GT对照、人评；正式PDF主Table2全行、评分段、AppB预算及失败统计首段核。全部定性图/附录数据实例/代码未全核，未复现",
+    "review_path": "docs/reviews/L144.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "885例包括physics/chemistry/biology/code/geometry/maze/sliding/jigsaw；ShareGPT4o用于拼图。精确八类数量本次未摘齐；科学合成教师和人审需检查是否暗含解题线索。",
+    "framework": "八领域885例，分生成辅助理解59.2%与理解辅助生成40.8%；逐步状态解析、DreamSim和VLM裁判，文本/图分开评分。",
+    "architecture": "迷宫6×6 DFS树+BFS最短路2–10，滑块3×3可解唯一最优，几何GeoL辅助线，拼图缺块候选；科学初末状态合成后人审，SVG三难度程序化。迷宫75%/滑块80%调色板阈值解析，文本路径严格匹配；图step/sample全程正确分开。",
+    "metrics": "图/文字step_acc与sample_acc、几何图二值/推理、DreamSim、科学推理/结果/图正确、code形色及位置0–5归一。混合分数平均不具同一概率意义；必须保留分项和全程成功。",
+    "baselines": "6统一/系统与6专用；GPT4.1+GPT-image为调用流水线，不能计为同一参数空间；nano-banana原生交错，其余迭代调用，Ovis只上一图/拼图拼接导致可见历史差异。另比under-only与GT中间图。",
+    "experimental_conditions": "AppB NVIDIAA800约48GPU-days、官方默认采样；API日期/版本、每模型分辨率/NFE、完整历史长度/次数未核齐。裁判Qwen2.5VL72B及Qwen3-32B；人评150结果及code707，二值κ阈值≥4会丢失0–5粒度。"
   },
   {
     "title": "GENIUS: Generative Fluid Intelligence Evaluation Suite",
     "source_urls": [
-      "https://arxiv.org/abs/2602.11144"
+      "https://arxiv.org/abs/2602.11144",
+      "https://arxiv.org/html/2602.11144v1",
+      "https://arxiv.org/pdf/2602.11144v1"
     ],
-    "method": "新情境规律、临时约束、上下文知识的生成任务",
-    "conclusion": "强调即时适应而非知识回忆；诊断指向上下文理解，不能单用画质解释",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "GENIUS，2026",
+    "method": "510专家构造例/20子任务、三primitive与五组；Gemini3Pro按规则/视觉一致/美观评分；提出BAGEL的training-free attention干预并给点态参数扰动解释。 关键词提炼→与上下文视觉token对齐S→F(S)=(S−mean)/(std+eps)→选定attention logits加λF(S)。理论把固定输入u/g及层/时刻的改动表示为ΔUp/Δb；扰动依赖当前样本，不自动等价全局固定风险上的真实SGD或持久学习。",
+    "conclusion": "Table2 NanoBananaProOverall57.19、BAGEL26.74，BAGEL干预32.92(+6.18百分点、约23.1%相对)。人评Pearson.9630/.9659仅两生成器百图，不能外推所有稀有错误。",
+    "gap": "宣称失败主要源理解的诊断未独立排除所有生成能力和裁判限制；理论仅点态存在扰动，不能证明与特定学习目标梯度一致。trace线性loss若Δ本身含Up，则要冻结扰动定义再谈梯度。样本有限、人造规则/强judge、干预精度美观取舍、视频缺失。",
+    "problem": "图像生成能否依据当前交错上下文归纳新规则、执行临时约束和适应反常知识，而非仅复述已学模板？",
+    "claim": "研究目标：图像生成能否依据当前交错上下文归纳新规则、执行临时约束和适应反常知识，而非仅复述已学模板？",
+    "version": "GENIUS；arXiv2602.11144v1，2026-02-11；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 7. 评测：从分别打分转向检查联系",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L145",
     "canonical_key": "paper:arxiv:2602.11144",
     "evidence_history": [
@@ -9227,27 +9319,48 @@
     "aliases": [
       "local_umm_expanded:X084"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L145.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "强调即时适应而非知识回忆；诊断指向上下文理解，不能单用画质解释",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "v1§2/§3设置与主Table2/§4方法理论、AppD1/D2/F/G指定完整推导段文本核；23页PDF主表与理论布局文本核。全部图/发布实现/完整参数未核，未复现",
+    "review_path": "docs/reviews/L145.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "510例：归纳86/临时约束213/情境适应211；implicitstyle/symbolicrule/visualrule/priorconflict/multisemantic五组。专家人工构造并双重核查；上下文移除实验在NanoBananaPro，不能证明所有模型均无预训练捷径。",
+    "framework": "510专家构造例/20子任务、三primitive与五组；Gemini3Pro按规则/视觉一致/美观评分；提出BAGEL的training-free attention干预并给点态参数扰动解释。",
+    "architecture": "关键词提炼→与上下文视觉token对齐S→F(S)=(S−mean)/(std+eps)→选定attention logits加λF(S)。理论把固定输入u/g及层/时刻的改动表示为ΔUp/Δb；扰动依赖当前样本，不自动等价全局固定风险上的真实SGD或持久学习。",
+    "metrics": "RC/VC/AQ各0/1/2，Overall权重6:3.5:.5，部分多语义无VC的聚合需代码核。重规则权重可提高总分同时损失美观，不是无条件质量提升。",
+    "baselines": "12模型（5商业7开源）；BAGEL原始与干预，context移除；人评5专家对100图/2模型与Gemini3Pro比较；其它强VLM裁判一致性仅所读范围内有限核。",
+    "experimental_conditions": "每case三独立运行取均值，属于推理/评测重复，无训练seed。干预层、步、λ完整配置与关键词/对齐编码器、硬件/NFE未本次核齐；未执行代码。gold评测hint人工给，运行judge外部依赖需计成本。"
   },
   {
     "title": "A Model-Internal Protocol for Assessing Multimodal Models as Integrated Systems",
     "source_urls": [
-      "https://arxiv.org/abs/2608.11907"
+      "https://arxiv.org/abs/2608.11907",
+      "https://arxiv.org/html/2608.11907v2",
+      "https://arxiv.org/pdf/2608.11907v2"
     ],
-    "method": "看图→描述→重建→在自生成图上推理的内部闭环",
-    "conclusion": "补充系统集成评价；“无需新标注”不意味着没有推理成本或循环偏差",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "SGU，2026",
+    "method": "三次无状态调用，只传caption及重建图，原问题到最后才问；复用原VQA金标得SGU准确率及对原图VQA的比值；分阶段替换诊断。 同一UMM理解/生成投影串联，隔离session不传隐特征；最终独立QA。无新增架构/训练目标。stage替换用Qwen3VL8B caption与QwenImage2512生图，属于外部组件消融。",
+    "conclusion": "Table1均值base→SGU：UniWorld73.86→44.09、Janus58.82→44.36、Showo263.30→46.55、Ovis73.05→48.67、BAGEL74.29→52.98、Omni70.17→53.43。OCR Omni79.39→56.59，caption-only60.05，显示文本瓶颈与后续额外损失。",
+    "gap": "AppC2 Eq20到正确集包含缺少解码器正确性/单调性条件：表示中存在证据不保证固定模型会答对。无新信息也可能通过去除干扰/简化版式纠正原来错答，故数据处理不推出同一非最优解码器acc必下降或ratio≤1；作者也承认偶有纠正。caption瓶颈、风格重建/自分布、原VQA不完整及局部替换不隔离共享参数收益；非视频/事件。",
+    "problem": "同一UMM能否将原图描述成文字，再重建图像并回答原问题，从而检验跨环节信息保持？",
+    "claim": "研究目标：同一UMM能否将原图描述成文字，再重建图像并回答原问题，从而检验跨环节信息保持？",
+    "version": "SGU；arXiv2608.11907v2，2026-08-20；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 7. 评测：从分别打分转向检查联系",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L146",
     "canonical_key": "paper:arxiv:2608.11907",
     "evidence_history": [
@@ -9270,7 +9383,26 @@
     "aliases": [
       "local_umm_expanded:X086"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L146.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "补充系统集成评价；“无需新标注”不意味着没有推理成本或循环偏差",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "v2§3全/§4设置主表及阶段替换/§5，AppA/B/C2/E/F1与G指定瓶颈段；21页PDFp4Fig2及p16Eq12–22视觉核，主Table1/2/3与F1文本核。全部图片/源码/剩余附录未全核，未复现",
+    "review_path": "docs/reviews/L146.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "MMStarval/MMBenchdev/MathVistatestmini/OCRVQAval全split作主表。消融MMStar/MMBench198（MMStar六类各33）、MathVista200按MCP/non54/46、OCR200均匀seed42；相同子集重复干预，不能把子集绝对值替代全量结果。",
+    "framework": "三次无状态调用，只传caption及重建图，原问题到最后才问；复用原VQA金标得SGU准确率及对原图VQA的比值；分阶段替换诊断。",
+    "architecture": "同一UMM理解/生成投影串联，隔离session不传隐特征；最终独立QA。无新增架构/训练目标。stage替换用Qwen3VL8B caption与QwenImage2512生图，属于外部组件消融。",
+    "metrics": "原图baseacc、闭环SGUacc与相除relative；caption-only与中间CLIPT/I辅助。无需外部judge指核心流程，消融仍调用外部模型。原图准确率是参考值，缺条件不能当数学必然上界。",
+    "baselines": "UniWorldV1、JanusPro7B、Showo27B、OvisU1、BAGEL、OmniGen2；caption/gen替换、caption-only、prompt变化/更长caption与捷径检查。per-dataset最佳包络不代表可执行同一系统。",
+    "experimental_conditions": "A80080GB，captiongreedy最大256tokens、末QA64/seed42/CFG5，flow30步512px；Janus576图token与512输出的resize关系未说明。Table3 prompt消融两run均值，无完整多seed方差研究；精确GPU总时长/模型每次参数未核齐。"
   },
   {
     "title": "WISE: A World Knowledge-Informed Semantic Evaluation for Text-to-Image Generation",

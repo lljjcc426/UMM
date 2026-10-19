@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 250 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 256 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -245,12 +245,12 @@
 | L138 | Mutually Adversarial Self-Training with Evolving Data for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L138.md) | 未完成 |
 | L139 | Does Gradient Conflict Predict the Understanding--Generation Trade-off? A Controlled Audit of Conflict-Metric Validity in Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L139.md) | 未完成 |
 | L140 | Beyond Layers: Position-Resolved Gradient Conflict and Position-Aware Modulation for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L140.md) | 未完成 |
-| L141 | Do Text Edits Generalize to Visual Generation? Benchmarking Cross-Modal Knowledge Editing in UMMs | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L142 | MME-Unify: A Comprehensive Benchmark for Unified Multimodal Understanding and Generation Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L143 | UniEval: Unified Holistic Evaluation for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L144 | Uni-MMMU: A Massive Multi-discipline Multimodal Unified Benchmark | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L145 | GENIUS: Generative Fluid Intelligence Evaluation Suite | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L146 | A Model-Internal Protocol for Assessing Multimodal Models as Integrated Systems | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L141 | Do Text Edits Generalize to Visual Generation? Benchmarking Cross-Modal Knowledge Editing in UMMs | primary_sections_read | [结构化分析](../reviews/L141.md) | 未完成 |
+| L142 | MME-Unify: A Comprehensive Benchmark for Unified Multimodal Understanding and Generation Models | primary_sections_read | [结构化分析](../reviews/L142.md) | 未完成 |
+| L143 | UniEval: Unified Holistic Evaluation for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L143.md) | 未完成 |
+| L144 | Uni-MMMU: A Massive Multi-discipline Multimodal Unified Benchmark | primary_sections_read | [结构化分析](../reviews/L144.md) | 未完成 |
+| L145 | GENIUS: Generative Fluid Intelligence Evaluation Suite | primary_sections_read | [结构化分析](../reviews/L145.md) | 未完成 |
+| L146 | A Model-Internal Protocol for Assessing Multimodal Models as Integrated Systems | primary_sections_read | [结构化分析](../reviews/L146.md) | 五项检查已记录 |
 | L147 | WISE: A World Knowledge-Informed Semantic Evaluation for Text-to-Image Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L148 | ImgEdit: A Unified Image Editing Dataset and Benchmark | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L149 | MMIG-Bench: Towards Comprehensive and Explainable Evaluation of Multi-Modal Image Generation Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |

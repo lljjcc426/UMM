@@ -114,3 +114,7 @@ UniFlow是一阶段语义codec重建/理解，并非凭零样本视频重建即�
 ## 联合训练需要分清保证与观测
 
 [第十八批](../evidence/joint_rl_gradient_theory_and_targets_2026-10-20.md)分析rewardGRPO、个性化双路径、局部梯度整合、共同编辑目标及动态困难池。ParetoLoRA视觉指标提高伴Task4文字下降；STBridge一致性与外部正确需分测；MATE理解收益未依赖困难/演化消融，单seed小差异不能作强因果结论。
+
+## 评价对象与协同归因
+
+[第十九批](../evidence/benchmark_construct_validity_and_cross_modal_editing_2026-10-20.md)区分自生成QA、原图重建后QA、任务中间视觉状态、新规则适应与文字知识编辑迁移。评价链可诊断接口失真；证明共享参数收益仍需同数据/信息/计算的流水线与单分支对照。

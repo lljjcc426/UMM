@@ -224,6 +224,12 @@
 | L136 | [Pareto LoRA: Mitigating Modality Imbalance in Unified Multimodal Models via Pareto-Optimal Gradient Integration](L136.md) | v1§3全、§4.1–4.5、Tables1–6指定行/结论；10页PDFp4框架图/闭式解视觉核，其他定性图/完整实现未核，未复现 |
 | L137 | [STBridge: Shared-Target Alignment for Bridging Understanding and Generation in UMMs](L137.md) | v1§3数据全、§4方法全、§5.1/5.2、主结果指定本法/BAGEL行、5.5Tables7–9、结论；全部图片/大表外部行/源代码未全核，未复现 |
 | L138 | [Mutually Adversarial Self-Training with Evolving Data for Unified Multimodal Models](L138.md) | v1§3全、§4.1/4.2本法和基线行/4.3、结论局限、AppB算法1–3及C配置/额外消融/roundtrip；全部图片/外部大表行/发布代码尚未全核，未复现 |
+| L141 | [Do Text Edits Generalize to Visual Generation? Benchmarking Cross-Modal Knowledge Editing in UMMs](L141.md) | v1§3、§4.1–4.6指定主表/漂移段；正式PDF Table3/4及AppB/C软投影、F温度文本核。AppD传播/SVD完整推导、全部图、代码和其余附录未全核，未复现 |
+| L142 | [MME-Unify: A Comprehensive Benchmark for Unified Multimodal Understanding and Generation Models](L142.md) | 旧v2§2全、§3指定分析/§4限制；正式版§2构造与评分、§3设置/Table2全行、AppH2归一及Table13文本核。其余44页图/全部附录与源码未全读，未复现 |
+| L143 | [UniEval: Unified Holistic Evaluation for Unified Multimodal Understanding and Generation](L143.md) | v1§3.1–3.3、§4设置/主Table2与4.4、结论，AppC构造指定段/I局限；35页PDF主表2指定全部统一模型行文本核。全部图片/其它表和源码未核，未复现 |
+| L144 | [Uni-MMMU: A Massive Multi-discipline Multimodal Unified Benchmark](L144.md) | v3§3任务/评分、§4.1–4.4主表/GT对照、人评；正式PDF主Table2全行、评分段、AppB预算及失败统计首段核。全部定性图/附录数据实例/代码未全核，未复现 |
+| L145 | [GENIUS: Generative Fluid Intelligence Evaluation Suite](L145.md) | v1§2/§3设置与主Table2/§4方法理论、AppD1/D2/F/G指定完整推导段文本核；23页PDF主表与理论布局文本核。全部图/发布实现/完整参数未核，未复现 |
+| L146 | [A Model-Internal Protocol for Assessing Multimodal Models as Integrated Systems](L146.md) | v2§3全/§4设置主表及阶段替换/§5，AppA/B/C2/E/F1与G指定瓶颈段；21页PDFp4Fig2及p16Eq12–22视觉核，主Table1/2/3与F1文本核。全部图片/源码/剩余附录未全核，未复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |
