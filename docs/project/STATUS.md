@@ -37,7 +37,7 @@
 
 ## 第二轮调研更新（2026-10-19）
 
-截至2026-10-20，主目录331条，首轮补录已关联并同步表格；新增188份结构化阅读笔记和基础/邻近领域分析，以及CoFRIDA-Sharpie资源卡。96条历史记录仍待原文复核，完整三遍验收与模型复现均未完成。具体范围见[本轮审查](../evidence/second_round_audit_2026-10-19.md)与[逐条台账](../evidence/reading_ledger_2026-10-19.md)。
+截至2026-10-20，主目录331条，首轮补录已关联并同步表格；新增195份结构化阅读笔记和基础/邻近领域分析，以及CoFRIDA-Sharpie资源卡。89条历史记录仍待原文复核，完整三遍验收与模型复现均未完成。具体范围见[本轮审查](../evidence/second_round_audit_2026-10-19.md)与[逐条台账](../evidence/reading_ledger_2026-10-19.md)。
 
 第四批：150条章节核查、40条摘要核查；L024已记录五项书面理解检查，其他逐篇验收继续进行。全文无法访问的5项只记第一遍。
 
@@ -50,3 +50,5 @@
 第八批：新增7份UMM技术审查，累计181份笔记、195条章节核查、33条摘要及103条历史待核。Qwen3-Omni仅输出文字/语音；SEED-X专门版本、AnyGPT/Manzano外部解码、MMaDA采样代码与Emu3.5关键帧/执行边界见[本批分析](../evidence/unified_interfaces_and_transfer_2026-10-20.md)。完整三遍验收和复现仍未完成。
 
 第九批：OFA/Unified-IO/VersatileDiffusion/UniDiffuser/Emu/SEED及MetaQueries共7项，累计188份笔记、202条章节核查、33条摘要、96条历史待核。OFA新增正式框架图/消融视觉核对与五项书面理解检查(累计3项)；完整三遍验收仍为0。详见[早期统一与分布审查](../evidence/early_unification_and_distribution_review_2026-10-20.md)。
+
+第十批：新增7份存量模型分析，累计195份笔记，209条章节核查、33条摘要、89条历史待核。MM-Interleaved补框架图/消融视觉核查及五项书面检查（共4项）；完整三遍验收0。详见[压缩、条件与协同](../evidence/compression_conditions_and_synergy_2026-10-20.md)。

@@ -80,3 +80,7 @@ UMM 将文字任务和视觉生成放进一个可训练系统，例如共享上�
 ## 早期前作与负迁移（2026-10-20）
 
 [OFA](../reviews/L073.md)的统一预训后仍按任务微调；图像分数含24选1。[Unified-IO](../reviews/L074.md)评估单一联合模型，其消融按剩余任务曝光缩短步数，显示图像合成对关键点的帮助以及文字任务对部分视觉任务的干扰。[UniDiffuser](../reviews/L076.md)独立噪声时间统一条件/联合/边缘分布，有限T为近似边缘化；[MetaQueries](../reviews/L062.md)冻结MLLM是强组合基线，保留理解尚不代表生成训练提高理解。详见[历史机制与实验迁移](../evidence/early_unification_and_distribution_review_2026-10-20.md)。
+
+## 压缩与条件解码的边界（2026-10-20）
+
+[LaVIT](../reviews/L079.md)理解连续/监督离散且混纯文仍有遗忘；[NExT-GPT](../reviews/L080.md)用四模态专家decoder做语义条件连接；[DreamLLM](../reviews/L081.md)让冻结扩散loss回传LLM；[SEED-LLaMA](../reviews/L082.md)改用unCLIP图像条件。[Emu2](../reviews/L083.md)主体保真与文字对齐存在取舍；[MM-Interleaved](../reviews/L084.md)通过细节旁路改善空间访问；[VILA-U](../reviews/L085.md)无需扩散decoder，但作者尚未观察到理解生成显著协同。详见[机制与实验条件](../evidence/compression_conditions_and_synergy_2026-10-20.md)。

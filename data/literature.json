@@ -12126,22 +12126,23 @@
   {
     "title": "Unified Language-Vision Pretraining in LLM with Dynamic Discrete Visual Tokenization",
     "source_urls": [
-      "https://arxiv.org/abs/2309.04669"
+      "https://arxiv.org/abs/2309.04669",
+      "https://arxiv.org/html/2309.04669"
     ],
-    "method": "动态离散视觉 token，按图像内容改变序列长度",
-    "conclusion": "统一理解与生成，同时研究视觉序列冗余；不能只看 token 数而忽略编码器和解码器成本",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "可学习selector动态保留token、merger汇集被丢弃信息、语义量化作为生成监督；文字/视觉next-token联合训练。 冻结EVA-CLIP ViT-G/14、Gumbel-Softmax selector、12层causal merger，16384码本及12层语义重建decoder；Llama-7B；独立SD1.5像素decoder。选择率正则令保留率趋近1/3，余下token仍通过cross-attention汇入；因果merger可观察全局ViT/被丢弃patch，未定义真实笔画时间。",
+    "conclusion": "主结果Flickr CIDEr83.0（BLIP2 Vicuna7B74.9）、OKVQA54.6（Flamingo9B44.7）；COCO FID7.4，含4选1及外部decoder。AppB MMLU基座35.1；高LLM lr1.5e-4、纯文66%时27.1；降至5e-5但纯文50%时30.9；纯文66%时33.6，仍低基座1.5点。",
+    "gap": "动态压缩可能丢细笔信息，CLIP语义指标不能证明笔形/笔顺；MMLU显示未完全消除遗忘。4选1和教师预训成本影响比较，消融与主模型编码器不同。作者承认幻觉、网页短caption噪声以及未充分训练长交错文档。",
+    "problem": "在LLM中同时学习图像理解与生成，并根据图像内容减少视觉序列长度。",
+    "claim": "研究目标：在LLM中同时学习图像理解与生成，并根据图像内容减少视觉序列长度。",
     "version": "LaVIT，2023",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L079",
     "canonical_key": "paper:arxiv:2309.04669",
     "evidence_history": [
@@ -12164,27 +12165,47 @@
     "aliases": [
       "local_umm_expanded:X007"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L079.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "统一理解与生成，同时研究视觉序列冗余；不能只看 token 数而忽略编码器和解码器成本",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§1、§3.1–3.3、§4.1–4.3、Table2/3、AppA、AppB Tables4–8、AppC Table9及AppE；未逐图、未核全部评价表/代码、未复现",
+    "review_path": "docs/reviews/L079.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "Tokenizer约100M LAION400M图片、无需配对caption；LLM约93M CC/SBU/BLIP-capfilt图文和额外100M LAION-aesthetics用于T2I，混入RedPajama英语保持语言能力。数据集原始体量与实际消耗不能混同。",
+    "framework": "可学习selector动态保留token、merger汇集被丢弃信息、语义量化作为生成监督；文字/视觉next-token联合训练。",
+    "architecture": "冻结EVA-CLIP ViT-G/14、Gumbel-Softmax selector、12层causal merger，16384码本及12层语义重建decoder；Llama-7B；独立SD1.5像素decoder。选择率正则令保留率趋近1/3，余下token仍通过cross-attention汇入；因果merger可观察全局ViT/被丢弃patch，未定义真实笔画时间。",
+    "metrics": "Flickr30k CIDEr、VQAv2/OKVQA准确率、COCO30K FID、MMLU 5-shot；连续/量化、选取策略与训练时间对照。",
+    "baselines": "BLIP2、Flamingo、Emu、CM3Leon、SD及像素/语义tokenizer；小规模消融使用CLIP-L/14及数据子集，不能与主模型EVA数字拼为同一组。",
+    "experimental_conditions": "Table9：LLM AdamW β.9/.95，b2048，lrLLM5e-5/视觉1.5e-4，20K步/warm2K、wd.1、context2048、256A100约30h；tokenizer β.9/.99、lr2e-4、50K/warm4K、wd.01、b2048、64A100约12h；SD decoder20K步。T2I每提示采4张由CLIP-L/14选最好；AR温度1、CFG1.5。AppA对top-k与300的措辞不清，本次不把300直接当序列长度上限。"
   },
   {
     "title": "NExT-GPT: Any-to-Any Multimodal LLM",
     "source_urls": [
-      "https://arxiv.org/abs/2309.05519"
+      "https://arxiv.org/abs/2309.05519",
+      "https://arxiv.org/html/2309.05519"
     ],
-    "method": "LLM、跨模态适配器和图像/视频/音频扩散解码器连接",
-    "conclusion": "是 any-to-any 系统的重要起点；主要复用已有专家，不能当作单一共享生成主干的证据",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "输入概念分组projector、输出扩散条件projector与三阶段对齐/LoRA指令微调；构造MosIT多轮跨模态数据。 ImageBind1.2B→输入projector→Vicuna7B-v0→模态signal hidden states→各自4层encoder/4层decoder、512dim/4head projector→SD1.5(1.3B)、Zeroscope-v2-576w(1.8B)、AudioLDM-l-full(.975B)。projector约155M，总系统约12.43B；“1%”是参数更新比例近似，LoRA额外更新与冻结模块计算仍需计入。",
+    "conclusion": "Table4明确分两行：非zero-shot FID10.07/FAD1.68/CLIPSIM31.97，带†zero-shot为11.18/1.74/30.96。SD1.5 FID11.21、CoDi11.26/1.80/28.9；小FID差未报告统计区间，不能据非零样本行宣称零样本领先。",
+    "gap": "四模态覆盖不等于任意组合均已充分量化；生成上限依赖冻结decoder，MosIT较小且人工筛选。§4.2 signal索引0..4/8/24与§6.2“4/8/24个”有一位差，本次不据此认定代码错误。精确视频笔画时间与局部文字没有独立评价。",
+    "problem": "让LLM接受和生成文字、图像、音频、视频的组合，并学习多轮模态切换指令。",
+    "claim": "研究目标：让LLM接受和生成文字、图像、音频、视频的组合，并学习多轮模态切换指令。",
     "version": "NExT-GPT，2023",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L080",
     "canonical_key": "paper:arxiv:2309.05519",
     "evidence_history": [
@@ -12207,27 +12228,47 @@
     "aliases": [
       "local_umm_expanded:X008"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L080.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "是 any-to-any 系统的重要起点；主要复用已有专家，不能当作单一共享生成主干的证据",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3–6核心方法、Table4/5及人评说明、AppA、AppC三阶段和Table7、AppD开头及零样本生成表；未逐一核全部QA结果、视频采样条件或代码，未复现",
+    "review_path": "docs/reviews/L080.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "CC3M约3M、WebVid2M、AudioCaps约46K用于对齐；LLaVA150K、VideoChat、清洗Alpaca、T2M等SFT。MosIT约5K、3–7轮、>100主题，GPT4模板/示例辅以网络检索及SDXL/Midjourney生成素材和人工筛查；不能称全部来自自然真实对话。",
+    "framework": "输入概念分组projector、输出扩散条件projector与三阶段对齐/LoRA指令微调；构造MosIT多轮跨模态数据。",
+    "architecture": "ImageBind1.2B→输入projector→Vicuna7B-v0→模态signal hidden states→各自4层encoder/4层decoder、512dim/4head projector→SD1.5(1.3B)、Zeroscope-v2-576w(1.8B)、AudioLDM-l-full(.975B)。projector约155M，总系统约12.43B；“1%”是参数更新比例近似，LoRA额外更新与冻结模块计算仍需计入。",
+    "metrics": "图像/视频QA准确率、音频caption CIDEr等；COCO FID、AudioCaps FAD、MSRVTT CLIPSIM。100条GPT4复杂指令由5名志愿者给1–100分，评指令遵循/合理性/质量。",
+    "baselines": "CoDi、UIO2、SD1.5、AudioLDM、视频生成系统及LLM工具流水线；输入projector对linear/QFormer/grouping；规模、预训和评估协议不同。",
+    "experimental_conditions": "S1仅训输入projector CE；S2输出projector signal NLL+对文本encoder条件L2+扩散噪声MSE；S3输入/输出projector与LLM LoRA、回答CE+生成loss，底层encoders和diffusion冻结。Table7 Adam lr4e-4/4e-4/5e-4、wd.001、warm.1线性、每阶段1epoch、每GPU batch18/8/4、max512。未从已读内容取得总GPU时长、完整采样步数及非zero-shot专属微调协议，保留待核。"
   },
   {
     "title": "DreamLLM: Synergistic Multimodal Comprehension and Creation",
     "source_urls": [
-      "https://arxiv.org/abs/2309.11499"
+      "https://arxiv.org/abs/2309.11499",
+      "https://arxiv.org/html/2309.11499"
     ],
-    "method": "联合学习语言与图像生成，支持自由交错文档",
-    "conclusion": "将“理解—生成协同”和交错内容生成放到同一研究问题中；具体协同仍需数据与计算控制",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "<dream>标记预测图像位置，64可学习query从LLM查询上下文，直接以冻结扩散模型的像素生成loss学习条件，不强制中间CLIP对齐。 Vicuna7B、冻结CLIP-L/14（224²、256patch）、线性视觉projector与条件projector、64dream query、冻结SD2.1（512²）。文字CE+扩散MSE；虽然UNet冻结，条件梯度仍穿过UNet到query/LLM。§3.1 KL/MLE解释依赖假定预训SD为理想score，不能泛化成任意冻结教师都精确最大似然的保证。",
+    "conclusion": "主表COCO FID8.46/LNCOCO20.53；StageI8.76/22.42，不能当单样本共同协议。Table3相同训练数据：联合+指令MMVet35.9/VQAv2 56.6/FID8.46，对理解only+指令34.4/54.3，对创建only+指令FID8.57，支持本配方部分协同，生成差值较小且缺置信区间。",
+    "gap": "冻结SD提供强先验且有容量/score偏差；联合与单任务虽同数据，完整FLOPs/更新次数尚未严格匹配。广告/噪声MMC4、组合对象相混淆、仅7B等限制。8选1和CLIP评价器依赖不能证明局部文字或时间正确。",
+    "problem": "在交错图文中同时理解与生成，并让生成学习为理解提供有用信息。",
+    "claim": "研究目标：在交错图文中同时理解与生成，并让生成学习为理解提供有用信息。",
     "version": "DreamLLM，2023",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L081",
     "canonical_key": "paper:arxiv:2309.11499",
     "evidence_history": [
@@ -12250,27 +12291,47 @@
     "aliases": [
       "local_umm_expanded:X009"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L081.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "将“理解—生成协同”和交错内容生成放到同一研究问题中；具体协同仍需数据与计算控制",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2背景/2.1动机、§3方法/三阶段、§4.2主T2I表尾与协议、§5.1 Table3、AppA Table9、AppC Table11及AppE失败；未逐图/全部主表、未复现",
+    "review_path": "docs/reviews/L081.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "StageI约30M（558KLLaVA预训+8MBLIPLAION+11MLAION400+11MLAIONCOCO）；II 2MMMC4、CLIP>.25及2MBLIPLAION；III约120K（80K视觉+各20K交错指令）。Table11列80K/665K视觉版本，不能把所有变体的主表合成同一训练配方。",
+    "framework": "<dream>标记预测图像位置，64可学习query从LLM查询上下文，直接以冻结扩散模型的像素生成loss学习条件，不强制中间CLIP对齐。",
+    "architecture": "Vicuna7B、冻结CLIP-L/14（224²、256patch）、线性视觉projector与条件projector、64dream query、冻结SD2.1（512²）。文字CE+扩散MSE；虽然UNet冻结，条件梯度仍穿过UNet到query/LLM。§3.1 KL/MLE解释依赖假定预训SD为理想score，不能泛化成任意冻结教师都精确最大似然的保证。",
+    "metrics": "COCO/I2Para caption、VQAv2/OKVQA/VizWiz/TextVQA/MMBench/MMVet；COCO30k及LNCOCO zero-shot FID；query数、延迟和理解/生成联合消融。",
+    "baselines": "SD、Emu、CM3Leon、GILL、Parti及同配方理解only/创建only/联合/CLIP-align；Parti16选与本作8选仍不等预算。",
+    "experimental_conditions": "I只训projector/query，II加LLM，III SFT；AdamW lr2e-3/2e-5/4e-5、wd0、warm.003/cosine，每GPU batch8/context2048；I/II1epoch、III3epoch，128A800约6/10/1.5h。COCO每prompt采8张CLIP排序，LNCOCO1张不排序；CFG默认7.5、COCO用2。"
   },
   {
     "title": "Making LLaMA SEE and Draw with SEED Tokenizer",
     "source_urls": [
-      "https://arxiv.org/abs/2310.01218"
+      "https://arxiv.org/abs/2310.01218",
+      "https://arxiv.org/html/2310.01218"
     ],
-    "method": "用 SEED tokenizer 做大规模交错预训练与指令调优",
-    "conclusion": "展示多轮上下文图文生成；与早期 SEED tokenizer 工作有关，但不是同一训练规模",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "32个causal语义query量化为8192码；重建嵌入经MLP映射为1个unCLIP图像条件；LLM分阶段LoRA/全量预训再指令LoRA。 BLIP2视觉encoder/QFormer基础，causal query自注意力仍cross-attend全图；语义余弦重建+unCLIP图像条件MSE，冻结unCLIP-SD解码。SEED8B基于Vicuna7B、14B基于Llama2-chat13B，视觉词表扩8192。初版对齐77文本特征，本版对齐1图像特征，不能跨版本抄结构。",
+    "conclusion": "Table2重建CLIP COCO/Flickr：unCLIP79.30/79.55，SEED77.35/76.52，旧SEED-text68.23/65.22。T2I SEED-LLaMA69.07/65.54，指令版70.68/66.55，GILL67.45/65.16；同指标支持语义保持，不能证明字形逐像素正确。Table1离散检索均值COCO78.2低于连续82.5及BLIP2 80.3，量化有损。",
+    "gap": "因果query码不含物理笔序定义，图像对图像CLIP弱于局部文字评价。双向失败可能与长度/结束token配方相关，不能推广为双向表示数学上无法AR。预训体量/额外训练及多数据源质量差影响归因，组合生成多为定性。",
+    "problem": "让离散视觉码同时支持图像理解、图像生成及交错多轮上下文。",
+    "claim": "研究目标：让离散视觉码同时支持图像理解、图像生成及交错多轮上下文。",
     "version": "SEED-LLaMA，2023",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L082",
     "canonical_key": "paper:arxiv:2310.01218",
     "evidence_history": [
@@ -12293,27 +12354,47 @@
     "aliases": [
       "local_umm_expanded:X010"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L082.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "展示多轮上下文图文生成；与早期 SEED tokenizer 工作有关，但不是同一训练规模",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3/4方法、Tables1/2/4、§4.2主结果解释/4.3全部消融、AppA/B、AppC指定数据行、AppD评测与部分模板；未逐行Table3、未逐图/代码、未复现",
+    "review_path": "docs/reviews/L082.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "CC3M/Unsplash/COCO、LAIONCOCO600M、MMC4-core7.3M、OBELISC141M、WebVid过滤后约8M（预训4帧）。上述是来源规模，非全部消费数。SFT有JourneyDB/DiffusionDB、LAIONaesthetics、VIST、InstructPix2Pix、MagicBrush仅单轮以及图像/视频问答。",
+    "framework": "32个causal语义query量化为8192码；重建嵌入经MLP映射为1个unCLIP图像条件；LLM分阶段LoRA/全量预训再指令LoRA。",
+    "architecture": "BLIP2视觉encoder/QFormer基础，causal query自注意力仍cross-attend全图；语义余弦重建+unCLIP图像条件MSE，冻结unCLIP-SD解码。SEED8B基于Vicuna7B、14B基于Llama2-chat13B，视觉词表扩8192。初版对齐77文本特征，本版对齐1图像特征，不能跨版本抄结构。",
+    "metrics": "COCO/Flickr30k检索R@K及均值、重建/生成CLIP-L/14图像对图像相似、COCO CIDEr、VQA及SEEDBench MCQ；视频QA Top1/WUPS。这里“CLIP score”主要比较生成图与GT图，不能误当文字-图像对齐分或FID。",
+    "baselines": "BLIP2、GILL、Emu、unCLIP-SD重建上限、初版SEED-text及双向QFormer tokenizer；教师和输入条件不一，不可无条件排名。",
+    "experimental_conditions": "224²、8192码/图32token；预训LoRA30K步→合并LoRA再10K全参（embedding冻结），lr1.5e-4、AdamW β.9/.98 eps1e-6、warm.03/cosine、wd.05。64A10040GB约144/216h（8B/14B）；SFT LoRA32A10080GB约16/27h。AppB按五类给context160/128/1024/1024/200和数据比例4.5/54.5/9.1/27.3/4.5%；未核LoRA rank、SFT完整优化配置。QA评测MSVD/MSRVTT4帧、NExTQA8帧。"
   },
   {
     "title": "Generative Multimodal Models are In-Context Learners",
     "source_urls": [
-      "https://arxiv.org/abs/2312.13286"
+      "https://arxiv.org/abs/2312.13286",
+      "https://arxiv.org/html/2312.13286"
     ],
-    "method": "将交错自回归模型扩到 37B，研究多模态 in-context learning",
-    "conclusion": "支持视觉提示、主体条件生成等；扩规模效果不能只归因于统一架构",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "37B连续视觉AR模型、均值池化替代C-Former，独立训练CLIP-Diffusers重建器；分别派生Emu2-Chat与Emu2-Gen。 EVA02-CLIP-E-plus→8×8均值池化64视觉embedding+linear→LLaMA33B，文字CE/视觉回归；SDXL decoder全量UNet按图像autoencoding训练、encoder/VAE冻结，448²输入→1024²输出。Chat阶段静态图改16×16token；视频pretrain8帧、SFT8/12/16随机帧、评测16帧。",
+    "conclusion": "Table4 Emu2-Gen CLIP-I .686，高于SDXL .674及GILL .684；CLIP-T .297，低于SDXL .310、SD1.5 .302、DALLE3 .320。正文称两指标都SOTA与该表不符，以表收窄结论。Table5 DreamBench DINO .766/CLIP-I .850高于KosmosG .694/.847，CLIP-T同.287，低于SuTI .304，显示主体保真与文字遵循需分别解释。MMVet48.5，GPT4V67.7（AppA）。",
+    "gap": "不同Chat/Gen权重、教师生成高质数据、RICES检索、强decoder增加成本与归因难度。拥挤计数/复杂上下文失败、闭源QA差距。少量CLIP-I领先不支持通用生成质量领先，视频decoder设计不等于已有严格时序验证。",
+    "problem": "通过扩大生成式图文模型，增强上下文示例学习与可控主体生成。",
+    "claim": "研究目标：通过扩大生成式图文模型，增强上下文示例学习与可控主体生成。",
     "version": "Emu2，2023",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L083",
     "canonical_key": "paper:arxiv:2312.13286",
     "evidence_history": [
@@ -12336,27 +12417,47 @@
     "aliases": [
       "local_umm_expanded:X011"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L083.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "支持视觉提示、主体条件生成等；扩规模效果不能只归因于统一架构",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2.1–2.3、§3.1–3.3、Tables3–5、AppA/B含Tables6/7、AppD含Table9、AppE示例选择/Chat协议；未逐行Tables1/2及全部图、未核代码，未复现",
+    "review_path": "docs/reviews/L083.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "LAION2B、CapsFusion120M、WebVid10M、MMC4、YTStoryboard、GRIT20M、CapsFusion-grounded100M与Pile。阶段I实际162M图文+7M视频样本，II约160M图文；正文纯文3.8Btoken与AppB3.6B描述不同保留差异。Gen使用约5M SAM主体分割及约500K高质Unsplash/MidjourneyV5/DALLE3等数据。",
+    "framework": "37B连续视觉AR模型、均值池化替代C-Former，独立训练CLIP-Diffusers重建器；分别派生Emu2-Chat与Emu2-Gen。",
+    "architecture": "EVA02-CLIP-E-plus→8×8均值池化64视觉embedding+linear→LLaMA33B，文字CE/视觉回归；SDXL decoder全量UNet按图像autoencoding训练、encoder/VAE冻结，448²输入→1024²输出。Chat阶段静态图改16×16token；视频pretrain8帧、SFT8/12/16随机帧、评测16帧。",
+    "metrics": "VQA/SEEDBench/MMVet/TouchStone、RefCOCO acc；COCO30K CLIP-I和CLIP-T；DreamBench DINO/CLIP-I/CLIP-T，需分语义、主体保真、文字遵循。",
+    "baselines": "Flamingo/IDEFICS、QwenVL/Shikra/CogVLM、SD1.5/SDXL/DALLE、GILL/SEED/Emu、DreamBooth/BLIPDiffusion/KosmosG/SuTI；RICES示例选择与SFT专用数据影响条件。",
+    "experimental_conditions": "预训I 35.2K步224²+4K步448²，AdamW β.9/.95 eps1e-6，lrprojector1e-4/LLM3e-5/vision5e-5；II20.35K步冻结vision，lr1e-5，bf16。decoder8K步b2048、lr1e-4、wd.01；正文warm2000而Table7为2500，待代码核。Chat8K步b768/lr1e-5；Gen3K步+QFT900步、lr5e-5/1e-5。DreamBench每prompt4张共3000。COCO部分DALLE CLIP-T仅4096样本，不能当同30K。"
   },
   {
     "title": "MM-Interleaved: Interleaved Image-Text Generative Modeling via Multi-modal Feature Synchronizer",
     "source_urls": [
-      "https://arxiv.org/abs/2401.10208"
+      "https://arxiv.org/abs/2401.10208",
+      "https://arxiv.org/html/2401.10208"
     ],
-    "method": "固定数量视觉 token 容易丢失多图细节；用多尺度、多图特征同步器访问历史图像",
-    "conclusion": "改善细节感知与条件图像一致性；提示“只经语义瓶颈传信息”可能不足",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "MMFS按当前查询对历史多图多尺度特征做稀疏deformable attention，同时加入LLM和图像扩散decoder，旁路补充压缩信息。 CLIP-L14+12block Resampler→Vicuna13B-v1.3；正文主模型64视觉token（方法示例/消融32），ViTAdapter3层空间特征；每4层LLM selfattn后插MMFS，tanh零门。LLM输出经1block Resampler77条件→SD2.1，UNet下采样后MMFS+零卷积。query预测offset及跨image/scale/point统一softmax权重，仅可看历史图像。文字CE+λ扩散MSE。",
+    "conclusion": "主表COCO FID7.90/LNCOCO23.88，对DreamLLM8.46/20.53，在不同caption分布有取舍；两者COCO均8选1。SEEDBench2 L3 45.0 vsSEED-LLaMA44.8，小差值未给CI。Table6消融32token加MMFS CIDEr107→110.6、FID32.2→30.0、TextVQA22.5→27.7；448微调TextVQA24.9→30.8，但FID30.3→30.5略差。",
+    "gap": "稀疏采样若错过极细笔画，旁路仍会失败；adapter只保留原图像信息，不能从最终图还原不可识别时间历史。默认token数、主模型与消融尺寸和taskSFT须分清；小差无统计验证。λ较大caption退化，密集attention收敛差也可能涉及调参/预算。",
+    "problem": "在有限LLM上下文中保持多张图的细节，并生成连贯的交错图文内容。",
+    "claim": "研究目标：在有限LLM上下文中保持多张图的细节，并生成连贯的交错图文内容。",
     "version": "MM-Interleaved，2024",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L084",
     "canonical_key": "paper:arxiv:2401.10208",
     "evidence_history": [
@@ -12379,27 +12480,48 @@
     "aliases": [
       "local_umm_expanded:X012"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L084.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "改善细节感知与条件图像一致性；提示“只经语义瓶颈传信息”可能不足",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§1/3全部、§4.1–4.3、Tables2/3/6–8、AppA Table9与数据、AppB Tables16/17；PDF第6页Fig4和第13页Tables6/7已渲染视觉核对。未逐行全部主表/下游SFT配置、未复现",
+    "review_path": "docs/reviews/L084.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "MMC4、LAION2B、LAIONCOCO、CC12M/Object365用BLIP2重caption；MMC4相似阈值.24、每文最多6图，纯文本排除、单图文随机去半；混合拼到2048。MMC4采样概率为其他单个图文数据集两倍，不能理解为全部其他数据合计两倍。",
+    "framework": "MMFS按当前查询对历史多图多尺度特征做稀疏deformable attention，同时加入LLM和图像扩散decoder，旁路补充压缩信息。",
+    "architecture": "CLIP-L14+12block Resampler→Vicuna13B-v1.3；正文主模型64视觉token（方法示例/消融32），ViTAdapter3层空间特征；每4层LLM selfattn后插MMFS，tanh零门。LLM输出经1block Resampler77条件→SD2.1，UNet下采样后MMFS+零卷积。query预测offset及跨image/scale/point统一softmax权重，仅可看历史图像。文字CE+λ扩散MSE。",
+    "metrics": "caption CIDEr、VQA/SEEDBench2 acc、COCO/LNCOCO FID，ADE20K seg-to-image mIoU、RefCOCO acc、story指标；FLOPs/运行时间/内存。",
+    "baselines": "Flamingo/Emu/DreamLLM/NExTGPT/SEED、SD/Parti；同配方32/256tokens、无MMFS/dense/deformable、多图/尺度、仅文字或图像loss；消融用3B+miniSD而主模型13B+SD2.1。",
+    "experimental_conditions": "主模型预训冻结CLIP/LLM，训练adapter/Resampler/MMFS与图像decoder，15K步约11Btoken，λ10，lrDM1e-5/其余1e-4、AdamW β.9/.995 eps1e-6、wd.05、warm1K后constant，输入224²/输出512²。COCO每prompt8张CLIP排序，LNCOCO无重排。消融OpenLLaMA3B-v2+miniSD，256²、10K步、三数据集；默认单历史图/单16²尺度。"
   },
   {
     "title": "VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2409.04429"
+      "https://arxiv.org/abs/2409.04429",
+      "https://arxiv.org/html/2409.04429",
+      "https://github.com/mit-han-lab/vila-u/tree/4ea42ead2ce22b035ee74c7966eed245bca3e927"
     ],
-    "method": "统一视觉塔对齐离散 token 与语言，统一 next-token prediction",
-    "conclusion": "展示无需独立扩散生成器的图像/视频理解与生成；效果依赖视觉表示和训练数据质量",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "预训SigLIP初始化、冻结文本encoder并联合视觉对比+重建，以残差量化/深度transformer保留表示容量；多模态AR接轻量视觉decoder。 Llama2-7B+SigLIP-L256或SO400M384；共享16384码本RQ，256图16×16×4、384图27×27×16；LLM预测空间位置特征，depth transformer再顺序预测残差D码。视频为逐帧图码拼接，无额外扩散decoder。RQ层内顺序与栅格/帧序不能当书写事件规范。",
+    "conclusion": "同16²×4：RQ-VAE rFID1.30，统一塔1.80但ImageNet Top1 73.3；384塔rFID1.25/Top1 78.0。MJHQ FID256版12.81/384版7.69；VBench256版74.01/76.26/65.04，对OpenSora75.91/78.82/64.28、CogVideoX81.61/82.75/77.04。只比较已列条件，不能宣称视频总体领先。",
+    "gap": "结论明确尚未观察到理解/生成显著协同；语义对齐与重建存在取舍。内部15M数据/未核真实有效batch与采样时长、帧数/fps限制复现，视频指标未覆盖字形/笔顺。代码入口PNG保存不否定模型具备帧生成，但实际视频封装/时间协议需另定义。",
+    "problem": "用可重建且语义对齐的同一离散视觉塔，支持图像/视频理解与生成。",
+    "claim": "研究目标：用可重建且语义对齐的同一离散视觉塔，支持图像/视频理解与生成。",
     "version": "VILA-U，2024",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L085",
     "canonical_key": "paper:arxiv:2409.04429",
     "evidence_history": [
@@ -12422,7 +12544,26 @@
     "aliases": [
       "local_umm_expanded:X013"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L085.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "展示无需独立扩散生成器的图像/视频理解与生成；效果依赖视觉表示和训练数据质量",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§1/3–6相关方法与Tables1/4/6–9、部分GenAIbench表尾、AppA解释与AppC失败配方；官方README、pretrain.sh/sft.sh、datasets_mixture.py、inference.py已读；未逐行Tables2/3/5、未读全部底层generation实现、未复现",
+    "review_path": "docs/reviews/L085.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "视觉塔COYO700M；理解ShareGPT4V1M+MMC4约6M，生成内部高质图文15M+OpenVid1M。SFT脚本还列vflan/shot2story/videochat/youcook/vatex/sharegptvideo/scienceqa/wit/sherlock等；data路径空待自备，内部数据可得性限制严格复现。",
+    "framework": "预训SigLIP初始化、冻结文本encoder并联合视觉对比+重建，以残差量化/深度transformer保留表示容量；多模态AR接轻量视觉decoder。",
+    "architecture": "Llama2-7B+SigLIP-L256或SO400M384；共享16384码本RQ，256图16×16×4、384图27×27×16；LLM预测空间位置特征，depth transformer再顺序预测残差D码。视频为逐帧图码拼接，无额外扩散decoder。RQ层内顺序与栅格/帧序不能当书写事件规范。",
+    "metrics": "ImageNet rFID与zero-shot Top1；VQAv2/POPE/MME/SEED/MMVet、视频QA；MJHQ30K FID、GenAIbench VQAScore、VBench总/质量/语义。",
+    "baselines": "RQ-VAE/VQGAN、SD2.1/SDXL、Show-o/LWM及多种VLM；视频OpenSora/CogVideo/CogVideoX。15M只指后续图文生成数据，不能忽略COYO700M/SigLIP/Llama预训成本。",
+    "experimental_conditions": "对比/重建权重各1；文本encoder冻结、视觉塔可训；预训[image,text]/[text,image]/[text,video]只监督后项，交错仅监督文字，video-to-text留SFT。CFG3。官方脚本预训lr5e-5、SFT1e-4，wd0/warm.03/cosine/1epoch、bf16/context8192、MLP2xGELU投影；README请求8节点×8GPU、4h为作业参数不等于实测耗时。脚本global_bs512却以512/n_node/acc作per_device batch，每节点8进程，名义值不能直接当全局有效512，需运行配置核验；未执行。"
   },
   {
     "title": "JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation",

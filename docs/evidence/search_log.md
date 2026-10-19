@@ -86,3 +86,7 @@
 ## 2026-10-20 第九批：早期统一架构与联合扩散
 
 读取L073–L078和L062的方法/训练/主表/消融/限制。通过PMLR与CVF核对OFA(ICML2022)、UniDiffuser(ICML2023)、VersatileDiffusion(ICCV2023)。OFA正式PDF Fig2与Table9渲染视觉核对，公开HTML对应消融Table10；正式Table10为数据统计，表号不能跨版本互引。UniDiffuser正式Fig4已视觉核对。保留OFA正文ImageNet增益与表中差、UniDiffuser文本decoder目标缺负号疑点(未核实际代码)、MetaQuery指令标注模型版本差异；没有把公式疑点当作实现已证错误。
+
+## 2026-10-20 第十批：压缩、条件与协同
+
+LaVIT arXiv2309.04669v3、NExT-GPT2309.05519v3、DreamLLM2309.11499、SEED-LLaMA2310.01218、Emu2 2312.13286v2、MM-Interleaved2401.10208v2、VILA-U2409.04429。读取各自方法、指定主表/消融/附录，范围逐篇列出，未把全文获取等同全文已读。MM-Interleaved v2 PDF共35页，与题录评论20页不一致；第6页Fig4、第13页Table6/7已视觉核查。VILA-U官方仓库revision 4ea42ead2ce22b035ee74c7966eed245bca3e927读取README、pretrain.sh、sft.sh、datasets_mixture.py、inference.py；没有下载模型权重。保留Emu2主文双CLIP领先与表4冲突、decoder warmup差异，NExT signal数量一位差，未核实现处不定性代码bug。

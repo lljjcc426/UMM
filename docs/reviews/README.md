@@ -162,6 +162,13 @@
 | L077 | [Emu: Generative Pretraining in Multimodality](L077.md) | §2–4完整流程/数据、§5主表2/解释/局限、AppA训练/消融表5–7、AppB1；部分图与主表1/3/4未逐行、未复现 |
 | L078 | [Planting a SEED of Vision in Large Language Model](L078.md) | §1–3方法与全部Tables1–3、§4–5结论；未核全部图/代码与未披露训练参数，未复现 |
 | L062 | [Transfer between Modalities with MetaQueries](L062.md) | Introduction、§3设计/表1–3、§4训练数据、§5.1–5.6解释/表8–9、AppA/C及Table10；未逐行全部主表/全图/代码，未复现 |
+| L079 | [Unified Language-Vision Pretraining in LLM with Dynamic Discrete Visual Tokenization](L079.md) | §1、§3.1–3.3、§4.1–4.3、Table2/3、AppA、AppB Tables4–8、AppC Table9及AppE；未逐图、未核全部评价表/代码、未复现 |
+| L080 | [NExT-GPT: Any-to-Any Multimodal LLM](L080.md) | §3–6核心方法、Table4/5及人评说明、AppA、AppC三阶段和Table7、AppD开头及零样本生成表；未逐一核全部QA结果、视频采样条件或代码，未复现 |
+| L081 | [DreamLLM: Synergistic Multimodal Comprehension and Creation](L081.md) | §2背景/2.1动机、§3方法/三阶段、§4.2主T2I表尾与协议、§5.1 Table3、AppA Table9、AppC Table11及AppE失败；未逐图/全部主表、未复现 |
+| L082 | [Making LLaMA SEE and Draw with SEED Tokenizer](L082.md) | §3/4方法、Tables1/2/4、§4.2主结果解释/4.3全部消融、AppA/B、AppC指定数据行、AppD评测与部分模板；未逐行Table3、未逐图/代码、未复现 |
+| L083 | [Generative Multimodal Models are In-Context Learners](L083.md) | §2.1–2.3、§3.1–3.3、Tables3–5、AppA/B含Tables6/7、AppD含Table9、AppE示例选择/Chat协议；未逐行Tables1/2及全部图、未核代码，未复现 |
+| L084 | [MM-Interleaved: Interleaved Image-Text Generative Modeling via Multi-modal Feature Synchronizer](L084.md) | §1/3全部、§4.1–4.3、Tables2/3/6–8、AppA Table9与数据、AppB Tables16/17；PDF第6页Fig4和第13页Tables6/7已渲染视觉核对。未逐行全部主表/下游SFT配置、未复现 |
+| L085 | [VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation](L085.md) | §1/3–6相关方法与Tables1/4/6–9、部分GenAIbench表尾、AppA解释与AppC失败配方；官方README、pretrain.sh/sft.sh、datasets_mixture.py、inference.py已读；未逐行Tables2/3/5、未读全部底层generation实现、未复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

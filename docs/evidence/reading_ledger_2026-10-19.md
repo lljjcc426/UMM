@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 331 条，本批有 188 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 331 条，本批有 195 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -183,13 +183,13 @@
 | L076 | One Transformer Fits All Distributions in Multi-Modal Diffusion at Scale | primary_sections_read | [结构化分析](../reviews/L076.md) | 未完成 |
 | L077 | Emu: Generative Pretraining in Multimodality | primary_sections_read | [结构化分析](../reviews/L077.md) | 未完成 |
 | L078 | Planting a SEED of Vision in Large Language Model | primary_sections_read | [结构化分析](../reviews/L078.md) | 未完成 |
-| L079 | Unified Language-Vision Pretraining in LLM with Dynamic Discrete Visual Tokenization | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L080 | NExT-GPT: Any-to-Any Multimodal LLM | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L081 | DreamLLM: Synergistic Multimodal Comprehension and Creation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L082 | Making LLaMA SEE and Draw with SEED Tokenizer | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L083 | Generative Multimodal Models are In-Context Learners | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L084 | MM-Interleaved: Interleaved Image-Text Generative Modeling via Multi-modal Feature Synchronizer | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L085 | VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L079 | Unified Language-Vision Pretraining in LLM with Dynamic Discrete Visual Tokenization | primary_sections_read | [结构化分析](../reviews/L079.md) | 未完成 |
+| L080 | NExT-GPT: Any-to-Any Multimodal LLM | primary_sections_read | [结构化分析](../reviews/L080.md) | 未完成 |
+| L081 | DreamLLM: Synergistic Multimodal Comprehension and Creation | primary_sections_read | [结构化分析](../reviews/L081.md) | 未完成 |
+| L082 | Making LLaMA SEE and Draw with SEED Tokenizer | primary_sections_read | [结构化分析](../reviews/L082.md) | 未完成 |
+| L083 | Generative Multimodal Models are In-Context Learners | primary_sections_read | [结构化分析](../reviews/L083.md) | 未完成 |
+| L084 | MM-Interleaved: Interleaved Image-Text Generative Modeling via Multi-modal Feature Synchronizer | primary_sections_read | [结构化分析](../reviews/L084.md) | 五项检查已记录 |
+| L085 | VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L085.md) | 未完成 |
 | L086 | JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L087 | Orthus: Autoregressive Interleaved Image-Text Generation with Modality-Specific Heads | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L088 | Liquid: Language Models are Scalable and Unified Multi-modal Generators | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |

@@ -97,6 +97,38 @@
         }
       ],
       "boundary": "五项书面理解检查；正文核心方法/公式、主结果及消融、正式Fig2已核查。未逐行全部主表/全部图或训练代码，未独立复现；不能计全部三遍阅读完成。"
+    },
+    {
+      "id": "L084",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "MM-Interleaved处理有限上下文内的多图细节。把每张图一次压成少量token会丢小文字/位置，增加token又妨碍长上下文。作者让中间层按当前查询回看历史高分辨特征，并在LLM和图像decoder中使用相同机制；实验显示细节与空间生成改善，也有部分指标退化。",
+          "evidence": "本次书面复述；未进行计时口试。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "图4右下交错图文经image encoder/word embedding形成低分辨token进入LLM。红线是图像多尺度旁路，送LLM self-attention之后的MMFS及左边UNet下采样后的MMFS。LLM输出分文字分类与图像条件；noised image在扩散decoder按这些条件去噪得到下一张图。只能取此前历史图，不应读取待生成图像。",
+          "evidence": "arXiv v2 PDF第6页Fig4已渲染视觉核对；§3.2。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "创新重点是context-sensitive的稀疏细节访问。当前query加图像索引编码预测各图采样位置与权重，跨图/尺度/点统一softmax，deformable加权特征经零初始化门/卷积残差并回。32token承担全局语义，旁路补按需细节；没有从终态恢复未观测笔画历史的机制。",
+          "evidence": "§3.2 Eq4、MMFS与两侧接入说明。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "主表COCO FID7.90优于DreamLLM8.46，但LNCOCO23.88低于20.53，前者双方都8选1。Table6为3B+miniSD小配方：32token加MMFS TextVQA22.5→27.7，seg-to-image mIoU5.3→35.9；448微调FID30.3→30.5略差。Table16联合目标帮助caption与FID，OKVQA29.9→29.8，不能归纳为所有指标互利。",
+          "evidence": "§4 Tables3/6、AppB Table16；PDF第13页Tables6/7已视觉核对。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：极细笔画落不到稀疏点时是否退化？需与同预算高分辨/裁剪/dense做笔画尺度扫描。问题2：联合收益能否在固定曝光和总FLOPs下保持？λ100会使caption110.6降到106.2。问题3：无时间标签的多图旁路能否区分同终态不同顺序？已读DreamLLM/L081与LaVIT/L079分别涉及像素loss和动态压缩，VILA-U/L085报告尚无显著理解生成协同；这些机制都需纳入对照，不能据问题直接宣称新颖。",
+          "evidence": "Tables7/8/16；本批三个邻近来源已读。"
+        }
+      ],
+      "boundary": "完成五项书面理解检查，已读核心方法/公式、指定主表/消融与两页图表；未逐图、全部SFT超参数或代码，未复现，未计完整三遍验收。"
     }
   ]
 }
