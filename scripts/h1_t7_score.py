@@ -62,7 +62,7 @@ def score():
             if r['t']!=23:continue
             for j,true in r['truth']['onset_intervals'].items():
                 pred=r['prediction'].get('onset_intervals',{}).get(j)
-                category='missing' if pred is None else 'exact' if pred==true else 'early' if pred[1]<true[1] else 'late' if pred[0]>=true[1] else 'wide_or_shifted'
+                category='missing' if pred is None else 'exact' if pred==true else 'early' if pred[1]<true[1] else 'late' if pred[0] is not None and pred[0]>=true[1] else 'wide_or_shifted'
                 event_records.append(dict(group=r['group'],id=r['id'],instance=int(j),true=true,predicted=pred,category=category))
         onsets[method]=dict(exact=estimate(event_records,lambda r:r['category']=='exact'),counts={c:sum(r['category']==c for r in event_records) for c in ['exact','early','late','missing','wide_or_shifted']},records=event_records)
         for r in rs:

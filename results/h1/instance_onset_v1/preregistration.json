@@ -70,5 +70,21 @@
     "unknown_recall": 0.9,
     "exact_unresolved": 0.9
   },
-  "test_locked": true
+  "test_locked": true,
+  "ledger_development_amendment": {
+    "stage": "T7-4 before test unlock",
+    "timestamp": 1792395099.55984,
+    "test_unlocked": false,
+    "old_rule": "candidate at t plus presence/new at t+1 both required",
+    "new_rule": "candidate presence/new at t plus observed persistent presence at t+1; current new ink not required",
+    "reason": "Completed strokes have zero subsequent new ink; persistence is new observational evidence. Keep the original possible onset interval, never sharpen it without start evidence.",
+    "dev_examples": [
+      "dev-cross-q5-00-correct",
+      "dev-cross-q5-01-swap2"
+    ],
+    "neural_training": 0,
+    "threshold_changes": 0,
+    "allowed_total_dev_rule_variants": 2,
+    "additional_variants": false
+  }
 }

@@ -7,6 +7,11 @@ from h1_event_model import StrokeGrounding
 from h1_target_contrast import target_contrast
 from h1_t7_io import model_input,prepare_group
 from h1_t7_data import rows
+from h1_event_ledger import EventLedger
+from h1_event_ledger_v2 import EvidenceLedger,before
+
+def observe(ledger,t,p,start,new):
+    q=len(p);return ledger.update(t,p,p,[1 if v>=.5 else 0 for v in p],['forward']*q,new,start=start)
 
 class T7Contracts(unittest.TestCase):
     def test_same_reference_queries_remain_distinct(self):
@@ -58,5 +63,55 @@ class T7Contracts(unittest.TestCase):
         ps=pairs(records);self.assertEqual(len(ps),9)
         metric=estimate(ps,lambda p:p['both_correct'])
         self.assertAlmostEqual(metric['value'],2/3);self.assertAlmostEqual(metric['geometry_balanced'],.75)
+
+    def test_candidate_needs_new_confirmation_evidence(self):
+        ledger=EvidenceLedger(3);observe(ledger,0,[0]*3,[0]*3,[0]*3)
+        s=observe(ledger,1,[1,0,0],[0,0,0],[.1,0,0]);self.assertEqual(s['instance_event_status'][0],'candidate');self.assertIsNone(s['event_order'])
+        s=observe(ledger,2,[.4,0,0],[0]*3,[.1,0,0]);self.assertEqual(s['instance_event_status'][0],'ambiguous');self.assertIsNone(s['event_order'])
+
+    def test_finished_stroke_can_confirm_from_persistent_presence(self):
+        ledger=EvidenceLedger(3);observe(ledger,0,[0]*3,[0]*3,[0]*3)
+        observe(ledger,1,[1,0,0],[0]*3,[.1,0,0]);s=observe(ledger,2,[1,0,0],[0]*3,[0]*3)
+        self.assertEqual(s['instance_event_status'][0],'confirmed');self.assertEqual(s['onset_intervals']['0'],[0,1])
+
+    def test_rejection_is_audited_and_prior_snapshot_is_immutable(self):
+        ledger=EvidenceLedger(3);observe(ledger,0,[0]*3,[0]*3,[0]*3)
+        old=observe(ledger,1,[1,0,0],[0]*3,[.1,0,0]);s=observe(ledger,2,[0]*3,[0]*3,[0]*3)
+        self.assertEqual(s['observed_ids'],[]);self.assertEqual(s['audit'][-1]['event'],'candidate_rejected')
+        self.assertEqual(old['instance_event_status'][0],'candidate');self.assertFalse(any(v['event']=='candidate_rejected' for v in old['audit']))
+
+    def test_unobservable_groups_and_adjacent_interval_semantics(self):
+        ledger=EvidenceLedger(3);observe(ledger,0,[0]*3,[0]*3,[0]*3)
+        observe(ledger,1,[1,1,0],[1,1,0],[.1,.1,0]);s=observe(ledger,2,[1,1,1],[0,0,1],[0,0,.1])
+        self.assertIsNone(s['event_order']);self.assertEqual(s['unresolved_order_groups'],[[0,1]])
+        self.assertEqual(s['confirmed_precedence'],[[0,2],[1,2]]);self.assertTrue(before([0,1],[1,2]))
+        self.assertEqual(s['uncertainty_reason'],'merged_onset_interval')
+
+    def test_delayed_presence_uses_recorded_visual_cue(self):
+        ledger=EvidenceLedger(3);observe(ledger,0,[0]*3,[0]*3,[0]*3)
+        observe(ledger,1,[.2,0,0],[1,0,0],[.1,0,0]);s=observe(ledger,2,[1,0,0],[0]*3,[.1,0,0])
+        self.assertEqual(s['onset_intervals']['0'],[0,1]);self.assertEqual(s['first_detection_intervals']['0'],[1,2]);self.assertEqual(s['confirmation_intervals']['0'],[1,2])
+
+    def test_online_only_and_no_normative_completion(self):
+        ledger=EvidenceLedger(3);observe(ledger,0,[0]*3,[0]*3,[0]*3)
+        s=observe(ledger,1,[0,0,1],[0,0,1],[0,0,.1]);self.assertEqual(s['event_order'],[2]);self.assertEqual(s['observed_ids'],[2])
+        with self.assertRaises(ValueError):observe(ledger,1,[0]*3,[0]*3,[0]*3)
+        s=observe(ledger,3,[0,0,1],[0]*3,[0]*3);self.assertEqual(s['uncertainty_reason'],'insufficient_history')
+
+    def test_binding_ambiguity_is_separate_from_sampling(self):
+        ledger=EvidenceLedger(3);observe(ledger,0,[0]*3,[0]*3,[0]*3)
+        s=ledger.update(1,[1,0,0],[1,0,0],[2,0,0],['forward']*3,[.1,0,0],start=[1,0,0],binding_ambiguous=[0,1])
+        self.assertEqual(s['uncertainty_reason'],'uncertain_instance_binding');self.assertIsNone(s['event_order'])
+        self.assertEqual(s['physical_irrecoverability'],'not_established_by_learned_detections')
+
+    def test_l0_l1_receive_identical_perfect_inputs_for_both_q(self):
+        for q in [3,5]:
+            old,new=EventLedger(q),EvidenceLedger(q);presence=[0.]*q
+            for t in range(q+1):
+                start=[0.]*q;delta=[0.]*q
+                if t:presence[t-1]=1.;start[t-1]=1.;delta[t-1]=.1
+                common=(t,presence,presence,[2 if p else 0 for p in presence],['forward']*q,delta)
+                a=old.update(*common);b=new.update(*common,start=start)
+                self.assertEqual(a['event_order'],b['event_order']);self.assertEqual(a['decision'],b['decision'])
 
 if __name__=='__main__':unittest.main()
