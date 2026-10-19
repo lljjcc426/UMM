@@ -207,6 +207,11 @@
 | L120 | [HunyuanImage 3.0 Technical Report](L120.md) | §2.1/2.2主要过滤/标注、§3.1.1–3.1.4、§4.1/Table1、§4.2–4.4、§5.1–5.3及§6；官方revision6e9113a README新闻/模型表/推理推荐/GSB段；SSAE/GSB图未视觉读、完整代码/配置未核，未复现 |
 | L121 | [DeepGen 1.0: A Lightweight Unified Multimodal Model for Advancing Image Generation and Editing](L121.md) | §2/SCB三步、§3.1–3.3核心loss/采样、§4数据、§5.1/5.2自身结果/§5.3Tables6/7、§6、App7 Tables8/9及App8采样/奖励/配置/来源；全部基线/公式PDF/官方实现未核，未复现 |
 | L122 | [Mobile-O: Unified Multimodal Understanding and Generation on Mobile Device](L122.md) | §3.1–3.4、§4.1及4.4/4.5Tables4–6、§5、App7–9/Table8及§13；PDF第4页Fig2已视觉读。官方README任务/训练段、appREADME前100行、export.py DiT/VAE/MCP/vision导出及LLM量化关键段/默认参数；未编译app/核所有Swift内存逻辑，未运行模型 |
+| L072 | [UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation](L072.md) | §3.1–3.2公式/流程、§4.1/4.2关键段、§5/Table6g–i、AppB1配置关键段/B2/B3/B4、AppE；repo e6322d0 README、FlowDecoder439–523及model/config关键行、HF config全文；未视觉核全部图/重训，未复现 |
+| L123 | [InternVL-U: Democratizing Unified Multimodal Models for Understanding, Reasoning, Generation and Editing](L123.md) | §3.1.1–3.2.2、§4总表/4.3文字合成、§5.1Tables2/3、§5.2/5.3/5.4选定本作表行和结果段、§6；AppA动机/分类/经典OCR主要公式与MLLM定义/Mini500入口；完整专项合成/AppB和全部图表/代码未读，未复现 |
+| L124 | [Mamoda2.5: Enhancing Unified Multimodal Model with DiT-MoE](L124.md) | §2.1–2.4、§3.1/3.2、§4.1/Table1/4.2/4.3、§5.1评价协议与自身结果、§6.1–6.4/Tables10–12、§8/9；官方mamoda25 README模型表/推理/结果及权重段；完整系统优化与全部附表/代码未核，未复现 |
+| L125 | [SenseNova-U1: Unifying Multimodal Understanding and Generation with NEO-unify Architecture](L125.md) | §3.1–3.4核心公式/Table1/2及RL/DMD、§3.5分离服务前段、§4.1/4.2、§5.1理解协议/生成分辨率与GenEval自身结果、§5.2/Table23与曲线文字、§6入口；全部主大表/曲线坐标/源码模型卡未核，未复现 |
+| L126 | [Rosetta: Composable Native Multimodal Pretraining](L126.md) | §3.1–3.3、§4.1/4.2/Table1/4.3/Table2、§5、AppA1–3/B1–2/C1–3；PDFp4Fig2、p14Eq4/5已视觉核。官方30fada7 train/maop.py32–105、TRAIN选定参数段、README主要入口及projectpage；完整训练调用链/所有采样配置未核，未复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

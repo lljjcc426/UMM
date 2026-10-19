@@ -257,6 +257,38 @@
         }
       ],
       "boundary": "五项书面检查与指定框架图已记录；论文全部图表/公式、训练及Swift内存配置和真机独立验证仍未完成；完整三遍验收未完成，未复现。"
+    },
+    {
+      "id": "L126",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "Rosetta研究给理解骨干加生成时如何减轻遗忘。作者共享attention、模态专家池与全局sharedexpert，再将shared梯度相对历史Adam动量做冲突投影，辅以shielding/DiffLR。主FID优于所训MoE/MoT，但MMLU51.6→49.2，不能解释为完全无遗忘。",
+          "evidence": "本次书面复述，未计时口述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "PDFp4Fig2左侧统一attention；右侧Text/ViT/VAE各自router选Top2专用expert，三类token都另走globalshared，输出相加。clean图像先经冻结ViT/文字token进入理解；生成目标来自冻结VAE码，noise经共享骨干预测flow；文字headCE。MAOP在backward后只改sharedMLP梯度，非前向模块。",
+          "evidence": "PDFp4Fig2视觉核查，§3/AppC1。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "关键组合是按任务限制expert池但共享attention/globalexpert，再用无需新持久optimizerstate的历史动量锚。投影数学只去一个方向分量，m不是显式旧任务梯度；sharedattention仍可遗忘，不能推出通用无损扩展定理。",
+          "evidence": "§3.2/3.3；AppA1与公开train/maop.py。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1：RosettaFID14.05优于MoT15.58和MoE17.80，MMB51.3→52.5，但旧MMLU/BBH/ARC下降。Table2在100K去MAOP MMLU50.35→45.48，FID34.21→34.29；主要支持语言保护而非所有生成指标大幅提高。不同表checkpoint不可混。",
+          "evidence": "§4Tables1/2全本作行与表头。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：MAOP、5Kshield和DiffLR各自贡献及强baseline调参后差异？疑问2：真实旧梯度与混合Adam动量夹角多大，Adam预条件后正交还成立吗？疑问3：PDFEq4含ε/证明Eq5不含，与公开代码按tensor无ε投影及临时clone缓冲怎样对应“严格零干扰/零内存”？这些问题有数学/代码依据，尚需检索相关梯度投影研究和受控实验判断创新。",
+          "evidence": "PDFp14Eq4/5视觉核查；AppB/Table3；revision30fada7 train/maop.py第75–101行。"
+        }
+      ],
+      "boundary": "五项书面理解/指定Fig2及证明视觉核查；全部训练调用链、baseline最优调参、正式版本与完整附录仍待核；完整三遍验收未完成，未复现。"
     }
   ]
 }

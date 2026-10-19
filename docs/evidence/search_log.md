@@ -110,3 +110,7 @@ QLIP2502.05178、DualToken2503.14324、UniToken2504.04423、Selftok2505.07538v3�
 ## 2026-10-20 第十五批来源与版本
 
 读取GenEval及BLIP3o/OpenUni/UniFork/HunyuanImage3/DeepGen/Mobile-O指定正文与配置/消融；Mobile-O v2 PDF18页，仅第4页Fig2视觉核查，下载页数不算全读。BLIP3o默认NEXT分支d0b0a1c与旧main418fc44分别核；HF8B公开模型卡与私有论文分数分开。Hunyuan当前README6e9113a区分Base/Instruct/Distil。Mobile-O91c2550的export.py确认LLM默认4bit、visionFP16与论文描述不一致；未部署。
+
+## 2026-10-20 第十六批
+
+UniFlow v2、InternVL-U v1、Mamoda2.5 v1、SenseNova-U1 v1、Rosetta v1读取指定正文/表/公式。UniFlow代码e6322d0与HF配置交叉核一步采样；Mamoda2.5官方ba41c0b README仍列权重Coming Soon；Rosetta代码30fada7核每tensor投影与float临时副本，PDF第4/14页框架/证明视觉核对。下载/访问未算全文阅读。

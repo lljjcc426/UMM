@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 233 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 238 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -176,7 +176,7 @@
 | L069 | Unison: Benchmarking Unified Multimodal Models via Synergistic Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L069.md) | 未完成 |
 | L070 | When Does Visual Generation Help Visual Understanding in Unified Multimodal Models? | primary_sections_read | [结构化分析](../reviews/L070.md) | 未完成 |
 | L071 | GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment | primary_sections_read | [结构化分析](../reviews/L071.md) | 未完成 |
-| L072 | UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L072 | UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L072.md) | 未完成 |
 | L073 | OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework | primary_sections_read | [结构化分析](../reviews/L073.md) | 五项检查已记录 |
 | L074 | Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks | primary_sections_read | [结构化分析](../reviews/L074.md) | 未完成 |
 | L075 | Versatile Diffusion: Text, Images and Variations All in One Diffusion Model | primary_sections_read | [结构化分析](../reviews/L075.md) | 未完成 |
@@ -227,10 +227,10 @@
 | L120 | HunyuanImage 3.0 Technical Report | primary_sections_read | [结构化分析](../reviews/L120.md) | 未完成 |
 | L121 | DeepGen 1.0: A Lightweight Unified Multimodal Model for Advancing Image Generation and Editing | primary_sections_read | [结构化分析](../reviews/L121.md) | 未完成 |
 | L122 | Mobile-O: Unified Multimodal Understanding and Generation on Mobile Device | primary_sections_read | [结构化分析](../reviews/L122.md) | 五项检查已记录 |
-| L123 | InternVL-U: Democratizing Unified Multimodal Models for Understanding, Reasoning, Generation and Editing | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L124 | Mamoda2.5: Enhancing Unified Multimodal Model with DiT-MoE | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L125 | SenseNova-U1: Unifying Multimodal Understanding and Generation with NEO-unify Architecture | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L126 | Rosetta: Composable Native Multimodal Pretraining | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L123 | InternVL-U: Democratizing Unified Multimodal Models for Understanding, Reasoning, Generation and Editing | primary_sections_read | [结构化分析](../reviews/L123.md) | 未完成 |
+| L124 | Mamoda2.5: Enhancing Unified Multimodal Model with DiT-MoE | primary_sections_read | [结构化分析](../reviews/L124.md) | 未完成 |
+| L125 | SenseNova-U1: Unifying Multimodal Understanding and Generation with NEO-unify Architecture | primary_sections_read | [结构化分析](../reviews/L125.md) | 未完成 |
+| L126 | Rosetta: Composable Native Multimodal Pretraining | primary_sections_read | [结构化分析](../reviews/L126.md) | 五项检查已记录 |
 | L127 | HermesFlow: Seamlessly Closing the Gap in Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L128 | MindOmni: Unleashing Reasoning Generation in Vision Language Models with RGPO | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L129 | Co-Reinforcement Learning for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |

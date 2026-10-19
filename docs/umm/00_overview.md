@@ -102,3 +102,7 @@ FUDOKI是非吸收metricCTMC，可修改普通token；Muddit/LaViDa-O/Lumina的m
 ## 开放模型与移动系统的成本口径
 
 BLIP3o8B公开权重与含私有数据论文版分数不同；OpenUni冻结VLM的理解成绩为继承；UniFork小消融在部分指标仍逊单任务专家。DeepGen约5B仍用64H200做两阶段训练；Mobile-O的.5B是语言骨干口径，total约1.6B，导出精度和内存测量需对齐。见[条件与部署审查](../evidence/open_models_and_deployment_audit_2026-10-20.md)。
+
+## 原生像素与共享路由
+
+UniFlow是一阶段语义codec重建/理解，并非凭零样本视频重建即可称文字生成视频；SenseNova-U1原生像素和Mamoda2.5额外编码器的依赖不同。Rosetta早任务分数仍有下降；梯度投影相对动量，不能推出任意旧任务都不遗忘。见[条件审查](../evidence/native_pixels_video_moe_and_projection_audit_2026-10-20.md)。
