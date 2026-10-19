@@ -93,7 +93,13 @@ def contracts():
         decoded={}
         for r in group_rows:
             d,fps=decode(ROOT/r['video']);decoded[r['variant']]=fps==24 and all(np.array_equal(d[i],f) for i,f in zip(r['indices'],arrays[r['variant']]))
-            for t in range(24):oracle.append(dict(id=r['id'],group=group,split=r['split'],t=t,state=observed_truth(r,[Image.fromarray(v) for v in arrays[r['variant']][:t+1]])))
+            for t in range(24):
+                state=observed_truth(r,[Image.fromarray(v) for v in arrays[r['variant']][:t+1]])
+                visible=[j for j,p in enumerate(r['label_progress'][t]) if p>0]
+                expected=None if r['variant'].startswith('merged') and t>0 else [j for j in r['label_source_order'] if j in visible]
+                assert state['event_order']==expected, (r['id'],t,state['event_order'],expected)
+                assert state['observed_ids']==visible
+                oracle.append(dict(id=r['id'],group=group,split=r['split'],t=t,state=state))
         for name in ['swap1','swap2'] if len(group_rows)==5 else ['swap1']:
             a,b=by['correct'],by[name];fa,fb=arrays['correct'],arrays[name];first=next(t for t,(x,y) in enumerate(zip(fa,fb)) if not np.array_equal(x,y))
             entry=dict(group=group,pair=['correct',name],source_orders=[a['label_source_order'],b['label_source_order']],first_visible_difference=first,common_suffix_start=a['common_suffix_start'],
@@ -102,7 +108,7 @@ def contracts():
                 hashes=[[hashlib.sha256(v.tobytes()).hexdigest() for v in f[t-7:t+1]] for f in [fa,fb]]
                 entry['decisions'].append(dict(t=t,hashes_recent8=hashes,final_rgb_hashes=[hashlib.sha256(f[-1].tobytes()).hexdigest() for f in [fa,fb]],
                     recent8_and_predecessor_equal=all(np.array_equal(x,y) for x,y in zip(fa[t-8:t+1],fb[t-8:t+1])),
-                    early_history_recoverable=all(observed_truth(r,[Image.fromarray(v) for v in arrays[r['variant']][:t+1]])['event_order']==r['label_source_order'] for r in [a,b]),
+                    early_history_recoverable=all(observed_truth(r,[Image.fromarray(v) for v in arrays[r['variant']][:t+1]])['event_order']==[j for j in r['label_source_order'] if r['label_progress'][t][j]>0] for r in [a,b]),
                     history_distance_seconds=[a['timestamps'][t]-a['timestamps'][1],a['timestamps'][t]-a['timestamps'][3]]))
             entry['pass']=all(entry[k] for k in ['same_target','same_reference','same_query','same_timestamps','decoded_exact']) and all(d['recent8_and_predecessor_equal'] and d['early_history_recoverable'] for d in entry['decisions']);checks.append(entry)
         ma,mb=arrays['mergedA'],arrays['mergedB'];s=observed_truth(by['mergedA'],[Image.fromarray(v) for v in ma]);assert all(np.array_equal(a,b) for a,b in zip(ma,mb));assert s['event_order'] is None and s['unresolved_order_groups']==[[0,1]] and len(s['confirmed_precedence'])>0
