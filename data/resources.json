@@ -1453,5 +1453,40 @@
     "related_records": [
       "U26"
     ]
+  },
+  {
+    "id": "R09",
+    "title": "Datumwell Handwriting：10个完整模拟书写episode公开样本、动作与低频RGB对齐",
+    "canonical_key": "resource:hf:allen-datumwell/datumwell-handwriting-sample",
+    "source_urls": [
+      "https://huggingface.co/datasets/allen-datumwell/datumwell-handwriting-sample/tree/b58ba9d09a907333a0733fbfc415e381c06765e6",
+      "https://huggingface.co/datasets/allen-datumwell/datumwell-handwriting-sample/blob/b58ba9d09a907333a0733fbfc415e381c06765e6/README.md",
+      "https://huggingface.co/datasets/allen-datumwell/datumwell-handwriting-sample/blob/b58ba9d09a907333a0733fbfc415e381c06765e6/provenance/conversion.json",
+      "https://huggingface.co/datasets/allen-datumwell/datumwell-handwriting-sample/blob/b58ba9d09a907333a0733fbfc415e381c06765e6/provenance/episodes/train-00-0-v0/frames.json"
+    ],
+    "scope": "resource",
+    "category": "R 工具与数据",
+    "record_type": "resource",
+    "privacy": "public_source_note",
+    "provenance": "2026-10-20第三十批由官方论文/项目/HF卡和固定源码补入；按完整标题和arXiv/DOI去重",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
+    "last_updated": "2026-10-20",
+    "sections_read": "固定HFREADME/API74项列表、publicationstatus、meta/info、coverage、samplemanifest全部10例、qualityflags/camerareadability、featurepolicy、actionschema、loader及UJIprovenance；conversion指定时间/动作字段，首例frames全部378时间戳数值检查。未下载完整视频/轨迹、未执行模型或动作；属于资源协议审查。",
+    "review_path": "docs/reviews/R09.md",
+    "review_depth": "resource_protocol_reviewed",
+    "note_path": "docs/reviews/R09.md",
+    "dataset": "公开10episodes/59338numericrows/30videos/10phrases/10base-layouts/10sourcewriters，train6/test4无val；200源集合107/21/72为卡报告，非本次取得200。10例是每连续20sourcebin取一例且首bin固定helloworld，其余优先不同phrase/base/writer，不使用OCR选择，仍属便利检查样本而非代表性benchmark。UJI原11640单字/60writer为资源自身provenance报告，源字符组合不等自然连写。",
+    "framework": "将UJI单字符轨迹组合、几何变换/重定时/抬笔旅行并用MuJoCo torque控制模拟，按现有执行重渲染外观，再转LeRobotv3；公开10完整episode便于检查，200完整集合需手动申请，未申请。",
+    "architecture": "NexArm5DOF/MuJoCo，原执行状态重放成外观video，非生成模型架构或学习到的policy。LeRobot提供state/velocity、tcp/contact/force/imageage等观测与plannedtargets；未来帧、目标tcp、sourcependown、当前action等不可作policy输入。示例loader只读parquet和列video路径，没有训练模型或执行动作。",
+    "metrics": "发布者macOSVision accurate enUS无languagecorrection，对最后原始俯视图crop辅助OCR9/10，早期inkOCR8/10，均不是全时序笔顺/动作质量。quality中Time/time等大小写不同时仍exact=true，规范化规则未查到实现；不能称大小写严格逐字符完全一致。未给policy训练、sim2real或AA成绩。",
+    "baselines": "没有训练基线或SOTA对比；3个camera是同模拟执行的多视角，重渲染v.3也非独立新动作样本。与WujiWriting/CHTR等应对齐真实/模拟、目标/测量、频率与文字体系。",
+    "experimental_conditions": "meta/info fps50、3路H264640×480，conversion nativeinterval.334秒并因果保持旧帧，最多imageage.332。本次读取首episode所有378个native timestamp：中位间隔约.334秒（约2.994Hz）；包含末尾边界的整段平均约2.998Hz，两口径分开。未下载mp4/完整parquet或运行loader，不把元数据等同视频字节检验。资源卡称实际jointacc超过设定1.5rad/s²，几何/标定/物理均近似。",
+    "problem": "怎样获得同时带RGB、模拟机器人状态、计划关节动作和源轨迹关系的书写样本，并明确低频视觉观测与动作监督的边界？",
+    "method": "将UJI单字符轨迹组合、几何变换/重定时/抬笔旅行并用MuJoCo torque控制模拟，按现有执行重渲染外观，再转LeRobotv3；公开10完整episode便于检查，200完整集合需手动申请，未申请。 NexArm5DOF/MuJoCo，原执行状态重放成外观video，非生成模型架构或学习到的policy。LeRobot提供state/velocity、tcp/contact/force/imageage等观测与plannedtargets；未来帧、目标tcp、sourcependown、当前action等不可作policy输入。示例loader只读parquet和列video路径，没有训练模型或执行动作。",
+    "conclusion": "API固定文件表74项，meta/info/coverage/manifest对10/59338/30一致；逐例OCR flags按9/10和8/10与摘要一致。确认是可检查的真实公开资源入口，不代表其模拟轨迹/全部视觉配对已逐帧人工核验。当前namespace与卡中windjj旧名不同，固定实际返回repoID/commit，关联源commit单列。",
+    "gap": "10便利样本太小，短语/布局/原writer拆分是否独立仍需200集合；重复帧不创造原生时域信息，短事件可能被跳过，多个动作序列可产生同RGB采样。动作是计划目标非实际执行、无真实压力目标；实际加速度不满足标称界。卡明确第三方渲染外观权利未建立，不能称全开放许可。未读完整数值轨迹、未运行policy、未看完视频、未定位独立论文。",
+    "claim": "研究目标：怎样获得同时带RGB、模拟机器人状态、计划关节动作和源轨迹关系的书写样本，并明确低频视觉观测与动作监督的边界？",
+    "version": "Datumwell Handwriting public sample；Hugging Face资源，未定位到对应独立论文；固定allen-datumwell/datumwell-handwriting-sample b58ba9d09a907333a0733fbfc415e381c06765e6"
   }
 ]

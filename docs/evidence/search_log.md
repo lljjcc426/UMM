@@ -166,3 +166,8 @@ U26–U31读取固定版本PDF方法/选定结果与附录，U29p3/U30p4方法�
 ## 2026-10-20 第二十九批
 
 七篇PDF对照读取，发现UniVideo当前v4需替换v2为当前主来源，XMPFont读取正式CVPR2022PDF，UMText独立核AAAI2026DOI元数据但技术分析注明arXivv1。七篇方法图视觉核。固定代码UniVideo893c9da04b87fdf5099e8e0e9ef164bca6753327、Lance4baeee086648996f6ab12e673cbe461b0b149997、VidSketchad7fcdb8099e39d253364275711a992febb91eb4及HF Lance7395315758865e6f56ab87ad06a88c7ac172f056/CoFRIDA58d397f81bd0bf64eb43d85ee8bd5191acd9824d。Calligraphy卡固定d3f189f76568729def5e845569543ba9786c317e，datasets-server一次返回全部88行；另读官方SPA公开任务/评分说明及来源描述。仅存行ID/标签/计数，未存完整图片或几何。VidSketch核实际candles.yaml、训练首帧与loss、推理抽象度入口和adapter门控。没有运行模型。
+
+
+## 第三十批补充
+
+第三十批读取Visual-OPSD v6、LiveSVG v1、AniClipart IJCV正式版与VitaGlyph WACV2026正式版和v3指定补充，四图视觉核；固定三项Git代码/文档并逐处保留版本冲突。Datumwell固定HF提交审74文件表、十例manifest、特征/动作/转换协议及首例378原生时间戳。未获取受限200例、未跑模型。

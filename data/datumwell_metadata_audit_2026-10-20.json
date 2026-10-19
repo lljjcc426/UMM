@@ -1,0 +1,184 @@
+{
+  "checked_on": "2026-10-20",
+  "repo_id": "allen-datumwell/datumwell-handwriting-sample",
+  "revision": "b58ba9d09a907333a0733fbfc415e381c06765e6",
+  "source_repo": "windjj/datumwell-handwriting",
+  "source_commit": "db4604e6c4c15beea95051bdb92bd56a932ee700",
+  "selection_method": "One full episode per contiguous20episode source-index bin. Bin0 fixes canonical demo0; remaining bins use SHA256 ranking of selection_version:id, preferring distinct phrase/base/writer. OCR and other quality outcomes are not selection inputs. This is a convenience inspection sample, not a statistically representative evaluation set.",
+  "scope": "Only public metadata, ten-row manifest/quality and first native timestamp sequence. No full parquet/video inspection or policy execution.",
+  "episodes": [
+    {
+      "episode_index": 0,
+      "source_episode_index": 0,
+      "source_id": "train-00-0-v0",
+      "phrase": "hello world",
+      "source_split": "train",
+      "frames": 6288,
+      "quality": {
+        "episode_index": 0,
+        "id": "train-00-0-v0",
+        "prior_2d_ink_ocr_exact": true,
+        "new_overhead_camera_ocr_exact": true,
+        "legibility_review_flag": false,
+        "ocr_is_auxiliary_not_human_approval": true
+      }
+    },
+    {
+      "episode_index": 1,
+      "source_episode_index": 33,
+      "source_id": "train-20-0-v0",
+      "phrase": "read this book",
+      "source_split": "train",
+      "frames": 5576,
+      "quality": {
+        "episode_index": 33,
+        "id": "train-20-0-v0",
+        "prior_2d_ink_ocr_exact": true,
+        "new_overhead_camera_ocr_exact": true,
+        "legibility_review_flag": false,
+        "ocr_is_auxiliary_not_human_approval": true
+      }
+    },
+    {
+      "episode_index": 2,
+      "source_episode_index": 48,
+      "source_id": "train-31-0-v0",
+      "phrase": "time for tea",
+      "source_split": "train",
+      "frames": 5265,
+      "quality": {
+        "episode_index": 48,
+        "id": "train-31-0-v0",
+        "prior_2d_ink_ocr_exact": true,
+        "new_overhead_camera_ocr_exact": true,
+        "legibility_review_flag": false,
+        "ocr_is_auxiliary_not_human_approval": true
+      }
+    },
+    {
+      "episode_index": 3,
+      "source_episode_index": 69,
+      "source_id": "train-10-0-robotaug01",
+      "phrase": "keep it simple",
+      "source_split": "train",
+      "frames": 5487,
+      "quality": {
+        "episode_index": 69,
+        "id": "train-10-0-robotaug01",
+        "prior_2d_ink_ocr_exact": true,
+        "new_overhead_camera_ocr_exact": true,
+        "legibility_review_flag": false,
+        "ocr_is_auxiliary_not_human_approval": true
+      }
+    },
+    {
+      "episode_index": 4,
+      "source_episode_index": 82,
+      "source_id": "train-19-1-robotaug01",
+      "phrase": "make some space",
+      "source_split": "train",
+      "frames": 5854,
+      "quality": {
+        "episode_index": 82,
+        "id": "train-19-1-robotaug01",
+        "prior_2d_ink_ocr_exact": false,
+        "new_overhead_camera_ocr_exact": true,
+        "legibility_review_flag": true,
+        "ocr_is_auxiliary_not_human_approval": true
+      }
+    },
+    {
+      "episode_index": 5,
+      "source_episode_index": 102,
+      "source_id": "train-12-1-robotaug02",
+      "phrase": "sunny afternoon",
+      "source_split": "train",
+      "frames": 6576,
+      "quality": {
+        "episode_index": 102,
+        "id": "train-12-1-robotaug02",
+        "prior_2d_ink_ocr_exact": true,
+        "new_overhead_camera_ocr_exact": true,
+        "legibility_review_flag": false,
+        "ocr_is_auxiliary_not_human_approval": true
+      }
+    },
+    {
+      "episode_index": 6,
+      "source_episode_index": 139,
+      "source_id": "test-09-1-v0",
+      "phrase": "try once again",
+      "source_split": "test",
+      "frames": 5746,
+      "quality": {
+        "episode_index": 139,
+        "id": "test-09-1-v0",
+        "prior_2d_ink_ocr_exact": true,
+        "new_overhead_camera_ocr_exact": false,
+        "legibility_review_flag": true,
+        "ocr_is_auxiliary_not_human_approval": true
+      }
+    },
+    {
+      "episode_index": 7,
+      "source_episode_index": 143,
+      "source_id": "test-13-1-v0",
+      "phrase": "walk by the river",
+      "source_split": "test",
+      "frames": 5768,
+      "quality": {
+        "episode_index": 143,
+        "id": "test-13-1-v0",
+        "prior_2d_ink_ocr_exact": false,
+        "new_overhead_camera_ocr_exact": true,
+        "legibility_review_flag": true,
+        "ocr_is_auxiliary_not_human_approval": true
+      }
+    },
+    {
+      "episode_index": 8,
+      "source_episode_index": 176,
+      "source_id": "test-05-1-robotaug02",
+      "phrase": "robots can write",
+      "source_split": "test",
+      "frames": 5769,
+      "quality": {
+        "episode_index": 176,
+        "id": "test-05-1-robotaug02",
+        "prior_2d_ink_ocr_exact": true,
+        "new_overhead_camera_ocr_exact": true,
+        "legibility_review_flag": false,
+        "ocr_is_auxiliary_not_human_approval": true
+      }
+    },
+    {
+      "episode_index": 9,
+      "source_episode_index": 182,
+      "source_id": "test-06-0-robotaug02",
+      "phrase": "beyond the hills",
+      "source_split": "test",
+      "frames": 7009,
+      "quality": {
+        "episode_index": 182,
+        "id": "test-06-0-robotaug02",
+        "prior_2d_ink_ocr_exact": true,
+        "new_overhead_camera_ocr_exact": true,
+        "legibility_review_flag": false,
+        "ocr_is_auxiliary_not_human_approval": true
+      }
+    }
+  ],
+  "first_native_timestamps": {
+    "count": 378,
+    "first": 1.0040000000000007,
+    "last": 126.75399999988599,
+    "median_interval_s": 0.3339999999998149,
+    "median_interval_frequency_hz": 2.9940119760495634,
+    "whole_interval_average_hz": 2.998011928432142
+  },
+  "numeric_rows": 59338,
+  "nominal_fps": 50,
+  "native_interval_s": 0.334,
+  "actions": "5 absolute planned joint positions, radians; not measured joint states or pressure actions",
+  "video_count": 30
+}

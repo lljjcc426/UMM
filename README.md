@@ -58,9 +58,9 @@ python scripts/validate_catalog.py
 
 [本轮审查记录](docs/evidence/second_round_audit_2026-10-19.md)说明实际完成范围和纠错；[修改文件说明](docs/evidence/second_round_changes_2026-10-19.md)记录首批新增与修改文件；[继续复核文件说明](docs/evidence/continued_changes_2026-10-20.md)记录后续修改，无文件删除。
 
-截至2026-10-20，累计形成334份逐篇结构化笔记，其中329份核查相关章节或资源协议，5份仅完成第一遍；包含数据、结构、指标、基线、实验条件、消融、可证伪假设及写作学习。并对原281条、首轮16条补录和32条基础候选的首选来源执行访问审计，得到329条访问事件；这些事件有同研究重复，且**访问成功不等于阅读完成**。
+截至2026-10-20，累计形成339份逐篇结构化笔记，其中334份核查相关章节或资源协议，5份仅完成第一遍；包含数据、结构、指标、基线、实验条件、消融、可证伪假设及写作学习。并对原281条、首轮16条补录和32条基础候选的首选来源执行访问审计，得到329条访问事件；这些事件有同研究重复，且**访问成功不等于阅读完成**。
 
-当前334条目录中：329条已读相关原文或资源章节、5条已核摘要、0条仅元数据、0条历史原文待复核（仅指初次章节核查标记）。U18原始来源已解决。**全部文献的三遍精读尚未完成，独立模型复现为0；不能声称达成零遗漏。** 每一条当前状态见[完成台账](docs/evidence/reading_ledger_2026-10-19.md)。
+当前339条目录中：334条已读相关原文或资源章节、5条已核摘要、0条仅元数据、0条历史原文待复核（仅指初次章节核查标记）。U18原始来源已解决。**核心三遍阅读已逐项确认4篇；44项有五条书面检查，全部文献的三遍精读尚未完成。独立模型复现为0；不能声称达成零遗漏。** 每一条当前状态见[完成台账](docs/evidence/reading_ledger_2026-10-19.md)。
 
 继续复核覆盖23项存量研究：[过程、评价与执行边界](docs/evidence/process_execution_boundaries_2026-10-19.md)比较轨迹恢复、绘画过程与机器人执行；[CoFRIDA-Sharpie资源卡](docs/resources/cofrida_sharpie_card.md)明确模型元数据冲突及论文/权重版本边界。
 
@@ -83,3 +83,6 @@ python scripts/validate_catalog.py
 第十三批完成L101–L108指定章节审查，核对EvoTok/HYDRA/UniCom官方代码及两项HF模型卡，记录像素/视频接口、时间压缩、负迁移和实际VAE依赖：[像素接口与时序审查](docs/evidence/pixel_interfaces_and_temporal_audit_2026-10-20.md)、[逐文件说明](docs/evidence/thirteenth_changes_2026-10-20.md)。
 
 第十四批完成L109–L116指定章节审查，新增8份笔记，并核Muddit训练掩码/损失与Lumina-DiMOO采样代码。见[离散路径与连续流审查](docs/evidence/discrete_paths_and_flow_audit_2026-10-20.md)、[逐文件说明](docs/evidence/fourteenth_changes_2026-10-20.md)。
+
+
+第三十批补四篇视觉蒸馏/矢量动画/艺术字论文和一个模拟书写资源（尚未找到对应独立论文）。当前339条/339笔记，334项原文章节或资源协议、5项摘要；44项五条书面检查，其中4篇完成核心三遍阅读。计时口试、全部代码与独立复现单列，不额外作为核心阅读门槛；此前40项仍逐篇待核定。见[专题](docs/evidence/visual_distillation_svg_animation_and_causal_robot_rgb_2026-10-20.md)及[逐文件说明](docs/evidence/thirtieth_changes_2026-10-20.md)。无删除，无模型执行。

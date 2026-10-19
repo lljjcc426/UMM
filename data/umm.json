@@ -10707,5 +10707,40 @@
     "metrics": "GenEval组合准确、DPG-Bench、ImgEdit及Twitter52T2I/35编辑单一评价者偏好；不含CER、字符笔画事件或动态连续指标。",
     "baselines": "复现Janus-Pro7B同协议作before/after；SD3、FLUX、GPT4o、Step1X、E1等采用报告数，数据/底座及ImgEdit版本不同，额外91K微调数据不能同别人全部训练数据直接比。",
     "experimental_conditions": "3epoch、lr5e-6、batch128、8×A800约6h。T2I 10%文字mask/CFG5/temp1；编辑mask及referenceweight5。官方README示例576图码、384²/patch16、CFG5、bf16，示例不自动等同全部评测配置；教师API快照/采样成本未核齐。"
+  },
+  {
+    "id": "L187",
+    "title": "Visual-OPSD: Cross-Modal On-Policy Self-Distillation for Efficient Unified Multimodal Reasoning",
+    "canonical_key": "paper:arxiv:2606.18974",
+    "source_urls": [
+      "https://arxiv.org/pdf/2606.18974v6",
+      "https://github.com/TiezMind/Visual-OPSD/tree/32f245d03aaa6d06e16ca608c38f8895b2c433a3",
+      "https://github.com/TiezMind/Visual-OPSD/blob/32f245d03aaa6d06e16ca608c38f8895b2c433a3/scripts/visual_opsd/opsd_loss.py",
+      "https://github.com/TiezMind/Visual-OPSD/blob/32f245d03aaa6d06e16ca608c38f8895b2c433a3/EVAL.md"
+    ],
+    "scope": "umm",
+    "category": "G 生成理论、视频、绘画与适配",
+    "record_type": "paper",
+    "privacy": "public_source_note",
+    "provenance": "2026-10-20第三十批由官方论文/项目/HF卡和固定源码补入；按完整标题和arXiv/DOI去重",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
+    "last_updated": "2026-10-20",
+    "sections_read": "v6 Abstract/Introduction/Method§2含Eq1–7与AppB证明、Experiments§3/Table1–3、Conclusion；AppC/D/E/F/G/I/J/M指定配置/公式/评价及K/L正负案例文字。Fig4 PDFp5视觉核；固定32f245d README/TRAIN/EVAL和opsd_loss.py26–103核。未逐图核所有案例、未审全部trainer/harness或下载权重。三遍核心阅读和五项书面理解检查完成，复现另列。",
+    "review_path": "docs/reviews/L187.md",
+    "review_depth": "critical_sections_reviewed",
+    "note_path": "docs/reviews/L187.md",
+    "dataset": "24990训练例：VisualSearch6990、SpatialNavigation6000、Jigsaw6000、ChartRefocus6000，来自ThinkMorph既有训练分布。9测试benchmark：VSP120/VisPuzzle200/BLINKJ150/SAT150/BLINK671/ChartQA944/VStar191/MMVP150/CVBench700；另1000同四类但holdout的KL诊断。VT由既有trace提供，具体生成器/筛选和独立数据去重清单仍待代码/数据核。",
+    "framework": "同架构teacher/student使用不同条件，对student当前策略采样的completion做token分布JSD；teacher额外看预存VT图像而无思考文本/答案，EMA提供平滑teacher，推理仅保problemimage+question和文本推理。",
+    "architecture": "ThinkMorph/BAGEL：Qwen2.5 MoT、SigLIP-so400m NaViT、FLUXVAE。VT经ViT进入teacher，训练/推理当前采样不调用diffusion；EMA默认.995，因此仅初始化同权，训练中teacher/student参数通常不同。β=.5的JSD匹配teacher top256重归一词分布，每个词表分量clamp .05后沿词表求和、再均token，无CE。v6Eq5及固定opsd_loss.py26–103一致，README/超参名token_clip容易误读成先整token求和再截断。",
+    "metrics": "九任务accuracy宏平均、每例全推理延迟、输出tokens；KL nats/token诊断、gap闭合比例。KL只量条件分布改变，不能单独证明知识正确性或定位生成分支因果来源。JSD theorem是完整分布/固定teacher的下界，不是clipped topK EMA训练最优解或accuracy保证。",
+    "baselines": "BAGEL、ThinkMorph原interleaved和同checkpoint直接text-only；Text-onlySFT从BAGEL起点2000step，OPSD/Noise从ThinkMorph1000step。外部InternVL3.5/Qwen3VL/Janus/Chameleon/GPT4o/GPT5仅规模/系统参考。SFT不同初始化和步数，10.28pp含先前训练影响；不能全归本方法。",
+    "experimental_conditions": "8H80080GB/FSDPHYBRIDSHARD/activationcheckpoint/optimizerCPUoffload；lr1e-5→1e-7cosine/warm200/1000step/acc2/AdamWβ.9,.95 eps1e-15/clipgrad1；β.5/temp1/topK256/entryclip.05，maxforward10240/completion1024。paper测试单H800 b1/greedy0/1024tokens，VT50DDPM CFG3.5；只本方法/SFT/Noise为3独立run mean±std，其余单次。AppC同时写7Bbackbone与总1822M/trainable1820M，参数量相互不一致，不能核定实际总参。固定EVAL.md示例temp.3/4096与后文0/1024不一致，且judge/三run描述与paper分行协议有差别，需实际日志。",
+    "problem": "已有UMM的视觉思考图像是否值得昂贵的生成成本，能否将带额外视觉参考的teacher预测分布迁入不生成图像的student？",
+    "method": "同架构teacher/student使用不同条件，对student当前策略采样的completion做token分布JSD；teacher额外看预存VT图像而无思考文本/答案，EMA提供平滑teacher，推理仅保problemimage+question和文本推理。 ThinkMorph/BAGEL：Qwen2.5 MoT、SigLIP-so400m NaViT、FLUXVAE。VT经ViT进入teacher，训练/推理当前采样不调用diffusion；EMA默认.995，因此仅初始化同权，训练中teacher/student参数通常不同。β=.5的JSD匹配teacher top256重归一词分布，每个词表分量clamp .05后沿词表求和、再均token，无CE。v6Eq5及固定opsd_loss.py26–103一致，README/超参名token_clip容易误读成先整token求和再截断。",
+    "conclusion": "Table2 OPSD74.03对ThinkMorph70.63：+3.40pp；对同初始化直接text-only69.90：+4.13pp；对BAGEL起点SFT63.75：+10.28pp。Noise64.15低于同初始化69.90达5.75pp，不能只称轻微+0.40。延迟10.0对142.8为14.3倍，输出201对SFT411/ThinkMorph452，长度压缩贡献未完全分离；直接关闭VT的延迟未给，不能把14.3倍全部当蒸馏收益。V*64.92低teacher67.01，MMVP77.33低78.33。",
+    "gap": "只检验一个ThinkMorph家族；teacher有预存额外视觉信息且起点已有ThinkMorph训练，未分离生成预训与一般特权视觉监督。AppB的forwardKL算术混合最优性与JSD凸性下界不推出本文截断clamp/EMA的收敛或学生优于teacher。作者AppK/L展示错误强化/像素干扰及局部颜色/裁剪导致student失败，非全样本机制频率。原文总参、公开EVAL示例和SFT初始化均须保留；未审全部trainer/数据/外部harness、未复现。",
+    "claim": "研究目标：已有UMM的视觉思考图像是否值得昂贵的生成成本，能否将带额外视觉参考的teacher预测分布迁入不生成图像的student？",
+    "version": "Visual-OPSD: Cross-Modal On-Policy Self-Distillation for Efficient Unified Multimodal Reasoning；arXiv2606.18974v6，2026-09-25；未核实正式接收"
   }
 ]

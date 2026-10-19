@@ -28,7 +28,10 @@ def main():
         r = by_id[d['id']]
         sources = '\n'.join(f'- [原始来源 {i+1}]({url})' for i, url in enumerate(r['source_urls']))
         accepted = acceptance.get(d['id'])
-        completion = '五项阅读检查已逐项记录；属于阅读分析验收，未独立复现。' if accepted else '相关内容已经阅读，完整三遍验收尚未完成；未独立复现。'
+        complete = accepted and accepted.get('full_three_pass_completed') is True
+        completion = ('核心三遍阅读与五项书面理解检查已完成；未独立复现。' if complete else
+                      '五项阅读检查已逐项记录；完整三遍尚未逐条确认，未独立复现。' if accepted else
+                      '相关内容已经阅读，完整三遍验收尚未完成；未独立复现。')
         text = f'''# {r['id']} · {r['title']}
 
 论文标题：{r['title']}
@@ -123,7 +126,7 @@ def main():
 '''
         if accepted:
             text = text[:text.index('## 三遍阅读验收')]
-            text += '## 三遍阅读验收\n\n逐项记录的书面理解检查；没有进行计时口试或模型复现。\n\n'
+            text += '## 三遍阅读验收\n\n逐项记录的书面理解检查；计时口试和模型复现另列，不额外作为阅读完成的门槛。\n\n'
             for check in accepted['checks']:
                 text += f"### {check['criterion']}\n\n{check['answer']}\n\n证据：{check['evidence']}\n\n"
             text += f"复核边界：{accepted['boundary']}\n"
@@ -133,11 +136,12 @@ def main():
     review_map = {r['id']: r for r in reviews}
     ledger = ['# 全目录逐条阅读台账', '',
               f'主目录 {len(catalog)} 条，本批有 {len(reviews)} 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。', '',
-              '“三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。', '',
+              '核心三遍完成需逐条核问题/方法/框架图、主表/消融及有依据的批判分析，并记录五项书面检查。计时口试、完整代码审查和独立复现另列；没有自动把模板填齐计为完成。', '',
               '| ID | 记录 | 原目录核查状态 | 本批笔记 | 三遍验收 |', '| --- | --- | --- | --- | --- |']
     for r in catalog:
         note = f'[结构化分析](../reviews/{r["id"]}.md)' if r['id'] in review_map else '本批未新增逐篇精读'
-        done = '五项检查已记录' if r['id'] in acceptance else '未完成'
+        done = ('核心三遍与五项检查完成' if acceptance.get(r['id'], {}).get('full_three_pass_completed') is True else
+                '五项检查已记录；三遍待确认' if r['id'] in acceptance else '未完成')
         ledger.append(f'| {r["id"]} | {r["title"].replace("|", "/")} | {r["verification"]} | {note} | {done} |')
     (ROOT / 'docs/evidence/reading_ledger_2026-10-19.md').write_text('\n'.join(ledger) + '\n', encoding='utf-8')
     as_of = max(r.get('last_updated') or r.get('checked_on') or '2026-10-19' for r in catalog)

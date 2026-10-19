@@ -1281,6 +1281,142 @@
         }
       ],
       "boundary": "五项书面理解记录；没有计时口试或模型复现。指定章节、框架和代码已核，附录/日志/版本差异仍有缺项，不计完整三遍完成。"
+    },
+    {
+      "id": "L187",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "VisualOPSD问中间图像生成的成本是否必要。ThinkMorph关掉图像后成绩接近原系统，作者用带额外视觉参考的EMAteacher重打分当前student答案，再把分布蒸馏给只读原图的student；推理不生成新图。",
+          "evidence": "原文§1与书面独立复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig4左侧原问题图/文字为共同输入，teacher多看预存VT，student采自己的completion；中间两路对同token位置打分，右侧JSD仅回传student，随后更新EMA。输出checkpoint测试只保留原图/问题/文字解码。",
+          "evidence": "v6PDFp5 Fig4已视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "核心是不同条件的信息差、onpolicy采样与分布匹配，而非新视觉生成架构。top256重归一和逐词表分量clip是工程代理，不能套完整JSD的所有理论；EMA也使训练中两权重不相等。",
+          "evidence": "Eq1–7/AppB和固定opsd_loss.py26–103。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "主表74.03比同初始化直接关闭VT69.90高4.13pp，比SFT63.75高10.28pp但起点不同。Noise64.15比初始化更差；真实VT比Noise高9.88pp。K256/clip.05三空间任务83.05对无clip79.83；这些支持该协议，未证明生成预训的独立因果作用。",
+          "evidence": "Tables2/3/7，AppC/D/M与固定EVAL/TRAIN。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：同初始化SFT和真实cropteacher能否达到同收益？问题2：14.3倍中有多少只由关闭VT及缩短输出解释？问题3：7B与1822M总参为何冲突、公开EVAL参数哪组实际用了？GKD/ThinkMorph及同期视觉OPSD都属于前史，本文first仍需系统追引；未把发现限制等同新题。",
+          "evidence": "原文诊断/相关工作/AppL及本仓因果对照分析。"
+        }
+      ],
+      "boundary": "按用户三遍流程完成核心问题/方法与公式作用、框架图、主表/消融及批判性分析和五项书面理解检查；关键来源与版本见证据。未做计时口试或独立复现；尚未取得的实现/日志及原文未报告条件作为具体局限继续核，不把它们自动等同未读懂论文。"
+    },
+    {
+      "id": "L188",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "LiveSVG把隐式随机视频SDS优化改为先看得到的目标视频，再拟合SVG。它解决二维动画的几何保持与优化问题，候选筛选也是方法成本的一部分。",
+          "evidence": "主文§1与书面独立复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig3中原SVG分组并改为易区分颜色，I2V产生多个video，LLM选目标；按帧渲染SVG，学习组homography和局部pathoffset，使像素贴近目标；最后恢复原色得到可编辑动画。",
+          "evidence": "v1PDFp5 Fig3已视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "关键为显式目标拟合、双层运动参数与渐进/跟踪初始化。颜色分离能减少同色错误对应，固定拓扑则限制新形状；它没有从空白生成笔顺事件。",
+          "evidence": "§3 Eq1–4及AppF/H。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Veo固定变体XCLIP.216/SSIM.942，但VectorPrismSSIM.973更高。86.7%人评是bestof3 oracle，固定Veo66.7%。去tracking full胜66.7%；人评tracking/full54.2vs28.3，颜色消融因目标也变无法严格隔离。time表9m与文字5.2m不一致。",
+          "evidence": "Table2/6、AppC人评消融与不同variant。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：计入10–20候选生成和Gemini筛选后成本优势如何？问题2：同一个几何目标下recolor是否仍有效？问题3：全局layerorder能否表达反复互遮挡？AniClipart/LiveSketch/FlexiClip已给直接动画前史，新增规范笔事件需单独验证。",
+          "evidence": "§5及AppC/D/E、AniClipart正式版对照。"
+        }
+      ],
+      "boundary": "按用户三遍流程完成核心问题/方法与公式作用、框架图、主表/消融及批判性分析和五项书面理解检查；关键来源与版本见证据。未做计时口试或独立复现；尚未取得的实现/日志及原文未报告条件作为具体局限继续核，不把它们自动等同未读懂论文。"
+    },
+    {
+      "id": "L189",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "AniClipart要求原始角色保形地按文字运动。直接像素I2V会换身份和加纹理，作者用少量关键点的平滑轨迹约束高维变形。",
+          "evidence": "正式IJCV§1与书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig3由骨架关键点各自的Bézier曲线采每帧位置，ARAP变形网格，再渲染video；冻结ModelScope给VSDS梯度，骨长差给结构约束，两者优化轨迹控制点。",
+          "evidence": "PDFp5 Fig3已视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "创新为低维关键点时间曲线、可微ARAP与视频先验组合。低维约束改善稳定但不保证真实接触；正反loop沿原轨迹倒放，不适合不可逆书写过程。",
+          "evidence": "§3.2–3.4/Eq1–4与loop设定。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1身份.9414/XCLIP.2071较所列强；Table2 full运动20.87/连续.9673/变形50.98，线性运动更小且连续/变形更好。去skeleton变形265.92说明约束作用；不能用单个最高连续值判全部优劣。",
+          "evidence": "正式Tables1/2、§4.1/4.4。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：自动漏关键点会怎样传给轨迹？问题2：控制相同运动幅度，identity优势还剩多少？问题3：球接触地面、多物体和遮挡能否处理？LiveSVG已用显式目标拟合避免部分SDS限制；原论文30SVG与后续43例版本应先对齐。",
+          "evidence": "§5实际失败、固定README和LiveSVG比较范围。"
+        }
+      ],
+      "boundary": "按用户三遍流程完成核心问题/方法与公式作用、框架图、主表/消融及批判性分析和五项书面理解检查；关键来源与版本见证据。未做计时口试或独立复现；尚未取得的实现/日志及原文未报告条件作为具体局限继续核，不把它们自动等同未读懂论文。"
+    },
+    {
+      "id": "L190",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "VitaGlyph希望字形既能表达物体概念，又能被读成原文字。全字任意变形和单纯纹理各有不足，所以把可变形主体与保结构周围分开。",
+          "evidence": "正式WACV§1及书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "正式Fig2从字符获得两prompt，GDINO选主体、Depth2Img改变局部，再让seg/scribble两个ControlNet分支共享latent并混合attention和条件噪声，输出艺术字静态图。I2V仅后接应用。",
+          "evidence": "正式PDFp2 Fig2已视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "主体/周围分工和跨分支条件融合是机制；所谓trainingfree不自动覆盖可选来源未给的LoRA。当前公开版手工prompt、不同检测阈值及单主体范围需与论文分开。",
+          "evidence": "正式§3及v3supp/固定代码文档指定段。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "正式主表Vita中文OCR92.23与Qwen持平，CLIP26.58低27.45、FID236.15差232.07，美学更高。去SemTypoOCR92.98更高但美学变差；去attention美学92.74到94.35而OCR不变，展示取舍。",
+          "evidence": "正式Tables1/2；v3结果不作最新。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：固定底座/prompt预算且用独立OCR时美学可读权衡怎样？问题2：SDXL/SD1.5冲突与公开5次UNet/step如何对应15秒？问题3：检测无框、长句/其他文字体系表现如何？WordArt/WordAsImage/QwenImage和动态图形已有前史，不能把艺术运动当规范书写新能力。",
+          "evidence": "正式§5/v3supp及固定README/docs/generation。"
+        }
+      ],
+      "boundary": "按用户三遍流程完成核心问题/方法与公式作用、框架图、主表/消融及批判性分析和五项书面理解检查；关键来源与版本见证据。未做计时口试或独立复现；尚未取得的实现/日志及原文未报告条件作为具体局限继续核，不把它们自动等同未读懂论文。"
     }
   ]
 }

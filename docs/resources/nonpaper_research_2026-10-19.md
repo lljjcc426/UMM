@@ -120,3 +120,8 @@ UniCalli固定README只勾选无pred_box base/生成推理/量化/数据，识�
 ## 第二十九批：数据卡、公开实例与推理入口交叉核
 
 Calligraphy Bench官方卡与公开88行不完全一致：82个不同Unicode字符、18个书家标签，39行declared stroke count与SVG/中线条数不同（SVG与中线条数一致）。这些是可复查元数据差异，尚未证明judge实际误计；每行见[审计JSON](../../data/calligraphy_bench_metadata_audit_2026-10-20.json)。CoFRIDA-Sharpie YAML与正文列两个不同base，未下载权重，无法判定实际base。VidSketch公开代码计算abstractness却未把分数接入pipe参数，不把论文的自适应机制自动等同当前公开入口。见[专题](../evidence/unified_video_static_text_sketch_and_resource_mismatches_2026-10-20.md)。
+
+
+## 第三十批补充
+
+新增[R09 Datumwell公开10例](../reviews/R09.md)：模拟状态/五维计划关节action/多视角RGB及原生约3Hz→50Hz保持协议。审卡/metadata/loader，未下载完整轨迹视频或运行policy。尚未定位独立论文，权利边界保留。

@@ -78,3 +78,6 @@
 第二十八批重新精读原有九项的指定方法/实验/附录，累计325份笔记和33项五条书面理解检查，目录仍334条。新增[书法、视频文字、画序及OCR协议专题](../evidence/calligraphy_video_text_order_and_ocr_protocols_2026-10-20.md)；同图改序对照、FID/CER权衡和公开base/源码范围均已记录。没有删除文件，未运行新模型。
 
 第二十九批补当前目录最后九份独立分析，累计334条/334笔记，329章节/5摘要，40项五条书面理解检查。新增[统一视频与文字/草图/资源差异专题](../evidence/unified_video_static_text_sketch_and_resource_mismatches_2026-10-20.md)及88行Calligraphy Bench元数据审计。全部三遍、未读附录/源码及扩展追引仍继续。无删除，无模型运行。
+
+
+第三十批补四篇视觉蒸馏/矢量动画/艺术字论文和一个模拟书写资源（尚未找到对应独立论文）。当前339条/339笔记，334项原文章节或资源协议、5项摘要；44项五条书面检查，其中4篇完成核心三遍阅读。计时口试、全部代码与独立复现单列，不额外作为核心阅读门槛；此前40项仍逐篇待核定。见[专题](../evidence/visual_distillation_svg_animation_and_causal_robot_rgb_2026-10-20.md)及[逐文件说明](../evidence/thirtieth_changes_2026-10-20.md)。无删除，无模型执行。
