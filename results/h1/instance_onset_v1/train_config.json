@@ -1,0 +1,22 @@
+{
+  "optimizer": "AdamW",
+  "lr": 0.001,
+  "weight_decay": 0.01,
+  "batch_size": 8,
+  "seed": 42,
+  "epochs": 12,
+  "reference_repetitions_per_epoch": 8,
+  "updates_per_epoch": 40,
+  "total_updates": 480,
+  "image_exposures_per_condition": 3840,
+  "initial": "checkpoints/h1_early_history_v1/spatial_best.pt:a",
+  "selection": "shared Dev mask + 0.1 quality loss",
+  "trainable": "A only",
+  "frozen": [
+    "UMM",
+    "B",
+    "M1"
+  ],
+  "lambda_target": 0.2,
+  "additional_training": false
+}

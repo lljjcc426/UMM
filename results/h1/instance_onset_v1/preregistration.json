@@ -1,0 +1,74 @@
+{
+  "task": "H1-T7",
+  "protocol": "docs/experiments/h1_t7_protocol.md",
+  "stages": [
+    "T7-1",
+    "T7-2",
+    "T7-3",
+    "T7-4",
+    "T7-5",
+    "T7-6"
+  ],
+  "data_seed": 2026101907,
+  "groups": {
+    "train": 40,
+    "dev": 20,
+    "test": 30
+  },
+  "decisions": [
+    15,
+    20,
+    23
+  ],
+  "conditions": [
+    "E00",
+    "E01",
+    "E10",
+    "E11"
+  ],
+  "oracle": [
+    "Oracle_L0",
+    "Oracle_L1"
+  ],
+  "train_config": {
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "batch_size": 8,
+    "seed": 42,
+    "epochs": 12,
+    "reference_repetitions_per_epoch": 8,
+    "updates_per_epoch": 40,
+    "total_updates": 480,
+    "image_exposures_per_condition": 3840,
+    "initial": "checkpoints/h1_early_history_v1/spatial_best.pt:a",
+    "selection": "shared Dev mask + 0.1 quality loss",
+    "trainable": "A only",
+    "frozen": [
+      "UMM",
+      "B",
+      "M1"
+    ],
+    "lambda_target": 0.2,
+    "additional_training": false
+  },
+  "ledger_thresholds": {
+    "presence": 0.5,
+    "start": 0.5,
+    "new_ink": 0.02
+  },
+  "ledger_rule_selection": "T7-4 Train/Dev only; test locked",
+  "cluster_bootstrap": {
+    "seed": 42,
+    "replicates": 2000,
+    "unit": "geometry"
+  },
+  "targets": {
+    "instance_match": 0.9,
+    "pair": 0.9,
+    "correct_coverage": 0.9,
+    "unknown_recall": 0.9,
+    "exact_unresolved": 0.9
+  },
+  "test_locked": true
+}
