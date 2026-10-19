@@ -237,6 +237,13 @@
 | L151 | [CompBench: Benchmarking Complex Instruction-guided Image Editing](L151.md) | v4§3全/§4设置与§5；正式§4.1–4.2、Tables3/4全行和框架Fig3文字说明核。独立supp、全部Table2和图片/源码未全核，未复现 |
 | L152 | [OneIG-Bench: Omni-dimensional Nuanced Evaluation for Image Generation](L152.md) | v3§3.2/§4.1/主Table2/文字Table5/AppA2；正式§4.1、Table2、AppA2 Table7/8、人评Table12及读字幻觉段、限制文本核；v3PDFp6公式视觉核。全部图/其余附录/代码未全核，未复现 |
 | L153 | [GenExam: A Multidisciplinary Text-to-Image Exam](L153.md) | v5§3.1/§4；正式§3.2/§4设置/Table2指定行/3人评、AppC1/Table4/5及C2；PDFp5 Fig4评分流程视觉核。全部GT/图/附录分类及源码未全核，未复现 |
+| L154 | [ChatUMM: Robust Context Tracking for Conversational Interleaved Generation](L154.md) | v2§2/§3 taxonomy、§4.1/4.2；正式§3三阶段说明、Tables1–3、Fig7图注/§5限制。未全审原始数据、补充材料、图或代码，未复现 |
+| L155 | [How Long Can Unified Multimodal Models Generate Images Reliably? Taming Long-Horizon Interleaved Image Generation via Context Curation](L155.md) | §3.2/3.3、§4机制全、§5全、§6设置/Table1主体/§6.4/6.6、AppB/C指定部分；PDFp8Fig10及Eq3视觉核，Tables2/3。附录D/F及全部图/代码未全核，未复现 |
+| L156 | [Scaling Unified Multimodal Models to Long-Horizon Interleaved Generation](L156.md) | §3方法全、§4设置/Table1/4.4Table2、AppB/C.1–2/C.4–5/D指定指标/E/F.1与Table5/图11图注。部分图、完整评价prompt/训练代码/全部附录未全核，未复现 |
+| L157 | [MIO: A Foundation Model on Multimodal Tokens](L157.md) | 正式§2.1/2.2/2.3、§3Tables3–8/3.6、AppB/C超参、Table9/10、E1方法/E6指定段；完整Fig3曲线、所有附录/图/代码未全核，未复现 |
+| L158 | [OmniFlow: Any-to-Any Generation with Multi-Modal Rectified Flows](L158.md) | 正式§3.1任务/Algorithm1与3.2/3.3指定段、§4、§5.1–5.4 Tables1–4/§6；补充A.1–A.7及C/D/Table7、E4指定段。部分公式排版/全部图/其他附录/代码未全核，未复现 |
+| L159 | [M2-omni: Advancing Omni-MLLM for Comprehensive Modality Support with Competitive Performance](L159.md) | v3§2.1/2.2Table2/AT、§3.1/3.2/3.3、§4.1开头、§5.1指定部分/Table4/7、§5.3 Tables11/12。全部50页/细数据/公式代码/全部图未全核，未复现 |
+| L160 | [Ming-Omni: A Unified Multimodal Model for Perception and Generation](L160.md) | v1§2.1/2.3多尺度/2.4、§3.2.2/3.3/3.4、§4Table5/4.3指定段、内部评价定义；原版README图生成/硬件和config全字段核。不是全部论文/全部模块代码精读；未下载权重、未执行或复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

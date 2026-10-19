@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 263 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 270 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -258,13 +258,13 @@
 | L151 | CompBench: Benchmarking Complex Instruction-guided Image Editing | primary_sections_read | [结构化分析](../reviews/L151.md) | 未完成 |
 | L152 | OneIG-Bench: Omni-dimensional Nuanced Evaluation for Image Generation | primary_sections_read | [结构化分析](../reviews/L152.md) | 未完成 |
 | L153 | GenExam: A Multidisciplinary Text-to-Image Exam | primary_sections_read | [结构化分析](../reviews/L153.md) | 五项检查已记录 |
-| L154 | ChatUMM: Robust Context Tracking for Conversational Interleaved Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L155 | How Long Can Unified Multimodal Models Generate Images Reliably? Taming Long-Horizon Interleaved Image Generation via Context Curation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L156 | Scaling Unified Multimodal Models to Long-Horizon Interleaved Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L157 | MIO: A Foundation Model on Multimodal Tokens | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L158 | OmniFlow: Any-to-Any Generation with Multi-Modal Rectified Flows | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L159 | M2-omni: Advancing Omni-MLLM for Comprehensive Modality Support with Competitive Performance | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L160 | Ming-Omni: A Unified Multimodal Model for Perception and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L154 | ChatUMM: Robust Context Tracking for Conversational Interleaved Generation | primary_sections_read | [结构化分析](../reviews/L154.md) | 未完成 |
+| L155 | How Long Can Unified Multimodal Models Generate Images Reliably? Taming Long-Horizon Interleaved Image Generation via Context Curation | primary_sections_read | [结构化分析](../reviews/L155.md) | 五项检查已记录 |
+| L156 | Scaling Unified Multimodal Models to Long-Horizon Interleaved Generation | primary_sections_read | [结构化分析](../reviews/L156.md) | 未完成 |
+| L157 | MIO: A Foundation Model on Multimodal Tokens | primary_sections_read | [结构化分析](../reviews/L157.md) | 未完成 |
+| L158 | OmniFlow: Any-to-Any Generation with Multi-Modal Rectified Flows | primary_sections_read | [结构化分析](../reviews/L158.md) | 未完成 |
+| L159 | M2-omni: Advancing Omni-MLLM for Comprehensive Modality Support with Competitive Performance | primary_sections_read | [结构化分析](../reviews/L159.md) | 未完成 |
+| L160 | Ming-Omni: A Unified Multimodal Model for Perception and Generation | primary_sections_read | [结构化分析](../reviews/L160.md) | 未完成 |
 | L161 | Ming-Flash-Omni: A Sparse, Unified Architecture for Multimodal Perception and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L162 | LongCat-Flash-Omni Technical Report | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L163 | ERNIE 5.0 Technical Report | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |

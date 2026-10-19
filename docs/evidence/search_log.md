@@ -130,3 +130,7 @@ UniFlow v2、InternVL-U v1、Mamoda2.5 v1、SenseNova-U1 v1、Rosetta v1读取�
 ## 2026-10-20 第二十批
 
 取得并选读七篇正式PDF（WISE21/ImgEdit31/MMIG38/KRIS47/CompBench11/OneIG36/GenExam32页），与arXivv4/v1/v2/v1/v4/v3/v5比对指定数据/方法/主表/附录。未把PDF页数计为完整阅读。GenExam正式p5评分图与OneIGv3p6文字公式视觉核；OneIG正式文本确认同公式。SciPy官方kendalltau说明tau-b处理ties，不能沿用“有并列所以全部秩相关不可用”的推断。
+
+## 2026-10-20 第二十一批
+
+下载L154–L160指定arXiv/正式PDF，选读方法/主表/指定附录；MIO正式23页，OmniFlow正式11+补充11页，不以页数计完成阅读。UniLongGenp8框架图视觉核。GitHub当前Ming为Flash2.0，经官方commits定位2025-06-12提交75fb7ec，读取原README/config；一个假定test_infer_imagegen.py路径返回404，未声称读过此文件，也未运行代码。
