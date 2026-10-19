@@ -1,0 +1,3738 @@
+{
+  "signals": {
+    "A0": {
+      "onset_events": 435,
+      "presence_recall_at_true_onset": 0.8597701149425288,
+      "start_recall_at_true_onset": 0.8344827586206897,
+      "new_ink_recall_at_true_onset": 0.9724137931034482,
+      "three_signals_agree_at_true_onset": 0.8,
+      "absent_observations": 3330,
+      "false_presence": 100,
+      "false_start": 6,
+      "false_new": 175,
+      "all_prefix_state_accuracy": 0.9671455938697318,
+      "all_prefix_progress_mae": 0.04601080905077195,
+      "confirmation_lags": {
+        "n": 407,
+        "counts": {
+          "0": 339,
+          "1": 30,
+          "2": 32,
+          "-2": 1,
+          "3": 1,
+          "13": 3,
+          "15": 1
+        },
+        "mean_seconds": 0.061015561015561014
+      }
+    },
+    "A1": {
+      "onset_events": 435,
+      "presence_recall_at_true_onset": 0.8919540229885058,
+      "start_recall_at_true_onset": 0.9080459770114943,
+      "new_ink_recall_at_true_onset": 0.9908045977011494,
+      "three_signals_agree_at_true_onset": 0.8482758620689655,
+      "absent_observations": 3330,
+      "false_presence": 73,
+      "false_start": 3,
+      "false_new": 134,
+      "all_prefix_state_accuracy": 0.9720306513409962,
+      "all_prefix_progress_mae": 0.04297352815065933,
+      "confirmation_lags": {
+        "n": 428,
+        "counts": {
+          "0": 369,
+          "1": 28,
+          "2": 19,
+          "-2": 1,
+          "4": 1,
+          "16": 3,
+          "-17": 1,
+          "18": 1,
+          "-13": 1,
+          "3": 4
+        },
+        "mean_seconds": 0.04517133956386292
+      }
+    },
+    "Oracle": {
+      "onset_events": 435,
+      "presence_recall_at_true_onset": 0.9425287356321839,
+      "start_recall_at_true_onset": 0.9540229885057471,
+      "new_ink_recall_at_true_onset": 0.9908045977011494,
+      "three_signals_agree_at_true_onset": 0.9241379310344827,
+      "absent_observations": 3330,
+      "false_presence": 19,
+      "false_start": 4,
+      "false_new": 82,
+      "all_prefix_state_accuracy": 0.9908045977011494,
+      "all_prefix_progress_mae": 0.026856935255680486,
+      "confirmation_lags": {
+        "n": 427,
+        "counts": {
+          "0": 398,
+          "1": 13,
+          "2": 16
+        },
+        "mean_seconds": 0.01756440281030445
+      }
+    }
+  },
+  "oracle_false_new_accounting": {
+    "total": 82,
+    "real_shared_ink": 82,
+    "native_cell_mixing": 0,
+    "B_positive_without_coarse_rgb_change": 0,
+    "interpretation": "Diagnostic accounting under true areas, not mutually independent causal interventions; shared ink can be real global change without being target-instance onset."
+  },
+  "paired_additional_diagnostics": {
+    "mask_match_A1_minus_A0": {
+      "value": 0.05,
+      "geometry_balanced": 0.04888888888888889,
+      "CI": [
+        -0.008333333333333333,
+        0.10909801136363632
+      ],
+      "n": 120,
+      "geometry_groups": 30
+    },
+    "identity_A1_minus_A0": {
+      "value": 0.0,
+      "geometry_balanced": 0.0,
+      "CI": [
+        -0.025,
+        0.024193548387096774
+      ],
+      "n": 120,
+      "geometry_groups": 30
+    },
+    "E11_minus_E00": {
+      "value": -0.007407407407407408,
+      "geometry_balanced": -0.01111111111111111,
+      "CI": [
+        -0.09848484848484848,
+        0.08943089430894309
+      ],
+      "n": 135,
+      "geometry_groups": 30
+    }
+  },
+  "examples": [
+    {
+      "record": {
+        "method": "E10",
+        "id": "test-close-q5-01-correct",
+        "group": "test-close-q5-01",
+        "family": "close",
+        "split": "test",
+        "variant": "correct",
+        "q": 5,
+        "t": 23,
+        "timestamp": 3.8333333333333335,
+        "prediction": {
+          "observed_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "event_order": null,
+          "progress": [
+            0.9918922185897827,
+            0.991216778755188,
+            0.9934839606285095,
+            0.9908134341239929,
+            0.9201840758323669
+          ],
+          "geometry_state": [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "direction": [
+            "forward",
+            "forward",
+            "forward",
+            "forward",
+            "forward"
+          ],
+          "onset_intervals": {
+            "0": [
+              1,
+              2
+            ],
+            "1": [
+              4,
+              5
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              14,
+              15
+            ],
+            "4": [
+              20,
+              21
+            ]
+          },
+          "confirmed_precedence": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "unresolved_order_groups": [
+            [
+              1,
+              2
+            ]
+          ],
+          "uncertain_instance_ids": [
+            1
+          ],
+          "uncertainty_reason": "uncertain_onset_detection",
+          "observation_confidence": 0.0,
+          "pen_lift_evidence": "unknown",
+          "recovery": "requires_missing_past_observations",
+          "ledger": [
+            {
+              "instance_id": 0,
+              "first_observed_interval": [
+                1,
+                2
+              ],
+              "last_observed_progress": 0.9918922185897827,
+              "geometry_state": 2,
+              "onset_confidence": 0.5621192455291748,
+              "confirmed": true,
+              "direction": "forward",
+              "uncertain_relations": [],
+              "confirmed_precedence": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  4
+                ]
+              ]
+            },
+            {
+              "instance_id": 1,
+              "first_observed_interval": [
+                4,
+                5
+              ],
+              "last_observed_progress": 0.991216778755188,
+              "geometry_state": 2,
+              "onset_confidence": 0.9893023371696472,
+              "confirmed": false,
+              "direction": "forward",
+              "uncertain_relations": [
+                2
+              ],
+              "confirmed_precedence": []
+            },
+            {
+              "instance_id": 2,
+              "first_observed_interval": [
+                4,
+                5
+              ],
+              "last_observed_progress": 0.9934839606285095,
+              "geometry_state": 2,
+              "onset_confidence": 0.9999954104423523,
+              "confirmed": true,
+              "direction": "forward",
+              "uncertain_relations": [
+                1
+              ],
+              "confirmed_precedence": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  2,
+                  4
+                ]
+              ]
+            },
+            {
+              "instance_id": 3,
+              "first_observed_interval": [
+                14,
+                15
+              ],
+              "last_observed_progress": 0.9908134341239929,
+              "geometry_state": 2,
+              "onset_confidence": 0.9999354481697083,
+              "confirmed": true,
+              "direction": "forward",
+              "uncertain_relations": [],
+              "confirmed_precedence": [
+                [
+                  0,
+                  3
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  3,
+                  4
+                ]
+              ]
+            },
+            {
+              "instance_id": 4,
+              "first_observed_interval": [
+                20,
+                21
+              ],
+              "last_observed_progress": 0.9201840758323669,
+              "geometry_state": 2,
+              "onset_confidence": 0.9994903206825256,
+              "confirmed": true,
+              "direction": "forward",
+              "uncertain_relations": [],
+              "confirmed_precedence": [
+                [
+                  0,
+                  4
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  4
+                ]
+              ]
+            }
+          ],
+          "decision": {
+            "first_error": null,
+            "error_type": "unobservable",
+            "next_legal": null,
+            "action": "request_observation"
+          },
+          "ledger_data_bytes": 1158
+        },
+        "truth": {
+          "event_order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "observed_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "progress": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "direction": [
+            "forward",
+            "forward",
+            "forward",
+            "forward",
+            "forward"
+          ],
+          "onset_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              2,
+              3
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              14
+            ],
+            "4": [
+              19,
+              20
+            ]
+          },
+          "confirmed_precedence": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "unresolved_order_groups": [],
+          "uncertainty_reason": null
+        },
+        "truth_geometry": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "truth_progress": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "truth_decision": {
+          "first_error": null,
+          "error_type": null,
+          "next_legal": null,
+          "action": "end_ink_task"
+        },
+        "order_correct": false,
+        "decision_correct": false,
+        "inference_seconds": 2.0625000615837052e-05
+      },
+      "events": [
+        {
+          "id": "test-close-q5-01-correct",
+          "group": "test-close-q5-01",
+          "family": "close",
+          "q": 5,
+          "region": "A1",
+          "instance": 0,
+          "true_interval": [
+            0,
+            1
+          ],
+          "mask_iou": 0.4000000059604645,
+          "true_onset_signal": {
+            "presence": 0.10924988985061646,
+            "start": 0.7986658811569214,
+            "new_ink": 0.3855527341365814
+          },
+          "true_onset_fine_rgb_new": 0.5017544031143188,
+          "true_onset_coarse_rgb_new": 0.21206563711166382,
+          "L0_interval": [
+            1,
+            2
+          ],
+          "L1_interval": [
+            0,
+            1
+          ],
+          "L1_first_detection": [
+            1,
+            2
+          ],
+          "L1_confirmation": [
+            1,
+            2
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.5621192455291748,
+            "start": 0.013431168161332607,
+            "new_ink": 0.3973449170589447
+          }
+        },
+        {
+          "id": "test-close-q5-01-correct",
+          "group": "test-close-q5-01",
+          "family": "close",
+          "q": 5,
+          "region": "A1",
+          "instance": 1,
+          "true_interval": [
+            2,
+            3
+          ],
+          "mask_iou": 0.38235294818878174,
+          "true_onset_signal": {
+            "presence": 0.2924537658691406,
+            "start": 0.06897296756505966,
+            "new_ink": 0.3671133816242218
+          },
+          "true_onset_fine_rgb_new": 0.5018181800842285,
+          "true_onset_coarse_rgb_new": 0.21092768013477325,
+          "L0_interval": [
+            4,
+            5
+          ],
+          "L1_interval": [
+            2,
+            5
+          ],
+          "L1_first_detection": [
+            4,
+            5
+          ],
+          "L1_confirmation": null,
+          "L1_status": "ambiguous",
+          "first_detection_signal": {
+            "presence": 0.9893023371696472,
+            "start": 0.003318853210657835,
+            "new_ink": 4.904571324004792e-05
+          }
+        },
+        {
+          "id": "test-close-q5-01-correct",
+          "group": "test-close-q5-01",
+          "family": "close",
+          "q": 5,
+          "region": "A1",
+          "instance": 2,
+          "true_interval": [
+            4,
+            5
+          ],
+          "mask_iou": 1.0,
+          "true_onset_signal": {
+            "presence": 0.9999954104423523,
+            "start": 0.9595052599906921,
+            "new_ink": 0.5093069672584534
+          },
+          "true_onset_fine_rgb_new": 0.5016722679138184,
+          "true_onset_coarse_rgb_new": 0.4009850323200226,
+          "L0_interval": [
+            4,
+            5
+          ],
+          "L1_interval": [
+            4,
+            5
+          ],
+          "L1_first_detection": [
+            4,
+            5
+          ],
+          "L1_confirmation": [
+            4,
+            5
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9999954104423523,
+            "start": 0.9595052599906921,
+            "new_ink": 0.5093069672584534
+          }
+        },
+        {
+          "id": "test-close-q5-01-correct",
+          "group": "test-close-q5-01",
+          "family": "close",
+          "q": 5,
+          "region": "A1",
+          "instance": 3,
+          "true_interval": [
+            13,
+            14
+          ],
+          "mask_iou": 0.6875,
+          "true_onset_signal": {
+            "presence": 0.39292216300964355,
+            "start": 0.6356782913208008,
+            "new_ink": 0.13240961730480194
+          },
+          "true_onset_fine_rgb_new": 0.25,
+          "true_onset_coarse_rgb_new": 0.12241211533546448,
+          "L0_interval": [
+            14,
+            15
+          ],
+          "L1_interval": [
+            14,
+            15
+          ],
+          "L1_first_detection": [
+            14,
+            15
+          ],
+          "L1_confirmation": [
+            14,
+            15
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9999354481697083,
+            "start": 0.7312176823616028,
+            "new_ink": 0.19492650032043457
+          }
+        },
+        {
+          "id": "test-close-q5-01-correct",
+          "group": "test-close-q5-01",
+          "family": "close",
+          "q": 5,
+          "region": "A1",
+          "instance": 4,
+          "true_interval": [
+            19,
+            20
+          ],
+          "mask_iou": 0.8999999761581421,
+          "true_onset_signal": {
+            "presence": 0.239371657371521,
+            "start": 0.09710084646940231,
+            "new_ink": 0.13464124500751495
+          },
+          "true_onset_fine_rgb_new": 0.25106382369995117,
+          "true_onset_coarse_rgb_new": 0.09607712924480438,
+          "L0_interval": [
+            20,
+            21
+          ],
+          "L1_interval": [
+            19,
+            21
+          ],
+          "L1_first_detection": [
+            20,
+            21
+          ],
+          "L1_confirmation": [
+            21,
+            22
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9994903206825256,
+            "start": 0.2628290057182312,
+            "new_ink": 0.06086205318570137
+          }
+        }
+      ]
+    },
+    {
+      "record": {
+        "method": "Oracle_L1",
+        "id": "test-mixed-q5-01-correct",
+        "group": "test-mixed-q5-01",
+        "family": "mixed",
+        "split": "test",
+        "variant": "correct",
+        "q": 5,
+        "t": 23,
+        "timestamp": 3.8333333333333335,
+        "prediction": {
+          "observed_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "event_order": null,
+          "progress": [
+            0.9984610080718994,
+            0.9938793182373047,
+            0.9990077614784241,
+            0.9979337453842163,
+            0.9946382641792297
+          ],
+          "geometry_state": [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "direction": [
+            "forward",
+            "forward",
+            "forward",
+            "forward",
+            "forward"
+          ],
+          "onset_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              2,
+              3
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              14
+            ],
+            "4": [
+              17,
+              18
+            ]
+          },
+          "first_detection_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              2,
+              3
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              14
+            ],
+            "4": [
+              17,
+              18
+            ]
+          },
+          "confirmation_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              2,
+              3
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": null,
+            "4": null
+          },
+          "confirmed_precedence": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "unresolved_order_groups": [
+            [
+              0,
+              3,
+              4
+            ],
+            [
+              1,
+              3,
+              4
+            ],
+            [
+              2,
+              3,
+              4
+            ]
+          ],
+          "uncertain_instance_ids": [
+            3,
+            4
+          ],
+          "uncertainty_reason": "uncertain_onset_detection",
+          "observation_confidence": 0.0,
+          "pen_lift_evidence": "unknown",
+          "recovery": "review_past_observations_or_request_denser_sampling",
+          "physical_irrecoverability": "not_established_by_learned_detections",
+          "ledger": [
+            {
+              "instance_id": 0,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                0,
+                1
+              ],
+              "first_detection_interval": [
+                0,
+                1
+              ],
+              "confirmation_interval": [
+                0,
+                1
+              ],
+              "evidence_sources": [
+                {
+                  "t": 1,
+                  "presence": 0.9999839663505554,
+                  "start": 0.9999905824661255,
+                  "new_ink": 0.43557918071746826
+                },
+                {
+                  "t": 1,
+                  "presence": 0.9999839663505554,
+                  "start": 0.9999905824661255,
+                  "new_ink": 0.43557918071746826
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9984610080718994,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            },
+            {
+              "instance_id": 1,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                2,
+                3
+              ],
+              "first_detection_interval": [
+                2,
+                3
+              ],
+              "confirmation_interval": [
+                2,
+                3
+              ],
+              "evidence_sources": [
+                {
+                  "t": 3,
+                  "presence": 0.9999999403953552,
+                  "start": 0.9999986886978149,
+                  "new_ink": 0.4175470471382141
+                },
+                {
+                  "t": 3,
+                  "presence": 0.9999999403953552,
+                  "start": 0.9999986886978149,
+                  "new_ink": 0.4175470471382141
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9938793182373047,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            },
+            {
+              "instance_id": 2,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                4,
+                5
+              ],
+              "first_detection_interval": [
+                4,
+                5
+              ],
+              "confirmation_interval": [
+                4,
+                5
+              ],
+              "evidence_sources": [
+                {
+                  "t": 5,
+                  "presence": 1.0,
+                  "start": 0.9999982118606567,
+                  "new_ink": 0.43306592106819153
+                },
+                {
+                  "t": 5,
+                  "presence": 1.0,
+                  "start": 0.9999982118606567,
+                  "new_ink": 0.43306592106819153
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9990077614784241,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            },
+            {
+              "instance_id": 3,
+              "status": "candidate",
+              "possible_onset_interval": [
+                13,
+                14
+              ],
+              "first_detection_interval": [
+                13,
+                14
+              ],
+              "confirmation_interval": null,
+              "evidence_sources": [
+                {
+                  "t": 14,
+                  "presence": 1.0,
+                  "start": 0.9999983310699463,
+                  "new_ink": 0.0069266268983483315
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9979337453842163,
+              "geometry_state": 2
+            },
+            {
+              "instance_id": 4,
+              "status": "ambiguous",
+              "possible_onset_interval": [
+                17,
+                18
+              ],
+              "first_detection_interval": [
+                17,
+                18
+              ],
+              "confirmation_interval": null,
+              "evidence_sources": [
+                {
+                  "t": 18,
+                  "presence": 0.547240138053894,
+                  "start": 0.021708888933062553,
+                  "new_ink": 8.208617813254548e-12
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9946382641792297,
+              "geometry_state": 2,
+              "conflict": "start_outside_candidate_interval"
+            }
+          ],
+          "instance_event_status": [
+            "confirmed",
+            "confirmed",
+            "confirmed",
+            "candidate",
+            "ambiguous"
+          ],
+          "audit": [
+            {
+              "event": "candidate_created",
+              "instance_id": 0,
+              "t": 1,
+              "possible_interval": [
+                0,
+                1
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 0,
+              "t": 1,
+              "possible_interval": [
+                0,
+                1
+              ],
+              "rule": "simultaneous_presence_start_change"
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 1,
+              "t": 3,
+              "possible_interval": [
+                2,
+                3
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 1,
+              "t": 3,
+              "possible_interval": [
+                2,
+                3
+              ],
+              "rule": "simultaneous_presence_start_change"
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 2,
+              "t": 5,
+              "possible_interval": [
+                4,
+                5
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 2,
+              "t": 5,
+              "possible_interval": [
+                4,
+                5
+              ],
+              "rule": "simultaneous_presence_start_change"
+            },
+            {
+              "event": "presence_without_onset_support",
+              "instance_id": 4,
+              "t": 5,
+              "possible_interval": [
+                4,
+                5
+              ]
+            },
+            {
+              "event": "candidate_rejected",
+              "instance_id": 4,
+              "t": 6,
+              "reason": "three_signals_below_threshold",
+              "rejected": {
+                "instance_id": 4,
+                "status": "ambiguous",
+                "possible_onset_interval": [
+                  4,
+                  5
+                ],
+                "first_detection_interval": [
+                  4,
+                  5
+                ],
+                "confirmation_interval": null,
+                "evidence_sources": [
+                  {
+                    "t": 5,
+                    "presence": 0.8249196410179138,
+                    "start": 0.4938981831073761,
+                    "new_ink": 8.21378076665269e-10
+                  }
+                ],
+                "direction": "forward",
+                "last_observed_progress": 0.2025093138217926,
+                "geometry_state": 1
+              }
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 3,
+              "t": 14,
+              "possible_interval": [
+                13,
+                14
+              ]
+            },
+            {
+              "event": "presence_without_onset_support",
+              "instance_id": 4,
+              "t": 18,
+              "possible_interval": [
+                17,
+                18
+              ]
+            }
+          ],
+          "decision": {
+            "first_error": null,
+            "error_type": "unobservable",
+            "next_legal": null,
+            "action": "request_observation"
+          },
+          "ledger_data_bytes": 4324
+        },
+        "truth": {
+          "event_order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "observed_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "progress": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "direction": [
+            "forward",
+            "forward",
+            "forward",
+            "forward",
+            "forward"
+          ],
+          "onset_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              2,
+              3
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              14
+            ],
+            "4": [
+              19,
+              20
+            ]
+          },
+          "confirmed_precedence": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "unresolved_order_groups": [],
+          "uncertainty_reason": null
+        },
+        "truth_geometry": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "truth_progress": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "truth_decision": {
+          "first_error": null,
+          "error_type": null,
+          "next_legal": null,
+          "action": "end_ink_task"
+        },
+        "order_correct": false,
+        "decision_correct": false,
+        "inference_seconds": 5.958299880148843e-05
+      },
+      "events": [
+        {
+          "id": "test-mixed-q5-01-correct",
+          "group": "test-mixed-q5-01",
+          "family": "mixed",
+          "q": 5,
+          "region": "Oracle",
+          "instance": 0,
+          "true_interval": [
+            0,
+            1
+          ],
+          "mask_iou": 1.0,
+          "true_onset_signal": {
+            "presence": 0.9999839663505554,
+            "start": 0.9999905824661255,
+            "new_ink": 0.43557918071746826
+          },
+          "true_onset_fine_rgb_new": 0.5041322112083435,
+          "true_onset_coarse_rgb_new": 0.298307865858078,
+          "L0_interval": [
+            0,
+            1
+          ],
+          "L1_interval": [
+            0,
+            1
+          ],
+          "L1_first_detection": [
+            0,
+            1
+          ],
+          "L1_confirmation": [
+            0,
+            1
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9999839663505554,
+            "start": 0.9999905824661255,
+            "new_ink": 0.43557918071746826
+          }
+        },
+        {
+          "id": "test-mixed-q5-01-correct",
+          "group": "test-mixed-q5-01",
+          "family": "mixed",
+          "q": 5,
+          "region": "Oracle",
+          "instance": 1,
+          "true_interval": [
+            2,
+            3
+          ],
+          "mask_iou": 1.0,
+          "true_onset_signal": {
+            "presence": 0.9999999403953552,
+            "start": 0.9999986886978149,
+            "new_ink": 0.4175470471382141
+          },
+          "true_onset_fine_rgb_new": 0.5038167834281921,
+          "true_onset_coarse_rgb_new": 0.33292579650878906,
+          "L0_interval": [
+            2,
+            3
+          ],
+          "L1_interval": [
+            2,
+            3
+          ],
+          "L1_first_detection": [
+            2,
+            3
+          ],
+          "L1_confirmation": [
+            2,
+            3
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9999999403953552,
+            "start": 0.9999986886978149,
+            "new_ink": 0.4175470471382141
+          }
+        },
+        {
+          "id": "test-mixed-q5-01-correct",
+          "group": "test-mixed-q5-01",
+          "family": "mixed",
+          "q": 5,
+          "region": "Oracle",
+          "instance": 2,
+          "true_interval": [
+            4,
+            5
+          ],
+          "mask_iou": 1.0,
+          "true_onset_signal": {
+            "presence": 1.0,
+            "start": 0.9999982118606567,
+            "new_ink": 0.43306592106819153
+          },
+          "true_onset_fine_rgb_new": 0.5041322112083435,
+          "true_onset_coarse_rgb_new": 0.2908579409122467,
+          "L0_interval": [
+            4,
+            5
+          ],
+          "L1_interval": [
+            4,
+            5
+          ],
+          "L1_first_detection": [
+            4,
+            5
+          ],
+          "L1_confirmation": [
+            4,
+            5
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 1.0,
+            "start": 0.9999982118606567,
+            "new_ink": 0.43306592106819153
+          }
+        },
+        {
+          "id": "test-mixed-q5-01-correct",
+          "group": "test-mixed-q5-01",
+          "family": "mixed",
+          "q": 5,
+          "region": "Oracle",
+          "instance": 3,
+          "true_interval": [
+            13,
+            14
+          ],
+          "mask_iou": 1.0,
+          "true_onset_signal": {
+            "presence": 1.0,
+            "start": 0.9999983310699463,
+            "new_ink": 0.0069266268983483315
+          },
+          "true_onset_fine_rgb_new": 0.24796274304389954,
+          "true_onset_coarse_rgb_new": 0.09788362681865692,
+          "L0_interval": [
+            13,
+            14
+          ],
+          "L1_interval": [
+            13,
+            14
+          ],
+          "L1_first_detection": [
+            13,
+            14
+          ],
+          "L1_confirmation": null,
+          "L1_status": "candidate",
+          "first_detection_signal": {
+            "presence": 1.0,
+            "start": 0.9999983310699463,
+            "new_ink": 0.0069266268983483315
+          }
+        },
+        {
+          "id": "test-mixed-q5-01-correct",
+          "group": "test-mixed-q5-01",
+          "family": "mixed",
+          "q": 5,
+          "region": "Oracle",
+          "instance": 4,
+          "true_interval": [
+            19,
+            20
+          ],
+          "mask_iou": 1.0,
+          "true_onset_signal": {
+            "presence": 0.9999996423721313,
+            "start": 0.9943859577178955,
+            "new_ink": 0.17641592025756836
+          },
+          "true_onset_fine_rgb_new": 0.25466418266296387,
+          "true_onset_coarse_rgb_new": 0.11876167356967926,
+          "L0_interval": [
+            4,
+            5
+          ],
+          "L1_interval": [
+            17,
+            18
+          ],
+          "L1_first_detection": [
+            17,
+            18
+          ],
+          "L1_confirmation": null,
+          "L1_status": "ambiguous",
+          "first_detection_signal": {
+            "presence": 0.547240138053894,
+            "start": 0.021708888933062553,
+            "new_ink": 8.208617813254548e-12
+          }
+        }
+      ]
+    },
+    {
+      "record": {
+        "method": "Oracle_L1",
+        "id": "test-close-q5-01-correct",
+        "group": "test-close-q5-01",
+        "family": "close",
+        "split": "test",
+        "variant": "correct",
+        "q": 5,
+        "t": 20,
+        "timestamp": 3.3333333333333335,
+        "prediction": {
+          "observed_ids": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "event_order": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "progress": [
+            0.9955300688743591,
+            0.9933167695999146,
+            0.9958794116973877,
+            0.9985017776489258,
+            0.21874472498893738
+          ],
+          "geometry_state": [
+            2,
+            2,
+            2,
+            2,
+            0
+          ],
+          "direction": [
+            "forward",
+            "forward",
+            "forward",
+            "forward",
+            "unknown"
+          ],
+          "onset_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              2,
+              3
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              14
+            ]
+          },
+          "first_detection_intervals": {
+            "0": [
+              1,
+              2
+            ],
+            "1": [
+              2,
+              3
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              14
+            ]
+          },
+          "confirmation_intervals": {
+            "0": [
+              1,
+              2
+            ],
+            "1": [
+              2,
+              3
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              14
+            ]
+          },
+          "confirmed_precedence": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "unresolved_order_groups": [],
+          "uncertain_instance_ids": [],
+          "uncertainty_reason": null,
+          "observation_confidence": 1.0,
+          "pen_lift_evidence": "unknown",
+          "recovery": null,
+          "physical_irrecoverability": "not_established_by_learned_detections",
+          "ledger": [
+            {
+              "instance_id": 0,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                0,
+                1
+              ],
+              "first_detection_interval": [
+                1,
+                2
+              ],
+              "confirmation_interval": [
+                1,
+                2
+              ],
+              "evidence_sources": [
+                {
+                  "t": 2,
+                  "presence": 0.9980737566947937,
+                  "start": 0.003524769563227892,
+                  "new_ink": 0.329936146736145
+                },
+                {
+                  "t": 1,
+                  "presence": 0.3342432975769043,
+                  "start": 0.877388060092926,
+                  "new_ink": 0.32037946581840515
+                },
+                {
+                  "t": 2,
+                  "presence": 0.9980737566947937,
+                  "start": 0.003524769563227892,
+                  "new_ink": 0.329936146736145
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9955300688743591,
+              "geometry_state": 2,
+              "confirmation_rule": "previous_start_change_current_presence"
+            },
+            {
+              "instance_id": 1,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                2,
+                3
+              ],
+              "first_detection_interval": [
+                2,
+                3
+              ],
+              "confirmation_interval": [
+                2,
+                3
+              ],
+              "evidence_sources": [
+                {
+                  "t": 3,
+                  "presence": 0.9870136976242065,
+                  "start": 0.9777896404266357,
+                  "new_ink": 0.29798904061317444
+                },
+                {
+                  "t": 3,
+                  "presence": 0.9870136976242065,
+                  "start": 0.9777896404266357,
+                  "new_ink": 0.29798904061317444
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9933167695999146,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            },
+            {
+              "instance_id": 2,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                4,
+                5
+              ],
+              "first_detection_interval": [
+                4,
+                5
+              ],
+              "confirmation_interval": [
+                4,
+                5
+              ],
+              "evidence_sources": [
+                {
+                  "t": 5,
+                  "presence": 0.9999948143959045,
+                  "start": 0.9617691040039062,
+                  "new_ink": 0.5069557428359985
+                },
+                {
+                  "t": 5,
+                  "presence": 0.9999948143959045,
+                  "start": 0.9617691040039062,
+                  "new_ink": 0.5069557428359985
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9958794116973877,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            },
+            {
+              "instance_id": 3,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                13,
+                14
+              ],
+              "first_detection_interval": [
+                13,
+                14
+              ],
+              "confirmation_interval": [
+                13,
+                14
+              ],
+              "evidence_sources": [
+                {
+                  "t": 14,
+                  "presence": 0.69215989112854,
+                  "start": 0.7924801111221313,
+                  "new_ink": 0.15070807933807373
+                },
+                {
+                  "t": 14,
+                  "presence": 0.69215989112854,
+                  "start": 0.7924801111221313,
+                  "new_ink": 0.15070807933807373
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9985017776489258,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            }
+          ],
+          "instance_event_status": [
+            "confirmed",
+            "confirmed",
+            "confirmed",
+            "confirmed",
+            "unseen"
+          ],
+          "audit": [
+            {
+              "event": "candidate_created",
+              "instance_id": 0,
+              "t": 2,
+              "possible_interval": [
+                0,
+                2
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 0,
+              "t": 2,
+              "possible_interval": [
+                0,
+                1
+              ],
+              "rule": "previous_start_change_current_presence"
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 1,
+              "t": 3,
+              "possible_interval": [
+                2,
+                3
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 1,
+              "t": 3,
+              "possible_interval": [
+                2,
+                3
+              ],
+              "rule": "simultaneous_presence_start_change"
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 2,
+              "t": 5,
+              "possible_interval": [
+                4,
+                5
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 2,
+              "t": 5,
+              "possible_interval": [
+                4,
+                5
+              ],
+              "rule": "simultaneous_presence_start_change"
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 3,
+              "t": 14,
+              "possible_interval": [
+                13,
+                14
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 3,
+              "t": 14,
+              "possible_interval": [
+                13,
+                14
+              ],
+              "rule": "simultaneous_presence_start_change"
+            }
+          ],
+          "decision": {
+            "first_error": null,
+            "error_type": null,
+            "next_legal": 4,
+            "action": "start"
+          },
+          "ledger_data_bytes": 3702
+        },
+        "truth": {
+          "event_order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "observed_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "progress": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            0.251063829787234
+          ],
+          "direction": [
+            "forward",
+            "forward",
+            "forward",
+            "forward",
+            "forward"
+          ],
+          "onset_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              2,
+              3
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              14
+            ],
+            "4": [
+              19,
+              20
+            ]
+          },
+          "confirmed_precedence": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "unresolved_order_groups": [],
+          "uncertainty_reason": null
+        },
+        "truth_geometry": [
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "truth_progress": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.25
+        ],
+        "truth_decision": {
+          "first_error": null,
+          "error_type": null,
+          "next_legal": 4,
+          "action": "continue"
+        },
+        "order_correct": false,
+        "decision_correct": false,
+        "inference_seconds": 5.366700133890845e-05
+      },
+      "events": [
+        {
+          "id": "test-close-q5-01-correct",
+          "group": "test-close-q5-01",
+          "family": "close",
+          "q": 5,
+          "region": "Oracle",
+          "instance": 0,
+          "true_interval": [
+            0,
+            1
+          ],
+          "mask_iou": 1.0,
+          "true_onset_signal": {
+            "presence": 0.3342432975769043,
+            "start": 0.877388060092926,
+            "new_ink": 0.32037946581840515
+          },
+          "true_onset_fine_rgb_new": 0.5017544031143188,
+          "true_onset_coarse_rgb_new": 0.21206563711166382,
+          "L0_interval": [
+            1,
+            2
+          ],
+          "L1_interval": [
+            0,
+            1
+          ],
+          "L1_first_detection": [
+            1,
+            2
+          ],
+          "L1_confirmation": [
+            1,
+            2
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9980737566947937,
+            "start": 0.003524769563227892,
+            "new_ink": 0.329936146736145
+          }
+        },
+        {
+          "id": "test-close-q5-01-correct",
+          "group": "test-close-q5-01",
+          "family": "close",
+          "q": 5,
+          "region": "Oracle",
+          "instance": 1,
+          "true_interval": [
+            2,
+            3
+          ],
+          "mask_iou": 1.0,
+          "true_onset_signal": {
+            "presence": 0.9870136976242065,
+            "start": 0.9777896404266357,
+            "new_ink": 0.29798904061317444
+          },
+          "true_onset_fine_rgb_new": 0.5018181800842285,
+          "true_onset_coarse_rgb_new": 0.21092768013477325,
+          "L0_interval": [
+            2,
+            3
+          ],
+          "L1_interval": [
+            2,
+            3
+          ],
+          "L1_first_detection": [
+            2,
+            3
+          ],
+          "L1_confirmation": [
+            2,
+            3
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9870136976242065,
+            "start": 0.9777896404266357,
+            "new_ink": 0.29798904061317444
+          }
+        },
+        {
+          "id": "test-close-q5-01-correct",
+          "group": "test-close-q5-01",
+          "family": "close",
+          "q": 5,
+          "region": "Oracle",
+          "instance": 2,
+          "true_interval": [
+            4,
+            5
+          ],
+          "mask_iou": 1.0,
+          "true_onset_signal": {
+            "presence": 0.9999948143959045,
+            "start": 0.9617691040039062,
+            "new_ink": 0.5069557428359985
+          },
+          "true_onset_fine_rgb_new": 0.5016722679138184,
+          "true_onset_coarse_rgb_new": 0.4009850323200226,
+          "L0_interval": [
+            4,
+            5
+          ],
+          "L1_interval": [
+            4,
+            5
+          ],
+          "L1_first_detection": [
+            4,
+            5
+          ],
+          "L1_confirmation": [
+            4,
+            5
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9999948143959045,
+            "start": 0.9617691040039062,
+            "new_ink": 0.5069557428359985
+          }
+        },
+        {
+          "id": "test-close-q5-01-correct",
+          "group": "test-close-q5-01",
+          "family": "close",
+          "q": 5,
+          "region": "Oracle",
+          "instance": 3,
+          "true_interval": [
+            13,
+            14
+          ],
+          "mask_iou": 1.0,
+          "true_onset_signal": {
+            "presence": 0.69215989112854,
+            "start": 0.7924801111221313,
+            "new_ink": 0.15070807933807373
+          },
+          "true_onset_fine_rgb_new": 0.25,
+          "true_onset_coarse_rgb_new": 0.12241211533546448,
+          "L0_interval": [
+            13,
+            14
+          ],
+          "L1_interval": [
+            13,
+            14
+          ],
+          "L1_first_detection": [
+            13,
+            14
+          ],
+          "L1_confirmation": [
+            13,
+            14
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.69215989112854,
+            "start": 0.7924801111221313,
+            "new_ink": 0.15070807933807373
+          }
+        },
+        {
+          "id": "test-close-q5-01-correct",
+          "group": "test-close-q5-01",
+          "family": "close",
+          "q": 5,
+          "region": "Oracle",
+          "instance": 4,
+          "true_interval": [
+            19,
+            20
+          ],
+          "mask_iou": 1.0,
+          "true_onset_signal": {
+            "presence": 0.1640525460243225,
+            "start": 0.08455014228820801,
+            "new_ink": 0.13916414976119995
+          },
+          "true_onset_fine_rgb_new": 0.25106382369995117,
+          "true_onset_coarse_rgb_new": 0.09607712924480438,
+          "L0_interval": [
+            20,
+            21
+          ],
+          "L1_interval": [
+            19,
+            21
+          ],
+          "L1_first_detection": [
+            20,
+            21
+          ],
+          "L1_confirmation": [
+            21,
+            22
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9996432662010193,
+            "start": 0.36847320199012756,
+            "new_ink": 0.06313750147819519
+          }
+        }
+      ]
+    },
+    {
+      "record": {
+        "method": "E11",
+        "id": "test-cross-q5-02-correct",
+        "group": "test-cross-q5-02",
+        "family": "cross",
+        "split": "test",
+        "variant": "correct",
+        "q": 5,
+        "t": 23,
+        "timestamp": 3.8333333333333335,
+        "prediction": {
+          "observed_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "event_order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "progress": [
+            0.9866436123847961,
+            0.9840683341026306,
+            0.9590213894844055,
+            0.9789410829544067,
+            0.9455757141113281
+          ],
+          "geometry_state": [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "direction": [
+            "forward",
+            "forward",
+            "forward",
+            "forward",
+            "forward"
+          ],
+          "onset_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              2,
+              3
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              16
+            ],
+            "4": [
+              19,
+              20
+            ]
+          },
+          "first_detection_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              3,
+              4
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              15,
+              16
+            ],
+            "4": [
+              19,
+              20
+            ]
+          },
+          "confirmation_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              3,
+              4
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              16,
+              17
+            ],
+            "4": [
+              19,
+              20
+            ]
+          },
+          "confirmed_precedence": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "unresolved_order_groups": [],
+          "uncertain_instance_ids": [],
+          "uncertainty_reason": null,
+          "observation_confidence": 1.0,
+          "pen_lift_evidence": "unknown",
+          "recovery": null,
+          "physical_irrecoverability": "not_established_by_learned_detections",
+          "ledger": [
+            {
+              "instance_id": 0,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                0,
+                1
+              ],
+              "first_detection_interval": [
+                0,
+                1
+              ],
+              "confirmation_interval": [
+                0,
+                1
+              ],
+              "evidence_sources": [
+                {
+                  "t": 1,
+                  "presence": 0.944993793964386,
+                  "start": 0.9913250207901001,
+                  "new_ink": 0.46414971351623535
+                },
+                {
+                  "t": 1,
+                  "presence": 0.944993793964386,
+                  "start": 0.9913250207901001,
+                  "new_ink": 0.46414971351623535
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9866436123847961,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            },
+            {
+              "instance_id": 1,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                2,
+                3
+              ],
+              "first_detection_interval": [
+                3,
+                4
+              ],
+              "confirmation_interval": [
+                3,
+                4
+              ],
+              "evidence_sources": [
+                {
+                  "t": 4,
+                  "presence": 0.9966305494308472,
+                  "start": 0.013100151903927326,
+                  "new_ink": 0.25995174050331116
+                },
+                {
+                  "t": 3,
+                  "presence": 0.4291183352470398,
+                  "start": 0.6876964569091797,
+                  "new_ink": 0.29429754614830017
+                },
+                {
+                  "t": 4,
+                  "presence": 0.9966305494308472,
+                  "start": 0.013100151903927326,
+                  "new_ink": 0.25995174050331116
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9840683341026306,
+              "geometry_state": 2,
+              "confirmation_rule": "previous_start_change_current_presence"
+            },
+            {
+              "instance_id": 2,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                4,
+                5
+              ],
+              "first_detection_interval": [
+                4,
+                5
+              ],
+              "confirmation_interval": [
+                4,
+                5
+              ],
+              "evidence_sources": [
+                {
+                  "t": 5,
+                  "presence": 0.9901415705680847,
+                  "start": 0.8381038904190063,
+                  "new_ink": 0.32497498393058777
+                },
+                {
+                  "t": 5,
+                  "presence": 0.9901415705680847,
+                  "start": 0.8381038904190063,
+                  "new_ink": 0.32497498393058777
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9590213894844055,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            },
+            {
+              "instance_id": 3,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                13,
+                16
+              ],
+              "first_detection_interval": [
+                15,
+                16
+              ],
+              "confirmation_interval": [
+                16,
+                17
+              ],
+              "evidence_sources": [
+                {
+                  "t": 16,
+                  "presence": 0.6412204504013062,
+                  "start": 0.034394897520542145,
+                  "new_ink": 0.23936522006988525
+                },
+                {
+                  "t": 17,
+                  "presence": 0.9958167672157288,
+                  "start": 0.036071959882974625,
+                  "new_ink": 0.1734512448310852
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9789410829544067,
+              "geometry_state": 2,
+              "confirmation_rule": "persistent_presence_and_change"
+            },
+            {
+              "instance_id": 4,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                19,
+                20
+              ],
+              "first_detection_interval": [
+                19,
+                20
+              ],
+              "confirmation_interval": [
+                19,
+                20
+              ],
+              "evidence_sources": [
+                {
+                  "t": 20,
+                  "presence": 0.9996548891067505,
+                  "start": 0.6931289434432983,
+                  "new_ink": 0.2386319935321808
+                },
+                {
+                  "t": 20,
+                  "presence": 0.9996548891067505,
+                  "start": 0.6931289434432983,
+                  "new_ink": 0.2386319935321808
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9455757141113281,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            }
+          ],
+          "instance_event_status": [
+            "confirmed",
+            "confirmed",
+            "confirmed",
+            "confirmed",
+            "confirmed"
+          ],
+          "audit": [
+            {
+              "event": "candidate_created",
+              "instance_id": 0,
+              "t": 1,
+              "possible_interval": [
+                0,
+                1
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 0,
+              "t": 1,
+              "possible_interval": [
+                0,
+                1
+              ],
+              "rule": "simultaneous_presence_start_change"
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 1,
+              "t": 4,
+              "possible_interval": [
+                2,
+                4
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 1,
+              "t": 4,
+              "possible_interval": [
+                2,
+                3
+              ],
+              "rule": "previous_start_change_current_presence"
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 2,
+              "t": 5,
+              "possible_interval": [
+                3,
+                5
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 2,
+              "t": 5,
+              "possible_interval": [
+                4,
+                5
+              ],
+              "rule": "simultaneous_presence_start_change"
+            },
+            {
+              "event": "presence_without_onset_support",
+              "instance_id": 4,
+              "t": 15,
+              "possible_interval": [
+                14,
+                15
+              ]
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 3,
+              "t": 16,
+              "possible_interval": [
+                13,
+                16
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 3,
+              "t": 17,
+              "possible_interval": [
+                13,
+                16
+              ],
+              "rule": "persistent_presence_and_change"
+            },
+            {
+              "event": "candidate_rejected",
+              "instance_id": 4,
+              "t": 17,
+              "reason": "three_signals_below_threshold",
+              "rejected": {
+                "instance_id": 4,
+                "status": "ambiguous",
+                "possible_onset_interval": [
+                  14,
+                  15
+                ],
+                "first_detection_interval": [
+                  14,
+                  15
+                ],
+                "confirmation_interval": null,
+                "evidence_sources": [
+                  {
+                    "t": 15,
+                    "presence": 0.5320155024528503,
+                    "start": 0.058166757225990295,
+                    "new_ink": 0.001124041504226625
+                  }
+                ],
+                "direction": "forward",
+                "last_observed_progress": 0.2857377827167511,
+                "geometry_state": 1
+              }
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 4,
+              "t": 20,
+              "possible_interval": [
+                19,
+                20
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 4,
+              "t": 20,
+              "possible_interval": [
+                19,
+                20
+              ],
+              "rule": "simultaneous_presence_start_change"
+            }
+          ],
+          "decision": {
+            "first_error": null,
+            "error_type": null,
+            "next_legal": null,
+            "action": "end_ink_task"
+          },
+          "ledger_data_bytes": 5051
+        },
+        "truth": {
+          "event_order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "observed_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "progress": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "direction": [
+            "forward",
+            "forward",
+            "forward",
+            "forward",
+            "forward"
+          ],
+          "onset_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              2,
+              3
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              14
+            ],
+            "4": [
+              19,
+              20
+            ]
+          },
+          "confirmed_precedence": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "unresolved_order_groups": [],
+          "uncertainty_reason": null
+        },
+        "truth_geometry": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "truth_progress": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "truth_decision": {
+          "first_error": null,
+          "error_type": null,
+          "next_legal": null,
+          "action": "end_ink_task"
+        },
+        "order_correct": true,
+        "decision_correct": true,
+        "inference_seconds": 6.812500214437023e-05
+      },
+      "events": [
+        {
+          "id": "test-cross-q5-02-correct",
+          "group": "test-cross-q5-02",
+          "family": "cross",
+          "q": 5,
+          "region": "A1",
+          "instance": 0,
+          "true_interval": [
+            0,
+            1
+          ],
+          "mask_iou": 1.0,
+          "true_onset_signal": {
+            "presence": 0.944993793964386,
+            "start": 0.9913250207901001,
+            "new_ink": 0.46414971351623535
+          },
+          "true_onset_fine_rgb_new": 0.5017793774604797,
+          "true_onset_coarse_rgb_new": 0.34127020835876465,
+          "L0_interval": [
+            0,
+            1
+          ],
+          "L1_interval": [
+            0,
+            1
+          ],
+          "L1_first_detection": [
+            0,
+            1
+          ],
+          "L1_confirmation": [
+            0,
+            1
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.944993793964386,
+            "start": 0.9913250207901001,
+            "new_ink": 0.46414971351623535
+          }
+        },
+        {
+          "id": "test-cross-q5-02-correct",
+          "group": "test-cross-q5-02",
+          "family": "cross",
+          "q": 5,
+          "region": "A1",
+          "instance": 1,
+          "true_interval": [
+            2,
+            3
+          ],
+          "mask_iou": 0.6666666865348816,
+          "true_onset_signal": {
+            "presence": 0.4291183352470398,
+            "start": 0.6876964569091797,
+            "new_ink": 0.29429754614830017
+          },
+          "true_onset_fine_rgb_new": 0.45980706810951233,
+          "true_onset_coarse_rgb_new": 0.1943366676568985,
+          "L0_interval": [
+            3,
+            4
+          ],
+          "L1_interval": [
+            2,
+            3
+          ],
+          "L1_first_detection": [
+            3,
+            4
+          ],
+          "L1_confirmation": [
+            3,
+            4
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9966305494308472,
+            "start": 0.013100151903927326,
+            "new_ink": 0.25995174050331116
+          }
+        },
+        {
+          "id": "test-cross-q5-02-correct",
+          "group": "test-cross-q5-02",
+          "family": "cross",
+          "q": 5,
+          "region": "A1",
+          "instance": 2,
+          "true_interval": [
+            4,
+            5
+          ],
+          "mask_iou": 0.75,
+          "true_onset_signal": {
+            "presence": 0.9901415705680847,
+            "start": 0.8381038904190063,
+            "new_ink": 0.32497498393058777
+          },
+          "true_onset_fine_rgb_new": 0.4555160105228424,
+          "true_onset_coarse_rgb_new": 0.23311321437358856,
+          "L0_interval": [
+            4,
+            5
+          ],
+          "L1_interval": [
+            4,
+            5
+          ],
+          "L1_first_detection": [
+            4,
+            5
+          ],
+          "L1_confirmation": [
+            4,
+            5
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9901415705680847,
+            "start": 0.8381038904190063,
+            "new_ink": 0.32497498393058777
+          }
+        },
+        {
+          "id": "test-cross-q5-02-correct",
+          "group": "test-cross-q5-02",
+          "family": "cross",
+          "q": 5,
+          "region": "A1",
+          "instance": 3,
+          "true_interval": [
+            13,
+            14
+          ],
+          "mask_iou": 0.9523809552192688,
+          "true_onset_signal": {
+            "presence": 0.005250275135040283,
+            "start": 0.022056760266423225,
+            "new_ink": 0.16982735693454742
+          },
+          "true_onset_fine_rgb_new": 0.20900321006774902,
+          "true_onset_coarse_rgb_new": 0.13897477090358734,
+          "L0_interval": [
+            15,
+            16
+          ],
+          "L1_interval": [
+            13,
+            16
+          ],
+          "L1_first_detection": [
+            15,
+            16
+          ],
+          "L1_confirmation": [
+            16,
+            17
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.6412204504013062,
+            "start": 0.034394897520542145,
+            "new_ink": 0.23936522006988525
+          }
+        },
+        {
+          "id": "test-cross-q5-02-correct",
+          "group": "test-cross-q5-02",
+          "family": "cross",
+          "q": 5,
+          "region": "A1",
+          "instance": 4,
+          "true_interval": [
+            19,
+            20
+          ],
+          "mask_iou": 0.2857142984867096,
+          "true_onset_signal": {
+            "presence": 0.9996548891067505,
+            "start": 0.6931289434432983,
+            "new_ink": 0.2386319935321808
+          },
+          "true_onset_fine_rgb_new": 0.2508038580417633,
+          "true_onset_coarse_rgb_new": 0.17483922839164734,
+          "L0_interval": [
+            14,
+            15
+          ],
+          "L1_interval": [
+            19,
+            20
+          ],
+          "L1_first_detection": [
+            19,
+            20
+          ],
+          "L1_confirmation": [
+            19,
+            20
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9996548891067505,
+            "start": 0.6931289434432983,
+            "new_ink": 0.2386319935321808
+          }
+        }
+      ]
+    },
+    {
+      "record": {
+        "method": "E11",
+        "id": "test-close-q5-02-mergedA",
+        "group": "test-close-q5-02",
+        "family": "close",
+        "split": "test",
+        "variant": "mergedA",
+        "q": 5,
+        "t": 23,
+        "timestamp": 3.8333333333333335,
+        "prediction": {
+          "observed_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "event_order": null,
+          "progress": [
+            0.9832231402397156,
+            0.9768083095550537,
+            0.9779331684112549,
+            0.9760362505912781,
+            0.9327630996704102
+          ],
+          "geometry_state": [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "direction": [
+            "forward",
+            "forward",
+            "forward",
+            "forward",
+            "forward"
+          ],
+          "onset_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              4,
+              5
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              14
+            ],
+            "4": [
+              19,
+              20
+            ]
+          },
+          "first_detection_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              4,
+              5
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              14
+            ],
+            "4": [
+              19,
+              20
+            ]
+          },
+          "confirmation_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              4,
+              5
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              14
+            ],
+            "4": [
+              19,
+              20
+            ]
+          },
+          "confirmed_precedence": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "unresolved_order_groups": [
+            [
+              1,
+              2
+            ]
+          ],
+          "uncertain_instance_ids": [],
+          "uncertainty_reason": "merged_onset_interval",
+          "observation_confidence": 0.0,
+          "pen_lift_evidence": "unknown",
+          "recovery": "review_past_observations_or_request_denser_sampling",
+          "physical_irrecoverability": "not_established_by_learned_detections",
+          "ledger": [
+            {
+              "instance_id": 0,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                0,
+                1
+              ],
+              "first_detection_interval": [
+                0,
+                1
+              ],
+              "confirmation_interval": [
+                0,
+                1
+              ],
+              "evidence_sources": [
+                {
+                  "t": 1,
+                  "presence": 0.9999974966049194,
+                  "start": 1.0,
+                  "new_ink": 0.6523236036300659
+                },
+                {
+                  "t": 1,
+                  "presence": 0.9999974966049194,
+                  "start": 1.0,
+                  "new_ink": 0.6523236036300659
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9832231402397156,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            },
+            {
+              "instance_id": 1,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                4,
+                5
+              ],
+              "first_detection_interval": [
+                4,
+                5
+              ],
+              "confirmation_interval": [
+                4,
+                5
+              ],
+              "evidence_sources": [
+                {
+                  "t": 5,
+                  "presence": 0.9942772388458252,
+                  "start": 0.8873279094696045,
+                  "new_ink": 0.26469260454177856
+                },
+                {
+                  "t": 5,
+                  "presence": 0.9942772388458252,
+                  "start": 0.8873279094696045,
+                  "new_ink": 0.26469260454177856
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9768083095550537,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            },
+            {
+              "instance_id": 2,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                4,
+                5
+              ],
+              "first_detection_interval": [
+                4,
+                5
+              ],
+              "confirmation_interval": [
+                4,
+                5
+              ],
+              "evidence_sources": [
+                {
+                  "t": 5,
+                  "presence": 0.9999979734420776,
+                  "start": 0.9989458918571472,
+                  "new_ink": 0.5128931999206543
+                },
+                {
+                  "t": 5,
+                  "presence": 0.9999979734420776,
+                  "start": 0.9989458918571472,
+                  "new_ink": 0.5128931999206543
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9779331684112549,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            },
+            {
+              "instance_id": 3,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                13,
+                14
+              ],
+              "first_detection_interval": [
+                13,
+                14
+              ],
+              "confirmation_interval": [
+                13,
+                14
+              ],
+              "evidence_sources": [
+                {
+                  "t": 14,
+                  "presence": 0.9999926686286926,
+                  "start": 0.9948530793190002,
+                  "new_ink": 0.16091687977313995
+                },
+                {
+                  "t": 14,
+                  "presence": 0.9999926686286926,
+                  "start": 0.9948530793190002,
+                  "new_ink": 0.16091687977313995
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9760362505912781,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            },
+            {
+              "instance_id": 4,
+              "status": "confirmed",
+              "possible_onset_interval": [
+                19,
+                20
+              ],
+              "first_detection_interval": [
+                19,
+                20
+              ],
+              "confirmation_interval": [
+                19,
+                20
+              ],
+              "evidence_sources": [
+                {
+                  "t": 20,
+                  "presence": 0.9996261596679688,
+                  "start": 0.9312567710876465,
+                  "new_ink": 0.17686428129673004
+                },
+                {
+                  "t": 20,
+                  "presence": 0.9996261596679688,
+                  "start": 0.9312567710876465,
+                  "new_ink": 0.17686428129673004
+                }
+              ],
+              "direction": "forward",
+              "last_observed_progress": 0.9327630996704102,
+              "geometry_state": 2,
+              "confirmation_rule": "simultaneous_presence_start_change"
+            }
+          ],
+          "instance_event_status": [
+            "confirmed",
+            "confirmed",
+            "confirmed",
+            "confirmed",
+            "confirmed"
+          ],
+          "audit": [
+            {
+              "event": "candidate_created",
+              "instance_id": 0,
+              "t": 1,
+              "possible_interval": [
+                0,
+                1
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 0,
+              "t": 1,
+              "possible_interval": [
+                0,
+                1
+              ],
+              "rule": "simultaneous_presence_start_change"
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 1,
+              "t": 5,
+              "possible_interval": [
+                4,
+                5
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 1,
+              "t": 5,
+              "possible_interval": [
+                4,
+                5
+              ],
+              "rule": "simultaneous_presence_start_change"
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 2,
+              "t": 5,
+              "possible_interval": [
+                4,
+                5
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 2,
+              "t": 5,
+              "possible_interval": [
+                4,
+                5
+              ],
+              "rule": "simultaneous_presence_start_change"
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 3,
+              "t": 14,
+              "possible_interval": [
+                13,
+                14
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 3,
+              "t": 14,
+              "possible_interval": [
+                13,
+                14
+              ],
+              "rule": "simultaneous_presence_start_change"
+            },
+            {
+              "event": "candidate_created",
+              "instance_id": 4,
+              "t": 20,
+              "possible_interval": [
+                19,
+                20
+              ]
+            },
+            {
+              "event": "candidate_confirmed",
+              "instance_id": 4,
+              "t": 20,
+              "possible_interval": [
+                19,
+                20
+              ],
+              "rule": "simultaneous_presence_start_change"
+            }
+          ],
+          "decision": {
+            "first_error": null,
+            "error_type": "unobservable",
+            "next_legal": null,
+            "action": "request_observation"
+          },
+          "ledger_data_bytes": 4332
+        },
+        "truth": {
+          "event_order": null,
+          "observed_ids": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "progress": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "direction": [
+            "unknown",
+            "unknown",
+            "forward",
+            "forward",
+            "forward"
+          ],
+          "onset_intervals": {
+            "0": [
+              0,
+              1
+            ],
+            "1": [
+              0,
+              1
+            ],
+            "2": [
+              4,
+              5
+            ],
+            "3": [
+              13,
+              14
+            ],
+            "4": [
+              19,
+              20
+            ]
+          },
+          "confirmed_precedence": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "unresolved_order_groups": [
+            [
+              0,
+              1
+            ]
+          ],
+          "uncertainty_reason": "merged_onset_interval"
+        },
+        "truth_geometry": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "truth_progress": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "truth_decision": {
+          "first_error": null,
+          "error_type": "unobservable",
+          "next_legal": null,
+          "action": "request_observation"
+        },
+        "order_correct": true,
+        "decision_correct": true,
+        "inference_seconds": 7.283300146809779e-05
+      },
+      "events": [
+        {
+          "id": "test-close-q5-02-mergedA",
+          "group": "test-close-q5-02",
+          "family": "close",
+          "q": 5,
+          "region": "A1",
+          "instance": 0,
+          "true_interval": [
+            0,
+            1
+          ],
+          "mask_iou": 0.8823529481887817,
+          "true_onset_signal": {
+            "presence": 0.9999974966049194,
+            "start": 1.0,
+            "new_ink": 0.6523236036300659
+          },
+          "true_onset_fine_rgb_new": 1.0,
+          "true_onset_coarse_rgb_new": 0.4230947494506836,
+          "L0_interval": [
+            0,
+            1
+          ],
+          "L1_interval": [
+            0,
+            1
+          ],
+          "L1_first_detection": [
+            0,
+            1
+          ],
+          "L1_confirmation": [
+            0,
+            1
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9999974966049194,
+            "start": 1.0,
+            "new_ink": 0.6523236036300659
+          }
+        },
+        {
+          "id": "test-close-q5-02-mergedA",
+          "group": "test-close-q5-02",
+          "family": "close",
+          "q": 5,
+          "region": "A1",
+          "instance": 1,
+          "true_interval": [
+            0,
+            1
+          ],
+          "mask_iou": 0.4838709533214569,
+          "true_onset_signal": {
+            "presence": 0.021050572395324707,
+            "start": 0.9997928738594055,
+            "new_ink": 0.504402756690979
+          },
+          "true_onset_fine_rgb_new": 1.0,
+          "true_onset_coarse_rgb_new": 0.5965427160263062,
+          "L0_interval": [
+            4,
+            5
+          ],
+          "L1_interval": [
+            4,
+            5
+          ],
+          "L1_first_detection": [
+            4,
+            5
+          ],
+          "L1_confirmation": [
+            4,
+            5
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9942772388458252,
+            "start": 0.8873279094696045,
+            "new_ink": 0.26469260454177856
+          }
+        },
+        {
+          "id": "test-close-q5-02-mergedA",
+          "group": "test-close-q5-02",
+          "family": "close",
+          "q": 5,
+          "region": "A1",
+          "instance": 2,
+          "true_interval": [
+            4,
+            5
+          ],
+          "mask_iou": 0.8823529481887817,
+          "true_onset_signal": {
+            "presence": 0.9999979734420776,
+            "start": 0.9989458918571472,
+            "new_ink": 0.5128931999206543
+          },
+          "true_onset_fine_rgb_new": 0.5019454956054688,
+          "true_onset_coarse_rgb_new": 0.3959752023220062,
+          "L0_interval": [
+            4,
+            5
+          ],
+          "L1_interval": [
+            4,
+            5
+          ],
+          "L1_first_detection": [
+            4,
+            5
+          ],
+          "L1_confirmation": [
+            4,
+            5
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9999979734420776,
+            "start": 0.9989458918571472,
+            "new_ink": 0.5128931999206543
+          }
+        },
+        {
+          "id": "test-close-q5-02-mergedA",
+          "group": "test-close-q5-02",
+          "family": "close",
+          "q": 5,
+          "region": "A1",
+          "instance": 3,
+          "true_interval": [
+            13,
+            14
+          ],
+          "mask_iou": 0.39393940567970276,
+          "true_onset_signal": {
+            "presence": 0.9999926686286926,
+            "start": 0.9948530793190002,
+            "new_ink": 0.16091687977313995
+          },
+          "true_onset_fine_rgb_new": 0.25190839171409607,
+          "true_onset_coarse_rgb_new": 0.10166342556476593,
+          "L0_interval": [
+            13,
+            14
+          ],
+          "L1_interval": [
+            13,
+            14
+          ],
+          "L1_first_detection": [
+            13,
+            14
+          ],
+          "L1_confirmation": [
+            13,
+            14
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9999926686286926,
+            "start": 0.9948530793190002,
+            "new_ink": 0.16091687977313995
+          }
+        },
+        {
+          "id": "test-close-q5-02-mergedA",
+          "group": "test-close-q5-02",
+          "family": "close",
+          "q": 5,
+          "region": "A1",
+          "instance": 4,
+          "true_interval": [
+            19,
+            20
+          ],
+          "mask_iou": 0.6764705777168274,
+          "true_onset_signal": {
+            "presence": 0.9996261596679688,
+            "start": 0.9312567710876465,
+            "new_ink": 0.17686428129673004
+          },
+          "true_onset_fine_rgb_new": 0.25196850299835205,
+          "true_onset_coarse_rgb_new": 0.1048654243350029,
+          "L0_interval": [
+            19,
+            20
+          ],
+          "L1_interval": [
+            19,
+            20
+          ],
+          "L1_first_detection": [
+            19,
+            20
+          ],
+          "L1_confirmation": [
+            19,
+            20
+          ],
+          "L1_status": "confirmed",
+          "first_detection_signal": {
+            "presence": 0.9996261596679688,
+            "start": 0.9312567710876465,
+            "new_ink": 0.17686428129673004
+          }
+        }
+      ]
+    }
+  ],
+  "constraints": "Read-only analysis of fixed Test outputs; no changed method, threshold, checkpoint or primary score. Geometry intervals condition on one trained seed."
+}

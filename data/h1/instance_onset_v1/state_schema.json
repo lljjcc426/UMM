@@ -1,0 +1,19 @@
+{
+  "instance_ids": "0-based specified reference instances; actual history is never completed from their normative order",
+  "instance_event_status": ["unseen", "candidate", "confirmed", "ambiguous"],
+  "event_order": "unique ordered list of all actually detected instances only when the ledger confirms it; null when uncertainty remains; detection omissions are still possible",
+  "possible_onset_interval": "(left,right] in observation indices; adjacent (a,b] and (b,c] can be ordered; null left means no reliable initial lower bound",
+  "first_detection_interval": "the observation interval when presence first created this current record; separate from possible onset and confirmation",
+  "confirmation_interval": "when sufficient evidence confirmed the current event hypothesis; null for candidate/ambiguous",
+  "evidence_sources": "observed M1 presence/start and pooled B change values with their times; correlated scores, not independent probabilities",
+  "confirmed_precedence": "only pairs with confirmed identity and strictly separated possible onset intervals",
+  "unresolved_order_groups": "maximal sets of mutually unresolved relations; interval-overlap uncertainty need not be transitive",
+  "uncertainty_reason": ["merged_onset_interval", "uncertain_instance_binding", "uncertain_onset_detection", "insufficient_history", null],
+  "physical_irrecoverability": "not established by learned detections; an inferred merged interval does not itself prove physically lost observations",
+  "audit": "candidate creation, explicit rejection, confirmation and conflicts; earlier returned snapshots are immutable; confirmed events are not silently reordered",
+  "geometry_state": "0 absent / 1 partial / 2 full, fixed M1 prediction, scored independently",
+  "progress": "raw continuous fixed M1 prediction; disagreement with geometry class is reported",
+  "observation_confidence": "deterministic evidence flag, not calibrated answer correctness",
+  "decision": "unchanged T6 rule D using class-derived completion and the predicted history",
+  "scope": "T7 candidate interface only. Current onset, partial-order and progress failures prevent trusted H2 use."
+}

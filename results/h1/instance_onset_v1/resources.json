@@ -1,0 +1,65 @@
+{
+  "UMM": {
+    "encoded": 1396,
+    "seconds": 3185.5231807499986,
+    "parameters": 3063740640,
+    "umm_updated_parameters": 0,
+    "shards": 90,
+    "method": "Unchanged T6 StateImageEncoder: CPU fp32 VAE, MPS bf16 fusion, native27, seed0 per image"
+  },
+  "A_training": {
+    "A0": {
+      "selected_epoch": 8,
+      "updates": 480,
+      "epochs": 12,
+      "image_exposures": 3840,
+      "parameters": 2051074,
+      "B_updated": 0,
+      "M1_updated": 0,
+      "UMM_updated": 0,
+      "seconds": 17.872314374999405,
+      "selection": "minimum common dev_base"
+    },
+    "A1": {
+      "selected_epoch": 12,
+      "updates": 480,
+      "epochs": 12,
+      "image_exposures": 3840,
+      "parameters": 2051074,
+      "B_updated": 0,
+      "M1_updated": 0,
+      "UMM_updated": 0,
+      "seconds": 19.11242879099882,
+      "selection": "minimum common dev_base"
+    }
+  },
+  "compact_train_dev": 26.556623875003424,
+  "formal_test": {
+    "seconds": 16.421377833001316,
+    "clips": 135,
+    "decision_records": 2430,
+    "exact_merged_prediction_checks": 180,
+    "all_passed": true,
+    "training_updates": 0
+  },
+  "feature_cache_bytes": 3325793432,
+  "local_weights_excluded_from_git": true,
+  "trainable_parameters_per_condition": 2051074,
+  "B_parameters": 71395,
+  "M1_parameters": 1104653,
+  "UMM_updated": 0,
+  "B_updated": 0,
+  "M1_updated": 0,
+  "head_sequence_mean_seconds": {
+    "A0": 0.000527199740840674,
+    "A1": 0.0005293552221566507,
+    "Oracle": 0.0005348416742452644
+  },
+  "RAM": "M5 16GiB run completed. Unified CPU/MPS peak was not instrumented; process RSS is not total unified memory.",
+  "memory_limitations": "Ledger JSON footprint excludes Python/runtime and common visual scratch. Audit log grows with event hypotheses; no general constant-memory or end-to-end acceleration claim.",
+  "plotting": {
+    "library": "Matplotlib",
+    "version": "3.10.7",
+    "model_results_changed": false
+  }
+}

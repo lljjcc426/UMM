@@ -1,6 +1,6 @@
 # 实验计划
 
-H1-T7按T7-1→T7-6执行：冻结归因→新数据与预注册→等预算A0/A1→Train/Dev固定L1→2×2测试→决策。[T7-1归因](../../results/h1/instance_onset_v1/T7_1_ATTRIBUTION.md)完成，无训练；T6结果不用于本轮模型选择。
+H1-T7已按T7-1→T7-6完成，结论REVISE：[最终决策](../../results/h1/instance_onset_v1/T7_DECISION.md)。90独立几何、A0/A1等预算、固定B/M1/UMM，E11未提高相对E00的整体配对。当前停止本轮训练，下一项须另行预注册正确区域下的起笔证据与候选区间；H2/H3未开展。
 
 SO-01-V3-T6已完成：[早期历史记忆协议](../experiments/h1_t6_early_history_protocol.md)。T6-1至T6-5按序完成；冻结Show-o2，结论REVISE，优先显式记忆与起笔读取。见[完整决策](../../results/h1/early_history_v1/T6_DECISION.md)，本批停止训练，H2／H3未开展。
 
@@ -8,6 +8,7 @@ SO-01-V3-T6已完成：[早期历史记忆协议](../experiments/h1_t6_early_his
 
 | ID | 任务 | 当前状态 | 输入与主要对照 | 主要指标与判断条件 |
 |---|---|---|---|---|
+| H1-T7 | 实例绑定与起笔确认 | 已完成，REVISE | 相同冻结UMM/B/M1，A0/A1×L0/L1，两个正确区域诊断 | 30测试几何，45对×3；A1匹配92.5%，E11配对77.04%、正确覆盖82.22%、未定组87.78% |
 | SO-01-V3-T6 | 相同最近输入下的早期历史记忆 | 已完成，REVISE | 同一冻结UMM与A+B；局部头、Full／4／8帧、预测／oracle Ledger | 20测试几何、40对×3决策；Full16.7%、Ledger77.5%、正确区域Ledger100%；未知与部分关系分报 |
 | SO-01-V3 | 实际事件模块与时序机制 | T1—T5首批完成；本批停止训练 | 冻结Show-o2；A+B+C+D；B0／末帧／普通头／oracle／五项消融，固定20组几何 | [完整结果](../../results/h1/event_v3/T4/REPORT.md)：B4顺序95.33%对B3 98%，实例7/11，未知21/25；尚未正式验收 |
 | PX-01 | 同终态像素过程反例 | 已完成，8个受控案例 | 规则渲染后只读像素与模板；无学习模型 | 顺序、方向、完成先后、低采样歧义；[结果与限制](../experiments/process_probe.md) |

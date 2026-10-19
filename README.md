@@ -8,11 +8,13 @@
 
 暂定题目：**实际笔顺理解驱动的统一多模态中文书写视频生成**。
 
-通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1-v3 T6早期历史记忆实验已完成，决定REVISE；完整H1尚未通过，H2与H3未开始。** 本批为冻结Show-o2特征上的独立事件读取，不能称为UMM联合训练改善。见[T6决策](results/h1/early_history_v1/T6_DECISION.md)与[此前T5决策](results/h1/event_v3/T5_DECISION.md)。
+通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1-T7实例绑定与起笔确认实验已完成，决定REVISE；完整H1尚未通过，H2与H3未开始。** 本批为冻结Show-o2特征上的独立事件读取，不能称为UMM联合训练改善。见[T7决策](results/h1/instance_onset_v1/T7_DECISION.md)、[T6决策](results/h1/early_history_v1/T6_DECISION.md)与[此前T5决策](results/h1/event_v3/T5_DECISION.md)。
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 
-最新T6：固定20／8／20独立几何组、24观察，主测试每个决策40个“最近输入相同、早期真实历史不同”配对。三决策合计，Full Transformer配对16.7%，预测事件表77.5%，同一局部头换用正确区域的事件表100%。Full与Ledger未知召回均100%，但Ledger回答覆盖83.3%、未定组完全正确85%；当前优先修复近邻实例绑定和首次起笔读取，保持UMM冻结。全部预算和失败见[T6结果入口](results/h1/early_history_v1/README.md)与[预注册协议](docs/experiments/h1_t6_early_history_protocol.md)。
+最新T7：90独立几何、3/5笔混合，A0/A1等预算各480更新，B、M1与UMM冻结。A1实例匹配105→111/120（92.5%），但E11历史配对77.04%，E00为77.78%；正确可用覆盖82.22%、未定组87.78%。正确区域仍有起笔漏读与候选区间冲突，下一项应先单独研究这个接口，本轮停止训练和规则修改。见[T7结果入口](results/h1/instance_onset_v1/README.md)与[协议](docs/experiments/h1_t7_protocol.md)。
+
+此前T6：固定20／8／20独立几何组、24观察，主测试每个决策40个“最近输入相同、早期真实历史不同”配对。三决策合计，Full Transformer配对16.7%，预测事件表77.5%，同一局部头换用正确区域的事件表100%。Full与Ledger未知召回均100%，但Ledger回答覆盖83.3%、未定组完全正确85%；当前优先修复近邻实例绑定和首次起笔读取，保持UMM冻结。全部预算和失败见[T6结果入口](results/h1/early_history_v1/README.md)与[预注册协议](docs/experiments/h1_t6_early_history_protocol.md)。
 
 此前T1—T5：固定20组几何／120段受控视频，测试30段。B4因果模块严格顺序95.33%，相同输入的无时序头B3为98%；同终态配对4/5对3/5，尚无稳定全面优势。实例定位仅7/11达到IoU.5，未知21/25；“三”的实际换序仍可能读成规范顺序。全部消融与失败已保留，本批停止训练。入口：[协议](docs/experiments/h1_v3_protocol.md) · [方法](docs/experiments/h1_v3_method.md) · [前作与边界](docs/experiments/RELATED_METHODS_AND_GAPS.md) · [完整结果](results/h1/event_v3/README.md)。1—4像素缺口继续独立保留，当前安排以v3协议为准。
 
