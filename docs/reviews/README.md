@@ -6,14 +6,14 @@
 
 | 编号 | 论文 | 核查范围 |
 | --- | --- | --- |
-| A01 | [DP-Font: Chinese Calligraphy Font Generation Using Diffusion Model and Physical Information Neural Network](A01.md) | 原始PDF方法、§4.1/4.4，第7页Tables2–3/Fig6视觉核对 |
-| A02 | [Decoupling Layout from Glyph in Online Chinese Handwriting Generation（OLHWG）](A02.md) | Abstract、§4.1–4.3、Table1/2、对比损失消融；附录参数未完整转录 |
-| A03 | [DiffInk: Glyph- and Style-Aware Latent Diffusion Transformer for Text to Online Handwriting Generation](A03.md) | §3–4；Table1/2；Appendix A、B.3/B.4 |
-| A04 | [Stroke Modeling Enables Vectorized Character Generation with Large Vectorized Glyph Model（LVGM）](A04.md) | 摘要、§3数据、§4两阶段表示、§5.1–5.5及§6限制；Table2/3文字，未逐图视觉验收 |
-| A05 | [Handwriting Trajectory Recovery with Diffusion Models](A05.md) | Abstract、§4.1/4.2、Table1；完整消融待读 |
+| A01 | [DP-Font: Chinese Calligraphy Font Generation Using Diffusion Model and Physical Information Neural Network](A01.md) | 正式PDF Abstract/Introduction、§3.1–3.3 Eq1–11、§4.1–4.4 Tables1–3与Conclusion，Fig2/3 PDFp4及此前p7表视觉核。未取得完整训练代码/权重，核心三遍与五项书面理解检查完成，报告缺项保留。 |
+| A02 | [Decoupling Layout from Glyph in Online Chinese Handwriting Generation（OLHWG）](A02.md) | 论文Abstract/§3.1–3.4 Eq1–6/Algorithms1–2、§4.1–4.3 Tables1–3、§5、AppA.2.1–4；Fig3 PDFp5视觉核。固定e1bed55 README、style_classifier.py45–93、train_ddpm指定训练段、unet_ddpm默认与layout配置已读。其余完整代码/权重未运行，核心三遍完成。 |
+| A03 | [DiffInk: Glyph- and Style-Aware Latent Diffusion Transformer for Text to Online Handwriting Generation](A03.md) | v3 Abstract/Introduction/§3完整核心方法/§4 Tables1–3；AppA/B1–4/C4/D2–6；正式proceedingsPDF相同核心公式、Tables1–4及配置段复核。Fig3 v3PDFp4视觉核；固定97bc6a README、dataset初始化/掩码、trainer训练与5/20步可视化、diffusion.noise_images、VAE指定路径与配置/启动脚本。未运行模型/全部benchmark，核心三遍完成。 |
+| A04 | [Stroke Modeling Enables Vectorized Character Generation with Large Vectorized Glyph Model（LVGM）](A04.md) | v1主文§3–6 Eq1–8与Tables1–3；WACV正式§3/4/5、Tables2/3及Supplement§1–3/Table1–4训练与几何公式复核；Fig4正式PDFp4/v1p5、v1p5两表视觉核。补充剩余示例图未逐图审，无模型运行，核心三遍完成。 |
+| A05 | [Handwriting Trajectory Recovery with Diffusion Models](A05.md) | v1 Abstract/Introduction、§3.1–3.3 Eq1–7、§4.1–4.7 Tables1–4与§5全部核心文字；Fig3PDFp7视觉核。其他案例图只读对应分析，未独立跑基线/模型；核心三遍与五项检查完成。 |
 | A06 | [Font Generation and Keypoint Ranking for Stroke Order of Chinese Characters by Deep Neural Networks](A06.md) | 出版社Abstract/正式书目信息；PDF转回订阅预览，未取得Method/Experiments全文 |
-| A07 | [Complex Handwriting Trajectory Recovery: Evaluation Metrics and Algorithm（PEN-Net）](A07.md) | Abstract、§5.1–5.3、Table1协议；结构消融待补 |
-| A08 | [Modality Conversion of Handwritten Patterns by Cross Variational Autoencoders（Cross-VAE）](A08.md) | 摘要、§II–III空间共享损失、§IV-A至D含TableI；未完成所有图像视觉核查 |
+| A07 | [Complex Handwriting Trajectory Recovery: Evaluation Metrics and Algorithm（PEN-Net）](A07.md) | arXiv Abstract/§3–6主文；ACCV正式§3.1/3.2/4.3及Tables1/2配置/结论复核，supp全文三页扰动/数据统计。Fig5/6 arXivPDFp9、正式p10软min与p13消融勾选视觉核。固定03bc591 README/tree、train.py指定训练段、配置及model.py1–185核心结构/前向/解码；公开默认解码另有取整与可选骨架吸附，未取得主表实际评估调用，未运行，核心三遍完成。 |
+| A08 | [Modality Conversion of Handwritten Patterns by Cross Variational Autoencoders（Cross-VAE）](A08.md) | arXivv1六页Abstract/Introduction/RelatedWork/§III–V含Eq1–9/TableI完整核心文字与Fig2PDFp3视觉核；主办ICDAR程序与作者PDF入口核。未逐图读所有示例、无训练源码/模型执行，核心三遍完成；缺失实验字段明确记未报告。 |
 | A09 | [Disentangling Writer and Character Styles for Handwriting Generation（SDT）](A09.md) | Abstract、§4.1设置；完整消融与训练附录待补 |
 | A10 | [Diffusion Models for Handwriting Generation](A10.md) | Abstract、§5.1、Table1及采样消融 |
 | A11 | [Stroke Extraction of Chinese Character Based on Deep Structure Deformable Image Registration](A11.md) | 摘要、方法三模块、实验数据/训练、Tables2–5及Limitations；代码未运行 |

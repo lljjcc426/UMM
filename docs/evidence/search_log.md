@@ -171,3 +171,8 @@ U26–U31读取固定版本PDF方法/选定结果与附录，U29p3/U30p4方法�
 ## 第三十批补充
 
 第三十批读取Visual-OPSD v6、LiveSVG v1、AniClipart IJCV正式版与VitaGlyph WACV2026正式版和v3指定补充，四图视觉核；固定三项Git代码/文档并逐处保留版本冲突。Datumwell固定HF提交审74文件表、十例manifest、特征/动作/转换协议及首例378原生时间戳。未获取受限200例、未跑模型。
+
+
+## 第三十一批补充
+
+第三十一批核七项完整核心方法/表/消融和框架图；补DiffInk ICLR2026、LVGM WACV2026、PEN-Net ACCV2022正式/补充，固定三库对比配置、mask与loss实现。主表/代码歧义保留。
