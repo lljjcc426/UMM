@@ -208,6 +208,14 @@
 | L158 | [OmniFlow: Any-to-Any Generation with Multi-Modal Rectified Flows](L158.md) | 正式§3.1任务/Algorithm1与3.2/3.3指定段、§4、§5.1–5.4 Tables1–4/§6；补充A.1–A.7及C/D/Table7、E4指定段。部分公式排版/全部图/其他附录/代码未全核，未复现 |
 | L159 | [M2-omni: Advancing Omni-MLLM for Comprehensive Modality Support with Competitive Performance](L159.md) | v3§2.1/2.2Table2/AT、§3.1/3.2/3.3、§4.1开头、§5.1指定部分/Table4/7、§5.3 Tables11/12。全部50页/细数据/公式代码/全部图未全核，未复现 |
 | L160 | [Ming-Omni: A Unified Multimodal Model for Perception and Generation](L160.md) | v1§2.1/2.3多尺度/2.4、§3.2.2/3.3/3.4、§4Table5/4.3指定段、内部评价定义；原版README图生成/硬件和config全字段核。不是全部论文/全部模块代码精读；未下载权重、未执行或复现 |
+| L161 | [Ming-Flash-Omni: A Sparse, Unified Architecture for Multimodal Perception and Generation](L161.md) | v3§2/§3指定数据、§4.1–4.3、Tables2–5指定行；官方README/当前HF模型卡及模态表核。全部附录/所有主表、模型执行代码未全审，未复现 |
+| L162 | [LongCat-Flash-Omni Technical Report](L162.md) | §2.1–2.4.1、§3.2指定阶段、§4.1训练/4.2DPO、§6流式、Tables8/14/15；HF卡部署/模态接口。全预训优化/其余评测/代码未全审，未复现 |
+| L163 | [ERNIE 5.0 Technical Report](L163.md) | §2.1/2.2视觉、§3.1/3.2、§6视觉Tables4–6、§6.4专家分析/弹性指定段；音频/完整后训练/附录及所有图未全读，未复现 |
+| L164 | [MUNI: Multimodal Unified Latent Diffusion for Coherent Any-to-Any Generation](L164.md) | §2/§3/§4、§6.1–6.3/Tables2–4、AppB LemmaB1/命题B2及假设/主要证明、AppD Tables5/6、AppE指定实现/Table7和Limitations。其余附录/全部图/代码未全审，未复现 |
+| L165 | [BagelVLA: Enhancing Long-Horizon Manipulation via Interleaved Vision-Language-Action Generation](L165.md) | PDF§3.1–3.5、§4 Tables1/3/4与指定分析、AppD训练/评价；28页全部图/附录/代码未全审，未复现 |
+| L166 | [WorldBagel: Uncovering the Power of Unified Multimodal Models for Vision-Language-Action-World Modeling](L166.md) | §3.1–3.5、§4.1/4.4与Tables2–4；AppA1–A4指定定理/证明、PDFp24视觉核。其他附录/全部图及代码未全审，未复现；反例为本次解析分析 |
+| L167 | [Vision as Unified Multimodal Generation](L167.md) | §3.1/3.2、§4、Tables1/3/5指定行、§5.6.1、§7.5发布统计；固定README/HF数据及模型卡指定段、TRAIN、PREP开头、YAML首任务/权重与launcher。其余48页、全部配置/代码未全审，未复现 |
+| L168 | [Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States](L168.md) | §3.1–3.3/多任务指定段、§4数据指定段、§5.1/Tables1/4/5指定行及Table6/§5.5、AppA2开头；官方Puffin树c6d9ae5e63bc79d5d01554235b7c1d3772c327c8根及World README训练说明。全部附录/配置/代码未全审，未复现 |
 | L169 | [InstructPix2Pix: Learning to Follow Image Editing Instructions](L169.md) | 正式§3/§4.1/4.2/§5，PDFp3Fig2与p7Fig8/10视觉核；补充B、C1–3、D指定部分。未全审数据manifest/所有补充图/代码，未复现 |
 | L170 | [Multimodal C4: An Open, Billion-scale Corpus of Images Interleaved with Text](L170.md) | §3数据获取/对齐/过滤、正式Table1/3、§4指定下游及§5；对应HTML指定方法/限制。全部图、附录、原始图片与训练代码未全审，未复现 |
 | L171 | [OBELICS: An Open Web-Scale Filtered Dataset of Interleaved Image-Text Documents](L171.md) | §3.1–3.5、§4.3人工审查、§5数据混合与Table2、HTML AppA4.1–4.3/Table6/7；未全读所有附录/图或执行训练，未复现 |

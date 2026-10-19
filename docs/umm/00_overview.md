@@ -130,3 +130,7 @@ UniFlow是一阶段语义codec重建/理解，并非凭零样本视频重建即�
 ## 交错文档及教师数据
 
 [第二十二批](../evidence/interleaved_data_editing_and_distillation_audit_2026-10-20.md)区分MMC4相似度分配、OBELICS网页结构、OmniCorpus关键帧故事板、CoMM连贯步骤及合成编辑数据。以上顺序均需与真实动作时间标注分别定义；可生成图序列的任务不能直接改称书写视频生成。
+
+## 全模态及动作世界接口
+
+[第二十三批](../evidence/omni_action_world_and_theory_audit_2026-10-20.md)区分Ming/LongCat的video输入、ERNIE视觉AR+扩散refiner、BagelVLA第三动作专家、WorldBagel两专家动作表示、SenseNova视觉标签生成以及Puffin相机几何。共享名称、专家重叠或“physics”一词不能代替任务接口和因果实验。

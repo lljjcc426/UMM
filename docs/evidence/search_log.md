@@ -138,3 +138,7 @@ UniFlow v2、InternVL-U v1、Mamoda2.5 v1、SenseNova-U1 v1、Rosetta v1读取�
 ## 2026-10-20 第二十二批
 
 读取L057及L169–L174指定PDF/HTML方法、实验、附录；IP2P正式p3框架/p7结果和消融、CoMM正式p4 Eq1视觉核。CoMM默认master，最初假定main返回404，随后读取master目录、README和图像指标代码，未找到数据筛选实现，不称全仓没有。OmniCorpus官方README核ICLR2025接收与CC/CW/YT资源；OpenReview验证页/正式PDF403未读。ShareGPT4o按论文给出的FreedomIntelligence地址定位官方固定提交，最初猜测组织地址404，不影响实际源已定位。
+
+## 2026-10-20 第二十三批
+
+读L161–L168固定版本方法/主表/指定附录，下载30/40/36/29/28/25/48/32页只表来源体量，不计全文完成。MUNI AppB假设/命题与WorldBagel AppA理论进一步核；WorldBagelp24视觉核后给常数函数积分反例。读取Ming/LongCat/SenseNova固定HF卡、SenseNovaTRAIN/YAML/launcher指定段、PuffinWorld发布README。未下载权重、未执行源码；PyYAML模块缺失后直接读取配置文本，没有安装依赖或增加测试。

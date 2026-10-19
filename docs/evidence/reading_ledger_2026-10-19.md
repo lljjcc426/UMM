@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 277 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 285 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -265,14 +265,14 @@
 | L158 | OmniFlow: Any-to-Any Generation with Multi-Modal Rectified Flows | primary_sections_read | [结构化分析](../reviews/L158.md) | 未完成 |
 | L159 | M2-omni: Advancing Omni-MLLM for Comprehensive Modality Support with Competitive Performance | primary_sections_read | [结构化分析](../reviews/L159.md) | 未完成 |
 | L160 | Ming-Omni: A Unified Multimodal Model for Perception and Generation | primary_sections_read | [结构化分析](../reviews/L160.md) | 未完成 |
-| L161 | Ming-Flash-Omni: A Sparse, Unified Architecture for Multimodal Perception and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L162 | LongCat-Flash-Omni Technical Report | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L163 | ERNIE 5.0 Technical Report | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L164 | MUNI: Multimodal Unified Latent Diffusion for Coherent Any-to-Any Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L165 | BagelVLA: Enhancing Long-Horizon Manipulation via Interleaved Vision-Language-Action Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L166 | WorldBagel: Uncovering the Power of Unified Multimodal Models for Vision-Language-Action-World Modeling | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L167 | Vision as Unified Multimodal Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L168 | Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L161 | Ming-Flash-Omni: A Sparse, Unified Architecture for Multimodal Perception and Generation | primary_sections_read | [结构化分析](../reviews/L161.md) | 未完成 |
+| L162 | LongCat-Flash-Omni Technical Report | primary_sections_read | [结构化分析](../reviews/L162.md) | 未完成 |
+| L163 | ERNIE 5.0 Technical Report | primary_sections_read | [结构化分析](../reviews/L163.md) | 未完成 |
+| L164 | MUNI: Multimodal Unified Latent Diffusion for Coherent Any-to-Any Generation | primary_sections_read | [结构化分析](../reviews/L164.md) | 未完成 |
+| L165 | BagelVLA: Enhancing Long-Horizon Manipulation via Interleaved Vision-Language-Action Generation | primary_sections_read | [结构化分析](../reviews/L165.md) | 未完成 |
+| L166 | WorldBagel: Uncovering the Power of Unified Multimodal Models for Vision-Language-Action-World Modeling | primary_sections_read | [结构化分析](../reviews/L166.md) | 未完成 |
+| L167 | Vision as Unified Multimodal Generation | primary_sections_read | [结构化分析](../reviews/L167.md) | 未完成 |
+| L168 | Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States | primary_sections_read | [结构化分析](../reviews/L168.md) | 未完成 |
 | L169 | InstructPix2Pix: Learning to Follow Image Editing Instructions | primary_sections_read | [结构化分析](../reviews/L169.md) | 五项检查已记录 |
 | L170 | Multimodal C4: An Open, Billion-scale Corpus of Images Interleaved with Text | primary_sections_read | [结构化分析](../reviews/L170.md) | 未完成 |
 | L171 | OBELICS: An Open Web-Scale Filtered Dataset of Interleaved Image-Text Documents | primary_sections_read | [结构化分析](../reviews/L171.md) | 未完成 |
