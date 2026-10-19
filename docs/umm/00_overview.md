@@ -106,3 +106,7 @@ BLIP3o8B公开权重与含私有数据论文版分数不同；OpenUni冻结VLM�
 ## 原生像素与共享路由
 
 UniFlow是一阶段语义codec重建/理解，并非凭零样本视频重建即可称文字生成视频；SenseNova-U1原生像素和Mamoda2.5额外编码器的依赖不同。Rosetta早任务分数仍有下降；梯度投影相对动量，不能推出任意旧任务都不遗忘。见[条件审查](../evidence/native_pixels_video_moe_and_projection_audit_2026-10-20.md)。
+
+## 后训练协同的归因
+
+本批区分语义配对、自采样SFT、双DPO、GRPO与多轮编辑。HermesFlow正式.64→.69且genDPO.70更高；UniCorn/GvU均有理解子项下降；R3理解增益限相关域。PairUni BAGEL扩展实际为SFT。见[原文/理论/实现审查](../evidence/paired_preferences_self_supervision_and_claims_2026-10-20.md)。

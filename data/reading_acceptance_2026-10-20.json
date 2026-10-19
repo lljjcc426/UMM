@@ -289,6 +289,38 @@
         }
       ],
       "boundary": "五项书面理解/指定Fig2及证明视觉核查；全部训练调用链、baseline最优调参、正式版本与完整附录仍待核；完整三遍验收未完成，未复现。"
+    },
+    {
+      "id": "L127",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "HermesFlow用同源图文分别构建caption偏好和生成图偏好，联合后训Show-o，再重新采样迭代。正文声称缩小理解/生成差距，但测量使用真实图本模型答题与生成图GPT4o判题，量尺需限定。正式版GenEval.64到.69，预印本.53到.69，应分版本解释。",
+          "evidence": "本次书面复述，未计时口述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "PDFp4Fig3左上图入UMM产生多个caption，经BERT与原caption比得优劣；左下原caption生成图，再自VQA得分选图。两类偏好组成六元数据；右侧训练冻结reference与可训UMM，更新后新采样再次构偏好。图中共同语义输入不自动保证梯度同向。",
+          "evidence": "arXivv2 PDFp4Fig3视觉核；§4。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "创新在同源双偏好及迭代数据重构；官方实现两DPO加权和。论文乘积sigmoid公式无法由两个DPO损失相加推导，a=b=0为反例。不能把该乘积当已验证的优化机制。",
+          "evidence": "正式PDFp15AppA、官方4997368 training/train_pairdpo.py549–554。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "正式Table5 Show-o.64→Pair1.68→Pair3.69，理解POPE80→81.4；生成DPO GenEval.70更高但MMMU27.5低于Pair28.3，说明取舍。正式Table6 MME-Unify总12.74→14.01，MITIU34.75→33下降。预印本基线.53不能混入正式增幅。",
+          "evidence": "正式PDFp9/p15表格视觉核查。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：同样样本/总曝光下随机打乱双偏好配对，是否仍得相同改善？问题2：自VQA/BERT错误或复制原caption会否产生虚假偏好？问题3：正式与预印本基线、公开50K/warm5K/b1配置与正文3K/b4分别对应哪次运行？现有CoRL/PairUni/UniCorn已处理相关配对/自监督，不能把上述问题直接当新颖性成立。",
+          "evidence": "正式/预印本表与固定YAML/代码；本批L129–L131原文。"
+        }
+      ],
+      "boundary": "五项书面检查及框架/正式主表/数学推导视觉核；正式版完整新增附录/训练数据脚本仍未全审，无计时口试/复现，完整三遍未完成。"
     }
   ]
 }

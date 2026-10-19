@@ -114,3 +114,7 @@ QLIP2502.05178、DualToken2503.14324、UniToken2504.04423、Selftok2505.07538v3�
 ## 2026-10-20 第十六批
 
 UniFlow v2、InternVL-U v1、Mamoda2.5 v1、SenseNova-U1 v1、Rosetta v1读取指定正文/表/公式。UniFlow代码e6322d0与HF配置交叉核一步采样；Mamoda2.5官方ba41c0b README仍列权重Coming Soon；Rosetta代码30fada7核每tensor投影与float临时副本，PDF第4/14页框架/证明视觉核对。下载/访问未算全文阅读。
+
+## 2026-10-20 第十七批
+
+读HermesFlow/MindOmni/CoRL/PairUni/UniCorn/R3/GvU指定方法与实验。HermesFlow NeurIPS正式PDF25页，p9/p15视觉核对，arXiv14页p4/p13另核；正式Show-o基线.64与v2.53不同，代码4997368实际两DPO加权和。MindOmni PDFp7方差分母视觉核，UniCorn30页PDFp19/20理论视觉核。GvU8203768入口/奖励/训练配置交叉读取，未运行。

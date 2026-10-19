@@ -212,6 +212,13 @@
 | L124 | [Mamoda2.5: Enhancing Unified Multimodal Model with DiT-MoE](L124.md) | §2.1–2.4、§3.1/3.2、§4.1/Table1/4.2/4.3、§5.1评价协议与自身结果、§6.1–6.4/Tables10–12、§8/9；官方mamoda25 README模型表/推理/结果及权重段；完整系统优化与全部附表/代码未核，未复现 |
 | L125 | [SenseNova-U1: Unifying Multimodal Understanding and Generation with NEO-unify Architecture](L125.md) | §3.1–3.4核心公式/Table1/2及RL/DMD、§3.5分离服务前段、§4.1/4.2、§5.1理解协议/生成分辨率与GenEval自身结果、§5.2/Table23与曲线文字、§6入口；全部主大表/曲线坐标/源码模型卡未核，未复现 |
 | L126 | [Rosetta: Composable Native Multimodal Pretraining](L126.md) | §3.1–3.3、§4.1/4.2/Table1/4.3/Table2、§5、AppA1–3/B1–2/C1–3；PDFp4Fig2、p14Eq4/5已视觉核。官方30fada7 train/maop.py32–105、TRAIN选定参数段、README主要入口及projectpage；完整训练调用链/所有采样配置未核，未复现 |
+| L127 | [HermesFlow: Seamlessly Closing the Gap in Multimodal Understanding and Generation](L127.md) | arXivv2§3/4/5、AppA；PDFp4Fig3/p13推导；NeurIPS正式§4/5Tables1–5、AppA/Table6，正式PDFp9/p15视觉核。官方4997368 README指定段、train_pairdpo.py参考模型/loss路径及YAML全读；其余正式附录未全读，未复现 |
+| L128 | [MindOmni: Unleashing Reasoning Generation in Vision Language Models with RGPO](L128.md) | §3.1–3.4、4.1/4.2关键段、Tables2/3本作行/5–9、AppA1/A3；PDFp7公式及WISE视觉核。正式版本/全框架图/代码与全部理解行未核齐，未复现 |
+| L129 | [Co-Reinforcement Learning for Unified Multimodal Understanding and Generation](L129.md) | v3§3.1–3.3、4.1、4.4/Table3–6、5/6、AppA1/A2Table8；主表自身分数/384²行已核，所有外部行及公式PDF/代码未核，未复现 |
+| L130 | [PairUni: Pairwise Training for Unified Multimodal Language Models](L130.md) | v3§1/2全方法、§3设置/关键结果/3.2Tables5/6、App6/7Tables7–10/8/9；大表指定模型/编辑行，全部图/正式版本与源码未核，未复现 |
+| L131 | [UniCorn: Towards Self-Improving Unified Multimodal Models through Self-Generated Supervision](L131.md) | §3全、§4.1/4.3/4.4/Tables2–4、Limitations、AppArecipe/Table5、C全及D1；PDFp19/20理论视觉核；所有主表/图/代码未全读，未复现 |
+| L132 | [Understanding vs. Generation: Navigating Optimization Dilemma in Multimodal Models](L132.md) | §2.1–2.4、3.1/3.2Tables1–5及TIIF自身行、§5、AppA3条件/ITA/VQA/Table7、A5成本；未核全部图坐标、完整理论/源码/maze实验，未复现 |
+| L133 | [Learning to Generate via Understanding: Understanding-Driven Intrinsic Rewarding for Unified Multimodal Models](L133.md) | v1§3全、4.1/4.2/4.3–4.5Tables4/5、5/6；官方project、8203768 README/run_grpo.sh、entry注册和gvu_score201–230、trainer430–505的reward/advantage/policyloss段。全部图/完整模型卡/实际运行及模型卡未核，未复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

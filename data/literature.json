@@ -15223,22 +15223,26 @@
   {
     "title": "HermesFlow: Seamlessly Closing the Gap in Multimodal Understanding and Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2502.12148"
+      "https://arxiv.org/abs/2502.12148",
+      "https://arxiv.org/html/2502.12148v2",
+      "https://proceedings.neurips.cc/paper_files/paper/2025/hash/59d4e18a60490b9ed9913f3be2b14839-Abstract-Conference.html",
+      "https://proceedings.neurips.cc/paper_files/paper/2025/file/59d4e18a60490b9ed9913f3be2b14839-Paper-Conference.pdf",
+      "https://github.com/Gen-Verse/HermesFlow/tree/4997368578b4548cdcc6622a71b2d109f11a51c5"
     ],
-    "method": "同源理解/生成偏好对，Pair-DPO 和 self-play",
-    "conclusion": "论文内 Show-o 基线 GenEval 0.53→0.69；不能拿另一版本 Show-o 的 0.68 当同一对照",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "HermesFlow，2025",
+    "method": "同一图caption生成n份caption用BERT相似度选优劣；caption生n图以本模型VQA选优劣（最高>.6），联合偏好后重新采样self-play。实际代码是两DPO加权和。 Show-o1.3B/Phi1.5+MAGVITv2；冻结reference，MMU和masked-T2I各算win/lose logprob。正文Eq6为−logσ(ΔuΔg)，AppA Eq12把两logσ之和改写为该形式，数学不等；公开train_pairdpo.py549–554实际−logσ(Δu)与−logσ(Δg)加权相加。",
+    "conclusion": "正式Tables2/5 Show-o GenEval.64→.69、DPG67.48→70.22；arXivv2起点.53→.69，版本须标。FID9.24→9.07、CLIP30.63→31.08；gap.087→.036仍未归零。正式MME-Unify总12.74→14.01，MITIU34.75→33.00下降。",
+    "gap": "AppA等式不成立：a=b=0时两logσ和=−2log2，logσ(ab)=−log2；乘积还对双负差给高分，且π=ref时两Δ0使该目标一阶梯度为0（假设确定同mask/无其他loss）。实际代码加和避免该乘积问题，未据此否定主表。BERT偏向caption重述，自VQA误差会传递；缺配对打乱且等数据/总曝光对照及多seed。",
+    "problem": "从同源图文构建理解和生成偏好，能否一起改善两类能力并缩小指定QA评估的差距？",
+    "claim": "研究目标：从同源图文构建理解和生成偏好，能否一起改善两类能力并缩小指定QA评估的差距？",
+    "version": "HermesFlow；NeurIPS2025正式页面/PDF已核；arXiv2502.12148v2另列差异",
     "scope": "umm",
     "category": "UMM及相邻机制 / 5. 后训练：对齐、强化学习与自改进",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L127",
     "canonical_key": "paper:arxiv:2502.12148",
     "evidence_history": [
@@ -15261,27 +15265,48 @@
     "aliases": [
       "local_umm_expanded:X057"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L127.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "论文内 Show-o 基线 GenEval 0.53→0.69；不能拿另一版本 Show-o 的 0.68 当同一对照",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "arXivv2§3/4/5、AppA；PDFp4Fig3/p13推导；NeurIPS正式§4/5Tables1–5、AppA/Table6，正式PDFp9/p15视觉核。官方4997368 README指定段、train_pairdpo.py参考模型/loss路径及YAML全读；其余正式附录未全读，未复现",
+    "review_path": "docs/reviews/L127.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "JourneyDB随机5000图文，已有QA+TIFA生成QA；无需额外高质训练图的说法不等价于无外部数据/工具。差距评估同源JourneyDB的精确独立划分本次未核齐。",
+    "framework": "同一图caption生成n份caption用BERT相似度选优劣；caption生n图以本模型VQA选优劣（最高>.6），联合偏好后重新采样self-play。实际代码是两DPO加权和。",
+    "architecture": "Show-o1.3B/Phi1.5+MAGVITv2；冻结reference，MMU和masked-T2I各算win/lose logprob。正文Eq6为−logσ(ΔuΔg)，AppA Eq12把两logσ之和改写为该形式，数学不等；公开train_pairdpo.py549–554实际−logσ(Δu)与−logσ(Δg)加权相加。",
+    "metrics": "POPE/MME/Flickr30k/VQAv2/GQA/MMMU；GenEval/DPG、COCO30K FID/CLIPScore、MME-Unify；人评25prompt每比较/35人/3500votes，票不是独立图像数量。",
+    "baselines": "Show-o、DPO-under/DPO-gen、PairDPO迭代0–3、采样n变化；外部模型为跨数据/参数/推理预算比较。",
+    "experimental_conditions": "正文8A100、caption/gen各batch4、3000steps、AdamWlr2e-5cos wd.01βDPO.2。官方4997368 YAML却b1每任务/max50K/warm5K/res256、起始show-o512、BF16、seed10086，不能直接当论文命令复现。推理README CFG5/50steps与训练generation_timesteps12也分开。"
   },
   {
     "title": "MindOmni: Unleashing Reasoning Generation in Vision Language Models with RGPO",
     "source_urls": [
-      "https://arxiv.org/abs/2505.13031"
+      "https://arxiv.org/abs/2505.13031",
+      "https://arxiv.org/html/2505.13031v2",
+      "https://github.com/TencentARC/MindOmni"
     ],
-    "method": "统一 VLM＋生成模块，CoT SFT，再用 RGPO 反馈优化",
-    "conclusion": "将推理策略与生成结果相联系；需分辨推理数据与 RL 各自贡献",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "MindOmni，2025",
+    "method": "Qwen2.5VL接两层decoder connector和OmniGen，预对齐/CoT-SFT/RGPO三阶段；格式+CLIP一致性奖励，文本/图像双KL。 理解ViT+Qwen2.5VL；specialtoken后hidden经2层connector，time/noise和条件拼接OmniGen去噪；编辑额外VAE条件。表中7B只语言骨干，OmniGen约3.8B与connector/视觉成本另计。阶段1只connector，2connector+decoder。",
+    "conclusion": "基础版GenEval.81/DPG83.0/WISE.60；*版.83/82.5/.71，额外数据提高GenEval/WISE却DPG下降。无thinking WISE.43，OmniGen.44。理解均值近原VLM不等于各项无下降；具体主表理解行尚待逐项摘录。",
+    "gap": "Eq4 Var分母与std不同，会给低reward方差prompt更强尺度；需核代码是否照做，未判训练失败。文本/图像KL feature映射概率归一定义需进一步读实现。训练数据和thinking改变混杂；CLIP盲点、未必忠实CoT、额外采样/推理成本。",
+    "problem": "如何把VLM世界知识及文本推理转成可控的图像生成/编辑条件，并保留理解？",
+    "claim": "研究目标：如何把VLM世界知识及文本推理转成可控的图像生成/编辑条件，并保留理解？",
+    "version": "MindOmni；arXiv2505.13031v2，2025-06-11；作者repo标NeurIPS2025，正式PDF未对读",
     "scope": "umm",
     "category": "UMM及相邻机制 / 5. 后训练：对齐、强化学习与自改进",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L128",
     "canonical_key": "paper:arxiv:2505.13031",
     "evidence_history": [
@@ -15304,27 +15329,48 @@
     "aliases": [
       "local_umm_expanded:X058"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L128.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "将推理策略与生成结果相联系；需分辨推理数据与 RL 各自贡献",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3.1–3.4、4.1/4.2关键段、Tables2/3本作行/5–9、AppA1/A3；PDFp7公式及WISE视觉核。正式版本/全框架图/代码与全部理解行未核齐，未复现",
+    "review_path": "docs/reviews/L128.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "LAION-COCO/JourneyDB/X2I+internal；Sana/FLUX合成高质图；Qwen2.5VL构细/粗caption CoT，Qwen3造RL逻辑文本。MindOmni*加MetaQuery/BLIP3o高质数据，不与基础版等数据。",
+    "framework": "Qwen2.5VL接两层decoder connector和OmniGen，预对齐/CoT-SFT/RGPO三阶段；格式+CLIP一致性奖励，文本/图像双KL。",
+    "architecture": "理解ViT+Qwen2.5VL；specialtoken后hidden经2层connector，time/noise和条件拼接OmniGen去噪；编辑额外VAE条件。表中7B只语言骨干，OmniGen约3.8B与connector/视觉成本另计。阶段1只connector，2connector+decoder。",
+    "metrics": "GenEval/DPG、WISE文化/时空/自然科学、MMMU/MMBench/RealWorldQA；CLIP是reward，不能将上升直接当独立质量证明。",
+    "baselines": "OmniGen、MetaQuery、BLIP3o/BAGEL/Janus；MLPvs1/2层decoder connector；阶段、group、双KL、reward消融。",
+    "experimental_conditions": "I分辨率256/b1024/lr1e-4constant/wd.05；II512/lr5e-5；RLcos group4 βimage.06 βtext.01；WISEthinking1024。硬件、阶段步数/最终有效batch和RL可训模块本次未核齐。PDFp7 Eq4确用方差归一而非常规标准差，零方差/小方差实际处理需代码。"
   },
   {
     "title": "Co-Reinforcement Learning for Unified Multimodal Understanding and Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2505.17534"
+      "https://arxiv.org/abs/2505.17534",
+      "https://arxiv.org/html/2505.17534v3",
+      "https://neurips.cc/media/neurips-2025/Slides/117287.pdf"
     ],
-    "method": "先联合 RL，再任务细化；循环一致性与图文匹配奖励",
-    "conclusion": "基线 GenEval 0.73→0.77、MMMU 36.3→42.3；消融中联合路线优于仅生成 RL，但收益依任务而异",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "CoRL / ULM-R1，2025",
+    "method": "阶段I配对图captionQA，用cycle+tokenmatching+QA/format联合reward；阶段II按任务独立数据/奖励做refinedRL。 JanusPro1B主实验/7B扩展，TRL-GRPO；cycle=1−LPIPS(真实,生成)+SPICE(prompt,BLIP重caption)，TIM为双向token最近cos均值（未一对一/显式空间约束）；I无KL，IIKL恢复。",
+    "conclusion": "GenEval73.0→77.3/DPG82.6→83.9；MMMU36.3→42.3/WeMath5.9→21.1/MMVet39.8→43.9/Logic23.9→34.5。需限定II任务分支，未验证同权重。",
+    "gap": "最近token匹配对重复/顺序不敏感；归一[0,1]细节本次未核。cycle使用真实image会增加条件信息和多解偏置；同模型TIM或外BLIP有偏差。阶段/任务曝光未完整固定，缺seed方差；数据22K来自原标注，不能称全自监督。",
+    "problem": "统一理解/生成模型能否不经coldSFT，通过联合RL再专门化改善双能力？",
+    "claim": "研究目标：统一理解/生成模型能否不经coldSFT，通过联合RL再专门化改善双能力？",
+    "version": "CoRL/ULM-R1；arXiv2505.17534v3，2025-11-20；NeurIPS2025官方slides入口已见，正式PDF未对读",
     "scope": "umm",
     "category": "UMM及相邻机制 / 5. 后训练：对齐、强化学习与自改进",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L129",
     "canonical_key": "paper:arxiv:2505.17534",
     "evidence_history": [
@@ -15347,27 +15393,48 @@
     "aliases": [
       "local_umm_expanded:X059"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L129.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "基线 GenEval 0.73→0.77、MMMU 36.3→42.3；消融中联合路线优于仅生成 RL，但收益依任务而异",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "v3§3.1–3.3、4.1、4.4/Table3–6、5/6、AppA1/A2Table8；主表自身分数/384²行已核，所有外部行及公式PDF/代码未核，未复现",
+    "review_path": "docs/reviews/L129.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "x2x_rft22K来自COCOtrain+AOKVQA/GPTVQA，caption按实体覆盖选；IIx2x16K和各22Kmcot_r1_mcq/vqa，来自MCoTInstruct多源math/science等。有真实图/QA监督，RL无coldSFT不等价无外部监督。",
+    "framework": "阶段I配对图captionQA，用cycle+tokenmatching+QA/format联合reward；阶段II按任务独立数据/奖励做refinedRL。",
+    "architecture": "JanusPro1B主实验/7B扩展，TRL-GRPO；cycle=1−LPIPS(真实,生成)+SPICE(prompt,BLIP重caption)，TIM为双向token最近cos均值（未一对一/显式空间约束）；I无KL，IIKL恢复。",
+    "metrics": "GenEval/DPG/WISE；MMStar/MMMU/WeMath/MMVet/POPE/LogicVista/MathVista/MathVerse/MathVision，VLMEvalKit accuracy；LPIPS参照单张真实图可能奖励特定布局，不能将prompt多解都视为错误。",
+    "baselines": "JanusPro、coldSFT、分别/合并/cycle/unifiedRL、单/双reward、PSNR/MSE/SSIM/LPIPS、λ；各外部工作预算/分辨率不同。",
+    "experimental_conditions": "8H20 96GB，AdamW；I b16 group8 lr4e-6 β0 epoch1 λ.8；II T2Ib16、MC/OEb32，group16 lr1e-6 β.02 epoch1。文本greedy，图CFG5；图分辨率Janus1B384²。论文称IIreward替代Ai，实际是否仍做归一需实现。"
   },
   {
     "title": "PairUni: Pairwise Training for Unified Multimodal Language Models",
     "source_urls": [
-      "https://arxiv.org/abs/2510.25682"
+      "https://arxiv.org/abs/2510.25682",
+      "https://arxiv.org/html/2510.25682v3",
+      "https://haochen-wang409.github.io/"
     ],
-    "method": "合成/检索得到语义配对数据，PairGRPO 相似度加权 advantage",
-    "conclusion": "7B MMMU 41.1→47.0；数据配对贡献明确，去掉相似度加权时 GenEval 不变，不应把所有增益归于新优化式",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "PairUni，2025",
+    "method": "GPT-o3/4o补齐图captionQA，kmeans选中心样本，再ResNet图特征检索近邻配对；PairGRPO按同prompt分任务归一advantage，再同pair权重缩放。 架构沿JanusPro1/7B，理解/生成各自多个rollout；aligned权重1，retrieved sqrt(cosSim)，阈值.6；平方根在[.6,1]压缩绝对/相对差异，正文“amplifyrelative differences”不符数学，不能照抄。正权重不能保证梯度不冲突。",
+    "conclusion": "Janus1B GenEval.73→.79 WISE.23→.38；7B.79→.85 WISE.35→.45。LuminaMMMU58.6→61.3/GenEval.88→.89但各ImgEdit子类并非相对原始都提高；BAGEL结果属于配对SFT，不能证明PairGRPO。",
+    "gap": "保留高相似样本可能排OCR/表格/长尾困难类别；语义图相似未必共享目标事件。sqrt削弱权重差异，未从数学保证减少冲突；梯度cos相关不证明唯一机制。数据去重/日期/阈值/GenEval来源、正式版本和代码仍待核。",
+    "problem": "语义对齐的理解—生成数据配对和相似度加权能否改善统一后训？",
+    "claim": "研究目标：语义对齐的理解—生成数据配对和相似度加权能否改善统一后训？",
+    "version": "PairUni；arXiv2510.25682v3元数据2026-02-08，页内日期August24另有冲突；作者主页标ICLR2026，正式录用页未对读",
     "scope": "umm",
     "category": "UMM及相邻机制 / 5. 后训练：对齐、强化学习与自改进",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L130",
     "canonical_key": "paper:arxiv:2510.25682",
     "evidence_history": [
@@ -15390,27 +15457,48 @@
     "aliases": [
       "local_umm_expanded:X060"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L130.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "7B MMMU 41.1→47.0；数据配对贡献明确，去掉相似度加权时 GenEval 不变，不应把所有增益归于新优化式",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "v3§1/2全方法、§3设置/关键结果/3.2Tables5/6、App6/7Tables7–10/8/9；大表指定模型/编辑行，全部图/正式版本与源码未核，未复现",
+    "review_path": "docs/reviews/L130.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "Orsta47Kunder（排检测/grounding）+BLIP3o60Kgen；PairUG16320=4971aligned+11349retrieved。App6 retrieved标GenEval1787须核是否仅模板/训练扩展或含testprompt，现未证实泄漏；图示多数.55–.75和阈值.6口径也待核。",
+    "framework": "GPT-o3/4o补齐图captionQA，kmeans选中心样本，再ResNet图特征检索近邻配对；PairGRPO按同prompt分任务归一advantage，再同pair权重缩放。",
+    "architecture": "架构沿JanusPro1/7B，理解/生成各自多个rollout；aligned权重1，retrieved sqrt(cosSim)，阈值.6；平方根在[.6,1]压缩绝对/相对差异，正文“amplifyrelative differences”不符数学，不能照抄。正权重不能保证梯度不冲突。",
+    "metrics": "MMEP/POPE/MMStar/MMMU、GenEval/WISE、ImgEditAdd/Replace/Remove/Style；gradientmediancos与结果相关；GenEval是组合任务不等价一般保真。",
+    "baselines": "JanusPro/ULMR1/DSR、random/unpair/单源、aligned/retrieval、无/线性/sqrt权重、阈值.5/.6/.7、中心/随机、PE/DINOv3/ResNet。ULMR1为作者复现而非原官方分数。",
+    "experimental_conditions": "8H100，7B每模态rollout4 b16最多1200steps lr1e-6 T1 CFG5 β0；1B group8。BAGEL512SFTunder:gen1:1/default其余；Lumina rollout2，text2steps image35steps，训练似然估计实现尚未核。"
   },
   {
     "title": "UniCorn: Towards Self-Improving Unified Multimodal Models through Self-Generated Supervision",
     "source_urls": [
-      "https://arxiv.org/abs/2601.03193"
+      "https://arxiv.org/abs/2601.03193",
+      "https://arxiv.org/html/2601.03193v2",
+      "https://arxiv.org/pdf/2601.03193v2"
     ],
-    "method": "同模型担任 proposer、solver、judge，自生成监督和循环一致性",
-    "conclusion": "报告多项生成提升并保持理解；闭环自洽不能代替独立正确性",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "UniCorn，2026",
+    "method": "同一个UMM扮proposer/solver/judge，5Kprompt每个8图选优；将过程变generation/caption/judgement/reflection四类再CE+flowSFT。 主BAGEL，副JanusPro7B；judge0–10带rubric/CoT，最高<7的组过滤；caption从最优图反推原prompt，judgement拟合自身分数，reflection低图+指令→高图。属于selfsampling+rejection/SFT，不能概括成GRPO。",
+    "conclusion": "BAGEL→UniCorn TIIF-S71→74.7、TIIF-R70.7→78.4；MMEP1685→1660/MMEC696→677/MMB84.6→84.1下降，MMMU52.8→53.8/MMVP69.3→70提高。UniCycleHard36.6→46.5，*40；不是全部理解增益。",
+    "gap": "AppC Eq6将中间图I当latent却未对其求和/积分，右侧只是一项联合概率而非左边边缘；PDFp19/20视觉确认。互信息/Bayes恒等式及多loss定义不能推出共享参数优化必协同/四任务全部NLL下降；flowMSE≠精确像素NLL也需条件。单轮/理解无显著增益/自采样额外成本为作者承认。自评同盲点与UniCycle任务域泛化仍待独立验证。",
+    "problem": "统一模型能否用自身生成/评判构造数据，改善生成并保留理解？",
+    "claim": "研究目标：统一模型能否用自身生成/评判构造数据，改善生成并保留理解？",
+    "version": "UniCorn；arXiv2601.03193v2，2026-01-08；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 5. 后训练：对齐、强化学习与自改进",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L131",
     "canonical_key": "paper:arxiv:2601.03193",
     "evidence_history": [
@@ -15433,27 +15521,47 @@
     "aliases": [
       "local_umm_expanded:X061"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L131.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "报告多项生成提升并保持理解；闭环自洽不能代替独立正确性",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3全、§4.1/4.3/4.4/Tables2–4、Limitations、AppArecipe/Table5、C全及D1；PDFp19/20理论视觉核；所有主表/图/代码未全读，未复现",
+    "review_path": "docs/reviews/L131.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "Generation5K/Caption5K/Judgement3K/Reflection1K；几十手写模板/十类规则，未用外部teacher训练的主配置仍有预训练知识及人工rubric。UniCycle基于TIIF，Qwen3-235B构QA/人标，1401项2968问；评测外部模型不属于训练teacher。",
+    "framework": "同一个UMM扮proposer/solver/judge，5Kprompt每个8图选优；将过程变generation/caption/judgement/reflection四类再CE+flowSFT。",
+    "architecture": "主BAGEL，副JanusPro7B；judge0–10带rubric/CoT，最高<7的组过滤；caption从最优图反推原prompt，judgement拟合自身分数，reflection低图+指令→高图。属于selfsampling+rejection/SFT，不能概括成GRPO。",
+    "metrics": "TIIFtestmini(Qwen2.5VL72B)/WISE/OneIGEN/CompBench/DPG/GenEval；MMEP/C/MMB/MMMU/MMVP/MMStar；UniCycleHard/Soft评Text→Image→Text的必要语义恢复，混合了生成和理解错误。",
+    "baselines": "BAGEL、Janus、SD3/FLUX等；去GCJR各模式、数据1/5/8/10/20K、Qwen3VL235B外teacherUniCorn*、架构更换。",
+    "experimental_conditions": "8H80080GB约7h600steps，AdamWβ.9/.95eps1e-15wd0lr1e-5constwarm50clip1accum4EMA.99 CE:MSE.1:1，context40K，gen短边512长边1024/under378–980，shift4；有效batch本次未核齐，数据生成成本另计。"
   },
   {
     "title": "Understanding vs. Generation: Navigating Optimization Dilemma in Multimodal Models",
     "source_urls": [
-      "https://arxiv.org/abs/2602.15772"
+      "https://arxiv.org/abs/2602.15772",
+      "https://arxiv.org/html/2602.15772v2"
     ],
-    "method": "generate-understand-regenerate 多步反馈",
-    "conclusion": "研究通过理解结果改善再生成；改进可能来自额外推理计算，需等预算对照",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "R3，2026",
+    "method": "Reason文字计划+图→Reflect判断/编辑指令→Refine图；treeRL分阶段采样缓冲，按初始质量或编辑增量给文本GRPO/图FlowGRPO奖励。 BAGEL骨干、共享AR文字/flow图；文本格式reward，图VLMscore V；编辑C=Vnew−Vold，Vold=1时奖励正确停止句。训练Reason+1RR，推理最多4RR可自停。",
+    "conclusion": "GenEval++总.371→reason.593→full.689；ITA60.60→61.76→73.37；GenEval定向训练.962，TIIF另一训练配置，不能当单checkpoint同时分数。跨topic理解增益主要限训练类别。",
+    "gap": "ITA近裁判偏好不等一般理解，未直接优化理解QA也可能通过图域与格式适应影响；reward=1停止规则依赖VLM校准。跨域下降/多seed与等总算力替代还未足够检验；treeRL采样改分布需合理importance处理，源码未审不判错。",
+    "problem": "将理解反思作为生成中间任务，能否减少单独优化的退化并提高最终图？",
+    "claim": "研究目标：将理解反思作为生成中间任务，能否减少单独优化的退化并提高最终图？",
+    "version": "Understanding vs. Generation/R3；arXiv2602.15772v2，2026-03-31；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 5. 后训练：对齐、强化学习与自改进",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L132",
     "canonical_key": "paper:arxiv:2602.15772",
     "evidence_history": [
@@ -15476,27 +15584,50 @@
     "aliases": [
       "local_umm_expanded:X062"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L132.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "研究通过理解结果改善再生成；改进可能来自额外推理计算，需等预算对照",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2.1–2.4、3.1/3.2Tables1–5及TIIF自身行、§5、AppA3条件/ITA/VQA/Table7、A5成本；未核全部图坐标、完整理论/源码/maze实验，未复现",
+    "review_path": "docs/reviews/L132.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "GenEval/++模板随机组合排exacttestprompt，TIIF官方train；VQA/ITA用基线BAGEL生成test图，Gemini2.5Flash标注+人工核。理解数据测试图固定，ITA是与裁判一致率；同模板不同字符串不等于组合OOD。",
+    "framework": "Reason文字计划+图→Reflect判断/编辑指令→Refine图；treeRL分阶段采样缓冲，按初始质量或编辑增量给文本GRPO/图FlowGRPO奖励。",
+    "architecture": "BAGEL骨干、共享AR文字/flow图；文本格式reward，图VLMscore V；编辑C=Vnew−Vold，Vold=1时奖励正确停止句。训练Reason+1RR，推理最多4RR可自停。",
+    "metrics": "GenEval/++、TIIFshorttestmini，VQA/ITA及count等子域；GenEval++评GPT4.1/rewardQwen2.5VL72B，GenEvalrewardFlowGRPOsoft。多轮延迟/NFE另计。",
+    "baselines": "BAGEL、reasononly、自CoT、FlowGRPO/GoTR1等；TreevsFulltrajectory、训练1/2RR、推理多轮、cross-topic。没有等延迟bestofN/外部judgepipeline等全部强对照。",
+    "experimental_conditions": "lr5e-6 b16group16温.9；GenEval/++/TIIF400/300/200steps，CE:MSE1:2、reasonNFE10/15/15、edit20、textCFG4/image1.5、KLtext.0005/image.005。reasonSDEa.7/edit1；256候选取16且20%perfect。单H20/b1/512推理20–25s初图，每RR25–35s；训练GPU数未核。"
   },
   {
     "title": "Learning to Generate via Understanding: Understanding-Driven Intrinsic Rewarding for Unified Multimodal Models",
     "source_urls": [
-      "https://arxiv.org/abs/2603.06043"
+      "https://arxiv.org/abs/2603.06043",
+      "https://arxiv.org/html/2603.06043v1",
+      "https://matrix0721.github.io/gvu.github.io/",
+      "https://github.com/matrix0721/GvU/tree/8203768feb55c3160caf745c8d4f96cb2cb8b461",
+      "https://github.com/huggingface/peft/blob/v0.17.1/src/peft/peft_model.py"
     ],
-    "method": "理解分支产生 token 级内生图文一致性奖励",
-    "conclusion": "减少对外部监督依赖；同模型盲点和奖励偏差仍需外部评价",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "GvU，2026",
+    "method": "X-Omni自生成图后teacherforce原prompt，token概率几何均值作为R，GRPO+LoRA后训；不需额外训练图/外部rewardmodel，仍需50K文本prompt及原预训练模型。 X-Omni SigLIPVQ+Qwen2.5+FLUX；R=exp(mean_j logp(Tj|I,T<j))，这是聚合序列分数，不能据token-level命名推成每字空间定位奖励。length几何归一不能去掉语言先验/顺序概率偏差。",
+    "conclusion": "GenEval不改写.68→.81（相对19.1%），改写最终.84；DPG85.68；GenEval++.282→.404。MMT49.76→49.92仅+.16；POPE86.1→86.3，但GQA61.9→61.7/MMB73.9→73.5/SEED74.5→73.9/Doc89.1→88.4/OCR712→709下降。",
+    "gap": "caption概率混语言先验，几何均值虽控制长度仍非校准真值；自reward会漂移或共谋。代码gvu_score用torch.no_grad()和逐token概率乘积后开L次根，阻断reward反传不等于冻结后续更新。环境锁PEFT0.17.1；其disable_adapter有@contextmanager，trainer482裸调用仅创建上下文对象，不执行禁用主体，433参考分支才用with。按该标准PEFT路径reward仍带当前LoRA，不能记录为冻结base评估器；未运行该训练。Eq4HTMLsoftmax括号/词法与直观定义不清，未看PDF不判公式bug。公开trainer采用scorefunctionratioexp(logp−stopgrad(logp))，与正文旧策略clippedratio不同，须绑定采样/update次数解读。",
+    "problem": "能否用UMM理解分支对原prompt的条件概率作为内生reward，改善自己生成？",
+    "claim": "研究目标：能否用UMM理解分支对原prompt的条件概率作为内生reward，改善自己生成？",
+    "version": "GvU；arXiv2603.06043v1，2026-03-06；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 5. 后训练：对齐、强化学习与自改进",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L133",
     "canonical_key": "paper:arxiv:2603.06043",
     "evidence_history": [
@@ -15519,7 +15650,26 @@
     "aliases": [
       "local_umm_expanded:X063"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L133.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "减少对外部监督依赖；同模型盲点和奖励偏差仍需外部评价",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "v1§3全、4.1/4.2/4.3–4.5Tables4/5、5/6；官方project、8203768 README/run_grpo.sh、entry注册和gvu_score201–230、trainer430–505的reward/advantage/policyloss段。全部图/完整模型卡/实际运行及模型卡未核，未复现",
+    "review_path": "docs/reviews/L133.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "50K空间/数量/细节文本，来源/去重本次未核齐；自生成图；weakbase更弱生成而略强MMT用于差距消融。仅一个家族regular/weak不是跨架构验证。",
+    "framework": "X-Omni自生成图后teacherforce原prompt，token概率几何均值作为R，GRPO+LoRA后训；不需额外训练图/外部rewardmodel，仍需50K文本prompt及原预训练模型。",
+    "architecture": "X-Omni SigLIPVQ+Qwen2.5+FLUX；R=exp(mean_j logp(Tj|I,T<j))，这是聚合序列分数，不能据token-level命名推成每字空间定位奖励。length几何归一不能去掉语言先验/顺序概率偏差。",
+    "metrics": "GenEval/DPG/GenEval++、POPE/GQA/MMB/SEED/DocVQA/OCRBench、MMTfinegrained；GenEval++GPT4.1；区分promptrewrite。",
+    "baselines": "XOmni regular/weak、自身pre/post、去count/color/region词reward敏感性；外部T2I/UMM。缺对等PMI/CLIP/externaljudge等充分reward对照和随机/静态评估器析因。",
+    "experimental_conditions": "论文写TRL+LoRA/regular可训12Ksteps，但完整硬件/rank/学习率正文未给齐。官方8203768 run_grpo.sh为8进程b1accum1 group2 lr1e-6 β.03 BF16 ZeRO1 epoch4 LoRA8α32，排embedding/mmhead；dataset_name占位。配置存在不等价论文实际运行日志，不能按8进程推定硬件。"
   },
   {
     "title": "LVRPO: Language-Visual Alignment with GRPO for Multimodal Understanding and Generation",

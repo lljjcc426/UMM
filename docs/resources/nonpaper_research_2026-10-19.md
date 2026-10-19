@@ -96,3 +96,7 @@ BLIP3o8B模型卡公开数据checkpoint GenEval.83/DPG80.73/WISE.52，论文含�
 ## 第十六批：加载配置与公开边界
 
 UniFlow官方配置实际num_sampling_steps为1，与Python类默认100/10的入口不同，按加载配置解释一步重建。Mamoda2.5已公开说明/代码入口，指定revision权重仍Coming Soon，不能写成已公开权重。Rosetta训练demo100step与全规模300B/100M训练分开。以上均关联既有论文ID，不重复新增独立论文。
+
+## 第十七批：训练配方实物核查
+
+HermesFlow4997368 train_pairdpo.py549–554用两DPO加权和，和正式/预印本乘积公式不同；YAML50Ksteps/b1/warm5K与论文3K/b4也分记。GvU8203768 run_grpo.sh包含8进程、LoRA8α32、group2/lr1e-6/β.03，但dataset占位不提供论文完整数据配方；gvu_score/TRL trainer已选读，不把存在脚本写成复现已通过。均关联既有论文，不新增重复资源。
