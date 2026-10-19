@@ -158,3 +158,7 @@ U20–U25固定PDF版本v2/v1/v1/v1/v2/v1。读取选定方法、公式、实验
 ## 2026-10-20 第二十七批
 
 U26–U31读取固定版本PDF方法/选定结果与附录，U29p3/U30p4方法图视觉核。原文追引定位CVF2026正式G-HTR全文及Springer DOI10.1007/s44443-026-01050-5，标题/DOI去重补入L186并深读已有N08，两者p6/p5方法图已视觉核。TorchUMM固定425efa19cb2a18d43278d4d222ed238b5e244546审指定对齐/代理计算；SenseNova固定c35c83b58ef6e238a08b986aa58f3b73303aa42f，HF LoRAs固定f33b8fe0216e6f10e5aed58ebbfdd05f02826732，GHTR固定98e6b16756dc61d70e2c3e6c9c6097b206b1eb70。首次由不完整显示名尝试的单独GitHub/HF地址未找到，已跟随PDF/README真实链接纠正，失败地址不计发布缺失证据；无下载大权重或训练。
+
+## 2026-10-20 第二十八批
+
+重新取得N01作者正式ICLR PDF、N03正式AAAI PDF、S001正式ACL workshop PDF及N02/N04/N05/N06/N09/L011固定arXiv PDF。七篇方法图视觉核，DeepCalliFont消融勾选另外核图。按作者页面链接读取UniCalli固定8f0b42d95e7a374e992c08736a9a3cda79743f7c、OnOff ca3f8d6f7c76d142c95d6a86f97410249d0e5f7c、DeepCalliFont 5b0efdc5c1d688997fae5dabebd5b059c29b9721、Ketaba f1aefa8317edda0d7f064c2ae1731cdb4186b076指定README/配置/函数。KetabaHF固定7f55602e5e83041c4af6ff007c7ccd1dc3e23202，VidScribeHF文件树固定dc7ad43c6bca768250b6d3471a145e1f89504b45；未下载权重或完整视频。OnOff作者称ECCV2026，主办接受页检索/解析未定位对应行，保持作者声明与独立主办核查分开。

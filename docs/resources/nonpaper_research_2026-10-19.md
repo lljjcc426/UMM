@@ -112,3 +112,7 @@ HermesFlow4997368 train_pairdpo.py549–554用两DPO加权和，和正式/预印
 ## R08：U1.5八步LoRA与配置资源
 
 新增[逐资源分析](../reviews/R08.md)，官方HF的8step/V2适配器没有单独论文，关联U26基础报告但单列实验条件。核中英模型卡、实际文件名、Apache2.0声明和加载合并代码；不下载权重、不把基础榜分数赋给V2。旧8step文档说训在SFT，V2卡指向final；两版不能混。CFG与步数的推荐不同，100NFE/8NFE应与50/8 solversteps、真实延迟区分。
+
+## 第二十八批：公开制品不等完整论文实现
+
+UniCalli固定README只勾选无pred_box base/生成推理/量化/数据，识别推理和训练未勾选；OnOff固定树仅2文件，仍为code/data coming soon。DeepCalliFont已公开训练脚本和配置，默认值不自动代表论文全部实验。Ketaba有正式ACL论文，同时HF适配器配置/训练信息独立核查；不可再归无论文工作。具体版本与范围见[专题](../evidence/calligraphy_video_text_order_and_ocr_protocols_2026-10-20.md)。

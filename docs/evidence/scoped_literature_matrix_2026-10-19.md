@@ -49,3 +49,17 @@
 | U29 MIRROR | 原图+问题→工具标记原图→答案修订 | 定位/理解与场景生成 |
 | U30 LatentUM | 文字/图→语义码/文字→可选RGB | 语义码正确与decoder像素正确 |
 | R08 U1.5 LoRA | 基础权重+适配器→8步图/编辑 | 基础模型榜分与适配器实际质量 |
+
+## 第二十八批任务与评价补充
+
+| 工作 | 输入→输出 | 必须区分的协议 |
+| --- | --- | --- |
+| N01 UniCalli | 标准字/书法/框latent双向→静态书法/字库识别 | 全论文模型与无pred_box公开base、分布内与外部识别 |
+| N02 OnOff | 文字+参考→轨迹/brush参数→静态图/robot | 渲染代理与传感物理，FID与CER |
+| N03 DeepCalliFont | 参考图/轨迹→目标图/轨迹 | 草书与常规FID，伪连笔与真实时序 |
+| N04 VidScribe | 4类视频文字任务→11指标+2编辑probe | 空间字形拓扑与时间规范笔事件 |
+| N05 VTRBench | 多载体prompt→video→CoQ/有界WER | 最清楚一次与全帧，单次与Agent成本 |
+| N06 Videozero-shot | 首帧+prompt→黑盒video | APIrewriter、pass1、oraclebestframe/pass10 |
+| N09 TextAnimator | glyph/position/camera→场景文字video | 完整字符串动画与逐笔生成 |
+| L011 DrawThisFirst | 图/文指令→有序polyline | 区域/部件/笔粒度，弧长与时间/碎片 |
+| S001 Ketaba | 历史稿行图→Unicode转录 | 正式论文/模型制品、官方corpus与按行CER、PseudoGT |

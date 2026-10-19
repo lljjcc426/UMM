@@ -4356,27 +4356,30 @@
     "id": "N01",
     "category": "N 新增中文书写重点调研",
     "title": "UniCalli: A Unified Diffusion Framework for Column-Level Generation and Recognition of Chinese Calligraphy",
-    "version": "arXiv v2 2026-02-02；作者机构页列ICLR 2026",
+    "version": "UniCalli: A Unified Diffusion Framework for Column-Level Generation and Recognition of Chinese Calligraphy；作者正式PDF标明ICLR2026，本文按该版本分析",
     "source_urls": [
       "https://arxiv.org/html/2510.13745v2",
       "https://www.yingcong.me/publication/2026-xu-unicalli/",
-      "https://arxiv.org/abs/2510.13745"
+      "https://arxiv.org/abs/2510.13745",
+      "https://www.yingcong.me/publication/2026-xu-unicalli/2026-xu-unicalli.pdf",
+      "https://github.com/EnVision-Research/UniCalli/tree/8f0b42d95e7a374e992c08736a9a3cda79743f7c",
+      "https://github.com/EnVision-Research/UniCalli/blob/8f0b42d95e7a374e992c08736a9a3cda79743f7c/src/flux/model.py"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：列级书法识别与生成联合训练可改善字形、风格和布局。",
-    "method": "FLUX/MMDiT；标准字体图、书法图、box map三种潜变量；非对称加噪切换读写方向；Duplicate RoPE；合成/标注/未标注数据混合。",
-    "problem": "单字生成忽略行气和连带，整列生成又容易错字；独立识别与生成不能充分交换知识。",
-    "conclusion": "实验单位包含五个连续字的128×640裁剪；约8000幅作品、4000幅标注、93书家。识别与生成均有报告，草书识别仍较弱，不是各书体全胜。",
-    "gap": "【边界】静态列级图像不是逐笔视频。【推断】“中文书法+统一识别生成”已有直接前作；应比较额外的时间状态、实际执行和效率，而非只组合任务。",
+    "claim": "研究目标：能否在同一模型内联合生成与识别整列书法，处理字间连笔、布局和长尾风格？",
+    "method": "以标准字图、书法图和框图三个latent做双向FM，Duplicate RoPE/模态embedding、内容条件dropout以及标注/无标注/字体合成混训。 FLUX/MMDiT、预训练VAE；图/框共用ti，标准字tc独立，生成tc=0、识别ti=0，目标任务loss+另任务.02权重。复制空间RoPE并加模态区分；主文Eq2写加在RoPE上，AppE2实际描述输入feature加vm后QK旋转，两式不完全相同。识别不是AR OCR head，是去噪后latent检索。",
+    "problem": "能否在同一模型内联合生成与识别整列书法，处理字间连笔、布局和长尾风格？",
+    "conclusion": "Table3 UniCalli L1.152/SSIM.602/LPIPS.313/FID37.69优所列生成比较。Table2总体识别.540对CalliReader.533，但草.109/行.528/篆.050并非各体最好；Table1人评字形4.827低FontDiffuser4.950。Table5甲骨识别62.5低OracleNet73.9。AppTable6 F1.498低GOT.593和Qwen.534。",
+    "gap": "识别优势部分来自相近训练分布，作者明确承认；噪声/长尾仍在。AppD称严格古代训练与AppC现代文学/TTF合成同时存在，应区分真实作品分布与全部训练。RoPE与style条件描述不一致、检索字库覆盖限制待代码核；不能从共享权重直接证明双向因果协同。 官方固定8f0b42d95e7a374e992c08736a9a3cda79743f7c README明确base不含pred_box，识别推理/训练仍未勾选，非完整论文模型发布。公开generate固定5字，以字/书家style文本构prompt；sampling复制两组imageids，model在投影后给后半token加可学习embedding（shape含tokens_num），不能据此验证论文三模态全版本或AppE2单个全局vm完全一致。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-15",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "§3—4、附录限制与预处理",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/papers/unicalli.md",
+    "sections_read": "作者ICLR正式PDF§3.1–3.4/§4.1–4.3、Tables1–6、AppB/C/D/E/G及H用户研究指定段；Fig2 PDFp4视觉复核。完整代码、其余应用图及全部古文字细节未审，未复现 固定源码README、inference.generate、sampling.prepare/denoise及model.init_module_embeddings/forward指定路径已审。",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N01.md",
     "canonical_key": "paper:arxiv:2510.13745",
     "evidence_history": [
       {
@@ -4414,33 +4417,53 @@
       "web_bundle:N01",
       "local_focused:M001",
       "local_handwriting:R01"
-    ]
+    ],
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "§3—4、附录限制与预处理",
+        "conclusion": "实验单位包含五个连续字的128×640裁剪；约8000幅作品、4000幅标注、93书家。识别与生成均有报告，草书识别仍较弱，不是各书体全胜。",
+        "gap": "【边界】静态列级图像不是逐笔视频。【推断】“中文书法+统一识别生成”已有直接前作；应比较额外的时间状态、实际执行和效率，而非只组合任务。",
+        "note_path": "docs/handwriting/papers/unicalli.md"
+      }
+    ],
+    "review_path": "docs/reviews/N01.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "8000余历史作品、93书家、五体；4000余标注作品/15万余字符框，五连续字裁片128×640。三TTF生成古今文学内容、采样.2。无标注令tc=1，非伪文字标注。识别validation/test各100图；具体按作品/书家去重与重叠需代码核。另HUST-OBC与CalliBench Easy。",
+    "framework": "以标准字图、书法图和框图三个latent做双向FM，Duplicate RoPE/模态embedding、内容条件dropout以及标注/无标注/字体合成混训。",
+    "architecture": "FLUX/MMDiT、预训练VAE；图/框共用ti，标准字tc独立，生成tc=0、识别ti=0，目标任务loss+另任务.02权重。复制空间RoPE并加模态区分；主文Eq2写加在RoPE上，AppE2实际描述输入feature加vm后QK旋转，两式不完全相同。识别不是AR OCR head，是去噪后latent检索。",
+    "metrics": "L1/SSIM/LPIPS/FID静态重建，字符准确率，CalliBench P/R/F1/NED；20书法爱好者×10题随机展示顺序的1–5分Likert。没有严格笔顺/时间/接触物理指标。",
+    "baselines": "FontDiffuser、ChatGPT5/Ernie4.5/Doubao生成，GPT4o/CalliReader/GOT-OCR/PP-OCR/Qwen等识别；FLUX单生成baseline逐加joint/RoPE/drop。模型数据/输入/训练预算不同，API图像名不等纯VLM同条件。",
+    "experimental_conditions": "8H100、500K迭代；128×640五字片；λ=.02、合成采样.2。完整batch/lr/优化器、最佳pdrop、采样步数及识别列切成单字匹配协议未在所读正式实现段交代，不填推测值。"
   },
   {
     "id": "N02",
     "category": "N 新增中文书写重点调研",
     "title": "Bridging Online and Offline Handwriting via Differentiable Physical Rendering (OnOff Handwriting)",
-    "version": "arXiv v1 2026-08；本文不以搜索摘要推定录用",
+    "version": "Bridging Online and Offline Handwriting via Differentiable Physical Rendering（OnOff）；arXiv2608.03198v1；作者项目/仓库标注ECCV2026，主办正式接受列表中尚未定位对应条目",
     "source_urls": [
       "https://arxiv.org/html/2608.03198v1",
       "https://seonmip.github.io/onoff/",
-      "https://arxiv.org/abs/2608.03198"
+      "https://arxiv.org/abs/2608.03198",
+      "https://arxiv.org/pdf/2608.03198v1",
+      "https://github.com/SeonmiP/onoff/tree/ca3f8d6f7c76d142c95d6a86f97410249d0e5f7c"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：可微物理渲染桥接在线轨迹与离线字形，并学习笔刷风格。",
-    "method": "轨迹生成器、DINOv3 brush observer、六参数可微渲染器、可选冻结扩散增强；接触门控与max累积墨迹；用速度代理压力。",
-    "problem": "在线细线与真实粗细墨迹存在模态差距，静态生成又缺少可执行轨迹。",
-    "conclusion": "已提供轨迹—笔刷—墨迹—可选增强链路；本轮阅读方法和限制，并检查PDF方法与渲染页。",
-    "gap": "【边界】速度推压力不等于传感器真压力；简化模型不包含全部3D刷毛、湿度和纸吸收；增强后是否仍严格对应轨迹须另验。【推断】累计墨迹+物理渲染不再是空白机制。",
+    "claim": "研究目标：怎样同时生成文字的有序轨迹和具有参考风格的离线图像，并让轨迹能供机器人执行？",
+    "method": "六参数可微brush代理合成配对，style条件AR轨迹generator、DINOv3多参考参数observer、renderer与可选冻结扩散img2img增强。 轨迹ResNet18+2层512/8head encoder、3层Transformerdecoder含多字符crossattention，123维=20×6 GMM+3penstate；NLL+penCE。observer冻结DINOv3 ConvNeXtTiny768特征、交替局部/全局attention、768→512→6sigmoid；参数MSE+已知轨迹renderMSE。六θ控制width/spread/ink/sharpness/pmin/pmax；max合成不模拟湿墨历史。",
+    "problem": "怎样同时生成文字的有序轨迹和具有参考风格的离线图像，并让轨迹能供机器人执行？",
+    "conclusion": "Table2多字DTW SDT.8155→.2936、单字.6056→.3462。Table4 OneDM+ours IAM FID29→25.89/CER.3117不变，CVL FID19.45→14.45但CER.2877→.6285；DiffPen+ours IAM HWD1.6275→2.3116/CER.6672→.7103变差。不能概括全部质量和文字准确性一起提升。",
+    "gap": "压力由逐笔归一位移反向代理，宽度/压力范围可能相互补偿，不具唯一物理可识别性；论文承认非真实单位需校准。max合成丢覆盖顺序、墨水累积/吸收和3Dbrush。RDP后点距不等时间速度。离线增强可改变可读性；9字符上限、合成/OCR筛选偏差；robot定量成功率/力传感未核。 官方ca3f8d6f7c76d142c95d6a86f97410249d0e5f7c树仅2文件，README仍称Coming Soon/October，代码/数据尚不能据承诺认定已取得。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-15",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "§3—4及附录渲染/限制；PDF第6、11页",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/papers/onoff.md",
+    "sections_read": "§3.1–3.3/§4.1–4.4/§5/§6、Tables2–4，AppB/C与D1/E3指定段，Fig5 PDFp9视觉核。完整机器人映射参数、指标实现及余下附录/代码未全审，未执行模型或机器人 固定官方仓库README与文件树已核，未有完整模型源码。",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N02.md",
     "canonical_key": "paper:arxiv:2608.03198",
     "evidence_history": [
       {
@@ -4478,31 +4501,53 @@
       "web_bundle:N02",
       "local_focused:M004",
       "local_handwriting:R04"
-    ]
+    ],
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "§3—4及附录渲染/限制；PDF第6、11页",
+        "conclusion": "已提供轨迹—笔刷—墨迹—可选增强链路；本轮阅读方法和限制，并检查PDF方法与渲染页。",
+        "gap": "【边界】速度推压力不等于传感器真压力；简化模型不包含全部3D刷毛、湿度和纸吸收；增强后是否仍严格对应轨迹须另验。【推断】累计墨迹+物理渲染不再是空白机制。",
+        "note_path": "docs/handwriting/papers/onoff.md"
+      }
+    ],
+    "review_path": "docs/reviews/N02.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "IAM-OnDB+CASIA-OLHWDB1.0–1.2渲染155840词样本，303train/78test writer、25912词类，最长9字符/250点；IAM轨迹切词+OCR过滤，RDPε2。AppB词表73含拉丁大小写/数字/符号，CASIA具体采样类需核，不能按来源名推成完整汉字训练。离线IAM161/CVL283writer，去>9字词；背景texture合成。",
+    "framework": "六参数可微brush代理合成配对，style条件AR轨迹generator、DINOv3多参考参数observer、renderer与可选冻结扩散img2img增强。",
+    "architecture": "轨迹ResNet18+2层512/8head encoder、3层Transformerdecoder含多字符crossattention，123维=20×6 GMM+3penstate；NLL+penCE。observer冻结DINOv3 ConvNeXtTiny768特征、交替局部/全局attention、768→512→6sigmoid；参数MSE+已知轨迹renderMSE。六θ控制width/spread/ink/sharpness/pmin/pmax；max合成不模拟湿墨历史。",
+    "metrics": "轨迹DTW、图FID/BFID/HWD/CER/LPIPS，附录KID/GS/RMSE；15MTurk参与者10词排序，机器人主读范围为定性。速度代理v=相邻点距离无Δt，RDP会改该量；不是传感物理速度。",
+    "baselines": "在线SDT单字/逐字拼接多字；离线VATr++/DiffusionPen/One-DM/Emuru及加本renderer初始化。对合成renderer分布的优势须与真实离线分布分开，不能用baseline失败直接证明其缺运动理解。",
+    "experimental_conditions": "Adam2e-4/clip5；G六RTX3090 200K步20Kwarmup，O单3090 100K/10Kwarmup，O训练4参考/推理2参考。高度64、轨迹上限250。增强DiffPen起点50，OneDM IAM900/CVL200按设置调；全部batch/seed/参考采样和调参集需代码核。"
   },
   {
     "id": "N03",
     "category": "N 新增中文书写重点调研",
     "title": "DeepCalliFont: Few-shot Chinese Calligraphy Font Synthesis by Integrating Dual-modality Generative Models",
-    "version": "AAAI 2024；arXiv首发2023",
+    "version": "DeepCalliFont: Few-Shot Chinese Calligraphy Font Synthesis by Integrating Dual-Modality Generative Models；AAAI2024正式论文38(4):3774–3782，DOI10.1609/aaai.v38i4.28168",
     "source_urls": [
-      "https://arxiv.org/html/2312.10314v1"
+      "https://arxiv.org/html/2312.10314v1",
+      "https://ojs.aaai.org/index.php/AAAI/article/download/28168/28334",
+      "https://ojs.aaai.org/index.php/AAAI/article/view/28168",
+      "https://github.com/lsflyt-pku/DeepCalliFont/blob/5b0efdc5c1d688997fae5dabebd5b059c29b9721/config/train_common.yaml",
+      "https://github.com/lsflyt-pku/DeepCalliFont/blob/5b0efdc5c1d688997fae5dabebd5b059c29b9721/train.py"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：图像与书写序列双模态协同改善少样本书法合成。",
-    "method": "图像/轨迹生成分支，特征重组与跨模态约束，渲染一致性；先做单模态预训练。",
-    "problem": "单模态方法难兼顾笔画细节与整体风格，不同书体的笔画与顺序存在差异。",
-    "conclusion": "已有图像—序列双分支的中文书法生成；不能把联合两种表示作为首次贡献。",
-    "gap": "【边界】字体合成、轨迹与完整写字视频仍不同；书体有效笔画划分不能强用一套楷书规则。",
+    "claim": "研究目标：少量参考字体如何合成带自然连笔的书法图像及相应轨迹，缓解固定部件/笔序一致假设？",
+    "method": "图像/轨迹双分支、format6连笔状态、sequence引导IFR重组图特征、风格contrastive蒸馏恢复和UDF可微栅格单侧损失、先单模态再双模态预训。 CNNstyle/content encoder+带skip图decoder，Transformerseq2seq、20二维GMM预测xy+4状态。format6=(x,y,p1正常落笔,p2断笔,p3视觉连下一笔,p4结束)。IFR两次attention先图query读seq再读图value，seq stopgrad。风格特征线性减半/归一+恢复，InfoNCE/重建/分类。UDF线段距离sigmoidθ100/w2、ReLU(Idiff−Igt)²约束轨迹在字内，单侧项不充分要求覆盖全部字形。",
+    "problem": "少量参考字体如何合成带自然连笔的书法图像及相应轨迹，缓解固定部件/笔序一致假设？",
+    "conclusion": "Table2书法ours MAE.1254/FID14.6/LPIPS.1718，WLY.1757/167.2/.2714。常规ours MAE.1242/LPIPS.1837/DTW1.347较好，但FID105.9明显劣FontRL40.7；原文笼统“outperforms all metrics”不适用于该栏。Table1 fullLPIPS.1717与主表.1718有末位差，不合并修改。",
+    "gap": "论文承认fewshot illposed，可有不同但悦目的真值。伪连笔阈值非真实动作传感；同最终字图有多轨迹。关于i.i.d像素+conv+attention线性组合保证同分布的论述缺充分条件，attention权重依输入，不能当分布保持定理；对齐loss也不证明语义可识别。训练recipe/supp尚需补齐。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-15",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "摘要、引言、方法相关章节",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/papers/deepcallifont.md",
+    "sections_read": "正式AAAI主文Introduction、Method Eq1–22、Experiments Tables1–2/消融与Limitations；Fig2 PDFp3及Table1所在p7视觉核。补充材料/完整实现未全审，未复现 固定官方README/config及train.py的optimizer/loss/rasterizer段；非全部模型/数据实现审计。",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N03.md",
     "canonical_key": "paper:arxiv:2312.10314",
     "evidence_history": [
       {
@@ -4523,32 +4568,52 @@
     ],
     "aliases": [
       "web_bundle:N03"
-    ]
+    ],
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "摘要、引言、方法相关章节",
+        "conclusion": "已有图像—序列双分支的中文书法生成；不能把联合两种表示作为首次贡献。",
+        "gap": "【边界】字体合成、轨迹与完整写字视频仍不同；书体有效笔画划分不能强用一套楷书规则。",
+        "note_path": "docs/handwriting/papers/deepcallifont.md"
+      }
+    ],
+    "review_path": "docs/reviews/N03.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "阶段1 251fonts图像与CASIA在线序列分训；阶段2 42fonts×3000字双模态。连笔状态由端点距离与平均骨架阈值伪标。测试30常规fonts+10书法fonts，每风格100字微调、余6663字评。阈值/字体名单/字和writer划分完整配置需源码与supp核。",
+    "framework": "图像/轨迹双分支、format6连笔状态、sequence引导IFR重组图特征、风格contrastive蒸馏恢复和UDF可微栅格单侧损失、先单模态再双模态预训。",
+    "architecture": "CNNstyle/content encoder+带skip图decoder，Transformerseq2seq、20二维GMM预测xy+4状态。format6=(x,y,p1正常落笔,p2断笔,p3视觉连下一笔,p4结束)。IFR两次attention先图query读seq再读图value，seq stopgrad。风格特征线性减半/归一+恢复，InfoNCE/重建/分类。UDF线段距离sigmoidθ100/w2、ReLU(Idiff−Igt)²约束轨迹在字内，单侧项不充分要求覆盖全部字形。",
+    "metrics": "MAE/FID/LPIPS图，DTW序列；主表书法栏没有DTW，规范笔序事件和真实时间/压力没有直接测。FID低不能替代字形正确或序列事件。",
+    "baselines": "zi2zi/EMD/AGISNet/MXFont/DGFont/FontRL/WriteLikeYou，书法仅AGIS/MX/WLY子集（FontRL要求笔数一致等）；作者称同数据预训微调，是否等compute需核。",
+    "experimental_conditions": "128²图、xy归一−1到1、GMM20、rendererθ100/w2、每font100字适配。主文未列完整lr/batch/epoch/GPU/λ1–5与连接阈值；不能按公开脚本默认自动认定论文实验值。 官方5b0efdc5c1d688997fae5dabebd5b059c29b9721 config/train_common.yaml默认100epoch/lr1e-4/b8（注释可改）/accum1/imagew=seqw=plw=1；train.py Adamβ.9/.95/eps1e-9和cosine。只是当前公开默认，尚不能认定全部论文实验用该值。"
   },
   {
     "id": "N04",
     "category": "N 新增中文书写重点调研",
     "title": "Beyond Legibility: Benchmarking Visual Text Rendering and In-Place Editing in Unified Video Generation (VidScribe)",
-    "version": "arXiv v2 2026-10前公开",
+    "version": "Beyond Legibility: Benchmarking Visual Text Rendering and In-Place Editing in Unified Video Generation（VidScribe）；arXiv2609.36598v2；未核实正式接收",
     "source_urls": [
       "https://arxiv.org/html/2609.36598v2",
-      "https://arxiv.org/abs/2609.36598"
+      "https://arxiv.org/abs/2609.36598",
+      "https://arxiv.org/pdf/2609.36598v2",
+      "https://huggingface.co/datasets/Vicky0720/VidScribe/tree/dc7ad43c6bca768250b6d3471a145e1f89504b45"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：用可读性以外的结构、持续性、控制与编辑指标系统评测视频文字。",
-    "method": "803个人工核查样本；12因素；68%英语/32%中文；T2V/R2V/I2V/V2V；11公共指标和2编辑探针；含handwriting_stroke演化。",
-    "problem": "最终读得出来仍可能形变、漂移、编辑失配，单一OCR无法覆盖。",
-    "conclusion": "已测试11个系统并包含手写演化因素；论文A1/A2相关性较弱，提示读对与结构对要分开测。",
-    "gap": "【边界】A2字形拓扑并非逐笔规范序列、方向和接触评分；协议并非每例都从完全空白开始。【推断】不能再声称没有中文/手写因素的视频文字基准。",
+    "claim": "研究目标：如何系统评价视频文字的词法、字形、时间稳定、属性和局部编辑，并诊断不同条件的失败？",
+    "method": "四任务803例基准、12因素schema、OCRtrack/可观测门控的11公共指标+2编辑probe，及基准信号选偏好对训练Wan的应用。核心归类为benchmark/评价与偏好优化应用。 OCR detections按归一字符串/空间匹配跨帧track、每真值block至多1track；确定性结构/LPIPS/分类器、几何证据+VLM、rubricVLM三路径。A1任一block拼写错误否决，A2检查采样帧字形缺陷；B1结合A1 cap与presence，B2flowalignedpatch相似。结构检查的stroke指空间拓扑，不是规范笔序事件。",
+    "problem": "如何系统评价视频文字的词法、字形、时间稳定、属性和局部编辑，并诊断不同条件的失败？",
+    "conclusion": "主表MiniMaxH3 Overall79.2；Wan3 A1 82.7/A2 45.4、SeedanceA2 58.2；taskmean I2V82.2/V2V65.6。DPO Overall45.92→48.42（+2.50百分点），A2+5.00/C6+9.33。人评文本172/250偏好DPO=68.8%，非文字129/250=51.6%，后者不能据简单过半即断定显著。",
+    "gap": "track/OCR漏检、可见门控和独立结构检查均会影响分数；采样K帧A2不能保证全帧无短暂笔画错误。F12内容演化没有定义严格strokeID/方向/penstate；A1忽略空白，A2不是时间次序。同指标选偏好并评估有reward偏好风险，独立专家缓和但不证明所有泛化。公开链接与匿名PDF发布声明分开核。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-15",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "§3基准与指标、§4结果、因素附录",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/papers/vidscribe.md",
+    "sections_read": "v2 §3.1–3.3/§4.1–4.3、Tables1/3/4/11、AppA2/F12、B1 grounding/A1/A2/B1、C1/C2/C3指定段；Fig3 PDFp6视觉核。完整任务分表、结构检查源码/全API协议未全审；未运行模型",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N04.md",
     "canonical_key": "paper:arxiv:2609.36598",
     "evidence_history": [
       {
@@ -4586,32 +4651,51 @@
       "web_bundle:N04",
       "local_focused:M061",
       "local_handwriting:R61"
-    ]
+    ],
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "§3基准与指标、§4结果、因素附录",
+        "conclusion": "已测试11个系统并包含手写演化因素；论文A1/A2相关性较弱，提示读对与结构对要分开测。",
+        "gap": "【边界】A2字形拓扑并非逐笔规范序列、方向和接触评分；协议并非每例都从完全空白开始。【推断】不能再声称没有中文/手写因素的视频文字基准。",
+        "note_path": "docs/handwriting/papers/vidscribe.md"
+      }
+    ],
+    "review_path": "docs/reviews/N04.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "803=T2V250/R2V139/I2V229/V2V185；English68%/Chinese32%，9域，12因素文字量/层级/字符串/字体/笔重/尺寸/载体/光照/分离/运动/遮挡/内容演化。F12含typing/handwriting；AppA2要求首帧已有首字或首笔，不保证空白起始、完整规范笔画标注或真实压力。DPO另1000disjointprompt，不用测试250prompt训练。",
+    "framework": "四任务803例基准、12因素schema、OCRtrack/可观测门控的11公共指标+2编辑probe，及基准信号选偏好对训练Wan的应用。核心归类为benchmark/评价与偏好优化应用。",
+    "architecture": "OCR detections按归一字符串/空间匹配跨帧track、每真值block至多1track；确定性结构/LPIPS/分类器、几何证据+VLM、rubricVLM三路径。A1任一block拼写错误否决，A2检查采样帧字形缺陷；B1结合A1 cap与presence，B2flowalignedpatch相似。结构检查的stroke指空间拓扑，不是规范笔序事件。",
+    "metrics": "A1/A2、B1/B2、C1–6、D1公共11项，分组均值Overall；V2V E1残留越低好/E2源字保留越高好。Human correlation与因子Cliffδ/HC3 OLS/BH FDR；统计关联不能当随机干预因果。",
+    "baselines": "7商业统一video系统MiniMaxH3/Seedance2.5/Wan3/GeminiOmni1.1Flash/HappyHorse/PixVerseV6/Kling3Omni；4任务特定开源按适用task评。DPO对照同Wan2.2TI2V5B、相同heldout采样。模型任务与输入不同，汇总排名不能外推全部协议。",
+    "experimental_conditions": "默认Qwen3.7Plus、对照Gemini3.8Flash；投票3请求temperature0/seed1234。950视频×至少5专家，8专家盲评。DPO1000×8候选→best/worst1000pairs，缓存VAE，共享t/noise，LoRAr/α64/64，16GPU、121帧480×832、AdamW1e-6/globalpairb16、β5000/winneranchor.1、CFG关。总训练步数/耗时及完整API版本/采样协议未全核。"
   },
   {
     "id": "N05",
     "category": "N 新增中文书写重点调研",
     "title": "VTR-Bench: A Systematic Benchmark for Evaluating Visual Text Rendering in Video Generation",
-    "version": "arXiv v1 2026-10-01",
+    "version": "VTR-Bench: A Systematic Benchmark for Evaluating Visual Text Rendering in Video Generation；arXiv2610.01499v1；未核实正式接收",
     "source_urls": [
       "https://arxiv.org/html/2610.01499v1",
-      "https://arxiv.org/abs/2610.01499"
+      "https://arxiv.org/abs/2610.01499",
+      "https://arxiv.org/pdf/2610.01499v1"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：场景中文字正确性应与画面/动作合规分开评估，agentic关键帧指导有助改善。",
-    "method": "300提示、5场景、11模型；按文字载体转录计算WER；20项问询检查；Director协调关键帧生成、视频、视觉反馈和候选选择。",
-    "problem": "视频整体逼真但文字错，且可读内容与周围条件容易混评。",
-    "conclusion": "作者测试中最低总体WER为0.250；完整框架相对指定基线WER降低32.5%（相对值），不是笔顺正确率。",
-    "gap": "【边界】文字呈现/编辑不等于笔尖运笔；多候选框架须与同尝试数比较。【推断】“VLM反馈改善视频文字”已有直接前作。",
+    "claim": "研究目标：怎样评价多载体长文字在视频中是否传达指定信息，同时将场景/运动完成度与文字正确性分开？",
+    "method": "300prompt/1202textblocks、每prompt20CoQ需求判断+载体限定转录的有界WER，另以Director组织首帧/运动/视频迭代的推理框架。 文字tokenizer保case/内容符号/CJK逐字、忽略常规标点；每target只保reference长度+α预测前缀，α5，按video聚合edit/reference再cap1。VideoScore=20二值均值。Agent Qwen3.7Plus兼director/judge、QwenImage3.0首帧+MiniMaxH3video；与直接video相比增加外部图先验、工具调用和选择。",
+    "problem": "怎样评价多载体长文字在视频中是否传达指定信息，同时将场景/运动完成度与文字正确性分开？",
+    "conclusion": "Table1 Wan3 WER.250/VideoScore.849；MiniMax.447/.756，Wan2.2 .996/.436。H3 Agent WER.4468→.3015、VideoScore.7562→.8315；UI I2V的WER优Agent，非所有scenario全优。Table2 human videoWERρ.9731/CCC.9835/MAE.0407。",
+    "gap": "human样本偏向有可恢复文字的三模型，外推低可读/失败区域有限；选同100样本挑judge后报告该human拟合非独立校准集。bestoccurrence会漏时间退化；有界WER饱和，忽略截断尾部插入。Agent增加T2I和反馈成本，未报告同预算独立因果收益；不将此基准当汉字书写视频模型。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-15",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "§1—4、评测与框架",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/papers/vtr_bench.md",
+    "sections_read": "v1 §3.1–3.4/§4.1–4.5，Tables1–5/Fig7、AppB构造与C1–3指定段；Fig4 PDFp6视觉核。完整prompts/工具源码、后续分项图未审，未复现",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N05.md",
     "canonical_key": "paper:arxiv:2610.01499",
     "evidence_history": [
       {
@@ -4649,31 +4733,50 @@
       "web_bundle:N05",
       "local_focused:M062",
       "local_handwriting:R62"
-    ]
+    ],
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "§1—4、评测与框架",
+        "conclusion": "作者测试中最低总体WER为0.250；完整框架相对指定基线WER降低32.5%（相对值），不是笔顺正确率。",
+        "gap": "【边界】文字呈现/编辑不等于笔尖运笔；多候选框架须与同尝试数比较。【推断】“VLM反馈改善视频文字”已有直接前作。",
+        "note_path": "docs/handwriting/papers/vtr_bench.md"
+      }
+    ],
+    "review_path": "docs/reviews/N05.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "五类广告/科学/UI/文化/日常各60，25subscene，2–6文字块，94.3%为3–5块；video总58–496tokens/中位102.5，单块1–275/23。GPT5.6seed/CoQ、DeepSeekV4Flash构prompt，QwenImage参考验证+VLM+人工筛选；图可行性过滤本身有选择偏差，不等全部现实任务。",
+    "framework": "300prompt/1202textblocks、每prompt20CoQ需求判断+载体限定转录的有界WER，另以Director组织首帧/运动/视频迭代的推理框架。",
+    "architecture": "文字tokenizer保case/内容符号/CJK逐字、忽略常规标点；每target只保reference长度+α预测前缀，α5，按video聚合edit/reference再cap1。VideoScore=20二值均值。Agent Qwen3.7Plus兼director/judge、QwenImage3.0首帧+MiniMaxH3video；与直接video相比增加外部图先验、工具调用和选择。",
+    "metrics": "有界WER低好，场景/动作/空间/实体/时间CoQ score高好；人评100video/2000queries/404blocks三标注，Pearson/Spearman/LinCCC/MAE。最清楚一次转录不量化所有帧稳定、字形每笔完整或规范时序；cap/截断不等标准无界WER。",
+    "baselines": "11模型Wan2.2/Hunyuan1.5/LTX2.3/LingbotDense/MoE/MiniMaxH3及ViduQ3/HappyHorse1.1/Kling3/Seedance2.5/Wan3；Original/I2Vfirstcandidate/Agentic同H3比较。开闭源分组按本文口径，具体检查点版本/许可另核。",
+    "experimental_conditions": "10秒24fps，H20生成、A800评价；开源各自默认设置/分辨率、商业720p；vllm-omni。默认Qwen3.8-27B，对照3.6-27B；Agent/I2V删除首帧后评。不同模型不等分辨率/采样算力；Agent完整迭代上限、候选数、总token/GPU时/时延未在所读§3.4/4.4给出，未假定同成本。"
   },
   {
     "id": "N06",
     "category": "N 新增中文书写重点调研",
     "title": "Video models are zero-shot learners and reasoners",
-    "version": "arXiv v2",
+    "version": "Video models are zero-shot learners and reasoners；arXiv2509.20328v2，2025；技术研究报告，未核实正式接收",
     "source_urls": [
-      "https://arxiv.org/html/2509.20328v2"
+      "https://arxiv.org/html/2509.20328v2",
+      "https://arxiv.org/pdf/2509.20328v2"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：大型视频模型可在无任务微调时执行多种视觉操作和推理。",
-    "method": "用Veo 3进行任务化提示及条件视频生成，展示多种操作/过程结果。",
-    "problem": "视频生成能力是否可转用于感知、编辑、模拟和程序式操作。",
-    "conclusion": "Figure 30包含Omniglot逐笔复制示例，作者示例成功率0.5；颜色/编号标注为事后添加。",
-    "gap": "【边界】这是该任务的示例/局部实验，不是中文规范笔顺总体50%准确率；没有完整字符/书体大样本协议。【推断】须把公开个案与系统基准分开。",
+    "claim": "研究目标：已有视频生成API可否仅凭首帧与任务指令完成视觉理解、操作和初步视觉推理？",
+    "method": "以固定Veo API测试62定性与7定量任务，比较Veo2/3、图像编辑与LLM，提出chain-of-frames视觉推理视角；没有新训练架构。 黑盒Veo3 veo-3.0-generate-preview与Veo2；VertexAPI包含LLMpromptrewriter。作者将rewriter+video视作系统，对关键任务另检Gemini2.5Pro；不能把全部推理归因video权重。内部骨干/数据/参数/训练recipe本文未披露，不填其他Veo版本细节。",
+    "problem": "已有视频生成API可否仅凭首帧与任务指令完成视觉理解、操作和初步视觉推理？",
+    "conclusion": "Figure30逐笔复制成功率.5（12次中6次），颜色/数字为事后标注；识别.33、变体生成.25。不是规范笔顺量化。§4 edgeVeo3 bestpass10 .77对专模.90，seg .74/Nano.73；5×5maze pass10 78%对Veo2 14%。类比reflect/rotate均低于.33chance，保留失败反例。",
+    "gap": "闭源数据不可核、rewriter混杂、小样本及人工定性成功标准；“可解”不等“稳定可靠”。最终Figure30数字/颜色为后加，不能当模型自身strokeID输出；无逐笔合法序/方向/真实时间/压力真值。以LLM价格趋势预测video成本下降是展望，非已测video效率证据。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-15",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "Fig.30说明、对应任务段落；不把注释当模型原生输出",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/papers/video_zero_shot.md",
+    "sections_read": "v2 §1–2/§3定性协议、§4.1–4.7/讨论、AppA Figure30、B总表/B1/B2/B5/B6与Cpromptstudy指定段。未逐读62任务全部视频、未独立审生成原片；Figure30 caption核而非完整stroke实测，未复现",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N06.md",
     "canonical_key": "paper:arxiv:2509.20328",
     "evidence_history": [
       {
@@ -4694,7 +4797,25 @@
     ],
     "aliases": [
       "web_bundle:N06"
-    ]
+    ],
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "Fig.30说明、对应任务段落；不把注释当模型原生输出",
+        "conclusion": "Figure 30包含Omniglot逐笔复制示例，作者示例成功率0.5；颜色/编号标注为事后添加。",
+        "gap": "【边界】这是该任务的示例/局部实验，不是中文规范笔顺总体50%准确率；没有完整字符/书体大样本协议。【推断】须把公开个案与系统基准分开。",
+        "note_path": "docs/handwriting/papers/video_zero_shot.md"
+      }
+    ],
+    "review_path": "docs/reviews/N06.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "18384videos=定性62×12=744+定量17640。BIPEDv2全部50test、LVIS50个1–3物体图、54animal组合、EmuEdit30、不同size随机/手画maze、2×25对称grid、KiVA四变换各50。Figure30非完整Omniglot标准split，未声明汉字笔顺benchmark。",
+    "framework": "以固定Veo API测试62定性与7定量任务，比较Veo2/3、图像编辑与LLM，提出chain-of-frames视觉推理视角；没有新训练架构。",
+    "architecture": "黑盒Veo3 veo-3.0-generate-preview与Veo2；VertexAPI包含LLMpromptrewriter。作者将rewriter+video视作系统，对关键任务另检Gemini2.5Pro；不能把全部推理归因video权重。内部骨干/数据/参数/训练recipe本文未披露，不填其他Veo版本细节。",
+    "metrics": "边OIS/F1（16阈值、容许.75%对角线偏移）；segmIoU、物体连通数、editing人评、maze全程合法成功、对称零错格/CIELAB阈15、类比pass@k。bestframe和bestof10用已知真值事后选，部署需另选帧/解，非直接单次可用准确率。",
+    "baselines": "Veo2与3、NanoBanana（gemini2.5flashimagepreview）、Gemini2.5Pro图像/ASCII，以及任务专模参考。分割允许任意颜色且GT各选最高IoU，需和一对一匹配标准分开；不做跨协议SOTA推断。",
+    "experimental_conditions": "720p/16:9/24fps/8秒，VertexAPI；每qual12样本，quant一般10samples，editing每30图单次/三human。Veo2主文ID veo-2.0-generate-001，附录写veo-2.0-generate-preview-001，版本差保留待核。闭源预训练数据与是否含同类任务不可核，zero-shot指无本次任务适配，不能证实无任何训练接触。"
   },
   {
     "id": "N07",
@@ -4837,25 +4958,26 @@
     "id": "N09",
     "category": "N 新增中文书写重点调研",
     "title": "Text-Animator: Controllable Visual Text Video Generation",
-    "version": "arXiv v1 2024",
+    "version": "Text-Animator: Controllable Visual Text Video Generation；arXiv2406.17777v1，2024；未核实正式接收",
     "source_urls": [
-      "https://arxiv.org/html/2406.17777v1"
+      "https://arxiv.org/html/2406.17777v1",
+      "https://arxiv.org/pdf/2406.17777v1"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：将文字信息与视频控制结合可改善可控视觉文字视频。",
-    "method": "文字嵌入注入、相机控制及文字细化等模块，与视频生成模型结合。",
-    "problem": "运动和视角变化时文字内容难保持、定位难控制。",
-    "conclusion": "已提出专门的文字视频生成机制；为中文书写视频提供相邻强基线。",
-    "gap": "【边界】载体文字正确与逐笔写入顺序不同；相机控制不等于接触/沉积建模。",
+    "claim": "研究目标：如何让视频场景内指定字符串字形正确，且文字随相机和载体协同运动、保持稳定？",
+    "method": "字形/位置ControlNet与相机PlückerControlNet双控制，按camera warp后续字图，并通过位置扩张修正融合已训练组件。 AnimateDiffV3 3DUNet（2DConv+temporalattention），运动权重既有AnimateDiff，其他DreamShaper或SD1.5。ArialUnicode glyph和位置分别conv后融合ControlNet，camera6DPlücker多尺度注入latent/temporal层；固定同一行depth假设做warp，位置扩张1.2。两ControlNet按CameraCtrl/AnyText已有方法数据训练，最后冻结聚合推理。",
+    "problem": "如何让视频场景内指定字符串字形正确，且文字随相机和载体协同运动、保持稳定？",
+    "conclusion": "Table1 ours1855M、SenAcc.779/NED.802/FID180.6/prompt33.78/frame92.66；AnyText+AnimateLCM SenAcc.220/FID153.7，后者FID更好。Table2Pika.267/.611、Gen2.279/.708；只能在约90样本协议下说文字指标较强。",
+    "gap": "固定同线depth不支持任意曲面/强形变/遮挡，warp位置不保证真实物体绑定；短16帧、小人工选集、缺动态文字事件与标准书写序。高frame similarity可由小运动获得，需运动量分层。无现时强新模型同协议对比，不能从2024结果断言今日SOTA。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-15",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "摘要、引言、方法概览",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/papers/text_animator.md",
+    "sections_read": "v1 §3.1–3.4/§4.1–4.5、Tables1–3与Conclusion，Fig2 PDFp4视觉核。未审完整code、OCR/FID/相机配置和实际视频原片，未复现",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N09.md",
     "canonical_key": "paper:arxiv:2406.17777",
     "evidence_history": [
       {
@@ -4876,7 +4998,25 @@
     ],
     "aliases": [
       "web_bundle:N09"
-    ]
+    ],
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "摘要、引言、方法概览",
+        "conclusion": "已提出专门的文字视频生成机制；为中文书写视频提供相邻强基线。",
+        "gap": "【边界】载体文字正确与逐笔写入顺序不同；相机控制不等于接触/沉积建模。",
+        "note_path": "docs/handwriting/papers/text_animator.md"
+      }
+    ],
+    "review_path": "docs/reviews/N09.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "从AnyTextbenchmark LAION子集中人工选择约90图对应场景prompt评测，去纯文字/文字与内容分离图；本文没有新video训练集，完整样本ID/多语比例/真实video参考分布待代码核。展示含中文“小吃街”，不能据示例推全语种量化。",
+    "framework": "字形/位置ControlNet与相机PlückerControlNet双控制，按camera warp后续字图，并通过位置扩张修正融合已训练组件。",
+    "architecture": "AnimateDiffV3 3DUNet（2DConv+temporalattention），运动权重既有AnimateDiff，其他DreamShaper或SD1.5。ArialUnicode glyph和位置分别conv后融合ControlNet，camera6DPlücker多尺度注入latent/temporal层；固定同一行depth假设做warp，位置扩张1.2。两ControlNet按CameraCtrl/AnyText已有方法数据训练，最后冻结聚合推理。",
+    "metrics": "OCR sentenceaccuracy与向上NED、FID、prompt/frame similarity；需核逐帧采样/聚合和FID参考，不能把frame similarity解释成严格笔顺/动作因果或FVD。",
+    "baselines": "AnyText/GlyphControl+AnimateLCM/I2VGenXL、AnimateDiffSDXL文字LoRA（Civitai资源）、OpenSORA/MorphStudio/Pika/Gen2；各不同底座/输入控制，不从参数规模单独推同预算效率。",
+    "experimental_conditions": "glyph1024²/position512²，扩张1.2，25steps/CFG7.5，16×256×384输出。训练lr/batch/GPU/epochs及相机轨迹来源未在已读实现段完整交代；“without further tuning”指聚合推理阶段，两个ControlNet先前仍需训练。"
   },
   {
     "id": "N10",
@@ -8279,22 +8419,23 @@
   {
     "title": "Draw This First",
     "source_urls": [
-      "https://arxiv.org/html/2608.12064v1"
+      "https://arxiv.org/html/2608.12064v1",
+      "https://arxiv.org/pdf/2608.12064v1"
     ],
-    "method": "潜空间flow模型预测颜色编码中间表示；训练VAE头恢复顺序场、掩码与实例，再向量化排序。",
-    "conclusion": "区域级、部件级、遍次级顺序Kendall相关分别为0.838、0.461、0.444；细粒度控制仍困难。",
-    "gap": "产生的笔画数量约为参考的1.7–2.5倍；未恢复真实时间或压力，也未验证中文规范视频。",
-    "problem": "既要保留预训练图像生成能力，又要明确控制笔画先后。",
-    "claim": "通过二维顺序场控制草图向量笔画的生成顺序。",
-    "version": "arXiv:2608.12064v1",
+    "method": "区域内保序/区域间置换及匹配caption数据，HSV累计弧长编码，QwenImageEdit LoRA生成codec，重训VAEdecoder的arc/mask/instancehead并用非学习tracer转有序polyline。 H=a×342/360、S=1、V=1−u/2，a为全局弧长归一/u为本stroke弧长；1px无宽centerline。冻结QwenImageVAEencoder，训练decodertrunk+pyramid CNN10通道(a/m/8Dembedding)；L1/LPIPS+arcL1/BCE/pushpull。DiT QwenImageEdit2509 r64/α64 FM，HDBSCAN聚类，按平均arc排序，nearestneighborwalk/merge/RDP.5像素。",
+    "conclusion": "Table1同图holdout删captionτ.096→with.449，几何IoU.775/.774基本不变；外Birds+Creatures原序.373/反序−.267对录制order。Table3指令相对τ region.838、part.461、pass.444；withinunit.282/.177/.134低。Table4无指令holdout.096<heuristic.105，FSCOCO.308>.201。不能称自动恢复全人类画序。",
+    "gap": "训练故意去相关几何和全局序，无指令humanorderprior不可保证；指令越细越弱，尾句constraint31.5%对uninstructed32.6%，单句51.7%。内部pass反转仅40%；路径约1.7–2.5倍碎片，QuickDrawdecoderceiling4.37。丢time/pressure/tilt/brushwidth，覆盖交叉可能损stroke，不能用于真实速度/压力还原。",
+    "problem": "能否用文字改变同一素描的绘制顺序，并保留预训练图像模型的开放词汇生成能力？",
+    "claim": "研究目标：能否用文字改变同一素描的绘制顺序，并保留预训练图像模型的开放词汇生成能力？",
+    "version": "Draw This First: Controlling the Creation Order of Generative Line Drawings；arXiv2608.12064v1，2026；未核实正式接收",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-16",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-16",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 A",
     "id": "L011",
     "canonical_key": "paper:arxiv:2608.12064",
@@ -8335,8 +8476,26 @@
       "local_focused:M019",
       "local_handwriting:R19"
     ],
-    "note_path": "docs/handwriting/02_capability_matrix.md",
-    "sections_read": "v1方法、顺序控制表、碎片化及限制"
+    "note_path": "docs/reviews/L011.md",
+    "sections_read": "v1 §3.1–3.4/§4.1–4.3/§5–6，Tables1–9、AppA–F指定公式/算法/协议段，Fig1 PDFp3视觉核；未逐图核所有定性样例或审全部代码，未复现",
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v1方法、顺序控制表、碎片化及限制",
+        "conclusion": "区域级、部件级、遍次级顺序Kendall相关分别为0.838、0.461、0.444；细粒度控制仍困难。",
+        "gap": "产生的笔画数量约为参考的1.7–2.5倍；未恢复真实时间或压力，也未验证中文规范视频。",
+        "note_path": "docs/handwriting/02_capability_matrix.md"
+      }
+    ],
+    "review_path": "docs/reviews/L011.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "50Upworkartists委托47318drawing，均77.5stroke/6864point，原ApplePencil流仅用简化xy；两层region/subject框标注，置换保region内序。100holdout及各100CreativeBirds/Creatures/FSCOCO/QuickDraw等，外集不入DiT训练；条件漏斗47190/40Kcaption子集与总数口径分开。",
+    "framework": "区域内保序/区域间置换及匹配caption数据，HSV累计弧长编码，QwenImageEdit LoRA生成codec，重训VAEdecoder的arc/mask/instancehead并用非学习tracer转有序polyline。",
+    "architecture": "H=a×342/360、S=1、V=1−u/2，a为全局弧长归一/u为本stroke弧长；1px无宽centerline。冻结QwenImageVAEencoder，训练decodertrunk+pyramid CNN10通道(a/m/8Dembedding)；L1/LPIPS+arcL1/BCE/pushpull。DiT QwenImageEdit2509 r64/α64 FM，HDBSCAN聚类，按平均arc排序，nearestneighborwalk/merge/RDP.5像素。",
+    "metrics": "Hungarian几何匹配后Kendallτ、指令约束stroke pairs与withinunitτ分开，maskIoU/match/pathcount/Chamfer，DTW统一128点；CLIP50类Top1/5。多个合法artistorder存在，单次录制τ非唯一规范；几何匹配漏掉碎片也需报告。",
+    "baselines": "固定图/seed caption删/原/反序、geometryheuristics（topdown/longest/centerout/greedy）及事后oracle、frozenVAEdecoder、9种ordercodec；无所有近期绘画模型同预算比较，不能以新任务定义省略直接前史VideoSketcher/SketchVideo等。",
+    "experimental_conditions": "decoder30Ksteps；DiT50K/32H100-80G/2848GPUh、globalb32 AdamW1e-4 β.9/.95/wd.01/clip1/100warmup/10Kdecay。loss pixel/LPIPS1、arc8、mask.25、embedding.1/前景邻域50倍；decoder优化器/lr/GPU独立成本未在已读AppA完整列出。1024²格polyline。"
   },
   {
     "title": "SketchAgent，2024/2025",
@@ -19313,41 +19472,56 @@
     "id": "S001",
     "category": "S 首轮补录整合",
     "title": "Ketaba-OCR at AR-MS NakbaNLP 2026",
-    "version": "来源版本见原始页面与首轮笔记",
+    "version": "Ketaba-OCR at AR-MS NakbaNLP 2026: Efficient Adaptation of Vision-Language Models for Handwritten Recognition；NakbaNLP2026/LREC workshop，ACL Anthology 2026.nakbanlp-1.21，pp160–170，DOI10.63317/3inc2znes52o",
     "source_urls": [
       "https://aclanthology.org/2026.nakbanlp-1.21/",
       "https://github.com/HasanBGit/Ketaba-OCR-LoRA",
-      "https://huggingface.co/HassanB4/Ketaba-OCR-LoRA"
+      "https://huggingface.co/HassanB4/Ketaba-OCR-LoRA",
+      "https://aclanthology.org/2026.nakbanlp-1.21.pdf",
+      "https://github.com/HasanBGit/Ketaba-OCR-LoRA/tree/f1aefa8317edda0d7f064c2ae1731cdb4186b076",
+      "https://huggingface.co/HassanB4/Ketaba-OCR-LoRA/tree/7f55602e5e83041c4af6ff007c7ccd1dc3e23202"
     ],
     "previous_evidence": "paper_and_training_code_sections",
-    "claim": "来源所报告的任务：Arabic manuscript handwritten text recognition",
-    "method": "specialized HTR plus QLoRA/DoRA/RSLoRA and ensemble；Qwen2.5-VL based Arabic-English handwritten OCR backbone",
-    "problem": "Arabic manuscript handwritten text recognition",
-    "conclusion": "当前核查范围内：blind per-line CER 0.0819 WER 0.2588; corpus-wide 0.0938/0.2996",
-    "gap": "待核：independent inference and feature ablation",
+    "claim": "研究目标：少资源条件下如何将已有阿拉伯/英语手写识别VLM适配到历史Ruqah/Naskh手稿行转录？",
+    "method": "已专门预训HRT底座上NF4 QLoRA+DoRA/RSLoRA参数适配，六模型Linear+Boost文字共识集成；这是OCR领域适配，有正式论文，不能归成无论文研究。 底座sherif1313/Arabic-English-handwritten-OCR-v3（Qwen2.5VL约4.07B，visiontransformer+MLPadapter），NF4冻结base、attentionq/k/v/o和MLPgate/up/down加r32α64/drop.05、DoRA+RSLoRA。六候选按(1−CER)+.5·I(CER<.15)归一权重，精确vote/Arabicnormalize/3gram/编辑距离分层仲裁。",
+    "problem": "少资源条件下如何将已有阿拉伯/英语手写识别VLM适配到历史Ruqah/Naskh手稿行转录？",
+    "conclusion": "Table1 blind单HRTLoRA CER.0884/WER.2699→ensemble.0819/.2588，官方Table2 .0938/.2996第3；Table3按行CER第1但WER.2588高Misraj.2516，不称所有指标第一。Table4未适配HRT .2032/.5031，是domainadapt更贴切起点；.584organizer不能单归因LoRA。",
+    "gap": "AppH明确以ensemble最终输出做PseudoGT再分析其他模型；该分析不构成独立真值证实ensemble修复每例，也不能由总体CER<.1推出每行伪真值可靠。Table6test与Table8错误分析数值差异/样本范围需核；表和资源版本需对应。现域外时期/风格未充分验证，normalization还可能改历史正字。 公开train_model缺外部eval时默认随机90/10，不能据该函数推定19chunk最终制品完整划分；训练记录两者如何对应待核。normalize_arabic合并alef/tehmarbuta并去附标，仅用于投票分组，实际返回组内最高权重原文，不能误写为最终输出总被去附标。README预训称Kitab，而论文称Muharaf，底座来源需另查模型卡，不自行视同一数据。",
     "provenance": "2026-10-19第一轮来源补录整合",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-19",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "paper_and_training_code_sections",
-    "last_updated": "2026-10-19",
+    "sections_read": "ACL正式PDF§2–6与AppA–H指定协议/全部Tables1–10，Arabic原文受文本提取字形影响，未逐字翻译判读；官方固定GitHub YAML/README及HF元数据另核。未运行模型，未独立读取隐藏GT GitHub YAML/README、train_model/preprocess_sample、ensemble.normalization/voting指定函数及HF README/adapter_config/training_info已审。",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:https://aclanthology.org/2026.nakbanlp-1.21/",
     "aliases": [
       "X2026-001"
     ],
-    "note_path": "docs/handwriting/papers/ketaba_ocr_lora.md",
+    "note_path": "docs/reviews/S001.md",
     "task": "Arabic manuscript handwritten text recognition",
     "input": "cropped Arabic line image",
     "output": "transcribed text",
-    "dataset": "Omar Al-Saleh Memoir; 15,962 train + 2,095 dev-test final training; 2,671 blind",
-    "framework": "specialized HTR plus QLoRA/DoRA/RSLoRA and ensemble",
-    "architecture": "Qwen2.5-VL based Arabic-English handwritten OCR backbone",
-    "metrics": "blind per-line CER 0.0819 WER 0.2588; corpus-wide 0.0938/0.2996",
-    "baselines": "organizer baseline, specialized HTR, Qari and generic VLM models",
-    "experimental_conditions": "QLoRA 4-bit NF4, r32 alpha64, lr2e-5, batch1 accum4, 1 epoch",
-    "supplement_id": "X2026-001"
+    "dataset": "OmarAlSaleh1951–1965历史稿，train15962/dev1774/test2095用于开发；最终2671blind隐藏GT。底座Muharaf/IAM/其他预训不能算本工作重新训练数据。仓库说明将15962+2095合为18057最终训练；该2095不能同时当最终未触碰test。writer/page隔离及ensemble校准CER来自何split需核。",
+    "framework": "已专门预训HRT底座上NF4 QLoRA+DoRA/RSLoRA参数适配，六模型Linear+Boost文字共识集成；这是OCR领域适配，有正式论文，不能归成无论文研究。",
+    "architecture": "底座sherif1313/Arabic-English-handwritten-OCR-v3（Qwen2.5VL约4.07B，visiontransformer+MLPadapter），NF4冻结base、attentionq/k/v/o和MLPgate/up/down加r32α64/drop.05、DoRA+RSLoRA。六候选按(1−CER)+.5·I(CER<.15)归一权重，精确vote/Arabicnormalize/3gram/编辑距离分层仲裁。",
+    "metrics": "CER/WER分别按行均值与官方corpus聚合；权重、排序和不同split分别记录。字符级正确不保证词界，CER/WER可>1，不能把高插入误差裁成100%。",
+    "baselines": "organizerbaseline、未适配HRT、generalQwen2.5VL3/7B、QARI变体/GLMOCR等；blind单HRTLoRA与六模型ensemble。LoRA/DoRA/RSLoRA/量化同时采用，未见单变量全参/LoRA等预算对照，不能因本系统强就证明每机制必要。",
+    "experimental_conditions": "imageRGB最长边1024后32倍数、无额外增强，maxseq2048；AdamW fused2e-5/cosine/warm200/wd.01/clip1/b1acc4/1epoch，seed42、eval/save500，NF4bf16doublequant。作者约8GB对40GB显存主张，未独立测峰值、训练总时、ensemble六模型总成本。 固定GitHub f1aefa8317edda0d7f064c2ae1731cdb4186b076 YAML与HF 7f55602e5e83041c4af6ff007c7ccd1dc3e23202 adapter_config确认r32/α64/DoRA/RSLoRA，training_info记录18057/19chunks；未下载权重tensor。",
+    "supplement_id": "X2026-001",
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-19",
+        "sections_read": "paper_and_training_code_sections",
+        "conclusion": "当前核查范围内：blind per-line CER 0.0819 WER 0.2588; corpus-wide 0.0938/0.2996",
+        "gap": "待核：independent inference and feature ablation",
+        "note_path": "docs/handwriting/papers/ketaba_ocr_lora.md"
+      }
+    ],
+    "review_path": "docs/reviews/S001.md",
+    "review_depth": "critical_sections_reviewed"
   },
   {
     "id": "S002",

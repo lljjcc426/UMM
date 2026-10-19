@@ -833,6 +833,230 @@
         }
       ],
       "boundary": "公式/选定主表和消融/框架已核，完整代码/时间协议与用户实验待补，不计完整三遍完成。"
+    },
+    {
+      "id": "N01",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "UniCalli把整列书法生成与识别视作双向任务。单字字体模型忽略字间布局/连笔，历史数据又长尾且部分无标注，作者用统一FM和不同数据来源扩大可学习信息。",
+          "evidence": "书面复述，未计时。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2标准字图、书法图、框图经VAE成为三组token；内容与图/框分别加噪，生成固定内容、识别固定图/框。DualT MMDiT共享attention并用独立时间调制，输出静态图/框或用于检索的内容latent。",
+          "evidence": "正式PDFp4 Fig2已渲染核；§3。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "创新是双向目标、显式布局与复制空间坐标、条件drop及异质数据混训的组合。识别为latent字库检索，不能误写成通用AR文字head；公开base无pred_box且训练/识别推理未完整开放。",
+          "evidence": "AppE与官方固定README/源码指定段。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table3 FID37.69优所列对照；Table4依次加joint/RoPE/drop FID52.90→46.42→41.78→37.69，但末步SSIM下降.613→.602。Table2草/行/篆和甲骨识别均非最优，不能以总体.540概括各分布。",
+          "evidence": "Tables2–6与AppD。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：共同数据与总compute相同时，双任务本身是否带来双向收益？疑问2：复制RoPE与输入embedding两种公式怎样对应实际模型？疑问3：邻近作品裁片是否跨train/test，字库覆盖对未见字怎样限制？相关OnOff/DeepCalliFont同样连接两表示，必须按目标和共享参数比较。",
+          "evidence": "AppB/C/E、官方base发布范围；未做独立训练。"
+        }
+      ],
+      "boundary": "本次为指定原文、框架和书面理解核对；完整附录/代码仍有明确缺项，未计时口试、未独立复现，不计完整三遍完成。"
+    },
+    {
+      "id": "N02",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "OnOff通过渲染连接文字轨迹与静态手写图像，希望同时保留动作序列和参考风格。轨迹/图像数据各自丰富但真实成对少，因此以可微brush代理合成配对。",
+          "evidence": "书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig5文字和参考图分送G/O：G输出有序xy/penstate，O输出六brush参数，两者经renderer成图，可选冻结diffusion增强。robot另使用FRIDA与坐标/深度映射。",
+          "evidence": "PDFp9 Fig5已视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "核心为物理启发的六参数可微renderer、参数observer及词级轨迹与冻结增强的组合。速度只是点距、pressure是代理，不能把低维可解释参数等同力传感真值。",
+          "evidence": "§3–4/AppB/C/D1。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table2多字DTW .8155→.2936；Table4接OneDM后CVL FID19.45→14.45但CER.2877→.6285。不同noise起点/不同增强器是组合对照，未给完整六参数独立消融，不能声称全部组件因果必要。",
+          "evidence": "Tables2–4/§5.1和AppE3；完整组件消融仍待。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：RDP与重采样改点距时，pressure/线宽会不会改变？疑问2：固定同调参预算能否同时改善文字与风格？疑问3：max合成是否丢真实墨迹覆盖顺序？FRIDA及其他在线/离线联合前史已存在，机器人部署本身不足以定义新颖。",
+          "evidence": "§6作者局限/渲染公式/既有FRIDA控制链。"
+        }
+      ],
+      "boundary": "本次为指定原文、框架和书面理解核对；完整附录/代码仍有明确缺项，未计时口试、未独立复现，不计完整三遍完成。"
+    },
+    {
+      "id": "N03",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "DeepCalliFont针对草书连笔和部件/笔序一致假设失效，用图像与轨迹双模态互补。少量目标风格字可适配，输出既有静态图也有带连笔状态的关键点序列。",
+          "evidence": "书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2左CNN图分支、右Transformer/GMM序列分支，各有style/contentencoder；seq feature stopgrad后经IFR引导图decoder，轨迹rasterloss约束几何，风格distill/restore与NCE跨分支连接。",
+          "evidence": "正式AAAI PDFp3 Fig2已渲染核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "format6把断笔、视觉连写和结束分开；两次attention重组图value，保持接口形状并不证明分布完全相同。单侧UDF loss让轨迹在字内，不能独自保证全字覆盖或真实时间。",
+          "evidence": "Eq7–22与fixed train.py指定计算。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table2常规DTW1.347优WLY5.920，但FID105.9劣FontRL40.7。Table1去IFR FID23.7、去diff24.6、去预训43.4对full14.6；对应勾选已视觉核，原文主张需限定指标/分布。",
+          "evidence": "PDFp7 Tables1/2勾选与方向已视觉核。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：伪连笔阈值错误是否传到生成？疑问2：同最终字图的多合法序如何评价？疑问3：同数据compute的图像单分支加大能否同样改善？XMPFont/WriteLikeYou等已有双模态/序列先验，不能将图像加轨迹当全新方向。",
+          "evidence": "Introduction/Limitations/RelatedWork指定段，supp尚待读。"
+        }
+      ],
+      "boundary": "本次为指定原文、框架和书面理解核对；完整附录/代码仍有明确缺项，未计时口试、未独立复现，不计完整三遍完成。"
+    },
+    {
+      "id": "N04",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "VidScribe研究视频文字如何被正确写入、转移、保持和局部编辑，以及整体视频分数为何会掩盖字形/拼写失败。它建立基准与评价，并示范偏好训练信号。",
+          "evidence": "书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig3视频帧先做OCR/track，门控可测证据后送结构/感知专家、几何证据仲裁或rubricVLM，输出11公共指标和V2V两probe；模型视频作为被评对象，没有新汉字书写UMM骨干。",
+          "evidence": "PDFp6 Fig3已视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "贡献是四任务12因素统一schema和多证据指标，空间A2拓扑与时间B1稳定各有不同约束。F12手写演化起始已有首笔，未标全规范笔事件，不能误解为严格笔顺生成研究。",
+          "evidence": "§3/AppA2/B1/F12。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Wan3 A1 82.7/A2 45.4显示识别与字形脱钩；匹配R2V↔T2V非语义A2 54.3→67.7体现参考图帮助。1000独立prompt做DPO后heldoutOverall45.92→48.42，但不是只变一个reward的消融。",
+          "evidence": "主表与matched诊断、AppC3/11；无完整reward消融。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：OCR漏track或只抽K帧时，短暂笔画错误能否漏评？疑问2：固定终态换序/反向书写会不会仍高分？疑问3：用同评价选偏好并测分是否过拟合指标？VTRBench/TextAnimator及既有video指标都应作前史，任务边界须固定。",
+          "evidence": "指标公式/采样机制及本仓实验对照分析。"
+        }
+      ],
+      "boundary": "本次为指定原文、框架和书面理解核对；完整附录/代码仍有明确缺项，未计时口试、未独立复现，不计完整三遍完成。"
+    },
+    {
+      "id": "N05",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "VTRBench把视频场景任务完成度和写出的文字信息分开评。多载体长文本中模型可能动作场景正确，却写错所有文字，单一视频质量不能捕捉该失败。",
+          "evidence": "书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig4 director先组织T2I首帧、VLM检查/编辑/选择，再写motionplan给同一video模型，检查视频后可修订重生成；输出选中视频。评价另有CoQ与maskedreference转录两路。",
+          "evidence": "PDFp6 Fig4已视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "新增基准、多载体转录/有界WER及keyframeagent流程；Agent增加图模型与反馈/候选预算，不能当底座权重能力提升或同成本比较。WER只读最清楚出现，不测全时序字形。",
+          "evidence": "§3.3–3.4/§4.4。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1 Wan3 WER.250，Kling虽VideoScore约.793但WER.979。H3Original→Agent WER.4468→.3015，I2V对照后full仍整体更好，但UI的I2VWER更低；Appα敏感性和换judge检验稳定性，尚缺同预算bestofN对照。",
+          "evidence": "Tables1–5/Fig7已读文字数值，图完整柱对应仍可继续核。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：最清楚一次会漏多少闪烁/变字？疑问2：Agent提升有多少由T2I首帧和更多调用解释？疑问3：偏向可读模型的人评100例能否验证不可读尾部？VidScribe已有多维时间/编辑评价，必须对齐目标，不能将二者简单排名。",
+          "evidence": "§4.5选择与协议、本仓对照建议。"
+        }
+      ],
+      "boundary": "本次为指定原文、框架和书面理解核对；完整附录/代码仍有明确缺项，未计时口试、未独立复现，不计完整三遍完成。"
+    },
+    {
+      "id": "N09",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "TextAnimator解决场景内明确字符串在video中写错或随运动扭曲的问题。字形map控制外观，但还需相机控制避免字和载体运动分离。",
+          "evidence": "书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2首帧glyph/position按相机warp到各帧，经各conv与融合ControlNet；cameraPlücker另进ControlNet，两路多尺度特征注入AnimateDiffUNet，去噪latent经VAE成16帧video。",
+          "evidence": "PDFp4 Fig2已渲染核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "关键是glyph与camera/position双控制、warp位置refine，不是把文字内容逐笔生成；最后聚合冻结，不意味着ControlNet从未训练。",
+          "evidence": "§3.1–3.4/§4.1。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1SenAcc.779/NED.802对AnyTextAnimateLCM .220/.615，但FID180.6劣153.7。去camera/position/refine NED.786/.775/.763；扩张.9 NED.804略优full，保真/图质量有tradeoff。",
+          "evidence": "Tables1–3、§4.5。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：同线depth和rigidwarp对曲面/形变会多大失败？疑问2：约90筛选prompt能否外推长串/复杂汉字？疑问3：高帧相似度是否因运动小？AnyText、CameraCtrl、AnimateDiff与Civitai文字LoRA均是实际依赖/对照，不能遗漏无论文资源前史。",
+          "evidence": "§3.4深度假设、§4.2筛样及本文motion讨论。"
+        }
+      ],
+      "boundary": "本次为指定原文、框架和书面理解核对；完整附录/代码仍有明确缺项，未计时口试、未独立复现，不计完整三遍完成。"
+    },
+    {
+      "id": "L011",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "DrawThisFirst用语言控制素描对象/部件先后，同时继承图像模型开放词汇先验。最终图形多解，作者以数据中区域间置换解耦几何和顺序。",
+          "evidence": "书面复述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig1原轨迹构HSVcodec/arc/mask/instance目标，冻结VAEencoder，训练decoder+pyramidhead输出10通道；DiT生成latent后HDBSCAN和polylinefit输出按arc排序的向量。进度是弧长，没有真实时间/压力。",
+          "evidence": "PDFp3 Fig1已渲染核，§3.4/Algorithm1。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "创新是order可编码图像表示、顺序指令置换监督和专用解码/分割head的连接；不是新增规范stroke标注或真实RGB书写动作生成器。",
+          "evidence": "§3/AppA/E。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1固定几何/seed删captionτ.096→.449，Table3区域.838而part.461/pass.444，withinunit低。Table5学head holdoutarcL1 .0607→.0071，Table6部署ceiling仍pathratio2.29，支持从编码上界到生成损失分解。",
+          "evidence": "Tables1/3/5/6指定字段。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：细到逐笔指令为何不随区域能力迁移？疑问2：碎片导致匹配τ是否忽视丢笔/多抬笔？疑问3：保留真实时间/width后codec信息是否仍可恢复？VideoSketcher、SketchVideo、ControlSketchPart等已有过程/指令前史，粗顺序可控本身不构成空白。",
+          "evidence": "§6具体失败和AppB对照，相关工作还需同协议对齐。"
+        }
+      ],
+      "boundary": "本次为指定原文、框架和书面理解核对；完整附录/代码仍有明确缺项，未计时口试、未独立复现，不计完整三遍完成。"
     }
   ]
 }

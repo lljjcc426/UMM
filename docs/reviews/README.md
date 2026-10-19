@@ -290,6 +290,15 @@
 | L186 | [Towards Human-Like Robot Handwriting via Contour-Aware Generation](L186.md) | 正式CVF PDF§1/§3–7与Tables1–6、Fig5PDFp6已渲染核；官方CVF元数据/补充zip链接、GitHub树与README。未读supp/逐图或控制代码，未运行机器人/模型 |
 | N08 | [Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors](N08.md) | Springer正式PDF§3.1–3.8选定公式/Algorithm1及§4.1–4.5、Tables1–7、Fig2/3PDFp5视觉核；完整Algorithm2/全部参数与用户实验/代码未审，未复现；与L006同作者不同题目和DOI独立记录 |
 | R08 | [SenseNova-U1.5-8B-MoT-LoRAs：8step与V2蒸馏适配器、加载与训练配置](R08.md) | HF API文件列表与README指定头部/QuickStart/模型表/Limitations/License；GitHubREADME发布及base_vs_distill条件、utils/lora.py指定加载逻辑、trainingREADME范围；未下载权重、未运行或审全训练实现 |
+| N01 | [UniCalli: A Unified Diffusion Framework for Column-Level Generation and Recognition of Chinese Calligraphy](N01.md) | 作者ICLR正式PDF§3.1–3.4/§4.1–4.3、Tables1–6、AppB/C/D/E/G及H用户研究指定段；Fig2 PDFp4视觉复核。完整代码、其余应用图及全部古文字细节未审，未复现 固定源码README、inference.generate、sampling.prepare/denoise及model.init_module_embeddings/forward指定路径已审。 |
+| N02 | [Bridging Online and Offline Handwriting via Differentiable Physical Rendering (OnOff Handwriting)](N02.md) | §3.1–3.3/§4.1–4.4/§5/§6、Tables2–4，AppB/C与D1/E3指定段，Fig5 PDFp9视觉核。完整机器人映射参数、指标实现及余下附录/代码未全审，未执行模型或机器人 固定官方仓库README与文件树已核，未有完整模型源码。 |
+| N03 | [DeepCalliFont: Few-shot Chinese Calligraphy Font Synthesis by Integrating Dual-modality Generative Models](N03.md) | 正式AAAI主文Introduction、Method Eq1–22、Experiments Tables1–2/消融与Limitations；Fig2 PDFp3及Table1所在p7视觉核。补充材料/完整实现未全审，未复现 固定官方README/config及train.py的optimizer/loss/rasterizer段；非全部模型/数据实现审计。 |
+| N04 | [Beyond Legibility: Benchmarking Visual Text Rendering and In-Place Editing in Unified Video Generation (VidScribe)](N04.md) | v2 §3.1–3.3/§4.1–4.3、Tables1/3/4/11、AppA2/F12、B1 grounding/A1/A2/B1、C1/C2/C3指定段；Fig3 PDFp6视觉核。完整任务分表、结构检查源码/全API协议未全审；未运行模型 |
+| N05 | [VTR-Bench: A Systematic Benchmark for Evaluating Visual Text Rendering in Video Generation](N05.md) | v1 §3.1–3.4/§4.1–4.5，Tables1–5/Fig7、AppB构造与C1–3指定段；Fig4 PDFp6视觉核。完整prompts/工具源码、后续分项图未审，未复现 |
+| N06 | [Video models are zero-shot learners and reasoners](N06.md) | v2 §1–2/§3定性协议、§4.1–4.7/讨论、AppA Figure30、B总表/B1/B2/B5/B6与Cpromptstudy指定段。未逐读62任务全部视频、未独立审生成原片；Figure30 caption核而非完整stroke实测，未复现 |
+| N09 | [Text-Animator: Controllable Visual Text Video Generation](N09.md) | v1 §3.1–3.4/§4.1–4.5、Tables1–3与Conclusion，Fig2 PDFp4视觉核。未审完整code、OCR/FID/相机配置和实际视频原片，未复现 |
+| L011 | [Draw This First](L011.md) | v1 §3.1–3.4/§4.1–4.3/§5–6，Tables1–9、AppA–F指定公式/算法/协议段，Fig1 PDFp3视觉核；未逐图核所有定性样例或审全部代码，未复现 |
+| S001 | [Ketaba-OCR at AR-MS NakbaNLP 2026](S001.md) | ACL正式PDF§2–6与AppA–H指定协议/全部Tables1–10，Arabic原文受文本提取字形影响，未逐字翻译判读；官方固定GitHub YAML/README及HF元数据另核。未运行模型，未独立读取隐藏GT GitHub YAML/README、train_model/preprocess_sample、ensemble.normalization/voting指定函数及HF README/adapter_config/training_info已审。 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 334 条，本批有 316 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 334 条，本批有 325 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -59,15 +59,15 @@
 | R03 | CASIA-HWDB / CASIA-OLHWDB（数据） | primary_sections_read | [结构化分析](../reviews/R03.md) | 未完成 |
 | R04 | IAM-OnDB（数据） | primary_sections_read | [结构化分析](../reviews/R04.md) | 未完成 |
 | R05 | Mobao（Moyun配套静态书法数据） | primary_sections_read | [结构化分析](../reviews/R05.md) | 未完成 |
-| N01 | UniCalli: A Unified Diffusion Framework for Column-Level Generation and Recognition of Chinese Calligraphy | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| N02 | Bridging Online and Offline Handwriting via Differentiable Physical Rendering (OnOff Handwriting) | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| N03 | DeepCalliFont: Few-shot Chinese Calligraphy Font Synthesis by Integrating Dual-modality Generative Models | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| N04 | Beyond Legibility: Benchmarking Visual Text Rendering and In-Place Editing in Unified Video Generation (VidScribe) | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| N05 | VTR-Bench: A Systematic Benchmark for Evaluating Visual Text Rendering in Video Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| N06 | Video models are zero-shot learners and reasoners | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| N01 | UniCalli: A Unified Diffusion Framework for Column-Level Generation and Recognition of Chinese Calligraphy | primary_sections_read | [结构化分析](../reviews/N01.md) | 五项检查已记录 |
+| N02 | Bridging Online and Offline Handwriting via Differentiable Physical Rendering (OnOff Handwriting) | primary_sections_read | [结构化分析](../reviews/N02.md) | 五项检查已记录 |
+| N03 | DeepCalliFont: Few-shot Chinese Calligraphy Font Synthesis by Integrating Dual-modality Generative Models | primary_sections_read | [结构化分析](../reviews/N03.md) | 五项检查已记录 |
+| N04 | Beyond Legibility: Benchmarking Visual Text Rendering and In-Place Editing in Unified Video Generation (VidScribe) | primary_sections_read | [结构化分析](../reviews/N04.md) | 五项检查已记录 |
+| N05 | VTR-Bench: A Systematic Benchmark for Evaluating Visual Text Rendering in Video Generation | primary_sections_read | [结构化分析](../reviews/N05.md) | 五项检查已记录 |
+| N06 | Video models are zero-shot learners and reasoners | primary_sections_read | [结构化分析](../reviews/N06.md) | 未完成 |
 | N07 | A stroke-level large-scale database of Chinese character handwriting and the OpenHandWrite_Toolbox for handwriting research | primary_sections_read | [结构化分析](../reviews/N07.md) | 未完成 |
 | N08 | Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors | primary_sections_read | [结构化分析](../reviews/N08.md) | 五项检查已记录 |
-| N09 | Text-Animator: Controllable Visual Text Video Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| N09 | Text-Animator: Controllable Visual Text Video Generation | primary_sections_read | [结构化分析](../reviews/N09.md) | 五项检查已记录 |
 | N10 | Video Text Preservation with Synthetic Text-Rich Videos | primary_sections_read | [结构化分析](../reviews/N10.md) | 未完成 |
 | N11 | CalliffusionV2: Personalized Natural Calligraphy Generation with Flexible Multi-modal Control | primary_sections_read | [结构化分析](../reviews/N11.md) | 未完成 |
 | N12 | CalliPaint: Chinese Calligraphy Inpainting with Diffusion Model | primary_sections_read | [结构化分析](../reviews/N12.md) | 未完成 |
@@ -115,7 +115,7 @@
 | L008 | Three-Dimensional Trajectory Planning for Robotic Chinese Calligraphy，2026 | primary_sections_read | [结构化分析](../reviews/L008.md) | 未完成 |
 | L009 | Video-Based Handwritten Chinese Character Recognition，2005 | primary_sections_read | [结构化分析](../reviews/L009.md) | 未完成 |
 | L010 | VideoSketcher: Sequential Sketch Generation Using Video Model Priors | primary_sections_read | [结构化分析](../reviews/L010.md) | 未完成 |
-| L011 | Draw This First | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| L011 | Draw This First | primary_sections_read | [结构化分析](../reviews/L011.md) | 五项检查已记录 |
 | L012 | SketchAgent，2024/2025 | primary_sections_read | [结构化分析](../reviews/L012.md) | 未完成 |
 | L013 | ProcessPainter，2024 | primary_sections_read | [结构化分析](../reviews/L013.md) | 未完成 |
 | L014 | Generating Past and Future in Digital Painting Processes / PaintsAlter，2025 | primary_sections_read | [结构化分析](../reviews/L014.md) | 未完成 |
@@ -287,7 +287,7 @@
 | L180 | Painter: Teaching Auto-Regressive Language Models to Draw Sketches | primary_sections_read | [结构化分析](../reviews/L180.md) | 未完成 |
 | L181 | Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding | primary_sections_read | [结构化分析](../reviews/L181.md) | 未完成 |
 | N14 | SteerVTE: Seamless Video Text Editing with Style and Glyph Control | primary_sections_read | [结构化分析](../reviews/N14.md) | 未完成 |
-| S001 | Ketaba-OCR at AR-MS NakbaNLP 2026 | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| S001 | Ketaba-OCR at AR-MS NakbaNLP 2026 | primary_sections_read | [结构化分析](../reviews/S001.md) | 未完成 |
 | S002 | TextDiffuser: Diffusion Models as Text Painters | primary_sections_read | [结构化分析](../reviews/S002.md) | 五项检查已记录 |
 | S003 | GlyphControl: Glyph Conditional Control for Visual Text Generation | primary_sections_read | [结构化分析](../reviews/S003.md) | 未完成 |
 | S004 | VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control | primary_sections_read | 本批未新增逐篇精读 | 未完成 |

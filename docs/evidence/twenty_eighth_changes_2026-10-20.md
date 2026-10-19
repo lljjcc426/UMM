@@ -1,0 +1,51 @@
+# 第二十八批逐文件变更说明
+
+基础提交76c2712；无删除。九项原有研究重新核方法/实验/附录与可取得的指定源码，新增九份独立分析，七项五条书面理解检查；保留旧笔记并加当前分析入口。目录不增项，尚无模型执行或完整三遍完成。
+
+| 文件 | 操作及原因 |
+| --- | --- |
+| [README.md](../../README.md) | 修改：同步325笔记/33书面检查、九项继续队列和固定来源查证记录 |
+| [data/critical_reviews_2026-10-19.json](../../data/critical_reviews_2026-10-19.json) | 修改：加入九项人工原文分析，记录固定版本/负例/缺失条件 |
+| [data/literature.csv](../../data/literature.csv) | 修改：从主目录/阅读源数据同步Markdown/CSV/Excel/进度和索引，保留五工作表及候选 |
+| [data/literature.json](../../data/literature.json) | 修改：更新九项原有记录的条件、方法、表/消融结论、来源和阅读深度 |
+| [data/literature_public.xlsx](../../data/literature_public.xlsx) | 修改：从主目录/阅读源数据同步Markdown/CSV/Excel/进度和索引，保留五工作表及候选 |
+| [data/local_additions.csv](../../data/local_additions.csv) | 修改：从主目录/阅读源数据同步Markdown/CSV/Excel/进度和索引，保留五工作表及候选 |
+| [data/local_additions.json](../../data/local_additions.json) | 修改：从主目录/阅读源数据同步Markdown/CSV/Excel/进度和索引，保留五工作表及候选 |
+| [data/new_handwriting.csv](../../data/new_handwriting.csv) | 修改：从主目录/阅读源数据同步Markdown/CSV/Excel/进度和索引，保留五工作表及候选 |
+| [data/new_handwriting.json](../../data/new_handwriting.json) | 修改：从主目录/阅读源数据同步Markdown/CSV/Excel/进度和索引，保留五工作表及候选 |
+| [data/reading_acceptance_2026-10-20.json](../../data/reading_acceptance_2026-10-20.json) | 修改：加入七篇的五项书面理解检查与视觉核图范围，不计完整三遍 |
+| [data/reading_progress_2026-10-19.json](../../data/reading_progress_2026-10-19.json) | 修改：从主目录/阅读源数据同步Markdown/CSV/Excel/进度和索引，保留五工作表及候选 |
+| [data/twenty_eighth_review_batch_2026-10-20.json](../../data/twenty_eighth_review_batch_2026-10-20.json) | 新增：记录本批ID、基础提交与实际完成范围，无新增独立文献 |
+| [docs/all_literature.md](../../docs/all_literature.md) | 修改：从主目录/阅读源数据同步Markdown/CSV/Excel/进度和索引，保留五工作表及候选 |
+| [docs/evidence/calligraphy_video_text_order_and_ocr_protocols_2026-10-20.md](../../docs/evidence/calligraphy_video_text_order_and_ocr_protocols_2026-10-20.md) | 新增：综合同图改序已有实验、FID/CER冲突、OCR伪真值与公开模型范围 |
+| [docs/evidence/knowledge_gaps_2026-10-20.md](../../docs/evidence/knowledge_gaps_2026-10-20.md) | 修改：补真实接口/指标/代理真值、已有顺序干预和代码发布范围，调整强基线实验 |
+| [docs/evidence/reading_ledger_2026-10-19.md](../../docs/evidence/reading_ledger_2026-10-19.md) | 修改：从主目录/阅读源数据同步Markdown/CSV/Excel/进度和索引，保留五工作表及候选 |
+| [docs/evidence/scoped_literature_matrix_2026-10-19.md](../../docs/evidence/scoped_literature_matrix_2026-10-19.md) | 修改：补真实接口/指标/代理真值、已有顺序干预和代码发布范围，调整强基线实验 |
+| [docs/evidence/search_log.md](../../docs/evidence/search_log.md) | 修改：同步325笔记/33书面检查、九项继续队列和固定来源查证记录 |
+| [docs/evidence/second_round_audit_2026-10-19.md](../../docs/evidence/second_round_audit_2026-10-19.md) | 修改：同步325笔记/33书面检查、九项继续队列和固定来源查证记录 |
+| [docs/evidence/survey_queue_2026-10-19.md](../../docs/evidence/survey_queue_2026-10-19.md) | 修改：同步325笔记/33书面检查、九项继续队列和固定来源查证记录 |
+| [docs/evidence/twenty_eighth_changes_2026-10-20.md](../../docs/evidence/twenty_eighth_changes_2026-10-20.md) | 新增：逐路径说明本批所有新增/修改，无删除 |
+| [docs/experiments/research_gaps_and_tests_2026-10-19.md](../../docs/experiments/research_gaps_and_tests_2026-10-19.md) | 修改：补真实接口/指标/代理真值、已有顺序干预和代码发布范围，调整强基线实验 |
+| [docs/handwriting/literature.md](../../docs/handwriting/literature.md) | 修改：从主目录/阅读源数据同步Markdown/CSV/Excel/进度和索引，保留五工作表及候选 |
+| [docs/handwriting/new_literature.md](../../docs/handwriting/new_literature.md) | 修改：从主目录/阅读源数据同步Markdown/CSV/Excel/进度和索引，保留五工作表及候选 |
+| [docs/handwriting/papers/deepcallifont.md](../../docs/handwriting/papers/deepcallifont.md) | 修改：保留旧笔记，追加本批原文/代码复核及新版结构化分析入口 |
+| [docs/handwriting/papers/ketaba_ocr_lora.md](../../docs/handwriting/papers/ketaba_ocr_lora.md) | 修改：保留旧笔记，追加本批原文/代码复核及新版结构化分析入口 |
+| [docs/handwriting/papers/onoff.md](../../docs/handwriting/papers/onoff.md) | 修改：保留旧笔记，追加本批原文/代码复核及新版结构化分析入口 |
+| [docs/handwriting/papers/text_animator.md](../../docs/handwriting/papers/text_animator.md) | 修改：保留旧笔记，追加本批原文/代码复核及新版结构化分析入口 |
+| [docs/handwriting/papers/unicalli.md](../../docs/handwriting/papers/unicalli.md) | 修改：保留旧笔记，追加本批原文/代码复核及新版结构化分析入口 |
+| [docs/handwriting/papers/video_zero_shot.md](../../docs/handwriting/papers/video_zero_shot.md) | 修改：保留旧笔记，追加本批原文/代码复核及新版结构化分析入口 |
+| [docs/handwriting/papers/vidscribe.md](../../docs/handwriting/papers/vidscribe.md) | 修改：保留旧笔记，追加本批原文/代码复核及新版结构化分析入口 |
+| [docs/handwriting/papers/vtr_bench.md](../../docs/handwriting/papers/vtr_bench.md) | 修改：保留旧笔记，追加本批原文/代码复核及新版结构化分析入口 |
+| [docs/local_additions.md](../../docs/local_additions.md) | 修改：从主目录/阅读源数据同步Markdown/CSV/Excel/进度和索引，保留五工作表及候选 |
+| [docs/project/STATUS.md](../../docs/project/STATUS.md) | 修改：同步325笔记/33书面检查、九项继续队列和固定来源查证记录 |
+| [docs/resources/nonpaper_research_2026-10-19.md](../../docs/resources/nonpaper_research_2026-10-19.md) | 修改：补真实接口/指标/代理真值、已有顺序干预和代码发布范围，调整强基线实验 |
+| [docs/reviews/L011.md](../../docs/reviews/L011.md) | 新增：逐篇17字段分析、数表反例、来源/实现范围、实验假设和写作学习 |
+| [docs/reviews/N01.md](../../docs/reviews/N01.md) | 新增：逐篇17字段分析、数表反例、来源/实现范围、实验假设和写作学习 |
+| [docs/reviews/N02.md](../../docs/reviews/N02.md) | 新增：逐篇17字段分析、数表反例、来源/实现范围、实验假设和写作学习 |
+| [docs/reviews/N03.md](../../docs/reviews/N03.md) | 新增：逐篇17字段分析、数表反例、来源/实现范围、实验假设和写作学习 |
+| [docs/reviews/N04.md](../../docs/reviews/N04.md) | 新增：逐篇17字段分析、数表反例、来源/实现范围、实验假设和写作学习 |
+| [docs/reviews/N05.md](../../docs/reviews/N05.md) | 新增：逐篇17字段分析、数表反例、来源/实现范围、实验假设和写作学习 |
+| [docs/reviews/N06.md](../../docs/reviews/N06.md) | 新增：逐篇17字段分析、数表反例、来源/实现范围、实验假设和写作学习 |
+| [docs/reviews/N09.md](../../docs/reviews/N09.md) | 新增：逐篇17字段分析、数表反例、来源/实现范围、实验假设和写作学习 |
+| [docs/reviews/README.md](../../docs/reviews/README.md) | 修改：从主目录/阅读源数据同步Markdown/CSV/Excel/进度和索引，保留五工作表及候选 |
+| [docs/reviews/S001.md](../../docs/reviews/S001.md) | 新增：逐篇17字段分析、数表反例、来源/实现范围、实验假设和写作学习 |

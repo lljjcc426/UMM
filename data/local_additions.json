@@ -672,22 +672,23 @@
   {
     "title": "Draw This First",
     "source_urls": [
-      "https://arxiv.org/html/2608.12064v1"
+      "https://arxiv.org/html/2608.12064v1",
+      "https://arxiv.org/pdf/2608.12064v1"
     ],
-    "method": "潜空间flow模型预测颜色编码中间表示；训练VAE头恢复顺序场、掩码与实例，再向量化排序。",
-    "conclusion": "区域级、部件级、遍次级顺序Kendall相关分别为0.838、0.461、0.444；细粒度控制仍困难。",
-    "gap": "产生的笔画数量约为参考的1.7–2.5倍；未恢复真实时间或压力，也未验证中文规范视频。",
-    "problem": "既要保留预训练图像生成能力，又要明确控制笔画先后。",
-    "claim": "通过二维顺序场控制草图向量笔画的生成顺序。",
-    "version": "arXiv:2608.12064v1",
+    "method": "区域内保序/区域间置换及匹配caption数据，HSV累计弧长编码，QwenImageEdit LoRA生成codec，重训VAEdecoder的arc/mask/instancehead并用非学习tracer转有序polyline。 H=a×342/360、S=1、V=1−u/2，a为全局弧长归一/u为本stroke弧长；1px无宽centerline。冻结QwenImageVAEencoder，训练decodertrunk+pyramid CNN10通道(a/m/8Dembedding)；L1/LPIPS+arcL1/BCE/pushpull。DiT QwenImageEdit2509 r64/α64 FM，HDBSCAN聚类，按平均arc排序，nearestneighborwalk/merge/RDP.5像素。",
+    "conclusion": "Table1同图holdout删captionτ.096→with.449，几何IoU.775/.774基本不变；外Birds+Creatures原序.373/反序−.267对录制order。Table3指令相对τ region.838、part.461、pass.444；withinunit.282/.177/.134低。Table4无指令holdout.096<heuristic.105，FSCOCO.308>.201。不能称自动恢复全人类画序。",
+    "gap": "训练故意去相关几何和全局序，无指令humanorderprior不可保证；指令越细越弱，尾句constraint31.5%对uninstructed32.6%，单句51.7%。内部pass反转仅40%；路径约1.7–2.5倍碎片，QuickDrawdecoderceiling4.37。丢time/pressure/tilt/brushwidth，覆盖交叉可能损stroke，不能用于真实速度/压力还原。",
+    "problem": "能否用文字改变同一素描的绘制顺序，并保留预训练图像模型的开放词汇生成能力？",
+    "claim": "研究目标：能否用文字改变同一素描的绘制顺序，并保留预训练图像模型的开放词汇生成能力？",
+    "version": "Draw This First: Controlling the Creation Order of Generative Line Drawings；arXiv2608.12064v1，2026；未核实正式接收",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-16",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-16",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 A",
     "id": "L011",
     "canonical_key": "paper:arxiv:2608.12064",
@@ -728,8 +729,26 @@
       "local_focused:M019",
       "local_handwriting:R19"
     ],
-    "note_path": "docs/handwriting/02_capability_matrix.md",
-    "sections_read": "v1方法、顺序控制表、碎片化及限制"
+    "note_path": "docs/reviews/L011.md",
+    "sections_read": "v1 §3.1–3.4/§4.1–4.3/§5–6，Tables1–9、AppA–F指定公式/算法/协议段，Fig1 PDFp3视觉核；未逐图核所有定性样例或审全部代码，未复现",
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v1方法、顺序控制表、碎片化及限制",
+        "conclusion": "区域级、部件级、遍次级顺序Kendall相关分别为0.838、0.461、0.444；细粒度控制仍困难。",
+        "gap": "产生的笔画数量约为参考的1.7–2.5倍；未恢复真实时间或压力，也未验证中文规范视频。",
+        "note_path": "docs/handwriting/02_capability_matrix.md"
+      }
+    ],
+    "review_path": "docs/reviews/L011.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "50Upworkartists委托47318drawing，均77.5stroke/6864point，原ApplePencil流仅用简化xy；两层region/subject框标注，置换保region内序。100holdout及各100CreativeBirds/Creatures/FSCOCO/QuickDraw等，外集不入DiT训练；条件漏斗47190/40Kcaption子集与总数口径分开。",
+    "framework": "区域内保序/区域间置换及匹配caption数据，HSV累计弧长编码，QwenImageEdit LoRA生成codec，重训VAEdecoder的arc/mask/instancehead并用非学习tracer转有序polyline。",
+    "architecture": "H=a×342/360、S=1、V=1−u/2，a为全局弧长归一/u为本stroke弧长；1px无宽centerline。冻结QwenImageVAEencoder，训练decodertrunk+pyramid CNN10通道(a/m/8Dembedding)；L1/LPIPS+arcL1/BCE/pushpull。DiT QwenImageEdit2509 r64/α64 FM，HDBSCAN聚类，按平均arc排序，nearestneighborwalk/merge/RDP.5像素。",
+    "metrics": "Hungarian几何匹配后Kendallτ、指令约束stroke pairs与withinunitτ分开，maskIoU/match/pathcount/Chamfer，DTW统一128点；CLIP50类Top1/5。多个合法artistorder存在，单次录制τ非唯一规范；几何匹配漏掉碎片也需报告。",
+    "baselines": "固定图/seed caption删/原/反序、geometryheuristics（topdown/longest/centerout/greedy）及事后oracle、frozenVAEdecoder、9种ordercodec；无所有近期绘画模型同预算比较，不能以新任务定义省略直接前史VideoSketcher/SketchVideo等。",
+    "experimental_conditions": "decoder30Ksteps；DiT50K/32H100-80G/2848GPUh、globalb32 AdamW1e-4 β.9/.95/wd.01/clip1/100warmup/10Kdecay。loss pixel/LPIPS1、arc8、mask.25、embedding.1/前景邻域50倍；decoder优化器/lr/GPU独立成本未在已读AppA完整列出。1024²格polyline。"
   },
   {
     "title": "SketchAgent，2024/2025",

@@ -98,3 +98,7 @@
 ## 新直接前史下的强基线
 
 L186图拓扑/宽度/机器人执行和N08分层O2O/书写动力学均已有研究，新增笔顺或运动prior本身不足以建立创新。比较适配宽度的TrajFormer、GHTR、层级O2O、规则SVG及视频模型，固定控制链与信息输入；笔序/方向/接触/时间误差独立于静态OCR/FID。latent闭环另测最终RGB，以独立encoder/judge验证，防止自洽代理替代真实任务。
+
+## 已有同图改序控制与指标冲突
+
+[L011 Draw This First](../reviews/L011.md)已经固定图像/seed、改caption来检验order，区域τ.838、part.461、pass.444，withinunit较低，必须作为直接前史。下一实验应细到strokeID/方向/抬笔并同时统计碎片/漏笔，不能只复做粗区域顺序。OnOff的CVL图像FID改善同时CER变差；文字/字形/顺序/执行分别评，报告Pareto。VidScribe A2为空间字形拓扑，VTR最清楚出现的WER没有覆盖完整时序，加入终态同形换序/反向/重画反例。[专题](../evidence/calligraphy_video_text_order_and_ocr_protocols_2026-10-20.md)列已有实验与待验证的真正增量。
