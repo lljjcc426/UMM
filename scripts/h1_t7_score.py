@@ -55,6 +55,7 @@ def score():
             geometry_macro_f1=macro_f1(rs),progress_mae=estimate(rs,lambda r:np.mean(np.abs(np.array(r['prediction']['progress'])-r['truth_progress']))),
             progress_inconsistent=sum((c==2 and p<.95) or (c==0 and p>.02) or (c==1 and p>=.985) for r in rs for c,p in zip(r['prediction']['geometry_state'],r['prediction']['progress'])),
             by_q={str(q):estimate([p for p in ps if p['q']==q],lambda p:p['both_correct']) for q in [3,5]},
+            by_time={str(t):estimate([p for p in ps if p['t']==t],lambda p:p['both_correct']) for t in DECISIONS},
             by_family={f:estimate([p for p in ps if p['family']==f],lambda p:p['both_correct']) for f in sorted({p['family'] for p in ps})})
         event_records=[]
         for r in rs:

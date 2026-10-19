@@ -7,10 +7,11 @@ from h1_event_data import ROOT
 from h1_event_train import grid
 from h1_event_observe import masks_for
 from h1_early_history_io import normalization,model_input
-from h1_t7_data import rows,OUT
+from h1_t7_data import rows,OUT,DATA
 
 def reference_examples(split):
-    cases={r['group']:r for r in rows() if r['split']==split}
+    if split=='test' and not (OUT/'test_unlock.json').exists():raise RuntimeError('Test masks locked')
+    cases={r['group']:r for r in rows(split)}
     mean,std,_=normalization();examples=[]
     for g,r in sorted(cases.items()):
         meta=json.loads((OUT/'feature_manifests'/f'{g}.json').read_text())
@@ -23,12 +24,12 @@ def reference_examples(split):
     return examples
 
 def prepare_group(group):
+    if group.startswith('test-') and not (OUT/'test_unlock.json').exists():raise RuntimeError('Test labels locked')
     meta=json.loads((OUT/'feature_manifests'/f'{group}.json').read_text());index=meta['index']
     raw=torch.load(ROOT/meta['shard'],weights_only=True)['features'].float();mean,std,projection=normalization()
     features=(raw-mean)/std;small=features@projection;truths={}
-    for r in json.loads((OUT/'pixel_states.json').read_text()):
-        if r['group']==group:truths.setdefault(r['id'],[]).append(r['state'])
-    for row in [r for r in rows() if r['group']==group]:
+    for r in json.loads((OUT/'labels'/f'{group}.json').read_text()):truths.setdefault(r['id'],[]).append(r['state'])
+    for row in json.loads((DATA/group/'cases.json').read_text()):
         ids=[index[p] for p in row['frames']];ref=index[row['reference']]
         ink=np.stack([np.asarray(Image.open(ROOT/p))[:,:,0]<128 for p in row['frames']]);prev=np.concatenate([np.zeros_like(ink[:1]),ink[:-1]])
         p=torch.tensor(row['label_progress']);states=truths[row['id']]

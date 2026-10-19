@@ -12,7 +12,10 @@ WEIGHTS=ROOT/'checkpoints/h1_instance_onset_v1'
 DECISIONS=[15,20,23]
 FAMILIES=['parallel','close','cross','fold','mixed']
 
-def rows():return json.loads((DATA/'cases.json').read_text())
+def rows(split=None):
+    if split is None:return json.loads((DATA/'cases.json').read_text())
+    groups=json.loads((OUT/'splits.json').read_text())[split]
+    return [r for g in groups for r in json.loads((DATA/g/'cases.json').read_text())]
 
 def geometry(family,q,rng,vertical):
     if family in ['parallel','close']:
@@ -74,6 +77,7 @@ def build():
                             label_progress=[source[k] for k in indices],label_source_order=order,decisions=DECISIONS))
                         logs.append(dict(id=group+'-'+variant,scope='labels and oracle only',source_progress=source,source_order=order))
     save(DATA/'cases.json',cases);save(DATA/'event_logs.json',logs);save(OUT/'splits.json',splits)
+    for g in {r['group'] for r in cases}:save(DATA/g/'cases.json',[r for r in cases if r['group']==g])
 
 def contracts():
     cases=rows();checks=[];pixels=[];unique=set();old=json.loads((ROOT/'data/h1/early_history_v1/cases.json').read_text())
@@ -101,6 +105,7 @@ def contracts():
         assert states['mergedA'][-1]['unresolved_order_groups']==[[0,1]]
         checks.append(dict(group=group,split=rs[0]['split'],q=len(masks),family=rs[0]['family'],decoded_exact=bool(decoded_exact),onset_visible=True,unique_ids=True,
             final_rgb_equal=True,recent8_with_predecessor_equal=True,merged_input_equal=True,shared_pixels=shared,multi_membership_preserved=True,source_disjoint=True))
+        save(OUT/'labels'/f'{group}.json',[r for r in pixels if r['group']==group])
     assert all(c['decoded_exact'] for c in checks)
     save(OUT/'pixel_states.json',pixels)
     save(OUT/'data_contract_checks.json',dict(pixel_gate=True,feature_gate=False,training_permitted=False,groups=len(unique),clips=len(cases),observations=len(pixels),checks=checks))
