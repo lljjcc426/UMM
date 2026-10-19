@@ -62,3 +62,7 @@
 ## 2026-10-20 · 第四批
 
 24项ID见[第四批清单](../../data/fourth_review_batch_2026-10-20.json)。读取梯度审计/位置级梯度及4项统一评测的原始方法、表格和指定附录；交叉检查原CAGrad算法；读取DiffBrush和3项语义/过程研究，保留不同注入协议的边界。资源方面读取Hanzi Writer文档及LICENSE、Make Me a Hanzi的README/COPYING、CASIA在线格式/条件、IAM-OnDB官方页面的搜索索引、Mobao论文数据章节和Samsung作者技术报告。Springer机器人2篇的Table1/4单独读取，L024完整作者PDF与第4页框架图核查。A06/L002全文受限，L006出版社直连受限，L021/L022只取得可读取摘要/引言，均保持第一遍。搜索索引、作者报告、论文正文、代码与实际数据文件各自注明，未下载模型或运行训练。
+
+## 2026-10-20 · 第五批
+
+21项ID及来源见[本批清单](../../data/fifth_review_batch_2026-10-20.json)。读取Tora/Tora2、MotionCtrl、DragNUWA/DragAnything、MotiMotion、FluidGenZero、RefTok、UniVid的指定方法与实验；读取AnyText、TextVBench、ViTeXBench并分开版本、数据和指标口径。取得InkSpire正式ICLR PDF并查看框架图，补读DiffVG正文/勘误、CalliReader补充材料、Word-As-Image、Strike a Chord、Timage和BoxTuning。前向/后向追引补入STRIVE及CONSTANT，核CONSTANT的官方固定代码树、数据说明和IAM/CASIA配置；未运行源码或下载权重。新增LiveSVG/VitaGlyph等候选只登记线索。各篇未读章节/代码仍在笔记中明示。

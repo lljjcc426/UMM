@@ -1,6 +1,6 @@
 # 尚需精读与原始来源追引：可操作队列
 
-第二轮已补VideoSketcher方法/主表/消融、DiffInk及部分UMM和基础理论，见[124份笔记](../reviews/README.md)。截至2026-10-20全部328条的逐条缺项以[阅读台账](reading_ledger_2026-10-19.md)为准；下表保留专题追引和代码复核任务。
+第二轮已补VideoSketcher方法/主表/消融、DiffInk及部分UMM和基础理论，见[145份笔记](../reviews/README.md)。截至2026-10-20全部330条的逐条缺项以[阅读台账](reading_ledger_2026-10-19.md)为准；下表保留专题追引和代码复核任务。
 
 本队列维护“文献/研究找到了”与“已完整精读”之间的差别；不表示后台任务正在执行。2026-10-19 保存到 GitHub 便于逐次人工/模型核验。
 
@@ -74,3 +74,16 @@
 - *Template-Guided Cascaded Diffusion…*，ICDAR2025，DOI10.1007/978-3-032-04614-7_9；是否与L021投稿有版本关系待查，暂不合并。
 - [CursiveTransformer作者实现介绍](https://greydanus.github.io/2025/03/30/cursive-transformer/)；需读取训练代码、数据、采样配置和授权。
 - [Inkspire作者项目](https://dlin.org/inkspire)，arXiv:2501.18588：草图协作交互线索，须与同名手写生成工作区分。
+
+## 第五批之后
+
+新增F01、L020/L025/L027、L034–L043、L045、L051–L054、L182/L183共21份笔记。DiffVG、InkSpire全文下载问题已解决，前面日志保留当时访问快照。L020已核正式ICLR2026正文、指定附录、框架图及五项书面检查；代码和未读附录仍列缺项。主目录330条，历史原文待复核118条。完整三遍验收继续进行。
+
+新增引文追踪线索，以下仍为待读候选，未计入正式独立论文数：
+
+| 来源 | 下一步 |
+| --- | --- |
+| AniClipart（CVPR2025） | 从L052参考文献追查；读取动态矢量目标、骨骼/ARAP约束、SDS优化预算，检查与固定字形运动基线的信息条件 |
+| [LiveSVG](https://levymsn.github.io/LiveSVG/)，arXiv2605.30174 | 原始SVG拟合视频教师的两阶段动画；核拓扑、遮挡、可编辑性与运动评价 |
+| [VitaGlyph](https://arxiv.org/abs/2410.01738)，WACV2026 | 核“双分支”的实际输入输出及静态/动画属性，不能由Vitalizing题名推断时间生成 |
+| DSFusion；Differentiable Variable Fonts | 来自艺术字体相关工作；定位正式论文及数据/实现，去重后再登记，不能从他文比较结果补成原文已读 |

@@ -144,7 +144,7 @@ def main():
     report = dict(date=as_of, catalog_entries=len(catalog), curated_reviews=len(reviews),
                   by_verification=dict(Counter(r['verification'] for r in catalog)),
                   by_review_depth=dict(Counter(r['reading_status'] for r in reviews)),
-                  three_pass_acceptance_completed=len(acceptance),
+                  three_pass_acceptance_completed=sum(r.get('full_three_pass_completed') is True for r in acceptance.values()),
                   five_item_written_checks_recorded=len(acceptance), independently_reproduced=0,
                   warning='Source access, section review, complete three-pass reading and reproduction are distinct.')
     (ROOT / 'data/reading_progress_2026-10-19.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

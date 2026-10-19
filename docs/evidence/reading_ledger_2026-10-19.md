@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 328 条，本批有 124 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 330 条，本批有 145 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -48,7 +48,7 @@
 | E05 | F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | E06 | Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model（TeaCache） | primary_sections_read | [结构化分析](../reviews/E06.md) | 未完成 |
 | E07 | clDice: A Novel Topology-Preserving Loss Function for Tubular Structure Segmentation | primary_sections_read | [结构化分析](../reviews/E07.md) | 未完成 |
-| F01 | Differentiable Vector Graphics Rasterization for Editing and Learning（diffvg） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| F01 | Differentiable Vector Graphics Rasterization for Editing and Learning（diffvg） | primary_sections_read | [结构化分析](../reviews/F01.md) | 未完成 |
 | F02 | Bézier Splatting for Fast and Differentiable Vector Graphics | primary_sections_read | [结构化分析](../reviews/F02.md) | 未完成 |
 | F03 | FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment | primary_sections_read | [结构化分析](../reviews/F03.md) | 未完成 |
 | F04 | CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting | primary_sections_read | [结构化分析](../reviews/F04.md) | 未完成 |
@@ -124,41 +124,41 @@
 | L017 | DiffSketcher，2023 | primary_sections_read | [结构化分析](../reviews/L017.md) | 未完成 |
 | L018 | Diff-Font，2022 起 | primary_sections_read | [结构化分析](../reviews/L018.md) | 未完成 |
 | L019 | FontDiffuser，AAAI 2024 | primary_sections_read | [结构化分析](../reviews/L019.md) | 未完成 |
-| L020 | InkSpire，ICLR 2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L020 | Learning to Generate Stylized Handwritten Text via a Unified Representation of Style, Content, and Noise (InkSpire) | primary_sections_read | [结构化分析](../reviews/L020.md) | 五项检查已记录 |
 | L021 | Write More at Once，公开投稿版本 | primary_abstract_read | [结构化分析](../reviews/L021.md) | 未完成 |
 | L022 | Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本 | primary_abstract_read | [结构化分析](../reviews/L022.md) | 未完成 |
 | L023 | DiffBrush，ICCV 2025 | primary_sections_read | [结构化分析](../reviews/L023.md) | 未完成 |
 | L024 | Learning to Compose Stylistic Calligraphy Artwork with Emotions，ACM MM 2021 | primary_sections_read | [结构化分析](../reviews/L024.md) | 五项检查已记录 |
-| L025 | AnyText，2023/2024 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L025 | AnyText，2023/2024 | primary_sections_read | [结构化分析](../reviews/L025.md) | 未完成 |
 | L026 | UniVideo | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| L027 | UniVid，2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L027 | UniVid，2025 | primary_sections_read | [结构化分析](../reviews/L027.md) | 未完成 |
 | L028 | Lance: Unified Multimodal Modeling by Multi-Task Synergy | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | L029 | Think in Strokes, Not Pixels，2026 | primary_sections_read | [结构化分析](../reviews/L029.md) | 未完成 |
 | L030 | Where a New Concept Must Enter，2026 | primary_sections_read | [结构化分析](../reviews/L030.md) | 未完成 |
 | L031 | Do Unified Multimodal Models Think in One Space?，2026 | primary_sections_read | [结构化分析](../reviews/L031.md) | 未完成 |
 | L032 | UReason，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L033 | Recursive Self-Improvement in Unified Multimodal Models，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L034 | Tora，CVPR 2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L035 | Tora2，2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L036 | MotiMotion，ICML 2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L037 | Fluid-Gen-Zero，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L038 | RefTok，2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L039 | MotionCtrl，2023/2024 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L040 | DragNUWA，2023 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L041 | DragAnything，2024 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L042 | TextVBench，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L043 | ViTeX-Bench，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L034 | Tora，CVPR 2025 | primary_sections_read | [结构化分析](../reviews/L034.md) | 未完成 |
+| L035 | Tora2，2025 | primary_sections_read | [结构化分析](../reviews/L035.md) | 未完成 |
+| L036 | MotiMotion，ICML 2026 | primary_sections_read | [结构化分析](../reviews/L036.md) | 未完成 |
+| L037 | Fluid-Gen-Zero，2026 | primary_sections_read | [结构化分析](../reviews/L037.md) | 未完成 |
+| L038 | RefTok，2025 | primary_sections_read | [结构化分析](../reviews/L038.md) | 未完成 |
+| L039 | MotionCtrl，2023/2024 | primary_sections_read | [结构化分析](../reviews/L039.md) | 未完成 |
+| L040 | DragNUWA，2023 | primary_sections_read | [结构化分析](../reviews/L040.md) | 未完成 |
+| L041 | DragAnything，2024 | primary_sections_read | [结构化分析](../reviews/L041.md) | 未完成 |
+| L042 | TextVBench，2026 | primary_sections_read | [结构化分析](../reviews/L042.md) | 未完成 |
+| L043 | ViTeX-Bench，2026 | primary_sections_read | [结构化分析](../reviews/L043.md) | 未完成 |
 | L044 | CalligraphyBench | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| L045 | CalliReader / CalliBench，ICCV 2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L045 | CalliReader / CalliBench，ICCV 2025 | primary_sections_read | [结构化分析](../reviews/L045.md) | 未完成 |
 | L046 | AWCV100K | primary_sections_read | [结构化分析](../reviews/L046.md) | 未完成 |
 | L047 | Recontextualizing Revitalization: A Mixed Media Approach to Reviving the Nüshu Language（NüshuVision / NüshuStrokes） | primary_sections_read | [结构化分析](../reviews/L047.md) | 未完成 |
 | L048 | Tegaki | primary_sections_read | [结构化分析](../reviews/L048.md) | 未完成 |
 | L049 | SCUT-COUCH2009-TL | primary_sections_read | [结构化分析](../reviews/L049.md) | 未完成 |
 | L050 | CASIA-OHFC | primary_sections_read | [结构化分析](../reviews/L050.md) | 未完成 |
-| L051 | Word-As-Image，2023 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L052 | Strike a Chord! Modal Kinetic Typography，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L053 | Timage: A Generative Text-in-Image Paradigm for Fine-Tuning Vision-Language Models；公开预印本版本 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L054 | BoxTuning: Directly Injecting the Object Box for Multimodal Model Fine-Tuning；公开预印本版本 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L051 | Word-As-Image，2023 | primary_sections_read | [结构化分析](../reviews/L051.md) | 未完成 |
+| L052 | Strike a Chord! Modal Kinetic Typography，2026 | primary_sections_read | [结构化分析](../reviews/L052.md) | 未完成 |
+| L053 | Timage: A Generative Text-in-Image Paradigm for Fine-Tuning Vision-Language Models；公开预印本版本 | primary_sections_read | [结构化分析](../reviews/L053.md) | 未完成 |
+| L054 | BoxTuning: Directly Injecting the Object Box for Multimodal Model Fine-Tuning；公开预印本版本 | primary_sections_read | [结构化分析](../reviews/L054.md) | 未完成 |
 | L055 | Online Reasoning Video Object Segmentation；公开预印本版本 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L056 | CoT-RVS / ThinkVideo | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L057 | Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
@@ -334,3 +334,5 @@
 | G031 | VBench: Comprehensive Benchmark Suite for Video Generative Models | primary_sections_read | [结构化分析](../reviews/G031.md) | 未完成 |
 | G032 | Towards Accurate Generative Models of Video: A New Metric & Challenges | primary_sections_read | [结构化分析](../reviews/G032.md) | 未完成 |
 | H001 | CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品 | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| L182 | STRIVE: Scene Text Replacement In Videos | primary_sections_read | [结构化分析](../reviews/L182.md) | 未完成 |
+| L183 | CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization | primary_sections_read | [结构化分析](../reviews/L183.md) | 未完成 |

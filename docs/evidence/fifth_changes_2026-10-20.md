@@ -1,0 +1,49 @@
+# 第五批文件变更说明（2026-10-20）
+
+基于cbf3069，新增21份笔记；补入STRIVE和CONSTANT两篇，主目录330条，累计145份笔记。章节171条、摘要40条、元数据1条、历史待复核118条。完整三遍0项，五项书面检查2项，无独立模型复现，没有删除文件。
+
+| 文件 | 操作与原因 |
+| --- | --- |
+| [README.md](../../README.md) | 更新索引、逐条台账、当前统计、实际来源日志或追引队列；保留历史批次快照。 |
+| [data/critical_reviews_2026-10-19.json](../../data/critical_reviews_2026-10-19.json) | 补入21项结构化原文分析，含2篇新增直接前作。 |
+| [data/fifth_review_batch_2026-10-20.json](../../data/fifth_review_batch_2026-10-20.json) | 登记21项ID、两项新增记录、基准提交和来源范围。 |
+| [data/literature.csv](../../data/literature.csv) | 同步主目录、来源、阅读层级及派生CSV；InkSpire正式题名/发表信息和补充来源更新。 |
+| [data/literature.json](../../data/literature.json) | 同步主目录、来源、阅读层级及派生CSV；InkSpire正式题名/发表信息和补充来源更新。 |
+| [data/literature_public.xlsx](../../data/literature_public.xlsx) | 同步330条正式记录与4个目录视图；保留候选表及筛选范围，视觉检查新增行。 |
+| [data/local_additions.csv](../../data/local_additions.csv) | 同步主目录、来源、阅读层级及派生CSV；InkSpire正式题名/发表信息和补充来源更新。 |
+| [data/local_additions.json](../../data/local_additions.json) | 同步主目录、来源、阅读层级及派生CSV；InkSpire正式题名/发表信息和补充来源更新。 |
+| [data/reading_acceptance_2026-10-20.json](../../data/reading_acceptance_2026-10-20.json) | 补入L020框架、主表、消融与两个质疑的逐项书面理解证据。 |
+| [data/reading_progress_2026-10-19.json](../../data/reading_progress_2026-10-19.json) | 同步主目录、来源、阅读层级及派生CSV；InkSpire正式题名/发表信息和补充来源更新。 |
+| [docs/all_literature.md](../../docs/all_literature.md) | 更新索引、逐条台账、当前统计、实际来源日志或追引队列；保留历史批次快照。 |
+| [docs/evidence/fifth_changes_2026-10-20.md](../../docs/evidence/fifth_changes_2026-10-20.md) | 列出本批每个新增/修改文件及原因。 |
+| [docs/evidence/reading_ledger_2026-10-19.md](../../docs/evidence/reading_ledger_2026-10-19.md) | 更新索引、逐条台账、当前统计、实际来源日志或追引队列；保留历史批次快照。 |
+| [docs/evidence/search_log.md](../../docs/evidence/search_log.md) | 更新索引、逐条台账、当前统计、实际来源日志或追引队列；保留历史批次快照。 |
+| [docs/evidence/second_round_audit_2026-10-19.md](../../docs/evidence/second_round_audit_2026-10-19.md) | 更新索引、逐条台账、当前统计、实际来源日志或追引队列；保留历史批次快照。 |
+| [docs/evidence/survey_queue_2026-10-19.md](../../docs/evidence/survey_queue_2026-10-19.md) | 更新索引、逐条台账、当前统计、实际来源日志或追引队列；保留历史批次快照。 |
+| [docs/evidence/text_motion_and_protocol_audit_2026-10-20.md](../../docs/evidence/text_motion_and_protocol_audit_2026-10-20.md) | 新增任务边界、版本/配置冲突、关键比较和可证伪实验分析。 |
+| [docs/handwriting/literature.md](../../docs/handwriting/literature.md) | 更新索引、逐条台账、当前统计、实际来源日志或追引队列；保留历史批次快照。 |
+| [docs/local_additions.md](../../docs/local_additions.md) | 更新索引、逐条台账、当前统计、实际来源日志或追引队列；保留历史批次快照。 |
+| [docs/project/STATUS.md](../../docs/project/STATUS.md) | 更新索引、逐条台账、当前统计、实际来源日志或追引队列；保留历史批次快照。 |
+| [docs/reviews/F01.md](../../docs/reviews/F01.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L020.md](../../docs/reviews/L020.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L025.md](../../docs/reviews/L025.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L027.md](../../docs/reviews/L027.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L034.md](../../docs/reviews/L034.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L035.md](../../docs/reviews/L035.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L036.md](../../docs/reviews/L036.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L037.md](../../docs/reviews/L037.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L038.md](../../docs/reviews/L038.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L039.md](../../docs/reviews/L039.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L040.md](../../docs/reviews/L040.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L041.md](../../docs/reviews/L041.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L042.md](../../docs/reviews/L042.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L043.md](../../docs/reviews/L043.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L045.md](../../docs/reviews/L045.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L051.md](../../docs/reviews/L051.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L052.md](../../docs/reviews/L052.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L053.md](../../docs/reviews/L053.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L054.md](../../docs/reviews/L054.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L182.md](../../docs/reviews/L182.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/L183.md](../../docs/reviews/L183.md) | 新增来源限定的8项结构化笔记；记录真实任务、主表/消融、协议差异、可检验假设和未读范围。 |
+| [docs/reviews/README.md](../../docs/reviews/README.md) | 更新索引、逐条台账、当前统计、实际来源日志或追引队列；保留历史批次快照。 |
+| [scripts/render_reviews.py](../../scripts/render_reviews.py) | 修正完整三遍计数，要求显式完成标记；书面五项检查数量继续单列。 |

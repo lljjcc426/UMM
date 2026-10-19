@@ -98,6 +98,27 @@
 | L006 | [Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement，2026](L006.md) | ScienceDirect官方摘要和索引可读任务/模块/数据段落；正文/完整表格/代码未取得 |
 | L021 | [Write More at Once，公开投稿版本](L021.md) | 匿名公开PDF索引Title/Abstract/Introduction；官方forum受challenge，未读Method/Experiments |
 | L022 | [Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本](L022.md) | 官方公开PDF索引标题、摘要、Introduction任务定义；Method/Experiments与正式决定未取得 |
+| L034 | [Tora，CVPR 2025](L034.md) | §3–5、Tables1–4，App§7–9相关数据/人评及§11/Table8；框架文字流程已读，未视觉逐图/代码/全部引用数据核查 |
+| L035 | [Tora2，2025](L035.md) | §3全部公式/数据、§4与Tables1–5及结论；未逐图或源码复现，发表元数据另核 |
+| L039 | [MotionCtrl，2023/2024](L039.md) | §3、§4.1–4.4/Tables1–3、§5–6；附录目录/部分定量未逐项深读，框架为文字核对，代码未跑 |
+| L040 | [DragNUWA，2023](L040.md) | §3全部流程/公式、§4与Table1、Figures4–6文字说明及§5；未视觉核全部图，也未核后续官方SVD实现 |
+| L041 | [DragAnything，2024](L041.md) | §3–5、Tables1–3、Figure10文字限制；未逐图/源码/附录全条件复核 |
+| L025 | [AnyText，2023/2024](L025.md) | §3全部模块/公式、§4–6与Tables2–3；AppA.3数据过滤文字及A.2部分参数；v1.1完整新训练细节AppA.7尚未补读，未逐图/源码 |
+| L036 | [MotiMotion，ICML 2026](L036.md) | §1/3–5全部流程、Tables1–5，AppA.1–A.2/B.3/C；未完整逐图/其他附录例/源码，未独立核ICML论文集 |
+| L037 | [Fluid-Gen-Zero，2026](L037.md) | §3全部方程、§4/Tables1–2/§5；App§4–5、§6.1–6.3/Tables6–8、§7人评；复杂度各子公式/全部图/代码未读 |
+| L038 | [RefTok，2025](L038.md) | §3全部流程、§4–5/Tables1–3；已读框架文字与限制，HTML未见所称超参附录，未逐图/代码 |
+| L027 | [UniVid，2025](L027.md) | §3完整架构/公式/Algorithm1、§4–5主表相关行；AppA.2/A.5与A.6 Tables3–4/A.7；未逐图或代码/实际split/全VBench主表逐格核查 |
+| L020 | [Learning to Generate Stylized Handwritten Text via a Unified Representation of Style, Content, and Noise (InkSpire)](L020.md) | 正式PDF正文§1/3/4、Tables1–7；AppA.2–A.3/A.5.3–A.5.7及Tables10–11；Figure3第5页已渲染视觉核对。未逐图、人评Figure8百分比未读取、源码未核 |
+| L042 | [TextVBench，2026](L042.md) | §4–7协议、匹配/分数/采样、Tables1–2、§8–9局限结论；§3挑战与代码/原始工件未逐项核 |
+| L043 | [ViTeX-Bench，2026](L043.md) | 正文§3–7/方程及Tables1–2相关指标；AppA/B/G/H/I/L/M及Table7，部分F基线适配；未逐图/源码/附录O全部身份probe，mask相关Kendall冲突待核 |
+| L045 | [CalliReader / CalliBench，ICCV 2025](L045.md) | 正文§1/3–7、Tables2–8；正式CVF元信息，官方supp B/C/D.1–D.2/F.1与TablesS1–S4；未完整D.3/逐图/评审prompt/源码 |
+| L051 | [Word-As-Image，2023](L051.md) | 正文§1/3–6、全部核心损失/权重、Table1；AppA/B/C及Figure18中文说明；没有逐图视觉复查全部SVG，代码未核 |
+| F01 | [Differentiable Vector Graphics Rasterization for Editing and Learning（diffvg）](F01.md) | 正式15页PDF§1/3/§4开头/§5.1推导/§6.1/§6生成与Table1–2/§7/AppC；官网Errata完整；§5.2全部解析推导/全应用逐图未完成 |
+| L053 | [Timage: A Generative Text-in-Image Paradigm for Fine-Tuning Vision-Language Models；公开预印本版本](L053.md) | §1/3全方法公式与训练/§4.1–4.5 Tables1–3/§5 Table4效率与局限/§6；未读到supp/代码/训练数据，原文矛盾保留 |
+| L054 | [BoxTuning: Directly Injecting the Object Box for Multimodal Model Fine-Tuning；公开预印本版本](L054.md) | §1–5完整方法/训练、Tables1–7和所有主要对照；未核代码/数据清单/训练步数/独立Limitations（正文未见） |
+| L052 | [Strike a Chord! Modal Kinetic Typography，2026](L052.md) | 18页正式arXivPDF正文§1–6/全部核心方程/Tables1–2；AppA.4–A.5/A.7–A.11/部分A.12；未逐图/全部FEM附推导/源码（项目页soon） |
+| L182 | [STRIVE: Scene Text Replacement In Videos](L182.md) | CVF正式全文§1/3–5、全部主实验Tables1–2、BPN方程/训练/模拟与结论假设；未读视频/代码/补充，公式符号与OCR定义保留待核 |
+| L183 | [CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization](L183.md) | CVF正式10页正文§1/3–5、Tables1–6和方程；官方README/DATASET/TRAINING_SAMPLING、IAM/CASIA配置、CASIAconverter、SAQ前向和完整PCE模块。代码tree快照cf31559c036b6f8d5ec64b20bff59809a66c8bfe；未读完整diffusion/pipeline/patchNCE实现/论文所称附录，未下载模型数据或复现。 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |
