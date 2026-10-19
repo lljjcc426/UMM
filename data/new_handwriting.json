@@ -488,20 +488,20 @@
       "https://arxiv.org/html/2511.05573v1"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：合成富文字视频训练可提高视频中的文字保持。",
-    "method": "构造文字丰富的合成视频并微调Wan2.1相关生成器。",
-    "problem": "视频中字符随时间漂移或失真，文字视频训练稀缺。",
-    "conclusion": "已存在基于合成数据的专用文字保持训练；本轮只核查任务与方法概述。",
-    "gap": "【边界】保持已经存在的文字不是新笔迹事件生成；同一渲染器训练测试会高估泛化，需另设跨域测试。",
+    "claim": "作者研究目标：通过小规模合成数据微调，改善文字条件视频中短字符串的可读性和跨帧保持。",
+    "method": "先生成含字静态图，再用不显式提文字的I2V提示动画化，合成视频/含文字prompt用于微调Wan2.1。 明确底座Wan2.1T2V1.3B，声称loss/架构不变；没有结构新增。RelatedWork介绍LoRA/FlowGRPO不等于本方法实际使用它们，不登记具体LoRA rank或RL训练。文中将Wan描述为专门identitypreservation是作者措辞，不能当Wan官方设计目标的证据。",
+    "problem": "通过小规模合成数据微调，改善文字条件视频中短字符串的可读性和跨帧保持。",
+    "conclusion": "作者观察短句更可读、长句仍会出现似文字但不完整词。没有可从原文提取的提升百分数、误差条或规范笔序成功率；结论仅保留为作者定性报告。",
+    "gap": "数据教师描述不一致、未披露基础复现条件、定性样例选择偏差；背景运动/文字面积/字符串长度分布未知。评价缺失限制对方法有效性的判断。“无任何已有T2V文字研究”仅是当时作者论断，不能覆盖后续研究或更早STRIVE编辑。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "摘要与方法概述",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/papers/video_text_preservation.md",
+    "sections_read": "全文Abstract/§1–5(方法/评价/结论完整)；参考文献未逐项追溯，图中视频未独立播放，未定位到训练实现",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N10.md",
     "canonical_key": "paper:arxiv:2511.05573",
     "evidence_history": [
       {
@@ -522,7 +522,25 @@
     ],
     "aliases": [
       "web_bundle:N10"
-    ]
+    ],
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "摘要与方法概述",
+        "conclusion": "已存在基于合成数据的专用文字保持训练；本轮只核查任务与方法概述。",
+        "gap": "【边界】保持已经存在的文字不是新笔迹事件生成；同一渲染器训练测试会高估泛化，需另设跨域测试。",
+        "note_path": "docs/handwriting/papers/video_text_preservation.md"
+      }
+    ],
+    "review_path": "docs/reviews/N10.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "§3.1合成T2I(例称StableDiffusion)→不提text的I2V，避免覆盖首帧文字；Introduction另写Sora生成训练视频，与方法教师链不一致。未给样本数、实际T2I/I2Vcheckpoint、过滤规则、训练/验证拆分及许可。",
+    "framework": "先生成含字静态图，再用不显式提文字的I2V提示动画化，合成视频/含文字prompt用于微调Wan2.1。",
+    "architecture": "明确底座Wan2.1T2V1.3B，声称loss/架构不变；没有结构新增。RelatedWork介绍LoRA/FlowGRPO不等于本方法实际使用它们，不登记具体LoRA rank或RL训练。文中将Wan描述为专门identitypreservation是作者措辞，不能当Wan官方设计目标的证据。",
+    "metrics": "全文明确只做定性观察/描述；无OCR、FVD或定量人评主表。不能将文字保真“显著提高”解释为统计显著或已量化准确率。",
+    "baselines": "原模型/生成模型含Sora作定性比较，未给同prompt/seed/调用预算的系统表。实际baseline版本及人评人数未披露；没有消融组。",
+    "experimental_conditions": "未披露lr/batch/steps/epochs/精度/硬件/分辨率/视频长度/采样NFE/seed；不由“lightweight”推测为低成本LoRA。无公开本次核实的训练配置、数据清单或权重来源。"
   },
   {
     "id": "N11",
@@ -533,20 +551,20 @@
       "https://arxiv.org/abs/2410.03787"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：用灵活多模态条件实现个性化书法生成。",
-    "method": "在书法扩散框架中组合内容、风格等多种条件并支持个人化。",
-    "problem": "已有静态书法控制与个性化不够灵活。",
-    "conclusion": "是Calliffusion后续版本，说明多模态书法控制已有演进；此项只据摘要。",
-    "gap": "【待核】尚未逐表核查；不能把摘要的自然书法解释为规范运笔视频。",
+    "claim": "作者研究目标：静态中国书法生成中如何控制字形与书体/风格，并用少量样本适配新风格？",
+    "method": "共享DDPM同时训练pro(骨架+prompt)与base(空白图+字符embedding+prompt)，双路输出一致性；LoRA5样本适配。 ZhangSuen细化→ViT，ChineseBERT风格，crossattn UNet；base额外字符lookup。标准噪声预测MSE与双路输出/GT一致性；Eq4最后两项以逗号连接，输出O是去噪图还是noise及实际权重需代码确定，不能自行补公式。UniPC推理，LoRA冻结主干只训练低秩增量。",
+    "problem": "静态中国书法生成中如何控制字形与书体/风格，并用少量样本适配新风格？",
+    "conclusion": "Table1CalliffusionLPIPS.123/SSIM.516→base.072/.716→pro.062/.760；Table2pro字符.959/风格.738、真实.962/.793，书体.985略高真实.983需考虑分类器偏差。0→5→10shot SSIM.559→.678→.689，style.281→.691→.701；主观总.710为风格选择正确率，非生成完美率。",
+    "gap": "自分类器有偏，pro从目标骨架重建可奖励复制，输出一致性可能限制风格变化。少量图例不证明任意书体/非汉字；随机风格差异需定量多样性。Equation4含混和缺参数使复现不完整，骨架失去笔画方向/抬笔顺序。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "arXiv摘要",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/papers/calliffusion_v2.md",
+    "sections_read": "§3–5全部核心方法、数据、Tables1–3、fewshot/编辑/非汉字说明；全部图样与公开训练实现未逐项核，正式发表未确认",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N11.md",
     "canonical_key": "paper:arxiv:2410.03787",
     "evidence_history": [
       {
@@ -567,7 +585,25 @@
     ],
     "aliases": [
       "web_bundle:N11"
-    ]
+    ],
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "arXiv摘要",
+        "conclusion": "是Calliffusion后续版本，说明多模态书法控制已有演进；此项只据摘要。",
+        "gap": "【待核】尚未逐表核查；不能把摘要的自然书法解释为规范运笔视频。",
+        "note_path": "docs/handwriting/papers/calliffusion_v2.md"
+      }
+    ],
+    "review_path": "docs/reviews/N11.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "自采网络白底真实书法60K图/4000字/5书体/150styles；手工排除部分名家风格和常用字，前者用于fewshot、后者zero-shot。具体字符/书家/原作品隔离及比例未披露；baseID仅预训练字，未见字pro有输入骨架，不能混用zero-shot口径。",
+    "framework": "共享DDPM同时训练pro(骨架+prompt)与base(空白图+字符embedding+prompt)，双路输出一致性；LoRA5样本适配。",
+    "architecture": "ZhangSuen细化→ViT，ChineseBERT风格，crossattn UNet；base额外字符lookup。标准噪声预测MSE与双路输出/GT一致性；Eq4最后两项以逗号连接，输出O是去噪图还是noise及实际权重需代码确定，不能自行补公式。UniPC推理，LoRA冻结主干只训练低秩增量。",
+    "metrics": "LPIPS/L1/RMSE/SSIM与自训练字符/书体/风格分类器；风格只10popularstyles非150。主观4选1风格识别，chance.25，无规范笔顺/视频指标。",
+    "baselines": "数值仅Calliffusion与base/pro和0/5/10shot；DGFont/FontDiffuser仅定性，作者说明训练不同。pro多给GT派生骨架，输入信息强于base。",
+    "experimental_conditions": "2A10040GB训练60h；正文未给batch/lr/steps/图像尺寸/UniPCNFE、LoRArank/targetlayers和fewshot优化步。所谓<1s没有绑定GPU/分辨率/NFE，不能推导通用吞吐。"
   },
   {
     "id": "N12",
@@ -578,20 +614,20 @@
       "https://arxiv.org/abs/2312.01536"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：扩散补全支持中文书法的局部修复或生成。",
-    "method": "图像修复式书法扩散，利用已有画面与条件补全缺失区域。",
-    "problem": "全图重生成难保持已有内容，局部书法需要补全。",
-    "conclusion": "局部书法修复/续画已有专门前作；此项为摘要层级核查。",
-    "gap": "【边界】静态inpainting不验证写入历史；在线不能把擦除等同撤回已发生事件。",
+    "claim": "作者研究目标：给定有缺损/指定mask的书法图和字/书体/风格描述，修复缺失区域同时保持上下文。",
+    "method": "沿用Calliffusion训练与文本条件，推理采用RePaint式调度/已知区域条件实现书法inpainting。 条件DDPM/UNet来自Calliffusion；RePaint推理调度引入已知像素。本文没有足够细节还原全部训练/调度配置，不将RePaint通用公式当已核实现。",
+    "problem": "给定有缺损/指定mask的书法图和字/书体/风格描述，修复缺失区域同时保持上下文。",
+    "conclusion": "Table1字符平均.95 vsCalliffusion.85，书体.98 vs.93；作者明确修复任务有额外真图因而更容易，不能归为纯方法同任务+10百分点。草书字符.93vs.64；真实总体字符.78也低于生成，说明分类器域偏差。人评找真/假准确.24/.06，p.99/.66，不能直接认定近随机或统计等价。",
+    "gap": "分类器与人评解释不足、mask条件与无条件baseline不等；未遮罩错误保留可能违背目标字义，生成像名家与规范笔画不同。训练复现依赖另文，修复无时间因果/方向监督。",
     "provenance": "2026-10-15原始来源核查",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "arXiv摘要",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/papers/callipaint.md",
+    "sections_read": "全文§1–4与AppendixA/B文字和Tables1/2完整；框架图具体层次、所有图选项及原Calliffusion训练实现未核",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N12.md",
     "canonical_key": "paper:arxiv:2312.01536",
     "evidence_history": [
       {
@@ -612,7 +648,25 @@
     ],
     "aliases": [
       "web_bundle:N12"
-    ]
+    ],
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "arXiv摘要",
+        "conclusion": "局部书法修复/续画已有专门前作；此项为摘要层级核查。",
+        "gap": "【边界】静态inpainting不验证写入历史；在线不能把擦除等同撤回已发生事件。",
+        "note_path": "docs/handwriting/papers/callipaint.md"
+      }
+    ],
+    "review_path": "docs/reviews/N12.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "训练声明followCalliffusion、自公开网站古代书法来源；测试同Calliffusion条件但额外GT图+随机mask。样本数/mask分布/遮挡比例/拆分未在本文给出，需补读原Calliffusion与代码。",
+    "framework": "沿用Calliffusion训练与文本条件，推理采用RePaint式调度/已知区域条件实现书法inpainting。",
+    "architecture": "条件DDPM/UNet来自Calliffusion；RePaint推理调度引入已知像素。本文没有足够细节还原全部训练/调度配置，不将RePaint通用公式当已核实现。",
+    "metrics": "自预训练字符/书体分类accuracy，Table1分5书体；30名中文母语人评其中12懂书法，找真/找假题准确率与p-value。p检验假设/多选项chance/题量未充分解释，p大不等于两分布等价。",
+    "baselines": "Calliffusion全图生成表中引用旧结果；真实样本识别率作参照，未有通用RePaint其他底座或mask同条件强修复基线。",
+    "experimental_conditions": "本文未给分辨率/lr/batch/硬件/步数/调度resampling参数；无消融/置信区间。仅承认推理慢，未报可比延迟；缺项如实保留。"
   },
   {
     "id": "N13",
@@ -665,26 +719,26 @@
     "category": "N 新增中文书写重点调研",
     "title": "SteerVTE: Seamless Video Text Editing with Style and Glyph Control",
     "version": "arXiv:2606.23254v1",
-    "claim": "通过风格和字形条件引导冻结视频扩散模型进行文字编辑。",
-    "method": "文本适配器结合风格编码和行/字双粒度字形编码；字形区域损失、分阶段训练及百万三元组合成数据。",
-    "problem": "视频文字区域小，文字准确、风格和跨帧一致难以同时保持。",
-    "conclusion": "摘要报告视频文字准确性、风格和时序一致性改善；说明视频文字控制已有专门方法。",
-    "gap": "本次仅核查摘要，未独立核读实验表；任务是编辑视频中文字，不是规范笔顺书写。",
+    "claim": "作者研究目标：给定源视频和编辑mask，替换单行英文文字同时保持字形、风格、背景与跨帧一致。",
+    "method": "位置前背景条件+原比例VLM风格+行/字符双glyph的TextContextAdapter，三阶段图像→真实图像→视频课程和OCR+spatialfocal联合GLAS。 VACE14B冻结主干，TextContextAdapterLoRA r64+两connector；Qwen2.5VL3B的最后两hiddenstate提风格，PP-OCRv3neck字符80²特征+VAE整行潜在。位置VAE前/背景+mask；CFM+3LSF+.1(多尺度OCRfeatureL2+CTC)。OCR所谓“stroke topology”是识别特征监督，无严格拓扑或笔序保证。",
+    "problem": "给定源视频和编辑mask，替换单行英文文字同时保持字形、风格、背景与跨帧一致。",
+    "conclusion": "Synthsentence61%vsSeed33%，Real77%vs32%，SynthNED.9624/FVD14.55vsVACE14.80、Style.5936；RealQualityRate71%vs23%为内部5人评价。推理108s@49帧，Kiwi8s更快；没有全部长度/事件时刻的完美保真证明。",
+    "gap": "过滤100%OCR正确易形成OCR偏好分布；真实样本没有编辑GT，5帧可能漏短暂错字。首帧风格时间不变、英语单行、plane字幕合成限制复杂弯曲/遮挡/笔画出现；“first”需与STRIVE等旧视频文字编辑定义核对，不照抄。noise符号冲突、SFmap构造/总trainable量及seed未清。",
     "source_urls": [
       "https://arxiv.org/abs/2606.23254v1"
     ],
-    "verification": "primary_abstract_read",
+    "verification": "primary_sections_read",
     "provenance": "2026-10-16原始来源核查",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "checked_on": "2026-10-16",
-    "last_updated": "2026-10-16",
-    "sections_read": "原始摘要和版本元数据",
+    "checked_on": "2026-10-20",
+    "last_updated": "2026-10-20",
+    "sections_read": "§1/3全部方法与数据、§4 Tables1/3/4主表和消融、§5局限；§7.2/8.1/8.2完整协议；Table2仅关键行/解释，未逐图/代码/数据文件复核",
     "previous_evidence": null,
     "canonical_key": "paper:arxiv:2606.23254",
     "aliases": [],
-    "note_path": "docs/handwriting/02_capability_matrix.md",
+    "note_path": "docs/reviews/N14.md",
     "evidence_history": [
       {
         "version": "arXiv:2606.23254v1",
@@ -695,6 +749,24 @@
           "https://arxiv.org/abs/2606.23254v1"
         ]
       }
-    ]
+    ],
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "原始摘要和版本元数据",
+        "conclusion": "摘要报告视频文字准确性、风格和时序一致性改善；说明视频文字控制已有专门方法。",
+        "gap": "本次仅核查摘要，未独立核读实验表；任务是编辑视频中文字，不是规范笔顺书写。",
+        "note_path": "docs/handwriting/02_capability_matrix.md"
+      }
+    ],
+    "review_path": "docs/reviews/N14.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "SteerVTE1M=500K SynthEasy图+300K RealTE图+200K SynthHard视频，不是100万视频。1933Google字体、65英文符号；Easy894字体/<20chars/size30–50，Hard≤30chars/25–40。OpenSoraPlan背景、AnyWord3M筛50万可识别→图像编辑/OCR/StyleSim>.4剩30万。VTEBench100synthetic50easy50hard有GT+100real无编辑GT，按字体/背景/词隔离未核。",
+    "framework": "位置前背景条件+原比例VLM风格+行/字符双glyph的TextContextAdapter，三阶段图像→真实图像→视频课程和OCR+spatialfocal联合GLAS。",
+    "architecture": "VACE14B冻结主干，TextContextAdapterLoRA r64+两connector；Qwen2.5VL3B的最后两hiddenstate提风格，PP-OCRv3neck字符80²特征+VAE整行潜在。位置VAE前/背景+mask；CFM+3LSF+.1(多尺度OCRfeatureL2+CTC)。OCR所谓“stroke topology”是识别特征监督，无严格拓扑或笔序保证。",
+    "metrics": "PP-OCRv4评估P/R/F1/相似型NED↑/sentenceexact；除FVD均匀5帧平均。GT区域cropSSIM/PSNR/FID/FVD/StyleSim，背景另算；realQualityRate为5名本实验室同事每结果binary准确+风格+背景后均值，无独立盲评信息。v3训练/v4评估同家族相关偏差仍需第三方核。",
+    "baselines": "FLUXText逐帧、VACE/VideoPainter、VIVA/UniVideo/KiwiEdit、Seedance2.0API；mask方法获得mask，其他方法无法直接使用mask，输入信息不等效。均给行glyph，Steer额外字符/风格encoder。20步开源推理，闭源预算不同。",
+    "experimental_conditions": "16H100/AdamW1e-5/b1(是否每GPU未明)，stage1 40K步500K832×480图只connector，stage2 20K步300K512²图加LoRA，stage3 23K步200K49帧832×480加GLAS。论文t定义0noise/1data，但附录写t<.3是“low-noise”并用于OCR，符号约定冲突待代码；干净latent也记z0与前文z1不同，不自行修。推理20步、CFG/seed/测试GPU型号未取得。"
   }
 ]

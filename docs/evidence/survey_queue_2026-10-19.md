@@ -1,6 +1,6 @@
 # 尚需精读与原始来源追引：可操作队列
 
-第二轮已补VideoSketcher方法/主表/消融、DiffInk及部分UMM和基础理论，见[145份笔记](../reviews/README.md)。截至2026-10-20全部330条的逐条缺项以[阅读台账](reading_ledger_2026-10-19.md)为准；下表保留专题追引和代码复核任务。
+第二轮已补VideoSketcher方法/主表/消融、DiffInk及部分UMM和基础理论，见[160份笔记](../reviews/README.md)。截至2026-10-20全部330条的逐条缺项以[阅读台账](reading_ledger_2026-10-19.md)为准；下表保留专题追引和代码复核任务。
 
 本队列维护“文献/研究找到了”与“已完整精读”之间的差别；不表示后台任务正在执行。2026-10-19 保存到 GitHub 便于逐次人工/模型核验。
 
@@ -87,3 +87,9 @@
 | [LiveSVG](https://levymsn.github.io/LiveSVG/)，arXiv2605.30174 | 原始SVG拟合视频教师的两阶段动画；核拓扑、遮挡、可编辑性与运动评价 |
 | [VitaGlyph](https://arxiv.org/abs/2410.01738)，WACV2026 | 核“双分支”的实际输入输出及静态/动画属性，不能由Vitalizing题名推断时间生成 |
 | DSFusion；Differentiable Variable Fonts | 来自艺术字体相关工作；定位正式论文及数据/实现，去重后再登记，不能从他文比较结果补成原文已读 |
+
+## 第六批之后
+
+C02/L032/L033/L055/L056/L061/L094/N10/N11/N12/N14/E03/E05/L180/L181已新增结构化章节分析，G027已补正式正文/实验；其余未读附录/完整代码仍以笔记为准。优先继续L057–L174其余统一架构、离散/连续扩散、数据、协同训练和综合评价，以及S资源的模型卡/配置/数据实际字段。
+
+新追引候选（未完成全文，不计新增正式论文）：[Evaluating the design space of diffusion-based generative models，NeurIPS2024/arXiv2406.12839](https://arxiv.org/abs/2406.12839)、[Boosting Continuous Control with Consistency Policy，AAMAS2024](https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p335.pdf)。前者可检验EDM设计选择的适用条件；后者与RSS Consistency Policy题名相近但属另一工作，禁止混合实验。L181的Related Work另有2020双向读写/RCN/TAN等，应继续逐项去重追引。

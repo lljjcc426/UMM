@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 330 条，本批有 145 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 330 条，本批有 160 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -27,7 +27,7 @@
 | B08 | AnimatePainter（arXiv:2503.17029） | primary_sections_read | [结构化分析](../reviews/B08.md) | 未完成 |
 | B09 | DiffMath: Symbol- and Graph-Aware Latent Diffusion Transformer for Handwritten Mathematical Expression Generation | primary_sections_read | [结构化分析](../reviews/B09.md) | 未完成 |
 | C01 | Emerging Properties in Unified Multimodal Pretraining（BAGEL） | primary_sections_read | [结构化分析](../reviews/C01.md) | 未完成 |
-| C02 | Show-o2: Improved Native Unified Multimodal Models | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| C02 | Show-o2: Improved Native Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/C02.md) | 未完成 |
 | C03 | Hyper-Bagel: A Unified Acceleration Framework for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/C03.md) | 未完成 |
 | C04 | Flash-Unified: A Training-Free and Task-Aware Acceleration Framework for Native Unified Models（FlashU） | primary_sections_read | [结构化分析](../reviews/C04.md) | 未完成 |
 | C05 | UniCache: Task- and Type-Aware KV Cache Compression for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/C05.md) | 未完成 |
@@ -43,9 +43,9 @@
 | D08 | Wan-R1: Verifiable-Reinforcement Learning for Video Reasoning | primary_sections_read | [结构化分析](../reviews/D08.md) | 未完成 |
 | E01 | Mean Flows for One-step Generative Modeling | primary_sections_read | [结构化分析](../reviews/E01.md) | 未完成 |
 | E02 | Improved Mean Flows: On the Challenges of Fastforward Generative Models | primary_sections_read | [结构化分析](../reviews/E02.md) | 未完成 |
-| E03 | Consistency Policy: Accelerated Visuomotor Policies via Consistency Distillation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| E03 | Consistency Policy: Accelerated Visuomotor Policies via Consistency Distillation | primary_sections_read | [结构化分析](../reviews/E03.md) | 未完成 |
 | E04 | Discrete Flow Matching | primary_sections_read | [结构化分析](../reviews/E04.md) | 未完成 |
-| E05 | F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| E05 | F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching | primary_sections_read | [结构化分析](../reviews/E05.md) | 未完成 |
 | E06 | Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model（TeaCache） | primary_sections_read | [结构化分析](../reviews/E06.md) | 未完成 |
 | E07 | clDice: A Novel Topology-Preserving Loss Function for Tubular Structure Segmentation | primary_sections_read | [结构化分析](../reviews/E07.md) | 未完成 |
 | F01 | Differentiable Vector Graphics Rasterization for Editing and Learning（diffvg） | primary_sections_read | [结构化分析](../reviews/F01.md) | 未完成 |
@@ -68,9 +68,9 @@
 | N07 | A stroke-level large-scale database of Chinese character handwriting and the OpenHandWrite_Toolbox for handwriting research | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | N08 | Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | N09 | Text-Animator: Controllable Visual Text Video Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| N10 | Video Text Preservation with Synthetic Text-Rich Videos | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| N11 | CalliffusionV2: Personalized Natural Calligraphy Generation with Flexible Multi-modal Control | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| N12 | CalliPaint: Chinese Calligraphy Inpainting with Diffusion Model | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
+| N10 | Video Text Preservation with Synthetic Text-Rich Videos | primary_sections_read | [结构化分析](../reviews/N10.md) | 未完成 |
+| N11 | CalliffusionV2: Personalized Natural Calligraphy Generation with Flexible Multi-modal Control | primary_sections_read | [结构化分析](../reviews/N11.md) | 未完成 |
+| N12 | CalliPaint: Chinese Calligraphy Inpainting with Diffusion Model | primary_sections_read | [结构化分析](../reviews/N12.md) | 未完成 |
 | N13 | The Unwritten Benchmark: A New Challenge for Multimodal Machine Learning in Abstract Perceptual Reasoning | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | U01 | Chameleon: Mixed-Modal Early-Fusion Foundation Models | primary_sections_read | [结构化分析](../reviews/U01.md) | 未完成 |
 | U02 | Emu3: Next-Token Prediction is All You Need | primary_sections_read | [结构化分析](../reviews/U02.md) | 未完成 |
@@ -136,8 +136,8 @@
 | L029 | Think in Strokes, Not Pixels，2026 | primary_sections_read | [结构化分析](../reviews/L029.md) | 未完成 |
 | L030 | Where a New Concept Must Enter，2026 | primary_sections_read | [结构化分析](../reviews/L030.md) | 未完成 |
 | L031 | Do Unified Multimodal Models Think in One Space?，2026 | primary_sections_read | [结构化分析](../reviews/L031.md) | 未完成 |
-| L032 | UReason，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L033 | Recursive Self-Improvement in Unified Multimodal Models，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L032 | UReason，2026 | primary_sections_read | [结构化分析](../reviews/L032.md) | 未完成 |
+| L033 | Recursive Self-Improvement in Unified Multimodal Models，2026 | primary_sections_read | [结构化分析](../reviews/L033.md) | 未完成 |
 | L034 | Tora，CVPR 2025 | primary_sections_read | [结构化分析](../reviews/L034.md) | 未完成 |
 | L035 | Tora2，2025 | primary_sections_read | [结构化分析](../reviews/L035.md) | 未完成 |
 | L036 | MotiMotion，ICML 2026 | primary_sections_read | [结构化分析](../reviews/L036.md) | 未完成 |
@@ -159,13 +159,13 @@
 | L052 | Strike a Chord! Modal Kinetic Typography，2026 | primary_sections_read | [结构化分析](../reviews/L052.md) | 未完成 |
 | L053 | Timage: A Generative Text-in-Image Paradigm for Fine-Tuning Vision-Language Models；公开预印本版本 | primary_sections_read | [结构化分析](../reviews/L053.md) | 未完成 |
 | L054 | BoxTuning: Directly Injecting the Object Box for Multimodal Model Fine-Tuning；公开预印本版本 | primary_sections_read | [结构化分析](../reviews/L054.md) | 未完成 |
-| L055 | Online Reasoning Video Object Segmentation；公开预印本版本 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L056 | CoT-RVS / ThinkVideo | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L055 | Online Reasoning Video Object Segmentation；公开预印本版本 | primary_sections_read | [结构化分析](../reviews/L055.md) | 未完成 |
+| L056 | CoT-RVS / ThinkVideo | primary_sections_read | [结构化分析](../reviews/L056.md) | 未完成 |
 | L057 | Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L058 | Unified-IO 2: Scaling Autoregressive Multimodal Models with Vision, Language, Audio, and Action | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L059 | AnyGPT: Unified Multimodal LLM with Discrete Sequence Modeling | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L060 | SEED-X: Multimodal Models with Unified Multi-granularity Comprehension and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L061 | UniTok: A Unified Tokenizer for Visual Generation and Understanding | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L061 | UniTok: A Unified Tokenizer for Visual Generation and Understanding | primary_sections_read | [结构化分析](../reviews/L061.md) | 未完成 |
 | L062 | Transfer between Modalities with MetaQueries | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L063 | MMaDA: Multimodal Large Diffusion Language Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L064 | MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
@@ -198,7 +198,7 @@
 | L091 | UGen: Unified Autoregressive Multimodal Model with Progressive Vocabulary Learning | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L092 | Harmonizing Visual Representations for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L093 | X-Omni: Reinforcement Learning Makes Discrete Autoregressive Image Generative Models Great Again | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L094 | TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L094 | TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L094.md) | 未完成 |
 | L095 | QLIP: Text-Aligned Visual Tokenization Unifies Auto-Regressive Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L096 | DualToken: Towards Unifying Visual Understanding and Generation with Dual Visual Vocabularies | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L097 | UniToken: Harmonizing Multimodal Understanding and Generation through Unified Visual Encoding | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
@@ -284,9 +284,9 @@
 | L177 | PaintFlow: A Unified Framework for Interactive Oil Paintings Editing and Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | L178 | Drawing and Recognizing Chinese Characters with Recurrent Neural Network | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | L179 | UM-Text: A Unified Multimodal Model for Image Understanding and Visual Text Editing | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| L180 | Painter: Teaching Auto-Regressive Language Models to Draw Sketches | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| L181 | Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| N14 | SteerVTE: Seamless Video Text Editing with Style and Glyph Control | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
+| L180 | Painter: Teaching Auto-Regressive Language Models to Draw Sketches | primary_sections_read | [结构化分析](../reviews/L180.md) | 未完成 |
+| L181 | Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding | primary_sections_read | [结构化分析](../reviews/L181.md) | 未完成 |
+| N14 | SteerVTE: Seamless Video Text Editing with Style and Glyph Control | primary_sections_read | [结构化分析](../reviews/N14.md) | 未完成 |
 | S001 | Ketaba-OCR at AR-MS NakbaNLP 2026 | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | S002 | TextDiffuser: Diffusion Models as Text Painters | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | S003 | GlyphControl: Glyph Conditional Control for Visual Text Generation | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
@@ -327,7 +327,7 @@
 | G024 | StrokeFusion: Vector Sketch Generation via Joint Stroke-UDF Encoding and Latent Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G024.md) | 未完成 |
 | G025 | Adding Conditional Control to Text-to-Image Diffusion Models | primary_sections_read | [结构化分析](../reviews/G025.md) | 未完成 |
 | G026 | Classifier-Free Diffusion Guidance | primary_sections_read | [结构化分析](../reviews/G026.md) | 未完成 |
-| G027 | Elucidating the Design Space of Diffusion-Based Generative Models | primary_abstract_read | [结构化分析](../reviews/G027.md) | 未完成 |
+| G027 | Elucidating the Design Space of Diffusion-Based Generative Models | primary_sections_read | [结构化分析](../reviews/G027.md) | 未完成 |
 | G028 | Generative Adversarial Nets | primary_sections_read | [结构化分析](../reviews/G028.md) | 未完成 |
 | G029 | Auto-Encoding Variational Bayes | primary_sections_read | [结构化分析](../reviews/G029.md) | 未完成 |
 | G030 | Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G030.md) | 未完成 |

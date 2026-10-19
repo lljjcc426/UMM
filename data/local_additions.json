@@ -2053,20 +2053,20 @@
     "source_urls": [
       "https://arxiv.org/abs/2602.08336"
     ],
-    "method": "推理到生成对齐评价",
-    "conclusion": "解释正确与生成正确分别测；长 CoT 不天然更好",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "2000项隐式目标任务和同一模型三条件诊断：直接P、P+推理Rt+最终精炼Rp、只保留该次Rp；附加固定Rp/干扰trace干预。 8个公开UMM原权重；不训练新网络。自模型明确输出Rp，避免外部摘要模型混杂；图像binaryjudge Qwen3VL235BA22B，推理Qwen3235BA22B，温度.1。语义相同是设计目标，不表示完整上下文在统计上必然等价。",
+    "conclusion": "Table2 BAGEL6.6→17.8→62.6，即+11.2/+44.8pp，Text9→11→86。8模型均Setting3>2，完整2000项差8.6–44.4pp。Table3BAGEL推理93.4%，不是视觉准确率。图像judge与人共识.924–.931、推理.962–.972；其他judge趋势一致。",
+    "gap": "注意力相关图不能独立证明特定token因果；前缀移除同时改变上下文分布，强对照缩小但未排除所有训练格式差异。最终图像binaryjudge可能漏细笔/局部文字；明确只诊断自由线性CoT，不覆盖搜索/过程验证。闭源未纳入只因内部条件不可控，不能推断它们能力差。",
+    "problem": "UMM自己推理出正确终态后，视觉生成是否真实执行该意图？",
+    "claim": "作者研究目标：UMM自己推理出正确终态后，视觉生成是否真实执行该意图？",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 A，前轮资料",
     "id": "L032",
     "canonical_key": "paper:arxiv:2602.08336",
@@ -2107,27 +2107,46 @@
       "local_handwriting:R47",
       "local_umm_expanded:X083"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L032.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "解释正确与生成正确分别测；长 CoT 不天然更好",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "§1–5核心方法、Table2/3、AppC/E、I及K/L；主表BAGEL和全部趋势、指定人评协议；未完整所有子类/主表其余逐行/attention图/源码",
+    "review_path": "docs/reviews/L032.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "500人工seed→Gemini3Pro每项10候选5000→人工核验2000；5类Code/Arithmetic/Spatial/Attribute/Text共30subclass，Code8语言；主表testmini500，完整test2000确认趋势，testmini是子集不能当独立外测。",
+    "framework": "2000项隐式目标任务和同一模型三条件诊断：直接P、P+推理Rt+最终精炼Rp、只保留该次Rp；附加固定Rp/干扰trace干预。",
+    "architecture": "8个公开UMM原权重；不训练新网络。自模型明确输出Rp，避免外部摘要模型混杂；图像binaryjudge Qwen3VL235BA22B，推理Qwen3235BA22B，温度.1。语义相同是设计目标，不表示完整上下文在统计上必然等价。",
+    "metrics": "满足逐实例GT准则的binaryaccuracy；Δ是百分点差，不能说Bagel相对提高44.8%。Text为按规则推导后渲染指定字符串；无生成视频/笔顺评价。人机一致率是共识标签相符比例，非F1/κ。",
+    "baselines": "BAGEL/SRUM/UniCoT/v2/ThinkMorph/BAGELZebraCoT/UniMoE2/T2IR1；外部Qwen提示改写，GoldRp，重复Rp4/8次、空think、改格式、同Rp换无关trace、换judge。",
+    "experimental_conditions": "同模型三条件生成温度/采样器/步数/CFG相同；指定对照固定seed。论文所读AppK/L给repo标识但未给逐模型完整硬件/NFE数字表，需代码。无模型训练。人评3CS硕士各独立评3模型testmini全部三条件图像和推理，争议讨论共识；非人口随机采样。"
   },
   {
     "title": "Recursive Self-Improvement in Unified Multimodal Models，2026",
     "source_urls": [
       "https://arxiv.org/abs/2610.03002"
     ],
-    "method": "可验证数据和递归改进",
-    "conclusion": "可借程序可检验奖励；自评不等于规范事件真值",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "诊断native生成→能力维度分配→两次候选程序执行核验→正确render训生成、标注render/编辑错误/代码训理解→合并专家，四轮递归。 BAGEL7BMoT，reader和codewriter共理解专家，generator独立专家；每轮两个更新从同Mt出发分别冻结另侧再Merge。程序执行record与spec核对数据/文字/颜色/坐标/布局/可读性。诊断20%均匀+80%按错率权重cap3×，80/60%升降级，70/20/10当前/更难/易。",
+    "conclusion": "L0 45.7→60.2，L1 45.1→56.2；pooled45.5→59.0。等步继续L046.3，固定verified56.7，targeting增3.5pp。程序spec至少一通过48.9→95.2%，不是所有候选通过率。editedchanged55.6→约87.4；native人评78.5→82.4远小，95%CI增幅[0,7.9]。外部StructT2I11.0→11.9、继续11.7，BizGen约4%，不能泛化为复杂图表已解决。",
+    "gap": "native196图392问盲审，U0六项不可解析(386作分母)，U3全392，native错误误接受仍34.1%，未改善，edited分数不能替代真实错误检测。通用MMB−2.6/MMMU−3pp，结构judge间有分歧，换词遗忘72→60需replay。验证依赖可执行spec覆盖，错判未测pixel层；无单一共享专家vs外部专模同预算因果比较。",
+    "problem": "UMM能否用生成错误指导自己编程构造经执行核验的数据，循环改善生成、理解和代码？",
+    "claim": "作者研究目标：UMM能否用生成错误指导自己编程构造经执行核验的数据，循环改善生成、理解和代码？",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 A，前轮资料",
     "id": "L033",
     "canonical_key": "paper:arxiv:2610.03002",
@@ -2168,7 +2187,26 @@
       "local_handwriting:R50",
       "local_umm_expanded:X072"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L033.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "可借程序可检验奖励；自评不等于规范事件真值",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "§1–4完整主要机制/结果/失败、Tables1–3、AppA–D(含盲审)、Table5/6说明；决策Table4逐项/全量F分布表/可执行验证源码未全核",
+    "review_path": "docs/reviews/L033.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "起点M0先ChartNet程序、基础/大规模程序图表生成(14Kupdates)、atomic理解训练。每轮约35–43Kspec；诊断336/9636问。BasicChartBench476图/14440问：L0336/10140、L1140/4300；7类单panel图，L0未见措辞、L1稀有话题/数字格式/更宽系列，contentfingerprint与训练不交。",
+    "framework": "诊断native生成→能力维度分配→两次候选程序执行核验→正确render训生成、标注render/编辑错误/代码训理解→合并专家，四轮递归。",
+    "architecture": "BAGEL7BMoT，reader和codewriter共理解专家，generator独立专家；每轮两个更新从同Mt出发分别冻结另侧再Merge。程序执行record与spec核对数据/文字/颜色/坐标/布局/可读性。诊断20%均匀+80%按错率权重cap3×，80/60%升降级，70/20/10当前/更难/易。",
+    "metrics": "主分冻结U0逐atomic满足率，非整图全对率；外部Qwen3.6-35BA3B禁think复查，PaddleOCR最近substring字符相似；reader在edited与native分开测。未核独立执行record与最终真实像素完全一致的保证。",
+    "baselines": "等步继续原数据、自评分两图取优、同数量固定均匀verified数据、只首次诊断、冻结reader；额外code均匀抽样、reader数据固定分布对照。通用GenEval/MME/MMB/MMMU，外部StructT2I/BizGen。",
+    "experimental_conditions": "每更新64GPU(型号未在所读附录明示)。G400步/b192/25600unique见3遍/AdamWβ.9,.95/lr2e-5warm100/EMA.995；60%verified、20%初始replay/15%通用/5%编辑，第2轮起部分verified旧轮replay。U704步/b128/30K见3遍/lr2e-5→2e-6warm3%，75%atomic/5%errorreport/15%code/5%通用。writer每spec greedy+temp.6最多6144tokens，首轮不足pair额外约30Kspec，不可只比最终训练步忽略数据构建成本。"
   },
   {
     "title": "Tora，CVPR 2025",
@@ -3524,20 +3562,20 @@
     "source_urls": [
       "https://arxiv.org/abs/2604.11411v1"
     ],
-    "method": "离线方法借用未来信息，固定目标传播不能应对事件导致的指代切换。\nORVOSB；MLLM动态目标提示、语义融合、近密远疏token reservoir、分割解码。",
-    "conclusion": "ORVOSB：210 视频、512 查询、12,907 帧，J&F=61.3。Table 2：基线 52.4→CUSP 无 AGAF 55.1→完整 CUSP 58.1→均匀历史 60.9→近密远疏 61.3；ReVOS=54.3。",
-    "gap": "【边界】正文把 CUSP 数值写成 55.1，与完整组件表不一致；近密远疏相对均匀历史的增益为 0.4 pp。固定 32 历史输入不直接证明底层全历史存储恒定。CoT-RVS/ThinkVideo 已有在线推理分割先例；不能概括为从未有人研究。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "ORVOS任务/ORVOSB事件边界与referent-shift标注；每帧更新语义prompt，亲和融合短历史与近密远疏token记忆。 Chat-UniVi7Bv1.5冻结+LoRA8；<TGT>/<SEG>token cosine-softmax历史融合λ.1→MLP→SAM2maskdecoder；32历史token，32learnablequeries经2层8头Transformer；CE+2BCE+.5Dice。dense-to-sparse用φ(u)=1−(1−u)²映射索引；不将注意力亲和解释成显式事件状态机。",
+    "conclusion": "ORVOSB61.3=J58.3/F64.2 vsREAD51.5/VideoLISA50.3，为+9.8/+11.0百分点；Action52.4/Interaction40.0明显较弱。ReVOS54.3低于VRS-HQ59.1/GLUS54.8，条件为自身在线、对方离线，不能宣称该方法所有数据最优。",
+    "gap": "benchmark是否混入训练视频身份需核；语义何时充分可知有歧义，辅助标注无一致性统计；平均J&F难区分边界/事件错误。公式将历史B写成所有旧token，但又称固定内存，如何丢弃后重新按全历史采样需代码说明；索引floor可能重复，不自动认定恰32个独立token。无吞吐/长流压力结果。",
+    "problem": "在仅能看到视频前缀时，按同一语义query逐帧分割当前满足条件的对象，并允许目标身份随事件变化。",
+    "claim": "作者研究目标：在仅能看到视频前缀时，按同一语义query逐帧分割当前满足条件的对象，并允许目标身份随事件变化。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "本轮 A：公开 v1 方法与实验相关章节",
     "id": "L055",
     "canonical_key": "paper:arxiv:2604.11411",
@@ -3561,7 +3599,26 @@
     "aliases": [
       "local_focused:M098"
     ],
-    "note_path": "docs/evidence/public_preprint_reviews.md"
+    "note_path": "docs/reviews/L055.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "ORVOSB：210 视频、512 查询、12,907 帧，J&F=61.3。Table 2：基线 52.4→CUSP 无 AGAF 55.1→完整 CUSP 58.1→均匀历史 60.9→近密远疏 61.3；ReVOS=54.3。",
+        "gap": "【边界】正文把 CUSP 数值写成 55.1，与完整组件表不一致；近密远疏相对均匀历史的增益为 0.4 pp。固定 32 历史输入不直接证明底层全历史存储恒定。CoT-RVS/ThinkVideo 已有在线推理分割先例；不能概括为从未有人研究。",
+        "note_path": "docs/evidence/public_preprint_reviews.md"
+      }
+    ],
+    "sections_read": "§3–6完整任务/方法/数据/主表1–3和消融；§1–2关键背景；所有示例图/来源视频与代码未逐一核，未复现",
+    "review_path": "docs/reviews/L055.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "ORVOSB从MOSE/OVIS/YouTubeVIS2022/DAVIS17/MeViS筛选210视频12907帧512queries；12–342帧/平均61.46，5类query/平均3.66次切换，55.86%不连续激活。QwenVL描述→GPT5.2筛选→人核+SAM3辅助mask+人工起止。训练LLaVA150K/VideoChatGPTQA、ADE20K/COCOStuff/PACO/PASCALPart/refCOCO/ReasonSeg与RefYouTube/RefDAVIS/MeViS/ReVOS；原视频数据来源重叠，具体训练测试身份切分需清单核查。",
+    "framework": "ORVOS任务/ORVOSB事件边界与referent-shift标注；每帧更新语义prompt，亲和融合短历史与近密远疏token记忆。",
+    "architecture": "Chat-UniVi7Bv1.5冻结+LoRA8；<TGT>/<SEG>token cosine-softmax历史融合λ.1→MLP→SAM2maskdecoder；32历史token，32learnablequeries经2层8头Transformer；CE+2BCE+.5Dice。dense-to-sparse用φ(u)=1−(1−u)²映射索引；不将注意力亲和解释成显式事件状态机。",
+    "metrics": "J=IoU/F=边界F及其均值；主要整体/5类汇总，未单列激活延迟、提前分割率、切换恢复时长或置信区间。",
+    "baselines": "VISA/VRS-HQ/GLUS/VideoLISA与逐帧LISA/READ；作者讨论离线方法缺陷，表1各baseline是否严格裁前缀并重跑/训练预算匹配需实现确认。ReVOS表3离线对比明确条件不同。",
+    "experimental_conditions": "AdamW3e-4/9000iterations/8RTX4090/b1每卡/acc16有效128；K4窗口、32记忆。训练反传跨全部帧/截断及实际帧率/显存未在正文披露。ORVOSB是评价集，不推测也用于训练。"
   },
   {
     "title": "CoT-RVS / ThinkVideo",
@@ -3569,20 +3626,20 @@
       "https://arxiv.org/abs/2505.18561",
       "https://danielshkao.github.io/cot-rvs.html"
     ],
-    "method": "训练外模块链：MLLM 推理选关键帧/目标，图像分割与 SAM2 传播；§3.3 在线版本仅输入已观测帧并周期更新目标。",
-    "conclusion": "提供在线推理分割的直接先例。所读正文表中在线 LLaVA1.5-7B 版本 ReasonVOS J&F=52.0、ReVOS=46.2；与 ORVOSB 不同协议，不横比。",
-    "gap": "【版本】OpenReview PDF 获取受阻；不混合项目版和 HTML 数值。不是统一生成模型，也不等于对书写新生墨迹的逐笔理解。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "MLLM先对关键帧候选进行CoT并输出每实例帧与描述，图像分割出keymask，视频模型传播；在线每ξ帧判断是否更新keyframe，未选到则空mask。 无本任务训练：GPT4o2024-05-13或Gemma3-12B selector→Seg-Zero图像分割→SAM2传播；在线默认LLaVA1.5-7B二值select、ξ4。可选实例互斥按顺序扣除先前mask，引入排序偏差；在线选择Eq9主要接收当前帧，不能仅凭整体名字推断跨帧记忆完整。",
+    "conclusion": "ReasonVOSGPT65.5 vsGLUS49.9(+15.6百分点)，Gemma50.7/在线LLaVA52；ReVOS55.9 vsHyper55.7(+.2)，在线46.2低于多个离线方法。T-ReasonGPT55.5/Gemma50.2 vsVideoLISA37.4。AppA4 MeViSval_u GPT60.1与主表MeViS52.2不同子协议不能混；online引用传统固定身份集，shift实例只定性。",
+    "gap": "输入query歧义如毯子/hoodie；多鹅被语言描述合并成一实例导致下游失败。AppA4 Gemma格式有效59.6%vsGPT96.9%于ReasonVOS，未说明失败样本是否按0/跳过；表内部分分母0/785套在ReasonVOS需核。异构模型API闭源/随机seed/指令微调差；onlineVIS/shift定量作者承认缺失。",
+    "problem": "通过预训练模型组合做隐式query的视频对象/实例分割，并扩展到不看未来帧的在线对象更新。",
+    "claim": "作者研究目标：通过预训练模型组合做隐式query的视频对象/实例分割，并扩展到不看未来帧的在线对象更新。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "本轮 B：作者项目、公开 HTML §3.3 及对应表",
     "id": "L056",
     "canonical_key": "paper:arxiv:2505.18561",
@@ -3607,7 +3664,26 @@
       "local_focused:M117",
       "user_survey:本轮补充"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L056.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "提供在线推理分割的直接先例。所读正文表中在线 LLaVA1.5-7B 版本 ReasonVOS J&F=52.0、ReVOS=46.2；与 ORVOSB 不同协议，不横比。",
+        "gap": "【版本】OpenReview PDF 获取受阻；不混合项目版和 HTML 数值。不是统一生成模型，也不等于对书写新生墨迹的逐笔理解。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "§3–4任务/流程/参数、主表1–6关键结果与消融；AppC/D/F/G/H/I/J及A4/A5；提示全文A/B、Fig8数值不可读部分与各模块代码尚未逐行核",
+    "review_path": "docs/reviews/L056.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "MeViS/ReferDAVIS2017/ReVOS/ReasonVOS(91视频458query)；T-ReasonVOS为其180pairs/45视频(8MeViS/18MOSE/16BURST/3VIPSeg)人工选时间敏感子集，未新增大规模独立训练集。筛除全程可见/不需时间的query，仍需独立选样和歧义审查。",
+    "framework": "MLLM先对关键帧候选进行CoT并输出每实例帧与描述，图像分割出keymask，视频模型传播；在线每ξ帧判断是否更新keyframe，未选到则空mask。",
+    "architecture": "无本任务训练：GPT4o2024-05-13或Gemma3-12B selector→Seg-Zero图像分割→SAM2传播；在线默认LLaVA1.5-7B二值select、ξ4。可选实例互斥按顺序扣除先前mask，引入排序偏差；在线选择Eq9主要接收当前帧，不能仅凭整体名字推断跨帧记忆完整。",
+    "metrics": "J/F与J&F；组件/整段延迟、local显存/API费用；validoutput比例只是格式可解析且≥1实例，不是分割准确或多实例完整率。没有严格shift事件定量GT。",
+    "baselines": "MTTR/ReferFormer/OnlineRefer、LISA/TrackGPT/VideoLISA/VISA/GLUS/SAMWISE/HyperSeg，ThinkFirst+SAM2；模型大小/预训练/是否微调与是否离线各异。",
+    "experimental_conditions": "候选最多约8帧拼网格，ξ=floor((T−1)/8)+1；GPTtemp.5/max2500tokens。GPT4o+1RTX4090；Gemma/在线2RTX4090，预训练模块从官方权重。本任务无finetune不等于无预训练成本；324像素测延迟，API/硬件影响，不外推实时。"
   },
   {
     "title": "Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities",
@@ -3784,22 +3860,23 @@
   {
     "title": "UniTok: A Unified Tokenizer for Visual Generation and Understanding",
     "source_urls": [
-      "https://arxiv.org/abs/2502.20321"
+      "https://arxiv.org/abs/2502.20321",
+      "https://github.com/FoundationVision/UniTok"
     ],
-    "method": "多码本量化扩大词表与瓶颈容量",
-    "conclusion": "rFID 0.38、ImageNet 零样本准确率 78.6%；重建分数不等于开放域文生图分数",
-    "gap": "见结论栏及专题分析。",
-    "problem": "统一 tokenizer 的语义—重建折衷",
-    "claim": "未单独摘录。",
+    "method": "分解CLIP→压缩→量化→重建的退化路径；多子码本MCQ+attentionprojection扩大表示，联合CLIP与VQVAE监督。 ViTaminL/16混合CNNViT，8子码本×4096项×8维=64维；组合空间理论2^96，不是实际有2^96个可训练词条或一条96bit即完整无损图像。attention多head均值做通道压缩；重建pixel/LPIPS/GAN/VQ与contrastive权重1，DINOv2S判别器。LLM将K码合一输入，depth transformer预测K码，保持外层token长度但增加内层预测。",
+    "conclusion": "Table1随机rFID.41/top1 70.8，CLIP初始化.38/78.6，但Table9 VQA随机更优(VQAv272.4vs69.9/GQA58.2vs56.2)。表4GenEval.59>Liquid.55，表5MJHQ7.46@256低于VILAU12.81但高于Liquid5.47@512；跨分辨率不能称公平同预算。",
+    "gap": "MCQ子码本扩张同时改变组合bit数/维度，固定词项数不等于固定码率/计算；CLIP初始化逆转说明ImageNet分类不能替代VQA。有限数据与训练一轮不能证明损失冲突普遍不存在；对重复细笔/密集字及时间未测试。注意projection和更大容量贡献仍需等预算切分。",
+    "problem": "离散视觉token能否同时保留图像重建细节与语言对齐语义，并用于共享AR模型？",
+    "claim": "作者研究目标：离散视觉token能否同时保留图像重建细节与语言对齐语义，并用于共享AR模型？",
     "version": "UniTok，2025 / NeurIPS 2025",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L061",
     "canonical_key": "paper:arxiv:2502.20321",
     "evidence_history": [
@@ -3822,7 +3899,26 @@
     "aliases": [
       "local_umm_core:P11"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L061.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "rFID 0.38、ImageNet 零样本准确率 78.6%；重建分数不等于开放域文生图分数",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§1/3–4方法/数据、Tables1/4–9及§5；表2完整生成行、表3VQA逐行/AppendixA图/源码与正式会议版本未全部复核",
+    "review_path": "docs/reviews/L061.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "DataComp1B的1.28B图文1epoch/256²/b16K；诊断512M子集、子码本实验OpenImages重建与DataComp128M对比分别训练。MLLM预训练10M DCLM文字+30M内部MidJourney式合成+30M COYO/LAION重caption；SFT1.5M生成+1.5M MiniGemini指令。",
+    "framework": "分解CLIP→压缩→量化→重建的退化路径；多子码本MCQ+attentionprojection扩大表示，联合CLIP与VQVAE监督。",
+    "architecture": "ViTaminL/16混合CNNViT，8子码本×4096项×8维=64维；组合空间理论2^96，不是实际有2^96个可训练词条或一条96bit即完整无损图像。attention多head均值做通道压缩；重建pixel/LPIPS/GAN/VQ与contrastive权重1，DINOv2S判别器。LLM将K码合一输入，depth transformer预测K码，保持外层token长度但增加内层预测。",
+    "metrics": "ImageNet rFID/零样本top1、classconditionalgFID/IS/precision/recall；VQA/MME/POPE；MJHQ30K FID及表4 GenEval(正文此前称GenAIBench，命名须核)；无笔序。",
+    "baselines": "VQGAN/RQVAE/VAR/VILAU/TokenFlow、continuousCLIP/SigLIP；LlamaGen同生成器对照，MLLM Liquid/Janus/Showo；单重建/单对比/联合与RQ/MCQ、预训练初始化。",
+    "experimental_conditions": "Tokenizer lr1e-3、判别2e-4、默认随机初始化；MLLM Llama2-7B预训练5e-5微调2e-5。MCQvsRQ相同512M训练/总码项数，RQ共享32768词项；具体硬件、完整loss权重、LLMbatch/采样CFG未在所读正文获得，不能从主参数补填。"
   },
   {
     "title": "Transfer between Modalities with MetaQueries",
@@ -5279,22 +5375,24 @@
   {
     "title": "TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2412.03069"
+      "https://arxiv.org/abs/2412.03069",
+      "https://openaccess.thecvf.com/content/CVPR2025/html/Qu_TokenFlow_Unified_Image_Tokenizer_for_Multimodal_Understanding_and_Generation_CVPR_2025_paper.html",
+      "https://github.com/ByteVisionLab/TokenFlow"
     ],
-    "method": "语义和像素双码本，通过共享索引对齐",
-    "conclusion": "既可取高层语义又可重建细节；不是把同一向量同时强迫为两种极端表示",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "语义和像素双encoder/双码本，以归一化距离加权和选共享索引；多尺度残差量化和nextscale多步采样。 语义encoder教师CLIP/ViTamin/SigLIP初始化、像素encoder；每索引有语义32维+像素8维embedding，i*=argmin(dsem+wdis dpix)；独立语义/像素decoder、teacherL2+pixelL2/LPIPS/GAN+VQ/STE。生成Llama2-7B CE仅图像码、nextscale；理解Vicuna13B/Qwen2.5-14B，通常末尺度混合feature。",
+    "conclusion": "Table4GenEval.55原prompt/.63改写/DPG73.38；VAR.53/71.08。Table6单步.502/ImageReward.722，三步.553/.825，但调用更多。增码本到131K理解/重建提高，classconditional生成超过32768反有下降。附录Table9相对连续teacher仍有差距，384时作者平均差约2.9%，主表胜LLaVA13B与此不矛盾。",
+    "gap": "共享索引不表示LLM共享训练；码本利用率有不同定义：全图pool聚类非空7161/8192=87.4%，与patch131K>95%不能同口径相减。更多采样/更大decoder/教师与分辨率会混杂质量；无视频帧间潜在与笔序保持。码本越大不保证生成更好。",
+    "problem": "一个离散图像tokenizer如何保留语义又可还原像素，分别服务理解与图像生成？",
+    "claim": "作者研究目标：一个离散图像tokenizer如何保留语义又可还原像素，分别服务理解与图像生成？",
     "version": "TokenFlow，2024",
     "scope": "umm",
     "category": "UMM及相邻机制 / 2. 表示与 tokenizer：信息容量、语义和细节如何共同保留",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L094",
     "canonical_key": "paper:arxiv:2412.03069",
     "evidence_history": [
@@ -5317,7 +5415,26 @@
     "aliases": [
       "local_umm_expanded:X022"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L094.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "既可取高层语义又可重建细节；不是把同一向量同时强迫为两种极端表示",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§1/3–4主要方法、Table4–6、AppA/A.2/Table11、B.1/B.2/B.3/Table8解释与C；Table9逐行/全部图、优化配置和正式PDF差异未全读",
+    "review_path": "docs/reviews/L094.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "Tokenizer LAION/COYO且人脸2倍上采样；60M QwenVLcaption图训练T2I2epochs。设计消融ImageNet1K50epoch，VQKD重建诊断100epoch；理解LLaVA1.5训练集。模型B/L/XL分辨率224/256/384；实际全部tokenizer样本筛选未核清。",
+    "framework": "语义和像素双encoder/双码本，以归一化距离加权和选共享索引；多尺度残差量化和nextscale多步采样。",
+    "architecture": "语义encoder教师CLIP/ViTamin/SigLIP初始化、像素encoder；每索引有语义32维+像素8维embedding，i*=argmin(dsem+wdis dpix)；独立语义/像素decoder、teacherL2+pixelL2/LPIPS/GAN+VQ/STE。生成Llama2-7B CE仅图像码、nextscale；理解Vicuna13B/Qwen2.5-14B，通常末尺度混合feature。",
+    "metrics": "ImageNetrFID/PSNR/SSIM；VQA/MME/SEED/TextVQA等，作者Avg将MME-P除20；GenEval原/改写prompt分开，DPG/ImageReward(10KCOCO)。没有轨迹/时间事件指标。",
+    "baselines": "VQKD/VQGAN/LFQ、对应连续语义teacher、VAR同数据训练图像生成器、LlamaGen/Showo/Emu3；跨teacher和LLM比较不能只归因离散表示。",
+    "experimental_conditions": "TokenizerTable11 b256/lr1e-4/β.25/GAN.5/wdis1/maxgrad1，B1Msteps/L/XL500K，码本32768、分辨率各异。理解8A100不到24h；生成Llama2-7B2epoch/dropcaption.1/firstsentence.2/CFG7.5。3步收紧topk[1200,100,1]/topp[.8,.8,0]，完整生成优化器/训练算力未读到。"
   },
   {
     "title": "QLIP: Text-Aligned Visual Tokenization Unifies Auto-Regressive Multimodal Understanding and Generation",
@@ -9017,22 +9134,23 @@
   {
     "title": "Painter: Teaching Auto-Regressive Language Models to Draw Sketches",
     "source_urls": [
-      "https://arxiv.org/abs/2308.08520"
+      "https://arxiv.org/abs/2308.08520",
+      "https://openaccess.thecvf.com/content/ICCV2023W/MMFM/html/Pourreza_Painter_Teaching_Auto-Regressive_Language_Models_to_Draw_Sketches_ICCVW_2023_paper.html"
     ],
-    "method": "微调语言模型自回归生成笔触序列，并支持对象操作与识别。",
-    "conclusion": "官方摘要包含文字到草图、删除对象、检测与分类。",
-    "gap": "本轮仅核查官方摘要；不是中文笔顺实验。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "版本见原始来源及历史记录",
+    "method": "构造MultiObjectQuickDraw合成数据与六任务，HTML样式字符串编码笔触，逐笔渲染→反馈RGB→后续AR笔触。 OPT125M/1.3B全量finetune，冻结ResNet50，除末层外残差单头crossattn接图特征+位置；普通LLM词表不加specialtokens，response CE屏蔽placeholder。黑色1pixel画/白色2pixel擦，擦除即覆盖不保证还原重叠对象。",
+    "conclusion": "Table3 1.3B仅绘画分类3.20%，加Pile40.26%；125M则34.50→17.57%，文本正则并非各规模都提升。1.3B+Pile擦all20.64/partial23.90PSNR、reproduce16.97比无Pile17.20差；主生成能力只有选例，不能声称量化领先。",
+    "gap": "仅345类、模板关系合成/真实手绘分布差，确切字符串判分会罚等义句。无主生成定量，白底PSNR易掩盖内容，白色擦除破坏交叠前景；“画布反馈”不自动等于检测错误后修复。",
+    "problem": "让预训练自回归LLM直接生成绘画笔触，并结合中间画布反馈执行生成/编辑/识别多任务。",
+    "claim": "作者研究目标：让预训练自回归LLM直接生成绘画笔触，并结合中间画布反馈执行生成/编辑/识别多任务。",
+    "version": "Painter: Teaching Auto-Regressive Language Models to Draw Sketches，ICCV2023 Workshops/MMFM pp305–314；精读arXiv:2308.08520",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15笔顺专题原文核查",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L180",
     "canonical_key": "paper:arxiv:2308.08520",
     "evidence_history": [
@@ -9055,28 +9173,51 @@
     "aliases": [
       "local_stroke_order:2308.08520"
     ],
-    "note_path": "docs/handwriting/06_stroke_order_evidence.md"
+    "note_path": "docs/reviews/L180.md",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": null,
+        "conclusion": "官方摘要包含文字到草图、删除对象、检测与分类。",
+        "gap": "本轮仅核查官方摘要；不是中文笔顺实验。",
+        "note_path": "docs/handwriting/06_stroke_order_evidence.md"
+      }
+    ],
+    "sections_read": "§2–3完整数据/模型/loss/训练及Table3和discussion，Table1/2协议；§4相关工作，正式CVF元数据核查；全部图/实现未逐项检查",
+    "review_path": "docs/reviews/L180.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "QuickDraw50M/345类→VisualGenome关系框合成约300K，其他随机1–4对象/位置；完整20M、实际用2M(300K关系+1.7M位置)，约1000eval。BLOOM176B改写模板，ThePile文本保知识；原QuickDraw样本/对象组合身份隔离未详。",
+    "framework": "构造MultiObjectQuickDraw合成数据与六任务，HTML样式字符串编码笔触，逐笔渲染→反馈RGB→后续AR笔触。",
+    "architecture": "OPT125M/1.3B全量finetune，冻结ResNet50，除末层外残差单头crossattn接图特征+位置；普通LLM词表不加specialtokens，response CE屏蔽placeholder。黑色1pixel画/白色2pixel擦，擦除即覆盖不保证还原重叠对象。",
+    "metrics": "classification exactlabel；removeall/removepartial/reproduce PSNR/MSE，generateall/partial仅定性且无用户研究。没有笔触顺序人类合理性或闭环错误恢复评价。",
+    "baselines": "Table3仅OPT两尺寸×有/无ThePile；相关SketchRNN/Sketchforme/Sketchformer/Parti没有匹配主生成量化基线；未消融视觉反馈/视觉encoder。",
+    "experimental_conditions": "2A100/1epoch/b4/Adam1e-5；classificationgreedy、其他top-p.9；256²合成canvas、白底细线。ThePile配比、总体步数与生成token/时延未报，较大模型训练数据/seed差异未独立核。"
   },
   {
     "title": "Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding",
     "source_urls": [
       "https://sprateam-ustc.github.io/Publications/Mobai-2023.pdf",
-      "https://doi.org/10.1016/j.patcog.2023.109538"
+      "https://doi.org/10.1016/j.patcog.2023.109538",
+      "https://github.com/SPRATeam-USTC/G-R-Joint-Optimization",
+      "https://raw.githubusercontent.com/SPRATeam-USTC/G-R-Joint-Optimization/03b07e7156cf96da6420ee9b794aa75a72256c44/lib/modules/embed.py",
+      "https://raw.githubusercontent.com/SPRATeam-USTC/G-R-Joint-Optimization/03b07e7156cf96da6420ee9b794aa75a72256c44/lib/models/joint.py",
+      "https://raw.githubusercontent.com/SPRATeam-USTC/G-R-Joint-Optimization/03b07e7156cf96da6420ee9b794aa75a72256c44/lib/config/joint_config.yaml"
     ],
-    "method": "部件树位置编码、对比学习及dual learning联合优化识别与静态字图生成。",
-    "conclusion": "提供汉字识别与生成相互训练的直接前作。",
-    "gap": "本轮核读摘要及方法定位；不以实际物理笔顺为目标。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "版本见原始来源及历史记录",
+    "method": "RTNG/RTNR双网络的radical/character表征InfoNCE+attention一致性、双向重建loss；基于树路径的TPE；合成不存在部件组合增广。已有2023汉字生成识别协同前作，选题不可称首次。 生成12层4headencoder/decoder+7上采样块；识别VGG16+6层8headTransformer，D512，16格background。L=MSEgen+CErec+.5(Lcontrast+.2Ldual)，γr/c/a=1/1/.8温度.1；dual为image→caption→image与caption→image→caption。Eq14 attention写−log(1−MSE/size)，与正文“MSE”表述有差别，梯度通过离散caption如何传需代码核。",
+    "conclusion": "Table2同TPEjoint印刷MSE.199→.160/SSIM.851→.929、Top187.22→93.61；CTW表3 .244→.199/.723→.858与87.44→88.64；表5同配置SSIM.838与表3.858不一致，不能自行取最佳。HWDB1.2 42.53→44.12、ICDAR96.72→96.88，未见类别仍不足一半；复杂多笔字生成作者承认弱。",
+    "gap": "PDFp6 Eq17 Root=sin(2dπ/D)，L1=sin((4·1−2)dπ/D)与Root相同，直接反驳“Root/Ll/Rl两两正交”的文字前提；Eq18首左子等Root，右子为(Root+R1)/2，Eq19原始内积下亲子相等主张Eq21不由这些定义成立。图5用DFS编号，证明又用二叉堆2i+1/2i+2，编号需重新说明。只判定文字定义/证明不一致，不据此否定表中实际训练收益；官方实现已核：embed.py用table[k]=sin(2π(k+1)d/D)，根索引0、首左/右基索引1/2，实际频率不同于Eq17，故上面反例针对论文文字公式；不能当实际实现的失败证据。joint.py的IF_SIM分支含作者注释“未完全整理，此处有bug”，本次未运行，不将它当可复现完成品。低分辨率/不见组合合法性和二网互相迎合偏差仍在。",
+    "problem": "用部件结构描述生成见过或新组合汉字图像，并利用生成/识别互逆关系改善双方及零样本类别识别。",
+    "claim": "作者研究目标：用部件结构描述生成见过或新组合汉字图像，并利用生成/识别互逆关系改善双方及零样本类别识别。",
+    "version": "Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding，Pattern Recognition140(2023)109538，DOI10.1016/j.patcog.2023.109538",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "primary_abstract_read",
-    "checked_on": "2026-10-15",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15笔顺专题原文核查",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L181",
     "canonical_key": "paper:doi:10.1016/j.patcog.2023.109538",
     "evidence_history": [
@@ -9099,7 +9240,26 @@
     "aliases": [
       "local_stroke_order:RTN2023"
     ],
-    "note_path": "docs/handwriting/06_stroke_order_evidence.md"
+    "note_path": "docs/reviews/L181.md",
+    "review_history": [
+      {
+        "verification": "primary_abstract_read",
+        "checked_on": "2026-10-15",
+        "sections_read": null,
+        "conclusion": "提供汉字识别与生成相互训练的直接前作。",
+        "gap": "本轮核读摘要及方法定位；不以实际物理笔顺为目标。",
+        "note_path": "docs/handwriting/06_stroke_order_evidence.md"
+      }
+    ],
+    "sections_read": "正式作者PDF§3/4(含证明)/5/6/7、Tables1–3/5/7/8关键行、p6公式渲染目视核查；编码实现/全部案例图与训练未复现；官方embed.py TPE全函数、joint.py前向/IF_SIM/dual、optimizer.py和joint_config.yaml只读核对",
+    "review_path": "docs/reviews/L181.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "印刷8字体27533字；训练180052样本22933类、测试31760/4172未见类，类总和27105与总27533差428需解释。CTW官方760107train/52765val/103519test；HWDB1.0/1.1训练2674784、ICDAR2013常用字与HWDB1.2选3277未见类；3000随机新字caption；增广各5M图。624radicals/10结构需要外部结构注释。",
+    "framework": "RTNG/RTNR双网络的radical/character表征InfoNCE+attention一致性、双向重建loss；基于树路径的TPE；合成不存在部件组合增广。已有2023汉字生成识别协同前作，选题不可称首次。",
+    "architecture": "生成12层4headencoder/decoder+7上采样块；识别VGG16+6层8headTransformer，D512，16格background。L=MSEgen+CErec+.5(Lcontrast+.2Ldual)，γr/c/a=1/1/.8温度.1；dual为image→caption→image与caption→image→caption。Eq14 attention写−log(1−MSE/size)，与正文“MSE”表述有差别，梯度通过离散caption如何传需代码核。",
+    "metrics": "生成MSE/SSIM、recognitionTop1/5、各模块FPS；HWDB1.2未见类识别。无书写时间/笔顺/可执行性指标，无seedCI。",
+    "baselines": "RCN/SynthText/SRNet生成，ResNet50/DenseNet/RAN/RTNR/TAN识别；独立vsSIM/DUAL及PE/TPE，离线/在线增广。跨文baseline摘已发表结果，额外信息/训练量并未全匹配。",
+    "experimental_conditions": "32²；drop.2，torch1.3，printb32/1V10032GB5h、CTWb256/4V10030h、handwrite4V10018h。优化器/lr/epoch未在所读全文取得；γ/α/β依val调。所谓onlineaugmentation是同步训练，非在线笔迹数据或实时因果推理。 公开commit03b07e7156cf96da6420ee9b794aa75a72256c44的joint_config.yaml却为8层4head、SGD lr.1/momentum.1/400epoch/b256/encoderfreeze、Jloss.01，和论文生成12层/识别6层、α.5不一致；仅是公开配置，未证实对应主表。"
   },
   {
     "id": "L182",

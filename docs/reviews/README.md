@@ -119,6 +119,21 @@
 | L052 | [Strike a Chord! Modal Kinetic Typography，2026](L052.md) | 18页正式arXivPDF正文§1–6/全部核心方程/Tables1–2；AppA.4–A.5/A.7–A.11/部分A.12；未逐图/全部FEM附推导/源码（项目页soon） |
 | L182 | [STRIVE: Scene Text Replacement In Videos](L182.md) | CVF正式全文§1/3–5、全部主实验Tables1–2、BPN方程/训练/模拟与结论假设；未读视频/代码/补充，公式符号与OCR定义保留待核 |
 | L183 | [CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization](L183.md) | CVF正式10页正文§1/3–5、Tables1–6和方程；官方README/DATASET/TRAINING_SAMPLING、IAM/CASIA配置、CASIAconverter、SAQ前向和完整PCE模块。代码tree快照cf31559c036b6f8d5ec64b20bff59809a66c8bfe；未读完整diffusion/pipeline/patchNCE实现/论文所称附录，未下载模型数据或复现。 |
+| C02 | [Show-o2: Improved Native Unified Multimodal Models](C02.md) | §1/3–4完整结构与训练、Tables3–10、§5；未逐图核查、完整附录/代码/高分辨率checkpoint未审 |
+| L061 | [UniTok: A Unified Tokenizer for Visual Generation and Understanding](L061.md) | §1/3–4方法/数据、Tables1/4–9及§5；表2完整生成行、表3VQA逐行/AppendixA图/源码与正式会议版本未全部复核 |
+| L094 | [TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation](L094.md) | §1/3–4主要方法、Table4–6、AppA/A.2/Table11、B.1/B.2/B.3/Table8解释与C；Table9逐行/全部图、优化配置和正式PDF差异未全读 |
+| L032 | [UReason，2026](L032.md) | §1–5核心方法、Table2/3、AppC/E、I及K/L；主表BAGEL和全部趋势、指定人评协议；未完整所有子类/主表其余逐行/attention图/源码 |
+| L033 | [Recursive Self-Improvement in Unified Multimodal Models，2026](L033.md) | §1–4完整主要机制/结果/失败、Tables1–3、AppA–D(含盲审)、Table5/6说明；决策Table4逐项/全量F分布表/可执行验证源码未全核 |
+| E03 | [Consistency Policy: Accelerated Visuomotor Policies via Consistency Distillation](E03.md) | §I/III-A–D/IV-A–D/TablesI–X及V；未完整附录与全部训练代码；Eq2已结合正式PDF和官方采样代码核对；正式RSS PDF第3页视觉核Eq2负号，正文版本存在补充对照差异；上述commit的teacher/edm_policy.py采样循环、diffusion.py噪声映射与Euler/Heun、configs/ctmp_square.yaml相关结构/优化/训练字段只读 |
+| E05 | [F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching](E05.md) | §1–5核心公式/结构/数据/主表1关键行与§5.1/5.2消融解释、Conclusion/Limitations；未完整表2全部数值、附录B/C和源码/正式ACL逐页差异 |
+| N10 | [Video Text Preservation with Synthetic Text-Rich Videos](N10.md) | 全文Abstract/§1–5(方法/评价/结论完整)；参考文献未逐项追溯，图中视频未独立播放，未定位到训练实现 |
+| N14 | [SteerVTE: Seamless Video Text Editing with Style and Glyph Control](N14.md) | §1/3全部方法与数据、§4 Tables1/3/4主表和消融、§5局限；§7.2/8.1/8.2完整协议；Table2仅关键行/解释，未逐图/代码/数据文件复核 |
+| L055 | [Online Reasoning Video Object Segmentation；公开预印本版本](L055.md) | §3–6完整任务/方法/数据/主表1–3和消融；§1–2关键背景；所有示例图/来源视频与代码未逐一核，未复现 |
+| L056 | [CoT-RVS / ThinkVideo](L056.md) | §3–4任务/流程/参数、主表1–6关键结果与消融；AppC/D/F/G/H/I/J及A4/A5；提示全文A/B、Fig8数值不可读部分与各模块代码尚未逐行核 |
+| N11 | [CalliffusionV2: Personalized Natural Calligraphy Generation with Flexible Multi-modal Control](N11.md) | §3–5全部核心方法、数据、Tables1–3、fewshot/编辑/非汉字说明；全部图样与公开训练实现未逐项核，正式发表未确认 |
+| N12 | [CalliPaint: Chinese Calligraphy Inpainting with Diffusion Model](N12.md) | 全文§1–4与AppendixA/B文字和Tables1/2完整；框架图具体层次、所有图选项及原Calliffusion训练实现未核 |
+| L180 | [Painter: Teaching Auto-Regressive Language Models to Draw Sketches](L180.md) | §2–3完整数据/模型/loss/训练及Table3和discussion，Table1/2协议；§4相关工作，正式CVF元数据核查；全部图/实现未逐项检查 |
+| L181 | [Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding](L181.md) | 正式作者PDF§3/4(含证明)/5/6/7、Tables1–3/5/7/8关键行、p6公式渲染目视核查；编码实现/全部案例图与训练未复现；官方embed.py TPE全函数、joint.py前向/IF_SIM/dual、optimizer.py和joint_config.yaml只读核对 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |
@@ -145,7 +160,7 @@
 | G024 | [StrokeFusion: Vector Sketch Generation via Joint Stroke-UDF Encoding and Latent Sequence Diffusion](G024.md) | 方法、数据/指标、Tables1–3，Fig.6和Limitations；正式会议元数据 |
 | G025 | [Adding Conditional Control to Text-to-Image Diffusion Models](G025.md) | §3训练与结构，§4.2，ADE20K Table2及提示消融 |
 | G026 | [Classifier-Free Diffusion Guidance](G026.md) | §4.1–4.3及Tables1–2，训练条件dropout定义 |
-| G027 | [Elucidating the Design Space of Diffusion-Based Generative Models](G027.md) | 原始摘要及设计空间概述；实验表尚未读完 |
+| G027 | [Elucidating the Design Space of Diffusion-Based Generative Models](G027.md) | 正式NeurIPS主PDF§1–6/Algorithms1–2/Table1–2/Fig2–5文字解释，原公式已推核；未视觉核全部图，附录B–F在独立supp未读，训练源码未全核 |
 | G028 | [Generative Adversarial Nets](G028.md) | minimax目标与理论假设，§5/Table1，指标限制 |
 | G029 | [Auto-Encoding Variational Bayes](G029.md) | ELBO/重参数化推导，§5实验设置与学习算法比较 |
 | G030 | [Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion](G030.md) | 逐token噪声方法，§4.1同架构视频比较，规划任务区分 |

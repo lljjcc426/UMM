@@ -66,3 +66,11 @@
 ## 2026-10-20 · 第五批
 
 21项ID及来源见[本批清单](../../data/fifth_review_batch_2026-10-20.json)。读取Tora/Tora2、MotionCtrl、DragNUWA/DragAnything、MotiMotion、FluidGenZero、RefTok、UniVid的指定方法与实验；读取AnyText、TextVBench、ViTeXBench并分开版本、数据和指标口径。取得InkSpire正式ICLR PDF并查看框架图，补读DiffVG正文/勘误、CalliReader补充材料、Word-As-Image、Strike a Chord、Timage和BoxTuning。前向/后向追引补入STRIVE及CONSTANT，核CONSTANT的官方固定代码树、数据说明和IAM/CASIA配置；未运行源码或下载权重。新增LiveSVG/VitaGlyph等候选只登记线索。各篇未读章节/代码仍在笔记中明示。
+
+## 2026-10-20 第六批来源与精读
+
+新增笔记ID见[data/sixth_review_batch_2026-10-20.json](../../data/sixth_review_batch_2026-10-20.json)。读取对应arXiv全文核心方法/数据/主表与指定附录，额外取得EDM NeurIPS正式主PDF、Consistency Policy RSS正式PDF、L181作者正式PDF，并核对Painter ICCV Workshop/TokenFlow CVPR/F5-TTS ACL的正式元数据。
+
+补充只读来源：Consistency Policy官方仓库commit eed0c465d3c1aa6dcf22f10e784df07dec06beac的teacher采样循环、diffusion Euler/Heun/噪声映射与Square配置；SPRATeam-USTC/G-R-Joint-Optimization commit03b07e7156cf96da6420ee9b794aa75a72256c44的TPE、joint前向/对比、优化器与joint配置。固定版本用于追溯，不是文件hash完整性扫描。L181 PDF p6已目视核公式。未运行外部代码，无新模型权重。
+
+检索词包括CalliffusionV2/CalliPaint/Painter+venue、L181完整题名、Consistency Policy+RSS+GitHub、EDM+NeurIPS2022正式全文。新候选及区分相近题名见[追引队列](survey_queue_2026-10-19.md)。仅访问/搜索摘要不升级章节状态；15份新笔记+1份升级均由实际章节阅读后人工记录。
