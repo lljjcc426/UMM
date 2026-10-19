@@ -1,7 +1,7 @@
 """Validate the 2026-10-19 provenance supplement without making network claims.
 
 Run: python scripts/validate_research_additions.py
-Does not re-run any paper experiments and intentionally leaves data/literature.json unchanged.
+Checks the supplement-to-master crosswalk; does not re-run paper experiments.
 """
 from __future__ import annotations
 
@@ -49,6 +49,9 @@ def validate() -> dict:
             problems.append(f'{r["id"]} missing note: {r["note"]}')
         if "existing_master_id" in r and r["existing_master_id"] not in master_ids:
             problems.append(f'{r["id"]} existing_master_id not found')
+        if registry.get("status") == "integrated_into_master_with_stable_crosswalk":
+            if r.get("integrated_master_id") not in master_ids:
+                problems.append(f'{r["id"]} integrated_master_id not found')
         if "same_work_as" in r and r["same_work_as"] not in ids:
             problems.append(f'{r["id"]} same_work_as not found')
         if r["checked"] in {"repo_readme", "publisher_abstract", "hf_model_card"}:

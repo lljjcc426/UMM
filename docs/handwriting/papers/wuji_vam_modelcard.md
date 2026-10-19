@@ -40,4 +40,4 @@
 7. Insights：证明书写研究已有 video+action 的公开工程路径；实验应从观测对齐/动作执行验证出发，不能借用数字 PSNR 证明中文字视频正确。
 8. 一句话：Wuji VAM 是与视频—动作联合建模高度相关的非论文制品，但仅有数字机器人写字的有限核查证据。
 
-**复现前提**：固定 HF revision、base model revision、仓库代码 commit、观察帧预处理、动作归一化；检查 model_config.json、training_config.yaml 与 README 是否相符，再执行极小 batch smoke test。无需把所有 11.54GB 权重复制进调研仓库。
+**复现前提**：固定 HF revision、base model revision、仓库代码 commit、观察帧预处理、动作归一化；检查 model_config.json、training_config.yaml 与 README 是否相符，再按任务验证视频/动作接口与真实执行指标。无需把所有 11.54GB 权重复制进调研仓库。

@@ -1,8 +1,8 @@
 {
   "date": "2026-10-19",
-  "status": "verified_supplement_independent_of_281_record_master",
-  "schema_version": 1,
-  "description": "Source-scoped additional publications, benchmarks, software, datasets, and released weights. Some entries describe supporting artefacts of papers; do not count all as independent papers.",
+  "status": "integrated_into_master_with_stable_crosswalk",
+  "schema_version": 2,
+  "description": "First-round source snapshot, now linked to the canonical catalog. Existing papers and associated software are not counted twice as independent papers.",
   "records": [
     {
       "id": "X2026-001",
@@ -24,7 +24,8 @@
       ],
       "checked": "paper_and_training_code_sections",
       "next": "independent inference and feature ablation",
-      "note": "docs/handwriting/papers/ketaba_ocr_lora.md"
+      "note": "docs/handwriting/papers/ketaba_ocr_lora.md",
+      "integrated_master_id": "S001"
     },
     {
       "id": "X2026-002",
@@ -44,7 +45,8 @@
       ],
       "checked": "publisher_abstract",
       "next": "read PDF Tables 1-5",
-      "note": "docs/handwriting/papers/static_text_neurips_baselines.md"
+      "note": "docs/handwriting/papers/static_text_neurips_baselines.md",
+      "integrated_master_id": "S002"
     },
     {
       "id": "X2026-003",
@@ -64,7 +66,8 @@
       ],
       "checked": "publisher_abstract",
       "next": "read method figure/ablation tables",
-      "note": "docs/handwriting/papers/static_text_neurips_baselines.md"
+      "note": "docs/handwriting/papers/static_text_neurips_baselines.md",
+      "integrated_master_id": "S003"
     },
     {
       "id": "X2026-004",
@@ -85,7 +88,8 @@
       ],
       "checked": "preprint_method_sections_and_repo",
       "next": "read Tables and all ablations",
-      "note": "docs/evidence/scoped_literature_matrix_2026-10-19.md"
+      "note": "docs/evidence/scoped_literature_matrix_2026-10-19.md",
+      "integrated_master_id": "S004"
     },
     {
       "id": "X2026-005",
@@ -107,7 +111,8 @@
       "checked": "repo_readme_and_training_commands",
       "next": "read paper methods/results and pin git revision",
       "note": "docs/handwriting/papers/videosketcher_deep_review.md",
-      "existing_master_id": "L010"
+      "existing_master_id": "L010",
+      "integrated_master_id": "L010"
     },
     {
       "id": "X2026-006",
@@ -129,7 +134,9 @@
       "checked": "dataset_card_and_repo_readme",
       "next": "judge audit with same-final-canvas different-action-order",
       "note": "docs/handwriting/papers/calligraphy_bench.md",
-      "statistic_notice": "Stroke order percentage uses matched strokes, not exact whole-character success"
+      "statistic_notice": "Stroke order percentage uses matched strokes, not exact whole-character success",
+      "existing_master_id": "L044",
+      "integrated_master_id": "L044"
     },
     {
       "id": "X2026-007",
@@ -151,7 +158,8 @@
       "checked": "hf_card_and_owner_repo",
       "next": "audit each mask to stroke identity and normative order",
       "note": "docs/resources/nonpaper_research_2026-10-19.md",
-      "statistic_notice": "Original corpus 1,322/10,653 differs from HF derivative package 1,212 images"
+      "statistic_notice": "Original corpus 1,322/10,653 differs from HF derivative package 1,212 images",
+      "integrated_master_id": "S007"
     },
     {
       "id": "X2026-008",
@@ -172,7 +180,8 @@
       "checked": "hf_model_card",
       "next": "source/weights license, smoke test and full benchmark",
       "note": "docs/handwriting/papers/wuji_vam_modelcard.md",
-      "statistic_notice": "Only training-time validation snapshot and digits 0-9; no Chinese normative order results"
+      "statistic_notice": "Only training-time validation snapshot and digits 0-9; no Chinese normative order results",
+      "integrated_master_id": "S008"
     },
     {
       "id": "X2026-009",
@@ -192,7 +201,8 @@
       ],
       "checked": "official_readme_and_svg_example",
       "next": "pin commit and region-specific stroke audit",
-      "note": "docs/resources/nonpaper_research_2026-10-19.md"
+      "note": "docs/resources/nonpaper_research_2026-10-19.md",
+      "integrated_master_id": "S009"
     },
     {
       "id": "X2026-010",
@@ -212,7 +222,8 @@
       ],
       "checked": "official_readme",
       "next": "language norm/license details",
-      "note": "docs/resources/nonpaper_research_2026-10-19.md"
+      "note": "docs/resources/nonpaper_research_2026-10-19.md",
+      "integrated_master_id": "S010"
     },
     {
       "id": "X2026-011",
@@ -233,7 +244,8 @@
       ],
       "checked": "repo_readme_and_model_identity",
       "next": "HF adapter config and training script",
-      "note": "docs/resources/nonpaper_research_2026-10-19.md"
+      "note": "docs/resources/nonpaper_research_2026-10-19.md",
+      "integrated_master_id": "S011"
     },
     {
       "id": "X2026-012",
@@ -253,7 +265,8 @@
       ],
       "checked": "hf_data_card",
       "next": "check licensing and underlying raw data records",
-      "note": "docs/resources/nonpaper_research_2026-10-19.md"
+      "note": "docs/resources/nonpaper_research_2026-10-19.md",
+      "integrated_master_id": "S012"
     },
     {
       "id": "X2026-013",
@@ -273,7 +286,8 @@
       ],
       "checked": "source_readme",
       "next": "verify data timestamp/granularity and license",
-      "note": "docs/evidence/scoped_literature_matrix_2026-10-19.md"
+      "note": "docs/evidence/scoped_literature_matrix_2026-10-19.md",
+      "integrated_master_id": "S013"
     },
     {
       "id": "X2026-014",
@@ -293,7 +307,8 @@
       ],
       "checked": "repo_readme",
       "next": "inspect actual notebook and rerun with fixed dataset",
-      "note": "docs/evidence/scoped_literature_matrix_2026-10-19.md"
+      "note": "docs/evidence/scoped_literature_matrix_2026-10-19.md",
+      "integrated_master_id": "S014"
     },
     {
       "id": "X2026-015",
@@ -314,7 +329,8 @@
       "checked": "repo_readme",
       "next": "pin code revision/checkpoints",
       "note": "docs/evidence/scoped_literature_matrix_2026-10-19.md",
-      "same_work_as": "X2026-004"
+      "same_work_as": "X2026-004",
+      "integrated_master_id": "S015"
     },
     {
       "id": "X2026-016",
@@ -335,7 +351,8 @@
       "checked": "owner_repo_summary",
       "next": "read original Stroke-Seg journal article and ablations",
       "note": "docs/resources/nonpaper_research_2026-10-19.md",
-      "same_work_as": "X2026-007"
+      "same_work_as": "X2026-007",
+      "integrated_master_id": "S016"
     }
   ]
 }

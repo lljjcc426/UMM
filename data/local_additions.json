@@ -92,7 +92,8 @@
   {
     "title": "Write Like You，2021",
     "source_urls": [
-      "https://doi.org/10.1111/cgf.142621"
+      "https://doi.org/10.1111/cgf.142621",
+      "https://onlinelibrary.wiley.com/doi/10.1111/cgf.142621"
     ],
     "method": "度量元学习与序列模型，迁移草写在线中文风格",
     "conclusion": "草写/风格与在线轨迹已有积累；不能把草书直接套唯一楷书序列",
@@ -104,10 +105,10 @@
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_abstract_read",
+    "checked_on": "2026-10-19",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-19",
     "previous_evidence": "既有调查 C",
     "id": "L003",
     "canonical_key": "paper:doi:10.1111/cgf.142621",
@@ -132,7 +133,9 @@
       "local_focused:M010",
       "local_handwriting:R10"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
+    "source_access_note": "首选DOI的命令行访问403；随后经Wiley正式页面确认题名、DOI10.1111/cgf.142621和摘要，未获得全文。",
+    "sections_read": "Wiley正式出版元数据与摘要（全文未读）"
   },
   {
     "title": "Layout Stroke Imitation，2025",
@@ -267,7 +270,8 @@
       "local_focused:M014",
       "local_handwriting:R14"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
+    "source_access_note": "首选DOI只返回Redirecting占位页，未得到正文。"
   },
   {
     "title": "B-BSMG，2024",
@@ -410,10 +414,10 @@
       "https://arxiv.org/html/2602.15819v1",
       "https://arxiv.org/abs/2602.15819"
     ],
-    "method": "LLM分步计划＋Wan视频扩散；先用几何组合学习时序，再用少量手绘例适配风格；另探索自回归。",
-    "conclusion": "是计划到顺序视频的直接近邻，并支持笔刷风格；作者仍报告同帧多笔等过程失败。",
-    "gap": "不是汉字规范笔顺基准；步骤偏好和普通草图排序不能替代逐笔实例、方向及整字全对评价。",
-    "problem": "静态草图模型缺少生成过程，直接语言绘图又受视觉质量限制。",
+    "method": "先用几何组合和不同顺序学习绘画语法，再用7幅艺术家SVG学习外观；扩展首帧笔刷提示和AR学生。 Wan2.1视频DiT，LoRA两阶段；标准rectified-flow目标；Diffusion教师合成更多视频用于AR微调。",
+    "conclusion": "Table1：Diffusion .82/.96、原Wan .92/.99、AR .45/.70；高最终识别率不足以证明过程更正确。Table2全模型Top5为.95，保留与Table1 .96的原表差异。",
+    "gap": "原文明确多笔可同帧出现、指令可能被视觉先验覆盖、数学知识不足、AR画质下降；LLM偏好还受组件是否可辨认影响。",
+    "problem": "让视频模型按文本规划逐步绘画，同时维持画风与可交互性。",
     "claim": "以语言计划和视频扩散生成按指定步骤展开的草图。",
     "version": "本次核读arXiv:2602.15819v1；元数据另有v2",
     "scope": "handwriting_or_adjacent",
@@ -421,9 +425,9 @@
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-16",
+    "checked_on": "2026-10-19",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-16",
+    "last_updated": "2026-10-19",
     "previous_evidence": "既有调查 A",
     "id": "L010",
     "canonical_key": "paper:arxiv:2602.15819",
@@ -465,8 +469,26 @@
       "local_focused:M018",
       "local_handwriting:R18"
     ],
-    "note_path": "docs/handwriting/02_capability_matrix.md",
-    "sections_read": "v1方法、两阶段训练、自回归扩展及失败分析；v2元数据"
+    "note_path": "docs/reviews/L010.md",
+    "sections_read": "§3–7，Tables1–2，Figures2/3/7/10/12，Appendix B.3",
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v1方法、两阶段训练、自回归扩展及失败分析；v2元数据",
+        "conclusion": "是计划到顺序视频的直接近邻，并支持笔刷风格；作者仍报告同帧多笔等过程失败。",
+        "gap": "不是汉字规范笔顺基准；步骤偏好和普通草图排序不能替代逐笔实例、方向及整字全对评价。",
+        "note_path": "docs/handwriting/02_capability_matrix.md"
+      }
+    ],
+    "review_path": "docs/reviews/L010.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "人工7类：lamp/car/chair/tree/cup/butterfly/flower；几何组合每个有3种时序；测试50个QuickDraw类别，每类2个seed。",
+    "framework": "先用几何组合和不同顺序学习绘画语法，再用7幅艺术家SVG学习外观；扩展首帧笔刷提示和AR学生。",
+    "architecture": "Wan2.1视频DiT，LoRA两阶段；标准rectified-flow目标；Diffusion教师合成更多视频用于AR微调。",
+    "metrics": "最终帧CLIP ViT-B/32 Top1/5；过程识别曲线；LLM顺序偏好；VGG19 Gram风格距离；累积新增像素。",
+    "baselines": "原Wan2.1、PaintsUndo+FLUX2终图、SketchAgent、人类QuickDraw；AR与Diffusion分别报告。",
+    "experimental_conditions": "笔刷测试30类别×2 seeds×5新颜色×5新笔刷=1500；原文训练细节在Appendix A，仓库速度示例与论文实验不能混作一次测试。"
   },
   {
     "title": "Draw This First",
@@ -580,20 +602,20 @@
     "source_urls": [
       "https://arxiv.org/abs/2406.06062"
     ],
-    "method": "合成过程预训练、艺术家过程 LoRA，任意中间帧条件",
-    "conclusion": "文本→绘画过程已有研究；艺术制作步骤与汉字规范事件不同",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
+    "method": "合成过程预训练+艺术家过程LoRA；Artwork Replication Network支持任意中间帧条件。 视频扩散模型、过程LoRA、复制参考网络与noise replacement。",
+    "conclusion": "Table1：MSE.014820/LPIPS.024517/L1.082165；LearningToPaint .016181/.033240/.087082。只支持终图一致性比较。",
+    "gap": "最终帧一致性掩盖中间跳变；艺术风格LoRA可能记忆制作套路；数据集/预算尚未精核完。",
+    "problem": "文本条件下生成逐步绘画，并接受中途画布继续生成。",
     "claim": "未单独摘录。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-19",
     "previous_evidence": "既有调查 C",
     "id": "L013",
     "canonical_key": "paper:arxiv:2406.06062",
@@ -618,7 +640,26 @@
       "local_focused:M021",
       "local_handwriting:R21"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L013.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "文本→绘画过程已有研究；艺术制作步骤与汉字规范事件不同",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "Abstract、Table1、§4.4.2/4.5、Fig7；样本数与预算待核",
+    "review_path": "docs/reviews/L013.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "合成stroke-based过程与少量艺术家序列；本卡未从全文完整转录样本数及分割，明确不借用VideoSketcher的7幅数目。",
+    "framework": "合成过程预训练+艺术家过程LoRA；Artwork Replication Network支持任意中间帧条件。",
+    "architecture": "视频扩散模型、过程LoRA、复制参考网络与noise replacement。",
+    "metrics": "终帧MSE/LPIPS/L1、用户画法偏好。",
+    "baselines": "LearningToPaint、PaintTransformer、Intelli-Paint、Stylized Neural Painting。",
+    "experimental_conditions": "表内基线来自官方代码/推荐参数；公平计算预算及完整硬件设置待补。"
   },
   {
     "title": "Generating Past and Future in Digital Painting Processes / PaintsAlter，2025",
@@ -760,20 +801,20 @@
     "source_urls": [
       "https://arxiv.org/abs/2306.14685"
     ],
-    "method": "扩散先验优化 Bézier 向量草图",
-    "conclusion": "几何/风格生成工具；优化迭代轴不是书写时间轴",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
+    "method": "ASDS将扩散先验传给Bezier参数，并利用注意力初始化笔画。 固定预训练latent diffusion+diffvg类可微栅格化，优化曲线；没有学习真正时间条件执行器。",
+    "conclusion": "Appendix D/Table1：混淆率本法.65、CLIPasso.39、VectorFusion.33、人类.67。",
+    "gap": "同时优化所有曲线，优化迭代不代表合法绘制顺序；stroke数量控制抽象程度，未约束汉字笔画身份。",
+    "problem": "从自然语言生成向量自由手绘草图。",
     "claim": "未单独摘录。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-19",
     "previous_evidence": "既有调查 C",
     "id": "L017",
     "canonical_key": "paper:arxiv:2306.14685",
@@ -798,7 +839,26 @@
       "local_focused:M026",
       "local_handwriting:R26"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L017.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "几何/风格生成工具；优化迭代轴不是书写时间轴",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "Abstract、Appendix D/Table1、Appendix E；主方法核心目标",
+    "review_path": "docs/reviews/L017.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "提示与人类free-hand草图用于评价；用户实验90生成图+30真实图，41参与者。",
+    "framework": "ASDS将扩散先验传给Bezier参数，并利用注意力初始化笔画。",
+    "architecture": "固定预训练latent diffusion+diffvg类可微栅格化，优化曲线；没有学习真正时间条件执行器。",
+    "metrics": "静态语义/感知指标及人类真假混淆率。",
+    "baselines": "CLIPasso、VectorFusion、人类草图。",
+    "experimental_conditions": "每方法30生成样本；生成图来源和真实网络图片分布不同，混淆分不可等同笔顺质量。"
   },
   {
     "title": "Diff-Font，2022 起",
@@ -978,7 +1038,8 @@
       "local_focused:M033",
       "local_handwriting:R33"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
+    "source_access_note": "OpenReview PDF本次403，原文/投稿状态仍待定位。"
   },
   {
     "title": "Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本",
@@ -1023,7 +1084,8 @@
       "local_focused:M034",
       "local_handwriting:R34"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
+    "source_access_note": "OpenReview PDF本次403，不能视为原文已复核。"
   },
   {
     "title": "DiffBrush，ICCV 2025",
@@ -2097,7 +2159,7 @@
     ],
     "method": "88字、20位书家，4个代理通过MCP/tldraw作画；视觉模型裁判评价匹配笔画。",
     "conclusion": "官方数据卡报告不同代理匹配笔顺分约77–82%；没有图像生成模型参评。",
-    "gap": "分数不是整字规范全对率；模型裁判、匹配筛选与书法变体需另核验；不是直接视频生成基准。",
+    "gap": "【边界】绘图工具Agent基准，视觉裁判对匹配笔画计顺序；不等于原生RGB视频严格全事件正确率。首轮X2026-006为同一资源，现已关联，不计为新发现。",
     "problem": "读懂字形与按笔画绘制字形的能力不同。",
     "claim": "通过绘图工具评估多模态代理临摹书法和笔序。",
     "version": "官方数据卡，核查于2026-10-16",
@@ -7934,7 +7996,8 @@
     "aliases": [
       "local_stroke_order:1606.06539"
     ],
-    "note_path": "docs/handwriting/06_stroke_order_evidence.md"
+    "note_path": "docs/handwriting/06_stroke_order_evidence.md",
+    "source_access_note": "arXiv HTML为包含PDF的空壳，未取得正文，不能将HTTP200计为精读。"
   },
   {
     "title": "UM-Text: A Unified Multimodal Model for Image Understanding and Visual Text Editing",

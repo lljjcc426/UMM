@@ -15,6 +15,7 @@
 | 重点论文的方法、结果与限制 | [论文精读](docs/handwriting/papers/README.md) · [四篇指定论文精读](docs/evidence/attachment_reviews.md) · [公开版本对照](docs/evidence/public_preprint_reviews.md) |
 | 数据、标准与评价 | [数据与标准](docs/handwriting/03_data_and_standards.md) · [评测协议](docs/experiments/benchmark_protocol.md) |
 | 研究进展与后续实验 | [研究进展](docs/project/STATUS.md) · [结论依据](docs/project/DECISIONS.md) · [实验计划](docs/project/EXPERIMENTS.md) · [最小研究方案](docs/experiments/stroke_order_pilot.md) |
+| 本轮逐篇阅读、理论与实验迁移 | [58份结构化笔记](docs/reviews/README.md) · [理论与迁移分析](docs/evidence/foundations_and_transfer_2026-10-19.md) · [逐条阅读台账](docs/evidence/reading_ledger_2026-10-19.md) |
 | 全部文献 | [文献总表](docs/all_literature.md) · [CSV](data/literature.csv) · [Excel](data/literature_public.xlsx) |
 
 ## 主要判断
@@ -26,7 +27,7 @@
 
 ## 文献与证据
 
-主目录包含 **270项论文／研究记录、11项资源，共281条记录**。每项记录包括研究主张、方法、问题、结果、限制、原始来源、版本及核查范围。数量不代表全文精读数量；文献中的数值为作者报告。
+主目录包含 **306项论文／研究记录、21项资源，共327条记录**。每项记录包括研究主张、方法、问题、结果、限制、原始来源、版本及核查范围。数量不代表全文精读数量；文献中的数值为作者报告。
 
 [候选目录](data/discovery/README.md)另含573条arXiv检索记录和200条综述目录候选，两者有重叠，也与主目录重叠。详细记录规则见[核查方法](docs/evidence/method_and_status.md)，早期分析见[研究档案](archive/README.md)。
 
@@ -44,7 +45,7 @@ python scripts/validate_catalog.py
 
 ## 2026-10-19：新增来源核查与文献补录
 
-本轮扩展了**基准/生成方法/无论文制品**三类来源核验，新增文档不覆盖已有 281 条主目录记录。原主目录中仍有大量历史未复核条目，见[证据审计](docs/evidence/2026-10-19_quality_audit.md)；新增条目存于独立[来源可追溯 JSON](data/research_additions_2026-10-19.json)，尚未重新生成主目录的 Excel/CSV 视图，不混用两个目录的条目计数。
+首轮补录现已整合进主目录：[补录映射](data/research_additions_2026-10-19.json)保留16条来源记录，VideoSketcher关联L010、Calligraphy Bench关联L044，其余14条使用S编号；关联代码作为资源记录。新增32条G编号基础/邻近领域文献。主目录、CSV、Markdown及Excel已同步，禁止再将16条补录全部加到主目录计数。
 
 - [补录研究矩阵](docs/evidence/scoped_literature_matrix_2026-10-19.md)：按任务、数据、结构、指标、比较方法与实验条件区分直接前作和可迁移机制。
 - [VidScribe 精读](docs/handwriting/papers/vidscribe.md)、[Calligraphy Bench](docs/handwriting/papers/calligraphy_bench.md)、[VideoSketcher 精读](docs/handwriting/papers/videosketcher_deep_review.md)：分别对应视频文字评测、书法工具绘制、逐步素描视频生成；三者的笔顺与生成任务不等价。
@@ -52,3 +53,11 @@ python scripts/validate_catalog.py
 - [NeurIPS 静态文字扩散前作](docs/handwriting/papers/static_text_neurips_baselines.md)、[可证伪实验设计](docs/experiments/research_gaps_and_tests_2026-10-19.md)、[下一批精读核查队列](docs/evidence/survey_queue_2026-10-19.md)。
 
 **关键新颖性纠偏：**中文书法逐笔 Agent 评价已有 Calligraphy Bench，严格笔顺视频问题仍需证明其独有的像素历史可观测性/时间执行与共享 UMM 收益；VidScribe 评字形拓扑，Calligraphy Bench 评工具笔顺，均不可直接套用为模型生成汉字规范笔顺视频正确率。
+
+## 第二轮：原文重读、实验审查与广泛领域补充
+
+[本轮审查记录](docs/evidence/second_round_audit_2026-10-19.md)说明实际完成范围和纠错；[修改文件说明](docs/evidence/second_round_changes_2026-10-19.md)逐项列出新增与修改文件，无文件删除。
+
+本批形成58份逐篇结构化笔记，其中57份核查相关章节，1份仅完成第一遍；包含数据、结构、指标、基线、实验条件、消融、可证伪假设及写作学习。并对原281条、首轮16条补录和32条基础候选的首选来源执行访问审计，得到329条访问事件；这些事件有同研究重复，且**访问成功不等于阅读完成**。
+
+当前327条目录中：88条已读相关原文章节、35条已核摘要、1条仅元数据、203条历史原文待复核。U18原始来源已解决。**全部文献的三遍精读尚未完成，独立模型复现为0；不能声称达成零遗漏。** 每一条当前状态见[完成台账](docs/evidence/reading_ledger_2026-10-19.md)。

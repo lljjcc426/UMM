@@ -1,4 +1,6 @@
-# 2026-10-19 调研审计、学术证据分级与检索可复核清单
+# 2026-10-19 第一轮调研审计（历史快照）
+
+此页的281条/221待核是第一轮快照。最新状态见[第二轮审查](second_round_audit_2026-10-19.md)与[逐条台账](reading_ledger_2026-10-19.md)；补录已同步主目录和表格。
 
 ## 本次实际审计了哪些内容？
 
@@ -18,7 +20,7 @@
 | --- | --- | --- | --- |
 | 视频中文字质量评测 | 文字/参考/原视频 + 生成视频 → 指标 | OCR、字形结构、跨帧稳定、编辑残留 | VidScribe、VTR-Bench |
 | 静态文字图像生成 | 文字/位置/字体 → 一张文字图 | 字形、文字准确率、FID | TextDiffuser、GlyphControl、AnyText2 |
-| 在线笔迹生成/恢复 | 字形/文本/风格 → 有序轨迹与笔状态 | 顺序、几何、抬笔/起笔、文本识别 | DiffInk、OLHWG、Inverse Painting 邻近 |
+| 在线笔迹生成/恢复 | 字形/文本/风格 → 有序轨迹与笔状态 | 顺序、几何、抬笔/起笔、文本识别 | DiffInk、OLHWG；Inverse Painting属于RGB绘画过程复原，未输出笔尖轨迹 |
 | 序列绘画视频 | 草图指令/几何计划 → 渐进绘制视频 | 顺序执行、内容覆盖、连续性 | VideoSketcher |
 | 草图驱动视频动画 | **给定草图序列** + 文本 → 动画视频 | 运动与草图对齐 | VidSketch；不可同“从空白画出来”混用 |
 | 中文书法 Agent 绘制 | 参考书法图 + 绘图工具 → 笔画命令/画布 | 笔画召回、顺序、最终画面 | Calligraphy Bench |
@@ -29,7 +31,9 @@
 
 **典型失误：**将“stroke weight”“glyph stroke correctness”“stroke sequence”“robot action trajectory”“diffusion steps”归为同一种笔顺指标。这五项物理/统计对象不同。VidScribe 的 A2 评价轮廓拓扑，Calligraphy Bench 才有明确称为 stroke order 的评价，但任务依赖绘图工具且为视觉裁判的匹配笔比例；后者也不能代替生成视频的严格全事件准确率。
 
-## 本轮新增的影响新颖性的直接前作
+## 影响新颖性的直接前作（补充关联已纠正）
+
+Calligraphy Bench在第一轮之前已存在主目录L044；首轮X2026-006是同一资源的再核查，不能计为新发现。第二轮已加入明确关联。
 
 **Calligraphy Bench（Haize Labs，2026）**已在 88 个汉字书法样本上要求智能体通过 tldraw 绘制笔画，并报告逐笔顺序、笔画召回、最终外观。这说明“已有研究完全没有针对中文书法的笔顺生成评测”过宽。该工作没有完整原生 RGB 视频生成比较，也未见公开严格事件序列标注和人工逐事件验证协议。其“stroke order 82%”不能移植为视频模型严格整字笔顺率。资料：[HF dataset](https://huggingface.co/datasets/haizelabs/calligraphy-bench)、[GitHub](https://github.com/haizelabs/calligraphy)。
 

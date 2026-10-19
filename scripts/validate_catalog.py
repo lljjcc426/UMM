@@ -2,7 +2,7 @@
 from __future__ import annotations
 import json
 import re
-import os
+import subprocess
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 
@@ -12,13 +12,17 @@ STATUS = {"historical_record_not_rechecked","primary_sections_read","primary_abs
 REQUIRED = {"id","title","claim","method","problem","conclusion","gap","source_urls",
             "verification","provenance","record_type","scope","privacy"}
 PRIVATE_IDS = {"C08","C09","C10","C11"}
-LOCAL_ONLY_DIRS={".git","research","private",".integration","__pycache__",".venv"}
-
 def publication_files():
-    for base,dirs,files in os.walk(ROOT):
-        dirs[:]=[d for d in dirs if d not in LOCAL_ONLY_DIRS]
-        for name in files:
-            yield Path(base)/name
+    # Inspect files that can enter a normal Git commit, including tracked files
+    # that would otherwise match an ignore rule. Local ignored caches stay local.
+    names = subprocess.check_output(
+        ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"],
+        cwd=ROOT,
+    ).decode("utf-8").split("\0")
+    for name in dict.fromkeys(names):
+        path = ROOT / name
+        if name and path.is_file():
+            yield path
 
 def validate():
     errors, warnings = [], []
@@ -50,6 +54,8 @@ def validate():
                 errors.append(f'{r.get("id")}: malformed URL {u}')
         if r.get("note_path") and not (ROOT/r["note_path"]).is_file():
             errors.append(f'{r["id"]}: missing note_path')
+        if r.get("review_path") and not (ROOT/r["review_path"]).is_file():
+            errors.append(f'{r["id"]}: missing review_path')
     # Validate relative Markdown destinations, not live external links.
     count = 0
     files=list(publication_files())

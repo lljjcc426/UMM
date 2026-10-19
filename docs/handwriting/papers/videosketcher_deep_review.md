@@ -1,5 +1,7 @@
 # VideoSketcher｜序列素描视频生成：论文与官方开源实现辨析
 
+第二轮已补方法、主表和消融核查，见[更新阅读笔记](../../reviews/L010.md)；本页保留第一轮代码阅读范围。
+
 - 论文：VideoSketcher: Video Models Prior Enable Versatile Sequential Sketch Generation
 - 作者：Hui Ren、Yuval Alaluf、Omer Bar Tal、Alexander Schwing、Antonio Torralba、Yael Vinker
 - [arXiv:2602.15819](https://arxiv.org/abs/2602.15819) · [项目与演示](https://videosketcher.github.io/) · [代码](https://github.com/rhfeiyang/VideoSketcher) · [模型/数据](https://huggingface.co/VideoSketcher)
