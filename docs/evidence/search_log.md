@@ -134,3 +134,7 @@ UniFlow v2、InternVL-U v1、Mamoda2.5 v1、SenseNova-U1 v1、Rosetta v1读取�
 ## 2026-10-20 第二十一批
 
 下载L154–L160指定arXiv/正式PDF，选读方法/主表/指定附录；MIO正式23页，OmniFlow正式11+补充11页，不以页数计完成阅读。UniLongGenp8框架图视觉核。GitHub当前Ming为Flash2.0，经官方commits定位2025-06-12提交75fb7ec，读取原README/config；一个假定test_infer_imagegen.py路径返回404，未声称读过此文件，也未运行代码。
+
+## 2026-10-20 第二十二批
+
+读取L057及L169–L174指定PDF/HTML方法、实验、附录；IP2P正式p3框架/p7结果和消融、CoMM正式p4 Eq1视觉核。CoMM默认master，最初假定main返回404，随后读取master目录、README和图像指标代码，未找到数据筛选实现，不称全仓没有。OmniCorpus官方README核ICLR2025接收与CC/CW/YT资源；OpenReview验证页/正式PDF403未读。ShareGPT4o按论文给出的FreedomIntelligence地址定位官方固定提交，最初猜测组织地址404，不影响实际源已定位。

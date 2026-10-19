@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 270 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 277 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -161,7 +161,7 @@
 | L054 | BoxTuning: Directly Injecting the Object Box for Multimodal Model Fine-Tuning；公开预印本版本 | primary_sections_read | [结构化分析](../reviews/L054.md) | 未完成 |
 | L055 | Online Reasoning Video Object Segmentation；公开预印本版本 | primary_sections_read | [结构化分析](../reviews/L055.md) | 未完成 |
 | L056 | CoT-RVS / ThinkVideo | primary_sections_read | [结构化分析](../reviews/L056.md) | 未完成 |
-| L057 | Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L057 | Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities | primary_sections_read | [结构化分析](../reviews/L057.md) | 未完成 |
 | L058 | Unified-IO 2: Scaling Autoregressive Multimodal Models with Vision, Language, Audio, and Action | primary_sections_read | [结构化分析](../reviews/L058.md) | 未完成 |
 | L059 | AnyGPT: Unified Multimodal LLM with Discrete Sequence Modeling | primary_sections_read | [结构化分析](../reviews/L059.md) | 未完成 |
 | L060 | SEED-X: Multimodal Models with Unified Multi-granularity Comprehension and Generation | primary_sections_read | [结构化分析](../reviews/L060.md) | 未完成 |
@@ -273,12 +273,12 @@
 | L166 | WorldBagel: Uncovering the Power of Unified Multimodal Models for Vision-Language-Action-World Modeling | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L167 | Vision as Unified Multimodal Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L168 | Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L169 | InstructPix2Pix: Learning to Follow Image Editing Instructions | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L170 | Multimodal C4: An Open, Billion-scale Corpus of Images Interleaved with Text | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L171 | OBELICS: An Open Web-Scale Filtered Dataset of Interleaved Image-Text Documents | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L172 | OmniCorpus: A Unified Multimodal Corpus of 10 Billion-Level Images Interleaved with Text | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L173 | CoMM: A Coherent Interleaved Image-Text Dataset for Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L174 | ShareGPT-4o-Image: Aligning Multimodal Models with GPT-4o-Level Image Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L169 | InstructPix2Pix: Learning to Follow Image Editing Instructions | primary_sections_read | [结构化分析](../reviews/L169.md) | 五项检查已记录 |
+| L170 | Multimodal C4: An Open, Billion-scale Corpus of Images Interleaved with Text | primary_sections_read | [结构化分析](../reviews/L170.md) | 未完成 |
+| L171 | OBELICS: An Open Web-Scale Filtered Dataset of Interleaved Image-Text Documents | primary_sections_read | [结构化分析](../reviews/L171.md) | 未完成 |
+| L172 | OmniCorpus: A Unified Multimodal Corpus of 10 Billion-Level Images Interleaved with Text | primary_sections_read | [结构化分析](../reviews/L172.md) | 未完成 |
+| L173 | CoMM: A Coherent Interleaved Image-Text Dataset for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L173.md) | 未完成 |
+| L174 | ShareGPT-4o-Image: Aligning Multimodal Models with GPT-4o-Level Image Generation | primary_sections_read | [结构化分析](../reviews/L174.md) | 未完成 |
 | L175 | XMP-Font: Self-Supervised Cross-Modality Pre-training for Few-Shot Font Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | L176 | Representing Online Handwriting for Recognition in Large Vision-Language Models | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | L177 | PaintFlow: A Unified Framework for Interactive Oil Paintings Editing and Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |

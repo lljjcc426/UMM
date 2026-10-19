@@ -126,3 +126,7 @@ UniFlow是一阶段语义codec重建/理解，并非凭零样本视频重建即�
 ## 长程生成及接口审查
 
 [第二十一批](../evidence/long_horizon_memory_and_multimodal_generation_paths_2026-10-20.md)区分固定文字的图像续写、原生故事规划、语义全历史与稠密生成记忆；MIO离散码后接扩散、OmniFlow连续潜流后文字AR解码、M2omni文字接口接独立SD3、Ming冻结感知后训桥接，不能只凭统一名称推断共享机制或双向收益。
+
+## 交错文档及教师数据
+
+[第二十二批](../evidence/interleaved_data_editing_and_distillation_audit_2026-10-20.md)区分MMC4相似度分配、OBELICS网页结构、OmniCorpus关键帧故事板、CoMM连贯步骤及合成编辑数据。以上顺序均需与真实动作时间标注分别定义；可生成图序列的任务不能直接改称书写视频生成。
