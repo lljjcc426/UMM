@@ -193,6 +193,38 @@
         }
       ],
       "boundary": "五项书面理解检查覆盖指定框架图、主表/消融和三项质疑；全部图、数据配方、代码及正式版本未核完，完整三遍验收未完成，未复现。"
+    },
+    {
+      "id": "L110",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "Muddit要从已有视觉生成先验低成本学习图像到文字。作者保留Meissonic共享MM-DiT，加文字head，以两方向mask重建训练。512模型报告GenEval.61、VQAv2 68.2；联合训练改善图像组合，同时部分文字指标下降。",
+          "evidence": "本次书面复述；未进行计时口试。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "PDFp4 Fig2训练分支：图像经冻结VQencoder，文字经冻结TextEncoder，其中一模态被mask，共享MM-DiT输出图/文head，优化mask位置CE。T2I从图mask开始、VQdecoder成图；I2T从文字mask开始、texthead及detokenizer成文字。VQA图/问题固定、答案mask；两个输出仍有各自decoder。",
+          "evidence": "arXivv5 PDF第4页已渲染、视觉读Fig2及相邻公式。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "创新是复用强T2I的视觉先验而非新增大语言骨干，并用同一masked骨干输出两模态；不等于首次提出掩码生成。论文mask调度记号混淆，公开代码cos采样给出更明确可执行过程。",
+          "evidence": "§2.2、AppA3，公开train_unified.py第784–808行。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "主表512模型GenEval.61、CIDEr59.9/VQA68.2；Table4单T2I59.3→joint61.6，但I2Tonly CIDEr60.1/VQA69.1优于joint59.9/68.2，不能说所有任务互利。Table5 32→64步VQA65.4→68.2同时GenEval61.9→61.1，采样预算需逐任务选。",
+          "evidence": "§3.2/3.3主表本作行、§3.4 Tables3–5。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：统一训练在等每任务曝光和等计算两种口径下是否仍提高图生成、损文字？问题2：短77token与冻结CLIP在长解释/精确文字任务有什么上限？问题3：cosmask采样与论文密度式的变量如何对应，公开sh的text_loss_weight=0怎样改成原联合配方？已有FUDOKI/LaViDa-O/Lumina等处理不同解码/长度问题，需要同条件对比后再判断可发表的新缺口。",
+          "evidence": "Table4负迁移、AppG1语言限制、PDFp4 Eq5、固定revision d048cf7训练sh和原文相邻研究。"
+        }
+      ],
+      "boundary": "五项书面理解检查与指定框架图已记录；正式版对读、全部附录/代码和实验条件仍有待核，完整三遍验收未完成，未复现。"
     }
   ]
 }

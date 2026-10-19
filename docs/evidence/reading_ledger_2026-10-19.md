@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 218 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 226 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -213,14 +213,14 @@
 | L106 | Representation Forcing for Bottleneck-Free Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L106.md) | 未完成 |
 | L107 | HYDRA-X: Native Unified Multimodal Models with Holistic Visual Tokenizers | primary_sections_read | [结构化分析](../reviews/L107.md) | 未完成 |
 | L108 | PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L108.md) | 未完成 |
-| L109 | FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L110 | Muddit: Liberating Generation Beyond Text-to-Image with a Unified Discrete Diffusion Model | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L111 | Lavida-O: Elastic Large Masked Diffusion Models for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L112 | Lumina-DiMOO: An Omni Diffusion Large Language Model for Multi-Modal Generation and Understanding | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L113 | Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L114 | LLaDA2.0-Uni: Unifying Multimodal Understanding and Generation with Diffusion Large Language Model | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L115 | FullFlow: Upgrading Text-to-Image Flow Matching Models for Bidirectional Vision--Language Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L116 | Multimodal Flow: Unified Flow Modeling of Language and Vision in Embedding Spaces | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L109 | FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities | primary_sections_read | [结构化分析](../reviews/L109.md) | 未完成 |
+| L110 | Muddit: Liberating Generation Beyond Text-to-Image with a Unified Discrete Diffusion Model | primary_sections_read | [结构化分析](../reviews/L110.md) | 五项检查已记录 |
+| L111 | Lavida-O: Elastic Large Masked Diffusion Models for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L111.md) | 未完成 |
+| L112 | Lumina-DiMOO: An Omni Diffusion Large Language Model for Multi-Modal Generation and Understanding | primary_sections_read | [结构化分析](../reviews/L112.md) | 未完成 |
+| L113 | Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion | primary_sections_read | [结构化分析](../reviews/L113.md) | 未完成 |
+| L114 | LLaDA2.0-Uni: Unifying Multimodal Understanding and Generation with Diffusion Large Language Model | primary_sections_read | [结构化分析](../reviews/L114.md) | 未完成 |
+| L115 | FullFlow: Upgrading Text-to-Image Flow Matching Models for Bidirectional Vision--Language Generation | primary_sections_read | [结构化分析](../reviews/L115.md) | 未完成 |
+| L116 | Multimodal Flow: Unified Flow Modeling of Language and Vision in Embedding Spaces | primary_sections_read | [结构化分析](../reviews/L116.md) | 未完成 |
 | L117 | BLIP3-o: A Family of Fully Open Unified Multimodal Models-Architecture, Training and Dataset | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L118 | OpenUni: A Simple Baseline for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L119 | UniFork: Exploring Modality Alignment for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |

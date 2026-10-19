@@ -54,3 +54,7 @@ L181 Eq17/18/19按文字定义：令A为Root，同时L1=A；首左子为`(A+A)/2
 2. 在线量化的软均衡、hardargmax使用率和标准Sinkhorn行列缩放分开；RF PDFp16伪码已核，实际实现与分配统计待读。
 3. 时空patch4帧、残差深度16层、flow噪声t与真实笔画起止分别定义；反事实事件实验不可用通用VBench替代。
 4. 跨像素/latent的MSE量纲、按步数收敛、按样本曝光与总计算效率分开；PixelUMM F4/F6的条件限定可作为学习案例。
+
+## 需要集中补学：路径、速率与调度
+
+区分概率路径p_t、CTMC速率、随机mask概率及其采样密度；给定路径的kinetic最优不等于全局生成最优。插入Poisson count/identity loss与maskCE的不同、双时钟条件一致性、有损bidirectionalcache与因果prefixcache、外部GPT2PPL与flow似然均需按公式及实现学习。Muddit PDF与cosmask代码是具体案例；FullFlow的teacherreferenceFID需与真图FID分别命名。

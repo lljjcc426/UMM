@@ -84,3 +84,7 @@ HF 名称中 HWDB2-line 易使人误认资源“有时序笔划”。这个衍�
 ## 论文关联代码与模型卡补查：像素/连续接口
 
 本批关联到既有L102/L103/L104，未重复增加独立论文数。EvoTok tokenizer/生成训练脚本、HYDRA模型/配置/flow路径、UniCom最终decoder调用均已指定段落读取；两项HF卡提供权重组成与依赖信息。UniCom卡明确decoder-side FluxVAE；HYDRA需latentstats、YAML构建及额外Qwen依赖。完整运行/权重/训练配方未复现，详见[逐篇笔记](../reviews/README.md)与[专题](../evidence/pixel_interfaces_and_temporal_audit_2026-10-20.md)。
+
+## 第十四批代码配方核查
+
+Muddit公开train_unified.sh在revisiond048cf7设text_loss_weight=0，按当前脚本不能复现原文联合训练；代码采用cos随机mask和按mask率重加权CE，与原文密度记号需对应。Lumina-DiMOO revision81344e6当前imagegenerator只重采样剩余mask；MLcache为近似。ht_grpo子目录虽写稍后发布，根README已链接arXiv2605.16842，属于有论文配套工程，尚未在本批重复增加记录。详见[专题](../evidence/discrete_paths_and_flow_audit_2026-10-20.md)。

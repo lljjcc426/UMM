@@ -192,6 +192,14 @@
 | L106 | [Representation Forcing for Bottleneck-Free Unified Multimodal Models](L106.md) | §3.1–3.3、§4.1–4.4 Tables2/3与本作主成绩、§5、Implementation/OnlineVQ附录；PDFp16超参与Algorithm1视觉核对。未逐图/完整数据/代码，未复现 |
 | L107 | [HYDRA-X: Native Unified Multimodal Models with Holistic Visual Tokenizers](L107.md) | §3、§4.1/4.2 Tables1/2、§5.1–5.3 Table3、§6本作主行/叙述、AppA1–A4/E；未逐图/全部大表/源码，未复现 |
 | L108 | [PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation](L108.md) | §2.1–2.4、§3.1 F1/F2/F3/F4/F5/F6/F8及F7部分、§3.2主表本作行、§5；PDFp23 Tables8/9视觉核对。F3全部decoder细节/F7案例/全部图、完整源码与主采样未读，未复现 |
+| L109 | [FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities](L109.md) | §2、§3.1–3.4、§4.1–4.3、本作主表行/表头、AppD数据主段与类别、AppE约束、AppF；Fig5仅文字说明未视觉读曲线，完整优化配置/代码未核，未复现 |
+| L110 | [Muddit: Liberating Generation Beyond Text-to-Image with a Unified Discrete Diffusion Model](L110.md) | §2.1–2.2.3、§3.1–3.5 Tables1–7本作行/消融、AppA3/E/G1；PDFp4 Fig2/Eq5/6视觉核对；官方README、train_unified掩码与loss段及sh、instruction_tuning答案掩码段，未读全部实现/正式全文，未复现 |
+| L111 | [Lavida-O: Elastic Large Masked Diffusion Models for Unified Multimodal Understanding and Generation](L111.md) | §2、§3.1/3.2、§4.1–4.3本作主行及表头、AppB1/2部分/B3/B5主要结果/B6/B7、C/D；未逐图/全部附录公式/代码，未复现 |
+| L112 | [Lumina-DiMOO: An Omni Diffusion Large Language Model for Multi-Modal Generation and Understanding](L112.md) | §3.1–3.3、§4.1–4.4、§5、主表本作行、§7.1–7.3/结论；官方README、image_generation_generator与generation_utils相关段，revision81344e6；ht_grpoREADME为后续工作且有正式arXiv，已识别未深读；未全表/全部源码，未复现 |
+| L113 | [Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion](L113.md) | §3.1–3.4、§4.1–4.3本作行及评估叙述、AppA/B2–B4/C；未逐图、完整主表/实现/硬件配置，未复现 |
+| L114 | [LLaDA2.0-Uni: Unifying Multimodal Understanding and Generation with Diffusion Large Language Model](L114.md) | §2.1–2.3、§4.1–4.4、主GenEval本作行、§5.5 Tables13/14、§6；未读全部数据细分/主大表/公式PDF/代码，未复现 |
+| L116 | [Multimodal Flow: Unified Flow Modeling of Language and Vision in Embedding Spaces](L116.md) | §2.1–2.4、§3.1–3.5 Tables4–6/主表本作行、AppB1–B3/C1–C3；部分长公式提取只按可见作用解释，未逐图/全部主表/代码/训练超参，未复现 |
+| L115 | [FullFlow: Upgrading Text-to-Image Flow Matching Models for Bidirectional Vision--Language Generation](L115.md) | PDF§2插入loss、§3.1–3.5、§5.1–5.6、§6、AppB1–B7部分；PDFp8 Table4/主captionVQA表与课程图已视觉核对。完整评测附录/所有图/代码未读，未复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

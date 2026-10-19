@@ -102,3 +102,7 @@ QLIP2502.05178、DualToken2503.14324、UniToken2504.04423、Selftok2505.07538v3�
 ## 2026-10-20：第十三批连续/离散与像素视频接口
 
 读取arXiv2602.14178v3、2603.12108v1、2603.15228v3、2603.10702v1、2604.24763v2、2605.31604v4、2606.13289v1、2609.38597v1的指定方法/实验/附录。arXiv版本页实时核查前四项。官方GitHub EvoTok147b1b2、HYDRAca3e71d、UniCom55b9001与两项HF卡交叉；仅下载源码/配置/卡片/PDF，无模型权重。HYDRAp4、RFp16、PixelUMMp23已渲染核对；正式会场依作者声明和proceedings核查分开。详见[pixel_interfaces_and_temporal_audit_2026-10-20.md](pixel_interfaces_and_temporal_audit_2026-10-20.md)。
+
+## 2026-10-20：离散流/掩码/连续块路径
+
+阅读L109–L116指定方法、主表本作行/消融/附录；FullFlow由abstract入口补PDF36页，Muddit v5 PDF27页、LaViDa-O PDF33页，下载页数不算全文阅读。视觉查看Muddit p4与FullFlow p8，记录实际范围；代码Muddit d048cf7、Lumina81344e6。ICLR正式proceedings确认Muddit会场；根README交叉发现HT-GRPO有论文，未误计无论文资源。

@@ -14032,22 +14032,23 @@
   {
     "title": "FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities",
     "source_urls": [
-      "https://arxiv.org/abs/2505.20147"
+      "https://arxiv.org/abs/2505.20147",
+      "https://arxiv.org/html/2505.20147"
     ],
-    "method": "离散 flow matching 与 kinetic-optimal velocities，继承 AR 模型初始化",
-    "conclusion": "超出单纯 mask 恢复的转移过程；试验支持双向上下文与迭代细化的可行性",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "FUDOKI，2025",
+    "method": "以embedding距离定义概率路径，构造给定路径下kinetic-optimal CTMC速度，从Janus的AR权重转为双向离散流。 Janus1.5B双向attention、输出logit移一位继承AR，不用显式timeembedding；理解SigLIP、生成LlamaGenVQ16384。p_t(z|x1)∝exp(−β_t d(z,x1))，β0=0为均匀、β1趋∞集中目标；offdiagonal速度p_t(z|x1)βdot[d(current,x1)−d(z,x1)]正部。文字距离来自JanusPro7B归一embedding，图像来自LlamaGencodebook；不是直接使用1.5B新学embedding。",
+    "conclusion": "GenEval.77，选32候选中top4后.88；MMVet38.0，8候选选优55.5；MMMU34.3、DPG83.63。选优成绩含额外采样/裁判，不能当单样本效果。",
+    "gap": "kinetic最优要求给定p_t及特定权w=1/p_t，不代表全局最优图像质量或最少GPUh。固定长度和复杂文字渲染失败为作者已列限制；少量自纠案例未统计误改率。内部训练、额外7B embedding先验及选优限制归因。",
+    "problem": "用可在普通离散词/图像码之间反复跳转的生成过程，支持静态图像理解与生成。",
+    "claim": "研究目标：用可在普通离散词/图像码之间反复跳转的生成过程，支持静态图像理解与生成。",
+    "version": "FUDOKI；arXiv:2505.20147，2025；所读HTML会场写TBD，正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 3. 生成目标：AR、离散扩散、连续流并没有收敛到唯一答案",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L109",
     "canonical_key": "paper:arxiv:2505.20147",
     "evidence_history": [
@@ -14070,27 +14071,50 @@
     "aliases": [
       "local_umm_expanded:X038"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L109.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "超出单纯 mask 恢复的转移过程；试验支持双向上下文与迭代细化的可行性",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2、§3.1–3.4、§4.1–4.3、本作主表行/表头、AppD数据主段与类别、AppE约束、AppF；Fig5仅文字说明未视觉读曲线，完整优化配置/代码未核，未复现",
+    "review_path": "docs/reviews/L109.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "正文约13M；AppD准确12.62M=8.76M内部生成+3.86M理解。理解覆盖OCR/文档/表/图/屏幕/数理/语言，General另含70K内部；不能称理解数据完全公开。继承Janus预训练成本。",
+    "framework": "以embedding距离定义概率路径，构造给定路径下kinetic-optimal CTMC速度，从Janus的AR权重转为双向离散流。",
+    "architecture": "Janus1.5B双向attention、输出logit移一位继承AR，不用显式timeembedding；理解SigLIP、生成LlamaGenVQ16384。p_t(z|x1)∝exp(−β_t d(z,x1))，β0=0为均匀、β1趋∞集中目标；offdiagonal速度p_t(z|x1)βdot[d(current,x1)−d(z,x1)]正部。文字距离来自JanusPro7B归一embedding，图像来自LlamaGencodebook；不是直接使用1.5B新学embedding。",
+    "metrics": "GenEval/DPG；POPE/MME-P/MMB/SEED/GQA/MMMU/MMVet，速度images/min和NFE；推理扩展还用VILA-Judge/LLM选优。迷宫为另行训练的展示任务，未取得完整成功率协议。",
+    "baselines": "Janus/JanusPro、D-DiT、UniDisc、AR和扩散图像模型；AR初始化vs随机、有无timeembedding、不同步数曲线。",
+    "experimental_conditions": "阶段1只训transformer，2全模型；CE预测干净token，随机t、β=3(t/(1−t))^.9；CTMC指数概率1−exp(−hλ)与归一跳率采样。默认32步，约43000GPUh；GPU型号、optimizer/batch/两阶段步数本次未取得，不能视为同算力比较。"
   },
   {
     "title": "Muddit: Liberating Generation Beyond Text-to-Image with a Unified Discrete Diffusion Model",
     "source_urls": [
-      "https://arxiv.org/abs/2505.23606"
+      "https://arxiv.org/abs/2505.23606",
+      "https://arxiv.org/html/2505.23606",
+      "https://github.com/M-E-AGI-Lab/Muddit/tree/d048cf7df98609c4bd4107f3abb61ced5a1a9e70",
+      "https://huggingface.co/MeissonFlow/Muddit",
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/73eebcdbc4e122eea5be2ca3823ffc26-Abstract-Conference.html"
     ],
-    "method": "从预训练文生图模型继承视觉先验，加轻量文本解码能力",
-    "conclusion": "统一扩散也可从生成器出发；与从语言模型出发的模型继承知识不同",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "Muddit，2025",
+    "method": "Meissonic MM-DiT加轻量文字head，双向条件下使用掩码CE；比较文本loss权和联合/单方向训练，扩至1024版。 1B共享MM-DiT，dual/single-stream结构；冻结VQVAE与CLIP，新增线性文字decodehead。训练随机mask一模态，VQA只mask答案。公开train代码用cos(σπ/2)、σ均匀、CE除mask比例；不直接把正文Eq5密度函数用作mask概率。",
+    "conclusion": "512 GenEval.61、CIDEr59.9、VQA68.2、MME1107.4、GQA57.5、MMMU27.6；1024 VQA70.2/MMMU28.7，Table7 w/TTS GenEval.67。不同表的61.1/61.6/61.9不是自动可合并的同次分数。",
+    "gap": "PDFp4确认γ应从0到1却写monotonically decrease；Eq5将2/π[1−(1−t)^2]^−1/2同时记作密度/γ，作为密度可超1，不能直接当mask概率。代码cos采样提供可执行解释，仍需澄清变量及ELBO权；不据排版问题宣布实验失效。全mask是点质量分布，不能简单称最大熵token噪声。附录AR成本分析含无KV版本，应报告现代cache基线；语言/长答案能力有限。",
+    "problem": "从已有文本到图像先验出发，用共享masked-token生成器扩展图像描述和视觉问答。",
+    "claim": "研究目标：从已有文本到图像先验出发，用共享masked-token生成器扩展图像描述和视觉问答。",
+    "version": "Muddit；ICLR2026正式proceedings已定位；本次技术按arXiv:2505.23606v5（2026-05-26），正式版未全文对读",
     "scope": "umm",
     "category": "UMM及相邻机制 / 3. 生成目标：AR、离散扩散、连续流并没有收敛到唯一答案",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L110",
     "canonical_key": "paper:arxiv:2505.23606",
     "evidence_history": [
@@ -14113,27 +14137,47 @@
     "aliases": [
       "local_umm_expanded:X039"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L110.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "统一扩散也可从生成器出发；与从语言模型出发的模型继承知识不同",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2.1–2.2.3、§3.1–3.5 Tables1–7本作行/消融、AppA3/E/G1；PDFp4 Fig2/Eq5/6视觉核对；官方README、train_unified掩码与loss段及sh、instruction_tuning答案掩码段，未读全部实现/正式全文，未复现",
+    "review_path": "docs/reviews/L110.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "512版约8M预训（Qwen2.5VL3B重标）、1M理解IFT+1M高质图；1024版约10M LAIONArt/JourneyDB/CC12M/内部，Qwen2.5VL7B重标，再6M理解/2M高质图。数据量包含阶段/重用，不能无条件相加为独立样本。",
+    "framework": "Meissonic MM-DiT加轻量文字head，双向条件下使用掩码CE；比较文本loss权和联合/单方向训练，扩至1024版。",
+    "architecture": "1B共享MM-DiT，dual/single-stream结构；冻结VQVAE与CLIP，新增线性文字decodehead。训练随机mask一模态，VQA只mask答案。公开train代码用cos(σπ/2)、σ均匀、CE除mask比例；不直接把正文Eq5密度函数用作mask概率。",
+    "metrics": "GenEval、COCO CIDEr、VQAv2/MME/GQA/MMMU；图/秒、token/s和固定77token延迟。表7为GenEval w/TTS，勿与普通主表混用。",
+    "baselines": "Meissonic/Monetico/SD3、Showo/D-DiT/UniDisc、VLM；文本权重.2–1、T2Ionly/I2Tonly/joint、8–64步。",
+    "experimental_conditions": "正文512 lr1e-4恒定wd.01globalb1024，16H100约5天；1024 Table6 b512、100K+15K，AdamWβ.9/.999 clip10。推理默认64步CFG9图/1.5文字。公开train_unified.sh固定revision d048cf7使用8GPU×b8×acc8=512、512²、100K、8bitAdam，并设text_loss_weight=0；是需修改的数据/训练模板，不能当论文联合训练原配方。"
   },
   {
     "title": "Lavida-O: Elastic Large Masked Diffusion Models for Unified Multimodal Understanding and Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2509.19244"
+      "https://arxiv.org/abs/2509.19244",
+      "https://arxiv.org/html/2509.19244"
     ],
-    "method": "Elastic-MoT 连接大小不同的理解/生成分支，配 token 压缩和分层采样",
-    "conclusion": "支持 grounding、编辑、1024px 生成；全扩散并不意味着所有分支等大或所有参数相同",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "Lavida-O，2025",
+    "method": "ElasticMoT缩窄生成分支/仅前半层跨模态attention，模态collapse/expand路由、分层空间采样及框规划和反思。 8B LaViDa理解+2.4B生成，32层中前16joint后16模态内；T2I激活6.4B、理解8B、交错10.4B。语义SigLIP+MeissonicVQ；输入编辑源加4×压缩VQ。前向在t_exp将整图mask折为exp，反向exp展开图mask；生成空间递归分层，每区选token。1025坐标符号每框4token并行。",
+    "conclusion": "GenEval基础.77→规划.85→反思.89，DPG81.8→82.9→83.2，基础MJHQFID6.68；ImgEdit3.71→规划3.80，但两个全局编辑分项4.06→4.00、4.82→4.75。MathVista56.9；相应原LaViDa44.8的改善伴数据扩充。",
+    "gap": "作者明确：小字不能被VQ忠实重建，文字生成/编辑能力有限；合成编辑继承pixelshift，数学推理有差距。规划/反思叠加额外样本与计算，未与等预算通用选优充分隔离；动态exp只解决路由结构，不证明任意长度生成稳定。",
+    "problem": "将理解型masked diffusion扩成支持静态图像生成、编辑、定位与交错规划/反思的统一系统。",
+    "claim": "研究目标：将理解型masked diffusion扩成支持静态图像生成、编辑、定位与交错规划/反思的统一系统。",
+    "version": "LaViDa-O；arXiv:2509.19244；PDF首页标ICLR2026，正式proceedings未对读",
     "scope": "umm",
     "category": "UMM及相邻机制 / 3. 生成目标：AR、离散扩散、连续流并没有收敛到唯一答案",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L111",
     "canonical_key": "paper:arxiv:2509.19244",
     "evidence_history": [
@@ -14156,27 +14200,48 @@
     "aliases": [
       "local_umm_expanded:X040"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L111.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "支持 grounding、编辑、1024px 生成；全扩散并不意味着所有分支等大或所有参数相同",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2、§3.1/3.2、§4.1–4.3本作主行及表头、AppB1/2部分/B3/B5主要结果/B6/B7、C/D；未逐图/全部附录公式/代码，未复现",
+    "review_path": "docs/reviews/L111.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "200M过滤公共来源LAION/COYO/SA1B/JourneyDB/BLIP3o/ShareGPT4o；理解LLaVAOV/OpenLLaVANext/MAmmoth/VisualWebInstruct及GranD/RefCOCO；编辑GPTEdit/UniWorld，规划GroundingDinoL标框、反思ReflectDiT/ReflectionFlow。使用公共图不等于无合成teacher。",
+    "framework": "ElasticMoT缩窄生成分支/仅前半层跨模态attention，模态collapse/expand路由、分层空间采样及框规划和反思。",
+    "architecture": "8B LaViDa理解+2.4B生成，32层中前16joint后16模态内；T2I激活6.4B、理解8B、交错10.4B。语义SigLIP+MeissonicVQ；输入编辑源加4×压缩VQ。前向在t_exp将整图mask折为exp，反向exp展开图mask；生成空间递归分层，每区选token。1025坐标符号每框4token并行。",
+    "metrics": "GenEval、DPG、MJHQ30KFID；理解11项、RefCOCO Precision@.5、ImgEdit；训练step延迟、端到端推理。审美条件人评300responses，本次未视觉取胜率/人数。",
+    "baselines": "Flux/Meissonic、BAGEL/MMaDA/Muddit，定位Qwen2.5VL/InternVL/GroundingDino；分支宽度/joint层数、confidence/uniform/Halton/stratified、规划/反思和数据scheduler消融。",
+    "experimental_conditions": "三阶段80K/400K/100K、lr5e-6/1e-4/2e-5，AdamWβ.99/.999；64A100约34.2天/53K GPUh；gen256→512→1024，末阶段全10.4B训。分支消融globalb1024训50K；采样比较64步。主训练batch和完整推理参数本次尚未核齐。"
   },
   {
     "title": "Lumina-DiMOO: An Omni Diffusion Large Language Model for Multi-Modal Generation and Understanding",
     "source_urls": [
-      "https://arxiv.org/abs/2510.06308"
+      "https://arxiv.org/abs/2510.06308",
+      "https://arxiv.org/html/2510.06308",
+      "https://github.com/Alpha-VLLM/Lumina-DiMOO/tree/81344e60545ae8d70f11039d3450717d974f831b"
     ],
-    "method": "统一离散扩散，分阶段训练，多任务与 maximum-logit cache",
-    "conclusion": "缓存加速同时增显存；图像采样速度收益明显大于分块文本生成，不能只报最高倍率",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "Lumina-DiMOO，2025",
+    "method": "LLaDA8B扩aMUSEdVQ8192图像词表、行分隔支持非方图，分阶段多任务，最大logit复用cache和SelfGRPO。 ×16 VQ，原126345文字词表，图像全局掩码、文字分块半AR；文字块完成遇answer结束标志提前停。MLcache按logit选择复用K/V与logit，warmup和周期refresh，属于有损近似。SelfGRPO为softmax奖励权重的图/问答loglikelihood加KL，去oldpolicy；不能自动等同标准clippedGRPO。",
+    "conclusion": "GenEval.88→SelfGRPO.91；理解POPE87.4/MME1534.2/MMB84.5/SEED83.1/MMMU58.6。cache作者报图2.05×/文字1.87×加速，图显存38.9→45.9GB；不能只报告速度而略显存与质量误差。",
+    "gap": "正文“保留未mask码保证区域100%像素不变”不成立为普遍保证：decoder跨区域感受野仍可能影响其他像素，需实测/显式合成。正文已揭示token置信−∞的表述应结合选择域理解；实际generator仅在当前mask集合重mask、vq_len固定初始计数，与Eq4当前L_t表述有差异。最大logit缓存不等于无损KV。",
+    "problem": "在同一离散masked backbone中支持图像理解、生成和多类静态图像条件任务，并降低采样开销。",
+    "claim": "研究目标：在同一离散masked backbone中支持图像理解、生成和多类静态图像条件任务，并降低采样开销。",
+    "version": "Lumina-DiMOO；arXiv:2510.06308v1，2025-10-07；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 3. 生成目标：AR、离散扩散、连续流并没有收敛到唯一答案",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L112",
     "canonical_key": "paper:arxiv:2510.06308",
     "evidence_history": [
@@ -14199,27 +14264,47 @@
     "aliases": [
       "local_umm_expanded:X041"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L112.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "缓存加速同时增显存；图像采样速度收益明显大于分块文本生成，不能只报最高倍率",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3.1–3.3、§4.1–4.4、§5、主表本作行、§7.1–7.3/结论；官方README、image_generation_generator与generation_utils相关段，revision81344e6；ht_grpoREADME为后续工作且有正式arXiv，已识别未深读；未全表/全部源码，未复现",
+    "review_path": "docs/reviews/L112.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "I80M=30M公共重标+50M来自Lumina先前工作；II额外3M图表数学UI等及编辑数据；III15M理解+15M生成（含内部合成）、VisualCloze每类200K等；RL GenRef子集和Qwen2.5VL生成QA，模板近GenEval。",
+    "framework": "LLaDA8B扩aMUSEdVQ8192图像词表、行分隔支持非方图，分阶段多任务，最大logit复用cache和SelfGRPO。",
+    "architecture": "×16 VQ，原126345文字词表，图像全局掩码、文字分块半AR；文字块完成遇answer结束标志提前停。MLcache按logit选择复用K/V与logit，warmup和周期refresh，属于有损近似。SelfGRPO为softmax奖励权重的图/问答loglikelihood加KL，去oldpolicy；不能自动等同标准clippedGRPO。",
+    "metrics": "GenEval/DPG/UniGenBench/OneIG/TIIF、编辑/条件任务、POPE/MME/MMB/SEED/MMMU；采样秒、显存。交互修改展示不提供逐像素不变率。",
+    "baselines": "BAGEL/MMaDA/Emu/LuminaAR与专家；cache开关；LLaDA初始化vs从零；SelfGRPO前后；没有把全部训练/推理模块做等预算拆解。",
+    "experimental_conditions": "I/II/III用64A800，lr2e-4/2e-4/2e-5，b1024/512/512，wd.1 clip1 AdamWβ.9/.95；RL8H20 b48 lr3e-6 β.9/.99。T2I1024默认64步；文字block256/128步，速度比较输出固定1024token。各阶段总步数/epoch本次所读Table2未给。"
   },
   {
     "title": "Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion",
     "source_urls": [
-      "https://arxiv.org/abs/2603.06577"
+      "https://arxiv.org/abs/2603.06577",
+      "https://arxiv.org/html/2603.06577"
     ],
-    "method": "文本、图像、语音统一遮蔽离散扩散",
-    "conclusion": "探索多于两模态的统一联合分布；模态支持应逐项核实",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "Omni-Diffusion，2026",
+    "method": "Dream7B统一mask预测，三阶段视觉→语音联合→SDVI，降低padmask概率、熵解码/位置惩罚及语音特殊token预填。 图MAGVITv2×16/8192用于理解与生成；SenseVoiceSmall语音输入连续投影；语音输出GLM4Voice16384/12.5Hz。Dream扩图/音词表，maskedCE；padmask×.6。熵最低token先揭示；图后部logit缩放.5–1调整顺序；预填beginSpeech于.25L；TTS初长3.5×文本、ASR.2×语音。",
+    "conclusion": "MMEP1216.7，T2I CLIP.235/.667、DPG68.20；语音图问答MMEP1019.9文字/1004.6语音。256→10步图28.57→1.29s，CLIP.235/.667→.226/.650；TTS.5L→.125L，RTF.524→.330、WER3.07→4.83。",
+    "gap": "对统一离散接口的描述要保留连续语音输入及独立解码器。CLIP不能验证文字正确/笔顺；低WER不保证语音自然性。SDVI合成、短答案过滤限制自然长对话外推；编辑列未来任务。",
+    "problem": "扩展masked dLLM实现文字、图像与语音的理解/生成及语音驱动视觉问答。",
+    "claim": "研究目标：扩展masked dLLM实现文字、图像与语音的理解/生成及语音驱动视觉问答。",
+    "version": "Omni-Diffusion；arXiv:2603.06577v2，2026-07-03；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 3. 生成目标：AR、离散扩散、连续流并没有收敛到唯一答案",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L113",
     "canonical_key": "paper:arxiv:2603.06577",
     "evidence_history": [
@@ -14242,27 +14327,47 @@
     "aliases": [
       "local_umm_expanded:X042"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L113.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "探索多于两模态的统一联合分布；模态支持应逐项核实",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3.1–3.4、§4.1–4.3本作行及评估叙述、AppA/B2–B4/C；未逐图、完整主表/实现/硬件配置，未复现",
+    "review_path": "docs/reviews/L113.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "LAION10M、LLaVAOV820K+内部2M、JourneyDB4M（Table4重复列两行，不能直接算8M）；Tulu670K及多语音库。SDVI两任务各约30K，Cosyvoice2基于1000种Gigaspeech提示合成，答案固定音色且过滤>100词。",
+    "framework": "Dream7B统一mask预测，三阶段视觉→语音联合→SDVI，降低padmask概率、熵解码/位置惩罚及语音特殊token预填。",
+    "architecture": "图MAGVITv2×16/8192用于理解与生成；SenseVoiceSmall语音输入连续投影；语音输出GLM4Voice16384/12.5Hz。Dream扩图/音词表，maskedCE；padmask×.6。熵最低token先揭示；图后部logit缩放.5–1调整顺序；预填beginSpeech于.25L；TTS初长3.5×文本、ASR.2×语音。",
+    "metrics": "ASR/TTS WER（TTS经WhisperLargeV3转写）、POPE/MMEP/SEED2Plus；COCO10K CLIPT/I、DPG；图像s/sample、音频RTF。WER并非自然度/音色/情感充分指标。",
+    "baselines": "AnyGPT/NExTGPT、VLM、Emu、GLM4Voice/CosyVoice；位置惩罚、特殊预填案例、10/50/256步与音频长度比例。",
+    "experimental_conditions": "AdamWβ.9/.95 eps1e-8，lrI/II1e-4、III1e-5，b128 seq3072；图像初256mask。硬件/各阶段步数/CFG本次未取得。COCO随机10K需固定seed复核；SDVI合成语音测试与自然人语音分布有差异。"
   },
   {
     "title": "LLaDA2.0-Uni: Unifying Multimodal Understanding and Generation with Diffusion Large Language Model",
     "source_urls": [
-      "https://arxiv.org/abs/2604.20796"
+      "https://arxiv.org/abs/2604.20796",
+      "https://arxiv.org/html/2604.20796"
     ],
-    "method": "SigLIP-VQ、MoE 离散扩散主干、扩散图像解码器，prefix 优化与蒸馏",
-    "conclusion": "主干图文统一去噪，但像素解码仍有独立机制；训练表为 100B＋210B＋80B token",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "LLaDA2.0-Uni，2026",
+    "method": "SigLIPVQ语义码、16B MoE LLaDA2mini、额外6B ZImage流解码器；blockmask训练，SPRINT稀疏prefix/自适应揭示、8步decoder蒸馏。 SigLIP2g→16384×2048语义码，训练理解而不优化像素重建；16B总量MoE扩词表/1DRoPE+高宽符号，block内双向/跨block因果。语义码条件6B ZImageBase（不用原prompt），2×超分、FM+consistency/JVP近似蒸馏。骨干maskCE与decoder连续FM是两个目标/阶段。",
+    "conclusion": "主GenEval.89/DPG87.76；SPRINT九任务平均76.3→75.7，TPS24.3→39.8（1.6×），OCR75.7→73.4。decoder50→8步32.95→2.90s，GenEval.89→.87/DPG87.76→87.24。不能只保留加速而略精度下降。",
+    "gap": "作者承认语义码仍损精细编辑；“singleobjective/endtoend”限定骨干，decoder另训FM/consistency。SPRINT文字同时列模态keep1/.8或1/1及global.5，实际组合待代码核清。BDLM式3/5的αprime与外负号按常见保留率约定疑似需澄清，但本次未PDF视觉核对/源码，暂不判实现错误。",
+    "problem": "用同一语义离散码和blockdiffusion骨干支持图像理解、静态生成/编辑与交错推理。",
+    "claim": "研究目标：用同一语义离散码和blockdiffusion骨干支持图像理解、静态生成/编辑与交错推理。",
+    "version": "LLaDA2.0-Uni；arXiv:2604.20796v1，2026-04-22；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 3. 生成目标：AR、离散扩散、连续流并没有收敛到唯一答案",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L114",
     "canonical_key": "paper:arxiv:2604.20796",
     "evidence_history": [
@@ -14285,27 +14390,47 @@
     "aliases": [
       "local_umm_expanded:X043"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L114.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "主干图文统一去噪，但像素解码仍有独立机制；训练表为 100B＋210B＋80B token",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2.1–2.3、§4.1–4.4、主GenEval本作行、§5.5 Tables13/14、§6；未读全部数据细分/主大表/公式PDF/代码，未复现",
+    "review_path": "docs/reviews/L114.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "S0图文/纯文100Btokens，S1多任务210B，S2高质问答、图像、编辑、交错/CoT80B，总390B骨干tokens；文本和生成数据多源筛选，完整去重/各源量及decoder额外数据本次未核齐。",
+    "framework": "SigLIPVQ语义码、16B MoE LLaDA2mini、额外6B ZImage流解码器；blockmask训练，SPRINT稀疏prefix/自适应揭示、8步decoder蒸馏。",
+    "architecture": "SigLIP2g→16384×2048语义码，训练理解而不优化像素重建；16B总量MoE扩词表/1DRoPE+高宽符号，block内双向/跨block因果。语义码条件6B ZImageBase（不用原prompt），2×超分、FM+consistency/JVP近似蒸馏。骨干maskCE与decoder连续FM是两个目标/阶段。",
+    "metrics": "多项理解/OCR/文档、GenEval/DPG/UniGenBench/OneIG/WISE、编辑/交错；SPRINT TPS均值与分项、decoder秒/图。总训练参数、激活参数、可训练参数及外部codecs须分别计。",
+    "baselines": "MMaDA/Lumina/BAGEL、专业VLM/生成模型；SPRINT开关，50步CFGdecoder与8步CFGfreeTurbo。tokenizer和MoE/训练loss独立效果消融本次未取得。",
+    "experimental_conditions": "骨干上下文8192→16384；S0gen256→512，理解边800；S1/S2gen512语义码经decoder至1024。SPRINT α.5、阈值.93/.95；decoder速度单GPU、1024² b1 BF16，型号未核。完整optimizer/lr/batch/硬件与decoder训练步数本次待补。"
   },
   {
     "title": "FullFlow: Upgrading Text-to-Image Flow Matching Models for Bidirectional Vision--Language Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2605.20316"
+      "https://arxiv.org/abs/2605.20316",
+      "https://arxiv.org/pdf/2605.20316v1"
     ],
-    "method": "在预训练 flow 文生图模型上学习 LoRA、文本插入过程与轻量文本头",
-    "conclusion": "同预算 SD3 实验改善 FID/CIDEr；FID 参考是冻结 SD3 输出，caption 参考为 Moondream 标注，不能直接与 COCO 标准 FID/CIDEr 排名比较",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "FullFlow，2026",
+    "method": "保留连续图像flow，文字用token删除/插入EditFlow；冻结T5/CLIP，以LoRA、新文字heads和双时间条件适配，梯度平衡与同噪teacher监督保原先验。 SD3M MMDiT/FLUX1dev骨干冻结加rank32 LoRA，图像16×32×32VAE latent；T5 tokenizer删除后有效子序列decode为string，再重tokenize给CLIP。新增插入count/identity及τhead，附录zero-inflatedPoisson门控缓解零计数；连续图MSE与离散插入NLL/CE仍为不同loss。",
+    "conclusion": "Table4等墙钟DualDiffLoRA→本法：FID62.65→31.57、CIDEr2.0→99.4；等step本法FID29.32、CIDEr13.4，反映更新数解释大部分caption差。显存84→38GB、.25→1.96step/s；仅可训练136M不等于全模型136M。COCO54.93/VQA56.5/VizWiz50.7/OKVQA23.3，非全面超过原DualDiff/专家。",
+    "gap": "主要FID是保留teacher而非超过teacher或真图质量；匹配消融仍组合多个变量。印象上的“更小模型”实际只少训参数，冻结T5XXL/CLIP和base仍需推理。主分辨率256和28万配方限制复杂字/世界知识；Limitations写未扩展其他backbone但§5.5已有FLUX转移，宜理解为未广泛扩展。任何二维轨迹均有效依赖精确场及兼容条件，有限样本学到的场无一致性保证。",
+    "problem": "在有限显存/训练时间下，仅适配已有T2I流模型，使之双向图文生成并保留图像先验。",
+    "claim": "研究目标：在有限显存/训练时间下，仅适配已有T2I流模型，使之双向图文生成并保留图像先验。",
+    "version": "FullFlow；arXiv:2605.20316v1，2026-05-19；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 3. 生成目标：AR、离散扩散、连续流并没有收敛到唯一答案",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L115",
     "canonical_key": "paper:arxiv:2605.20316",
     "evidence_history": [
@@ -14328,27 +14453,47 @@
     "aliases": [
       "local_umm_expanded:X044"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L115.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "同预算 SD3 实验改善 FID/CIDEr；FID 参考是冻结 SD3 输出，caption 参考为 Moondream 标注，不能直接与 COCO 标准 FID/CIDEr 排名比较",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "PDF§2插入loss、§3.1–3.5、§5.1–5.6、§6、AppB1–B7部分；PDFp8 Table4/主captionVQA表与课程图已视觉核对。完整评测附录/所有图/代码未读，未复现",
+    "review_path": "docs/reviews/L115.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "约280K LAIONCOCOAesthetic，Moondream captions；256²中心裁剪/离线VAE编码。caption5K验证；T2I约1.9K自建prompt，COCO900+CompBench800+DrawBench200再去重。VQA用官方任务协议但本次未完整读取各split。",
+    "framework": "保留连续图像flow，文字用token删除/插入EditFlow；冻结T5/CLIP，以LoRA、新文字heads和双时间条件适配，梯度平衡与同噪teacher监督保原先验。",
+    "architecture": "SD3M MMDiT/FLUX1dev骨干冻结加rank32 LoRA，图像16×32×32VAE latent；T5 tokenizer删除后有效子序列decode为string，再重tokenize给CLIP。新增插入count/identity及τhead，附录zero-inflatedPoisson门控缓解零计数；连续图MSE与离散插入NLL/CE仍为不同loss。",
+    "metrics": "FID/CMMD参考冻结baseSD3输出，用于原先验分布保持，不能当常规真实图像FID排名；CIDEr/BERTScore针对Moondream描述，另COCO/VQAv2/VizWiz/OKVQA；jointCLIP、step/s、peakVRAM。",
+    "baselines": "作者重实现DualDiffLoRA：同SD3、rank32、约136.8M/136.1M可训练、数据/optimizer；同时差文本接口/条件冻结、噪声调度、teacher目标。原始大规模DualDiff另列，不能混同被击败的matchedbaseline。",
+    "experimental_conditions": "2×RTXA500024GB、256²；100Kindependent双噪+50Kalternatingclean，<24h。LoRA lr1e-4 wd0、新head5e-4 wd.01，AdamWβ.9/.999 eps1e-8 warm5K恒定、clip2；rank/α32 dropout.05。FLUX3卡40K+20K约36h；SD3文字cap77、FLUX128。batch本次未读取Table5，待补。"
   },
   {
     "title": "Multimodal Flow: Unified Flow Modeling of Language and Vision in Embedding Spaces",
     "source_urls": [
-      "https://arxiv.org/abs/2609.40362"
+      "https://arxiv.org/abs/2609.40362",
+      "https://arxiv.org/html/2609.40362"
     ],
-    "method": "图像和文本 embedding 均连续化，按 chunk-causal hyperchunk 学同一向量场",
-    "conclusion": "1.6B、150B token 设置报告 GenEval 0.82；提示全连续路线也应纳入比较",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "Multimodal Flow，2026",
+    "method": "8词文本块/整图hyperchunk、chunkcausal共享attention与模态FFN，同FM目标混合预训、逐chunk采样。 冻结T5small512维与SigLIP2so400m224²/256×1152，文本经128维inputbottleneck；共享attention、各模态FFN，MRoPE。主1.6B 32层宽1600、25heads；xprediction转v，分母max(1−t,.05)。冻结6层文字decoder和预训图像representationdecoder；总系统参数/先验不等于1.6B从零。",
+    "conclusion": "同checkpoint主VQA72.6/MMB67.2/POPE86.1；Table5GenEval.821/DPG83.44。受控Table4 MF.7134高于Transfusionstyle.6693和Chameleonstyle.3744，各VQA亦高；结论限定这些实现和预算。",
+    "gap": "主模型1.6B不含冻结codecs；文字输出每块16次而每块8词，不能仅凭“并行”认定快于KVcacheAR。语义encoder小图224可能忽略细字，强图decoder可生成可信外观但无真细节保证。受控baseline改变文字表示/FFN宽度/视觉码数及预训先验，不完全隔离单一连续性变量。无视频实验/独立笔画评估。",
+    "problem": "在文字和图像连续embedding中建立共享flow预训练，检验与离散/混合目标的受控比较。",
+    "claim": "研究目标：在文字和图像连续embedding中建立共享flow预训练，检验与离散/混合目标的受控比较。",
+    "version": "Multimodal Flow；arXiv:2609.40362v1，2026-09-30；正式会场未核",
     "scope": "umm",
     "category": "UMM及相邻机制 / 3. 生成目标：AR、离散扩散、连续流并没有收敛到唯一答案",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L116",
     "canonical_key": "paper:arxiv:2609.40362",
     "evidence_history": [
@@ -14371,7 +14516,26 @@
     "aliases": [
       "local_umm_expanded:X045"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L116.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "1.6B、150B token 设置报告 GenEval 0.82；提示全连续路线也应纳入比较",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2.1–2.4、§3.1–3.5 Tables4–6/主表本作行、AppB1–B3/C1–C3；部分长公式提取只按可见作用解释，未逐图/全部主表/代码/训练超参，未复现",
+    "review_path": "docs/reviews/L116.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "GPIC图生成/图独立、LLaVAOV1.5理解、UltraFineWebL3纯文本；预训比例70/20/9/1%。下游图BLIP3o60K/LAIONDalleDiscord/ShareGPT4o，VQALLaVA1.5；主150B预训+5B联合finetune同checkpoint。",
+    "framework": "8词文本块/整图hyperchunk、chunkcausal共享attention与模态FFN，同FM目标混合预训、逐chunk采样。",
+    "architecture": "冻结T5small512维与SigLIP2so400m224²/256×1152，文本经128维inputbottleneck；共享attention、各模态FFN，MRoPE。主1.6B 32层宽1600、25heads；xprediction转v，分母max(1−t,.05)。冻结6层文字decoder和预训图像representationdecoder；总系统参数/先验不等于1.6B从零。",
+    "metrics": "GenEval/DPG、POPE/MMB/SEED/VQA/GQA/OKVQA；COCO Karpathy CIDEr/CLIPScore，GPT2large PPL为外部生成文本流畅度，非flow模型似然；平均指标不能掩单项。",
+    "baselines": "Chameleonstyle/Transfusionstyle受控重训（不是原发布模型），主表引用各工作不同预算；0.6/1.2/1.6B规模、shared/specificattention×FFN、DINO/SigLIP/VAE/pixel及CFG。",
+    "experimental_conditions": "主1.6B150B+5B；受控1.6B50B+5B，各32层宽1600，调整FFN将可训练参数差控制.00156%，frozencodecs不计。预训迁移随机baseline直接下游155B，匹配tokens。序列packing32768，logitnormal噪声shift图8/文6；VQA SDE16步/每8词chunk CFG3γ1、图ODE64步CFG5。optimizer/lr/batch/GPU/FLOPs本次未取得，等token/参数不保证等计算。"
   },
   {
     "title": "BLIP3-o: A Family of Fully Open Unified Multimodal Models-Architecture, Training and Dataset",
