@@ -40,3 +40,7 @@
 [OnOff](https://arxiv.org/html/2608.03198v1)使用速度代理压力；检验该假设应使用实际传感记录，而不是以另一个相同代理为真值。
 
 2026-10-20资源协议更新：[GF0023定义](../reviews/R06.md)、[OpenHandWrite实际字段/单位](../reviews/R07.md)、[BCSS加工版与论文差异](../reviews/S007.md)已逐项记录。BCSS六类mask不提供逐笔时间身份，标准1–5串也不能区分所有同类笔画交换。
+
+## 教程步骤图与严格笔事件
+
+UEval含art步骤图任务及题级rubric（本批U22）。它是绘画步骤生成评价的已有前史，拼格/多图步骤不等连续RGB视频；规范笔顺仍要strokeidentity/方向/顺序/penstate/遮挡及终态一致，不能只用“步骤完整/可读”文字judge。

@@ -641,6 +641,70 @@
         }
       ],
       "boundary": "主文核心框架/实现、主表和一组消融已核；附录与代码未全审，未做独立模型执行或完整三遍验收。"
+    },
+    {
+      "id": "U20",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "SGT研究UMM生成什么辅助视觉目标最能帮助理解。RGB重建偏细节，稀疏文字问答又未充分约束区域结构；作者比较分割、深度、边缘等，再把分割生成与VQA混合。结果更多支持自然图感知改进，纯SGT会损部分OCR/知识。",
+          "evidence": "本次书面复述，未计时口试。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2将输入RGB交可训练visionencoder、简短任务指令交冻结textencoder，噪声与二者特征输入可训练UMM，冻结visiondecoder输出分割/深度/重建/边缘目标。图示以instanceunique颜色为例，语义不必指类别ID。推理仍沿用原骨干，分割是后训练目标。",
+          "evidence": "PDFp6 Fig2已渲染视觉核，§3.2。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "贡献在受控代理任务比较与选择分割、混VQA的recipe，骨干和视觉生成loss继承原模型。以区域结构限制表征可能减少纹理干扰，但不能从线性探针/attention变化直接认定因果；与UniMRG的多结构目标需要同预算比较。",
+          "evidence": "§3.2–3.3及AppTable6。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table3 BAGEL CVBench73.21→79.23、GenEval78.21→80.95；但SGT SIBench50.18低reconstruct50.59。AppTable6只分割时OCR81→79.3，平均74.8→75.8，说明平均好仍会负迁移；Table7 OmniGen2 depth GenEval79.9比分割78.9好，不能称分割每个目标最佳。",
+          "evidence": "Table3/AppTables6–7指定行。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：分割标签质量/模型teacher知识能否解释收益，错配区域是否仍正则化有效？问题2：自然图区域目标会不会损伤符号细笔画，VQA混合是否仅补回文字能力？问题3：不同视觉目标采样和梯度尺度是否公平？U19 UniMRG已做深度/边界辅助、RecA做重建，选题须先同数据/监督比较，不能将“加分割”独立当足够新颖。",
+          "evidence": "§5限制/U19已读四loss；完整相关工作与代码尚待补。"
+        }
+      ],
+      "boundary": "核心框架、选定主表和消融已核；完整源码/其他附录未读，未复现，五项书面检查不等完整三遍验收。"
+    },
+    {
+      "id": "U24",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "UniAR试图让图像理解和生成用同种离散视觉表示，并在生成后直接继续读这些token。双编码器可能需要解码重编码，巨显式码本又难预测；作者用BSQ、多层特征和并行bit预测，最后仍用条件FM decoder产像素。",
+          "evidence": "本次书面复述，未计时口试。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2左下冻结视觉tokenizer把图编码成bit组，文字token与其共同进AR主干；文字head回答、视觉head预测下一组bit，右侧显示空间×特征层分组并行。冻结DiT视觉decoder将bit特征变图；后续可在context读原bit而不重新编码图。主干预测离散符号与最后像素扩散是两个计算阶段。",
+          "evidence": "PDFp4 Fig2已渲染视觉核，§3.1–3.3。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "语义监督适配BSQ64bit，DeepStack保多层细节，2×2merger使每步并行预测多个位置；这减少AR步数，不证明像素无信息损失。bitflip模拟错误积累，GRPO用OCR等奖励；2^64是可能码的数量，不能代替实测码利用率或生成容量。",
+          "evidence": "§3.1–3.2与§4.3指定段。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table2 UniAR英语.873/.917，各强于部分模型但低QwenImage.891/.943，LongText还低GPT4o.956。Table9 53.5或13.0秒只AR，不含decoder/关闭CFG；质量用CFG。Fig4 bitflip消融主要定性，不能写成精确显著提高若干点；Table7 35.4→24.5秒是时间降30.8%，吞吐提高约44.5%。",
+          "evidence": "Tables2/7/9及Fig4文字说明。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：bit可理解的细节是否真的存在于随机decoder最终像素，直接读bit与重编码实际图回答是否一致？问题2：压缩/并行提高速度时，汉字/小字结构是否先丢失？问题3：计入decoder和CFG后端到端优势多少？L110 Muddit/L112 LuminaDiMOO/U07 UniDisc等已有离散共享路线，Diffusion/FM decoder也有前史；应按接口、训练和信息损失说明新增机制。",
+          "evidence": "AppA4/B、同仓已读离散统一路线；完整实现未审。"
+        }
+      ],
+      "boundary": "核心表示/解码和主文字生成表、训练效率/条件已核；部分消融仅定性，全部主图和源码未全读，未做模型执行。"
     }
   ]
 }

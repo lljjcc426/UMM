@@ -102,3 +102,7 @@ Monet公式把旧hidden视为固定方差Gaussian动作，发布runner却取均�
 ## 多维评分的锚定与相关检验
 
 GapEval印刷附录联合学θ/β/µ时，有每模态平移对称性；跨模态能力差需锚定，且仅两项全局β不等逐题难度。见[推导条件](glyph_conditions_paired_benchmarks_and_structural_targets_2026-10-20.md)，实现是否有额外约束待核。VGUBench离散评分有ties，Spearman简式不能默认适用；去重答案恢复为多题后的相关需cluster推断，p小与效应大分开。
+
+## Oracle信息论与实际生成误差
+
+VisWorld的条件熵非增与KL链式分解在其oracle/state假设下成立；不能推出有误差生成图的实际答案准确率非减。完全观测确定过程没有额外信息，有限算力表示便利仍可有收益。UniAR AR效率不含FM像素decoder，理论码本2^64也不等实际利用率。

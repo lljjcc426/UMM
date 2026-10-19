@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 301 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 307 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -91,12 +91,12 @@
 | U17 | Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System | primary_sections_read | [结构化分析](../reviews/U17.md) | 未完成 |
 | U18 | Transferability Between Understanding and Generation in Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/U18.md) | 未完成 |
 | U19 | Generation Enhances Understanding in Unified Multimodal Models via Multi-Representation Generation (UniMRG) | primary_sections_read | [结构化分析](../reviews/U19.md) | 未完成 |
-| U20 | Semantic Generative Tuning for Unified Multimodal Models (SGT) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U21 | Model Guides You How to Draw: Adaptive Visual Gating for Unified Multimodal Reasoning (AdaViG) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U22 | UEval: A Benchmark for Unified Multimodal Generation | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U23 | Self-correction Optimization for Interleaved Multimodal Generation (SCO) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U24 | Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification (UniAR) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| U25 | Visual Generation Unlocks Human-Like Reasoning through Multimodal World Models (VisWorld-Eval) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
+| U20 | Semantic Generative Tuning for Unified Multimodal Models (SGT) | primary_sections_read | [结构化分析](../reviews/U20.md) | 五项检查已记录 |
+| U21 | Model Guides You How to Draw: Adaptive Visual Gating for Unified Multimodal Reasoning (AdaViG) | primary_sections_read | [结构化分析](../reviews/U21.md) | 未完成 |
+| U22 | UEval: A Benchmark for Unified Multimodal Generation | primary_sections_read | [结构化分析](../reviews/U22.md) | 未完成 |
+| U23 | Self-correction Optimization for Interleaved Multimodal Generation (SCO) | primary_sections_read | [结构化分析](../reviews/U23.md) | 未完成 |
+| U24 | Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification (UniAR) | primary_sections_read | [结构化分析](../reviews/U24.md) | 五项检查已记录 |
+| U25 | Visual Generation Unlocks Human-Like Reasoning through Multimodal World Models (VisWorld-Eval) | primary_sections_read | [结构化分析](../reviews/U25.md) | 未完成 |
 | U26 | SenseNova-U1.5: Towards Native Unified Visual Intelligence | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | U27 | UniModel: A Visual-Only Framework for Unified Multimodal Understanding and Generation | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | U28 | LatentUMM: Dual Latent Alignment for Unified Multimodal Models | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |

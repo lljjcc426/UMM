@@ -37,7 +37,7 @@
 
 ## 第二轮调研更新（2026-10-19）
 
-截至2026-10-20，主目录332条，首轮补录已关联并同步表格；新增301份结构化阅读笔记和基础/邻近领域分析，以及CoFRIDA-Sharpie资源卡。历史未重新核查标记已清零，17条摘要和全部完整三遍验收仍待完成，完整三遍验收与模型复现均未完成。具体范围见[本轮审查](../evidence/second_round_audit_2026-10-19.md)与[逐条台账](../evidence/reading_ledger_2026-10-19.md)。
+截至2026-10-20，主目录332条，首轮补录已关联并同步表格；新增307份结构化阅读笔记和基础/邻近领域分析，以及CoFRIDA-Sharpie资源卡。历史未重新核查标记已清零，11条摘要和全部完整三遍验收仍待完成，完整三遍验收与模型复现均未完成。具体范围见[本轮审查](../evidence/second_round_audit_2026-10-19.md)与[逐条台账](../evidence/reading_ledger_2026-10-19.md)。
 
 第四批：150条章节核查、40条摘要核查；L024已记录五项书面理解检查，其他逐篇验收继续进行。全文无法访问的5项只记第一遍。
 
@@ -70,3 +70,5 @@
 第二十四批补8条摘要为章节分析，累计293笔记，章节307/摘要25；U07/U10/L178增加五项书面检查，累计18。全文/附录缺项保留；无模型执行。见[成本、latent策略与历史轨迹专题](../evidence/interleaved_reasoning_cost_and_latent_policy_audit_2026-10-20.md)。
 
 第二十五批补8条，累计301份笔记；章节315/摘要17，新增L003/S002书面检查，累计20。WriteLikeYou模型默认与论文差异、GapEval公式条件和UniMRG取舍见[专题](../evidence/glyph_conditions_paired_benchmarks_and_structural_targets_2026-10-20.md)。无模型执行、无文件删除，完整三遍仍待完成。
+
+第二十六批补U20–U25，累计307笔记；章节321/摘要11，五项书面检查22。生成代理/推理gate/视觉tokenizer/世界模型假设见[专题](../evidence/generative_targets_gating_shared_tokens_and_world_models_2026-10-20.md)。无训练推理和文件删除。

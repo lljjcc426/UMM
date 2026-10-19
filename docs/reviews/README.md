@@ -275,6 +275,12 @@
 | U15 | [RealUnify: Do Unified Models Truly Benefit from Unification? A Comprehensive Benchmark](U15.md) | §3.1指定段/§3.3数据和协议、§4.1指定主文、Tables3–5与Table2部分、AppA3/B2指定段。完整Table2底行、所有细分/配置/源码未读，未复现 |
 | U16 | [Can Unified Generation and Understanding Models Maintain Semantic Equivalence Across Different Output Modalities? (VGUBench)](U16.md) | §3.1指定定义/§3.2数据/§3.3评分指定段、§3.4统计、§4.1指定协议、Tables1/2；完整prompt附录/源码/其余分析未全审，未复现 |
 | U19 | [Generation Enhances Understanding in Unified Multimodal Models via Multi-Representation Generation (UniMRG)](U19.md) | §3.1核心loss及§3.2指定动机、§4.1/§4.2 Table1/2和§4.3指定消融段、AppB1–B3。Table3完整/附录其余/源码未全审，未复现 |
+| U20 | [Semantic Generative Tuning for Unified Multimodal Models (SGT)](U20.md) | §3.1–3.3指定方法/动机、§4.1–4.3指定段、Tables2/3，§5；AppTable6/7/8/9及7.3指定配置。未审全部图/7.1/源码/最终recipe末段，未复现 |
+| U21 | [Model Guides You How to Draw: Adaptive Visual Gating for Unified Multimodal Reasoning (AdaViG)](U21.md) | §5.1–5.3 Eq4–6、§6.1配置/Tables1–4、AppA6限制/A7部分表；完整§3/§4控制诊断与App阈值/代码未全读，未复现 |
+| U22 | [UEval: A Benchmark for Unified Multimodal Generation](U22.md) | §2概述/§2.1指定来源、§2.2rubric与人审、§3.1–3.3指定段/Tables1/2、Fig7/8对应说明；完整trace实验/附录/实现未全审，未复现 |
+| U23 | [Self-correction Optimization for Interleaved Multimodal Generation (SCO)](U23.md) | §3.1–3.4 Eq1–13、§4.1指定数据/§4.3–4.7指定结果/Tables1–5，AppA1视频与A3指标指定段；完整优化实现/视频数据协议及源码未全审，未复现 |
+| U24 | [Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification (UniAR)](U24.md) | §3.1–3.3核心公式、§4.1训练/§4.2指定主表/§4.3指定组件，Tables1–3/6–9和AppA1–A4/B；全部理解表/源码/所有消融图未审，未复现 |
+| U25 | [Visual Generation Unlocks Human-Like Reasoning through Multimodal World Models (VisWorld-Eval)](U25.md) | §3.1–3.4指定定义/定理、§4.1–4.2、§5.1–5.2指定段与§5结尾限制；AppA1/A2 Theorems3/4及Corollary1证明、AppB1部分/B2 Tables2–4。完整先验分析/其他证明/主图数值/全部附录与代码未审，未复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

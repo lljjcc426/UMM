@@ -138,3 +138,7 @@ UniFlow是一阶段语义codec重建/理解，并非凭零样本视频重建即�
 ## 交错推理与视频过程的边界
 
 [第二十四批](../evidence/interleaved_reasoning_cost_and_latent_policy_audit_2026-10-20.md)区分图文mask联合恢复、辅助图thought、连续hidden思考、多轮静态编辑和真实轨迹生成。去噪迭代、推理图序列和画笔物理时间不能互换；交错训练带来的准确率收益还需干预视觉thought来验证因果作用。
+
+## 辅助生成与推理外化的不同收益
+
+[第二十六批](../evidence/generative_targets_gating_shared_tokens_and_world_models_2026-10-20.md)区分训练时结构辅助目标、测试时是否画图的gate、条件guidance修正、共享离散图token与显式世界状态推理。每种机制的监督、成本、可观测性和可证伪假设不同，不能统一按“UMM协同”归因。
