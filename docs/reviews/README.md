@@ -134,6 +134,20 @@
 | N12 | [CalliPaint: Chinese Calligraphy Inpainting with Diffusion Model](N12.md) | 全文§1–4与AppendixA/B文字和Tables1/2完整；框架图具体层次、所有图选项及原Calliffusion训练实现未核 |
 | L180 | [Painter: Teaching Auto-Regressive Language Models to Draw Sketches](L180.md) | §2–3完整数据/模型/loss/训练及Table3和discussion，Table1/2协议；§4相关工作，正式CVF元数据核查；全部图/实现未逐项检查 |
 | L181 | [Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding](L181.md) | 正式作者PDF§3/4(含证明)/5/6/7、Tables1–3/5/7/8关键行、p6公式渲染目视核查；编码实现/全部案例图与训练未复现；官方embed.py TPE全函数、joint.py前向/IF_SIM/dual、optimizer.py和joint_config.yaml只读核对 |
+| R06 | [通用规范汉字笔顺规范](R06.md) | 官方PDF前12页；§1–5全文及§6开头示例；8105逐项、全部索引与后部表未完成逐字核查 |
+| S008 | [Wuji Writing VAM TI2V-5B 30L 0522 0819](S008.md) | 固定HF revision的README、model_config.json、training_config.yaml；未下载11.54GB权重，动作统计与日志仅卡片引用，未执行模型 |
+| S011 | [Qari-OCR-LoRA](S011.md) | 官方GitHub README、HF固定revision README/adapter_config.json/training_info.json与推理示例全部相关内容；未下载adapter或运行OCR |
+| S012 | [CASIA-HWDB2-line (Teklia HF derivative)](S012.md) | HF固定revision README全部字段、规模/示例/许可；未下载全parquet或逐条图像核验 |
+| S009 | [AnimCJK](S009.md) | 官方README目录/使用/完整“中”SVG示例与许可；长历史changelog、全部字库和生成脚本未逐项读 |
+| S010 | [KanjiVG](S010.md) | 官方README全文；SVG规范关于group/path/顺序/属性与已知不一致部分；04e2d.svg全文；未逐字库核查 |
+| S013 | [SceneDAPR](S013.md) | 官方README核心数据/标注/训练/许可和完整src/preprocessing.py；blob bf765c696bcd1aa95cdf8879a366b01a7f377da3；未读WWW全文及受限数据 |
+| S014 | [sketch-diffusion (ark60 independent implementation)](S014.md) | notebook关键数据处理/attention/model/diffusion/trainer/config/evaluation及保存输出；未执行notebook、未下载数据权重；保存输出的运行环境和文件对应仍待核 |
+| S015 | [VidSketch sketch animation implementation](S015.md) | 官方README核心/许可；candles.yaml全文、train_vidsketch.py初始化/参数选择/优化器/主损失、inference.py adapter加载段；未全读所有模块或执行；blob config cd2b32c8df4a8564a156727b86f561dc81d3c95c/train 9d459e78da5e058be84b656ddd881b12ab7f5ecc |
+| S007 | [Brush Calligraphy Stroke Segmentation Dataset (BCSS)](S007.md) | 固定HF README完整数据/加载段、两个info.csv头部样例和范围，正式论文§3–5对照；未下载全mask或逐图审查 |
+| S016 | [BCSS Stroke-Seg implementation](S016.md) | 官方README全部、recursive tree、FCN.py与deeplab.py全文、LabelMe01字段；未执行、未读全部子模块，未取得主表checkpoint |
+| L184 | [Stroke-Seg: A deep learning-based framework for chinese stroke segmentation](L184.md) | 正式PDF pp4343–4354的相关工作、Figure2说明、§3–6、Tables1–4；主表文字与公式已读，PDF框架/表图未完成可视逐项验收；官方代码选定入口另见S016 |
+| N07 | [A stroke-level large-scale database of Chinese character handwriting and the OpenHandWrite_Toolbox for handwriting research](N07.md) | 正式Springer正文PresentStudy、ToolboxDevelopment、采集/编码/排除/结果/部分Discussion；OSF摘要工作簿字段及R指标代码见R07；Tables3–7逐系数、全部附录和原始数据未完整复核 |
+| R07 | [OpenHandWrite_Toolbox与笔画级数据](R07.md) | OSF node/files API及Data/R子目录、batch_summarise_all.R全文、batch_funcs.R定义及长度/首末点/相邻延迟函数、小xlsx全部表头和各2行样例；未运行R/全读脚本和下载完整采集包 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

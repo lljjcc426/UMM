@@ -350,23 +350,24 @@
     "version": "Behavior Research Methods 2026-05-11",
     "source_urls": [
       "https://link.springer.com/article/10.3758/s13428-026-03001-4",
-      "https://arxiv.org/abs/2509.05335"
+      "https://arxiv.org/abs/2509.05335",
+      "https://osf.io/rn2ck/"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：笔画级真实书写数据及工具支持中文书写过程研究。",
-    "method": "42名书写者、1200个目标汉字；数位板200Hz采集；时间/轨迹分笔及行为标记。",
-    "problem": "静态字图缺少真实时间、笔画和过程信息，细粒度研究缺数据。",
-    "conclusion": "提供真实过程数据与处理工具的研究资源；不将采集到的实际书写自动判为规范金标准。",
-    "gap": "【边界】特定采集人群和目标字表；许可/原始字段需按数据文档核对。【推断】可对照速度代理压力、真实事件时长和合成轨迹分布。",
+    "claim": "研究目标：建立字符/部件/笔画层的在线手写测量数据，研究词汇因素是否跨层递减影响书写。",
+    "method": "PsychoPyBuilder+GetWrite/MarkWrite工具链，时间/xy/压力含hover，42人×1200字数据库，按字符聚合的多层回归与可靠性分析。 Builder GUI设置trial，MarkWrite人工分层分段，R批处理提取指标；item-level多元线性回归，14词汇因素z变换，VIF<5、FDRp<.05；不同层在字符内平均保持字符为分析单位，不是trial混合效应模型。",
+    "problem": "建立字符/部件/笔画层的在线手写测量数据，研究词汇因素是否跨层递减影响书写。",
+    "conclusion": "作者字符amnesia/latency/duration R²=.420/.482/.907；rad latency/dur .291/.866、stroke .173/.795。多数词汇因素作用向低层减弱；观察性相关支持分层描述，不能证明唯一神经因果通路。",
+    "gap": "成人窄年龄/右利手/筛选频率与笔数限制外推；丢弃错误修订对生成鲁棒性数据有选择效应。逐字聚合掩盖个体差异，不能据不显著即断言该层完全无作用。规范与真实个人写法可不同；全部附录表系数/原始轨迹未逐项审。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-15",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "摘要、Participants/采集与资料可用性章节",
-    "last_updated": "2026-10-15",
-    "note_path": "docs/handwriting/papers/openhandwrite.md",
+    "sections_read": "正式Springer正文PresentStudy、ToolboxDevelopment、采集/编码/排除/结果/部分Discussion；OSF摘要工作簿字段及R指标代码见R07；Tables3–7逐系数、全部附录和原始数据未完整复核",
+    "last_updated": "2026-10-20",
+    "note_path": "docs/reviews/N07.md",
     "canonical_key": "paper:arxiv:2509.05335",
     "evidence_history": [
       {
@@ -387,6 +388,27 @@
     ],
     "aliases": [
       "web_bundle:N07"
+    ],
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-15",
+        "sections_read": "摘要、Participants/采集与资料可用性章节",
+        "conclusion": "提供真实过程数据与处理工具的研究资源；不将采集到的实际书写自动判为规范金标准。",
+        "gap": "【边界】特定采集人群和目标字表；许可/原始字段需按数据文档核对。【推断】可对照速度代理压力、真实事件时长和合成轨迹分布。",
+        "note_path": "docs/handwriting/papers/openhandwrite.md"
+      }
+    ],
+    "review_path": "docs/reviews/N07.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "42右利手普通话成人(32女，19–22岁均20.5)；SUBTLEXlogfreq1.5–5、>4笔、常见双字词熟悉度≥4/7筛选1200。50400trials：44065正确/4950错误/1385修订，后两者排除运动学分析。",
+    "framework": "PsychoPyBuilder+GetWrite/MarkWrite工具链，时间/xy/压力含hover，42人×1200字数据库，按字符聚合的多层回归与可靠性分析。",
+    "architecture": "Builder GUI设置trial，MarkWrite人工分层分段，R批处理提取指标；item-level多元线性回归，14词汇因素z变换，VIF<5、FDRp<.05；不同层在字符内平均保持字符为分析单位，不是trial混合效应模型。",
+    "metrics": "正确/遗忘率、各层延迟/时长等；人工与自述97.62%一致，ICC.829(CI.827–.831)；split-half SpearmanBrown latency .95/duration .80/amnesia .88。R²是解释度，不是视频/轨迹生成准确率。",
+    "baselines": "与Wang2020字符级latency r.74/duration .94相关；不是神经模型基线。多词汇变量回归和层间交互用于检验假设。",
+    "experimental_conditions": "Wacom KP13000DB/PTH651，200Hz，8×5纸格，听写后尽快准确写；3×400字sessions，间隔2h–4d。>10s字符latency、<1或>10s字符duration；rad/stroke>2s排除。先做图像判读再分析，人工分段和硬件量纲需保留。",
+    "related_records": [
+      "R07"
     ]
   },
   {

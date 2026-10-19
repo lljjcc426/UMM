@@ -17,7 +17,7 @@
 | [OLHWG](https://arxiv.org/abs/2410.02309) | 文本行→排版+轨迹 | CASIA online | AR Layout + 1D Diffusion | 内容/风格，具体原文表待核 | ICLR 2025 前作 |
 | [UniCalli](https://arxiv.org/abs/2510.13745) | 书法列图↔静态风格字形 | 多字书法裁剪及合成 | 双向噪声/扩散共享表征 | 静态识别/生成指标 | 无实际书写视频时序 |
 | [OnOff](https://arxiv.org/abs/2608.03198) | 在线笔迹/参数→毛笔墨迹图 | 真实轨迹和渲染资源，详见旧卡 | contact + render + optional enhancement | 外观/渲染，详见原文 | 不能把增强后无错序当作已证 |
-| [BCSS](https://huggingface.co/datasets/Rvosuke/BCSS) | 静态书法单字图→每笔 mask | 原研究 1322 图、10653 strokes；HF 衍生 subset 1212 | instance segmentation 资源 | IoU/实例，原文表待核 | overlap mask，**无实际历史时间戳** |
+| [BCSS](../reviews/S007.md) | 静态字图→六类mask | HF1212图；论文1322图/十类，笔画总数冲突见笔记 | 类别多标签资源 | HF外部130图无GTmask，不能套论文分数 | 重叠类别mask，无实例时间身份 |
 | [Wuji VAM](https://huggingface.co/knightnemo/wuji-writing-vam-ti2v5b-30l-0522-0819) | 人参考视频+机器人状态→未来视频+54维动作 | 487 teleop / 896 ego，数字0–9 | Wan2.2视频DiT + ActionMoT | snapshot MAE/SSIM，未见真实笔顺率 | 模型卡，无完整任务对比 |
 | [Ketaba-OCR](https://aclanthology.org/2026.nakbanlp-1.21/) | 阿语手稿行图→文本 | 18057 final train、2671 blind | QLoRA/DoRA/RSLoRA HTR+6模型集成 | CER/WER，基线+辅助 HTR | 正式 workshop 论文+源代码 |
 | [Qari-OCR-LoRA](https://github.com/HasanBGit/QARI-OCR-LoRA) | 阿语行图→文本 | 同团队阿文记忆录 | Qwen2-VL 2B LoRA/DoRA/RSLoRA | blind CER .2635/WER .5521 | 附属适配器，不具有视频输出 |
@@ -27,11 +27,11 @@
 | [sketch-diffusion](https://github.com/ark60/sketch-diffusion) | Quick Draw 轨迹→轨迹/GIF | cat/bus/rabbit，作者 README | Transformer DDPM，1000 步，8 层 | FID/KID（实际独立结果待跑） | 无同行评审发表确认，仅 notebook |
 | [SketchEdit](https://github.com/CMACH508/SketchEdit) | stroke sketch + edit condition→矢量编辑图 | QuickDraw 类，数据配置待核 | VAE/UNet diffusion；具体论文待读 | 待核 | IJCAI 2024 作者 README，尚未核会议正式页 |
 | [MoSketch](https://github.com/jyliu-98/MoSketch) | 静态多对象草图→对象动画 | 60+500 草图处理资产，仓库 README | 分解、笔画对象分配、运动计划 | 完整指标待核 | ICCV2025 仓库声明，非逐笔从空白 |
-| [Stroke-Seg](https://github.com/Rvosuke/BCSS) | 单字书法→笔画实例 | BCSS | 网络分割，原文机制待读 | 评价待核 | 需单读正式期刊版本，防重复计入数据制品 |
+| [Stroke-Seg论文L184](../reviews/L184.md) | 静态书法+先验→十类mask | 872训练/150验证/300外部 | PKV+multi-label+BCE/Dice | TSR验证.982/外部.897，未知字.831 | 数据/代码S007/S016另记，未给时间过程 |
 
 ## 如何从这些前作推导“可以做”的方向
 
-**交集更有区分力**：VideoSketcher 已有逐步画出来的视频；Calligraphy Bench 已有中文逐笔动作与笔顺评分；BCSS 有静态笔画实例；VidScribe 有视频文字多维判定；Wuji VAM 有视频加动作的工程权重。新工作要拿出一个当前相邻方法**不能在同输入条件下一步解决**的实证问题，例如：
+**交集更有区分力**：VideoSketcher 已有逐步画出来的视频；Calligraphy Bench 已有中文逐笔动作与笔顺评分；BCSS 有静态笔画类别/重叠分割；VidScribe 有视频文字多维判定；Wuji VAM 有视频加动作的工程权重。新工作要拿出一个当前相邻方法**不能在同输入条件下一步解决**的实证问题，例如：
 
 - 在保持每帧终态/最终 OCR 完全相同的反例中，从原始 RGB 时序识别已发生的具体笔画与首错事件。
 - 把笔画规范区域、实际生成像素、行动计划一致地约束为一个可检验闭环；并说明对 VideoSketcher+规则 oracle 与可编辑渲染器的增益。

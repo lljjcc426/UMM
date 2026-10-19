@@ -1,0 +1,49 @@
+# 第七批逐文件变更说明
+
+基础提交887f62c；本批没有删除文件。新增14份来源限定笔记、补录Stroke-Seg正式论文；修正数据/代码/正式论文的任务与条件，保留历史记录和未完成项。未运行模型。
+
+| 文件 | 操作及原因 |
+| --- | --- |
+| [README.md](../../README.md) | 修改：更新导航、完成边界、来源查证和剩余队列 |
+| [data/critical_reviews_2026-10-19.json](../../data/critical_reviews_2026-10-19.json) | 修改：加入本批14项人工来源分析，资源与论文分层记录 |
+| [data/literature.csv](../../data/literature.csv) | 修改：同步主目录/分类视图/Excel与进度，保留候选和历史 |
+| [data/literature.json](../../data/literature.json) | 修改：更新13项存量资源/研究的来源和协议；新增L184正式论文及资源关联 |
+| [data/literature_public.xlsx](../../data/literature_public.xlsx) | 修改：同步主目录/分类视图/Excel与进度，保留候选和历史 |
+| [data/local_additions.csv](../../data/local_additions.csv) | 修改：同步主目录/分类视图/Excel与进度，保留候选和历史 |
+| [data/local_additions.json](../../data/local_additions.json) | 修改：同步主目录/分类视图/Excel与进度，保留候选和历史 |
+| [data/new_handwriting.csv](../../data/new_handwriting.csv) | 修改：同步主目录/分类视图/Excel与进度，保留候选和历史 |
+| [data/new_handwriting.json](../../data/new_handwriting.json) | 修改：同步主目录/分类视图/Excel与进度，保留候选和历史 |
+| [data/reading_progress_2026-10-19.json](../../data/reading_progress_2026-10-19.json) | 修改：同步主目录/分类视图/Excel与进度，保留候选和历史 |
+| [data/resources.csv](../../data/resources.csv) | 修改：同步主目录/分类视图/Excel与进度，保留候选和历史 |
+| [data/resources.json](../../data/resources.json) | 修改：同步主目录/分类视图/Excel与进度，保留候选和历史 |
+| [data/seventh_review_batch_2026-10-20.json](../../data/seventh_review_batch_2026-10-20.json) | 新增：记录本批ID、基础提交、范围与新增独立论文 |
+| [docs/all_literature.md](../../docs/all_literature.md) | 修改：由主目录或阅读源数据同步生成索引、台账与分类文献视图 |
+| [docs/evidence/reading_ledger_2026-10-19.md](../../docs/evidence/reading_ledger_2026-10-19.md) | 修改：由主目录或阅读源数据同步生成索引、台账与分类文献视图 |
+| [docs/evidence/resource_implementation_review_2026-10-20.md](../../docs/evidence/resource_implementation_review_2026-10-20.md) | 新增：归纳BCSS版本/测试集差异、扩散源码问题与规范/真实运动边界 |
+| [docs/evidence/scoped_literature_matrix_2026-10-19.md](../../docs/evidence/scoped_literature_matrix_2026-10-19.md) | 修改：纠正首轮资源描述，链接实际字段/配置及后续正式原文核查 |
+| [docs/evidence/search_log.md](../../docs/evidence/search_log.md) | 修改：更新导航、完成边界、来源查证和剩余队列 |
+| [docs/evidence/second_round_audit_2026-10-19.md](../../docs/evidence/second_round_audit_2026-10-19.md) | 修改：更新导航、完成边界、来源查证和剩余队列 |
+| [docs/evidence/seventh_changes_2026-10-20.md](../../docs/evidence/seventh_changes_2026-10-20.md) | 新增：逐路径说明本批所有新增和修改，无删除 |
+| [docs/evidence/survey_queue_2026-10-19.md](../../docs/evidence/survey_queue_2026-10-19.md) | 修改：更新导航、完成边界、来源查证和剩余队列 |
+| [docs/handwriting/03_data_and_standards.md](../../docs/handwriting/03_data_and_standards.md) | 修改：纠正首轮资源描述，链接实际字段/配置及后续正式原文核查 |
+| [docs/handwriting/literature.md](../../docs/handwriting/literature.md) | 修改：由主目录或阅读源数据同步生成索引、台账与分类文献视图 |
+| [docs/handwriting/new_literature.md](../../docs/handwriting/new_literature.md) | 修改：由主目录或阅读源数据同步生成索引、台账与分类文献视图 |
+| [docs/handwriting/papers/wuji_vam_modelcard.md](../../docs/handwriting/papers/wuji_vam_modelcard.md) | 修改：纠正首轮资源描述，链接实际字段/配置及后续正式原文核查 |
+| [docs/local_additions.md](../../docs/local_additions.md) | 修改：由主目录或阅读源数据同步生成索引、台账与分类文献视图 |
+| [docs/project/STATUS.md](../../docs/project/STATUS.md) | 修改：更新导航、完成边界、来源查证和剩余队列 |
+| [docs/resources/nonpaper_research_2026-10-19.md](../../docs/resources/nonpaper_research_2026-10-19.md) | 修改：纠正首轮资源描述，链接实际字段/配置及后续正式原文核查 |
+| [docs/reviews/L184.md](../../docs/reviews/L184.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |
+| [docs/reviews/N07.md](../../docs/reviews/N07.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |
+| [docs/reviews/R06.md](../../docs/reviews/R06.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |
+| [docs/reviews/R07.md](../../docs/reviews/R07.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |
+| [docs/reviews/README.md](../../docs/reviews/README.md) | 修改：由主目录或阅读源数据同步生成索引、台账与分类文献视图 |
+| [docs/reviews/S007.md](../../docs/reviews/S007.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |
+| [docs/reviews/S008.md](../../docs/reviews/S008.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |
+| [docs/reviews/S009.md](../../docs/reviews/S009.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |
+| [docs/reviews/S010.md](../../docs/reviews/S010.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |
+| [docs/reviews/S011.md](../../docs/reviews/S011.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |
+| [docs/reviews/S012.md](../../docs/reviews/S012.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |
+| [docs/reviews/S013.md](../../docs/reviews/S013.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |
+| [docs/reviews/S014.md](../../docs/reviews/S014.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |
+| [docs/reviews/S015.md](../../docs/reviews/S015.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |
+| [docs/reviews/S016.md](../../docs/reviews/S016.md) | 新增：新增逐篇/资源分析：七字段、方法证据、局限、优势假设、可证伪实验与写作学习 |

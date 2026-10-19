@@ -93,3 +93,7 @@
 C02/L032/L033/L055/L056/L061/L094/N10/N11/N12/N14/E03/E05/L180/L181已新增结构化章节分析，G027已补正式正文/实验；其余未读附录/完整代码仍以笔记为准。优先继续L057–L174其余统一架构、离散/连续扩散、数据、协同训练和综合评价，以及S资源的模型卡/配置/数据实际字段。
 
 新追引候选（未完成全文，不计新增正式论文）：[Evaluating the design space of diffusion-based generative models，NeurIPS2024/arXiv2406.12839](https://arxiv.org/abs/2406.12839)、[Boosting Continuous Control with Consistency Policy，AAMAS2024](https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p335.pdf)。前者可检验EDM设计选择的适用条件；后者与RSS Consistency Policy题名相近但属另一工作，禁止混合实验。L181的Related Work另有2020双向读写/RCN/TAN等，应继续逐项去重追引。
+
+## 第七批之后
+
+R06/R07/N07、S007–S016与新补L184已写结构化笔记。剩余110条历史和33条摘要、此前全部未读附录/代码/三遍检查继续执行；资源查证不自动减少论文历史积压。S002/S003静态文字扩散、S004论文(不混S015实现)与S001 Ketaba正式论文需继续补齐；SceneDAPR对应WWW论文需正式去重和全文精读。BCSS论文十类/11维和HF六类/七值、14766与10653计数冲突需取得加工映射或勘误；暂不替作者选择。OpenHandWrite原始采集包/第二大表与全部统计附录尚未读完。

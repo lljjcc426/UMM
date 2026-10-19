@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 330 条，本批有 160 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 331 条，本批有 174 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -65,7 +65,7 @@
 | N04 | Beyond Legibility: Benchmarking Visual Text Rendering and In-Place Editing in Unified Video Generation (VidScribe) | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | N05 | VTR-Bench: A Systematic Benchmark for Evaluating Visual Text Rendering in Video Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | N06 | Video models are zero-shot learners and reasoners | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| N07 | A stroke-level large-scale database of Chinese character handwriting and the OpenHandWrite_Toolbox for handwriting research | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| N07 | A stroke-level large-scale database of Chinese character handwriting and the OpenHandWrite_Toolbox for handwriting research | primary_sections_read | [结构化分析](../reviews/N07.md) | 未完成 |
 | N08 | Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | N09 | Text-Animator: Controllable Visual Text Video Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | N10 | Video Text Preservation with Synthetic Text-Rich Videos | primary_sections_read | [结构化分析](../reviews/N10.md) | 未完成 |
@@ -103,8 +103,8 @@
 | U29 | Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification (MIRROR) | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | U30 | LatentUM: Unleashing the Potential of Interleaved Cross-Modal Reasoning via a Latent-Space Unified Model | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | U31 | DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
-| R06 | 通用规范汉字笔顺规范 | primary_metadata_only | 本批未新增逐篇精读 | 未完成 |
-| R07 | OpenHandWrite_Toolbox与笔画级数据 | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| R06 | 通用规范汉字笔顺规范 | primary_sections_read | [结构化分析](../reviews/R06.md) | 未完成 |
+| R07 | OpenHandWrite_Toolbox与笔画级数据 | primary_sections_read | [结构化分析](../reviews/R07.md) | 未完成 |
 | L001 | Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026 | primary_sections_read | [结构化分析](../reviews/L001.md) | 未完成 |
 | L002 | Diff-Writer，ICONIP 2023 | primary_abstract_read | [结构化分析](../reviews/L002.md) | 未完成 |
 | L003 | Write Like You，2021 | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
@@ -291,16 +291,16 @@
 | S002 | TextDiffuser: Diffusion Models as Text Painters | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | S003 | GlyphControl: Glyph Conditional Control for Visual Text Generation | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | S004 | VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| S007 | Brush Calligraphy Stroke Segmentation Dataset (BCSS) | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| S008 | Wuji Writing VAM TI2V-5B 30L 0522 0819 | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| S009 | AnimCJK | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| S010 | KanjiVG | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| S011 | Qari-OCR-LoRA | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| S012 | CASIA-HWDB2-line (Teklia HF derivative) | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| S013 | SceneDAPR | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| S014 | sketch-diffusion (ark60 independent implementation) | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| S015 | VidSketch sketch animation implementation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| S016 | BCSS Stroke-Seg implementation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| S007 | Brush Calligraphy Stroke Segmentation Dataset (BCSS) | primary_sections_read | [结构化分析](../reviews/S007.md) | 未完成 |
+| S008 | Wuji Writing VAM TI2V-5B 30L 0522 0819 | primary_sections_read | [结构化分析](../reviews/S008.md) | 未完成 |
+| S009 | AnimCJK | primary_sections_read | [结构化分析](../reviews/S009.md) | 未完成 |
+| S010 | KanjiVG | primary_sections_read | [结构化分析](../reviews/S010.md) | 未完成 |
+| S011 | Qari-OCR-LoRA | primary_sections_read | [结构化分析](../reviews/S011.md) | 未完成 |
+| S012 | CASIA-HWDB2-line (Teklia HF derivative) | primary_sections_read | [结构化分析](../reviews/S012.md) | 未完成 |
+| S013 | SceneDAPR | primary_sections_read | [结构化分析](../reviews/S013.md) | 未完成 |
+| S014 | sketch-diffusion (ark60 independent implementation) | primary_sections_read | [结构化分析](../reviews/S014.md) | 未完成 |
+| S015 | VidSketch sketch animation implementation | primary_sections_read | [结构化分析](../reviews/S015.md) | 未完成 |
+| S016 | BCSS Stroke-Seg implementation | primary_sections_read | [结构化分析](../reviews/S016.md) | 未完成 |
 | G001 | Denoising Diffusion Probabilistic Models | primary_sections_read | [结构化分析](../reviews/G001.md) | 未完成 |
 | G002 | Score-Based Generative Modeling through Stochastic Differential Equations | primary_sections_read | [结构化分析](../reviews/G002.md) | 未完成 |
 | G003 | High-Resolution Image Synthesis with Latent Diffusion Models | primary_sections_read | [结构化分析](../reviews/G003.md) | 未完成 |
@@ -336,3 +336,4 @@
 | H001 | CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品 | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | L182 | STRIVE: Scene Text Replacement In Videos | primary_sections_read | [结构化分析](../reviews/L182.md) | 未完成 |
 | L183 | CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization | primary_sections_read | [结构化分析](../reviews/L183.md) | 未完成 |
+| L184 | Stroke-Seg: A deep learning-based framework for chinese stroke segmentation | primary_sections_read | [结构化分析](../reviews/L184.md) | 未完成 |

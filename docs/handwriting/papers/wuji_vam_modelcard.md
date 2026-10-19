@@ -1,6 +1,6 @@
 # Wuji Writing VAM｜无独立论文的机器人示教书写：视频与动作联合预测权重
 
-来源：[作者 HF 模型卡 knightnemo/wuji-writing-vam-ti2v5b-30l-0522-0819](https://huggingface.co/knightnemo/wuji-writing-vam-ti2v5b-30l-0522-0819)，核查日期 2026-10-19。仅官方 model card / metadata，**未检查全部训练源码、下载 11.54GB 权重、执行推理或核对论文**。HF 显示 license: other，使用前单独核许可。
+来源：[作者 HF 模型卡 knightnemo/wuji-writing-vam-ti2v5b-30l-0522-0819](https://huggingface.co/knightnemo/wuji-writing-vam-ti2v5b-30l-0522-0819)，核查日期 2026-10-19。首轮仅官方 model card / metadata；2026-10-20追加固定revision配置审查见[结构化笔记](../../reviews/S008.md)，**未检查全部训练源码、下载 11.54GB 权重、执行推理或核对论文**。HF 显示 license: other，使用前单独核许可。
 
 ## 第一遍｜三句话
 
@@ -18,7 +18,7 @@
 - 输入：人类 egocentric 参考视频、当前机器人三视角 anchor frame、文字 prompt、54 维本体感觉 state。
 - 输出：短期机器人三视角视频 rollout 与每步 54 维动作 targets。
 - 固定条件：分辨率 384×320；raw target 33 帧、目标 9 帧；reference 69 帧；action horizon=32；action_dim=54，proprio_dim=54。
-- 训练配置摘要：mask_variant=v2，full_ref=true，bridge_exclude_ref=true；checkpoint step 12,500。action_stats 来自 438,986 teleop action rows。
+- 训练配置摘要：mask_variant=v2，full_ref=true，bridge_exclude_full_ref=true；checkpoint step 12,500。action_stats 来自 438,986 teleop action rows。
 
 **作者报告的验证快照（非完整部署评估）**：
 - step 12500，20 / 39326 samples，loss 0.278802（video 0.146057、action 0.132745）。
@@ -41,3 +41,7 @@
 8. 一句话：Wuji VAM 是与视频—动作联合建模高度相关的非论文制品，但仅有数字机器人写字的有限核查证据。
 
 **复现前提**：固定 HF revision、base model revision、仓库代码 commit、观察帧预处理、动作归一化；检查 model_config.json、training_config.yaml 与 README 是否相符，再按任务验证视频/动作接口与真实执行指标。无需把所有 11.54GB 权重复制进调研仓库。
+
+## 2026-10-20配置复核
+
+已读取固定HF revision的model_config.json与training_config.yaml，详见[完整资源分析](../../reviews/S008.md)。确认384为高、320为宽；12500步、lr5e-5、global batch16、video/action loss各1。未下载权重或取得完整MoT执行代码，动作统计的数据划分及真实机器人成功率仍待核。
