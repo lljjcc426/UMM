@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 332 条，本批有 256 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 263 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -251,13 +251,13 @@
 | L144 | Uni-MMMU: A Massive Multi-discipline Multimodal Unified Benchmark | primary_sections_read | [结构化分析](../reviews/L144.md) | 未完成 |
 | L145 | GENIUS: Generative Fluid Intelligence Evaluation Suite | primary_sections_read | [结构化分析](../reviews/L145.md) | 未完成 |
 | L146 | A Model-Internal Protocol for Assessing Multimodal Models as Integrated Systems | primary_sections_read | [结构化分析](../reviews/L146.md) | 五项检查已记录 |
-| L147 | WISE: A World Knowledge-Informed Semantic Evaluation for Text-to-Image Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L148 | ImgEdit: A Unified Image Editing Dataset and Benchmark | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L149 | MMIG-Bench: Towards Comprehensive and Explainable Evaluation of Multi-Modal Image Generation Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L150 | KRIS-Bench: Benchmarking Next-Level Intelligent Image Editing Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L151 | CompBench: Benchmarking Complex Instruction-guided Image Editing | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L152 | OneIG-Bench: Omni-dimensional Nuanced Evaluation for Image Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L153 | GenExam: A Multidisciplinary Text-to-Image Exam | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L147 | WISE: A World Knowledge-Informed Semantic Evaluation for Text-to-Image Generation | primary_sections_read | [结构化分析](../reviews/L147.md) | 未完成 |
+| L148 | ImgEdit: A Unified Image Editing Dataset and Benchmark | primary_sections_read | [结构化分析](../reviews/L148.md) | 未完成 |
+| L149 | MMIG-Bench: Towards Comprehensive and Explainable Evaluation of Multi-Modal Image Generation Models | primary_sections_read | [结构化分析](../reviews/L149.md) | 未完成 |
+| L150 | KRIS-Bench: Benchmarking Next-Level Intelligent Image Editing Models | primary_sections_read | [结构化分析](../reviews/L150.md) | 未完成 |
+| L151 | CompBench: Benchmarking Complex Instruction-guided Image Editing | primary_sections_read | [结构化分析](../reviews/L151.md) | 未完成 |
+| L152 | OneIG-Bench: Omni-dimensional Nuanced Evaluation for Image Generation | primary_sections_read | [结构化分析](../reviews/L152.md) | 未完成 |
+| L153 | GenExam: A Multidisciplinary Text-to-Image Exam | primary_sections_read | [结构化分析](../reviews/L153.md) | 五项检查已记录 |
 | L154 | ChatUMM: Robust Context Tracking for Conversational Interleaved Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L155 | How Long Can Unified Multimodal Models Generate Images Reliably? Taming Long-Horizon Interleaved Image Generation via Context Curation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L156 | Scaling Unified Multimodal Models to Long-Horizon Interleaved Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |

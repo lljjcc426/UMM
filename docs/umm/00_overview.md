@@ -118,3 +118,7 @@ UniFlow是一阶段语义codec重建/理解，并非凭零样本视频重建即�
 ## 评价对象与协同归因
 
 [第十九批](../evidence/benchmark_construct_validity_and_cross_modal_editing_2026-10-20.md)区分自生成QA、原图重建后QA、任务中间视觉状态、新规则适应与文字知识编辑迁移。评价链可诊断接口失真；证明共享参数收益仍需同数据/信息/计算的流水线与单分支对照。
+
+## 知识与复杂图像编辑的观察
+
+[第二十批](../evidence/knowledge_editing_and_multilingual_text_metrics_2026-10-20.md)显示知识线索、静态图执行、背景保留和文字渲染各有瓶颈。BAGELCoT在WISE总分提高，但OneIG文字分下降；KRIS程序类也退步，协同Claim必须限定任务/指标和计算。

@@ -230,6 +230,13 @@
 | L144 | [Uni-MMMU: A Massive Multi-discipline Multimodal Unified Benchmark](L144.md) | v3§3任务/评分、§4.1–4.4主表/GT对照、人评；正式PDF主Table2全行、评分段、AppB预算及失败统计首段核。全部定性图/附录数据实例/代码未全核，未复现 |
 | L145 | [GENIUS: Generative Fluid Intelligence Evaluation Suite](L145.md) | v1§2/§3设置与主Table2/§4方法理论、AppD1/D2/F/G指定完整推导段文本核；23页PDF主表与理论布局文本核。全部图/发布实现/完整参数未核，未复现 |
 | L146 | [A Model-Internal Protocol for Assessing Multimodal Models as Integrated Systems](L146.md) | v2§3全/§4设置主表及阶段替换/§5，AppA/B/C2/E/F1与G指定瓶颈段；21页PDFp4Fig2及p16Eq12–22视觉核，主Table1/2/3与F1文本核。全部图片/源码/剩余附录未全核，未复现 |
+| L147 | [WISE: A World Knowledge-Informed Semantic Evaluation for Text-to-Image Generation](L147.md) | v4§3全/§4设置与Tables1/2指定行；AppB/C/G/H/I/J及L限制指定段；正式PDF评分/主表交叉核。全部图/完整模板/代码未全核，未复现 |
+| L148 | [ImgEdit: A Unified Image Editing Dataset and Benchmark](L148.md) | v1§3/§4.3/§5；正式§4.1–4.3、AppA4–6/B1/Table5/D Table6/E Table7/F1选读。完整图/数据/代码、其余训练配置未全核，未复现 |
+| L149 | [MMIG-Bench: Towards Comprehensive and Explainable Evaluation of Multi-Modal Image Generation Models](L149.md) | v2§3/4与正式主Tables1–3、§5.1/5.2、附录aspect比例/Table4文本核；完整图/余下附录/代码和全部配置未核，未复现 |
+| L150 | [KRIS-Bench: Benchmarking Next-Level Intelligent Image Editing Models](L150.md) | v1§3.1/3.4/4与AppC/D/E；正式§3.3/3.4/4.1、Table2指定行/4.3/4.4/结论局限文本核。47页全部图、human图坐标/全任务/代码未全核，未复现 |
+| L151 | [CompBench: Benchmarking Complex Instruction-guided Image Editing](L151.md) | v4§3全/§4设置与§5；正式§4.1–4.2、Tables3/4全行和框架Fig3文字说明核。独立supp、全部Table2和图片/源码未全核，未复现 |
+| L152 | [OneIG-Bench: Omni-dimensional Nuanced Evaluation for Image Generation](L152.md) | v3§3.2/§4.1/主Table2/文字Table5/AppA2；正式§4.1、Table2、AppA2 Table7/8、人评Table12及读字幻觉段、限制文本核；v3PDFp6公式视觉核。全部图/其余附录/代码未全核，未复现 |
+| L153 | [GenExam: A Multidisciplinary Text-to-Image Exam](L153.md) | v5§3.1/§4；正式§3.2/§4设置/Table2指定行/3人评、AppC1/Table4/5及C2；PDFp5 Fig4评分流程视觉核。全部GT/图/附录分类及源码未全核，未复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

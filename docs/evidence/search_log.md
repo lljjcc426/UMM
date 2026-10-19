@@ -126,3 +126,7 @@ UniFlow v2、InternVL-U v1、Mamoda2.5 v1、SenseNova-U1 v1、Rosetta v1读取�
 ## 2026-10-20 第十九批
 
 核对六篇arXiv指定版本；取得UniKE的PMLR306正式24页、MME-Unify的ICLR2026正式44页、Uni-MMMU的ACL2026正式17页PDF，选读方法/主表/指定附录，不以下载算全文阅读。UniEval35页/GENIUS23页/SGU21页PDF仅指定文本范围；SGU p4框架和p16证明视觉核。OpenReview访问受限后改用ICLR正式论文页，无绕过证书或身份。
+
+## 2026-10-20 第二十批
+
+取得并选读七篇正式PDF（WISE21/ImgEdit31/MMIG38/KRIS47/CompBench11/OneIG36/GenExam32页），与arXivv4/v1/v2/v1/v4/v3/v5比对指定数据/方法/主表/附录。未把PDF页数计为完整阅读。GenExam正式p5评分图与OneIGv3p6文字公式视觉核；OneIG正式文本确认同公式。SciPy官方kendalltau说明tau-b处理ties，不能沿用“有并列所以全部秩相关不可用”的推断。

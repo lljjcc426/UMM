@@ -101,3 +101,7 @@ Think in Strokes 已收录于文献总表，此处补充方法与实验定位，
 网上还出现把 GLM-Image 描述成“显式建模中文笔顺”的二手文字。本次官方 [GitHub](https://github.com/zai-org/GLM-Image) 与 [模型卡](https://huggingface.co/zai-org/GLM-Image) 能确认的是 AR＋diffusion 与 Glyph Encoder 的图像文字生成机制；这些官方说明不足以支持它已经验证中文书写视频笔顺，因此没有据二手摘要加入“笔顺已解决”的证据。
 
 负面检索结论的边界：未被检索收录的材料、未公开研究、不同命名以及后续版本均可能改变结论。准确表述是“在截至本次核读的公开材料中未找到四项要求同时满足的工作”，而不是“世界上没人做”。
+
+## 静态知识/绘图基准的相关边界
+
+[第二十批七项](../evidence/knowledge_editing_and_multilingual_text_metrics_2026-10-20.md)覆盖科学绘图、静态动作/视角修改、文字渲染与多轮图像编辑。GenExam逐题必要条件可迁移为事件合取评价；OneIG文本ED/CR适合终态内容但先清符号，不能直接测原始完整字符串。KRIS的Procedural、CompBench的Action和视频来源图像均未提供连续笔顺正确性证据。

@@ -385,6 +385,38 @@
         }
       ],
       "boundary": "五项书面检查和Fig2/理论页视觉核；全部图/附录/代码未全审，无计时口试/复现，完整三遍未完成。"
+    },
+    {
+      "id": "L153",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "GenExam测学科绘图同时满足必要事实、标注和可读性的能力。整体美观/语义cos易漏小而关键的错误；每题评分点和严格全对率把这些失败显露出来，partial分避免所有弱模型都零分。",
+          "evidence": "本次书面复述，未计时口述。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "PDFp5Fig4输入prompt、GT图、生成图及每点权重。judge看GT辅助回答yes/no，正确点权重求和是semantic，图本身另评spelling/logic/readability。例semantic.5/其余2时strict0、relaxed.65。GT给裁判而未给生成器。",
+          "evidence": "正式PDFp5Fig4视觉核及§3.2。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "新增考试式任务及每题必要评分点、严格合取/部分分双指标，未提出新生成骨干。三项取2仍允许tinyerrors，严格分不等价像素级/逐字绝对无错，且依赖评分点覆盖与judge精度。",
+          "evidence": "§3.1/3.2及Fig4。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "正式Table2 NanoPro70.2/93.0、QwenImage2512 1.5/35.3、BAGEL0/11.4显示floor效应。AppTable4 GPT5low有GT accuracy88.5/MAE.20，去图86.2/.23；high87.6/.20成本186s比low72s，额外推理并非单调收益。",
+          "evidence": "正式Table2指定行、AppC1Table4。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：全为正向Yes和GT参考是否偏好单一画法、漏掉错误必要条件？需多解/负答案及专家校准。疑问2：合取分是否主要随评分点数增加而降，需要按题数/条件数匹配分层。疑问3：文字解正确后规则渲染与生成图比较，如何定位知识/执行瓶颈？WISE、KRIS、GENIUS和UniMMMU已有相邻任务，不能直接把疑问作为创新。",
+          "evidence": "§3评分、主表/人评/本批相邻研究。"
+        }
+      ],
+      "boundary": "五项书面检查及评分流程视觉核；完整图/GT/源码/附录未全审，无计时口试或复现，完整三遍未完成。"
     }
   ]
 }
