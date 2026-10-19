@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 331 条，本批有 181 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 331 条，本批有 188 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -166,7 +166,7 @@
 | L059 | AnyGPT: Unified Multimodal LLM with Discrete Sequence Modeling | primary_sections_read | [结构化分析](../reviews/L059.md) | 未完成 |
 | L060 | SEED-X: Multimodal Models with Unified Multi-granularity Comprehension and Generation | primary_sections_read | [结构化分析](../reviews/L060.md) | 未完成 |
 | L061 | UniTok: A Unified Tokenizer for Visual Generation and Understanding | primary_sections_read | [结构化分析](../reviews/L061.md) | 未完成 |
-| L062 | Transfer between Modalities with MetaQueries | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L062 | Transfer between Modalities with MetaQueries | primary_sections_read | [结构化分析](../reviews/L062.md) | 未完成 |
 | L063 | MMaDA: Multimodal Large Diffusion Language Models | primary_sections_read | [结构化分析](../reviews/L063.md) | 未完成 |
 | L064 | MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer | primary_sections_read | [结构化分析](../reviews/L064.md) | 未完成 |
 | L065 | Qwen3-Omni Technical Report | primary_sections_read | [结构化分析](../reviews/L065.md) | 未完成 |
@@ -177,12 +177,12 @@
 | L070 | When Does Visual Generation Help Visual Understanding in Unified Multimodal Models? | primary_sections_read | [结构化分析](../reviews/L070.md) | 未完成 |
 | L071 | GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L072 | UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L073 | OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L074 | Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L075 | Versatile Diffusion: Text, Images and Variations All in One Diffusion Model | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L076 | One Transformer Fits All Distributions in Multi-Modal Diffusion at Scale | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L077 | Emu: Generative Pretraining in Multimodality | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L078 | Planting a SEED of Vision in Large Language Model | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L073 | OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework | primary_sections_read | [结构化分析](../reviews/L073.md) | 五项检查已记录 |
+| L074 | Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks | primary_sections_read | [结构化分析](../reviews/L074.md) | 未完成 |
+| L075 | Versatile Diffusion: Text, Images and Variations All in One Diffusion Model | primary_sections_read | [结构化分析](../reviews/L075.md) | 未完成 |
+| L076 | One Transformer Fits All Distributions in Multi-Modal Diffusion at Scale | primary_sections_read | [结构化分析](../reviews/L076.md) | 未完成 |
+| L077 | Emu: Generative Pretraining in Multimodality | primary_sections_read | [结构化分析](../reviews/L077.md) | 未完成 |
+| L078 | Planting a SEED of Vision in Large Language Model | primary_sections_read | [结构化分析](../reviews/L078.md) | 未完成 |
 | L079 | Unified Language-Vision Pretraining in LLM with Dynamic Discrete Visual Tokenization | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L080 | NExT-GPT: Any-to-Any Multimodal LLM | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L081 | DreamLLM: Synergistic Multimodal Comprehension and Creation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |

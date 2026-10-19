@@ -155,6 +155,13 @@
 | L064 | [MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer](L064.md) | §3–4表示/训练、§5.1/5.2 Table1和联合对照/Fig5、§5.4–5.5讨论、结论；未逐行精读全部主表/图、未复现 |
 | L065 | [Qwen3-Omni Technical Report](L065.md) | §1–3/主要模块与数据训练、Tables1/2、§6 Table16全表及结论；未逐项读取全部ASR/TTS/VLM表，未复现 |
 | L066 | [Emu3.5: Native Multimodal Models are World Learners](L066.md) | §1–4架构/数据/训练/奖励/DiDA、§5部分tokenizer、§6 Tables7–9/16及§6.3–6.8解释、§7局限；未逐行核全部编辑/重建主表、未视觉核对全图、未运行模型 |
+| L073 | [OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework](L073.md) | Introduction、§3全部、Table1/5/10/13、§4.4、AppA.1–A.3和B；其他主表未全部逐行，未逐图、未复现；另核正式PMLR PDF第3页Fig2、第9页Table9(对应HTML Table10)、第15页数据表，确认表号版本变化；未把正式Table10误作消融 |
+| L074 | [Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks](L074.md) | §3.1–3.4全部、§4 GRIT解释、Table5全表/预算、§4.4–4.6及Table7；未逐行所有任务数据/主表、未视觉验收与复现 |
+| L075 | [Versatile Diffusion: Text, Images and Variations All in One Diffusion Model](L075.md) | §3全部、§4.1–4.5/表1/Fig6文字数值、AppC清洗/训练、AppE局限；部分图未视觉读、采样细节未全核、未复现 |
+| L076 | [One Transformer Fits All Distributions in Multi-Modal Diffusion at Scale](L076.md) | §3–4完整公式/表示、§6训练/表1/应用、AppD/E与H配置/效率；未逐图/全部采样伪代码验收、未复现 |
+| L077 | [Emu: Generative Pretraining in Multimodality](L077.md) | §2–4完整流程/数据、§5主表2/解释/局限、AppA训练/消融表5–7、AppB1；部分图与主表1/3/4未逐行、未复现 |
+| L078 | [Planting a SEED of Vision in Large Language Model](L078.md) | §1–3方法与全部Tables1–3、§4–5结论；未核全部图/代码与未披露训练参数，未复现 |
+| L062 | [Transfer between Modalities with MetaQueries](L062.md) | Introduction、§3设计/表1–3、§4训练数据、§5.1–5.6解释/表8–9、AppA/C及Table10；未逐行全部主表/全图/代码，未复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

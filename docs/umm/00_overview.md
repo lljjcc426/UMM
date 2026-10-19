@@ -76,3 +76,7 @@ UMM 将文字任务和视觉生成放进一个可训练系统，例如共享上�
 ## 任务接口与协同实验的原文补充（2026-10-20）
 
 [本批审查](../evidence/unified_interfaces_and_transfer_2026-10-20.md)逐项区分输出与外部解码成本。Qwen3-Omni处理视频输入但输出文字/语音；SEED-X的Edit/PPT/Story/Try-on是专门微调版本。Qwen3-Omni受控对照报告部分视觉增益、部分单项下降，并明确无可测语言增益；Manzano近似保持任务性能的对照按任务token匹配，未固定总FLOPs。Emu3.5的操作评价是子任务/关键帧自动评审，尚不证明机器人闭环执行。
+
+## 早期前作与负迁移（2026-10-20）
+
+[OFA](../reviews/L073.md)的统一预训后仍按任务微调；图像分数含24选1。[Unified-IO](../reviews/L074.md)评估单一联合模型，其消融按剩余任务曝光缩短步数，显示图像合成对关键点的帮助以及文字任务对部分视觉任务的干扰。[UniDiffuser](../reviews/L076.md)独立噪声时间统一条件/联合/边缘分布，有限T为近似边缘化；[MetaQueries](../reviews/L062.md)冻结MLLM是强组合基线，保留理解尚不代表生成训练提高理解。详见[历史机制与实验迁移](../evidence/early_unification_and_distribution_review_2026-10-20.md)。

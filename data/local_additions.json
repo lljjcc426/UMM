@@ -3983,22 +3983,23 @@
   {
     "title": "Transfer between Modalities with MetaQueries",
     "source_urls": [
-      "https://arxiv.org/abs/2504.06256"
+      "https://arxiv.org/abs/2504.06256",
+      "https://arxiv.org/html/2504.06256"
     ],
-    "method": "冻结 MLLM，可学习查询连接扩散生成器",
-    "conclusion": "XL GenEval 0.80，使用改写提示词；冻结理解能力不属于双向迁移证据",
-    "gap": "见结论栏及专题分析。",
-    "problem": "如何保留理解主干并获得生成能力",
-    "claim": "未单独摘录。",
+    "method": "可学习query直接接入冻结MLLM因果序列，24层双向connector再接扩散条件，使用生成去噪目标训练。 MLLM冻结，query参与原causal attention；Enc-Proj先同MLLM维度24层Qwen式encoder后投影，比Proj-Enc更有效。主体Base LLaVAOneVision.5B、Large Qwen2.5VL3B、XL7B，256queries；图像分别SD1.5/Sana1.6B，主表COCO FID使用SD，其余Sana，不能合并成单一decoder的全部指标。",
+    "conclusion": "Table1 learnable64 FID7.43/GenEval.56/DPG75.35 vslastlayer7.49/.55/78.41，DPG下降。Table2冻结MLLM+调DiT6.06/.61/76.66 vs全调6.28/.61/79.39，质量/对齐取舍。Table4XL COCO8.69(SD)/MJHQ6.02(Sana)/GenEval.80改写。Table9queries WISE.55 vslastlayer.48/commonsense57.67vs52.83，但DPG81.10低于81.23。",
+    "gap": "冻结原任务路径保留理解是架构保证的一种边界，未证明生成训练反向提高理解。重建baseline未同等重建微调，而本作专门调过；知识生成对照支持该设置的单向迁移，非所有LLM能力自动传输。2.4M自然图像非真实同物体变换真值，合成指令可能把关联误述为编辑。",
+    "problem": "保留现成MLLM理解能力时，如何把其知识、视觉条件和上下文能力接到图像扩散生成。",
+    "claim": "研究目标：保留现成MLLM理解能力时，如何把其知识、视觉条件和上下文能力接到图像扩散生成。",
     "version": "Transfer between Modalities with MetaQueries，2025",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L062",
     "canonical_key": "paper:arxiv:2504.06256",
     "evidence_history": [
@@ -4021,7 +4022,26 @@
     "aliases": [
       "local_umm_core:P12"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L062.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "XL GenEval 0.80，使用改写提示词；冻结理解能力不属于双向迁移证据",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "Introduction、§3设计/表1–3、§4训练数据、§5.1–5.6解释/表8–9、AppA/C及Table10；未逐行全部主表/全图/代码，未复现",
+    "review_path": "docs/reviews/L062.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "25M公开图文(已读主体未给完整来源清单)，预训8epochs；MMC4core-fewer-faces按SigLIP captions相似>.5/每组至多6图，最小平均相似者target，构造2.4M自然图像对。正文指令标Qwen2.5VL3B，AppA标Qwen2VL7B，存在版本/注释差异，未代作者选定。",
+    "framework": "可学习query直接接入冻结MLLM因果序列，24层双向connector再接扩散条件，使用生成去噪目标训练。",
+    "architecture": "MLLM冻结，query参与原causal attention；Enc-Proj先同MLLM维度24层Qwen式encoder后投影，比Proj-Enc更有效。主体Base LLaVAOneVision.5B、Large Qwen2.5VL3B、XL7B，256queries；图像分别SD1.5/Sana1.6B，主表COCO FID使用SD，其余Sana，不能合并成单一decoder的全部指标。",
+    "metrics": "MJHQ30k/COCO FID、GenEval/DPG、WISE/CommonsenseT2I、DreamBench DINO/CLIPI/T；重建/编辑主要定性，理解分数保持来自冻结原骨干。",
+    "baselines": "lastlayer/randomquery/fullLLMtune/end-to-end、Sana/JanusPro/MetaMorph/Emu等；prompt改写†、WISE部分基线仅200/1000子集需分开。",
+    "experimental_conditions": "设计实验.5B MLLM+Sana.6B512²、64query、25M×4epoch；主模型256query/25M×8、lr1e-4cosine→1e-5 warm4000 global4096。指令3epoch b2048，编辑1000步。完整optimizer/GPU总时长/采样NFE未从本次章节取得；冻结MLLM仍需反传到query，计算成本非零。"
   },
   {
     "title": "MMaDA: Multimodal Large Diffusion Language Models",
@@ -4621,22 +4641,25 @@
   {
     "title": "OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework",
     "source_urls": [
-      "https://arxiv.org/abs/2202.03052"
+      "https://arxiv.org/abs/2202.03052",
+      "https://arxiv.org/html/2202.03052",
+      "https://proceedings.mlr.press/v162/wang22al.html",
+      "https://proceedings.mlr.press/v162/wang22al/wang22al.pdf"
     ],
-    "method": "将生成、定位、描述、分类及语言任务统一为带指令的 seq2seq",
-    "conclusion": "早于当前大语言模型式 UMM 的任务/模态统一路线；不需要下游任务专用层",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "OFA，2022",
+    "method": "统一文字/位置/图像码词表，八类预训任务同一CE，Trie约束闭集输出。 ResNet前三block提patch+Transformer encoder–decoder，BART初始化；文字BPE/图像8192码(正式Fig2)256²→16²/1000离散坐标。独立绝对位置、1D/2D相对偏置、head scaling与额外LN。五尺寸33/93/182/472/930M(Table1；正文另称940M，保留版本口径)。",
+    "conclusion": "T2I Table5 FID10.5/CLIPSIM34.4/IS31.1，需附24选1与COCO微调条件；不与其他论文zero-shot数直接排。Table13 Trie VQA76.03→无Trie75.86，说明约束闭集有小增益，不证明开放式理解提高。",
+    "gap": "不同任务微调与选择最优超参，主表不能支持单模型免适配；CLIPSIM同时优化/重排/评价存在评价器依赖；文本增益有负迁移。视觉码f16及静态任务不验证书写历史。无等总预算跨任务曝光匹配、完整GPU总成本与统计显著性。",
+    "problem": "以同一seq2seq结构、离散词表和指令表示覆盖跨模态与单模态任务。",
+    "claim": "研究目标：以同一seq2seq结构、离散词表和指令表示覆盖跨模态与单模态任务。",
+    "version": "ICML2022；arXiv:2202.03052",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L073",
     "canonical_key": "paper:arxiv:2202.03052",
     "evidence_history": [
@@ -4659,27 +4682,47 @@
     "aliases": [
       "local_umm_expanded:X001"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L073.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "早于当前大语言模型式 UMM 的任务/模态统一路线；不需要下游任务专用层",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "Introduction、§3全部、Table1/5/10/13、§4.4、AppA.1–A.3和B；其他主表未全部逐行，未逐图、未复现；另核正式PMLR PDF第3页Fig2、第9页Table9(对应HTML Table10)、第15页数据表，确认表号版本变化；未把正式Table10误作消融",
+    "review_path": "docs/reviews/L073.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "约20M图文CC3M/12M/SBU/COCO/VG、VQAv2/VGQA/GQA、RefCOCO系列；图像OpenImages/YFCC100M/ImageNet21K，检测Object365等；Pile140GB。作者称排除下游验证/测试图，未独立审计。",
+    "framework": "统一文字/位置/图像码词表，八类预训任务同一CE，Trie约束闭集输出。",
+    "architecture": "ResNet前三block提patch+Transformer encoder–decoder，BART初始化；文字BPE/图像8192码(正式Fig2)256²→16²/1000离散坐标。独立绝对位置、1D/2D相对偏置、head scaling与额外LN。五尺寸33/93/182/472/930M(Table1；正文另称940M，保留版本口径)。",
+    "metrics": "VQAv2/SNLI-VE acc、COCO CIDEr等、RefCOCO Acc@.5、GLUE/Gigaword、ImageNet；T2I COCO30k FID/CLIPSIM/IS。",
+    "baselines": "SimVLM/Florence/LEMON、DALL-E/CogView/GLIDE/NÜWA、BART及视觉自监督；预训规模和下游微调/重排预算不同。",
+    "experimental_conditions": "AdamW β.9/.999 eps1e-8，lr2e-4线性warm.01、wd.01/drop.1/stochasticdepth.1，至少300K步；每batch2048图文+256检测+256纯图+512纯文。T2I COCO训练50epoch b512 lr1e-3，再CLIPSIM优化5000步b32 lr1e-6，256²每prompt采24选CLIP最好；VQA40K步、3129候选Trie；不能称zero-shot T2I或单样本公平比较。"
   },
   {
     "title": "Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks",
     "source_urls": [
-      "https://arxiv.org/abs/2206.08916"
+      "https://arxiv.org/abs/2206.08916",
+      "https://arxiv.org/html/2206.08916"
     ],
-    "method": "把图像、像素图、框和语言统一为离散输出词表，联合训练 90 余数据集",
-    "conclusion": "将经典视觉任务与语言任务置于同一模型；是 Unified-IO 2 的前序",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "把深度/法线/分割映射RGB再VQGAN离散化，加坐标token与文字指令；大规模联合多任务训练。 T5式encoder–decoder，patch线性输入384²→576patch；输出256²→256 VQGAN码(Imagenet预训16384)。词表49536=32152文字+1000位置+16384视觉。每实例随机分割颜色，文字给颜色类别映射；避免固定类表。71/241/776/2925M不含VQGAN。",
+    "conclusion": "GRIT XL test平均64.3，keypoint67.7表中，说明段另引用68.1(ablation列)，需按split。深度RMSE.385、ImageNet79.1/Places53.2；非全任务SOTA。提示改写Refexp78.9→“Where is”41.5，加引号附近无空格变.1，存在格式脆弱。",
+    "gap": "VQGAN预训分布限制密集图还原上界；遮挡密集目标召回不足，关键点先检测再预测有误差传播。提示格式敏感、任务采样不均深度仅.43%。XL消融因算力未做，不能直接推广Large解释；未独立复现或排除web新概念。",
+    "problem": "用一个encoder–decoder同时解决密集视觉输出、稀疏坐标和文字任务，不做任务特定微调。",
+    "claim": "研究目标：用一个encoder–decoder同时解决密集视觉输出、稀疏坐标和文字任务，不做任务特定微调。",
     "version": "Unified-IO，2022",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L074",
     "canonical_key": "paper:arxiv:2206.08916",
     "evidence_history": [
@@ -4702,27 +4745,48 @@
     "aliases": [
       "local_umm_expanded:X002"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L074.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "将经典视觉任务与语言任务置于同一模型；是 Unified-IO 2 的前序",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3.1–3.4全部、§4 GRIT解释、Table5全表/预算、§4.4–4.6及Table7；未逐行所有任务数据/主表、未视觉验收与复现",
+    "review_path": "docs/reviews/L074.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "95数据集/62来源；C4/Wikipedia、ImageNet21K/YFCC15M等。预训文本15%span mask、图像75%mask；8组联合任务，图像合成3/16/密集1/16，余每组1/8，组内按sqrt规模采样。",
+    "framework": "把深度/法线/分割映射RGB再VQGAN离散化，加坐标token与文字指令；大规模联合多任务训练。",
+    "architecture": "T5式encoder–decoder，patch线性输入384²→576patch；输出256²→256 VQGAN码(Imagenet预训16384)。词表49536=32152文字+1000位置+16384视觉。每实例随机分割颜色，文字给颜色类别映射；避免固定类表。71/241/776/2925M不含VQGAN。",
+    "metrics": "GRIT七任务与same/new概念；深度RMSE、分类acc、VQA/caption、NLP；新概念相对primary数据集定义，未保证从所有web语料未见。",
+    "baselines": "GRIT MaskRCNN/OFA/GPV2/NLL-AngMF及各任务专家；部分专家task-finetune，UnifiedIO单一联合版本。",
+    "experimental_conditions": "Adafactor前10k lr1e-2随后1/sqrt(k)、β1.9 β2=1-k^-.8、clip1、无dropout；500K预训+500K多任务，b2048或XL1024，4路模型×128路数据并行。预训采128/多任务256图像patch。消融Large基线250K，移除任务缩短到200K/220K/235K以匹配其余任务样本曝光，非等总FLOPs。"
   },
   {
     "title": "Versatile Diffusion: Text, Images and Variations All in One Diffusion Model",
     "source_urls": [
-      "https://arxiv.org/abs/2211.08332"
+      "https://arxiv.org/abs/2211.08332",
+      "https://arxiv.org/html/2211.08332",
+      "https://openaccess.thecvf.com/content/ICCV2023/html/Xu_Versatile_Diffusion_Text_Images_and_Variations_All_in_One_Diffusion_ICCV_2023_paper.html"
     ],
-    "method": "共享/可交换层组成多流扩散网络，统一文生图、图生文与变化生成",
-    "conclusion": "表明多模态统一并非只源自 LLM；任务接口和模块共享已经是早期问题",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "Versatile Diffusion，2022",
+    "method": "共享global时间层，按输出选择data层、按条件选择crossattention context层，四flow积累梯度后更新。 SD1.4初始化UNet图像残差data/图文crossattn、global时间；文本FCResBlock将768latent扩展320×4。图像AutoKL、文字Optimus(BERT/GPT2)单768向量；CLIP图文归一化投影特征作条件，四flow共享部分参数，不是所有层相同。",
+    "conclusion": "正文Figure6 T2I SD11.21±.03 vs四flow11.10±.09，小幅差异；variation18.81±.06→4.57±.02。作者声称全面优于baseline，但文字定性与附录明确承认弱点，不能推出语言最优。UniDiffuser后续论文重算VD FID10.09与此口径不同，需保留版本/评估协议。",
+    "gap": "Optimus单向量丢词序、长句重复，训练域PTB/SNLI/Yahoo/Yelp到webcaption偏移；作者在AppE明确讨论。所有“更省训练”比较继承SD预训练，未计其沉没成本；没有视频或规范笔顺。",
+    "problem": "一个扩散网络支持图文双向生成和同模态variation，并混合多条件。",
+    "claim": "研究目标：一个扩散网络支持图文双向生成和同模态variation，并混合多条件。",
+    "version": "ICCV2023；arXiv首次2022",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L075",
     "canonical_key": "paper:arxiv:2211.08332",
     "evidence_history": [
@@ -4745,27 +4809,48 @@
     "aliases": [
       "local_umm_expanded:X003"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L075.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "表明多模态统一并非只源自 LLM；任务接口和模块共享已经是早期问题",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3全部、§4.1–4.5/表1/Fig6文字数值、AppC清洗/训练、AppE局限；部分图未视觉读、采样细节未全核、未复现",
+    "review_path": "docs/reviews/L075.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "LAION2B-en/COYO700M，CLIP>.3/NSFW<.3/watermark<.3、aspect.6–1.6667、area>256²×.75。to-text去URL/HTML/括号/符号等，to-image不清洗。各版本256²30M样本再512²6.4M；每阶段从上一ckpt接续。",
+    "framework": "共享global时间层，按输出选择data层、按条件选择crossattention context层，四flow积累梯度后更新。",
+    "architecture": "SD1.4初始化UNet图像残差data/图文crossattn、global时间；文本FCResBlock将768latent扩展320×4。图像AutoKL、文字Optimus(BERT/GPT2)单768向量；CLIP图文归一化投影特征作条件，四flow共享部分参数，不是所有层相同。",
+    "metrics": "COCO30k图像FID、2000样本四评审投票、caption/文字variation主要定性；不是仅凭FID证明全任务语言质量。",
+    "baselines": "SD1.4、SDvariation、BLIP，阶段1/2/4flow；图文联合成本和预训练条件不同。",
+    "experimental_conditions": "1000步DDPM线性β8.5e-5→.012；1/2flow lr1e-4 b2048/1024，4flow5e-5 b512；图像data梯度.1/.1/.2、global.1、其他已激活层1。8A10080GB梯度累积，perGPU256²b64/512²b16。具体采样器/重复FID方差定义未全核。"
   },
   {
     "title": "One Transformer Fits All Distributions in Multi-Modal Diffusion at Scale",
     "source_urls": [
-      "https://arxiv.org/abs/2303.06555"
+      "https://arxiv.org/abs/2303.06555",
+      "https://arxiv.org/html/2303.06555",
+      "https://proceedings.mlr.press/v202/bao23a.html"
     ],
-    "method": "每种模态使用独立噪声时间，同一 Transformer 预测各模态噪声",
-    "conclusion": "通过不同时间组合学习边缘、条件和联合分布；是连续多模态扩散的重要前序",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "UniDiffuser，2023",
+    "method": "独立采样tx/ty，联合回归两侧噪声；推理将一侧置0作条件、置T近似边缘化、同t联合生成。 952M UViT31层/1536维/24头/patch2、长skip+postLN稳定混精度。图像潜变量由SD Autoencoder与512维CLIPViTB32拼接；文字77×768 CLIP经线性→77×64，再124M GPT2前缀AR还原。固定encoder/decoder有独立训练成本。",
+    "conclusion": "Table1 FID9.71优于该协议VD10.09，弱于重算SD8.59；不能声称所有专家更好。AppendixH 10样本25步/A10080GB：UniDiffuser19.77s/48.30GB，VD23.89/76.53、SD25.43/67.83。主干952M参数不计GPT2/CLIP/AE，与完整系统内存定义分开。",
+    "gap": "tx,ty训练从1..T采样、条件推理用0需近端泛化；ty=T与独立高斯只是近似边缘化(有限噪声残留)，非严格相等。平均MSE最优为条件噪声均值(充分容量/优化假设)，不保证有限模型所有分布都最优。文字不流畅、更多模态/半监督未实测。AppE写min logp缺负号，字面目标有符号问题，未核代码不判实现错误。",
+    "problem": "一个噪声预测器如何同时拟合双模态边缘、条件和联合分布。",
+    "claim": "研究目标：一个噪声预测器如何同时拟合双模态边缘、条件和联合分布。",
+    "version": "ICML2023；UniDiffuser",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L076",
     "canonical_key": "paper:arxiv:2303.06555",
     "evidence_history": [
@@ -4788,27 +4873,47 @@
     "aliases": [
       "local_umm_expanded:X004"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L076.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "通过不同时间组合学习边缘、条件和联合分布；是连续多模态扩散的重要前序",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3–4完整公式/表示、§6训练/表1/应用、AppD/E与H配置/效率；未逐图/全部采样伪代码验收、未复现",
+    "review_path": "docs/reviews/L076.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "LAION2B-en、170M highres多语种与aesthetics筛后193M；后者清洗URL/HTML/括号/多数符号。未把数据名规模当实际唯一消耗样本。",
+    "framework": "独立采样tx/ty，联合回归两侧噪声；推理将一侧置0作条件、置T近似边缘化、同t联合生成。",
+    "architecture": "952M UViT31层/1536维/24头/patch2、长skip+postLN稳定混精度。图像潜变量由SD Autoencoder与512维CLIPViTB32拼接；文字77×768 CLIP经线性→77×64，再124M GPT2前缀AR还原。固定encoder/decoder有独立训练成本。",
+    "metrics": "COCO FID/CLIP：文字生成主要CLIP而非语法/事实；图文joint、Gibbs/interpolation主要示例；效率表另25步而主实验50步。",
+    "baselines": "VersatileDiffusion官方实现作者重跑、SD等参考值；VD“原论文无量化”的表述对应早期版本，后版VD已有FID，不能沿用为当前事实。",
+    "experimental_conditions": "250K步256²b11264+200K步512²b2112+220K步aesthetics b2112，warm5K；AdamW2e-4 wd.03 β.9/.9，验证loss停降lr÷10；88A10080GB约28天。DPMsolver50步；表1CFG s3采用(1+s)cond-suncond定义，与其他软件g=1+s。GPT2 decoder235K/b768/lr2e-5/warm5K，beam5 max67。"
   },
   {
     "title": "Emu: Generative Pretraining in Multimodality",
     "source_urls": [
-      "https://arxiv.org/abs/2307.05222"
+      "https://arxiv.org/abs/2307.05222",
+      "https://arxiv.org/html/2307.05222"
     ],
-    "method": "将交错图文/视频转为序列；预测离散文本 token，同时回归连续视觉 embedding",
-    "conclusion": "让同一序列模型具备图文输入输出与上下文学习；统一序列并不要求所有模态使用相同数值表示",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "EVA视觉编码+CausalTransformer连续视觉序列，文字CE/视觉L2的AR联合预训，再调SD解码器。 EVA01CLIP1B+12block causal self/cross transformer+Llama13B，总14B；视觉embedding连续回归头、文字分类头。SD1.5 UNet微调生成像素，冻结主干/VAE；下游Emu-I仅selfattention LoRA。Causal embedding顺序不等于物理事件因果。",
+    "conclusion": "COCO零样本CIDEr112.4；T2I COCO30k FID11.66优于GILL12.20、弱于SD1.5 9.93，PNDM50步CFG Emu5/SD3各自调优。Emu-I VQAv2 62.0 vsFlamingo80B56.3，但额外SFT、评估提示与数据需计入。",
+    "gap": "视觉decoder外部扩散成本和预训要计；embedding回归可丢多峰/细节，英文为主、幻觉/AR慢作者明确承认。字幕与缩略图时间相邻不保证笔画标签/对齐，过程细节采样丢失；未证实双向训练协同。",
+    "problem": "在图文与视频字幕交错序列中预测下一个文字或视觉embedding，获得多模态上下文学习。",
+    "claim": "研究目标：在图文与视频字幕交错序列中预测下一个文字或视觉embedding，获得多模态上下文学习。",
     "version": "Emu，2023",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L077",
     "canonical_key": "paper:arxiv:2307.05222",
     "evidence_history": [
@@ -4831,27 +4936,47 @@
     "aliases": [
       "local_umm_expanded:X005"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L077.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "让同一序列模型具备图文输入输出与上下文学习；统一序列并不要求所有模态使用相同数值表示",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2–4完整流程/数据、§5主表2/解释/局限、AppA训练/消融表5–7、AppB1；部分图与主表1/3/4未逐行、未复现",
+    "review_path": "docs/reviews/L077.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "LAION2B/LAIONCOCO600M、MMC4约75M文档/400M图/38B文本token、WebVid10M；YTStoryboard18M视频/1.8B缩略图+字幕按时间交错，不是1.8B原视频。224²，MMC4最多5图/随机段，82M消耗样本约150B tokens。",
+    "framework": "EVA视觉编码+CausalTransformer连续视觉序列，文字CE/视觉L2的AR联合预训，再调SD解码器。",
+    "architecture": "EVA01CLIP1B+12block causal self/cross transformer+Llama13B，总14B；视觉embedding连续回归头、文字分类头。SD1.5 UNet微调生成像素，冻结主干/VAE；下游Emu-I仅selfattention LoRA。Causal embedding顺序不等于物理事件因果。",
+    "metrics": "COCO CIDEr/FID、VQAv2/OKVQA/VizWiz、MSVD/MSRVTTQA、MMVet五次评估；fewshot RICES选择，带*zero-shot含两个文字例、移除对应图像，保留此条件。",
+    "baselines": "Flamingo9/80B/Kosmos1/GILL、SD1.5；Emu-I额外指令数据，不与base混成同样训练。",
+    "experimental_conditions": "128A10080GB/10K步约2天，AdamW β.9/.98 eps1e-6 wd.05 warm.2cosine；视觉/LLM/causal lr4e-5/3e-5/1e-4，表5各源b128/128/64/16/16。decoder32A10040GB/15K步b1600/512²，lr5K1e-4→10K5e-5→14K1e-5，dropcond.1。Emu-I16A10080GB16h、10K步b128、lr1e-5/warm500、LoRA r/alpha16。"
   },
   {
     "title": "Planting a SEED of Vision in Large Language Model",
     "source_urls": [
-      "https://arxiv.org/abs/2307.08041"
+      "https://arxiv.org/abs/2307.08041",
+      "https://arxiv.org/html/2307.08041"
     ],
-    "method": "视觉 token 引入一维因果依赖和高层语义，兼顾判别与重建",
-    "conclusion": "用有限适配让 LLM 能看和画；tokenizer 的顺序和语义粒度成为核心设计变量",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "BLIP2 causal QFormer32查询、VQ量化与ReverseQFormer77条件embedding映射到冻结SD；OPT LoRA学习图文双向AR。 ViT/SD冻结，causalQFormer用已可见全图特征crossattn、query之间causal selfattn；码本+重建transformer恢复连续embedding余弦，reverseQFormer以MSE拟合SD文字特征。OPT2.7B frozen+LoRA，先I2T再I2T/T2I联合CE；并非直接像素重建或过程识别。",
+    "conclusion": "Pilot CC3M zeroCOCO CIDEr像素34 vsBEiTv2 42。Flickr retrieval mean BLIP2 92.9/causalcontinuous93.7/量化91.7，COCO80.3/80.7/77.4，量化下降。caption CIDEr119 vsBLIP2 131，VQAv2 42.8 vs51.9、GQA28.8 vs32.6。生成CLIP COCO68.23略低SD68.43，且本作输入图像、SD输入caption。",
+    "gap": "因果query仍crossattend全图，码的AR条件性不等于笔画发生时间；双向视觉encoder与AR解码不兼容并非一般数学定理。32码语义保持不能证明局部像素/细笔/布局重建。对比存在输入/预训预算差异，缺少细节还原指标和完整超参。",
+    "problem": "离散视觉token如何兼顾LLM理解与可生成图像的语义接口。",
+    "claim": "研究目标：离散视觉token如何兼顾LLM理解与可生成图像的语义接口。",
     "version": "SEED，2023",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L078",
     "canonical_key": "paper:arxiv:2307.08041",
     "evidence_history": [
@@ -4874,7 +4999,26 @@
     "aliases": [
       "local_umm_expanded:X006"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L078.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "用有限适配让 LLM 能看和画；tokenizer 的顺序和语义粒度成为核心设计变量",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§1–3方法与全部Tables1–3、§4–5结论；未核全部图/代码与未披露训练参数，未复现",
+    "review_path": "docs/reviews/L078.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "CC3M/Unsplash/COCO约5M图文；BLIP2/SD/OPT有先前预训，不可把全部知识成本仅计5M。已读正文未给足rank/优化器/码本规模等参数；后续SEED-LLaMA的8192不能未经来源反填本作。",
+    "framework": "BLIP2 causal QFormer32查询、VQ量化与ReverseQFormer77条件embedding映射到冻结SD；OPT LoRA学习图文双向AR。",
+    "architecture": "ViT/SD冻结，causalQFormer用已可见全图特征crossattn、query之间causal selfattn；码本+重建transformer恢复连续embedding余弦，reverseQFormer以MSE拟合SD文字特征。OPT2.7B frozen+LoRA，先I2T再I2T/T2I联合CE；并非直接像素重建或过程识别。",
+    "metrics": "COCO/Flickr30k retrieval R@K/mean，生成CLIP相似、COCO/NoCaps caption、VQA/GQA Top1；LLM T2I主要定性。",
+    "baselines": "像素VQVAE/BEiTv2 pilot，BLIP2OPT2.7B、GILL/SD；BLIP2文中129M与本作新增5M不是同预训练起点的公平消耗对照。",
+    "experimental_conditions": "Fig4作者报告64V100/44h；冻结ViT/UNet、分两阶段tokenizer与LLM LoRA。生成SD条件与真实图像输入/文字输入比较有信息差异；未找到完整采样/训练超参，不虚构。"
   },
   {
     "title": "Unified Language-Vision Pretraining in LLM with Dynamic Discrete Visual Tokenization",
