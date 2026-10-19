@@ -116,3 +116,7 @@ HermesFlow4997368 train_pairdpo.py549–554用两DPO加权和，和正式/预印
 ## 第二十八批：公开制品不等完整论文实现
 
 UniCalli固定README只勾选无pred_box base/生成推理/量化/数据，识别推理和训练未勾选；OnOff固定树仅2文件，仍为code/data coming soon。DeepCalliFont已公开训练脚本和配置，默认值不自动代表论文全部实验。Ketaba有正式ACL论文，同时HF适配器配置/训练信息独立核查；不可再归无论文工作。具体版本与范围见[专题](../evidence/calligraphy_video_text_order_and_ocr_protocols_2026-10-20.md)。
+
+## 第二十九批：数据卡、公开实例与推理入口交叉核
+
+Calligraphy Bench官方卡与公开88行不完全一致：82个不同Unicode字符、18个书家标签，39行declared stroke count与SVG/中线条数不同（SVG与中线条数一致）。这些是可复查元数据差异，尚未证明judge实际误计；每行见[审计JSON](../../data/calligraphy_bench_metadata_audit_2026-10-20.json)。CoFRIDA-Sharpie YAML与正文列两个不同base，未下载权重，无法判定实际base。VidSketch公开代码计算abstractness却未把分数接入pipe参数，不把论文的自适应机制自动等同当前公开入口。见[专题](../evidence/unified_video_static_text_sketch_and_resource_mismatches_2026-10-20.md)。

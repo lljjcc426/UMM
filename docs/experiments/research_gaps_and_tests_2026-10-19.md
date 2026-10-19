@@ -102,3 +102,7 @@ L186图拓扑/宽度/机器人执行和N08分层O2O/书写动力学均已有研�
 ## 已有同图改序控制与指标冲突
 
 [L011 Draw This First](../reviews/L011.md)已经固定图像/seed、改caption来检验order，区域τ.838、part.461、pass.444，withinunit较低，必须作为直接前史。下一实验应细到strokeID/方向/抬笔并同时统计碎片/漏笔，不能只复做粗区域顺序。OnOff的CVL图像FID改善同时CER变差；文字/字形/顺序/执行分别评，报告Pareto。VidScribe A2为空间字形拓扑，VTR最清楚出现的WER没有覆盖完整时序，加入终态同形换序/反向/重画反例。[专题](../evidence/calligraphy_video_text_order_and_ocr_protocols_2026-10-20.md)列已有实验与待验证的真正增量。
+
+## 统一接口、自适应控制与指标分母
+
+UniVideo冻结MLLM的理解成绩不能证明联合训练改善理解；Lance图像OCR GRPO不能直接证明视频逐帧持字改进。共享/分离模型需固定数据/总参/compute、prompt改写与采样预算，分别报告理解、生成、笔画事件和执行指标。VidSketch公开入口固定adapter强度，新增固定、论文阈值、实际自适应三组对照前先补完整版本。Calligraphy Bench笔顺分母为匹配笔画X，漏笔可能不受该项惩罚，应同时报N、X、Y和全目标归一Y/N；39行count差异先逐项追源，不能直接把现有评分判错。

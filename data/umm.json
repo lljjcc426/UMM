@@ -2953,22 +2953,25 @@
     "title": "UniVideo",
     "source_urls": [
       "https://arxiv.org/html/2510.08377v2",
-      "https://github.com/KlingAIResearch/UniVideo"
+      "https://github.com/KlingAIResearch/UniVideo",
+      "https://arxiv.org/pdf/2510.08377v4",
+      "https://openreview.net/forum?id=EDCJTaR9bk",
+      "https://github.com/KlingAIResearch/UniVideo/tree/893c9da04b87fdf5099e8e0e9ef164bca6753327"
     ],
-    "method": "冻结Qwen2.5-VL-7B，经连接器条件化HunyuanVideo-13B并结合稠密视觉条件。",
-    "conclusion": "提供理解引导视频任务的组装式实现，适合与原生共享系统比较。",
-    "gap": "理解主干冻结，不能把其理解分数或生成改进当作联合共享训练收益；未验证中文笔顺。",
-    "problem": "视频生成器难以统一利用复杂多模态语义和视觉条件。",
-    "claim": "以统一框架连接视频理解、生成与编辑任务。",
-    "version": "arXiv:2510.08377v2",
+    "method": "冻结Qwen2.5VL的语义分支与HunyuanVideoMMDiT/VAE细节分支对接；三阶段对齐/精调/多任务，直接hidden和512query两种条件接口。 Qwen2.5VL7B+HunyuanVideoT2V13B，去原文字encoder/CFGdistillation embedding；4×扩张MLP；参考latent统一padding沿时间拼接，3DRoPE只递增时间保空间。hidden版无MLLM反传；query版512查询与text hidden，参数冻结但训练query需穿MLLM反传，显存与推理token有不同成本。不能把7B当整系统总参数。",
+    "conclusion": "v4 VBench83.48（v2为82.58，不混用）；GenEval原prompt.53/rewriter.69，均低BAGEL.82；ImgEdit3.83<GPT4o4.20。incontext单ID SC.88/多ID.81，但多ID VQ.85<Kling.95。删除PSNR17.980弱VideoPainter22.987，styleCSD.228弱StyleMaster.306；不能称每维最佳。",
+    "gap": "AppF明确过编辑、原运动保留差、freeform成功低于image；非原生端到端训练。20case手选外推有限，置信区间/标注一致性未全核；推理重写使指标可变。公开TRAINING例用RefVIE reference配Ditto fallback视频，只演示分支，不能当真实RefVIE语义监督或原论文数据复现。",
+    "problem": "如何让同一视频系统解释多模态指令并执行生成、主体条件生成、编辑和未见任务组合？",
+    "claim": "研究目标：如何让同一视频系统解释多模态指令并执行生成、主体条件生成、编辑和未见任务组合？",
+    "version": "UniVideo: Unified Understanding, Generation, and Editing for Videos；ICLR2026正式版本已核；主要分析arXiv2510.08377v4（2026-07-03），v2仅作历史对照",
     "scope": "umm",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-16",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-16",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 A",
     "id": "L026",
     "canonical_key": "paper:arxiv:2510.08377",
@@ -3010,30 +3013,51 @@
       "local_focused:M039",
       "local_handwriting:R39"
     ],
-    "note_path": "docs/experiments/stroke_order_pilot.md",
-    "sections_read": "v2架构与训练；官方代码说明"
+    "note_path": "docs/reviews/L026.md",
+    "sections_read": "v4 §2/3.1–3.4、Tables1–7、AppD1/E/F/G1指定段；Fig2 PDFp3已视觉核；v2训练与数据表历史对照。固定代码893c9da的README/TRAINING/EVAL/hiddenyaml已读；AppG其余数据、完整test细目、所有实现仍待后续，不计完整三遍",
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v2架构与训练；官方代码说明",
+        "conclusion": "提供理解引导视频任务的组装式实现，适合与原生共享系统比较。",
+        "gap": "理解主干冻结，不能把其理解分数或生成改进当作联合共享训练收益；未验证中文笔顺。",
+        "note_path": "docs/experiments/stroke_order_pilot.md"
+      }
+    ],
+    "review_path": "docs/reviews/L026.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "v2报告O(40)M图/O(10)M视频及多种O(10)K任务，v4主文未再给该数量表，不能当新版已核规模。v4 AppG：Qwen识别主体→GroundingDINO首帧框面积10–60%→SAM2可见筛选→自训1B inpainter造swap/add/delete配对，人工三维过滤；公开VIVID10M训练inpainter，图编辑依多源数据。评测VBench946prompt，incontext20case单/多ID各10，UNICBench四类。",
+    "framework": "冻结Qwen2.5VL的语义分支与HunyuanVideoMMDiT/VAE细节分支对接；三阶段对齐/精调/多任务，直接hidden和512query两种条件接口。",
+    "architecture": "Qwen2.5VL7B+HunyuanVideoT2V13B，去原文字encoder/CFGdistillation embedding；4×扩张MLP；参考latent统一padding沿时间拼接，3DRoPE只递增时间保空间。hidden版无MLLM反传；query版512查询与text hidden，参数冻结但训练query需穿MLLM反传，显存与推理token有不同成本。不能把7B当整系统总参数。",
+    "metrics": "MMB/MMMU/MMVet为冻结MLLM成绩；GenEval、ImgEdit/GEdit、VBench16维；身份CLIPI/DINOI、promptCLIP、删除PSNR/RefVideoCLIP、styleCSD/ArtFID；人评PF/SC/VQ取0/.5/1，≥3标注者。身份、通用稳定分均不评价规范stroke事件。",
+    "baselines": "VACE、Kling1.6、Pika2.2、UNIC、AnyV2V、VideoPainter、StyleMaster；image对照BAGEL/OmniGen2/AnyEdit等。mask条件和instruction条件不同；作者称所有baseline需mask须逐实现再查，不能全盘外推。",
+    "experimental_conditions": "v4 Table7三阶段15K/5K/15K，AdamW .9/.95 eps1e-15、lr1e-4/2e-5/2e-5、constant、wd0、clip1、warm50、后两EMA.9999、shift5；gen后两≤129帧480–854，understanding≤4帧。表Stage1只1帧却文字含T2V，含义待原配置对齐。32H100来自v2，v4所读条件未重确认；总batch/耗时未全核。当前公开hidden yaml参考video仅2帧、shift7，不能替代paper配置。"
   },
   {
     "title": "Lance: Unified Multimodal Modeling by Multi-Task Synergy",
     "source_urls": [
       "https://arxiv.org/html/2605.18678v1",
       "https://github.com/bytedance/Lance",
-      "https://github.com/bytedance/Lance/blob/main/train.md"
+      "https://github.com/bytedance/Lance/blob/main/train.md",
+      "https://arxiv.org/pdf/2605.18678v1",
+      "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train.md",
+      "https://huggingface.co/bytedance-research/Lance/tree/7395315758865e6f56ab87ad06a88c7ac172f056"
     ],
-    "method": "3B激活参数，双流专家与共享交错上下文、模态RoPE；文字CE＋视觉FM；继承Qwen2.5-VL和Wan2.2 VAE。",
-    "conclusion": "已公开视频检查点及理解/生成/联合微调入口，可作为过程联合训练底座候选。",
-    "gap": "官方要求CUDA 12.4+、至少40GB显存推理；不等于训练需求。VBench成绩不证明中文事件能力；本项目未运行。",
-    "problem": "跨模态任务协同、细节生成与统一上下文建模。",
-    "claim": "以原生统一架构支持图像/视频理解、生成与编辑。",
-    "version": "arXiv:2605.18678v1；官方代码核查于2026-10-16",
+    "method": "同一interleaved context上的理解/生成两专家，AR CE+连续FM MSE，MaPE时间轴模态偏移及PT/CT/SFT/RL配比课程。 Qwen2.5VL3B初始化ViT及两decoder专家；Wan2.2 3D causalVAE空间16×/时间4×压缩，MLP投影；segment对之前clean可见，text段因果、visual段双向。FM xt=t*x1+(1-t)*x0，速度目标x1-x0；MaPE对ViT/clean/noisy组仅加时间offset保空间及组内时差。全文称fromscratch却§3.2/5.1明确pretrained weights初始化，须保留该定义歧义。",
+    "conclusion": "GenEval.90与TUNA并列，DPG84.67低TUNA86.76/Qwen88.32。VBenchTotal85.11，MVBench62.0，GEdit7.30；textmodification4.46相对弱。视频subject/background94.52/94.28低若干对照，不能把总分胜利推广每维。",
+    "gap": "未完整交代Table9等token/阶段/原始数据量控制；total参数/总训练小时/数据来源缺口限制效率归因。RL仅imageOCR，没有videoaware reward。原生fromscratch与初始化词义冲突；不应省去预训练成本。",
+    "problem": "在较小激活参数与有限并行GPU下，能否通过多任务协作统一图/视频理解、生成、编辑？",
+    "claim": "研究目标：在较小激活参数与有限并行GPU下，能否通过多任务协作统一图/视频理解、生成、编辑？",
+    "version": "Lance: Unified Multimodal Modeling by Multi-Task Synergy；arXiv2605.18678v1；未核实正式会议接收",
     "scope": "umm",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-16",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-16",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 A，前轮资料",
     "id": "L028",
     "canonical_key": "paper:arxiv:2605.18678",
@@ -3092,8 +3116,26 @@
       "local_handwriting:R42",
       "local_umm_expanded:X055"
     ],
-    "note_path": "docs/experiments/stroke_order_pilot.md",
-    "sections_read": "v1架构、初始化、训练及视频结果；官方README、train.md、train_dataset.md"
+    "note_path": "docs/reviews/L028.md",
+    "sections_read": "v1 §3–7、Tables2–5/9/10、VBench/理解主表指定列；Fig6 PDFp9已视觉核。固定代码4baeee的README/train.md/train_dataset.md/unified数据yaml、HF7395315的配置/llm配置已读；全专家源码/GRPO实现未审，不计完整三遍",
+    "review_history": [
+      {
+        "verification": "primary_sections_read",
+        "checked_on": "2026-10-16",
+        "sections_read": "v1架构、初始化、训练及视频结果；官方README、train.md、train_dataset.md",
+        "conclusion": "已公开视频检查点及理解/生成/联合微调入口，可作为过程联合训练底座候选。",
+        "gap": "官方要求CUDA 12.4+、至少40GB显存推理；不等于训练需求。VBench成绩不证明中文事件能力；本项目未运行。",
+        "note_path": "docs/experiments/stroke_order_pilot.md"
+      }
+    ],
+    "review_path": "docs/reviews/L028.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "PT图文1B/视频文140M，caption/generation复用来源不累加成独立数据；CT understanding2.73M、imageedit2.8M/subject3.6M、videoedit2.6M/subject1M；SFT HQimage190K+edit84K、video5K/edit9K/subject5.5K。RL20K文字约束prompt。大规模来源组成与去重未完全公开。",
+    "framework": "同一interleaved context上的理解/生成两专家，AR CE+连续FM MSE，MaPE时间轴模态偏移及PT/CT/SFT/RL配比课程。",
+    "architecture": "Qwen2.5VL3B初始化ViT及两decoder专家；Wan2.2 3D causalVAE空间16×/时间4×压缩，MLP投影；segment对之前clean可见，text段因果、visual段双向。FM xt=t*x1+(1-t)*x0，速度目标x1-x0；MaPE对ViT/clean/noisy组仅加时间offset保空间及组内时差。全文称fromscratch却§3.2/5.1明确pretrained weights初始化，须保留该定义歧义。",
+    "metrics": "GenEval、DPGBench、VBench16维/Total、GEdit、MVBench20task；PaddleOCR RLreward。无专门规范笔顺、绘画动作或逐帧文字生成指标；OCR图像reward不能证明video时序。",
+    "baselines": "BAGEL/TUNA/Showo2/InternVLU等统一；QwenImage/FLUX/Wan/Hunyuan等专用；闭源GPTImage/NanoBanana。表中UniVideo写7B，但其生成13B分支存在，参数比较需统一口径；各模型数据/算力/重写不同。",
+    "experimental_conditions": "最多128A100为作者报告，不等价总GPU小时小。PT350K/CT80K/SFT15K/RL800步，1.5T/300B/72B/.5B seen tokens；lr1e-4/1e-4/2.5e-5/2e-6、AdamW .9/.95 eps1e-15 wd0 clip1；CE:MSE .25:1/.5:1/.25:1；global videoGen/Und/imageGen/Und64:16:16:4，CT多任务比渐增。推理图768²/video480p12fps CFG4；实际NFE/全实验采样预算未全核。"
   },
   {
     "title": "Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities",

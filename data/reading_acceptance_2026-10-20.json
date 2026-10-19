@@ -1057,6 +1057,230 @@
         }
       ],
       "boundary": "本次为指定原文、框架和书面理解核对；完整附录/代码仍有明确缺项，未计时口试、未独立复现，不计完整三遍完成。"
+    },
+    {
+      "id": "L026",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "UniVideo希望共享MLLM语义接口处理视频理解、生成和多种编辑。独立任务管线难共享接口，但冻结MLLM意味着不能据理解成绩归因联合训练收益。",
+          "evidence": "v4 Abstract/Introduction。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "v4 Fig2的Qwen2.5VL语义hidden经四层MLP送Hunyuan MMDiT，参考帧VAE latent与噪声视频沿时间拼接并用RoPE错开；生成RGB，理解仍由冻结MLLM输出。",
+          "evidence": "v4 PDFp3 Fig2视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "核心是统一语义/视觉条件接口和多任务后训练；hidden与512-query变体均发布，query训练需经过冻结MLLM反传，参数冻结不等于没有activation成本。",
+          "evidence": "§3/附录hidden-query及固定README/TRAINING/EVAL/config。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "v4 VBench83.48与v2 82.58分开；GenEval原prompt.53、改写.69均低BAGEL.82。Table6多任务PF.64→.80，去MMDiT视觉条件SC.78→.18；不同数据量和骨干比较仍有混杂。",
+          "evidence": "v4 Tables1/6/7，v2差异单列。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：固定数据/训练compute，统一任务到底增益多少？疑问2：论文shift5/最多4理解帧与公开示例shift7/2帧如何对应？疑问3：静态文字/理解成绩是否迁移逐笔事件？Lance和已有UMM已共享接口，应比较任务、总参和真实预算。",
+          "evidence": "AppD/F、固定实现示例，未完整训练源码审查。"
+        }
+      ],
+      "boundary": "五项书面理解记录；没有计时口试或模型复现。指定章节、框架和代码已核，附录/日志/版本差异仍有缺项，不计完整三遍完成。"
+    },
+    {
+      "id": "L028",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "Lance尝试用同一交错上下文承担视频理解、生成和编辑，避免完全独立专家的信息隔离，同时面对多任务训练比例和算力分配问题。",
+          "evidence": "v1 Introduction/训练阶段。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig6语义token与Wan2.2 VAE latent token分别进两expert，共享交错上下文；段间因果、视觉段内双向、文字段内因果，FM预测视频velocity，语言head生成文本。",
+          "evidence": "PDFp9 Fig6视觉核及§方法。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "关键为交错统一表示、专家路由和MaPE时间位置对齐；两decoder/ViT由Qwen2.5VL3B初始化，摘要from scratch需限定，3B active不能等同总参数。",
+          "evidence": "共享上下文/掩码/MaPE公式与固定训练文档。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "VBench85.11，GenEval.90与TUNA持平；Table9加理解比例后生成和理解存在不同峰值，6:4的MV58.95低8:2的59.18。Table10 MaPE同时提升数项，但无多seed置信区间。",
+          "evidence": "Tables9/10和主表。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：同数据/总参数/compute时专家结构是否仍优？疑问2：图像OCR GRPO能否迁移视频持字/笔事件？疑问3：debug repeat256和不支持validation的公开微调示例能否直接复现论文？UniVideo等已共享MLLM接口，比较不能仅依据unified名称。",
+          "evidence": "训练比例/图像RL范围、代码示例与论文条件。"
+        }
+      ],
+      "boundary": "五项书面理解记录；没有计时口试或模型复现。指定章节、框架和代码已核，附录/日志/版本差异仍有缺项，不计完整三遍完成。"
+    },
+    {
+      "id": "L175",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "XMPFont解决少参考图的字体风格迁移，利用已知笔画类型顺序作为跨模态预训练监督，帮助图像encoder学结构；输出仍为静态字图。",
+          "evidence": "正式CVPR主文。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "正式PDF Fig2图像CNN产生64token，笔画类别与位置token进入跨模态BERT补全；下游冻结encoder，ECA分离风格/内容后decoder生成字图，LSTM特征提供结构损失。",
+          "evidence": "正式PDFp4 Fig2视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "创新在掩码跨模态预训练、特征解耦和stroke-aware目标组合；输入笔画类别序列没有位置/真实时间，不能据此声称生成笔顺视频。",
+          "evidence": "§3与arXiv补充结构表。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "正式主表未见字体FID36.80优DG53.04，用户偏好.8748比MX.5906高28.42百分点。消融无stroke loss为41.60、无ECA45.45、4×4feature56.51；分别支持特定协议下各模块。",
+          "evidence": "正式实验主表及消融。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：§3.4的30训练字体与§4.1的100如何对应？疑问2：共享stroke predictor作loss/评价会否偏向已知类别？疑问3：未知笔型/文字体系如何扩展？DeepCalliFont/字体轨迹方法已利用结构，需继续比较真实坐标和类别先验。",
+          "evidence": "正式§3.4/4.1和作者未见笔型限制。"
+        }
+      ],
+      "boundary": "五项书面理解记录；没有计时口试或模型复现。指定章节、框架和代码已核，附录/日志/版本差异仍有缺项，不计完整三遍完成。"
+    },
+    {
+      "id": "L176",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "本文研究怎样让LVLM有效读取已有在线手写轨迹；静态图丢失输入顺序，原始轨迹token又长且不适配既有视觉语义表示。任务为识别，未生成新轨迹。",
+          "evidence": "v1主文。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "图中轨迹先按固定时间间隔重采样和量化，文字坐标串与编码时间/距离的RGB图共同送PaLI/PaLME，输出Unicode或LaTeX；没有从离线字图恢复真实轨迹的模块。",
+          "evidence": "PDFp4 Figs2/3输入处理图视觉核；模型图以正文结构解析。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "核心是输入表示与图文互补，时间色和两轴距离色提供过程信息；删除抬笔间隔、颜色无符号距离会损信息，不能解释成保留完整动力学。",
+          "evidence": "轨迹表示公式/AppB/D/E/F指定段。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "PaLI三任务CER4.47/3.04/4.39，越南文仍不优MyScript2.91。图像单路8.07到双路4.55；512长轨迹10.65到双路5.89。三次运行表述为variance，不能直接改写标准差。",
+          "evidence": "主表及单路/双路/表示消融。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：重采样Δt/量化对极快短笔和抬笔的影响？疑问2：同token/compute时双路收益是否仍在？疑问3：混训数学4.36→4.47退化说明何种负迁移？传统CTC、MyScript及其他在线识别必须保留为强基线。",
+          "evidence": "预处理、混训与现有识别对照；Δt/lr/rank仍待核。"
+        }
+      ],
+      "boundary": "五项书面理解记录；没有计时口试或模型复现。指定章节、框架和代码已核，附录/日志/版本差异仍有缺项，不计完整三遍完成。"
+    },
+    {
+      "id": "L177",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "PaintFlow面向画家用mask、草图、参考图逐步编辑当前画布；独立语义或风格条件难同时保留局部内容和整幅笔触。每步输出完成后的静态画布。",
+          "evidence": "v1主文。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2的画布latent、mask和sketch通道拼接进SD UNet，冻结OpenCLIP参考图特征经query融合为crossattention条件；推理混合文字并用AdaIN风格控制，输出局部修订图。",
+          "evidence": "PDFp3 Fig2视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "贡献是局部语义与整图风格条件分离、训练数据自动构造及交互流程；训练文本crossattention关闭与图注、可学习lambda的来源仍待核。",
+          "evidence": "方法参考/文字条件与训练细节。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "full FID234.27优Magic258.35，去text/semantic/style为260.91/249.63/279.80；35人排序均值1.57/1.66/1.54支持选定样例偏好，不能外推真实创作效率或所有生成分布。",
+          "evidence": "主表、user study与模态消融。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：合成油画sketch/mask域迁移到真实画家分布怎样？疑问2：参考输入和调参预算相同会否保留优势？疑问3：修改可删除/重画时如何定义过程正确性？CoFRIDA、VideoSketcher等任务输出不同，不能把多轮静态编辑直接归逐笔视频。",
+          "evidence": "数据合成流程及交互边界；正式接收尚无独立主办证据。"
+        }
+      ],
+      "boundary": "五项书面理解记录；没有计时口试或模型复现。指定章节、框架和代码已核，附录/日志/版本差异仍有缺项，不计完整三遍完成。"
+    },
+    {
+      "id": "L179",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "UMText针对设计图文字语义布局和字形渲染难兼顾，先用多模态模型规划内容/位置，再给扩散渲染器提供字符级条件和识别导向目标。",
+          "evidence": "arXiv v1；正式AAAI metadata独立核。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig3 Qwen2.5VL3B Designer生成内容/布局/隐式属性，单字80×80OCR视觉与T5上下文经connector组成UMEmbedding送FLUXFill，FM生成静态设计图。",
+          "evidence": "PDFp3 Fig3视觉核。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "贡献为设计规划、字符视觉/语义条件与RCL/RCI联合；RCL是maskvelocity目标，RCI含RGB/Canny边缘，硬Canny梯度如何传播仍需实现，不能凭公式认定可微或无效。",
+          "evidence": "§方法RCL/RCI/embedding。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "AnyWord EN句准确.8553/ZH.7988；UDiff重建LPIPS.0479劣DreamText.0328，与论文lower叙述冲突。Table4逐项加条件EN.309→.759→.782→.799→.824，需按准确值表述。",
+          "evidence": "主表与Table4；正式版技术差异尚未读。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：Designer训练用了产品域，所谓域外适用如何界定整个系统？疑问2：共用Designer布局的比较能否证明其规划优于其他Planner？疑问3：固定最终字图条件能否表达笔序？AnyText/DreamText/字体结构方法及视频文字工作均需按输入和评价分开。",
+          "evidence": "Designer数据与共享布局协议、公式实现缺项。"
+        }
+      ],
+      "boundary": "五项书面理解记录；没有计时口试或模型复现。指定章节、框架和代码已核，附录/日志/版本差异仍有缺项，不计完整三遍完成。"
+    },
+    {
+      "id": "S004",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "VidSketch用稀疏草图关键帧控制自然动画，试图处理草图抽象程度差异和跨帧不一致；生成内容不是草图线条被画出的过程。",
+          "evidence": "v2主文及AppA。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "v2 Fig3固定首帧latent，时间inflated T2IAdapter接sketch，TSA以当前Q关注首/次/前帧KV，再由视频UNet去噪。公开训练noise后恢复首帧且loss排首帧，推理仅更新后续帧。",
+          "evidence": "v2 PDFp3 Fig3视觉核；固定训练/推理指定源码。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "方法提出抽象度自适应adapter强度/时间门控和时间锚；当前公开入口算final_score却硬编码tau=.5/scale=.65，轮廓数代替论文GLCM，须区分论文机制和代码已实现范围。",
+          "evidence": "AppA4与固定inference.py/pipeline门控。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1 Pick27.6低T2I28.2，MSE17.24优17.5；LBSC独立样本组MSE13.83→13.41但motion99.6→99.5。Table2 aesthetic47.92为12case和，约3.99/5。",
+          "evidence": "主表与LBSC/TSA消融，分组分开。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "疑问1：移除固定阈值和输入缩放后SC是否稳定？疑问2：同训练预算跨action/绘者会否仍优？疑问3：公开硬编码入口和论文自适应消融实际用了哪个版本？AniSketch等草图动画与绘制过程视频任务必须界定，不能混为同一种监督。",
+          "evidence": "阈值/抽样/跨action及公开实现差异。"
+        }
+      ],
+      "boundary": "五项书面理解记录；没有计时口试或模型复现。指定章节、框架和代码已核，附录/日志/版本差异仍有缺项，不计完整三遍完成。"
     }
   ]
 }

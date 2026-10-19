@@ -114,3 +114,7 @@ LatentUMM固定E*两输入距离对UMM参数无梯度；指定代码通过可训
 ## 代理真值、检索空间与顺序参数化
 
 Ketaba附录以集成输出为PseudoGT分析个体，无法据此独立证明集成每行正确；官方隐藏GT成绩与该诊断分开。UniCalli内容latent最近邻字库依字库覆盖和位置切分，公开base与论文三模态版本不同。DrawThisFirst的累计弧长、OnOff点距压力proxy与真实时间/力不同；再参数化和采样密度可能改proxy而终态不变，应通过保持几何的干预检验。
+
+## 条件数据、可微路径与评价分母
+
+UMText RCI含传统Canny，需追实现确认哪些路径停止梯度、哪些保持可微，不能单凭损失名推论优化有效。Calligraphy Bench SVG/中线来自Make Me a Hanzi而书家图像来自独立图像库，canonical轨迹与书法变体未必逐笔等价。L176将时间/距离编码颜色但去掉抬笔间隔，XMPFont类别顺序不含坐标，二者均不能自动恢复真实动作。

@@ -299,6 +299,15 @@
 | N09 | [Text-Animator: Controllable Visual Text Video Generation](N09.md) | v1 §3.1–3.4/§4.1–4.5、Tables1–3与Conclusion，Fig2 PDFp4视觉核。未审完整code、OCR/FID/相机配置和实际视频原片，未复现 |
 | L011 | [Draw This First](L011.md) | v1 §3.1–3.4/§4.1–4.3/§5–6，Tables1–9、AppA–F指定公式/算法/协议段，Fig1 PDFp3视觉核；未逐图核所有定性样例或审全部代码，未复现 |
 | S001 | [Ketaba-OCR at AR-MS NakbaNLP 2026](S001.md) | ACL正式PDF§2–6与AppA–H指定协议/全部Tables1–10，Arabic原文受文本提取字形影响，未逐字翻译判读；官方固定GitHub YAML/README及HF元数据另核。未运行模型，未独立读取隐藏GT GitHub YAML/README、train_model/preprocess_sample、ensemble.normalization/voting指定函数及HF README/adapter_config/training_info已审。 |
+| L026 | [UniVideo](L026.md) | v4 §2/3.1–3.4、Tables1–7、AppD1/E/F/G1指定段；Fig2 PDFp3已视觉核；v2训练与数据表历史对照。固定代码893c9da的README/TRAINING/EVAL/hiddenyaml已读；AppG其余数据、完整test细目、所有实现仍待后续，不计完整三遍 |
+| L028 | [Lance: Unified Multimodal Modeling by Multi-Task Synergy](L028.md) | v1 §3–7、Tables2–5/9/10、VBench/理解主表指定列；Fig6 PDFp9已视觉核。固定代码4baeee的README/train.md/train_dataset.md/unified数据yaml、HF7395315的配置/llm配置已读；全专家源码/GRPO实现未审，不计完整三遍 |
+| L044 | [CalligraphyBench](L044.md) | 固定HFREADME/API树；datasetsserver全部88行元数据/几何长度检查；网站首页catalog/detailJS内TaskSetup/Scoring/来源与tool协议。未执行工具、未人工读全88参考图、未重评分，状态仅资源协议审查 |
+| L175 | [XMP-Font: Self-Supervised Cross-Modality Pre-training for Few-Shot Font Generation](L175.md) | 正式CVPR§1/3/4/5、Tables1/2，Fig2 PDFp4已视觉核；arXivv1网络结构附录Table3–5指定段。未获取/审完补充代码及所有字体切分，不计完整三遍 |
+| L176 | [Representing Online Handwriting for Recognition in Large Vision-Language Models](L176.md) | v1§1–6、Tables1–10、AppB/D/E/F指定段；Fig2/3 PDFp4已视觉核。完整采样间隔、优化器/LoRA配置和代码未核，不计完整三遍 |
+| L177 | [PaintFlow: A Unified Framework for Interactive Oil Paintings Editing and Generation](L177.md) | v1主文Method/Experiments/Conclusion、Table1、supp interface/Algorithm2/ExperimentSettings/UserStudy/Table2；Fig2 PDFp3已视觉核。SBR具体版本、代码、全部结果图/物理执行未核，不计完整三遍 |
+| L179 | [UM-Text: A Unified Multimodal Model for Image Understanding and Visual Text Editing](L179.md) | v1§1–5、Tables1–4；Fig3 PDFp3已视觉核；AAAI官方页面出版元数据核。正式PDF技术差异、源代码与完整UMT协议仍未审，不计完整三遍 |
+| S004 | [VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control](S004.md) | v1 Method/主表/ablation/AppA/B指定段，v2对应方法、Table1和AppA4；Fig3 v2PDFp3视觉核；固定ad7fcdb README、VidSketch/inference.py抽象度/参数调用、train_vidsketch.py配置默认及noise/loss段、configs/candles.yaml全文件、inference/pipelines/pipeline_VidSketch.py adapter门控/scheduler指定段。未审全部模型源码和论文实验日志，不计完整三遍 |
+| H001 | [CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品](H001.md) | 固定HF README/API文件树、现存H001制品卡及F04关联；未加载或运行权重，仅资源协议审查 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

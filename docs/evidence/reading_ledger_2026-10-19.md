@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 334 条，本批有 325 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 334 条，本批有 334 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -130,9 +130,9 @@
 | L023 | DiffBrush，ICCV 2025 | primary_sections_read | [结构化分析](../reviews/L023.md) | 未完成 |
 | L024 | Learning to Compose Stylistic Calligraphy Artwork with Emotions，ACM MM 2021 | primary_sections_read | [结构化分析](../reviews/L024.md) | 五项检查已记录 |
 | L025 | AnyText，2023/2024 | primary_sections_read | [结构化分析](../reviews/L025.md) | 未完成 |
-| L026 | UniVideo | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| L026 | UniVideo | primary_sections_read | [结构化分析](../reviews/L026.md) | 五项检查已记录 |
 | L027 | UniVid，2025 | primary_sections_read | [结构化分析](../reviews/L027.md) | 未完成 |
-| L028 | Lance: Unified Multimodal Modeling by Multi-Task Synergy | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| L028 | Lance: Unified Multimodal Modeling by Multi-Task Synergy | primary_sections_read | [结构化分析](../reviews/L028.md) | 五项检查已记录 |
 | L029 | Think in Strokes, Not Pixels，2026 | primary_sections_read | [结构化分析](../reviews/L029.md) | 未完成 |
 | L030 | Where a New Concept Must Enter，2026 | primary_sections_read | [结构化分析](../reviews/L030.md) | 未完成 |
 | L031 | Do Unified Multimodal Models Think in One Space?，2026 | primary_sections_read | [结构化分析](../reviews/L031.md) | 未完成 |
@@ -148,7 +148,7 @@
 | L041 | DragAnything，2024 | primary_sections_read | [结构化分析](../reviews/L041.md) | 未完成 |
 | L042 | TextVBench，2026 | primary_sections_read | [结构化分析](../reviews/L042.md) | 未完成 |
 | L043 | ViTeX-Bench，2026 | primary_sections_read | [结构化分析](../reviews/L043.md) | 未完成 |
-| L044 | CalligraphyBench | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| L044 | CalligraphyBench | primary_sections_read | [结构化分析](../reviews/L044.md) | 未完成 |
 | L045 | CalliReader / CalliBench，ICCV 2025 | primary_sections_read | [结构化分析](../reviews/L045.md) | 未完成 |
 | L046 | AWCV100K | primary_sections_read | [结构化分析](../reviews/L046.md) | 未完成 |
 | L047 | Recontextualizing Revitalization: A Mixed Media Approach to Reviving the Nüshu Language（NüshuVision / NüshuStrokes） | primary_sections_read | [结构化分析](../reviews/L047.md) | 未完成 |
@@ -279,18 +279,18 @@
 | L172 | OmniCorpus: A Unified Multimodal Corpus of 10 Billion-Level Images Interleaved with Text | primary_sections_read | [结构化分析](../reviews/L172.md) | 未完成 |
 | L173 | CoMM: A Coherent Interleaved Image-Text Dataset for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L173.md) | 未完成 |
 | L174 | ShareGPT-4o-Image: Aligning Multimodal Models with GPT-4o-Level Image Generation | primary_sections_read | [结构化分析](../reviews/L174.md) | 未完成 |
-| L175 | XMP-Font: Self-Supervised Cross-Modality Pre-training for Few-Shot Font Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| L176 | Representing Online Handwriting for Recognition in Large Vision-Language Models | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| L177 | PaintFlow: A Unified Framework for Interactive Oil Paintings Editing and Generation | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| L175 | XMP-Font: Self-Supervised Cross-Modality Pre-training for Few-Shot Font Generation | primary_sections_read | [结构化分析](../reviews/L175.md) | 五项检查已记录 |
+| L176 | Representing Online Handwriting for Recognition in Large Vision-Language Models | primary_sections_read | [结构化分析](../reviews/L176.md) | 五项检查已记录 |
+| L177 | PaintFlow: A Unified Framework for Interactive Oil Paintings Editing and Generation | primary_sections_read | [结构化分析](../reviews/L177.md) | 五项检查已记录 |
 | L178 | Drawing and Recognizing Chinese Characters with Recurrent Neural Network | primary_sections_read | [结构化分析](../reviews/L178.md) | 五项检查已记录 |
-| L179 | UM-Text: A Unified Multimodal Model for Image Understanding and Visual Text Editing | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| L179 | UM-Text: A Unified Multimodal Model for Image Understanding and Visual Text Editing | primary_sections_read | [结构化分析](../reviews/L179.md) | 五项检查已记录 |
 | L180 | Painter: Teaching Auto-Regressive Language Models to Draw Sketches | primary_sections_read | [结构化分析](../reviews/L180.md) | 未完成 |
 | L181 | Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding | primary_sections_read | [结构化分析](../reviews/L181.md) | 未完成 |
 | N14 | SteerVTE: Seamless Video Text Editing with Style and Glyph Control | primary_sections_read | [结构化分析](../reviews/N14.md) | 未完成 |
 | S001 | Ketaba-OCR at AR-MS NakbaNLP 2026 | primary_sections_read | [结构化分析](../reviews/S001.md) | 未完成 |
 | S002 | TextDiffuser: Diffusion Models as Text Painters | primary_sections_read | [结构化分析](../reviews/S002.md) | 五项检查已记录 |
 | S003 | GlyphControl: Glyph Conditional Control for Visual Text Generation | primary_sections_read | [结构化分析](../reviews/S003.md) | 未完成 |
-| S004 | VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| S004 | VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control | primary_sections_read | [结构化分析](../reviews/S004.md) | 五项检查已记录 |
 | S007 | Brush Calligraphy Stroke Segmentation Dataset (BCSS) | primary_sections_read | [结构化分析](../reviews/S007.md) | 未完成 |
 | S008 | Wuji Writing VAM TI2V-5B 30L 0522 0819 | primary_sections_read | [结构化分析](../reviews/S008.md) | 未完成 |
 | S009 | AnimCJK | primary_sections_read | [结构化分析](../reviews/S009.md) | 未完成 |
@@ -333,7 +333,7 @@
 | G030 | Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G030.md) | 未完成 |
 | G031 | VBench: Comprehensive Benchmark Suite for Video Generative Models | primary_sections_read | [结构化分析](../reviews/G031.md) | 未完成 |
 | G032 | Towards Accurate Generative Models of Video: A New Metric & Challenges | primary_sections_read | [结构化分析](../reviews/G032.md) | 未完成 |
-| H001 | CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品 | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
+| H001 | CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品 | primary_sections_read | [结构化分析](../reviews/H001.md) | 未完成 |
 | L182 | STRIVE: Scene Text Replacement In Videos | primary_sections_read | [结构化分析](../reviews/L182.md) | 未完成 |
 | L183 | CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization | primary_sections_read | [结构化分析](../reviews/L183.md) | 未完成 |
 | L184 | Stroke-Seg: A deep learning-based framework for chinese stroke segmentation | primary_sections_read | [结构化分析](../reviews/L184.md) | 未完成 |

@@ -63,3 +63,17 @@
 | N09 TextAnimator | glyph/position/camera→场景文字video | 完整字符串动画与逐笔生成 |
 | L011 DrawThisFirst | 图/文指令→有序polyline | 区域/部件/笔粒度，弧长与时间/碎片 |
 | S001 Ketaba | 历史稿行图→Unicode转录 | 正式论文/模型制品、官方corpus与按行CER、PseudoGT |
+
+## 第二十九批：补齐九项真实任务接口
+
+| 工作 | 输入→输出 | 关键协议边界 |
+| --- | --- | --- |
+| L026 UniVideo | 多模态语义/视觉参考→视频；冻结MLLM理解 | v4与旧版、prompt改写、frozen理解和joint收益 |
+| L028 Lance | 交错文字/图/视频→文字或视觉latent | active/总参数、图像RL/视频、训练比例 |
+| L044 Calligraphy Bench | 参考书法+MCP工具→可编辑stroke画布→评分 | canonical几何/书家图像、匹配分母、计数差异 |
+| L175 XMPFont | 参考字图+类别序列预训→静态字体 | 类别顺序/真实时空、训练字体数 |
+| L176 LVLM在线识别 | 已知轨迹→坐标串/RGB→转录 | 识别/生成、重采样与时间信息丢失 |
+| L177 PaintFlow | 当前画布/mask/sketch/ref→新画布 | 静态局部编辑/真实绘制过程 |
+| L179 UMText | 多模态设计请求→布局条件→静态设计图 | 全pipeline域外、RCI实现、共同Planner |
+| S004 VidSketch | 草图关键帧+首帧→自然动画 | 草图动画/画草图过程、论文/硬编码入口 |
+| H001 CoFRIDA-Sharpie | 模型卡描述→编辑权重制品 | 基础模型字段冲突、实际机器人完整链未给 |
