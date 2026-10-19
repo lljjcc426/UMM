@@ -1,0 +1,16 @@
+{
+  "instance_ids": "0-based normative instance binding; actual order may violate this order",
+  "event_order": "array of observed instance IDs if unique actual order is confirmed; null otherwise",
+  "observed_ids": "instances actually detected in the observations; never completed from normative order",
+  "onset_intervals": "instance ID -> [previous observation index, first observed index]; empty for the scalar-order heads",
+  "confirmed_precedence": "directed pairs [earlier ID, later ID] supported by observations or explicitly marked as model-predicted",
+  "unresolved_order_groups": "instances sharing an unresolved onset interval; scalar-order heads use all observed IDs when unknown",
+  "uncertainty_reason": ["merged_onset_interval", "uncertain_onset_detection", "history_not_identified", null],
+  "recovery": "requires_missing_past_observations means future ink alone cannot establish the missing past relation; with history_not_identified it remains a generic request, not proof that past data were physically lost",
+  "geometry_state": "per-instance 0 absent / 1 partial / 2 full",
+  "progress": "raw continuous coverage prediction, independently evaluated from geometry_state",
+  "observation_confidence": "learned observability score, or deterministic Ledger evidence flag; not calibrated answer correctness",
+  "pen_lift_evidence": "unknown: no visible pen tip in this D0 set",
+  "decision": "shared deterministic rule D uses class-derived coverage; full action and first-error fields scored separately",
+  "scope": "T6 candidate H2 interface only; current visual onset and partial-order errors prevent reliable feedback use"
+}

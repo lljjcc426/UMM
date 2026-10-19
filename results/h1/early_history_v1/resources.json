@@ -1,0 +1,64 @@
+{
+  "UMM": {
+    "total_parameters": 3063740640,
+    "updated_parameters": 0,
+    "encoded_images": 983,
+    "encoding_seconds": 2657.6811651250005,
+    "seconds_per_new_image": 2.703643097787386,
+    "cache_disk_bytes": 2311236053
+  },
+  "A_B": {
+    "initial": "T4/spatial_best.pt",
+    "epochs": 12,
+    "selected_epoch": 4,
+    "updates": 3456,
+    "frame_exposures": 27600,
+    "parameters": 2122469,
+    "seconds": 403.6109534999996
+  },
+  "M1": {
+    "seed": 42,
+    "epochs": 12,
+    "selected_epoch": 12,
+    "updates": 156,
+    "video_exposures": 1200,
+    "supervised_state_times": 27600,
+    "parameters": 1104653,
+    "umm_updated_parameters": 0,
+    "seconds": 3.0023647079997318
+  },
+  "M2": {
+    "seed": 42,
+    "epochs": 12,
+    "selected_epoch": 11,
+    "updates": 156,
+    "video_exposures": 1200,
+    "supervised_state_times": 27600,
+    "parameters": 1107981,
+    "umm_updated_parameters": 0,
+    "seconds": 3.5087423750010203
+  },
+  "history_payload_bytes": {
+    "M1_current_instance_vectors": 3920,
+    "M2_full24_instance_vectors": 94080,
+    "M3_K4_instance_vectors": 15680,
+    "M3_K8_instance_vectors": 31360,
+    "M4_mean_ledger_JSON": 1437.91,
+    "M4_max_ledger_JSON": 1454
+  },
+  "cached_query_latency_ms": {
+    "M1": 0.17052200312011537,
+    "M2": 0.7940357623053308,
+    "M3_K4": 0.40264464811947237,
+    "M3_K8": 0.46965187648648105,
+    "M4_estimated_M1_plus_incremental": 0.22630700196675013
+  },
+  "resource_scope": "CPU fp32 cached heads, one pass including 108 test+diagnostic clips. Shared UMM, A+B, previous-frame scratch, hidden activations, Python overhead excluded from payload comparison. M4 latency sums two measured means, not end-to-end profiling.",
+  "oracle_latency": {
+    "M0_pixel_query_mean_seconds": 0.010293749614144568,
+    "M0_n": 324,
+    "M5_oracle_ledger_update_mean_seconds": 1.2433543220758123e-05,
+    "M5_n": 2592,
+    "scope": "Single deterministic replay, decoded observations / oracle onset state already supplied. Excludes disk decode and neural modules; M5 incremental update, M0 prefix reread. No learned model inference or training."
+  }
+}

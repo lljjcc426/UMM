@@ -1,11 +1,12 @@
 # 实验计划
 
-当前执行SO-01-V3-T6：[早期历史记忆协议](../experiments/h1_t6_early_history_protocol.md)。按T6-1至T6-5推进，冻结Show-o2，比较局部头、完整／短窗Transformer与在线事件表；不开展H2／H3。
+SO-01-V3-T6已完成：[早期历史记忆协议](../experiments/h1_t6_early_history_protocol.md)。T6-1至T6-5按序完成；冻结Show-o2，结论REVISE，优先显式记忆与起笔读取。见[完整决策](../../results/h1/early_history_v1/T6_DECISION.md)，本批停止训练，H2／H3未开展。
 
 当前沿固定分支按H1→H2→H3推进。H1-v3首批T1→T5完成，当前停止新增训练，见[协议](../experiments/h1_v3_protocol.md)与[决策](../../results/h1/event_v3/T5_DECISION.md)。细缺口继续独立保留。完整H1未通过，H2／H3未开始。
 
 | ID | 任务 | 当前状态 | 输入与主要对照 | 主要指标与判断条件 |
 |---|---|---|---|---|
+| SO-01-V3-T6 | 相同最近输入下的早期历史记忆 | 已完成，REVISE | 同一冻结UMM与A+B；局部头、Full／4／8帧、预测／oracle Ledger | 20测试几何、40对×3决策；Full16.7%、Ledger77.5%、正确区域Ledger100%；未知与部分关系分报 |
 | SO-01-V3 | 实际事件模块与时序机制 | T1—T5首批完成；本批停止训练 | 冻结Show-o2；A+B+C+D；B0／末帧／普通头／oracle／五项消融，固定20组几何 | [完整结果](../../results/h1/event_v3/T4/REPORT.md)：B4顺序95.33%对B3 98%，实例7/11，未知21/25；尚未正式验收 |
 | PX-01 | 同终态像素过程反例 | 已完成，8个受控案例 | 规则渲染后只读像素与模板；无学习模型 | 顺序、方向、完成先后、低采样歧义；[结果与限制](../experiments/process_probe.md) |
 | SO-01-GATE | H1前置：答案与当前视觉状态 | 末端配对和完整目标的背景稳定性仍未解决 | 预测区域完整／缺1像素配对1/56，缺16像素22/56；同一头用正确区域后16像素37/56；仅改变其他线条使完整答案改变19/56 | [两项门槛](../experiments/h1_state_gate.md)；旧静态压力保留，配对训练仅完成编码；现按v3事件协议推进 |

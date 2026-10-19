@@ -8,13 +8,15 @@
 
 暂定题目：**实际笔顺理解驱动的统一多模态中文书写视频生成**。
 
-通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1-v3首批T1→T5已完成，完整H1尚未通过；H2与H3未开始。** 本批为冻结Show-o2特征上的独立事件读取，不能称为UMM联合训练改善。见[决策报告](results/h1/event_v3/T5_DECISION.md)。
+通过联合训练学习实际过程理解，并在生成时读回每段实际结果、更新状态后继续书写。研究按H1“读懂过程”、H2“理解改善生成”、H3“统一学习优于可比分离方案”推进。**H1-v3 T6早期历史记忆实验已完成，决定REVISE；完整H1尚未通过，H2与H3未开始。** 本批为冻结Show-o2特征上的独立事件读取，不能称为UMM联合训练改善。见[T6决策](results/h1/early_history_v1/T6_DECISION.md)与[此前T5决策](results/h1/event_v3/T5_DECISION.md)。
 
 本主线使用单独分支 [`research/stroke-order-joint-feedback`](https://github.com/lljjcc426/UMM/tree/research/stroke-order-joint-feedback)，后续相关工作沿用该分支。入口：[总跟踪Issue #1](https://github.com/lljjcc426/UMM/issues/1) · [主线定义](docs/project/MAINLINE.md) · [当前进度](docs/project/STATUS.md) · [实验安排](docs/project/EXPERIMENTS.md)。
 
-最新结果：固定20组几何／120段受控视频，测试30段。B4因果模块严格顺序95.33%，相同输入的无时序头B3为98%；同终态配对4/5对3/5，尚无稳定全面优势。实例定位仅7/11达到IoU.5，未知21/25；“三”的实际换序仍可能读成规范顺序。全部消融与失败已保留，本批停止训练。入口：[协议](docs/experiments/h1_v3_protocol.md) · [方法](docs/experiments/h1_v3_method.md) · [前作与边界](docs/experiments/RELATED_METHODS_AND_GAPS.md) · [完整结果](results/h1/event_v3/README.md)。1—4像素缺口继续独立保留，当前安排以v3协议为准。
+最新T6：固定20／8／20独立几何组、24观察，主测试每个决策40个“最近输入相同、早期真实历史不同”配对。三决策合计，Full Transformer配对16.7%，预测事件表77.5%，同一局部头换用正确区域的事件表100%。Full与Ledger未知召回均100%，但Ledger回答覆盖83.3%、未定组完全正确85%；当前优先修复近邻实例绑定和首次起笔读取，保持UMM冻结。全部预算和失败见[T6结果入口](results/h1/early_history_v1/README.md)与[预注册协议](docs/experiments/h1_t6_early_history_protocol.md)。
 
-此前静态诊断（v2历史安排）：固定其他笔迹、只改变目标末端，UMM预测区域状态头的完整／缺1像素配对仅1/56，完整／缺16像素22/56；同一头用正确区域后16像素为37/56。只改变其他线条，完整目标的答案也改变19/56，完整正确40→29/56。8–16像素通常能改变分数方向，尚未形成稳定答案。下一步用目标末端与背景分别变化的配对监督检验改进，保留正确／预测区域对照；原适配器保持，尚不进入顺序学习。见[末端配对诊断](results/h1/showo2_video_1_5b/endpoint_pairs_v1/README.md)与[此前进度覆盖](results/h1/showo2_video_1_5b/progress_coverage_v1/README.md)。
+此前T1—T5：固定20组几何／120段受控视频，测试30段。B4因果模块严格顺序95.33%，相同输入的无时序头B3为98%；同终态配对4/5对3/5，尚无稳定全面优势。实例定位仅7/11达到IoU.5，未知21/25；“三”的实际换序仍可能读成规范顺序。全部消融与失败已保留，本批停止训练。入口：[协议](docs/experiments/h1_v3_protocol.md) · [方法](docs/experiments/h1_v3_method.md) · [前作与边界](docs/experiments/RELATED_METHODS_AND_GAPS.md) · [完整结果](results/h1/event_v3/README.md)。1—4像素缺口继续独立保留，当前安排以v3协议为准。
+
+此前静态诊断（v2历史安排）：固定其他笔迹、只改变目标末端，UMM预测区域状态头的完整／缺1像素配对仅1/56，完整／缺16像素22/56；同一头用正确区域后16像素为37/56。只改变其他线条，完整目标的答案也改变19/56，完整正确40→29/56。8–16像素通常能改变分数方向，尚未形成稳定答案。该轮提出目标末端与背景分别变化的配对监督；准备仅编码、未训练，随后转入v3事件研究。原适配器与正确／预测区域对照保持。见[末端配对诊断](results/h1/showo2_video_1_5b/endpoint_pairs_v1/README.md)与[此前进度覆盖](results/h1/showo2_video_1_5b/progress_coverage_v1/README.md)。
 
 ## 阅读导航
 
