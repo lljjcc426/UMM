@@ -72,3 +72,7 @@ UMM 将文字任务和视觉生成放进一个可训练系统，例如共享上�
 ## 四篇附件如何帮助理解这条路线
 
 [附件精读](../evidence/attachment_reviews.md)分别拆解 Timage 的输入覆盖层、ORVOS 的因果历史、SC-CoIT 的跨模态恢复与 BoxTuning 的对象提示。只有 SC-CoIT 直接检验 UMM 的理解—生成恢复；其检测强、立即修复弱的结果说明，共享语义和正确诊断还不能取代执行监督。
+
+## 任务接口与协同实验的原文补充（2026-10-20）
+
+[本批审查](../evidence/unified_interfaces_and_transfer_2026-10-20.md)逐项区分输出与外部解码成本。Qwen3-Omni处理视频输入但输出文字/语音；SEED-X的Edit/PPT/Story/Try-on是专门微调版本。Qwen3-Omni受控对照报告部分视觉增益、部分单项下降，并明确无可测语言增益；Manzano近似保持任务性能的对照按任务token匹配，未固定总FLOPs。Emu3.5的操作评价是子任务/关键帧自动评审，尚不证明机器人闭环执行。

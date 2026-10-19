@@ -148,6 +148,13 @@
 | L184 | [Stroke-Seg: A deep learning-based framework for chinese stroke segmentation](L184.md) | 正式PDF pp4343–4354的相关工作、Figure2说明、§3–6、Tables1–4；主表文字与公式已读，PDF框架/表图未完成可视逐项验收；官方代码选定入口另见S016 |
 | N07 | [A stroke-level large-scale database of Chinese character handwriting and the OpenHandWrite_Toolbox for handwriting research](N07.md) | 正式Springer正文PresentStudy、ToolboxDevelopment、采集/编码/排除/结果/部分Discussion；OSF摘要工作簿字段及R指标代码见R07；Tables3–7逐系数、全部附录和原始数据未完整复核 |
 | R07 | [OpenHandWrite_Toolbox与笔画级数据](R07.md) | OSF node/files API及Data/R子目录、batch_summarise_all.R全文、batch_funcs.R定义及长度/首末点/相邻延迟函数、小xlsx全部表头和各2行样例；未运行R/全读脚本和下载完整采集包 |
+| L058 | [Unified-IO 2: Scaling Autoregressive Multimodal Models with Vision, Language, Audio, and Action](L058.md) | §3.1–3.5、§4数据、Tables2/4、GRIT/缩放段、§5.5及AppB4相关条件；未逐项阅读全部220任务、全部附表/图，未复现 |
+| L059 | [AnyGPT: Unified Multimodal LLM with Discrete Sequence Modeling](L059.md) | §3全部表示/架构、§4合成数据、§5 Tables2–6、AppA/C训练与解码条件；未逐图核验多轮示例、未运行代码 |
+| L060 | [SEED-X: Multimodal Models with Unified Multi-granularity Comprehension and Generation](L060.md) | §3表示/位置/预训/指令、理解/GenEval主表、§4定性组件比较、AppendixB配置；未完整核验所有附录数据/图和代码，未复现 |
+| L063 | [MMaDA: Multimodal Large Diffusion Language Models](L063.md) | §2–3完整核心目标/UniGRPO/采样、§4训练和Table3、§5 Tables5/6/协同讨论、§9；官方tree3cdb8709635beb29f66e4e23cd66060872ac3996的generate.py及modeling_mmada.py对应sampling段、stage4头/检索。未通读所有理解表/全仓库RL、未复现 |
+| L064 | [MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer](L064.md) | §3–4表示/训练、§5.1/5.2 Table1和联合对照/Fig5、§5.4–5.5讨论、结论；未逐行精读全部主表/图、未复现 |
+| L065 | [Qwen3-Omni Technical Report](L065.md) | §1–3/主要模块与数据训练、Tables1/2、§6 Table16全表及结论；未逐项读取全部ASR/TTS/VLM表，未复现 |
+| L066 | [Emu3.5: Native Multimodal Models are World Learners](L066.md) | §1–4架构/数据/训练/奖励/DiDA、§5部分tokenizer、§6 Tables7–9/16及§6.3–6.8解释、§7局限；未逐行核全部编辑/重建主表、未视觉核对全图、未运行模型 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

@@ -10834,22 +10834,23 @@
   {
     "title": "Unified-IO 2: Scaling Autoregressive Multimodal Models with Vision, Language, Audio, and Action",
     "source_urls": [
-      "https://arxiv.org/abs/2312.17172"
+      "https://arxiv.org/abs/2312.17172",
+      "https://arxiv.org/html/2312.17172"
     ],
-    "method": "统一 token 表示与 encoder–decoder，覆盖视觉、文本、音频和动作",
-    "conclusion": "报告 GRIT 及 35 个以上基准结果；各任务成熟度不同",
-    "gap": "见结论栏及专题分析。",
-    "problem": "多模态、多任务通常依赖专门模型",
-    "claim": "未单独摘录。",
+    "method": "模态专用输入/输出tokenizer、混合去噪预训练、归一化/位置编码与动态packing，在一个序列模型内扩展任务。 L/XL/XXL为1.1/3.2/6.8B；图像输入ViT中间/末层拼接，输出VQGAN256²→1024码、词表16512；AST声音4.08s谱，输出512码(正文词表8196)。历史至多4项由Perceiver压至图像32/声音16token。文字LlamaBPE+1000坐标token；QK-LN、2D RoPE、cosine Perceiver。R/S/X混合mask-denoising与SAR负责预训练，和高斯DDPM有不同目标。",
+    "conclusion": "Table4 XXL FID13.39/TIFA81.3、声音FAD2.64、VIMA56.3%，相对VIMA72.6%仍低；Table2的TIFA78.7采用另一比较口径，不能与Table4混成同一数值。GRIT XL65.2；深度RMSE .623，单任务微调.423是“无需任务微调”主表之外的特例。",
+    "gap": "作者承认图像质量、深度/3D/视频任务及OOD指令不足；4s声音与历史压缩限制时序细节。未核全部tokenizer配置/数据许可/生成超参；共享模型的存在尚不提供同预算联合与独立训练的因果对照。",
+    "problem": "从头训练一个encoder–decoder，处理文字、图像、声音、视频输入与动作任务。",
+    "claim": "研究目标：从头训练一个encoder–decoder，处理文字、图像、声音、视频输入与动作任务。",
     "version": "Unified-IO 2，2023 / CVPR 2024",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L058",
     "canonical_key": "paper:arxiv:2312.17172",
     "evidence_history": [
@@ -10872,27 +10873,47 @@
     "aliases": [
       "local_umm_core:P02"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L058.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "报告 GRIT 及 35 个以上基准结果；各任务成熟度不同",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3.1–3.5、§4数据、Tables2/4、GRIT/缩放段、§5.5及AppB4相关条件；未逐项阅读全部220任务、全部附表/图，未复现",
+    "review_path": "docs/reviews/L058.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "预训练文字33%、图像40%、视频声音25%、具身1%、增强1%；MPT来源移除多语言/科学子集，含WebVid/Ego4D等。指令220任务/120数据集。主干从头训练，ViT/AST已有预训练，不能称所有组件从零学习。",
+    "framework": "模态专用输入/输出tokenizer、混合去噪预训练、归一化/位置编码与动态packing，在一个序列模型内扩展任务。",
+    "architecture": "L/XL/XXL为1.1/3.2/6.8B；图像输入ViT中间/末层拼接，输出VQGAN256²→1024码、词表16512；AST声音4.08s谱，输出512码(正文词表8196)。历史至多4项由Perceiver压至图像32/声音16token。文字LlamaBPE+1000坐标token；QK-LN、2D RoPE、cosine Perceiver。R/S/X混合mask-denoising与SAR负责预训练，和高斯DDPM有不同目标。",
+    "metrics": "GRIT/VQA/SEED/TIFA、COCO FID、AudioCaps FAD/IS/KL、VIMA成功率、深度RMSE等；静态生成和离散动作成功率不能代替RGB笔顺事件。",
+    "baselines": "CoDi/Emu/SD1.5、AudioLDM/AudioGen、VIMA等，任务与预训练数据/算力各异。",
+    "experimental_conditions": "Adafactor β1=.9、β2=1-k^(-.8)、warm5000、inverse-square-root衰减、clip1；预训练1.5M步b512+指令1.5M步b256；附录packing864encoder/1280decoder，8路tensor×64路data TPU。预训练冻结ViT/AST，末期指令解冻；动态decoder mask。overview约250B与AppB4约1T的token计数未完全对齐。"
   },
   {
     "title": "AnyGPT: Unified Multimodal LLM with Discrete Sequence Modeling",
     "source_urls": [
-      "https://arxiv.org/abs/2402.12226"
+      "https://arxiv.org/abs/2402.12226",
+      "https://arxiv.org/html/2402.12226"
     ],
-    "method": "将图像、语音、音乐等编码成离散序列，接入 LLM",
-    "conclusion": "展示广泛模态转换；广度不代表每项质量均达到专用模型",
-    "gap": "见结论栏及专题分析。",
-    "problem": "如何扩展多种模态的输入输出",
-    "claim": "未单独摘录。",
+    "method": "现成离散tokenizer接入Llama2词表，下一token CE；合成AnyInstruct训练多模态交错对话。 Llama2-7B；SEED图像32码/8192词表/224²，经MLP→unCLIP扩散生成；SpeechTokenizer50Hz/8层RVQ，仅语义第一层进入LLM，SoundStorm补7层声音并用3s参考音色。Encodec音乐32kHz/50Hz/4×2048 RVQ、5s约1000token；Table1音乐4096与正文合并8192词表有差异，未擅自统一。",
+    "conclusion": "CIDEr107.5低于SEED123.6；图像CLIP.65低于SEED.69。ASR WER8.5高于Whisper2.7；TTS8.5/.77弱于USLM6.5/.84；音乐CLAP.14弱于Mousai.23。支持统一交互与专用任务最优是两个需要分别验证的命题。",
+    "gap": "独立扩散/声学生成器的成本、预训练和错误均需计入；合成文本描述可能遗漏真实模态细节。正文称长序列复杂度指数增长表述过强，标准稠密attention矩阵计算随长度平方增长；整个解码开销还取决于缓存/步数，不能只套单一复杂度。",
+    "problem": "在同一LLM中把文字、图像、语音、音乐组成可交错输入输出。",
+    "claim": "研究目标：在同一LLM中把文字、图像、语音、音乐组成可交错输入输出。",
     "version": "AnyGPT，2024",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L059",
     "canonical_key": "paper:arxiv:2402.12226",
     "evidence_history": [
@@ -10915,27 +10936,47 @@
     "aliases": [
       "local_umm_core:P03"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L059.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "展示广泛模态转换；广度不代表每项质量均达到专用模型",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3全部表示/架构、§4合成数据、§5 Tables2–6、AppA/C训练与解码条件；未逐图核验多轮示例、未运行代码",
+    "review_path": "docs/reviews/L059.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "约300M筛选图文、MMC4core7.3M文档、57k小时ASR；音乐约百万视频经元数据/GPT4标注，表内YoutubeMusic1M的100M规模口径待核。AnyInstruct108k对话(205k图/503k语音/113k音乐)，GPT4先造主题/场景/文字对话，再DALL-E3/MusicGen/Azure TTS转模态；另100k语音对话。",
+    "framework": "现成离散tokenizer接入Llama2词表，下一token CE；合成AnyInstruct训练多模态交错对话。",
+    "architecture": "Llama2-7B；SEED图像32码/8192词表/224²，经MLP→unCLIP扩散生成；SpeechTokenizer50Hz/8层RVQ，仅语义第一层进入LLM，SoundStorm补7层声音并用3s参考音色。Encodec音乐32kHz/50Hz/4×2048 RVQ、5s约1000token；Table1音乐4096与正文合并8192词表有差异，未擅自统一。",
+    "metrics": "COCO caption CIDEr、30k生成CLIP；LibriSpeech ASR WER、VCTK TTS WER/SIM、MusicCaps CLAP；未覆盖所有模态对的独立量化。",
+    "baselines": "SEED/DreamLLM/Emu/GILL，Whisper/USLM、Riffusion/Mousai；部分灰色基线在下游数据训练，不能简单排统一模型名次。",
+    "experimental_conditions": "Adam、b480、context4500、81000步lr6e-5/warm.03/cosine/clip1，另4k高质阶段；SFT b64/5000步lr2e-5/A100，未读到完整GPU数量。文字beam5；图/语音top-p .7，音乐top-p1/repetition1.15；TTS3s提示。定量主要评估预训练版本，AnyInstruct版本主要示例。"
   },
   {
     "title": "SEED-X: Multimodal Models with Unified Multi-granularity Comprehension and Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2404.14396"
+      "https://arxiv.org/abs/2404.14396",
+      "https://arxiv.org/html/2404.14396"
     ],
-    "method": "多粒度视觉语义建模，连接理解与生成组件",
-    "conclusion": "支持实际交互和生成应用；属于需要分析模块接口的统一路线",
-    "gap": "见结论栏及专题分析。",
-    "problem": "变尺寸图像理解与多粒度生成",
-    "claim": "未单独摘录。",
+    "method": "多粒度输入、可外推2D位置、连续图像特征回归与扩散解码器，编辑另加像素级参考条件。 QwenVL ViT+pool64视觉embedding，Llama2-chat13B通过LoRA、输入/输出crossattention及64可学习query预测连续特征(MSE)+文字CE；网格ceil选裁片+全局图、左右上下可学习位置向量加权。4层crossattention接SDXL，先训crossattention及UNet K/V；编辑阶段参考VAE4ch+噪声4ch→8ch、全UNet训练。",
+    "conclusion": "Table2 SEED-X POPE84.1/MME-P1457/MMB70.1/SEED(img)66.5/VQAv2(test)71.2/GQA49.1/MMMU35.6/MM-Vet43.0。GenEval .51低于SDXL.55，位置.18略高.15但计数.31低.39。",
+    "gap": "编辑参考VAE绕过语义瓶颈，不可只归因LLM；64码无法证明细笔、顺序或真实时序保持。分辨率、SDXL/教师预训练、专门版本和SFT数据都是对比条件。",
+    "problem": "同时处理多尺度/任意比例图像理解和图像生成/编辑，避免重建细节与LLM预测难度冲突。",
+    "claim": "研究目标：同时处理多尺度/任意比例图像理解和图像生成/编辑，避免重建细节与LLM预测难度冲突。",
     "version": "SEED-X，2024",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L060",
     "canonical_key": "paper:arxiv:2404.14396",
     "evidence_history": [
@@ -10958,7 +10999,26 @@
     "aliases": [
       "local_umm_core:P04"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L060.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "支持实际交互和生成应用；属于需要分析模块接口的统一路线",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3表示/位置/预训/指令、理解/GenEval主表、§4定性组件比较、AppendixB配置；未完整核验所有附录数据/图和代码，未复现",
+    "review_path": "docs/reviews/L060.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "158M样本：图文/grounded/交错/OCR/纯文；解码JourneyDB/LAION-Aesthetics/Unsplash/LAION-COCO；编辑MagicBrush+内部数据。专门SFT数据分开，不能将其混为同一训练协议。",
+    "framework": "多粒度输入、可外推2D位置、连续图像特征回归与扩散解码器，编辑另加像素级参考条件。",
+    "architecture": "QwenVL ViT+pool64视觉embedding，Llama2-chat13B通过LoRA、输入/输出crossattention及64可学习query预测连续特征(MSE)+文字CE；网格ceil选裁片+全局图、左右上下可学习位置向量加权。4层crossattention接SDXL，先训crossattention及UNet K/V；编辑阶段参考VAE4ch+噪声4ch→8ch、全UNet训练。",
+    "metrics": "VQAv2/MME/GQA/POPE/SEED/MMB/MMMU/SEEDImage；GenEval及定性编辑/slide/故事。无视频、笔顺与执行指标。",
+    "baselines": "LLaVA/Emu/NExTGPT/LWM、SDXL与SEEDLlama；多模型任务版本和规模不同。",
+    "experimental_conditions": "ViT接口及LoRA等预训48H80080GB约10天、158M、lr1e-4cosine。解码32A10040GB42K步1e-4；编辑30K步1e-4。LoRA rank/完整batch/SFT步数未从已读附录取得；多裁片计算随网格增长。"
   },
   {
     "title": "UniTok: A Unified Tokenizer for Visual Generation and Understanding",
@@ -11069,22 +11129,26 @@
   {
     "title": "MMaDA: Multimodal Large Diffusion Language Models",
     "source_urls": [
-      "https://arxiv.org/abs/2505.15809"
+      "https://arxiv.org/abs/2505.15809",
+      "https://arxiv.org/html/2505.15809",
+      "https://github.com/Gen-Verse/MMaDA",
+      "https://github.com/Gen-Verse/MMaDA/blob/3cdb8709635beb29f66e4e23cd66060872ac3996/generate.py",
+      "https://github.com/Gen-Verse/MMaDA/blob/3cdb8709635beb29f66e4e23cd66060872ac3996/models/modeling_mmada.py"
     ],
-    "method": "统一扩散、混合长 CoT、UniGRPO",
-    "conclusion": "8B 模型覆盖文本推理、理解和生图；不以摘要比较推断全面领先",
-    "gap": "见结论栏及专题分析。",
-    "problem": "扩散统一后如何实现推理与后训练",
-    "claim": "未单独摘录。",
+    "method": "LLaDA初始化的统一mask目标、mixed longCoT与部分mask策略UniGRPO。 LLaDA8BInstruct；Showo MAGVITv2 f16/8192词表，512²→1024token；双向masked CE按1/t和实际mask加权。文字半AR64token块、图像全块迭代。正文§3文字“最低置信解mask”与官方generate.py/mmu_generate的topk最大置信解除mask不同，已以代码澄清。",
+    "conclusion": "Table3 GenEval.63/WISE文化.67/IR1.15/CLIP32.46。Table5阶段1→CoT→RL：GSM17.4→65.2→73.4，MATH4.2→26.5→36，Geo8.3→15.9→21，CLEVR10.3→27.5→34.5，IR.69→.84→1.15。Table6图像1024/50/15步CLIP32.8/32/31.7；文字1024/512/256步MMLU66.9/66.3/65.7。",
+    "gap": "Eq3/4把π′定义为平均logp，Eq5用π′比值/类似概率KL，字面不是标准exp(logp_new-logp_old)importance ratio；尚未取得UniGRPO完整路径，不据此断言实际训练实现错误。当前官方tree包含CE预训/CoT脚本，stage4文件名不能当RL实现证明；RL权重Max仍标coming soon。奖励优化可能局限于同评价器。",
+    "problem": "让离散mask扩散同时完成文字推理、图像理解与图像生成，并进行跨任务后训练。",
+    "claim": "研究目标：让离散mask扩散同时完成文字推理、图像理解与图像生成，并进行跨任务后训练。",
     "version": "MMaDA，2025 / NeurIPS 2025",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L063",
     "canonical_key": "paper:arxiv:2505.15809",
     "evidence_history": [
@@ -11107,27 +11171,47 @@
     "aliases": [
       "local_umm_core:P14"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L063.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "8B 模型覆盖文本推理、理解和生图；不以摘要比较推断全面领先",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§2–3完整核心目标/UniGRPO/采样、§4训练和Table3、§5 Tables5/6/协同讨论、§9；官方tree3cdb8709635beb29f66e4e23cd66060872ac3996的generate.py及modeling_mmada.py对应sampling段、stage4头/检索。未通读所有理解表/全仓库RL、未复现",
+    "review_path": "docs/reviews/L063.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "RefinedWeb/ImageNet200K步后图文400K；Alpaca/LLaVA1.5和ReasonFlux/LIMO/s1/OpenThoughts/AceMath；GeoQA/CLEVR由LMMR1筛选，GPT4.1生成事实图像提示CoT；CoT阶段50K、RL50K。",
+    "framework": "LLaDA初始化的统一mask目标、mixed longCoT与部分mask策略UniGRPO。",
+    "architecture": "LLaDA8BInstruct；Showo MAGVITv2 f16/8192词表，512²→1024token；双向masked CE按1/t和实际mask加权。文字半AR64token块、图像全块迭代。正文§3文字“最低置信解mask”与官方generate.py/mmu_generate的topk最大置信解除mask不同，已以代码澄清。",
+    "metrics": "GSM8K/MATH/GeoQA/CLEVR；MME/POPE/MMMU等；GenEval/WISE文化、CLIPScore/ImageReward。CLIP/ImageReward同时是直接奖励与报告指标，需额外独立指标。",
+    "baselines": "Showo/JanusPro/Emu3、LLM与VLM专用模型；异数据和后训练；未经同预算分离对照不能把差异全归因统一扩散。",
+    "experimental_conditions": "64A10080GB/global1280/AdamW5e-5cosine；图像50步CFG3.5cosine，文字1024长512步。UniGRPO随机起始后均匀覆盖t，prompt不mask；数学正确2/格式.5，理解CLIP.1，生成CLIP/IR各.1。8GPU GSM实验同ckpt对照mask策略，但主要是训练奖励曲线。"
   },
   {
     "title": "MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer",
     "source_urls": [
-      "https://arxiv.org/abs/2509.16197"
+      "https://arxiv.org/abs/2509.16197",
+      "https://arxiv.org/html/2509.16197"
     ],
-    "method": "共享视觉编码器，连续理解/离散生成适配器，扩散像素解码",
-    "conclusion": "1B 消融显示 text-rich 理解提升且保持生成能力；较大模型结论需结合规模",
-    "gap": "见结论栏及专题分析。",
-    "problem": "理解与生成接口如何兼容",
-    "claim": "未单独摘录。",
+    "method": "同一ViT的连续/FSQ离散双接口，LLM理解用连续、生成预测离散语义码，再flow图像解码。 ViT STC3×3将42²压成14²特征，MLP连续/FSQ64K码；小300M LLM参与tokenizer NTP预训后丢弃。统一LLM冻结视觉/离散接口，文字:图像CE权重1:.5；Air flow DiT.9/1.75/3.52B渲染像素，不能只计AR骨干成本。",
+    "conclusion": "1B Table1 hybrid64.9/66.5/73.3(三组理解)、GenEval77/DPG79.9/WISE35；纯离散63.3/62.2/62.3、77/80.9/35，DPG并未提高。dual63.8/63.6/72、65/66.3/17，但该baseline为固定256token采用128²autoencoder，而原图256²，分辨率混杂。",
+    "gap": "输出质量受flow解码器与参考旁路影响；离散/连续分支和冻结策略不等于所有参数共享；大规模私有数据限制复现。表中单项下降、分辨率不匹配和task-token匹配应写在claim附近。",
+    "problem": "共享视觉表示与AR骨干能否同时保持理解与图像生成能力。",
+    "claim": "研究目标：共享视觉表示与AR骨干能否同时保持理解与图像生成能力。",
     "version": "MANZANO，2025 / ICLR 2026",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L064",
     "canonical_key": "paper:arxiv:2509.16197",
     "evidence_history": [
@@ -11150,27 +11234,47 @@
     "aliases": [
       "local_umm_core:P16"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L064.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "1B 消融显示 text-rich 理解提升且保持生成能力；较大模型结论需结合规模",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3–4表示/训练、§5.1/5.2 Table1和联合对照/Fig5、§5.4–5.5讨论、结论；未逐行精读全部主表/图、未复现",
+    "review_path": "docs/reviews/L064.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "2.3B图文、1.7B交错文档、1B内部生成数据；24M能力CPT；SFT含真实DreamO、90k合成与4M Fluxschnell。大部分内部筛选/总token不完全公开。",
+    "framework": "同一ViT的连续/FSQ离散双接口，LLM理解用连续、生成预测离散语义码，再flow图像解码。",
+    "architecture": "ViT STC3×3将42²压成14²特征，MLP连续/FSQ64K码；小300M LLM参与tokenizer NTP预训后丢弃。统一LLM冻结视觉/离散接口，文字:图像CE权重1:.5；Air flow DiT.9/1.75/3.52B渲染像素，不能只计AR骨干成本。",
+    "metrics": "General/Knowledge/Text-rich分组理解；GenEval/DPG/WISE；800prompt×3人评结构/指令/美学。",
+    "baselines": "纯连续/纯离散/dual tokenizer，specialist理解/生成、JanusPro/XOmni/Bagel等。",
+    "experimental_conditions": "预训1.6T(30B.8T)+CPT83B，I2T/T2I/text40/40/20，SFT41/45/14；decoder256²400K再512/1024/2048各100K。完整优化器/batch/硬件/采样CFG未从本次所读主体取得。对联合/专用对照匹配每任务token曝光，专用总步数更少，未固定总FLOPs。"
   },
   {
     "title": "Qwen3-Omni Technical Report",
     "source_urls": [
-      "https://arxiv.org/abs/2509.17765"
+      "https://arxiv.org/abs/2509.17765",
+      "https://arxiv.org/html/2509.17765"
     ],
-    "method": "Thinker–Talker MoE、离散语音 codec 与流式解码",
-    "conclusion": "文本/图像/音频/视频输入，文本/语音输出；不是图像生成型 UMM 的同义词",
-    "gap": "见结论栏及专题分析。",
-    "problem": "多模态感知与低延迟语音输出",
-    "claim": "未单独摘录。",
+    "method": "Thinker–Talker MoE、12.5Hz音频表示、TMRoPE和多码本预测+因果卷积波形解码；分阶段训练/蒸馏/RL。 Thinker30B活跃3B，Talker3B活跃.3B，AuT约650M、SigLIP2So400约540M、MTP80M、Code2Wav200M。Talker消费离散文字与视听特征；第一codec+MTP补RVQ，因果卷积每80ms输出声音，无多步扩散；TMRoPE时间80ms、24/20/20维交错。",
+    "conclusion": "Table16文本MMLUPro61.81→61.57、MATH60.84→60.42、MultiPLE65.75→64.79；视听RealWorldQA73.98→71.89、MVBench71.87→69.50，同时MMMU57.22→59.33、InfoVQA81.17→83.31。Table2并发1声音/视频234/547ms，4为728/1517，6为1172/2284，RTF.47/.56/.66；首包与完整输出时间不同。",
+    "gap": "只读了选定主表，32项SOTA未逐项核实；部分指标退化和并发时延增加应保留。激活3B不代表全部驻留内存/系统参数。语音时间位置与严格笔画身份、方向/落笔没有直接监督关系。",
+    "problem": "在一个实时系统理解文字/图像/声音/视频，并流式生成文字与语音，控制多模态干扰。",
+    "claim": "研究目标：在一个实时系统理解文字/图像/声音/视频，并流式生成文字与语音，控制多模态干扰。",
     "version": "Qwen3-Omni，2025",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L065",
     "canonical_key": "paper:arxiv:2509.17765",
     "evidence_history": [
@@ -11193,27 +11297,50 @@
     "aliases": [
       "local_umm_core:P17"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L065.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "文本/图像/音频/视频输入，文本/语音输出；不是图像生成型 UMM 的同义词",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§1–3/主要模块与数据训练、Tables1/2、§6 Table16全表及结论；未逐项读取全部ASR/TTS/VLM表，未复现",
+    "review_path": "docs/reviews/L065.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "AuT20M小时约80%中英伪ASR/10%其他语种/10%声音理解；16k采样128mel/25ms窗10ms步下采样8。多模态预训阶段2概称约2T，列项加总约2.26T，属于需保留的统计口径差异；S3上下文8192→32768。",
+    "framework": "Thinker–Talker MoE、12.5Hz音频表示、TMRoPE和多码本预测+因果卷积波形解码；分阶段训练/蒸馏/RL。",
+    "architecture": "Thinker30B活跃3B，Talker3B活跃.3B，AuT约650M、SigLIP2So400约540M、MTP80M、Code2Wav200M。Talker消费离散文字与视听特征；第一codec+MTP补RVQ，因果卷积每80ms输出声音，无多步扩散；TMRoPE时间80ms、24/20/20维交错。",
+    "metrics": "语言MMLUPro/BBH/MATH/MultiPLE/INCLUDE等、图文MMMU/InfoVQA/TextVQA/RealWorldQA/MVBench；ASR/TTS、首包时延与RTF。语言119种/声音理解19种/生成10种不能混成一项。",
+    "baselines": "同30A3 text/VL及Omni；其他闭源/开源语音VLM。§6明确与单/双模态对照相同任务数据/日程/batch/modalityepoch及Table16 FLOPs，构成较强干扰比较。",
+    "experimental_conditions": "先冻结LLM对齐接口再解冻，SFT+Qwen32B/235BA22B蒸馏、on/off-policy KL和GSPO；Talker多阶段SFT/CPT/长上下文/DPO。vLLM+compile/CUDAgraph测理论优化首包，未取得完整硬件、种子CI/优化器细节。",
+    "input": "text, images, audio, video",
+    "output": "text and speech only",
+    "task": "omni-modal perception and streaming speech generation"
   },
   {
     "title": "Emu3.5: Native Multimodal Models are World Learners",
     "source_urls": [
-      "https://arxiv.org/abs/2510.26583"
+      "https://arxiv.org/abs/2510.26583",
+      "https://arxiv.org/html/2510.26583"
     ],
-    "method": "超过 10T tokens 的 AR 预训练、RL、DiDA 并行适配",
-    "conclusion": "作者报告每图约 20 倍加速及世界交互展示；不等于完整因果世界模型证明",
-    "gap": "见结论栏及专题分析。",
-    "problem": "长程图文交错生成与解码效率",
-    "claim": "未单独摘录。",
+    "method": "视频中心交错语料、统一SFT/多任务GRPO及图像DiDA离散扩散适配，IBQ语义视觉tokenizer。 主体34.1B(31.2B层+2.9Bembedding)，Qwen3初始化；64层/5120维/FFN25600/64Q8KV/context32768。视觉131072码、f16、455M IBQ/SigLIP教师；512²1024码。可选外部扩散图像decoder2倍分辨率、LoRA50→4步；视频WanDiT接关键帧/文本/4chmask。DiDA改变图像attention：噪声图内双向，参考干净图文保持因果。",
+    "conclusion": "LongText英.976/中.928/均.952，QwenImage中.946更高；CVTG2K word-acc均.9123/NED.9656。Table16同34B1024²4096码，AR FlagScale120s→DiDA10s(12倍)，naive512→22s约23倍；GenEval.86不变、DPG88.26→87.46、GEdit7.59→7.56。机器人评估331样本(10真拍/109抽样/192合成)，ChatGPT评图文计划。",
+    "gap": "外部解码器/多阶段RL和数据规模都影响结果；主要长程结论由模型评审与定性关键帧支撑，未测真实动作成功。作者承认长程缺系统量化和人评。正文“自然避免单奖励hacking”缺独立验证；多奖励归一化[1,10]本身不给此保证。",
+    "problem": "扩大图文交错AR预训，生成图像及长程叙事/指导/探索/操作关键帧，并加速视觉码采样。",
+    "claim": "研究目标：扩大图文交错AR预训，生成图像及长程叙事/指导/探索/操作关键帧，并加速视觉码采样。",
     "version": "Emu3.5，2025",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L066",
     "canonical_key": "paper:arxiv:2510.26583",
     "evidence_history": [
@@ -11236,7 +11363,29 @@
     "aliases": [
       "local_umm_core:P18"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L066.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "作者报告每图约 20 倍加速及世界交互展示；不等于完整因果世界模型证明",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§1–4架构/数据/训练/奖励/DiDA、§5部分tokenizer、§6 Tables7–9/16及§6.3–6.8解释、§7局限；未逐行核全部编辑/重建主表、未视觉核对全图、未运行模型",
+    "review_path": "docs/reviews/L066.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "63M长视频均长6.5min、30M视频图文1FPS；500M图文、27.35M X2I、约3T纯文。预训Table2为10.3T+3.5T。SFT Table3单位是B tokens(合计150.1B)，§2.1写150billion samples不能照作样本数量。交错叙事430k/指导960k/探索200k/操作973k(920kOXE+40kAgi+13k自采)。",
+    "framework": "视频中心交错语料、统一SFT/多任务GRPO及图像DiDA离散扩散适配，IBQ语义视觉tokenizer。",
+    "architecture": "主体34.1B(31.2B层+2.9Bembedding)，Qwen3初始化；64层/5120维/FFN25600/64Q8KV/context32768。视觉131072码、f16、455M IBQ/SigLIP教师；512²1024码。可选外部扩散图像decoder2倍分辨率、LoRA50→4步；视频WanDiT接关键帧/文本/4chmask。DiDA改变图像attention：噪声图内双向，参考干净图文保持因果。",
+    "metrics": "GenEval/DPG/LeX/LongText/CVTG2K、编辑、TokBench；长程交错以ChatGPT自动偏好/多维评分，缺少实际机器人执行与严笔顺事件。",
+    "baselines": "QwenImage/Seedream3/GPTImage1/Gemini2.5FlashImage/Flux、Emu3、AR与DiDA；闭源版本与预训练预算不齐。",
+    "experimental_conditions": "预训AdamW β.9/.95 eps1e-8 wd.1 clip5，lr5e-4→1e-5 warm700，b448×32768、TP8CP2，700k+240k步、512→1024。SFT各3000步b1024 lr6e-6，seq16384→32768、视觉loss1→.5。GRPO b640 lr1e-6 rollout8一遍，再X2I/T2I单独RL；主表默认最终RL模型。",
+    "input": "text or interleaved image-text",
+    "output": "text, images and interleaved subtask-keyframes; dense video via external DiT",
+    "task": "native interleaved state prediction, image generation/editing and separate dense-video decoder"
   },
   {
     "title": "Beyond Accuracy: Benchmarking Cross-Task Consistency in Unified Multimodal Models",

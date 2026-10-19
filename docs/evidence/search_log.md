@@ -78,3 +78,7 @@
 ## 2026-10-20 第七批：从制品反查原文与执行协议
 
 实际读取Wuji/Qari/CASIA/BCSS固定HF revision的配置、README与字段；GitHub selected source blobs见各笔记。Stroke-Seg Wiley HTML后续访问超时，但正式epdf可读§3–6及Tables1–4，新增L184；记录论文/代码/加工版差异。KanjiVG规范与实际中SVG、AnimCJK示例已核。GF0023官方PDF已成功取得581页，本次读前12页定义和初始表，解决首轮索引级限制。OSF rn2ck API确认公开Data/R目录，读取小xlsx表头/样例及R指标相关函数；未取得全部原始轨迹，未运行模型/R脚本。
+
+## 2026-10-20 第八批：任务接口、训练干扰与输出边界
+
+读取Unified-IO2、AnyGPT、SEED-X、MMaDA、Manzano、Qwen3-Omni、Emu3.5原文的模型/数据/训练/选定主表/消融与局限。MMaDA官方tree3cdb8709635beb29f66e4e23cd66060872ac3996，generate.py及modeling_mmada.py按topk高置信解除mask，澄清正文采样措辞；完整UniGRPO ratio实现未取得，不把公式疑点当代码已证错误。Emu3.5 Table3为tokens，未把150B误记样本；LongText中文单项与DiDA质量退化均保留。没有运行外部训练代码或模型。
