@@ -177,6 +177,13 @@
 | L091 | [UGen: Unified Autoregressive Multimodal Model with Progressive Vocabulary Learning](L091.md) | §2.1–2.3及Algorithm1、§3.1–3.5、Tables1/2、AppA Table4相关行；未逐图/读取全部k曲线与附录细项、未核代码，未复现 |
 | L092 | [Harmonizing Visual Representations for Unified Multimodal Understanding and Generation](L092.md) | §3.1–3.4、Table1/3、§4设置及§4.2 Tables6–8、Fig6正文解释、§5；未视觉核Fig6/完整图、未逐行全部主表/附录、未复现 |
 | L093 | [X-Omni: Reinforcement Learning Makes Discrete Autoregressive Image Generative Models Great Again](L093.md) | §3.1–3.2、§4.1–4.2、Table1和§4.3.1、Tables2/3本作行及协议、§4.4正文、§5、AppA；未视觉读Fig2/6、未逐行全部理解表、未核代码，未复现 |
+| L095 | [QLIP: Text-Aligned Visual Tokenization Unifies Auto-Regressive Multimodal Understanding and Generation](L095.md) | §4/4.1、§5.1–5.4指定表与全部主要消融、§6、AppA表8/9；官方README与配置文件相关字段。未逐图/全部主tokenizer表或UM³代码；未复现 |
+| L096 | [DualToken: Towards Unifying Visual Understanding and Generation with Dual Visual Vocabularies](L096.md) | §3.1–3.3、§4.1/4.2 Tables3/4/5(b)/6、§5、AppF4/G；官方README/run.sh/256config固定revision；主大表未逐行/正式PDF403、未核实现全部损失或复现 |
+| L097 | [UniToken: Harmonizing Multimodal Understanding and Generation through Unified Visual Encoding](L097.md) | §3全部、Tables1/2/5/6、§4.1–4.4、§5与主结果叙述；官方README/TRAIN、base/AnyRes-stage2及phase2yaml已读；未逐行全部主表/逐图或全部实现，未复现 |
+| L098 | [Selftok: Discrete Visual Tokens of Autoregression, by Diffusion, and for Reasoning](L098.md) | §2.1指定Eq1–5/叙述、§2.2、§2.3表2–4及指标、§3.1/3.2叙述、§4.1–4.3表7/8本作与Janus行、§5、AppA训练/Algorithm1/评估与B；42页PDF第25页Eq20交叉核。部分公式/全部大表图和代码未读，未复现 |
+| L099 | [UniCode$^2$: Cascaded Large-scale Codebooks for Unified Multimodal Understanding and Generation](L099.md) | §3.1–3.6、§4.1/4.2本作行与§4.3、§5/Limitations、AppA2/A3；19页PDF第3页Eq1、第4页Fig2/Eq2–3渲染核对。未逐行全部主表/全部图或代码，未复现 |
+| L100 | [TUNA: Taming Unified Visual Representations for Native Unified Multimodal Models](L100.md) | §1定义/动机、§2.1–2.3、§3.1、§3.2本作主行/叙述、Tables5/6本作行、§3.3 Table7全部、§3.4正文、§5；未逐图/全部基线或代码、完整训练协议，未复现 |
+| L185 | [Training Diffusion Models with Reinforcement Learning（DDPO）](L185.md) | §2相关工作/§3部分、§4.1–4.3、§5–7、AppA/B Table1/C/D与E/F正文；官方23页PDF已获取，未逐图视觉核对、未逐行代码/全部公式或独立复现 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

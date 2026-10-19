@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 331 条，本批有 203 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 332 条，本批有 210 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
@@ -199,12 +199,12 @@
 | L092 | Harmonizing Visual Representations for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L092.md) | 未完成 |
 | L093 | X-Omni: Reinforcement Learning Makes Discrete Autoregressive Image Generative Models Great Again | primary_sections_read | [结构化分析](../reviews/L093.md) | 未完成 |
 | L094 | TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L094.md) | 未完成 |
-| L095 | QLIP: Text-Aligned Visual Tokenization Unifies Auto-Regressive Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L096 | DualToken: Towards Unifying Visual Understanding and Generation with Dual Visual Vocabularies | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L097 | UniToken: Harmonizing Multimodal Understanding and Generation through Unified Visual Encoding | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L098 | Selftok: Discrete Visual Tokens of Autoregression, by Diffusion, and for Reasoning | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L099 | UniCode$^2$: Cascaded Large-scale Codebooks for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L100 | TUNA: Taming Unified Visual Representations for Native Unified Multimodal Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L095 | QLIP: Text-Aligned Visual Tokenization Unifies Auto-Regressive Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L095.md) | 未完成 |
+| L096 | DualToken: Towards Unifying Visual Understanding and Generation with Dual Visual Vocabularies | primary_sections_read | [结构化分析](../reviews/L096.md) | 未完成 |
+| L097 | UniToken: Harmonizing Multimodal Understanding and Generation through Unified Visual Encoding | primary_sections_read | [结构化分析](../reviews/L097.md) | 未完成 |
+| L098 | Selftok: Discrete Visual Tokens of Autoregression, by Diffusion, and for Reasoning | primary_sections_read | [结构化分析](../reviews/L098.md) | 未完成 |
+| L099 | UniCode$^2$: Cascaded Large-scale Codebooks for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L099.md) | 未完成 |
+| L100 | TUNA: Taming Unified Visual Representations for Native Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L100.md) | 未完成 |
 | L101 | UniWeTok: An Unified Binary Tokenizer with Codebook Size $\mathit{2^{128}}$ for Unified Multimodal Large Language Model | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L102 | EvoTok: A Unified Image Tokenizer via Residual Latent Evolution for Visual Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L103 | HYDRA: Representation Harmonized Tokenization for Multimodal Generation and Understanding | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
@@ -337,3 +337,4 @@
 | L182 | STRIVE: Scene Text Replacement In Videos | primary_sections_read | [结构化分析](../reviews/L182.md) | 未完成 |
 | L183 | CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization | primary_sections_read | [结构化分析](../reviews/L183.md) | 未完成 |
 | L184 | Stroke-Seg: A deep learning-based framework for chinese stroke segmentation | primary_sections_read | [结构化分析](../reviews/L184.md) | 未完成 |
+| L185 | Training Diffusion Models with Reinforcement Learning（DDPO） | primary_sections_read | [结构化分析](../reviews/L185.md) | 未完成 |

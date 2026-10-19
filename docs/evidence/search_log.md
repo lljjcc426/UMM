@@ -94,3 +94,7 @@ LaVIT arXiv2309.04669v3、NExT-GPT2309.05519v3、DreamLLM2309.11499、SEED-LLaMA
 ## 2026-10-20 第十一批：训练课程与反馈
 
 JanusFlow2411.07975、Orthus2412.00127、Liquid2412.04332、ILLUME2412.06673、MetaMorph2412.14164、UGen2503.21193、Harmon2503.21979、X-Omni2507.22058。读取范围逐篇记录，含训练配方、关键主表与指定消融/附录。Orthus正式PMLR267:31619–31633，官方15页PDF第4页Fig2及第8页Table4/5渲染视觉核对，Limitations读第8–9页；MetaMorph正式ICCV PDF第2页Fig1视觉核对。ILLUME与MetaMorph官方CVF书目确认ICCV2025，页码分别21612–21622及17001–17012。X-Omni Table2表头Global/Entity/Attribute/Relation/Other/Overall已核，87.65为Overall；表1中文LongText自身.814低于Seedream3 .878，保留与正文声称冲突。Harmon Fig6和X-Omni RL/CFG图只读正文解释，未读精确曲线；不赋予未看过的数值或预算控制。
+
+## 2026-10-20 第十二批：tokenizer理论与公开配方
+
+QLIP2502.05178、DualToken2503.14324、UniToken2504.04423、Selftok2505.07538v3、UniCode²2506.20214、Tuna2512.02014。读取范围逐篇记录；UniCode²19页PDF第3–4页渲染核Eq1–3/Fig2；Selftok42页PDF第25页Eq20交叉核。DDPO2305.13301v4与ICLR2024官方proceedings查重后新增L185，方法、奖励、实验、局限及AppA–F指定部分已读，正式PDF23页获取未逐图。DualToken OpenReview匹配标题/ICLR2026 PDF搜索摘要，但直取403，保留正式全文未对读；UniToken CVF搜索命中CVPR2025W/MMFM，主会/Workshop明确分开。代码revision：NVlabs/QLIP cf86fcc5131c2bb008c349fe9456ccbd1e0e1619；songweii/DualToken499e5b1d716bb72f5e5e2a91eae78ab53cf2ef3d；SxJyJay/UniToken9181c61367baf44e67f08984cac8347c1d5a1626，已读各README及指定配置/脚本，未下载权重或运行。

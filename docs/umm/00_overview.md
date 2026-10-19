@@ -88,3 +88,7 @@ UMM 将文字任务和视觉生成放进一个可训练系统，例如共享上�
 ## 联合训练与外部反馈（2026-10-20）
 
 [JanusFlow](../reviews/L086.md)固定任务曝光的消融仍有FID/POPE下降；[Orthus](../reviews/L087.md)软量化与条件扩散头有低成本转换证据；[Liquid](../reviews/L088.md)增数据的改善伴计算改变。[ILLUME](../reviews/L089.md)用GPT-4o评估自生成图，[X-Omni](../reviews/L093.md)采用OCR/VLM奖励和中文分支，均须记教师成本。[MetaMorph](../reviews/L090.md)少量T2I之外仍有其他生成监督，[UGen](../reviews/L091.md)渐进词表不能消除全部单任务差距，[Harmon](../reviews/L092.md)MAR表示理解/生成仍有取舍。见[跨方法审查](../evidence/curricula_feedback_and_synergy_2026-10-20.md)。
+
+## 视觉码的实验与理论边界（2026-10-20）
+
+[QLIP](../reviews/L095.md)独立LLaVA用连续倒数第二层，统一UM³生成仍弱于其对照；[DualToken](../reviews/L096.md)同塔双码可保留外观/语义但不在每项理解指标更优；[UniToken](../reviews/L097.md)连续旁路缓解干扰，联合仍有退化。[Selftok](../reviews/L098.md)实测RL增益与其“空间码不可RL”理论需分别评价；[DDPO](../reviews/L185.md)早已对扩散定义去噪MDP。[UniCode²](../reviews/L099.md)大码本覆盖率不等于均匀entropy，[Tuna](../reviews/L100.md)1.5B视频与7B静态能力需分开。见[数学、配方与迁移审查](../evidence/tokenizer_theory_and_rl_2026-10-20.md)。
