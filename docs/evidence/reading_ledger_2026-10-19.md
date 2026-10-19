@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 327 条，本批有 58 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 328 条，本批有 81 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 “三遍验收”当前统一为未完成，因为独立口述、逐图讲解、完整实验/附录核对和追引没有全部逐篇验收。其余列描述实际完成的工作。
 
@@ -9,14 +9,14 @@
 | A01 | DP-Font: Chinese Calligraphy Font Generation Using Diffusion Model and Physical Information Neural Network | primary_sections_read | [结构化分析](../reviews/A01.md) | 未完成 |
 | A02 | Decoupling Layout from Glyph in Online Chinese Handwriting Generation（OLHWG） | primary_sections_read | [结构化分析](../reviews/A02.md) | 未完成 |
 | A03 | DiffInk: Glyph- and Style-Aware Latent Diffusion Transformer for Text to Online Handwriting Generation | primary_sections_read | [结构化分析](../reviews/A03.md) | 未完成 |
-| A04 | Stroke Modeling Enables Vectorized Character Generation with Large Vectorized Glyph Model（LVGM） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| A04 | Stroke Modeling Enables Vectorized Character Generation with Large Vectorized Glyph Model（LVGM） | primary_sections_read | [结构化分析](../reviews/A04.md) | 未完成 |
 | A05 | Handwriting Trajectory Recovery with Diffusion Models | primary_sections_read | [结构化分析](../reviews/A05.md) | 未完成 |
 | A06 | Font Generation and Keypoint Ranking for Stroke Order of Chinese Characters by Deep Neural Networks | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | A07 | Complex Handwriting Trajectory Recovery: Evaluation Metrics and Algorithm（PEN-Net） | primary_sections_read | [结构化分析](../reviews/A07.md) | 未完成 |
-| A08 | Modality Conversion of Handwritten Patterns by Cross Variational Autoencoders（Cross-VAE） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| A08 | Modality Conversion of Handwritten Patterns by Cross Variational Autoencoders（Cross-VAE） | primary_sections_read | [结构化分析](../reviews/A08.md) | 未完成 |
 | A09 | Disentangling Writer and Character Styles for Handwriting Generation（SDT） | primary_sections_read | [结构化分析](../reviews/A09.md) | 未完成 |
 | A10 | Diffusion Models for Handwriting Generation | primary_sections_read | [结构化分析](../reviews/A10.md) | 未完成 |
-| A11 | Stroke Extraction of Chinese Character Based on Deep Structure Deformable Image Registration | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| A11 | Stroke Extraction of Chinese Character Based on Deep Structure Deformable Image Registration | primary_sections_read | [结构化分析](../reviews/A11.md) | 未完成 |
 | B01 | Calliffusion: Chinese Calligraphy Generation and Style Transfer with Diffusion Modeling | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | B02 | Moyun: A Diffusion-Based Model for Style-Specific Chinese Calligraphy Generation | primary_sections_read | [结构化分析](../reviews/B02.md) | 未完成 |
 | B03 | InkDiffuser: High-Fidelity One-shot Chinese Calligraphy via Differentiable Morphological Optimization | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
@@ -33,27 +33,27 @@
 | C05 | UniCache: Task- and Type-Aware KV Cache Compression for Unified Multimodal Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | C06 | Reconstruction Alignment Improves Unified Multimodal Models（RecA） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | C07 | Learning Native Reflection in Unified Models with Interleaved Reinforcement Learning（UMM-Reflection） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| D01 | HunyuanVideo 1.5 Technical Report | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| D02 | LTX-2: Efficient Joint Audio-Visual Foundation Model | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| D03 | VACE: All-in-One Video Creation and Editing | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| D04 | Wan-Move: Motion-controllable Video Generation via Latent Trajectory Guidance | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| D01 | HunyuanVideo 1.5 Technical Report | primary_sections_read | [结构化分析](../reviews/D01.md) | 未完成 |
+| D02 | LTX-2: Efficient Joint Audio-Visual Foundation Model | primary_sections_read | [结构化分析](../reviews/D02.md) | 未完成 |
+| D03 | VACE: All-in-One Video Creation and Editing | primary_sections_read | [结构化分析](../reviews/D03.md) | 未完成 |
+| D04 | Wan-Move: Motion-controllable Video Generation via Latent Trajectory Guidance | primary_sections_read | [结构化分析](../reviews/D04.md) | 未完成 |
 | D05 | Self Forcing: Bridging the Train-Test Gap in Autoregressive Video Diffusion | primary_sections_read | [结构化分析](../reviews/D05.md) | 未完成 |
-| D06 | Self Gradient Forcing: Native Long Video Extrapolation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| D07 | Salt: Self-Consistent Distribution Matching with Cache-Aware Training for Fast Video Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| D08 | Wan-R1: Verifiable-Reinforcement Learning for Video Reasoning | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| D06 | Self Gradient Forcing: Native Long Video Extrapolation | primary_sections_read | [结构化分析](../reviews/D06.md) | 未完成 |
+| D07 | Salt: Self-Consistent Distribution Matching with Cache-Aware Training for Fast Video Generation | primary_sections_read | [结构化分析](../reviews/D07.md) | 未完成 |
+| D08 | Wan-R1: Verifiable-Reinforcement Learning for Video Reasoning | primary_sections_read | [结构化分析](../reviews/D08.md) | 未完成 |
 | E01 | Mean Flows for One-step Generative Modeling | primary_sections_read | [结构化分析](../reviews/E01.md) | 未完成 |
-| E02 | Improved Mean Flows: On the Challenges of Fastforward Generative Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| E02 | Improved Mean Flows: On the Challenges of Fastforward Generative Models | primary_sections_read | [结构化分析](../reviews/E02.md) | 未完成 |
 | E03 | Consistency Policy: Accelerated Visuomotor Policies via Consistency Distillation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| E04 | Discrete Flow Matching | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| E04 | Discrete Flow Matching | primary_sections_read | [结构化分析](../reviews/E04.md) | 未完成 |
 | E05 | F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| E06 | Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model（TeaCache） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| E07 | clDice: A Novel Topology-Preserving Loss Function for Tubular Structure Segmentation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| E06 | Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model（TeaCache） | primary_sections_read | [结构化分析](../reviews/E06.md) | 未完成 |
+| E07 | clDice: A Novel Topology-Preserving Loss Function for Tubular Structure Segmentation | primary_sections_read | [结构化分析](../reviews/E07.md) | 未完成 |
 | F01 | Differentiable Vector Graphics Rasterization for Editing and Learning（diffvg） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| F02 | Bézier Splatting for Fast and Differentiable Vector Graphics | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| F03 | FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| F04 | CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| F02 | Bézier Splatting for Fast and Differentiable Vector Graphics | primary_sections_read | [结构化分析](../reviews/F02.md) | 未完成 |
+| F03 | FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment | primary_sections_read | [结构化分析](../reviews/F03.md) | 未完成 |
+| F04 | CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting | primary_sections_read | [结构化分析](../reviews/F04.md) | 未完成 |
 | F05 | Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| X01 | InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| X01 | InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write | primary_sections_read | [结构化分析](../reviews/X01.md) | 未完成 |
 | R01 | Hanzi Writer（工具，不是论文） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | R02 | Make Me a Hanzi（数据/工程资源） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | R03 | CASIA-HWDB / CASIA-OLHWDB（数据） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
@@ -105,7 +105,7 @@
 | U31 | DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | R06 | 通用规范汉字笔顺规范 | primary_metadata_only | 本批未新增逐篇精读 | 未完成 |
 | R07 | OpenHandWrite_Toolbox与笔画级数据 | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| L001 | Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L001 | Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026 | primary_sections_read | [结构化分析](../reviews/L001.md) | 未完成 |
 | L002 | Diff-Writer，ICONIP 2023 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L003 | Write Like You，2021 | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | L004 | Layout Stroke Imitation，2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
@@ -116,11 +116,11 @@
 | L009 | Video-Based Handwritten Chinese Character Recognition，2005 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L010 | VideoSketcher: Sequential Sketch Generation Using Video Model Priors | primary_sections_read | [结构化分析](../reviews/L010.md) | 未完成 |
 | L011 | Draw This First | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| L012 | SketchAgent，2024/2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L012 | SketchAgent，2024/2025 | primary_sections_read | [结构化分析](../reviews/L012.md) | 未完成 |
 | L013 | ProcessPainter，2024 | primary_sections_read | [结构化分析](../reviews/L013.md) | 未完成 |
-| L014 | Generating Past and Future in Digital Painting Processes / PaintsAlter，2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L015 | Loomis Painter，2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L016 | StrokeNUWA，2024 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L014 | Generating Past and Future in Digital Painting Processes / PaintsAlter，2025 | primary_sections_read | [结构化分析](../reviews/L014.md) | 未完成 |
+| L015 | Loomis Painter，2025 | primary_sections_read | [结构化分析](../reviews/L015.md) | 未完成 |
+| L016 | StrokeNUWA，2024 | primary_sections_read | [结构化分析](../reviews/L016.md) | 未完成 |
 | L017 | DiffSketcher，2023 | primary_sections_read | [结构化分析](../reviews/L017.md) | 未完成 |
 | L018 | Diff-Font，2022 起 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L019 | FontDiffuser，AAAI 2024 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
@@ -333,3 +333,4 @@
 | G030 | Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G030.md) | 未完成 |
 | G031 | VBench: Comprehensive Benchmark Suite for Video Generative Models | primary_sections_read | [结构化分析](../reviews/G031.md) | 未完成 |
 | G032 | Towards Accurate Generative Models of Video: A New Metric & Challenges | primary_sections_read | [结构化分析](../reviews/G032.md) | 未完成 |
+| H001 | CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品 | primary_sections_read | 本批未新增逐篇精读 | 未完成 |

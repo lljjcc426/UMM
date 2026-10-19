@@ -32,6 +32,29 @@
 | B04 | [AnyText2: Visual Text Generation and Editing With Customizable Attributes](B04.md) | 方法框架、训练/推理配置与对比来源说明；数表待补 |
 | B05 | [Kinetic Typography Diffusion Model（KineTy）](B05.md) | 数据/架构、训练设置与基线；主数表待补 |
 | B06 | [Dynamic Typography: Bringing Text to Life via Video Diffusion Prior](B06.md) | 方法、数据和实现/公平比较设置；消融数表待补 |
+| A04 | [Stroke Modeling Enables Vectorized Character Generation with Large Vectorized Glyph Model（LVGM）](A04.md) | 摘要、§3数据、§4两阶段表示、§5.1–5.5及§6限制；Table2/3文字，未逐图视觉验收 |
+| A08 | [Modality Conversion of Handwritten Patterns by Cross Variational Autoencoders（Cross-VAE）](A08.md) | 摘要、§II–III空间共享损失、§IV-A至D含TableI；未完成所有图像视觉核查 |
+| A11 | [Stroke Extraction of Chinese Character Based on Deep Structure Deformable Image Registration](A11.md) | 摘要、方法三模块、实验数据/训练、Tables2–5及Limitations；代码未运行 |
+| L001 | [Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026](L001.md) | 摘要、方法主要模块、§4.1/Table1、Tables2–4及跨语言设置；完整符号和附录仍待补核 |
+| X01 | [InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write](X01.md) | §3架构/五任务/token，§4.1–4.7数据、Table2/3及限制；AppendixG尚待完整摘录 |
+| L012 | [SketchAgent，2024/2025](L012.md) | §4、§5.1–5.2、Table1/2、§6–7与官方CVPR书目信息；未完成全部交互附录 |
+| L014 | [Generating Past and Future in Digital Painting Processes / PaintsAlter，2025](L014.md) | 原始13页PDF§3主要框架、§3.4数据/训练、§4.2–4.7及Tables1–4；逐图视觉核对尚未全部完成 |
+| L015 | [Loomis Painter，2025](L015.md) | §3–4、§5实现/Table2/3、§5.2.1PDP、§5.3消融、§7限制；附录未完整精读 |
+| L016 | [StrokeNUWA，2024](L016.md) | §3.1–3.2、§4.1–4.3、§5及Tables2–4；官方PMLR书目核对 |
+| F02 | [Bézier Splatting for Fast and Differentiable Vector Graphics](F02.md) | 摘要、表示概述、§4.1–4.3和Tables1–3、限制与AppendixA/B；源码未运行 |
+| F03 | [FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment](F03.md) | §III笔画/模拟器/规划、§IV设备、§V对比/重规划及§VI限制；官方作者页确认ICRA2023 |
+| F04 | [CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting](F04.md) | §III数据/高层微调、§IV评估、TableI、§V/限制；官方项目与HF原始README/文件清单交叉核查 |
+| D01 | [HunyuanVideo 1.5 Technical Report](D01.md) | §2数据、§3架构、§4训练及Tables3/7/8；未逐项摘完所有训练规模和人评协议 |
+| D02 | [LTX-2: Efficient Joint Audio-Visual Foundation Model](D02.md) | §3表示/双流、§4推理、§5数据、§6速度/评测与§7限制 |
+| D03 | [VACE: All-in-One Video Creation and Editing](D03.md) | §3 VCU/adapter、§4数据及benchmark、§5对比/消融；完整大表逐数核对仍待完成 |
+| D04 | [Wan-Move: Motion-controllable Video Generation via Latent Trajectory Guidance](D04.md) | §3 latentguidance/训练、§4benchmark、§5/Table4、§8.3训练与§9.4failure |
+| D06 | [Self Gradient Forcing: Native Long Video Extrapolation](D06.md) | 摘要、方法两遍梯度路径、§4.1协议、§4.5/Table4及结论；长主表尚待逐项摘录 |
+| D07 | [Salt: Self-Consistent Distribution Matching with Cache-Aware Training for Fast Video Generation](D07.md) | 摘要、§4.2–4.4/Tables1/2/4，AppendixB实现和动态分讨论；§3公式尚需完整推导 |
+| D08 | [Wan-R1: Verifiable-Reinforcement Learning for Video Reasoning](D08.md) | 方法奖励/VideoGRPO、§4.1–4.4、主实验概述、AppendixTable4；Table2逐值与全消融待补 |
+| E02 | [Improved Mean Flows: On the Challenges of Fastforward Generative Models](E02.md) | 摘要、§4.1/JVP/stopgrad、§5.1/Table1、§5.2/Table2、AppendixTable4；全部数学证明未完成 |
+| E04 | [Discrete Flow Matching](E04.md) | 摘要、§2主要概率路径/采样概念、§3masked命题、§4实验设置与代码结果；AppendixD/G及全部证明未读完 |
+| E06 | [Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model（TeaCache）](E06.md) | 摘要、方法输入差/重标定、§4.1–4.3及限制讨论；多项式系数与代码未独立复核 |
+| E07 | [clDice: A Novel Topology-Preserving Loss Function for Tubular Structure Segmentation](E07.md) | §2定义、§3定理/推论前提、§4softskeleton、§5数据/指标/Table1概述；完整证明与补充训练配置未全部复核 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

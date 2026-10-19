@@ -511,7 +511,7 @@
       "https://arxiv.org/abs/2405.09818"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：混合图文序列的早期融合可支持理解与生成。",
+    "claim": "作者研究目标：在同一自回归模型中理解和生成任意图文交错文档。",
     "method": "离散图像token与文本在早期融合，并针对混合模态训练稳定性设计归一化与损失。 7B/34B decoder-only Transformer；512px图像压为1024个离散token，codebook8192；QK-norm、z-loss等。",
     "problem": "在同一自回归模型中理解和生成任意图文交错文档。",
     "conclusion": "Chameleon34B预训练COCO120.2 CIDEr为2-shot；SFT140.8为0-shot。不能忽略训练阶段和few-shot差异比较。",
@@ -590,7 +590,7 @@
       "https://arxiv.org/abs/2409.18869"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：统一下一Token目标可处理图像、视频与文字。",
+    "claim": "作者研究目标：统一图文视频的离散自回归建模，检验next-token范式能否支持感知与生成。",
     "method": "将图像视频压为离散视觉token，单一8B Transformer预测后续token，结合任务后训练。 32层、hidden4096、GQA8KV头、131072上下文；时空视觉tokenizer和文字tokenizer。",
     "problem": "统一图文视频的离散自回归建模，检验next-token范式能否支持感知与生成。",
     "conclusion": "DPG81.60低于DALL-E3的83.50等；视频总分略高于OpenSora1.2的79.76。不同表不能概括为所有维度超过所有专门模型。",
@@ -669,7 +669,7 @@
       "https://arxiv.org/abs/2410.13848"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：分开视觉编码可降低理解与生成的表示冲突。",
+    "claim": "作者研究目标：减轻统一模型中视觉理解与生成对编码表示需求的冲突。",
     "method": "分离理解和生成编码路径，保留一个共享自回归Transformer。 DeepSeek1.3B、SigLIP-Large16-384理解编码器、codebook16384/f16生成VQ、各2层MLP适配器。",
     "problem": "减轻统一模型中视觉理解与生成对编码表示需求的冲突。",
     "conclusion": "Table5分离路径联合D相较单理解E有些指标更高、部分更低：MMB69.4<70.6，SEED63.7<64.8；COCO-FID8.53优于单生成F8.92。",
@@ -748,7 +748,7 @@
       "https://arxiv.org/abs/2501.17811"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：改进数据和训练规模可提升Janus两类能力。",
+    "claim": "作者研究目标：扩展Janus理解/生成能力和生成稳定性。",
     "method": "优化训练阶段与数据混合，扩大高质量数据和模型规模；核心架构沿用Janus。 SigLIP理解、VQ生成、共享AR Transformer；1B/7B标记与基础LLM实际规格需按表记录。",
     "problem": "扩展Janus理解/生成能力和生成稳定性。",
     "conclusion": "主表展示扩展能力；数据、训练日程与参数同时改变，不能据跨版本提升估计单个设计的因果收益。",
@@ -827,7 +827,7 @@
       "https://arxiv.org/abs/2408.11039"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：同一Transformer可同时学习文本预测和图像扩散。",
+    "claim": "作者研究目标：在一个Transformer内同时处理离散语言和连续图像，研究扩展效率。",
     "method": "语言用next-token交叉熵、图像用扩散损失，模态特定编码/解码和图内双向注意力。 共享Transformer；跨图文因果、单图内部双向mask；linear或U-Net patch encoder/decoder。",
     "problem": "在一个Transformer内同时处理离散语言和连续图像，研究扩展效率。",
     "conclusion": "Table5 0.76B linear编码加图内双向注意力FID61.3→20.3；U-Net编码16.8→16.7，说明收益依赖外围编码器。",
@@ -906,7 +906,7 @@
       "https://arxiv.org/abs/2408.12528"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：单Transformer可结合语言自回归与视觉离散扩散。",
+    "claim": "作者研究目标：用一个Transformer结合语言自回归与图像离散扩散。",
     "method": "统一AR/离散去噪目标及omni-attention，探索离散/连续理解视觉表示。 Phi1.5 1.3B、MAGVITv2 tokenizer；Show-o†/‡换成连续MAGVIT/CLIP理解特征。",
     "problem": "用一个Transformer结合语言自回归与图像离散扩散。",
     "conclusion": "默认Show-o对比同基座LLaVA有多项下降，如VQAv269.4<75.3；‡74.7更接近但仍低于75.3。",
@@ -1549,7 +1549,7 @@
       "https://arxiv.org/html/2609.01607v1"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：共享知识和合适计算分工可出现双向协同。",
+    "claim": "作者研究目标：区分统一理解生成的共存、容量竞争与可验证协同。",
     "method": "在无预训练视觉先验的native设置研究表示、任务、系统三级，比较dense/modality/task解耦路由。 原生视觉处理、共享/解耦MoT，保留语义交互；探针用于分析冻结表示。",
     "problem": "区分统一理解生成的共存、容量竞争与可验证协同。",
     "conclusion": "Table1 dense联合理解略升，但GenEval51.16→51.03、HPS7.05→5.92；3D理解均值57.15→59.01仍有ViewSpatial下降。",
@@ -1644,7 +1644,7 @@
       "https://arxiv.org/abs/2607.04423"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：研究一侧训练的能力是否迁移到另一侧。",
+    "claim": "作者研究目标：单侧训练一个具体能力，能否迁移到UMM的另一输出任务？",
     "method": "分别只训练理解或生成，在另一任务测同一计数、空间或文字能力，比较四类架构。 Lumina-DiMOO 8B、Janus-Pro 7B、BAGEL 7B、BLIP3-o 8B；在共享Transformer的Q/K/V与MLP加rank128 LoRA，视觉编码器和输出头冻结。",
     "problem": "单侧训练一个具体能力，能否迁移到UMM的另一输出任务？",
     "conclusion": "Table1：Lumina计数生成48→57%，Janus-Pro38→32%；Table4：文字WER .654→.641、CER .362→.351，BLEU .277→.274。变化具有任务和指标依赖性。",

@@ -129,7 +129,8 @@ def main():
         note = f'[结构化分析](../reviews/{r["id"]}.md)' if r['id'] in review_map else '本批未新增逐篇精读'
         ledger.append(f'| {r["id"]} | {r["title"].replace("|", "/")} | {r["verification"]} | {note} | 未完成 |')
     (ROOT / 'docs/evidence/reading_ledger_2026-10-19.md').write_text('\n'.join(ledger) + '\n', encoding='utf-8')
-    report = dict(date='2026-10-19', catalog_entries=len(catalog), curated_reviews=len(reviews),
+    as_of = max(r.get('last_updated') or r.get('checked_on') or '2026-10-19' for r in catalog)
+    report = dict(date=as_of, catalog_entries=len(catalog), curated_reviews=len(reviews),
                   by_verification=dict(Counter(r['verification'] for r in catalog)),
                   by_review_depth=dict(Counter(r['reading_status'] for r in reviews)),
                   three_pass_acceptance_completed=0, independently_reproduced=0,

@@ -1003,5 +1003,41 @@
     "supplement_id": "X2026-016",
     "same_work_as_supplement": "X2026-007",
     "associated_research_id": "S007"
+  },
+  {
+    "id": "H001",
+    "category": "H 模型卡与工程制品",
+    "title": "CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品",
+    "version": "Hugging Face主卡，2026-10-19核查",
+    "source_urls": [
+      "https://huggingface.co/skeeterman/CoFRIDA-Sharpie",
+      "https://huggingface.co/skeeterman/CoFRIDA-Sharpie/raw/main/README.md",
+      "https://huggingface.co/api/models/skeeterman/CoFRIDA-Sharpie/tree/main"
+    ],
+    "previous_evidence": "",
+    "claim": "发布用于机器人Sharpie共同绘画的LoRA权重；关联F04，不能另计独立论文。",
+    "method": "通过部分画布与文字预测可由机器人续画的目标；模型制品细节需与论文和代码对齐。",
+    "problem": "将既有画布、文字目标与有限画笔执行能力连接。",
+    "conclusion": "已核模型卡及文件清单：存在pytorch_lora_weights.bin；base_model元数据与正文基础模型描述不一致，尚未验证权重兼容。",
+    "gap": "卡片缺训练集版本、样本量、r/targetmodules、优化器、完整推理接口和可复核指标；不得照自动示例宣称可运行。",
+    "provenance": "2026-10-19存量复核时通过官方CoFRIDA项目追引的制品",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
+    "record_type": "resource",
+    "scope": "handwriting_or_adjacent",
+    "privacy": "public_source_note",
+    "sections_read": "HF原始README与API文件列表；未下载权重/运行模型",
+    "last_updated": "2026-10-20",
+    "canonical_key": "resource:https://huggingface.co/skeeterman/CoFRIDA-Sharpie",
+    "aliases": [],
+    "associated_research_id": "F04",
+    "note_path": "docs/resources/cofrida_sharpie_card.md",
+    "dataset": "模型卡未给出可独立核验的数据版本；不能直接倒填论文原始训练数据。",
+    "framework": "文字与部分画布到完整目标画面，再接机器人动作规划。",
+    "architecture": "文件名显示LoRA制品；base_model字段diffusers/sdxl-instructpix2pix-768，正文timbrooks/instruct-pix2pix，冲突待解。",
+    "metrics": "模型卡没有独立结果表；论文F04指标单列，不能自动赋给此权重。",
+    "baselines": "卡片未给独立对照；关联论文F04。",
+    "experimental_conditions": "未运行；卡片license lgpl-3.0；基础权重、数据及其他依赖许可仍应单独核对。",
+    "review_depth": "model_card_and_file_listing_reviewed"
   }
 ]

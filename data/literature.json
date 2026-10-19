@@ -8,7 +8,7 @@
       "https://www.ijcai.org/proceedings/2024/0863.pdf"
     ],
     "previous_evidence": "全文相关章节、原PDF表格",
-    "claim": "作者主张：笔顺先验与墨水扩散物理约束可改善中文书法字体生成。",
+    "claim": "作者研究目标：改善静态中文书法字形结构与墨迹外观。",
     "method": "笔顺条件编码与墨水扩散PINN残差联合扩散训练。 条件DDPM与PINN，物理扩散方程残差用于训练；PINN时间和去噪时间都不等同真实书写动作时间。",
     "problem": "改善静态中文书法字形结构与墨迹外观。",
     "conclusion": "Table3 SSIM .699→.735、FID24.91→22.34；Table2 CFG.8的FID22.19优于.6的22.34，.6仅在部分指标最好。",
@@ -89,7 +89,7 @@
       "https://arxiv.org/abs/2410.02309"
     ],
     "previous_evidence": "方法与实验相关章节",
-    "claim": "作者主张：分解布局与字形，可生成具有参考书写风格的完整中文文本行。",
+    "claim": "作者研究目标：生成带作者风格的在线中文整行笔迹。",
     "method": "将布局自回归预测与单字扩散解耦，用参考文本布局控制行结构。 布局序列生成器+字符embedding字典、多尺度风格编码器、1D U-Net扩散单字生成器。",
     "problem": "生成带作者风格的在线中文整行笔迹。",
     "conclusion": "Table1：本法DTW .932、Content .891、Style .918；SDT .880/.970/.945。优势声明须限定纯数据驱动组。",
@@ -170,7 +170,7 @@
       "https://arxiv.org/html/2509.23624v3"
     ],
     "previous_evidence": "全文相关章节、采样消融与关键公开代码",
-    "claim": "作者主张：通过结构和风格感知的潜在空间，直接生成自然、连贯的整行笔迹。",
+    "claim": "作者研究目标：直接生成整行、可控风格的在线中文笔迹。",
     "method": "InkVAE压缩点序列，并用OCR/风格正则塑造可生成潜空间；InkDiT条件生成整行潜变量。 序列VAE+潜空间DiT；内容编码器及参考潜变量条件；DDIM采样后用GMM坐标头和笔状态恢复。",
     "problem": "直接生成整行、可控风格的在线中文笔迹。",
     "conclusion": "Table1：AR94.38、CR94.58、Style77.38、DTW1.049、58.47char/s；正文另写58.82，引用采用表值并保留冲突。",
@@ -251,19 +251,19 @@
       "https://arxiv.org/html/2511.11119"
     ],
     "previous_evidence": "方法与实验相关章节",
-    "claim": "作者主张：把汉字视为有序笔画序列，可利用LLM生成矢量字符、词语和诗句。",
-    "method": "学习离散stroke embedding；微调DeepSeek系语言模型预测下一笔画表示，再解码SVG。",
-    "problem": "矢量汉字复杂、序列化困难；需要可组合的笔画级生成方式。",
-    "conclusion": "报告907,267条有序SVG样本，涵盖多字序列和不同书体；展示字符、词句生成及专家评价。",
-    "gap": "【边界】样本数不是不同汉字数；封闭笔画外轮廓不等于笔尖中心轨迹；识别和美观评价不能替代规范笔顺及笔内运笔验证。",
+    "claim": "作者研究目标：根据已有少量笔画，逐笔续写中文矢量字、词和诗句。",
+    "method": "先压缩单笔Bezier表示，再微调DeepSeek-Coder预测后续笔画嵌入。 笔画离散编码器/解码器，30,000项16维码本，每笔8个嵌入；DeepSeek-Coder-1.3B按笔顺与字序AR预测。",
+    "problem": "根据已有少量笔画，逐笔续写中文矢量字、词和诗句。",
+    "conclusion": "100K训练给出综合评分4.68；Table2与正文专家/学生分数顺序需按表引用，不能据主观评分声称规范笔顺已达标。",
+    "gap": "SVG描边轮廓与中心线动作不同；高压缩使笔画不够完整/平滑；未验证RGB书写视频、真实速度或落笔物理；907K资源规模不等于907K全部用于模型实验。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：方法与实验相关章节",
-    "last_updated": "2026-10-15",
+    "sections_read": "摘要、§3数据、§4两阶段表示、§5.1–5.5及§6限制；Table2/3文字，未逐图视觉验收",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2511.11119",
     "evidence_history": [
       {
@@ -302,7 +302,25 @@
       "local_focused:M082",
       "user_survey:A04"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/A04.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：方法与实验相关章节",
+        "conclusion": "报告907,267条有序SVG样本，涵盖多字序列和不同书体；展示字符、词句生成及专家评价。",
+        "gap": "【边界】样本数不是不同汉字数；封闭笔画外轮廓不等于笔尖中心轨迹；识别和美观评价不能替代规范笔顺及笔内运笔验证。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/A04.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "SVG-Strokes共907,267样本，9574汉字；实际LLM实验10K/25K/50K/100K，词/成语/诗句20/30/50%；单例限100笔。",
+    "framework": "先压缩单笔Bezier表示，再微调DeepSeek-Coder预测后续笔画嵌入。",
+    "architecture": "笔画离散编码器/解码器，30,000项16维码本，每笔8个嵌入；DeepSeek-Coder-1.3B按笔顺与字序AR预测。",
+    "metrics": "可识别度、美观、文学性0–5评分，权重.4/.3/.3；专家与学生权重.7/.3；不含严格整字笔顺准确率。",
+    "baselines": "矢量生成方法的Table3对照；各基线身份及训练预算本次未逐项摘录。",
+    "experimental_conditions": "两张RTX A6000/A800；单笔64×6坐标归一化[-1,1]，编码器Adam1e-4、batch128、3000iter；LLM batch4、长度820、label smoothing.001；原文写5 iterations，不能擅改为5 epochs。"
   },
   {
     "id": "A05",
@@ -313,7 +331,7 @@
       "https://arxiv.org/html/2607.03422v1"
     ],
     "previous_evidence": "全文相关章节、图表、发表信息",
-    "claim": "作者主张：多尺度视觉条件扩散可从静态手写图像恢复复杂、自然的有序轨迹。",
+    "claim": "作者研究目标：从静态墨迹恢复在线多笔画轨迹。",
     "method": "把恢复写成图像条件扩散采样，并分别评时序距离与字形重叠。 图像条件去噪扩散轨迹模型；1000步DDPM生成。",
     "problem": "从静态墨迹恢复在线多笔画轨迹。",
     "conclusion": "Table1见过字：本法DTW111.1/LDTW1.574/AIoU.745，PEN-Net212.3/2.728/.607；支持该渲染分布下恢复改善。",
@@ -455,7 +473,7 @@
       "https://arxiv.org/abs/2210.15879"
     ],
     "previous_evidence": "原论文方法、后续比较口径",
-    "claim": "作者主张：新的评测和解析—追踪建模可改善复杂笔迹恢复。",
+    "claim": "作者研究目标：复杂字符的离线到在线恢复如何同时评估顺序和几何？",
     "method": "提出AIoU和LDTW，并用双流解析编码器/全局追踪解码器恢复长轨迹。 PEN-Net的双流图形解析编码器+全局tracing decoder。",
     "problem": "复杂字符的离线到在线恢复如何同时评估顺序和几何？",
     "conclusion": "原Table1比较四语种，支持复杂字形恢复；本卡不抄未逐项核对的分数。",
@@ -535,19 +553,19 @@
       "https://arxiv.org/abs/1906.06142"
     ],
     "previous_evidence": "原论文机制与任务",
-    "claim": "作者主张：通过共享潜在表示，实现手写图像与轨迹两种模态的转换。",
-    "method": "图像VAE与轨迹VAE耦合，使用跨模态与潜在空间共享约束。",
-    "problem": "离线像素和在线时序笔迹难以互相转换。",
-    "conclusion": "在原文手写模式任务上展示双向转换；后续成为图像到轨迹恢复基线。",
-    "gap": "【边界】原始实验与后续中文重实现不同；共享latent不自动保证规范顺序、复杂艺术字和视频执行一致。",
+    "claim": "作者研究目标：在静态手写字母图像与在线坐标轨迹之间双向转换。",
+    "method": "两个VAE共享潜空间，重建/KL/跨模态及latent distance联合训练。 图像ConvDeconv；轨迹用1D CNN或LSTM编码/解码；共享32维latent；空间共享项为delta/2乘两个latent欧氏距离平方。",
+    "problem": "在静态手写字母图像与在线坐标轨迹之间双向转换。",
+    "conclusion": "TableI CNN PSNR15.99、SSIM.707、DTW.0361，LSTM15.26/.617/.0411，类平均9.197/.159/.206；改善主要相对较弱模板基线。",
+    "gap": "单字母、低分辨率、渲染图分布；静态图无法唯一恢复真实速度；文中DTW的输入输出符号有不一致，使用任务定义解释，不照抄错误下标。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文机制与任务",
-    "last_updated": "2026-10-15",
+    "sections_read": "摘要、§II–III空间共享损失、§IV-A至D含TableI；未完成所有图像视觉核查",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:1906.06142",
     "evidence_history": [
       {
@@ -586,7 +604,25 @@
       "local_focused:M086",
       "user_survey:A08"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/A08.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文机制与任务",
+        "conclusion": "在原文手写模式任务上展示双向转换；后续成为图像到轨迹恢复基线。",
+        "gap": "【边界】原始实验与后续中文重实现不同；共享latent不自动保证规范顺序、复杂艺术字和视频执行一致。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/A08.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "Unipen大写拉丁字母，在线轨迹渲染静态图；此次已读段没有明确writer-disjoint划分和样本数，不能补写。",
+    "framework": "两个VAE共享潜空间，重建/KL/跨模态及latent distance联合训练。",
+    "architecture": "图像ConvDeconv；轨迹用1D CNN或LSTM编码/解码；共享32维latent；空间共享项为delta/2乘两个latent欧氏距离平方。",
+    "metrics": "图像PSNR/SSIM、轨迹DTW；这些指标不单独验证完整笔顺或时间速度。",
+    "baselines": "轨迹CNN与LSTM变体、类平均模板；没有现代Transformer/扩散基线。",
+    "experimental_conditions": "RMSProp200epochs，latent32；alpha=beta=.5，跨/自重建各权重及delta=1见§IV-B；学习率/硬件本次未找到明确项。"
   },
   {
     "id": "A09",
@@ -597,7 +633,7 @@
       "https://arxiv.org/abs/2303.14736"
     ],
     "previous_evidence": "方法与实验相关章节",
-    "claim": "作者主张：区分书写者总体风格和字符局部风格，可提高风格化手写生成。",
+    "claim": "作者研究目标：作者整体风格与同一作者逐字细节如何分别建模？",
     "method": "SDT用互补对比目标分离writer-wise与character-wise风格。 Transformer风格编码/解码，作者与字符两路风格；512维、8头、编码器2层、风格解码共4层。",
     "problem": "作者整体风格与同一作者逐字细节如何分别建模？",
     "conclusion": "方法在多文字实验中验证风格解耦；此处以协议和方法证据为主，未重算作者结果。",
@@ -678,7 +714,7 @@
       "https://arxiv.org/html/2011.06704v1"
     ],
     "previous_evidence": "原文输出表示与方法",
-    "claim": "作者主张：不用辅助识别、书写者判别或对抗损失，也能生成逼真的参考风格笔迹。",
+    "claim": "作者研究目标：不依赖识别/对抗辅助网络生成带作者风格的英语在线笔迹。",
     "method": "在点序列上作条件扩散，以作者参考图与文本条件控制。 约10M参数条件去噪网络及text-to-stroke attention。",
     "problem": "不依赖识别/对抗辅助网络生成带作者风格的英语在线笔迹。",
     "conclusion": "Table1：本法FID7.10、GS3.3e-3；消融8.05/2.7e-3；真实子集2.91/5.4e-4。FID改善与GS取舍并存。",
@@ -756,22 +792,23 @@
     "title": "Stroke Extraction of Chinese Character Based on Deep Structure Deformable Image Registration",
     "version": "AAAI 2023；arXiv:2307.04341",
     "source_urls": [
-      "https://arxiv.org/abs/2307.04341"
+      "https://arxiv.org/abs/2307.04341",
+      "https://doi.org/10.1609/aaai.v37i1.25220"
     ],
     "previous_evidence": "原论文方法与摘要",
-    "claim": "作者主张：利用笔画语义和先验配准，改善汉字单笔画提取。",
-    "method": "参考笔画的结构可变形配准、笔画类别语义分割、单笔画精细提取。",
-    "problem": "交叉粘连处仅靠形态学容易拆错或匹配错笔画。",
-    "conclusion": "构建/使用书法与常规手写数据，报告优于比较方法的笔画提取效果。",
-    "gap": "【边界】静态笔画分解不等于实际时间顺序恢复；依赖参考和上游匹配。【推断】可作艺术字笔画对应模块，但需要验证跨风格与错误传播。",
+    "claim": "作者研究目标：从中文书法和常规手写字图像提取单笔实例并匹配参考笔画。",
+    "method": "结构可变配准提供逐笔先验，七类语义分割后精细提取单笔。 SDNet预测结构变形与逐笔局部线性约束；SegNet七类语义；ExtractNet含STN和卷积，BCE监督。",
+    "problem": "从中文书法和常规手写字图像提取单笔实例并匹配参考笔画。",
+    "conclusion": "Table3 CCSEDB mIoU_m=.924、RHSEDB=.917，PathMatchNet .692/.654；不匹配指标也改善。模板已提供字身份和笔画结构，跨任务比较须保持条件。",
+    "gap": "潦草交叉及不符合参考结构的字会失败；参考笔顺映射不能证明原作者实际落笔顺序；切分策略可能影响跨writer结论。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文方法与摘要",
-    "last_updated": "2026-10-15",
+    "sections_read": "摘要、方法三模块、实验数据/训练、Tables2–5及Limitations；代码未运行",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2307.04341",
     "evidence_history": [
       {
@@ -810,7 +847,25 @@
       "local_focused:M087",
       "user_survey:A11"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/A11.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文方法与摘要",
+        "conclusion": "构建/使用书法与常规手写数据，报告优于比较方法的笔画提取效果。",
+        "gap": "【边界】静态笔画分解不等于实际时间顺序恢复；依赖参考和上游匹配。【推断】可作艺术字笔画对应模块，但需要验证跨风格与错误传播。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/A11.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "CCSEDB5000字样；RHSEDB28,080样本17writers，由CASIA在线轨迹渲染；两者90/10切分，所读协议未证明writer-disjoint。",
+    "framework": "结构可变配准提供逐笔先验，七类语义分割后精细提取单笔。",
+    "architecture": "SDNet预测结构变形与逐笔局部线性约束；SegNet七类语义；ExtractNet含STN和卷积，BCE监督。",
+    "metrics": "配准质心距离mDis/bbox IoU；匹配与不匹配mIoU_m/mIoU_um；不等于动作时序恢复。",
+    "baselines": "配准TpsStn4/8和VoxelMorph；提取PathNet、PathMatchNet。",
+    "experimental_conditions": "256×256，三阶段batch8，40/10/20epochs；lr1e-4每10/2/5epochs减半；语义训练先验随机偏移≤5px。"
   },
   {
     "id": "B01",
@@ -884,7 +939,7 @@
       "https://arxiv.org/abs/2410.07618"
     ],
     "previous_evidence": "原论文方法与数据说明",
-    "claim": "作者主张：指定字符、书体、书法家，可生成对应样式书法。",
+    "claim": "作者研究目标：按书家、字体/书体和字符标签生成静态书法。",
     "method": "用Vision Mamba替代扩散U-Net，TripleLabel条件；配Mobao数据。 条件扩散中的Vision Mamba及三标签嵌入；无在线书写解码。",
     "problem": "按书家、字体/书体和字符标签生成静态书法。",
     "conclusion": "Table2写IoU向下：Moyun.260、CalliGAN.325、ZiGAN.348；PSNR32.0727。IoU通常越高越好，未澄清前不据此宣布结构最优。",
@@ -1028,7 +1083,7 @@
       "https://arxiv.org/abs/2411.15245"
     ],
     "previous_evidence": "原论文机制与摘要",
-    "claim": "作者主张：提高多语种视觉文字生成/编辑质量，并控制字体、颜色等属性。",
+    "claim": "作者研究目标：提高静态视觉文字的内容准确率、字体/颜色可控性和推理效率。",
     "method": "WriteNet与AttnX等文字分支/注意力接口，分离文字属性条件。 SD1.5主干加文字模块；与视频时间建模无直接联系。",
     "problem": "提高静态视觉文字的内容准确率、字体/颜色可控性和推理效率。",
     "conclusion": "作者报告增加约63.8M参数(4.5%)并提升速度约19.8%，需保持其硬件/批量/管线条件；本次没有独立测速。",
@@ -1109,7 +1164,7 @@
       "https://arxiv.org/html/2407.10476"
     ],
     "previous_evidence": "方法、实验相关章节",
-    "claim": "作者主张：视频扩散可以兼顾文字可读性、美观和指定动效。",
+    "claim": "作者研究目标：生成包含清晰文字及动态排版的视频。",
     "method": "构建大规模动态字体视频，提供静/动态描述和字形相关条件/损失。 视频扩散，零卷积文字条件、字形损失和空间/时间阶段训练。",
     "problem": "生成包含清晰文字及动态排版的视频。",
     "conclusion": "任务直接覆盖动态文字，不能因为它不是汉字书写就排除；其输出运动不直接对应逐笔形成。",
@@ -1190,7 +1245,7 @@
       "https://arxiv.org/html/2404.11614"
     ],
     "previous_evidence": "原论文方法与任务",
-    "claim": "作者主张：利用视频先验，让字形形状和运动共同表达语义且保持可读。",
+    "claim": "作者研究目标：使字母外形呈现与文字描述一致的动态语义，同时维持可读性。",
     "method": "用视频扩散先验蒸馏优化矢量位移场，加可读性/结构约束。 矢量位移/基础运动、video-SDS和可微渲染；每实例优化。",
     "problem": "使字母外形呈现与文字描述一致的动态语义，同时维持可读性。",
     "conclusion": "展示静态字形的动态变形，不提供逐笔生成能力。",
@@ -1271,7 +1326,7 @@
       "https://arxiv.org/html/2409.20556v2"
     ],
     "previous_evidence": "全文相关章节、消融与附录",
-    "claim": "作者主张：从最终画作推导语义合理的绘制过程。",
+    "claim": "作者研究目标：给定完成画作，生成一种合理的创作过程。",
     "method": "把过程拆成文本说明、区域mask与条件扩散画布更新。 文本生成器、SD U-Net式mask网络、CLIP下一帧特征预测MLP、ReferenceNet与扩散renderer。",
     "problem": "给定完成画作，生成一种合理的创作过程。",
     "conclusion": "Fig5显示无时间条件可一次添加过多内容，无mask易一次完成整个语义区域；并非学习每次笔尖移动。",
@@ -1351,7 +1406,7 @@
       "https://arxiv.org/html/2503.17029v1"
     ],
     "previous_evidence": "原论文方法与任务",
-    "claim": "作者主张：利用合成的绘制顺序与结构先验生成绘画过程动画。",
+    "claim": "作者研究目标：缺少真人过程数据时，如何从单图生成绘画过程？",
     "method": "逆向删除笔触构造监督，结合深度指导的层次与细化。 视频扩散与depth fusion layers；使用FRIDA/PaintTransformer等stroke-based renderer产生伪过程。",
     "problem": "缺少真人过程数据时，如何从单图生成绘画过程？",
     "conclusion": "Table2：完整FID66.235/LPIPS.301/SSIM.524/DDC1.238；Timecraft SSIM.550更高，故不能写全指标最好。",
@@ -1997,19 +2052,19 @@
       "https://arxiv.org/html/2511.18870v2"
     ],
     "previous_evidence": "方法与技术报告",
-    "claim": "作者主张：以相对高效的模型实现高质量视频生成及较强文字条件。",
-    "method": "8.3B视频生成模型；Qwen2.5-VL和Glyph-ByT5编码；16×空间/4×时间VAE；稀疏注意力。",
-    "problem": "高分辨率视频开销大，语义与精细文字难准确执行。",
-    "conclusion": "报告通用视频质量、文本条件和计算效率改善，已有明确文字增强接口。",
-    "gap": "【边界】文字编码不保证书写顺序；未测细短笔画经VAE是否保留。【推断】先做正确视频的VAE往返，定位表示上限。",
+    "claim": "作者研究目标：在较小视频骨干下兼顾中英语义、视觉质量和推理效率。",
+    "method": "8.3B多任务DiT、Glyph-ByT5/Qwen2.5VL条件、SSTA稀疏attention及级联视频超分。 54dual-stream blocks、width2048、16heads；causal3DVAE空间16/时间4压缩、32channels；独立8.3B超分模型。",
+    "problem": "在较小视频骨干下兼顾中英语义、视觉质量和推理效率。",
+    "conclusion": "Table3指令分61.57高于Wan44.07但低于Veo73.77，美学63.30也低于其他几法；不能按作者总体表述写所有维度最优。720p241帧稀疏使每步5.507→2.9475s。",
+    "gap": "同时改变数据/优化/架构/蒸馏，系统收益不等于每个组件因果；超分和编码器资源应计全；Glyph条件不保证视频逐笔顺序。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：方法与技术报告",
-    "last_updated": "2026-10-15",
+    "sections_read": "§2数据、§3架构、§4训练及Tables3/7/8；未逐项摘完所有训练规模和人评协议",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2511.18870",
     "evidence_history": [
       {
@@ -2048,7 +2103,25 @@
       "local_focused:M099",
       "user_survey:D01"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/D01.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：方法与技术报告",
+        "conclusion": "报告通用视频质量、文本条件和计算效率改善，已有明确文字增强接口。",
+        "gap": "【边界】文字编码不保证书写顺序；未测细短笔画经VAE是否保留。【推断】先做正确视频的VAE往返，定位表示上限。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/D01.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "过滤约800M视频segments，另大规模图像；T2I/T2V/I2V=1:6:3，256→480/720p、2–10s阶段。总资源规模与各阶段样本暴露须区分。",
+    "framework": "8.3B多任务DiT、Glyph-ByT5/Qwen2.5VL条件、SSTA稀疏attention及级联视频超分。",
+    "architecture": "54dual-stream blocks、width2048、16heads；causal3DVAE空间16/时间4压缩、32channels；独立8.3B超分模型。",
+    "metrics": "人工五维rating与Good/Same/Bad；每步/总推理时间与显存；报告没有专门严格文字笔顺指标。",
+    "baselines": "Wan2.2、Kling2.1Master、SeedancePro、Veo3等当时版本。",
+    "experimental_conditions": "Muon weightdecay.01；渐进FM训练、后训练SFT/DPO/蒸馏。Table7无工程加速FA3，Table8使用Sage/compile/cache50步；具体GPU配置本次待补完整摘录。"
   },
   {
     "id": "D02",
@@ -2059,19 +2132,19 @@
       "https://arxiv.org/html/2601.03233v1"
     ],
     "previous_evidence": "原论文机制",
-    "claim": "作者主张：高效地联合生成同步音视频。",
-    "method": "音视频双流建模与交互，按模态时空尺度分配计算。",
-    "problem": "分别生成音频视频会不同步，联合生成开销大。",
-    "conclusion": "在音视频联合质量和效率上报告结果，可作为视觉执行模型的邻近研究。",
-    "gap": "【边界】音视频统一不等于理解—生成UMM；未提供中文规范笔顺正确性证据。",
+    "claim": "作者研究目标：高效联合生成时间同步的声音与视频。",
+    "method": "非对称14B视频/5B音频双流，双向跨注意力、时间RoPE和modalityCFG。 模态专用causalVAE；cross-modality AdaLN与1D时间对齐，音频latent解码到mel再vocoder；深层文本特征/思考token。",
+    "problem": "高效联合生成时间同步的声音与视频。",
+    "conclusion": "Table1 1.22s/step vsWan22.30s/step≈18×；此为单步吞吐，不能写1NFE完整生成；商用模型相当质量来自内部偏好，缺公开细表。",
+    "gap": "20s以上漂移，语言不均衡，多说话人指派错误；音视频联合生成不证明显式物理推理；速度跨不同latent压缩也有影响。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文机制",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3表示/双流、§4推理、§5数据、§6速度/评测与§7限制",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2601.03233",
     "evidence_history": [
       {
@@ -2110,7 +2183,25 @@
       "local_focused:M100",
       "user_survey:D02"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/D02.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文机制",
+        "conclusion": "在音视频联合质量和效率上报告结果，可作为视觉执行模型的邻近研究。",
+        "gap": "【边界】音视频统一不等于理解—生成UMM；未提供中文规范笔顺正确性证据。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/D02.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "LTXVideo同源数据中含丰富音轨子集，详尽声画caption；本报告所读部分未公开可复核的完整量与划分。",
+    "framework": "非对称14B视频/5B音频双流，双向跨注意力、时间RoPE和modalityCFG。",
+    "architecture": "模态专用causalVAE；cross-modality AdaLN与1D时间对齐，音频latent解码到mel再vocoder；深层文本特征/思考token。",
+    "metrics": "人类偏好、同步/音质/视觉质量、一次扩散步耗时；公共榜单为2025-11-06快照，不能当当前排名。",
+    "baselines": "Ovi、Veo3/Sora2等音视频模型；速度与Wan2.2 14B视频模型比较。",
+    "experimental_conditions": "H100、121帧720p、Euler单步计时、CFG1；50步总时间或蒸馏步数需另报。完整训练优化参数未补齐。"
   },
   {
     "id": "D03",
@@ -2118,22 +2209,23 @@
     "title": "VACE: All-in-One Video Creation and Editing",
     "version": "arXiv:2503.07598v1，2025",
     "source_urls": [
-      "https://arxiv.org/html/2503.07598v1"
+      "https://arxiv.org/html/2503.07598v1",
+      "https://openaccess.thecvf.com/content/ICCV2025/papers/Jiang_VACE_All-in-One_Video_Creation_and_Editing_ICCV_2025_paper.pdf"
     ],
     "previous_evidence": "原论文方法",
-    "claim": "作者主张：统一视频创建、编辑及多类控制条件。",
-    "method": "融合参考图像、输入视频、时空掩码等条件的上下文适配。",
-    "problem": "不同视频任务需要不同专用控制模型与流程。",
-    "conclusion": "展示创建、编辑、参考及区域控制，是轨迹/累积墨迹条件的强基线候选。",
-    "gap": "【边界】掩码只是条件，不保证严格执行或实际局部计算；真实条件和模型预测条件必须分开比较。",
+    "claim": "作者研究目标：一个视频模型支持生成、参考、局部编辑和多种控制条件组合。",
+    "method": "VideoConditionUnit统一参考/视频/mask，分可变与保留内容，ContextAdapter注入DiT。 VAE分别编码reactive/inactive帧、mask插值；context tokens全量微调或复制部分DiT blocks、冻结骨干残差注入。",
+    "problem": "一个视频模型支持生成、参考、局部编辑和多种控制条件组合。",
+    "conclusion": "许多任务优于当时专用公开模型；作者说明有些基线仅256px/短片，构成分辨率/时长混杂；参考任务仍落后部分商业模型。",
+    "gap": "边界mask/控制图本身可能有误；统一接口不代表所有未见任务组合均泛化；没有规范笔画事件能力验证。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文方法",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3 VCU/adapter、§4数据及benchmark、§5对比/消融；完整大表逐数核对仍待完成",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2503.07598",
     "evidence_history": [
       {
@@ -2173,7 +2265,25 @@
       "local_handwriting:R54",
       "user_survey:D03"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/D03.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文方法",
+        "conclusion": "展示创建、编辑、参考及区域控制，是轨迹/累积墨迹条件的强基线候选。",
+        "gap": "【边界】掩码只是条件，不保证严格执行或实际局部计算；真实条件和模型预测条件必须分开比较。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/D03.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "经shot筛选/检测/SAM2构造控制与编辑样本；Benchmark240视频、12任务平均20；消融每任务250验证例。",
+    "framework": "VideoConditionUnit统一参考/视频/mask，分可变与保留内容，ContextAdapter注入DiT。",
+    "architecture": "VAE分别编码reactive/inactive帧、mask插值；context tokens全量微调或复制部分DiT blocks、冻结骨干残差注入。",
+    "metrics": "VBench八维自动分、1–5 MOS的提示遵循/时间一致/质量；控制条件精确误差不是全部被覆盖。",
+    "baselines": "I2VGenXL/CogVideoX/LTX、ProPainter/FollowYourCanvas、ControlAVideo/VideoComposer/ControlVideo/FLATTEN等分任务。",
+    "experimental_conditions": "LTXVideo2B快速版与WanT2V14B高质版；先补全/扩展再参考/组合再质量调优；完整优化率/批量/硬件本次未补齐。"
   },
   {
     "id": "D04",
@@ -2184,19 +2294,19 @@
       "https://arxiv.org/html/2512.08765v1"
     ],
     "previous_evidence": "原论文方法",
-    "claim": "作者主张：通过潜在轨迹引导实现可控运动视频。",
-    "method": "把首帧已有特征沿给定点轨迹传播，形成生成条件。",
-    "problem": "自然语言不能精确指定对象的连续运动。",
-    "conclusion": "报告点轨迹驱动的视频控制，提供笔尖运动控制的直接技术对照。",
-    "gap": "【边界】搬运已有特征不等于接触后产生并留下墨迹；笔尖轨迹正确也不等于实际书写过程正确。",
+    "claim": "作者研究目标：用点轨迹精细控制I2V对象运动。",
+    "method": "把首帧latent沿可见点轨迹复制，构成时空对齐条件，无需新增运动编码器。 WanI2V14B DiT全量适配；将轨迹投影到latent坐标，重叠与不可见区域有专门策略。",
+    "problem": "用点轨迹精细控制I2V对象运动。",
+    "conclusion": "Table4 latent复制对pixel复制FID12.2 vs17.3，EPE2.6 vs3.7；相对商用Kling部分人评接近50%，不能描述为全面胜出。",
+    "gap": "长时间遮挡失去引导、拥挤交互/不物理轨迹退化、CoTracker错误；轨迹跟随不保证笔尖接触和墨迹形成关系。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文方法",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3 latentguidance/训练、§4benchmark、§5/Table4、§8.3训练与§9.4failure",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2512.08765",
     "evidence_history": [
       {
@@ -2236,7 +2346,25 @@
       "local_handwriting:R53",
       "user_survey:D04"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/D04.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文方法",
+        "conclusion": "报告点轨迹驱动的视频控制，提供笔尖运动控制的直接技术对照。",
+        "gap": "【边界】搬运已有特征不等于接触后产生并留下墨迹；笔尖轨迹正确也不等于实际书写过程正确。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/D04.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "2M高质720p训练视频，CoTracker32×32点；5%无轨迹，其余均匀1–200点。MoveBench1018条81帧、54类、192多对象；另DAVIS。",
+    "framework": "把首帧latent沿可见点轨迹复制，构成时空对齐条件，无需新增运动编码器。",
+    "architecture": "WanI2V14B DiT全量适配；将轨迹投影到latent坐标，重叠与不可见区域有专门策略。",
+    "metrics": "FID/FVD、PSNR/SSIM、轨迹EPE和用户偏好；EPE依赖生成视频上的tracker可靠性。",
+    "baselines": "LeviTor、Tora、MagicMotion、Kling1.5Pro等；对应输入控制粒度需对齐。",
+    "experimental_conditions": "64A100、30Kstep，AdamW5e-6/wd1e-3、warmup2K、bf16/Ulysses4；冻结encoder；50推理步CFG5。"
   },
   {
     "id": "D05",
@@ -2247,7 +2375,7 @@
       "https://arxiv.org/html/2506.08009v1"
     ],
     "previous_evidence": "原论文方法与实验",
-    "claim": "作者主张：用自身生成历史训练，可减少因果视频生成的暴露偏差。",
+    "claim": "作者研究目标：自回归视频训练用真值历史、推理用自身历史造成误差累积。",
     "method": "训练时自生成上下文，以整段分布匹配目标训练few-step模型；用随机截断梯度降低成本。 Wan2.1-T2V1.3B，因果attention，4步采样；DMD/SiD/GAN三类holistic loss；rolling KV cache。",
     "problem": "自回归视频训练用真值历史、推理用自身历史造成误差累积。",
     "conclusion": "Table1：chunk版本17FPS/.69s/VBench84.31，CausVid17/.69/81.20；原Wan .78FPS/103s/84.26；这是综合视频分，未测笔顺。",
@@ -2327,19 +2455,19 @@
       "https://arxiv.org/html/2607.20368v1"
     ],
     "previous_evidence": "方法与实验相关章节",
-    "claim": "作者主张：让后续损失学习历史KV写入，可改善长视频外推。",
-    "method": "第一遍无梯度自身rollout；第二遍可微重算上下文KV和因果交互，避免回传全部串行轨迹。",
-    "problem": "自身历史虽改善暴露偏差，但历史KV被视为冻结状态，未来损失无法监督其形成。",
-    "conclusion": "报告身份、布局、时间稳定性和长程外推改善；提供历史训练效率机制。",
-    "gap": "【边界】未证明笔画事件/字符关系保持；两遍计算应计入训练成本，不是免费梯度恢复。",
+    "claim": "作者研究目标：改善AR视频模型超出训练窗口的长期记忆利用。",
+    "method": "两遍：无梯度串行selfrollout记录exit输入，再并行重建KV以使未来loss监督上下文编码。 历史cleanlatent stopgradient；第二遍对KV表示和future-to-context attention求梯度，不反传完整历史生成链；FlexAttention稀疏mask。",
+    "problem": "改善AR视频模型超出训练窗口的长期记忆利用。",
+    "conclusion": "Table4 peak79.01→87.01GB，stable79.01→63.73GB；每5训练步10.39→11.71s；直接可微cache OOM是此实现条件结果，非一般不可能定理。",
+    "gap": "重建梯度不等于精确BPTT；有限窗口丢弃信息；记忆一致不保证精细笔画不重写；尚无独立复现。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：方法与实验相关章节",
-    "last_updated": "2026-10-15",
+    "sections_read": "摘要、方法两遍梯度路径、§4.1协议、§4.5/Table4及结论；长主表尚待逐项摘录",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2607.20368",
     "evidence_history": [
       {
@@ -2378,7 +2506,25 @@
       "local_focused:M102",
       "user_survey:D06"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/D06.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：方法与实验相关章节",
+        "conclusion": "报告身份、布局、时间稳定性和长程外推改善；提供历史训练效率机制。",
+        "gap": "【边界】未证明笔画事件/字符关系保持；两遍计算应计入训练成本，不是免费梯度恢复。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/D06.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "所有模型5s训练窗口；60s VBenchLong与240s随机128 MovieGen提示测试；实际训练语料与完整优化器本次待补。",
+    "framework": "两遍：无梯度串行selfrollout记录exit输入，再并行重建KV以使未来loss监督上下文编码。",
+    "architecture": "历史cleanlatent stopgradient；第二遍对KV表示和future-to-context attention求梯度，不反传完整历史生成链；FlexAttention稀疏mask。",
+    "metrics": "长视频七维VBenchLong、GSB人评、peak/stablememory与time；短5s表仅说明短期质量。",
+    "baselines": "匹配初始化/提示/seed/sink/FIFO/chunk/采样的SelfForcing；直接可微cache作成本对照。",
+    "experimental_conditions": "framewise sink4/window21/FIFO16/current1；chunkwise sink3/window12/FIFO6/current3；fake-score/generator5:1。"
   },
   {
     "id": "D07",
@@ -2389,19 +2535,19 @@
       "https://arxiv.org/html/2604.03118v2"
     ],
     "previous_evidence": "方法与消融",
-    "claim": "作者主张：匹配少步生成与缓存条件的训练可改善快速自回归视频。",
-    "method": "自一致分布匹配（SC-DMD）、混合步数rollout、cache-aware训练。",
-    "problem": "少步历史质量与训练缓存不匹配；简单添加一致性目标可能反而降低质量。",
-    "conclusion": "一组消融总评分84.62，单加自一致性83.83，匹配混合训练85.02，完整85.08；不是准确率。",
-    "gap": "【边界】不能把“蒸馏+缓存+一致性”当空白组合；视频综合评分不测书写事件。【推断】事件关键性与不同历史质量联合训练。",
+    "claim": "作者研究目标：提高2–4NFE视频蒸馏质量和AR缓存条件鲁棒性。",
+    "method": "SC-DMD约束端点一致的复合更新，cache-aware混步rollout与参考特征对齐。 沿用Wan或SelfForcing/LongLive/CausalForcing骨干；加selfconsistency和cacheconditionedalignment训练目标。",
+    "problem": "提高2–4NFE视频蒸馏质量和AR缓存条件鲁棒性。",
+    "conclusion": "SelfForcing总分84.20→84.47，但semantic82.05→81.28；Table1标准Salt质量80.86<LightX2V80.92；Salt-alpha81.71为另设定，不能合并最好项。",
+    "gap": "光流动态分越大可能来自闪烁/换人；小总分差需统计；教师质量和训练算力不自动计入推理NFE；事件精度尚未测。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：方法与消融",
-    "last_updated": "2026-10-15",
+    "sections_read": "摘要、§4.2–4.4/Tables1/2/4，AppendixB实现和动态分讨论；§3公式尚需完整推导",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2604.03118",
     "evidence_history": [
       {
@@ -2440,7 +2586,25 @@
       "local_focused:M103",
       "user_survey:D07"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/D07.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：方法与消融",
+        "conclusion": "一组消融总评分84.62，单加自一致性83.83，匹配混合训练85.02，完整85.08；不是准确率。",
+        "gap": "【边界】不能把“蒸馏+缓存+一致性”当空白组合；视频综合评分不测书写事件。【推断】事件关键性与不同历史质量联合训练。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/D07.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "教师生成/rollout监督，T2V1.3B/I2V14B；VBench5s、VBenchLong；完整提示训练集统计待补。",
+    "framework": "SC-DMD约束端点一致的复合更新，cache-aware混步rollout与参考特征对齐。",
+    "architecture": "沿用Wan或SelfForcing/LongLive/CausalForcing骨干；加selfconsistency和cacheconditionedalignment训练目标。",
+    "metrics": "VBench质量/语义/动态等子分、VideoAlign，semigroupdefect诊断；NFE与缓存设置。",
+    "baselines": "DMD4/DMD8、PCM、LightX2V；相同AR基础模型；不同表不一定同NFE，PCM表项为8。",
+    "experimental_conditions": "非AR16H200/batch16/AdamW1e-6，I2V800/T2V2400iter；AR gen2e-6/critic4e-7，K2/4/8概率.2/.4/.4，SC仅K8，alignment预热后。"
   },
   {
     "id": "D08",
@@ -2451,19 +2615,19 @@
       "https://arxiv.org/html/2603.27866v1"
     ],
     "previous_evidence": "原论文机制与奖励分析",
-    "claim": "作者主张：可验证奖励比不可靠多模态评审更适合视频空间推理RL。",
-    "method": "在flow视频模型上适配GRPO；迷宫使用轨迹奖励，导航使用表征级奖励，分析奖励漏洞。",
-    "problem": "视频看起来合理却不满足任务；自动评审可能诱导投机或退化输出。",
-    "conclusion": "在迷宫/导航设置报告泛化与任务成功改进，同时分析reward model失败。",
-    "gap": "【边界】导航表征奖励仍是代理而非所有物理任务真值；需要验证实际墨迹过程，不能只奖励自报笔顺计划。",
+    "claim": "作者研究目标：通过可验证奖励提高视频迷宫求解和导航规划泛化。",
+    "method": "将GRPO适配flow视频SDE，按轨迹规则和导航embedding可验证信号设计奖励。 Wan2.2TI2V5B的WanSFTcheckpoint+LoRA；采样组内相对advantage与KL；奖励不是模型内部自动得到的真值。",
+    "problem": "通过可验证奖励提高视频迷宫求解和导航规划泛化。",
+    "conclusion": "作者报告3D/避陷阱泛化改善；摘要百分比需结合Table2辨别相对/百分点，本批不作未经确认换算。",
+    "gap": "依赖可核路径和外部tracker/VGGT；SFT起点强弱、奖励定义影响结果；视觉可行导航不等于机器人安全/真实可执行。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文机制与奖励分析",
-    "last_updated": "2026-10-15",
+    "sections_read": "方法奖励/VideoGRPO、§4.1–4.4、主实验概述、AppendixTable4；Table2逐值与全消融待补",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2603.27866",
     "evidence_history": [
       {
@@ -2502,7 +2666,25 @@
       "local_focused:M104",
       "user_survey:D08"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/D08.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文机制与奖励分析",
+        "conclusion": "在迷宫/导航设置报告泛化与任务成功改进，同时分析reward model失败。",
+        "gap": "【边界】导航表征奖励仍是代理而非所有物理任务真值；需要验证实际墨迹过程，不能只奖励自报笔顺计划。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/D08.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "VRBench五迷宫类型、三难度/多纹理；TargetBench四足机器人RGB/SLAM参考；跨难度/纹理与跨任务应分开。",
+    "framework": "将GRPO适配flow视频SDE，按轨迹规则和导航embedding可验证信号设计奖励。",
+    "architecture": "Wan2.2TI2V5B的WanSFTcheckpoint+LoRA；采样组内相对advantage与KL；奖励不是模型内部自动得到的真值。",
+    "metrics": "ExactMatch、SuccessRate、PathRatio、StepDistance及官方导航轨迹指标；EM定义与路径提取失败需明确。",
+    "baselines": "WanSFT为关键匹配基线；闭源Veo3.1/Sora2/Kling等系统对照不能隔离RL作用。",
+    "experimental_conditions": "H200，group8、LoRAr32、193帧、1epoch、推理50步、KL.04、clip.2、SDE噪声.5、lr1e-4；AppendixTable4。"
   },
   {
     "id": "E01",
@@ -2513,7 +2695,7 @@
       "https://arxiv.org/abs/2505.13447"
     ],
     "previous_evidence": "原论文机制",
-    "claim": "作者主张：直接学习区间平均速度，可从头训练有效的单步生成模型。",
+    "claim": "作者研究目标：直接从头训练单次网络调用的生成器。",
     "method": "学习两时刻之间的平均速度，以MeanFlow identity和JVP目标连接瞬时与区间速度。 VAE潜空间ViT/DiT骨干；时间区间嵌入；训练含JVP，推理单次主干。",
     "problem": "直接从头训练单次网络调用的生成器。",
     "conclusion": "Table1：r≠t比例0%即FM时1步FID328.91，25%为61.06；有CFG后不同条件可降至15.53，不能将其写成无CFG成绩。",
@@ -2593,19 +2775,19 @@
       "https://arxiv.org/abs/2512.02012"
     ],
     "previous_evidence": "方法/机制核查",
-    "claim": "作者主张：改进目标与引导设计，可提升快速/单步生成。",
-    "method": "以平均流参数化瞬时目标，改进训练和条件引导等机制。",
-    "problem": "快速跨步生成的训练、guidance和质量存在困难。",
-    "conclusion": "报告相对初代MeanFlow的单步图像生成改进。",
-    "gap": "【边界】本文汇总机制而非汉字实验；一步生成能力不能由一般FID推导出正确笔顺。",
+    "claim": "作者研究目标：提高从零训练的一步生成稳定性，并让CFG在推理时可调。",
+    "method": "将平均速度u重参数化为instantaneousv预测回归，JVP用预测marginalv；显式guidance条件与incontextconditioning。 DiT型u网络，v=u(z,t,t)或辅助vhead；stopgradient保留在预测侧JVP避免高阶梯度；辅助head仅训练用。",
+    "problem": "提高从零训练的一步生成稳定性，并让CFG在推理时可调。",
+    "conclusion": "等B2体系逐步FID6.17→5.68(目标)→4.57(灵活CFG)→4.09(incontext)；XL2最佳1.72是更大/更长训练，不能作单机制收益。",
+    "gap": "未独立复现；JVP仍有训练成本；回归目标形式合理不保证有限模型全局优化；学习平均速度不等于真实过程时间。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：方法/机制核查",
-    "last_updated": "2026-10-15",
+    "sections_read": "摘要、§4.1/JVP/stopgrad、§5.1/Table1、§5.2/Table2、AppendixTable4；全部数学证明未完成",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2512.02012",
     "evidence_history": [
       {
@@ -2644,7 +2826,25 @@
       "local_focused:M106",
       "user_survey:E02"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/E02.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：方法/机制核查",
+        "conclusion": "报告相对初代MeanFlow的单步图像生成改进。",
+        "gap": "【边界】本文汇总机制而非汉字实验；一步生成能力不能由一般FID推导出正确笔顺。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/E02.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "ImageNet256类条件，预训练VAE32×32×4；ablation MF-B2，240epochs；大模型640/800epochs。",
+    "framework": "将平均速度u重参数化为instantaneousv预测回归，JVP用预测marginalv；显式guidance条件与incontextconditioning。",
+    "architecture": "DiT型u网络，v=u(z,t,t)或辅助vhead；stopgradient保留在预测侧JVP避免高阶梯度；辅助head仅训练用。",
+    "metrics": "FID50K、IS、1NFE及参数成本；不能将classconditional ImageNet数字推广到开放文本视频。",
+    "baselines": "原MeanFlow同设置B2为机制对照；另system-level多步/蒸馏方法表。",
+    "experimental_conditions": "JAX/TPU；Adam1e-4恒定、10epochwarmup、beta.9/.95、无wd/dropout、EMA.9999；ablationbatch256/大模型1024，r≠t比例50%。"
   },
   {
     "id": "E03",
@@ -2714,22 +2914,23 @@
     "title": "Discrete Flow Matching",
     "version": "arXiv:2407.15595，2024",
     "source_urls": [
-      "https://arxiv.org/abs/2407.15595"
+      "https://arxiv.org/abs/2407.15595",
+      "https://proceedings.neurips.cc/paper_files/paper/2024/hash/f0d629a734b56a642701bba7bc8bb3ed-Abstract-Conference.html"
     ],
     "previous_evidence": "原论文机制",
-    "claim": "作者主张：为离散数据建立可学习生成路径，扩展流匹配。",
-    "method": "离散状态概率路径与转移过程的流匹配学习。",
-    "problem": "连续高斯噪声不自然表达符号、类别和离散事件。",
-    "conclusion": "提供通用离散生成方法；可启发笔画类型和笔状态与几何联合建模。",
-    "gap": "【边界】离散生成本身不保证语法或指定笔顺；笔事件头也不是自动的新意。",
+    "claim": "作者研究目标：将flowmatching扩展到高维离散变量和非AR语言/代码生成。",
+    "method": "给定概率路径与coupling，借后验去噪器构造生成probabilityvelocity及corrector。 CTMC/坐标级转移形式，学习probabilitydenoiser；路径scheduler kappa、corrector alpha和温度控制采样；速度不是token索引上的欧氏速度。",
+    "problem": "将flowmatching扩展到高维离散变量和非AR语言/代码生成。",
+    "conclusion": "1.7B HumanEval Pass@1 6.7%/Pass@10 13.4%，MBPP1shot6.7%/20.6%；不是语言任务普遍超过AR。",
+    "gap": "离散有序事件需长度/位置建模；不天然保证时间因果/语法；maskposterior时间无关命题有特定source和path前提。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文机制",
-    "last_updated": "2026-10-15",
+    "sections_read": "摘要、§2主要概率路径/采样概念、§3masked命题、§4实验设置与代码结果；AppendixD/G及全部证明未读完",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2407.15595",
     "evidence_history": [
       {
@@ -2768,7 +2969,25 @@
       "local_focused:M108",
       "user_survey:E04"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/E04.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文机制",
+        "conclusion": "提供通用离散生成方法；可启发笔画类型和笔状态与几何联合建模。",
+        "gap": "【边界】离散生成本身不保证语法或指定笔顺；笔事件头也不是自动的新意。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/E04.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "150M非条件语言、1.7B条件文本/代码；HumanEval/MBPP、CIFAR10；训练语料/完整token预算本次未逐项补核。",
+    "framework": "给定概率路径与coupling，借后验去噪器构造生成probabilityvelocity及corrector。",
+    "architecture": "CTMC/坐标级转移形式，学习probabilitydenoiser；路径scheduler kappa、corrector alpha和温度控制采样；速度不是token索引上的欧氏速度。",
+    "metrics": "外部GPT2/Llama生成困惑度和熵、代码Pass@1/10、图像质量；generatedPPL不是精确模型likelihood。",
+    "baselines": "此前离散diffusion/flow、同规模AR模型；不同采样corrector/温度条件要对齐。",
+    "experimental_conditions": "主文无温度/corrector表与增强采样表分开；150M/1.7B规模；完整优化硬件见AppendixG尚待摘录。"
   },
   {
     "id": "E05",
@@ -2838,22 +3057,23 @@
     "title": "Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model（TeaCache）",
     "version": "arXiv:2411.19108，2024",
     "source_urls": [
-      "https://arxiv.org/abs/2411.19108"
+      "https://arxiv.org/abs/2411.19108",
+      "https://openaccess.thecvf.com/content/CVPR2025/papers/Liu_Timestep_Embedding_Tells_Its_Time_to_Cache_for_Video_Diffusion_CVPR_2025_paper.pdf"
     ],
     "previous_evidence": "原论文机制",
-    "claim": "作者主张：利用时间步相关信号判断何时复用特征，可减少视频扩散重复计算。",
-    "method": "基于时间嵌入/调制输入变化估计相邻去噪计算变化，选择缓存复用。",
-    "problem": "相邻采样步骤重复计算大量相似特征。",
-    "conclusion": "在视频模型上报告训练外加速与质量折中。",
-    "gap": "【边界】采样时间嵌入不是视频中的真实时间；整体变化小不等于细小笔画不重要。【推断】将任务重要性与缓存误差联合控制。",
+    "claim": "作者研究目标：无需训练视频骨干，按扩散步冗余动态复用中间输出。",
+    "method": "以timestepembedding调制输入差预测输出变化，多项式重标定后累计阈值触发重算。 沿用DiT；模块是推理控制与校准映射；无骨干训练不代表没有离线prompt校准。",
+    "problem": "无需训练视频骨干，按扩散步冗余动态复用中间输出。",
+    "conclusion": "作者最大4.41×/VBench -0.07%的条件属于OpenSoraPlan；不能直接当所有模型收益；极端缓存下PSNR/SSIM下降。",
+    "gap": "输入差相关性是经验代理，不保证小笔画变化被保留；模型/任务换域后可能须重拟合；作者视觉满意不替代任务正确率。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文机制",
-    "last_updated": "2026-10-15",
+    "sections_read": "摘要、方法输入差/重标定、§4.1–4.3及限制讨论；多项式系数与代码未独立复核",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2411.19108",
     "evidence_history": [
       {
@@ -2892,7 +3112,25 @@
       "local_focused:M110",
       "user_survey:E06"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/E06.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文机制",
+        "conclusion": "在视频模型上报告训练外加速与质量折中。",
+        "gap": "【边界】采样时间嵌入不是视频中的真实时间；整体变化小不等于细小笔画不重要。【推断】将任务重要性与缓存误差联合控制。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/E06.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "70 T2VCompBench提示覆盖7属性拟合；OpenSora1.2/Plan/Latte与VBench评估；校准分布迁移需另测。",
+    "framework": "以timestepembedding调制输入差预测输出变化，多项式重标定后累计阈值触发重算。",
+    "architecture": "沿用DiT；模块是推理控制与校准映射；无骨干训练不代表没有离线prompt校准。",
+    "metrics": "latency/FLOPs、VBench、PSNR/SSIM/LPIPS；相对原模型输出的相似度与真实任务质量分开。",
+    "baselines": "PAB、视频适配TGate和DeltaDiT；FlashAttention默认启用。",
+    "experimental_conditions": "A80080GB，slow阈值.1、fast.2；Latte16帧512，OpenSora51帧480p，Plan65帧512；多卡DSP另表。"
   },
   {
     "id": "E07",
@@ -2900,22 +3138,23 @@
     "title": "clDice: A Novel Topology-Preserving Loss Function for Tubular Structure Segmentation",
     "version": "CVPR 2021；arXiv首次公开2020",
     "source_urls": [
-      "https://arxiv.org/abs/2003.07311"
+      "https://arxiv.org/abs/2003.07311",
+      "https://openaccess.thecvf.com/content/CVPR2021/html/Shit_clDice_-_A_Novel_Topology-Preserving_Loss_Function_for_Tubular_Structure_CVPR_2021_paper.html"
     ],
     "previous_evidence": "原论文机制",
-    "claim": "作者主张：骨架重叠目标更适合保持细长结构连通性。",
-    "method": "soft skeleton与分割区域重叠构造可微拓扑相关损失。",
-    "problem": "传统像素重叠损失可能忽略道路/血管等结构断裂。",
-    "conclusion": "在管状、细长结构分割中验证连通结构保持。",
-    "gap": "【边界】连通正确不等于笔画身份、顺序或运笔方向正确；字体交叉本来可以连通，不能机械套用。",
+    "claim": "作者研究目标：让管状网络分割保持连通结构，避免体积指标掩盖断裂。",
+    "method": "clDice为预测骨架落入GT mask和GT骨架落入预测mask两比率的调和均值；softskeleton pooling实现可微loss。 可接FCN/UNet等；min/maxpool近似形态细化，迭代次数k影响soft骨架；无视频或生成网络。",
+    "problem": "让管状网络分割保持连通结构，避免体积指标掩盖断裂。",
+    "conclusion": "Table1作者报告连通/图指标改善；与仅Dice比较能检验细连接不足，但尚未直接验证在书写笔画上有效。",
+    "gap": "定理需要前景/背景有适当骨架及双方包含关系，对二者clDice=1等条件；softclDice近1不自动满足定理，更不能保证有序笔画身份或交叉处走向。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文机制",
-    "last_updated": "2026-10-15",
+    "sections_read": "§2定义、§3定理/推论前提、§4softskeleton、§5数据/指标/Table1概述；完整证明与补充训练配置未全部复核",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2003.07311",
     "evidence_history": [
       {
@@ -2955,7 +3194,25 @@
       "local_handwriting:R81",
       "user_survey:E07"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/E07.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文机制",
+        "conclusion": "在管状、细长结构分割中验证连通结构保持。",
+        "gap": "【边界】连通正确不等于笔画身份、顺序或运笔方向正确；字体交叉本来可以连通，不能机械套用。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/E07.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "DRIVE/Roads/CREMI、合成3D血管/Vessap，三折与留出；医学域训练不能直接当汉字实验。",
+    "framework": "clDice为预测骨架落入GT mask和GT骨架落入预测mask两比率的调和均值；softskeleton pooling实现可微loss。",
+    "architecture": "可接FCN/UNet等；min/maxpool近似形态细化，迭代次数k影响soft骨架；无视频或生成网络。",
+    "metrics": "Dice/Accuracy/clDice，Betti0/1误差/Euler，StreetmoverDistance和junctionF1。",
+    "baselines": "相同分割网络softDice对照、不同alpha组合；主Table1多数据/多结构。",
+    "experimental_conditions": "二维/三维、Vessap1/2通道，alpha为数据集相关参数；完整学习率/硬件需补充附录核查。"
   },
   {
     "id": "F01",
@@ -3029,19 +3286,19 @@
       "https://arxiv.org/html/2503.16424v2"
     ],
     "previous_evidence": "原论文方法与实验范围",
-    "claim": "作者主张：用曲线上的高斯原语加速可微矢量渲染。",
-    "method": "沿Bézier曲线采样/组合高斯并光栅化，支持曲线与外观优化。",
-    "problem": "可微矢量渲染在大量曲线、高分辨率下开销高。",
-    "conclusion": "在其矢量绘图任务和渲染设置上报告较diffvg的速度提升；本汇总不把单设置倍数推广到少量汉字笔画。",
-    "gap": "【边界】自由曲线增删可破坏字义/笔画身份；高曲线数优势不等于小字动画优势。【推断】按笔画身份约束的时间激活与图元分配。",
+    "claim": "作者研究目标：用高效可微曲线表示加速图像矢量化。",
+    "method": "沿Bezier曲线采样2D Gaussians，配合自适应剪枝/增密和透明度参数。 GPU splatting可微渲染；误差引导曲线重分配；闭合曲线填充需额外采样并用Xing loss约束凸形。",
+    "problem": "用高效可微曲线表示加速图像矢量化。",
+    "conclusion": "2040×1344/2048open curves，前向141.3→7.2ms、反向701.3→4.7ms；closed加速6×/28.5×。单步与全流程10×量级不同，不混用。",
+    "gap": "闭合形状凸约束损失表达能力；效率依赖曲线类型/分辨率；优化迭代可视化不能当落笔过程；当前表示未证明标准SVG无损兼容。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文方法与实验范围",
-    "last_updated": "2026-10-15",
+    "sections_read": "摘要、表示概述、§4.1–4.3和Tables1–3、限制与AppendixA/B；源码未运行",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2503.16424",
     "evidence_history": [
       {
@@ -3080,7 +3337,25 @@
       "local_focused:M111",
       "user_survey:F02"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/F02.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文方法与实验范围",
+        "conclusion": "在其矢量绘图任务和渲染设置上报告较diffvg的速度提升；本汇总不把单设置倍数推广到少量汉字笔画。",
+        "gap": "【边界】自由曲线增删可破坏字义/笔画身份；高曲线数优势不等于小字动画优势。【推断】按笔画身份约束的时间激活与图元分配。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/F02.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "DIV2K800中每四张取一张=200，另Clipart1K/Danbooregions/Kodak；每图独立优化。",
+    "framework": "沿Bezier曲线采样2D Gaussians，配合自适应剪枝/增密和透明度参数。",
+    "architecture": "GPU splatting可微渲染；误差引导曲线重分配；闭合曲线填充需额外采样并用Xing loss约束凸形。",
+    "metrics": "MS-SSIM、PSNR、LPIPS，前向/反向及总优化时间；无时间序列或书写事件指标。",
+    "baselines": "DiffVG、LIVE（闭合曲线），相同256/512/1024/2048曲线数量组。",
+    "experimental_conditions": "Adam，color lr.01、controlpoints2e-4、opacity.1，StepLR；open15K/closed10Kiter；每400步剪枝增密；A100测速。"
   },
   {
     "id": "F03",
@@ -3088,22 +3363,23 @@
     "title": "FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment",
     "version": "arXiv:2210.00664，2022首次公开",
     "source_urls": [
-      "https://arxiv.org/abs/2210.00664"
+      "https://arxiv.org/abs/2210.00664",
+      "https://pschaldenbrand.github.io/"
     ],
     "previous_evidence": "原论文与作者材料",
-    "claim": "作者主张：校准真实笔触后，以可微规划实现机器人绘画。",
-    "method": "实际笔触数据校准可微模拟器；优化笔触动作，观察画布并重规划。",
-    "problem": "抽象图像计划难以变成真实接触和颜料动作。",
-    "conclusion": "展示机器人在真实画布上的绘画和视觉反馈闭环。",
-    "gap": "【边界】画面语义目标不是规范汉字笔顺；二维轨迹不能直接代替笔压/姿态/执行器约束。",
+    "claim": "作者研究目标：让机器人在真实纸面按图像/语言/风格目标作画并随画布反馈重规划。",
+    "method": "real2sim2real学习可微笔画外观，边执行边视觉重规划语义目标。 param2stroke两层linear/两层conv+upscale；形状厚度h/长度l/弯曲b，位置/角度/颜色；Bezier路径直接转机器人控制。",
+    "problem": "让机器人在真实纸面按图像/语言/风格目标作画并随画布反馈重规划。",
+    "conclusion": "50笔L1相对DiffVG改善，作者p<.01；仿真看起来更好未必真实可画，作者用实画展示差距。重规划偏离原计划本身不等于质量提升，需独立终点任务指标。",
+    "gap": "忽略颜料湿度/载量/笔画交互，刷子固定垂直；工具和设备校准成本；语义CLIP目标可能被纹理优化利用。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文与作者材料",
-    "last_updated": "2026-10-15",
+    "sections_read": "§III笔画/模拟器/规划、§IV设备、§V对比/重规划及§VI限制；官方作者页确认ICRA2023",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2210.00664",
     "evidence_history": [
       {
@@ -3142,7 +3418,25 @@
       "local_focused:M112",
       "user_survey:F03"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/F03.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文与作者材料",
+        "conclusion": "展示机器人在真实画布上的绘画和视觉反馈闭环。",
+        "gap": "【边界】画面语义目标不是规范汉字笔顺；二维轨迹不能直接代替笔压/姿态/执行器约束。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/F03.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "真实校准笔画+刚体/盖章增强，50真实笔画用于外观误差比较；整画实例和图像目标，非大规模规范书写视频集。",
+    "framework": "real2sim2real学习可微笔画外观，边执行边视觉重规划语义目标。",
+    "architecture": "param2stroke两层linear/两层conv+upscale；形状厚度h/长度l/弯曲b，位置/角度/颜色；Bezier路径直接转机器人控制。",
+    "metrics": "笔画L1、整画仿真/实画MSE、视觉语义/风格目标、重规划过程；没有汉字规范笔顺指标。",
+    "baselines": "DiffVG笔画；Huang2019 RL、SchaldenbrandOh2021；有/无重规划。",
+    "experimental_conditions": "CanonRebelT7，11×14英寸板、至多12色、垂直固定刷子、指定颜料/水位置；仿真对比为公平关闭视觉重规划；优化器全部参数待代码补核。"
   },
   {
     "id": "F04",
@@ -3150,22 +3444,23 @@
     "title": "CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting",
     "version": "ICRA 2024；arXiv:2402.13442",
     "source_urls": [
-      "https://arxiv.org/abs/2402.13442"
+      "https://arxiv.org/abs/2402.13442",
+      "https://pschaldenbrand.github.io/cofrida/"
     ],
     "previous_evidence": "原论文方法与任务",
-    "claim": "作者主张：利用自监督数据学习在人的已有画布上协同续画。",
-    "method": "构造协作绘画训练样本，视觉生成/规划结合机器人实际执行。",
-    "problem": "已有内容必须被理解和尊重，不能每次从空白生成。",
-    "conclusion": "报告人机共同绘画及保留已有内容的续画能力。",
-    "gap": "【边界】语义协同不保证笔画规范；可借鉴真实前缀续写，但需独立规则评价。",
+    "claim": "作者研究目标：支持人类已有画布基础上的机器人共同绘画并减少覆盖原画。",
+    "method": "FRIDA模拟整画，选择删除笔画形成部分/完整配对，微调InstructPix2Pix，再用FRIDA低层规划。 层级高层像素规划与低层可微动作规划；四种移除策略：全部、随机、显著、语义区域。",
+    "problem": "支持人类已有画布基础上的机器人共同绘画并减少覆盖原画。",
+    "conclusion": "TableI微调相对未微调delta_pix .195→.052、delta_sem .241→.035；FRIDA CLIP .741高于CoFRIDA .624，作者说明目标泄漏偏向FRIDA；人评更偏CoFRIDA但不少选择Neither。",
+    "gap": "HF Sharpie卡base_model字段为SDXL指令模型，正文描述为timbrooks/instruct-pix2pix，两者不一致；当前权重身份/兼容须配置或作者证据核定；保留论文与制品分层。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文方法与任务",
-    "last_updated": "2026-10-15",
+    "sections_read": "§III数据/高层微调、§IV评估、TableI、§V/限制；官方项目与HF原始README/文件清单交叉核查",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2402.13442",
     "evidence_history": [
       {
@@ -3204,7 +3499,25 @@
       "local_focused:M113",
       "user_survey:F04"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/F04.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文方法与任务",
+        "conclusion": "报告人机共同绘画及保留已有内容的续画能力。",
+        "gap": "【边界】语义协同不保证笔画规范；可借鉴真实前缀续写，但需独立规则评价。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/F04.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "LAION-art模拟训练，正文称代码后来改用COCO且未见退化，不能倒填原实验数据；评测每法40提示、35笔部分画布。",
+    "framework": "FRIDA模拟整画，选择删除笔画形成部分/完整配对，微调InstructPix2Pix，再用FRIDA低层规划。",
+    "architecture": "层级高层像素规划与低层可微动作规划；四种移除策略：全部、随机、显著、语义区域。",
+    "metrics": "CLIPScore/BLIPScore；目标图与模拟渲染差delta_pix/sem；MTurk人评；大规模实画不足，代理差不是直接实机sim2real测量。",
+    "baselines": "原FRIDA、未微调InstructPix2Pix接FRIDA。",
+    "experimental_conditions": "12色/固定4色acrylic和黑Sharpie；24评价者、每对4人=每基线160判断；微调学习率/epoch完整值本次未摘录。"
   },
   {
     "id": "F05",
@@ -3277,19 +3590,19 @@
       "https://arxiv.org/html/2402.05804v4"
     ],
     "previous_evidence": "本次核对原文方法与任务",
-    "claim": "作者主张：让视觉语言模型同时学习读与写，可将离线手写转成自然数字笔迹。",
-    "method": "结合预训练视觉/语言知识与识别、轨迹输出等任务，使用有限配对数据学习去渲染。",
-    "problem": "复杂背景和手写风格下，单纯几何恢复不够可靠；完整配对数据较少。",
-    "conclusion": "报告野外手写图像到数字笔迹转换；其读写联合训练是本课题必须比较的直接邻近路线。",
-    "gap": "训练包含中文，不能排除为只做英文；静态图像去渲染不等于任意文字开放生成；未建立中文规范笔顺视频的严格评测。",
+    "claim": "作者研究目标：将任意背景中的真实手写照片去渲染为可编辑数字墨迹。",
+    "method": "阅读/书写五任务混合训练，把真实OCR与合成轨迹渲染连接。 预训练ViT冻结+mT5形状的encoder-decoder；mT5权重随机初始化，不能写成预训练mT5微调；Small约340M/Large约1B。",
+    "problem": "将任意背景中的真实手写照片去渲染为可编辑数字墨迹。",
+    "conclusion": "HierText Large-i F1 .61/在线Acc .46，GVS .55/.01，人描 .64/.74；GVS在IAM F1 .69高于Large-i .66。16评价者每样本3人多数票，kappa约.46/.44；87%可接受描摹和67%人类风格不等于规范笔顺。",
+    "gap": "OCR文字错误可引导错误笔画；单词裁剪造成页级依赖；模型/数据/ViT预训练同时变化，规模归因混杂；简单素描有重复和缺笔；人工指标只评合理性。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：本次核对原文方法与任务",
-    "last_updated": "2026-10-15",
+    "sections_read": "§3架构/五任务/token，§4.1–4.7数据、Table2/3及限制；AppendixG尚待完整摘录",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2402.05804",
     "evidence_history": [
       {
@@ -3329,7 +3642,25 @@
       "local_handwriting:R07",
       "user_survey:X01"
     ],
-    "note_path": "docs/handwriting/05_stroke_order_umm.md"
+    "note_path": "docs/reviews/X01.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：本次核对原文方法与任务",
+        "conclusion": "报告野外手写图像到数字笔迹转换；其读写联合训练是本课题必须比较的直接邻近路线。",
+        "gap": "训练包含中文，不能排除为只做英文；静态图像去渲染不等于任意文字开放生成；未建立中文规范笔顺视频的严格评测。",
+        "note_path": "docs/handwriting/05_stroke_order_umm.md"
+      }
+    ],
+    "review_path": "docs/reviews/X01.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "公开OCR约295K拉丁字样；VNOnDB/SCUT-Couch/DeepWriting合约2.7M墨迹；另有非公开数据版本。评测IAM约17.6K、IMGUR5K23.7K、HierText约1.3K及200人工描摹样本。",
+    "framework": "阅读/书写五任务混合训练，把真实OCR与合成轨迹渲染连接。",
+    "architecture": "预训练ViT冻结+mT5形状的encoder-decoder；mT5权重随机初始化，不能写成预训练mT5微调；Small约340M/Large约1B。",
+    "metrics": "OCR字符框F1、在线识别ExactMatch、识别CER、人工可接受描摹/人类风格；人工描摹不是原始真实轨迹。",
+    "baselines": "General Virtual Sketching（GVS）不同原图/二值输入；域不匹配，未充分覆盖最新手写专门模型。",
+    "experimental_conditions": "输入224px；输入/输出context128/1024；五任务各20%；Small-p公开训练与Small-i/Large-i私有训练需分开比较，完整AppendixG优化参数本次待补。"
   },
   {
     "id": "R01",
@@ -4315,7 +4646,7 @@
       "https://arxiv.org/abs/2405.09818"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：混合图文序列的早期融合可支持理解与生成。",
+    "claim": "作者研究目标：在同一自回归模型中理解和生成任意图文交错文档。",
     "method": "离散图像token与文本在早期融合，并针对混合模态训练稳定性设计归一化与损失。 7B/34B decoder-only Transformer；512px图像压为1024个离散token，codebook8192；QK-norm、z-loss等。",
     "problem": "在同一自回归模型中理解和生成任意图文交错文档。",
     "conclusion": "Chameleon34B预训练COCO120.2 CIDEr为2-shot；SFT140.8为0-shot。不能忽略训练阶段和few-shot差异比较。",
@@ -4394,7 +4725,7 @@
       "https://arxiv.org/abs/2409.18869"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：统一下一Token目标可处理图像、视频与文字。",
+    "claim": "作者研究目标：统一图文视频的离散自回归建模，检验next-token范式能否支持感知与生成。",
     "method": "将图像视频压为离散视觉token，单一8B Transformer预测后续token，结合任务后训练。 32层、hidden4096、GQA8KV头、131072上下文；时空视觉tokenizer和文字tokenizer。",
     "problem": "统一图文视频的离散自回归建模，检验next-token范式能否支持感知与生成。",
     "conclusion": "DPG81.60低于DALL-E3的83.50等；视频总分略高于OpenSora1.2的79.76。不同表不能概括为所有维度超过所有专门模型。",
@@ -4473,7 +4804,7 @@
       "https://arxiv.org/abs/2410.13848"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：分开视觉编码可降低理解与生成的表示冲突。",
+    "claim": "作者研究目标：减轻统一模型中视觉理解与生成对编码表示需求的冲突。",
     "method": "分离理解和生成编码路径，保留一个共享自回归Transformer。 DeepSeek1.3B、SigLIP-Large16-384理解编码器、codebook16384/f16生成VQ、各2层MLP适配器。",
     "problem": "减轻统一模型中视觉理解与生成对编码表示需求的冲突。",
     "conclusion": "Table5分离路径联合D相较单理解E有些指标更高、部分更低：MMB69.4<70.6，SEED63.7<64.8；COCO-FID8.53优于单生成F8.92。",
@@ -4552,7 +4883,7 @@
       "https://arxiv.org/abs/2501.17811"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：改进数据和训练规模可提升Janus两类能力。",
+    "claim": "作者研究目标：扩展Janus理解/生成能力和生成稳定性。",
     "method": "优化训练阶段与数据混合，扩大高质量数据和模型规模；核心架构沿用Janus。 SigLIP理解、VQ生成、共享AR Transformer；1B/7B标记与基础LLM实际规格需按表记录。",
     "problem": "扩展Janus理解/生成能力和生成稳定性。",
     "conclusion": "主表展示扩展能力；数据、训练日程与参数同时改变，不能据跨版本提升估计单个设计的因果收益。",
@@ -4631,7 +4962,7 @@
       "https://arxiv.org/abs/2408.11039"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：同一Transformer可同时学习文本预测和图像扩散。",
+    "claim": "作者研究目标：在一个Transformer内同时处理离散语言和连续图像，研究扩展效率。",
     "method": "语言用next-token交叉熵、图像用扩散损失，模态特定编码/解码和图内双向注意力。 共享Transformer；跨图文因果、单图内部双向mask；linear或U-Net patch encoder/decoder。",
     "problem": "在一个Transformer内同时处理离散语言和连续图像，研究扩展效率。",
     "conclusion": "Table5 0.76B linear编码加图内双向注意力FID61.3→20.3；U-Net编码16.8→16.7，说明收益依赖外围编码器。",
@@ -4710,7 +5041,7 @@
       "https://arxiv.org/abs/2408.12528"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：单Transformer可结合语言自回归与视觉离散扩散。",
+    "claim": "作者研究目标：用一个Transformer结合语言自回归与图像离散扩散。",
     "method": "统一AR/离散去噪目标及omni-attention，探索离散/连续理解视觉表示。 Phi1.5 1.3B、MAGVITv2 tokenizer；Show-o†/‡换成连续MAGVIT/CLIP理解特征。",
     "problem": "用一个Transformer结合语言自回归与图像离散扩散。",
     "conclusion": "默认Show-o对比同基座LLaVA有多项下降，如VQAv269.4<75.3；‡74.7更接近但仍低于75.3。",
@@ -5353,7 +5684,7 @@
       "https://arxiv.org/html/2609.01607v1"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：共享知识和合适计算分工可出现双向协同。",
+    "claim": "作者研究目标：区分统一理解生成的共存、容量竞争与可验证协同。",
     "method": "在无预训练视觉先验的native设置研究表示、任务、系统三级，比较dense/modality/task解耦路由。 原生视觉处理、共享/解耦MoT，保留语义交互；探针用于分析冻结表示。",
     "problem": "区分统一理解生成的共存、容量竞争与可验证协同。",
     "conclusion": "Table1 dense联合理解略升，但GenEval51.16→51.03、HPS7.05→5.92；3D理解均值57.15→59.01仍有ViewSpatial下降。",
@@ -5448,7 +5779,7 @@
       "https://arxiv.org/abs/2607.04423"
     ],
     "previous_evidence": null,
-    "claim": "作者主张：研究一侧训练的能力是否迁移到另一侧。",
+    "claim": "作者研究目标：单侧训练一个具体能力，能否迁移到UMM的另一输出任务？",
     "method": "分别只训练理解或生成，在另一任务测同一计数、空间或文字能力，比较四类架构。 Lumina-DiMOO 8B、Janus-Pro 7B、BAGEL 7B、BLIP3-o 8B；在共享Transformer的Q/K/V与MLP加rank128 LoRA，视觉编码器和输出头冻结。",
     "problem": "单侧训练一个具体能力，能否迁移到UMM的另一输出任务？",
     "conclusion": "Table1：Lumina计数生成48→57%，Janus-Pro38→32%；Table4：文字WER .654→.641、CER .362→.351，BLEU .277→.274。变化具有任务和指标依赖性。",
@@ -6280,20 +6611,20 @@
     "source_urls": [
       "https://arxiv.org/abs/2609.02251"
     ],
-    "method": "有序笔画实例预测，再恢复笔内轨迹与方向",
-    "conclusion": "严格整字Order Acc.：已见类别67.03%、未见类别52.06%；GT笔画实例＋Transformer排序92.27%，预测实例后排序明显下降。",
-    "gap": "指标同时要求数量、mask IoU≥0.50实例匹配和完整次序；不是纯排序率，也不自动是规范笔顺金标准。不同类别集复杂度有差别。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "第一阶段AR联合预测笔画身份和顺序，第二阶段恢复笔内轨迹；端点监督及跨阶段起点初始化。 多尺度图像特征与历史笔画Transformer聚合；9层stroke decoder；ResNet/Transformer笔内编码与4层serial coarse-to-fine decoder。",
+    "conclusion": "Table1联合AR严格OrderAcc67.03%，MaskDINO后排序65.90%，但AP50 93.21低于94.80；GT笔画排序92.27%，提示提取错误重要。未有重复种子区间，1.13pp差距需进一步统计。",
+    "gap": "静态图存在多解，GT是记录的书写顺序，未必规范唯一序；历史轨迹主表预处理不同；Tamil为适配实验，不能称zero-shot；未生成RGB视频。",
+    "problem": "从静态手写字图恢复有序笔画实例及每笔连续轨迹。",
+    "claim": "作者研究目标：从静态手写字图恢复有序笔画实例及每笔连续轨迹。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 A",
     "id": "L001",
     "canonical_key": "paper:arxiv:2609.02251",
@@ -6318,7 +6649,26 @@
       "local_focused:M006",
       "local_handwriting:R06"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L001.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "严格整字Order Acc.：已见类别67.03%、未见类别52.06%；GT笔画实例＋Transformer排序92.27%，预测实例后排序明显下降。",
+        "gap": "指标同时要求数量、mask IoU≥0.50实例匹配和完整次序；不是纯排序率，也不自动是规范笔顺金标准。不同类别集复杂度有差别。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "摘要、方法主要模块、§4.1/Table1、Tables2–4及跨语言设置；完整符号和附录仍待补核",
+    "review_path": "docs/reviews/L001.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "CASIA-OLHWDB1.1渲染；未见类别测试OLHWDB1.2的3025类7900样本；英语已见类别/新writer；Tamil经目标语言fine-tune。",
+    "framework": "第一阶段AR联合预测笔画身份和顺序，第二阶段恢复笔内轨迹；端点监督及跨阶段起点初始化。",
+    "architecture": "多尺度图像特征与历史笔画Transformer聚合；9层stroke decoder；ResNet/Transformer笔内编码与4层serial coarse-to-fine decoder。",
+    "metrics": "Mask AP/AP50；严格整字OrderAcc要求数量一致、一一匹配IoU≥.5、全序正确；轨迹DTW/LDTW、AIoU、LPIPS。",
+    "baselines": "GT strokes+Conv-Ptr-Net/Transformer Pointer；YOLO26/Mask2Former/MaskDINO+相同排序器及轨迹器；PEN-Net/TrajectoryTransformer等历史报告。",
+    "experimental_conditions": "4 RTX A6000，Adam1e-4余弦；两阶段500K/991Kiter、batch64/512；训练线宽1/2/3、测2px；主中英保留全点，另测RDP=3。"
   },
   {
     "title": "Diff-Writer，ICONIP 2023",
@@ -6694,7 +7044,7 @@
     "conclusion": "Table1：Diffusion .82/.96、原Wan .92/.99、AR .45/.70；高最终识别率不足以证明过程更正确。Table2全模型Top5为.95，保留与Table1 .96的原表差异。",
     "gap": "原文明确多笔可同帧出现、指令可能被视觉先验覆盖、数学知识不足、AR画质下降；LLM偏好还受组件是否可辨认影响。",
     "problem": "让视频模型按文本规划逐步绘画，同时维持画风与可交互性。",
-    "claim": "以语言计划和视频扩散生成按指定步骤展开的草图。",
+    "claim": "作者研究目标：让视频模型按文本规划逐步绘画，同时维持画风与可交互性。",
     "version": "本次核读arXiv:2602.15819v1；元数据另有v2",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
@@ -6831,22 +7181,23 @@
   {
     "title": "SketchAgent，2024/2025",
     "source_urls": [
-      "https://arxiv.org/abs/2411.17673"
+      "https://arxiv.org/abs/2411.17673",
+      "https://openaccess.thecvf.com/content/CVPR2025/html/Vinker_SketchAgent_Language-Driven_Sequential_Sketch_Generation_CVPR_2025_paper.html"
     ],
-    "method": "语言模型生成顺序绘画命令，渲染向量笔画并交互编辑",
-    "conclusion": "外置规划＋可执行绘图的必要对照；语义计划不等于精细汉字几何",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "50×50编号格、采样点/t参数绘画语言、最小二乘Bezier拟合；例子和文字计划驱动冻结MLLM。 默认Claude3.5-Sonnet；给完整房子ICL示例、系统指令和计划；拟合误差大则递归分曲线。没有训练新的神经骨干。",
+    "conclusion": "相对直接SVG，人评74.90±3.35%选SketchAgent更像人画；与人类对比，人类被选54.68±4.61%，不能写为系统超过人类；识别率也非人类最高水平。",
+    "gap": "字母/数字失败、复杂语义和人物过度抽象；格点限制空间分辨率；按笔可见不证明其序列与人类规范一致；预训练范围使未知类别Claim需谨慎。",
+    "problem": "语言驱动的逐笔素描、对话编辑和人机共同绘画。",
+    "claim": "作者研究目标：语言驱动的逐笔素描、对话编辑和人机共同绘画。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 B",
     "id": "L012",
     "canonical_key": "paper:arxiv:2411.17673",
@@ -6871,7 +7222,26 @@
       "local_focused:M020",
       "local_handwriting:R20"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L012.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "外置规划＋可执行绘图的必要对照；语义计划不等于精细汉字几何",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "§4、§5.1–5.2、Table1/2、§6–7与官方CVPR书目信息；未完成全部交互附录",
+    "review_path": "docs/reviews/L012.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "QuickDraw随机50类，每类10次=500生成例；4–7笔匹配子集204模型/120人；另150名用户2AFC。",
+    "framework": "50×50编号格、采样点/t参数绘画语言、最小二乘Bezier拟合；例子和文字计划驱动冻结MLLM。",
+    "architecture": "默认Claude3.5-Sonnet；给完整房子ICL示例、系统指令和计划；拟合误差大则递归分曲线。没有训练新的神经骨干。",
+    "metrics": "CLIP零样本Top1/5、人工像人偏好、逐笔CLIPScore、笔画数；缺少唯一正确笔序。",
+    "baselines": "GPT4o-mini/4o/Claude3-Opus同接口、直接SVG、QuickDraw人；过程定性比SVGDreamer和sketch-rnn。",
+    "experimental_conditions": "不训练；默认约20秒/幅是作者系统成本；商用API版本会影响复现；不同模型费用和重试协议本次未完整摘录。"
   },
   {
     "title": "ProcessPainter，2024",
@@ -6882,7 +7252,7 @@
     "conclusion": "Table1：MSE.014820/LPIPS.024517/L1.082165；LearningToPaint .016181/.033240/.087082。只支持终图一致性比较。",
     "gap": "最终帧一致性掩盖中间跳变；艺术风格LoRA可能记忆制作套路；数据集/预算尚未精核完。",
     "problem": "文本条件下生成逐步绘画，并接受中途画布继续生成。",
-    "claim": "未单独摘录。",
+    "claim": "作者研究目标：文本条件下生成逐步绘画，并接受中途画布继续生成。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
@@ -6940,22 +7310,23 @@
   {
     "title": "Generating Past and Future in Digital Painting Processes / PaintsAlter，2025",
     "source_urls": [
-      "https://lllyasviel.github.io/paints_alter_web/paints_alter.pdf"
+      "https://lllyasviel.github.io/paints_alter_web/paints_alter.pdf",
+      "https://doi.org/10.1145/3731160"
     ],
-    "method": "视频先验学习绘画状态的集合到集合映射",
-    "conclusion": "适合中间状态补全与多种可能过程；操作步骤不等于连续物理书写时间",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "将过程查询定义为set-to-set；源/查询潜变量拼接，只去噪查询，operation-step编码与分区VAE对齐；图像/视频后端组合。 CogVideoX1.5或LTXVideo DiT，冻结VAE分区编码解码；步骤投影；可加SDXL单帧模型提高交互速度。",
+    "conclusion": "Table1 Cog17.04dB/.6712/.4022 vsProcessPainter13.52/.4901/.6143；Table3 65帧LTX8.4s/Cog193.1s，单帧SDXL3.9s。不能把不同后端最佳质量与最快速度拼成单模型结果。",
+    "gap": "数字绘画允许删层/变形/导入，单调增墨不通用；步骤1000是归一索引，无真实物理时间；未有底层编辑动作元数据；域外UI文字结构会错。",
+    "problem": "给一个或多个画布状态，生成任意过去/未来位置的数字绘画状态集合。",
+    "claim": "作者研究目标：给一个或多个画布状态，生成任意过去/未来位置的数字绘画状态集合。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 B",
     "id": "L014",
     "canonical_key": "paper:https://lllyasviel.github.io/paints_alter_web/paints_alter.pdf",
@@ -6980,27 +7351,46 @@
       "local_focused:M023",
       "local_handwriting:R23"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L014.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "适合中间状态补全与多种可能过程；操作步骤不等于连续物理书写时间",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "原始13页PDF§3主要框架、§3.4数据/训练、§4.2–4.7及Tables1–4；逐图视觉核对尚未全部完成",
+    "review_path": "docs/reviews/L014.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "约19位同意参与艺术家，2018–2020记录；采样为20K片段、145帧上下文；留出5%。片段级划分不能自动当艺术家/原视频级独立。",
+    "framework": "将过程查询定义为set-to-set；源/查询潜变量拼接，只去噪查询，operation-step编码与分区VAE对齐；图像/视频后端组合。",
+    "architecture": "CogVideoX1.5或LTXVideo DiT，冻结VAE分区编码解码；步骤投影；可加SDXL单帧模型提高交互速度。",
+    "metrics": "PSNR/SSIM/LPIPS重建，用户质量/响应偏好，运行时；人工统计50作品的突变次数。",
+    "baselines": "ProcessPainter、Zhao2020；InversePainting仅定性，因方法不兼容排除主定量，须交代。",
+    "experimental_conditions": "Adafactor1e-5、bf16、clip.5、无EMA；8H10080GB，LTX4d、SDXL3d、Cog9d；视频512px/image1024px buckets。测速L40S。"
   },
   {
     "title": "Loomis Painter，2025",
     "source_urls": [
       "https://arxiv.org/abs/2511.17344"
     ],
-    "method": "多媒介风格条件、反向绘画训练与过程曲线评价",
-    "conclusion": "可借跨媒介过程适配；无中文规范笔顺实验依据",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "倒序绘画训练匹配I2V条件位置；媒介文本控制、跨媒介风格变换条件；提出PDP过程评价。 Wan2.1 14B 480p I2V+LoRA；用变换后的条件图对应原过程目标，学习跨媒介对齐。",
+    "conclusion": "Table2 FID151.04/LPIPS.38/CLIP.86/DINO.76；等7epochs倒序对正序FID164.29对172.62；PDP改善说明距离曲线接近，未直接测笔画事件。",
+    "gap": "PDP可被不同笔序但相同累计变化曲线满足；最近进度帧匹配降低严格时间约束；去手部不去阴影可产生伪迹；训练媒介和内容组合受限。",
+    "problem": "从成品图重建跨媒介绘画过程，并能改变油画/素描等媒介。",
+    "claim": "作者研究目标：从成品图重建跨媒介绘画过程，并能改变油画/素描等媒介。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 C",
     "id": "L015",
     "canonical_key": "paper:arxiv:2511.17344",
@@ -7025,27 +7415,47 @@
       "local_focused:M024",
       "local_handwriting:R24"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L015.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "可借跨媒介过程适配；无中文规范笔顺实验依据",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "§3–4、§5实现/Table2/3、§5.2.1PDP、§5.3消融、§7限制；附录未完整精读",
+    "review_path": "docs/reviews/L015.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "737YouTube视频：81acrylic/151oil/298pencil/207Loomis；每10s段取30帧去遮挡中位数；90%训练；许可原因不直接发布原数据。",
+    "framework": "倒序绘画训练匹配I2V条件位置；媒介文本控制、跨媒介风格变换条件；提出PDP过程评价。",
+    "architecture": "Wan2.1 14B 480p I2V+LoRA；用变换后的条件图对应原过程目标，学习跨媒介对齐。",
+    "metrics": "FID、LPIPS、CLIP、DINO；PDP逐帧到终图距离曲线归一时间L2差，另报归一起终点和末帧距离。",
+    "baselines": "InversePainting、ProcessPainter、PaintsUndo；注意PaintsUndo和PaintsAlter不同工作。",
+    "experimental_conditions": "480×832，4H100约24h、lr1e-4、LoRA14epochs；媒介迁移先7epochs再7epochs新数据；§A.4增强细节尚未完全摘录。"
   },
   {
     "title": "StrokeNUWA，2024",
     "source_urls": [
-      "https://arxiv.org/abs/2401.17093"
+      "https://arxiv.org/abs/2401.17093",
+      "https://proceedings.mlr.press/v235/tang24h.html"
     ],
-    "method": "向量笔画离散表示与语言模型生成 SVG",
-    "conclusion": "可借结构化 token；SVG 存储顺序不能自动视为人的书写顺序",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "VQ-Stroke压缩+encoder-decoder LLM预测+SVG Fixer语法/接续修补。 残差VQ depth2，码本4096×512；FlanT5 3B冻结encoder、微调decoder及新增embedding/head；Fixer的PC或PI。",
+    "conclusion": "Table2作者报Fréchet6.513、HPS16.801，约19s/SVG vsLIVE约30min；94倍仅指定基线场景。CR正文公式方向和6.9%表述不一致，应保留原定义疑点。",
+    "gap": "没有规范笔顺监督或RGB过程；后处理可能改变路径数/连接；原文CLIP高低方向局部描述互相冲突，按表定义核查后再引用。",
+    "problem": "将文本关键词转成紧凑SVG笔画token并生成矢量图标。",
+    "claim": "作者研究目标：将文本关键词转成紧凑SVG笔画token并生成矢量图标。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 B",
     "id": "L016",
     "canonical_key": "paper:arxiv:2401.17093",
@@ -7070,7 +7480,26 @@
       "local_focused:M025",
       "local_handwriting:R25"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L016.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "可借结构化 token；SVG 存储顺序不能自动视为人的书写顺序",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "§3.1–3.2、§4.1–4.3、§5及Tables2–4；官方PMLR书目核对",
+    "review_path": "docs/reviews/L016.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "FIGR8SVG预处理后740K训练/8K验证/2K测试，最多1024basic commands，≥2关键词；优化法昂贵只随机500例。",
+    "framework": "VQ-Stroke压缩+encoder-decoder LLM预测+SVG Fixer语法/接续修补。",
+    "architecture": "残差VQ depth2，码本4096×512；FlanT5 3B冻结encoder、微调decoder及新增embedding/head；Fixer的PC或PI。",
+    "metrics": "CLIP特征计算的Fréchet距离（文称FID，不能与Inception-FID横比）、CLIPScore、EDIT、HPS、token recall/压缩比/速度。",
+    "baselines": "Iconshop同FlanT5重实现，VectorFusion，SD+LIVE；GPT4仅样例。",
+    "experimental_conditions": "64V100，LLM长度512，Iconshop1500保证语法完整；实际预算/采样长度有差异；详细优化器本次未全部摘录。"
   },
   {
     "title": "DiffSketcher，2023",
@@ -7081,7 +7510,7 @@
     "conclusion": "Appendix D/Table1：混淆率本法.65、CLIPasso.39、VectorFusion.33、人类.67。",
     "gap": "同时优化所有曲线，优化迭代不代表合法绘制顺序；stroke数量控制抽象程度，未约束汉字笔画身份。",
     "problem": "从自然语言生成向量自由手绘草图。",
-    "claim": "未单独摘录。",
+    "claim": "作者研究目标：从自然语言生成向量自由手绘草图。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
@@ -16073,5 +16502,41 @@
     "baselines": "不同特征层/I3D训练集版本及视频预测模型CDNA/SV2P/SVP-FP/SAVP。",
     "experimental_conditions": "BAIR人工研究使用2帧条件+14生成；参考256序列；PSNR/SSIM取每条件100个样本中的best值，不能与单样本指标直接比较。",
     "note_path": "docs/reviews/G032.md"
+  },
+  {
+    "id": "H001",
+    "category": "H 模型卡与工程制品",
+    "title": "CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品",
+    "version": "Hugging Face主卡，2026-10-19核查",
+    "source_urls": [
+      "https://huggingface.co/skeeterman/CoFRIDA-Sharpie",
+      "https://huggingface.co/skeeterman/CoFRIDA-Sharpie/raw/main/README.md",
+      "https://huggingface.co/api/models/skeeterman/CoFRIDA-Sharpie/tree/main"
+    ],
+    "previous_evidence": "",
+    "claim": "发布用于机器人Sharpie共同绘画的LoRA权重；关联F04，不能另计独立论文。",
+    "method": "通过部分画布与文字预测可由机器人续画的目标；模型制品细节需与论文和代码对齐。",
+    "problem": "将既有画布、文字目标与有限画笔执行能力连接。",
+    "conclusion": "已核模型卡及文件清单：存在pytorch_lora_weights.bin；base_model元数据与正文基础模型描述不一致，尚未验证权重兼容。",
+    "gap": "卡片缺训练集版本、样本量、r/targetmodules、优化器、完整推理接口和可复核指标；不得照自动示例宣称可运行。",
+    "provenance": "2026-10-19存量复核时通过官方CoFRIDA项目追引的制品",
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-19",
+    "record_type": "resource",
+    "scope": "handwriting_or_adjacent",
+    "privacy": "public_source_note",
+    "sections_read": "HF原始README与API文件列表；未下载权重/运行模型",
+    "last_updated": "2026-10-20",
+    "canonical_key": "resource:https://huggingface.co/skeeterman/CoFRIDA-Sharpie",
+    "aliases": [],
+    "associated_research_id": "F04",
+    "note_path": "docs/resources/cofrida_sharpie_card.md",
+    "dataset": "模型卡未给出可独立核验的数据版本；不能直接倒填论文原始训练数据。",
+    "framework": "文字与部分画布到完整目标画面，再接机器人动作规划。",
+    "architecture": "文件名显示LoRA制品；base_model字段diffusers/sdxl-instructpix2pix-768，正文timbrooks/instruct-pix2pix，冲突待解。",
+    "metrics": "模型卡没有独立结果表；论文F04指标单列，不能自动赋给此权重。",
+    "baselines": "卡片未给独立对照；关联论文F04。",
+    "experimental_conditions": "未运行；卡片license lgpl-3.0；基础权重、数据及其他依赖许可仍应单独核对。",
+    "review_depth": "model_card_and_file_listing_reviewed"
   }
 ]
