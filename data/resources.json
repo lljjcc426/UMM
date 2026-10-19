@@ -5,22 +5,23 @@
     "title": "Hanzi Writer（工具，不是论文）",
     "version": "[来源](https://hanziwriter.org/docs.html)",
     "source_urls": [
-      "https://hanziwriter.org/docs.html"
+      "https://hanziwriter.org/docs.html",
+      "https://raw.githubusercontent.com/chanind/hanzi-writer/master/LICENSE"
     ],
     "previous_evidence": "官方文档；本次访问成功",
-    "claim": "为常见字提供笔顺演示与书写练习。",
-    "method": "有序SVG/笔画数据驱动动画；速度、颜色、间隔和多字串联由API控制。",
-    "problem": "无需学习模型也能制作标准笔顺动画。",
-    "conclusion": "官方文档已有单字、多字依次动画与属性控制。",
-    "gap": "覆盖及正确性依赖字库；不自动生成陌生艺术字形、毛笔物理或任意布局风格。",
+    "claim": "作者研究目标：用已有单字笔画数据实现浏览器动画和书写练习。",
+    "method": "动画/单笔控制、quiz、数据加载和坐标变换API；没有新训练模型。 JavaScript/SVG或canvas渲染；数据来自hanzi-writer-data/Make Me a Hanzi；animateCharacter、animateStroke、onComplete/Promise串联字符。",
+    "problem": "用已有单字笔画数据实现浏览器动画和书写练习。",
+    "conclusion": "官方API支持确定性笔画播放、错笔反馈及静态SVG；没有模型训练、学习式轨迹生成或真实摄像视频质量结果。",
+    "gap": "规则数据的字覆盖、区域标准与错标决定上限；median不含真实压力/墨扩散。完成事件顺序可由数据数组直接保证，但不能据此证明生成模型学会规范，也不能把合成渲染当真实运动分布。 官方软件LICENSE为MIT；该许可不替代Make Me a Hanzi字典/图形各自许可。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "resource",
     "scope": "resource",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：官方文档；本次访问成功",
-    "last_updated": "2026-10-15",
+    "sections_read": "官方docs Animation/Quiz/Loading character data/Raw Character SVG/配置项；LICENSE来源另列；未核quiz匹配实现或运行浏览器",
+    "last_updated": "2026-10-20",
     "canonical_key": "resource:https://hanziwriter.org/docs.html",
     "evidence_history": [
       {
@@ -60,7 +61,25 @@
       "local_handwriting:R71",
       "user_survey:资源R01"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/R01.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：官方文档；本次访问成功",
+        "conclusion": "官方文档已有单字、多字依次动画与属性控制。",
+        "gap": "覆盖及正确性依赖字库；不自动生成陌生艺术字形、毛笔物理或任意布局风格。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/R01.md",
+    "review_depth": "resource_protocol_reviewed",
+    "dataset": "字符库的strokes是轮廓路径，medians为中心线；本次未下载全量包核数量与每字准确性。",
+    "framework": "动画/单笔控制、quiz、数据加载和坐标变换API；没有新训练模型。",
+    "architecture": "JavaScript/SVG或canvas渲染；数据来自hanzi-writer-data/Make Me a Hanzi；animateCharacter、animateStroke、onComplete/Promise串联字符。",
+    "metrics": "未提供标准生成Benchmark；quiz结果是其容错规则下的交互匹配，不能自动视为笔顺专家准确率或RGB事件质量。",
+    "baselines": "合理实验对照：同一有序矢量库直接渲染、修改顺序/抬笔的负例、真实书写；这些是建议对照，不是官方已做实验。",
+    "experimental_conditions": "动画默认delayBetweenStrokes1000ms/loop2000ms，速度可调；quizLeniency默认1、acceptBackwardsStrokes默认false。markStrokeCorrectAfterMisses启用后可能自动过关，评估应禁用；outline/全字可见需按协议设置。"
   },
   {
     "id": "R02",
@@ -68,22 +87,23 @@
     "title": "Make Me a Hanzi（数据/工程资源）",
     "version": "[来源](https://github.com/skishore/makemeahanzi/blob/master/README.md)",
     "source_urls": [
-      "https://github.com/skishore/makemeahanzi/blob/master/README.md"
+      "https://github.com/skishore/makemeahanzi/blob/master/README.md",
+      "https://raw.githubusercontent.com/skishore/makemeahanzi/master/COPYING"
     ],
     "previous_evidence": "官方README；GitHub连接器读取",
-    "claim": "提供9000多个常见简繁汉字的有序笔画图形。",
-    "method": "strokes为按笔顺排列的SVG外轮廓；medians为对应近似中心线；另有部件匹配。",
-    "problem": "建立规范化笔顺参考与可渲染的轨迹条件。",
-    "conclusion": "README明确数据跟随PRC笔顺，部分地区顺序不同；可生成基准和确定性渲染对照。",
-    "gap": "不是所有汉字/书体的统一金标准；轮廓不等于真实笔尖轨迹；字典、图形许可分开。",
+    "claim": "作者研究目标：给常用汉字提供字符释义、分解及有序笔画几何，支撑动画和识字工具。",
+    "method": "dictionary.txt/graphics.txt按字符关联；SVG轮廓加medians，附实验动画制品。 逐行JSON；dictionary含pinyin/IDS decomposition/radical/matches等；graphics中strokes与medians一一对应，坐标1024²，y轴翻转后显示。",
+    "problem": "给常用汉字提供字符释义、分解及有序笔画几何，支撑动画和识字工具。",
+    "conclusion": "可直接构建有序轮廓动画和字形布局参照，不能从其静态序列推出真人书写动力学。",
+    "gap": "常用字覆盖不是Unicode全覆盖；地域规范不能统一作单一全球真值；字体轮廓可能与真实毛笔/连笔不同。训练与测试共用同字几何库会降低任务难度，需公开是否查表。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "resource",
     "scope": "resource",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：官方README；GitHub连接器读取",
-    "last_updated": "2026-10-15",
+    "sections_read": "官方README数据格式/来源/笔顺/坐标/下载说明与COPYING全文；没有下载全库或执行解析",
+    "last_updated": "2026-10-20",
     "canonical_key": "resource:https://github.com/skishore/makemeahanzi",
     "evidence_history": [
       {
@@ -123,7 +143,25 @@
       "local_handwriting:R70",
       "user_survey:资源R02"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/R02.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：官方README；GitHub连接器读取",
+        "conclusion": "README明确数据跟随PRC笔顺，部分地区顺序不同；可生成基准和确定性渲染对照。",
+        "gap": "不是所有汉字/书体的统一金标准；轮廓不等于真实笔尖轨迹；字典、图形许可分开。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/R02.md",
+    "review_depth": "resource_protocol_reviewed",
+    "dataset": "README称超过9000简繁常用字；字形源Arphic PL KaitiM GB/PL UKai。明确遵循PRC顺序，不承诺台湾/日本标准；未进行全库重计与专家校勘。",
+    "framework": "dictionary.txt/graphics.txt按字符关联；SVG轮廓加medians，附实验动画制品。",
+    "architecture": "逐行JSON；dictionary含pinyin/IDS decomposition/radical/matches等；graphics中strokes与medians一一对应，坐标1024²，y轴翻转后显示。",
+    "metrics": "未报告标准模型准确率；需分别测字符覆盖、逐笔几何与顺序专家一致性；中心线是粗略median，不是实测点流。",
+    "baselines": "可与其他规范库/地区标准及人工标注比较；README提及AnimCJK/KanjiVG，不代表已经受控评测。",
+    "experimental_conditions": "静态模板数据，不含真实时长、压力、速度、手部遮挡；轮廓/centerline匹配依赖坐标变换。COPYING：dictionary为LGPLv3或更高，graphics为Arphic Public License；不可统称MIT。"
   },
   {
     "id": "R03",
@@ -131,22 +169,24 @@
     "title": "CASIA-HWDB / CASIA-OLHWDB（数据）",
     "version": "[来源](https://nlpr.ia.ac.cn/databases/handwriting/home.html)",
     "source_urls": [
-      "https://nlpr.ia.ac.cn/databases/handwriting/home.html"
+      "https://nlpr.ia.ac.cn/databases/handwriting/home.html",
+      "https://nlpr.ia.ac.cn/databases/handwriting/Online_database.html",
+      "https://nlpr.ia.ac.cn/databases/handwriting/Application_form.html"
     ],
     "previous_evidence": "官方数据说明",
-    "claim": "提供中文离线图像与在线手写记录。",
-    "method": "实际书写坐标、笔状态、标签与字符/文本数据。",
-    "problem": "训练内容与个人风格、轨迹恢复和在线笔迹生成。",
-    "conclusion": "多个核心方法使用此类记录；能提供真实时间信息。",
-    "gap": "记录的是实际写法，不自动等于所有样本均符合某套规范；许可需依官方说明核查。",
+    "claim": "作者研究目标：提供同批作者在线轨迹与离线图像，支持识别及作者/内容分布研究。",
+    "method": "Anoto笔记录纸上轨迹，孤立字及整页文本，预定义作者划分；本卡不替代数据论文全部实验精读。 POT逐字GB/GBK标签、笔画数、short x/y、(-1,0)笔画结束和(-1,-1)字结束；WPTT页/行及stroke index、坐标×10。公开格式未列压力或逐点时间戳，不能假定具有这两项。",
+    "problem": "提供同批作者在线轨迹与离线图像，支持识别及作者/内容分布研究。",
+    "conclusion": "在线单字及文本提供笔画分组和点序，可用于真实书写事件恢复；没有摄像RGB、真实可见墨迹逐帧标签或逐点压力字段。",
+    "gap": "采集者可能写非规范顺序，标签主要转录/分行；POT数据编码和特殊结束标记影响解析。在线与离线共享作者会造成跨模态切分泄漏；词汇/模板也须审查。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "resource",
     "scope": "resource",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：官方数据说明",
-    "last_updated": "2026-10-15",
+    "sections_read": "官方home采集/作者划分，Online Database全部POT/WPTT格式和统计表，Conditions of Academic Use；未下载样本或重读ICDAR2011全篇",
+    "last_updated": "2026-10-20",
     "canonical_key": "resource:https://nlpr.ia.ac.cn/databases/handwriting/home.html",
     "evidence_history": [
       {
@@ -186,7 +226,25 @@
       "local_handwriting:R73",
       "user_survey:资源R03"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/R03.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：官方数据说明",
+        "conclusion": "多个核心方法使用此类记录；能提供真实时间信息。",
+        "gap": "记录的是实际写法，不自动等于所有样本均符合某套规范；许可需依官方说明核查。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/R03.md",
+    "review_depth": "resource_protocol_reviewed",
+    "dataset": "1020writers；在线1.0/1.1/1.2为420/300/300人，合计3912017样本，7185汉字+171符号类；在线文本1019人5092页52220行1348904字。线上/线下不可硬套相同总量，部分样本丢失。",
+    "framework": "Anoto笔记录纸上轨迹，孤立字及整页文本，预定义作者划分；本卡不替代数据论文全部实验精读。",
+    "architecture": "POT逐字GB/GBK标签、笔画数、short x/y、(-1,0)笔画结束和(-1,-1)字结束；WPTT页/行及stroke index、坐标×10。公开格式未列压力或逐点时间戳，不能假定具有这两项。",
+    "metrics": "资源网页给统计/格式，无生成模型指标；识别准确率、DTW、style等由具体研究另定义；不能将实测书写顺序等同规范顺序。",
+    "baselines": "用户应按官方作者划分报告识别/生成基线；与静态矢量模板、其他在线字体库相比较时要对齐类别与作者信息。",
+    "experimental_conditions": "官方作者训练/测试约4:1；1.0为336/84，1.1为240/60，1.2为240/60。不同模板有重叠内容，writerdisjoint不保证文本/字符zero-shot。2020起学术下载无需申请表；学术用途免费受使用条件限制，商业许可另议。"
   },
   {
     "id": "R04",
@@ -194,22 +252,23 @@
     "title": "IAM-OnDB（数据）",
     "version": "[来源](https://fki.tic.heia-fr.ch/databases/iam-on-line-handwriting-database)",
     "source_urls": [
-      "https://fki.tic.heia-fr.ch/databases/iam-on-line-handwriting-database"
+      "https://fki.tic.heia-fr.ch/databases/iam-on-line-handwriting-database",
+      "https://fki.tic.heia-fr.ch/DBs/iamOnDB/data.html"
     ],
     "previous_evidence": "原方法引用；官网本次访问失败",
-    "claim": "提供在线英语手写数据，用于轨迹研究。",
-    "method": "在线笔迹序列及对应文字等标注。",
-    "problem": "英文序列生成/风格与跨语言对照。",
-    "conclusion": "相关生成文献与DiffInk项目列为数据来源。",
-    "gap": "不是中文笔顺数据；官方页面本次未成功访问，具体版本/许可需另查，不声称已经下载验证。",
+    "claim": "作者研究目标：提供白板英文文本的在线笔迹及转录，支持识别与作者研究。",
+    "method": "E-Beam白板采集，XML关联作者/文本/笔画与采集设置，分行并提供TIF渲染。 原始forms、lineStrokes、lineImages、writers.xml、ascii及formwriter映射；Point字段x/y/time，Stroke含颜色和时间；本次格式说明未列压力。",
+    "problem": "提供白板英文文本的在线笔迹及转录，支持识别与作者研究。",
+    "conclusion": "官方说明确认点级time与白板真实采集；未核当前压缩包、sampleXML具体单位/时钟精度或标准split文件。",
+    "gap": "白板与纸笔/屏幕动力学有域差，time不自动给笔压或动作控制；英文字母没有一套与中国大陆汉字同构的统一规范顺序。IAMonDo混合文档库为另一个资源，不与IAM-OnDB合并。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "resource",
     "scope": "resource",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原方法引用；官网本次访问失败",
-    "last_updated": "2026-10-15",
+    "sections_read": "官方主页面Overview/Characteristics/Terms索引正文，旧官网Data format字段完整索引；未读基础论文全文/实际下载样本",
+    "last_updated": "2026-10-20",
     "canonical_key": "resource:https://fki.tic.heia-fr.ch/databases/iam-on-line-handwriting-database",
     "evidence_history": [
       {
@@ -248,8 +307,26 @@
       "local_focused:M115",
       "user_survey:资源R04"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json",
-    "source_access_note": "IAM-OnDB历史官方地址TLS证书过期；保留来源并待核迁移地址。"
+    "note_path": "docs/reviews/R04.md",
+    "source_access_note": "IAM-OnDB历史官方地址TLS证书过期；保留来源并待核迁移地址。",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原方法引用；官网本次访问失败",
+        "conclusion": "相关生成文献与DiffInk项目列为数据来源。",
+        "gap": "不是中文笔顺数据；官方页面本次未成功访问，具体版本/许可需另查，不声称已经下载验证。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/R04.md",
+    "review_depth": "resource_protocol_reviewed",
+    "dataset": "官网221writers、>1700forms、13049lines、86272wordinstances/11059词表，文本来自LOB。论文使用217/其他人数可能是筛选子集，不可替代官网全库计数；与657writers的离线IAM不同资源。",
+    "framework": "E-Beam白板采集，XML关联作者/文本/笔画与采集设置，分行并提供TIF渲染。",
+    "architecture": "原始forms、lineStrokes、lineImages、writers.xml、ascii及formwriter映射；Point字段x/y/time，Stroke含颜色和时间；本次格式说明未列压力。",
+    "metrics": "官网无生成基准成绩；识别/作者协议由使用研究指定；点时间可用于速度，但重采样后需重新说明时钟如何保留。",
+    "baselines": "在线/离线同源识别、真实轨迹/规则几何以及writerheldout为可比较条件；官方页没有新生成器。",
+    "experimental_conditions": "下载需注册；仅非商业研究；未注册或取得数据。此次原站直接访问超时/证书过期，核查依据是搜索工具索引的官方主页面及旧官方格式页面，时间新旧分别标注，不伪称实时下载成功。"
   },
   {
     "id": "R05",
@@ -260,19 +337,19 @@
       "https://arxiv.org/abs/2410.07618"
     ],
     "previous_evidence": "原论文数据描述",
-    "claim": "以大规模书法图像支持字符、书体、书家样式研究。",
-    "method": "Moyun报告超过190万张带相关类别条件的书法图像。",
-    "problem": "学习静态风格与字形。",
-    "conclusion": "可作为静态风格监督来源候选。",
-    "gap": "不提供与每张图对应的真实逐笔视频；不得推断为规范轨迹金标准。",
+    "claim": "作者研究目标：为个性化中文书法图像生成提供较大作者与字体覆盖数据。",
+    "method": "按作者/书体/字符/编号组织抓取图像并分割字，作为Moyun训练/分析语料。 Gaussian/Otsu/连通分量过滤，SAM以内部kmeans正点与外部负点提示；小于100pixels分量丢弃。",
+    "problem": "为个性化中文书法图像生成提供较大作者与字体覆盖数据。",
+    "conclusion": "已确认是静态字体/作者语料，不提供RGB过程、逐笔事件或机器人动作。",
+    "gap": "数据来源重复、书家署名可靠性、相同原图裁切进入两split及篆刻与墨写域差别待核；1.2M/1.9M口径冲突保留。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "resource",
     "scope": "resource",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文数据描述",
-    "last_updated": "2026-10-15",
+    "sections_read": "Moyun v2 §4.1收集/分割细节与Introduction规模对照；B04已有模型笔记，本卡不重复统计为独立论文",
+    "last_updated": "2026-10-20",
     "canonical_key": "resource:arxiv:2410.07618",
     "evidence_history": [
       {
@@ -311,7 +388,25 @@
       "local_focused:M116",
       "user_survey:资源R05"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/R05.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文数据描述",
+        "conclusion": "可作为静态风格监督来源候选。",
+        "gap": "不提供与每张图对应的真实逐笔视频；不得推断为规范轨迹金标准。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/R05.md",
+    "review_depth": "resource_protocol_reviewed",
+    "dataset": "§4.1称约1.2M原始样本，120书家、六书体类且含篆刻；论文Introduction另称1.9M，版本/处理前后口径未厘清，不能混报统一精确总量。",
+    "framework": "按作者/书体/字符/编号组织抓取图像并分割字，作为Moyun训练/分析语料。",
+    "architecture": "Gaussian/Otsu/连通分量过滤，SAM以内部kmeans正点与外部负点提示；小于100pixels分量丢弃。",
+    "metrics": "资源覆盖/分割保真需独立审计；Moyun主模型结果见B04，不能作为数据单独无偏增益。",
+    "baselines": "其他静态书法集与保留小点/不同分割pipeline是合理对照；该资源卡未声称作者已做这些实验。",
+    "experimental_conditions": "抓取与分割数据；实际公开下载资产、标注清单、license以及分割后各split的最终数量尚未核实，不能标成已取得完整开放数据。"
   },
   {
     "id": "R06",

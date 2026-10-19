@@ -58,3 +58,7 @@
 ## 2026-10-20 · 第三批存量原文与公开实现核查
 
 读取19项原始方法/实验章节，ID见[data/third_review_batch_2026-10-20.json](../../data/third_review_batch_2026-10-20.json)。来源包含arXiv版本页、作者PDF、ACL正式论文集、TCSVT作者接收版、官方数据页和工程文档；读取范围逐篇记录。InkDiffuser额外检查固定GitHub树4d9f6c1aef2a13ac1b4779aa090389c0d609e227及三个源文件，未运行训练。女书官方仓库仅核文件列表。StrokeBank PDF第3–4页视觉检查确认式5方向差异。未成功完整下载的PDF未作为本地全文阅读证据，女书全文经Web PDF读取。首批来源访问审计保留为当时快照，不用其HTTP结果代替本批阅读。
+
+## 2026-10-20 · 第四批
+
+24项ID见[第四批清单](../../data/fourth_review_batch_2026-10-20.json)。读取梯度审计/位置级梯度及4项统一评测的原始方法、表格和指定附录；交叉检查原CAGrad算法；读取DiffBrush和3项语义/过程研究，保留不同注入协议的边界。资源方面读取Hanzi Writer文档及LICENSE、Make Me a Hanzi的README/COPYING、CASIA在线格式/条件、IAM-OnDB官方页面的搜索索引、Mobao论文数据章节和Samsung作者技术报告。Springer机器人2篇的Table1/4单独读取，L024完整作者PDF与第4页框架图核查。A06/L002全文受限，L006出版社直连受限，L021/L022只取得可读取摘要/引言，均保持第一遍。搜索索引、作者报告、论文正文、代码与实际数据文件各自注明，未下载模型或运行训练。

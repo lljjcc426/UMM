@@ -1,8 +1,8 @@
 # 全目录逐条阅读台账
 
-主目录 328 条，本批有 100 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 328 条，本批有 124 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
-“三遍验收”当前统一为未完成，因为独立口述、逐图讲解、完整实验/附录核对和追引没有全部逐篇验收。其余列描述实际完成的工作。
+“三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。
 
 | ID | 记录 | 原目录核查状态 | 本批笔记 | 三遍验收 |
 | --- | --- | --- | --- | --- |
@@ -11,7 +11,7 @@
 | A03 | DiffInk: Glyph- and Style-Aware Latent Diffusion Transformer for Text to Online Handwriting Generation | primary_sections_read | [结构化分析](../reviews/A03.md) | 未完成 |
 | A04 | Stroke Modeling Enables Vectorized Character Generation with Large Vectorized Glyph Model（LVGM） | primary_sections_read | [结构化分析](../reviews/A04.md) | 未完成 |
 | A05 | Handwriting Trajectory Recovery with Diffusion Models | primary_sections_read | [结构化分析](../reviews/A05.md) | 未完成 |
-| A06 | Font Generation and Keypoint Ranking for Stroke Order of Chinese Characters by Deep Neural Networks | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| A06 | Font Generation and Keypoint Ranking for Stroke Order of Chinese Characters by Deep Neural Networks | primary_abstract_read | [结构化分析](../reviews/A06.md) | 未完成 |
 | A07 | Complex Handwriting Trajectory Recovery: Evaluation Metrics and Algorithm（PEN-Net） | primary_sections_read | [结构化分析](../reviews/A07.md) | 未完成 |
 | A08 | Modality Conversion of Handwritten Patterns by Cross Variational Autoencoders（Cross-VAE） | primary_sections_read | [结构化分析](../reviews/A08.md) | 未完成 |
 | A09 | Disentangling Writer and Character Styles for Handwriting Generation（SDT） | primary_sections_read | [结构化分析](../reviews/A09.md) | 未完成 |
@@ -52,13 +52,13 @@
 | F02 | Bézier Splatting for Fast and Differentiable Vector Graphics | primary_sections_read | [结构化分析](../reviews/F02.md) | 未完成 |
 | F03 | FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment | primary_sections_read | [结构化分析](../reviews/F03.md) | 未完成 |
 | F04 | CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting | primary_sections_read | [结构化分析](../reviews/F04.md) | 未完成 |
-| F05 | Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| F05 | Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model | primary_sections_read | [结构化分析](../reviews/F05.md) | 未完成 |
 | X01 | InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write | primary_sections_read | [结构化分析](../reviews/X01.md) | 未完成 |
-| R01 | Hanzi Writer（工具，不是论文） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| R02 | Make Me a Hanzi（数据/工程资源） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| R03 | CASIA-HWDB / CASIA-OLHWDB（数据） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| R04 | IAM-OnDB（数据） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| R05 | Mobao（Moyun配套静态书法数据） | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| R01 | Hanzi Writer（工具，不是论文） | primary_sections_read | [结构化分析](../reviews/R01.md) | 未完成 |
+| R02 | Make Me a Hanzi（数据/工程资源） | primary_sections_read | [结构化分析](../reviews/R02.md) | 未完成 |
+| R03 | CASIA-HWDB / CASIA-OLHWDB（数据） | primary_sections_read | [结构化分析](../reviews/R03.md) | 未完成 |
+| R04 | IAM-OnDB（数据） | primary_sections_read | [结构化分析](../reviews/R04.md) | 未完成 |
+| R05 | Mobao（Moyun配套静态书法数据） | primary_sections_read | [结构化分析](../reviews/R05.md) | 未完成 |
 | N01 | UniCalli: A Unified Diffusion Framework for Column-Level Generation and Recognition of Chinese Calligraphy | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | N02 | Bridging Online and Offline Handwriting via Differentiable Physical Rendering (OnOff Handwriting) | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | N03 | DeepCalliFont: Few-shot Chinese Calligraphy Font Synthesis by Integrating Dual-modality Generative Models | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
@@ -106,13 +106,13 @@
 | R06 | 通用规范汉字笔顺规范 | primary_metadata_only | 本批未新增逐篇精读 | 未完成 |
 | R07 | OpenHandWrite_Toolbox与笔画级数据 | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | L001 | Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026 | primary_sections_read | [结构化分析](../reviews/L001.md) | 未完成 |
-| L002 | Diff-Writer，ICONIP 2023 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L002 | Diff-Writer，ICONIP 2023 | primary_abstract_read | [结构化分析](../reviews/L002.md) | 未完成 |
 | L003 | Write Like You，2021 | primary_abstract_read | 本批未新增逐篇精读 | 未完成 |
 | L004 | Layout Stroke Imitation，2025 | primary_sections_read | [结构化分析](../reviews/L004.md) | 未完成 |
 | L005 | StrokeBank，2014 | primary_sections_read | [结构化分析](../reviews/L005.md) | 未完成 |
-| L006 | Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L007 | B-BSMG，2024 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L008 | Three-Dimensional Trajectory Planning for Robotic Chinese Calligraphy，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L006 | Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement，2026 | primary_abstract_read | [结构化分析](../reviews/L006.md) | 未完成 |
+| L007 | B-BSMG，2024 | primary_sections_read | [结构化分析](../reviews/L007.md) | 未完成 |
+| L008 | Three-Dimensional Trajectory Planning for Robotic Chinese Calligraphy，2026 | primary_sections_read | [结构化分析](../reviews/L008.md) | 未完成 |
 | L009 | Video-Based Handwritten Chinese Character Recognition，2005 | primary_sections_read | [结构化分析](../reviews/L009.md) | 未完成 |
 | L010 | VideoSketcher: Sequential Sketch Generation Using Video Model Priors | primary_sections_read | [结构化分析](../reviews/L010.md) | 未完成 |
 | L011 | Draw This First | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
@@ -125,17 +125,17 @@
 | L018 | Diff-Font，2022 起 | primary_sections_read | [结构化分析](../reviews/L018.md) | 未完成 |
 | L019 | FontDiffuser，AAAI 2024 | primary_sections_read | [结构化分析](../reviews/L019.md) | 未完成 |
 | L020 | InkSpire，ICLR 2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L021 | Write More at Once，公开投稿版本 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L022 | Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L023 | DiffBrush，ICCV 2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L024 | Learning to Compose Stylistic Calligraphy Artwork with Emotions，ACM MM 2021 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L021 | Write More at Once，公开投稿版本 | primary_abstract_read | [结构化分析](../reviews/L021.md) | 未完成 |
+| L022 | Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本 | primary_abstract_read | [结构化分析](../reviews/L022.md) | 未完成 |
+| L023 | DiffBrush，ICCV 2025 | primary_sections_read | [结构化分析](../reviews/L023.md) | 未完成 |
+| L024 | Learning to Compose Stylistic Calligraphy Artwork with Emotions，ACM MM 2021 | primary_sections_read | [结构化分析](../reviews/L024.md) | 五项检查已记录 |
 | L025 | AnyText，2023/2024 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L026 | UniVideo | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
 | L027 | UniVid，2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L028 | Lance: Unified Multimodal Modeling by Multi-Task Synergy | primary_sections_read | 本批未新增逐篇精读 | 未完成 |
-| L029 | Think in Strokes, Not Pixels，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L030 | Where a New Concept Must Enter，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L031 | Do Unified Multimodal Models Think in One Space?，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L029 | Think in Strokes, Not Pixels，2026 | primary_sections_read | [结构化分析](../reviews/L029.md) | 未完成 |
+| L030 | Where a New Concept Must Enter，2026 | primary_sections_read | [结构化分析](../reviews/L030.md) | 未完成 |
+| L031 | Do Unified Multimodal Models Think in One Space?，2026 | primary_sections_read | [结构化分析](../reviews/L031.md) | 未完成 |
 | L032 | UReason，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L033 | Recursive Self-Improvement in Unified Multimodal Models，2026 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L034 | Tora，CVPR 2025 | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
@@ -171,10 +171,10 @@
 | L064 | MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L065 | Qwen3-Omni Technical Report | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L066 | Emu3.5: Native Multimodal Models are World Learners | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L067 | Beyond Accuracy: Benchmarking Cross-Task Consistency in Unified Multimodal Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L068 | IMUG-Bench: Benchmarking Unified Multimodal Models on Interleaved Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L069 | Unison: Benchmarking Unified Multimodal Models via Synergistic Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L070 | When Does Visual Generation Help Visual Understanding in Unified Multimodal Models? | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L067 | Beyond Accuracy: Benchmarking Cross-Task Consistency in Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L067.md) | 未完成 |
+| L068 | IMUG-Bench: Benchmarking Unified Multimodal Models on Interleaved Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L068.md) | 未完成 |
+| L069 | Unison: Benchmarking Unified Multimodal Models via Synergistic Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L069.md) | 未完成 |
+| L070 | When Does Visual Generation Help Visual Understanding in Unified Multimodal Models? | primary_sections_read | [结构化分析](../reviews/L070.md) | 未完成 |
 | L071 | GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L072 | UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L073 | OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
@@ -243,8 +243,8 @@
 | L136 | Pareto LoRA: Mitigating Modality Imbalance in Unified Multimodal Models via Pareto-Optimal Gradient Integration | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L137 | STBridge: Shared-Target Alignment for Bridging Understanding and Generation in UMMs | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L138 | Mutually Adversarial Self-Training with Evolving Data for Unified Multimodal Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L139 | Does Gradient Conflict Predict the Understanding--Generation Trade-off? A Controlled Audit of Conflict-Metric Validity in Unified Multimodal Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
-| L140 | Beyond Layers: Position-Resolved Gradient Conflict and Position-Aware Modulation for Unified Multimodal Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
+| L139 | Does Gradient Conflict Predict the Understanding--Generation Trade-off? A Controlled Audit of Conflict-Metric Validity in Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L139.md) | 未完成 |
+| L140 | Beyond Layers: Position-Resolved Gradient Conflict and Position-Aware Modulation for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L140.md) | 未完成 |
 | L141 | Do Text Edits Generalize to Visual Generation? Benchmarking Cross-Modal Knowledge Editing in UMMs | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L142 | MME-Unify: A Comprehensive Benchmark for Unified Multimodal Understanding and Generation Models | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |
 | L143 | UniEval: Unified Holistic Evaluation for Unified Multimodal Understanding and Generation | historical_record_not_rechecked | 本批未新增逐篇精读 | 未完成 |

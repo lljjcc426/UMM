@@ -1,6 +1,6 @@
 # 尚需精读与原始来源追引：可操作队列
 
-第二轮已补VideoSketcher方法/主表/消融、DiffInk及部分UMM和基础理论，见[100份笔记](../reviews/README.md)。截至2026-10-20全部328条的逐条缺项以[阅读台账](reading_ledger_2026-10-19.md)为准；下表保留专题追引和代码复核任务。
+第二轮已补VideoSketcher方法/主表/消融、DiffInk及部分UMM和基础理论，见[124份笔记](../reviews/README.md)。截至2026-10-20全部328条的逐条缺项以[阅读台账](reading_ledger_2026-10-19.md)为准；下表保留专题追引和代码复核任务。
 
 本队列维护“文献/研究找到了”与“已完整精读”之间的差别；不表示后台任务正在执行。2026-10-19 保存到 GitHub 便于逐次人工/模型核验。
 
@@ -60,3 +60,17 @@
 - DiffMath：确认正文/附录冲突的VAE与DiT参数；核轨迹顺序、测试词表与独立OCR。
 - 女书：核视频制品及其是否为Smartpen回放，字符表覆盖和字体/作者泛化；397字录制未被论文用于生成器训练。
 - UMM：继续L057–L174的架构、tokenizer、协同训练与评价，优先L139/L140受控梯度研究及L067–L070跨任务协同基准。
+
+## 第四批之后
+
+本批新增L139/L140、L067–L070、R01–R05、F05、L007/L008、L023/L024、L029–L031及5项仅第一遍A06/L002/L006/L021/L022。主目录仍有137条历史原文待复核，40条摘要记录中也有需要精读的条目。
+
+待取得的全文包括A06机器人笔顺恢复、DiffWriter(L002)、Frequency-Guided(L006)和两篇OpenReview投稿L021/L022。不能用后续论文对它们的转述填成原文已读。L020正式ICLR论文PDF下载中。
+
+新增追引线索（尚未完成全文阅读）：
+- *A survey of handwriting synthesis from 2019 to 2024: A comprehensive review*，Pattern Recognition162(2025)111357；需核出版社原文、参考文献与本目录差集。
+- *From pixels to strokes: A survey on generative handwriting*，IJDAR2026，DOI10.1007/s10032-026-00609-2；需核任务分类及参考列表。
+- *Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors*，DOI10.1007/s44443-026-01050-5；需核与L006的任务、数据和方法关系。
+- *Template-Guided Cascaded Diffusion…*，ICDAR2025，DOI10.1007/978-3-032-04614-7_9；是否与L021投稿有版本关系待查，暂不合并。
+- [CursiveTransformer作者实现介绍](https://greydanus.github.io/2025/03/30/cursive-transformer/)；需读取训练代码、数据、采样配置和授权。
+- [Inkspire作者项目](https://dlin.org/inkspire)，arXiv:2501.18588：草图协作交互线索，须与同名手写生成工作区分。

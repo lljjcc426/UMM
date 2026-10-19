@@ -1,0 +1,57 @@
+# 第四批文件变更说明（2026-10-20）
+
+基于f653be9，新增24份存量研究/资源笔记，累计124份；主目录保持328条。相关章节150条、摘要40条、元数据1条、历史待复核137条。5项全文受限保持第一遍；L024单独记录五项书面理解检查。没有删除文件。
+
+| 文件 | 操作与原因 |
+| --- | --- |
+| [README.md](../../README.md) | 更新索引、完成台账、实际进度、来源日志与后续全文/追引队列。 |
+| [data/critical_reviews_2026-10-19.json](../../data/critical_reviews_2026-10-19.json) | 新增24项方法、实验、数据协议、局限、可证伪假设和写作分析。 |
+| [data/fourth_review_batch_2026-10-20.json](../../data/fourth_review_batch_2026-10-20.json) | 新增本批ID、基准提交和来源范围记录。 |
+| [data/literature.csv](../../data/literature.csv) | 同步主目录、派生表、来源与阅读层级；修订DiffWriter出版版本并保留未核条件。 |
+| [data/literature.json](../../data/literature.json) | 同步主目录、派生表、来源与阅读层级；修订DiffWriter出版版本并保留未核条件。 |
+| [data/literature_public.xlsx](../../data/literature_public.xlsx) | 同步328条与四个正式视图，保留第5候选表及筛选范围。 |
+| [data/local_additions.csv](../../data/local_additions.csv) | 同步主目录、派生表、来源与阅读层级；修订DiffWriter出版版本并保留未核条件。 |
+| [data/local_additions.json](../../data/local_additions.json) | 同步主目录、派生表、来源与阅读层级；修订DiffWriter出版版本并保留未核条件。 |
+| [data/reading_acceptance_2026-10-20.json](../../data/reading_acceptance_2026-10-20.json) | 新增L024五项人工书面说明、框架图/主表/消融依据和复现边界。 |
+| [data/reading_progress_2026-10-19.json](../../data/reading_progress_2026-10-19.json) | 同步主目录、派生表、来源与阅读层级；修订DiffWriter出版版本并保留未核条件。 |
+| [data/resources.csv](../../data/resources.csv) | 同步主目录、派生表、来源与阅读层级；修订DiffWriter出版版本并保留未核条件。 |
+| [data/resources.json](../../data/resources.json) | 同步主目录、派生表、来源与阅读层级；修订DiffWriter出版版本并保留未核条件。 |
+| [data/umm.csv](../../data/umm.csv) | 同步主目录、派生表、来源与阅读层级；修订DiffWriter出版版本并保留未核条件。 |
+| [data/umm.json](../../data/umm.json) | 同步主目录、派生表、来源与阅读层级；修订DiffWriter出版版本并保留未核条件。 |
+| [docs/all_literature.md](../../docs/all_literature.md) | 更新索引、完成台账、实际进度、来源日志与后续全文/追引队列。 |
+| [docs/evidence/fourth_changes_2026-10-20.md](../../docs/evidence/fourth_changes_2026-10-20.md) | 逐文件解释本批变更。 |
+| [docs/evidence/gradient_metrics_and_resource_protocols_2026-10-20.md](../../docs/evidence/gradient_metrics_and_resource_protocols_2026-10-20.md) | 新增梯度定义、指标陷阱、静态/过程边界、数据字段与授权的跨研究审查。 |
+| [docs/evidence/reading_ledger_2026-10-19.md](../../docs/evidence/reading_ledger_2026-10-19.md) | 更新索引、完成台账、实际进度、来源日志与后续全文/追引队列。 |
+| [docs/evidence/search_log.md](../../docs/evidence/search_log.md) | 更新索引、完成台账、实际进度、来源日志与后续全文/追引队列。 |
+| [docs/evidence/second_round_audit_2026-10-19.md](../../docs/evidence/second_round_audit_2026-10-19.md) | 更新索引、完成台账、实际进度、来源日志与后续全文/追引队列。 |
+| [docs/evidence/survey_queue_2026-10-19.md](../../docs/evidence/survey_queue_2026-10-19.md) | 更新索引、完成台账、实际进度、来源日志与后续全文/追引队列。 |
+| [docs/handwriting/literature.md](../../docs/handwriting/literature.md) | 更新索引、完成台账、实际进度、来源日志与后续全文/追引队列。 |
+| [docs/local_additions.md](../../docs/local_additions.md) | 更新索引、完成台账、实际进度、来源日志与后续全文/追引队列。 |
+| [docs/project/STATUS.md](../../docs/project/STATUS.md) | 更新索引、完成台账、实际进度、来源日志与后续全文/追引队列。 |
+| [docs/reviews/A06.md](../../docs/reviews/A06.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/F05.md](../../docs/reviews/F05.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L002.md](../../docs/reviews/L002.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L006.md](../../docs/reviews/L006.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L007.md](../../docs/reviews/L007.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L008.md](../../docs/reviews/L008.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L021.md](../../docs/reviews/L021.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L022.md](../../docs/reviews/L022.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L023.md](../../docs/reviews/L023.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L024.md](../../docs/reviews/L024.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L029.md](../../docs/reviews/L029.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L030.md](../../docs/reviews/L030.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L031.md](../../docs/reviews/L031.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L067.md](../../docs/reviews/L067.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L068.md](../../docs/reviews/L068.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L069.md](../../docs/reviews/L069.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L070.md](../../docs/reviews/L070.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L139.md](../../docs/reviews/L139.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/L140.md](../../docs/reviews/L140.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/R01.md](../../docs/reviews/R01.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/R02.md](../../docs/reviews/R02.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/R03.md](../../docs/reviews/R03.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/R04.md](../../docs/reviews/R04.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/R05.md](../../docs/reviews/R05.md) | 新增来源限定的8项笔记；L024另补五项书面检查，全文未取得条目保留缺项。 |
+| [docs/reviews/README.md](../../docs/reviews/README.md) | 更新索引、完成台账、实际进度、来源日志与后续全文/追引队列。 |
+| [docs/umm/literature.md](../../docs/umm/literature.md) | 更新索引、完成台账、实际进度、来源日志与后续全文/追引队列。 |
+| [scripts/render_reviews.py](../../scripts/render_reviews.py) | 支持单独记录五项书面理解检查及证据，避免所有笔记统一判定完成或统一判定未完成。 |

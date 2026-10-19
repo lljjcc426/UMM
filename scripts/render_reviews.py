@@ -16,6 +16,8 @@ def main():
     reviews = []
     for name in ('critical_reviews_2026-10-19.json', 'foundation_reviews_2026-10-19.json'):
         reviews.extend(json.loads((ROOT / 'data' / name).read_text(encoding='utf-8'))['records'])
+    acceptance_file = ROOT / 'data/reading_acceptance_2026-10-20.json'
+    acceptance = {r['id']: r for r in json.loads(acceptance_file.read_text(encoding='utf-8'))['records']} if acceptance_file.exists() else {}
     folder = ROOT / 'docs/reviews'
     folder.mkdir(exist_ok=True)
     index = ['# 第二轮原文阅读与批判分析', '',
@@ -25,6 +27,8 @@ def main():
     for d in reviews:
         r = by_id[d['id']]
         sources = '\n'.join(f'- [原始来源 {i+1}]({url})' for i, url in enumerate(r['source_urls']))
+        accepted = acceptance.get(d['id'])
+        completion = '五项阅读检查已逐项记录；属于阅读分析验收，未独立复现。' if accepted else '相关内容已经阅读，完整三遍验收尚未完成；未独立复现。'
         text = f'''# {r['id']} · {r['title']}
 
 论文标题：{r['title']}
@@ -35,7 +39,7 @@ def main():
 
 已读范围：{d['sections_read']}
 
-阅读层级：{d['reading_status']}；相关内容已经阅读，完整三遍验收尚未完成；未独立复现。
+阅读层级：{d['reading_status']}；{completion}
 
 {sources}
 
@@ -117,23 +121,31 @@ def main():
 
 没有用统一的“5/5”掩盖上述待完成项。重建论文全部符号、补齐附录/代码条件及独立复现属于后续不同验收层级。
 '''
+        if accepted:
+            text = text[:text.index('## 三遍阅读验收')]
+            text += '## 三遍阅读验收\n\n逐项记录的书面理解检查；没有进行计时口试或模型复现。\n\n'
+            for check in accepted['checks']:
+                text += f"### {check['criterion']}\n\n{check['answer']}\n\n证据：{check['evidence']}\n\n"
+            text += f"复核边界：{accepted['boundary']}\n"
         (folder / f'{r["id"]}.md').write_text(text, encoding='utf-8')
         index.append(f'| {r["id"]} | [{r["title"]}]({r["id"]}.md) | {d["sections_read"]} |')
     (folder / 'README.md').write_text('\n'.join(index) + '\n', encoding='utf-8')
     review_map = {r['id']: r for r in reviews}
     ledger = ['# 全目录逐条阅读台账', '',
               f'主目录 {len(catalog)} 条，本批有 {len(reviews)} 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。', '',
-              '“三遍验收”当前统一为未完成，因为独立口述、逐图讲解、完整实验/附录核对和追引没有全部逐篇验收。其余列描述实际完成的工作。', '',
+              '“三遍验收”仅对有逐项理解检查及视觉核对记录的条目标记已记录；这不是计时口试或独立复现。其余条目保持未完成。', '',
               '| ID | 记录 | 原目录核查状态 | 本批笔记 | 三遍验收 |', '| --- | --- | --- | --- | --- |']
     for r in catalog:
         note = f'[结构化分析](../reviews/{r["id"]}.md)' if r['id'] in review_map else '本批未新增逐篇精读'
-        ledger.append(f'| {r["id"]} | {r["title"].replace("|", "/")} | {r["verification"]} | {note} | 未完成 |')
+        done = '五项检查已记录' if r['id'] in acceptance else '未完成'
+        ledger.append(f'| {r["id"]} | {r["title"].replace("|", "/")} | {r["verification"]} | {note} | {done} |')
     (ROOT / 'docs/evidence/reading_ledger_2026-10-19.md').write_text('\n'.join(ledger) + '\n', encoding='utf-8')
     as_of = max(r.get('last_updated') or r.get('checked_on') or '2026-10-19' for r in catalog)
     report = dict(date=as_of, catalog_entries=len(catalog), curated_reviews=len(reviews),
                   by_verification=dict(Counter(r['verification'] for r in catalog)),
                   by_review_depth=dict(Counter(r['reading_status'] for r in reviews)),
-                  three_pass_acceptance_completed=0, independently_reproduced=0,
+                  three_pass_acceptance_completed=len(acceptance),
+                  five_item_written_checks_recorded=len(acceptance), independently_reproduced=0,
                   warning='Source access, section review, complete three-pass reading and reproduction are distinct.')
     (ROOT / 'data/reading_progress_2026-10-19.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(report, ensure_ascii=False, indent=2))

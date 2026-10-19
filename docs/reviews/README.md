@@ -74,6 +74,30 @@
 | C05 | [UniCache: Task- and Type-Aware KV Cache Compression for Unified Multimodal Models](C05.md) | §3策略与公式、§4主表/消融Table1/3/4、实现和AppB/E；代码kernel未运行，未验收全部附表 |
 | C06 | [Reconstruction Alignment Improves Unified Multimodal Models（RecA）](C06.md) | §2对齐loss与冻结、§3–4主表相关行及消融、AppB Table8超参、AppC失败与数据重叠；全部种子/表图尚未逐项核完 |
 | C07 | [Learning Native Reflection in Unified Models with Interleaved Reinforcement Learning（UMM-Reflection）](C07.md) | §3–7方法、Table1–3主比较/消融/内部probe说明，AppA Table4全参组/超参；其他附录详细probe/图像案例未全部验收 |
+| L139 | [Does Gradient Conflict Predict the Understanding--Generation Trade-off? A Controlled Audit of Conflict-Metric Validity in Unified Multimodal Models](L139.md) | §3–6全文、Tables1–3、AppendicesB/C/D及E部分结果；原CAGrad正式PDF§3/Algorithm1对照；未运行作者实现或核全图 |
+| L140 | [Beyond Layers: Position-Resolved Gradient Conflict and Position-Aware Modulation for Unified Multimodal Models](L140.md) | §3–9方法/主表/消融/限制、AppendicesB–E；公式及LoRA预算独立符号核对，未取得附加实现/图像逐项验证 |
+| L067 | [Beyond Accuracy: Benchmarking Cross-Task Consistency in Unified Multimodal Models](L067.md) | §3完整构造/匹配/公式、§4 Tables2–8主结果/人评/规模替换、§5–6限制；附录细类全部表和代码未核 |
+| L068 | [IMUG-Bench: Benchmarking Unified Multimodal Models on Interleaved Understanding and Generation](L068.md) | §3完整构造/评分/TTS，§4主表2–4/设置/退化/消融，Conclusion；humanjudge附录及所有任务提示未完整核 |
+| L069 | [Unison: Benchmarking Unified Multimodal Models via Synergistic Understanding and Generation](L069.md) | §3–5任务/构造/指标/实验，Table2judge及Table3相关行、§6–9insights/limits；源码/训练配置及所有子项未逐一核 |
+| L070 | [When Does Visual Generation Help Visual Understanding in Unified Multimodal Models?](L070.md) | §3完整任务/协议、§4.2–4.4结果与Tables2–4、§6限制、AppA.3–A.4实现；完整大表所有行、图像和代码未全核 |
+| R01 | [Hanzi Writer（工具，不是论文）](R01.md) | 官方docs Animation/Quiz/Loading character data/Raw Character SVG/配置项；LICENSE来源另列；未核quiz匹配实现或运行浏览器 |
+| R02 | [Make Me a Hanzi（数据/工程资源）](R02.md) | 官方README数据格式/来源/笔顺/坐标/下载说明与COPYING全文；没有下载全库或执行解析 |
+| R03 | [CASIA-HWDB / CASIA-OLHWDB（数据）](R03.md) | 官方home采集/作者划分，Online Database全部POT/WPTT格式和统计表，Conditions of Academic Use；未下载样本或重读ICDAR2011全篇 |
+| R05 | [Mobao（Moyun配套静态书法数据）](R05.md) | Moyun v2 §4.1收集/分割细节与Introduction规模对照；B04已有模型笔记，本卡不重复统计为独立论文 |
+| F05 | [Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model](F05.md) | 作者官方技术报告§1–4与references完整文字，未完整读取三个图片表及IEEE正文 |
+| L007 | [B-BSMG，2024](L007.md) | 出版社全文§1–5、公式与实验正文、baseline和限制；表格标题及正文汇总已核，所有表格独立单元/算法图未全部核；另读官方Table1回归系数与Table4全部单元 |
+| L008 | [Three-Dimensional Trajectory Planning for Robotic Chinese Calligraphy，2026](L008.md) | 出版社§3完整方法/Eqs1–10、§4.1–4.9实验/消融、§5限制与数据可用性；未核全部图与单元格，Zenodo制品未下载；另读官方Tables1/4全部单元 |
+| L023 | [DiffBrush，ICCV 2025](L023.md) | §3–5完整方法/主表/消融，AppB训练与结构、C指标、D人评、E中文协议、G/H拼接文字；全部附图与源码未核 |
+| L029 | [Think in Strokes, Not Pixels，2026](L029.md) | §3完整数据与CE/RF流程，§4全部设置、Tables1–7相关行与消融/结论；未逐图/源码复现，发表录用未独立确认 |
+| L030 | [Where a New Concept Must Enter，2026](L030.md) | §3–4协议与substrate相关结果、§5.1 SAR/位置汇总Table3、§6.1架构、§7完整Table6/代价及§8–9限制、AppJ；未完整读取§5.2所有sweep/代码命令 |
+| L031 | [Do Unified Multimodal Models Think in One Space?，2026](L031.md) | §3–6完整流程/主表/逆向/PSP讨论，AppB.1人评表3、B.3逆向、C.6–7层/强度/位置消融及F限制；未逐图核及读取全部原始配置 |
+| R04 | [IAM-OnDB（数据）](R04.md) | 官方主页面Overview/Characteristics/Terms索引正文，旧官网Data format字段完整索引；未读基础论文全文/实际下载样本 |
+| L024 | [Learning to Compose Stylistic Calligraphy Artwork with Emotions，ACM MM 2021](L024.md) | 原PDF9页，§3完整流程/公式、§4数据、§5主表2/消融与Table3layout及§6；未逐一视觉核验所有图或复现代码 |
+| A06 | [Font Generation and Keypoint Ranking for Stroke Order of Chinese Characters by Deep Neural Networks](A06.md) | 出版社Abstract/正式书目信息；PDF转回订阅预览，未取得Method/Experiments全文 |
+| L002 | [Diff-Writer，ICONIP 2023](L002.md) | Springer正式Abstract及书目/版权/引用页、作者publicationlist；Method/实验付费正文未取得 |
+| L006 | [Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement，2026](L006.md) | ScienceDirect官方摘要和索引可读任务/模块/数据段落；正文/完整表格/代码未取得 |
+| L021 | [Write More at Once，公开投稿版本](L021.md) | 匿名公开PDF索引Title/Abstract/Introduction；官方forum受challenge，未读Method/Experiments |
+| L022 | [Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本](L022.md) | 官方公开PDF索引标题、摘要、Introduction任务定义；Method/Experiments与正式决定未取得 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |

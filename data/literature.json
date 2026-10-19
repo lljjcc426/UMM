@@ -411,19 +411,19 @@
       "https://link.springer.com/article/10.1007/s42979-021-00717-2"
     ],
     "previous_evidence": "出版方摘要",
-    "claim": "作者主张：结合字体生成和关键点排序，可以恢复汉字的笔顺。",
-    "method": "深度网络生成/处理字体，提取笔画关键点并学习排序。",
-    "problem": "不同字体字形变化下，静态图像中的笔画顺序难以恢复。",
-    "conclusion": "出版方摘要报告平均NDCG为0.9667；本次未将其解释为96.67%的字符笔顺全对。",
-    "gap": "【证据限制】此项仅核查出版方摘要；数据划分与完整消融需精读。NDCG排序质量不是完整书写视频正确率。",
+    "claim": "作者研究目标：从不同字体的静态汉字图像提取关键点并排序，辅助笔顺恢复。",
+    "method": "GAN生成多字体样本，关键点提取/笔画分解后学习排序；具体架构待正文。 出版社摘要只确认GAN与关键点rank流程；InfoGAN、网络层数及损失细节未由本次可读原文核实，不沿用猜测。",
+    "problem": "从不同字体的静态汉字图像提取关键点并排序，辅助笔顺恢复。",
+    "conclusion": "目前可确认研究任务和摘要报告数字；尚不能判断是否跨未见字体/字符稳定改善。",
+    "gap": "出版社是订阅预览，公开检索未找到可读作者全文；排序高分可能仍有局部错序，这一指标界限可独立说明。具体实验缺失未补造。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_abstract_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：出版方摘要",
-    "last_updated": "2026-10-15",
+    "sections_read": "出版社Abstract/正式书目信息；PDF转回订阅预览，未取得Method/Experiments全文",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:doi:10.1007/s42979-021-00717-2",
     "evidence_history": [
       {
@@ -462,7 +462,25 @@
       "local_focused:M084",
       "user_survey:A06"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/A06.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：出版方摘要",
+        "conclusion": "出版方摘要报告平均NDCG为0.9667；本次未将其解释为96.67%的字符笔顺全对。",
+        "gap": "【证据限制】此项仅核查出版方摘要；数据划分与完整消融需精读。NDCG排序质量不是完整书写视频正确率。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/A06.md",
+    "review_depth": "first_pass_only",
+    "dataset": "原始数据来源、字符数、标注、作者/字体split均待取得正文。",
+    "framework": "GAN生成多字体样本，关键点提取/笔画分解后学习排序；具体架构待正文。",
+    "architecture": "出版社摘要只确认GAN与关键点rank流程；InfoGAN、网络层数及损失细节未由本次可读原文核实，不沿用猜测。",
+    "metrics": "NDCG，摘要报告均.9667、29.53%样本>.98；不是严格全笔顺正确率96.67%。",
+    "baselines": "原文摘要未列具体baselines，待全文核。",
+    "experimental_conditions": "训练/推理硬件、超参、重复次数和测试分布待全文。"
   },
   {
     "id": "A07",
@@ -3690,22 +3708,23 @@
     "title": "Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model",
     "version": "ICASSP 2026；本次依据Samsung作者技术说明与会议条目",
     "source_urls": [
-      "https://research.samsung.com/blog/Online-Cursive-Handwriting-Generation-Using-Trace-Transformation-and-Symbol-Independent-Point-Classification-Model"
+      "https://research.samsung.com/blog/Online-Cursive-Handwriting-Generation-Using-Trace-Transformation-and-Symbol-Independent-Point-Classification-Model",
+      "https://ieeexplore.ieee.org/document/11463098/"
     ],
     "previous_evidence": "作者技术说明、会议元数据",
-    "claim": "作者主张：以很小的模型和轨迹变形实现高效连笔生成。",
-    "method": "约12k参数的点分类器配合O(N)轨迹变换，局部连接和调整已有笔迹。",
-    "problem": "交互式连笔需要低时延，不宜为每次局部修改运行大生成器。",
-    "conclusion": "作者说明报告英文连笔场景的轻量实现和效果。",
-    "gap": "【证据限制】完整实验尚未全部复核；英语结果不自动覆盖中文行草。【推断】必须纳入轻量结构基线，避免为了UMM而使用UMM。",
+    "claim": "作者研究目标：把已有独立字符的数字墨迹接成风格一致的英文连写文本。",
+    "method": "约12K参数pointclassifier识别head/body/tail/isolated，随后用几何优化连接字尾和字首。 两层BiGRU以(x,y,penstate)分类，不输入字符code；连接距离、局部平滑、位移三项加权，凸二次优化化为三对角系统，作者称O(N)。",
+    "problem": "把已有独立字符的数字墨迹接成风格一致的英文连写文本。",
+    "conclusion": "报告87%生成人评可读性不劣、其中36%更好，外观71%不劣；这是偏好比例，没有非劣性界/CI，不能当正式统计非劣检验。WRR最多改善3.21%为其设置报告。",
+    "gap": "字符code-independent不等同跨语言已验证；RTL/其他文字是未来工作。上游合成失真和样本分布影响最终结果，报告没有笔顺规范或真实RGB运动评价。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：作者技术说明、会议元数据",
-    "last_updated": "2026-10-15",
+    "sections_read": "作者官方技术报告§1–4与references完整文字，未完整读取三个图片表及IEEE正文",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:https://research.samsung.com/blog/online-cursive-handwriting-generation-using-trace-transformation-and-symbol-independent-point-classification-model",
     "evidence_history": [
       {
@@ -3744,7 +3763,25 @@
       "local_focused:M114",
       "user_survey:F05"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/F05.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：作者技术说明、会议元数据",
+        "conclusion": "作者说明报告英文连笔场景的轻量实现和效果。",
+        "gap": "【证据限制】完整实验尚未全部复核；英语结果不自动覆盖中文行草。【推断】必须纳入轻量结构基线，避免为了UMM而使用UMM。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/F05.md",
+    "review_depth": "author_report_sections_reviewed",
+    "dataset": "公开报告只说明英文端到端实验；训练库、作者数、split及标签构造数量未完整给出。18人评55original/generatedpairs。",
+    "framework": "约12K参数pointclassifier识别head/body/tail/isolated，随后用几何优化连接字尾和字首。",
+    "architecture": "两层BiGRU以(x,y,penstate)分类，不输入字符code；连接距离、局部平滑、位移三项加权，凸二次优化化为三对角系统，作者称O(N)。",
+    "metrics": "HWD/FID/KID、多个OCR的CRR/WRR，成对人评可读性/外观、GalaxyS25 CPU单线程逐阶段延迟；具体Tables1–3图片数值本次未读全。",
+    "baselines": "有/无connections、原始用户笔迹及两个上游单字符生成方法；不能据此称对所有完整text-to-handwriting模型SOTA。",
+    "experimental_conditions": "报告披露20点重采样、两BiGRU及约12K；分类lr/epochs、优化三权重、batch和数据切分缺项。移动端性能限定GalaxyS25单线程，未推断其他设备绝对延迟。"
   },
   {
     "id": "X01",
@@ -3833,22 +3870,23 @@
     "title": "Hanzi Writer（工具，不是论文）",
     "version": "[来源](https://hanziwriter.org/docs.html)",
     "source_urls": [
-      "https://hanziwriter.org/docs.html"
+      "https://hanziwriter.org/docs.html",
+      "https://raw.githubusercontent.com/chanind/hanzi-writer/master/LICENSE"
     ],
     "previous_evidence": "官方文档；本次访问成功",
-    "claim": "为常见字提供笔顺演示与书写练习。",
-    "method": "有序SVG/笔画数据驱动动画；速度、颜色、间隔和多字串联由API控制。",
-    "problem": "无需学习模型也能制作标准笔顺动画。",
-    "conclusion": "官方文档已有单字、多字依次动画与属性控制。",
-    "gap": "覆盖及正确性依赖字库；不自动生成陌生艺术字形、毛笔物理或任意布局风格。",
+    "claim": "作者研究目标：用已有单字笔画数据实现浏览器动画和书写练习。",
+    "method": "动画/单笔控制、quiz、数据加载和坐标变换API；没有新训练模型。 JavaScript/SVG或canvas渲染；数据来自hanzi-writer-data/Make Me a Hanzi；animateCharacter、animateStroke、onComplete/Promise串联字符。",
+    "problem": "用已有单字笔画数据实现浏览器动画和书写练习。",
+    "conclusion": "官方API支持确定性笔画播放、错笔反馈及静态SVG；没有模型训练、学习式轨迹生成或真实摄像视频质量结果。",
+    "gap": "规则数据的字覆盖、区域标准与错标决定上限；median不含真实压力/墨扩散。完成事件顺序可由数据数组直接保证，但不能据此证明生成模型学会规范，也不能把合成渲染当真实运动分布。 官方软件LICENSE为MIT；该许可不替代Make Me a Hanzi字典/图形各自许可。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "resource",
     "scope": "resource",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：官方文档；本次访问成功",
-    "last_updated": "2026-10-15",
+    "sections_read": "官方docs Animation/Quiz/Loading character data/Raw Character SVG/配置项；LICENSE来源另列；未核quiz匹配实现或运行浏览器",
+    "last_updated": "2026-10-20",
     "canonical_key": "resource:https://hanziwriter.org/docs.html",
     "evidence_history": [
       {
@@ -3888,7 +3926,25 @@
       "local_handwriting:R71",
       "user_survey:资源R01"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/R01.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：官方文档；本次访问成功",
+        "conclusion": "官方文档已有单字、多字依次动画与属性控制。",
+        "gap": "覆盖及正确性依赖字库；不自动生成陌生艺术字形、毛笔物理或任意布局风格。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/R01.md",
+    "review_depth": "resource_protocol_reviewed",
+    "dataset": "字符库的strokes是轮廓路径，medians为中心线；本次未下载全量包核数量与每字准确性。",
+    "framework": "动画/单笔控制、quiz、数据加载和坐标变换API；没有新训练模型。",
+    "architecture": "JavaScript/SVG或canvas渲染；数据来自hanzi-writer-data/Make Me a Hanzi；animateCharacter、animateStroke、onComplete/Promise串联字符。",
+    "metrics": "未提供标准生成Benchmark；quiz结果是其容错规则下的交互匹配，不能自动视为笔顺专家准确率或RGB事件质量。",
+    "baselines": "合理实验对照：同一有序矢量库直接渲染、修改顺序/抬笔的负例、真实书写；这些是建议对照，不是官方已做实验。",
+    "experimental_conditions": "动画默认delayBetweenStrokes1000ms/loop2000ms，速度可调；quizLeniency默认1、acceptBackwardsStrokes默认false。markStrokeCorrectAfterMisses启用后可能自动过关，评估应禁用；outline/全字可见需按协议设置。"
   },
   {
     "id": "R02",
@@ -3896,22 +3952,23 @@
     "title": "Make Me a Hanzi（数据/工程资源）",
     "version": "[来源](https://github.com/skishore/makemeahanzi/blob/master/README.md)",
     "source_urls": [
-      "https://github.com/skishore/makemeahanzi/blob/master/README.md"
+      "https://github.com/skishore/makemeahanzi/blob/master/README.md",
+      "https://raw.githubusercontent.com/skishore/makemeahanzi/master/COPYING"
     ],
     "previous_evidence": "官方README；GitHub连接器读取",
-    "claim": "提供9000多个常见简繁汉字的有序笔画图形。",
-    "method": "strokes为按笔顺排列的SVG外轮廓；medians为对应近似中心线；另有部件匹配。",
-    "problem": "建立规范化笔顺参考与可渲染的轨迹条件。",
-    "conclusion": "README明确数据跟随PRC笔顺，部分地区顺序不同；可生成基准和确定性渲染对照。",
-    "gap": "不是所有汉字/书体的统一金标准；轮廓不等于真实笔尖轨迹；字典、图形许可分开。",
+    "claim": "作者研究目标：给常用汉字提供字符释义、分解及有序笔画几何，支撑动画和识字工具。",
+    "method": "dictionary.txt/graphics.txt按字符关联；SVG轮廓加medians，附实验动画制品。 逐行JSON；dictionary含pinyin/IDS decomposition/radical/matches等；graphics中strokes与medians一一对应，坐标1024²，y轴翻转后显示。",
+    "problem": "给常用汉字提供字符释义、分解及有序笔画几何，支撑动画和识字工具。",
+    "conclusion": "可直接构建有序轮廓动画和字形布局参照，不能从其静态序列推出真人书写动力学。",
+    "gap": "常用字覆盖不是Unicode全覆盖；地域规范不能统一作单一全球真值；字体轮廓可能与真实毛笔/连笔不同。训练与测试共用同字几何库会降低任务难度，需公开是否查表。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "resource",
     "scope": "resource",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：官方README；GitHub连接器读取",
-    "last_updated": "2026-10-15",
+    "sections_read": "官方README数据格式/来源/笔顺/坐标/下载说明与COPYING全文；没有下载全库或执行解析",
+    "last_updated": "2026-10-20",
     "canonical_key": "resource:https://github.com/skishore/makemeahanzi",
     "evidence_history": [
       {
@@ -3951,7 +4008,25 @@
       "local_handwriting:R70",
       "user_survey:资源R02"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/R02.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：官方README；GitHub连接器读取",
+        "conclusion": "README明确数据跟随PRC笔顺，部分地区顺序不同；可生成基准和确定性渲染对照。",
+        "gap": "不是所有汉字/书体的统一金标准；轮廓不等于真实笔尖轨迹；字典、图形许可分开。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/R02.md",
+    "review_depth": "resource_protocol_reviewed",
+    "dataset": "README称超过9000简繁常用字；字形源Arphic PL KaitiM GB/PL UKai。明确遵循PRC顺序，不承诺台湾/日本标准；未进行全库重计与专家校勘。",
+    "framework": "dictionary.txt/graphics.txt按字符关联；SVG轮廓加medians，附实验动画制品。",
+    "architecture": "逐行JSON；dictionary含pinyin/IDS decomposition/radical/matches等；graphics中strokes与medians一一对应，坐标1024²，y轴翻转后显示。",
+    "metrics": "未报告标准模型准确率；需分别测字符覆盖、逐笔几何与顺序专家一致性；中心线是粗略median，不是实测点流。",
+    "baselines": "可与其他规范库/地区标准及人工标注比较；README提及AnimCJK/KanjiVG，不代表已经受控评测。",
+    "experimental_conditions": "静态模板数据，不含真实时长、压力、速度、手部遮挡；轮廓/centerline匹配依赖坐标变换。COPYING：dictionary为LGPLv3或更高，graphics为Arphic Public License；不可统称MIT。"
   },
   {
     "id": "R03",
@@ -3959,22 +4034,24 @@
     "title": "CASIA-HWDB / CASIA-OLHWDB（数据）",
     "version": "[来源](https://nlpr.ia.ac.cn/databases/handwriting/home.html)",
     "source_urls": [
-      "https://nlpr.ia.ac.cn/databases/handwriting/home.html"
+      "https://nlpr.ia.ac.cn/databases/handwriting/home.html",
+      "https://nlpr.ia.ac.cn/databases/handwriting/Online_database.html",
+      "https://nlpr.ia.ac.cn/databases/handwriting/Application_form.html"
     ],
     "previous_evidence": "官方数据说明",
-    "claim": "提供中文离线图像与在线手写记录。",
-    "method": "实际书写坐标、笔状态、标签与字符/文本数据。",
-    "problem": "训练内容与个人风格、轨迹恢复和在线笔迹生成。",
-    "conclusion": "多个核心方法使用此类记录；能提供真实时间信息。",
-    "gap": "记录的是实际写法，不自动等于所有样本均符合某套规范；许可需依官方说明核查。",
+    "claim": "作者研究目标：提供同批作者在线轨迹与离线图像，支持识别及作者/内容分布研究。",
+    "method": "Anoto笔记录纸上轨迹，孤立字及整页文本，预定义作者划分；本卡不替代数据论文全部实验精读。 POT逐字GB/GBK标签、笔画数、short x/y、(-1,0)笔画结束和(-1,-1)字结束；WPTT页/行及stroke index、坐标×10。公开格式未列压力或逐点时间戳，不能假定具有这两项。",
+    "problem": "提供同批作者在线轨迹与离线图像，支持识别及作者/内容分布研究。",
+    "conclusion": "在线单字及文本提供笔画分组和点序，可用于真实书写事件恢复；没有摄像RGB、真实可见墨迹逐帧标签或逐点压力字段。",
+    "gap": "采集者可能写非规范顺序，标签主要转录/分行；POT数据编码和特殊结束标记影响解析。在线与离线共享作者会造成跨模态切分泄漏；词汇/模板也须审查。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "resource",
     "scope": "resource",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：官方数据说明",
-    "last_updated": "2026-10-15",
+    "sections_read": "官方home采集/作者划分，Online Database全部POT/WPTT格式和统计表，Conditions of Academic Use；未下载样本或重读ICDAR2011全篇",
+    "last_updated": "2026-10-20",
     "canonical_key": "resource:https://nlpr.ia.ac.cn/databases/handwriting/home.html",
     "evidence_history": [
       {
@@ -4014,7 +4091,25 @@
       "local_handwriting:R73",
       "user_survey:资源R03"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/R03.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：官方数据说明",
+        "conclusion": "多个核心方法使用此类记录；能提供真实时间信息。",
+        "gap": "记录的是实际写法，不自动等于所有样本均符合某套规范；许可需依官方说明核查。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/R03.md",
+    "review_depth": "resource_protocol_reviewed",
+    "dataset": "1020writers；在线1.0/1.1/1.2为420/300/300人，合计3912017样本，7185汉字+171符号类；在线文本1019人5092页52220行1348904字。线上/线下不可硬套相同总量，部分样本丢失。",
+    "framework": "Anoto笔记录纸上轨迹，孤立字及整页文本，预定义作者划分；本卡不替代数据论文全部实验精读。",
+    "architecture": "POT逐字GB/GBK标签、笔画数、short x/y、(-1,0)笔画结束和(-1,-1)字结束；WPTT页/行及stroke index、坐标×10。公开格式未列压力或逐点时间戳，不能假定具有这两项。",
+    "metrics": "资源网页给统计/格式，无生成模型指标；识别准确率、DTW、style等由具体研究另定义；不能将实测书写顺序等同规范顺序。",
+    "baselines": "用户应按官方作者划分报告识别/生成基线；与静态矢量模板、其他在线字体库相比较时要对齐类别与作者信息。",
+    "experimental_conditions": "官方作者训练/测试约4:1；1.0为336/84，1.1为240/60，1.2为240/60。不同模板有重叠内容，writerdisjoint不保证文本/字符zero-shot。2020起学术下载无需申请表；学术用途免费受使用条件限制，商业许可另议。"
   },
   {
     "id": "R04",
@@ -4022,22 +4117,23 @@
     "title": "IAM-OnDB（数据）",
     "version": "[来源](https://fki.tic.heia-fr.ch/databases/iam-on-line-handwriting-database)",
     "source_urls": [
-      "https://fki.tic.heia-fr.ch/databases/iam-on-line-handwriting-database"
+      "https://fki.tic.heia-fr.ch/databases/iam-on-line-handwriting-database",
+      "https://fki.tic.heia-fr.ch/DBs/iamOnDB/data.html"
     ],
     "previous_evidence": "原方法引用；官网本次访问失败",
-    "claim": "提供在线英语手写数据，用于轨迹研究。",
-    "method": "在线笔迹序列及对应文字等标注。",
-    "problem": "英文序列生成/风格与跨语言对照。",
-    "conclusion": "相关生成文献与DiffInk项目列为数据来源。",
-    "gap": "不是中文笔顺数据；官方页面本次未成功访问，具体版本/许可需另查，不声称已经下载验证。",
+    "claim": "作者研究目标：提供白板英文文本的在线笔迹及转录，支持识别与作者研究。",
+    "method": "E-Beam白板采集，XML关联作者/文本/笔画与采集设置，分行并提供TIF渲染。 原始forms、lineStrokes、lineImages、writers.xml、ascii及formwriter映射；Point字段x/y/time，Stroke含颜色和时间；本次格式说明未列压力。",
+    "problem": "提供白板英文文本的在线笔迹及转录，支持识别与作者研究。",
+    "conclusion": "官方说明确认点级time与白板真实采集；未核当前压缩包、sampleXML具体单位/时钟精度或标准split文件。",
+    "gap": "白板与纸笔/屏幕动力学有域差，time不自动给笔压或动作控制；英文字母没有一套与中国大陆汉字同构的统一规范顺序。IAMonDo混合文档库为另一个资源，不与IAM-OnDB合并。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "resource",
     "scope": "resource",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原方法引用；官网本次访问失败",
-    "last_updated": "2026-10-15",
+    "sections_read": "官方主页面Overview/Characteristics/Terms索引正文，旧官网Data format字段完整索引；未读基础论文全文/实际下载样本",
+    "last_updated": "2026-10-20",
     "canonical_key": "resource:https://fki.tic.heia-fr.ch/databases/iam-on-line-handwriting-database",
     "evidence_history": [
       {
@@ -4076,8 +4172,26 @@
       "local_focused:M115",
       "user_survey:资源R04"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json",
-    "source_access_note": "IAM-OnDB历史官方地址TLS证书过期；保留来源并待核迁移地址。"
+    "note_path": "docs/reviews/R04.md",
+    "source_access_note": "IAM-OnDB历史官方地址TLS证书过期；保留来源并待核迁移地址。",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原方法引用；官网本次访问失败",
+        "conclusion": "相关生成文献与DiffInk项目列为数据来源。",
+        "gap": "不是中文笔顺数据；官方页面本次未成功访问，具体版本/许可需另查，不声称已经下载验证。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/R04.md",
+    "review_depth": "resource_protocol_reviewed",
+    "dataset": "官网221writers、>1700forms、13049lines、86272wordinstances/11059词表，文本来自LOB。论文使用217/其他人数可能是筛选子集，不可替代官网全库计数；与657writers的离线IAM不同资源。",
+    "framework": "E-Beam白板采集，XML关联作者/文本/笔画与采集设置，分行并提供TIF渲染。",
+    "architecture": "原始forms、lineStrokes、lineImages、writers.xml、ascii及formwriter映射；Point字段x/y/time，Stroke含颜色和时间；本次格式说明未列压力。",
+    "metrics": "官网无生成基准成绩；识别/作者协议由使用研究指定；点时间可用于速度，但重采样后需重新说明时钟如何保留。",
+    "baselines": "在线/离线同源识别、真实轨迹/规则几何以及writerheldout为可比较条件；官方页没有新生成器。",
+    "experimental_conditions": "下载需注册；仅非商业研究；未注册或取得数据。此次原站直接访问超时/证书过期，核查依据是搜索工具索引的官方主页面及旧官方格式页面，时间新旧分别标注，不伪称实时下载成功。"
   },
   {
     "id": "R05",
@@ -4088,19 +4202,19 @@
       "https://arxiv.org/abs/2410.07618"
     ],
     "previous_evidence": "原论文数据描述",
-    "claim": "以大规模书法图像支持字符、书体、书家样式研究。",
-    "method": "Moyun报告超过190万张带相关类别条件的书法图像。",
-    "problem": "学习静态风格与字形。",
-    "conclusion": "可作为静态风格监督来源候选。",
-    "gap": "不提供与每张图对应的真实逐笔视频；不得推断为规范轨迹金标准。",
+    "claim": "作者研究目标：为个性化中文书法图像生成提供较大作者与字体覆盖数据。",
+    "method": "按作者/书体/字符/编号组织抓取图像并分割字，作为Moyun训练/分析语料。 Gaussian/Otsu/连通分量过滤，SAM以内部kmeans正点与外部负点提示；小于100pixels分量丢弃。",
+    "problem": "为个性化中文书法图像生成提供较大作者与字体覆盖数据。",
+    "conclusion": "已确认是静态字体/作者语料，不提供RGB过程、逐笔事件或机器人动作。",
+    "gap": "数据来源重复、书家署名可靠性、相同原图裁切进入两split及篆刻与墨写域差别待核；1.2M/1.9M口径冲突保留。",
     "provenance": "2026-10-14文献目录",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "record_type": "resource",
     "scope": "resource",
     "privacy": "public_source_note",
-    "sections_read": "历史文件所述核查层级：原论文数据描述",
-    "last_updated": "2026-10-15",
+    "sections_read": "Moyun v2 §4.1收集/分割细节与Introduction规模对照；B04已有模型笔记，本卡不重复统计为独立论文",
+    "last_updated": "2026-10-20",
     "canonical_key": "resource:arxiv:2410.07618",
     "evidence_history": [
       {
@@ -4139,7 +4253,25 @@
       "local_focused:M116",
       "user_survey:资源R05"
     ],
-    "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+    "note_path": "docs/reviews/R05.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": "历史文件所述核查层级：原论文数据描述",
+        "conclusion": "可作为静态风格监督来源候选。",
+        "gap": "不提供与每张图对应的真实逐笔视频；不得推断为规范轨迹金标准。",
+        "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      }
+    ],
+    "review_path": "docs/reviews/R05.md",
+    "review_depth": "resource_protocol_reviewed",
+    "dataset": "§4.1称约1.2M原始样本，120书家、六书体类且含篆刻；论文Introduction另称1.9M，版本/处理前后口径未厘清，不能混报统一精确总量。",
+    "framework": "按作者/书体/字符/编号组织抓取图像并分割字，作为Moyun训练/分析语料。",
+    "architecture": "Gaussian/Otsu/连通分量过滤，SAM以内部kmeans正点与外部负点提示；小于100pixels分量丢弃。",
+    "metrics": "资源覆盖/分割保真需独立审计；Moyun主模型结果见B04，不能作为数据单独无偏增益。",
+    "baselines": "其他静态书法集与保留小点/不同分割pipeline是合理对照；该资源卡未声称作者已做这些实验。",
+    "experimental_conditions": "抓取与分割数据；实际公开下载资产、标注清单、license以及分割后各split的最终数量尚未核实，不能标成已取得完整开放数据。"
   },
   {
     "id": "N01",
@@ -6838,22 +6970,23 @@
   {
     "title": "Diff-Writer，ICONIP 2023",
     "source_urls": [
-      "https://doi.org/10.1007/978-981-99-8141-0_7"
+      "https://doi.org/10.1007/978-981-99-8141-0_7",
+      "https://link.springer.com/chapter/10.1007/978-981-99-8141-0_7"
     ],
-    "method": "非自回归扩散生成风格化在线中文手写",
-    "conclusion": "中文轨迹 diffusion 的较早工作；本次出版摘要为主，不报未核验数值",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
-    "version": "版本见原始来源及历史记录",
+    "method": "conditionalDDPM结合字符embedding字典、styleencoder与LSTMdenoiser。 出版社摘要确认三模块；未核LSTM层数、hidden、padding/长度、penstate表示与具体loss，不能套其他DiffInk架构。",
+    "conclusion": "摘要称能生成真实且有风格的汉字，当前没有主表证据可独立评估幅度。",
+    "gap": "出版社订阅限制；字典条件的未见字符适用性、顺序规范保证和长度机制待核。已有在线生成先例应保留，不能因全文未得从目录遗漏。",
+    "problem": "给定汉字及少量风格样本生成在线坐标轨迹。",
+    "claim": "作者研究目标：给定汉字及少量风格样本生成在线坐标轨迹。",
+    "version": "ICONIP 2023，2023-11-26线上发表，出版引用年份2024，pp86–100；DOI10.1007/978-981-99-8141-0_7；全文待取得",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_abstract_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 C",
     "id": "L002",
     "canonical_key": "paper:doi:10.1007/978-981-99-8141-0_7",
@@ -6878,7 +7011,26 @@
       "local_focused:M009",
       "local_handwriting:R09"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L002.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "中文轨迹 diffusion 的较早工作；本次出版摘要为主，不报未核验数值",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "Springer正式Abstract及书目/版权/引用页、作者publicationlist；Method/实验付费正文未取得",
+    "review_path": "docs/reviews/L002.md",
+    "review_depth": "first_pass_only",
+    "dataset": "CASIA-OLHWDB；具体版本、样本量和作者/字符split待正文。",
+    "framework": "conditionalDDPM结合字符embedding字典、styleencoder与LSTMdenoiser。",
+    "architecture": "出版社摘要确认三模块；未核LSTM层数、hidden、padding/长度、penstate表示与具体loss，不能套其他DiffInk架构。",
+    "metrics": "摘要没有具体指标或数字；保留未知，不搬后续论文复现表为本论文原始结果。",
+    "baselines": "摘要未列具体baseline；与AR方法动机对比不等于已核对训练预算。",
+    "experimental_conditions": "训练硬件/步数/lr、DDPM采样步数、referenceshot和seed待全文。"
   },
   {
     "title": "Write Like You，2021",
@@ -7061,20 +7213,20 @@
     "source_urls": [
       "https://doi.org/10.1016/j.ins.2026.124136"
     ],
-    "method": "频率/跨模态条件修复已有退化轨迹",
-    "conclusion": "输入有已有笔迹；属于增强，不是任意文本从零生成；正文访问受限",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "频率引导跨模态扩散；CMSE结合轨迹/栅格DWT，PE-CSP部件及相对位置styleprior。 出版社可检索摘要/段落说明低频结构对齐与高频gating、部件位置style；网络层数/完整公式未读。",
+    "conclusion": "当前确认任务和核心模块，性能改善幅度尚无完整主表核查。",
+    "gap": "出版社直接页403、DOI原缓存仅Redirecting；仅根据官方索引文本作第一遍。增强任务依赖已给轨迹/标签，无法独立支持从视频生成笔顺的Claim。",
+    "problem": "根据已有退化中文轨迹、已知字标签及作者参考增强轨迹清晰与风格。",
+    "claim": "作者研究目标：根据已有退化中文轨迹、已知字标签及作者参考增强轨迹清晰与风格。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_abstract_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 C",
     "id": "L006",
     "canonical_key": "paper:doi:10.1016/j.ins.2026.124136",
@@ -7099,28 +7251,49 @@
       "local_focused:M014",
       "local_handwriting:R14"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
-    "source_access_note": "首选DOI只返回Redirecting占位页，未得到正文。"
+    "note_path": "docs/reviews/L006.md",
+    "source_access_note": "首选DOI只返回Redirecting占位页，未得到正文。",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "输入有已有笔迹；属于增强，不是任意文本从零生成；正文访问受限",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "ScienceDirect官方摘要和索引可读任务/模块/数据段落；正文/完整表格/代码未取得",
+    "review_path": "docs/reviews/L006.md",
+    "review_depth": "first_pass_only",
+    "dataset": "CASIA-OLHWDB/ICDAR2013，USSC/USUC及合成退化/小型真实噪声设置在出版社索引可见；2400类的最终过滤/split待全文核，不能直接拿原库420/300作本实验作者数。",
+    "framework": "频率引导跨模态扩散；CMSE结合轨迹/栅格DWT，PE-CSP部件及相对位置styleprior。",
+    "architecture": "出版社可检索摘要/段落说明低频结构对齐与高频gating、部件位置style；网络层数/完整公式未读。",
+    "metrics": "索引涉及DTW/recognition/style；全部具体数字、分母及置信区间未读全。",
+    "baselines": "具体方法及公平条件待主表。",
+    "experimental_conditions": "训练超参/硬件/种子、退化分布、已知标签使用方式待正文；不填写后续同作者工作的条件。"
   },
   {
     "title": "B-BSMG，2024",
     "source_urls": [
-      "https://doi.org/10.1007/s44196-024-00499-4"
+      "https://doi.org/10.1007/s44196-024-00499-4",
+      "https://link.springer.com/article/10.1007/s44196-024-00499-4/tables/1",
+      "https://link.springer.com/article/10.1007/s44196-024-00499-4/tables/4"
     ],
-    "method": "Bézier 笔刷几何与机器人毛笔轨迹",
-    "conclusion": "为笔宽、压笔、姿态提供可执行物理结构；非大规模 UMM 视频系统",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "双三次Bezier印迹参数与按压/倾角经验关系，监督神经近似与骨架搜索结合机器人控制。 B-Bezier两曲线形状Lt/Lh/Lr，由深度H/倾角回归；MLP/CNN拟合解析模型合成印迹，以MSE监督；轨迹搜索叠加footprints形成笔画。",
+    "conclusion": "Table4明确分开仿真B-BSMG与机器人：“字”仿真CSIMmax96.83/avg94.11、SSIMavg75.36；机器人CSIMmax95.82/avg93.52、SSIMavg73.60。正文94.59%为另外基本笔画bestcase，不与本表混用。",
+    "gap": "合成教师的supervised网络训练无需教师可微，原文把不可导与无法反传联系的表述过宽；需区分网络参数梯度和对物理控制变量反传。阈值/像素长度换算单位仍须校准；静态CSIM不证明动力学或笔顺。",
+    "problem": "根据机器人毛笔姿态近似刷毛接触轮廓，并生成可执行书写。",
+    "claim": "作者研究目标：根据机器人毛笔姿态近似刷毛接触轮廓，并生成可执行书写。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 B",
     "id": "L007",
     "canonical_key": "paper:doi:10.1007/s44196-024-00499-4",
@@ -7145,27 +7318,48 @@
       "local_focused:M015",
       "local_handwriting:R15"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L007.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "为笔宽、压笔、姿态提供可执行物理结构；非大规模 UMM 视频系统",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "出版社全文§1–5、公式与实验正文、baseline和限制；表格标题及正文汇总已核，所有表格独立单元/算法图未全部核；另读官方Table1回归系数与Table4全部单元",
+    "review_path": "docs/reviews/L007.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "实测姿态扫描H11/13/15/17/20mm与角0/5/10°等、每组≥10次；神经网络训练来自合成解析印迹，完整split与样本数未核清。",
+    "framework": "双三次Bezier印迹参数与按压/倾角经验关系，监督神经近似与骨架搜索结合机器人控制。",
+    "architecture": "B-Bezier两曲线形状Lt/Lh/Lr，由深度H/倾角回归；MLP/CNN拟合解析模型合成印迹，以MSE监督；轨迹搜索叠加footprints形成笔画。",
+    "metrics": "轮廓CSIM/SSIM、best/worst/mean，直线/基本笔画、全字和两毛笔尺寸；不测规范笔画顺序或视频时序。",
+    "baselines": "圆/椭圆/Bezier、QBC/BBR等印迹，直线/目标笔画对照；需确认各模型独立调参预算。",
+    "experimental_conditions": "Aubo协作臂±.05mm、48mm×6mm毛笔及32×4.5对照，宣纸、适量墨，每印迹按压.5s/reink；128²网络输入、RTX2080Ti、Adam/batch64，lr/epoch和泛化split未完整给出。"
   },
   {
     "title": "Three-Dimensional Trajectory Planning for Robotic Chinese Calligraphy，2026",
     "source_urls": [
-      "https://doi.org/10.1007/s44196-026-01222-1"
+      "https://doi.org/10.1007/s44196-026-01222-1",
+      "https://link.springer.com/article/10.1007/s44196-026-01222-1/tables/1",
+      "https://link.springer.com/article/10.1007/s44196-026-01222-1/tables/4"
     ],
-    "method": "起行收阶段的三维轨迹、压力/高度和速度规划",
-    "conclusion": "真实毛笔可执行性；实验字符覆盖有限，不代表广泛艺术字泛化",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "二维多项式拟合、CCD-BSM深度耦合与五次时间参数化，连接姿态/书法规约到机器人控制。 先y=f(x)最小二乘选degree，再结合H给z；时间标量用六个边界条件求五次式；速度/加速度为解析导数，运动为open-loop。",
+    "conclusion": "Table4“bu/xi”CSIMavg86.61/89.24、max90.19/89.98，SSIMavg63.81/62.79；Table1 degree3–8 RMSE依次.0120/.0303/.0082/1.9060/2.7751/1.9593，需结合相同样本OLS条件解释，不能概括所有高阶多项式更差。",
+    "gap": "Eq6一般t0缺(t−t0)，仅t0=0或局部时间成立；写清局部时间可修正。y=f(x)不一般表示竖笔/回折多值骨架。若相同点上无正则OLS、模型嵌套，训练RMSE随阶数不应严格增大，Table1需核数值病态/验证集/约束。五次端点零速加速度不保证全程速度/力/jerk限制及实际闭环跟踪。",
+    "problem": "将毛笔骨架与按压深度转成平滑三维时间轨迹。",
+    "claim": "作者研究目标：将毛笔骨架与按压深度转成平滑三维时间轨迹。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 A",
     "id": "L008",
     "canonical_key": "paper:doi:10.1007/s44196-026-01222-1",
@@ -7190,7 +7384,26 @@
       "local_focused:M016",
       "local_handwriting:R16"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L008.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "真实毛笔可执行性；实验字符覆盖有限，不代表广泛艺术字泛化",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "出版社§3完整方法/Eqs1–10、§4.1–4.9实验/消融、§5限制与数据可用性；未核全部图与单元格，Zenodo制品未下载；另读官方Tables1/4全部单元",
+    "review_path": "docs/reviews/L008.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "基本笔画>500、整体>2500单通道256²图用于比较模型；各笔画/整字/两刷子重复约100或更多实验，正文完整作者/字符留出未交代。",
+    "framework": "二维多项式拟合、CCD-BSM深度耦合与五次时间参数化，连接姿态/书法规约到机器人控制。",
+    "architecture": "先y=f(x)最小二乘选degree，再结合H给z；时间标量用六个边界条件求五次式；速度/加速度为解析导数，运动为open-loop。",
+    "metrics": "RMSE、CSIM/SSIM、位置速度加速度曲线；没有实际跟踪误差/约束违反率/全字顺序准确率。",
+    "baselines": "线性/圆弧/NURBS规划及GANCC/GAN-LSTM/GAN-AC/DDPG；同字同机器人同笔，学习比较法的数据/Adam lr.001等正文有说明，不等于优化预算已统一。",
+    "experimental_conditions": "原文机器人写作“Aubo-15”，重复±.05mm，48×6及32×4.5刷子，基本笔画3–5s；RTX2080Ti训练比较网络，GANCC lambda1、GANAC lambda.05；逐模型epochs/split未完整。"
   },
   {
     "title": "Video-Based Handwritten Chinese Character Recognition，2005",
@@ -7963,22 +8176,23 @@
   {
     "title": "Write More at Once，公开投稿版本",
     "source_urls": [
-      "https://openreview.net/pdf/9ebab4ec28a5d558fb0e97da83cb2c31fa4288f0.pdf"
+      "https://openreview.net/pdf/9ebab4ec28a5d558fb0e97da83cb2c31fa4288f0.pdf",
+      "https://openreview.net/forum?id=VdDtRu7RTf"
     ],
-    "method": "两阶段布局/文字图像扩散",
-    "conclusion": "多字与段落静态布局先例；本次取得版本标记 under review，不冒充录用证据",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "CharPos-Diff先预测字位置组合标准字模板，Imitating-Diff做整行风格转移。 摘要确认两阶段；具体骨干、条件编码和联合训练方式未知。",
+    "conclusion": "作者摘要称改善结构与风格，当前只能确认问题定义与方法概要。",
+    "gap": "OpenReview正文访问challenge，索引仅标题/摘要/引言；第三方标Withdrawn不能当官方确认。后续Template-Guided Cascaded Diffusion名称相似，尚未核是否同一研究，不能直接合并/双计实验。",
+    "problem": "把标准字图和位置布局组合成带风格的中文整行/段落静态字图。",
+    "claim": "作者研究目标：把标准字图和位置布局组合成带风格的中文整行/段落静态字图。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_abstract_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 C",
     "id": "L021",
     "canonical_key": "paper:https://openreview.net/pdf/9ebab4ec28a5d558fb0e97da83cb2c31fa4288f0.pdf",
@@ -8003,28 +8217,47 @@
       "local_focused:M033",
       "local_handwriting:R33"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
-    "source_access_note": "OpenReview PDF本次403，原文/投稿状态仍待定位。"
+    "note_path": "docs/reviews/L021.md",
+    "source_access_note": "OpenReview PDF本次403，原文/投稿状态仍待定位。",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "多字与段落静态布局先例；本次取得版本标记 under review，不冒充录用证据",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "匿名公开PDF索引Title/Abstract/Introduction；官方forum受challenge，未读Method/Experiments",
+    "review_path": "docs/reviews/L021.md",
+    "review_depth": "first_pass_only",
+    "dataset": "摘要未列可核版本/split，不能套同作者OLHWG或InkSpire数据。",
+    "framework": "CharPos-Diff先预测字位置组合标准字模板，Imitating-Diff做整行风格转移。",
+    "architecture": "摘要确认两阶段；具体骨干、条件编码和联合训练方式未知。",
+    "metrics": "具体指标/数字待正文主表。",
+    "baselines": "摘要未给具体baseline。",
+    "experimental_conditions": "训练条件/两阶段成本/种子待正文。"
   },
   {
     "title": "Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本",
     "source_urls": [
       "https://openreview.net/pdf?id=SuLp0J2uan"
     ],
-    "method": "布局偏移与内容/风格解耦",
-    "conclusion": "非规则结构/表达式提供布局参考；此版本不作为已确认录用信息",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "glyph/layout解耦，利用印刷布局强先验预测layoutoffsets；referencecrossattention做上下文适配。 摘要确认crossattention和layoutoffsets，无可核完整网络/损失或表示维度。",
+    "conclusion": "当前只完成任务/方法概要核查，无完整实验结论。",
+    "gap": "官方PDF索引可读首段，直接访问受challenge；不能把第三方作者名或ICLR标签作为正式录用证据。给定印刷布局会改变任务难度，需比较条件同等。",
+    "problem": "生成带风格且有二维结构的手写数学表达式，处理未见表达式内容。",
+    "claim": "作者研究目标：生成带风格且有二维结构的手写数学表达式，处理未见表达式内容。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_abstract_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 C",
     "id": "L022",
     "canonical_key": "paper:https://openreview.net/pdf?id=sulp0j2uan",
@@ -8049,28 +8282,49 @@
       "local_focused:M034",
       "local_handwriting:R34"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md",
-    "source_access_note": "OpenReview PDF本次403，不能视为原文已复核。"
+    "note_path": "docs/reviews/L022.md",
+    "source_access_note": "OpenReview PDF本次403，不能视为原文已复核。",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "非规则结构/表达式提供布局参考；此版本不作为已确认录用信息",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "官方公开PDF索引标题、摘要、Introduction任务定义；Method/Experiments与正式决定未取得",
+    "review_path": "docs/reviews/L022.md",
+    "review_depth": "first_pass_only",
+    "dataset": "训练/验证/测试集和OOV表达式定义待正文。",
+    "framework": "glyph/layout解耦，利用印刷布局强先验预测layoutoffsets；referencecrossattention做上下文适配。",
+    "architecture": "摘要确认crossattention和layoutoffsets，无可核完整网络/损失或表示维度。",
+    "metrics": "摘要仅称视觉/语义/结构/style改善，无具体数值。",
+    "baselines": "baseline列表待正文。",
+    "experimental_conditions": "真实/印刷布局来源、是否GTsymbolbox、训练成本与采样协议待核。"
   },
   {
     "title": "DiffBrush，ICCV 2025",
     "source_urls": [
-      "https://arxiv.org/abs/2508.03256"
+      "https://arxiv.org/abs/2508.03256",
+      "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Dai_Beyond_Isolated_Words_ICCV_2025_supplemental.pdf",
+      "https://github.com/dailenson/DiffBrush"
     ],
-    "method": "内容解耦风格与多尺度判别，扩散手写行图像",
-    "conclusion": "输出静态文字行，不是在线笔迹或视频",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "行/列mask辅助作者proxy风格学习，行级3DCNN与词级2DCNN内容判别联合latentdiffusion。 ResNet18+2Transformer编码；双self-attn风格head，用masked feature做Proxy-NCA；未mask特征参与6层crossattentionblender；SD1.5VAE冻结，行32切片/词attention定位CNN-LSTM预训练冻结。",
+    "conclusion": "IAM HWD1.41 vsDiffusionPen1.72，D_CER8.59 vsOneDM20.91、D_WER28.60vs54.27；CVLHWD1.06，D_CER20.92/D_WER36.38。真假accuracy49.11%是此人评结果，不构成所有条件不可区分的证明。",
+    "gap": "mask在有全局上下文的feature之后，不保证内容信息彻底消失，需内容probe验证。D_CER受合成分布/OCR优化影响，不能独立归因内容准确。Unifont能接受字符串不保证全部Unicode图形覆盖及模型泛化。宽度压缩、固定32切片影响长文本；没有笔顺/真实时序评价。",
+    "problem": "从文本及一行作者参考生成完整静态手写文本行，保留字间距、基线与内容。",
+    "claim": "作者研究目标：从文本及一行作者参考生成完整静态手写文本行，保留字间距、基线与内容。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 A",
     "id": "L023",
     "canonical_key": "paper:arxiv:2508.03256",
@@ -8095,27 +8349,46 @@
       "local_focused:M035",
       "local_handwriting:R35"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L023.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "输出静态文字行，不是在线笔迹或视频",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "§3–5完整方法/主表/消融，AppB训练与结构、C指标、D人评、E中文协议、G/H拼接文字；全部附图与源码未核",
+    "review_path": "docs/reviews/L023.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "IAM13353行657writers，496/161；CVL英文11007行310writers，283/27；中文HWDB2.0–2.2称52230行1019writers，816/203。长宽比调整后宽≤1024pad，超宽压缩。",
+    "framework": "行/列mask辅助作者proxy风格学习，行级3DCNN与词级2DCNN内容判别联合latentdiffusion。",
+    "architecture": "ResNet18+2Transformer编码；双self-attn风格head，用masked feature做Proxy-NCA；未mask特征参与6层crossattentionblender；SD1.5VAE冻结，行32切片/词attention定位CNN-LSTM预训练冻结。",
+    "metrics": "HWD、FID/IS/GS；D_CER/D_WER定义为“生成整训练集→训练CNNLSTMCTCOCR→真实测试误差”，非直接识别生成图的CER；中文D_AR/D_CR；30人各30次偏好/真假900responses。",
+    "baselines": "TS-GAN/CSA-GAN、VATr/DiffusionPen/One-DM重训行数据；官方wordassembly与利用参考间距/基线的改进拼接另对照。",
+    "experimental_conditions": "800epochs/8RTX4090/约4天/AdamW1e-4；750epochs diffusion+style，最后50加discriminator并5步生成供监督；lambda.05/mask.5/dropcond.1；trainT1000 beta1e-4→.02，testDDIM50/CFG.2。batch未从所读配置取得。"
   },
   {
     "title": "Learning to Compose Stylistic Calligraphy Artwork with Emotions，ACM MM 2021",
     "source_urls": [
       "https://chenmengdx.github.io/papers/MM21_calligraphy.pdf"
     ],
-    "method": "情感条件下书法风格与作品组合",
-    "conclusion": "表达、布局与应用支线；情感一致不代表笔顺正确",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "BERT句级情绪+ECA-GAN内容/风格CAM及条件混合归一化+小RNN字高预测。 GAN两下采样/四残差编码、四残差/两upsample解码，多尺度PatchGAN；结构4类/风格辅助分类与discriminator；CLIN混LN/IN，逆图像距离diversity+cycle等六损失。LayoutRNN32hidden输入emotion/墨比/部件/笔数。",
+    "conclusion": "ECA peaceful/happy/sadOCR .571/.401/.768 vsUGAT .487/.348/.733，真人图 .645/.465/.812。LayoutMAE.244/MAPE28.4% vs无emotion.281/33.6%、Markov.327/35.7%。BERT情绪accuracy65.5%。",
+    "gap": "单作者被要求表达三风格，情绪与笔法/文本/个人差异混杂，不能推广心理机制；BERT错误向下游传递。四结构分类不能保证每字每笔正确；humanOCR非gold上界；语篇split与种子方差不清，未测真实时序/笔顺。",
+    "problem": "将古文按三类情绪转为单字书法并布局成竖排整幅静态作品。",
+    "claim": "作者研究目标：将古文按三类情绪转为单字书法并布局成竖排整幅静态作品。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 B",
     "id": "L024",
     "canonical_key": "paper:https://chenmengdx.github.io/papers/mm21_calligraphy.pdf",
@@ -8140,7 +8413,26 @@
       "local_focused:M036",
       "local_handwriting:R36"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L024.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "表达、布局与应用支线；情感一致不代表笔顺正确",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "原PDF9页，§3完整流程/公式、§4数据、§5主表2/消融与Table3layout及§6；未逐一视觉核验所有图或复现代码",
+    "review_path": "docs/reviews/L024.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "一位书家邱志杰按三情绪书写；单字各train2610/3451/2011，val/test396/507/345；4000标准源字。语篇1300古文/10000行/65032字，情绪比例由BERT预测而非全部专家标注。",
+    "framework": "BERT句级情绪+ECA-GAN内容/风格CAM及条件混合归一化+小RNN字高预测。",
+    "architecture": "GAN两下采样/四残差编码、四残差/两upsample解码，多尺度PatchGAN；结构4类/风格辅助分类与discriminator；CLIN混LN/IN，逆图像距离diversity+cycle等六损失。LayoutRNN32hidden输入emotion/墨比/部件/笔数。",
+    "metrics": "CNN-HCCR Top1内容、ConvBlock4Gram style discrepancy、147人偏好；字高MAE/MAPE。内容识别率不是人类正确率，Human行指真人书写图被同OCR识别率。",
+    "baselines": "zi2zi配对、CycleGAN/U-GAT-IT非配对；layout随机/固定/一阶Markov；非情绪鲁迅324/王羲之600仅定性，无完整定量比较。",
+    "experimental_conditions": "P40单卡2天/Adam/batch1/20epochs，lr1e-4先8epochs再线性衰减，lambda[5,10,.01,1000,10,10]；主字形比较关闭diversity，仅整幅启用。LayoutRNN10epochs/embedding5，完整语篇split及lr未明确。"
   },
   {
     "title": "AnyText，2023/2024",
@@ -8383,20 +8675,20 @@
     "source_urls": [
       "https://arxiv.org/abs/2604.04746"
     ],
-    "method": "规划—草图—检查—修正，过程式图文联合训练",
-    "conclusion": "GenEval .77→.83，WISE .70→.76；这里的 strokes 不是汉字毛笔事件",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "场景图增量合成及两类自采样critique，Plan→Sketch→Inspect→Refine交错SFT。 BAGEL7B active的MoT；文字CE含vision边界，图像rectifiedflowMSE，lambdaCE加权；FLUXKontext/GPT构造及筛选轨迹，推理不需外部planner。",
+    "conclusion": "主表GenEval.79→.83，WISE.70→.76；WISE表注称“8.5%absolute”与两均值差6pp不符，不能混用。PARMRL.77，数据688Kvs62K，NFE1000vs131，约7.6倍采样数差不等同实测8倍加速。",
+    "gap": "额外teacher轨迹/SFT与多轮推理同时变化，未完全分离参数共享、过程监督和调用预算的因果贡献；“SFT indispensable”仅特定未调优planner对照不足普遍证明。中间图可改写/删物，不能当真实单调绘画过程。",
+    "problem": "训练UMM按文字计划、静态图像草稿、检查和编辑逐步完成组合图像。",
+    "claim": "作者研究目标：训练UMM按文字计划、静态图像草稿、检查和编辑逐步完成组合图像。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 A",
     "id": "L029",
     "canonical_key": "paper:arxiv:2604.04746",
@@ -8421,27 +8713,46 @@
       "local_focused:M044",
       "local_handwriting:R44"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L029.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "GenEval .77→.83，WISE .70→.76；这里的 strokes 不是汉字毛笔事件",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "§3完整数据与CE/RF流程，§4全部设置、Tables1–7相关行与消融/结论；未逐图/源码复现，发表录用未独立确认",
+    "review_path": "docs/reviews/L029.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "Table1MultiTurn32012平均3.51图最多5，conflict15201(6905正/8296负)，align15000(5000正/10000负)；合62213。正文约30K/62K可作舍入，“balanced”不符后两表中比例。",
+    "framework": "场景图增量合成及两类自采样critique，Plan→Sketch→Inspect→Refine交错SFT。",
+    "architecture": "BAGEL7B active的MoT；文字CE含vision边界，图像rectifiedflowMSE，lambdaCE加权；FLUXKontext/GPT构造及筛选轨迹，推理不需外部planner。",
+    "metrics": "GenEval组合分项、WISE知识图像分项；InferenceCost是累计采样步数而非端到端实测秒，理解能力未完整评估。",
+    "baselines": "原BAGEL、BAGEL+GPTPlanner/Inspector、PARM TTS及RL+TTS，多种图像/UMM；不同teacher/数据/骨干成本未完全对齐。",
+    "experimental_conditions": "8H100全参数10000steps/packed33000tokens/lr2e-5/cos；完整batch/随机种子/lambdaCE/每轮采样超参未披露于所读设置。均2.62生成轮×50≈131采样步；PARM1000步。"
   },
   {
     "title": "Where a New Concept Must Enter，2026",
     "source_urls": [
       "https://arxiv.org/abs/2608.17564"
     ],
-    "method": "研究新知识进入位置与跨任务可用性",
-    "conclusion": "理解分支知道，不代表生成分支能执行；指导共享与冻结消融",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "单向概念注入、匹配/名字评分/视觉identity分解、激活或权重位置干预与mid-stack InfoNCE anchoring。 BAGEL28层d3584MoT，r32LoRA共享attention/MLP/私有分配；SAR为去均值名字/图地址MRR。frozen地址在L14取8图均值、namehidden InfoNCE τ.07；激活闭式edit与weightedit分开。",
+    "conclusion": "TransferRate G→U .36/U→G .54，差CI[−.05,.40]不足证明rate不对称；SAR rho.68但不是因果。L14anchor name.898/identity.808（56concept）；Table6另单组.930identity，GenEval .681→.680；Gdefault .401，下降41%限该窄域recipe。",
+    "gap": "伪词行为筛查不能证明预训练绝未见资产；检索/候选评分与开放生成不同。四模型encoder/规模/目标协变，仅观察证据。文中“每个损伤都随flow”不可普遍解读：Table6 joint含640flow却.692高于base，160flow也几乎无损，已说明数据/目标组合重要。泛化成本主要单组，无所有recipeCI。",
+    "problem": "单方向绑定新名字与视觉实体，测另方向可用性及注入位置影响。",
+    "claim": "作者研究目标：单方向绑定新名字与视觉实体，测另方向可用性及注入位置影响。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 A，前轮资料",
     "id": "L030",
     "canonical_key": "paper:arxiv:2608.17564",
@@ -8482,27 +8793,46 @@
       "local_handwriting:R45",
       "local_umm_expanded:X074"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L030.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "理解分支知道，不代表生成分支能执行；指导共享与冻结消融",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "§3–4协议与substrate相关结果、§5.1 SAR/位置汇总Table3、§6.1架构、§7完整Table6/代价及§8–9限制、AppJ；未完整读取§5.2所有sweep/代码命令",
+    "review_path": "docs/reviews/L030.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "56concepts七组各8，每资产60训练视角20heldout，24widebank为本组+两组；主效应g0发现，g1–6确认。四架构depth复查各12concepts。",
+    "framework": "单向概念注入、匹配/名字评分/视觉identity分解、激活或权重位置干预与mid-stack InfoNCE anchoring。",
+    "architecture": "BAGEL28层d3584MoT，r32LoRA共享attention/MLP/私有分配；SAR为去均值名字/图地址MRR。frozen地址在L14取8图均值、namehidden InfoNCE τ.07；激活闭式edit与weightedit分开。",
+    "metrics": "matching4way chance.25；production8namePMI ranking chance.125；DINO24wayidentity chance.042及第二encoder；TransferRate相对direct/base。GeneralGenEval换OWLv2替官方detector，绝对分不可与标准GenEval比。",
+    "baselines": "G/Uinject、sharedattention/MLP/private、embedding-only/readoutanchor、wrongconceptplacebo、幅度/剂量控制、同类sibling、Joint/GthenU及原模型。",
+    "experimental_conditions": "主对称注入480steps；r32；单GPU；命令矩阵/学习率/optimizer在源码，本次未读取具体值。通用能力Table6在单组8concepts比较anchor480与Gdefault960，按相近identity匹配，非等步数。"
   },
   {
     "title": "Do Unified Multimodal Models Think in One Space?，2026",
     "source_urls": [
       "https://arxiv.org/abs/2607.26411"
     ],
-    "method": "跨分支表征与干预",
-    "conclusion": "迁移方向不对称；不能假定一个共享语义空间解决所有任务",
-    "gap": "研究范围与限制见结论栏。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "UMMSteer51概念对、CAA/RepE/ITI向量跨分支注入，SSR/logit及PCA投影诊断。 BAGEL等冻结，CAA均值差/RepE第一主成分/ITI分类边界法向；默认alllayers加向量，CAAalpha.1其他.2；逆向global/objectaware/attentionpooling及注入位置扩展。",
+    "conclusion": "BAGELCAA color96.2/text43.46/count68.75/position78.60，类别内std较大；逆向所测多种pool/position/scale均0SSR。只能说明当前线性提取/干预失败，不推出生成分支不存在语义。",
+    "gap": "干预可证明所加向量对输出有影响，不能独立证明所有任务共享单一语义空间或训练协同。PSP只是特定PCA低维投影；selfgen方向自身就难控制目标，逆向失败含提取质量混杂。不同架构/不同干预可得不同结论，不能和L030Janus位置注入结果混为矛盾。",
+    "problem": "用一个分支提取的隐层方向干预另分支，探测特定语义方向是否可转用。",
+    "claim": "作者研究目标：用一个分支提取的隐层方向干预另分支，探测特定语义方向是否可转用。",
     "version": "版本见原始来源及历史记录",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 A，前轮资料",
     "id": "L031",
     "canonical_key": "paper:arxiv:2607.26411",
@@ -8543,7 +8873,26 @@
       "local_handwriting:R46",
       "local_umm_expanded:X073"
     ],
-    "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+    "note_path": "docs/reviews/L031.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "迁移方向不对称；不能假定一个共享语义空间解决所有任务",
+        "gap": "研究范围与限制见结论栏。",
+        "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      }
+    ],
+    "sections_read": "§3–6完整流程/主表/逆向/PSP讨论，AppB.1人评表3、B.3逆向、C.6–7层/强度/位置消融及F限制；未逐图核及读取全部原始配置",
+    "review_path": "docs/reviews/L031.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "7语义类51对，每对50学习QA/prompt对与50heldout；350图单human对自动judge核对；outoftemplate k多属性组合另测试。",
+    "framework": "UMMSteer51概念对、CAA/RepE/ITI向量跨分支注入，SSR/logit及PCA投影诊断。",
+    "architecture": "BAGEL等冻结，CAA均值差/RepE第一主成分/ITI分类边界法向；默认alllayers加向量，CAAalpha.1其他.2；逆向global/objectaware/attentionpooling及注入位置扩展。",
+    "metrics": "SSR为对象存在且目标属性成立；Qwen3VL30B自动QA，overall95.4%agreement/kappa.894，但color.540/text.658，不能只报总平均；logitdifference及PCAprojectionPSP。",
+    "baselines": "CAA/RepE/ITI、未干预与selfbranch、JanusPro/UniPic1/Showo2；这些模型生成接口等不同，非单变量架构实验。",
+    "experimental_conditions": "无全模型训练；预计算隐层向量；完整NFE、GPU、seed及vector归一尺度本次未找到全配置。defaultalpha来自red→blue扫描，不能视为独立全概念最优超参。"
   },
   {
     "title": "UReason，2026",
@@ -10249,20 +10598,20 @@
     "source_urls": [
       "https://arxiv.org/abs/2604.25072"
     ],
-    "method": "统一场景图构建匹配任务，CCTA 原子事实一致性",
-    "conclusion": "8 个开放模型和 1 个商业模型中，能力与一致性不能互相替代",
-    "gap": "见结论栏及专题分析。",
-    "problem": "单任务高分是否意味着跨任务一致",
-    "claim": "未单独摘录。",
+    "method": "场景图对齐的VQA与生成prompt；CCTA及正确度加权AW-CCTA。 kMaXDeepLab+FairPSG，Qwen3VL235B验证/属性；同类别Hungarian按attribute.7/edge.3，MiniLM语义similarity；Qwen3-235B评分。指标1−|g−u|及再乘(g+u)/2。",
+    "conclusion": "BAGEL G.725/U.724，CCTA .675/AW.569；MMaDA .630/.144。32B替代使均AW.331→.301，7B .273，不能当绝对结果可互换。",
+    "gap": "CCTA比较正确性分数接近度，两个不同错误都0也得1，不能据此断言答案内容一致或内部表示同空间；AW降低双错奖励但仍依赖评分尺度。图解析/合并/匹配会丢细节；只按类别强配可能错身份。架构家族非受控对比不足因果归因。",
+    "problem": "用同一场景图事实比较UMM在原图理解与文字生成图中的表现。",
+    "claim": "作者研究目标：用同一场景图事实比较UMM在原图理解与文字生成图中的表现。",
     "version": "Beyond Accuracy… / XTC-Bench，2026",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L067",
     "canonical_key": "paper:arxiv:2604.25072",
     "evidence_history": [
@@ -10285,27 +10634,46 @@
     "aliases": [
       "local_umm_core:P22"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L067.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "8 个开放模型和 1 个商业模型中，能力与一致性不能互相替代",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3完整构造/匹配/公式、§4 Tables2–8主结果/人评/规模替换、§5–6限制；附录细类全部表和代码未核",
+    "review_path": "docs/reviews/L067.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "COCO2017val1000+VG1000，Table1 facts16618+14912=31530；30元类、人工筛选，≥3重叠同类实例会合并。",
+    "framework": "场景图对齐的VQA与生成prompt；CCTA及正确度加权AW-CCTA。",
+    "architecture": "kMaXDeepLab+FairPSG，Qwen3VL235B验证/属性；同类别Hungarian按attribute.7/edge.3，MiniLM语义similarity；Qwen3-235B评分。指标1−|g−u|及再乘(g+u)/2。",
+    "metrics": "G/U/CCTA/AW-CCTA，all vsmatched节点，五名CS学生200样本分项0–5人评相关；静态无过程。",
+    "baselines": "8开放UMM+Gemini；GPTimage1.5/GPT5分任务参考不报统一一致性；judge235B/32B/7B替换。",
+    "experimental_conditions": "作者标准推理；全部NFE/硬件/seed未从本次设置摘全。无生成模型训练；Qwen构造及judge重复角色需审计共同偏差。"
   },
   {
     "title": "IMUG-Bench: Benchmarking Unified Multimodal Models on Interleaved Understanding and Generation",
     "source_urls": [
       "https://arxiv.org/abs/2606.09169"
     ],
-    "method": "多轮理解与生成；按实际生成上下文动态更新后续理解评价",
-    "conclusion": "诊断交错推理与 exposure bias；本次未逐项审查全部实验表",
-    "gap": "见结论栏及专题分析。",
-    "problem": "单轮评价遗漏交错对话中的累计误差",
-    "claim": "未单独摘录。",
+    "method": "三任务类、静态/动态MCQ与生成评分点；动态答案由模型真实输出确定；CoT/自验证/BestofN分析。 评测pipeline，不新建生成骨干；开放模型按接口重构历史，Ovis横向拼全部历史图；Qwen3VL235BThinking评分/动态答案，DeepSeekV3.2参与构造。",
+    "conclusion": "主表BLIP3o8B65.0、BAGEL51.9；BAGEL图像T1 68.5→T6 24.7。轮次任务/存活样本构成可变，下降只能作为误差累积线索，不能单独识别训练exposurebias机制。",
+    "gap": "格式乘权把遵循格式与知识混合；judge生成动态GT可能错；不同输入历史接口是条件混杂；后期更难和上下文长度需受控；Benchmark未证明共享参数协同。",
+    "problem": "评价多轮交错图文中依赖历史的理解、生成及自生成图动态问答。",
+    "claim": "作者研究目标：评价多轮交错图文中依赖历史的理解、生成及自生成图动态问答。",
     "version": "IMUG-Bench，2026",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L068",
     "canonical_key": "paper:arxiv:2606.09169",
     "evidence_history": [
@@ -10328,27 +10696,46 @@
     "aliases": [
       "local_umm_core:P23"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L068.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "诊断交错推理与 exposure bias；本次未逐项审查全部实验表",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3完整构造/评分/TTS，§4主表2–4/设置/退化/消融，Conclusion；humanjudge附录及所有任务提示未完整核",
+    "review_path": "docs/reviews/L068.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "3113samples/12034turns，2–6轮均3.87，19域97任务；人工模板/填词/双人校核。",
+    "framework": "三任务类、静态/动态MCQ与生成评分点；动态答案由模型真实输出确定；CoT/自验证/BestofN分析。",
+    "architecture": "评测pipeline，不新建生成骨干；开放模型按接口重构历史，Ovis横向拼全部历史图；Qwen3VL235BThinking评分/动态答案，DeepSeekV3.2参与构造。",
+    "metrics": "MCQ正确减错误选项、再乘格式权重1/.75/.5/0；generation每point0–5归一；多轮平均。公式未明示下界截断，错误多时可能负分，需实现核。",
+    "baselines": "6开放模型含BAGEL/BLIP3o4B8B/OmniGen2/Ovis/UniWorld；两闭源API；BAGEL三种TTS。",
+    "experimental_conditions": "BAGEL保交错，其他image-list+placeholder，Ovis拼接改变每图有效分辨率；closed officialhistory；BAGELSVmax1及BoN3主设置，训练不适用。完整NFE/seed/成本缺项。"
   },
   {
     "title": "Unison: Benchmarking Unified Multimodal Models via Synergistic Understanding and Generation",
     "source_urls": [
       "https://arxiv.org/abs/2606.26984"
     ],
-    "method": "2,169 样本、四种协同维度、统一/解耦轨道、专门裁判",
-    "conclusion": "提供更细的联合能力诊断；裁判与人类一致性仍属于评价条件",
-    "gap": "见结论栏及专题分析。",
-    "problem": "怎样联合评价理解与生成",
-    "claim": "未单独摘录。",
+    "method": "2169条任务与四维/分离和联合track，额外8K人工评分数据微调Unison-Judge。 IC比较原图答案与生成图judge答案且惩罚双错；UGG先预测box/mask再编辑；GGU先生成辅助图再答；ME检查→反馈→编辑→stop；judge Qwen3VL8B。",
+    "conclusion": "整体BAGEL53.2、OmniGen2 51.3；BAGEL UGG67.9，OmniGen2 ME47.7；Judge人类相关均.887 vsGemini .884差.003，无CI不足宣称显著更好。",
+    "gap": "行为IC不直接测内部表示一致；平均定位/编辑分可掩盖某步失败；逐轮改善无法自动归因共享权重。Judge偏差、prompt随机性与多轮成本作者有说明；无视频/时序规范评价。",
+    "problem": "联合评价理解指导生成、生成辅助理解、内部一致性及迭代互促。",
+    "claim": "作者研究目标：联合评价理解指导生成、生成辅助理解、内部一致性及迭代互促。",
     "version": "Unison，2026",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L069",
     "canonical_key": "paper:arxiv:2606.26984",
     "evidence_history": [
@@ -10371,27 +10758,46 @@
     "aliases": [
       "local_umm_core:P24"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L069.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "提供更细的联合能力诊断；裁判与人类一致性仍属于评价条件",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3–5任务/构造/指标/实验，Table2judge及Table3相关行、§6–9insights/limits；源码/训练配置及所有子项未逐一核",
+    "review_path": "docs/reviews/L069.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "GenEval式属性、RefCOCOg、LAIONAesthetics>5，QwenImage图、OpenCV空间题；11复合编辑种类，10人3周校核；Judge8K/每维2K，人评231。",
+    "framework": "2169条任务与四维/分离和联合track，额外8K人工评分数据微调Unison-Judge。",
+    "architecture": "IC比较原图答案与生成图judge答案且惩罚双错；UGG先预测box/mask再编辑；GGU先生成辅助图再答；ME检查→反馈→编辑→stop；judge Qwen3VL8B。",
+    "metrics": "IoU、VQA、编辑1–5映至0–1，四维平均；UGG将定位和编辑平均，GGU将理解和生成平均，需保留子分。",
+    "baselines": "Showo/Showo2/JanusPro/DDiT/ILLUME+/OmniGen2/TokenFlow/BAGEL/SEEDX/UniWorld及两闭源；分离vs联合。",
+    "experimental_conditions": "统一512²、MEmax5轮可早停；Judge训练优化器/lr/epochs/hardware在所读正文未给完整；人评训练与231验证集独立性尚待文件核。"
   },
   {
     "title": "When Does Visual Generation Help Visual Understanding in Unified Multimodal Models?",
     "source_urls": [
       "https://arxiv.org/abs/2608.22174"
     ],
-    "method": "难度分层、六类规划任务、oracle 辅助协议",
-    "conclusion": "难任务收益不稳定，忠实辅助图也可能无法被利用；结论有任务范围",
-    "gap": "见结论栏及专题分析。",
-    "problem": "视觉辅助失败来自画图还是读图",
-    "claim": "未单独摘录。",
+    "method": "难度分层六规划任务、GtA/VCoT/VR统一比较、oracle视觉与泄漏修正。 评测和提示流程，非新生成架构；oracle用外部构造图替模型生成；SelfVCoTfixed让模型自己预测剩余步数并停。",
+    "conclusion": "Table4Parking Showo2 SelfVCoT56.6%→去最优步数先验0%，LLaDA2 40→0；Table3Qwen3.5-9B TextCoT25，OracleGtA90，noiseGtA8.3/mismatch5，NB2GtA45，说明错误可见辅助会有害。",
+    "gap": "oracle是特定视觉格式的参考条件，非所有自生成策略的数学上界；多数self超过oracle本身提示格式/域匹配因素。静态2D合成规划不能直接推广纸笔视频，文字greedy不保证图采样确定。",
+    "problem": "区分视觉辅助规划的生成质量、理解能力和评价协议造成的收益。",
+    "claim": "作者研究目标：区分视觉辅助规划的生成质量、理解能力和评价协议造成的收益。",
     "version": "When Does Visual Generation Help… / VGAU-Diag，2026",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L070",
     "canonical_key": "paper:arxiv:2608.22174",
     "evidence_history": [
@@ -10414,7 +10820,26 @@
     "aliases": [
       "local_umm_core:P26"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L070.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "难任务收益不稳定，忠实辅助图也可能无法被利用；结论有任务范围",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3完整任务/协议、§4.2–4.4结果与Tables2–4、§6限制、AppA.3–A.4实现；完整大表所有行、图像和代码未全核",
+    "review_path": "docs/reviews/L070.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "Maze/Sokoban/Path/Onet/Parking/Klotski，每任务100样本三难度；selfgeneration只在easy测，不能推断全部难度已全面生成实验。",
+    "framework": "难度分层六规划任务、GtA/VCoT/VR统一比较、oracle视觉与泄漏修正。",
+    "architecture": "评测和提示流程，非新生成架构；oracle用外部构造图替模型生成；SelfVCoTfixed让模型自己预测剩余步数并停。",
+    "metrics": "optimal/feasible tasklevelaccuracy，LPIPS作为辅助图proxy；同任务三次开放UMM平均。",
+    "baselines": "TextCoT、OracleVCoT/GtA/AugVCoT、SelfGtA/VCoT/VR，Qwen规模系列、noise/mismatch/QwenImage/QwenImageEdit/NanoBanana2辅助图。",
+    "experimental_conditions": "maxnew8192、文字greedytemp0，lmms-eval；部分UMM只输入最后一图并多次外部调用。样本容易20/中30/难50之类划分须逐任务核，未统一补写；硬件/NFE缺项。"
   },
   {
     "title": "GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment",
@@ -13343,22 +13768,23 @@
   {
     "title": "Does Gradient Conflict Predict the Understanding--Generation Trade-off? A Controlled Audit of Conflict-Metric Validity in Unified Multimodal Models",
     "source_urls": [
-      "https://arxiv.org/abs/2609.38465"
+      "https://arxiv.org/abs/2609.38465",
+      "https://proceedings.neurips.cc/paper/2021/file/9d27fdf2477ffbff837d73ef7ae23db9-Paper.pdf"
     ],
-    "method": "可精确评价的 GridUMM，63 配置、372 checkpoint，相关与剂量干预",
-    "conclusion": "常用方向冲突指标未可靠预测最终权衡；结论针对受控小世界，不等于真实大模型梯度方法无用",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "GridUMM可控任务、7类更新/数据比/种子扫描、早期预测/并发关联与投影剂量实验。 全共享decoder-only 256宽6层4head/FFN512约3.2M；大版320宽8层约6.7M；两次backward各任务并组合，probe固定32+32。",
+    "conclusion": "Table1Naive理解.630/生成.998，PCGrad .641/.999，MGDA .389/1.000，SOAP-style .543/.000。早期conflict magnitude预测最终score rho−.198 CI[−.463,.079]；摘要“最强.145”与正文该例不一致，不能混成单一数值。",
+    "gap": "外部效度仅小合成任务，生成多已饱和；3seed/剂量检验无显著效应不足证明严格零效应；checkpoint相关性虽clusterbootstrap，功效不能简单当252独立。reliability ceiling需诊断指标及目标自身可靠性，文中仅sqrt(relU*relG)不足一般推出该相关上界。AppendixC“CAGrad”按正交分量截幅，与原NeurIPS2021 Algorithm1的单纯形对偶优化不同；不能当标准CAGrad已受忠实检验。",
+    "problem": "检验梯度方向冲突指标能否预测理解/生成最终表现，并干预冲突观察结果。",
+    "claim": "作者研究目标：检验梯度方向冲突指标能否预测理解/生成最终表现，并干预冲突观察结果。",
     "version": "Gradient Conflict Audit，2026",
     "scope": "umm",
     "category": "UMM及相邻机制 / 6. 机制诊断：统一之后知识是否真的能流动",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L139",
     "canonical_key": "paper:arxiv:2609.38465",
     "evidence_history": [
@@ -13381,27 +13807,46 @@
     "aliases": [
       "local_umm_expanded:X075"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L139.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "常用方向冲突指标未可靠预测最终权衡；结论针对受控小世界，不等于真实大模型梯度方法无用",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3–6全文、Tables1–3、AppendicesB/C/D及E部分结果；原CAGrad正式PDF§3/Algorithm1对照；未运行作者实现或核全图",
+    "review_path": "docs/reviews/L139.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "5×5网格、8颜色、6–8矩形；理解cell/count/adjacency，生成25颜色+EOS，512问/256描述固定测试。63基准+12干预+18大版=93runs/372checkpoints。",
+    "framework": "GridUMM可控任务、7类更新/数据比/种子扫描、早期预测/并发关联与投影剂量实验。",
+    "architecture": "全共享decoder-only 256宽6层4head/FFN512约3.2M；大版320宽8层约6.7M；两次backward各任务并组合，probe固定32+32。",
+    "metrics": "global/per-layer cosine/conflict rate/magnitude/removed energy/normratio；understanding accuracy与generation object-cell accuracy均值称Pareto score；Spearman/clusterbootstrap。均值是标量折中分，不是理论全局Pareto最优。",
+    "baselines": "Naive、token-normalized、GradNorm-style、PCGrad-style、CAGrad、MGDA、SOAP-style。AppendixC实际变体有重大限制，见局限。",
+    "experimental_conditions": "单M4Max MPS FP32共18.8 aggregate run-hours；AdamW1e-3 beta.9/.999 wd.01 warm100/cos，batch64/900步，大版1080；数据比1:2/1:1/2:1；studentforcing200后至.4 cap16。"
   },
   {
     "title": "Beyond Layers: Position-Resolved Gradient Conflict and Position-Aware Modulation for Unified Multimodal Models",
     "source_urls": [
       "https://arxiv.org/abs/2609.38485"
     ],
-    "method": "将干扰细分到生成 token 位置；仅修正高冲突位置的反向分量",
-    "conclusion": "Show-o 匹配参数比较中 MME +21、GenEval +2.4 点；随机位置仅恢复部分收益",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "linear模块按activation位置累加rank-one梯度，用高冲突bucket选择和投影Pam微调。 式2对共享线性W用sum_t dL/dy_t h_t^T，Pam减min(0,<g_b,u>)u；理解EMA方向每2K刷新；Show-o1.3B和JanusPro7B固定tokenizer。",
+    "conclusion": "Show-o Pam1418MME/.627GenEval vslayerwise1397/.603；POPE86.6vs86.4、FID5.97vs6.05的CI跨0，不能称统计等效。Janus增8MME/1.1ppGenEval。",
+    "gap": "核心归因需区别“线性模块调用位置贡献”与“只对该位置loss求梯度”：注意力使后者反传跨位置，式2一般只保证前者，不能直接作loss-token限制梯度。raster早晚也不天然等于全局/纹理；应加排列与空间控制。式3跨不同形状模块相加需实际拼接规则。正文0-index和附录1-index集合相同数字，索引有歧义；有限seed与相关ANOVA观测影响不确定性。",
+    "problem": "将生成梯度按视觉序列位置分解，诊断并调节对理解梯度的反向分量。",
+    "claim": "作者研究目标：将生成梯度按视觉序列位置分解，诊断并调节对理解梯度的反向分量。",
     "version": "Position-Aware Modulation，2026",
     "scope": "umm",
     "category": "UMM及相邻机制 / 6. 机制诊断：统一之后知识是否真的能流动",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L140",
     "canonical_key": "paper:arxiv:2609.38485",
     "evidence_history": [
@@ -13424,7 +13869,26 @@
     "aliases": [
       "local_umm_expanded:X076"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L140.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "Show-o 匹配参数比较中 MME +21、GenEval +2.4 点；随机位置仅恢复部分收益",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3–9方法/主表/消融/限制、AppendicesB–E；公式及LoRA预算独立符号核对，未取得附加实现/图像逐项验证",
+    "review_path": "docs/reviews/L140.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "8×(64理解+64生成)×3dropoutseed，额外4batch选bucket；DINOv2探针10K图；训练语料具体来源/规模本次在共享配置表未找到完整描述。",
+    "framework": "linear模块按activation位置累加rank-one梯度，用高冲突bucket选择和投影Pam微调。",
+    "architecture": "式2对共享线性W用sum_t dL/dy_t h_t^T，Pam减min(0,<g_b,u>)u；理解EMA方向每2K刷新；Show-o1.3B和JanusPro7B固定tokenizer。",
+    "metrics": "MMEperception/POPEF1/GenEval/FID30K及Laplacian分频FID；ANOVA partialeta²、paireditembootstrap。",
+    "baselines": "同预算joint、layerwiseLoRA、randomposition、layerwise+Pam、单任务参考；downweight .25与投影。",
+    "experimental_conditions": "20K步batch128/lr1e-4/AdamW/warm500/cos，1:1三seed；r16/alpha32/drop.05/qkvo全层；作者标12.6M/31.5M待核。按其L,d及4个d×d模块单套LoRA公式8Ldr得到6.29M/15.73M，差约2倍，需确认双套或额外模块。总200H200h为作者分项报告。"
   },
   {
     "title": "Do Text Edits Generalize to Visual Generation? Benchmarking Cross-Modal Knowledge Editing in UMMs",

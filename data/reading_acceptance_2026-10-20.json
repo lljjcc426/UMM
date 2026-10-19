@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-20",
+  "method": "Manual written explanations after source reading, figure inspection, table and ablation analysis. No timed oral examination or model reproduction.",
+  "records": [
+    {
+      "id": "L024",
+      "checked_on": "2026-10-20",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "这项工作要把多句古文排成整幅、具有指定情绪风格的静态书法。单字GAN只能处理局部字体，完整作品还涉及字大小和情绪变化。作者用句级情绪分类、单字风格GAN和字高RNN串联；实验分别看字形识别、风格、偏好和布局误差。研究支持单作者三种条件风格的合成，没有证明普适心理情绪机制或动态笔顺。",
+          "evidence": "本次书面复述；约两分钟内可讲解的长度，未进行计时口试。"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Figure3左侧BERT将古文token映射为句级Emotion；中间标准字体图+噪声经过Encoder，由内容与风格CAM引导，CLIN接收情绪条件后Decoder输出单字；右侧E/R/C/S输入递归RNN预测相对字高，组合成竖排作品。D_c/D_s用于训练约束，不是推理时新文字识别器；间距另用规则。",
+          "evidence": "原PDF第4页Figure3已渲染并视觉核对；§3.1–3.3与Eq1/9–11。"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "内容CAM侧重四类部件布局，styleCAM侧重域差，CLIN把情绪条件仿射变换与可学习LN/IN比例结合，服务形状/风格变化。diversity倒数距离促不同noise得到不同输出，但主字形对照中关闭；LayoutRNN只学习相对尺寸，不能概括成全部布局学习。",
+          "evidence": "§3/Eqs1–11、§5.1.2的diversity设置。"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table2中Happy内容OCR ECA .401 vsU-GAT .348，同测真人图也仅.465，说明识别器对草书分布敏感，不宜把.401当人类看错率。去内容CAM下降至.312，支持其在该分布的作用。Table3全LayoutNet MAE.244，去emotion.281，Markov.327；这说明情绪特征有预测增益，不能排除标签关联的字形/文本混杂。",
+          "evidence": "原PDF第6页Table2及第8页Table3，§5.1.3/§5.2。"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "问题1：三个情绪标签仅来自一位被要求按情绪写作的书家，跨作者同情绪能否保持？问题2：BERT只有65.5%准确率，使用oracle情绪时最终作品改善多少？问题3：布局训练/测试是否按文章隔离，是否把同一作品拆分导致近重复？已有OLHWG(A02)和DiffBrush(L023)分别处理布局风格及行级风格，本作的这些限制仍需做后续方法/数据逐项比较，不能直接据此宣称新课题。",
+          "evidence": "§3.1/§4单作者与自动情绪说明、§5.2未明确split；本仓库A02/L023已读方法和实验。"
+        }
+      ],
+      "boundary": "原文正文、全部主要公式、主表/消融和Figure3已经核查。官方最终资源发布及真实数据/代码未取得，写作/数据缺项保留；未训练、未复现实验、未证明选题新颖性。"
+    }
+  ]
+}

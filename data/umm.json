@@ -3052,20 +3052,20 @@
     "source_urls": [
       "https://arxiv.org/abs/2604.25072"
     ],
-    "method": "统一场景图构建匹配任务，CCTA 原子事实一致性",
-    "conclusion": "8 个开放模型和 1 个商业模型中，能力与一致性不能互相替代",
-    "gap": "见结论栏及专题分析。",
-    "problem": "单任务高分是否意味着跨任务一致",
-    "claim": "未单独摘录。",
+    "method": "场景图对齐的VQA与生成prompt；CCTA及正确度加权AW-CCTA。 kMaXDeepLab+FairPSG，Qwen3VL235B验证/属性；同类别Hungarian按attribute.7/edge.3，MiniLM语义similarity；Qwen3-235B评分。指标1−|g−u|及再乘(g+u)/2。",
+    "conclusion": "BAGEL G.725/U.724，CCTA .675/AW.569；MMaDA .630/.144。32B替代使均AW.331→.301，7B .273，不能当绝对结果可互换。",
+    "gap": "CCTA比较正确性分数接近度，两个不同错误都0也得1，不能据此断言答案内容一致或内部表示同空间；AW降低双错奖励但仍依赖评分尺度。图解析/合并/匹配会丢细节；只按类别强配可能错身份。架构家族非受控对比不足因果归因。",
+    "problem": "用同一场景图事实比较UMM在原图理解与文字生成图中的表现。",
+    "claim": "作者研究目标：用同一场景图事实比较UMM在原图理解与文字生成图中的表现。",
     "version": "Beyond Accuracy… / XTC-Bench，2026",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L067",
     "canonical_key": "paper:arxiv:2604.25072",
     "evidence_history": [
@@ -3088,27 +3088,46 @@
     "aliases": [
       "local_umm_core:P22"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L067.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "8 个开放模型和 1 个商业模型中，能力与一致性不能互相替代",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3完整构造/匹配/公式、§4 Tables2–8主结果/人评/规模替换、§5–6限制；附录细类全部表和代码未核",
+    "review_path": "docs/reviews/L067.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "COCO2017val1000+VG1000，Table1 facts16618+14912=31530；30元类、人工筛选，≥3重叠同类实例会合并。",
+    "framework": "场景图对齐的VQA与生成prompt；CCTA及正确度加权AW-CCTA。",
+    "architecture": "kMaXDeepLab+FairPSG，Qwen3VL235B验证/属性；同类别Hungarian按attribute.7/edge.3，MiniLM语义similarity；Qwen3-235B评分。指标1−|g−u|及再乘(g+u)/2。",
+    "metrics": "G/U/CCTA/AW-CCTA，all vsmatched节点，五名CS学生200样本分项0–5人评相关；静态无过程。",
+    "baselines": "8开放UMM+Gemini；GPTimage1.5/GPT5分任务参考不报统一一致性；judge235B/32B/7B替换。",
+    "experimental_conditions": "作者标准推理；全部NFE/硬件/seed未从本次设置摘全。无生成模型训练；Qwen构造及judge重复角色需审计共同偏差。"
   },
   {
     "title": "IMUG-Bench: Benchmarking Unified Multimodal Models on Interleaved Understanding and Generation",
     "source_urls": [
       "https://arxiv.org/abs/2606.09169"
     ],
-    "method": "多轮理解与生成；按实际生成上下文动态更新后续理解评价",
-    "conclusion": "诊断交错推理与 exposure bias；本次未逐项审查全部实验表",
-    "gap": "见结论栏及专题分析。",
-    "problem": "单轮评价遗漏交错对话中的累计误差",
-    "claim": "未单独摘录。",
+    "method": "三任务类、静态/动态MCQ与生成评分点；动态答案由模型真实输出确定；CoT/自验证/BestofN分析。 评测pipeline，不新建生成骨干；开放模型按接口重构历史，Ovis横向拼全部历史图；Qwen3VL235BThinking评分/动态答案，DeepSeekV3.2参与构造。",
+    "conclusion": "主表BLIP3o8B65.0、BAGEL51.9；BAGEL图像T1 68.5→T6 24.7。轮次任务/存活样本构成可变，下降只能作为误差累积线索，不能单独识别训练exposurebias机制。",
+    "gap": "格式乘权把遵循格式与知识混合；judge生成动态GT可能错；不同输入历史接口是条件混杂；后期更难和上下文长度需受控；Benchmark未证明共享参数协同。",
+    "problem": "评价多轮交错图文中依赖历史的理解、生成及自生成图动态问答。",
+    "claim": "作者研究目标：评价多轮交错图文中依赖历史的理解、生成及自生成图动态问答。",
     "version": "IMUG-Bench，2026",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L068",
     "canonical_key": "paper:arxiv:2606.09169",
     "evidence_history": [
@@ -3131,27 +3150,46 @@
     "aliases": [
       "local_umm_core:P23"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L068.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "诊断交错推理与 exposure bias；本次未逐项审查全部实验表",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3完整构造/评分/TTS，§4主表2–4/设置/退化/消融，Conclusion；humanjudge附录及所有任务提示未完整核",
+    "review_path": "docs/reviews/L068.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "3113samples/12034turns，2–6轮均3.87，19域97任务；人工模板/填词/双人校核。",
+    "framework": "三任务类、静态/动态MCQ与生成评分点；动态答案由模型真实输出确定；CoT/自验证/BestofN分析。",
+    "architecture": "评测pipeline，不新建生成骨干；开放模型按接口重构历史，Ovis横向拼全部历史图；Qwen3VL235BThinking评分/动态答案，DeepSeekV3.2参与构造。",
+    "metrics": "MCQ正确减错误选项、再乘格式权重1/.75/.5/0；generation每point0–5归一；多轮平均。公式未明示下界截断，错误多时可能负分，需实现核。",
+    "baselines": "6开放模型含BAGEL/BLIP3o4B8B/OmniGen2/Ovis/UniWorld；两闭源API；BAGEL三种TTS。",
+    "experimental_conditions": "BAGEL保交错，其他image-list+placeholder，Ovis拼接改变每图有效分辨率；closed officialhistory；BAGELSVmax1及BoN3主设置，训练不适用。完整NFE/seed/成本缺项。"
   },
   {
     "title": "Unison: Benchmarking Unified Multimodal Models via Synergistic Understanding and Generation",
     "source_urls": [
       "https://arxiv.org/abs/2606.26984"
     ],
-    "method": "2,169 样本、四种协同维度、统一/解耦轨道、专门裁判",
-    "conclusion": "提供更细的联合能力诊断；裁判与人类一致性仍属于评价条件",
-    "gap": "见结论栏及专题分析。",
-    "problem": "怎样联合评价理解与生成",
-    "claim": "未单独摘录。",
+    "method": "2169条任务与四维/分离和联合track，额外8K人工评分数据微调Unison-Judge。 IC比较原图答案与生成图judge答案且惩罚双错；UGG先预测box/mask再编辑；GGU先生成辅助图再答；ME检查→反馈→编辑→stop；judge Qwen3VL8B。",
+    "conclusion": "整体BAGEL53.2、OmniGen2 51.3；BAGEL UGG67.9，OmniGen2 ME47.7；Judge人类相关均.887 vsGemini .884差.003，无CI不足宣称显著更好。",
+    "gap": "行为IC不直接测内部表示一致；平均定位/编辑分可掩盖某步失败；逐轮改善无法自动归因共享权重。Judge偏差、prompt随机性与多轮成本作者有说明；无视频/时序规范评价。",
+    "problem": "联合评价理解指导生成、生成辅助理解、内部一致性及迭代互促。",
+    "claim": "作者研究目标：联合评价理解指导生成、生成辅助理解、内部一致性及迭代互促。",
     "version": "Unison，2026",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L069",
     "canonical_key": "paper:arxiv:2606.26984",
     "evidence_history": [
@@ -3174,27 +3212,46 @@
     "aliases": [
       "local_umm_core:P24"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L069.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "提供更细的联合能力诊断；裁判与人类一致性仍属于评价条件",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3–5任务/构造/指标/实验，Table2judge及Table3相关行、§6–9insights/limits；源码/训练配置及所有子项未逐一核",
+    "review_path": "docs/reviews/L069.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "GenEval式属性、RefCOCOg、LAIONAesthetics>5，QwenImage图、OpenCV空间题；11复合编辑种类，10人3周校核；Judge8K/每维2K，人评231。",
+    "framework": "2169条任务与四维/分离和联合track，额外8K人工评分数据微调Unison-Judge。",
+    "architecture": "IC比较原图答案与生成图judge答案且惩罚双错；UGG先预测box/mask再编辑；GGU先生成辅助图再答；ME检查→反馈→编辑→stop；judge Qwen3VL8B。",
+    "metrics": "IoU、VQA、编辑1–5映至0–1，四维平均；UGG将定位和编辑平均，GGU将理解和生成平均，需保留子分。",
+    "baselines": "Showo/Showo2/JanusPro/DDiT/ILLUME+/OmniGen2/TokenFlow/BAGEL/SEEDX/UniWorld及两闭源；分离vs联合。",
+    "experimental_conditions": "统一512²、MEmax5轮可早停；Judge训练优化器/lr/epochs/hardware在所读正文未给完整；人评训练与231验证集独立性尚待文件核。"
   },
   {
     "title": "When Does Visual Generation Help Visual Understanding in Unified Multimodal Models?",
     "source_urls": [
       "https://arxiv.org/abs/2608.22174"
     ],
-    "method": "难度分层、六类规划任务、oracle 辅助协议",
-    "conclusion": "难任务收益不稳定，忠实辅助图也可能无法被利用；结论有任务范围",
-    "gap": "见结论栏及专题分析。",
-    "problem": "视觉辅助失败来自画图还是读图",
-    "claim": "未单独摘录。",
+    "method": "难度分层六规划任务、GtA/VCoT/VR统一比较、oracle视觉与泄漏修正。 评测和提示流程，非新生成架构；oracle用外部构造图替模型生成；SelfVCoTfixed让模型自己预测剩余步数并停。",
+    "conclusion": "Table4Parking Showo2 SelfVCoT56.6%→去最优步数先验0%，LLaDA2 40→0；Table3Qwen3.5-9B TextCoT25，OracleGtA90，noiseGtA8.3/mismatch5，NB2GtA45，说明错误可见辅助会有害。",
+    "gap": "oracle是特定视觉格式的参考条件，非所有自生成策略的数学上界；多数self超过oracle本身提示格式/域匹配因素。静态2D合成规划不能直接推广纸笔视频，文字greedy不保证图采样确定。",
+    "problem": "区分视觉辅助规划的生成质量、理解能力和评价协议造成的收益。",
+    "claim": "作者研究目标：区分视觉辅助规划的生成质量、理解能力和评价协议造成的收益。",
     "version": "When Does Visual Generation Help… / VGAU-Diag，2026",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L070",
     "canonical_key": "paper:arxiv:2608.22174",
     "evidence_history": [
@@ -3217,7 +3274,26 @@
     "aliases": [
       "local_umm_core:P26"
     ],
-    "note_path": "archive/local/2026-10-15/文献矩阵.md"
+    "note_path": "docs/reviews/L070.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "难任务收益不稳定，忠实辅助图也可能无法被利用；结论有任务范围",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3完整任务/协议、§4.2–4.4结果与Tables2–4、§6限制、AppA.3–A.4实现；完整大表所有行、图像和代码未全核",
+    "review_path": "docs/reviews/L070.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "Maze/Sokoban/Path/Onet/Parking/Klotski，每任务100样本三难度；selfgeneration只在easy测，不能推断全部难度已全面生成实验。",
+    "framework": "难度分层六规划任务、GtA/VCoT/VR统一比较、oracle视觉与泄漏修正。",
+    "architecture": "评测和提示流程，非新生成架构；oracle用外部构造图替模型生成；SelfVCoTfixed让模型自己预测剩余步数并停。",
+    "metrics": "optimal/feasible tasklevelaccuracy，LPIPS作为辅助图proxy；同任务三次开放UMM平均。",
+    "baselines": "TextCoT、OracleVCoT/GtA/AugVCoT、SelfGtA/VCoT/VR，Qwen规模系列、noise/mismatch/QwenImage/QwenImageEdit/NanoBanana2辅助图。",
+    "experimental_conditions": "maxnew8192、文字greedytemp0，lmms-eval；部分UMM只输入最后一图并多次外部调用。样本容易20/中30/难50之类划分须逐任务核，未统一补写；硬件/NFE缺项。"
   },
   {
     "title": "GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment",
@@ -6146,22 +6222,23 @@
   {
     "title": "Does Gradient Conflict Predict the Understanding--Generation Trade-off? A Controlled Audit of Conflict-Metric Validity in Unified Multimodal Models",
     "source_urls": [
-      "https://arxiv.org/abs/2609.38465"
+      "https://arxiv.org/abs/2609.38465",
+      "https://proceedings.neurips.cc/paper/2021/file/9d27fdf2477ffbff837d73ef7ae23db9-Paper.pdf"
     ],
-    "method": "可精确评价的 GridUMM，63 配置、372 checkpoint，相关与剂量干预",
-    "conclusion": "常用方向冲突指标未可靠预测最终权衡；结论针对受控小世界，不等于真实大模型梯度方法无用",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "GridUMM可控任务、7类更新/数据比/种子扫描、早期预测/并发关联与投影剂量实验。 全共享decoder-only 256宽6层4head/FFN512约3.2M；大版320宽8层约6.7M；两次backward各任务并组合，probe固定32+32。",
+    "conclusion": "Table1Naive理解.630/生成.998，PCGrad .641/.999，MGDA .389/1.000，SOAP-style .543/.000。早期conflict magnitude预测最终score rho−.198 CI[−.463,.079]；摘要“最强.145”与正文该例不一致，不能混成单一数值。",
+    "gap": "外部效度仅小合成任务，生成多已饱和；3seed/剂量检验无显著效应不足证明严格零效应；checkpoint相关性虽clusterbootstrap，功效不能简单当252独立。reliability ceiling需诊断指标及目标自身可靠性，文中仅sqrt(relU*relG)不足一般推出该相关上界。AppendixC“CAGrad”按正交分量截幅，与原NeurIPS2021 Algorithm1的单纯形对偶优化不同；不能当标准CAGrad已受忠实检验。",
+    "problem": "检验梯度方向冲突指标能否预测理解/生成最终表现，并干预冲突观察结果。",
+    "claim": "作者研究目标：检验梯度方向冲突指标能否预测理解/生成最终表现，并干预冲突观察结果。",
     "version": "Gradient Conflict Audit，2026",
     "scope": "umm",
     "category": "UMM及相邻机制 / 6. 机制诊断：统一之后知识是否真的能流动",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L139",
     "canonical_key": "paper:arxiv:2609.38465",
     "evidence_history": [
@@ -6184,27 +6261,46 @@
     "aliases": [
       "local_umm_expanded:X075"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L139.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "常用方向冲突指标未可靠预测最终权衡；结论针对受控小世界，不等于真实大模型梯度方法无用",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3–6全文、Tables1–3、AppendicesB/C/D及E部分结果；原CAGrad正式PDF§3/Algorithm1对照；未运行作者实现或核全图",
+    "review_path": "docs/reviews/L139.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "5×5网格、8颜色、6–8矩形；理解cell/count/adjacency，生成25颜色+EOS，512问/256描述固定测试。63基准+12干预+18大版=93runs/372checkpoints。",
+    "framework": "GridUMM可控任务、7类更新/数据比/种子扫描、早期预测/并发关联与投影剂量实验。",
+    "architecture": "全共享decoder-only 256宽6层4head/FFN512约3.2M；大版320宽8层约6.7M；两次backward各任务并组合，probe固定32+32。",
+    "metrics": "global/per-layer cosine/conflict rate/magnitude/removed energy/normratio；understanding accuracy与generation object-cell accuracy均值称Pareto score；Spearman/clusterbootstrap。均值是标量折中分，不是理论全局Pareto最优。",
+    "baselines": "Naive、token-normalized、GradNorm-style、PCGrad-style、CAGrad、MGDA、SOAP-style。AppendixC实际变体有重大限制，见局限。",
+    "experimental_conditions": "单M4Max MPS FP32共18.8 aggregate run-hours；AdamW1e-3 beta.9/.999 wd.01 warm100/cos，batch64/900步，大版1080；数据比1:2/1:1/2:1；studentforcing200后至.4 cap16。"
   },
   {
     "title": "Beyond Layers: Position-Resolved Gradient Conflict and Position-Aware Modulation for Unified Multimodal Models",
     "source_urls": [
       "https://arxiv.org/abs/2609.38485"
     ],
-    "method": "将干扰细分到生成 token 位置；仅修正高冲突位置的反向分量",
-    "conclusion": "Show-o 匹配参数比较中 MME +21、GenEval +2.4 点；随机位置仅恢复部分收益",
-    "gap": "见结论栏及专题分析。",
-    "problem": "与方法合并记录，见方法栏。",
-    "claim": "未单独摘录。",
+    "method": "linear模块按activation位置累加rank-one梯度，用高冲突bucket选择和投影Pam微调。 式2对共享线性W用sum_t dL/dy_t h_t^T，Pam减min(0,<g_b,u>)u；理解EMA方向每2K刷新；Show-o1.3B和JanusPro7B固定tokenizer。",
+    "conclusion": "Show-o Pam1418MME/.627GenEval vslayerwise1397/.603；POPE86.6vs86.4、FID5.97vs6.05的CI跨0，不能称统计等效。Janus增8MME/1.1ppGenEval。",
+    "gap": "核心归因需区别“线性模块调用位置贡献”与“只对该位置loss求梯度”：注意力使后者反传跨位置，式2一般只保证前者，不能直接作loss-token限制梯度。raster早晚也不天然等于全局/纹理；应加排列与空间控制。式3跨不同形状模块相加需实际拼接规则。正文0-index和附录1-index集合相同数字，索引有歧义；有限seed与相关ANOVA观测影响不确定性。",
+    "problem": "将生成梯度按视觉序列位置分解，诊断并调节对理解梯度的反向分量。",
+    "claim": "作者研究目标：将生成梯度按视觉序列位置分解，诊断并调节对理解梯度的反向分量。",
     "version": "Position-Aware Modulation，2026",
     "scope": "umm",
     "category": "UMM及相邻机制 / 6. 机制诊断：统一之后知识是否真的能流动",
     "record_type": "paper",
     "privacy": "public_source_note",
-    "verification": "historical_record_not_rechecked",
-    "checked_on": null,
+    "verification": "primary_sections_read",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-15",
+    "last_updated": "2026-10-20",
     "id": "L140",
     "canonical_key": "paper:arxiv:2609.38485",
     "evidence_history": [
@@ -6227,7 +6323,26 @@
     "aliases": [
       "local_umm_expanded:X076"
     ],
-    "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+    "note_path": "docs/reviews/L140.md",
+    "review_history": [
+      {
+        "verification": "historical_record_not_rechecked",
+        "checked_on": null,
+        "sections_read": null,
+        "conclusion": "Show-o 匹配参数比较中 MME +21、GenEval +2.4 点；随机位置仅恢复部分收益",
+        "gap": "见结论栏及专题分析。",
+        "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      }
+    ],
+    "sections_read": "§3–9方法/主表/消融/限制、AppendicesB–E；公式及LoRA预算独立符号核对，未取得附加实现/图像逐项验证",
+    "review_path": "docs/reviews/L140.md",
+    "review_depth": "critical_sections_reviewed",
+    "dataset": "8×(64理解+64生成)×3dropoutseed，额外4batch选bucket；DINOv2探针10K图；训练语料具体来源/规模本次在共享配置表未找到完整描述。",
+    "framework": "linear模块按activation位置累加rank-one梯度，用高冲突bucket选择和投影Pam微调。",
+    "architecture": "式2对共享线性W用sum_t dL/dy_t h_t^T，Pam减min(0,<g_b,u>)u；理解EMA方向每2K刷新；Show-o1.3B和JanusPro7B固定tokenizer。",
+    "metrics": "MMEperception/POPEF1/GenEval/FID30K及Laplacian分频FID；ANOVA partialeta²、paireditembootstrap。",
+    "baselines": "同预算joint、layerwiseLoRA、randomposition、layerwise+Pam、单任务参考；downweight .25与投影。",
+    "experimental_conditions": "20K步batch128/lr1e-4/AdamW/warm500/cos，1:1三seed；r16/alpha32/drop.05/qkvo全层；作者标12.6M/31.5M待核。按其L,d及4个d×d模块单套LoRA公式8Ldr得到6.29M/15.73M，差约2倍，需确认双套或额外模块。总200H200h为作者分项报告。"
   },
   {
     "title": "Do Text Edits Generalize to Visual Generation? Benchmarking Cross-Modal Knowledge Editing in UMMs",
