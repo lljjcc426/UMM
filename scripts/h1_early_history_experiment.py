@@ -189,6 +189,7 @@ def evaluate():
                 name='M3_K'+str(window)
                 for t in DECISIONS:
                     inp=x['inputs'][max(0,t-window+1):t+1];begin=time.perf_counter();o=models['M2'](inp[None]);seconds=time.perf_counter()-begin
+                    raw.write(json.dumps(dict(method=name,id=x['row']['id'],t=t,window_start=max(0,t-window+1),outputs={k:v[0].tolist() for k,v in o.items()}))+'\n')
                     state=partial_fields(decode_state(o,x,len(inp)-1));predictions.append(record(x,t,state,name,seconds));timings.setdefault(name,[]).append(seconds)
             for name,base in [('M2_oracle_region','M2'),('M4_oracle_region','M1')]:
                 o=models[base](x['oracle_inputs'][None])
