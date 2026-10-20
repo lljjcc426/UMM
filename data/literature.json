@@ -5432,24 +5432,26 @@
     "id": "U01",
     "category": "U UMM基础与协同补全",
     "title": "Chameleon: Mixed-Modal Early-Fusion Foundation Models",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "Chameleon: Mixed-Modal Early-Fusion Foundation Models；2405.09818v2（2025-03-21）精读，2024技术报告；官方仓库引文为arXiv，未据二手站点填写ICLR正式归属。",
     "source_urls": [
-      "https://arxiv.org/abs/2405.09818"
+      "https://arxiv.org/abs/2405.09818",
+      "https://arxiv.org/html/2405.09818v2",
+      "https://github.com/facebookresearch/chameleon"
     ],
     "previous_evidence": null,
     "claim": "作者研究目标：在同一自回归模型中理解和生成任意图文交错文档。",
-    "method": "离散图像token与文本在早期融合，并针对混合模态训练稳定性设计归一化与损失。 7B/34B decoder-only Transformer；512px图像压为1024个离散token，codebook8192；QK-norm、z-loss等。",
-    "problem": "在同一自回归模型中理解和生成任意图文交错文档。",
-    "conclusion": "Chameleon34B预训练COCO120.2 CIDEr为2-shot；SFT140.8为0-shot。不能忽略训练阶段和few-shot差异比较。",
-    "gap": "作者明确图像tokenizer难以重建大量文字，上限约束OCR；全部混合文档训练超参未逐项重算。",
+    "method": "离散图像/文本统一token空间、7B/34B早融合密集Transformer从头训练；QKnorm、输出z-loss、norm重排/按规模dropout，配模态平衡SFT和1048交错输出人评。本文不是所有统一图文建模的首作，承接CM3/CM3Leon等。 图像512²→1024离散token、codebook8192；BPE总词表65536含图像码，Llama式RMSNorm/SwiGLU/RoPE、4K上下文，34B有GQA。QKnorm控制attention输入，z-loss=1e−5(log Z)^2约束输出分区，作用不同；34B残差支路先attention/FFN再norm再相加，区别Llama输入pre-norm，控制支路输出范数。7Bdropout.1，34B不加；SFT全AR答案CE。",
+    "problem": "能否在同一自回归模型中联合理解/生成任意图文交错文档，并在十万步以上、多万亿token的大规模训练保持稳定及文本能力？混合模态文档任务与规范笔顺/连续视频不同。",
+    "conclusion": "TVII 34B预训COCO120.2/Flickr74.7/VQA66.0均2-shot；特定SFT COCO140.8为0-shot，MultiTask139.1/76.2/69.6。文本MMLU65.8低于Llama2-70B68.9，不能称全面领先。人评完全完成55.2 vsGemini+37.6/GPT4V+44.7。正文称Gemini+胜率60.4，但附录TXI总435胜362平251负→(435+181)/1048=58.7786%=58.8；60.4为图文输入子集(194+72.5)/441。GPT4V+总体51.6，图文输入子集47.3；原版Gemini/GPT4V总体69.1/61.7，与Intro直接写60.4/51.6对原版不符。",
+    "gap": "tokenizer明确难重建大量文字，1024离散码限制OCR；训练/人评未测规范书写。人评人工情境且只留期望交错输出，无OCR/图表；多数票α值/原表数值冲突须保留。未与同预算同数据分离模型作全因子，文本对比训练量不同。表4.4T与子项合计4.8T未解释。官方README全文说明推理/viewer/评测prompts/申请模型/研究许可；HF7B原始卡401未读，未据此猜发布权重的生成能力，未运行任何模型。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-19",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "§2.1–2.4，Tables1–2/7，训练稳定性曲线",
-    "last_updated": "2026-10-19",
+    "sections_read": "2405.09818v2全部核心Intro/§2–7方法/实验文字，TI–VII、AppB TXI–XIV全表；Fig1、Fig8三子图、Fig12三子图、Fig21胜平负原图视觉。其他生成样例和AppB全部任务完成细表未逐图/逐格核，参考文献未逐篇打开。官方README全文；HF卡401未读，未审全部代码/训练数据/权重、未训练/推理/复现。",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2405.09818",
     "evidence_history": [
       {
@@ -5496,16 +5498,21 @@
         "conclusion": "提供功能统一的代表路线。",
         "gap": "【边界/推断】功能共存不保证知识迁移或过程正确。",
         "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      },
+      {
+        "date": "2026-10-20",
+        "batch": 55,
+        "scope": "2405.09818v2全部核心Intro/§2–7方法/实验文字，TI–VII、AppB TXI–XIV全表；Fig1、Fig8三子图、Fig12三子图、Fig21胜平负原图视觉。其他生成样例和AppB全部任务完成细表未逐图/逐格核，参考文献未逐篇打开。官方README全文；HF卡401未读，未审全部代码/训练数据/权重、未训练/推理/复现。"
       }
     ],
     "review_path": "docs/reviews/U01.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "4.4T混合token，授权图像和文字/交错数据；完整数据来源依赖原报告。",
-    "framework": "离散图像token与文本在早期融合，并针对混合模态训练稳定性设计归一化与损失。",
-    "architecture": "7B/34B decoder-only Transformer；512px图像压为1024个离散token，codebook8192；QK-norm、z-loss等。",
-    "metrics": "文本任务、COCO/Flickr30k CIDEr、VQAv2、图像质量和长文档人工评价。",
-    "baselines": "Llama2、Flamingo、IDEFICS及GPT-4V/Gemini当时API。",
-    "experimental_conditions": "4K上下文；7B/34B分别1024/3072 A10080GB预训练，856481/4282407 GPU小时。Table7的2-shot/32-shot、SFT状态不同。"
+    "dataset": "§2.2列文本2.9T、1.4B图文对约1.5T token、交错.4T；三项相加4.8T与TI总4.4T不能直接对齐，未取得去重/加权口径解释，原数分列。TI4.4T数据×2.1epoch，正文训练见9.2T，不能只写4.4T训练总量。首80%原混合、末20%原数据减权50%并加高质instruction子集，图文对50%顺序旋转。SFT文本1.6M/代码14.1K/视觉15.6K/图像64.3K/交错16.9K/安全95.3K。人评1048（441图文输入、607纯文字输入）期望全部交错输出，无OCR/图表覆盖。",
+    "framework": "离散图像/文本统一token空间、7B/34B早融合密集Transformer从头训练；QKnorm、输出z-loss、norm重排/按规模dropout，配模态平衡SFT和1048交错输出人评。本文不是所有统一图文建模的首作，承接CM3/CM3Leon等。",
+    "architecture": "图像512²→1024离散token、codebook8192；BPE总词表65536含图像码，Llama式RMSNorm/SwiGLU/RoPE、4K上下文，34B有GQA。QKnorm控制attention输入，z-loss=1e−5(log Z)^2约束输出分区，作用不同；34B残差支路先attention/FFN再norm再相加，区别Llama输入pre-norm，控制支路输出范数。7Bdropout.1，34B不加；SFT全AR答案CE。",
+    "metrics": "文本常识/阅读/数学/MMLU，COCO/Flickr CIDEr和VQAv2；人评完整/部分/不完成、成对胜+平/2、Krippendorff α。无规范笔顺/视频事件指标、无人评集OCR成绩。人评任务完成度α.338，95%CI[.319,.356]，1000bootstrap；对Gemini+/GPT4V+相对α.337/.396及CI。安全分为作者定义下的20K prompts及445交互，非普遍保证。",
+    "baselines": "文本Llama2/Mistral/Mixtral/早期Gemini/GPT4，视觉Flamingo/IDEFICS/LLaVA和当时API。人评GPT4V/Gemini原版只出文字，另用其caption→DALL-E3构成带加号增强基线；native/system/API版本条件需分列。原始预训、MultiTask、task-specific SFT与few-shot不同，不能全作为同设置排名。",
+    "experimental_conditions": "预训AdamW β.9/.95 eps1e−5，lr1e−4、4000warmup/指数衰减、wd.1/clip1，7B/34B全局约8M/12M token；2.1epoch约9.2T。A10080GB 1024/3072并行，856481/4282407 GPUh。SFT lr1e−5 cosine、wd.1、batch128、4096、dropout.05、zloss保留、prompt loss遮蔽；输入图padding、目标图center-crop不同。人评三标注多数、随机顺序、三人各选不同算平；API精确快照/成本与重复种子未完整给。"
   },
   {
     "id": "U02",
@@ -5748,24 +5755,26 @@
     "id": "U05",
     "category": "U UMM基础与协同补全",
     "title": "Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model；精读2408.11039v1（2024-08-20），ICLR2025正式归属由OpenReview SI2hI0frk6确认，正式PDF未逐页比对；不把v1当终版全核。",
     "source_urls": [
-      "https://arxiv.org/abs/2408.11039"
+      "https://arxiv.org/abs/2408.11039",
+      "https://arxiv.org/html/2408.11039v1",
+      "https://openreview.net/forum?id=SI2hI0frk6"
     ],
     "previous_evidence": null,
     "claim": "作者研究目标：在一个Transformer内同时处理离散语言和连续图像，研究扩展效率。",
-    "method": "语言用next-token交叉熵、图像用扩散损失，模态特定编码/解码和图内双向注意力。 共享Transformer；跨图文因果、单图内部双向mask；linear或U-Net patch encoder/decoder。",
-    "problem": "在一个Transformer内同时处理离散语言和连续图像，研究扩展效率。",
-    "conclusion": "Table5 0.76B linear编码加图内双向注意力FID61.3→20.3；U-Net编码16.8→16.7，说明收益依赖外围编码器。",
-    "gap": "同规模token数不总等于同图像样本数；使用外部语料和预训练压缩仍限制完全控制。",
+    "method": "文本CE+λ图像噪声MSE共享核心，图内双向/跨模态因果，BOI触发图像去噪后回LM。以匹配VAE/VQ-VAE及多规模对照隔离部分量化差异，再做mask/patch/U-Net/noise消融；比只报告一个大模型更能分析效率，但不能消除所有训练recipe差异。 五规模.16/.37/.76/1.4/7B，Llama-style SwiGLU/RoPE；图内patch互见，后续文字可看前图但前图不可见未来文字。86M VAE把256²→32×32×8，2² latent patch=256序列位置/图；linear参数<.5%，U-Net额外约.27B。Eq1 CE/Eq2前向噪声/Eq3噪声MSE/Eq4 LLM+5LDDPM，连续噪声t加到图像再patch；同一步两目标，不是文字也做扩散。",
+    "problem": "同一Transformer能否按模态采用离散语言CE与连续图像扩散损失，在数据/模型规模受控下减少离散图像量化路线的效率损失，并保留双向图像建模与文本因果性？没有验证连续视频或规范书写过程。",
+    "conclusion": "TIII7B.5T Transfusion vs重训Chameleon：C4 7.72/8.41、Llama61.5/59.1、CIDEr27.2/18.0、FID16.8/29.6；拟合FID ratio.029，caption.218。TIV.76B纯文Llama acc53.7→加diffusion51.7；Chameleon稳定修改51.9→加图token48.9，说明相对代价较小，未证明正迁移超过纯文。TIX最大7.3B/2T FID6.78、GenEval.63，SD3.68更高；跨论文数据/分辨/重排异构。8K编辑SFT仅EmuEdit测试随机例人工观察，无完整定量编辑成功率。",
+    "gap": "VAE压缩/center-crop仍可能丢文字细节；连续不等无损。理论6ND忽略实际attention/外围计算差，不代表部署提速；拟合筛除弱Chameleon点且范围有限，没有普遍幂律定理。比较图像数、stable recipe/学习率也不同，U-Net.27B对小模型占比大，参数缩小到3.8%仍非完全等参。文字加入视觉目标仍下降，不得宣称已证明双向正迁移；lossλ/图文比未全面调、编辑仅定性、真实视频时序未测。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-19",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "§3目标/attention，§4.1，§4.3/Table5及patchsize讨论",
-    "last_updated": "2026-10-19",
+    "sections_read": "2408.11039v1全部核心§1–6及Eq1–4、TI–IX、AppA自编码损失全文；Fig1/3/4实际视觉、Fig5 FID/CIDEr两子图实际视觉，其他四条缩放曲线只表/正文，生成/编辑样例未逐图。OpenReview正式ICLR2025元数据已核，正式PDF未逐页比；无官方训练源码全审/模型运行或独立复现。",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2408.11039",
     "evidence_history": [
       {
@@ -5812,16 +5821,21 @@
         "conclusion": "为混合训练目标提供基础范式。",
         "gap": "【边界/推断】两项损失相加不保证中间视觉状态可执行。",
         "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      },
+      {
+        "date": "2026-10-20",
+        "batch": 55,
+        "scope": "2408.11039v1全部核心§1–6及Eq1–4、TI–IX、AppA自编码损失全文；Fig1/3/4实际视觉、Fig5 FID/CIDEr两子图实际视觉，其他四条缩放曲线只表/正文，生成/编辑样例未逐图。OpenReview正式ICLR2025元数据已核，正式PDF未逐页比；无官方训练源码全审/模型运行或独立复现。"
       }
     ],
     "review_path": "docs/reviews/U05.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "380M授权Shutterstock图文、Llama2文字；多数对照0.5T token、图文1:1；最大7B2T。",
-    "framework": "语言用next-token交叉熵、图像用扩散损失，模态特定编码/解码和图内双向注意力。",
-    "architecture": "共享Transformer；跨图文因果、单图内部双向mask；linear或U-Net patch encoder/decoder。",
-    "metrics": "C4/Wiki困惑度、Llama任务准确率、COCO-CIDEr、FID/CLIP及GenEval。",
-    "baselines": "同数据/计算构建的Chameleon族；VAE尽量匹配仅保留量化差别。",
-    "experimental_conditions": "主生成评估COCO30K；结构消融仅5K，不能横比不同样本量FID。"
+    "dataset": "常规.5T token，文本Llama2 corpus/词表与380M授权Shutterstock图文，图/文token1:1，caption先80%/图先20%。固定token预算时patch增大可见更多图；数据受控不总等图像数受控。大规模2T：加入220M无人物公开图、80M人物上采样、CC12M，每epoch混合692M，约5epoch/3.5B图文对，末1%高美学加权；692M非全唯一授权Shutterstock。评Wiki/C4各20M留出token，COCO caption5K/生成30K，结构消融生成5K，GenEval。",
+    "framework": "文本CE+λ图像噪声MSE共享核心，图内双向/跨模态因果，BOI触发图像去噪后回LM。以匹配VAE/VQ-VAE及多规模对照隔离部分量化差异，再做mask/patch/U-Net/noise消融；比只报告一个大模型更能分析效率，但不能消除所有训练recipe差异。",
+    "architecture": "五规模.16/.37/.76/1.4/7B，Llama-style SwiGLU/RoPE；图内patch互见，后续文字可看前图但前图不可见未来文字。86M VAE把256²→32×32×8，2² latent patch=256序列位置/图；linear参数<.5%，U-Net额外约.27B。Eq1 CE/Eq2前向噪声/Eq3噪声MSE/Eq4 LLM+5LDDPM，连续噪声t加到图像再patch；同一步两目标，不是文字也做扩散。",
+    "metrics": "文本PPL/所列7个Llama2任务0-shot平均准确、COCO CIDEr/30K FID/CLIP，GenEval；消融5K FID与主表30K不同。6ND理论FLOPs代理，log-log拟合parity FLOP ratio非实测时间/显存/NFE；FID.029≈34倍为估计对齐，不能解释普遍34倍快。TV/VI文本Acc箭头↓与定义/数值↑冲突，采用准确率越高越好并记录。",
+    "baselines": "按Chameleon recipe重训同五规模、同数据/计算proxy的离散基线；匹配VAE结构/训练数据/1M步，VQ版换KL为codebook loss、码本16384/β.25。基线同时有QKnorm/postnorm/zloss/lr1e−4等稳定recipe，非原始Chameleon全量官方checkpoint。最大2T模型与文献SDXL/SD3/DeepFloyd/DALLE2/Parti/Llama等为异构报告；Parti16片重排，SD3合成caption/外部文本encoder成本。",
+    "experimental_conditions": "随机初始化Transformer，AdamW .9/.95 eps1e−8，lr3e−4/4000warmup/cosine至1.5e−5，wd.1/clip1，4K上下文，2M token/batch×250K=.5T；最大4M×500K=2T，λ5仅初步选定。文本贪心/任务rankclassification；扩散训练1000t、推理250步。控制CFG5、消融CFG3、最大按benchmark调，不混成同采样。完整GPUh/硬件/多seed方差未在所读核心给。VAE L1+LPIPS+.5GAN+.2MoCo-perceptual+1e−6KL，50K后开GAN；不是纯ELBO。"
   },
   {
     "id": "U06",

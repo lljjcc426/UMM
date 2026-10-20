@@ -202,3 +202,8 @@ G034为I2V/可信评价、ImageSuite及Long工程关联；G031原VBench和后继
 ## 第五十四批补充
 
 G035已覆盖两动作顺序、动态状态、运动后果、实例保持和通用/专用异常专家；严格笔事件须建立局部时间/轨迹真值及新任务增益，不能再把以上概念整体当空白。见[第五十四批](vbench2_intrinsic_faithfulness_events_and_conditional_scores_2026-10-20.md)。
+
+
+## 第五十五批补充
+
+U01统一AR与U05混合CE/连续diffusion均为静态图文共享模型，已有组件/预算消融；负迁移较小不等正迁移，规范书写需细字/事件与时序mask新证据。见[第五十五批](chameleon_transfusion_shared_model_cost_and_claim_audit_2026-10-20.md)。

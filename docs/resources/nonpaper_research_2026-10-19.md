@@ -235,3 +235,8 @@ ControlNet1.0官方ed85cd1所列教程/关键实现已交叉核：fill50k RGB归
 ## 第五十四批补充
 
 G035关联HF VBench-2.0_human_anomaly卡、仓库JSONL结构、人体训练配置/README、实例滑窗推理、prompt改写首例和评分源码已读指定范围；无下载全图/权重或运行，LoRA训练全配方尚未取得，不重复计数。见[资源/协议审查](../evidence/vbench2_intrinsic_faithfulness_events_and_conditional_scores_2026-10-20.md)。
+
+
+## 第五十五批补充
+
+U01关联官方推理/viewer/prompts README已读，研究许可/模型需申请；HF原始卡401未读，不猜权重能力。U05 AppA VAE/VQ损失及训练条件已核，未取得完整官方训练配方/运行；关联材料不重复计数。见[资源边界](../evidence/chameleon_transfusion_shared_model_cost_and_claim_audit_2026-10-20.md)。

@@ -291,3 +291,8 @@ G034精读2411.13503v1全部核心/主表TI–IVb、Fig1/5/9/10视觉；Crossref
 ## 第五十四批补充
 
 G035：2503.21755v2核心I–VI/TI–IV、Eq1/2、Fig1/3/11视觉；固定代码指定评分、人体README/配置/聚合、实例test/split、metadata计数/样例、mechanics原始/改写首例与HF人体卡。正式会刊未确认。
+
+
+## 第五十五批补充
+
+U01 v2核心§1–7/TI–VII/AppB TXI–XIV、框架/稳定/胜平负实际图；U05 v1核心§1–6/Eq1–4/TI–IX/AppA、框架/mask/FID/CIDEr图，ICLR正式归属元数据。Chameleon官方README全文，HF卡401未读；Janus/Show-o仅取原文，未验收。

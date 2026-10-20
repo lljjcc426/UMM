@@ -4297,6 +4297,74 @@
         }
       ],
       "boundary": "2503.21755v2全部核心I–VI、TI–IV、Eq1/2作用和模块，Fig1/3/11实际视觉，其余实例图caption/正文，未逐格看全部图或正式终版。固定fd18b3d语义评分motionorder/composition/mechanics/dynamicattribute/humaninteraction/complexplot与anatomy/instance wrapper全文；人体README/两份同配置全文、detect.py选定聚合/阈值函数，instance test.py/split.py全文；README指定采样/聚合段、FAQ全文、prompt README至110行、三metadata仅计数/指定样例、mechanics原始/改写仅首例、HF人体卡全文。未读全部依赖/训练loop/权重/数据、未训练/推理/复现。 书面核心三遍，无口试/计时或模型复现。"
+    },
+    {
+      "id": "U01",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "能否在同一自回归模型中联合理解/生成任意图文交错文档，并在十万步以上、多万亿token的大规模训练保持稳定及文本能力？混合模态文档任务与规范笔顺/连续视频不同。 后期拼接接口不直接提供统一token流；离散图像早融合会遇到表征压缩和不同熵模态共用softmax的范数增长。共享模型本身未解决细字重建或证明跨任务正迁移。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "文字BPE+图像tokenizer→带起止标记的图文token序列→同一因果Transformer→文字/图像token→图像detokenizer或文本。Fig1实际视觉；没有消除图像编解码器，所谓无独立模态encoder指核心序列模型的组织，不能照抄成无视觉tokenizer。 图像512²→1024离散token、codebook8192；BPE总词表65536含图像码，Llama式RMSNorm/SwiGLU/RoPE、4K上下文，34B有GQA。QKnorm控制attention输入，z-loss=1e−5(log Z)^2约束输出分区，作用不同；34B残差支路先attention/FFN再norm再相加，区别Llama输入pre-norm，控制支路输出范数。7Bdropout.1，34B不加；SFT全AR答案CE。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "离散图像/文本统一token空间、7B/34B早融合密集Transformer从头训练；QKnorm、输出z-loss、norm重排/按规模dropout，配模态平衡SFT和1048交错输出人评。本文不是所有统一图文建模的首作，承接CM3/CM3Leon等。 任意图文交错文档、共享上下文且图像离散重建可满足任务时，统一AR序列使模态切换直接可学习；QK/输出范数处理可在原recipe/规模下减少不稳。对微小笔画/细字，压缩上限先验可能主导，不能据多任务可用断言书写生成和理解互相促进。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "TVII 34B预训COCO120.2/Flickr74.7/VQA66.0均2-shot；特定SFT COCO140.8为0-shot，MultiTask139.1/76.2/69.6。文本MMLU65.8低于Llama2-70B68.9，不能称全面领先。人评完全完成55.2 vsGemini+37.6/GPT4V+44.7。正文称Gemini+胜率60.4，但附录TXI总435胜362平251负→(435+181)/1048=58.7786%=58.8；60.4为图文输入子集(194+72.5)/441。GPT4V+总体51.6，图文输入子集47.3；原版Gemini/GPT4V总体69.1/61.7，与Intro直接写60.4/51.6对原版不符。 Fig8三子图实际看：输出范数在去dropout/去QKnorm组合时增长，QKnorm单消融图截到175K loss略差，不能把该单图直接称爆炸。正文称无QK约20%epoch发散为作者文字；Fig12的34B norm-reorder曲线明确尖峰/发散，改序可稳定但未保证早期同loss；禁图像生成曲线无发散。说明规模/recipe依赖，无全部seed和全任务共享/分离等预算因子消融，不能由稳定性证明共享必然正迁移。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "tokenizer明确难重建大量文字，1024离散码限制OCR；训练/人评未测规范书写。人评人工情境且只留期望交错输出，无OCR/图表；多数票α值/原表数值冲突须保留。未与同预算同数据分离模型作全因子，文本对比训练量不同。表4.4T与子项合计4.8T未解释。官方README全文说明推理/viewer/评测prompts/申请模型/研究许可；HF7B原始卡401未读，未据此猜发布权重的生成能力，未运行任何模型。 先测同字/字体/分辨率的tokenizer重建、细笔可辨与OCR上限；固定tokenizer、样本暴露与计算，比较共享/分离/部分共享骨干及多任务/单任务、互换模态损失权重。按文字/作者留出报各任务Pareto、训练范数、发散率/seed；交错人评加入OCR/图表/逐事件并独立盲评，报告完整计数/CI及API/pipeline费用。待执行。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        }
+      ],
+      "boundary": "2405.09818v2全部核心Intro/§2–7方法/实验文字，TI–VII、AppB TXI–XIV全表；Fig1、Fig8三子图、Fig12三子图、Fig21胜平负原图视觉。其他生成样例和AppB全部任务完成细表未逐图/逐格核，参考文献未逐篇打开。官方README全文；HF卡401未读，未审全部代码/训练数据/权重、未训练/推理/复现。 核心书面验收，无计时口试/复现。"
+    },
+    {
+      "id": "U05",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "同一Transformer能否按模态采用离散语言CE与连续图像扩散损失，在数据/模型规模受控下减少离散图像量化路线的效率损失，并保留双向图像建模与文本因果性？没有验证连续视频或规范书写过程。 外接生成器增加接口，离散化图像引入额外瓶颈；单一因果mask不适合并行图像去噪。连续表示仍经过有损可能的VAE/裁切，Intro的no information loss仅能理解为避免额外向量量化，不能当像素无损证明。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "文字id/图像VAE连续潜图→linear或U-Net down patch→共享Transformer→词表分布或U-Net up/linear噪声→迭代去噪/VAE解码。图像起止BOI/EOI使任意模态交错；每次去噪覆盖当前图像潜变量，不能注意先前扩散时间步。Fig1/3/4实际视觉。 五规模.16/.37/.76/1.4/7B，Llama-style SwiGLU/RoPE；图内patch互见，后续文字可看前图但前图不可见未来文字。86M VAE把256²→32×32×8，2² latent patch=256序列位置/图；linear参数<.5%，U-Net额外约.27B。Eq1 CE/Eq2前向噪声/Eq3噪声MSE/Eq4 LLM+5LDDPM，连续噪声t加到图像再patch；同一步两目标，不是文字也做扩散。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "文本CE+λ图像噪声MSE共享核心，图内双向/跨模态因果，BOI触发图像去噪后回LM。以匹配VAE/VQ-VAE及多规模对照隔离部分量化差异，再做mask/patch/U-Net/noise消融；比只报告一个大模型更能分析效率，但不能消除所有训练recipe差异。 在连续自然图像生成和图文互转、同预算proxy/适当图像噪声与mask设置下，相对所重训离散量化路线有较高效的经验曲线；U-Net局部归纳偏置有利大patch但任务权衡。对细笔画/动作时间，须另测tokenizer上限与因果图，无书写优势定理，flow替代在v1仅未来方向。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "TIII7B.5T Transfusion vs重训Chameleon：C4 7.72/8.41、Llama61.5/59.1、CIDEr27.2/18.0、FID16.8/29.6；拟合FID ratio.029，caption.218。TIV.76B纯文Llama acc53.7→加diffusion51.7；Chameleon稳定修改51.9→加图token48.9，说明相对代价较小，未证明正迁移超过纯文。TIX最大7.3B/2T FID6.78、GenEval.63，SD3.68更高；跨论文数据/分辨/重排异构。8K编辑SFT仅EmuEdit测试随机例人工观察，无完整定量编辑成功率。 TV .76B线性因果→图内双向FID61.3→20.3，U-Net16.8→16.7，后者内部已有双向attention。TVI大patch下U-Net256/64/16位置FID16.7/16.0/16.1，但Llama51.9/50.7/49.2下降且看更多图；linear16位置FID43.5。TVII7B U-Net仅多3.8%参数仍改善caption27.2→33.7/FID18.6→16.0，支持归纳偏置但非完全等参消融。TVIII图在前时t上限500：.76B CIDEr25.4→29.4，7B33.7→35.2，其他项有小幅权衡。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "VAE压缩/center-crop仍可能丢文字细节；连续不等无损。理论6ND忽略实际attention/外围计算差，不代表部署提速；拟合筛除弱Chameleon点且范围有限，没有普遍幂律定理。比较图像数、stable recipe/学习率也不同，U-Net.27B对小模型占比大，参数缩小到3.8%仍非完全等参。文字加入视觉目标仍下降，不得宣称已证明双向正迁移；lossλ/图文比未全面调、编辑仅定性、真实视频时序未测。 共享/分离/部分共享在同文字样本、同图像样本与同实际FLOPs两种控制下比较，计入VAE/U-Net/attention/训练和250步推理成本；固定codebook/continuous重建质量对照，跨seed报告Pareto。patch×样本暴露×外围等参全因子，控制caption噪声t与原始/干净条件分布。笔事件模型按事件时间限定跨帧mask，测同终图错序与局部细字重建，不从单图双向mask直接迁移为全视频双向可用。待执行。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        }
+      ],
+      "boundary": "2408.11039v1全部核心§1–6及Eq1–4、TI–IX、AppA自编码损失全文；Fig1/3/4实际视觉、Fig5 FID/CIDEr两子图实际视觉，其他四条缩放曲线只表/正文，生成/编辑样例未逐图。OpenReview正式ICLR2025元数据已核，正式PDF未逐页比；无官方训练源码全审/模型运行或独立复现。 核心书面验收，无计时口试/复现。"
     }
   ]
 }

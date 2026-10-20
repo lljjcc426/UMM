@@ -250,11 +250,11 @@
 | S014 | [sketch-diffusion (ark60 independent implementation)](S014.md) | notebook关键数据处理/attention/model/diffusion/trainer/config/evaluation及保存输出；未执行notebook、未下载数据权重；保存输出的运行环境和文件对应仍待核 |
 | S015 | [VidSketch sketch animation implementation](S015.md) | 官方README核心/许可；candles.yaml全文、train_vidsketch.py初始化/参数选择/优化器/主损失、inference.py adapter加载段；未全读所有模块或执行；blob config cd2b32c8df4a8564a156727b86f561dc81d3c95c/train 9d459e78da5e058be84b656ddd881b12ab7f5ecc |
 | S016 | [BCSS Stroke-Seg implementation](S016.md) | 官方README全部、recursive tree、FCN.py与deeplab.py全文、LabelMe01字段；未执行、未读全部子模块，未取得主表checkpoint |
-| U01 | [Chameleon: Mixed-Modal Early-Fusion Foundation Models](U01.md) | §2.1–2.4，Tables1–2/7，训练稳定性曲线 |
+| U01 | [Chameleon: Mixed-Modal Early-Fusion Foundation Models](U01.md) | 2405.09818v2全部核心Intro/§2–7方法/实验文字，TI–VII、AppB TXI–XIV全表；Fig1、Fig8三子图、Fig12三子图、Fig21胜平负原图视觉。其他生成样例和AppB全部任务完成细表未逐图/逐格核，参考文献未逐篇打开。官方README全文；HF卡401未读，未审全部代码/训练数据/权重、未训练/推理/复现。 |
 | U02 | [Emu3: Next-Token Prediction is All You Need](U02.md) | §2数据/模型，Tables1–3/7–8及视频VBench表 |
 | U03 | [Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation](U03.md) | §3训练目标/阶段，§4.1/Table1，§4.5/Table5 |
 | U04 | [Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling](U04.md) | §2.1–2.3，训练Table2，§3.1及主评测表 |
-| U05 | [Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model](U05.md) | §3目标/attention，§4.1，§4.3/Table5及patchsize讨论 |
+| U05 | [Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model](U05.md) | 2408.11039v1全部核心§1–6及Eq1–4、TI–IX、AppA自编码损失全文；Fig1/3/4实际视觉、Fig5 FID/CIDEr两子图实际视觉，其他四条缩放曲线只表/正文，生成/编辑样例未逐图。OpenReview正式ICLR2025元数据已核，正式PDF未逐页比；无官方训练源码全审/模型运行或独立复现。 |
 | U06 | [Show-o: One Single Transformer to Unify Multimodal Understanding and Generation](U06.md) | §4.1/Table1，Table4及表示选择研究 |
 | U17 | [Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System](U17.md) | 摘要，§3/Table1与探针，Tables4–5，系统任务说明和SVG诊断附录 |
 | U18 | [Transferability Between Understanding and Generation in Unified Multimodal Models](U18.md) | §3–5；Tables1/3/4/10/11/12；Appendix0.A、0.B.2、0.C、0.E |
