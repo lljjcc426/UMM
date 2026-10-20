@@ -228,3 +228,8 @@ LoRA的ΔW低秩不要求总W低秩；DoRA模长缩放可能使总ΔW超r秩，�
 ## 第五十一批补充
 
 四model汇总Pearson/秩相关与逐样本校准不同；VBench A5主体重算Pearson.9650757、Spearman.8，原caption称Spearman需代码核。整帧相似度/代理光流/插帧不直接保证局部过程，分母可评覆盖率必报。FVD两矩近似/有限样本偏差/固定层与预处理、batch16和评价总N分别理解；BAIR50点经验非通用。
+
+
+## 第五十二批补充
+
+ContentBias：S/ST空间FID近似匹配不等完全控制所有图像因素；敏感性不等真实排序校准；经验null space不等线性空间。softmax权重优化只改选择，冻结只固定无运动，独立参考与唯一N/有效样本量需报。主FeatureStats协方差除N、辅助torch cov除N−1分开；当前默认VideoMAE经过监督微调。

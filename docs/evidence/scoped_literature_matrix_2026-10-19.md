@@ -187,3 +187,8 @@ G028/G029均历史静态图任务，GAN快采样/对抗反馈与VAE摊销推断/
 ## 第五十一批补充
 
 G031评价16维、G032评价视频分布＋SCV可控任务，均非新书写生成器。官方源码snapshot、arXiv/正式表差异、人评model排行/样本能力、固定端点总分/雷达重标分列。详[第五十一批](video_evaluation_vbench_fvd_protocol_and_scope_2026-10-20.md)。
+
+
+## 第五十二批补充
+
+新增G033评价分析/嵌入替换与工程制品，不新增视频生成器；数据六既有集，四生成器仅诊断，原T3百分比纠错与真实分数分列。详[第五十二批](content_bias_fvd_temporal_sensitivity_and_resampling_2026-10-20.md)，core120/written122。

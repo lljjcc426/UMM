@@ -276,3 +276,8 @@ G028 1406.2661v1核心/Algorithm1/Proposition1/2与Theorem1完整证明、T1/2�
 ## 第五十一批补充
 
 G031 arXiv2311.17982v1核心/G–M指定段与T1/A5、Fig2/5/A11；正式CVPR PDF Fig1/T1/Fig5caption，CogVideo背景95.42→96.20差异。G032 arXiv1812.01717v2核心/AppA/B/C/Fig3–6、正式关联workshop身份/摘要。固定VBench fd18b3d及GoogleFVD 3ef52111指定源码。追引++2411.13503/2.0 2503.21755/ContentBias2404.12391仅原摘要与README，待全文入库，不算完成。
+
+
+## 第五十二批补充
+
+G033精读2404.12391v1核心/Eq1/2/T1–7/AppA/B说明，CVPR2024正式身份与PDF Fig2/3/4/6/7/9、T2/3视觉，项目因子部分图/T2/T3。固定a1e037ab源码范围详笔记；T3绝对分差误标百分比在三来源一致，按原分重算。未检查全部动画/依赖/权重。++/2.0全文待精读，不算完成。

@@ -220,3 +220,8 @@ ControlNet1.0官方ed85cd1所列教程/关键实现已交叉核：fill50k RGB归
 ## 第五十一批补充
 
 第五十一批选读论文关联评价工程制品：[VBench固定代码](https://github.com/Vchitect/VBench/tree/fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490)的dynamic/flicker/subject/background/constant与README指定章节、[GoogleFVD固定实现](https://github.com/google-research/google-research/tree/3ef52111c1fabc301880818f5a547570e926a76b/frechet_video_distance)的README/FVD.py全文。记录阈值/采帧/聚合、固定端点与权重、RGB/resize/I3D层/batch16依赖；未安装/运行、未全核外部库/权重。见[工程细节](../evidence/video_evaluation_vbench_fvd_protocol_and_scope_2026-10-20.md)与[G031](../reviews/G031.md)/[G032](../reviews/G032.md)，未另增独立论文或资源条目。
+
+
+## 第五十二批补充
+
+新增关联[ContentBias固定工程制品](https://github.com/songweige/content-debiased-fvd/tree/a1e037ab7cb087debd2221d14ae4a001ec054201)与[G033](../reviews/G033.md)：README/FVD/加载/统计全文和采样/时间插值选段。real=full/fake2048/seed42、数据不足重复、缓存seed0、SSv2微调checkpoint、不同输入路径/范围明确；未下载权重/运行。论文及制品关联，不重复增独立资源数。

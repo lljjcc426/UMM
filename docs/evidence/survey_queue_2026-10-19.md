@@ -239,3 +239,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第五十一批深化VBench/FVD核心、既有验证与固定官方评价代码：344项目录，119核心三遍、121五条书面检查。保留VBench版本/相关系数名称差异、FVD样本偏差及非全胜结果；++/2.0和ContentBias继续追读。见[本批审查](video_evaluation_vbench_fvd_protocol_and_scope_2026-10-20.md)与[逐文件说明](fifty_first_changes_2026-10-20.md)。无训练、推理或独立复现；剩余工作继续。
+
+
+第五十二批新增并精读Content Bias G033：345项目录（319研究／26资源），核心三遍120、五条书面检查122。核同空间质量扰动、冻结重采样、长视频反例与固定实现，纠正T3把分差标百分比的错误；见[本批审查](content_bias_fvd_temporal_sensitivity_and_resampling_2026-10-20.md)和[逐文件说明](fifty_second_changes_2026-10-20.md)。未删除文件、训练、推理或独立复现，全部剩余工作继续。

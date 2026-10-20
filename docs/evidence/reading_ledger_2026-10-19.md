@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 344 条，本批有 344 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 345 条，本批有 345 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 核心三遍完成需逐条核问题/方法/框架图、主表/消融及有依据的批判分析，并记录五项书面检查。计时口试、完整代码审查和独立复现另列；没有自动把模板填齐计为完成。
 
@@ -350,3 +350,4 @@
 | F07 | Synthesizing Programs for Images using Reinforced Adversarial Learning (SPIRAL) | primary_sections_read | [结构化分析](../reviews/F07.md) | 核心三遍与五项检查完成 |
 | R10 | Stable Diffusion VAE ft-EMA / ft-MSE：兼容KL-f8的解码器适配资源组 | primary_sections_read | [结构化分析](../reviews/R10.md) | 未完成 |
 | R11 | CogVideoX Diffusers微调与检查点配置资源组 | primary_sections_read | [结构化分析](../reviews/R11.md) | 未完成 |
+| G033 | On the Content Bias in Fréchet Video Distance | primary_sections_read | [结构化分析](../reviews/G033.md) | 核心三遍与五项检查完成 |
