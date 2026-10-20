@@ -296,3 +296,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第七十批（2026-10-21）补完L086 JanusFlow（CVPR2025）/L092 Harmon（ICCV2025）正式核心与书面检查，350目录、153核心/155书面，197项尚未确认核心三遍（含资源）。补正式表号/反例、实际框架与协同图、VAE/采样成本及HF后续decoder微调制品，见[审查](janusflow_harmon_shared_representation_audit_2026-10-21.md)、[逐文件说明](seventieth_changes_2026-10-21.md)。无新增独立论文/删除/模型复现。
+
+
+第七十一批（2026-10-21）补完G027 EDM正式核心，350目录、154核心/156书面，196条未确认核心三遍（含资源）。修订NFE/FID摘要、最低三次/检查点选择统计、数值/训练因果与书写增广条件，见[审查](edm_numerics_training_and_selection_audit_2026-10-21.md)、[逐文件说明](seventy_first_changes_2026-10-21.md)。无删除或模型复现。

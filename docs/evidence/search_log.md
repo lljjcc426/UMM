@@ -371,3 +371,8 @@ G038正式ICML2025 PMLR267/song25b全文核心、AppA–D理论/协议文字与�
 ## 第七十批补充（2026-10-21）
 
 L086 CVPR2025正式全文核心/独立supp A–E、真实Fig2/T4/5；L092 ICCV2025正式核心/supp S1–4/T S1/S2、真实Fig4/6/T5–7。固定Janus1daa72f/HFba75944、Harmon4eb6087/HF4cc9763，公开README/FINETUNE/配置与指定采样代码。仅decoder BLIP3o60K后续.85制品独立记录，不回填正式.76。
+
+
+## 第七十一批补充（2026-10-21）
+
+G027 NeurIPS2022正式核心全文、独立supp B2–6/C3.4/D/E/F，实际Alg1/T2/F5及supp T3/4；固定NVlabs/edm008a4e5 README/loss/EDMPrecond/指定sampler与Adam/train配置。最低三次FID、选检查点与两栏摘要核查，无权重或执行。

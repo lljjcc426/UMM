@@ -328,7 +328,7 @@
 | G024 | StrokeFusion: Vector Sketch Generation via Joint Stroke-UDF Encoding and Latent Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G024.md) | 未完成 |
 | G025 | Adding Conditional Control to Text-to-Image Diffusion Models | primary_sections_read | [结构化分析](../reviews/G025.md) | 核心三遍与五项检查完成 |
 | G026 | Classifier-Free Diffusion Guidance | primary_sections_read | [结构化分析](../reviews/G026.md) | 核心三遍与五项检查完成 |
-| G027 | Elucidating the Design Space of Diffusion-Based Generative Models | primary_sections_read | [结构化分析](../reviews/G027.md) | 未完成 |
+| G027 | Elucidating the Design Space of Diffusion-Based Generative Models | primary_sections_read | [结构化分析](../reviews/G027.md) | 核心三遍与五项检查完成 |
 | G028 | Generative Adversarial Nets | primary_sections_read | [结构化分析](../reviews/G028.md) | 核心三遍与五项检查完成 |
 | G029 | Auto-Encoding Variational Bayes | primary_sections_read | [结构化分析](../reviews/G029.md) | 核心三遍与五项检查完成 |
 | G030 | Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G030.md) | 核心三遍与五项检查完成 |

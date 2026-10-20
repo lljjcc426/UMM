@@ -315,3 +315,8 @@ G038 GitHub530f8bf/HF0959def配套DFoT/BD/SD/FS/FT与VAE、I3D/RAFT、RE10K档�
 ## 第七十批补充（2026-10-21）
 
 L092配套GitHub4eb6087提供FINETUNE与decoder-only BLIP3o60K后续-o模型，作者报GenEval.85（正式.76），公开example freeze_llm=False不能当该配方；原HF4cc9763目录与JanusFlow HFba75944/代码1daa72f已核，未下权重。MIT/DeepSeek模型许可正文分列，代码prefix cache空list静态问题不当执行结论。见[审查](../evidence/janusflow_harmon_shared_representation_audit_2026-10-21.md)。
+
+
+## 第七十一批补充（2026-10-21）
+
+G027配套固定NVlabs/edm008a4e5包含公开checkpoint/FID统计/训练与数据工具；README/loss/预条件及指定配置已读。新ImageNet/原ADM各有reference统计，采样状态FP64而网络FP32/可FP16；未下载/反序列化权重或执行。见[审查](../evidence/edm_numerics_training_and_selection_audit_2026-10-21.md)。
