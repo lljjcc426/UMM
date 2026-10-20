@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 347 条，本批有 347 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 349 条，本批有 349 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 核心三遍完成需逐条核问题/方法/框架图、主表/消融及有依据的批判分析，并记录五项书面检查。计时口试、完整代码审查和独立复现另列；没有自动把模板填齐计为完成。
 
@@ -353,3 +353,5 @@
 | G033 | On the Content Bias in Fréchet Video Distance | primary_sections_read | [结构化分析](../reviews/G033.md) | 核心三遍与五项检查完成 |
 | G034 | VBench++: Comprehensive and Versatile Benchmark Suite for Video Generative Models | primary_sections_read | [结构化分析](../reviews/G034.md) | 核心三遍与五项检查完成 |
 | G035 | VBench-2.0: Advancing Video Generation Benchmark Suite for Intrinsic Faithfulness | primary_sections_read | [结构化分析](../reviews/G035.md) | 核心三遍与五项检查完成 |
+| G036 | RePaint: Inpainting using Denoising Diffusion Probabilistic Models | primary_sections_read | [结构化分析](../reviews/G036.md) | 核心三遍与五项检查完成 |
+| G037 | A Theoretical Justification for Image Inpainting using Denoising Diffusion Probabilistic Models | primary_sections_read | [结构化分析](../reviews/G037.md) | 核心三遍与五项检查完成 |

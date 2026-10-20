@@ -188,3 +188,6 @@ python scripts/validate_catalog.py
 
 
 第六十四批（2026-10-21）补完N10视频文字保持、N11 CalliffusionV2、N12 CalliPaint核心：347目录、143核心/145书面，204项尚未确认核心三遍（含资源）。明确无量化/消融、额外参考信息和四选人评证据限制；确认CalliPaint为NeurIPS2023 Workshop。见[审查](docs/evidence/calligraphy_inpainting_and_video_text_evidence_audit_2026-10-21.md)、[逐文件说明](docs/evidence/sixty_fourth_changes_2026-10-21.md)。无删除/独立复现；RePaint原始方法与剩余条目继续。
+
+
+第六十五批（2026-10-21）补录G036原RePaint与G037线性理论：349目录、145核心/147书面，204项尚未确认核心三遍（含资源）。核同预算消融/固定实现差异及有效mask条件，记录Th8的局部总体矩反例，未模型复现。见[审计](docs/evidence/repaint_sampling_and_linear_theory_audit_2026-10-21.md)、[逐文件说明](docs/evidence/sixty_fifth_changes_2026-10-21.md)。无删除，旧条目/跨领域覆盖继续。

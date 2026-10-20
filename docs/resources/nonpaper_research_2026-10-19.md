@@ -285,3 +285,8 @@ AnyText固定3d4a260当前train.py为200K子集示例，v1.1依赖社区Realisti
 ## 第六十四批补充（2026-10-21）
 
 N10训练教师链Sora与T2I→I2V不一致，未核公开数据/配置/权重；N11缺UniPC步数、LoRA秩/target/预算，N12缺RePaint调度配置。资源未找到或未披露明确记缺，未用基础模型/相关工作的示例倒填实际条件；RePaint官方实现列后续补读。见[证据边界](../evidence/calligraphy_inpainting_and_video_text_evidence_audit_2026-10-21.md)。
+
+
+## 第六十五批补充（2026-10-21）
+
+已读RePaint固定8e2a055 README、face示例与指定scheduler/gaussian_diffusion路径：代码重构未全重评，实际keep mask/注入时序、NFE与参数字段需单列。未下载权重/核完整训练保存，示例不填充CalliPaint缺项；附本仓库stdlib理论审计脚本及输出。见[审计](../evidence/repaint_sampling_and_linear_theory_audit_2026-10-21.md)。
