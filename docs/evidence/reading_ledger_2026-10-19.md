@@ -20,11 +20,11 @@
 | B01 | Calliffusion: Chinese Calligraphy Generation and Style Transfer with Diffusion Modeling | primary_sections_read | [结构化分析](../reviews/B01.md) | 核心三遍与五项检查完成 |
 | B02 | Moyun: A Diffusion-Based Model for Style-Specific Chinese Calligraphy Generation | primary_sections_read | [结构化分析](../reviews/B02.md) | 核心三遍与五项检查完成 |
 | B03 | InkDiffuser: High-Fidelity One-shot Chinese Calligraphy via Differentiable Morphological Optimization | primary_sections_read | [结构化分析](../reviews/B03.md) | 核心三遍与五项检查完成 |
-| B04 | AnyText2: Visual Text Generation and Editing With Customizable Attributes | primary_sections_read | [结构化分析](../reviews/B04.md) | 未完成 |
-| B05 | Kinetic Typography Diffusion Model（KineTy） | primary_sections_read | [结构化分析](../reviews/B05.md) | 未完成 |
-| B06 | Dynamic Typography: Bringing Text to Life via Video Diffusion Prior | primary_sections_read | [结构化分析](../reviews/B06.md) | 未完成 |
-| B07 | Inverse Painting: Reconstructing the Painting Process | primary_sections_read | [结构化分析](../reviews/B07.md) | 未完成 |
-| B08 | AnimatePainter（arXiv:2503.17029） | primary_sections_read | [结构化分析](../reviews/B08.md) | 未完成 |
+| B04 | AnyText2: Visual Text Generation and Editing With Customizable Attributes | primary_sections_read | [结构化分析](../reviews/B04.md) | 核心三遍与五项检查完成 |
+| B05 | Kinetic Typography Diffusion Model（KineTy） | primary_sections_read | [结构化分析](../reviews/B05.md) | 核心三遍与五项检查完成 |
+| B06 | Dynamic Typography: Bringing Text to Life via Video Diffusion Prior | primary_sections_read | [结构化分析](../reviews/B06.md) | 核心三遍与五项检查完成 |
+| B07 | Inverse Painting: Reconstructing the Painting Process | primary_sections_read | [结构化分析](../reviews/B07.md) | 核心三遍与五项检查完成 |
+| B08 | AnimatePainter（arXiv:2503.17029） | primary_sections_read | [结构化分析](../reviews/B08.md) | 核心三遍与五项检查完成 |
 | B09 | DiffMath: Symbol- and Graph-Aware Latent Diffusion Transformer for Handwritten Mathematical Expression Generation | primary_sections_read | [结构化分析](../reviews/B09.md) | 核心三遍与五项检查完成 |
 | C01 | Emerging Properties in Unified Multimodal Pretraining（BAGEL） | primary_sections_read | [结构化分析](../reviews/C01.md) | 未完成 |
 | C02 | Show-o2: Improved Native Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/C02.md) | 未完成 |

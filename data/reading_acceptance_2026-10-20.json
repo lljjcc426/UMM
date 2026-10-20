@@ -2053,6 +2053,176 @@
         }
       ],
       "boundary": "核心问题/方法公式、框架图、主结果及现有消融/缺项、批判性分析和五条书面检查完成；未逐图全附录、未完整源码审计或独立运行。缺失报告与冲突保留，不以口试/复现作为核心阅读额外门槛。"
+    },
+    {
+      "id": "B04",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "AnyText2要改善静态场景文字的行级内容/位置/字体/颜色控制及条件计算耗时。WriteNet一次算辅助条件，AttnX注入主U-Net，并扩充文本embedding。主表准确率和速度改善，但颜色、长caption等消融有准确率退化，不能概括所有控制同时无代价提升。",
+          "evidence": "核心问题/动机与独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2/3中多行文本/布局/字体颜色先做glyph/position/font/color embedding，placeholder进入CLIP；WriteNet取辅助图和文字条件，缓存结果供每个扩散步主U-Net经AttnX调用。输入编辑mask可保局部，输出512平方静态图，没有真实时间维。",
+          "evidence": "v1p4 Fig2/3及p8表已渲染视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "一次计算的条件分支不需要可变噪声图和步，省重复计算；font OCR可训与glyph OCR冻结分工不同，前者要保字体差异。代码用零step仍保常量time MLP，所以不能说代码彻底删除time MLP。位置/字体/颜色监督有伪标与互扰。",
+          "evidence": "核心公式与模块职责，公开实现范围详笔记"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "长prompt英文SenACC .8175对AnyText .7242是+9.33pp；中文+3.33pp。Table2加颜色英ACC .5926→.5732，WriteNet令FID改善但ACC略降。Table3长caption CLIP改善同时中文ACC下降；15epoch公开默认与10epoch主表不应混用。",
+          "evidence": "主表及现有消融逐值核，缺项/矛盾保留"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "颜色伪标缺失/错误会不会造成控制偏差？定性手调加多次选优在相同信息和采样次数下还能胜吗？AnyText1已有静态多语言场景文字，KineTy已有字形动画，二者都不能替代规范笔顺任务，应分静态/动画/事件评价。",
+          "evidence": "原文失败/评估限制与已读关联先例"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架图/主表/现有消融及批判阅读与五条书面答案完成；未逐图全附录或完整源码审计，未运行模型。论文缺失或冲突保留，不补造结果。"
+    },
+    {
+      "id": "B05",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "KineTy用专业模板派生短Latin动画，分开文字、外观与效果条件，解决一般视频模型文字不清及效果控制不足。FVD主表较好，但TextDiffuser+SparseCtrl OCR .90高于本法.76；IS方向与标准定义冲突，不能全指标领先。",
+          "evidence": "核心问题/动机与独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig4空间U-Net先学末帧、时间模块再学24帧；静态caption接空间attention、动态caption接时间attention、带大小写分隔的字串CLIP另注入。输入短文字和两个prompt，输出RGB动效，不是逐笔轨迹。",
+          "evidence": "ECCV正式p7 Fig4与p11 Table2已渲染视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "条件分离让效果不必挤入同一prompt，字条件给字符身份。论文Eq8是末帧mask加权噪声MSE，但固定代码decode ε并做末帧像素L1，未转换x0，需先定位实际训练版本再做机制归因，静态差异不等已证结果错误。",
+          "evidence": "核心公式与模块职责，公开实现范围详笔记"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table4去效果分离FVD125.9→729.8，支持该分工；去glyph OCR .76→.75差小无CI且emphasis反向。IS full1.77对无字1.74按作者↓也不优。测试26词×584模板与训练共享模板，不能推未见模板泛化。",
+          "evidence": "主表及现有消融逐值核，缺项/矛盾保留"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "模板leave-out后效果是否仍可控？同预算数据训练两阶段基线后FVD优势多大？DynamicTypography已有矢量字母语义动画，规范书写需新增真实笔事件标注，不能以动效像书写便判任务等价。",
+          "evidence": "原文失败/评估限制与已读关联先例"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架图/主表/现有消融及批判阅读与五条书面答案完成；未逐图全附录或完整源码审计，未运行模型。论文缺失或冲突保留，不补造结果。"
+    },
+    {
+      "id": "B06",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "DynamicTypography按语义提示形变并动画化单个字母，保可辨识与结构。它将shared canonical和时变deformation一起用视频先验SDS优化，每例1000步。不是摹写历史，字形相似与动态幅度存在取舍。",
+          "evidence": "核心问题/动机与独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2字体Bezier点先canonical MLP形变，再local/global deformation生各帧点，diffvg渲染经VAE和冻结视频先验求SDS。LPIPS约束canonical，三角角度和transition连接各帧，输出SVG序列与RGB动画，无笔尖。",
+          "evidence": "ICCV正式p3 Fig2与p7表已渲染视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "共享形状避免逐帧独立漂移，角度约束保局部结构，transition平滑；unsigned三角角度不保证方向或无自交，代码边归一加.1也不是严格角度。调大transition会压运动，不能把静态一致性当成功运动。",
+          "evidence": "核心公式与模块职责，公开实现范围详笔记"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1 PIC .5302/T2V21.4391较高，但相邻CLIP .9963劣DynamiCrafter .9979；Table2去legibility使PIC降.4924，但warp .0156优full .0165。101人808回答本法395票48.89%，不是三项独立胜率，需考虑重复题项。",
+          "evidence": "主表及现有消融逐值核，缺项/矛盾保留"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "带内洞和多轮廓汉字是否真保拓扑？相同init/优化预算且惩罚静止后优势是否保持？KineTy已生成Latin效果动画，本法矢量控制是另一接口；共同先例否定笼统无文字动画研究说法，仍未验证规范笔顺。",
+          "evidence": "原文失败/评估限制与已读关联先例"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架图/主表/现有消融及批判阅读与五条书面答案完成；未逐图全附录或完整源码审计，未运行模型。论文缺失或冲突保留，不补造结果。"
+    },
+    {
+      "id": "B07",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "InversePainting从最终画重建合理的语义区域更新过程，真实landscape视频训练短指令、mask和下一画布模块。294视频被处理成粗关键帧，无法唯一反演原历史。主表支持该域过程相似，但无逐笔动作证明。",
+          "evidence": "核心问题/动机与独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig3目标/当前canvas交LLava得短文本，text+time+当前/目标及LPIPS差交mask U-Net，再给ReferenceNet/当前mask条件renderer生下一帧，AR回馈。扩散s、物理Δt和步骤t职责不同；输出canvas序列而非接触动作。",
+          "evidence": "v2p4 Fig3与p8 Table1已渲染视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "语义—区域—渲染三层减少单一pixel模型的负担，target reference保外观、time控更新量。训练用GT条件而rollout自产条件，仍有exposure gap；公开预处理[current,target]与主图顺序不同需记录，不凭图替实现。",
+          "evidence": "核心公式与模块职责，公开实现范围详笔记"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1 LPIPS .364/IoU .418/DDC32.66好于SVD .500/.197/135.5，去mask降.435/.175/61.09。supp oracletext mask .70、预测text .64显示传播。IoU取跨时最大忽略顺序，DDC时长标定影响大，不能当真实笔序正确率。",
+          "evidence": "主表及现有消融逐值核，缺项/矛盾保留"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "错误停滞也会达到连续LPIPS停止阈值，完成度怎样独立量？同训练预算与统一时间标定后过程优势怎样？PaintTransformer/ProcessPainter已有绘画合成，AnimatePainter后续合成深度也处理短过程；创新需限定真实视频语义分解与域内因果证据。",
+          "evidence": "原文失败/评估限制与已读关联先例"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架图/主表/现有消融及批判阅读与五条书面答案完成；未逐图全附录或完整源码审计，未运行模型。论文缺失或冲突保留，不补造结果。"
+    },
+    {
+      "id": "B08",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "AnimatePainter从目标图生短绘画clip，用SBR逆擦除合成和深度分层DF条件替代昂贵真人数据。主量化终帧外观改善，测试没有GT过程，DDC理论曲线未定义足，所以未证明真实人类画法或执行能力。",
+          "evidence": "核心问题/动机与独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig3 COCO经PaintTransformer/FRIDA造stroke图和逆擦除帧；估深度按等像素十层，VAE/MLP/crossattention把分层信号给AnimateDiff+SparseCtrl，mask内噪声loss训练。输出整clip RGB，仍多步扩散，非一轮denoise。",
+          "evidence": "v1p3 Fig3与p7 Table2已渲染视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "密度/方向逆擦除把终画变成粗细顺序监督，depth条件协调大区域；这带来强规则先验，不等学会所有人类画法。训练stroke控制和测试自然图域差作者承认，深度是辅助信号，不能代替笔事件。",
+          "evidence": "核心公式与模块职责，公开实现范围详笔记"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table2 CLIP .698/FID66.235/DDC1.238；Timecraft SSIM .550仍高于本法.524。去DF CLIP .090，去DL .530，但文把后者同时去DF和layer，不能独立归因层条件。声称7变体而现有表仅三行，缺项按缺项记录。",
+          "evidence": "主表及现有消融逐值核，缺项/矛盾保留"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "静止终图/线性淡入能否在这些终帧与理论DDC指标拿高分？无深度插画或不同人类画法是否退化？ProcessPainter和InversePainting已先有painting video工作，首个video绘画模型需限定范围；本作不支持普遍首次或规范笔顺结论。",
+          "evidence": "原文失败/评估限制与已读关联先例"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架图/主表/现有消融及批判阅读与五条书面答案完成；未逐图全附录或完整源码审计，未运行模型。论文缺失或冲突保留，不补造结果。"
     }
   ]
 }

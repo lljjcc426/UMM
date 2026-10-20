@@ -20,11 +20,11 @@
 | B01 | [Calliffusion: Chinese Calligraphy Generation and Style Transfer with Diffusion Modeling](B01.md) | arXivv1完整核心方法/实验；ICCC正式五页Abstract/Intro/Method Eq1–5/Fig2、数据/配方、主Tables1/2及Limitations/Conclusion交叉核，正式PDFp2框架图视觉核。未运行或取得完整配方；核心三遍/五项书面检查完成。 |
 | B02 | [Moyun: A Diffusion-Based Model for Style-Specific Chinese Calligraphy Generation](B02.md) | v2 Abstract/Intro/Related/§3全部、§4全部Tables1/2及§5，PDFp3 Fig2、p4方法、p7 Table2视觉核；Crossref DOI主办登记数据核到McGE workshop/pp19–26。未读全部参考原文、未取得完整实现或运行；核心三遍完成，缺消融明确记录。 |
 | B03 | [InkDiffuser: High-Fidelity One-shot Chinese Calligraphy via Differentiable Morphological Optimization](B03.md) | v1 Abstract/Intro/Related、§III背景、§IV Eq1–21、§V TablesI–III/§VI核心完整读；PDFp4 Fig2/p5 Eq11/12视觉核。固定4d9f6c1先前已核配置/train入口，本批重读dis_loss.py1–130软形态实现；未完整跑代码或逐图全例。核心三遍与五项书面检查完成。 |
-| B04 | [AnyText2: Visual Text Generation and Editing With Customizable Attributes](B04.md) | 方法框架、训练/推理配置与对比来源说明；数表待补 |
-| B05 | [Kinetic Typography Diffusion Model（KineTy）](B05.md) | 数据/架构、训练设置与基线；主数表待补 |
-| B06 | [Dynamic Typography: Bringing Text to Life via Video Diffusion Prior](B06.md) | 方法、数据和实现/公平比较设置；消融数表待补 |
-| B07 | [Inverse Painting: Reconstructing the Painting Process](B07.md) | §1、3、4、Fig3/5；Appendix A.3、B.3/B.5/B.6 |
-| B08 | [AnimatePainter（arXiv:2503.17029）](B08.md) | Abstract、§4.1/4.2、Table2；完整结构消融尚未抽全 |
+| B04 | [AnyText2: Visual Text Generation and Editing With Customizable Attributes](B04.md) | v1 Abstract/Intro/Related、§3 Eq1–4/§4/§5 Tables1–3/§6、AppA–D文字；PDFp4 Fig2/3与p8表视觉核。固定b06c583 README/train.py/eval_dgocr.py全文及cldm.py354–385/505–542缓存路径已读；未审完embedding_manager或全部附录示例，未执行。核心三遍及五条书面检查完成。 |
+| B05 | [Kinetic Typography Diffusion Model（KineTy）](B05.md) | ECCV正式Abstract/Intro/Related、§3数据、§4 Eq1–8、§5 Tables2–4/人评/§6；PDFp7 Fig4和p11 Table2视觉核。固定a83f29c README/数据构建README/config/dataset.py全文，train.py325–378/385–430损失路径已读。标准IS原文§4核；未逐行全库/完整指标脚本/外部附录或运行，核心三遍完成。 |
+| B06 | [Dynamic Typography: Bringing Text to Life via Video Diffusion Prior](B06.md) | ICCV正式Abstract/Intro/Related、§3/§4 Eq1–7、§5 Tables1/2/人评/控制点/§6完整核心文字；PDFp3 Fig2、p7表视觉核。固定8e092ae README全文、losses.py1–145/185–末、dynamicTypography.py参数/264–292/330–386、painter_dTypo.py234–340/417–485已读；未全库/附录逐图/运行，核心三遍完成。 |
+| B07 | [Inverse Painting: Reconstructing the Painting Process](B07.md) | v2核心Abstract/Intro/Related/§3 Eq1–3/§4 Table1/§5，suppAppA1–5/B1–6核心配方/评估/人评/传播文本；PDFp4 Fig3与p8 Table1视觉核。固定3a27592 README、两个train yaml和make_list.py全文已读；demo仅定位调用，未完整text内部/全代码/其余定性附录或运行。核心三遍完成。 |
+| B08 | [AnimatePainter（arXiv:2503.17029）](B08.md) | v1 Abstract/Intro/Related、§3 Eq1–7/§4 Tables1–2/§5/§5.1核心完整文字；PDFp3 Fig3/p7 Table2视觉核。未在已核来源取得训练代码或补充协议，未逐图全例/运行。核心三遍与五项书面检查完成，缺项保留。 |
 | B09 | [DiffMath: Symbol- and Graph-Aware Latent Diffusion Transformer for Handwritten Mathematical Expression Generation](B09.md) | v2 Abstract/Intro/Related、§3 Eq1–9/§4 Tables1–4/§5，AppAlgorithm1/A1–3/B1–4/C1–2核心文字；PDFp5 Fig4与p9 Table3/4视觉核。固定ec4aa2c公开tree与README全文已读，只有README，未取得训练/推理实现，未逐图读末尾全部案例或执行；核心三遍完成。 |
 | C01 | [Emerging Properties in Unified Multimodal Pretraining（BAGEL）](C01.md) | §2架构/注意力、§3数据Table1、§4训练Table3、§5–6消融与能力曲线、§7主表相关行；附录评判说明；完整硬件与所有表值未逐项核 |
 | C02 | [Show-o2: Improved Native Unified Multimodal Models](C02.md) | §1/3–4完整结构与训练、Tables3–10、§5；未逐图核查、完整附录/代码/高分辨率checkpoint未审 |

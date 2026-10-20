@@ -92,3 +92,8 @@
 ## 第三十二批补充
 
 第三十二批区分字级/行级在线扩散、已知模板静态笔分割、静态书法三标签和LaTeX结构轨迹；Moyun为McGE附属workshop，资源规模不同于实际训练子集。Calliffusion已有三因素与新字符迁移；2020已有在线手写扩散。
+
+
+## 第三十三批补充
+
+AnyText2静态图、KineTy模板派生Latin RGB动效、DynamicTypography字母SVG形变、InversePainting真实粗画布AR、AnimatePainter合成先验短clip分别列界。DDC的真实参考与理论参考不同，不跨论文排名；这五项均未提供规范逐笔执行验证。

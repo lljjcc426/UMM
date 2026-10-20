@@ -130,3 +130,8 @@ Calligraphy Bench官方卡与公开88行不完全一致：82个不同Unicode字�
 ## 第三十二批补充
 
 DiffMath固定ec4aa2c树仅README，代码未发；SDT固定ba1da57默认配方与论文不同且Tamil未同等提供；StrokeExtraction固定2d273e0提供RHSEDB，CCSEDB未见同等下载。论文存在不等配方/数据完整发布，也不能仅因资源有仓库名就判可复现。
+
+
+## 第三十三批补充
+
+KineTy模板版权限制完整584K数据分发，公开构建需许可模板/AfterEffects/Nexrender；DynamicTypography默认参数/运行显存和loss权重可查但逐prompt优化；AnyText2与InversePainting默认训练配置不同于论文。InversePainting HF权重与sample_data不等完整294视频发布。
