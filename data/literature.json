@@ -22358,5 +22358,48 @@
     "method": "设计同一视频逐帧同参数空间扰动S、逐帧独立参数时空扰动ST，以帧FID近似匹配空间退化；分析FVD相对变化。以可微权重重采样探测评价漏洞，并冻结首帧隔离无运动条件；比较I3D、TimeSformer、VideoMAE多变体及两类长视频反例，公开cd-fvd实现。 I3D K400 logits；TimeSformer监督K400/SSv2与VideoMAE-v1/v2预训练PT、K710/SSv2微调等。VideoMAE取pre-logit/编码器patch平均表示，Gaussian两矩距离不变。Eq2用加权均值/协方差对w求导，不更新生成器；perceptual null space是经验可规避性称谓，未证明线性零空间/数学体积。长VideoMAE位置编码插值；当前forward_features时间轴trilinear插值，平均patch后fc_norm，非分类head logits。",
     "conclusion": "T1运动模糊FFS帧FID80.42→79.57，而I3DFVD354.49→367.35(+3.6%)；T5 VideoMAE-SSv2同项199.90→717.08(+258.7%)，支持该受控扰动下更敏感。T2 DIGAN-Sky移动157.13，冻结230.64，经选择降115.55(−49.9%)且低于移动；SSv2冻结408.17→362.84(−11.1%)仍高于移动174.79。T3 SGv128 I3D190.82→LSTM172.71偏好退化，SSv2 332.80→616.74反向；原表百分比多为绝对差值，实际−9.49%/+85.32%，不照抄−18.11%/+283.94%。",
     "gap": "224²缩放难反映高分辨率细节、方形/长宽比预处理与长注意力成本；不同训练数据/配方仍混杂，缺完整独立人类对齐/新模型外推。FVD Gaussian两矩不保证事件、字形、语义/物理规范；更敏感不等普适最准确。冻结选择依评价参考优化，需区别独立heldout。T3原HTML/项目图/正式PDF均将绝对差值标成百分比；保留数值重算。主文64–82称16帧有疑问，未由实现补断。全部视频动画/权重、生成器训练及依赖未核/未运行。"
+  },
+  {
+    "id": "G034",
+    "category": "G 生成理论、视频、绘画与适配",
+    "title": "VBench++: Comprehensive and Versatile Benchmark Suite for Video Generative Models",
+    "source_urls": [
+      "https://arxiv.org/html/2411.13503v1",
+      "https://doi.org/10.1109/TPAMI.2025.3633890",
+      "https://api.crossref.org/works/10.1109/TPAMI.2025.3633890",
+      "https://github.com/Vchitect/VBench/tree/fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490"
+    ],
+    "previous_evidence": "第五十三批全文追引；与原VBench/G031及后继VBench-2.0区分",
+    "claim": "如何扩展原16维T2V评价，使不同默认分辨率/比例的I2V模型得到可诊断评价，并评价跨文化、人群分布及内容安全方面的操作化表现？需验证新增量表与按该维度的人偏好关系，非训练新视频生成器。",
+    "provenance": "2026-10-20 第五十三批追引补录",
+    "verification": "primary_sections_read",
+    "record_type": "paper",
+    "scope": "generative_foundations",
+    "privacy": "public_source_note",
+    "canonical_key": "paper:arxiv:2411.13503",
+    "evidence_history": [],
+    "aliases": [
+      "VBench-I2V",
+      "VBench-Trustworthiness",
+      "VBench-Long (associated engineering module)"
+    ],
+    "note_path": "docs/reviews/G034.md",
+    "review_history": [],
+    "review_path": "docs/reviews/G034.md",
+    "review_depth": "critical_sections_reviewed",
+    "version": "VBench++: Comprehensive and Versatile Benchmark Suite for Video Generative Models；核心精读2411.13503v1（2024-11-20）。官方仓库称TPAMI2025；出版商Crossref注册10.1109/TPAMI.2025.3633890列48(3):3268–3285、2026-03卷期，区分预印本/录用/正式卷期。正式期刊PDF未逐页核，指定年份JCR/中科院分区未核，不直接标SCI一区。",
+    "checked_on": "2026-10-20",
+    "last_updated": "2026-10-20",
+    "sections_read": "2411.13503v1摘要/Intro/Related/III–VI全部核心文字、TI–IV（含TIVb）、Fig1/5/9/10实际视觉；其余图caption/主表对应，未逐格视觉雷达/所有样例。Crossref出版商注册卷期核，正式TPAMI PDF和指定分区未核。固定fd18b3d的I2V主体/背景/camera/crop、trust四评分源码、cal_i2v_final_score全文；constant指定I2V列表，I2V README指定数据/采样/用法、trust README实际采样/方法段、Long README全文。未审全pipeline/utils/权重/数据/长模块实现，未训练/推理。",
+    "dataset": "ImageSuite来自Pexels/Pixabay、按可保主体裁图筛选；面积≥4K约89.8%，双边≥4K约71.2%，两口径不能混。当前README246主体+109背景=355图，镜头109×7=763prompt，共11细内容类。原T2V约100prompt/维、8内容类各100。文化9类×14场景=126；人群6方面×15=90，gender/skin共享；安全90。无规范书写/多语文字/笔事件标注，图量355依当前文档非逐条原数据复验。",
+    "framework": "承接原VBench16维，新增I2V输入主体/背景一致和7类镜头指令、可适配比例ImageSuite、四可信维度（文化/性别/肤色/安全）及新增人评；持续榜单扩32模型。VBench-Long是关联工程模块，VBench-2.0是另一后继论文，不能因beta目录同名而混成一个研究。",
+    "architecture": "原16维专家沿用G031。I2V主体DINOv1、背景DreamSim整图特征，无主体/背景mask保证；当前源码score=.4 max输入-帧cos+.3 mean相邻cos+.3 min相邻cos，负cos截0。镜头CoTracker10×10点，四边中点首末位移和min边长.005阈值启发式，目标在候选集合即得1，非完整相机姿态估计。可信用RetinaFace+BLIP2二类/CLIP六肤色并相邻合三、ViCLIP文化和三安全专家。",
+    "metrics": "16原维＋I2V三新增及7质量＋可信4维；原始百分制代理、模型胜率相关，非逐片正确率。gender1−L1(p,(.5,.5))；skin正文1−L2(p,uniform3)，当前实现额除sqrt(6)/3，3:5:2例正文.784、代码公式.735425。文化当前为候选文化top1准确宏平均，非直接测各群质量差或真实人群公平；安全视频级阈值代理。作者Fig9报告ρ.9421/.8827/.9987；Fig10肤色仅.6864，不写全部高相关。统计名称称Spearman，新增图未独立还原原始人评计算。",
+    "baselines": "T2V表15历史模型及EmpiricalMin/Max/WebVid-Avg参照；I2V七模型DynamiCrafter/SEINE/I2VGenXL/AnimateAnything/ConsistI2V/VideoCrafterI2V/SVDXT1.1。可信六T2V与SD1.4/2.1/SDXL三个T2I；不同任务/维度并非同一总排行。没有新生成器训练或全面评价骨干消融；新增量表以人评验证，不虚构ablation。",
+    "experimental_conditions": "正文按模型默认比例/分辨率比较，允许不同算力/片长，非等预算。当前README每I2V图-prompt5片、CRF10建议；Consist256²/SEINE512×320、8fps16帧；I2VGen1280×720/7fps16；VCI2V16fps32，具体宽高口径按原表保留。trust当前culture5片，gender/skin/safety10片；正文人评每prompt每model10片成组，与culture自动5片分列。T2V五组四模型六配对、随机顺序/平.5，I2V类似；评者总人数/CI/分层一致性、每模型steps/CFG/算力未完整给。当前代码snapshot fd18b3d与2024历史协议分开。",
+    "problem": "如何扩展原16维T2V评价，使不同默认分辨率/比例的I2V模型得到可诊断评价，并评价跨文化、人群分布及内容安全方面的操作化表现？需验证新增量表与按该维度的人偏好关系，非训练新视频生成器。",
+    "method": "承接原VBench16维，新增I2V输入主体/背景一致和7类镜头指令、可适配比例ImageSuite、四可信维度（文化/性别/肤色/安全）及新增人评；持续榜单扩32模型。VBench-Long是关联工程模块，VBench-2.0是另一后继论文，不能因beta目录同名而混成一个研究。 原16维专家沿用G031。I2V主体DINOv1、背景DreamSim整图特征，无主体/背景mask保证；当前源码score=.4 max输入-帧cos+.3 mean相邻cos+.3 min相邻cos，负cos截0。镜头CoTracker10×10点，四边中点首末位移和min边长.005阈值启发式，目标在候选集合即得1，非完整相机姿态估计。可信用RetinaFace+BLIP2二类/CLIP六肤色并相邻合三、ViCLIP文化和三安全专家。",
+    "conclusion": "TIII AnimateAnything I2V主体98.54/背景96.88且dynamic2.68；DynamiCrafter镜头最高35.44、dynamic47.40；SVD背景97.62/闪烁99.17但无camera项，不能填0比较。TIV VC2文化84.92/肤色30.94/安全54.33，但gender14.25低于VC0.9的39.57，未全维领先；SDXL安全65.00/文化89.37，非视频质量指标。TII Kling多物68.05/空间73.03，CogVideoX5B动作99.40但多物62.11略低2B62.63。高保真/静态投机和多维权衡保留。",
+    "gap": "图像筛选偏向主体可完整裁入的小占比，未覆盖所有构图；整图嵌入、相邻一致与单次输入高相似可漏局部变化/全程漂移。camera边界物体/闭环镜头、遮挡、首末规则需独立校准，未由7类准确率保证轨迹物理正确。gender/skin仅预设外观类别、均匀目标和有效脸条件分布，漏检/多脸/低margin排除会改分母；不能当人口属性真值。有限10样本均匀估计也有偏差。文化分类人为选择；安全多数阈值可漏短暂事件。正文/README/实现skin与安全阈值/背景特征不一致，未运行确认历史表采用哪版；正式终版全文未比。"
   }
 ]

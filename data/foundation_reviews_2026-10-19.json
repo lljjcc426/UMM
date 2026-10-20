@@ -760,6 +760,29 @@
       "checked_on": "2026-10-20",
       "reading_status": "critical_sections_reviewed",
       "reproduced": false
+    },
+    {
+      "venue": "VBench++: Comprehensive and Versatile Benchmark Suite for Video Generative Models；核心精读2411.13503v1（2024-11-20）。官方仓库称TPAMI2025；出版商Crossref注册10.1109/TPAMI.2025.3633890列48(3):3268–3285、2026-03卷期，区分预印本/录用/正式卷期。正式期刊PDF未逐页核，指定年份JCR/中科院分区未核，不直接标SCI一区。",
+      "problem": "如何扩展原16维T2V评价，使不同默认分辨率/比例的I2V模型得到可诊断评价，并评价跨文化、人群分布及内容安全方面的操作化表现？需验证新增量表与按该维度的人偏好关系，非训练新视频生成器。",
+      "motivation": "I2V输入图选择、裁切和默认比例会影响质量，原T2V量表不直接测视频对输入图/镜头指令的一致。技术质量也不能代表所定义可信维度；原文的公平/一致/解耦名称不自动证明因果公平、严格时序规则或指标独立。",
+      "contribution": "承接原VBench16维，新增I2V输入主体/背景一致和7类镜头指令、可适配比例ImageSuite、四可信维度（文化/性别/肤色/安全）及新增人评；持续榜单扩32模型。VBench-Long是关联工程模块，VBench-2.0是另一后继论文，不能因beta目录同名而混成一个研究。",
+      "input_output": "精选高分原图→人工标两种极端比例bbox→中间比例裁图/配caption和运动词→各I2V按默认设置采片→DINO/DreamSim/CoTracker等输出分数。T2V可信prompt→每组多片→ViCLIP/人脸分类/安全集成→分组统计及人评胜率。Fig1、5、9/10原图已视觉核；输出评价/数据资源，不输出生成器或笔事件GT。",
+      "architecture": "原16维专家沿用G031。I2V主体DINOv1、背景DreamSim整图特征，无主体/背景mask保证；当前源码score=.4 max输入-帧cos+.3 mean相邻cos+.3 min相邻cos，负cos截0。镜头CoTracker10×10点，四边中点首末位移和min边长.005阈值启发式，目标在候选集合即得1，非完整相机姿态估计。可信用RetinaFace+BLIP2二类/CLIP六肤色并相邻合三、ViCLIP文化和三安全专家。",
+      "data": "ImageSuite来自Pexels/Pixabay、按可保主体裁图筛选；面积≥4K约89.8%，双边≥4K约71.2%，两口径不能混。当前README246主体+109背景=355图，镜头109×7=763prompt，共11细内容类。原T2V约100prompt/维、8内容类各100。文化9类×14场景=126；人群6方面×15=90，gender/skin共享；安全90。无规范书写/多语文字/笔事件标注，图量355依当前文档非逐条原数据复验。",
+      "metrics": "16原维＋I2V三新增及7质量＋可信4维；原始百分制代理、模型胜率相关，非逐片正确率。gender1−L1(p,(.5,.5))；skin正文1−L2(p,uniform3)，当前实现额除sqrt(6)/3，3:5:2例正文.784、代码公式.735425。文化当前为候选文化top1准确宏平均，非直接测各群质量差或真实人群公平；安全视频级阈值代理。作者Fig9报告ρ.9421/.8827/.9987；Fig10肤色仅.6864，不写全部高相关。统计名称称Spearman，新增图未独立还原原始人评计算。",
+      "baselines": "T2V表15历史模型及EmpiricalMin/Max/WebVid-Avg参照；I2V七模型DynamiCrafter/SEINE/I2VGenXL/AnimateAnything/ConsistI2V/VideoCrafterI2V/SVDXT1.1。可信六T2V与SD1.4/2.1/SDXL三个T2I；不同任务/维度并非同一总排行。没有新生成器训练或全面评价骨干消融；新增量表以人评验证，不虚构ablation。",
+      "experimental_conditions": "正文按模型默认比例/分辨率比较，允许不同算力/片长，非等预算。当前README每I2V图-prompt5片、CRF10建议；Consist256²/SEINE512×320、8fps16帧；I2VGen1280×720/7fps16；VCI2V16fps32，具体宽高口径按原表保留。trust当前culture5片，gender/skin/safety10片；正文人评每prompt每model10片成组，与culture自动5片分列。T2V五组四模型六配对、随机顺序/平.5，I2V类似；评者总人数/CI/分层一致性、每模型steps/CFG/算力未完整给。当前代码snapshot fd18b3d与2024历史协议分开。",
+      "results": "TIII AnimateAnything I2V主体98.54/背景96.88且dynamic2.68；DynamiCrafter镜头最高35.44、dynamic47.40；SVD背景97.62/闪烁99.17但无camera项，不能填0比较。TIV VC2文化84.92/肤色30.94/安全54.33，但gender14.25低于VC0.9的39.57，未全维领先；SDXL安全65.00/文化89.37，非视频质量指标。TII Kling多物68.05/空间73.03，CogVideoX5B动作99.40但多物62.11略低2B62.63。高保真/静态投机和多维权衡保留。",
+      "ablation": "已有验证为Fig8/9/10人类与自动model胜率，I2V7模型（camera无SVD为6）、可信6模型；肤色.6864低于其他可信维。正文未给对应原始胜率表、抽样CI或完整逐样本校准，不能把相关当逐片准确率。默认比例设计避免非默认退化，却未隔离输入像素信息/算力差；未见同模型统一比例×默认比例的独立因子表。原16维质量/动态权衡、T2I/视频参照和类内容诊断为比较分析，非新模块因果消融。",
+      "limitations": "图像筛选偏向主体可完整裁入的小占比，未覆盖所有构图；整图嵌入、相邻一致与单次输入高相似可漏局部变化/全程漂移。camera边界物体/闭环镜头、遮挡、首末规则需独立校准，未由7类准确率保证轨迹物理正确。gender/skin仅预设外观类别、均匀目标和有效脸条件分布，漏检/多脸/低margin排除会改分母；不能当人口属性真值。有限10样本均匀估计也有偏差。文化分类人为选择；安全多数阈值可漏短暂事件。正文/README/实现skin与安全阈值/背景特征不一致，未运行确认历史表采用哪版；正式终版全文未比。",
+      "advantage_hypothesis": "I2V需保留输入主内容、模型默认设置异构且关注所定义镜头/可信维时，适配裁图和维度分开可减少部分输入变形与总体分掩盖问题。优势依赖选图/专家/阈值/分布和独立人评；不保证等预算最优、更高文化识别等于广义公平，或自然片相似能判定字符/书写事件正确。",
+      "falsification": "同原图统一像素预算/比例与各默认设置双轨对照，匹配采样/时长/提示优化并报成本；输入主体占比/裁失上下文分层。对单帧保真后漂移、相邻平滑错序/静止和首末相同闭环镜头构造控制片，以局部事件/相机GT独立评估。报face可评覆盖率/NA和逐prompt有效N，bootstrap按prompt/模型分层；均匀基准与抽样误差先校准，不直接把小样本偏离全归模型偏差。可信指标在开发集调阈值、独立人群/模型留出校准；短事件另测召回率。全部待执行。",
+      "writing_lesson": "学习将原benchmark的任务边界逐项扩展：输入条件→数据选择→指标定义→人类验证→多维分析。默认设置公平与等预算公平需明确所回答的问题；“disentangled”“fair”“human-aligned”应给操作化和证据强度。观察工业/学术模型差异或数据量相关只提出假设，未经控制不能归因私有数据/审查。无独立Limitations段时也需据协议写出边界，不代作者虚构已测结论。",
+      "sections_read": "2411.13503v1摘要/Intro/Related/III–VI全部核心文字、TI–IV（含TIVb）、Fig1/5/9/10实际视觉；其余图caption/主表对应，未逐格视觉雷达/所有样例。Crossref出版商注册卷期核，正式TPAMI PDF和指定分区未核。固定fd18b3d的I2V主体/背景/camera/crop、trust四评分源码、cal_i2v_final_score全文；constant指定I2V列表，I2V README指定数据/采样/用法、trust README实际采样/方法段、Long README全文。未审全pipeline/utils/权重/数据/长模块实现，未训练/推理。",
+      "id": "G034",
+      "checked_on": "2026-10-20",
+      "reading_status": "critical_sections_reviewed",
+      "reproduced": false
     }
   ]
 }

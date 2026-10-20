@@ -4229,6 +4229,40 @@
         }
       ],
       "boundary": "2404.12391v1核心§1–6、Eq1/2、T1–7、AppA配置/B重采样说明已读；正式CVF身份和PDF页2/3/5/6/7对应Fig2/3/4/6/7/9及T2/3实际视觉，项目Fig5部分因子图/T2/T3亦核。其余Fig1/8/10/11及动画未完整视觉。固定源码README/FVD.py/VideoMAEv2_utils/I3D_utils/metric_utils全文、data_utils预处理/两类采样选段、videomaev2_finetune时间插值/forward_features及setup已读；未审全部网络/扰动与重采样脚本、外部依赖/权重，未运行。 核心书面三遍，无计时口试、模型训练/推理或独立复现。"
+    },
+    {
+      "id": "G034",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "I2V的输入图/比例异构、对输入/镜头条件一致及可信属性未被原16维完整覆盖。++用ImageSuite、新量表和人评扩展benchmark，不训练新生成器；Long为配套工程，2.0为独立后继。",
+          "evidence": "精确版本核心、主表、人类验证原图、固定评分源码"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig1/5实际视觉：原图筛选→人工两极bbox→中间比例裁图/配prompt→各生成器→专家评分与人评。主体DINO、背景DreamSim；当前.4输入相似最大+.3相邻均值+.3相邻最小。镜头用CoTracker四边首末位移规则；可信为多片群组统计。输出分数/资源，未生成规范笔序。",
+          "evidence": "精确版本核心、主表、人类验证原图、固定评分源码"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "把异构I2V输入设计及文化/人群/安全分开操作化；默认比例避免某些非默认降质，但分辨率/预算仍不同。代码整图相似不保证区域身份，skin归一化与正文不同；文化为分类准确、均匀性为人为参考，不直接等广义公平。",
+          "evidence": "精确版本核心、主表、人类验证原图、固定评分源码"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "TIII AnimateAnything保真高但dynamic2.68，DynamiCrafter镜头35.44最高仍有限，SVD无镜头项；TIV VC2 gender14.25差于VC0.9 39.57，不能称全优。新增评价主要由Fig9/10人类model胜率校准，肤色ρ.6864；未给全面新模块消融/逐片CI，不虚构。原16维表/内容比较为诊断证据。",
+          "evidence": "精确版本核心、主表、人类验证原图、固定评分源码"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "最高单帧输入相似+相邻一致能否漏全程漂移或错序？需同终图事件反例/局部GT。face过滤和每prompt10片会否改偏差估计？报NA/有效N及均匀抽样基准。首末镜头规则能否漏闭环？以轨迹GT测。原VBench/FVD/ContentBias均已精读，2.0全文已取但核心待读，不能用++结论冒称该系列全未解决。",
+          "evidence": "精确版本核心、主表、人类验证原图、固定评分源码"
+        }
+      ],
+      "boundary": "2411.13503v1摘要/Intro/Related/III–VI全部核心文字、TI–IV（含TIVb）、Fig1/5/9/10实际视觉；其余图caption/主表对应，未逐格视觉雷达/所有样例。Crossref出版商注册卷期核，正式TPAMI PDF和指定分区未核。固定fd18b3d的I2V主体/背景/camera/crop、trust四评分源码、cal_i2v_final_score全文；constant指定I2V列表，I2V README指定数据/采样/用法、trust README实际采样/方法段、Long README全文。未审全pipeline/utils/权重/数据/长模块实现，未训练/推理。 核心书面三遍，无计时口试、模型训练/推理或独立复现。"
     }
   ]
 }

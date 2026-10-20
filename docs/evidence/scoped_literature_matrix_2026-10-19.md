@@ -192,3 +192,8 @@ G031评价16维、G032评价视频分布＋SCV可控任务，均非新书写生�
 ## 第五十二批补充
 
 新增G033评价分析/嵌入替换与工程制品，不新增视频生成器；数据六既有集，四生成器仅诊断，原T3百分比纠错与真实分数分列。详[第五十二批](content_bias_fvd_temporal_sensitivity_and_resampling_2026-10-20.md)，core120/written122。
+
+
+## 第五十三批补充
+
+G034为I2V/可信评价、ImageSuite及Long工程关联；G031原VBench和后继2.0分开。输入图默认比例选择、整图DINO/DreamSim、camera启发式与事件真值边界见[第五十三批](vbench_plus_i2v_trustworthiness_protocol_and_implementation_2026-10-20.md)。

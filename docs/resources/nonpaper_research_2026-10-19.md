@@ -225,3 +225,8 @@ ControlNet1.0官方ed85cd1所列教程/关键实现已交叉核：fill50k RGB归
 ## 第五十二批补充
 
 新增关联[ContentBias固定工程制品](https://github.com/songweige/content-debiased-fvd/tree/a1e037ab7cb087debd2221d14ae4a001ec054201)与[G033](../reviews/G033.md)：README/FVD/加载/统计全文和采样/时间插值选段。real=full/fake2048/seed42、数据不足重复、缓存seed0、SSv2微调checkpoint、不同输入路径/范围明确；未下载权重/运行。论文及制品关联，不重复增独立资源数。
+
+
+## 第五十三批补充
+
+关联G034的ImageSuite、I2V/trust评分源码、Long无独立论文工程文档：[固定代码](https://github.com/Vchitect/VBench/tree/fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490)。355图元数据说明、人工两极bbox/crop脚本、采样/聚合/过滤/阈值及文档差异已核指定范围；未下载全图/权重或运行，Long仅README，见[工程审查](../evidence/vbench_plus_i2v_trustworthiness_protocol_and_implementation_2026-10-20.md)。不重复增独立研究或资源数。
