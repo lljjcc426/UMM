@@ -221,3 +221,8 @@ E04 NeurIPS2024正式41页核心/指定证明/附录配置，E05 ACL2025正式17
 ## 第四十批补充
 
 F01正式15页+项目勘误，F02正式NeurIPS身份及arXiv2503.16424v4 HTML核心/附录A–E重点+Fig2/6原图，F03 arXiv2210.00664v1 PDF9页含AppA–C，F04 arXiv2402.13442v1 PDF7页；核框架/主表或主结果图/现有消融。F02正式PDF传输中断，完整旧v2仅版本对照，未把不完整正式文件列已读。Git分别固定diffvg85802a7、Bezier9612a22、FRIDA v1.0.0 df3f06f和CoFRIDA v2.0.0 1bf0205；Frida当前f42fa618只记身份。F02 Related/补充中的LIVSS、SGLIVE、O&R、GaussianImage、区域渐变/隐式色场、SVGFormer等需逐项去重续读；Frida train_lora.py与HF配套模型卡本批未深读，不能计完成。
+
+
+## 第四十一批补充
+
+G014实际读arXiv1704.03477v2及AppA，GoogleResearch核ICLR2018，OpenReview PDF403未取得；G015正式CVF PDF核心/Fig2/8/9、官方615c070代码选段。F05 Samsung全文及Fig1/T1–3，ICASSP13860，ViewManuscript正常跳转IEEE11463098未得正文。H001固定58d397f卡/API/512KiB ZIP元数据，原IP2P31519b5与SDXL-IP2P06653d4 config及Frida f42fa618加载/LoRA选段；未执行pickle或模型。CASHG arXiv2604.02103仅引文/检索线索，尚未精读；G016正式下载超时，官方Paddle与非官方PyTorch复现应区分。

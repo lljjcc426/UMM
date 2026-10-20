@@ -206,3 +206,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第四十批完成F01–F04核心三遍与各五项书面检查：可微矢量渲染、Gaussian曲线表示、真实笔触规划与共绘模型适配，核作者勘误/版本/预算/模拟代理。主目录340项，核心三遍90项；其余仍待逐项完成。见[矢量与机器人绘画审查](differentiable_vectors_robot_painting_core_reading_2026-10-20.md)和[逐文件说明](fortieth_changes_2026-10-20.md)。F02实际读v4HTML，正式PDF不完整未计；F03/F04预印本版本明确，无模型运行/文件删除。
+
+
+第四十一批补完sketch-rnn与Learning to Paint核心三遍（累计92项），深化英文连笔作者报告及CoFRIDA-Sharpie制品协议（四项五检查，累计94项）。HF权重rank256/cross768与卡片SDXL及当前rank32脚本不对齐，未运行；F05 IEEE正文仍缺。主目录340项，剩余任务继续逐项处理。见[素描/RL/LoRA审查](sketch_sequences_painting_rl_and_lora_artifact_2026-10-20.md)与[逐文件说明](forty_first_changes_2026-10-20.md)。无文件删除。

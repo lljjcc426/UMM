@@ -53,7 +53,7 @@
 | F02 | Bézier Splatting for Fast and Differentiable Vector Graphics Rendering | primary_sections_read | [结构化分析](../reviews/F02.md) | 核心三遍与五项检查完成 |
 | F03 | FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment | primary_sections_read | [结构化分析](../reviews/F03.md) | 核心三遍与五项检查完成 |
 | F04 | CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting | primary_sections_read | [结构化分析](../reviews/F04.md) | 核心三遍与五项检查完成 |
-| F05 | Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model | primary_sections_read | [结构化分析](../reviews/F05.md) | 未完成 |
+| F05 | Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model | primary_sections_read | [结构化分析](../reviews/F05.md) | 五项检查已记录；三遍待确认 |
 | X01 | InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write | primary_sections_read | [结构化分析](../reviews/X01.md) | 未完成 |
 | R01 | Hanzi Writer（工具，不是论文） | primary_sections_read | [结构化分析](../reviews/R01.md) | 未完成 |
 | R02 | Make Me a Hanzi（数据/工程资源） | primary_sections_read | [结构化分析](../reviews/R02.md) | 未完成 |
@@ -315,8 +315,8 @@
 | G011 | AnimateDiff: Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning | primary_sections_read | [结构化分析](../reviews/G011.md) | 未完成 |
 | G012 | CogVideoX: Text-to-Video Diffusion Models with An Expert Transformer | primary_sections_read | [结构化分析](../reviews/G012.md) | 未完成 |
 | G013 | Wan: Open and Advanced Large-Scale Video Generative Models | primary_sections_read | [结构化分析](../reviews/G013.md) | 未完成 |
-| G014 | A Neural Representation of Sketch Drawings | primary_sections_read | [结构化分析](../reviews/G014.md) | 未完成 |
-| G015 | Learning to Paint With Model-based Deep Reinforcement Learning | primary_sections_read | [结构化分析](../reviews/G015.md) | 未完成 |
+| G014 | A Neural Representation of Sketch Drawings | primary_sections_read | [结构化分析](../reviews/G014.md) | 核心三遍与五项检查完成 |
+| G015 | Learning to Paint With Model-based Deep Reinforcement Learning | primary_sections_read | [结构化分析](../reviews/G015.md) | 核心三遍与五项检查完成 |
 | G016 | Paint Transformer: Feed Forward Neural Painting with Stroke Prediction | primary_sections_read | [结构化分析](../reviews/G016.md) | 未完成 |
 | G017 | CLIPasso: Semantically-Aware Object Sketching | primary_sections_read | [结构化分析](../reviews/G017.md) | 未完成 |
 | G018 | LoRA: Low-Rank Adaptation of Large Language Models | primary_sections_read | [结构化分析](../reviews/G018.md) | 未完成 |
@@ -334,7 +334,7 @@
 | G030 | Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G030.md) | 未完成 |
 | G031 | VBench: Comprehensive Benchmark Suite for Video Generative Models | primary_sections_read | [结构化分析](../reviews/G031.md) | 未完成 |
 | G032 | Towards Accurate Generative Models of Video: A New Metric & Challenges | primary_sections_read | [结构化分析](../reviews/G032.md) | 未完成 |
-| H001 | CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品 | primary_sections_read | [结构化分析](../reviews/H001.md) | 未完成 |
+| H001 | CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品 | primary_sections_read | [结构化分析](../reviews/H001.md) | 五项检查已记录；三遍待确认 |
 | L182 | STRIVE: Scene Text Replacement In Videos | primary_sections_read | [结构化分析](../reviews/L182.md) | 未完成 |
 | L183 | CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization | primary_sections_read | [结构化分析](../reviews/L183.md) | 未完成 |
 | L184 | Stroke-Seg: A deep learning-based framework for chinese stroke segmentation | primary_sections_read | [结构化分析](../reviews/L184.md) | 未完成 |

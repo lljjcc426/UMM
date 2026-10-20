@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-20",
+  "base_commit": "c0a4c6a",
+  "reviewed_existing_ids": [
+    "G014",
+    "G015",
+    "F05",
+    "H001"
+  ],
+  "core_three_pass_ids": [
+    "G014",
+    "G015"
+  ],
+  "author_report_only_ids": [
+    "F05"
+  ],
+  "artifact_protocol_ids": [
+    "H001"
+  ],
+  "paper_additions": [],
+  "scope": "Two core three-pass reviews, four five-item written checks; author report and artifact protocol remain distinct. No model training/inference or deletions.",
+  "artifact_metadata": {
+    "id": "H001",
+    "hf_revision": "58d397f81bd0bf64eb43d85ee8bd5191acd9824d",
+    "read_bytes": 524288,
+    "method": "HTTP Range; static pickletools opcode inspection of complete ZIP data.pkl; no deserialization or tensor load",
+    "tensor_count": 256,
+    "rank": 256,
+    "parameter_count": 51019776,
+    "down_shapes": [
+      [
+        256,
+        320
+      ],
+      [
+        256,
+        640
+      ],
+      [
+        256,
+        768
+      ],
+      [
+        256,
+        1280
+      ]
+    ],
+    "cross_attention_input_dim": 768,
+    "base_checkpoint_identified": false,
+    "current_training_script_rank": 32,
+    "current_script_matches_artifact": false
+  }
+}

@@ -52,7 +52,7 @@
 | F02 | [Bézier Splatting for Fast and Differentiable Vector Graphics Rendering](F02.md) | 正式会议身份/摘要页已核；实际精读v4HTML Abstract/Intro/Related、§3.1–3.5 Eq1–13、§4.1–4.4 Tables1–2、Conclusion/Limitations、AppA–D Tables3–7/Algorithms1–2及AppE Table8；未逐图核全部附录画廊。v4Fig2/6原图视觉核；固定9612a22 README、train入口/配置、Gaussian优化器与重分配关键段、full_eval和完整导出helper已读。v2与v4结果分列，正式PDF不完整不计全文；无优化或SVG导出运行。 |
 | F03 | [FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment](F03.md) | v1 PDF/同版HTML Abstract/Intro/Related关键机器人/笔触前作、§III–V Eq1–5/Alg1、结论及AppA–C校准/数据/颜色已读；p3Fig4–5/p5Fig7–9/p6Fig11–13视觉核。ICRA2023发布标签df3f06f README、clip_loss、continuous_brush_model、torch_painting_models与options相关段已读；未逐行所有ROS/相机/控制器或训练执行，IEEE终版实验一致性不假设。 |
 | F04 | [CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting](F04.md) | v1 Abstract/Intro/Related、§III A–C/IV A–C/V A–D/VI–VII、Eq1–2/T1/Figs2–9已读；p3Fig3/p4Fig4–6及主表视觉核。官方项目/IEEE身份、ICRA2024 release1bf0205 README、训练sh/UNet冻结与loss/CoPaintDataset过滤/metric analysis选段已核，当前HEAD只记录版本身份。尚未解决T1原始指标实现差异/全部日志；无模型下载/训练/实体复现。 |
-| F05 | [Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model](F05.md) | 作者官方技术报告§1–4与references完整文字，未完整读取三个图片表及IEEE正文 |
+| F05 | [Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model](F05.md) | Samsung技术说明全文/Related引文线索及Fig1/T1–3原图已核；ICASSP2026program13860核题名/作者/session，普通ViewManuscript链接转IEEE11463098未取得正文。新增作者报告结果与五问分析，保留author_report_sections_reviewed，不计正式核心三遍。 |
 | L001 | [Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026](L001.md) | 摘要、方法主要模块、§4.1/Table1、Tables2–4及跨语言设置；完整符号和附录仍待补核 |
 | L002 | [Diff-Writer，ICONIP 2023](L002.md) | Springer正式Abstract及书目/版权/引用页、作者publicationlist；Method/实验付费正文未取得 |
 | L004 | [Layout Stroke Imitation，2025](L004.md) | §3模块/公式、§4 Tables2–4及Discussion；补充材料超参、原PDF表视觉与代码待核 |
@@ -307,7 +307,7 @@
 | L177 | [PaintFlow: A Unified Framework for Interactive Oil Paintings Editing and Generation](L177.md) | v1主文Method/Experiments/Conclusion、Table1、supp interface/Algorithm2/ExperimentSettings/UserStudy/Table2；Fig2 PDFp3已视觉核。SBR具体版本、代码、全部结果图/物理执行未核，不计完整三遍 |
 | L179 | [UM-Text: A Unified Multimodal Model for Image Understanding and Visual Text Editing](L179.md) | v1§1–5、Tables1–4；Fig3 PDFp3已视觉核；AAAI官方页面出版元数据核。正式PDF技术差异、源代码与完整UMT协议仍未审，不计完整三遍 |
 | S004 | [VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control](S004.md) | v1 Method/主表/ablation/AppA/B指定段，v2对应方法、Table1和AppA4；Fig3 v2PDFp3视觉核；固定ad7fcdb README、VidSketch/inference.py抽象度/参数调用、train_vidsketch.py配置默认及noise/loss段、configs/candles.yaml全文件、inference/pipelines/pipeline_VidSketch.py adapter门控/scheduler指定段。未审全部模型源码和论文实验日志，不计完整三遍 |
-| H001 | [CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品](H001.md) | 固定HF README/API文件树、现存H001制品卡及F04关联；未加载或运行权重，仅资源协议审查 |
+| H001 | [CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品](H001.md) | HF卡/API清单、固定bin前512KiB ZIP/data.pkl全部metadata、两官方底座固定config、Frida当前f42fa618 src/cofrida.py/codraw.py与train_lora.py配置/数据/forward选段已读；v2.0.0无该LoRA训练文件。无完整weights读取、pickle执行、环境安装或推理；资源协议审查与论文核心三遍分开。 |
 | L187 | [Visual-OPSD: Cross-Modal On-Policy Self-Distillation for Efficient Unified Multimodal Reasoning](L187.md) | v6 Abstract/Introduction/Method§2含Eq1–7与AppB证明、Experiments§3/Table1–3、Conclusion；AppC/D/E/F/G/I/J/M指定配置/公式/评价及K/L正负案例文字。Fig4 PDFp5视觉核；固定32f245d README/TRAIN/EVAL和opsd_loss.py26–103核。未逐图核所有案例、未审全部trainer/harness或下载权重。三遍核心阅读和五项书面理解检查完成，复现另列。 |
 | L188 | [LiveSVG: Zero-Shot SVG Animation via Video Generation](L188.md) | v1 Abstract/Introduction/§3方法Eq1–4/§4主结果与§5限制；AppA–F/H指定结构/表3–9、评分prompt、人评与优化协议，Fig3PDFp5视觉核。公开项目页入口已定位；完整实现未取得。三遍核心阅读与五项书面理解检查完成，正文/附录冲突保留。 |
 | L189 | [AniClipart: Clipart Animation with Text-to-Video Priors](L189.md) | 正式IJCV PDFAbstract/Introduction、§3所有方法与Eq1–4、§4.1–4.5主表/消融/分层及§5讨论；Fig3PDFp5视觉核，部分定性样例仅读说明。固定fee58e05README和树；supp视频与完整代码未审。三遍核心阅读/五项书面理解检查完成，未独立复现。 |
@@ -327,8 +327,8 @@
 | G011 | [AnimateDiff: Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning](G011.md) | 模块设计、Table 1及域/运动适配消融 |
 | G012 | [CogVideoX: Text-to-Video Diffusion Models with An Expert Transformer](G012.md) | 3D VAE、Transformer结构、训练组织及Fig.8相关实验 |
 | G013 | [Wan: Open and Advanced Large-Scale Video Generative Models](G013.md) | §4.5提示对齐，§4.7及Table 2，VAE/DiT总体结构 |
-| G014 | [A Neural Representation of Sketch Drawings](G014.md) | 原始PDF§3表示/训练、§4实验设置、Table1与Fig8；完整附录未全部读完 |
-| G015 | [Learning to Paint With Model-based Deep Reinforcement Learning](G015.md) | 方法、训练设置、Fig.8及速度比较 |
+| G014 | [A Neural Representation of Sketch Drawings](G014.md) | v2 Abstract/Intro/Related/§3.1–3.5/§4.1–4.3/§5–6/AppA核心已读；p4Fig4–5、p8Eq10–12/Fig8、p10T1/Fig9视觉核。Google Research正式身份、固定magenta c15687e README/model.py/train与utils配置选段核查；OpenReview PDF403未取得，未计终版已读，无运行。 |
+| G015 | [Learning to Paint With Model-based Deep Reinforcement Learning](G015.md) | 正式CVF PDF Abstract/§1–6、Eq1–6、Figs1–10主线已读，p2Fig2与p7Fig8–9视觉核；无主结果表，以主结果曲线和现有消融解释验收。固定官方hzwer/ICCV2019-LearningToPaint615c070 README、train.py、ddpg.py、Actor/Critic及renderer选段核；补充未取得，无训练/推理/物理复现。 |
 | G016 | [Paint Transformer: Feed Forward Neural Painting with Stroke Prediction](G016.md) | 框架、训练/评估条件、Tables 1–2 |
 | G017 | [CLIPasso: Semantically-Aware Object Sketching](G017.md) | §3方法，§4.3/Tables2–3，Appendix A/D/E；其余实验尚有未逐项摘录字段 |
 | G018 | [LoRA: Low-Rank Adaptation of Large Language Models](G018.md) | 低秩更新定义、初始化、秩及模块消融 |

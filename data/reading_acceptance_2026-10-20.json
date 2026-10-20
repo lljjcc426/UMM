@@ -3141,6 +3141,142 @@
         }
       ],
       "boundary": "核心问题、方法公式/框架与主结果、现有消融、批判阅读及五项书面答案完成。F02实际读v4 HTML/原图，正式PDF不完整不计已读；F03/F04正文为明确版本预印本，不假设逐字等同终版。未逐行全源码、全部附录例图、口试或独立模型/实体运行；配置/指标实现差异见各笔记。"
+    },
+    {
+      "id": "G014",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "短在线素描需要笔事件与可操作的整图潜空间，像素生成和纯AR各不满足。sketch-rnn用双向序列VAE+混合密度解码，重建、补全和潜空间采样是不同目标。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "v2 p4Fig4/5：五元组含位移与提落笔/EOS；前后向RNN末状态映射μ/σ再重参数采样z，z初始化解码并每步拼接输入，GMM和pen softmax产生下个点，采样回馈自身输出。没有真实速度/压力/RGB视频。",
+          "evidence": "v2p4Fig5/p8Fig8/p10T1；固定Magenta配置及mask"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "关键接口为全图潜空间+自回归显式事件；Eq10只mask实际位移，CE含padding，统一Nmax归一；Eq13 KL退火与标量floor调权衡，温度缩放方差。连续密度NLL可负，较低LR不等较好语义连贯性。",
+          "evidence": "机制、公式/元数据作用与范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1 cat wKL1 LR−.98/KL.29→.25时−1.46/1.01，decoder−.57。Fig8/T1权重控制LR/KL，Fig12/13低KL插值更连贯为定性。all75生成有混类失败，跨类Nmax不同不可直接比LR；没有量化形状连贯/事件SOTA。",
+          "evidence": "主结果/消融或明确缺失，评价和预算边界"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "去异常会否删掉用户有意形状？RDP删短笔是否损害规范笔顺？需按画者/长度/类留出，比AR/VAE/Transformer和事件约束；统一mask及预算，测结构/保持/EOS/顺序。Graves、后续矢量绘画已提供相关机制，不能直接把长期序列局限称新颖。",
+          "evidence": "有依据疑问、前作追引与可证伪设计"
+        }
+      ],
+      "boundary": "G014明确v2预印本而非未取得终版；G015正式核心正文/图与现有消融。F05限作者技术说明，IEEE正文未取得；H001是资源协议审查，无独立论文主表。四项五条书面检查均记录，仅G014/G015新增核心三遍完成。未口试、全源码/全部附录审查或独立训练/推理/真实执行。"
+    },
+    {
+      "id": "G015",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "静态图像到数百连续笔触的分解无唯一人类GT，model-free长序列反馈难学。神经renderer提供可微环境，modelbasedDDPG、成组动作和WGAN改善模拟终图重建。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "正式p2Fig2：canvas+target+step→Actor→五笔→renderer合成新canvas，训练replay抽样送critic和discriminator；推理不需要两者。13维动作中10形状/透明进FCN，RGB后着色，过程帧可拼视频但没学真实视频。",
+          "evidence": "正式p2Fig2/p7Fig8–9；固定DDPG/renderer"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "即时奖励及可微trans给actor更直接梯度，critic估后继价值；bundle5减少轮次，条件WGAN-GP比较(target,canvas)与(target,target)。无真实笔顺监督；神经renderer的modelbased只说明模拟环境建模。",
+          "evidence": "机制、公式/元数据作用与范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "无主表，以Fig8a–c主曲线核：作者报告modelbased ℓ2约PatchQ1/5、DDPG1/20，同20不透明笔约SPIRAL1/3；bundle5在等200笔的所测设置最佳。更多笔降误差增成本，WGAN奖励对照是另一因子；无seedCI不写显著性。",
+          "evidence": "主结果/消融或明确缺失，评价和预算边界"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "可微信号、奖励密度和网络改动各贡献多少？同终图乱序会否拿同分？固定renderer/预算/网络与奖励密度做因子比较，测真实接触/事件与终图。需关联SPIRAL、StrokeNet及后续前馈绘画，终图缺过程约束不自动成为可发表新题。",
+          "evidence": "有依据疑问、前作追引与可证伪设计"
+        }
+      ],
+      "boundary": "G014明确v2预印本而非未取得终版；G015正式核心正文/图与现有消融。F05限作者技术说明，IEEE正文未取得；H001是资源协议审查，无独立论文主表。四项五条书面检查均记录，仅G014/G015新增核心三遍完成。未口试、全源码/全部附录审查或独立训练/推理/真实执行。"
+    },
+    {
+      "id": "F05",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": false,
+      "three_pass_scope": "author_report_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "已有独立英文字符连接不自然，任务是在线轨迹连笔后处理；上游字符生成可用SDT或用户符号，与12K点分类器的贡献分开。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "作者Fig1独立字符→layout→20点归一→2层BiGRU head/body/tail/isolated→连接优化→连笔轨迹。原始论文框架/完整公式未取得，此解释限作者技术说明图。",
+          "evidence": "Samsung Fig1/T1–3原图；ICASSP program，IEEE未取得"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "角色不依赖字符身份的接口加凸二次三目标优化，作者报告三对角O(N)。精确权重/训练split缺失，语言无关表示不等跨语种实证。",
+          "evidence": "机制、公式/元数据作用与范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1 FID4.814→4.591；T2连笔WRR96.71/96.78相对独立97.63/97.32略降，相对真实用户改善2.85/3.21pp。T3 .131ms只为分类+变形，上游SDT均值129.041ms。缺各项独立消融，偏好noninferior未给统计界值。",
+          "evidence": "主结果/消融或明确缺失，评价和预算边界"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "连接提升外观但损害识别是否可控？其他文字/RTL是否有效？需固定上游与布局做规则/分类/优化项对照、跨画者/文字留出，补全链路时延和正式非劣协议。CASHG等连接研究须追读；未读IEEE正文，保留缺口。",
+          "evidence": "有依据疑问、前作追引与可证伪设计"
+        }
+      ],
+      "boundary": "G014明确v2预印本而非未取得终版；G015正式核心正文/图与现有消融。F05限作者技术说明，IEEE正文未取得；H001是资源协议审查，无独立论文主表。四项五条书面检查均记录，仅G014/G015新增核心三遍完成。未口试、全源码/全部附录审查或独立训练/推理/真实执行。"
+    },
+    {
+      "id": "H001",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": false,
+      "three_pass_scope": "model_artifact_protocol_audit",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "共绘LoRA制品须核清底座/输入/实验归属；HF卡SDXL与正文原IP2P冲突，论文分数未绑定这组weights。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "无独立论文框架；官方src/cofrida.py默认原IP2P并加载attn_procs，codraw用text+canvas产生目标图，再交FRIDA动作规划。HF自动prompt-only示例未验证，不能忽略画布输入。",
+          "evidence": "固定HF卡/ZIP元数据/两底座config/官方加载调用"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "读取ZIP内pickle操作码metadata而不执行，256矩阵rank256/cross768；与原IP2P结构一致，与SDXL cross2048不一致。当前train_lora rank32且forward不拼canvas，不能归为该制品原训练配置。",
+          "evidence": "机制、公式/元数据作用与范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "没有制品独立主表/消融，结构兼容对照不能冒充性能实验。F04有无FT模拟消融归论文；H001只有用途卡片/示例/权重存在与元数据，性能、原训练数据和alpha仍缺。",
+          "evidence": "主结果/消融或明确缺失，评价和预算边界"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "原底座commit与alpha是什么，制品能否保持真人中间画布？固定版本及条件比无LoRA/fullFT/LoRA，再真实执行；已有CoFRIDA/IP2P构成先例。资源公开材料已深核，仍缺训练记录/运行，不计论文核心三遍。",
+          "evidence": "有依据疑问、前作追引与可证伪设计"
+        }
+      ],
+      "boundary": "G014明确v2预印本而非未取得终版；G015正式核心正文/图与现有消融。F05限作者技术说明，IEEE正文未取得；H001是资源协议审查，无独立论文主表。四项五条书面检查均记录，仅G014/G015新增核心三遍完成。未口试、全源码/全部附录审查或独立训练/推理/真实执行。"
     }
   ]
 }

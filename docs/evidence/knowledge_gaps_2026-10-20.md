@@ -173,3 +173,8 @@ NFE比不自动等walltime；KV预算/managedKV/临时workspace/peakVRAM需分�
 ## 第四十批补充
 
 Reynolds形状导数与弧长Jacobian/滤波核、最近点隐式导数条件；解析预滤conflation与MC方差。曲线位置t/优化迭代/图层顺序/实体时间分开。Gaussian配对插值与Xing凸性、重分配启发不等全局最优，导出SVG不自动严格等价。3形状量展开12坐标不增加独立动作维数。模拟拟合差/真实执行差、图像余弦距离/文本CLIPScore差分别定义，代理相关性不能证明学到物理。
+
+
+## 第四十一批补充
+
+连续密度NLL可负；Nmax归一与EOS mask影响跨分布可比性。KL标量floor不同逐维free-bits；方差温度与标准差缩放分清。可微模拟环境不等物理动力学，终图奖励不识别规范过程。百分点与相对百分比/非劣性检验区分。LoRA矩阵shape可核rank/cross维，不能反推alpha/训练集/唯一底座；卡片/代码默认/原训练日志分层。

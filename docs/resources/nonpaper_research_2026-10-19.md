@@ -170,3 +170,8 @@ MF固定d70cb55 JAX/TPU与B4发布checkpoint/FIDstats，另有作者py-meanflow/
 ## 第四十批补充
 
 配套制品不重复计论文：diffvg85802a71（Apache2.0）读wrapper/use_prefiltering、弧长采样pdf和VAE/GAN关键配置，须结合官方Eq6/7勘误。Bezier9612a228（MIT）读gsplat依赖bcca3ec、Adan/剪增500步与正文差异、full_eval SSIM和导出helper；逐层代码README仍TODO。FRIDA ICRA2023 tag df3f06f（GPL3）与ICRA2024 CoFRIDA tag1bf0205分开，原3参数→12编码、RMSprop规划与Adam笔触拟合；CoFRIDA冻结VAE/text、UNet全参MSE/AdamW8bit发布脚本及额外数据过滤已核。当前HEADf42fa618不替原实验；train_lora与HF权重卡仍待补，不据仓库同名认定已精读/运行。
+
+
+## 第四十一批补充
+
+H001模型卡SDXL字段与rank256/cross768 metadata不一致，官方加载为timbrooks/IP2P+canvas；当前Frida f42fa618 train_lora rank32/无canvas forward，不在ICRA24标签，不能绑定该HF权重。基础config固定31519b5/06653d4，权重仅读512KiB元数据，无执行/全下载。Magenta c15687e默认小LSTM/点drop等不同v2论文，LearningToPaint615c070预训练renderer/actor链接和FFmpeg过程视频是制品证据，未运行。
