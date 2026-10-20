@@ -1255,26 +1255,31 @@
     "id": "U08",
     "category": "U UMM基础与协同补全",
     "title": "Zebra-CoT: A Dataset for Interleaved Vision Language Reasoning",
-    "version": "Zebra-CoT: A Dataset for Interleaved Vision Language Reasoning；arXiv2507.16746v2，2025-10-09（首版2025-07-22）；未核实正式接收",
+    "version": "Zebra-CoT: A Dataset for Interleaved Vision-Language Reasoning；核心精读2507.16746v2（2025-10-09，首版2025-07-22）。作者固定GitHub README与HF数据卡列ICLR2026、OpenReview c6XIVI3TiQ；正式PDF检索页首也显示Published at ICLR2026，但正式全文/decision受浏览器验证未完整访问，不将v2结果当已读终稿。",
     "source_urls": [
       "https://arxiv.org/abs/2507.16746",
       "https://arxiv.org/html/2507.16746v2",
-      "https://arxiv.org/pdf/2507.16746v2"
+      "https://arxiv.org/pdf/2507.16746v2",
+      "https://openreview.net/forum?id=c6XIVI3TiQ",
+      "https://github.com/multimodal-reasoning-lab/Bagel-Zebra-CoT/tree/bbf53c327889a1764d27989d117d1a6b73ffdd3f",
+      "https://huggingface.co/datasets/multimodal-reasoning-lab/Zebra-CoT/blob/f6d1defc169d19180a69f517925ed6cbb06a1c97/README.md",
+      "https://huggingface.co/multimodal-reasoning-lab/Anole-Zebra-CoT/blob/a93d885030b5feca16979a1166e878d5d8d49635/README.md",
+      "https://huggingface.co/multimodal-reasoning-lab/Bagel-Zebra-CoT/blob/ebce32410ee2062d073feae484ea2c6c1515fba8/README.md"
     ],
     "previous_evidence": null,
     "claim": "研究目标：如何构建多领域图文交错推理监督，使模型在回答前生成有用的视觉中间状态？",
-    "method": "182384条四大类、多领域交错推理数据；原始题解清洗和合成模板由Gemini2.5/GPT4.1补文字、以图像placeholder严格匹配；Anole与Bagel后训练验证。 Anole7B基于Chameleon离散图token，端到端SFT；Bagel7B（常用每专家7B命名）混合AR/FM，在vision_start增加转模态loss并用think/answer边界触发生成。原架构非本文从头提出。",
-    "problem": "如何构建多领域图文交错推理监督，使模型在回答前生成有用的视觉中间状态？",
-    "conclusion": "Table2实际7列（表注写八），Anole VisuLogic8.50→21.80，即13.30pp；Introduction/结论13.1与表不一致。ID4.2→16.9为12.7pp。Table8 Tetris ClaudeQ18.87/1MT39.62/2MT45.28、GPT5 30.77/50/59.62，支持有用前缀，不单独证明视觉必要。",
-    "gap": "数据“高质量”不能仅由模型提升倒推；教师会补错误或泄露答案，首两步前缀可能已提供求解核心。真实3D/robot规划未等价执行成功。来源表18个子项含合并visualsearch与更细Fig1分类，统计粒度需保留；无连续笔画时序。",
+    "method": "四类18子任务共182384条数据；程序/真实来源图与题解，经Gemini2.5/GPT4.1清理/扩写文字、placeholder逐图对齐；Anole端到端SFT和BAGEL的转模态监督/推理适配。核心贡献为可训练交错推理数据及分析，沿用既有统一骨干；AppD同时报告BAGEL无明显提升/部分下降。 Anole沿用Chameleon离散图token；BAGEL沿用Qwen2MoT、SigLIP理解编码器和VAE生成路径，本文主要增加vision_start转模态目标与think/answer边界。固定代码的数据类对题目不算loss，推理文字CE及图像VAE生成loss、同图ViT回读；train默认CE/MSE各权1并分别按全局token数归约，VAE冻结、LLM/ViT未冻结。公开infz_bf16外循环先文本、若无Final Answer:/answer标记则生成图并回喂，未使用已注释的vision-token停止判断；与论文额外token触发叙述不可直接视同一实现。未从模型名7B推导总参数/完整架构新颖性。",
+    "problem": "怎样补齐跨领域、具有显式图文逻辑衔接的推理监督，使统一图文生成模型在作答前自主生成有用的视觉中间状态，并检验这种监督对最终回答的作用？任务输出是图文交错推理与答案，没有连续视频或规范笔画事件。",
+    "conclusion": "T2 Anole13.80→16.45/22.80→25.30/8.50→21.80/12.80→15.02/10→15.33/26.46→31.25/23.60→27.20，依次七基准；VisuLogic+13.30pp，Intro/结论13.1不同；表注称八而实际七。ID4.2→16.9为12.7pp及约4.02倍水平。AppC MathVista总24.90不同主25.30、EMMA15.03不同15.02，未解释；EMMA物理21.79→10.90、BLINK多视角48.12→21.05/计数19.17→15.00，不能声称每子任务一致提升。AppD BAGEL无明显改善/MathVista略降，无具体数表；作者解释生成图错误回读，未有机制干预。Table8 GPT5棋45.78→62.65→61.45，更多GT步骤并非单调。",
+    "gap": "教师清洗要求沿原正确解扩写并保留全部图，可强化事后解释；placeholder完整不保证物理/推理正确，未见全量独立人工核验率。数据文字数量差、来源validation与去污染、主附表差、终稿/代码版本均需分列。外部mini集、无多seed/CI、BAGEL缺完整数表与预算匹配，限制泛化/机制结论。论文H与模型卡Anole许可元数据不一致（Chameleon Research vsApache标签），数据卡CC-BY-NC-4.0，不能仅凭顶层tag推断全部底层许可；仅记录来源，不作合规认证。3D规划轨迹不等真实执行，静态辅助图不约束笔顺/方向/接触/时间。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "§1/§3.1、§5训练/主Table2、AppA1 Table3、Table8 Tetris指定行及脚手架定义；其余类别采集/Bagel补充结果/完整prompt与代码未全读，未复现",
-    "last_updated": "2026-10-20",
+    "sections_read": "2507.16746v2核心§1–6全文、AppA1–A5全部数据/协议及T3、AppC完整T4–7、D全部BAGEL负面分析、E完整T8、F1–F3全部prompt/G影响/H许可；实际PDFp4 Fig3、p9 Table2/Fig5，AppB例图按相关caption/说明未逐像素验全图。公开HF两模型卡/数据卡正文、18配置计数/字段及BAGEL llm/vit配置；固定代码README/train.sh/example.yaml/infz_bf16全文、数据类相关解析/构造段、inferencer相关上下文/输出段、训练默认/冻结/损失归约段。正式OpenReview终稿/decision受验证未读全；未下载权重/数据分片、未运行模型或完整审全部代码。",
+    "last_updated": "2026-10-21",
     "canonical_key": "paper:arxiv:2507.16746",
     "evidence_history": [
       {
@@ -1305,16 +1310,21 @@
         "conclusion": "提供常用的图文交错数据与模型起点。",
         "gap": "【边界/推断】正确轨迹训练不等于对错误前缀具有恢复能力。",
         "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 67,
+        "scope": "2507.16746v2核心§1–6全文、AppA1–A5全部数据/协议及T3、AppC完整T4–7、D全部BAGEL负面分析、E完整T8、F1–F3全部prompt/G影响/H许可；实际PDFp4 Fig3、p9 Table2/Fig5，AppB例图按相关caption/说明未逐像素验全图。公开HF两模型卡/数据卡正文、18配置计数/字段及BAGEL llm/vit配置；固定代码README/train.sh/example.yaml/infz_bf16全文、数据类相关解析/构造段、inferencer相关上下文/输出段、训练默认/冻结/损失归约段。正式OpenReview终稿/decision受验证未读全；未下载权重/数据分片、未运行模型或完整审全部代码。"
       }
     ],
     "review_path": "docs/reviews/U08.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "2D51899、3D39610、科学24021、逻辑游戏66854，总182384。Visualsearch30000，jigsaw21899，embodied22666等；多源合成/competition/source图。精确去污染、训练/测试划分与跨源重复尚未全核。",
-    "framework": "182384条四大类、多领域交错推理数据；原始题解清洗和合成模板由Gemini2.5/GPT4.1补文字、以图像placeholder严格匹配；Anole与Bagel后训练验证。",
-    "architecture": "Anole7B基于Chameleon离散图token，端到端SFT；Bagel7B（常用每专家7B命名）混合AR/FM，在vision_start增加转模态loss并用think/answer边界触发生成。原架构非本文从头提出。",
-    "metrics": "最终答案准确率；7外部benchmark MathVision/MathVista mini、VisuLogic/EMMA/MMVP/BLINK/VStar。scaffolding输入一/两步GT推理，与模型自行生成情形不同。",
-    "baselines": "原Anole CoT prompt vsAnole-Zebra；GPT5/ClaudeSonnet4/Gemini2.5Pro零样本与GT前缀。Bagel主要示例，不能把Anole主表数写成Bagel数。",
-    "experimental_conditions": "Anole8H200约12h，10Kstep lr1e-5cos b8 maxseq12288、infermax16384；Bagel8H200 1000step lr2e-5cos packed60000token、图minside512约1024+token。完整optimizer/seed/训练tokenwalltime匹配待核。"
+    "dataset": "2D51899、3D39610、科学24021、逻辑游戏66854；HF固定数据卡18个train配置num_examples总和182384，与T3逐项一致，这是元数据核对、未下载/数182384原样本。来源含ImageNet、MATH train、物理材料、ALFRED train和seen/unseen validation轨迹、RoboMIND等。AppA prose与T3有差：几何1061/1058、化学4700/4666、编程1200/1207、robot6945/6944、chess11500/20483、connect4 2100/2029等；未给完整过滤/版本解释，不能静默统一。ALFRED使用源validation不自动证明外部测试泄漏，仍需逐题去污染。",
+    "framework": "四类18子任务共182384条数据；程序/真实来源图与题解，经Gemini2.5/GPT4.1清理/扩写文字、placeholder逐图对齐；Anole端到端SFT和BAGEL的转模态监督/推理适配。核心贡献为可训练交错推理数据及分析，沿用既有统一骨干；AppD同时报告BAGEL无明显提升/部分下降。",
+    "architecture": "Anole沿用Chameleon离散图token；BAGEL沿用Qwen2MoT、SigLIP理解编码器和VAE生成路径，本文主要增加vision_start转模态目标与think/answer边界。固定代码的数据类对题目不算loss，推理文字CE及图像VAE生成loss、同图ViT回读；train默认CE/MSE各权1并分别按全局token数归约，VAE冻结、LLM/ViT未冻结。公开infz_bf16外循环先文本、若无Final Answer:/answer标记则生成图并回喂，未使用已注释的vision-token停止判断；与论文额外token触发叙述不可直接视同一实现。未从模型名7B推导总参数/完整架构新颖性。",
+    "metrics": "最终答案accuracy，外部七基准MathVision/MathVista mini、VisuLogic、EMMA、MMVP、BLINK、VStar；子任务拆分及ID accuracy。脚手架六题类512题、GPT4.1 judge、Q/给1步GT图文/给2步GT图文；API精确snapshot、无效输出/失败分母和逐模型逐题配对未完整给。绝对百分点、相对提升和倍数分开；不同模型Table8比例粒度可能对应不同有效分母，不能由总512直接断言同题完整配对。",
+    "baselines": "Anole+CoT prompting与Anole-Zebra主表；GPT5/ClaudeSonnet4/Gemini2.5Pro的问题only/1MT/2MT；AppC按领域拆分。AppD有原BAGEL纯文字回答对比的负面定性结论，无完整BAGEL数表；不能把Anole数字迁给BAGEL，也不能写BAGEL完全没有结果分析。缺同题同答案内容的文字-only后训练、随机图、同预算步骤与同骨干GT图oracle。",
+    "experimental_conditions": "v2 Anole8H200约12h、全参SFT10000步、lr1e-5cos、b8、maxseq12288/推理16384；BAGEL8H200、1000步、lr2e-5cos、packed60000token、minside512。固定GitHub bbf53c3的train.sh却设5000步、warmup50/minlr1e-6；数据配置max/min_image_size均512，不能未对照transform就宣称等于论文全分辨率协议。train默认AdamW β(.9,.95)/eps1e-8/weight_decay0、EMA.9999、clip1、global_seed4396且rank种子=4396×worldsize+rank；仅代表公开代码默认，非已核论文实际run。示例推理seed42、采样文字温度.3、图50步、CFG4/2/区间0–1/shift3；公共循环无固定最大轮次，成本未匹配。"
   },
   {
     "id": "U09",

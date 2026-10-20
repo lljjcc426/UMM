@@ -4,6 +4,7 @@
 
 | 文件 | 操作及原因 |
 | --- | --- |
+| [data/literature_public.xlsx](../../data/literature_public.xlsx) | 修改：同步N06/N07/N13的协议与阅读状态，保留5个工作表并更新筛选范围；实际渲染检查N07行。 |
 | [README.md](../../README.md) | 修改：同步目录/阅读状态及CSV/Excel，保留历史与573候选表 |
 | [data/critical_reviews_2026-10-19.json](../../data/critical_reviews_2026-10-19.json) | 修改：N06/07/13补完核心/实际图/统计与方法解释，保留因果证据缺项 |
 | [data/literature.csv](../../data/literature.csv) | 修改：同步目录/阅读状态及CSV/Excel，保留历史与573候选表 |

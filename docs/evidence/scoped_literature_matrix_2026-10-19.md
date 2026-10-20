@@ -262,3 +262,8 @@ G036是静态无mask再训练采样器，G037是线性恢复理论/二维toy；�
 ## 第六十六批补充（2026-10-21）
 
 N06通用视频符号分笔是先例但无规范事件评价，N07真实200Hz/压力/hover测量与N13无墨迹反推都约束可观测性选题；三者识别/测量/生成任务不同。见[审查](video_reasoning_and_handwriting_observability_audit_2026-10-21.md)。
+
+
+## 第六十七批补充（2026-10-21）
+
+U08跨领域交错推理数据覆盖科学/2D/3D/逻辑；Anole主表提升与BAGEL负面报告并存。静态辅助图不提供视频事件监督；GT图文前缀收益也不等于自主生成收益。见[审查](zebra_cot_negative_results_and_artifact_audit_2026-10-21.md)。

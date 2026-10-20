@@ -295,3 +295,8 @@ N10训练教师链Sora与T2I→I2V不一致，未核公开数据/配置/权重�
 ## 第六十六批补充（2026-10-21）
 
 N13关联HF卡公开MIT标记/9.89GB，文件需接受访问条件并分享账户资料，未访问媒体或同意条款；作者项目静态文字已读，未播放原视频。N06未获黑盒训练/rewriter配置，N07结合R07字段/指标代码仍不等全部原轨迹审计。见[审查](../evidence/video_reasoning_and_handwriting_observability_audit_2026-10-21.md)。
+
+
+## 第六十七批补充（2026-10-21）
+
+U08关联Anole/BAGEL模型卡、Zebra18配置与代码bbf53c3已固定版本。HF计数合182384但未下载原样本；论文BAGEL1000步/脚本5000步，公开停止/转图实现与正文差异单列；卡许可标签与基模正文不一致保留。见[制品审查](../evidence/zebra_cot_negative_results_and_artifact_audit_2026-10-21.md)，不重复计独立论文。
