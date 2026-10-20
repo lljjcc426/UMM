@@ -361,3 +361,8 @@ U08 v2核心与A/C–H核读，实际p4/p9；官方GitHub固定bbf53c3，HF数�
 ## 第六十八批补充（2026-10-21）
 
 G030正式NeurIPS2024 PDF核心§1–5、A–F正文与指定实际图表；AppA完整证明阅读定位p20 log比值/KL符号，解析高斯检查。paper dd65516/main475e0bc固定代码配置/研究README与指定训练/指标路径。arXiv页当前v4/2024-12-10，未将终版修改状态补猜；History-Guided Video Diffusion正式PMLR267/song25b已定位，尚未阅读全文。
+
+
+## 第六十九批补充（2026-10-21）
+
+G038正式ICML2025 PMLR267/song25b全文核心、AppA–D理论/协议文字与现有消融；实际p3–6/p13/15图表公式。固定GitHub530f8bf、HF模型0959def/Space9077cb7，模型卡/目录/指定分数组合代码与配置。与G030独立论文、制品不另计；补完第六十八批待精读项。

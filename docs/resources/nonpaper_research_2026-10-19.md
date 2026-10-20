@@ -305,3 +305,8 @@ U08关联Anole/BAGEL模型卡、Zebra18配置与代码bbf53c3已固定版本。H
 ## 第六十八批补充（2026-10-21）
 
 G030官方仓库paper dd65516保留RNN原实验，main475e0bc为temporal-attention v1.5并改maze设置/指标；公开Drive checkpoint/mini数据未下载，机器人底层控制代码需请求。公开默认和recipe与正文36/48帧、GRU设置差异记录，不当全部run已复核。见[审查](../evidence/diffusion_forcing_theory_protocol_and_versions_2026-10-21.md)。
+
+
+## 第六十九批补充（2026-10-21）
+
+G038 GitHub530f8bf/HF0959def配套DFoT/BD/SD/FS/FT与VAE、I3D/RAFT、RE10K档案均有公开目录；Space9077cb7观察RUNTIME_ERROR仅在线部署状态。默认验证数非正式FVD样本数、warmup由dataset override、MC uniform_future与HG-f的ω−1实现已核，未下权重/大数据或执行。见[审查](../evidence/history_guided_video_diffusion_audit_2026-10-21.md)。

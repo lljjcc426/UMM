@@ -22739,5 +22739,49 @@
     "method": "两状态精确去噪器theta*=sqrt(1−beta)AAᵀ，校正缩放后成为子空间投影；RePaint+交替投影与插入真已知区，给出几何收敛与近似模型误差地板；多状态Alg3调整drift/dispersion并重采样，另列附加假设。多状态Th8闭式解存在本仓库可解析反例，必须与两状态结论及作者toy结果分开。 A∈R^(d×k)、AᵀA=I，P=AAᵀ，theta是线性矩阵；两状态μtheta(x)=theta x，多状态μtheta(x,t)=B x+c t，未允许一般t相关非线性神经网络。两状态Alg2投影/插入无每轮额外Gaussian；lambda=||P diag(m)||2<1是有效mask条件。Th6近似theta需lambda_hat<1，误差随迭代减小但残留与模型误差/(1−lambda_hat)成比例。多状态Th11/12另需Assump9，不能外推任意大模型。",
     "conclusion": "Th4 ||e_r||≤lambda^r C，所需r随log(1/epsilon)/log(1/lambda)增长；它支持可识别线性条件下的校正投影算法。Th6是几何衰减+误差地板，近似网络不能自动精确恢复。作者toy RMSE RePaint22.97、再RevSDE27.61、RePaint+3.28e−8，仅此分布数值验证。局部审计在A=(1,0)ᵀ、T2、beta1=.2/beta2=.5时：Th8给B22=sqrt2/6，真正无权总体最小二乘为sqrt2/8；原值梯度sqrt2/30非零、超额loss1/720。",
     "gap": "Th8 v1声明的固定线性B、uniform t、无权L2目标不满足其给出的全局最优系数；已核PDFp11及A5 p22–24，p23把(E C_t)^−1移为E(C_t^−1)，一般不成立，具体反例可运行。仅凭此不否定两状态投影收缩或toy观察；依赖Th8的多状态推论需重新推导，当前不作为已确立保证。Intro把存在Lebesgue密度推为所有点正密度也不成立（如有限区间均匀分布）。有效mask排除不可识别情况、有限维高斯/线性与复杂书法差距大；未完整审所有附录证明或找到正式修订。"
+  },
+  {
+    "id": "G038",
+    "category": "G 生成理论、视频、绘画与适配",
+    "title": "History-Guided Video Diffusion",
+    "source_urls": [
+      "https://proceedings.mlr.press/v267/song25b.html",
+      "https://raw.githubusercontent.com/mlresearch/v267/main/assets/song25b/song25b.pdf",
+      "https://github.com/kwsong0113/diffusion-forcing-transformer/tree/530f8bf4db91a21964993f214fa4050dbd529591",
+      "https://huggingface.co/kiwhansong/DFoT/tree/0959defb4c4fe010f84791d732cc978ad7d49fef",
+      "https://huggingface.co/spaces/kiwhansong/diffusion-forcing-transformer/tree/9077cb7a4f23eda279f4b97a21dfe56b08eb4aac"
+    ],
+    "previous_evidence": "第六十八批G030项目页和原文追引，六十九批补正式论文/公开实现/制品",
+    "claim": "让视频扩散在同一网络中支持不同长度、不同时间位置的历史帧，并利用不同历史条件的分数组合改善质量/动态、长程记忆及受扰反应。主实验为历史/相机/动作条件视频与果实交换模仿；未进行文字prompt渲染、汉字笔顺或UMM理解—生成协同评测。",
+    "provenance": "2026-10-21 第六十九批正式核心与公式/协议/固定实现审查",
+    "verification": "primary_sections_read",
+    "record_type": "paper",
+    "scope": "generative_foundations",
+    "privacy": "public_source_note",
+    "canonical_key": "paper:arxiv:2502.06764",
+    "evidence_history": [],
+    "aliases": [
+      "HGVD",
+      "DFoT",
+      "History Guidance"
+    ],
+    "note_path": "docs/reviews/G038.md",
+    "review_path": "docs/reviews/G038.md",
+    "review_depth": "critical_sections_reviewed",
+    "review_history": [],
+    "version": "History-Guided Video Diffusion；Kiwhan Song/Boyuan Chen等，ICML2025，PMLR267:56242–56280，正式39页论文与附录，会议页核实。简称HGVD，提出DFoT与HG；与G030原Diffusion Forcing不同论文，模型/代码/HF制品关联于本记录不另计论文。",
+    "checked_on": "2026-10-21",
+    "last_updated": "2026-10-21",
+    "sections_read": "ICML2025正式39页：Abstract/§1–7/Impact、AppA1–A8/B1/C1–C9/D1–D6文字与Alg1/T1/T2完整核心；实际p3Fig2、p4Fig3、p5T1/Fig4、p6F5/6、p13/15理论页已看，其他补充图按caption/正文，未逐格全部视频。固定530f8bf README全文、history_guidance.py的HistorySegment/Manager.__enter__/NFE/fractional段及dfot_video/K600/MC配置；未全审骨干/VAE/机器人实现/所有wiki覆盖。HF固定模型卡/文件目录与Space元数据已查，无权重/数据下载或模型运行，核心书面验收无计时口试。",
+    "dataset": "Kinetics600、RealEstate10K、TECO Minecraft；后者200K×300帧、原128²上采样256²、3类逐帧动作，放大不创造原始细节。训练K17帧skip1、RE8帧skip10→max、MC50帧skip2。果实交换新600条demo：300完整交换平均540步、300局部regrasp平均50步，与G030的150demo分开。该数据不包含严格笔画事件标注。",
+    "framework": "所有帧在同一序列中按独立噪声训练，history用零/部分噪声、future用待去噪噪声表示；DFoT估计任意历史子集条件分数。HG-v为历史CFG，HG-t混合长/短或重叠历史，HG-f组合干净与部分加噪历史以平衡一致性和动态。可改训练目标微调已有同骨干FS；并非所有基础模型、规模和文本任务已验证。",
+    "architecture": "K600为673M DiT、28层/1152宽/16头、patch1，17×128²经分块视频VAE成5×16²latent/16通道，1帧与4帧块分别编码，防止跨块重建混淆。Minecraft为12层/768宽/12头DiT，ImageVAE4通道32²latent、patch2。RE10K为像素U-ViT、[128,256,576,1152]宽/[3,3,6,20]层，3Dattention/RoPE、180D相机ray pose；机器人8层AttentionUNet128宽/4头、21×32²与15步动作联合。噪声/动作/pose仍通过AdaLN注入，不能称完全不用AdaLN。",
+    "metrics": "FVD↓（分协议/帧数/样本数）、生成帧LPIPS↓、VBench子指标：帧质量=美学/成像平均，一致性=主体/背景平均，DynamicDegree为运动量；后者不直接衡量动作是否正确。机器人完整交换成功率与扰动条件。未给文字OCR、事件顺序/方向或真实书写执行指标；862帧展示不当量化稳定率。",
+    "baselines": "同架构/数据的SD、FS、BD与DFoT；K600外部引用WALT/MAGVIT-v2/Rolling Diffusion/Video Diffusion/MAGVIT，参数/步数和预算不完全匹配。HG-v/f/t及1帧/4帧/full-history机器人对照，频率/尺度与微调步数/EMA分析。外部大模型主表不能解释成DFoT在全部视频模型上SOTA。",
+    "experimental_conditions": "正式T2视频12H100约5天/模型，fp16/AdamW/clip1，K/RE/MC分别640K/500K/200K步，batch192/96/96，lr2e-4/5e-5/1e-4，wd0/.01/.001，warmup10K/EMA.9999；C4另写K batch196，保留冲突。机器人100K、b64/lr5e-4/wd.001、4RTX4090约4h、无EMA。DDIM50步、eta0。K主表5GT+11pred=16帧、50K测试视频/3采样种子；长滚动64帧仅1024样本，MC125预测帧FVD1024；不同FVD不可横比。测试相机每10°最多32场景，100–140°训练<500例、140+<100，稀有支持非严格零支持。机器人100次环境随机化，强扰动另28%但其单独分母/配对方式未完整说明。",
+    "problem": "让视频扩散在同一网络中支持不同长度、不同时间位置的历史帧，并利用不同历史条件的分数组合改善质量/动态、长程记忆及受扰反应。主实验为历史/相机/动作条件视频与果实交换模仿；未进行文字prompt渲染、汉字笔顺或UMM理解—生成协同评测。",
+    "method": "所有帧在同一序列中按独立噪声训练，history用零/部分噪声、future用待去噪噪声表示；DFoT估计任意历史子集条件分数。HG-v为历史CFG，HG-t混合长/短或重叠历史，HG-f组合干净与部分加噪历史以平衡一致性和动态。可改训练目标微调已有同骨干FS；并非所有基础模型、规模和文本任务已验证。 K600为673M DiT、28层/1152宽/16头、patch1，17×128²经分块视频VAE成5×16²latent/16通道，1帧与4帧块分别编码，防止跨块重建混淆。Minecraft为12层/768宽/12头DiT，ImageVAE4通道32²latent、patch2。RE10K为像素U-ViT、[128,256,576,1152]宽/[3,3,6,20]层，3Dattention/RoPE、180D相机ray pose；机器人8层AttentionUNet128宽/4头、21×32²与15步动作联合。噪声/动作/pose仍通过AdaLN注入，不能称完全不用AdaLN。",
+    "conclusion": "K T1 scratch4.3±.1、FT4.7±0、SD4.8±0、BD6.4±.1、FS95.5±.4；WALT3.3±.1更低，MAGVITv2同4.3。64帧DF208/SD247.5/FS1040，HG-v最优181.6(ω1.5)、HG-f170.4(kH.8)，高ω提高帧质量/一致性同时降低动态且FVD回升。MC full-history97.625→HG-t79.19。机器人普通扰动83%，更强扰动28%，短历史不能完成、full-history受扰失败但有少数反应，不能说理论上绝不反应。862帧是人工相机导航、滑窗和6帧插值/关键帧段结合的定性展示。",
+    "gap": "正式A1 p13/15将E_q log(p/q)写成+KL(p||q)，正确定义为−KL(q||p)，实际PDF已核；qN0,1/pN1,1给−.5 vs印刷+.5，相关正MSE下界不能照引，未完成整套修订证明。RemarkA5承认路径分解可能不一致，不能保证任意采样路径相同边际。A2低通解释依赖频谱协方差，作者明确高斯噪声无固有低频偏好；A3 MLE只在共同真分数周围无偏Gaussian且已知协方差条件下成立，实际HG不满足已验证条件。主文Eq6为sc+ω(sf−s0)，A4与代码为sc+(ω−1)(sf−s0)，数值尺度不可混用。机器人归因“stitching”尚无因果隔离；更多分数估计与人工导航/插值增加成本。"
   }
 ]

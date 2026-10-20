@@ -290,3 +290,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第六十八批（2026-10-21）补完G030 Diffusion Forcing正式核心/书面检查；349目录、150核心/152书面，199项尚未确认核心三遍（含资源）。核实正式理论p20 KL符号问题、主表反例/任务指标及paper/main代码版本差异。见[审查](diffusion_forcing_theory_protocol_and_versions_2026-10-21.md)、[逐文件说明](sixty_eighth_changes_2026-10-21.md)。无新增独立论文/删除/模型复现。
+
+
+第六十九批（2026-10-21）补入G038 History-Guided Video Diffusion正式核心/五条书面检查；350目录、151核心/153书面，199项尚未确认核心三遍（含资源）。审查HG-v/f/t、ELBO及路径一致性条件、主表反例/尺度/EMA/机器人与人工长导航，关联固定代码与HF制品。见[审查](history_guided_video_diffusion_audit_2026-10-21.md)、[逐文件说明](sixty_ninth_changes_2026-10-21.md)。新增1项论文，无删除或模型复现。

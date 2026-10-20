@@ -1,0 +1,57 @@
+{
+  "checked_on": "2026-10-21",
+  "paper_id": "G038",
+  "github_revision": "530f8bf4db91a21964993f214fa4050dbd529591",
+  "model": {
+    "id": "kiwhansong/DFoT",
+    "revision": "0959defb4c4fe010f84791d732cc978ad7d49fef",
+    "gated": false,
+    "card": {
+      "license": "mit",
+      "pipeline_tag": "image-to-video"
+    },
+    "files": [
+      ".gitattributes",
+      "README.md",
+      "config.json",
+      "datasets/RealEstate10K.tar.gz",
+      "datasets/RealEstate10K_Full.tar.gz.part-aa",
+      "datasets/RealEstate10K_Full.tar.gz.part-ab",
+      "datasets/RealEstate10K_Full.tar.gz.part-ac",
+      "datasets/RealEstate10K_Mini.tar.gz",
+      "datasets/RealEstate10K_Tiny.tar.gz",
+      "full_models/DFoT_K600.ckpt",
+      "full_models/DFoT_MCRAFT.ckpt",
+      "full_models/DFoT_RE10K.ckpt",
+      "metrics_models/i3d_torchscript.pt",
+      "metrics_models/raft-things.pth",
+      "pretrained_models/BD_K600.ckpt",
+      "pretrained_models/BD_RE10K.ckpt",
+      "pretrained_models/DFoT_K600.ckpt",
+      "pretrained_models/DFoT_K600_finetuned.ckpt",
+      "pretrained_models/DFoT_MCRAFT.ckpt",
+      "pretrained_models/DFoT_RE10K.ckpt",
+      "pretrained_models/FS_K600.ckpt",
+      "pretrained_models/FS_RE10K.ckpt",
+      "pretrained_models/ImageVAE_MCRAFT.ckpt",
+      "pretrained_models/SD_K600.ckpt",
+      "pretrained_models/VideoVAE_K600.ckpt"
+    ]
+  },
+  "space": {
+    "id": "kiwhansong/diffusion-forcing-transformer",
+    "revision": "9077cb7a4f23eda279f4b97a21dfe56b08eb4aac",
+    "observed_stage": "RUNTIME_ERROR",
+    "failure": "Observed runtime dependency import failure: torchvision.io.video. Only online deployment state; checkpoint/local execution not evaluated."
+  },
+  "reviewed_files": [
+    "README.md",
+    "history_guidance.py: selected HistorySegment/Manager/NFE/fractional methods",
+    "dfot_video.yaml",
+    "kinetics_600_video_generation.yaml",
+    "minecraft_video_generation.yaml",
+    "HF model README and directory metadata",
+    "Space README and runtime metadata"
+  ],
+  "boundary": "Metadata/config/code reading only; no checkpoint/data downloads or executions. Artifacts linked to G038, no duplicate paper counts."
+}
