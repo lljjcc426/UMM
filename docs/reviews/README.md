@@ -53,9 +53,9 @@
 | F03 | [FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment](F03.md) | v1 PDF/同版HTML Abstract/Intro/Related关键机器人/笔触前作、§III–V Eq1–5/Alg1、结论及AppA–C校准/数据/颜色已读；p3Fig4–5/p5Fig7–9/p6Fig11–13视觉核。ICRA2023发布标签df3f06f README、clip_loss、continuous_brush_model、torch_painting_models与options相关段已读；未逐行所有ROS/相机/控制器或训练执行，IEEE终版实验一致性不假设。 |
 | F04 | [CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting](F04.md) | v1 Abstract/Intro/Related、§III A–C/IV A–C/V A–D/VI–VII、Eq1–2/T1/Figs2–9已读；p3Fig3/p4Fig4–6及主表视觉核。官方项目/IEEE身份、ICRA2024 release1bf0205 README、训练sh/UNet冻结与loss/CoPaintDataset过滤/metric analysis选段已核，当前HEAD只记录版本身份。尚未解决T1原始指标实现差异/全部日志；无模型下载/训练/实体复现。 |
 | F05 | [Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model](F05.md) | Samsung技术说明全文/Related引文线索及Fig1/T1–3原图已核；ICASSP2026program13860核题名/作者/session，普通ViewManuscript链接转IEEE11463098未取得正文。新增作者报告结果与五问分析，保留author_report_sections_reviewed，不计正式核心三遍。 |
-| L001 | [Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026](L001.md) | 摘要、方法主要模块、§4.1/Table1、Tables2–4及跨语言设置；完整符号和附录仍待补核 |
+| L001 | [Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026](L001.md) | arXiv2609.02251v1核心§1–5全部研究文本/§2相关工作、§3所有定义/损失与§4.1–4.6七表，CRediT/数据可用声明；实际p8框架、p14主表、p15实例图、p16采样表、p17消融/方向图。完整主实验已审，无另附录内容需假造；参考文献用于追引未逐篇验全，未拿请求制品或运行。 |
 | L002 | [Diff-Writer，ICONIP 2023](L002.md) | Springer正式Abstract及书目/版权/引用页、作者publicationlist；Method/实验付费正文未取得 |
-| L004 | [Layout Stroke Imitation，2025](L004.md) | §3模块/公式、§4 Tables2–4及Discussion；补充材料超参、原PDF表视觉与代码待核 |
+| L004 | [Layout Stroke Imitation，2025](L004.md) | arXiv2509.15678v1核心§1–5/§2相关工作、Eq1–4与T1–4全部研究正文/图注；实际p7 F2/3/4框架/检测/probe，p15 F8/T3/4。源包完整文件清单及samplepaper.tex指定公式/表/补充引用段已查；包内无正文所指supp，未声称读到缺失材料/作者实现。未逐像素审全定性图、未运行。 |
 | L005 | [StrokeBank，2014](L005.md) | 作者6页PDF的方法、公式2–5、Tables1–2、数据及局限；图读取图注，正式书目和源码未核；已视觉核对PDF第3–4页部件图、DEF示意、式2–5与Table1，确认式5方向差异 |
 | L006 | [Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement，2026](L006.md) | ScienceDirect官方摘要和索引可读任务/模块/数据段落；正文/完整表格/代码未取得 |
 | L007 | [B-BSMG，2024](L007.md) | 出版社全文§1–5、公式与实验正文、baseline和限制；表格标题及正文汇总已核，所有表格独立单元/算法图未全部核；另读官方Table1回归系数与Table4全部单元 |

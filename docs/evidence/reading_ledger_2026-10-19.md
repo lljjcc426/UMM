@@ -106,10 +106,10 @@
 | U31 | DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement | primary_sections_read | [结构化分析](../reviews/U31.md) | 未完成 |
 | R06 | 通用规范汉字笔顺规范 | primary_sections_read | [结构化分析](../reviews/R06.md) | 未完成 |
 | R07 | OpenHandWrite_Toolbox与笔画级数据 | primary_sections_read | [结构化分析](../reviews/R07.md) | 未完成 |
-| L001 | Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026 | primary_sections_read | [结构化分析](../reviews/L001.md) | 未完成 |
+| L001 | Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026 | primary_sections_read | [结构化分析](../reviews/L001.md) | 核心三遍与五项检查完成 |
 | L002 | Diff-Writer，ICONIP 2023 | primary_abstract_read | [结构化分析](../reviews/L002.md) | 未完成 |
 | L003 | Write Like You，2021 | primary_sections_read | [结构化分析](../reviews/L003.md) | 核心三遍与五项检查完成 |
-| L004 | Layout Stroke Imitation，2025 | primary_sections_read | [结构化分析](../reviews/L004.md) | 未完成 |
+| L004 | Layout Stroke Imitation，2025 | primary_sections_read | [结构化分析](../reviews/L004.md) | 核心三遍与五项检查完成 |
 | L005 | StrokeBank，2014 | primary_sections_read | [结构化分析](../reviews/L005.md) | 未完成 |
 | L006 | Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement，2026 | primary_abstract_read | [结构化分析](../reviews/L006.md) | 未完成 |
 | L007 | B-BSMG，2024 | primary_sections_read | [结构化分析](../reviews/L007.md) | 未完成 |

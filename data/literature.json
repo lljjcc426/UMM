@@ -8016,22 +8016,24 @@
   {
     "title": "Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026",
     "source_urls": [
-      "https://arxiv.org/abs/2609.02251"
+      "https://arxiv.org/abs/2609.02251",
+      "https://arxiv.org/abs/2609.02251v1",
+      "https://arxiv.org/pdf/2609.02251v1"
     ],
-    "method": "第一阶段AR联合预测笔画身份和顺序，第二阶段恢复笔内轨迹；端点监督及跨阶段起点初始化。 多尺度图像特征与历史笔画Transformer聚合；9层stroke decoder；ResNet/Transformer笔内编码与4层serial coarse-to-fine decoder。",
-    "conclusion": "Table1联合AR严格OrderAcc67.03%，MaskDINO后排序65.90%，但AP50 93.21低于94.80；GT笔画排序92.27%，提示提取错误重要。未有重复种子区间，1.13pp差距需进一步统计。",
-    "gap": "静态图存在多解，GT是记录的书写顺序，未必规范唯一序；历史轨迹主表预处理不同；Tamil为适配实验，不能称zero-shot；未生成RGB视频。",
-    "problem": "从静态手写字图恢复有序笔画实例及每笔连续轨迹。",
+    "method": "两阶段独立训练：AR联合形成笔画身份/顺序；第一阶段起终点辅助监督，起点跨阶段初始化；第二阶段serial coarse-to-fine预测每笔后续坐标/终止。另隔离采样密度影响，主中英全点而非RDP简化。 Swin+Transformer整图多尺度；历史mask经共享ResNet三尺度/Transformer CLS聚合+strokeindex，9层decoder取最后query预测mask/box/置信/端点；pixel decoder提供maskfeature。stage2 ResNet/Transformer/FPN四尺度P5→P2逐级cross-attention，堆4层/causal point-history，sigmoid xy与validity；end仅辅助监督、不直接给stage2，start直接初始化。损失stage1分类/mask/dice/box/GIoU/L1端点，stage2坐标L1+终止BCE；无动作动力学、压力或物理时间模型。",
+    "conclusion": "T1联合OrderAcc67.03 vsMaskDINO65.90（+1.13pp），AP50却93.21<94.80；GT+Pointer92.27高于GT+Conv73.62，说明提取/顺序交互重要但并未使后排序失效。联合DTW154.65 vs155.80，LDTW1.74 vs1.93；差异无CI。T5未见类别OrderAcc52.06 vs67.03，MaskAP80.308 vs85.079，AIoU.7954 vs.7970、DTW246 vs155；笔画/最长点7.32/134 vs5.55/99，复杂度与类别OOD混杂，不能全归因类别。",
+    "gap": "静态信息多解，学的是记录顺序/端点，不保证规范唯一过程；OrderAcc忽略笔内方向/时间/接触，图像指标掩盖时序错。teacher-forcing两阶段传播误差、历史mask/起点失败需测，AR无法从单终图创造唯一证据。主split、参数/种子/CI/对照预算及公开实现缺项。跨历史轨迹数值受采样密度混杂，English非零样本语言泛化、Tamil适配非zero-shot；未见类别更复杂。不能声称文字→规范汉字视频或UMM协同已解决。",
+    "problem": "从静态手写字图恢复有序笔画实例和每笔坐标轨迹；需要区分观测书写记录、允许的多解和规范笔顺。相同终图无法唯一决定真实过程。",
     "claim": "作者研究目标：从静态手写字图恢复有序笔画实例及每笔连续轨迹。",
-    "version": "版本见原始来源及历史记录",
+    "version": "Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction；arXiv2609.02251v1，2026-09-02，24页/6图7表。官方当前仅v1，正式会场/期刊未确认；Data availability说明实现/处理数据向第一作者合理请求，不假定公开GitHub。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-19",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "previous_evidence": "既有调查 A",
     "id": "L001",
     "canonical_key": "paper:arxiv:2609.02251",
@@ -8065,17 +8067,22 @@
         "conclusion": "严格整字Order Acc.：已见类别67.03%、未见类别52.06%；GT笔画实例＋Transformer排序92.27%，预测实例后排序明显下降。",
         "gap": "指标同时要求数量、mask IoU≥0.50实例匹配和完整次序；不是纯排序率，也不自动是规范笔顺金标准。不同类别集复杂度有差别。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 73,
+        "scope": "arXiv2609.02251v1核心§1–5全部研究文本/§2相关工作、§3所有定义/损失与§4.1–4.6七表，CRediT/数据可用声明；实际p8框架、p14主表、p15实例图、p16采样表、p17消融/方向图。完整主实验已审，无另附录内容需假造；参考文献用于追引未逐篇验全，未拿请求制品或运行。"
       }
     ],
-    "sections_read": "摘要、方法主要模块、§4.1/Table1、Tables2–4及跨语言设置；完整符号和附录仍待补核",
+    "sections_read": "arXiv2609.02251v1核心§1–5全部研究文本/§2相关工作、§3所有定义/损失与§4.1–4.6七表，CRediT/数据可用声明；实际p8框架、p14主表、p15实例图、p16采样表、p17消融/方向图。完整主实验已审，无另附录内容需假造；参考文献用于追引未逐篇验全，未拿请求制品或运行。",
     "review_path": "docs/reviews/L001.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "CASIA-OLHWDB1.1渲染；未见类别测试OLHWDB1.2的3025类7900样本；英语已见类别/新writer；Tamil经目标语言fine-tune。",
-    "framework": "第一阶段AR联合预测笔画身份和顺序，第二阶段恢复笔内轨迹；端点监督及跨阶段起点初始化。",
-    "architecture": "多尺度图像特征与历史笔画Transformer聚合；9层stroke decoder；ResNet/Transformer笔内编码与4层serial coarse-to-fine decoder。",
-    "metrics": "Mask AP/AP50；严格整字OrderAcc要求数量一致、一一匹配IoU≥.5、全序正确；轨迹DTW/LDTW、AIoU、LPIPS。",
-    "baselines": "GT strokes+Conv-Ptr-Net/Transformer Pointer；YOLO26/Mask2Former/MaskDINO+相同排序器及轨迹器；PEN-Net/TrajectoryTransformer等历史报告。",
-    "experimental_conditions": "4 RTX A6000，Adam1e-4余弦；两阶段500K/991Kiter、batch64/512；训练线宽1/2/3、测2px；主中英保留全点，另测RDP=3。"
+    "dataset": "CASIA-OLHWDB1.1在线轨迹渲染64²及有序mask/box/端点；主CASIA完整train/val/test样本及writer清单未明确给，不能用数据集公称规模填实验规模。OLHWDB1.2类别不交3025类7900测试；English类别在训练、writer不同；Tamil IWFHR2006两阶段目标语言微调。中英原点全保留，Tamil沿历史预处理；训练线宽1/2/3px，测试2px。",
+    "framework": "两阶段独立训练：AR联合形成笔画身份/顺序；第一阶段起终点辅助监督，起点跨阶段初始化；第二阶段serial coarse-to-fine预测每笔后续坐标/终止。另隔离采样密度影响，主中英全点而非RDP简化。",
+    "architecture": "Swin+Transformer整图多尺度；历史mask经共享ResNet三尺度/Transformer CLS聚合+strokeindex，9层decoder取最后query预测mask/box/置信/端点；pixel decoder提供maskfeature。stage2 ResNet/Transformer/FPN四尺度P5→P2逐级cross-attention，堆4层/causal point-history，sigmoid xy与validity；end仅辅助监督、不直接给stage2，start直接初始化。损失stage1分类/mask/dice/box/GIoU/L1端点，stage2坐标L1+终止BCE；无动作动力学、压力或物理时间模型。",
+    "metrics": "MaskAP平均IoU.5:.05:.95、AP50；严格整字OrderAcc要求笔数相等、IoU≥.5一一匹配及完整笔间序正确，任何漏/多/拆/合/错序失败。该定义不检查笔内方向，不能称全事件正确率。DTW/LDTW对齐、AIoU空间覆盖和LPIPS形似；无单独方向正确率/动作可执行/速度校准。点数改变会影响序列及渲染评分。",
+    "baselines": "GT笔画+Conv-Ptr-Net/TransformerPointer为oracle；YOLO26/Mask2Former/MaskDINO+相同Pointer和相同stage2轨迹器，但起点由孤立stroke的stage2预测；本文stage1起点给stage2。T2/6/7历史CrossVAE/KanjiNet/DEDNet/PENNet/FINet/TrajectoryTransformer直接引原结果与各自采样设置，非同协议重训。没有同骨干参数/预算的纯联合vs后排序因子控制，完整轨迹收益还混有起点来源。",
+    "experimental_conditions": "4RTX A6000，Python3.8.2/PyTorch1.9/CUDA11.1；Adam初lr1e-4/cosine，两阶段500K/991K iteration，batch64/512。stage1 λcls4，mask/dice/box/start/end5，GIoU2；stage2 coord1/valid.2，decoder9/4层，两个valid阈值.5。参数总量/训练seed重复/训练时长与baseline完整预算未报；实现/处理数据需请求，未发消息索取/未拿权重或运行。"
   },
   {
     "title": "Diff-Writer，ICONIP 2023",
@@ -8215,22 +8222,25 @@
   {
     "title": "Layout Stroke Imitation，2025",
     "source_urls": [
-      "https://arxiv.org/abs/2509.15678"
+      "https://arxiv.org/abs/2509.15678",
+      "https://arxiv.org/abs/2509.15678v1",
+      "https://arxiv.org/pdf/2509.15678v1",
+      "https://arxiv.org/src/2509.15678v1"
     ],
-    "method": "多尺度writer分类特征及text-style-layout attention，条件扩散生成坐标并预测pen状态。 三个尺度patch带spatial/scaleembedding；4×32空间网格；text/style/layout多重attention；连续offset噪声MSE与pen Bernoulli交叉熵。",
-    "conclusion": "Table2完整FID1.383 vs StrokeDiff2.130，但WordStylist .910更低；IS1.561低于1.861。不能沿用全面超过图像方法的笼统判断。",
-    "gap": "采样段有uniformnoise与Gaussian描述不一致；笔序监督只是数据时序，不证明规范书写；额外词框需计标注/检测成本。",
-    "problem": "风格图、任意文本和词框布局条件下合成在线英语手写序列。",
+    "method": "多尺度style patch/空间/尺度embedding并以writer分类预训；text-style-layout注意力条件扩散，连续相对xy用噪声MSE、pen二值用Bernoulli BCE；额外词框由检测网络提供。布局/MS两机制需各自实验支持，不能凭包含模块确认贡献。 原图128×1024与Gaussian resize96×768/64×512，patch+hash空间网格4×32+scale3×D；局部77×384 stylepatch，writerID训练后attention与characterembedding，再融合layout、stroke attention；Fig2 U-Net编码/解码预测噪声。Eq1 grid坐标未给整数化规则；hidden/heads/深度/噪声步数/序列长度/各loss权重等缺项。pen0落笔/1抬笔，但文字又称估pen-down，编码方向需实现确认。",
+    "conclusion": "实际T2完整FID1.383优于StrokeDiff2.130但差于WordStylist.910，IS1.561低于WordStylist1.861与OneDM1.656；PSNR12.459/MSSIM.746为表内最高但缺完整配对/统计。不能沿用正文“lower IS”当更优（箭头↑）。F8部分离线词图定性可读，不推所有未见style泛化。",
+    "gap": "已见表文/数据协议/训练时长冲突及supp缺失限制复现；采样Gaussian vsuniform叙述冲突，Eq2又称αt²=βt，缺supp/code不能替作者修复噪声定义。真词框/预测词框/新文本布局来源、style内容泄漏、writer分布均需核实。最终图量表不能验证轨迹方向/接触和规范顺序；“任意文本/风格”“比GAN更泛化/训练更快”超出所给协议和统计。",
+    "problem": "给一张风格图、目标英文文本和词框布局，生成可渲染的在线笔迹坐标及pen状态，重点风格与词距/漏词。输出轨迹的时序不等严格规范书写或真实视频。",
     "claim": "作者研究目标：风格图、任意文本和词框布局条件下合成在线英语手写序列。",
-    "version": "版本见原始来源及历史记录",
+    "version": "Layout Stroke Imitation: A Layout Guided Handwriting Stroke Generation for Style Imitation with Diffusion Model；arXiv2509.15678v1，2025-09-19，19页；当前官方仅v1，未确认正式会议/期刊。Springer模板页眉不作为录用依据。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "previous_evidence": "既有调查 A",
     "id": "L004",
     "canonical_key": "paper:arxiv:2509.15678",
@@ -8264,17 +8274,22 @@
         "conclusion": "数据主要为英文 IAM；提供位置与轨迹解耦思路，不能当中文结果",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 73,
+        "scope": "arXiv2509.15678v1核心§1–5/§2相关工作、Eq1–4与T1–4全部研究正文/图注；实际p7 F2/3/4框架/检测/probe，p15 F8/T3/4。源包完整文件清单及samplepaper.tex指定公式/表/补充引用段已查；包内无正文所指supp，未声称读到缺失材料/作者实现。未逐像素审全定性图、未运行。"
       }
     ],
-    "sections_read": "§3模块/公式、§4 Tables2–4及Discussion；补充材料超参、原PDF表视觉与代码待核",
+    "sections_read": "arXiv2509.15678v1核心§1–5/§2相关工作、Eq1–4与T1–4全部研究正文/图注；实际p7 F2/3/4框架/检测/probe，p15 F8/T3/4。源包完整文件清单及samplepaper.tex指定公式/表/补充引用段已查；包内无正文所指supp，未声称读到缺失材料/作者实现。未逐像素审全定性图、未运行。",
     "review_path": "docs/reviews/L004.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "IAM-online文本行；额外IAM-offline词图测试风格泛化；完整writer-disjoint划分/规模未给出本次可核条件。",
-    "framework": "多尺度writer分类特征及text-style-layout attention，条件扩散生成坐标并预测pen状态。",
-    "architecture": "三个尺度patch带spatial/scaleembedding；4×32空间网格；text/style/layout多重attention；连续offset噪声MSE与pen Bernoulli交叉熵。",
-    "metrics": "IS/FID/PSNR/MSSIM均针对渲染图；writerID准确率辅助风格编码，无独立pen接触/严格顺序指标。",
-    "baselines": "StrokeDiffusion、HiGAN+、WordStylist、VATR++、One-DM；图像/轨迹方法输入输出和额外layout条件不同。",
-    "experimental_conditions": "16.8M；正文称6小时/60K iterations，Table4却24小时；所用完整优化率/硬件和布局来源在本次正文未核全。"
+    "dataset": "IAM-online行、xy/pen状态及渲染图；另IAM-offline词图作style域测试。正文把在线/离线words/lines表述混用，T2caption称online image from IAM-offline而段落称online，不能写完整确定协议；实际train/test样本/writer隔离、重复style与content及生成/参考配对清单未给。未用数据集总数补实验数。",
+    "framework": "多尺度style patch/空间/尺度embedding并以writer分类预训；text-style-layout注意力条件扩散，连续相对xy用噪声MSE、pen二值用Bernoulli BCE；额外词框由检测网络提供。布局/MS两机制需各自实验支持，不能凭包含模块确认贡献。",
+    "architecture": "原图128×1024与Gaussian resize96×768/64×512，patch+hash空间网格4×32+scale3×D；局部77×384 stylepatch，writerID训练后attention与characterembedding，再融合layout、stroke attention；Fig2 U-Net编码/解码预测噪声。Eq1 grid坐标未给整数化规则；hidden/heads/深度/噪声步数/序列长度/各loss权重等缺项。pen0落笔/1抬笔，但文字又称估pen-down，编码方向需实现确认。",
+    "metrics": "IS↑/FID↓、PSNR↑/MSSIM↑基于渲染终图；writerID分类online4.90→32.35/offline87.07→95.60为编码probe，缺完整训练/测试writer分类协议，不直接证明生成风格。没有CER/WER、量化词距/漏词、笔顺/方向/pen事件或视频指标。像素配对的多解书写应解释参考对齐，所读材料未给全。",
+    "baselines": "StrokeDiffusion、HiGAN+、WordStylist、VATR++、One-DM；图像法与轨迹法输出不同，本文额外布局/检测与writer预训练应算成本。T3无layout、layout、layout+MS，缺无layout+MS的完整2×2；并非所有先前方法均只有词级/无法返回空间。",
+    "experimental_conditions": "作者报16.8M，正文6h/60Kiterations，实际T4却24h，未给本方法完整GPU/优化器/LR/batch/sampling步数/seed。A100单卡3天是HiGAN+对照，不能转记本方法。正文指supp1空间/supp2diffusion/supp3metrics；本次19页PDF无supp，官方arXiv源包仅samplepaper.tex/bbl/bib、7图与模板，无独立supp或算法配置文件。检索未找到作者公开代码/补充，不等证明全网不存在。"
   },
   {
     "title": "StrokeBank，2014",

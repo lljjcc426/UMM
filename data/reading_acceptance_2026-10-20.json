@@ -5419,6 +5419,74 @@
         }
       ],
       "boundary": "ICLR2024正式核心§1–7全部文本/式1–3及MDP/SF/IS公式，AppA–F正文/T1/超参表和G说明/样本caption（未全逐张G）。本批实际p6 Fig2、p7 Fig3/4、p15 Fig7/T1、p19 Fig10、p20 Fig11/12；F5/6正文/图注已读未独立数字化。项目研究文本、固定JAX f0b6ca7主要config、scheduler.step密度/方差段及policy-gradient目标段；torch1958463 README/base/DGX全文、DDIM函数完整、train加载/LoRA/采样相关指定段/完整PPO更新段。固定HF两模型卡全文和alignment scheduler配置；未审全训练路径、未下权重/运行或复现。"
+    },
+    {
+      "id": "L001",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释静态恢复或文本风格布局生成的真实问题/动机",
+          "answer": "从静态手写字图恢复有序笔画实例和每笔坐标轨迹；需要区分观测书写记录、允许的多解和规范笔顺。相同终图无法唯一决定真实过程。 整字序列生成隐式纠缠划分/排序/轨迹；先无序提取再排序不能让书写历史参与实例形成，提取错漏传给排序器。但GT笔画的后排序已很强，不能把后排序本身说成无效。",
+          "evidence": "固定arXiv核心/实际框架表图/现有消融及来源缺项；非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/有序输出",
+          "answer": "64²离线字图→有序(Mask,Box,confidence,start,end)→每笔点序列→按顺序连接全字轨迹。第一阶段history用已预测mask、第二阶段每笔起点由stage1赋值；训练两阶段各用GT历史teacher forcing。实际PDF p8 Fig3、p14 T1、p16 T2/3、p17 T4/F6核看；不是文字条件生成或真实RGB视频。 Swin+Transformer整图多尺度；历史mask经共享ResNet三尺度/Transformer CLS聚合+strokeindex，9层decoder取最后query预测mask/box/置信/端点；pixel decoder提供maskfeature。stage2 ResNet/Transformer/FPN四尺度P5→P2逐级cross-attention，堆4层/causal point-history，sigmoid xy与validity；end仅辅助监督、不直接给stage2，start直接初始化。损失stage1分类/mask/dice/box/GIoU/L1端点，stage2坐标L1+终止BCE；无动作动力学、压力或物理时间模型。",
+          "evidence": "固定arXiv核心/实际框架表图/现有消融及来源缺项；非口试/独立复现"
+        },
+        {
+          "criterion": "解释关键机制与适用分布/任务优势条件",
+          "answer": "两阶段独立训练：AR联合形成笔画身份/顺序；第一阶段起终点辅助监督，起点跨阶段初始化；第二阶段serial coarse-to-fine预测每笔后续坐标/终止。另隔离采样密度影响，主中英全点而非RDP简化。 有标注有序实例、笔画结构可辨且上下文对方向/分割有信息时，联合历史预测和全字起点可能改善顺序/笔内方向；密集交叠、自然照片/OOD书体或错误历史可削弱优势。可作静态恢复/排序强基线及评价组件，不能直接当观测真实RGB过程的独立真值。",
+          "evidence": "固定arXiv核心/实际框架表图/现有消融及来源缺项；非口试/独立复现"
+        },
+        {
+          "criterion": "解释实际主表/已有消融和协议冲突/混杂",
+          "answer": "T1联合OrderAcc67.03 vsMaskDINO65.90（+1.13pp），AP50却93.21<94.80；GT+Pointer92.27高于GT+Conv73.62，说明提取/顺序交互重要但并未使后排序失效。联合DTW154.65 vs155.80，LDTW1.74 vs1.93；差异无CI。T5未见类别OrderAcc52.06 vs67.03，MaskAP80.308 vs85.079，AIoU.7954 vs.7970、DTW246 vs155；笔画/最长点7.32/134 vs5.55/99，复杂度与类别OOD混杂，不能全归因类别。 T4辅助端点MaskAP84.989→85.079、DTW172→165，但LPIPS.0143→.0144略差；再起点初始化DTW155/LDTW1.74/LPIPS.0132/AIoU.797。F6在正确结构/顺序子集展示不同起点的方向差，定性非全体方向成功率。T3用GT笔画/GT顺序隔离：full100%点DTW102.97/LDTW1.622；RDP5保57.31%点降36.53/1.033，AIoU.7735→.7891；数值变好含目标/长度改变。T2完整流水RDP3反而AIoU.797→.773，不能由T3推所有指标整体都升。",
+          "evidence": "固定arXiv核心/实际框架表图/现有消融及来源缺项；非口试/独立复现"
+        },
+        {
+          "criterion": "提出至少两个有依据的限制与可证伪实验",
+          "answer": "静态信息多解，学的是记录顺序/端点，不保证规范唯一过程；OrderAcc忽略笔内方向/时间/接触，图像指标掩盖时序错。teacher-forcing两阶段传播误差、历史mask/起点失败需测，AR无法从单终图创造唯一证据。主split、参数/种子/CI/对照预算及公开实现缺项。跨历史轨迹数值受采样密度混杂，English非零样本语言泛化、Tamil适配非zero-shot；未见类别更复杂。不能声称文字→规范汉字视频或UMM协同已解决。 同图encoder/参数/曝光、同实例和stage2，交叉联合/后排序×stage1/孤立stroke起点，固定点采样与GT多合法顺序；分开order-only、方向、contact与完整事件。罕见类按笔数/长度匹配，分writer/字体/自然照片，扫描错误history/端点扰动并测修复；配对bootstrap差值和训练seed。视频用实际可见事件GT，禁止静态预测器代替时序标签。未运行。",
+          "evidence": "固定arXiv核心/实际框架表图/现有消融及来源缺项；非口试/独立复现"
+        }
+      ],
+      "boundary": "arXiv2609.02251v1核心§1–5全部研究文本/§2相关工作、§3所有定义/损失与§4.1–4.6七表，CRediT/数据可用声明；实际p8框架、p14主表、p15实例图、p16采样表、p17消融/方向图。完整主实验已审，无另附录内容需假造；参考文献用于追引未逐篇验全，未拿请求制品或运行。"
+    },
+    {
+      "id": "L004",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释静态恢复或文本风格布局生成的真实问题/动机",
+          "answer": "给一张风格图、目标英文文本和词框布局，生成可渲染的在线笔迹坐标及pen状态，重点风格与词距/漏词。输出轨迹的时序不等严格规范书写或真实视频。 静态图像合成不输出笔尖序列，风格编码及长行词距缺少显式控制。其将LSTM AR描述为只能向前、不能空间回写的概括缺独立证据：因果解码时序并不禁止负坐标offset/返回已写区域，应以具体表示/训练对照验证。",
+          "evidence": "固定arXiv核心/实际框架表图/现有消融及来源缺项；非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/有序输出",
+          "answer": "风格图+目标string+每词box→三尺度风格/文字布局注意力→noisy序列U-Net→offset及pen状态→渲染静态图或按点播放。实际p7 Fig2训练/推理与Fig3词框、Fig4writerprobe，p15 F8/T3/4核看。生成不需目标GT轨迹，但需要目标词框来源/对齐；未充分说明任意新文本框如何生成而非仅从参考图检测。 原图128×1024与Gaussian resize96×768/64×512，patch+hash空间网格4×32+scale3×D；局部77×384 stylepatch，writerID训练后attention与characterembedding，再融合layout、stroke attention；Fig2 U-Net编码/解码预测噪声。Eq1 grid坐标未给整数化规则；hidden/heads/深度/噪声步数/序列长度/各loss权重等缺项。pen0落笔/1抬笔，但文字又称估pen-down，编码方向需实现确认。",
+          "evidence": "固定arXiv核心/实际框架表图/现有消融及来源缺项；非口试/独立复现"
+        },
+        {
+          "criterion": "解释关键机制与适用分布/任务优势条件",
+          "answer": "多尺度style patch/空间/尺度embedding并以writer分类预训；text-style-layout注意力条件扩散，连续相对xy用噪声MSE、pen二值用Bernoulli BCE；额外词框由检测网络提供。布局/MS两机制需各自实验支持，不能凭包含模块确认贡献。 目标词框可靠、训练/测试同英文词距分布时，显式布局可能降低长行缺词/间距误差；MS可能利styleprobe，但生成中与容量/优化或局部文字混杂。若布局错、目标词数/字长改变或跨文字规范，需独立验证；可作英文layout-conditioned轨迹生成的相关基线，不假定直接覆盖汉字视频。",
+          "evidence": "固定arXiv核心/实际框架表图/现有消融及来源缺项；非口试/独立复现"
+        },
+        {
+          "criterion": "解释实际主表/已有消融和协议冲突/混杂",
+          "answer": "实际T2完整FID1.383优于StrokeDiff2.130但差于WordStylist.910，IS1.561低于WordStylist1.861与OneDM1.656；PSNR12.459/MSSIM.746为表内最高但缺完整配对/统计。不能沿用正文“lower IS”当更优（箭头↑）。F8部分离线词图定性可读，不推所有未见style泛化。 实际T3无layout1.420/2.130/12.440/.741→layout1.517/1.339/12.611/.753（IS/FID/PSNR/MSSIM），四项改进；再MS1.561/1.383/12.459/.746，仅IS提高，其余退步。正文称MS提升PSNR/MSSIM与表相反，PDF/TeX均保留。没有方差/多seed与等参数budget、没有直接词距/事件量化；writerprobe变好不等生成所有量表变好。",
+          "evidence": "固定arXiv核心/实际框架表图/现有消融及来源缺项；非口试/独立复现"
+        },
+        {
+          "criterion": "提出至少两个有依据的限制与可证伪实验",
+          "answer": "已见表文/数据协议/训练时长冲突及supp缺失限制复现；采样Gaussian vsuniform叙述冲突，Eq2又称αt²=βt，缺supp/code不能替作者修复噪声定义。真词框/预测词框/新文本布局来源、style内容泄漏、writer分布均需核实。最终图量表不能验证轨迹方向/接触和规范顺序；“任意文本/风格”“比GAN更泛化/训练更快”超出所给协议和统计。 补全数据/配置及检测成本，同骨干layout×MS四格、真框/预测框/扰动框/无框，控制词数/宽度与同预算；分writer/content/长度留出，报CER/WER、词距/漏词、独立style一致性、方向/pen事件及均值CI。固定终图对照不同序/反向，确认FID/PSNR是否失察；对比AR可负offset/显式返回与扩散同序列表示。补原文缺失先不猜训练超参，方案未运行。",
+          "evidence": "固定arXiv核心/实际框架表图/现有消融及来源缺项；非口试/独立复现"
+        }
+      ],
+      "boundary": "arXiv2509.15678v1核心§1–5/§2相关工作、Eq1–4与T1–4全部研究正文/图注；实际p7 F2/3/4框架/检测/probe，p15 F8/T3/4。源包完整文件清单及samplepaper.tex指定公式/表/补充引用段已查；包内无正文所指supp，未声称读到缺失材料/作者实现。未逐像素审全定性图、未运行。"
     }
   ]
 }
