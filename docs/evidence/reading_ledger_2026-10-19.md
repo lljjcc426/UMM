@@ -122,8 +122,8 @@
 | L014 | Generating Past and Future in Digital Painting Processes / PaintsAlter，2025 | primary_sections_read | [结构化分析](../reviews/L014.md) | 核心三遍与五项检查完成 |
 | L015 | Loomis Painter，2025 | primary_sections_read | [结构化分析](../reviews/L015.md) | 未完成 |
 | L016 | StrokeNUWA，2024 | primary_sections_read | [结构化分析](../reviews/L016.md) | 核心三遍与五项检查完成 |
-| L017 | DiffSketcher，2023 | primary_sections_read | [结构化分析](../reviews/L017.md) | 未完成 |
-| L018 | Diff-Font，2022 起 | primary_sections_read | [结构化分析](../reviews/L018.md) | 未完成 |
+| L017 | DiffSketcher，2023 | primary_sections_read | [结构化分析](../reviews/L017.md) | 核心三遍与五项检查完成 |
+| L018 | Diff-Font，2022 起 | primary_sections_read | [结构化分析](../reviews/L018.md) | 核心三遍与五项检查完成 |
 | L019 | FontDiffuser，AAAI 2024 | primary_sections_read | [结构化分析](../reviews/L019.md) | 未完成 |
 | L020 | Learning to Generate Stylized Handwritten Text via a Unified Representation of Style, Content, and Noise (InkSpire) | primary_sections_read | [结构化分析](../reviews/L020.md) | 核心三遍与五项检查完成 |
 | L021 | Write More at Once，公开投稿版本 | primary_abstract_read | [结构化分析](../reviews/L021.md) | 未完成 |

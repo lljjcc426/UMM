@@ -227,3 +227,8 @@ SketchAgent已有显式有序stroke/语义ID/协作，并正式测试字母串�
 ## 第五十九批补充
 
 PaintsAlter已经处理多源多query/过去未来/非连续绘画状态，StrokeNUWA已压缩矢量命令并AR生成；规范笔画/真实执行须额外事件监督和独立评价，不能靠任务简称判断。见[第五十九批](paintsalter_strokenuwa_query_representation_and_metrics_audit_2026-10-20.md)。
+
+
+## 第六十批补充
+
+DiffSketcher已有文本→可微矢量素描；Diff-Font已有中/韩计数条件静态字体扩散。前者整体参数迭代，后者类型计数；均需额外有序事件与真实执行证据才能支持规范笔顺视频。见[第六十批](diffsketcher_difffont_condition_process_and_configuration_audit_2026-10-20.md)。

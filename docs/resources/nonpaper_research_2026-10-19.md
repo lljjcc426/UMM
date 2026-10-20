@@ -260,3 +260,8 @@ Janus原README的CFG tokenizer_config修复仅作者报告，原Janus与Pro/Flow
 ## 第五十九批补充
 
 关联StrokeNUWA a52e1cc VQ/EDM训练例与FusedAdam主体，示例数据/1024维和主表512区别，环境与Hydra路径需运行对齐。PaintsAlter项目页仅链接PaintsUndo并标next version，不能直接以旧代码/权重称复现新论文。见[资源说明](../evidence/paintsalter_strokenuwa_query_representation_and_metrics_audit_2026-10-20.md)。
+
+
+## 第六十批补充
+
+固定DiffSketcher0319b29默认warmup2000/总2000，静态循环不启用ASDS，README800例亦未改；Font-diff44d29cf b16/属性维度分配与文章不同。已核选定配置/条件路径，未下权重或跑模型，不把公开示例等同精确复现。见[资源审查](../evidence/diffsketcher_difffont_condition_process_and_configuration_audit_2026-10-20.md)。

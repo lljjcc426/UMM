@@ -268,3 +268,8 @@ Bézier几何参数与真实时间，最小二乘残差/分段不保证规范事
 ## 第五十九批补充
 
 set-to-set查询与跨请求一致性；因果VAE投影不自动为因果动作模型；多解历史的重建评价、数字编辑与单调墨迹。ResidualVQ片段/规范stroke差别、CLIP特征Fréchet、自码本Recall/代码等价性、CR方向与stop-gradient符号核查。
+
+
+## 第六十批补充
+
+计数向量的排列不变性与顺序不可辨识性；优化迭代与动作时间；SDS忽略UNet Jacobian但保留VAE/渲染梯度；共享style的多分支CFG不等正交属性控制。偏好份额/人画判断比例和准确率不同，validation选择与test冻结。

@@ -37,7 +37,7 @@
 
 ## 第二轮调研更新（2026-10-19）
 
-截至2026-10-20第五十九批，主目录347条（321论文／研究、26资源），347份结构化笔记，132项明确范围的核心三遍与134项五条书面检查。历史未重新核查标记已清零，5项仍受全文访问限制；其余记录的核心三遍逐项继续。未完成全部深审，未训练、推理或独立复现。下方按批保留历史状态。具体范围见[本轮审查](../evidence/second_round_audit_2026-10-19.md)与[逐条台账](../evidence/reading_ledger_2026-10-19.md)。
+截至2026-10-20第六十批，主目录347条（321论文／研究、26资源），347份结构化笔记，134项明确范围的核心三遍与136项五条书面检查。历史未重新核查标记已清零，5项仍受全文访问限制；其余记录的核心三遍逐项继续。未完成全部深审，未训练、推理或独立复现。下方按批保留历史状态。具体范围见[本轮审查](../evidence/second_round_audit_2026-10-19.md)与[逐条台账](../evidence/reading_ledger_2026-10-19.md)。
 
 第四批：150条章节核查、40条摘要核查；L024已记录五项书面理解检查，其他逐篇验收继续进行。全文无法访问的5项只记第一遍。
 
@@ -168,3 +168,6 @@
 
 
 第五十九批补完PaintsAlter/L014、StrokeNUWA/L016核心：347目录保持，132核心/134书面。补齐非连续查询、数字编辑/规范事件差别、矢量压缩质量取舍、指标方向冲突及公开示例配置。见[原文审查](../evidence/paintsalter_strokenuwa_query_representation_and_metrics_audit_2026-10-20.md)、[逐文件说明](../evidence/fifty_ninth_changes_2026-10-20.md)。无删除或独立复现；DiffSketcher新版与剩余继续。
+
+
+第六十批补完DiffSketcher/L017、Diff-Font/L018明示版本核心：347目录保持，134核心/136书面，213项未确认核心三遍（含资源）。明确优化过程与真实书写、笔画计数与顺序、版本及guidance指标取舍，核对公开warmup/batch/embedding差异。见[原文审查](../evidence/diffsketcher_difffont_condition_process_and_configuration_audit_2026-10-20.md)、[逐文件说明](../evidence/sixtieth_changes_2026-10-20.md)。无删除或独立复现；剩余继续。

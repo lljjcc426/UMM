@@ -4637,6 +4637,74 @@
         }
       ],
       "boundary": "正式ICML PDF核心§1–6/Eq1–3/TI–IV、Impact文字，AppA/B1/B2/C全部文字及TV已读；实际Fig3(p4)、TII/III及Fig7(p7)，附录大量样例/聚类图未逐看，References仅选定位。固定a52e1cc官方README、VQ example.yaml、EDM example.sh、train_vq.py主体全文已读；尚未全EDM trainer/decoder/eval/权重或运行，论文训练条件缺项与示例分列。 核心书面验收，无计时口试/复现。"
+    },
+    {
+      "id": "L017",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "自然语言提示→稀疏、可编辑的矢量素描，联合优化Bézier控制点与透明度，利用冻结图像扩散先验提升语义与视觉形状；无真实人类落笔轨迹/规范汉字笔顺或过程视频监督。 直接CLIP文本优化易失真/语义不足，先生成RGB再轮廓提取与矢量化会留过密轮廓和低抽象性；随机曲线起点会增加优化难度。需要把强生成先验与可微矢量表示连接，同时控制稀疏程度。",
+          "evidence": "精确版本核心/公式、主定量及真实消融/框架图；L017主数值在正文段落"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "prompt/用户选择token/曲线预算→LDM生成参考RGB及注意力→采样初始控制点→可微渲染→JVSP与ASDS梯度更新→SVG及栅格素描。实际Fig3/4/8；优化帧导出视频记录整体参数迭代，不能直接当人类逐笔过程。 每条三次Bézier四控制点与opacity；首点来自cross/self注意力融合后softmax分布，其余局部半径.05，固定黑线宽。v5Eq1为LDM背景目标，Eq2/3 SDS/KL背景，Eq4 JVSP结合LPIPS与CLIP视觉特征，Eq5增强score梯度，避开U-Net Jacobian、经过VAE回传；Eq6显式定义cross/self注意力线性融合。随机噪声时刻[.05,.95]，CFG100；标准理论不提供笔顺/全局最优保证。",
+          "evidence": "精确版本核心/公式、主定量及真实消融/框架图；L017主数值在正文段落"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "注意力初始化+JVSP视觉/语义感知损失+Augmented SDS联合优化。冻结LDM、文本encoder与VAE，梯度经过VAE/可微栅格器更新曲线；增强改善SDS优化。透明度为视觉参数，不是物理压力。 熟悉SD图像分布、稀疏可微曲线且目标为最终形状/语义时，attention缩短有效搜索距离，JVSP稳定形状、增强SDS提供文本先验，预期改善最终图的CLIP/感知与视觉完整性。此为机制假设及有限实验支持；对轨迹顺序/动作可执行性没有训练约束，不能推相同优势。",
+          "evidence": "精确版本核心/公式、主定量及真实消融/框架图；L017主数值在正文段落"
+        },
+        {
+          "criterion": "解释主要定量结果与一组实际消融",
+          "answer": "§5.2正文数值：CLIP .3494，对照Canny .328、CLIPasso .3075；aesthetic 4.8206，对照4.3682/4.0821。数值来自段落，未虚构主表；34类识别Canny亦有优势，未给整体准确率。v5 AppD/T1人画判断比例本法.65、人类.67、CLIPasso.39、VectorFusion.33；人类被误判33%、未匹配素材且无CI，不支持普遍human-level或规范过程结论。 实际Fig8比较CLIPasso+opacity的saliency/attention、无ASDS、本法，以及SDS随机/ASDS随机/ASDS注意力；同例attention/JVSP较快达到形状、ASDS改善细节。250/1500/2000是优化迭代；该定性单例不提供等质量墙钟加速或全分布统计。更多路径增加细节、降低抽象的示例，不能定义唯一最优抽象。",
+          "evidence": "精确版本核心/公式、主定量及真实消融/框架图；L017主数值在正文段落"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "复杂/罕见概念、少曲线、风格多样性有限；整体点位随迭代移动，动画允许全局重画，无真实笔画因果。prompt/路径预算/优化seed敏感，无全面CI。公开默认warmup、lr、注意力融合与增强实现（affine默认不含sharpness，所读ASDS单次增强）和论文条件有差异，应先对齐再声称复现。v5是2026版，正式2023补充逐页尚未核。 同prompt/路径数/SD/总优化与墙钟预算，做attention×JVSP×ASDS×增强消融，多seed及按复杂度/语言分层；先对齐warmup/步数/lr/fusion。冻结一致素材盲评、公开N/CI/原始评分；将优化过程与有序绘制分别评估，另测曲线顺序/起落笔/真实执行。未执行，未据此提出新颖性已成立。",
+          "evidence": "精确版本核心/公式、主定量及真实消融/框架图；L017主数值在正文段落"
+        }
+      ],
+      "boundary": "v2核心§1–6/Eq1–5、v5核心§1–6/Eq1–6及AppA–I全部文字/T1已读，References未逐条全文。实际v5Fig3/4/8已看；主定量为§5.2文字，不存在本笔记假设的主数值表。固定0319b29 README setup/quickstart/width-color例选读（非全部）、默认yaml全文；入口/配置merge、优化循环、ASDS增强/梯度、曲线初始化及state.step选段已核，非全仓/评测脚本/运行。 核心书面验收，无计时口试/复现。"
+    },
+    {
+      "id": "L018",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "给定一个目标字体参考图及字符ID，生成同风格的静态字形，可选中国字32种笔画计数或韩文24部件计数；目标为一参考字体迁移/结构完整性，输出非书写轨迹或视频。 复杂字形的GAN风格迁移易缺笔/结构失真，内容与风格难平衡；扩散具有生成容量，但需要明确内容/风格/笔画属性条件及采样时引导。总笔画计数能约束结构统计，未直接编码空间拓扑或顺序。",
+          "evidence": "精确版本核心/公式、主定量及真实消融/框架图；L017主数值在正文段落"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "一个style glyph RGB→冻结风格encoder；目标ID→embedding；32维类别计数→属性投影；共同输入带时间embedding的UNet→噪声预测/DDIM→80²RGB字形。实际Fig2及计数图Fig3/消融图已看。相同count在笔画重排后不变，无法区分顺序/方向/起落笔。 像素UNet base128、3ResBlocks、多分辨率attention40/20/10；论文content/style128各、optional256拼512，无optional各256。Eq8标准噪声MSE；Eq9 ε0+s1(εcs−ε0)+s2(εs,op−ε0)，两分支均含style，非纯正交独立控制，也非s1=s2=1必等全条件。代码base128得到time512、content128/stroke128/style256，维度分配与论文不同；32可学小向量乘count再flatten。",
+          "evidence": "精确版本核心/公式、主定量及真实消融/框架图；L017主数值在正文段落"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "冻结DG-Font风格encoder、字符ID内容embedding及可选count属性共同条件像素DDPM。条件训练→30%随机丢属性微调→两个guidance scale组合content+style与stroke+style预测及无条件预测，DDIM25步；中文/韩文及另训Latin/Greek示例。 训练内容已见、字体风格未见的一参考字形迁移，笔画类别数与内容互补时，count可能改善缺失笔画/局部结构及静态感知指标；T4支持这一定量范围。对未见内容ID、任意文字/书写顺序/真实执行，不具现有监督和表示上的直接保证。",
+          "evidence": "精确版本核心/公式、主定量及真实消融/框架图；L017主数值在正文段落"
+        },
+        {
+          "criterion": "解释主要定量结果与一组实际消融",
+          "answer": "T2small SSIM.742/RMSE.271/LPIPS.124/FID27.30；FUNIT.700/.303/.166/35.20，MX.721/.283/.151/37.15，DG.729/.280/.137/43.44。large本法.722/.277/.104/16.20，FUNIT.682/.311/.166/26.70，MX.692/.298/.138/26.64，DG.709/.292/.112/28.63。T3 64×10=640偏好选择，本法48.75%、DG24.53%、FUNIT13.44%、MX13.28%，非pairwise胜率/内容正确率。T6韩文本法.812/.196/.072/10.69，DG.771/.235/.095/43.36。 T4small 无count .740/.275/.127/28.83；binary presence .739/.277/.131/30.44；count .742/.271/.124/27.30，数值count改善有限且无CI，binary甚至更差。T5large s1/s2=3/3 FID16.20/RMSE.277/LPIPS.104；5/1 FID16.18更低但RMSE.280/LPIPS.107更差，不能说3/3所有指标最佳。正文明确test set调guidance，另需validation择参后冻结test。",
+          "evidence": "精确版本核心/公式、主定量及真实消融/框架图；L017主数值在正文段落"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "count不能区分相同笔画统计的错字/重排；style encoder冻结仍有预训成本；ID表不自然覆盖新字。两个guidance都含style，scale变化混合影响多属性；没有独立风格正交控制证明。test择参、单seed/无CI、字体来源和许可/分组清单、复杂极端风格失败和推理成本尚有限制。正式期刊版本与预印本逐页差异未核，公开batch与维度配置差异不静默消除。 固定内容/font划分、风格encoder预训/UNet/总预算，比较无属性/onebit/count/空间部件/有序事件，按复杂度分层，多seed与OCR/结构审查；独立validation挑scale，冻结test报全部tradeoff。保持count重排笔画构造反例，检验静态指标/模型能否识别序错；中文/韩文分别训与跨语种迁移单列。全部未执行。",
+          "evidence": "精确版本核心/公式、主定量及真实消融/框架图；L017主数值在正文段落"
+        }
+      ],
+      "boundary": "arXiv v3核心§1–5/Eq1–10/T1–6全文及实际模型/计数/消融图已读；References未逐篇、正式期刊全文未读。Springer正式题名/卷页/日期/DOI已核。固定44d29cf README全文、两yaml全文、sample.py条件/三分支guidance、dataset随机drop与count读取、UNet属性维度/forward选段已读，未全训练器/评测/StyleEncoder或实际运行。 核心书面验收，无计时口试/复现。"
     }
   ]
 }

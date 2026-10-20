@@ -316,3 +316,8 @@ SketchAgent v1核心/补充文字与D提示选段，正式PDF方法/实验及p6/
 ## 第五十九批补充
 
 PaintsAlter正式13页核心§1–5/Eq1–6/TI–IV，实际Fig3/9/10及TIII/IV；项目页和作者名仓库检索边界。StrokeNUWA正式ICML核心/补充A–C文字/TV，实际Fig3/TII/III/Fig7；固定a52e1cc README/两训练例/训练主体。DiffSketcher v2核心已读，v5（2026-04）取得待补全；正式PDF下载未完不作为全文证据。
+
+
+## 第六十批补充
+
+DiffSketcher v2/v5核心及v5补充A–I文字、T1与实际Fig3/4/8；2023正式PDF未完整不计全文。Diff-Font v3核心及T1–6/实际图，Springer卷页/日期/DOI核定但期刊全文未读；两固定代码的配置/关键条件路径，非全仓复现。

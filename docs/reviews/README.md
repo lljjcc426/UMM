@@ -67,8 +67,8 @@
 | L014 | [Generating Past and Future in Digital Painting Processes / PaintsAlter，2025](L014.md) | 作者网站13页PDF核心§1–5/Eq1–6/TI–IV全读（References仅定位Zhao2020等对应）；实际Fig3(p4)、Fig9/10及TIII/IV(p10)，未逐看所有样例图/演示视频。官方项目页全文与代码链接/next-version标签核，作者名仓库检索无单独PaintsAlter命中，仅限定该检索，不证明资源全无。未读全部代码/权重、无训练推理或独立复现。 |
 | L015 | [Loomis Painter，2025](L015.md) | §3–4、§5实现/Table2/3、§5.2.1PDP、§5.3消融、§7限制；附录未完整精读 |
 | L016 | [StrokeNUWA，2024](L016.md) | 正式ICML PDF核心§1–6/Eq1–3/TI–IV、Impact文字，AppA/B1/B2/C全部文字及TV已读；实际Fig3(p4)、TII/III及Fig7(p7)，附录大量样例/聚类图未逐看，References仅选定位。固定a52e1cc官方README、VQ example.yaml、EDM example.sh、train_vq.py主体全文已读；尚未全EDM trainer/decoder/eval/权重或运行，论文训练条件缺项与示例分列。 |
-| L017 | [DiffSketcher，2023](L017.md) | Abstract、Appendix D/Table1、Appendix E；主方法核心目标 |
-| L018 | [Diff-Font，2022 起](L018.md) | §3条件/CFG、§4.1–4.4 Tables1/2/4及跨语种表示；完整版本对齐、韩文实验与全部附录未完成 |
+| L017 | [DiffSketcher，2023](L017.md) | v2核心§1–6/Eq1–5、v5核心§1–6/Eq1–6及AppA–I全部文字/T1已读，References未逐条全文。实际v5Fig3/4/8已看；主定量为§5.2文字，不存在本笔记假设的主数值表。固定0319b29 README setup/quickstart/width-color例选读（非全部）、默认yaml全文；入口/配置merge、优化循环、ASDS增强/梯度、曲线初始化及state.step选段已核，非全仓/评测脚本/运行。 |
+| L018 | [Diff-Font，2022 起](L018.md) | arXiv v3核心§1–5/Eq1–10/T1–6全文及实际模型/计数/消融图已读；References未逐篇、正式期刊全文未读。Springer正式题名/卷页/日期/DOI已核。固定44d29cf README全文、两yaml全文、sample.py条件/三分支guidance、dataset随机drop与count读取、UNet属性维度/forward选段已读，未全训练器/评测/StyleEncoder或实际运行。 |
 | L019 | [FontDiffuser，AAAI 2024](L019.md) | Method三模块/对比loss、数据/条件、Tables2–4；Table1大表全部数值及附录未逐项核完 |
 | L020 | [Learning to Generate Stylized Handwritten Text via a Unified Representation of Style, Content, and Noise (InkSpire)](L020.md) | 正式PDF正文§1/3/4、Tables1–7；AppA.2–A.3/A.5.3–A.5.7及Tables10–11；Figure3第5页已渲染视觉核对。未逐图、人评Figure8百分比未读取、源码未核 |
 | L021 | [Write More at Once，公开投稿版本](L021.md) | 匿名公开PDF索引Title/Abstract/Introduction；官方forum受challenge，未读Method/Experiments |

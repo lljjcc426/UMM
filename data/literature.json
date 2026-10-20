@@ -9058,22 +9058,25 @@
   {
     "title": "DiffSketcher，2023",
     "source_urls": [
-      "https://arxiv.org/abs/2306.14685"
+      "https://arxiv.org/abs/2306.14685",
+      "https://arxiv.org/html/2306.14685v5",
+      "https://papers.nips.cc/paper_files/paper/2023/hash/333e67fc4728f147d31608db3ca78e09-Abstract-Conference.html",
+      "https://github.com/ximinng/DiffSketcher/tree/0319b2903016baa2b057bd19922ff0a4e56751d9"
     ],
-    "method": "ASDS将扩散先验传给Bezier参数，并利用注意力初始化笔画。 固定预训练latent diffusion+diffvg类可微栅格化，优化曲线；没有学习真正时间条件执行器。",
-    "conclusion": "Appendix D/Table1：混淆率本法.65、CLIPasso.39、VectorFusion.33、人类.67。",
-    "gap": "同时优化所有曲线，优化迭代不代表合法绘制顺序；stroke数量控制抽象程度，未约束汉字笔画身份。",
-    "problem": "从自然语言生成向量自由手绘草图。",
+    "method": "注意力初始化+JVSP视觉/语义感知损失+Augmented SDS联合优化。冻结LDM、文本encoder与VAE，梯度经过VAE/可微栅格器更新曲线；增强改善SDS优化。透明度为视觉参数，不是物理压力。 每条三次Bézier四控制点与opacity；首点来自cross/self注意力融合后softmax分布，其余局部半径.05，固定黑线宽。v5Eq1为LDM背景目标，Eq2/3 SDS/KL背景，Eq4 JVSP结合LPIPS与CLIP视觉特征，Eq5增强score梯度，避开U-Net Jacobian、经过VAE回传；Eq6显式定义cross/self注意力线性融合。随机噪声时刻[.05,.95]，CFG100；标准理论不提供笔顺/全局最优保证。",
+    "conclusion": "§5.2正文数值：CLIP .3494，对照Canny .328、CLIPasso .3075；aesthetic 4.8206，对照4.3682/4.0821。数值来自段落，未虚构主表；34类识别Canny亦有优势，未给整体准确率。v5 AppD/T1人画判断比例本法.65、人类.67、CLIPasso.39、VectorFusion.33；人类被误判33%、未匹配素材且无CI，不支持普遍human-level或规范过程结论。",
+    "gap": "复杂/罕见概念、少曲线、风格多样性有限；整体点位随迭代移动，动画允许全局重画，无真实笔画因果。prompt/路径预算/优化seed敏感，无全面CI。公开默认warmup、lr、注意力融合与增强实现（affine默认不含sharpness，所读ASDS单次增强）和论文条件有差异，应先对齐再声称复现。v5是2026版，正式2023补充逐页尚未核。",
+    "problem": "自然语言提示→稀疏、可编辑的矢量素描，联合优化Bézier控制点与透明度，利用冻结图像扩散先验提升语义与视觉形状；无真实人类落笔轨迹/规范汉字笔顺或过程视频监督。",
     "claim": "作者研究目标：从自然语言生成向量自由手绘草图。",
-    "version": "版本见原始来源及历史记录",
+    "version": "DiffSketcher: Text Guided Vector Sketch Synthesis through Latent Diffusion Models；NeurIPS2023官方会议页已核。核心证据为arXiv2306.14685v5（2026-04-08），另对照v2；v5新增/扩展补充不能全部追溯为2023正式版本。正式PDF下载未完整，不计全文阅读。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-19",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-19",
+    "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 C",
     "id": "L017",
     "canonical_key": "paper:arxiv:2306.14685",
@@ -9107,29 +9110,37 @@
         "conclusion": "几何/风格生成工具；优化迭代轴不是书写时间轴",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-20",
+        "batch": 60,
+        "scope": "v2核心§1–6/Eq1–5、v5核心§1–6/Eq1–6及AppA–I全部文字/T1已读，References未逐条全文。实际v5Fig3/4/8已看；主定量为§5.2文字，不存在本笔记假设的主数值表。固定0319b29 README setup/quickstart/width-color例选读（非全部）、默认yaml全文；入口/配置merge、优化循环、ASDS增强/梯度、曲线初始化及state.step选段已核，非全仓/评测脚本/运行。"
       }
     ],
-    "sections_read": "Abstract、Appendix D/Table1、Appendix E；主方法核心目标",
+    "sections_read": "v2核心§1–6/Eq1–5、v5核心§1–6/Eq1–6及AppA–I全部文字/T1已读，References未逐条全文。实际v5Fig3/4/8已看；主定量为§5.2文字，不存在本笔记假设的主数值表。固定0319b29 README setup/quickstart/width-color例选读（非全部）、默认yaml全文；入口/配置merge、优化循环、ASDS增强/梯度、曲线初始化及state.step选段已核，非全仓/评测脚本/运行。",
     "review_path": "docs/reviews/L017.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "提示与人类free-hand草图用于评价；用户实验90生成图+30真实图，41参与者。",
-    "framework": "ASDS将扩散先验传给Bezier参数，并利用注意力初始化笔画。",
-    "architecture": "固定预训练latent diffusion+diffvg类可微栅格化，优化曲线；没有学习真正时间条件执行器。",
-    "metrics": "静态语义/感知指标及人类真假混淆率。",
-    "baselines": "CLIPasso、VectorFusion、人类草图。",
-    "experimental_conditions": "每方法30生成样本；生成图来源和真实网络图片分布不同，混淆分不可等同笔顺质量。"
+    "dataset": "无需额外训练新扩散数据集，每prompt优化；评价提示词完整清单/总样本量和种子未充分给。34类CLIP识别概率图。v5补充D共41参与者，90生成图（各法30）和30 Google Image自由素描混排，外部方法素材来自各自论文/项目，未统一提示/预算/风格。",
+    "framework": "注意力初始化+JVSP视觉/语义感知损失+Augmented SDS联合优化。冻结LDM、文本encoder与VAE，梯度经过VAE/可微栅格器更新曲线；增强改善SDS优化。透明度为视觉参数，不是物理压力。",
+    "architecture": "每条三次Bézier四控制点与opacity；首点来自cross/self注意力融合后softmax分布，其余局部半径.05，固定黑线宽。v5Eq1为LDM背景目标，Eq2/3 SDS/KL背景，Eq4 JVSP结合LPIPS与CLIP视觉特征，Eq5增强score梯度，避开U-Net Jacobian、经过VAE回传；Eq6显式定义cross/self注意力线性融合。随机噪声时刻[.05,.95]，CFG100；标准理论不提供笔顺/全局最优保证。",
+    "metrics": "CLIP ViT-L/14文本图像cosine、LAION CLIP-MLP aesthetic；34类识别分布无全局Top1数值；v5混淆分数是判作人画的比例。没有规范笔画身份/方向/顺序、真实动作、RGB时序一致性指标，CLIP/美学不替代这些目标。",
+    "baselines": "CLIPasso、Canny、CLIPDraw（RGB/BW）、VectorFusion及random-init SDS/ASDS、attention、去ASDS变体。VectorFusion主要沿用外部素材/不同prompt suffix；部分image-to-sketch方法拿LDM生成RGB做输入，条件不同；不能称统一等预算全量重跑。",
+    "experimental_conditions": "主文LDM/DDIM100步CFG7.5生成参考，优化Adam控制点lr1.0/颜色.1（AppA），JVSP LPIPS.2/CLIP视觉1。ASDS512增强、CFG100、t∈[.05,.95]；文述4增强。未给全套GPU/运行时/seed及评测N。固定0319b29默认image224/n128/width1.5/2000步/color_lr.01，attn_coeff1.0仅cross；sds warmup2000、grad_scale1e−6。入口/merge/step0/while<2000/ASDS≥warmup已静态核，未覆写时ASDS分支不进入；README快速例仅800步亦未改warmup。不能直接作为论文完整配方。"
   },
   {
     "title": "Diff-Font，2022 起",
     "source_urls": [
-      "https://arxiv.org/abs/2212.05895"
+      "https://arxiv.org/abs/2212.05895",
+      "https://arxiv.org/html/2212.05895v3",
+      "https://link.springer.com/article/10.1007/s11263-024-02137-0",
+      "https://github.com/Hxyz-123/Font-diff/tree/44d29cf44b195109b9903bd4768ee8407730e46c"
     ],
-    "method": "条件DDPM、冻结DGFontstyleencoder、字ID嵌入及32维笔画/部件count，属性级CFG。 U-Net128base、3resblocks、倍率1/2/3/4；512维联合条件；韩文24部件padding到32；两阶段attribute-drop训练。",
-    "conclusion": "小集FID27.30、SSIM.742；大集FID16.20、SSIM.722；对同表GAN有效，但不能外推全部现代扩散字体法。",
-    "gap": "不能从count推断笔序/视频；内容字ID限制未见字，扩展韩文/英文设置需与中文表分别读；版本有扩展段，不能把全部视为2022原版。",
-    "problem": "单张参考风格生成静态中韩等字形，保持复杂结构。",
+    "method": "冻结DG-Font风格encoder、字符ID内容embedding及可选count属性共同条件像素DDPM。条件训练→30%随机丢属性微调→两个guidance scale组合content+style与stroke+style预测及无条件预测，DDIM25步；中文/韩文及另训Latin/Greek示例。 像素UNet base128、3ResBlocks、多分辨率attention40/20/10；论文content/style128各、optional256拼512，无optional各256。Eq8标准噪声MSE；Eq9 ε0+s1(εcs−ε0)+s2(εs,op−ε0)，两分支均含style，非纯正交独立控制，也非s1=s2=1必等全条件。代码base128得到time512、content128/stroke128/style256，维度分配与论文不同；32可学小向量乘count再flatten。",
+    "conclusion": "T2small SSIM.742/RMSE.271/LPIPS.124/FID27.30；FUNIT.700/.303/.166/35.20，MX.721/.283/.151/37.15，DG.729/.280/.137/43.44。large本法.722/.277/.104/16.20，FUNIT.682/.311/.166/26.70，MX.692/.298/.138/26.64，DG.709/.292/.112/28.63。T3 64×10=640偏好选择，本法48.75%、DG24.53%、FUNIT13.44%、MX13.28%，非pairwise胜率/内容正确率。T6韩文本法.812/.196/.072/10.69，DG.771/.235/.095/43.36。",
+    "gap": "count不能区分相同笔画统计的错字/重排；style encoder冻结仍有预训成本；ID表不自然覆盖新字。两个guidance都含style，scale变化混合影响多属性；没有独立风格正交控制证明。test择参、单seed/无CI、字体来源和许可/分组清单、复杂极端风格失败和推理成本尚有限制。正式期刊版本与预印本逐页差异未核，公开batch与维度配置差异不静默消除。",
+    "problem": "给定一个目标字体参考图及字符ID，生成同风格的静态字形，可选中国字32种笔画计数或韩文24部件计数；目标为一参考字体迁移/结构完整性，输出非书写轨迹或视频。",
     "claim": "作者研究目标：单张参考风格生成静态中韩等字形，保持复杂结构。",
-    "version": "版本见原始来源及历史记录",
+    "version": "Diff-Font: Diffusion Model for Robust One-Shot Font Generation；IJCV132, 5372–5386 (2024)，在线2024-06-13，DOI10.1007/s11263-024-02137-0，Springer元数据已核。实际全文核心为arXiv2212.05895v3（2023-05-07）；正式期刊全文未取得，具体SCI分区年度未核。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
@@ -9171,17 +9182,22 @@
         "conclusion": "计数保存组成，不保存次序；不能照后续文章的简称误读为完整笔顺控制",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-20",
+        "batch": 60,
+        "scope": "arXiv v3核心§1–5/Eq1–10/T1–6全文及实际模型/计数/消融图已读；References未逐篇、正式期刊全文未读。Springer正式题名/卷页/日期/DOI已核。固定44d29cf README全文、两yaml全文、sample.py条件/三分支guidance、dataset随机drop与count读取、UNet属性维度/forward选段已读，未全训练器/评测/StyleEncoder或实际运行。"
       }
     ],
-    "sections_read": "§3条件/CFG、§4.1–4.4 Tables1/2/4及跨语种表示；完整版本对齐、韩文实验与全部附录未完成",
+    "sections_read": "arXiv v3核心§1–5/Eq1–10/T1–6全文及实际模型/计数/消融图已读；References未逐篇、正式期刊全文未读。Springer正式题名/卷页/日期/DOI已核。固定44d29cf README全文、两yaml全文、sample.py条件/三分支guidance、dataset随机drop与count读取、UNet属性维度/forward选段已读，未全训练器/评测/StyleEncoder或实际运行。",
     "review_path": "docs/reviews/L018.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "410字体×6625字；400字体训练/10测试。小集800已见字，大集6625字、测试800复杂字。此协议主要测试未见风格，字ID不自然支持未见类别。",
-    "framework": "条件DDPM、冻结DGFontstyleencoder、字ID嵌入及32维笔画/部件count，属性级CFG。",
-    "architecture": "U-Net128base、3resblocks、倍率1/2/3/4；512维联合条件；韩文24部件padding到32；两阶段attribute-drop训练。",
-    "metrics": "SSIM/RMSE/LPIPS/FID及主观选择；count条件衡量渲染结构，未测实际笔画事件。",
-    "baselines": "FUNIT/MXFont/DGFont同数据重训，源字Song；与token内容生成输入不同。",
-    "experimental_conditions": "小/大数据batch24/64；Adam1e-4无wd；1000线性时步；预训练300K/420K再finetune300K/380K；采样25步；属性drop .3；完整硬件本次未核。"
+    "dataset": "中国字410fonts/6625chars，400train/10test fonts；small800同组chars×400=320K，large400×6625=2.65M。测试10font的800复杂字符，内容ID训练已见、字体未见，不代表未见字泛化。韩文201fonts/2350字、195/6分font及800测试；单独训练，不是中文模型跨语种零样本。Latin/Greek另训第一阶段、仅定性，无完整split/N。",
+    "framework": "冻结DG-Font风格encoder、字符ID内容embedding及可选count属性共同条件像素DDPM。条件训练→30%随机丢属性微调→两个guidance scale组合content+style与stroke+style预测及无条件预测，DDIM25步；中文/韩文及另训Latin/Greek示例。",
+    "architecture": "像素UNet base128、3ResBlocks、多分辨率attention40/20/10；论文content/style128各、optional256拼512，无optional各256。Eq8标准噪声MSE；Eq9 ε0+s1(εcs−ε0)+s2(εs,op−ε0)，两分支均含style，非纯正交独立控制，也非s1=s2=1必等全条件。代码base128得到time512、content128/stroke128/style256，维度分配与论文不同；32可学小向量乘count再flatten。",
+    "metrics": "SSIM↑、RMSE/LPIPS/FID↓，主表静态像素/感知分布；64人偏好为四方法候选选择份额，无OCR/笔画事件/方向/时间指标。counts同一集合的顺序完全丢失，指标也不能验证规范书写。",
+    "baselines": "FUNIT、MX-Font、DG-Font按两数据条件重训并给一张style reference；模型以离散字符ID为内容，而部分基线接内容图，条件/辅助style encoder预训成本须分列；未完全固定总算力/参数或多seed。",
+    "experimental_conditions": "Adam1e−4/weightdecay0，训练1000线性diffusion、采样DDIM25/eta0。small b24/300K+300K，large b64/420K+380K，scale默认3/3；GPU具体型号/数量/墙钟/seed未给。固定44d29cf README/训练yaml420K→800K但batch16，与论文64不同；test batch5/num_samples10/ddim25/scale3/3。样例数据/风格encoder/字体许可及文件完整性需另核，未下权重或运行。"
   },
   {
     "title": "FontDiffuser，AAAI 2024",
