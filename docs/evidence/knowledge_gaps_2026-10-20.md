@@ -183,3 +183,8 @@ Reynolds形状导数与弧长Jacobian/滤波核、最近点隐式导数条件；
 ## 第四十二批补充
 
 集合排列不变loss、alpha渲染有序和规范事件是不同层面；STE为近似梯度。单笔PSNR不能替代整图/视频；Sinkhorn固定迭代近似与精确OT/去偏divergence区分。WGAN势函数符号需随minD/maxreward一致，最优势非唯一不保证学习收益；同预训练家族评价存在相关性。
+
+
+## 第四十三批补充
+
+离散ELBO界/连续ODE密度/均匀去量化K、Hutchinson无偏log估计与指数化偏差分别处理；PC同NFE才解释收益。连续性方程给边缘而非joint路径，CFM条件期望与θ无关常数、conditional OT与global OT不同。RF Jensen凸成本和历次最小直度界依理想假设，FID可退化；流t与视频τ分开。

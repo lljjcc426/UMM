@@ -302,12 +302,12 @@
 | S014 | sketch-diffusion (ark60 independent implementation) | primary_sections_read | [结构化分析](../reviews/S014.md) | 未完成 |
 | S015 | VidSketch sketch animation implementation | primary_sections_read | [结构化分析](../reviews/S015.md) | 未完成 |
 | S016 | BCSS Stroke-Seg implementation | primary_sections_read | [结构化分析](../reviews/S016.md) | 未完成 |
-| G001 | Denoising Diffusion Probabilistic Models | primary_sections_read | [结构化分析](../reviews/G001.md) | 未完成 |
-| G002 | Score-Based Generative Modeling through Stochastic Differential Equations | primary_sections_read | [结构化分析](../reviews/G002.md) | 未完成 |
+| G001 | Denoising Diffusion Probabilistic Models | primary_sections_read | [结构化分析](../reviews/G001.md) | 核心三遍与五项检查完成 |
+| G002 | Score-Based Generative Modeling through Stochastic Differential Equations | primary_sections_read | [结构化分析](../reviews/G002.md) | 核心三遍与五项检查完成 |
 | G003 | High-Resolution Image Synthesis with Latent Diffusion Models | primary_sections_read | [结构化分析](../reviews/G003.md) | 未完成 |
 | G004 | Scalable Diffusion Models with Transformers | primary_sections_read | [结构化分析](../reviews/G004.md) | 未完成 |
-| G005 | Flow Matching for Generative Modeling | primary_sections_read | [结构化分析](../reviews/G005.md) | 未完成 |
-| G006 | Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow | primary_sections_read | [结构化分析](../reviews/G006.md) | 未完成 |
+| G005 | Flow Matching for Generative Modeling | primary_sections_read | [结构化分析](../reviews/G005.md) | 核心三遍与五项检查完成 |
+| G006 | Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow | primary_sections_read | [结构化分析](../reviews/G006.md) | 核心三遍与五项检查完成 |
 | G007 | Consistency Models | primary_sections_read | [结构化分析](../reviews/G007.md) | 未完成 |
 | G008 | DPM-Solver: A Fast ODE Solver for Diffusion Probabilistic Model Sampling in Around 10 Steps | primary_sections_read | [结构化分析](../reviews/G008.md) | 未完成 |
 | G009 | Video Diffusion Models | primary_sections_read | [结构化分析](../reviews/G009.md) | 未完成 |

@@ -3413,6 +3413,142 @@
         }
       ],
       "boundary": "核心三遍限已明确的文本版本、框架视觉核、主结果/已有消融和批判性五检查。G016为v2预印本、F06为v1，正式PDF未完整；G017为作者项目正文/补充，F07为PMLR正式正文/补充。没有全源码/全部图例逐一审查、口试或独立训练/推理/实体复现。"
+    },
+    {
+      "id": "G001",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "已有扩散质量不足且训练目标与感知质量有落差。DDPM固定高斯扰动，学逆向噪声预测并去掉ELBO的时间权重，改善所测图像质量；保留似然变差与采样慢。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "v2 Fig2的x0→xT为q前向，xT→x0为p逆向。训练随机t闭式加噪→时间U-Net→εMSE，采样1000步均值/固定方差。噪声级t没有对应真实书写视频帧。",
+          "evidence": "v2 Fig2原框架/T1–2与配置"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "核心是ε参数化与无权训练的组合：真ELBO带β²/[2σ²α(1−ᾱ)]，简化loss改变各t权重。闭式前向避免训练展开1000步，推理仍需链；离散decoder支持似然界。",
+          "evidence": "关键机制/公式角色、推导假设与适用边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1质量模型FID3.17/测试NLL≤3.75，VLB13.51/≤3.70，质量与似然取舍。T2均值VLB13.22与εVLB13.51接近，ε无权3.17，不能单归ε；部分学习方差/均值MSE失败。±不当多训练seedCI。",
+          "evidence": "主结果/受控消融及未支持结论"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "少笔细线在去权目标下是否丢失，1000步代价能否降而保字形？同预算参数化×权重×方差、锁checkpoint、多seed，测FID/NLL/OCR/事件；追Score-SDE/求解器/后续扩散。理想渐进压缩不等真实笔顺，静态指标需乱序反例。",
+          "evidence": "原文疑问、后续追引和可证伪实验"
+        }
+      ],
+      "boundary": "核心三遍限明确预印本版本的核心方法/公式角色、框架视觉核、主表与已有消融及批判性书面五检查；G001/G002/G005为所列v2，G006为v1，正式终版PDF未完整读取。没有所有附录/源码逐行审查、口试或独立训练/推理复现；每项sections_read另列未读部分。"
+    },
+    {
+      "id": "G002",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "离散score生成限制求解器与密度接口。用前向/反向SDE统一SMLD/DDPM，再从score推PC、概率流ODE及受控图像生成；数值误差和条件信息另计。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "v2 Fig2：数据经SDE到噪声，学习score后逆SDE或ODE返回图像；Fig3容差改变调用数。UNet读xt/t，PC交替预测和Langevin校正；ODE确定路径与SDE只在理想条件共享边缘。",
+          "evidence": "v2 Fig2/3原图、T1单元格及H消融"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "反向漂移f−g²score和ODE f−½g²score作用不同；DSM总体回归得到边缘score。ODE可用change-of-variables计算密度，Hutchinson/数值积分仍有误差；状态相关扩散一般式还需散度项。",
+          "evidence": "关键机制/公式角色、推导假设与适用边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1 VE同2000score调用：P2000 FID4.74而PC1000 3.60，VP3.19对3.18很小；corrector-only20.43/19.06较差。H结构扫描不等主最佳checkpoint。T2 deep subVP ODE2.99bpd/FID2.92，与T3 deepVE PC2.20来自不同模型/选择。",
+          "evidence": "主结果/受控消融及未支持结论"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "PC收益是否只是预算/SNR搜索，连续密度估计有多大方差与截断误差？固定checkpoint/NFE拆solver和架构，报搜索总成本、trace重复和多训练seed。条件classifier需训练；inpainting近似/score误差怎样影响细字形与事件，需独立过程指标。",
+          "evidence": "原文疑问、后续追引和可证伪实验"
+        }
+      ],
+      "boundary": "核心三遍限明确预印本版本的核心方法/公式角色、框架视觉核、主表与已有消融及批判性书面五检查；G001/G002/G005为所列v2，G006为v1，正式终版PDF未完整读取。没有所有附录/源码逐行审查、口试或独立训练/推理复现；每项sections_read另列未读部分。"
+    },
+    {
+      "id": "G005",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "CNF似然训练每步积分昂贵，边缘速度目标不可直接求。CFM回归易抽样条件路径，训练免积分且梯度对应边缘FM，OT条件路径改善所测质量/计算取舍。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "v2 Fig3 OT原图为噪声到单个终点的线性条件路径。采样x1/x0/t→xt→ADM速度网络与已知条件速度回归，推理再积分到图像；超分另有低分辨率条件，主生成无类别/文本条件。",
+          "evidence": "v2 Fig3 OT原图/T1–3/路径对照"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "条件期望/连续性方程给边缘速度，平方loss差θ无关常数。OT条件σ=1−(1−σmin)t/μ=t x1，目标恒定x1−(1−σmin)x0；条件高斯OT不保证全局边缘OT/所有流线直，σmin平滑终分布。",
+          "evidence": "关键机制/公式角色、推导假设与适用边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1 CIFAR同架构DDPM3.12bpd/7.48FID/274NFE对FMOT2.99/6.35/142，FMdiff3.10/8.06/183；路径/目标受控对照。T2超分FID3.4优于SR3 5.2但PSNR24.7低于26.4，保留取舍。Fig7积分误差不是笔事件指标。",
+          "evidence": "主结果/受控消融及未支持结论"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "收益来自路径还是网络/预算，σmin如何影响精细字形？固定ADM/训练样本/GPU预算拆路径/目标与容差，报多seed、NFE及总时延；超分Pareto。理论假设和条件/边缘OT分别测试，生成流t与视频τ分开；后续RF/consistency/求解器继续追引。",
+          "evidence": "原文疑问、后续追引和可证伪实验"
+        }
+      ],
+      "boundary": "核心三遍限明确预印本版本的核心方法/公式角色、框架视觉核、主表与已有消融及批判性书面五检查；G001/G002/G005为所列v2，G006为v1，正式终版PDF未完整读取。没有所有附录/源码逐行审查、口试或独立训练/推理复现；每项sections_read另列未读部分。"
+    },
+    {
+      "id": "G006",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "线性随机coupling可能交叉而扩散低步数误差大。Rectification学条件平均速度形成ODE，reflow重建coupling变直，另distill改善单步，训练对生成成本需计。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "对应v1 Fig2的作者框架：端点对线性插值→回归velocity→ODE解端点→新对再训练。原Fig8低步FID/recall及蒸馏星号、Fig9直度/像素流线已核；非同一真实书写轨迹监督。",
+          "evidence": "v1 Fig2对应官方框架、原Fig8/9及T1–2"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "Thm3.3依连续性/ODE唯一保边缘；Thm3.5 Jensen给凸位移成本不增；Thm3.7历次最小直度O(1/K)需理想条件，均非有限NN/FID单调。高维直不等全局OT，同时间不交不禁止笔迹跨时间相交。",
+          "evidence": "关键机制/公式角色、推导假设与适用边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1未蒸馏1/2/3RF一步FID378/12.21/8.15，额外LPIPS蒸馏6.18/4.85/5.21；RK45充分积分2.58/3.36/3.96反而退化，区分数值误差与模型误差。Fig8/9支持低步和直度，不支持所有质量单调。",
+          "evidence": "主结果/受控消融及未支持结论"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "教师偏差经reflow会否放大，域适配是否使用目标测试特征？控制端点对量/LPIPS/总算力，多seed测完整NFE曲线并公开数据访问。官方reflow EMA.9999不同普通.999999，README1M建议不同论文4M；条件理论与feature-weighted变体分开，未直接推出视频/规范事件。",
+          "evidence": "原文疑问、后续追引和可证伪实验"
+        }
+      ],
+      "boundary": "核心三遍限明确预印本版本的核心方法/公式角色、框架视觉核、主表与已有消融及批判性书面五检查；G001/G002/G005为所列v2，G006为v1，正式终版PDF未完整读取。没有所有附录/源码逐行审查、口试或独立训练/推理复现；每项sections_read另列未读部分。"
     }
   ]
 }

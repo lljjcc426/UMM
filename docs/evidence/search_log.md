@@ -231,3 +231,8 @@ G014实际读arXiv1704.03477v2及AppA，GoogleResearch核ICLR2018，OpenReview P
 ## 第四十二批补充
 
 G016实际读arXiv2108.03798v2，CVF正式下载不完整；官方a5ceece五维形状+grid_sample采色。G017作者项目34页正文/补充及92262f7配置/损失选段。F06读2011.08114v1及附录/CVF身份，正式PDF不完整；官方e7a66b2 README。F07 PMLR10页正文+2页补充、5ee538c公开无条件模型说明/网络选段。框架/主表或曲线/消融原图均已核，未运行。AttentionPainter2410.16418、Interactive Neural Painting2307.16441及其他追引尚需去重/全文，不计新增完成。
+
+
+## 第四十三批补充
+
+G001实际读2006.11239v2，G0022011.13456v2，G0052210.02747v2，G0062209.03003v1完整HTML核心与所列附录。DDPM/Score官方身份页、ICLR2023目录核venue；正式PDF不完整/403未计已读。固定DDPM1e0dceb/ScoreJAX0acb9e0/RF5a1fd4d官方代码选段，框架/曲线原图核；G005 diffusion图文件不可读不计视觉核，OT条件图可读。NeuralODE/经典score与反向扩散、stochastic interpolants/OT RF后续仍需去重追引，未计新增完成。

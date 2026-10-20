@@ -180,3 +180,8 @@ H001模型卡SDXL字段与rank256/cross768 metadata不一致，官方加载为ti
 ## 第四十二批补充
 
 G016官方Paddle a5ceece当前五维预测+采色、serial更新与论文八维/速度表分开，未取得训练代码。G01792262f7默认500iter与论文约2000分开。F06e7a66b2含PyTorch命令/renderer和不同当前模型，未运行；F07google-deepmind5ee538c的19步无条件TFHub制品不等正文20步conditional。均关联论文，不再增加独立论文数。
+
+
+## 第四十三批补充
+
+DDPM官方1e0dceb TF1.15/TPU默认与loss选段；Score-SDE官方JAX0acb9e0配置/权重发布边界，个人资源重训制品和论文检查点分开；RF5a1fd4d普通/reflow/distill EMA.999999/.9999/.9999、uniform-L2和t0-LPIPS、A100环境与1M建议分开记录。FM后来官方library关联已有条目，未称2022原代码。无权重下载/执行；配套代码不重计独立论文。

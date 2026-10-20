@@ -142,3 +142,8 @@ G014为短在线素描VAE/AR，G015静态图→模拟笔触分解，F05英文独
 ## 第四十二批补充
 
 补G016局部集合摊销/G017少笔语义优化/F06双路径renderer+OT逐图优化/F07黑盒RL程序。监督来源、笔触表示、数据分布、评价和预算见[第四十二批矩阵](neural_painting_sets_semantics_and_programs_2026-10-20.md)；渲染过程没有直接规范文字/真实视频证据。
+
+
+## 第四十三批补充
+
+G001噪声链/G002连续score与PC/ODE/G005条件速度回归/G006rectification-reflow-distill，按静态数据、接口、理论假设、NLL/FID与预算分列。详见[第四十三批](diffusion_score_flow_and_rectification_2026-10-20.md)。以上没有直接规范笔顺/真实动作视频证据。

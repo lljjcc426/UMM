@@ -316,12 +316,12 @@
 | D09 | [SGF+: Decoupling Gradient Flows for Autoregressive Video Generation](D09.md) | v2 Abstract/Intro/Related、§3 Eq1–5/Fig4、§4 Tables1–3、AppA短5sT4/B配置/C–F诊断和24h示例说明/G1–6推导/H未来工作核心读；PDFp4Fig4/p7T1–2视觉核，未逐页检查所有生成示例。固定Git configs/README/gradientguide/role-routing/Pass1–2关键行、HF卡/文件列表已读，未下载权重/独立生成或诊断运行。 |
 | F06 | [Stylized Neural Painting](F06.md) | v1 Abstract/Intro/Related/§3.1–3.6/§4.1–4.3/Conclusion与App6.1–6.2核心含T1–7已读；Fig2渲染优化框架/Fig13训练曲线原图已视觉核。CVF身份与官方e7a66b2 README/许可/运行与renderer命令核查；正式PDF未完整，未全源码或运行。 |
 | F07 | [Synthesizing Programs for Images using Reinforced Adversarial Learning (SPIRAL)](F07.md) | PMLR正式正文§1–5/Eq1–7/所有主实验与补充A–C含网络图已读；正式p2Fig2/p8Fig8–10、补充p2Fig11–13视觉核。官方5ee538c README/TFHub无条件模型说明和agents/default.py选段核。公开19步CelebA-HQ模型不直接等正文20步conditional；未训练/调用TFHub或做实体实验。 |
-| G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
-| G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
+| G001 | [Denoising Diffusion Probabilistic Models](G001.md) | arXiv2006.11239v2：Abstract/Intro/§2/§3.1–3.4/Eq1–16/Alg1–2/§4.1–4.4/T1–2/Conclusion/BroaderImpact；AppB/C配置和AppA末段Eq24–26已读，未逐条重推全证明。原框架pgm_diagram已视觉核，表值逐行核。官方1e0dceb README、CIFAR默认及training_losses选段；无全源码/独立训练。 |
+| G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | arXiv2011.13456v2核心§2–5/Eq1–14/T1–3；AppD1–4（D5仅引言）、G Alg1–3及SNR、H1–3、I1–4核心已读，未逐行复核所有A–F推导/全部生成图库。原Fig2框架与Fig3 ODE采样图已视觉核，T1原HTML单元格核对。官方0acb9e0 README、CIFAR default/deepVE/deepsubVP配置；未执行。 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |
 | G004 | [Scalable Diffusion Models with Transformers](G004.md) | 模型结构、条件模块和扩展实验；主结果及结构消融 |
-| G005 | [Flow Matching for Generative Modeling](G005.md) | §3，条件向量场推导，Eqs.20–23，实验Table 1 |
-| G006 | [Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow](G006.md) | 直线回归与reflow方法，理论性质，CIFAR-10实验 |
+| G005 | [Flow Matching for Generative Modeling](G005.md) | 2210.02747v2：核心§2–6/Thm1–3/Eq1–23/T1–3；AppA/B证明、C密度/变换核心、D路径关系、E1/2训练和评价已读，AppF仅相关K/补表，未逐图审完。原Fig3 OT条件路径图已视觉核；另一diffusion图文件不可读未计视觉完成。官方ICLR目录核身份；未声称原始训练代码已取得/复现。 |
+| G006 | [Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow](G006.md) | 2209.03003v1 §2.1–2.2/Alg1、§3.1–3.4及核心证明、§5.1–5.4/T1–2/AppA配置已读；§2.3/§3.5非线性及diffusion关系未逐式精读，未声称终版全读。对应原Fig2的官方框架图、原Fig8步数曲线/Fig9直度视觉核；官方5a1fd4d README、普通/reflow/distill/default配置、loss和ODE实现选段已核，未训练/运行。 |
 | G007 | [Consistency Models](G007.md) | 一致性函数、CD/CT算法，Fig.3及主实验 |
 | G008 | [DPM-Solver: A Fast ODE Solver for Diffusion Probabilistic Model Sampling in Around 10 Steps](G008.md) | 扩散ODE推导、高阶算法、主比较实验 |
 | G009 | [Video Diffusion Models](G009.md) | 时空网络和联合训练方法，BAIR/Kinetics评估设置 |
