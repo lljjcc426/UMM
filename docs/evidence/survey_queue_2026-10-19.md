@@ -251,3 +251,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第五十五批补完原记录Chameleon/U01、Transfusion/U05核心三遍：目录347项不变，核心124、书面126。修订训练token口径、Chameleon总体/子集胜率、稳定性曲线表述和Transfusion共享代价/FLOP估计、patch暴露混杂。见[原文审查](chameleon_transfusion_shared_model_cost_and_claim_audit_2026-10-20.md)、[逐文件说明](fifty_fifth_changes_2026-10-20.md)。无删除/模型复现；Janus/Show-o及其他剩余继续。
+
+
+第五十六批补完原Janus/U03、Show-o/U06核心精读：347目录不变、126核心/128书面。修订解耦/共享收益、版本/指标、CFG与采样成本；纳入Show-o视频扩展，并限定附录公式问题的适用范围。见[原文审查](janus_showo_representation_video_and_math_audit_2026-10-20.md)、[逐文件说明](fifty_sixth_changes_2026-10-20.md)。无删除/训练复现，剩余精读继续。

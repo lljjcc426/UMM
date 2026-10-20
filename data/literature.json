@@ -5597,24 +5597,27 @@
     "id": "U03",
     "category": "U UMM基础与协同补全",
     "title": "Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation；2410.13848v1（2024-10-17）核心精读；CVPR2025正式页12966–12977已核，正式PDF仅选读§4.4/4.5与TV及实际第7页，未全版本逐页比。",
     "source_urls": [
-      "https://arxiv.org/abs/2410.13848"
+      "https://arxiv.org/abs/2410.13848",
+      "https://arxiv.org/html/2410.13848v1",
+      "https://github.com/deepseek-ai/Janus",
+      "https://openaccess.thecvf.com/content/CVPR2025/html/Wu_Janus_Decoupling_Visual_Encoding_for_Unified_Multimodal_Understanding_and_Generation_CVPR_2025_paper.html"
     ],
     "previous_evidence": null,
     "claim": "作者研究目标：减轻统一模型中视觉理解与生成对编码表示需求的冲突。",
-    "method": "分离理解和生成编码路径，保留一个共享自回归Transformer。 DeepSeek1.3B、SigLIP-Large16-384理解编码器、codebook16384/f16生成VQ、各2层MLP适配器。",
-    "problem": "减轻统一模型中视觉理解与生成对编码表示需求的冲突。",
-    "conclusion": "Table5分离路径联合D相较单理解E有些指标更高、部分更低：MMB69.4<70.6，SEED63.7<64.8；COCO-FID8.53优于单生成F8.92。",
-    "gap": "理解编码器预训练先验与结构分离同时变化，不能把全部提升归为共享理解生成协同。",
+    "method": "理解使用连续SigLIP、生成使用离散VQ，分别经适配器接入共享DeepSeek因果LLM；三阶段训练。TV与统一VQ/语义tokenizer及单任务模型比较。核心是表示分工，不能归为连续diffusion或称消除所有任务竞争。 预训练DeepSeek LLM1.3B（不含全部视觉模块参数）、4K上下文；SigLIP-L-P16-384与LlamaGen因子16/code16384 VQ，24²图像码；两层MLP适配和独立image head。文字/图像token因果CE；理解/生成无额外手设loss权重不等于无任务采样权重。CFG logits=lu+s(lc−lu)，s=5。",
+    "problem": "同一因果语言模型能否同时做好视觉理解与图像生成？共享视觉编码器是否因语义压缩/细节保留目标不一致形成瓶颈？研究对象为图文理解/静态图像生成，无规范笔顺视频任务。",
+    "conclusion": "理解POPE87/MME1338/MMB69.4/SEED63.7/VQA77.3/GQA59.1/MMMU30.5/MMVet34.3；不是逐指标最优，例如LLaVA7B VQA78.5/GQA62/MMMU35.4。GenEval.61，计数.30低于所列旧Show-o.49；COCO FID8.53/MJHQ10.10。正文GQA48.7→59.1称提升30%，按相对值为21.36%、绝对10.4点；正式§4.4仍保留30%，注明冲突。Show-o后续v7.68/.69不能混成同版本排名。",
+    "gap": "TV并未证明两任务都在全部指标优于最强替代；无完整等预算/全seed因子。语义蒸馏基线生成FID更好；共享模型理解有升有降。多语言prompt图例不等跨文字渲染/OCR/笔顺验证，音频/EEG/3D/扩散/动态分辨是展望。官方README选读显示2024-10-20 tokenizer_config.json的CFG bug修复为作者报告，未运行验证；不要用Janus-Pro/Flow配方替代本版。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-19",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "§3训练目标/阶段，§4.1/Table1，§4.5/Table5",
-    "last_updated": "2026-10-19",
+    "sections_read": "2410.13848v1核心§1–5、TI–TV全部单元、AppA.1–A.3及B文字；Fig2/3/6实际视觉。CVPR正式元数据、正式§4.4/4.5/TV选读及第7页实际视觉，未全正式PDF/附录图例；官方README选读news/原Janus模型安装/生成函数与许可入口，非Pro/Flow全审，无权重运行/独立复现。",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2410.13848",
     "evidence_history": [
       {
@@ -5661,16 +5664,21 @@
         "conclusion": "说明统一不必所有组件完全共享。",
         "gap": "【边界/推断】不能把架构经验写成所有任务的最优共享原则。",
         "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      },
+      {
+        "date": "2026-10-20",
+        "batch": 56,
+        "scope": "2410.13848v1核心§1–5、TI–TV全部单元、AppA.1–A.3及B文字；Fig2/3/6实际视觉。CVPR正式元数据、正式§4.4/4.5/TV选读及第7页实际视觉，未全正式PDF/附录图例；官方README选读news/原Janus模型安装/生成函数与许可入口，非Pro/Flow全审，无权重运行/独立复现。"
       }
     ],
     "review_path": "docs/reviews/U03.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "文字、理解图文、ImageNet1K起步生成及通用文本图像，三阶段训练。",
-    "framework": "分离理解和生成编码路径，保留一个共享自回归Transformer。",
-    "architecture": "DeepSeek1.3B、SigLIP-Large16-384理解编码器、codebook16384/f16生成VQ、各2层MLP适配器。",
-    "metrics": "POPE/MMBench/SEED/MMMU、COCO-FID、GenEval。",
-    "baselines": "共享VQ、语义tokenizer、理解/生成单任务及同期UMM。",
-    "experimental_conditions": "384px；128张A10040GB约7天；理解图像保持长边补灰，生成图短边缩放后裁剪。"
+    "dataset": "I ShareGPT4V1.25M/ImageNet1.2M；II DeepSeek文字、WikiHow/WIT交错、caption/表格图表等理解及公开生成混合+2M内部图；III理解instruction+文字/生成子集+4M内部图。II前120K生成用ImageNet，后60K换开放域；25%caption仅首句。完整开放混合计数/所有去重/上游预训成本未在所读给齐。",
+    "framework": "理解使用连续SigLIP、生成使用离散VQ，分别经适配器接入共享DeepSeek因果LLM；三阶段训练。TV与统一VQ/语义tokenizer及单任务模型比较。核心是表示分工，不能归为连续diffusion或称消除所有任务竞争。",
+    "architecture": "预训练DeepSeek LLM1.3B（不含全部视觉模块参数）、4K上下文；SigLIP-L-P16-384与LlamaGen因子16/code16384 VQ，24²图像码；两层MLP适配和独立image head。文字/图像token因果CE；理解/生成无额外手设loss权重不等于无任务采样权重。CFG logits=lu+s(lc−lu)，s=5。",
+    "metrics": "理解POPE/MME/MMBench/SEED/VQAv2/GQA/MMMU/MM-Vet；生成GenEval、COCO-30K和MJHQ-30K FID。无规范笔画事件/时序/OCR生成专项指标；FID不能证明文字正确，GenEval计数/位置不等规范笔序。",
+    "baselines": "Emu3/Chameleon/Show-o、理解LLaVA系列、生成SD/SDXL/PixArt/VILA等文献异构报告。受控TV A共享VQ、B语义蒸馏tokenizer、C语义under-only、DJanus、ESigLIP under-only、FVQ gen-only；作者称每任务训练步匹配，未证明总计算/全参数/上游数据完全相同。",
+    "experimental_conditions": "三阶段lr1e−3/1e−4/2e−5，cosine/constant/constant，wd0/0/.1，warm300/5000/0，steps10K/180K/24K，batch256/512/256，AdamW.9/.95、clip1。mmu:text:gen采样1:0:1、2:3:5、7:3:10。I只训adapter/head，II放开LLM视觉encoder仍冻，III除gen encoder其余放开含SigLIP。128张A10040GB约7天；10%条件drop，官方示例temp1/parallel16/CFG5/576序列码。有上游预训投入，无多seed/CI完整报告。"
   },
   {
     "id": "U04",
@@ -5841,24 +5849,27 @@
     "id": "U06",
     "category": "U UMM基础与协同补全",
     "title": "Show-o: One Single Transformer to Unify Multimodal Understanding and Generation",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "Show-o: One Single Transformer to Unify Multimodal Understanding and Generation；2408.12528v7（2025-09-08）核心精读；ICLR2025官方OpenReview o6Ynz6OIQ6元数据已核，正式PDF未全文。与早期v1/后续Show-o2分列。",
     "source_urls": [
-      "https://arxiv.org/abs/2408.12528"
+      "https://arxiv.org/abs/2408.12528",
+      "https://arxiv.org/html/2408.12528v7",
+      "https://openreview.net/forum?id=o6Ynz6OIQ6",
+      "https://github.com/showlab/Show-o/tree/45a5a2de01d1ebd10cd5864d29310a76476cdf23"
     ],
     "previous_evidence": null,
     "claim": "作者研究目标：用一个Transformer结合语言自回归与图像离散扩散。",
-    "method": "统一AR/离散去噪目标及omni-attention，探索离散/连续理解视觉表示。 Phi1.5 1.3B、MAGVITv2 tokenizer；Show-o†/‡换成连续MAGVIT/CLIP理解特征。",
-    "problem": "用一个Transformer结合语言自回归与图像离散扩散。",
-    "conclusion": "默认Show-o对比同基座LLaVA有多项下降，如VQAv269.4<75.3；‡74.7更接近但仍低于75.3。",
-    "gap": "原文总体表述不能覆盖所有细项；CLIP先验与结构共享效果须分离。",
+    "method": "Phi1.5共享Transformer结合文字NTP与图像掩码MTP，omni-attention图内双向/跨块因果，任务token组织统一序列；可选连续视觉/CLIP理解变体，后续GenHowTo交错关键帧和视频tokenizer定性扩展。不得与Show-o2连续flow混同。 Phi1.5-1.3B加QKnorm，LFQ码本8192；256²→16²、512²→32²位置，8192图码+10任务special+MASK扩词表。Eq1/2写loglikelihood最大化、训练为负CE；Eq3 MTP+αNTP，图仅masked位置。†连续MAGVIT/‡CLIP理解是不同变体。纯mask离散扩散；Eq8含均匀噪声推广存在归一化疑问，实际β=0不受该项直接影响。",
+    "problem": "如何让单Transformer同时用因果自回归预测文字和并行离散去噪生成图像，并支持交错图文/视频扩展？关键为目标/attention/表示的统一，非专门书写或文字视频模型。",
+    "conclusion": "TI默认2B512 POPE80/MME1097.2/Flickr62.5/VQA69.4/GQA58/MMMU26.7；同Phi LLaVA84.1/1128/69.6/75.3/56.5/30.7，非全部更好。‡CLIP84.5/1232.9/67.6/74.7/61/27.4。TII FID9.24为35M模型，TIII v7GenEval.68/.69‡，不能当同一个预算/变体。§4.4 GenHowTo交错keyframe微调，§4.5膨胀video tokenizer输入3×17×256²@8fps→5×16²图码；仅案例，不证明规范书写过程。",
+    "gap": "AppK明确文字识别/新词生成/计数失败；归因训练数据为作者解释，尚无排除tokenizer/分辨的充分因果实验。视频仅定性且需微调，不是零样本全能。附录Eq6后把反向条件独立归于Markov一般不成立；Eq8按K非MASK+1MASK计算非MASK行和1−β/(K+1)，β>0不足1。实际pure-mask β=0行和1；这两个展示/解释问题不自动否定全部实现、AppB证明或实验。未独立验证所有证明、训练loop、全部视频和样例。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-19",
+    "checked_on": "2026-10-20",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "§4.1/Table1，Table4及表示选择研究",
-    "last_updated": "2026-10-19",
+    "sections_read": "2408.12528v7核心§1–5/TI–TV，AppA–F、I/J/K文字与公式已读；AppB原证明读过但未独立逐步验证。G prompts/H视频未逐项；实际Fig2/3/4/5/9，其余多为caption/正文，Fig8/12资源下载未完成未计视觉。官方原Show-o固定45a5a2d model构造/forward/t2i_generate、stage1/2/3/demo配置全文、README选段；未全训练loader/mmu代码/原formalPDF或权重运行。",
+    "last_updated": "2026-10-20",
     "canonical_key": "paper:arxiv:2408.12528",
     "evidence_history": [
       {
@@ -5905,16 +5916,21 @@
         "conclusion": "是Show-o2之前的不同视觉生成路线。",
         "gap": "【边界/推断】不能把Show-o的离散扩散与Show-o2流匹配混称。",
         "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      },
+      {
+        "date": "2026-10-20",
+        "batch": 56,
+        "scope": "2408.12528v7核心§1–5/TI–TV，AppA–F、I/J/K文字与公式已读；AppB原证明读过但未独立逐步验证。G prompts/H视频未逐项；实际Fig2/3/4/5/9，其余多为caption/正文，Fig8/12资源下载未完成未计视觉。官方原Show-o固定45a5a2d model构造/forward/t2i_generate、stage1/2/3/demo配置全文、README选段；未全训练loader/mmu代码/原formalPDF或权重运行。"
       }
     ],
     "review_path": "docs/reviews/U06.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "35M或2B图文、约2M高质量理解生成微调，RefinedWeb文字。",
-    "framework": "统一AR/离散去噪目标及omni-attention，探索离散/连续理解视觉表示。",
-    "architecture": "Phi1.5 1.3B、MAGVITv2 tokenizer；Show-o†/‡换成连续MAGVIT/CLIP理解特征。",
-    "metrics": "POPE/MME/Flickr/VQAv2/GQA/MMMU，COCO-FID与GenEval。",
-    "baselines": "同Phi基础LLaVA及Chameleon、同期UMM/生成模型。",
-    "experimental_conditions": "表中默认离散与‡连续表示不能合并；数据规模和256/512分辨率对应不同版本。"
+    "dataset": "35M CC12M/SA1B/LAION-aesthetics，ShareGPT4V重caption；扩展2B来自DataComp/COYO筛选。RefinedWeb文字/ImageNet1.28M，HQ约1M内部+LLaVA558K/665K。GenHowTo关键帧caption用于视频扩展微调；CLIP上游约400M与MAGVIT35M不同，表间不可视作相同预训预算。",
+    "framework": "Phi1.5共享Transformer结合文字NTP与图像掩码MTP，omni-attention图内双向/跨块因果，任务token组织统一序列；可选连续视觉/CLIP理解变体，后续GenHowTo交错关键帧和视频tokenizer定性扩展。不得与Show-o2连续flow混同。",
+    "architecture": "Phi1.5-1.3B加QKnorm，LFQ码本8192；256²→16²、512²→32²位置，8192图码+10任务special+MASK扩词表。Eq1/2写loglikelihood最大化、训练为负CE；Eq3 MTP+αNTP，图仅masked位置。†连续MAGVIT/‡CLIP理解是不同变体。纯mask离散扩散；Eq8含均匀噪声推广存在归一化疑问，实际β=0不受该项直接影响。",
+    "metrics": "POPE/MME/Flickr30K CIDEr/VQAv2/GQA/MMMU、COCO FID、GenEval；部分VQAv2为val另有test-dev。视频扩展仅关键帧/短片定性，无FVD/VBench/笔顺/事件时间/视频文字专项量化。约20倍是512²的1024逐码对50轮步骤比，不是硬件端到端20倍提速。",
+    "baselines": "MMU LLaVA-v1.5同Phi、InstructBLIP/QwenVL等；T2I DALL-E2/SD/PixArt/Emu/CM3Leon等文献；CLIP/MAGVIT连续/离散、shared预训yes/no为TV受控组。Janus2024引用Show-o早期.53与本v7.68/.69版本不同，不拼接静态排名。",
+    "experimental_conditions": "35M预训AppF：48A10080GB，batch1152，stageI500K/II1M步，AdamWlr1e−4/5Kwarm/cos/wd.01；扩展2B又500K256²+500K512²，不能当同成本。官方固定45a5a2d的原Show-o配置I/II/III步500K/1M/50K（III注需按HQ量调整），lr1e−4/1e−4/2e−5，loss t2i1/lm.1/mmu1，seed10086/bf16/TF32/cond_drop.1；perworker任务batch各异，未全读loader不推全局数冲突。CFG=(1+w)lc−wlu，等价Janus s=w+1，代码默认18步/配置可另设；README说RefinedWeb loader为内部接口需替换，若注释LM会改变目标。"
   },
   {
     "id": "U07",

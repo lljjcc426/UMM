@@ -252,10 +252,10 @@
 | S016 | [BCSS Stroke-Seg implementation](S016.md) | 官方README全部、recursive tree、FCN.py与deeplab.py全文、LabelMe01字段；未执行、未读全部子模块，未取得主表checkpoint |
 | U01 | [Chameleon: Mixed-Modal Early-Fusion Foundation Models](U01.md) | 2405.09818v2全部核心Intro/§2–7方法/实验文字，TI–VII、AppB TXI–XIV全表；Fig1、Fig8三子图、Fig12三子图、Fig21胜平负原图视觉。其他生成样例和AppB全部任务完成细表未逐图/逐格核，参考文献未逐篇打开。官方README全文；HF卡401未读，未审全部代码/训练数据/权重、未训练/推理/复现。 |
 | U02 | [Emu3: Next-Token Prediction is All You Need](U02.md) | §2数据/模型，Tables1–3/7–8及视频VBench表 |
-| U03 | [Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation](U03.md) | §3训练目标/阶段，§4.1/Table1，§4.5/Table5 |
+| U03 | [Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation](U03.md) | 2410.13848v1核心§1–5、TI–TV全部单元、AppA.1–A.3及B文字；Fig2/3/6实际视觉。CVPR正式元数据、正式§4.4/4.5/TV选读及第7页实际视觉，未全正式PDF/附录图例；官方README选读news/原Janus模型安装/生成函数与许可入口，非Pro/Flow全审，无权重运行/独立复现。 |
 | U04 | [Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling](U04.md) | §2.1–2.3，训练Table2，§3.1及主评测表 |
 | U05 | [Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model](U05.md) | 2408.11039v1全部核心§1–6及Eq1–4、TI–IX、AppA自编码损失全文；Fig1/3/4实际视觉、Fig5 FID/CIDEr两子图实际视觉，其他四条缩放曲线只表/正文，生成/编辑样例未逐图。OpenReview正式ICLR2025元数据已核，正式PDF未逐页比；无官方训练源码全审/模型运行或独立复现。 |
-| U06 | [Show-o: One Single Transformer to Unify Multimodal Understanding and Generation](U06.md) | §4.1/Table1，Table4及表示选择研究 |
+| U06 | [Show-o: One Single Transformer to Unify Multimodal Understanding and Generation](U06.md) | 2408.12528v7核心§1–5/TI–TV，AppA–F、I/J/K文字与公式已读；AppB原证明读过但未独立逐步验证。G prompts/H视频未逐项；实际Fig2/3/4/5/9，其余多为caption/正文，Fig8/12资源下载未完成未计视觉。官方原Show-o固定45a5a2d model构造/forward/t2i_generate、stage1/2/3/demo配置全文、README选段；未全训练loader/mmu代码/原formalPDF或权重运行。 |
 | U17 | [Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System](U17.md) | 摘要，§3/Table1与探针，Tables4–5，系统任务说明和SVG诊断附录 |
 | U18 | [Transferability Between Understanding and Generation in Unified Multimodal Models](U18.md) | §3–5；Tables1/3/4/10/11/12；Appendix0.A、0.B.2、0.C、0.E |
 | X01 | [InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write](X01.md) | §3架构/五任务/token，§4.1–4.7数据、Table2/3及限制；AppendixG尚待完整摘录 |

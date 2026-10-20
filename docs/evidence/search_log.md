@@ -296,3 +296,8 @@ G035：2503.21755v2核心I–VI/TI–IV、Eq1/2、Fig1/3/11视觉；固定代码
 ## 第五十五批补充
 
 U01 v2核心§1–7/TI–VII/AppB TXI–XIV、框架/稳定/胜平负实际图；U05 v1核心§1–6/Eq1–4/TI–IX/AppA、框架/mask/FID/CIDEr图，ICLR正式归属元数据。Chameleon官方README全文，HF卡401未读；Janus/Show-o仅取原文，未验收。
+
+
+## 第五十六批补充
+
+U03 arXiv v1核心/五表/AppA及实际框架/训练/语义encoder图，CVPR正式§4.4/4.5/TV选读；U06 v7核心/五表/AppA–F/I/J/K和实际架构/attention/diffusion图。原Janus README选段；原Show-o固定45a5a2d构造/forward/t2i及四配置全文/README选段。未读范围见专题。

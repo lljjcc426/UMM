@@ -4365,6 +4365,74 @@
         }
       ],
       "boundary": "2408.11039v1全部核心§1–6及Eq1–4、TI–IX、AppA自编码损失全文；Fig1/3/4实际视觉、Fig5 FID/CIDEr两子图实际视觉，其他四条缩放曲线只表/正文，生成/编辑样例未逐图。OpenReview正式ICLR2025元数据已核，正式PDF未逐页比；无官方训练源码全审/模型运行或独立复现。 核心书面验收，无计时口试/复现。"
+    },
+    {
+      "id": "U03",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "同一因果语言模型能否同时做好视觉理解与图像生成？共享视觉编码器是否因语义压缩/细节保留目标不一致形成瓶颈？研究对象为图文理解/静态图像生成，无规范笔顺视频任务。 VQ编码保留重建细节但不直接提供强语义；理解编码器压缩语义又未必可生成。统一视觉encoder与统一序列骨干是不同的共享层级；解耦输入不等于完全分离两个任务。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "理解：图像长边缩至384再padding127→SigLIP→MLP→LLM输出文字。生成：文字→共享LLM依次预测576离散码→VQ decoder输出384²图。Fig2/3实际视觉；图像生成短边缩放再crop，预处理与理解不同。 预训练DeepSeek LLM1.3B（不含全部视觉模块参数）、4K上下文；SigLIP-L-P16-384与LlamaGen因子16/code16384 VQ，24²图像码；两层MLP适配和独立image head。文字/图像token因果CE；理解/生成无额外手设loss权重不等于无任务采样权重。CFG logits=lu+s(lc−lu)，s=5。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "理解使用连续SigLIP、生成使用离散VQ，分别经适配器接入共享DeepSeek因果LLM；三阶段训练。TV与统一VQ/语义tokenizer及单任务模型比较。核心是表示分工，不能归为连续diffusion或称消除所有任务竞争。 对理解需要强语义、生成需要可重建细节且共用因果序列骨干的图文任务，解耦可能改善Pareto；具体依赖encoder质量/额外成本/任务采样。只有同数据/预算下局部消融和多seed能验证因果收益，现有表不给严格笔序优势。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "理解POPE87/MME1338/MMB69.4/SEED63.7/VQA77.3/GQA59.1/MMMU30.5/MMVet34.3；不是逐指标最优，例如LLaVA7B VQA78.5/GQA62/MMMU35.4。GenEval.61，计数.30低于所列旧Show-o.49；COCO FID8.53/MJHQ10.10。正文GQA48.7→59.1称提升30%，按相对值为21.36%、绝对10.4点；正式§4.4仍保留30%，注明冲突。Show-o后续v7.68/.69不能混成同版本排名。 TV D vs A POPE87/60.1、MMB69.4/35、FID8.53/8.72；B语义蒸馏FID7.11优于D8.53，D理解四项优于B，属于取舍。D vs E（under-only）POPE+1.1/MMMU+1.7、MMB−1.2/SEED−1.1；D vs F FID8.53/8.92无CI。B/C语义tokenizer额外12层768维ViT解码器/SigLIP cosine.25，40epochImageNet+50M图1epoch，非主模型训练。不同encoder预训和参数为混杂，不从该表证明共享全面正迁移。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "TV并未证明两任务都在全部指标优于最强替代；无完整等预算/全seed因子。语义蒸馏基线生成FID更好；共享模型理解有升有降。多语言prompt图例不等跨文字渲染/OCR/笔顺验证，音频/EEG/3D/扩散/动态分辨是展望。官方README选读显示2024-10-20 tokenizer_config.json的CFG bug修复为作者报告，未运行验证；不要用Janus-Pro/Flow配方替代本版。 共享/解耦encoder×共享/分离骨干×单/多任务，控制encoder初始化、预训数据、样本暴露、总参数和实测FLOPs；报告理解/生成Pareto及CI。加语义蒸馏强基线，测VQ细字/笔画重建上限，跨文字/字/作者留出；CFG以统一lu+s(lc−lu)口径扫描、固定随机种子和tokenizer版本，区分静态图与笔事件视频。未执行。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        }
+      ],
+      "boundary": "2410.13848v1核心§1–5、TI–TV全部单元、AppA.1–A.3及B文字；Fig2/3/6实际视觉。CVPR正式元数据、正式§4.4/4.5/TV选读及第7页实际视觉，未全正式PDF/附录图例；官方README选读news/原Janus模型安装/生成函数与许可入口，非Pro/Flow全审，无权重运行/独立复现。 核心书面验收，无计时口试/复现。"
+    },
+    {
+      "id": "U06",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "如何让单Transformer同时用因果自回归预测文字和并行离散去噪生成图像，并支持交错图文/视频扩展？关键为目标/attention/表示的统一，非专门书写或文字视频模型。 纯AR图像需逐token采样，连续diffusion接口与文字AR不同；固定理解/生成同一种attention不适合两目标。并行掩码减少序列步骤，仍保留整图每轮计算和图像tokenizer压缩上限。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "文字/任务标记与MAGVIT-v2离散图码输入共享骨干；理解时因果输出文字，生成时全MASK图像槽经多轮并行预测/置信度重掩码再decode。Fig2/3/4/5/9实际视觉；视频中帧块之间仍自回归，不由图内双向自动获得跨帧因果笔事件。 Phi1.5-1.3B加QKnorm，LFQ码本8192；256²→16²、512²→32²位置，8192图码+10任务special+MASK扩词表。Eq1/2写loglikelihood最大化、训练为负CE；Eq3 MTP+αNTP，图仅masked位置。†连续MAGVIT/‡CLIP理解是不同变体。纯mask离散扩散；Eq8含均匀噪声推广存在归一化疑问，实际β=0不受该项直接影响。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "Phi1.5共享Transformer结合文字NTP与图像掩码MTP，omni-attention图内双向/跨块因果，任务token组织统一序列；可选连续视觉/CLIP理解变体，后续GenHowTo交错关键帧和视频tokenizer定性扩展。不得与Show-o2连续flow混同。 自然图像并行掩码生成、与文字因果混合且能容忍tokenizer压缩时，较少轮次可能有延迟优势；强语义理解编码器和shared预训收益取决数据/任务。严格事件时间需要显式事件/执行约束与评价，现有定性视频扩展构成相关先例但未验证该优势。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "TI默认2B512 POPE80/MME1097.2/Flickr62.5/VQA69.4/GQA58/MMMU26.7；同Phi LLaVA84.1/1128/69.6/75.3/56.5/30.7，非全部更好。‡CLIP84.5/1232.9/67.6/74.7/61/27.4。TII FID9.24为35M模型，TIII v7GenEval.68/.69‡，不能当同一个预算/变体。§4.4 GenHowTo交错keyframe微调，§4.5膨胀video tokenizer输入3×17×256²@8fps→5×16²图码；仅案例，不证明规范书写过程。 TV CLIP shared-pretrain yes/no：POPE84.5/84.5，MME1182.7/1161.6，Flickr64.3/68.5，VQA-val71.9/73.5，GQA57.5/58.7，MMMU27.4/29.2，四降一平一升。MAGVIT连续yes/no六项都升；离散理解前五升而MMMU25.1/28.1下降。TIV35M256→2B256的MMMU25.1→25.0，扩分辨512为26.7。数据/表示/预训共同影响，不概括为总有协同或全指标单调。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "AppK明确文字识别/新词生成/计数失败；归因训练数据为作者解释，尚无排除tokenizer/分辨的充分因果实验。视频仅定性且需微调，不是零样本全能。附录Eq6后把反向条件独立归于Markov一般不成立；Eq8按K非MASK+1MASK计算非MASK行和1−β/(K+1)，β>0不足1。实际pure-mask β=0行和1；这两个展示/解释问题不自动否定全部实现、AppB证明或实验。未独立验证所有证明、训练loop、全部视频和样例。 对齐Janus的CFG实际条件系数、分辨/图码数量/采样预算，测AR/MaskGIT/连续diffusion的总延迟/显存/质量及多seed。encoder×shared-pretrain×样本/实际FLOPs全因子、保留单任务强基线。视频按字/作者留出，同终图错序/缺笔/回擦负例测事件和RGB可观测性。理论先核转移矩阵随机性/后验定义，再对纯mask实例独立推导；未执行模型实验。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        }
+      ],
+      "boundary": "2408.12528v7核心§1–5/TI–TV，AppA–F、I/J/K文字与公式已读；AppB原证明读过但未独立逐步验证。G prompts/H视频未逐项；实际Fig2/3/4/5/9，其余多为caption/正文，Fig8/12资源下载未完成未计视觉。官方原Show-o固定45a5a2d model构造/forward/t2i_generate、stage1/2/3/demo配置全文、README选段；未全训练loader/mmu代码/原formalPDF或权重运行。 核心书面验收，无计时口试/复现。"
     }
   ]
 }

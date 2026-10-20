@@ -207,3 +207,8 @@ G035已覆盖两动作顺序、动态状态、运动后果、实例保持和通�
 ## 第五十五批补充
 
 U01统一AR与U05混合CE/连续diffusion均为静态图文共享模型，已有组件/预算消融；负迁移较小不等正迁移，规范书写需细字/事件与时序mask新证据。见[第五十五批](chameleon_transfusion_shared_model_cost_and_claim_audit_2026-10-20.md)。
+
+
+## 第五十六批补充
+
+Janus解耦encoder/共享AR骨干与Show-o混合NTP/MTP均已有，不能据统一称普遍正迁移。Show-o GenHowTo关键帧微调/8fps短视频tokenizer必须计入相关先例，但只有定性证据。见[第五十六批](janus_showo_representation_video_and_math_audit_2026-10-20.md)。

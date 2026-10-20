@@ -240,3 +240,8 @@ G035关联HF VBench-2.0_human_anomaly卡、仓库JSONL结构、人体训练配�
 ## 第五十五批补充
 
 U01关联官方推理/viewer/prompts README已读，研究许可/模型需申请；HF原始卡401未读，不猜权重能力。U05 AppA VAE/VQ损失及训练条件已核，未取得完整官方训练配方/运行；关联材料不重复计数。见[资源边界](../evidence/chameleon_transfusion_shared_model_cost_and_claim_audit_2026-10-20.md)。
+
+
+## 第五十六批补充
+
+Janus原README的CFG tokenizer_config修复仅作者报告，原Janus与Pro/Flow分列；代码MIT不自动覆盖模型许可。Show-o原代码/三阶段配置已选读，RefinedWeb内部loader需替换，注释LM改变目标，不能称完整复现；配置loss1/.1/1及三阶段步数/seed已记。关联不重复计数。见[资源审查](../evidence/janus_showo_representation_video_and_math_audit_2026-10-20.md)。

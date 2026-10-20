@@ -75,10 +75,10 @@
 | N13 | The Unwritten Benchmark: A New Challenge for Multimodal Machine Learning in Abstract Perceptual Reasoning | primary_sections_read | [结构化分析](../reviews/N13.md) | 未完成 |
 | U01 | Chameleon: Mixed-Modal Early-Fusion Foundation Models | primary_sections_read | [结构化分析](../reviews/U01.md) | 核心三遍与五项检查完成 |
 | U02 | Emu3: Next-Token Prediction is All You Need | primary_sections_read | [结构化分析](../reviews/U02.md) | 未完成 |
-| U03 | Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/U03.md) | 未完成 |
+| U03 | Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/U03.md) | 核心三遍与五项检查完成 |
 | U04 | Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling | primary_sections_read | [结构化分析](../reviews/U04.md) | 未完成 |
 | U05 | Transfusion: Predict the Next Token and Diffuse Images with One Multi-Modal Model | primary_sections_read | [结构化分析](../reviews/U05.md) | 核心三遍与五项检查完成 |
-| U06 | Show-o: One Single Transformer to Unify Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/U06.md) | 未完成 |
+| U06 | Show-o: One Single Transformer to Unify Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/U06.md) | 核心三遍与五项检查完成 |
 | U07 | Unified Multimodal Discrete Diffusion (UniDisc) | primary_sections_read | [结构化分析](../reviews/U07.md) | 核心三遍与五项检查完成 |
 | U08 | Zebra-CoT: A Dataset for Interleaved Vision Language Reasoning | primary_sections_read | [结构化分析](../reviews/U08.md) | 未完成 |
 | U09 | ThinkMorph: Emergent Properties in Multimodal Interleaved Chain-of-Thought Reasoning | primary_sections_read | [结构化分析](../reviews/U09.md) | 未完成 |
