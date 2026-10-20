@@ -7131,6 +7131,29 @@
       "checked_on": "2026-10-20",
       "reading_status": "critical_sections_reviewed",
       "reproduced": false
+    },
+    {
+      "venue": "Stable Diffusion VAE ft-EMA / ft-MSE；官方Hugging Face组件资源组，无独立论文定位，关联LDM(G003)和DiT(G004)。固定mse31f26fdeee1355a5c34592e401dd41e45d25a493、emaf04b2c4b98319346dad8c65879f680b1997b204a。",
+      "problem": "在保持已有KL-f8 encoder与扩散潜空间兼容时，只微调decoder能否改善图像重建和最终扩散样本；不同重建损失如何影响像素失真与分布指标？",
+      "motivation": "原OpenImages VAE对下游人像/美学分布重建可改善，但换编码器会影响已有潜扩散兼容。decoder改善也会混入整模型FID对比，必须核输入输出、数据与训练历史。",
+      "contribution": "固定encoder，仅在LAION-Aesthetics和未公开LAION-Humans SFW子集1:1混合微调decoder。ftEMA延续原L1+LPIPS额外313198steps；ftMSE再多280K用MSE+.1LPIPS。两者都使用EMA权重，名字MSE不代表没有EMA。",
+      "input_output": "组件接受RGB图像编码为4通道f8 latent，或接受同空间latent解码RGB；它是AutoencoderKL组件，需要独立diffusion模型生成潜图。页面自动用法生成器不能视为从文字直接生成视频/图像能力证据；卡原生使用AutoencoderKL替换pipeline的vae。",
+      "architecture": "config：4级DownEncoderBlock2D/UpDecoderBlock2D，channels128/256/512/512、每block2层、SiLU/GroupNorm32，RGB3→latent4→RGB3、sample_size256。两个config一致，卡称只改decoder；encoder同接口不保证保留细文字信息，decoder无法保证找回编码已丢的真值。",
+      "data": "原训练OpenImages，finetune为1:1 LAION-Aesthetics/LAION-Humans（unreleased SFW）。卡评COCO2017val5K与LAION-Aesthetics5+随机10K子集，均256²；未给可完全恢复的人类图像名单，不能称全公开训练集。",
+      "metrics": "reconstruction FID、PSNR/SSIM/PSIM（低PSIM好），±为逐图分布统计而非多seed。独立DiT T5给生成FID但有该任务的CFG/采样条件；不混为同一指标。无OCR/笔顺/时序/机器人执行评估。",
+      "baselines": "同一原KL-f8 decoder、ftEMA、ftMSE比较；微调先后、数据域和步数一起变化，不是完全受控的仅loss三组。关联DiT原/ftMSE/ftEMA decoder消融；不同生成骨干与pixel流程不直接合排名。",
+      "experimental_conditions": "每版batch192、16A100（每卡12）作者报告；原246803steps→EMA累计560001→MSE840001。卡未给足optimizer/lr/seed/precision/完整LAION-Humans名单，保留待核。只读两个固定README、API文件清单与config；未下载权重/运行编码/解码或训练。卡metadata license MIT仅适所列组件发布，不外推所有数据/整SD pipeline。",
+      "results": "COCO原rFID4.99/PSNR23.4/SSIM.69，EMA4.42/23.8/.69，MSE4.70/24.5/.71；LAION原2.61/26.0/.81，EMA1.77/26.7/.82，MSE1.88/27.3/.83。MSE像素指标更好但两域rFID差于EMA。DiT256 CFG1.5对应生成FID原2.46/MSE2.30/EMA2.27；不能只归骨干。",
+      "ablation": "资源卡的原/EMA/MSE重建比较支持decoder适配效果及感知—失真取舍，未充分控制额外训练步数/数据/损失；没有语言/笔画/视频专门消融。DiT单改decoder结果提供独立下游佐证，但不证明所有diffusion或OCR必然改善。",
+      "limitations": "训练数据部分未公开、超参不全，EMA/MSE时间与loss混杂；依赖预训练encoder信息上限，细线/罕见字/非拉丁文字未验证。资源无独立论文不能排除，卡上tag或自动推理片段也不能提升证据等级；本项属于组件协议审查，不计论文核心三遍或独立模型复现。",
+      "advantage_hypothesis": "若下游潜空间相同且图像接近人像/美学微调域，decoder-only适配可能在兼容既有diffusion下改善重建/生成质量；MSE可能改善像素误差而牺牲rFID。跨域细字/真实过程需专门数据，静态重建收益无法推出视频顺序收益。",
+      "falsification": "固定encoder/潜样本/扩散checkpoint/seed和decoder训练样本步数，L1/LPIPS/MSE×EMA因子控制；报域内外rFID/PSNR/SSIM/OCR/细线拓扑、多seed和显存/解码时延。将重建与生成分两表，并让HF模型组件/训练配置进入资源检索队列。尚未执行。",
+      "writing_lesson": "无论文资源仍按问题→机制→协议→结果→边界写笔记；读取原生卡/config而非只看标签/自动示例。Claim注明作者报告/公开程度，把训练步数、loss和EMA语义解释清楚；Limitations单列不可公开数据和缺失超参，避免以资源名称代替方法理解。",
+      "sections_read": "两HF仓库固定commit的README完整模型说明/两重建表/使用与license字段、API元数据文件列表、config.json全读；交叉核LDM第一阶段及DiT AppA/T5。未看完卡所有重建图、未读权重张量或下载运行；属于资源协议深审，无独立论文三遍完成声明。",
+      "id": "R10",
+      "checked_on": "2026-10-20",
+      "reading_status": "resource_protocol_reviewed",
+      "reproduced": false
     }
   ]
 }

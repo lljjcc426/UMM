@@ -185,3 +185,8 @@ G016官方Paddle a5ceece当前五维预测+采色、serial更新与论文八维/
 ## 第四十三批补充
 
 DDPM官方1e0dceb TF1.15/TPU默认与loss选段；Score-SDE官方JAX0acb9e0配置/权重发布边界，个人资源重训制品和论文检查点分开；RF5a1fd4d普通/reflow/distill EMA.999999/.9999/.9999、uniform-L2和t0-LPIPS、A100环境与1M建议分开记录。FM后来官方library关联已有条目，未称2022原代码。无权重下载/执行；配套代码不重计独立论文。
+
+
+## 第四十四批补充
+
+新增[R10](../reviews/R10.md)：固定HF sd-vae-ft-ema/f04b2c4和sd-vae-ft-mse/31f26fd卡、API与config；decoder-only／两者EMA／未公开LAION-Humans／缺完整训练超参，重建rFID与DiT生成FID分开。另记LDM eval YAML非论文训练lr、DiT默认前三latent噪声通道CFG／MSE+CFG4、CM CT命令带teacher参数且初始化复制、DPM代码默认++；均未执行。

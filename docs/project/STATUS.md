@@ -37,7 +37,7 @@
 
 ## 第二轮调研更新（2026-10-19）
 
-截至2026-10-20，主目录334条，首轮补录已关联并同步表格；新增334份结构化阅读笔记和基础/邻近领域分析，以及CoFRIDA-Sharpie资源卡。历史未重新核查标记已清零，5条摘要和全部完整三遍验收仍待完成，完整三遍验收与模型复现均未完成。具体范围见[本轮审查](../evidence/second_round_audit_2026-10-19.md)与[逐条台账](../evidence/reading_ledger_2026-10-19.md)。
+截至2026-10-20第四十四批，主目录343条（318论文／研究、25资源），343份结构化笔记，104项明确范围的核心三遍与106项五条书面检查。历史未重新核查标记已清零，5项仍受全文访问限制；其余记录的核心三遍逐项继续。未完成全部深审，未训练、推理或独立复现。下方按批保留历史状态。具体范围见[本轮审查](../evidence/second_round_audit_2026-10-19.md)与[逐条台账](../evidence/reading_ledger_2026-10-19.md)。
 
 第四批：150条章节核查、40条摘要核查；L024已记录五项书面理解检查，其他逐篇验收继续进行。全文无法访问的5项只记第一遍。
 
@@ -120,3 +120,6 @@
 
 
 第四十三批深化DDPM/Score-SDE/Flow Matching/Rectified Flow，新增四项核心三遍（累计100）与五条书面检查（累计102），342项目录不增删。记录质量—似然取舍、等NFE/检查点差异、条件OT边界和RF高步负结果。见[扩散与流审查](../evidence/diffusion_score_flow_and_rectification_2026-10-20.md)及[逐文件说明](../evidence/forty_third_changes_2026-10-20.md)。未训练/推理；LDM/DiT/consistency/求解器和视频等剩余复核继续。
+
+
+第四十四批深化LDM／DiT／Consistency Models／DPM-Solver并补HF VAE资源组R10；343项（318研究／25资源），核心三遍104、书面五检查106。核查decoder／CFG、CT例子初始化与超参、原DPM与++默认差异及负指标；见[本批审查](../evidence/latent_transformer_consistency_and_solver_audit_2026-10-20.md)和[逐文件说明](../evidence/forty_fourth_changes_2026-10-20.md)。全部剩余三遍与视频等领域继续，未训练或推理。

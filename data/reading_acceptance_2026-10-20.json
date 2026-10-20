@@ -3549,6 +3549,142 @@
         }
       ],
       "boundary": "核心三遍限明确预印本版本的核心方法/公式角色、框架视觉核、主表与已有消融及批判性书面五检查；G001/G002/G005为所列v2，G006为v1，正式终版PDF未完整读取。没有所有附录/源码逐行审查、口试或独立训练/推理复现；每项sections_read另列未读部分。"
+    },
+    {
+      "id": "G003",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "像素扩散计算昂贵而压缩损害细节。先感知压缩并冻结E/D，在适度低维潜空间训练条件扩散，以cross-attention/concat承接不同条件；在所测自然图像改善成本/质量折中，细像素瓶颈保留。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "原Fig3对应官方模型图：RGB经E得z，噪声潜图进UNet，Q来自潜特征、K/V来自条件τ，密集条件可concat；多步去噪后D解码。原文本τ是BERT tokenizer+32层transformer，不能照搬后来SD的CLIP；没有视频/动作输出。",
+          "evidence": "原Fig3对应作者仓库框架已视觉核；T1–9/13/15"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "把高频重建与潜先验学习分阶段，VQ量化并入decoder仍在连续z扩散。f控制空间压缩，KL正则/尺度归一化影响噪声SNR；适度压缩是所测折中，非无损/普遍定理，编码丢信息无法保证由D还原真值。",
+          "evidence": "机制/公式及理论假设"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T2 COCO FID23.31→CFG12.63，未超GLIDE12.24。T6f1训练.11samples/s/FID24.74对f4VQ.33/14.99，去attention速度.35/FID15.95。T13不同f的batch/lr也改，等steps非等样本/算力。T7FID1.50好于LaMa2.23但LPIPS.137差于.134。",
+          "evidence": "主表/受控对照与负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "细笔/近形字符被E损失多少、共享预训练E成本如何计？控制f/通道/训练样本/墙钟并测重建与生成OCR/拓扑，分计预训练/解码。追DiT与HF VAE R10，文字视频另测事件/同终图乱序；已有压缩和生成工作不等规范过程研究缺口已证。",
+          "evidence": "有依据疑问、后续追引及可证伪设计"
+        }
+      ],
+      "boundary": "核心三遍限明确预印本版本的核心方法/公式、主表/已有消融与批判性五条书面检查。G003/G004/G007为所列v2、G008为v3；原图或算法自绘来源逐项说明。正式PDF、全部附录/源码/所有例图未逐项通读；无口试、训练、推理或独立复现。R10资源协议审查单列，不计论文三遍。"
+    },
+    {
+      "id": "G004",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "UNet之外的潜扩散Transformer缺系统扩展证据。DiT探索patch、深宽和条件block，adaLN-Zero在所测类条件ImageNet改善训练，规模/算力与FID关系需带预算解释。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "作者原Fig3：VAE f8编码→潜图patchify/位置→时间+class调制的Transformer→ε/variance头→多步采样→VAE D。adaLN-Zero调制与残差gate零初始化使block初始恒等；原任务不是文字/视频。",
+          "evidence": "作者项目原block与training-compute图已视觉核；T1–5"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "小patch增加token而约不改参数，计算显著增；以近似GFLOPS比较incontext/cross/adaLN/zero，零初始化是稳定条件注入机制。扩展经验不保证任意数据/小预算，2C头含learned variance，E/D84M未计denoiserFLOPS。",
+          "evidence": "机制/公式及理论假设"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T2最佳CFG1.5/ftEMA FID2.27但recall.57低于unguided.67；5123.04差于StyleGANXL2.41。T4zero19.47优于incontext35.24/cross26.14/adaLN25.21，参数不等；T5decoder原2.46/MSE2.30/EMA2.27，部分收益来自第一阶段。",
+          "evidence": "主表/受控对照与负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "大DiT能否解决E丢细线、官方默认能否复现主表？锁decoder/CFG通道/强度与预算，多seed测Pareto和OCR。ed81默认CFG前三潜噪声通道、sample MSE/CFG4不同主最佳；PyTorch移植A100不同论文JAX/TPU。追视频DiT/压缩器与R10后再设任务创新。",
+          "evidence": "有依据疑问、后续追引及可证伪设计"
+        }
+      ],
+      "boundary": "核心三遍限明确预印本版本的核心方法/公式、主表/已有消融与批判性五条书面检查。G003/G004/G007为所列v2、G008为v3；原图或算法自绘来源逐项说明。正式PDF、全部附录/源码/所有例图未逐项通读；无口试、训练、推理或独立复现。R10资源协议审查单列，不计论文三遍。"
+    },
+    {
+      "id": "G007",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "扩散求解器需多次调用。Consistency函数学同PF-ODE轨迹到小噪声端点的一致映射，CD用teacher相邻步蒸馏、CT用同图同噪声两level训练，支持一步/再加噪少步，CT主结果仍较弱。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "作者Fig1/2：噪声点沿经验ODE属于一条轨迹，f直接映端点；CD online高噪声与teacher一步后的target比较，CT配对x+tnz/x+tn1z。边界skip/out包装防平凡常数；多步图为加噪再f，不对应真实笔画时间。",
+          "evidence": "作者原Fig1/2已视觉核；主T1–3和Fig3/4说明"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "CD零loss误差界相对经验teacher ODE，CT与CD只在真score/平滑/细网格等条件渐近对应；有限N和LPIPS未自动满足所有理论假设。target EMA与评估EMA分开，LPIPS有VGG预训练，CT无diffusionteacher不等无任何预训练。",
+          "evidence": "机制/公式及理论假设"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1CD单/双步3.55/2.93，CT8.70/5.83，EDM35NFE2.04；PD主用L2而CD用LPIPS。Fig3/4拆距离/solver/N及同lossPD，避免只归机制。IN64CD6.20/4.70仍差于EDM2.44；stroke-guided editing仅静态图定性展示。",
+          "evidence": "主表/受控对照与负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "收益是否来自LPIPS或teacher初始化、文字事件是否被评价掩盖？同teacher/预算与PD同loss，拆scratch/teacher-init和网格/EMA。e32b官方CT例带teacherpath且代码复制权重，lr/batch也有差异；用主表明确重设。追ImprovedCT，独立OCR/人评缓解model-card所述ImageNet评价关联。",
+          "evidence": "有依据疑问、后续追引及可证伪设计"
+        }
+      ],
+      "boundary": "核心三遍限明确预印本版本的核心方法/公式、主表/已有消融与批判性五条书面检查。G003/G004/G007为所列v2、G008为v3；原图或算法自绘来源逐项说明。正式PDF、全部附录/源码/所有例图未逐项通读；无口试、训练、推理或独立复现。R10资源协议审查单列，不计论文三遍。"
+    },
+    {
+      "id": "G008",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "通用RK未利用扩散ODE线性结构，低调用数误差大。DPM-Solver解析处理线性项，以半logSNR和高阶stage近似剩余积分，给固定扩散模型少NFE采样，学习误差仍保留。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "专题自绘流程按Eq3.4/Alg1–2：预训练εθ和schedule→λ网格→每步1/2/3次噪声stage→解析线性演化+积分近似→xε。原文为算法，无新网络架构；图注明自绘，不能伪称原图或已看原网络图。",
+          "evidence": "按Eq3.4和Alg1–2自绘算法流程，原文无新增神经架构；T1及E7表"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "变分常数与λ变换把积分权重独立，φ函数展开用stage差分逼近沿轨迹导数；局部O(h^{k+1})累积为全局O(hmax^k)，需Lipschitz/连续高阶导/受控网格。k阶每步kNFE而非固定预算越高阶总更好，不给FID保证。",
+          "evidence": "机制/公式及理论假设"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1@12NFE DPM2FID5.28比DPM3 6.03更好、均好于对应通用RK；@18阶3 2.90好于阶2 3.43。4.70@10/2.87@20改变ε，不能伪作同条件曲线。E7同10NFE CIFAR批128DDIM.956s/DPM.923s，主要加速由所需调用减少。",
+          "evidence": "主表/受控对照与负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "终点/分数时刻映射与强guidance怎样影响收益、实际端到端是否快？固定checkpoint/seed/ε/NFE并分计guidance/decoder/调参。官方52bc3fb默认++，需显式切原算法；追2211.01095单独研究。没有从数值ODE误差推出笔顺/视频事件，需任务独立指标。",
+          "evidence": "有依据疑问、后续追引及可证伪设计"
+        }
+      ],
+      "boundary": "核心三遍限明确预印本版本的核心方法/公式、主表/已有消融与批判性五条书面检查。G003/G004/G007为所列v2、G008为v3；原图或算法自绘来源逐项说明。正式PDF、全部附录/源码/所有例图未逐项通读；无口试、训练、推理或独立复现。R10资源协议审查单列，不计论文三遍。"
     }
   ]
 }

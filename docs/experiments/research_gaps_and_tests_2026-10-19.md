@@ -176,3 +176,8 @@ F01–F04补静态渲染器×剪增×opacity×逐层因子，固定实际参数/
 ## 第四十三批补充
 
 同数据/架构/吞吐/算力拆mean/ε、目标权重、VE/VP/subVP/OT路径、solver/NFE；固定checkpoint，多训练seed与多采样重复分开，报NLL定义/MC误差/去量化K、FID参考和墙钟。RF拆reflow次数×端点对量×L2/LPIPS×蒸馏，计teacher数据/存储并完整画高低步曲线。文字视频分t/τ，增加事件/近形字/乱序同终图反例；尚未运行。
+
+
+## 第四十四批补充
+
+固定E-D与latent／noise seed，拆f×潜通道、DiTblock×patch、CTscratch／teacher-init×LPIPS／L2、DPM／++×ε／映射／NFE；等样本／墙钟／质量分列，teacher与decoder／LPIPS预训练及τ／ε搜索计成本。报告rFID／FID／PSNR／sFID／recall及独立OCR／拓扑／真实笔事件，反例保持同终帧。未运行。

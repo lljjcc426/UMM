@@ -188,3 +188,8 @@ Reynolds形状导数与弧长Jacobian/滤波核、最近点隐式导数条件；
 ## 第四十三批补充
 
 离散ELBO界/连续ODE密度/均匀去量化K、Hutchinson无偏log估计与指数化偏差分别处理；PC同NFE才解释收益。连续性方程给边缘而非joint路径，CFM条件期望与θ无关常数、conditional OT与global OT不同。RF Jensen凸成本和历次最小直度界依理想假设，FID可退化；流t与视频τ分开。
+
+
+## 第四十四批补充
+
+感知压缩与信息损失、生成FID／重建rFID、EMA权重与EMA target分开。DiT近似GFLOPS对照并非等参数；CT渐近loss对应需真score／平滑，不是有限N精确替代。DPM高阶误差仅相对学得ODE，NFE／步数／阶、终点ε与时刻映射分开；代码默认后续算法不可倒写原文。

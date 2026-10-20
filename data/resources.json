@@ -1493,5 +1493,44 @@
     "gap": "10便利样本太小，短语/布局/原writer拆分是否独立仍需200集合；重复帧不创造原生时域信息，短事件可能被跳过，多个动作序列可产生同RGB采样。动作是计划目标非实际执行、无真实压力目标；实际加速度不满足标称界。卡明确第三方渲染外观权利未建立，不能称全开放许可。未读完整数值轨迹、未运行policy、未看完视频、未定位独立论文。",
     "claim": "研究目标：怎样获得同时带RGB、模拟机器人状态、计划关节动作和源轨迹关系的书写样本，并明确低频视觉观测与动作监督的边界？",
     "version": "Datumwell Handwriting public sample；Hugging Face资源，未定位到对应独立论文；固定allen-datumwell/datumwell-handwriting-sample b58ba9d09a907333a0733fbfc415e381c06765e6"
+  },
+  {
+    "id": "R10",
+    "title": "Stable Diffusion VAE ft-EMA / ft-MSE：兼容KL-f8的解码器适配资源组",
+    "canonical_key": "resource:hf:stabilityai/sd-vae-ft",
+    "source_urls": [
+      "https://huggingface.co/stabilityai/sd-vae-ft-mse/blob/31f26fdeee1355a5c34592e401dd41e45d25a493/README.md",
+      "https://huggingface.co/stabilityai/sd-vae-ft-mse/blob/31f26fdeee1355a5c34592e401dd41e45d25a493/config.json",
+      "https://huggingface.co/stabilityai/sd-vae-ft-ema/blob/f04b2c4b98319346dad8c65879f680b1997b204a/README.md",
+      "https://huggingface.co/stabilityai/sd-vae-ft-ema/blob/f04b2c4b98319346dad8c65879f680b1997b204a/config.json"
+    ],
+    "aliases": [
+      "stabilityai/sd-vae-ft-ema",
+      "stabilityai/sd-vae-ft-mse"
+    ],
+    "scope": "resource",
+    "category": "R 工具与数据",
+    "record_type": "resource",
+    "privacy": "public_source_note",
+    "provenance": "2026-10-20第四十四批固定HF模型卡/config交叉核LDM与DiT补入；两个decoder制品归为一个资源组，不增加独立论文数",
+    "verification": "primary_sections_read",
+    "review_path": "docs/reviews/R10.md",
+    "note_path": "docs/reviews/R10.md",
+    "review_depth": "resource_protocol_reviewed",
+    "version": "Stable Diffusion VAE ft-EMA / ft-MSE；官方Hugging Face组件资源组，无独立论文定位，关联LDM(G003)和DiT(G004)。固定mse31f26fdeee1355a5c34592e401dd41e45d25a493、emaf04b2c4b98319346dad8c65879f680b1997b204a。",
+    "checked_on": "2026-10-20",
+    "last_updated": "2026-10-20",
+    "sections_read": "两HF仓库固定commit的README完整模型说明/两重建表/使用与license字段、API元数据文件列表、config.json全读；交叉核LDM第一阶段及DiT AppA/T5。未看完卡所有重建图、未读权重张量或下载运行；属于资源协议深审，无独立论文三遍完成声明。",
+    "dataset": "原训练OpenImages，finetune为1:1 LAION-Aesthetics/LAION-Humans（unreleased SFW）。卡评COCO2017val5K与LAION-Aesthetics5+随机10K子集，均256²；未给可完全恢复的人类图像名单，不能称全公开训练集。",
+    "framework": "固定encoder，仅在LAION-Aesthetics和未公开LAION-Humans SFW子集1:1混合微调decoder。ftEMA延续原L1+LPIPS额外313198steps；ftMSE再多280K用MSE+.1LPIPS。两者都使用EMA权重，名字MSE不代表没有EMA。",
+    "architecture": "config：4级DownEncoderBlock2D/UpDecoderBlock2D，channels128/256/512/512、每block2层、SiLU/GroupNorm32，RGB3→latent4→RGB3、sample_size256。两个config一致，卡称只改decoder；encoder同接口不保证保留细文字信息，decoder无法保证找回编码已丢的真值。",
+    "metrics": "reconstruction FID、PSNR/SSIM/PSIM（低PSIM好），±为逐图分布统计而非多seed。独立DiT T5给生成FID但有该任务的CFG/采样条件；不混为同一指标。无OCR/笔顺/时序/机器人执行评估。",
+    "baselines": "同一原KL-f8 decoder、ftEMA、ftMSE比较；微调先后、数据域和步数一起变化，不是完全受控的仅loss三组。关联DiT原/ftMSE/ftEMA decoder消融；不同生成骨干与pixel流程不直接合排名。",
+    "experimental_conditions": "每版batch192、16A100（每卡12）作者报告；原246803steps→EMA累计560001→MSE840001。卡未给足optimizer/lr/seed/precision/完整LAION-Humans名单，保留待核。只读两个固定README、API文件清单与config；未下载权重/运行编码/解码或训练。卡metadata license MIT仅适所列组件发布，不外推所有数据/整SD pipeline。",
+    "problem": "在保持已有KL-f8 encoder与扩散潜空间兼容时，只微调decoder能否改善图像重建和最终扩散样本；不同重建损失如何影响像素失真与分布指标？",
+    "method": "固定encoder，仅在LAION-Aesthetics和未公开LAION-Humans SFW子集1:1混合微调decoder。ftEMA延续原L1+LPIPS额外313198steps；ftMSE再多280K用MSE+.1LPIPS。两者都使用EMA权重，名字MSE不代表没有EMA。 config：4级DownEncoderBlock2D/UpDecoderBlock2D，channels128/256/512/512、每block2层、SiLU/GroupNorm32，RGB3→latent4→RGB3、sample_size256。两个config一致，卡称只改decoder；encoder同接口不保证保留细文字信息，decoder无法保证找回编码已丢的真值。",
+    "conclusion": "COCO原rFID4.99/PSNR23.4/SSIM.69，EMA4.42/23.8/.69，MSE4.70/24.5/.71；LAION原2.61/26.0/.81，EMA1.77/26.7/.82，MSE1.88/27.3/.83。MSE像素指标更好但两域rFID差于EMA。DiT256 CFG1.5对应生成FID原2.46/MSE2.30/EMA2.27；不能只归骨干。",
+    "gap": "训练数据部分未公开、超参不全，EMA/MSE时间与loss混杂；依赖预训练encoder信息上限，细线/罕见字/非拉丁文字未验证。资源无独立论文不能排除，卡上tag或自动推理片段也不能提升证据等级；本项属于组件协议审查，不计论文核心三遍或独立模型复现。",
+    "claim": "研究目标：在保持已有KL-f8 encoder与扩散潜空间兼容时，只微调decoder能否改善图像重建和最终扩散样本；不同重建损失如何影响像素失真与分布指标？"
   }
 ]

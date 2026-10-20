@@ -236,3 +236,8 @@ G016实际读arXiv2108.03798v2，CVF正式下载不完整；官方a5ceece五维�
 ## 第四十三批补充
 
 G001实际读2006.11239v2，G0022011.13456v2，G0052210.02747v2，G0062209.03003v1完整HTML核心与所列附录。DDPM/Score官方身份页、ICLR2023目录核venue；正式PDF不完整/403未计已读。固定DDPM1e0dceb/ScoreJAX0acb9e0/RF5a1fd4d官方代码选段，框架/曲线原图核；G005 diffusion图文件不可读不计视觉核，OT条件图可读。NeuralODE/经典score与反向扩散、stochastic interpolants/OT RF后续仍需去重追引，未计新增完成。
+
+
+## 第四十四批补充
+
+实际阅读G0032112.10752v2／G0042212.09748v2／G0072303.01469v2／G0082206.00927v3完整HTML核心与列明附录，核CVF／PMLR／NeurIPS身份；原框架视觉核范围见逐篇。固定代码LDM a506df5／DiT ed81ce2／CM e32b69e／DPMS52bc3fb，选段核对而非全代码审计。R10读取两个固定HF卡/API/config，不下载权重。队列追加Improved CT2310.14189、DPM++2211.01095、RDM2204.11824，当前仅交叉引用线索，尚未独立完成全文深审。

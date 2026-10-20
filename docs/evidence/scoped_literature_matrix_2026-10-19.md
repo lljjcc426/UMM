@@ -147,3 +147,8 @@ G014为短在线素描VAE/AR，G015静态图→模拟笔触分解，F05英文独
 ## 第四十三批补充
 
 G001噪声链/G002连续score与PC/ODE/G005条件速度回归/G006rectification-reflow-distill，按静态数据、接口、理论假设、NLL/FID与预算分列。详见[第四十三批](diffusion_score_flow_and_rectification_2026-10-20.md)。以上没有直接规范笔顺/真实动作视频证据。
+
+
+## 第四十四批补充
+
+G003感知压缩与条件潜扩散／G004类条件latent Transformer／G007端点一致CD-CT／G008固定checkpoint数值采样／R10decoder-only资源，按输入输出、数据／预训练、参数预算与评价分列。见[第四十四批](latent_transformer_consistency_and_solver_audit_2026-10-20.md)；没有规范书写时序／动作的直接实验。
