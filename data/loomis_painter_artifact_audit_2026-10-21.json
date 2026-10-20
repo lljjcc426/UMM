@@ -1,0 +1,93 @@
+{
+  "id": "L015",
+  "checked_on": "2026-10-21",
+  "paper_revision": "2511.17344v3 2026-10-18",
+  "github_revision": "e53bfd6c25dc2b3ca0339193cc6b6a36482b4d35",
+  "hf_revisions": [
+    "8787142318d5f32ad49562f80f5f6879d56ecc25",
+    "7d85f8180d6b72a5adfab1457d68596a60ca1b85"
+  ],
+  "findings": [
+    "737视频：81acrylic约40min、151oil约30min（142印象地景/9写实）、298pencil约12min（270铅笔/28彩铅）、207Loomis约20min。GroundingDINO首末hand裁时/canvas裁图，分屏水平强度梯度；10s段30帧/3fps，经InSPyReNet或BiRefNet mask median+前段填永久遮挡，logo/text LaMa。v3明确80/10/10 train/val/test，无artist/channel身份隔离清单。转媒介pencil/Loomis用LineArtControlNet+SD1.5微调模型，油/丙烯QwenImageEdit；LLaVANeXT caption+媒介label。",
+    "v3主480×832、LoRA lr1e-4/14epoch（作者称经验最优）、4H10024h；迁移从7epoch base再7epoch。小模型称同超参单A100“64GB”，该容量表述待具体型号确认，未擅改80GB。固定脚本rank128、base max_epochs20/transfer8，非论文14/7；CLI b1/GPU、AdamW weight_decay.01/lr1e-4，accum默认1（四卡有效batch4，未确认表内配置），1000训练noise步，梯度checkpoint/offload。inference81frames/bf16/CFG1，纸内等采样步未给确数，仓库seed42只采样脚本非训练多seed。README称690training与v3 80%×737不一致；loader只有train/test、CLI test作validation，缺公开manifest无法确认v3独立test映射，标潜在协议问题而非已证泄漏。",
+    "终图锚定提升终态与真正过程推断需分开；最近GT进度匹配/距离曲线不保证逐笔事件/可见性/因果顺序。去手阴影残留/median10s聚合丢短暂笔事件，视频并非每笔原始真值。媒介/内容/artist混杂、数据小/未公开split、偏好重复票和±统计缺项、调参成本/原表实现未全给。v3 promised URL/mask/pipeline release但固定README仍说无数据/curationcode；只有loader/weights不能复现完整数据。HF14B卡早于v3、5B卡缺license字段，不默认跨checkpoint同协议/许可。没有工具/颜色混合或执行控制。"
+  ],
+  "hf_assets": [
+    {
+      "id": "Markus-Pobitzer/wlp-lora",
+      "revision": "8787142318d5f32ad49562f80f5f6879d56ecc25",
+      "card": {
+        "base_model": [
+          "Wan-AI/Wan2.1-I2V-14B-480P-Diffusers"
+        ],
+        "license": "cc-by-nc-4.0",
+        "pipeline_tag": "image-to-video",
+        "tags": [
+          "Painting"
+        ],
+        "library_name": "diffusers"
+      },
+      "files": [
+        {
+          "rfilename": ".gitattributes"
+        },
+        {
+          "rfilename": "README.md"
+        },
+        {
+          "rfilename": "art_media_transfer.safetensors"
+        },
+        {
+          "rfilename": "assets/base.gif"
+        },
+        {
+          "rfilename": "assets/reference_image.png"
+        },
+        {
+          "rfilename": "base.safetensors"
+        }
+      ]
+    },
+    {
+      "id": "Markus-Pobitzer/wlp-Wan2.2-TI2V-5B-lora",
+      "revision": "7d85f8180d6b72a5adfab1457d68596a60ca1b85",
+      "card": {
+        "base_model": [
+          "Wan-AI/Wan2.2-TI2V-5B-Diffusers"
+        ],
+        "pipeline_tag": "image-text-to-video",
+        "tags": [
+          "art"
+        ]
+      },
+      "files": [
+        {
+          "rfilename": ".gitattributes"
+        },
+        {
+          "rfilename": "README.md"
+        },
+        {
+          "rfilename": "assets/base.gif"
+        },
+        {
+          "rfilename": "assets/reference_image.png"
+        },
+        {
+          "rfilename": "base.safetensors"
+        }
+      ]
+    }
+  ],
+  "public_curation_pipeline_verified": false,
+  "public_raw_training_dataset_verified": false,
+  "downloaded_weights": false,
+  "model_executed": false,
+  "urls": [
+    "https://arxiv.org/abs/2511.17344v3",
+    "https://arxiv.org/pdf/2511.17344v3",
+    "https://github.com/Markus-Pobitzer/wlp/tree/e53bfd6c25dc2b3ca0339193cc6b6a36482b4d35",
+    "https://huggingface.co/Markus-Pobitzer/wlp-lora/tree/8787142318d5f32ad49562f80f5f6879d56ecc25",
+    "https://huggingface.co/Markus-Pobitzer/wlp-Wan2.2-TI2V-5B-lora/tree/7d85f8180d6b72a5adfab1457d68596a60ca1b85"
+  ]
+}

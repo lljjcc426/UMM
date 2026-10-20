@@ -110,7 +110,7 @@
 | L002 | Diff-Writer，ICONIP 2023 | primary_abstract_read | [结构化分析](../reviews/L002.md) | 未完成 |
 | L003 | Write Like You，2021 | primary_sections_read | [结构化分析](../reviews/L003.md) | 核心三遍与五项检查完成 |
 | L004 | Layout Stroke Imitation，2025 | primary_sections_read | [结构化分析](../reviews/L004.md) | 核心三遍与五项检查完成 |
-| L005 | StrokeBank，2014 | primary_sections_read | [结构化分析](../reviews/L005.md) | 未完成 |
+| L005 | StrokeBank: Automating Personalized Chinese Handwriting Generation | primary_sections_read | [结构化分析](../reviews/L005.md) | 核心三遍与五项检查完成 |
 | L006 | Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement，2026 | primary_abstract_read | [结构化分析](../reviews/L006.md) | 未完成 |
 | L007 | B-BSMG，2024 | primary_sections_read | [结构化分析](../reviews/L007.md) | 未完成 |
 | L008 | Three-Dimensional Trajectory Planning for Robotic Chinese Calligraphy，2026 | primary_sections_read | [结构化分析](../reviews/L008.md) | 未完成 |
@@ -120,7 +120,7 @@
 | L012 | SketchAgent，2024/2025 | primary_sections_read | [结构化分析](../reviews/L012.md) | 核心三遍与五项检查完成 |
 | L013 | ProcessPainter，2024 | primary_sections_read | [结构化分析](../reviews/L013.md) | 核心三遍与五项检查完成 |
 | L014 | Generating Past and Future in Digital Painting Processes / PaintsAlter，2025 | primary_sections_read | [结构化分析](../reviews/L014.md) | 核心三遍与五项检查完成 |
-| L015 | Loomis Painter，2025 | primary_sections_read | [结构化分析](../reviews/L015.md) | 未完成 |
+| L015 | Loomis Painter: Learning Painting Processes by Reversing Image-to-Video Generation | primary_sections_read | [结构化分析](../reviews/L015.md) | 核心三遍与五项检查完成 |
 | L016 | StrokeNUWA，2024 | primary_sections_read | [结构化分析](../reviews/L016.md) | 核心三遍与五项检查完成 |
 | L017 | DiffSketcher，2023 | primary_sections_read | [结构化分析](../reviews/L017.md) | 核心三遍与五项检查完成 |
 | L018 | Diff-Font，2022 起 | primary_sections_read | [结构化分析](../reviews/L018.md) | 核心三遍与五项检查完成 |

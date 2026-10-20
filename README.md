@@ -218,3 +218,6 @@ python scripts/validate_catalog.py
 
 
 第七十四批（2026-10-21）补完Painter L180/StrokeFusion G024正式核心、实际表图及固定代码/HF；350目录、159核心/161书面，191条未确认核心三遍（含资源）。核反馈缺失消融、集合等变/笔顺边界、主表反例与PR实现差异，见[审查](docs/evidence/painter_and_strokefusion_feedback_geometry_audit_2026-10-21.md)、[逐文件说明](docs/evidence/seventy_fourth_changes_2026-10-21.md)。无删除或模型复现。
+
+
+第七十五批（2026-10-21）补完StrokeBank L005正式IAAI核心和Loomis Painter L015最新v3/附录/指定制品；350目录、161核心/163书面，189条未确认核心三遍（含资源）。校正会场/题名、旧版指标/划分与最新反例/人评/制品可用性，见[审查](docs/evidence/strokebank_and_loomis_painter_version_audit_2026-10-21.md)、[逐文件说明](docs/evidence/seventy_fifth_changes_2026-10-21.md)。无删除或模型复现。

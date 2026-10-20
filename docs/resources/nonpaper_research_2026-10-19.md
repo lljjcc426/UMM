@@ -335,3 +335,8 @@ L001数据声明处理数据/实现需向作者合理请求，未当公开可下
 ## 第七十四批补充（2026-10-21）
 
 StrokeFusion官方GitHub4fddf5d训练/采样/metric与HF abe809b数据/检查点纳入原G024制品关联，不重复新增独立论文。HF仅license卡、无配置说明；公共代码已摘实超参并注明与正式split/归一化/采样/metric差异，未权重下载/模型执行。见[审查](../evidence/painter_and_strokefusion_feedback_geometry_audit_2026-10-21.md)及[制品JSON](../../data/strokefusion_artifact_audit_2026-10-21.json)。
+
+
+## 第七十五批补充（2026-10-21）
+
+Loomis固定GitHub与14B/5B HF LoRA纳入原L015关联。代码rank128/b1/AdamW与epoch20/8、train/test loader、HF许可/缺项及v3数据管线承诺对照README未发布实况全部记录，未索取/权重下载/模型运行。见[审查](../evidence/strokebank_and_loomis_painter_version_audit_2026-10-21.md)/[制品JSON](../../data/loomis_painter_artifact_audit_2026-10-21.json)。

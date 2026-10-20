@@ -138,3 +138,8 @@ L001联合实例/顺序与跨阶段起点是直接强基线，L004布局条件�
 ## 第七十四批补充（2026-10-21）
 
 Painter L180是LLM→笔触/渲染反馈的重要前作，StrokeFusion G024是局部几何+布局无序扩散；两者不能直接当已验证规范笔顺/真实视频。见[审查](painter_and_strokefusion_feedback_geometry_audit_2026-10-21.md)。
+
+
+## 第七十五批补充（2026-10-21）
+
+L005经典少样本部件检索保连笔，L015新版终图条件逆序视频/跨媒介；静态无向部件、已知终图流程和严格在线事件是不同可观测任务。见[审查](strokebank_and_loomis_painter_version_audit_2026-10-21.md)。

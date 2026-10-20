@@ -5555,6 +5555,74 @@
         }
       ],
       "boundary": "AAAI2026正式9页全部核心Abstract/Introduction/RelatedWork/Method/Experiments/Ablation/Limitations/Conclusion、Eq1–14与T1–3/F1–6图注，实际p13658框架/p13661主表/p13662消融。GitHub4fddf5d README全文/train.py/train_diff.py/TransformerDiffusion/DualModal主要encoder-decode-loss/SketchDiffusion训练优化与采样/RDP/metrics全部计算及预处理、data_process归一化/距离场/split/collate指定段；不是所有重复训练脚本全审。HF abe809b卡全文仅license及文件清单，无weights下载；引文NeurIPS2019§2Eq1定义核查，不计该引文全篇精读。未执行模型/独立复现。"
+    },
+    {
+      "id": "L005",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释静态部件合成或终图条件逆过程的研究问题/动机",
+          "answer": "少量标准字体与个人手写部件对应，构造词典后为新标准汉字合成个人风格静态bitmap；重点连笔与部件布局。没有生成在线时间记录、真实笔顺或绘画视频。 逐原子笔替换破坏行书连接；人工结构语法/手动逐笔分割成本高。使用多笔连通部件可保内部相关性，但仍依赖少量人工配对、几何规则/词典覆盖，不能写完全无监督或不含结构先验。",
+          "evidence": "正式IAAI或固定arXiv v3核心/实际图表与指定制品；非口试或独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入模块输出及真实时间边界",
+          "answer": "Kai标准字/手写训练bitmap与少量component对应→两风格StrokeBank；新Kai字→分笔/部件候选→检索对应个人部件→不交覆盖/中心对齐/高斯扰动→静态字图。正式p3027 Eq3–5/T1、p3028/29样本与人评核看；orientation在[0,pi)无方向符号，不能恢复真实笔尖运动历史。 对每像素40方向边界距离、取高于均值波峰建(x,y,orientation)连通分量；按交叉/共享结点/距离自底向上建树，根整字、叶基本笔、多树森林。DEF49region×4=196，分4子区加权1/2/3/4；Fourier低象限20频率实虚40、DC置0，共236。DEF ridge映射θ=(μI+XᵀX)^−1XᵀY、Fourier不变；加权L1距离。QP式5要求正配对距离−负配对距离≥1−ξ，而后hinge max(0,1+正−负)对应相反方向；两者不等价。正文未给w≥0，不能默认它是满足非负/三角性质的严格metric。",
+          "evidence": "正式IAAI或固定arXiv v3核心/实际图表与指定制品；非口试或独立复现"
+        },
+        {
+          "criterion": "解释核心机制与适用分布/优势条件",
+          "answer": "40方向rho空间自动分笔、启发式组部件树/森林；DEF方向+Fourier形状、标准到手写正则线性映射和加权margin匹配；检索多笔部件做不交覆盖，贪心组合并从学习的高斯位置分布采样微扰。是经典非神经检索/组合基线。 极小个人样本、已有高覆盖部件库且测试字由已见可组合部件组成时，检索多笔组件可能比单笔拼接更保连笔且无需大模型训练。未见部件、跨标准断裂连接、不同尺度或需动态方向时优势未建立；作为静态形状/少样本强基线需与现代方法同数据比。",
+          "evidence": "正式IAAI或固定arXiv v3核心/实际图表与指定制品；非口试或独立复现"
+        },
+        {
+          "criterion": "解释实际主表与现有消融、公式/协议及版本差异",
+          "answer": "正式T1无权4.63%→有权.77%，少3.86pp，但样本/seed预算和split缺；T2 Xing平均.585/min.380/max.870，ShouJin.496/.360/.620。Xing均值偏离.5更多，不能两者都写几乎完全难分；是否显著未给相关结构下检验。部分生成字>90%人判为真是选例，不代表全部字。Fig6展示静态连笔风格相近，未证真实过程。 T1是唯一直接数值机制对照，支持特定设置加权匹配，但公式方向冲突使实际优化不可复现；T2不同风格不是单因素消融。多笔组件保持内部连笔有直观动机，未独立量化树/ν/布局高斯作用；没有学习曲线或标注成本对照。正式末页明确刂两笔不连通导致连笔失败，为有根据失败例。 T1部件映射错误率（分母/split未报）；T2 20名中文读者，每风格先20真样本参考再判100真/生成混合图，报判别准确率平均/最小/最大。真假比例/样本随机化、跨用户复用/回答独立性和CI未明确，不把20×100当独立字符样本。接近50%只表示此识别任务接近猜测，不能证明分布一致或内容/笔顺正确。",
+          "evidence": "正式IAAI或固定arXiv v3核心/实际图表与指定制品；非口试或独立复现"
+        },
+        {
+          "criterion": "提出两个以上证据明确的限制和可证伪设计",
+          "answer": "静态图与无向orientation无法确定规范动作；tree节点只接连通bitmap，标准分离笔难合成行书连笔；词典覆盖/种子对应和几何阈值限制。QP符号/hinge不一致且w非负未定义，不能擅自修成作者实际算法；数据/标注/预算缺。人评50%非分布相等检验，只有两书法风格/20读者，随机layout不代表真实个体动态。 同样本/人工对应预算比较整字检索、单笔/多笔bank、现代字体扩散与规则渲染；按未见整字/部件/连通结构分层，区分OCR内容、风格盲评与动作事件。先以可确认实现分别求式5/hinge两个方向，保留来源未解决，不把任意修复当原算法；控制w非负并报告检索结果。ν×树×layout因子和种子学习曲线，参与者/字符交叉重采样CI；未运行。",
+          "evidence": "正式IAAI或固定arXiv v3核心/实际图表与指定制品；非口试或独立复现"
+        }
+      ],
+      "boundary": "IAAI2014官方正式6页p3024–3029全部Abstract/Introduction/RelatedWork/StrokeBankModel/全部feature及Eq1–6/Generation/StyleVariations/Evaluations/Results/Conclusion；实际p3027公式主表、p3028样本与人评协议、p3029T2/失败例已核。作者副本用于文本提取交叉，正式页有重复文本层但视觉内容已核；参考文献未逐篇全验，无公开源码执行/独立复现。"
+    },
+    {
+      "id": "L015",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释静态部件合成或终图条件逆过程的研究问题/动机",
+          "answer": "给完成画作重建其传统绘画RGB过程，或给变换风格/照片与目标媒介生成相应过程；保持参考终态及媒介相关发展。属于终图可用的逆过程视频合成，不是未知未来终图的在线续写或规范汉字笔序监督。 I2V预训练首帧参考与从白纸到成品的正序目标不对齐；参考在输入第一位置而成品在生成尾部，长程保持困难。真实传统视频又有手遮挡/镜头/媒介差异；像素图/简单渲染笔触未完全复原人类过程。倒序使完成图成为起始目标，注意力接近预训练是经验解释、未做干预证明唯一因果。",
+          "evidence": "正式IAAI或固定arXiv v3核心/实际图表与指定制品；非口试或独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入模块输出及真实时间边界",
+          "answer": "完成I或编辑I* +媒介m/场景s→T5/视觉条件→Wan类VAE/DiT flow→逆序绘画RGB帧→反转为正序。实际PDFp3 F2框架、p4 F4注意力/公式、p7 T2/3/4、p12–14 transfer/速度/人评核看；HTML图序比PDF差1，引用优先PDF。没有显式笔画坐标/pen接触/工具或压力控制。 Wan2.1 14B480p I2V主、Wan2.2 TI2V5B/VACE1.3B另FT；VAE压时空、DiT预测flow速度，x_t=t x1+(1−t)x0、target x1−x0，噪声时间t不是真实绘画时间。Eq2用I*替代条件、视频target不变。LoRA冻结主体，固定script rank128作用q/k/v/o/ffn.0/ffn.2；图像条件各骨干拼接不同。无共享理解/生成UMM目标，不能因统一跨媒介视频模型称已验证UMM协同。",
+          "evidence": "正式IAAI或固定arXiv v3核心/实际图表与指定制品；非口试或独立复现"
+        },
+        {
+          "criterion": "解释核心机制与适用分布/优势条件",
+          "answer": "真实YouTube流程自动清理；将成品→白纸的逆序视频LoRA训练，输出再反转；用同终图多种I*风格变体作条件、原始过程作target，媒介/场景prompt约束many-to-one转换。v3补Wan2.2/VACE、小模型/延迟/专家与普通人评，已有DDC来源InversePainting，不能沿旧笔记把PDP说成本版新指标。 终图已知、I2V首参考强且训练媒介分布内时，逆序target减少远程参考保持，可改善重建及人评；短画面、多媒介合成I*可学内容结构与媒介解耦。未知目标在线续写、细粒度规范事件、未见媒介/长过程或艺术家留出不自动适用，需弱化终态锚定再测过程。",
+          "evidence": "正式IAAI或固定arXiv v3核心/实际图表与指定制品；非口试或独立复现"
+        },
+        {
+          "criterion": "解释实际主表与现有消融、公式/协议及版本差异",
+          "answer": "实际T2 Wan14B151.04/.38/.86/.76/DDC8.39、5B152.42/.38/.85/.75/7.97，PaintsUndo†196.66/.43/.83/.66/10.02；VACE183.61/.42/.83/.70/9.18。14B并非DDC/速度最优：5B37.3s/35.3GB，14B428.3s/47GB，VACE171.7s/18.4GB，81帧相同，约11.5×仅此条件。ProcessPainter1.7s但8帧；不称全表最快。T7本法对PaintsUndo/Inverse/Process偏好95.6/78.7/96.2%，含tie，报告p<.001。专家stroke3.9±1.0 vsPaints1.7±1.1/GT4.5±.9，教育3.6±1.2 vs1.4±1.0/GT4.0±1.1，非全部等同GT。 实际T4等预算5B1epoch正171/.414、逆187/.436（逆更差）；3epoch正179/.424 vs逆166/.395，5epoch175/.424 vs160/.389，7epoch163/.401 vs159/.390；14B7epoch173/.417 vs164/.393。支持这些训练点逆序优势，不支持每一时刻更快收敛。p4/appendix attention是条件非self对ref概率，非干预因果。T5 single5B transfer168.78/.44/.84/.73/DDC10.36 vsI2I+base169.32/.45/.84/.73/11.97，小差无CI；终图LPIPS.22/.24，oracle.03不是0，经验上限非理论。T9油/丙烯分组优势，仍缺原始样本/多seed。 v3 FID/LPIPS/CLIP/DINOv2和引InversePainting DDC↓；逐generated帧按进度找最近GT，先video内再跨video平均，但匹配准则/全部特征实现未给全，放宽严格时间与笔序。v3无PDP公式/主表，旧版PDP分析保留为历史而非本版贡献。DDC来自目标距离曲线，不能仅凭曲线测独立事件。17专家6作品×五Likert、22普通参与25作品两两偏好/允许tie，T7每pair158–164票而非全部22×25；p<.001检验法/重复相关处理不详。表±未清楚定义为SE/SD/CI，不能自行定。",
+          "evidence": "正式IAAI或固定arXiv v3核心/实际图表与指定制品；非口试或独立复现"
+        },
+        {
+          "criterion": "提出两个以上证据明确的限制和可证伪设计",
+          "answer": "终图锚定提升终态与真正过程推断需分开；最近GT进度匹配/距离曲线不保证逐笔事件/可见性/因果顺序。去手阴影残留/median10s聚合丢短暂笔事件，视频并非每笔原始真值。媒介/内容/artist混杂、数据小/未公开split、偏好重复票和±统计缺项、调参成本/原表实现未全给。v3 promised URL/mask/pipeline release但固定README仍说无数据/curationcode；只有loader/weights不能复现完整数据。HF14B卡早于v3、5B卡缺license字段，不默认跨checkpoint同协议/许可。没有工具/颜色混合或执行控制。 等骨干/总曝光/优化/采样/搜索预算比较正/逆/双向与单独终态锚定，固定或剔除首末参考帧后评中间过程；按训练epoch/种子报全曲线与CI，干预referenceattention区分关联与机制。公开artist/channel/作品split，median处理与原始笔事件对照，独立实际可见新增/覆盖/方向事件；对相同距离曲线错序/反向做压力测试。transfer同单/双模型总训练/推理FLOPs，外域真实照片/媒介和无泄漏teacher；人评按参与者/作品层级模型，报告全部票/随机化。先澄清test-as-val映射和缺发布材料，未运行。",
+          "evidence": "正式IAAI或固定arXiv v3核心/实际图表与指定制品；非口试或独立复现"
+        }
+      ],
+      "boundary": "arXiv2511.17344v3 PDF26页核心§1–7全部研究文本/Eq1–2/T1–4与附录§8.1–8.5/§9.1–9.3研究文本和T5–9、全部图注；实际PDFp3框架/p4 attention、p7主表/消融/专家、p12transfer/p13speed/p14人评界面核看。HTML用于抽表但图序以PDF为准；附录全部定性帧未逐像素审，参考文献未全篇追读。GitHub e53bfd6c README全文/base&transfer训练script全文、训练module优化/预处理、dataset split/ref/sampling、inference CLI与train CLI指定段；HF14B卡许可/推理/迁移段及5B卡全文/两文件清单。未权重下载/模型执行/独立复现。"
     }
   ]
 }
