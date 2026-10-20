@@ -182,3 +182,8 @@ G025为静态二维条件图像，G026为类条件ImageNet引导；均没有规�
 ## 第五十批补充
 
 G028/G029均历史静态图任务，GAN快采样/对抗反馈与VAE摊销推断/表示学习不同；原主结果的估计器、样本SEM/fold SEM及学习曲线范围分别记录。理论不直接保证视频细线/事件，详[第五十批](gan_vae_theory_estimation_and_video_representation_boundaries_2026-10-20.md)。
+
+
+## 第五十一批补充
+
+G031评价16维、G032评价视频分布＋SCV可控任务，均非新书写生成器。官方源码snapshot、arXiv/正式表差异、人评model排行/样本能力、固定端点总分/雷达重标分列。详[第五十一批](video_evaluation_vbench_fvd_protocol_and_scope_2026-10-20.md)。

@@ -223,3 +223,8 @@ LoRA的ΔW低秩不要求总W低秩；DoRA模长缩放可能使总ΔW超r秩，�
 ## 第五十批补充
 
 理想D密度比/JSD与有限G参数训练分开，非饱和loss不沿用全部minimax性质，D支撑外不唯一。VAE ELBO后验gap、摊销/族误差、无偏梯度和倒数/log似然估计分别理解；MAP权重与FullVB扩展分开，任意β/感知/对抗目标不自动继承原恒等分解。Parzen/ELBO/MC边缘评价不可跨协议排名。
+
+
+## 第五十一批补充
+
+四model汇总Pearson/秩相关与逐样本校准不同；VBench A5主体重算Pearson.9650757、Spearman.8，原caption称Spearman需代码核。整帧相似度/代理光流/插帧不直接保证局部过程，分母可评覆盖率必报。FVD两矩近似/有限样本偏差/固定层与预处理、batch16和评价总N分别理解；BAIR50点经验非通用。

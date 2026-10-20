@@ -146,3 +146,6 @@ python scripts/validate_catalog.py
 
 
 第五十批深化GAN/VAE原始理论与实验：344项目录，117核心三遍、119五条书面检查。区分理想分布均衡/有限网络、ELBO/似然/Parzen与重建/生成，保留TFD和小数据test反例。见[本批审查](docs/evidence/gan_vae_theory_estimation_and_video_representation_boundaries_2026-10-20.md)与[逐文件说明](docs/evidence/fiftieth_changes_2026-10-20.md)。无训练、推理或独立复现；剩余工作继续。
+
+
+第五十一批深化VBench/FVD核心、既有验证与固定官方评价代码：344项目录，119核心三遍、121五条书面检查。保留VBench版本/相关系数名称差异、FVD样本偏差及非全胜结果；++/2.0和ContentBias继续追读。见[本批审查](docs/evidence/video_evaluation_vbench_fvd_protocol_and_scope_2026-10-20.md)与[逐文件说明](docs/evidence/fifty_first_changes_2026-10-20.md)。无训练、推理或独立复现；剩余工作继续。

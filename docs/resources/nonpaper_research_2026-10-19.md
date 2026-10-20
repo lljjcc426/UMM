@@ -215,3 +215,8 @@ LoRA/QLoRA/DoRA/rsLoRA原论文审查已补，但现代PEFT实现、量化/FSDP�
 ## 第四十九批补充
 
 ControlNet1.0官方ed85cd1所列教程/关键实现已交叉核：fill50k RGB归一化、单GPU/b4/lr1e−5/FP32、sd_locked；demo独立20DDIM/CFG9/附加与负prompt/guess权重。教程无显式50%prompt dropout，不能替原主实验；非论文工程默认纳入G025，独立资源数不变。后续Control-LoRA/新ControlNet卡与训练工作流仍需独立核。
+
+
+## 第五十一批补充
+
+第五十一批选读论文关联评价工程制品：[VBench固定代码](https://github.com/Vchitect/VBench/tree/fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490)的dynamic/flicker/subject/background/constant与README指定章节、[GoogleFVD固定实现](https://github.com/google-research/google-research/tree/3ef52111c1fabc301880818f5a547570e926a76b/frechet_video_distance)的README/FVD.py全文。记录阈值/采帧/聚合、固定端点与权重、RGB/resize/I3D层/batch16依赖；未安装/运行、未全核外部库/权重。见[工程细节](../evidence/video_evaluation_vbench_fvd_protocol_and_scope_2026-10-20.md)与[G031](../reviews/G031.md)/[G032](../reviews/G032.md)，未另增独立论文或资源条目。

@@ -271,3 +271,8 @@ G025 2302.05543v3主文、原Fig2/3/5/8视觉，G026 2207.12598v1核心/Algorith
 ## 第五十批补充
 
 G028 1406.2661v1核心/Algorithm1/Proposition1/2与Theorem1完整证明、T1/2、Fig1四幅；正式NIPS2014身份条目核。G029 1312.6114v11核心/Algorithm1/Eq1–12/AppB–E与F指定段、Fig1/2/3视觉；作者与ICLR官方历史身份核，2022为版本日期。GAN样本图、VAE AppA及全代码未核；Rezende同期Stochastic Backpropagation须独立追读，不能据当前两篇忽略其贡献。
+
+
+## 第五十一批补充
+
+G031 arXiv2311.17982v1核心/G–M指定段与T1/A5、Fig2/5/A11；正式CVPR PDF Fig1/T1/Fig5caption，CogVideo背景95.42→96.20差异。G032 arXiv1812.01717v2核心/AppA/B/C/Fig3–6、正式关联workshop身份/摘要。固定VBench fd18b3d及GoogleFVD 3ef52111指定源码。追引++2411.13503/2.0 2503.21755/ContentBias2404.12391仅原摘要与README，待全文入库，不算完成。

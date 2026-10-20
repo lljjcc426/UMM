@@ -4127,6 +4127,74 @@
         }
       ],
       "boundary": "1312.6114v11核心/Eq1–10/Algorithm1、Fig1–3、AppB–E全部及F至Algorithm2/F.1初段；F.1最后展开、AppA完整图及全代码未核。 核心书面三遍，无计时口试、训练、推理或独立复现。"
+    },
+    {
+      "id": "G031",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "视频生成质量混合外观/时间/条件，FVD或总体偏好难定位故障。VBench按16维定义、prompt、专家和指定维度人评组织可诊断评估；另有评价VLM微调，不把benchmark当书写生成器。",
+          "evidence": "精确版本核心/主结果/原图/已有验证与明确未读边界"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "正式CVPR Fig1已实际视觉：维度选择/提示→四生成器采视频→专家自动分和人类配对两路径→model胜率对齐；主体DINO、背景CLIP、动态RAFT、语义GRiT/UMT等。原Fig2/5/A11已核；输出评价分，不输出新视频/笔序。",
+          "evidence": "精确版本核心/主结果/原图/已有验证与明确未读边界"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "贡献在多维任务操作化和人评校准。主体/背景为整帧相似度，插帧/光流是代理；静态投机已由作者讨论。每维四个model汇总相关不保证逐样本正确；TableA5主体数重算Pearson.9651、Spearman.8，与caption名称冲突。",
+          "evidence": "精确版本核心/主结果/原图/已有验证与明确未读边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1 LaVie背景97.47且dynamic49.72，VideoCrafter dynamic89.72但平滑91.79；不同维有权衡。CogVideo背景v1 95.42、CVPR 96.20分列。A11静/半动/动闪烁人评排行对照支持四模型内稳定，非统计独立证明；没有生成器训练消融，VideoChat仅示例，缺独立定量heldout。",
+          "evidence": "精确版本核心/主结果/原图/已有验证与明确未读边界"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "冻结专家/分母筛选能否隐藏错字/漏笔？需覆盖率、局部事件真值和匹配反例。四模型汇总相关能否泛化新模型/语言？需模型/作者留出、多层CI和逐片校准。++已扩展I2V/可信、2.0扩物理常识，仅摘要/当前README核，继续独立精读，不把早期边界当全系列未研究。",
+          "evidence": "精确版本核心/主结果/原图/已有验证与明确未读边界"
+        }
+      ],
+      "boundary": "arXiv2311.17982v1完整核心与G/H/I/J/K–L/M说明、T1/A5、Fig2/5/A11；正式CVPR只实核Fig1/T1/Fig5caption及身份，其他会议页差异/附表逐格/全部样例图和依赖未核。当前指定源码分开固定。 核心书面三遍，无计时口试、训练、推理或独立复现。"
+    },
+    {
+      "id": "G032",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "逐帧配对PSNR/SSIM不足以评价无条件或多未来视频分布，简单合成与自然动态任务之间缺可控桥梁。FVD用I3D视频嵌入的Gaussian分布距离，SCV四场景测试动态关系/记忆；没有新增生成器。",
+          "evidence": "精确版本核心/主结果/原图/已有验证与明确未读边界"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "以Eq1/2和Fig3/4/5/6原图解释：RGB视频批→固定预处理/I3D K400 logits→每片嵌入→两组μ/Σ→FVD标量。条件预测拼context+future；SCV由SC2LE/replay渲染，两条流程分开。本文无新生成器架构图，未虚构。",
+          "evidence": "精确版本核心/主结果/原图/已有验证与明确未读边界"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "从图像FID到时序嵌入，试400/600、logits/pool和KVD；最终K400logits为折中，非所有噪声最优。Gaussian两矩并非原分布完全表征，有限样本偏差在原文已测；同N为必要协议，未保证消除域偏差/时序盲点。",
+          "evidence": "精确版本核心/主结果/原图/已有验证与明确未读边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1 spr.FVD人一致71.9%优于SSIM61.8/PSNR54.1，但别的列有AvgFID或KVD较高反例。T2 SAVP BAIR116.4/KTH78.0领先，MUtB未全面领先。Fig3/6为表示/距离/噪声消融、Fig4样本量对照；interleave非全单调，不写所有条件优。50FVD点感知经验只限BAIR设置。",
+          "evidence": "精确版本核心/主结果/原图/已有验证与明确未读边界"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "I3D是否忽略局部短笔和错序？需同终图反例与事件评价；ContentBias2404.12391已有研究，当前只摘要，待精读。混用样本数、preprocess、层/权重会否改排名？需同协议/子集CI。官方代码batch16是嵌入批非总评价N，样本重采样与训练seed不混；workshop短版不冒称ICLR主会。",
+          "evidence": "精确版本核心/主结果/原图/已有验证与明确未读边界"
+        }
+      ],
+      "boundary": "arXiv1812.01717v2核心/Eq1/2/KVD/T1/2及AppA/B/C、Fig3–6；Fig1/2/AppD帧图和全部T2T/TFGAN代码未核，workshop短文仅身份/摘要。 核心书面三遍，无计时口试、训练、推理或独立复现。"
     }
   ]
 }
