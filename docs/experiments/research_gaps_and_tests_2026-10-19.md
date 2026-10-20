@@ -131,3 +131,8 @@ UniVideo冻结MLLM的理解成绩不能证明联合训练改善理解；Lance图
 ## 第三十四批补充
 
 比较UMM和独立双模型按同active FLOPs/同total参数分别配平；固定阶段因素追规模曲线。ReCA类后训用相同输入token数/算力语义与随机特征干预，测复制与跨任务迁移；共享模型I2T曝光保持一致，罕见字符/计数/事件单独评。
+
+
+## 第三十五批补充
+
+同physical engine联立画质/managedKV/peakVRAM/延迟；同byte预算策略与动态预算消融。反思固定root/image/renderer/noise换文字，text/flow更新2×2、多seed/独立judge，独立critic+renderer按同总FLOPs配平，repair/damage/stop均报。

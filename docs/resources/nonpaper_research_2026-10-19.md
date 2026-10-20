@@ -140,3 +140,8 @@ KineTy模板版权限制完整584K数据分发，公开构建需许可模板/Aft
 ## 第三十四批补充
 
 Show-o2固定45a5a2d README视频理解已发，T2V/I2V/mixed-modality生成权重仍TODO。ReCA固定99ebefe复现指南提供分辨率/瓶颈/冻理解训练经验，Harmon示例50K不同论文5K；BAGEL示例集不等完整预训集。HF量化/ComfyUI存在不自动证明原精度和速度相同。
+
+
+## 第三十五批补充
+
+固定UniCache800fca9区分torch动态预算fakequant与engine固定type预算/冻结H2O，默认editing量化位宽与group不同；FlashU189f877配置35步/末11full、README旧API和VAE占位需核。Reflection0f4a135公开SFT/RL入口、HF fullweights和数据卡：29529轨迹/1265anchor，数据research-only，GEdit174例应从对应评估训练中去掉；未下载权重/大数据。

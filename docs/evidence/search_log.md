@@ -191,3 +191,8 @@ U26–U31读取固定版本PDF方法/选定结果与附录，U29p3/U30p4方法�
 ## 第三十四批补充
 
 BAGEL2505.14683v3/Show-o22506.15564v3/ReCA2509.07295v4核心读，官方NeurIPS2025/ICLR2026登记核。固定ByteDance-Seed/Bagel、showlab/Show-o、HorizonWind2004/reconstruction-alignment，核训练示例/复现指南/发布TODO及selected源码，未把后续新增支持模型当全部正式实验。
+
+
+## 第三十五批补充
+
+核Hyper-Bagel2509.18824v1、FlashU2603.15271v1及CVF Findings2026pp9131–9142正式登记、UniCache2609.32831v1、Reflection2609.35767v1。固定三官方GitHub版本与Reflection HF RL/data卡，框架图/主表/消融视觉核；未把arXivPDF与accepted版当逐页已比。

@@ -143,3 +143,8 @@ UMText RCI含传统Canny，需追实现确认哪些路径停止梯度、哪些�
 ## 第三十四批补充
 
 Flow时间方向是符号约定，BAGEL data→noise与Show-o2 noise→data需统一后比velocity。active与total参数、packed tokens与batch数、GPUh与wallh、推理seed与训练seed不同。PCA投影相近不证明同构；重建复制捷径、阈值涌现与真正因果转移需受控实验。
+
+
+## 第三十五批补充
+
+NFE比不自动等walltime；KV预算/managedKV/临时workspace/peakVRAM需分母明确。逻辑mask/fakequant参考与物理packed实现可能策略不同。初图detach仍因共享参数漂移；p不显著不能证明等价，线性probe可解码不等模型可靠自判。

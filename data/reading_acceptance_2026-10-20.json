@@ -2325,6 +2325,142 @@
         }
       ],
       "boundary": "核心问题/方法公式/框架视觉/主表与现有消融、批判阅读及五条书面答案完成；未逐图全附录、全源码审计或独立运行。版本及证据缺项保留。"
+    },
+    {
+      "id": "C03",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "Hyper-Bagel同时处理BAGEL文字AR和图像diffusion慢的问题。文字侧draft加target全层特征，视觉侧多阶段蒸馏降6NFE/1NFE。理解有TPS实测2.16倍；生成16.67/22倍来自调用数比，表中多分项下降，严格无损未证。",
+          "evidence": "问题/动机与独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig3 target每token各层hidden给metaquery crossattention，聚合decoder后draft逐token推测再验证；Fig4学生ODE轨迹先保存，fake学同原噪声到输出插值的velocity，generator随机续轨迹得DMD梯度。输出仍是文字/单图编辑，没有规范笔事件。",
+          "evidence": "v1p6 Fig3/p8 Fig4/p10 Tables2–3已渲染视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "新意在多模态draft聚合/初始化和DMDO对原ODE轨迹的使用。阶段2纯GAN，阶段3才DMD，1NFE再判别与HPS反馈；不能把各loss混写成一套或把DMD已有思想称全新。冻理解且prefill用原gen权重，仍不保证不同生成像素后的回答完全相同。",
+          "evidence": "核心公式职责、先例与训练/推理边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "GenEval自重评 .8640→6NFE .8647，但位置.7400→.7175；GEditEN Overall略升而SC/PQ降，1NFE Overall5.975。draft3.6184→3.7709，去zero降2.8273，去CE3.6642，说明初始化与CE交互；未给完整各蒸馏阶段消融。",
+          "evidence": "主表/现有消融逐值说明和负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "双套gen权重和draft成本计入端到端后还有多少倍？少步能否保持细字/OCR及事件顺序？EAGLE3/DMD/TSCD已有先例，需分别核新模块而非全归本法；动态文字和绘画过程已有方法，不能从单张编辑推笔顺生成。",
+          "evidence": "有来源局限、相关工作及可证伪对照"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架视觉/主表与现有消融、批判阅读及五条书面答案完成；未全部附录逐图、全源码审计或独立运行。公开实现/模型卡和协议缺项按实际范围保留。"
+    },
+    {
+      "id": "C04",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "FlashU研究免重训Show-o2加速，观察任务专属FFN与层/时序冗余后进行分任务剪枝、缓存与少步CFG。实测约1.78–2.01倍，但理解MMStar下降8.3pp等必须报告，结论是具体速度质量折中。正式身份是CVPR2026 Findings。",
+          "evidence": "问题/动机与独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig3预训FFN按activation×weight剪、cos相似层周期跳过，理解在浅层剪视觉token；生成flowhead缓存复用末层前hidden再算final，末期恢复full，输出文字或静态图。图示缓存和KV缓存职责不同。",
+          "evidence": "v1p3 Fig3/p7 Tables1–2/p8 Tables3–5已渲染视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "核心是任务/时刻不同计算路径的组合。Eq1局部OBD式分析与实际Wanda重要性分开；Vnorm是经验proxy，正文保低、伪码TopK却保高，公开T2I patch未能解决MMU路径歧义。cos接近1不等语义无损保证。",
+          "evidence": "核心公式职责、先例与训练/推理边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "7BGenEval .76→.72、22.74→11.82s，DPG86.14→84.39、11.30→5.89s。Table4去skip质量85.56优full84.39但慢6.70s；Table5去guidance反而分下降，模块与规模交互，需要Pareto而非全部单调提升说法。",
+          "evidence": "主表/现有消融逐值说明和负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "独立校准与随机首张图下剪枝是否稳？与同画质少步solver/cache相比还有多少净收益？Hyper-Bagel已有统一加速，Wanda/skip/cache也各有先例；该组合在规范细字/视频与笔顺任务无实验，不可宣称普适。",
+          "evidence": "有来源局限、相关工作及可证伪对照"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架视觉/主表与现有消融、批判阅读及五条书面答案完成；未全部附录逐图、全源码审计或独立运行。公开实现/模型卡和协议缺项按实际范围保留。"
+    },
+    {
+      "id": "C05",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "UniCache处理MoT统一模型不同任务、不同KV类型压缩敏感性。用类型选策略、attention分预算和时序调度保护语义及外观，BAGEL多项接近基模。80%是managedKV，物理版与参考版默认不同，尚需同配置质量速度联合证据。",
+          "evidence": "问题/动机与独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig3先任务分instruction/sourceViT/sourceVAE与protected，10例离线决定H2O或KIVI；在线chunk attention给类型byte预算、去噪总预算衰减，再独立压缩按原序重组。currentlatent每步重算并保护，不能把它当可静态删除的conditioning。",
+          "evidence": "v1p3 Fig3/p4 Fig4/p7–8 Tables1–4已渲染视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "Eq2预算不超过旧值体现不可逆淘汰，Eq3ρ随条件注意力下降且有下限；稀疏语义偏eviction，密集源VAE偏quantization。mask/fakequant参考质量与physical packing吞吐两后端配置不同，工程加速不能只由逻辑mask推得。",
+          "evidence": "核心公式职责、先例与训练/推理边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "BAGEL GenEval .781→.780，去protection降.567、去task/type .767、去temporal .766。attention与线性schedule同.780，PIE另有小提升；SenseNova GEdit6.691→6.130，限制全模型无损主张。Figure8约20K up to1.78倍为不同任务的token/s或step/s。",
+          "evidence": "主表/现有消融逐值说明和负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "单调retained-only统计会否删后无法恢复关键条件？物理engine同预算/精度是否仍有表中画质？H2O/KIVI已有策略，贡献是task/type协调；小字/OOV/视频长期回访分布未检验，不能先假定细线一定保留。",
+          "evidence": "有来源局限、相关工作及可证伪对照"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架视觉/主表与现有消融、批判阅读及五条书面答案完成；未全部附录逐图、全源码审计或独立运行。公开实现/模型卡和协议缺项按实际范围保留。"
+    },
+    {
+      "id": "C07",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "UMM-Reflection将看图诊断和图像修复作整轨迹RL，以同根16siblings的共同advantage更新BAGEL文字/flow。SFT只学格式不足，RL在512²本地GenEval约.72→.84；修复率升但damage也增，收益范围需限定。",
+          "evidence": "问题/动机与独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2初图detach共享给16条轨迹，反思含action/EDIT，由外部controller回填为下一turn，同BAGEL生成修复；训练verifier给轨迹reward，推理不需judge，最多3repair。它输出静态修正链，不能直接等同笔顺/绘画时间连续视频。",
+          "evidence": "v1p4 Fig2/p6 Tables1–2/p8 Table3已渲染视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "轨迹reward含终值、逐步进展、跨步多进展和退化/早停惩罚，同A给text与flow；流选2连续SDE transition。理解/生成expert都更新但参数组disjoint。全K叉搜索才指数，逐轮信用另有actorcritic等选择，方法成本动机不能扩大成不可能性定理。",
+          "evidence": "核心公式职责、先例与训练/推理边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table3flowonly73/textonly78/joint84，四图BestOf4约80；初图质量/总FLOPs未完全配平。AppJ固定image/renderer/noise换RL指令48.4%修复，SFT21.4%/规则27.6%，支持指令作用。β0初图降63、final79，消融同时影响根分布，不能只说多进展项直接优化修复率。",
+          "evidence": "主表/现有消融逐值说明和负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "同成本独立critic+renderer是否同样有效？更长loop和独立judge下damage/错误知识会不会累积？已有FlowGRPO/单轮RL/反思SFT先例，本法joint多轮信用有直接证据但未证共享架构必要。论文2roots/update与HF每rank2待代码核，OneIG仅alignment、GEdit174例已入SFT也须保留。",
+          "evidence": "有来源局限、相关工作及可证伪对照"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架视觉/主表与现有消融、批判阅读及五条书面答案完成；未全部附录逐图、全源码审计或独立运行。公开实现/模型卡和协议缺项按实际范围保留。"
     }
   ]
 }

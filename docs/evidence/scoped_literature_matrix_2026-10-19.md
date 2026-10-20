@@ -102,3 +102,8 @@ AnyText2静态图、KineTy模板派生Latin RGB动效、DynamicTypography字母S
 ## 第三十四批补充
 
 BAGEL双专家共享attention、Show-o2同VAE双路径、ReCA原架构后训按接口分列；BAGEL导航额外FT，Show-o2视频2B与7B不同，ReCA无动作/视频指标。统一多模态已多路线，规范事件协同需要直接新证据。
+
+
+## 第三十五批补充
+
+Hyper-Bagel蒸馏、FlashU任务剪枝与缓存、UniCache异质KV、Reflection多轮text/flow RL均已有。静态编辑链不等视频或规范笔事件；统一模型协同已有直接先例，后续创新需具体到可执行事件和等成本强基线。

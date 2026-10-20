@@ -188,3 +188,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第三十四批完成C01/C02/C06核心三遍及各五条书面检查，核Show-o2 NeurIPS2025/ReCA ICLR2026身份和最新已读版本、固定公开代码。339目录/339笔记、334章节或协议/5摘要、66核心三遍；未模型运行。见[统一主干与重建审查](unified_backbones_and_reconstruction_core_reading_2026-10-20.md)和[逐文件说明](thirty_fourth_changes_2026-10-20.md)。无删除。
+
+
+第三十五批完成C03/C04/C05/C07核心三遍及各五条书面检查，核NFE/延迟/managedKV分母、参考与物理后端差异、整轨迹协同及协议缺项。339目录/339笔记、334章节或协议/5摘要、70核心三遍；未独立模型运行。见[加速缓存与反思审查](acceleration_cache_and_reflection_core_reading_2026-10-20.md)和[逐文件说明](thirty_fifth_changes_2026-10-20.md)。无删除。
