@@ -2597,6 +2597,142 @@
         }
       ],
       "boundary": "核心问题/方法公式/框架视觉/主表与现有消融（未报告者明确缺失）、批判阅读及五条书面答案完成；未全附录逐图/全源码/独立运行。论文和固定代码/HF版本分别记录，不用后期模板补原预训缺项。"
+    },
+    {
+      "id": "D05",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "TF/DF根据真实历史训练，推理用学生历史，容易累积错误。SF训练中自行生成历史，再用整视频DMD/SiD/GAN监督；随机exit和cache截断让串行训练可行，也保留了与完整推理和全梯度的差别。",
+          "evidence": "研究问题与动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2文字条件因果DiT逐块去噪，已生成块tctx0重编码为KV供后块读取；每次序列随机选exit，各块只该forward求梯度，历史cache写入no_grad。VAE解码成视频，rollingFIFO降低重算；框架没有笔顺事件或执行动作输出。",
+          "evidence": "v1p4Fig2/p6算法/p8T1/p9T2输入模块输出解释"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "核心是自生成历史与整体分布目标结合，改变训练历史分布；教师score仍代理真实分布。无视频数据只指DMD/SiD后训练，不含16K ODE初始化、基模与教师。detachKV截未来writer直接梯度，共享θ仍受denoise更新，后续SGF已专门处理该缺口。",
+          "evidence": "关键公式/梯度职责、代码版本与已有先例"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1同H100 chunk17FPS/.69s对Wan.78FPS/103s，150×是首帧等待比，非FPS。Wan quality85.30仍高于SF85.07。Table2同实现DF+DMD82.76→84.31，frame80.56→84.26；SiD chunkquality85.52高但semantic78.24低DMD81.28。rolling重算4.6→16.1FPS，不能推任意长不退化。",
+          "evidence": "主表/现有消融/负结果与缺失项"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "随机exit对训练/推理分布还剩多大差？长期语义和少动是否让VBench稳定分误导？CausVid/DF与后续SGF/Salt/CausalForcing已有不同路径，需同teacher/初始化/kernel/总预算对照，并独立测60/240s语义、动态和书写合法事件。",
+          "evidence": "至少两条有根据问题及可证伪对照"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架与关键表图视觉核、主表及现有消融、批判阅读及五条书面答案完成；未全附录逐图/全源码/独立模型运行。原论文、官方代码和HF发布版本分别界定；全文局部读不冒充复现。"
+    },
+    {
+      "id": "D06",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "SF能读自生成历史，但未来损失进不了历史tctx0写入计算。SGF通过两遍局部重放，让未来损失直接训练历史KV表示，而不保留整个串行采样图；目标为短训练窗外的身份/布局稳定。",
+          "evidence": "研究问题与动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "框架Pass1 serial no_grad记录选定exit noisyinput和cleancontext，Pass2给cleancontext stopgrad后重新计算KV与future attention，对同exit并行生成预测。输出视频，关键在梯度路径，推理几何须匹配mask/sink/FIFO/RoPE；生成历史本身不被未来梯度修改。",
+          "evidence": "v1HTML Fig2 flowchat视觉核，Tables1–4与AppD/E字段逐值核读输入模块输出解释"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "新信号是futureloss→recomputedcontextKV→writerθ，仍截断sampling/历史latent，非完整BPTT。frame训练全21latent无淘汰、推理sink4+FIFO16+current1；chunk训练/推理sink3+FIFO6+current3。前向近似恢复不等梯度精确，条件改变会训练错writer。",
+          "evidence": "关键公式/梯度职责、代码版本与已有先例"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1 frameODE60subject.928→.971，但dynamic.867→.566；Table2chunkCD240imaging.671→.667下降。Table3人评净GSB不是胜率。Table4peak79.01→87.01GB，稳态下降、每5steps10.39→11.71s。AppD96对前向RelL2约1.41%/cos.999886，未测梯度夹角；sink8部分指标优sink4，不能报全局最优。",
+          "evidence": "主表/现有消融/负结果与缺失项"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "补梯度收益能否排除额外算力和低运动？mask/RoPE失配或历史被淘汰后仍有何保证？SGF+已解耦writer/denoiser、LongLive/检索关注记忆范围，须继续追核；同总FLOPs比较直接可微cache/重放、补长semantic/事件与人工CI，不能泛称首次优化记忆。",
+          "evidence": "至少两条有根据问题及可证伪对照"
+        }
+      ],
+      "boundary": "核心三遍以arXiv v1 HTML全文、Fig2原图视觉与主表/现有消融字段对照完成；四核心方法/批判分析及五条书面检查已写。未声称整份PDF逐页视觉核、全源码或独立运行；另有v2未混入。"
+    },
+    {
+      "id": "D07",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "Salt针对少步DMD更新的组合不一致以及不同质量cache分布。SC约束一跳/两跳端点，AR再混步和高步参考特征对齐；理论动机来自精确flow半群，但Euler单步不天然满足它。",
+          "evidence": "研究问题与动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2 DMD+SC组合，Fig3先采K8/4/2形成因果历史，生成样本再noising送real/fake score作DMD；K8做SC，K2/4用下一档reference空间Gram对齐。代码composedtarget通过detach/no_grad构造，论文Eq8未标该实现边界。",
+          "evidence": "v2p7Fig2/p8Fig3/p12T2/p15T5输入模块输出解释"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "关键是同DMD训练grid上补组合约束，cache质量按步数混合并作reference对齐；reference更好是经验假设，same noise不保证动作正确。推理网络未加结构，训练额外算力存在。对称MSE形式不能被解读成双分支都反传或全局ODE误差界。",
+          "evidence": "关键公式/梯度职责、代码版本与已有先例"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table4 DMD4总82.78、DMD8 82.54、SC83.36支持超出加密grid。Table5 naiveSC84.62→83.83退化，mixed+SC85.02/full85.08，缺mixed-only；SFsemantic82.05→81.28、30sCFdynamic76.95→54.02。AppAdefect.0135→.0111只是局部诊断。README非AR83.19与v2表83.36分版本。",
+          "evidence": "主表/现有消融/负结果与缺失项"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "reference在高动态或错误history下是否总优？AR无mixed-only能否分辨SC/混步贡献？Shortcut/AYF、SF/CF/LongLive已有前例，选题需同预算全因子、reference可靠性和长语义/事件验证；700/600warmup、nonAR8/16GPU和许可差异都应保留。",
+          "evidence": "至少两条有根据问题及可证伪对照"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架与关键表图视觉核、主表及现有消融、批判阅读及五条书面答案完成；未全附录逐图/全源码/独立模型运行。原论文、官方代码和HF发布版本分别界定；全文局部读不冒充复现。"
+    },
+    {
+      "id": "D08",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "WanR1希望用任务奖励提升生成视频的解迷宫能力，避免VLM给视觉合理但路径错误的视频高分。它用WanSFT+LoRA和FlowGRPO，在maze离散路径与Target参考embedding两类奖励后训练；两类奖励的可验证强度不同。",
+          "evidence": "研究问题与动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2初图和goal输入Wan流模型，SDE每样本出8个视频，提取轨迹计算EM/PR/MF，组内优势经clip/KL优化LoRA。Target改用DINO/CLIP帧、进度与端点相似，默认无VGGT轨迹奖励；输出仍是视频，没有机器人执行动作。",
+          "evidence": "v1p4Fig2/p9T1/p10T2颜色归属/p11Fig3/p18T7–8/p19K曲线输入模块输出解释"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "贡献在特定视频任务的GRPO与奖励组合，FM→SDE沿已有FlowGRPO；连续marginal推导依条件，离散步数仅近似。PR是正确前缀PrecisionRate，SD是StepDeviation；单GTpath会误罚其他合法解，embedding相似也不能严格认证导航物理正确。",
+          "evidence": "关键公式/梯度职责、代码版本与已有先例"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1irregularEM56.9→47.9、SokoSD10.2→16.9与MF94.1→73下降；trap51.4与3D29.1是EM绝对pp。Table2蓝SFT/黄R1的irregularHardPR68.4→51.6，与正文归属矛盾。T8无SFT EM0只证当前bootstrap必要；PR+EM比EM提高EM却降低PR/增加SD，MF开关缺失。TargetFig3也有对SFT负项。",
+          "evidence": "主表/现有消融/负结果与缺失项"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "单GT路径和轨迹提取器会制造多少假奖惩？DINO/CLIP能否被低运动/背景相似欺骗？VRBench/TargetBench/FlowGRPO均是先例，需任务oracle+人工路径核、合法多解、reward各项因子与真实执行；K样本oracle挑选须单列，不能把平均总分或bestK当单次推理普遍提升。",
+          "evidence": "至少两条有根据问题及可证伪对照"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架与关键表图视觉核、主表及现有消融、批判阅读及五条书面答案完成；未全附录逐图/全源码/独立模型运行。原论文、官方代码和HF发布版本分别界定；全文局部读不冒充复现。"
     }
   ]
 }

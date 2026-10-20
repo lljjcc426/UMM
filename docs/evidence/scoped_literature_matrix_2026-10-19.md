@@ -112,3 +112,8 @@ Hyper-Bagel蒸馏、FlashU任务剪枝与缓存、UniCache异质KV、Reflection�
 ## 第三十六批补充
 
 HunyuanVideo1.5字形条件视频、LTX2联合声画、VACE统一视频编辑、WanMove点轨迹控制已有，分别不等规范笔顺。VACE正式ICCV2025、WanMove NeurIPS2025；自动均值、人评/控制/物理事件目标分开。
+
+
+## 第三十七批补充
+
+SF历史分布、SGF历史写入梯度、Salt少步组合/cache质量、WanR1任务奖励已有不同贡献；不能将长视觉一致性或embedding代理当规范笔顺/真实执行正确。WanR1 T1/T2/Target/MF有负项与表文冲突，Salt semantic/dynamic有退化；需强基线与事件级检验。

@@ -153,3 +153,8 @@ NFE比不自动等walltime；KV预算/managedKV/临时workspace/peakVRAM需分�
 ## 第三十六批补充
 
 掩码AND/OR改变保留集合，时间sample/average改变快事件表示；代码默认和论文须分版本核。顺序条件分解可表示联合概率，实际模型限制不能写理论不可能。thinking registers不等显式推理，VAE平移等变仅设计近似；人评近半且无CI不证明等价。
+
+
+## 第三十七批补充
+
+自生成历史对齐、历史writer梯度、完整rolloutBPTT互不等价；随机exit留训练推理近似，前向bf16恢复不证明梯度精确。精确ODE flow半群与Euler组合误差有别，论文对称loss不保证实现双支反传。GRPO嵌入相似代理与离散约束oracle可验证性分层，单GT路径奖励会误罚合法多解。

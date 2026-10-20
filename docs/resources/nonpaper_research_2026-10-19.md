@@ -150,3 +150,8 @@ Show-o2固定45a5a2d README视频理解已发，T2V/I2V/mixed-modality生成权�
 ## 第三十六批补充
 
 固定Hunyuan60783e7 SSTA实现OR对论文AND、公开Muon/LoRA r8/alpha16续训模板需自建loader；WanMove80c58a7时间sample对paper average，MoveBench d02e0c4含en/zh/首帧mask/track/visibility/eval入口。原LTX19B HFdfcc210有8stepCFG1蒸馏/LoRA384及VAE/connector config；当前Git e98f6d9已2.5/22B/Gemma4且LoRA模板r32/AdamW1e−4，不能混成原预训。VACE48eb44f及HF benchmark c70300e分开发布版本/许可。
+
+
+## 第三十七批补充
+
+固定SF33593df/HF2f8b779、SGF79be9ac/HFffaf490、Salt5fbb513/HF07877f3的模型、初始化、prompt和公开训练配置关联D05–D07，不重复计论文。SF global64/600iter、SGF global8/frame1500/chunk1200与可运行显存不混作原全部实验；Salt TRDmargin.1/weight.1/start700对正文600，CF EMA/LL regular generator、license other及LongLive非商用文件。WanR1官方代码模型入口未定位，不猜URL。

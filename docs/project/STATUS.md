@@ -99,3 +99,6 @@
 
 
 第三十六批完成D01–D04核心三遍及各五条书面检查，核视频/声画/条件编辑/轨迹控制、原文与固定实现差异、负结果及训练适配配置。339目录/339笔记、334章节或协议/5摘要、74核心三遍；未独立模型运行。见[视频骨干与运动控制审查](../evidence/video_backbones_and_motion_core_reading_2026-10-20.md)和[逐文件说明](../evidence/thirty_sixth_changes_2026-10-20.md)。无删除。
+
+
+第三十七批扩展D05–D08核心三遍和五项书面检查：核自生成历史、cache梯度、少步组合、任务RL；记录Wan-R1表文冲突、Salt负项及固定代码/HF配置。339目录/339笔记、334章节或协议/5摘要、78核心三遍；无独立模型运行。见[自回归训练与视频RL审查](../evidence/autoregressive_training_and_video_rl_core_reading_2026-10-20.md)和[逐文件说明](../evidence/thirty_seventh_changes_2026-10-20.md)。无删除。

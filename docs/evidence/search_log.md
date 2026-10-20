@@ -201,3 +201,8 @@ BAGEL2505.14683v3/Show-o22506.15564v3/ReCA2509.07295v4核心读，官方NeurIPS2
 ## 第三十六批补充
 
 Hunyuan2511.18870v2/LTX2601.03233v1/VACE正式ICCV2025 PDF与v1附录/WanMove2512.08765v1核心读及框架/表图视觉核；NeurIPS主会和CVF正式身份核。四GitHub固定版本、原LTX19B/WanMove模型与MoveBench/VACEBenchmark卡及配置交叉核，未下载大权重/数据。
+
+
+## 第三十七批补充
+
+D05 arXiv2506.08009v1核心PDF/NeurIPS2025官方登记；D06 2607.20368v1 HTML全文与flowchat原图，另有v2分开；D07 2604.03118v2 PDF/HTML，ECCV作者声明未升独立确认；D08 2603.27866v1 PDF表1/2蓝黄归属与Target图、消融/MF/跨任务。三个固定Git及HF卡、configs、相关梯度/loss路径已读。作者SGF README追到SGF+2610.10429v2，正在精读未新增；第三方SGF复现alphaXiv和MotionStream仅候选，未验证其结果。

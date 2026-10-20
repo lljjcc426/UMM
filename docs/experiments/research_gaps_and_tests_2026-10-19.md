@@ -141,3 +141,8 @@ UniVideo冻结MLLM的理解成绩不能证明联合训练改善理解；Lance图
 ## 第三十六批补充
 
 同预算比SSTA AND/OR、Glyph、联合/顺序AV和register、VCU adapter/全参、轨迹坐标/random/latent/ControlNet；测控制误差与全管线时延/显存。轨迹输入sample/average、数量和冲突seed配平，换跟踪器/人工GT分离条件误差；规范书写补墨迹增长与pen-contact/事件。
+
+
+## 第三十七批补充
+
+同初始化/teacher/prompt/kernel/总FLOPs测TF/DF/SF×exit×cachegrad；SGF加梯度夹角和writer冻结，Salt混步×SC×TRD完整因子、reference可靠性/700vs600warmup。同步测长语义、动态/identity和事件CI，任务RL补奖励各项、合法多解、提取器人工核/删墙攻击；bestK披露选择器及总预算，Target代理/几何/执行分列。
