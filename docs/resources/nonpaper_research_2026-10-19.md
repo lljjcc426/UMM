@@ -320,3 +320,8 @@ L092配套GitHub4eb6087提供FINETUNE与decoder-only BLIP3o60K后续-o模型，�
 ## 第七十一批补充（2026-10-21）
 
 G027配套固定NVlabs/edm008a4e5包含公开checkpoint/FID统计/训练与数据工具；README/loss/预条件及指定配置已读。新ImageNet/原ADM各有reference统计，采样状态FP64而网络FP32/可FP16；未下载/反序列化权重或执行。见[审查](../evidence/edm_numerics_training_and_selection_audit_2026-10-21.md)。
+
+
+## 第七十二批补充（2026-10-21）
+
+L185配套无独立论文GPU/LoRA实现固定1958463与HF美学3941662/对齐23c5dc4已核；base快速启动SD1.5/lr3e-4与原TPU SD1.4全UNet1e-5不同；DGX美学/对齐200epoch、公开美学卡40×256/对齐200×256，不能全当50K主模型。见[审查](../evidence/ddpo_policy_surrogate_rewards_and_artifacts_2026-10-21.md)。

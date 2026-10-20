@@ -1,0 +1,15 @@
+{
+  "checked_on": "2026-10-21",
+  "id": "L185",
+  "jax_revision": "f0b6ca76516809b9534ad51bd4511117e8eb3682",
+  "torch_revision": "1958463f020112c9a7bc85768d296daacc2e1b4b",
+  "hf_aesthetic_revision": "3941662709c710c4c17bf6f0620613d9ac3cd7d2",
+  "hf_alignment_revision": "23c5dc41c49dbd9495759200dad1b8c6fd727d21",
+  "findings": [
+    "Both implementations average elementwise Gaussian log densities before PPO ratio, giving a dimension-normalized rather than joint density ratio. Mathematical static observation, not an execution result.",
+    "Original JAX and later GPU LoRA recipes differ; public base config is explicitly for startup, not good results. DGX aesthetic/alignment configs use 200 epochs, not all 100.",
+    "HF aesthetic card is 40 iterations x256; alignment 200x256. Public model artifacts are not all 50K training checkpoints.",
+    "Model cards tagged CreativeML OpenRAIL-M; JAX repository MIT metadata, distinct scopes."
+  ],
+  "boundary": "No model or weights executed/downloaded. Linked artifacts of existing L185, no new independent-paper count."
+}

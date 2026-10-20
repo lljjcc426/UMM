@@ -5385,6 +5385,40 @@
         }
       ],
       "boundary": "NeurIPS2022正式核心§1–6/社会影响全文，Eq1–8/Alg1/2/T1/2/F1–5；实际p5算法、p9主表、p10噪声/随机性及supp p9 T3/4。独立supp B2–6完整推导（高斯平滑、DSM、ODE/SDE、预条件）、C3.4离散ADM支持/rounding、D1–2数值/RK、E1–2随机性/超参、F1–5评估/增广/训练/网络/许可；B1与C1–3其余换元未完整逐式复核，A全部样本未逐张审。固定GitHub008a4e README全文，EDMLoss/VPLoss/VELoss全文、EDMPrecond全文、generate.edm_sampler与train主要配置/Adam选择段；未全审实现/下载权重/执行模型。 核心书面验收，无模型独立复现。"
+    },
+    {
+      "id": "L185",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释似然与下游奖励的问题/动机",
+          "answer": "如何让扩散模型直接优化可计算但不可微的下游奖励，而不只匹配图像分布/去噪损失？奖励优化有效性与是否满足真实用户任务需区分。 单次/多轮reward-weighted regression以最终图和变分去噪近似取代难算图像似然，忽略可显式评分的逐步转移；似然/感知/压缩/提示对齐不等。Bachman/Precup及Fan/Lee已有生成MDP/策略梯度，DPOK并行研究；不能说首次扩散RL。",
+          "evidence": "正式核心/实际图表/现有消融与指定固定代码；无独立模型实验"
+        },
+        {
+          "criterion": "按实际Fig2及MDP解释prompt/采样/奖励/更新",
+          "answer": "文字prompt/初始高斯→SD去噪轨迹→512²图片→JPEG/美学预测器或LLaVA描述与BERTScore奖励→微调UNet再采样。state=(prompt,t,xt)，action=xt−1，环境更新确定，终端奖励r(x0,c)。实际p6 Fig2奖励框架、p7 Fig3/4、p15 Fig7/T1、p19/20消融/泛化图核看；噪声轨迹时间不等书写真实动作。",
+          "evidence": "正式核心/实际图表/现有消融与指定固定代码；无独立模型实验"
+        },
+        {
+          "criterion": "解释SF/近策略IS与密度缩放/适用条件",
+          "answer": "主SD1.4 latent UNet，冻结文本encoder/VAE；动作策略是固定非零方差高斯转移，SF在当前轨迹上∑gradlogp×reward，IS用单步pnew/pold和PPO clipping多次更新。完整轨迹离策略无偏校正一般需轨迹密度比；这里单步比冻结旧状态/后续回报分布，θ=old局部成立，偏离后是surrogate。公开JAX/torch逐坐标logdensity取mean而非sum再exp，d维时比值=(pnew/pold)^(1/d)，不能逐字当联合密度精确IS；PPO裁剪/优势归一也改变目标。 可靠、可转移但不可微的终端奖励且生成轨迹有可评分随机转移时，策略梯度可比加权去噪更直接优化目标；有难度连续奖励/跨prompt迁移可能帮助稀有组合。若只用OCR或VLM终态奖励，模型可能利用排版/文字/识别漏洞，严格笔事件需独立可观测reward。按维缩放对高维裁剪的稳定作用是待测解释，无新因果结论。",
+          "evidence": "正式核心/实际图表/现有消融与指定固定代码；无独立模型实验"
+        },
+        {
+          "criterion": "解释实际F4、T1和F10/11/12消融/泛化及选择边界",
+          "answer": "实际F4在所测查询范围DDPO两变体三奖励均明显优于RWR；美学IS最高/SF次之，JPEG压缩两者接近、不可压缩趋同，不能说IS各点严格胜SF。无精确原始曲线数值不伪写终点。F5 BERTScore随活动提高（本批按正文读，未独立数字化），F12新动物均分随训练接近训练动物、物体改善更弱。T1 base5.95±.03/Universal6.14±.05/DDPO20K6.63±.03限wolf50样本。AppC跨论文对照作者报全面胜，不认同其全等预算因果归因。 实际F10 RWR无CFG第一轮可升随后下降，训练使用同guided prediction后持续改善，支持此协议避免训练/采样失配；不能证明所有RL必须相同CFG。F11样本/轮256–16384，更多interleaving一段有利而后退步，所试RWR未及DDPO；固定每轮梯度更意味着同query下更数不同，仍缺等总计算。F7明确不可压缩最终噪声化、计数用文字欺骗VLM；AppA定性图手选退化前checkpoint。SF/IS更新次数1vs4、奖励归一、clip/密度缩放未全因子等预算分离。",
+          "evidence": "正式核心/实际图表/现有消融与指定固定代码；无独立模型实验"
+        },
+        {
+          "criterion": "提出原文/代码支持的限制和独立事件验证",
+          "answer": "奖励被利用、风格漂移、多样性与宽分布泛化未充分量化；训练奖励自评不等独立正确。IS单步surrogate/按维mean logdensity与论文联合比差别、代码JAX std floor仅算logdensity时处理，确定性eta0/零方差端点不能原样宣称精确高斯策略。尚未运行这些实现对照，不据静态差异否定经验曲线。不同TPU/奖励teacher成本、手选checkpoint和未报训练重复限制公平性；F4/F12绝对美学范围差未解释。未提供规范文字视频、严格笔顺或共享UMM协同证据。 同初始化/数据prompt、rollout/NFE/FLOPs和teacher墙钟比较SFT/RWR/SF/IS及现有偏好/扩散RL；全因子采样频率/更新数、joint-sum vs维度mean与clip重标定、KL/earlystop。训练reward与独立人评/OCR/事件识别器分开，留出字符/语言/书体；加“只写数字却未画对数量”、同终态错序/反向样本、多样性/保真/事件错误。正方差与确定性采样接口另定义，不将噪声动作等同真实落笔。全部未运行；DPOK等后续必须查新。",
+          "evidence": "正式核心/实际图表/现有消融与指定固定代码；无独立模型实验"
+        }
+      ],
+      "boundary": "ICLR2024正式核心§1–7全部文本/式1–3及MDP/SF/IS公式，AppA–F正文/T1/超参表和G说明/样本caption（未全逐张G）。本批实际p6 Fig2、p7 Fig3/4、p15 Fig7/T1、p19 Fig10、p20 Fig11/12；F5/6正文/图注已读未独立数字化。项目研究文本、固定JAX f0b6ca7主要config、scheduler.step密度/方差段及policy-gradient目标段；torch1958463 README/base/DGX全文、DDIM函数完整、train加载/LoRA/采样相关指定段/完整PPO更新段。固定HF两模型卡全文和alignment scheduler配置；未审全训练路径、未下权重/运行或复现。"
     }
   ]
 }

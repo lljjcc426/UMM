@@ -123,3 +123,8 @@ L086解耦+REPA与L092共享MAR的正式证据各有取舍；JanusFlow生成only
 ## 第七十一批补充（2026-10-21）
 
 G027补完固定网络采样→训练模块的正式审查：ρ/随机性依分布，预条件单项有FID退步，图像FID与笔事件数值误差分开。见[审查](edm_numerics_training_and_selection_audit_2026-10-21.md)。
+
+
+## 第七十二批补充（2026-10-21）
+
+L185正式/代码审查补扩散随机轨迹策略梯度、PPO近似、按维密度缩放；终端黑盒奖励与物理落笔事件仍有目标缺口。见[审查](ddpo_policy_surrogate_rewards_and_artifacts_2026-10-21.md)。

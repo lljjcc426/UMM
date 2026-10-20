@@ -376,3 +376,8 @@ L086 CVPR2025正式全文核心/独立supp A–E、真实Fig2/T4/5；L092 ICCV20
 ## 第七十一批补充（2026-10-21）
 
 G027 NeurIPS2022正式核心全文、独立supp B2–6/C3.4/D/E/F，实际Alg1/T2/F5及supp T3/4；固定NVlabs/edm008a4e5 README/loss/EDMPrecond/指定sampler与Adam/train配置。最低三次FID、选检查点与两栏摘要核查，无权重或执行。
+
+
+## 第七十二批补充（2026-10-21）
+
+L185 ICLR2024正式核心§1–7/AppA–F，实际F2/3/4/7/10/11/12与T1。固定JAXf0b6ca7/torch1958463指定scheduler/策略目标/config/README、HF美学3941662与对齐23c5dc4全文卡/元数据及对齐scheduler。按维mean logdensity静态代数分析，不等模型运行。
