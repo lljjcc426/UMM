@@ -4059,6 +4059,74 @@
         }
       ],
       "boundary": "2207.12598v1核心§1–6、Eq1–6/Algorithm1/2/T1/2、Fig2/4/5；AppA完整样本图、Workshop短版与前作全部协议/源码未读。 核心书面三遍检查，无计时口试、训练、推理或独立复现。"
+    },
+    {
+      "id": "G028",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "隐式生成避免训练逐样本后验/MCMC与归一化常数，代价是无直接密度和双网同步。GAN使G采噪声生成、D学真假信号，探索可微对抗学习的可行性。",
+          "evidence": "精确版本核心原文/原图/证明与主结果及原文已有对照；缺失消融明确标出"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "原Fig1四幅分布/映射示意已核：z→G(z)变成pg，D在真/假上更新再传梯度给G；Algorithm1 k1 D/1 G、momentum。采样只有G前向，原例无encoder；条件GAN在本篇列未来扩展，不误称已完整评测。",
+          "evidence": "精确版本核心原文/原图/证明与主结果及原文已有对照；缺失消融明确标出"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "固定G求D*密度比，代回minimax得−log4+2JSD，因此分布空间理想最优pg=pdata。D在两者皆零处不唯一、G参数不唯一；Proposition2要求最优D和足够小的分布更新，不能等同有限网络收敛。非饱和替代改善早期梯度，未与JS目标完全等同。",
+          "evidence": "精确版本核心原文/原图/证明与主结果及原文已有对照；缺失消融明确标出"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1 MNIST225±2高于GSN214±1.1，但TFD2057±26均值低于CAE2110±50。Parzen估计有高维问题，±分别测试样本/数据fold SEM，非训练seed CI。原文无现代组件消融矩阵，明确记录缺失；机制依据为理论和算法，不虚构实验证明。",
+          "evidence": "精确版本核心原文/原图/证明与主结果及原文已有对照；缺失消融明确标出"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "有限D/G如何失衡导致塌缩？原文已谈Helvetica，需追读WGAN/改进训练而非称新空白。D是否忽略时序/稀有字、最近邻图能否排除记忆？需独立覆盖与乱序反例，样例不能证明全域不记忆。原历史Parzen不可与VAE ELBO/现代FID直接排名。",
+          "evidence": "精确版本核心原文/原图/证明与主结果及原文已有对照；缺失消融明确标出"
+        }
+      ],
+      "boundary": "1406.2661v1完整核心/理论证明/T1/2、Algorithm1、Fig1四幅；无现代组件消融，Fig2/3未完整视觉，正式PDF所有差异/全源码未核。 核心书面三遍，无计时口试、训练、推理或独立复现。"
+    },
+    {
+      "id": "G029",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "连续latent的边缘/后验难积、逐例迭代推断昂贵。SGVB把变分期望写成独立noise上的可微函数，再用识别网络摊销后验并联合训练生成模型；ELBO为既有变分基础，贡献不应写成发明ELBO。",
+          "evidence": "精确版本核心原文/原图/证明与主结果及原文已有对照；缺失消融明确标出"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "原Fig1/2/3已核。x→qφ输出μ/σ、ε→z→pθ decoder，重建期望和解析KL更新φ/θ。生成由prior采z，不需要给x；§5把encoder/decoder称谓反置，按Eq1–12和AppC定义辨认。",
+          "evidence": "精确版本核心原文/原图/证明与主结果及原文已有对照；缺失消融明确标出"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "logp=L+KL(q||true posterior)，L=Eq logp(x|z)−KL(q||prior)。重参数化允许路径导数，解析KL减少MC量；估计无偏不等q精确或似然倒数/log估计无偏。原训练含MAP权重衰减，FullVB是未做实验的扩展推导。",
+          "evidence": "精确版本核心原文/原图/证明与主结果及原文已有对照；缺失消融明确标出"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "本文无主数字表，用Fig2主曲线和latent/算法对照；AEVB所示维度ELBO更高，但train/test gap仍在。Fig3Ntrain1000 MCEM test约−141略高于AEVB约−143，50K组AEVB约−138好于其他；读图近似，不写所有规模/指标全胜或统计显著。",
+          "evidence": "精确版本核心原文/原图/证明与主结果及原文已有对照；缺失消融明确标出"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "q族/摊销gap、prior采样和重建细线是否分别限制视频生成？需heldout、重建/先验/骨干分解测事件。任意加权感知/GAN/KL是否仍原ELBO？需按likelihood/β说明，不能机械套理论。原文与ICLR官方均承认Rezende同期独立工作，需追引后验族/塌缩/视频VAE而不把本篇边界当新颖性。",
+          "evidence": "精确版本核心原文/原图/证明与主结果及原文已有对照；缺失消融明确标出"
+        }
+      ],
+      "boundary": "1312.6114v11核心/Eq1–10/Algorithm1、Fig1–3、AppB–E全部及F至Algorithm2/F.1初段；F.1最后展开、AppA完整图及全代码未核。 核心书面三遍，无计时口试、训练、推理或独立复现。"
     }
   ]
 }

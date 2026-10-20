@@ -233,3 +233,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第四十九批深化ControlNet/CFG：344项目录，115核心三遍、117五条书面检查。修正CFG分辨率训练步数，保留FID文字/表图冲突与等速度负结果；核ControlNet初始零残差、代码/hint/RW差异和二维到时序边界。见[本批审查](spatial_control_classifier_free_guidance_and_protocol_gaps_2026-10-20.md)与[逐文件说明](forty_ninth_changes_2026-10-20.md)。无训练、推理或独立复现；剩余深读继续。
+
+
+第五十批深化GAN/VAE原始理论与实验：344项目录，117核心三遍、119五条书面检查。区分理想分布均衡/有限网络、ELBO/似然/Parzen与重建/生成，保留TFD和小数据test反例。见[本批审查](gan_vae_theory_estimation_and_video_representation_boundaries_2026-10-20.md)与[逐文件说明](fiftieth_changes_2026-10-20.md)。无训练、推理或独立复现；剩余工作继续。

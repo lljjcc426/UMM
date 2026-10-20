@@ -177,3 +177,8 @@ G018–G021分别对应更新表示、冻结权重存储、模长/方向参数�
 ## 第四十九批补充
 
 G025为静态二维条件图像，G026为类条件ImageNet引导；均没有规范书写时间监督。原图/条件提取/hint/VAE与真实事件分列，成本按两支计算和可训练对象；详[第四十九批](spatial_control_classifier_free_guidance_and_protocol_gaps_2026-10-20.md)。
+
+
+## 第五十批补充
+
+G028/G029均历史静态图任务，GAN快采样/对抗反馈与VAE摊销推断/表示学习不同；原主结果的估计器、样本SEM/fold SEM及学习曲线范围分别记录。理论不直接保证视频细线/事件，详[第五十批](gan_vae_theory_estimation_and_video_representation_boundaries_2026-10-20.md)。

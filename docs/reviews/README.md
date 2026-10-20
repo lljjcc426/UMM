@@ -345,8 +345,8 @@
 | G025 | [Adding Conditional Control to Text-to-Image Diffusion Models](G025.md) | 2302.05543v3 Abstract/Intro/§2相关/§3完整Eq1–5/§4完整T1–3及消融讨论/§5；原Fig2/3/5/8视觉核，其他图只读caption/正文，未看全例。CVF正式身份条目；supp46MB未完整下载，未计已读。官方ed85cd1指定cldm的hint/forward/optimizer/no_grad、scribble demo完整、FAQ和tutorial_train/dataset全读，未全源码/其他卡/权重；无训练、推理或复现。 |
 | G026 | [Classifier-Free Diffusion Guidance](G026.md) | 2207.12598v1 Abstract/Intro/§2 Eq1–5背景/§3 Eq6与Algorithm1/2/§4全部T1/2和超参消融/§5讨论/§6结论；原Fig2/4/5视觉核，AppA样本图仅读caption未完整视觉，引用前作架构/全部参考未重读。短Workshop版未全读、无源码/权重运行/训练/独立复现。 |
 | G027 | [Elucidating the Design Space of Diffusion-Based Generative Models](G027.md) | 正式NeurIPS主PDF§1–6/Algorithms1–2/Table1–2/Fig2–5文字解释，原公式已推核；未视觉核全部图，附录B–F在独立supp未读，训练源码未全核 |
-| G028 | [Generative Adversarial Nets](G028.md) | minimax目标与理论假设，§5/Table1，指标限制 |
-| G029 | [Auto-Encoding Variational Bayes](G029.md) | ELBO/重参数化推导，§5实验设置与学习算法比较 |
+| G028 | [Generative Adversarial Nets](G028.md) | 1406.2661v1 Abstract/Intro/§2相关/§3 Eq1/Algorithm1/§4 Proposition1/2与Theorem1及Eq2–6证明/§5 T1与实验/§6 T2优缺点/§7；原Fig1四幅SVG视觉核。Fig2/3样本和插值仅读正文/caption未完整视觉，正式NeurIPS条目核、正式PDF差异/全部参考与代码未通读；无训练、推理或独立复现。 |
+| G029 | [Auto-Encoding Variational Bayes](G029.md) | 1312.6114v11 Abstract/Intro/§2 Eq1–8与Algorithm1/§3 Eq9/10/§4相关/§5–7实验结论未来；AppB解析KL、C MLP Eq11/12、D边缘估计/E HMC全读；F至Algorithm2与F.1初段已读，F.1最后具体展开未全核。原Fig1/2/3视觉核，AppA Fig4/5只读caption未完整视觉；作者/ICLR身份来源核，全部历史版差异/代码未核。无训练、推理或独立复现。 |
 | G030 | [Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion](G030.md) | 逐token噪声方法，§4.1同架构视频比较，规划任务区分 |
 | G031 | [VBench: Comprehensive Benchmark Suite for Video Generative Models](G031.md) | §3.1–3.3，Table1，§4，人工配对协议 |
 | G032 | [Towards Accurate Generative Models of Video: A New Metric & Challenges](G032.md) | 度量与特征设计，§4.1噪声，§4.3/Table1及人工协议 |

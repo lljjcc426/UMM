@@ -266,3 +266,8 @@ G018 2106.09685v2、G019 2305.14314v1、G020 2402.09353v6、G021 2312.03732v1指
 ## 第四十九批补充
 
 G025 2302.05543v3主文、原Fig2/3/5/8视觉，G026 2207.12598v1核心/Algorithm1/2/T1/2/Fig2/4/5。CVF ControlNet ICCV2023身份条目已取得；正式supp下载未完整不计。固定ed85cd1官方cldm关键段、scribble demo/FAQ/训练和数据教程；未读全卡/源码。T2I-Adapter2302.08453、ControlNet++2404.07987、CFG++2406.08070、EVCtrl2508.10963只检索标题/摘要，入追引去重队列不计完成。
+
+
+## 第五十批补充
+
+G028 1406.2661v1核心/Algorithm1/Proposition1/2与Theorem1完整证明、T1/2、Fig1四幅；正式NIPS2014身份条目核。G029 1312.6114v11核心/Algorithm1/Eq1–12/AppB–E与F指定段、Fig1/2/3视觉；作者与ICLR官方历史身份核，2022为版本日期。GAN样本图、VAE AppA及全代码未核；Rezende同期Stochastic Backpropagation须独立追读，不能据当前两篇忽略其贡献。
