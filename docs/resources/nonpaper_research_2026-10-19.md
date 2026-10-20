@@ -340,3 +340,8 @@ StrokeFusion官方GitHub4fddf5d训练/采样/metric与HF abe809b数据/检查点
 ## 第七十五批补充（2026-10-21）
 
 Loomis固定GitHub与14B/5B HF LoRA纳入原L015关联。代码rank128/b1/AdamW与epoch20/8、train/test loader、HF许可/缺项及v3数据管线承诺对照README未发布实况全部记录，未索取/权重下载/模型运行。见[审查](../evidence/strokebank_and_loomis_painter_version_audit_2026-10-21.md)/[制品JSON](../../data/loomis_painter_artifact_audit_2026-10-21.json)。
+
+
+## 第七十六批补充（2026-10-21）
+
+MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有token exp差PPO，selected MMU样例SEEDBench/group16/独立随机mask/KLold，非原三任务完整协议。关联原L063去重，见[审查](../evidence/mmada_and_think_in_strokes_protocol_audit_2026-10-21.md)/[制品JSON](../../data/mmada_unigrpo_artifact_audit_2026-10-21.json)，未下载权重或运行。

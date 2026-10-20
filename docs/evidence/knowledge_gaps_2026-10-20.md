@@ -348,3 +348,8 @@ OrderAcc的笔数/IoU/全序不含笔内方向/contact；轨迹采样密度、�
 ## 第七十五批补充（2026-10-21）
 
 StrokeBank正/负margin与hinge符号相反、w非负未定义；真假判别50%不证明分布等价。Loomis v3 DDC引用旧作而非新PDP；终态锚定/注意力相关不能证明过程/因果，等epoch初期反例、人评重复票与test-as-val映射需区分事实和风险。
+
+
+## 第七十六批补充（2026-10-21）
+
+logp比值与exp差、平均token logp和序列概率、KL old与fixed reference须分清；后续通用RL实现不等于原三任务配置。GenEval主表/引言不一致、pp和relative、NFE与耗时/文本成本、单轮图像与单次网络forward不混同。

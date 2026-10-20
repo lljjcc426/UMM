@@ -221,3 +221,6 @@ python scripts/validate_catalog.py
 
 
 第七十五批（2026-10-21）补完StrokeBank L005正式IAAI核心和Loomis Painter L015最新v3/附录/指定制品；350目录、161核心/163书面，189条未确认核心三遍（含资源）。校正会场/题名、旧版指标/划分与最新反例/人评/制品可用性，见[审查](docs/evidence/strokebank_and_loomis_painter_version_audit_2026-10-21.md)、[逐文件说明](docs/evidence/seventy_fifth_changes_2026-10-21.md)。无删除或模型复现。
+
+
+第七十六批（2026-10-21）补完MMaDA L063正式NeurIPS核心/指定补充与Think in Strokes L029固定v3核心；350目录、163核心/165书面，187条未确认核心三遍（含资源）。纠正主表/子集/涨幅和版本，补官方关联RL实现及其与原论文差异。见[审查](docs/evidence/mmada_and_think_in_strokes_protocol_audit_2026-10-21.md)、[逐文件说明](docs/evidence/seventy_sixth_changes_2026-10-21.md)。无删除或模型复现。

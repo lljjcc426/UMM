@@ -2032,24 +2032,26 @@
     "experimental_conditions": "最多128A100为作者报告，不等价总GPU小时小。PT350K/CT80K/SFT15K/RL800步，1.5T/300B/72B/.5B seen tokens；lr1e-4/1e-4/2.5e-5/2e-6、AdamW .9/.95 eps1e-15 wd0 clip1；CE:MSE .25:1/.5:1/.25:1；global videoGen/Und/imageGen/Und64:16:16:4，CT多任务比渐增。推理图768²/video480p12fps CFG4；实际NFE/全实验采样预算未全核。"
   },
   {
-    "title": "Think in Strokes, Not Pixels，2026",
+    "title": "Think in Strokes, Not Pixels: Process-Driven Image Generation via Interleaved Reasoning",
     "source_urls": [
-      "https://arxiv.org/abs/2604.04746"
+      "https://arxiv.org/abs/2604.04746",
+      "https://arxiv.org/abs/2604.04746v3",
+      "https://arxiv.org/pdf/2604.04746v3"
     ],
-    "method": "场景图增量合成及两类自采样critique，Plan→Sketch→Inspect→Refine交错SFT。 BAGEL7B active的MoT；文字CE含vision边界，图像rectifiedflowMSE，lambdaCE加权；FLUXKontext/GPT构造及筛选轨迹，推理不需外部planner。",
-    "conclusion": "主表GenEval.79→.83，WISE.70→.76；WISE表注称“8.5%absolute”与两均值差6pp不符，不能混用。PARMRL.77，数据688Kvs62K，NFE1000vs131，约7.6倍采样数差不等同实测8倍加速。",
-    "gap": "额外teacher轨迹/SFT与多轮推理同时变化，未完全分离参数共享、过程监督和调用预算的因果贡献；“SFT indispensable”仅特定未调优planner对照不足普遍证明。中间图可改写/删物，不能当真实单调绘画过程。",
-    "problem": "训练UMM按文字计划、静态图像草稿、检查和编辑逐步完成组合图像。",
+    "method": "场景图子图逐步扩展构造多轮图，再丰富remove/swap/refine编辑；从自身生成失败采样指令—全prompt冲突critique，并用Gen-Ref构造图像—步骤指令对齐critique；BAGEL交错SFT内化Plan→Sketch→Inspect→Refine，无需推理时额外teacher。 BAGEL-7B标称base（沿底座为7B active口径，不与全部参数直接等同），全参数FT；文字AR CE含vision_start/end，图像rectified-flow MSE，Eq4 z_t=t z0+(1−t)z1及target z0−z1，total=lambdaCE*CE+MSE；t是噪声插值，不是真实画笔时间。整段交错序列的生成不表示所有图像latent都用AR next-token，图像仍RF。模型会根据生成vision边界是否继续而停，准确token拼写在§3.3/§4.1有不一致，缺源码不能确定执行细节。",
+    "conclusion": "实际T2 BAGEL官方复测GenEval.77→.83（6pp），Introduction/Conclusion却写.79→.83（4pp），T2/Conclusion又称5%absolute，三者不一致，按表行保留而不任意修一数。Counting.76→.75下降、Position.51→.72（21pp）、ColorAttr.56→.69（13pp），其余持平。T3 WISE.70→.76（6pp，约8.57%relative）；Culture.76→.74/Space.75→.73下降，Time.69→.82（13pp）、Chemistry.58→.78（20pp），表注8.5%absolute和近15%领域概述不准确。对FLUX.50→.76是26pp/52%relative，不能混称26%relative。",
+    "gap": "SFT/额外teacher数据/多轮算力共同变化，不能唯一归因参数共享或过程reasoning；“SFT indispensable”只特定外部planner对照不足作普遍定理。中间inspect无错例在定性展示省略，选例无拒错率/误报率，未量化未完成vs错误分类。完整图可remove/rewrite，规范书写单调事件无法直接移用；模型会删错而非真实可执行纸墨修复。数据类别不均衡、版本/主表/涨幅/成本计数冲突、缺lambda/seed/公开确切实现，未测理解遗忘/跨域艺术或多文字系统。",
+    "problem": "文字prompt（可附图）→交错计划、图像草稿、检查与修订→最终组合图；训练模型区分“尚未完成”和“已经违背prompt”的中间状态。标题strokes是生成过程比喻，没有给显式stroke坐标、规范笔顺或真实连续绘画视频。",
     "claim": "作者研究目标：训练UMM按文字计划、静态图像草稿、检查和编辑逐步完成组合图像。",
-    "version": "版本见原始来源及历史记录",
+    "version": "Think in Strokes, Not Pixels: Process-Driven Image Generation via Interleaved Reasoning；arXiv2604.04746v3，提交标2026-04-08，固定16页PDF首页Date April9,2026。此前未固定HTML显示August24不沿用为v3日期；未独立确认正式会议/期刊。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "previous_evidence": "既有调查 A",
     "id": "L029",
     "canonical_key": "paper:arxiv:2604.04746",
@@ -2083,17 +2085,22 @@
         "conclusion": "GenEval .77→.83，WISE .70→.76；这里的 strokes 不是汉字毛笔事件",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 76,
+        "scope": "arXiv2604.04746v3固定16页PDF全部Abstract/§1 Introduction/§2.1–2.2 related/§3.1–3.3方法与Eq1–6/§4.1–4.5全部设置、T1–7/§5结论及图注；实际PDFp4框架/p7主表与数学/p8 WISE/p10全部消融已视觉核看。HTML辅助抽表与对照，日期/表引用以固定PDF为准；定性帧未逐像素/参考文献未逐篇追读，未取得或运行作者代码/权重/数据，未独立复现。"
       }
     ],
-    "sections_read": "§3完整数据与CE/RF流程，§4全部设置、Tables1–7相关行与消融/结论；未逐图/源码复现，发表录用未独立确认",
+    "sections_read": "arXiv2604.04746v3固定16页PDF全部Abstract/§1 Introduction/§2.1–2.2 related/§3.1–3.3方法与Eq1–6/§4.1–4.5全部设置、T1–7/§5结论及图注；实际PDFp4框架/p7主表与数学/p8 WISE/p10全部消融已视觉核看。HTML辅助抽表与对照，日期/表引用以固定PDF为准；定性帧未逐像素/参考文献未逐篇追读，未取得或运行作者代码/权重/数据，未独立复现。",
     "review_path": "docs/reviews/L029.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "Table1MultiTurn32012平均3.51图最多5，conflict15201(6905正/8296负)，align15000(5000正/10000负)；合62213。正文约30K/62K可作舍入，“balanced”不符后两表中比例。",
-    "framework": "场景图增量合成及两类自采样critique，Plan→Sketch→Inspect→Refine交错SFT。",
-    "architecture": "BAGEL7B active的MoT；文字CE含vision边界，图像rectifiedflowMSE，lambdaCE加权；FLUXKontext/GPT构造及筛选轨迹，推理不需外部planner。",
-    "metrics": "GenEval组合分项、WISE知识图像分项；InferenceCost是累计采样步数而非端到端实测秒，理解能力未完整评估。",
-    "baselines": "原BAGEL、BAGEL+GPTPlanner/Inspector、PARM TTS及RL+TTS，多种图像/UMM；不同teacher/数据/骨干成本未完全对齐。",
-    "experimental_conditions": "8H100全参数10000steps/packed33000tokens/lr2e-5/cos；完整batch/随机种子/lambdaCE/每轮采样超参未披露于所读设置。均2.62生成轮×50≈131采样步；PARM1000步。"
+    "dataset": "固定PDF T1：Multi-turn32012，平均prompt152.8、图3.51/最多5；Conflict15201正6905负8296；Alignment15000正5000负10000，合62213。场景图/Flux-Kontext合成、GPT筛选和改写、自采样critique、Gen-Ref扩展；§4约30K为舍入，正文alignment balanced与1:2冲突。teacher具体版本/过滤阈值/同源prompt去重、训练test分离/样本曝光/总生成成本不完整。",
+    "framework": "场景图子图逐步扩展构造多轮图，再丰富remove/swap/refine编辑；从自身生成失败采样指令—全prompt冲突critique，并用Gen-Ref构造图像—步骤指令对齐critique；BAGEL交错SFT内化Plan→Sketch→Inspect→Refine，无需推理时额外teacher。",
+    "architecture": "BAGEL-7B标称base（沿底座为7B active口径，不与全部参数直接等同），全参数FT；文字AR CE含vision_start/end，图像rectified-flow MSE，Eq4 z_t=t z0+(1−t)z1及target z0−z1，total=lambdaCE*CE+MSE；t是噪声插值，不是真实画笔时间。整段交错序列的生成不表示所有图像latent都用AR next-token，图像仍RF。模型会根据生成vision边界是否继续而停，准确token拼写在§3.3/§4.1有不一致，缺源码不能确定执行细节。",
+    "metrics": "GenEval六分项与Overall，WISE六领域/Overall；成本T4是累计图像采样步数NFE，不含相等时长/文本AR/token上下文/教师数据制造。无完整VQA理解保留、人评事件/规范笔顺或动作指标。表内百分比用差值pp与相对提升区分，基础版本/精度不同不得混排。",
+    "baselines": "BAGEL官方checkpoint作者复测（T2星号）、其他图像/UMM；BAGEL+GPT4o Planner/Inspector、PARM TTS或RL+TTS。PARM不同骨干/teacher/样本单位/训练曝光/预训/采样搜索预算，不能由62K和688K宣称总数据或FLOPs等比例减少；没有同预算joint-vs-separate、同SFTfinalonly、同多轮NFE无critique完整主对照。",
+    "experimental_conditions": "§4.1 8H100全参数10000steps/packed33000tokens/lr2e-5 cosine；未给完整global batch/accum、优化器细项、lambdaCE数值、多seed、各轮采样CFG/分辨率/上限与停止失败比例。平均2.62图生成轮×50步=131，PARM bestof20×50=1000；GPTInspector单轮refinement表仍标50，初稿是否计入不清。数据预算为finetune条数，不含teacher与底座；未取得可核模型/数据/代码发布链接，不把不存在检索结果证明为绝对未发布。"
   },
   {
     "title": "Where a New Concept Must Enter，2026",
@@ -4300,22 +4307,26 @@
       "https://arxiv.org/html/2505.15809",
       "https://github.com/Gen-Verse/MMaDA",
       "https://github.com/Gen-Verse/MMaDA/blob/3cdb8709635beb29f66e4e23cd66060872ac3996/generate.py",
-      "https://github.com/Gen-Verse/MMaDA/blob/3cdb8709635beb29f66e4e23cd66060872ac3996/models/modeling_mmada.py"
+      "https://github.com/Gen-Verse/MMaDA/blob/3cdb8709635beb29f66e4e23cd66060872ac3996/models/modeling_mmada.py",
+      "https://proceedings.neurips.cc/paper_files/paper/2025/hash/caa934a507a952698d54efb24845fc4b-Abstract-Conference.html",
+      "https://proceedings.neurips.cc/paper_files/paper/2025/file/caa934a507a952698d54efb24845fc4b-Paper-Conference.pdf",
+      "https://proceedings.neurips.cc/paper_files/paper/2025/file/caa934a507a952698d54efb24845fc4b-Supplemental-Conference.zip",
+      "https://github.com/Gen-Verse/dLLM-RL/tree/10b4fd1cba83e4496c20585dc2fd01dc02f20255"
     ],
-    "method": "LLaDA初始化的统一mask目标、mixed longCoT与部分mask策略UniGRPO。 LLaDA8BInstruct；Showo MAGVITv2 f16/8192词表，512²→1024token；双向masked CE按1/t和实际mask加权。文字半AR64token块、图像全块迭代。正文§3文字“最低置信解mask”与官方generate.py/mmu_generate的topk最大置信解除mask不同，已以代码澄清。",
-    "conclusion": "Table3 GenEval.63/WISE文化.67/IR1.15/CLIP32.46。Table5阶段1→CoT→RL：GSM17.4→65.2→73.4，MATH4.2→26.5→36，Geo8.3→15.9→21，CLEVR10.3→27.5→34.5，IR.69→.84→1.15。Table6图像1024/50/15步CLIP32.8/32/31.7；文字1024/512/256步MMLU66.9/66.3/65.7。",
-    "gap": "Eq3/4把π′定义为平均logp，Eq5用π′比值/类似概率KL，字面不是标准exp(logp_new-logp_old)importance ratio；尚未取得UniGRPO完整路径，不据此断言实际训练实现错误。当前官方tree包含CE预训/CoT脚本，stage4文件名不能当RL实现证明；RL权重Max仍标coming soon。奖励优化可能局限于同评价器。",
-    "problem": "让离散mask扩散同时完成文字推理、图像理解与图像生成，并进行跨任务后训练。",
+    "method": "LLaDA初始化共享双向mask预测器，图文统一masked CE；跨任务统一reasoning/result格式的CoT冷启动；UniGRPO保留prompt、部分mask回答并变化mask比例，奖励按文本/理解/生成任务设置。共享的是主体及恢复目标，仍有文本/图像各自tokenizer和不同采样器，不能把摘要eliminating modality-specific components扩展为整个系统无模态特定组件。 LLaDA8BInstruct权重；MAGVIT-v2 f16/8192码本，512²→32²=1024图token。Eq1/2仅mask位置CE乘1/t，prompt完整；文字64token块左到右，每块内双向恢复，图全块cosine remask/CFG3.5。正式Appendix C说解除最低confidence的2token，而Supplemental generate.py/mmu_generate用torch.topk默认largest=True解除最高confidence，低置信继续mask；二者字面相反。UniGRPO Eq3/4的π′为logp期望/平均，Eq5却直接比π′并用概率KL，字面不等于exp(logp_new−logp_old)。平均logp也非严格序列对数似然，需明确是surrogate。",
+    "conclusion": "正式T2 MMaDA POPE86.1/MME1410.7/Flickr67.6/VQA76.7/GQA61.3/MMMU30.2/MMB68.5/SEED64.2；低于LLaVA的MME1510.7/VQA78.5/GQA62/MMMU35.4，低于SEED-X MME1435.7/MMMU35.6及Chameleon Flickr74.7。T3 GenEval.63/WISE(Natural).67/IR1.15/CLIP32.46；Position.20<Janus.46，ColorAttr.37<.42。T4 MMLU68.4/GSM73.4/MATH36/GPQA28.4均低于Qwen2 70.3/80.2/43.5/30.8；Truth43.1<LLaDA46.4，不能沿摘要称全面超过。",
+    "gap": "正式logp/概率记号冲突及采样最低/最高confidence冲突尚在；Algorithm1先采t0再重采t1、迭代终点与E.2示例不完全一致，不自行修补作者原设置。统一训练过程曲线非协同因果；直接奖励同评价器、数据/seed/调参/精确RL配置缺。官方ZIP的RL小节仍写录用后发布；新查官方关联dLLM-RL固定10b4fd1c确有random-mask PPO，但selected MMU示例不等于原三任务实验。其token ratio采用exp差，KL引用缓存old而非独立fixedref、random-mask t独立U(.1,.9)，不把公式疑点直接推成实际训练错误。",
+    "problem": "同一离散mask扩散主体做文字推理、图像理解、静态图像生成，研究mixed long-CoT与跨任务奖励后训练。未定义视频输出、书写动作或规范笔顺；演示去噪迭代不是真实绘画事件时间。",
     "claim": "研究目标：让离散mask扩散同时完成文字推理、图像理解与图像生成，并进行跨任务后训练。",
-    "version": "MMaDA，2025 / NeurIPS 2025",
+    "version": "MMaDA: Multimodal Large Diffusion Language Models；正式NeurIPS2025 Main Conference / Advances in Neural Information Processing Systems38，DOI10.52202/085713-4636；本批以41页正式PDF及官方Supplemental ZIP为准，旧arXiv的章节/表号不能直接沿用。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L063",
     "canonical_key": "paper:arxiv:2505.15809",
     "evidence_history": [
@@ -4347,17 +4358,22 @@
         "conclusion": "8B 模型覆盖文本推理、理解和生图；不以摘要比较推断全面领先",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 76,
+        "scope": "NeurIPS2025正式41页PDF：Abstract/§1–6全部核心研究文字、T1–5、全部核心图注，附录B.1/B.2基础公式、C采样、D/Algorithm1、E.1/E.2与T6/F6–7；实际p4框架/p6公式/p21消融核看，F/G定性例和checklist仅指定段，未逐篇追引/全页逐像素。官方Supplemental ZIP目录/README的RL发布声明，generate.py与modeling_mmada.py采样段。新关联dLLM-RL 10b4fd1c README方法/入口、configs/rl_mmada_v.yaml全文、train/train_mmada_v_policy.py随机mask/old缓存/目标段、reward/rl_reward_v.py全文；未通读执行全仓库/完整原表多任务RL、未下载权重/运行/独立复现。"
       }
     ],
-    "sections_read": "§2–3完整核心目标/UniGRPO/采样、§4训练和Table3、§5 Tables5/6/协同讨论、§9；官方tree3cdb8709635beb29f66e4e23cd66060872ac3996的generate.py及modeling_mmada.py对应sampling段、stage4头/检索。未通读所有理解表/全仓库RL、未复现",
+    "sections_read": "NeurIPS2025正式41页PDF：Abstract/§1–6全部核心研究文字、T1–5、全部核心图注，附录B.1/B.2基础公式、C采样、D/Algorithm1、E.1/E.2与T6/F6–7；实际p4框架/p6公式/p21消融核看，F/G定性例和checklist仅指定段，未逐篇追引/全页逐像素。官方Supplemental ZIP目录/README的RL发布声明，generate.py与modeling_mmada.py采样段。新关联dLLM-RL 10b4fd1c README方法/入口、configs/rl_mmada_v.yaml全文、train/train_mmada_v_policy.py随机mask/old缓存/目标段、reward/rl_reward_v.py全文；未通读执行全仓库/完整原表多任务RL、未下载权重/运行/独立复现。",
     "review_path": "docs/reviews/L063.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "RefinedWeb/ImageNet200K步后图文400K；Alpaca/LLaVA1.5和ReasonFlux/LIMO/s1/OpenThoughts/AceMath；GeoQA/CLEVR由LMMR1筛选，GPT4.1生成事实图像提示CoT；CoT阶段50K、RL50K。",
-    "framework": "LLaDA初始化的统一mask目标、mixed longCoT与部分mask策略UniGRPO。",
-    "architecture": "LLaDA8BInstruct；Showo MAGVITv2 f16/8192词表，512²→1024token；双向masked CE按1/t和实际mask加权。文字半AR64token块、图像全块迭代。正文§3文字“最低置信解mask”与官方generate.py/mmu_generate的topk最大置信解除mask不同，已以代码澄清。",
-    "metrics": "GSM8K/MATH/GeoQA/CLEVR；MME/POPE/MMMU等；GenEval/WISE文化、CLIPScore/ImageReward。CLIP/ImageReward同时是直接奖励与报告指标，需额外独立指标。",
-    "baselines": "Showo/JanusPro/Emu3、LLM与VLM专用模型；异数据和后训练；未经同预算分离对照不能把差异全归因统一扩散。",
-    "experimental_conditions": "64A10080GB/global1280/AdamW5e-5cosine；图像50步CFG3.5cosine，文字1024长512步。UniGRPO随机起始后均匀覆盖t，prompt不mask；数学正确2/格式.5，理解CLIP.1，生成CLIP/IR各.1。8GPU GSM实验同ckpt对照mask策略，但主要是训练奖励曲线。"
+    "dataset": "正式§4 RefinedWeb；ImageNet1k/CC12M/SA1B/LAION-aesthetics12M/JourneyDB；Alpaca、LLaVA1.5；LIMO/s1k/OpenThoughts/AceMath推理，GeoQA/CLEVR由LMM-R1生成且筛正确，GPT4.1生成科学/文化/地标事实CoT。RL用原数学/逻辑任务训练集；50K测试prompt用于CLIP/ImageReward，但与合成teacher及train去重/每源保留量和混合比例未完整公开。200K+400K+50K+50K是优化步数，不能写样本数。",
+    "framework": "LLaDA初始化共享双向mask预测器，图文统一masked CE；跨任务统一reasoning/result格式的CoT冷启动；UniGRPO保留prompt、部分mask回答并变化mask比例，奖励按文本/理解/生成任务设置。共享的是主体及恢复目标，仍有文本/图像各自tokenizer和不同采样器，不能把摘要eliminating modality-specific components扩展为整个系统无模态特定组件。",
+    "architecture": "LLaDA8BInstruct权重；MAGVIT-v2 f16/8192码本，512²→32²=1024图token。Eq1/2仅mask位置CE乘1/t，prompt完整；文字64token块左到右，每块内双向恢复，图全块cosine remask/CFG3.5。正式Appendix C说解除最低confidence的2token，而Supplemental generate.py/mmu_generate用torch.topk默认largest=True解除最高confidence，低置信继续mask；二者字面相反。UniGRPO Eq3/4的π′为logp期望/平均，Eq5却直接比π′并用概率KL，字面不等于exp(logp_new−logp_old)。平均logp也非严格序列对数似然，需明确是surrogate。",
+    "metrics": "理解POPE/MME/Flickr30k/VQAv2/GQA/MMMU/MMB/SEED；语言MMLU/ARC-C/TruthfulQA/GSM8K/MATH/GPQA，消融明确MATH500；生成50K提示CLIP/ImageReward、GenEval与WISE。正式T3列名WISE(Natural)，旧笔记“文化.67”须纠正；不能与其他版本六领域WISE总分混用。CLIP/ImageReward同时直接奖励和主指标，需独立评价；T5理解栏用caption CLIP，不能当全部VQA质量。",
+    "baselines": "正式理解T2 LLaVA1.5/InstructBLIP/QwenVL/mPLUGOwl2/LLaVAPhi、SEED-X/Show-o等；生成T3 SD1.5/2.1/SDXL/DALLE2/LlamaGen及Janus等；语言T4 LLaMA2/3/Qwen2/LLaDA/Dream。并无同数据/训练FLOPs的联合对独立模型主表；旧笔记列JanusPro等不能填为本正式主表比较。异时期模型和缺项不作总体SOTA。",
+    "experimental_conditions": "64A10080GB/global batch1280/AdamW初始5e-5 cosine；Stage1先200K后400K，Stage2指令+推理50K，Stage3 RL50K。图512²/50步/CFG3.5；文本1024长/512步/块64。正确奖励2/think格式.5，理解数学同此、caption CLIP×.1，图像CLIP与ImageReward各×.1。E.2 GSM同起点8A100，仅训练reward曲线，无多seed区间/跨任务同预算test消融；G/μ/clip/β等原表精确RL配置未给全。§5写Stage2 120K–200K与§4 Stage2 50K及Fig3轴口径不明，不能任意补成同一时间线。"
   },
   {
     "title": "MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer",

@@ -143,3 +143,8 @@ Painter L180是LLM→笔触/渲染反馈的重要前作，StrokeFusion G024是�
 ## 第七十五批补充（2026-10-21）
 
 L005经典少样本部件检索保连笔，L015新版终图条件逆序视频/跨媒介；静态无向部件、已知终图流程和严格在线事件是不同可观测任务。见[审查](strokebank_and_loomis_painter_version_audit_2026-10-21.md)。
+
+
+## 第七十六批补充（2026-10-21）
+
+MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多轮RF/AR交错。联合训练共同上升非因果协同，中间可擦除语义编辑非严格书写事件。见[审查](mmada_and_think_in_strokes_protocol_audit_2026-10-21.md)。

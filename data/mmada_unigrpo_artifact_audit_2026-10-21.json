@@ -1,0 +1,31 @@
+{
+  "id": "L063",
+  "checked_on": "2026-10-21",
+  "paper_revision": "NeurIPS2025 official 41-page PDF + official Supplemental ZIP",
+  "related_rl_revision": "10b4fd1cba83e4496c20585dc2fd01dc02f20255",
+  "inspected_files": [
+    "README.md",
+    "configs/rl_mmada_v.yaml",
+    "train/train_mmada_v_policy.py:random_masking/compute_logp_old_tok_parallel/forward_process",
+    "reward/rl_reward_v.py"
+  ],
+  "supplement_findings": [
+    "README Stage3 still says release upon acceptance",
+    "generate.py topk largest-confidence unmask unlike Appendix C lowest-confidence wording"
+  ],
+  "rl_findings": [
+    "Per-token exp(clamp(logp_new-logp_old,-10,10)) not literal ratio of logp",
+    "Selected KL uses cached old policy, not a distinct frozen reference; not assumed to be original paper protocol",
+    "Selected MMU example: SEEDBench_IMG_32, random_masking, t in .1-.9, two independent masks/sample, group16, eps.2/beta.01, lr1e-6, 50 outer rounds",
+    "Inspected reward uses answer correctness group normalization, no CLIP/ImageReward aggregation in this file; not complete original three-task run"
+  ],
+  "original_three_task_rl_configuration_verified": false,
+  "model_executed": false,
+  "downloaded_weights": false,
+  "urls": [
+    "https://proceedings.neurips.cc/paper_files/paper/2025/hash/caa934a507a952698d54efb24845fc4b-Abstract-Conference.html",
+    "https://proceedings.neurips.cc/paper_files/paper/2025/file/caa934a507a952698d54efb24845fc4b-Paper-Conference.pdf",
+    "https://proceedings.neurips.cc/paper_files/paper/2025/file/caa934a507a952698d54efb24845fc4b-Supplemental-Conference.zip",
+    "https://github.com/Gen-Verse/dLLM-RL/tree/10b4fd1cba83e4496c20585dc2fd01dc02f20255"
+  ]
+}

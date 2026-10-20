@@ -134,7 +134,7 @@
 | L026 | UniVideo | primary_sections_read | [结构化分析](../reviews/L026.md) | 核心三遍与五项检查完成 |
 | L027 | UniVid，2025 | primary_sections_read | [结构化分析](../reviews/L027.md) | 核心三遍与五项检查完成 |
 | L028 | Lance: Unified Multimodal Modeling by Multi-Task Synergy | primary_sections_read | [结构化分析](../reviews/L028.md) | 核心三遍与五项检查完成 |
-| L029 | Think in Strokes, Not Pixels，2026 | primary_sections_read | [结构化分析](../reviews/L029.md) | 未完成 |
+| L029 | Think in Strokes, Not Pixels: Process-Driven Image Generation via Interleaved Reasoning | primary_sections_read | [结构化分析](../reviews/L029.md) | 核心三遍与五项检查完成 |
 | L030 | Where a New Concept Must Enter，2026 | primary_sections_read | [结构化分析](../reviews/L030.md) | 未完成 |
 | L031 | Do Unified Multimodal Models Think in One Space?，2026 | primary_sections_read | [结构化分析](../reviews/L031.md) | 未完成 |
 | L032 | UReason，2026 | primary_sections_read | [结构化分析](../reviews/L032.md) | 未完成 |
@@ -168,7 +168,7 @@
 | L060 | SEED-X: Multimodal Models with Unified Multi-granularity Comprehension and Generation | primary_sections_read | [结构化分析](../reviews/L060.md) | 未完成 |
 | L061 | UniTok: A Unified Tokenizer for Visual Generation and Understanding | primary_sections_read | [结构化分析](../reviews/L061.md) | 未完成 |
 | L062 | Transfer between Modalities with MetaQueries | primary_sections_read | [结构化分析](../reviews/L062.md) | 未完成 |
-| L063 | MMaDA: Multimodal Large Diffusion Language Models | primary_sections_read | [结构化分析](../reviews/L063.md) | 未完成 |
+| L063 | MMaDA: Multimodal Large Diffusion Language Models | primary_sections_read | [结构化分析](../reviews/L063.md) | 核心三遍与五项检查完成 |
 | L064 | MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer | primary_sections_read | [结构化分析](../reviews/L064.md) | 未完成 |
 | L065 | Qwen3-Omni Technical Report | primary_sections_read | [结构化分析](../reviews/L065.md) | 未完成 |
 | L066 | Emu3.5: Native Multimodal Models are World Learners | primary_sections_read | [结构化分析](../reviews/L066.md) | 未完成 |
