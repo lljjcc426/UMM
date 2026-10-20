@@ -148,3 +148,8 @@ Flow时间方向是符号约定，BAGEL data→noise与Show-o2 noise→data需�
 ## 第三十五批补充
 
 NFE比不自动等walltime；KV预算/managedKV/临时workspace/peakVRAM需分母明确。逻辑mask/fakequant参考与物理packed实现可能策略不同。初图detach仍因共享参数漂移；p不显著不能证明等价，线性probe可解码不等模型可靠自判。
+
+
+## 第三十六批补充
+
+掩码AND/OR改变保留集合，时间sample/average改变快事件表示；代码默认和论文须分版本核。顺序条件分解可表示联合概率，实际模型限制不能写理论不可能。thinking registers不等显式推理，VAE平移等变仅设计近似；人评近半且无CI不证明等价。

@@ -136,3 +136,8 @@ UniVideo冻结MLLM的理解成绩不能证明联合训练改善理解；Lance图
 ## 第三十五批补充
 
 同physical engine联立画质/managedKV/peakVRAM/延迟；同byte预算策略与动态预算消融。反思固定root/image/renderer/noise换文字，text/flow更新2×2、多seed/独立judge，独立critic+renderer按同总FLOPs配平，repair/damage/stop均报。
+
+
+## 第三十六批补充
+
+同预算比SSTA AND/OR、Glyph、联合/顺序AV和register、VCU adapter/全参、轨迹坐标/random/latent/ControlNet；测控制误差与全管线时延/显存。轨迹输入sample/average、数量和冲突seed配平，换跟踪器/人工GT分离条件误差；规范书写补墨迹增长与pen-contact/事件。

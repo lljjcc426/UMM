@@ -2461,6 +2461,142 @@
         }
       ],
       "boundary": "核心问题/方法公式/框架视觉/主表与现有消融、批判阅读及五条书面答案完成；未全部附录逐图、全源码审计或独立运行。公开实现/模型卡和协议缺项按实际范围保留。"
+    },
+    {
+      "id": "D01",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "HunyuanVideo1.5要用较小视频主干兼顾质量与资源。双文字encoder、8.3BDiT、高压缩VAE、稀疏注意力、渐进训练和额外SR组成系统；各因素共同改变，现有表不足把所有效果归给其中一个模块。",
+          "evidence": "研究问题与动机的独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2文字Qwen2.5VL和GlyphByT5经各自投影；首图SigLIP语义作sequence条件、首图VAE作channel条件，与noise latent进入54层双流DiT；VAE解码视频，再可用独立8.3BSR。Glyph处理字形提示，无规范笔事件head。",
+          "evidence": "v2p4Fig2/p5Algorithm1/p9–10Tables3–6/§6Tables7–8框架/关键表图已视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "SSTA按池化QK重要度和KK冗余选择块，并结合局部窗口。PDF算法20行用交集，固定公开实现446行用并集，必须区别。蒸馏阶段稀疏训练，parameterfree不等无需重训；Muon半步收敛主张无独立控制曲线。",
+          "evidence": "机制与公式职责、原文/实现/已有先例"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table5 vsWan T2V better34.90−other17.78=净17.12pp，vsVeo净−10.32；I2VvsSeed−5.77。Table7每步5.507→2.9475s是8H800/720p241帧；Table8工程50步96.78→58.39s约1.66倍。稀疏有速度对照，无同质量单因素消融；13.6GB属另一个单卡offload配置。",
+          "evidence": "主表和现有消融、缺失项及负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "AND/OR差异影响质量/稀疏率多少？Glyph在规范笔顺视频是否只改善终帧字形？通用视频骨干、Glyph、STA/MoBA和Muon均有已有来源，不能泛称新能力；应同分布同预算消融并加逐笔事件与全管线资源。",
+          "evidence": "至少两条有来源问题与具体可证伪对照"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架视觉/主表与现有消融（未报告者明确缺失）、批判阅读及五条书面答案完成；未全附录逐图/全源码/独立运行。论文和固定代码/HF版本分别记录，不用后期模板补原预训缺项。"
+    },
+    {
+      "id": "D02",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "LTX2解决声画双向依赖与成本，使用更宽视频/更窄音频的联合diffusion。专用表示与跨模态交换有合理动机，但顺序条件分解在概率论上也能表达联合分布，不能把模型局限写成理论不可能。",
+          "evidence": "研究问题与动机的独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2两模态各自selfattention和textcross后，按同一时间RoPE双向AVcross，再FFN；AdaLN和gate依两个模态噪声时刻。Gemma3各层特征进入连接器/learned registers，视频VAE出图，音频VAE出mel再vocoder为24K立体声。",
+          "evidence": "v1p5Fig2/p10Table1与缺失消融明确标记框架/关键表图已视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "非对称双流分配计算，modalityCFG同时调文字与其他模态的依赖。thinking tokens为可学习条件向量，未监督显式推理。HF原19B配置与当前2.5/Gemma4代码要分版本；论文结论13+3与主体14+5矛盾保留。",
+          "evidence": "机制与公式职责、原文/实现/已有先例"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1 H100/720p121帧EulerCFG1，22.30对1.22s/step≈18.28倍，是单步耗时比，未含多尺度成片与相同画质配平。报告无人评数字/样本CI，也无组件量化消融；attention图只能说明观察到的对齐，不能补成实验证明机制必要。",
+          "evidence": "主表和现有消融、缺失项及负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "同token压缩与总预算后双流还有多少净收益？register/交叉时间对齐在稀有语种与foley细时序是否有效？Ovi/BridgeDiT/LTXVideo已有多模态或压缩先例；需独立联合/顺序强基线与AVcross/CFG/register受控消融，笔事件另评。",
+          "evidence": "至少两条有来源问题与具体可证伪对照"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架视觉/主表与现有消融（未报告者明确缺失）、批判阅读及五条书面答案完成；未全附录逐图/全源码/独立运行。论文和固定代码/HF版本分别记录，不用后期模板补原预训缺项。"
+    },
+    {
+      "id": "D03",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "VACE将视频参考生成、条件编辑、时空重绘统一，目标是可组合视频输入接口。VCU和contextadapter复用主干，但未做通用理解问答；scribble条件也不自动定义逐笔绘画生成。",
+          "evidence": "研究问题与动机的独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig3输入T/F/M，M1需改M0保持；Fc/Fk分开VAE编码，ref图单独编码后时间拼，mask重排插值再通道拼contextembed。复制分布式blocks只训adapter，主DiT冻，通过逐层加法引导最终视频。M0条件不等硬像素约束。",
+          "evidence": "CVF正式p3–4Fig2–3/p6Table2/p8Fig5框架/关键表图已视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "关键是条件格式化与保持/修改概念分路，ContextAdapter沿已有ResTuning思路，mask投影零初始化。单模型可以接受多任务组合，不证明任意未见组合都成功；缺同预算独立任务模型完整对照。",
+          "evidence": "机制与公式职责、原文/实现/已有先例"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table2 I2V自动74.38优Cog73.66，但inpaint人评3.00低Pro3.11，flow prompt2.90低FLATTEN3.50，R2V人评3.40低商业3.84–4.04。Fig5是每任务250验证例loss曲线，支持adapter收敛/decouple和分布块设置，不能替代控制精度与等算力泛化。",
+          "evidence": "主表和现有消融、缺失项及负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "小样本/不同分辨率会否解释部分均值优势？检测分割误差和多条件冲突怎样影响mask外保持？已有ResTuning、ControlNet及单任务视频方法，选题须超出统一接口；书写应增加墨迹单调增长、接触/抬笔和笔事件真值。",
+          "evidence": "至少两条有来源问题与具体可证伪对照"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架视觉/主表与现有消融（未报告者明确缺失）、批判阅读及五条书面答案完成；未全附录逐图/全源码/独立运行。论文和固定代码/HF版本分别记录，不用后期模板补原预训缺项。"
+    },
+    {
+      "id": "D04",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "WanMove把首帧latent沿轨迹复制，避免新增运动encoder，目标为细粒度I2V控制与可扩训练。无结构增量仍微调14BDiT；NeurIPS2025主会身份已由官方论文集确认。",
+          "evidence": "研究问题与动机的独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2首图加零帧经VAE得condition，像素轨迹转latent格后将首帧特征写到后续可见位置，和noisy latent拼入原I2V；CLIP/umT5条件不在图中展开。输出5s480p，复制已有外观不直接编码新墨迹和penupdown。",
+          "evidence": "v1p4Fig2/p8Tables2–5/主文Tables1/6–9框架/关键表图已视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "外观随轨迹移动提供空间上下文，比裸坐标更契合原I2V；严格VAE平移等变未证。paper用时间段平均，公开入口调用helper默认sample；冲突随机覆盖需控制随机性。MoveBench第一帧交互SAM+后续跟踪，非每帧人工GT。",
+          "evidence": "机制与公式职责、原文/实现/已有先例"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table4 pixel EPE3.7、random2.7、latent2.6支持外观信息。Table5 ControlNet EPE2.5略优本法2.6，本法FVD83.5优84.6且765s低987s；+3s是增加量。Kling人评47.8/53.4/50.2接近半数，vsTora质量93.8不符正文all>96，须逐值写。",
+          "evidence": "主表和现有消融、缺失项及负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "跟踪器错误会怎样影响EPE和control条件？对长遮挡/新墨迹/快笔事件是否仍有效？MagicMotion/Tora/LeviTor已有轨迹控制，本文已有同Cog数据对照但预算仍需细核；书写创新要给事件表示、RGB可观测性和执行约束证据。",
+          "evidence": "至少两条有来源问题与具体可证伪对照"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架视觉/主表与现有消融（未报告者明确缺失）、批判阅读及五条书面答案完成；未全附录逐图/全源码/独立运行。论文和固定代码/HF版本分别记录，不用后期模板补原预训缺项。"
     }
   ]
 }

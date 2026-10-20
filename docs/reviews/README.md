@@ -33,10 +33,10 @@
 | C05 | [UniCache: Task- and Type-Aware KV Cache Compression for Unified Multimodal Models](C05.md) | v1摘要/Intro/Related、§3.1–3.4 Eq1–3、§4Tables1–4/Fig8、§5、AppA末/B/C/E核心读；p3Fig3/p4Fig4/p7–8Tables视觉核。固定800fca README1–145及三个engine/torch editing配置、planning文件已获取（仅前述配置/README实读），无全源码/独立运行。核心三遍完成。 |
 | C06 | [Reconstruction Alignment Improves Unified Multimodal Models（RecA）](C06.md) | v4 Abstract/Intro、§2 Eq1–3、§3主Tables1–7、§4/5、AppC模板/D机制/E配方/Table8、F1/2/3引导及F8/Table13/14、G限制核心读；PDFp3 Fig4、p8 Tables4–6、p24Table8视觉核。官方ICLR登记核；固定99ebefe README1–135/中文复现指南全文、Harmon配置全文、BAGEL train.sh与example.yaml已读，未全库/全部附录逐图/运行。核心三遍完成。 |
 | C07 | [Learning Native Reflection in Unified Models with Interleaved Reinforcement Learning（UMM-Reflection）](C07.md) | v1摘要/Intro/Related、§3Eq1–2/整轨迹loss、§4Tables1–2/§5Table3/§6–7，AppA配置/对照/B格式/C奖励、I/J、失败Fig19及P停止核心读；PDFp4Fig2/p6主表/p8消融视觉核。固定0f4a135 README1–125/选定SFT配置、eval config全文、RL launcher98–末和g016关键行，HFRL/data模型卡及文件元数据已读；未全部附录/全源码/独立运行，核心三遍完成。 |
-| D01 | [HunyuanVideo 1.5 Technical Report](D01.md) | §2数据、§3架构、§4训练及Tables3/7/8；未逐项摘完所有训练规模和人评协议 |
-| D02 | [LTX-2: Efficient Joint Audio-Visual Foundation Model](D02.md) | §3表示/双流、§4推理、§5数据、§6速度/评测与§7限制 |
-| D03 | [VACE: All-in-One Video Creation and Editing](D03.md) | §3 VCU/adapter、§4数据及benchmark、§5对比/消融；完整大表逐数核对仍待完成 |
-| D04 | [Wan-Move: Motion-controllable Video Generation via Latent Trajectory Guidance](D04.md) | §3 latentguidance/训练、§4benchmark、§5/Table4、§8.3训练与§9.4failure |
+| D01 | [HunyuanVideo 1.5 Technical Report](D01.md) | v2 Abstract/Intro、§2数据/§3与Algorithm1、§4全训练阶段/§5 Tables3–6/§6 Tables7–8/结论核心读；PDFp4框架、p5算法、p9–10人评与SR视觉核。固定60783e7 README训练430–535及ssta_attention404–465已读；未全train.py/模型运行，核心三遍完成。 |
+| D02 | [LTX-2: Efficient Joint Audio-Visual Foundation Model](D02.md) | v1摘要/Intro/Related重点、§3.1–3.3公式和§4CFG/多尺度、§5数据、§6/7/9、AppA框架读；PDFp5 Fig2/p10 Table1视觉核。固定e98f6d9代码configurator1–90/LoRA模板有效配置、README原/新版本信息，HF dfcc210卡前120行/三config全文；未运行/全源审计，核心三遍完成。 |
+| D03 | [VACE: All-in-One Video Creation and Editing](D03.md) | 正式PDF Abstract/Intro/Related重点、§3.1–3.3 Eq1/Table1与Fig2–3、§4/§5 Table2/Fig5/§6核心读；arXivv1 AppA训练表与C限制补读。PDFp3–4框架、p6主表/p8消融视觉核。固定48eb44f README和wan_vace127–192/338–405、HF c70300e卡/目录；未运行或全源审计，核心三遍完成。 |
+| D04 | [Wan-Move: Motion-controllable Video Generation via Latent Trajectory Guidance](D04.md) | v1 Abstract/Intro/Related、§3 Eq1–7/Fig2、§4MoveBench/§5Tables1–9/§6，App8设置/数据/9Tables10–12与失败核心读；PDFp4框架/p8主对比与消融视觉核。NeurIPS官方身份核，80c58a7 README评测、trajectory64–171/wan_move260–282/config全文与HF两卡元信息读；未全源码/独立运行，核心三遍完成。 |
 | D05 | [Self Forcing: Bridging the Train-Test Gap in Autoregressive Video Diffusion](D05.md) | §3–5，Table1、受控消融说明，Appendix A训练细节 |
 | D06 | [Self Gradient Forcing: Native Long Video Extrapolation](D06.md) | 摘要、方法两遍梯度路径、§4.1协议、§4.5/Table4及结论；长主表尚待逐项摘录 |
 | D07 | [Salt: Self-Consistent Distribution Matching with Cache-Aware Training for Fast Video Generation](D07.md) | 摘要、§4.2–4.4/Tables1/2/4，AppendixB实现和动态分讨论；§3公式尚需完整推导 |

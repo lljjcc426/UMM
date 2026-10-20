@@ -107,3 +107,8 @@ BAGEL双专家共享attention、Show-o2同VAE双路径、ReCA原架构后训按�
 ## 第三十五批补充
 
 Hyper-Bagel蒸馏、FlashU任务剪枝与缓存、UniCache异质KV、Reflection多轮text/flow RL均已有。静态编辑链不等视频或规范笔事件；统一模型协同已有直接先例，后续创新需具体到可执行事件和等成本强基线。
+
+
+## 第三十六批补充
+
+HunyuanVideo1.5字形条件视频、LTX2联合声画、VACE统一视频编辑、WanMove点轨迹控制已有，分别不等规范笔顺。VACE正式ICCV2025、WanMove NeurIPS2025；自动均值、人评/控制/物理事件目标分开。

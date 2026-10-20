@@ -33,10 +33,10 @@
 | C05 | UniCache: Task- and Type-Aware KV Cache Compression for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/C05.md) | 核心三遍与五项检查完成 |
 | C06 | Reconstruction Alignment Improves Unified Multimodal Models（RecA） | primary_sections_read | [结构化分析](../reviews/C06.md) | 核心三遍与五项检查完成 |
 | C07 | Learning Native Reflection in Unified Models with Interleaved Reinforcement Learning（UMM-Reflection） | primary_sections_read | [结构化分析](../reviews/C07.md) | 核心三遍与五项检查完成 |
-| D01 | HunyuanVideo 1.5 Technical Report | primary_sections_read | [结构化分析](../reviews/D01.md) | 未完成 |
-| D02 | LTX-2: Efficient Joint Audio-Visual Foundation Model | primary_sections_read | [结构化分析](../reviews/D02.md) | 未完成 |
-| D03 | VACE: All-in-One Video Creation and Editing | primary_sections_read | [结构化分析](../reviews/D03.md) | 未完成 |
-| D04 | Wan-Move: Motion-controllable Video Generation via Latent Trajectory Guidance | primary_sections_read | [结构化分析](../reviews/D04.md) | 未完成 |
+| D01 | HunyuanVideo 1.5 Technical Report | primary_sections_read | [结构化分析](../reviews/D01.md) | 核心三遍与五项检查完成 |
+| D02 | LTX-2: Efficient Joint Audio-Visual Foundation Model | primary_sections_read | [结构化分析](../reviews/D02.md) | 核心三遍与五项检查完成 |
+| D03 | VACE: All-in-One Video Creation and Editing | primary_sections_read | [结构化分析](../reviews/D03.md) | 核心三遍与五项检查完成 |
+| D04 | Wan-Move: Motion-controllable Video Generation via Latent Trajectory Guidance | primary_sections_read | [结构化分析](../reviews/D04.md) | 核心三遍与五项检查完成 |
 | D05 | Self Forcing: Bridging the Train-Test Gap in Autoregressive Video Diffusion | primary_sections_read | [结构化分析](../reviews/D05.md) | 未完成 |
 | D06 | Self Gradient Forcing: Native Long Video Extrapolation | primary_sections_read | [结构化分析](../reviews/D06.md) | 未完成 |
 | D07 | Salt: Self-Consistent Distribution Matching with Cache-Aware Training for Fast Video Generation | primary_sections_read | [结构化分析](../reviews/D07.md) | 未完成 |

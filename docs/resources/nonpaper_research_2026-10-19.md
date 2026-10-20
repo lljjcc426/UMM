@@ -145,3 +145,8 @@ Show-o2固定45a5a2d README视频理解已发，T2V/I2V/mixed-modality生成权�
 ## 第三十五批补充
 
 固定UniCache800fca9区分torch动态预算fakequant与engine固定type预算/冻结H2O，默认editing量化位宽与group不同；FlashU189f877配置35步/末11full、README旧API和VAE占位需核。Reflection0f4a135公开SFT/RL入口、HF fullweights和数据卡：29529轨迹/1265anchor，数据research-only，GEdit174例应从对应评估训练中去掉；未下载权重/大数据。
+
+
+## 第三十六批补充
+
+固定Hunyuan60783e7 SSTA实现OR对论文AND、公开Muon/LoRA r8/alpha16续训模板需自建loader；WanMove80c58a7时间sample对paper average，MoveBench d02e0c4含en/zh/首帧mask/track/visibility/eval入口。原LTX19B HFdfcc210有8stepCFG1蒸馏/LoRA384及VAE/connector config；当前Git e98f6d9已2.5/22B/Gemma4且LoRA模板r32/AdamW1e−4，不能混成原预训。VACE48eb44f及HF benchmark c70300e分开发布版本/许可。

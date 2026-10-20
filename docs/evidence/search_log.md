@@ -196,3 +196,8 @@ BAGEL2505.14683v3/Show-o22506.15564v3/ReCA2509.07295v4核心读，官方NeurIPS2
 ## 第三十五批补充
 
 核Hyper-Bagel2509.18824v1、FlashU2603.15271v1及CVF Findings2026pp9131–9142正式登记、UniCache2609.32831v1、Reflection2609.35767v1。固定三官方GitHub版本与Reflection HF RL/data卡，框架图/主表/消融视觉核；未把arXivPDF与accepted版当逐页已比。
+
+
+## 第三十六批补充
+
+Hunyuan2511.18870v2/LTX2601.03233v1/VACE正式ICCV2025 PDF与v1附录/WanMove2512.08765v1核心读及框架/表图视觉核；NeurIPS主会和CVF正式身份核。四GitHub固定版本、原LTX19B/WanMove模型与MoveBench/VACEBenchmark卡及配置交叉核，未下载大权重/数据。
