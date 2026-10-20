@@ -352,3 +352,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第七十九批（2026-10-21）：补同码率细笔/OCR、单样本/四选一、Gumbel多seed、版本/额外数据和继续训练控制；测语言保持及事件时序，未运行。见[审查](../evidence/lavit_dynamic_tokens_and_version_audit_2026-10-21.md)和[单篇L079](../reviews/L079.md)。
+
+
+第八十批（2026-10-21）：补等teacher/分辨率/码率/计算的tokenizer因子实验、细字/OCR与完整采样成本；未运行。见[审查](../evidence/uniflow_reconstruction_generation_tradeoff_audit_2026-10-21.md)和[单篇L072](../reviews/L072.md)。

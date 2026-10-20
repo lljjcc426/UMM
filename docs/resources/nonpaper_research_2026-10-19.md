@@ -356,3 +356,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第七十九批（2026-10-21）：LaVIT-v2配套后续模型另加24.2M候选库/8K步，HF固定版本及低/高分辨率decoder记录；不另计论文，原训练/finetuning未完整公开。见[审查](../evidence/lavit_dynamic_tokens_and_version_audit_2026-10-21.md)和[单篇L079](../reviews/L079.md)。
+
+
+第八十批（2026-10-21）：补UniFlow固定HF一步config与代码、quick_start目标错位/SSIM范围和完整训练未公开边界；不另计论文。见[审查](../evidence/uniflow_reconstruction_generation_tradeoff_audit_2026-10-21.md)和[单篇L072](../reviews/L072.md)。

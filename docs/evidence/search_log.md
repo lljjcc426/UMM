@@ -412,3 +412,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第七十九批（2026-10-21）：LaVIT ICLR2024正式核心/AppA/B/D/E与实际框架主表，固定官方GH/HF静态核查；未执行模型。见[审查](lavit_dynamic_tokens_and_version_audit_2026-10-21.md)和[单篇L079](../reviews/L079.md)。
+
+
+第八十批（2026-10-21）：UniFlow正式ICLR2026、32页核心与指定附录、实际图表、固定GH/HF和quick_start代码。见[审查](uniflow_reconstruction_generation_tradeoff_audit_2026-10-21.md)和[单篇L072](../reviews/L072.md)。

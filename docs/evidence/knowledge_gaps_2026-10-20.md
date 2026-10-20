@@ -364,3 +364,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第七十九批（2026-10-21）：top_k300是候选词表截断，所查实现max_new_tokens默认200；数据源体量/实际曝光与概率/log似然区分。见[审查](lavit_dynamic_tokens_and_version_audit_2026-10-21.md)和[单篇L079](../reviews/L079.md)。
+
+
+第八十批（2026-10-21）：重建rFID不能推出生成gFID；逆时间flow符号，模拟/实测曲线及SSIM数据范围分别检查。见[审查](uniflow_reconstruction_generation_tradeoff_audit_2026-10-21.md)和[单篇L072](../reviews/L072.md)。

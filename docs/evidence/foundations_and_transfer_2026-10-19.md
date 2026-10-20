@@ -159,3 +159,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第七十九批（2026-10-21）：动态语义token的连续理解输入/离散监督分开；全图causal merger不等同物理笔事件时序。见[审查](lavit_dynamic_tokens_and_version_audit_2026-10-21.md)和[单篇L079](../reviews/L079.md)。
+
+
+第八十批（2026-10-21）：UniFlow层级蒸馏、pixel flow与GTB，重建/生成Pareto和原生输入信息量分开。见[审查](uniflow_reconstruction_generation_tradeoff_audit_2026-10-21.md)和[单篇L072](../reviews/L072.md)。

@@ -1,0 +1,24 @@
+{
+  "id": "L072",
+  "date": "2026-10-21",
+  "paper": "ICLR2026 official 32-page PDF",
+  "github_revision": "e6322d0b57bedbe7111a292104c6a07971fcfaea",
+  "hf_model": "yuezhengrong/UniFlow",
+  "hf_revision": "e8288b984f2c0a60d5006e0d912b6150ba52865d",
+  "license_metadata": "apache-2.0",
+  "findings": [
+    "HF explicit num_sampling_steps=1 overrides source class100/decoder10 defaults; reverse-time convention explains x+=dt*v",
+    "Published repository tree has inference model/config, README, quick_start and figures; no complete tokenizer distillation/MLLM/MAR/MMDiT training scripts found at this revision",
+    "Understanding uses second-to-last-layer features; reconstruction uses last-layer compressed64 latents and global blocks; generation variants and data differ",
+    "Paper main batch512 vs AppT7-10 batch256 unresolved; native448->256 evaluated vs native256 inputs not matched information",
+    "One-step pixel decoder is not one-step end-to-end generation: MAR uses256AR steps; Fig21 has PSNR-vs-steps curves but no measured latency curve; quick_start compares resize-only target vs center-crop input and uses SSIM data_range2 on [0,1] floats; no local inference or speed reproduction"
+  ],
+  "urls": [
+    "https://proceedings.iclr.cc/paper_files/paper/2026/hash/8882d370cdafec9885b918a8cfac642e-Abstract-Conference.html",
+    "https://proceedings.iclr.cc/paper_files/paper/2026/file/8882d370cdafec9885b918a8cfac642e-Paper-Conference.pdf",
+    "https://github.com/ZhengrongYue/UniFlow/tree/e6322d0b57bedbe7111a292104c6a07971fcfaea",
+    "https://huggingface.co/yuezhengrong/UniFlow/tree/e8288b984f2c0a60d5006e0d912b6150ba52865d"
+  ],
+  "executed": false,
+  "downloaded_weights": false
+}

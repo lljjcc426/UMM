@@ -233,3 +233,6 @@ python scripts/validate_catalog.py
 
 
 第七十九批（2026-10-21）补完LaVIT L079正式核心/指定附录及实际图表，核固定代码/HF后续LLaMA2-v2模型。350目录、167核心/170项五条书面（含未通过项），183条未确认核心三遍（含资源）。见[审查](docs/evidence/lavit_dynamic_tokens_and_version_audit_2026-10-21.md)、[逐文件说明](docs/evidence/seventy_ninth_changes_2026-10-21.md)。无删除或模型复现。
+
+
+第八十批（2026-10-21）补完UniFlow L072正式ICLR核心/指定附录、实际图表及固定推理制品。350目录、168核心/171项五条书面（含未通过项），182条尚未确认核心三遍（含资源）。见[审查](docs/evidence/uniflow_reconstruction_generation_tradeoff_audit_2026-10-21.md)、[逐文件说明](docs/evidence/eightieth_changes_2026-10-21.md)。无删除或模型复现。

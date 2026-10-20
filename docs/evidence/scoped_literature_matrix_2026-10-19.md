@@ -323,3 +323,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第七十九批（2026-10-21）：LaVIT COCO FID7.4含四选一；MMLU仍降1.5；正式LLaMA1与公开LLaMA2-v1/v2分组，v2多项理解下降。见[审查](lavit_dynamic_tokens_and_version_audit_2026-10-21.md)和[单篇L079](../reviews/L079.md)。
+
+
+第八十批（2026-10-21）：UniFlow平均差6.05分、MMEP退步、有CFG生成退步、不同下游tokenizer/模型版本；一步decoder与256AR分别计。见[审查](uniflow_reconstruction_generation_tradeoff_audit_2026-10-21.md)和[单篇L072](../reviews/L072.md)。
