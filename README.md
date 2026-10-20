@@ -197,3 +197,6 @@ python scripts/validate_catalog.py
 
 
 第六十七批（2026-10-21）补完U08 Zebra-CoT v2核心/书面检查与固定版本模型卡/数据卡/代码审查；349目录、149核心/151书面，200项尚未确认核心三遍（含资源）。补入BAGEL负面结果、主附表/采样数差异、GT前缀信息与代码配置边界；正式终稿访问受限单列。见[审查](docs/evidence/zebra_cot_negative_results_and_artifact_audit_2026-10-21.md)、[逐文件说明](docs/evidence/sixty_seventh_changes_2026-10-21.md)。无重复论文新增、无删除/模型复现。
+
+
+第六十八批（2026-10-21）补完G030 Diffusion Forcing正式核心/书面检查；349目录、150核心/152书面，199项尚未确认核心三遍（含资源）。核实正式理论p20 KL符号问题、主表反例/任务指标及paper/main代码版本差异。见[审查](docs/evidence/diffusion_forcing_theory_protocol_and_versions_2026-10-21.md)、[逐文件说明](docs/evidence/sixty_eighth_changes_2026-10-21.md)。无新增独立论文/删除/模型复现。

@@ -356,3 +356,8 @@ N06 v2核心§1–5、全部B任务协议/C及实际p8/p23图；N07正式全文�
 ## 第六十七批补充（2026-10-21）
 
 U08 v2核心与A/C–H核读，实际p4/p9；官方GitHub固定bbf53c3，HF数据f6d1defc/Anole a93d8850/BAGEL ebce3241公开卡全文、18配置元数据与指定训练/推理路径。ICLR2026作者引用/正式PDF索引交叉，OpenReview正文/decision浏览器验证，未读终稿不覆盖v2。
+
+
+## 第六十八批补充（2026-10-21）
+
+G030正式NeurIPS2024 PDF核心§1–5、A–F正文与指定实际图表；AppA完整证明阅读定位p20 log比值/KL符号，解析高斯检查。paper dd65516/main475e0bc固定代码配置/研究README与指定训练/指标路径。arXiv页当前v4/2024-12-10，未将终版修改状态补猜；History-Guided Video Diffusion正式PMLR267/song25b已定位，尚未阅读全文。

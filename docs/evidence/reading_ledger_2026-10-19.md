@@ -331,7 +331,7 @@
 | G027 | Elucidating the Design Space of Diffusion-Based Generative Models | primary_sections_read | [结构化分析](../reviews/G027.md) | 未完成 |
 | G028 | Generative Adversarial Nets | primary_sections_read | [结构化分析](../reviews/G028.md) | 核心三遍与五项检查完成 |
 | G029 | Auto-Encoding Variational Bayes | primary_sections_read | [结构化分析](../reviews/G029.md) | 核心三遍与五项检查完成 |
-| G030 | Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G030.md) | 未完成 |
+| G030 | Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G030.md) | 核心三遍与五项检查完成 |
 | G031 | VBench: Comprehensive Benchmark Suite for Video Generative Models | primary_sections_read | [结构化分析](../reviews/G031.md) | 核心三遍与五项检查完成 |
 | G032 | Towards Accurate Generative Models of Video: A New Metric & Challenges | primary_sections_read | [结构化分析](../reviews/G032.md) | 核心三遍与五项检查完成 |
 | H001 | CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品 | primary_sections_read | [结构化分析](../reviews/H001.md) | 五项检查已记录；三遍待确认 |

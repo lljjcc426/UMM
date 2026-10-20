@@ -300,3 +300,8 @@ N13关联HF卡公开MIT标记/9.89GB，文件需接受访问条件并分享账�
 ## 第六十七批补充（2026-10-21）
 
 U08关联Anole/BAGEL模型卡、Zebra18配置与代码bbf53c3已固定版本。HF计数合182384但未下载原样本；论文BAGEL1000步/脚本5000步，公开停止/转图实现与正文差异单列；卡许可标签与基模正文不一致保留。见[制品审查](../evidence/zebra_cot_negative_results_and_artifact_audit_2026-10-21.md)，不重复计独立论文。
+
+
+## 第六十八批补充（2026-10-21）
+
+G030官方仓库paper dd65516保留RNN原实验，main475e0bc为temporal-attention v1.5并改maze设置/指标；公开Drive checkpoint/mini数据未下载，机器人底层控制代码需请求。公开默认和recipe与正文36/48帧、GRU设置差异记录，不当全部run已复核。见[审查](../evidence/diffusion_forcing_theory_protocol_and_versions_2026-10-21.md)。

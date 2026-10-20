@@ -5215,6 +5215,40 @@
         }
       ],
       "boundary": "2507.16746v2核心§1–6全文、AppA1–A5全部数据/协议及T3、AppC完整T4–7、D全部BAGEL负面分析、E完整T8、F1–F3全部prompt/G影响/H许可；实际PDFp4 Fig3、p9 Table2/Fig5，AppB例图按相关caption/说明未逐像素验全图。公开HF两模型卡/数据卡正文、18配置计数/字段及BAGEL llm/vit配置；固定代码README/train.sh/example.yaml/infz_bf16全文、数据类相关解析/构造段、inferencer相关上下文/输出段、训练默认/冻结/损失归约段。正式OpenReview终稿/decision受验证未读全；未下载权重/数据分片、未运行模型或完整审全部代码。 核心书面验收，未计时口试/独立复现。"
+    },
+    {
+      "id": "G030",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释序列问题、训练/推理偏差与既有非均匀噪声方法",
+          "answer": "如何让同一连续序列生成器既能按任意长度滚动，又能对尚未确定的近期动作传播远期目标引导，并适应不可靠历史？需要区分训练目标、采样调度、长滚动经验和每类任务指标。 干净历史teacher forcing在生成误差下有训练/测试偏差；同噪声整序列扩散的固定窗口和非因果状态/动作不一致限制在线执行。AR-Diffusion/Rolling Diffusion已有随位置变化噪声的先例，本文扩大为独立每token噪声及灵活采样；不能把一切非均匀噪声或长视频生成归为首次。",
+          "evidence": "正式核心/实际图表/已有消融及理论定义核查；不等完整修正证明或模型复现"
+        },
+        {
+          "criterion": "按实际Fig2/算法解释输入/转移/观察头与二维采样",
+          "answer": "不同噪声级的连续token与隐状态z→转移网络/观察头→净token与下一z；视频token可含4/8帧，规划token概念为[动作,奖励,下一观测]但maze实际丢reward。输入未来白噪声、逐列去噪并按K矩阵跨噪声迭代，可加目标梯度；真实执行后把实测观测回写z。实际PDFp3 Fig2二维训练/采样图、p8 T1规划/消融、p16/17/20理论原页核看。 视频U-Net+空间隐状态/GRU+1层ResNet/conv观察头；DMLab z16通道24M参数，Minecraft z32通道36M。非图像ResMLP+GRU/ResMLP，maze4.33M；隐状态是可学习统计摘要，不是已知物理量或必然精确Bayes后验。正式B3视频v-pred、规划/模仿x0、时序v；B1 fused-SNR为视频启发式权重。公开paper分支DMLab命令num_gru_layers=0，与B2统一GRU描述差异保留，未全审内部构造；main v1.5改temporal attention不得混为原RNN结果。",
+          "evidence": "正式核心/实际图表/已有消融及理论定义核查；不等完整修正证明或模型复现"
+        },
+        {
+          "criterion": "解释独立噪声/小噪声历史/MCG及理论前提和符号缺陷",
+          "answer": "独立采每时刻噪声的Diffusion Forcing训练范式、因果RNN实例、二维时刻×噪声调度；小噪声历史稳定滚动、pyramid远期更不确定、MCG多未来梯度平均、在线真实观测后验更新。理论意图是噪声序列平均ELBO及充分表达下所有子序列代理；正式附录符号错误已查到，不能逐字引用为已验证保证。 若主要错误来自连续生成历史的不可靠性、状态有足够可压缩记忆且目标梯度可跨未来传播，则独立噪声训练/小噪声历史/MCG可能分别改善滚动和规划；字符精确身份/细笔画可能被历史噪声损坏。优势须在任务相关事件/方向/接触/可执行成功和同预算下验证，不能以maze reward或场景视觉稳定替代。",
+          "evidence": "正式核心/实际图表/已有消融及理论定义核查；不等完整修正证明或模型复现"
+        },
+        {
+          "criterion": "解释Table1/去MCG、视频定性、机器人与CRPS实验的实际结论",
+          "answer": "视频F3展示至1000帧，E3称试过2000帧无blowup；只是有限环境定性，不能保证无限长度/字符事件不丢。Maze单/多任务均值141.7/146.2 vsDiffuser119.5/129.4，去MCG129.67/127.7；但Multi2D U-Maze119.1±4.0<128.9±1.8，正文all6更优过强。机器人80%→扰动76%（降4pp），nextframe扰动48%；test N/误差条不明，不据此推所有有记忆模型。时序DF六集.003/.289/.023/.040/.075/.085，TimeGrad.006/.287/.021/.044/.114/.049；Solar/Electricity/Wikipedia未胜TimeGrad，不能写全面SOTA。 同RNN训练目标对照与Table1去MCG、直接动作vsPD、机器人扰动、toy记忆开关分别支持对应现象；MCG去除六行均下降，但增加未来采样的收益未排除计算预算。长滚动历史小噪声与independent-noise/fused-SNR/stacking缺全因子等预算统计，实际部署冻结/继续回读区别需测。C2关于Transformer预训练计算的说明自承非主RNN实验，C1无mask未来全噪声是扩展构想/已试解释，不能当正式主表。",
+          "evidence": "正式核心/实际图表/已有消融及理论定义核查；不等完整修正证明或模型复现"
+        },
+        {
+          "criterion": "提出基于原图/数据/代码的限制与可证伪对照",
+          "answer": "正式A2证明p20把E_q log(p/q)写成+DKL；按定义应−DKL，实际p16/17的正KL/正MSE下界也有符号问题。高斯q=N(0,1),p=N(1,1)给前者−.5/KL+.5，是解析反例，无需模型实验；完整修正推导未完成，未据此否定独立噪声经验效果。所有子序列同时最优还需充分表达/足够隐状态/全局优化，不保证有限RNN或无限时间稳定。MCG对学习模型的未来平均，不自动保证真实环境期望最优。低分辨率/约10%数据、机器人N/统计缺项、DMLab36/48与GRU recipe差、maze奖励失真与成本混杂限制外推。没有规范笔事件或任意文字/互联网规模证据。 同骨干/训练数据/总token，交叉teacher forcing、独立噪声、self rollout、fused-SNR与stack；固定NFE/墙钟比较单未来/MCG多未来与其他多样本选择。扫描历史噪声和长度，报状态/字符身份漂移、严格事件错漏/方向、FVD与人工错误率；同末图错序/反向单列。Maze同时报first-hit/碰墙/距离/episode reward，Diffuser+PD/直接动作分组；机器人补trial N、配对记忆策略/同扰动与CI。理论先修正KL符号/索引并明确有限容量条件，再讨论其迁移；全部未运行。D05/D06已有self rollout相关工作和History-Guided Video Diffusion后续需进入查新。",
+          "evidence": "正式核心/实际图表/已有消融及理论定义核查；不等完整修正证明或模型复现"
+        }
+      ],
+      "boundary": "NeurIPS2024正式45页PDF：核心§1–5全文、Alg1/2、Fig2/3/T1/Fig4；AppA定义/所有主结果与A2完整证明阅读并定位p20符号错误（未完成整套正确修订证明）、B1–10/C1–8/D/E1–5/F1–4全文及T2/3、checklist统计/计算相关条目。实际p3框架、p8主表、p16/17定理与p20推导。官方项目静态研究文字，paper分支dd65516 README研究/运行段、video/base/DMLab配置、base优化/训练段、transition forward目标段、video类全文、prediction CRPS聚合段；main475e0bc README版本/maze说明。未逐帧看全部视频、未审全部代码/硬件控制、未下载权重/数据或运行模型。 核心书面验收；未计时口试/独立复现。"
     }
   ]
 }

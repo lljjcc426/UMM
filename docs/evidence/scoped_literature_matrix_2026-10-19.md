@@ -267,3 +267,8 @@ N06通用视频符号分笔是先例但无规范事件评价，N07真实200Hz/�
 ## 第六十七批补充（2026-10-21）
 
 U08跨领域交错推理数据覆盖科学/2D/3D/逻辑；Anole主表提升与BAGEL负面报告并存。静态辅助图不提供视频事件监督；GT图文前缀收益也不等于自主生成收益。见[审查](zebra_cot_negative_results_and_artifact_audit_2026-10-21.md)。
+
+
+## 第六十八批补充（2026-10-21）
+
+G030独立噪声RNN用于视频/规划/模仿/时序，不能把规划主表当视频量化或无限滚动证明；main注意力与paper原RNN分开，GT已生成历史的可靠性是跨域可检验变量。见[审查](diffusion_forcing_theory_protocol_and_versions_2026-10-21.md)。
