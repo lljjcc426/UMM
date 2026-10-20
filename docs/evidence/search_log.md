@@ -306,3 +306,8 @@ U03 arXiv v1核心/五表/AppA及实际框架/训练/语义encoder图，CVPR正�
 ## 第五十七批补充
 
 X01 v4核心/三表及AppC–M文字/表，实际Fig2/3/4/8；官方TMLR归属、README/HF两卡/dataset.md/TF工具。L010 v1核心/三表及AppA/B–E文字，实际Fig2/3/7；79067883脚本/代码选段和HF API，仅元数据无zip/权重。WACV2026同名VideoSketcher（视频素描转换）待独立筛查；SketchAgent v1已获取未验收。
+
+
+## 第五十八批补充
+
+SketchAgent v1核心/补充文字与D提示选段，正式PDF方法/实验及p6/p8实际图表；固定14c4043生成/拟合选段。ProcessPainter v1核心/Eq1–5/TI–II、v2变更/方法数据实验补读，实际v1Fig2/7；ffeaa2c README/ARN配置全文及优化器/采样选段，HF仅许可卡；不是全部代码/附录全读。

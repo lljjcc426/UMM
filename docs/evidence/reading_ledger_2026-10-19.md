@@ -117,8 +117,8 @@
 | L009 | Video-Based Handwritten Chinese Character Recognition，2005 | primary_sections_read | [结构化分析](../reviews/L009.md) | 未完成 |
 | L010 | VideoSketcher: Video Models Prior Enable Versatile Sequential Sketch Generation | primary_sections_read | [结构化分析](../reviews/L010.md) | 核心三遍与五项检查完成 |
 | L011 | Draw This First | primary_sections_read | [结构化分析](../reviews/L011.md) | 核心三遍与五项检查完成 |
-| L012 | SketchAgent，2024/2025 | primary_sections_read | [结构化分析](../reviews/L012.md) | 未完成 |
-| L013 | ProcessPainter，2024 | primary_sections_read | [结构化分析](../reviews/L013.md) | 未完成 |
+| L012 | SketchAgent，2024/2025 | primary_sections_read | [结构化分析](../reviews/L012.md) | 核心三遍与五项检查完成 |
+| L013 | ProcessPainter，2024 | primary_sections_read | [结构化分析](../reviews/L013.md) | 核心三遍与五项检查完成 |
 | L014 | Generating Past and Future in Digital Painting Processes / PaintsAlter，2025 | primary_sections_read | [结构化分析](../reviews/L014.md) | 未完成 |
 | L015 | Loomis Painter，2025 | primary_sections_read | [结构化分析](../reviews/L015.md) | 未完成 |
 | L016 | StrokeNUWA，2024 | primary_sections_read | [结构化分析](../reviews/L016.md) | 未完成 |

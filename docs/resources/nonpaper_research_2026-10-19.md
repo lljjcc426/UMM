@@ -250,3 +250,8 @@ Janus原README的CFG tokenizer_config修复仅作者报告，原Janus与Pro/Flow
 ## 第五十七批补充
 
 关联InkSight公开Small-p卡/三模式InkML输出，HF卡TF2.15–2.17与较新仓库TF2.20/XLA工具分列；生成轨迹不作真实时序标签。VideoSketcher模型/数据HF API可访问并列制品名、无README卡；固定源码LoRA目标/repeat及I2V配方差异；未读zip/权重。见[资源协议审查](../evidence/inksight_videosketcher_trajectory_events_and_resource_audit_2026-10-20.md)。
+
+
+## 第五十八批补充
+
+固定SketchAgent14c4043的API参数/拟合/解析接口，当前temp0/top_k1与论文随机500例区分。固定ProcessPainterffeaa2c ARN配置256²/100K与正文512²/50K，AdamW与文中Prodigy、1–8条件与0–3分列；HF只有许可标签、数据仍待发布，未运行。详见[资源协议](../evidence/sketchagent_processpainter_protocol_and_claim_audit_2026-10-20.md)。

@@ -167,3 +167,6 @@ python scripts/validate_catalog.py
 
 
 第五十七批补完InkSight/X01、VideoSketcher/L010核心精读：347目录不变，128核心/130书面。补齐配方、主表/消融、并笔率/统计口径、TF版本与HF制品访问，纠正合理轨迹/规范笔序及偏好/准确率混用。见[原文审查](docs/evidence/inksight_videosketcher_trajectory_events_and_resource_audit_2026-10-20.md)、[逐文件说明](docs/evidence/fifty_seventh_changes_2026-10-20.md)。无删除/模型复现；SketchAgent及剩余继续。
+
+
+第五十八批补完SketchAgent/L012与ProcessPainter/L013核心：347目录不变，130核心/132书面。记录正式新增字母串/网格实验、协作边界、关键帧与末帧重建评价，以及公开代码与论文的配置差异。见[原文审查](docs/evidence/sketchagent_processpainter_protocol_and_claim_audit_2026-10-20.md)、[逐文件说明](docs/evidence/fifty_eighth_changes_2026-10-20.md)。无删除/训练或独立复现；剩余继续。

@@ -217,3 +217,8 @@ Janus解耦encoder/共享AR骨干与Show-o混合NTP/MTP均已有，不能据统�
 ## 第五十七批补充
 
 InkSight从静态照片输出数字墨迹，VideoSketcher直接生成RGB渐进绘画且已有多笔帧19.58%/36.96%量化。规范事件/执行验证要在现有任务及局限上明确增量；原始轨迹、合理历史和规范顺序需分开。见[第五十七批](inksight_videosketcher_trajectory_events_and_resource_audit_2026-10-20.md)。
+
+
+## 第五十八批补充
+
+SketchAgent已有显式有序stroke/语义ID/协作，并正式测试字母串复杂度和网格；ProcessPainter已有文本/终图/半成图到绘画关键帧、艺术家过程适配。新颖性需要具体落在严格事件/真实执行和可验证收益。见[第五十八批](sketchagent_processpainter_protocol_and_claim_audit_2026-10-20.md)。
