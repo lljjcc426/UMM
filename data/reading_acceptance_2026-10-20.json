@@ -4705,6 +4705,74 @@
         }
       ],
       "boundary": "arXiv v3核心§1–5/Eq1–10/T1–6全文及实际模型/计数/消融图已读；References未逐篇、正式期刊全文未读。Springer正式题名/卷页/日期/DOI已核。固定44d29cf README全文、两yaml全文、sample.py条件/三分支guidance、dataset随机drop与count读取、UNet属性维度/forward选段已读，未全训练器/评测/StyleEncoder或实际运行。 核心书面验收，无计时口试/复现。"
+    },
+    {
+      "id": "L019",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "用一个目标风格参考字形和一个目标内容的宋体图，生成新风格静态字形，要求复杂字细笔画和大风格变化下内容/风格均保留；明确测试未见字符与未见字体，不使用笔画/部件先验标注。 GAN不稳定是作者动机之一，单尺度高层内容忽略细笔画，简单分类/判别风格难表示大变化；内容与参考字形空间结构不齐。Diff-Font依赖内容ID，未见字符能力有限，因此需要可泛化的内容图条件与结构对应。",
+          "evidence": "明确版本核心/公式、主表与实际消融/框架图，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "source内容图→CG-GAN式前三块contentencoder得三尺度；reference→styleencoder及同contentencoder得风格embedding/结构图；UNet噪声预测中经MCA/RSI融合→DPM-Solver++采样→96²字形。训练第二阶段从预测噪声恢复x0，经冻结SCR算对比loss；实际Fig2/6已看。 像素UNet通道64/128/256/512，SI/MCA风格crossattention；Eq1/2 DDPM，Eq3 reference结构Q、UNet skip K/V→offset→DCN；固定7b28ce9代码OffsetRefStrucInter同方向。Eq4InfoNCE式loss/温度.07，VGG average+maxpool及投影；Eq5–9 MSE+VGG感知.01+offset.5、第二阶段加SCR.01，Eq10 CFG与Eq11预测x0/Eq12 SCR预训。无规范笔序/真实时间条件。",
+          "evidence": "明确版本核心/公式、主表与实际消融/框架图，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "MCA多尺度内容+通道注意力/风格crossattention；RSI由参考结构与UNet特征crossattention估DCN offset调整skip；预训VGG多层SCR风格对比，两阶段训练用相同字符/异风格负样本，以减少内容捷径并强化风格。 有内容图、风格参考与复杂细笔画的未见内容/字体迁移，MCA保留多尺度局部、RSI改善几何失配、同内容负样本SCR抑制内容捷径，预期改善配对感知与风格。静态主表支持特定分布；不能推出FID同时单调改善或规范事件有优势。",
+          "evidence": "明确版本核心/公式、主表与实际消融/框架图，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "解释主要定量结果与一组实际消融",
+          "answer": "T1 SFUC Average FID7.6985/SSIM.4682/LPIPS.1416/L1.3454，人评46.85%；CG-GAN7.7862/.4004/.1961/.4100、32.87%。UFUC本法8.5352/.4206/.1496/.3870、47.15%，MX10.7689/.3928/.1653/.4098、14.11%；CG12.9301/.3931/.1876/.4084、20.97%。UFUC hard SSIM本法.3420低于CF.3434，L1.4508高于CF.4420；不称每组全指标最佳。T2UFSC本法7.6708/.4942/.1426/.3279，对Diff-Font12.0809/.4192/.2022/.3877。 T3 baseline→+M→+MR→+MRS：FID8.1153→7.8419→8.4427→8.5352，SSIM.4112→.4114→.4137→.4206，LPIPS.1526→.1511→.1506→.1496，L1.3955→.3954→.3925→.3870，渐进添加非完整因子。T4增强FID8.1758→8.5352变差、其他改善。T5RSI crossattention8.5352优于CNN9.1659。T8K16vs32有取舍；T9四层非FID最优；T10 s1FID7.1447低于7.5的8.5352但SSIM/LPIPS更差，7.5不是全指标最优。",
+          "evidence": "明确版本核心/公式、主表与实际消融/框架图，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "复杂度分组/count用于评价不等有规范笔画标签；无stroke顺序视频/物理执行保证。定性韩文迁移不等任意语言稳定；Style SCR自己监督分数不充分证明独立风格语义解耦。FID与配对指标不同步，缺CI/多seed与独立validation择参说明；训练加SCR预训成本、全部许可/字体清单尚未复核。README预训代码TODO与示例路径script/scripts、phase措辞差异需启动对齐，未运行。 同source/font/字符清单与训练/总参数预算，完整MCA×RSI×SCR及负样本/增强消融、多seed、按复杂度与风格差分层；独立验证集挑guidance，报告FID和配对指标全tradeoff、style content-probe检验解耦。新字符/语言/字体分组留出，公开SCR预训与端到端成本；逐笔任务另以真实有序事件评，不从静态图推断。全部未执行。",
+          "evidence": "明确版本核心/公式、主表与实际消融/框架图，代码选择路径与未执行范围分列"
+        }
+      ],
+      "boundary": "arXiv v1核心Abstract/Intro/Related/Method含Eq1–10、主T1–5、结论及Method/Experiment/MoreAblations/Limitations全部附录文字、T6–10/Eq11–12已读，Refs未逐条；实际Fig2框架/Fig6模块消融。AAAI元数据核，正式PDF未完整不计全文。固定7b28ce9 README主体（Citation不逐行）、完整config与两训练脚本、RSI offset/skip及attention选段；非全训练器/评测/权重或运行。 核心书面验收，无计时口试/复现。"
+    },
+    {
+      "id": "L023",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "一张真实作者行图风格参考+文本字符串→同风格整行静态手写图，兼顾字间距、垂直对齐、墨色/粗细和长串内容准确。中文和英文均有实验；无笔顺/坐标时间序列或文字生成视频任务。 独词再拼接丢失作者行级间距/对齐；直接行生成易内容/风格干扰、42字符平均长度放大错误；CTC内容监督可能把风格简化。需要独立处理风格中的内容干扰和行/词不同尺度的内容一致性。",
+          "evidence": "明确版本核心/公式、主表与实际消融/框架图，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "字符串→Unifont字符图→contentencoder；reference行→CNN/Transformer及vertical/horizontalheads；blender6decoder层→条件latentUNet，冻结SD1.5VAE decode→64×1024静态图。训练mask只用于proxy监督、条件路径保留完整style；实际正式Fig3/p3、Fig7/p7、Fig8–11/p8及补充p14已看。 ResNet18+2Transformer/style各1head，论文blender先3层vertical再3层horizontal；fixed da9addc代码两forward/generate均先horizontal再vertical。Eq1总loss diffusion+style+.05content，Eq2–4作者proxy拉近同作者推远其他，Eq5–7行/词conditionaladversarial，AppEq8/9生成/判别相反优化。论文prelim x0-MSE，实际采样代码是噪声预测重建x0；完整训练loss实现/权重未核，不能合并成已复现实验。",
+          "evidence": "明确版本核心/公式、主表与实际消融/框架图，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "双风格增强head，列/行feature masking配作者proxy loss；未mask完整风格与字符内容融合。多尺度条件GAN判别：行图切32段以3DCNN建左右上下文，词attention定位后2DCNN判局部，最后50epoch加内容对抗。3D轴为图像切片序，不是视频时间。 真实作者行分布、长串内容和有行级style参考时，双方向mask监督可能减少内容捷径、行词判别提供局部/长程互补，预期改善HWD与下游OCR迁移。现有消融提供该范围支持；行中字符左右序与真实落笔事件序不同，当前监督不保证后者。",
+          "evidence": "明确版本核心/公式、主表与实际消融/框架图，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "解释主要定量结果与一组实际消融",
+          "answer": "T1 IAM本法HWD1.41/D_CER8.59/D_WER28.60/FID8.69/IS1.85/GS.00235；One-DM1.80/20.91/54.27/10.60/1.82/.00842。CVL本法1.06/20.92/36.38/7.57/1.70/.0296。Fig11中文本法HWD.73/D_AR96.24/D_CR96.65/FID7.87，OneDM1.09/81.99/82.80/17.38。AppT8真实+生成训练CER4.62/WER16.86 vs仅真实5.78/21.76，CER相对降低20.07%；不同于T1纯生成训OCR。 实际Fig7 no-mask1.82/56.02/87.25，random1.75/55.41/86.42，双head1.47/54.64/84.33；加word1.42/14.61/43.93，加line1.44/15.28/43.31，两者1.41/8.59/28.60。Fig8单head/双head及T3 CTC λ.1 HWD1.67/D_CER16.53 vs判别λ.05 1.41/8.59。T4 2Dline13.18 vs3Dline8.59，T5无判别mask.5最好只测4点；T6强统计拼接OneDM HWD2.17/D_CER24.81/FID23.92。无全因子/多seedCI，参数在IAMtest择优，不能独立验证最优。",
+          "evidence": "明确版本核心/公式、主表与实际消融/框架图，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "mask并不保证消除全部内容信息，风格先全局context编码可能保留内容；无独立content-probe因果证据。冻词attention定位误差可传导、长宽压缩/稀有字和域外style仍可失败；作者说online不能宽度/墨色系其对照范围，其他表示/渲染可实现，不做普遍断言。人评49.11%未有等效检验/CI，样本与评委重复、偏好35.7%为五候选份额；不能证明任意分布真假不可分。公开推理/配置差异、全部训练器/权重/评测未复核。 统一参考数、VAE/UNet和总训练预算，双head/mask×行/词判别×CTC完整消融，多seed、validation选参；style用内容probe/不变干预，独立OCR直接读生成图+下游合成/混合训练分开，报告OCR预算及内容/作者/长度分层。评估更强可学习排版拼接、正确字段计数、CFG与融合顺序对齐，cluster人评CI。若转视频需真实有序事件和时序指标，全部未执行。",
+          "evidence": "明确版本核心/公式、主表与实际消融/框架图，代码选择路径与未执行范围分列"
+        }
+      ],
+      "boundary": "arXiv v1核心§1–6/Eq1–7/T1及AppB–N全部文字/T2–8/Eq8/9读完（AppA/Refs与O大量图未全部），正式CVF正文/图选对照p1–3/7–8、含附录p14实际查看。固定da9addc README主体/IAMyaml全文、generate.py主体全文、ddim_sample完整、encoder双head/mask/blender与UNet.forward选段；未全训练/判别/数据/评测实现、权重或运行。 核心书面验收，无计时口试/复现。"
     }
   ]
 }

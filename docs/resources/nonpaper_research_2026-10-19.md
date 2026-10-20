@@ -265,3 +265,8 @@ Janus原README的CFG tokenizer_config修复仅作者报告，原Janus与Pro/Flow
 ## 第六十批补充
 
 固定DiffSketcher0319b29默认warmup2000/总2000，静态循环不启用ASDS，README800例亦未改；Font-diff44d29cf b16/属性维度分配与文章不同。已核选定配置/条件路径，未下权重或跑模型，不把公开示例等同精确复现。见[资源审查](../evidence/diffsketcher_difffont_condition_process_and_configuration_audit_2026-10-20.md)。
+
+
+## 第六十一批补充（2026-10-21）
+
+FontDiffuser两阶段launch与parser默认覆盖、SCR预训代码TODO；DiffBrush固定da9addc融合顺序/默认无CFG混合/5000FID与论文25K差别，yaml2000不可当实际800训练。均未运行。见[工程审查](../evidence/fontdiffuser_diffbrush_generalization_metrics_and_release_audit_2026-10-21.md)。

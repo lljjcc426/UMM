@@ -9202,22 +9202,25 @@
   {
     "title": "FontDiffuser，AAAI 2024",
     "source_urls": [
-      "https://arxiv.org/abs/2312.12142"
+      "https://arxiv.org/abs/2312.12142",
+      "https://arxiv.org/html/2312.12142v1",
+      "https://ojs.aaai.org/index.php/AAAI/article/view/28482",
+      "https://github.com/yeungchenwa/FontDiffuser/tree/7b28ce9c3b357f4fb23296622f458cf169803539"
     ],
-    "method": "MCA多尺度内容聚合、RSI参考结构变形和SCR对比风格监督，两阶段训练。 U-Net多尺度concat/channelattention，stylecrossattention；RSI跨attention→DCNoffset；SCR VGG多层pooling/projector，同内容不同style为负样本。",
-    "conclusion": "UFSC FID7.6708、SSIM.4942、LPIPS.1426；跨论文数据集和样本量不同不可直接对比B03或DPFont。",
-    "gap": "内容已给字形，不能等价纯文本条件；优化像素/局部风格可能牺牲分布FID。无RGB过程/笔序结果；完整网络大小和所有附录需补。",
-    "problem": "从内容字图与单张风格字图迁移复杂未见字/字体。",
+    "method": "MCA多尺度内容+通道注意力/风格crossattention；RSI由参考结构与UNet特征crossattention估DCN offset调整skip；预训VGG多层SCR风格对比，两阶段训练用相同字符/异风格负样本，以减少内容捷径并强化风格。 像素UNet通道64/128/256/512，SI/MCA风格crossattention；Eq1/2 DDPM，Eq3 reference结构Q、UNet skip K/V→offset→DCN；固定7b28ce9代码OffsetRefStrucInter同方向。Eq4InfoNCE式loss/温度.07，VGG average+maxpool及投影；Eq5–9 MSE+VGG感知.01+offset.5、第二阶段加SCR.01，Eq10 CFG与Eq11预测x0/Eq12 SCR预训。无规范笔序/真实时间条件。",
+    "conclusion": "T1 SFUC Average FID7.6985/SSIM.4682/LPIPS.1416/L1.3454，人评46.85%；CG-GAN7.7862/.4004/.1961/.4100、32.87%。UFUC本法8.5352/.4206/.1496/.3870、47.15%，MX10.7689/.3928/.1653/.4098、14.11%；CG12.9301/.3931/.1876/.4084、20.97%。UFUC hard SSIM本法.3420低于CF.3434，L1.4508高于CF.4420；不称每组全指标最佳。T2UFSC本法7.6708/.4942/.1426/.3279，对Diff-Font12.0809/.4192/.2022/.3877。",
+    "gap": "复杂度分组/count用于评价不等有规范笔画标签；无stroke顺序视频/物理执行保证。定性韩文迁移不等任意语言稳定；Style SCR自己监督分数不充分证明独立风格语义解耦。FID与配对指标不同步，缺CI/多seed与独立validation择参说明；训练加SCR预训成本、全部许可/字体清单尚未复核。README预训代码TODO与示例路径script/scripts、phase措辞差异需启动对齐，未运行。",
+    "problem": "用一个目标风格参考字形和一个目标内容的宋体图，生成新风格静态字形，要求复杂字细笔画和大风格变化下内容/风格均保留；明确测试未见字符与未见字体，不使用笔画/部件先验标注。",
     "claim": "作者研究目标：从内容字图与单张风格字图迁移复杂未见字/字体。",
-    "version": "版本见原始来源及历史记录",
+    "version": "FontDiffuser: One-Shot Font Generation via Denoising Diffusion with Multi-Scale Content Aggregation and Style Contrastive Learning；AAAI2024,38(7),6603–6611，DOI10.1609/aaai.v38i7.28482，官方元数据已核；全文证据arXiv2312.12142v1（2023-12-19），AAAI PDF未完整不计全文。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "previous_evidence": "既有调查 C",
     "id": "L019",
     "canonical_key": "paper:arxiv:2312.12142",
@@ -9251,17 +9254,22 @@
         "conclusion": "复杂字符与大风格变化的生成基线；静态",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 61,
+        "scope": "arXiv v1核心Abstract/Intro/Related/Method含Eq1–10、主T1–5、结论及Method/Experiment/MoreAblations/Limitations全部附录文字、T6–10/Eq11–12已读，Refs未逐条；实际Fig2框架/Fig6模块消融。AAAI元数据核，正式PDF未完整不计全文。固定7b28ce9 README主体（Citation不逐行）、完整config与两训练脚本、RSI offset/skip及attention选段；非全训练器/评测/权重或运行。"
       }
     ],
-    "sections_read": "Method三模块/对比loss、数据/条件、Tables2–4；Table1大表全部数值及附录未逐项核完",
+    "sections_read": "arXiv v1核心Abstract/Intro/Related/Method含Eq1–10、主T1–5、结论及Method/Experiment/MoreAblations/Limitations全部附录文字、T6–10/Eq11–12已读，Refs未逐条；实际Fig2框架/Fig6模块消融。AAAI元数据核，正式PDF未完整不计全文。固定7b28ce9 README主体（Citation不逐行）、完整config与两训练脚本、RSI offset/skip及attention选段；非全训练器/评测/权重或运行。",
     "review_path": "docs/reviews/L019.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "424字体：400×800字训练；SFUC100已见字体272未见字，UFUC24未见字体300未见字；UFSC24×800。人评25人、50字体每font6字。",
-    "framework": "MCA多尺度内容聚合、RSI参考结构变形和SCR对比风格监督，两阶段训练。",
-    "architecture": "U-Net多尺度concat/channelattention，stylecrossattention；RSI跨attention→DCNoffset；SCR VGG多层pooling/projector，同内容不同style为负样本。",
-    "metrics": "FID/SSIM/LPIPS/L1及主观偏好；Chinese→Korean主要可视化，不等于系统多语种基准。",
-    "baselines": "FUNIT/LFFont/MXFont/DGFont/CGGAN/FsFont/CFFont；DiffFont仅UFSC；按可用任务分组。",
-    "experimental_conditions": "单RTX3090；AdamW beta.9/.999；phase1440K步b16/lr1e-4线性，phase230K步/lr1e-5/16负例；条件drop .1；DPMSolver++20步CFG7.5。"
+    "dataset": "424字体，400字体×800字训练=320K。SFUC为100已见字体×272未见字，UFUC24未见字体×300未见字，UFSC24未见字体×800已见字。按stroke数量6–10/11–20/≥21分复杂度（正文greater than21与表≥21有边界措辞差，按表）。SCR预训同400×800，不额外泛化集。中→韩仅Fig5/11定性、无量化N/split，不能等同全语种可靠性。",
+    "framework": "MCA多尺度内容+通道注意力/风格crossattention；RSI由参考结构与UNet特征crossattention估DCN offset调整skip；预训VGG多层SCR风格对比，两阶段训练用相同字符/异风格负样本，以减少内容捷径并强化风格。",
+    "architecture": "像素UNet通道64/128/256/512，SI/MCA风格crossattention；Eq1/2 DDPM，Eq3 reference结构Q、UNet skip K/V→offset→DCN；固定7b28ce9代码OffsetRefStrucInter同方向。Eq4InfoNCE式loss/温度.07，VGG average+maxpool及投影；Eq5–9 MSE+VGG感知.01+offset.5、第二阶段加SCR.01，Eq10 CFG与Eq11预测x0/Eq12 SCR预训。无规范笔序/真实时间条件。",
+    "metrics": "FID/LPIPS/L1↓、SSIM↑；FID Average在全部复杂度样本上计算，非各组FID算术平均。人评为25人从全部候选挑最好：30个SFUC/20个UFUC字体，每字体6字/各难度2；偏好份额非pairwise胜率或识字正确率。无规范事件/视频指标，多seed/CI未给。",
+    "baselines": "FUNIT、LF-Font、DG-Font、MX-Font、Fs-Font、CG-GAN、CF-Font按官方代码训且共同宋体source；Diff-Font只在UFSC比较。相同训练集不等完全相同参数/总训练与调参预算；主比较不含以后发表的方法，新增选题需核后续。",
+    "experimental_conditions": "单RTX3090，96²，AdamW β.9/.999，phase1 b16/440K/lr1e−4 linear，phase2 b16/30K/lr1e−5 constant/K16；CFGdrop.1、采样s7.5/DPM-Solver++20步。SCR预训lr1e−4/warmup1000/K48，多层0–5；总steps/成本不完整。固定7b28ce9两launch脚本符合主要阶段参数、seed123/phase1warmup10000；parser默认b4被脚本16覆盖，WD.01/clip1/无mixedprecision。README SCR pretraining仍ComingSoon，权重声称released/链接云盘，未下权重/运行。"
   },
   {
     "title": "Learning to Generate Stylized Handwritten Text via a Unified Representation of Style, Content, and Noise (InkSpire)",
@@ -9464,22 +9472,25 @@
     "source_urls": [
       "https://arxiv.org/abs/2508.03256",
       "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Dai_Beyond_Isolated_Words_ICCV_2025_supplemental.pdf",
-      "https://github.com/dailenson/DiffBrush"
+      "https://github.com/dailenson/DiffBrush",
+      "https://arxiv.org/html/2508.03256v1",
+      "https://openaccess.thecvf.com/content/ICCV2025/papers/Dai_Beyond_Isolated_Words_Diffusion_Brush_for_Handwritten_Text-Line_Generation_ICCV_2025_paper.pdf",
+      "https://github.com/dailenson/DiffBrush/tree/da9addc1140bdfec463b2d41a974a0a392f80798"
     ],
-    "method": "行/列mask辅助作者proxy风格学习，行级3DCNN与词级2DCNN内容判别联合latentdiffusion。 ResNet18+2Transformer编码；双self-attn风格head，用masked feature做Proxy-NCA；未mask特征参与6层crossattentionblender；SD1.5VAE冻结，行32切片/词attention定位CNN-LSTM预训练冻结。",
-    "conclusion": "IAM HWD1.41 vsDiffusionPen1.72，D_CER8.59 vsOneDM20.91、D_WER28.60vs54.27；CVLHWD1.06，D_CER20.92/D_WER36.38。真假accuracy49.11%是此人评结果，不构成所有条件不可区分的证明。",
-    "gap": "mask在有全局上下文的feature之后，不保证内容信息彻底消失，需内容probe验证。D_CER受合成分布/OCR优化影响，不能独立归因内容准确。Unifont能接受字符串不保证全部Unicode图形覆盖及模型泛化。宽度压缩、固定32切片影响长文本；没有笔顺/真实时序评价。",
-    "problem": "从文本及一行作者参考生成完整静态手写文本行，保留字间距、基线与内容。",
+    "method": "双风格增强head，列/行feature masking配作者proxy loss；未mask完整风格与字符内容融合。多尺度条件GAN判别：行图切32段以3DCNN建左右上下文，词attention定位后2DCNN判局部，最后50epoch加内容对抗。3D轴为图像切片序，不是视频时间。 ResNet18+2Transformer/style各1head，论文blender先3层vertical再3层horizontal；fixed da9addc代码两forward/generate均先horizontal再vertical。Eq1总loss diffusion+style+.05content，Eq2–4作者proxy拉近同作者推远其他，Eq5–7行/词conditionaladversarial，AppEq8/9生成/判别相反优化。论文prelim x0-MSE，实际采样代码是噪声预测重建x0；完整训练loss实现/权重未核，不能合并成已复现实验。",
+    "conclusion": "T1 IAM本法HWD1.41/D_CER8.59/D_WER28.60/FID8.69/IS1.85/GS.00235；One-DM1.80/20.91/54.27/10.60/1.82/.00842。CVL本法1.06/20.92/36.38/7.57/1.70/.0296。Fig11中文本法HWD.73/D_AR96.24/D_CR96.65/FID7.87，OneDM1.09/81.99/82.80/17.38。AppT8真实+生成训练CER4.62/WER16.86 vs仅真实5.78/21.76，CER相对降低20.07%；不同于T1纯生成训OCR。",
+    "gap": "mask并不保证消除全部内容信息，风格先全局context编码可能保留内容；无独立content-probe因果证据。冻词attention定位误差可传导、长宽压缩/稀有字和域外style仍可失败；作者说online不能宽度/墨色系其对照范围，其他表示/渲染可实现，不做普遍断言。人评49.11%未有等效检验/CI，样本与评委重复、偏好35.7%为五候选份额；不能证明任意分布真假不可分。公开推理/配置差异、全部训练器/权重/评测未复核。",
+    "problem": "一张真实作者行图风格参考+文本字符串→同风格整行静态手写图，兼顾字间距、垂直对齐、墨色/粗细和长串内容准确。中文和英文均有实验；无笔顺/坐标时间序列或文字生成视频任务。",
     "claim": "作者研究目标：从文本及一行作者参考生成完整静态手写文本行，保留字间距、基线与内容。",
-    "version": "版本见原始来源及历史记录",
+    "version": "Beyond Isolated Words: Diffusion Brush for Handwritten Text-Line Generation（DiffBrush）；ICCV2025 pp19054–19064，CVF正式11页与含附录PDF完整取得。全文核心证据arXiv2508.03256v1，并对照正式图/正文和补充指定页。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "previous_evidence": "既有调查 A",
     "id": "L023",
     "canonical_key": "paper:arxiv:2508.03256",
@@ -9513,17 +9524,22 @@
         "conclusion": "输出静态文字行，不是在线笔迹或视频",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 61,
+        "scope": "arXiv v1核心§1–6/Eq1–7/T1及AppB–N全部文字/T2–8/Eq8/9读完（AppA/Refs与O大量图未全部），正式CVF正文/图选对照p1–3/7–8、含附录p14实际查看。固定da9addc README主体/IAMyaml全文、generate.py主体全文、ddim_sample完整、encoder双head/mask/blender与UNet.forward选段；未全训练/判别/数据/评测实现、权重或运行。"
       }
     ],
-    "sections_read": "§3–5完整方法/主表/消融，AppB训练与结构、C指标、D人评、E中文协议、G/H拼接文字；全部附图与源码未核",
+    "sections_read": "arXiv v1核心§1–6/Eq1–7/T1及AppB–N全部文字/T2–8/Eq8/9读完（AppA/Refs与O大量图未全部），正式CVF正文/图选对照p1–3/7–8、含附录p14实际查看。固定da9addc README主体/IAMyaml全文、generate.py主体全文、ddim_sample完整、encoder双head/mask/blender与UNet.forward选段；未全训练/判别/数据/评测实现、权重或运行。",
     "review_path": "docs/reviews/L023.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "IAM13353行657writers，496/161；CVL英文11007行310writers，283/27；中文HWDB2.0–2.2称52230行1019writers，816/203。长宽比调整后宽≤1024pad，超宽压缩。",
-    "framework": "行/列mask辅助作者proxy风格学习，行级3DCNN与词级2DCNN内容判别联合latentdiffusion。",
-    "architecture": "ResNet18+2Transformer编码；双self-attn风格head，用masked feature做Proxy-NCA；未mask特征参与6层crossattentionblender；SD1.5VAE冻结，行32切片/词attention定位CNN-LSTM预训练冻结。",
-    "metrics": "HWD、FID/IS/GS；D_CER/D_WER定义为“生成整训练集→训练CNNLSTMCTCOCR→真实测试误差”，非直接识别生成图的CER；中文D_AR/D_CR；30人各30次偏好/真假900responses。",
-    "baselines": "TS-GAN/CSA-GAN、VATr/DiffusionPen/One-DM重训行数据；官方wordassembly与利用参考间距/基线的改进拼接另对照。",
-    "experimental_conditions": "800epochs/8RTX4090/约4天/AdamW1e-4；750epochs diffusion+style，最后50加discriminator并5步生成供监督；lambda.05/mask.5/dropcond.1；trainT1000 beta1e-4→.02，testDDIM50/CFG.2。batch未从所读配置取得。"
+    "dataset": "IAM13353行/657作者，496train/161test；CVL只English11007行，283/27作者；CASIAHWDB2.0–2.2 52230行、1019作者，816/203。高64等比例，窄pad1024、宽resize64×1024可能压缩长行；风格一随机行，测试style来自未见作者、内容WikiText103子集。中文单独训练协议，Unifont输入覆盖不等任意Unicode输出质量，标点/Greek低频失败。",
+    "framework": "双风格增强head，列/行feature masking配作者proxy loss；未mask完整风格与字符内容融合。多尺度条件GAN判别：行图切32段以3DCNN建左右上下文，词attention定位后2DCNN判局部，最后50epoch加内容对抗。3D轴为图像切片序，不是视频时间。",
+    "architecture": "ResNet18+2Transformer/style各1head，论文blender先3层vertical再3层horizontal；fixed da9addc代码两forward/generate均先horizontal再vertical。Eq1总loss diffusion+style+.05content，Eq2–4作者proxy拉近同作者推远其他，Eq5–7行/词conditionaladversarial，AppEq8/9生成/判别相反优化。论文prelim x0-MSE，实际采样代码是噪声预测重建x0；完整训练loss实现/权重未核，不能合并成已复现实验。",
+    "metrics": "HWD为预训手写VGG16特征作者间距离；D_CER/D_WER：每法生成完整训练集→训CNNLSTMCTC OCR→真实test CER/WER，联合内容/多样性/域距及OCR训练因素，非生成图直接CER。FID用25K生成vs全部train、GS5Kvs5Ktest，IS生成test集；中文D_AR/D_CR同为下游真实集。WIER分类器用test作者图80/20训练/验证，评生成风格，非训练未见身份识别器；静态指标不验规范时序。",
+    "baselines": "TS-GAN/CSA-GAN行模型及VATr/DiffusionPen/One-DM；主T1称同集同协议，词模型重新在行数据上训练以直接生成，one/few参考数量不同。Fig10另用官方独词生成+固定间距/宽度拼接，AppH更强One-DM+Otsu估间距/质心线拼接；不能混成同一baseline。style/判别/CTC、2D/3D等内部对照。",
+    "experimental_conditions": "8RTX4090，AdamW1e−4/800epoch约4天，前750仅diffusion+style，后50加判别并5步去噪给内容loss；冻结SD1.5VAE、1000linear beta1e−4→.02。mask.5、dropcond.1、论文CFG.2/DDIM50。batch/seed/OCR训练完整预算未在已读论文给出。固定da9addc README主要推理发布，IAMyaml EPOCHS2000不是已核论文训练recipe；generate.py/DDIM/UNet.forward所读默认路径无无条件预测混合，未实现所述CFG；WikiText仅35–61字符，FID目录达到5000退出，与论文25K不同。未运行。"
   },
   {
     "title": "Learning to Compose Stylistic Calligraphy Artwork with Emotions，ACM MM 2021",

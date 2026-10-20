@@ -69,11 +69,11 @@
 | L016 | [StrokeNUWA，2024](L016.md) | 正式ICML PDF核心§1–6/Eq1–3/TI–IV、Impact文字，AppA/B1/B2/C全部文字及TV已读；实际Fig3(p4)、TII/III及Fig7(p7)，附录大量样例/聚类图未逐看，References仅选定位。固定a52e1cc官方README、VQ example.yaml、EDM example.sh、train_vq.py主体全文已读；尚未全EDM trainer/decoder/eval/权重或运行，论文训练条件缺项与示例分列。 |
 | L017 | [DiffSketcher，2023](L017.md) | v2核心§1–6/Eq1–5、v5核心§1–6/Eq1–6及AppA–I全部文字/T1已读，References未逐条全文。实际v5Fig3/4/8已看；主定量为§5.2文字，不存在本笔记假设的主数值表。固定0319b29 README setup/quickstart/width-color例选读（非全部）、默认yaml全文；入口/配置merge、优化循环、ASDS增强/梯度、曲线初始化及state.step选段已核，非全仓/评测脚本/运行。 |
 | L018 | [Diff-Font，2022 起](L018.md) | arXiv v3核心§1–5/Eq1–10/T1–6全文及实际模型/计数/消融图已读；References未逐篇、正式期刊全文未读。Springer正式题名/卷页/日期/DOI已核。固定44d29cf README全文、两yaml全文、sample.py条件/三分支guidance、dataset随机drop与count读取、UNet属性维度/forward选段已读，未全训练器/评测/StyleEncoder或实际运行。 |
-| L019 | [FontDiffuser，AAAI 2024](L019.md) | Method三模块/对比loss、数据/条件、Tables2–4；Table1大表全部数值及附录未逐项核完 |
+| L019 | [FontDiffuser，AAAI 2024](L019.md) | arXiv v1核心Abstract/Intro/Related/Method含Eq1–10、主T1–5、结论及Method/Experiment/MoreAblations/Limitations全部附录文字、T6–10/Eq11–12已读，Refs未逐条；实际Fig2框架/Fig6模块消融。AAAI元数据核，正式PDF未完整不计全文。固定7b28ce9 README主体（Citation不逐行）、完整config与两训练脚本、RSI offset/skip及attention选段；非全训练器/评测/权重或运行。 |
 | L020 | [Learning to Generate Stylized Handwritten Text via a Unified Representation of Style, Content, and Noise (InkSpire)](L020.md) | 正式PDF正文§1/3/4、Tables1–7；AppA.2–A.3/A.5.3–A.5.7及Tables10–11；Figure3第5页已渲染视觉核对。未逐图、人评Figure8百分比未读取、源码未核 |
 | L021 | [Write More at Once，公开投稿版本](L021.md) | 匿名公开PDF索引Title/Abstract/Introduction；官方forum受challenge，未读Method/Experiments |
 | L022 | [Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本](L022.md) | 官方公开PDF索引标题、摘要、Introduction任务定义；Method/Experiments与正式决定未取得 |
-| L023 | [DiffBrush，ICCV 2025](L023.md) | §3–5完整方法/主表/消融，AppB训练与结构、C指标、D人评、E中文协议、G/H拼接文字；全部附图与源码未核 |
+| L023 | [DiffBrush，ICCV 2025](L023.md) | arXiv v1核心§1–6/Eq1–7/T1及AppB–N全部文字/T2–8/Eq8/9读完（AppA/Refs与O大量图未全部），正式CVF正文/图选对照p1–3/7–8、含附录p14实际查看。固定da9addc README主体/IAMyaml全文、generate.py主体全文、ddim_sample完整、encoder双head/mask/blender与UNet.forward选段；未全训练/判别/数据/评测实现、权重或运行。 |
 | L024 | [Learning to Compose Stylistic Calligraphy Artwork with Emotions，ACM MM 2021](L024.md) | 原PDF9页，§3完整流程/公式、§4数据、§5主表2/消融与Table3layout及§6；未逐一视觉核验所有图或复现代码 |
 | L025 | [AnyText，2023/2024](L025.md) | §3全部模块/公式、§4–6与Tables2–3；AppA.3数据过滤文字及A.2部分参数；v1.1完整新训练细节AppA.7尚未补读，未逐图/源码 |
 | L027 | [UniVid，2025](L027.md) | §3完整架构/公式/Algorithm1、§4–5主表相关行；AppA.2/A.5与A.6 Tables3–4/A.7；未逐图或代码/实际split/全VBench主表逐格核查 |

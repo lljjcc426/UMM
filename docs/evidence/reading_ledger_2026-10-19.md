@@ -124,11 +124,11 @@
 | L016 | StrokeNUWA，2024 | primary_sections_read | [结构化分析](../reviews/L016.md) | 核心三遍与五项检查完成 |
 | L017 | DiffSketcher，2023 | primary_sections_read | [结构化分析](../reviews/L017.md) | 核心三遍与五项检查完成 |
 | L018 | Diff-Font，2022 起 | primary_sections_read | [结构化分析](../reviews/L018.md) | 核心三遍与五项检查完成 |
-| L019 | FontDiffuser，AAAI 2024 | primary_sections_read | [结构化分析](../reviews/L019.md) | 未完成 |
+| L019 | FontDiffuser，AAAI 2024 | primary_sections_read | [结构化分析](../reviews/L019.md) | 核心三遍与五项检查完成 |
 | L020 | Learning to Generate Stylized Handwritten Text via a Unified Representation of Style, Content, and Noise (InkSpire) | primary_sections_read | [结构化分析](../reviews/L020.md) | 核心三遍与五项检查完成 |
 | L021 | Write More at Once，公开投稿版本 | primary_abstract_read | [结构化分析](../reviews/L021.md) | 未完成 |
 | L022 | Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本 | primary_abstract_read | [结构化分析](../reviews/L022.md) | 未完成 |
-| L023 | DiffBrush，ICCV 2025 | primary_sections_read | [结构化分析](../reviews/L023.md) | 未完成 |
+| L023 | DiffBrush，ICCV 2025 | primary_sections_read | [结构化分析](../reviews/L023.md) | 核心三遍与五项检查完成 |
 | L024 | Learning to Compose Stylistic Calligraphy Artwork with Emotions，ACM MM 2021 | primary_sections_read | [结构化分析](../reviews/L024.md) | 核心三遍与五项检查完成 |
 | L025 | AnyText，2023/2024 | primary_sections_read | [结构化分析](../reviews/L025.md) | 未完成 |
 | L026 | UniVideo | primary_sections_read | [结构化分析](../reviews/L026.md) | 核心三遍与五项检查完成 |

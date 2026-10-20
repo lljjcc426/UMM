@@ -321,3 +321,8 @@ PaintsAlter正式13页核心§1–5/Eq1–6/TI–IV，实际Fig3/9/10及TIII/IV�
 ## 第六十批补充
 
 DiffSketcher v2/v5核心及v5补充A–I文字、T1与实际Fig3/4/8；2023正式PDF未完整不计全文。Diff-Font v3核心及T1–6/实际图，Springer卷页/日期/DOI核定但期刊全文未读；两固定代码的配置/关键条件路径，非全仓复现。
+
+
+## 第六十一批补充（2026-10-21）
+
+FontDiffuser v1全部核心/附录文字/T1–10及实际Fig2/6，AAAI元数据核、正式PDF不完整不计全文；DiffBrush正式PDF/含附录PDF完整取得，v1核心/B–N文字及实际p3/7/8/14。两固定代码选定配方/条件路径，非全实现或运行。

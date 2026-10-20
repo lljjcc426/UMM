@@ -261,3 +261,8 @@ encoder共享/解耦×骨干共享/分离×单/多任务，固定上游预训与
 ## 第六十批补充
 
 保持count不变重排事件构造反例；静态感知/OCR与事件顺序分列。先对齐warmup/lr/batch/维度，再同预算多seed消融；guidance在validation择参、test冻结，盲评固定素材，全部未执行。
+
+
+## 第六十一批补充（2026-10-21）
+
+同预算全因子/独立validation、多seed；直接生成图OCR、纯生成训OCR、混合数据增益分开；独立content-probe、行长/语言/作者分层、cluster人评，公开精确推理/样本量与预训成本。尚未执行。
