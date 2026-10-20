@@ -64,9 +64,9 @@
 | L010 | [VideoSketcher: Video Models Prior Enable Versatile Sequential Sketch Generation](L010.md) | 2602.15819v1核心§1–7/Eq1–3/TI–III全读；AppA全文、B.1文字/概念及B.2–4/C/D/E文字，F主要caption未逐图/视频。实际Fig2/3/7，其他多为正文/图注。官方README选读1–280/310–410，固定79067883训练shell全文、train.py构造/预处理/forward/优化器等选段、latent wrapper及return路径；非全部pipeline/loader/AR/eval。HF API仅仓库/文件元数据，README404，未下载权重/zip/运行。 |
 | L012 | [SketchAgent，2024/2025](L012.md) | 2411.17673v1核心§1–8/Eq1–2/TI–II全读，AppA/B1/B2文字/B3/B4/C全文文字，D系统/用户/house部分prompt选读，IRB声明读；大批D结果图未逐看。正式CVPR完整PDF取得，选读§3–4/§5.1–8及TI–II，实际p6 Fig10/p8 TII/Fig13/15；v1实际Fig5/7/11/12B。固定14c4043 README全文，gen_sketch参数/API/parse/render、utils拟合/XML选段；未全collab/eval/依赖/模型，未API运行或复现。 |
 | L013 | [ProcessPainter，2024](L013.md) | v1核心§1–6/Eq1–5/TI–II全读并实际Fig2/7；v2版本变更检查后补读Related§2.1/2.2、§3.2–4.6/5–6，部分预备式由v1对照，未逐看所有样例图/视频。固定ffeaa2c README全文、PaintingTransformer_train_control.yaml全文、train.py冻结/优化器/采样/构造相关选段；HF模型卡全文仅license标签。未全训练器/pipeline/数据包/权重，未训练、推理或独立复现。 |
-| L014 | [Generating Past and Future in Digital Painting Processes / PaintsAlter，2025](L014.md) | 原始13页PDF§3主要框架、§3.4数据/训练、§4.2–4.7及Tables1–4；逐图视觉核对尚未全部完成 |
+| L014 | [Generating Past and Future in Digital Painting Processes / PaintsAlter，2025](L014.md) | 作者网站13页PDF核心§1–5/Eq1–6/TI–IV全读（References仅定位Zhao2020等对应）；实际Fig3(p4)、Fig9/10及TIII/IV(p10)，未逐看所有样例图/演示视频。官方项目页全文与代码链接/next-version标签核，作者名仓库检索无单独PaintsAlter命中，仅限定该检索，不证明资源全无。未读全部代码/权重、无训练推理或独立复现。 |
 | L015 | [Loomis Painter，2025](L015.md) | §3–4、§5实现/Table2/3、§5.2.1PDP、§5.3消融、§7限制；附录未完整精读 |
-| L016 | [StrokeNUWA，2024](L016.md) | §3.1–3.2、§4.1–4.3、§5及Tables2–4；官方PMLR书目核对 |
+| L016 | [StrokeNUWA，2024](L016.md) | 正式ICML PDF核心§1–6/Eq1–3/TI–IV、Impact文字，AppA/B1/B2/C全部文字及TV已读；实际Fig3(p4)、TII/III及Fig7(p7)，附录大量样例/聚类图未逐看，References仅选定位。固定a52e1cc官方README、VQ example.yaml、EDM example.sh、train_vq.py主体全文已读；尚未全EDM trainer/decoder/eval/权重或运行，论文训练条件缺项与示例分列。 |
 | L017 | [DiffSketcher，2023](L017.md) | Abstract、Appendix D/Table1、Appendix E；主方法核心目标 |
 | L018 | [Diff-Font，2022 起](L018.md) | §3条件/CFG、§4.1–4.4 Tables1/2/4及跨语种表示；完整版本对齐、韩文实验与全部附录未完成 |
 | L019 | [FontDiffuser，AAAI 2024](L019.md) | Method三模块/对比loss、数据/条件、Tables2–4；Table1大表全部数值及附录未逐项核完 |

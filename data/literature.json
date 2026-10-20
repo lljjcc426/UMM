@@ -8852,20 +8852,21 @@
     "title": "Generating Past and Future in Digital Painting Processes / PaintsAlter，2025",
     "source_urls": [
       "https://lllyasviel.github.io/paints_alter_web/paints_alter.pdf",
-      "https://doi.org/10.1145/3731160"
+      "https://doi.org/10.1145/3731160",
+      "https://lllyasviel.github.io/paints_alter_web/"
     ],
-    "method": "将过程查询定义为set-to-set；源/查询潜变量拼接，只去噪查询，operation-step编码与分区VAE对齐；图像/视频后端组合。 CogVideoX1.5或LTXVideo DiT，冻结VAE分区编码解码；步骤投影；可加SDXL单帧模型提高交互速度。",
-    "conclusion": "Table1 Cog17.04dB/.6712/.4022 vsProcessPainter13.52/.4901/.6143；Table3 65帧LTX8.4s/Cog193.1s，单帧SDXL3.9s。不能把不同后端最佳质量与最快速度拼成单模型结果。",
-    "gap": "数字绘画允许删层/变形/导入，单调增墨不通用；步骤1000是归一索引，无真实物理时间；未有底层编辑动作元数据；域外UI文字结构会错。",
-    "problem": "给一个或多个画布状态，生成任意过去/未来位置的数字绘画状态集合。",
+    "method": "把任务明确为set-to-set；预训视频DiT+分区3DVAE独立编码连续段、source/query也分开；同VAE因果padding/stride投影operation-step。source噪声置0，查询去噪；另训SDXL单源单query，在长查询中先关键状态再视频插段，按查询类型调度。 LTXVideo或CogVideoX1.5 DiT，冻结预训VAE；LTX f8/h32/w32压缩、128通道。Eq1集合条件，Eq2 xt=(1−t)z+tε、Eq4/6回归ε−z，logit-normal时间采样。索引先256频率PE→因果conv按VAE时间stride匹配→zero-init gate加time embedding；源/查询独立编码避免条件混漏。SDXL输入多4个zero-init latent通道、time projection加s/q标量。",
+    "conclusion": "TI Cog PSNR17.04/SSIM.6712/LPIPS.4022，LTX16.31/.6510/.4259，SDXL15.98/.5995/.4515；ProcessPainter13.52/.4901/.6143、Zhao12.27/.4847/.6851。TII质量Cog+image30.12±5.8%、LTX+image26.51±6.1，响应LTX+image47.43±9.1、Cog+image16.62±5.2；非同模型兼得两项最佳。TIII 1/65/129帧Cog7.2/193.1/327.4s，LTX4.8/8.4/41.3s，SDXL3.9/251.2/495.1s。",
+    "gap": "归一1000步并非真实stroke/秒，数字绘画允许删层/变形/导入/回擦，单调增墨不通用。5%片段留出可能共享原视频/艺术家，未知分组不能断言泄漏但需独立复核；参考历史多解。13人（1学生/8众包/4艺术家）人评五轮std不等总体CI，随机顺序/重复测量依赖未完整给。UI文字/结构和域外照片失败；图6/7的5%标s5与1000归一不符，保留原图标注。无完整独立PaintsAlter训练发布已核；项目链接PaintsUndo及next-version标签不能等同本论文代码。",
+    "problem": "给一个或多个已有画布及其归一化operation step，生成任意过去/未来位置的状态集合，允许非连续、多源多查询与反复探索。目标是合理的可选历史/未来，非唯一真实历史、原始笔画动作或标准汉字笔序。",
     "claim": "作者研究目标：给一个或多个画布状态，生成任意过去/未来位置的数字绘画状态集合。",
-    "version": "版本见原始来源及历史记录",
+    "version": "Generating Past and Future in Digital Painting Processes（PaintsAlter）；ACM TOG44(4), Article127, SIGGRAPH2025, DOI10.1145/3731160；作者网站正式13页PDF。SIGGRAPH/TOG渠道已核，具体SCI分区年度未核，不猜一区。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-19",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
     "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 B",
@@ -8901,17 +8902,22 @@
         "conclusion": "适合中间状态补全与多种可能过程；操作步骤不等于连续物理书写时间",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-20",
+        "batch": 59,
+        "scope": "作者网站13页PDF核心§1–5/Eq1–6/TI–IV全读（References仅定位Zhao2020等对应）；实际Fig3(p4)、Fig9/10及TIII/IV(p10)，未逐看所有样例图/演示视频。官方项目页全文与代码链接/next-version标签核，作者名仓库检索无单独PaintsAlter命中，仅限定该检索，不证明资源全无。未读全部代码/权重、无训练推理或独立复现。"
       }
     ],
-    "sections_read": "原始13页PDF§3主要框架、§3.4数据/训练、§4.2–4.7及Tables1–4；逐图视觉核对尚未全部完成",
+    "sections_read": "作者网站13页PDF核心§1–5/Eq1–6/TI–IV全读（References仅定位Zhao2020等对应）；实际Fig3(p4)、Fig9/10及TIII/IV(p10)，未逐看所有样例图/演示视频。官方项目页全文与代码链接/next-version标签核，作者名仓库检索无单独PaintsAlter命中，仅限定该检索，不证明资源全无。未读全部代码/权重、无训练推理或独立复现。",
     "review_path": "docs/reviews/L014.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "约19位同意参与艺术家，2018–2020记录；采样为20K片段、145帧上下文；留出5%。片段级划分不能自动当艺术家/原视频级独立。",
-    "framework": "将过程查询定义为set-to-set；源/查询潜变量拼接，只去噪查询，operation-step编码与分区VAE对齐；图像/视频后端组合。",
-    "architecture": "CogVideoX1.5或LTXVideo DiT，冻结VAE分区编码解码；步骤投影；可加SDXL单帧模型提高交互速度。",
-    "metrics": "PSNR/SSIM/LPIPS重建，用户质量/响应偏好，运行时；人工统计50作品的突变次数。",
-    "baselines": "ProcessPainter、Zhao2020；InversePainting仅定性，因方法不兼容排除主定量，须交代。",
-    "experimental_conditions": "Adafactor1e-5、bf16、clip.5、无EMA；8H10080GB，LTX4d、SDXL3d、Cog9d；视频512px/image1024px buckets。测速L40S。"
+    "dataset": "2018冬–2020秋向约19艺术家逐一获得同意的长绘画录屏；专业/学生混合，多商业数字插画、人物/场景/动物等。检测shot/过滤变化少片段，145帧默认上下文；长shot划145区间随机采样最多32次，总20K clips。smax1000为归一化状态，少则近邻、多则随机skip；无真实动作元数据。定量留出5%（原文held-out subset措辞），未给按艺术家/原视频分组清单；人评另50未见in-the-wild画作。",
+    "framework": "把任务明确为set-to-set；预训视频DiT+分区3DVAE独立编码连续段、source/query也分开；同VAE因果padding/stride投影operation-step。source噪声置0，查询去噪；另训SDXL单源单query，在长查询中先关键状态再视频插段，按查询类型调度。",
+    "architecture": "LTXVideo或CogVideoX1.5 DiT，冻结预训VAE；LTX f8/h32/w32压缩、128通道。Eq1集合条件，Eq2 xt=(1−t)z+tε、Eq4/6回归ε−z，logit-normal时间采样。索引先256频率PE→因果conv按VAE时间stride匹配→zero-init gate加time embedding；源/查询独立编码避免条件混漏。SDXL输入多4个zero-init latent通道、time projection加s/q标量。",
+    "metrics": "PSNR/SSIM/LPIPS重建：video所有帧均值、image所有图均值；质量/响应性为多候选人评选择份额，非pairwise胜率；L40S秒数、50作品人工突变次数。参考历史多解，像素误差不能单独评合理替代历史/规范事件。突变计数来自RGB人工判，不是层操作元数据。",
+    "baselines": "Painting Many Pasts（Zhao etal CVPR2020）、ProcessPainter（同数据微调），InversePainting仅定性且因segmentation与目标序列不兼容排除定量/人评。自身LTX/Cog/SDXL、video+image；基座规模/预训和总预算不同，不能把改善全部归因分区VAE或新架构。",
+    "experimental_conditions": "Adafactor lr1e−5/bf16/clipnorm.5、无EMA，8H10080GB；LTX约4天、SDXL3天、Cog9天；video512px/image1024px buckets，Cog上下文145，全transformer gradient checkpoint。WD14对最高step输入帧取prompt；batch/总steps/seed/采样步数等未充分给。单源单query用SDXL；源1且query>500时每200步SDXL关键帧再视频补区间。速度L40S未用TeaCache等高级加速。"
   },
   {
     "title": "Loomis Painter，2025",
@@ -8981,20 +8987,22 @@
     "title": "StrokeNUWA，2024",
     "source_urls": [
       "https://arxiv.org/abs/2401.17093",
-      "https://proceedings.mlr.press/v235/tang24h.html"
+      "https://proceedings.mlr.press/v235/tang24h.html",
+      "https://raw.githubusercontent.com/mlresearch/v235/main/assets/tang24h/tang24h.pdf",
+      "https://github.com/ProjectNUWA/StrokeNUWA/tree/a52e1cc29d7d512d299404b4293d8eea03a34be0"
     ],
-    "method": "VQ-Stroke压缩+encoder-decoder LLM预测+SVG Fixer语法/接续修补。 残差VQ depth2，码本4096×512；FlanT5 3B冻结encoder、微调decoder及新增embedding/head；Fixer的PC或PI。",
-    "conclusion": "Table2作者报Fréchet6.513、HPS16.801，约19s/SVG vsLIVE约30min；94倍仅指定基线场景。CR正文公式方向和6.9%表述不一致，应保留原定义疑点。",
-    "gap": "没有规范笔顺监督或RGB过程；后处理可能改变路径数/连接；原文CLIP高低方向局部描述互相冲突，按表定义核查后再引用。",
-    "problem": "将文本关键词转成紧凑SVG笔画token并生成矢量图标。",
+    "method": "VQ-Stroke把规范化M/L/C命令矩阵卷积压缩、残差量化；冻结FlanT5 encoder、微调decoder及新增stroke embedding/predictor；SVG Fixer的PC改接点/PI补M，解决解码片段连接。核心是矢量tokenizer/序列建模/后处理，不含扩散模型和人类笔顺监督。 K=(T,x0,y0,cx0,cy0,cx1,cy1,x1,y1)，坐标归一[−1,1]；1D conv stride2+ResNet1d下采样/ConvTranspose上采样；residual-VQ depth2、codebook4096×512，compression2/4。Eq3重建MSE+两VQ项，α1；sg文称gradient clipping但按VQ式意图通常为stop-gradient，未核当前实现前不替改。FlanT5 3B冻encoder、训decoder，CE；maxlen512，PI插Move而非实际画直线补段。",
+    "conclusion": "TII PI Fréchet6.513/CLIP17.994/HPS16.801/Recall.207/EDIT12249.091/19.128s；PC6.607/17.852/16.134/.239/9092.476，几何视觉与码序有取舍。VectorFusion7.754/17.539/15.901/.079/约30min；Iconshop17.828/8.402/8.234/.114/24792.476/63.743s。94x对应30min/19.128≈94.1，而28min≈87.8；总训练/质量匹配不在加速定义中。TIII C2PI3.518/20.290/1315.137/13.780% vs C4PI4.943/15.192/2100.671/6.890%，更高压缩明显质量取舍，不盲从正文on-par。",
+    "gap": "CR正文Len(rawtokens)/Len(stroketokens)与表<100%压缩占比反向，不能静默改定义；TIII正文写lowest CLIP而表箭头↑、PI20.290较高，按原数保留疑点。只单色icon/关键词，域外自然描述失败，语义token与规范stroke不等。Fixer改变命令/码长会影响指标；own-codebook Recall可能评价偏置，语法合法未修补率、置信区间、训练明细未全给。",
+    "problem": "将关键词生成单色SVG图标，在直接代码token过长和逐图优化很慢的情况下，如何用压缩的矢量命令表示提高生成质量与速度？stroke token来自SVG片段压缩，未监督规范文字的一笔、真实人类绘画历史或RGB视频。",
     "claim": "作者研究目标：将文本关键词转成紧凑SVG笔画token并生成矢量图标。",
-    "version": "版本见原始来源及历史记录",
+    "version": "StrokeNUWA—Tokenizing Strokes for Vector Graphic Synthesis；ICML2024, PMLR235:47830–47845正式16页PDF，官方PMLR元数据核。arXiv2401.17093v2/v3 HTML404，未把404当论文不存在。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-19",
+    "checked_on": "2026-10-20",
     "provenance": "2026-10-15专题文献目录",
     "last_updated": "2026-10-20",
     "previous_evidence": "既有调查 B",
@@ -9030,17 +9038,22 @@
         "conclusion": "可借结构化 token；SVG 存储顺序不能自动视为人的书写顺序",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-20",
+        "batch": 59,
+        "scope": "正式ICML PDF核心§1–6/Eq1–3/TI–IV、Impact文字，AppA/B1/B2/C全部文字及TV已读；实际Fig3(p4)、TII/III及Fig7(p7)，附录大量样例/聚类图未逐看，References仅选定位。固定a52e1cc官方README、VQ example.yaml、EDM example.sh、train_vq.py主体全文已读；尚未全EDM trainer/decoder/eval/权重或运行，论文训练条件缺项与示例分列。"
       }
     ],
-    "sections_read": "§3.1–3.2、§4.1–4.3、§5及Tables2–4；官方PMLR书目核对",
+    "sections_read": "正式ICML PDF核心§1–6/Eq1–3/TI–IV、Impact文字，AppA/B1/B2/C全部文字及TV已读；实际Fig3(p4)、TII/III及Fig7(p7)，附录大量样例/聚类图未逐看，References仅选定位。固定a52e1cc官方README、VQ example.yaml、EDM example.sh、train_vq.py主体全文已读；尚未全EDM trainer/decoder/eval/权重或运行，论文训练条件缺项与示例分列。",
     "review_path": "docs/reviews/L016.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "FIGR8SVG预处理后740K训练/8K验证/2K测试，最多1024basic commands，≥2关键词；优化法昂贵只随机500例。",
-    "framework": "VQ-Stroke压缩+encoder-decoder LLM预测+SVG Fixer语法/接续修补。",
-    "architecture": "残差VQ depth2，码本4096×512；FlanT5 3B冻结encoder、微调decoder及新增embedding/head；Fixer的PC或PI。",
-    "metrics": "CLIP特征计算的Fréchet距离（文称FID，不能与Inception-FID横比）、CLIPScore、EDIT、HPS、token recall/压缩比/速度。",
-    "baselines": "Iconshop同FlanT5重实现，VectorFusion，SD+LIVE；GPT4仅样例。",
-    "experimental_conditions": "64V100，LLM长度512，Iconshop1500保证语法完整；实际预算/采样长度有差异；详细优化器本次未全部摘录。"
+    "dataset": "FIGR-8-SVG单色icons，清除冗余path/外黑框，最多1024basic commands，过滤不足2关键词；740Ktrain/8Kval/2Ktest。优化法昂贵仅随机500测试，是否TI所有方法完全同500与采样种子需评测文件。人评正文50prompts，AppA10评委各100样本，具体重复映射未全给；AppC随机color/width/opacity toy扩展，不是真实彩色时序数据。",
+    "framework": "VQ-Stroke把规范化M/L/C命令矩阵卷积压缩、残差量化；冻结FlanT5 encoder、微调decoder及新增stroke embedding/predictor；SVG Fixer的PC改接点/PI补M，解决解码片段连接。核心是矢量tokenizer/序列建模/后处理，不含扩散模型和人类笔顺监督。",
+    "architecture": "K=(T,x0,y0,cx0,cy0,cx1,cy1,x1,y1)，坐标归一[−1,1]；1D conv stride2+ResNet1d下采样/ConvTranspose上采样；residual-VQ depth2、codebook4096×512，compression2/4。Eq3重建MSE+两VQ项，α1；sg文称gradient clipping但按VQ式意图通常为stop-gradient，未核当前实现前不替改。FlanT5 3B冻encoder、训decoder，CE；maxlen512，PI插Move而非实际画直线补段。",
+    "metrics": "文称FID实为CLIP图像特征Fréchet（脚注明确），不得与Inception-FID横比；CLIPScore/HPS、字符串EDIT、码本token集合Recall、CR/生成秒数，人评win/tie/lose三方面。Recall以自己VQ码本衡量且忽略位置顺序，非真实语义部件/笔顺率；EDIT对等价SVG表述敏感，非几何唯一真值。",
+    "baselines": "SD+LIVE、VectorFusion，Iconshop同FlanT5重实现+T5数值token、max1500；自身max512且表示长度不同。GPT4Turbo仅四样图/平均CLIP，未全量强基线。无同参数/同输出质量与总训练成本约束的全面表征对照；优化法手动path预算32/128亦不同。",
+    "experimental_conditions": "64V100/DeepSpeed、FlanT5 3B、VQ α1；训练optimizer/lr/batch/steps/seed未在正文/补充明确。纸中生成约19.128s，优化基线30min/28min在V100，不能当所有环境94x。固定a52e1cc README测试Py3.10.13/CUDA11.1但安装例Py3.9/CUDA11.8；公开VQ例emb_width1024（主表512）、b128/lr3e−4/90epochs/1device、FusedAdam；EDM例4×16GPU、每卡b25/lr5e−6/20epochs/warm60、len512、ZeRO3、gradientcheckpoint，指向example样本，不能自动视为论文精确配置。"
   },
   {
     "title": "DiffSketcher，2023",

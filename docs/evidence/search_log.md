@@ -311,3 +311,8 @@ X01 v4核心/三表及AppC–M文字/表，实际Fig2/3/4/8；官方TMLR归属�
 ## 第五十八批补充
 
 SketchAgent v1核心/补充文字与D提示选段，正式PDF方法/实验及p6/p8实际图表；固定14c4043生成/拟合选段。ProcessPainter v1核心/Eq1–5/TI–II、v2变更/方法数据实验补读，实际v1Fig2/7；ffeaa2c README/ARN配置全文及优化器/采样选段，HF仅许可卡；不是全部代码/附录全读。
+
+
+## 第五十九批补充
+
+PaintsAlter正式13页核心§1–5/Eq1–6/TI–IV，实际Fig3/9/10及TIII/IV；项目页和作者名仓库检索边界。StrokeNUWA正式ICML核心/补充A–C文字/TV，实际Fig3/TII/III/Fig7；固定a52e1cc README/两训练例/训练主体。DiffSketcher v2核心已读，v5（2026-04）取得待补全；正式PDF下载未完不作为全文证据。

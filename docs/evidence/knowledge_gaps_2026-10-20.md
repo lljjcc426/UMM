@@ -263,3 +263,8 @@ ContentBias：S/ST空间FID近似匹配不等完全控制所有图像因素；�
 ## 第五十八批补充
 
 Bézier几何参数与真实时间，最小二乘残差/分段不保证规范事件；CLIP骨干/样本和解析失败对跨表比较的影响；协作partial墨迹量混杂。关键帧下事件不可观测、重建误差与过程真实性分离，Prodigy/AdamW和条件采样配置版本对齐。
+
+
+## 第五十九批补充
+
+set-to-set查询与跨请求一致性；因果VAE投影不自动为因果动作模型；多解历史的重建评价、数字编辑与单调墨迹。ResidualVQ片段/规范stroke差别、CLIP特征Fréchet、自码本Recall/代码等价性、CR方向与stop-gradient符号核查。

@@ -119,9 +119,9 @@
 | L011 | Draw This First | primary_sections_read | [结构化分析](../reviews/L011.md) | 核心三遍与五项检查完成 |
 | L012 | SketchAgent，2024/2025 | primary_sections_read | [结构化分析](../reviews/L012.md) | 核心三遍与五项检查完成 |
 | L013 | ProcessPainter，2024 | primary_sections_read | [结构化分析](../reviews/L013.md) | 核心三遍与五项检查完成 |
-| L014 | Generating Past and Future in Digital Painting Processes / PaintsAlter，2025 | primary_sections_read | [结构化分析](../reviews/L014.md) | 未完成 |
+| L014 | Generating Past and Future in Digital Painting Processes / PaintsAlter，2025 | primary_sections_read | [结构化分析](../reviews/L014.md) | 核心三遍与五项检查完成 |
 | L015 | Loomis Painter，2025 | primary_sections_read | [结构化分析](../reviews/L015.md) | 未完成 |
-| L016 | StrokeNUWA，2024 | primary_sections_read | [结构化分析](../reviews/L016.md) | 未完成 |
+| L016 | StrokeNUWA，2024 | primary_sections_read | [结构化分析](../reviews/L016.md) | 核心三遍与五项检查完成 |
 | L017 | DiffSketcher，2023 | primary_sections_read | [结构化分析](../reviews/L017.md) | 未完成 |
 | L018 | Diff-Font，2022 起 | primary_sections_read | [结构化分析](../reviews/L018.md) | 未完成 |
 | L019 | FontDiffuser，AAAI 2024 | primary_sections_read | [结构化分析](../reviews/L019.md) | 未完成 |

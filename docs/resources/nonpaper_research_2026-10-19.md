@@ -255,3 +255,8 @@ Janus原README的CFG tokenizer_config修复仅作者报告，原Janus与Pro/Flow
 ## 第五十八批补充
 
 固定SketchAgent14c4043的API参数/拟合/解析接口，当前temp0/top_k1与论文随机500例区分。固定ProcessPainterffeaa2c ARN配置256²/100K与正文512²/50K，AdamW与文中Prodigy、1–8条件与0–3分列；HF只有许可标签、数据仍待发布，未运行。详见[资源协议](../evidence/sketchagent_processpainter_protocol_and_claim_audit_2026-10-20.md)。
+
+
+## 第五十九批补充
+
+关联StrokeNUWA a52e1cc VQ/EDM训练例与FusedAdam主体，示例数据/1024维和主表512区别，环境与Hydra路径需运行对齐。PaintsAlter项目页仅链接PaintsUndo并标next version，不能直接以旧代码/权重称复现新论文。见[资源说明](../evidence/paintsalter_strokenuwa_query_representation_and_metrics_audit_2026-10-20.md)。

@@ -222,3 +222,8 @@ InkSight从静态照片输出数字墨迹，VideoSketcher直接生成RGB渐进�
 ## 第五十八批补充
 
 SketchAgent已有显式有序stroke/语义ID/协作，并正式测试字母串复杂度和网格；ProcessPainter已有文本/终图/半成图到绘画关键帧、艺术家过程适配。新颖性需要具体落在严格事件/真实执行和可验证收益。见[第五十八批](sketchagent_processpainter_protocol_and_claim_audit_2026-10-20.md)。
+
+
+## 第五十九批补充
+
+PaintsAlter已经处理多源多query/过去未来/非连续绘画状态，StrokeNUWA已压缩矢量命令并AR生成；规范笔画/真实执行须额外事件监督和独立评价，不能靠任务简称判断。见[第五十九批](paintsalter_strokenuwa_query_representation_and_metrics_audit_2026-10-20.md)。
