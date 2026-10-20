@@ -168,3 +168,8 @@ NFE比不自动等walltime；KV预算/managedKV/临时workspace/peakVRAM需分�
 ## 第三十九批补充
 
 离散速度是分类状态转移rate，δ+h·u需合法概率，fixed-t stationary与并行小步近似分开；全mask时间无关仅特定path。Sway改变生成ODE节点，physical时间另有定义；NFE/solver步/CFG批大小分开。TeaCache以t调制input估残差变化，校准系数为经验关系，poly1d不是拟合优化。clDice hard定理与soft有限k/仅前景经验简化分开，静态mask无时间方向，Euler正文/补充定义有待核不一致。
+
+
+## 第四十批补充
+
+Reynolds形状导数与弧长Jacobian/滤波核、最近点隐式导数条件；解析预滤conflation与MC方差。曲线位置t/优化迭代/图层顺序/实体时间分开。Gaussian配对插值与Xing凸性、重分配启发不等全局最优，导出SVG不自动严格等价。3形状量展开12坐标不增加独立动作维数。模拟拟合差/真实执行差、图像余弦距离/文本CLIPScore差分别定义，代理相关性不能证明学到物理。

@@ -108,3 +108,6 @@
 
 
 第三十九批完成E04–E07核心三遍与各五项书面检查：核离散FM概率/任务指标与采样精度、F5语音对齐/solver与CFG开销、TeaCache残差/校准和多卡分母、clDice条件定理/空间指标边界。主目录340项，核心三遍86项；其余三遍继续保留未完成状态。见[离散流、语音、缓存与拓扑审查](../evidence/discrete_flow_speech_cache_topology_core_reading_2026-10-20.md)和[逐文件说明](../evidence/thirty_ninth_changes_2026-10-20.md)。无模型运行/文件删除。
+
+
+第四十批完成F01–F04核心三遍与各五项书面检查：可微矢量渲染、Gaussian曲线表示、真实笔触规划与共绘模型适配，核作者勘误/版本/预算/模拟代理。主目录340项，核心三遍90项；其余仍待逐项完成。见[矢量与机器人绘画审查](../evidence/differentiable_vectors_robot_painting_core_reading_2026-10-20.md)和[逐文件说明](../evidence/fortieth_changes_2026-10-20.md)。F02实际读v4HTML，正式PDF不完整未计；F03/F04预印本版本明确，无模型运行/文件删除。

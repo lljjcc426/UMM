@@ -216,3 +216,8 @@ E01 NeurIPS2025正式23页PDF；E02 arXiv2512.02012v2/官方Lyy-iiis/imeanflow�
 ## 第三十九批补充
 
 E04 NeurIPS2024正式41页核心/指定证明/附录配置，E05 ACL2025正式17页含B/C，E06 CVPR2025正式11页，E07 CVPR2021正式10页与arXiv HTML补A/D/E/G/H/I选段；核框架图/主表/现有消融，固定Git关键路径及F5 HF卡。CVF网页访问403，已取得正式PDF；未据摘要代替正文。Guide and Code2412.06264、SmoothCache2509.08696，以及TeaCache Related中的AdaCache/FasterCache/FORA/Δ-DiT/PAB等追引待逐项去重和正式原文，只有读取的库配置/已有论文部分计证据，未把追引名单计已读。
+
+
+## 第四十批补充
+
+F01正式15页+项目勘误，F02正式NeurIPS身份及arXiv2503.16424v4 HTML核心/附录A–E重点+Fig2/6原图，F03 arXiv2210.00664v1 PDF9页含AppA–C，F04 arXiv2402.13442v1 PDF7页；核框架/主表或主结果图/现有消融。F02正式PDF传输中断，完整旧v2仅版本对照，未把不完整正式文件列已读。Git分别固定diffvg85802a7、Bezier9612a22、FRIDA v1.0.0 df3f06f和CoFRIDA v2.0.0 1bf0205；Frida当前f42fa618只记身份。F02 Related/补充中的LIVSS、SGLIVE、O&R、GaussianImage、区域渐变/隐式色场、SVGFormer等需逐项去重续读；Frida train_lora.py与HF配套模型卡本批未深读，不能计完成。

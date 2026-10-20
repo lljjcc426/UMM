@@ -156,3 +156,8 @@ UniVideo冻结MLLM的理解成绩不能证明联合训练改善理解；Lance图
 ## 第三十九批补充
 
 离散FM同tokens/FLOPs/precision报PPL+entropy+代码或事件成功及延迟/吞吐；F5启发对齐需固定实际场评估数、参考条件、solver/CFG/vocoder，Sway不作物理时间控制。TeaCache独立70prompt校准及ROI/全局proxy、等延迟solver/cache对照，记录总成本和短笔漏失。clDice补同mask不同笔序、桥接/断连/交叉/多组件，固定实际k/α验证选择，全图+patch拓扑与时序事件共同评估。
+
+
+## 第四十批补充
+
+F01–F04补静态渲染器×剪增×opacity×逐层因子，固定实际参数/时间并分列单步与整图开销；标准SVG导出前后边界/透明度/层次检验；真实/理想renderer与闭环开环在同工具/动作/时间预算比较。CoFRIDA模拟差需真实执行检验，补风格同量FT/能力FT/分层/共享UMM，按真人中间画布/材料留出，统一语义差并保留neither/both。相同最终图不同合法/非法笔顺是空间指标反证，需事件方向/接触/短笔Recall共同测。

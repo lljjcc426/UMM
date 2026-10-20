@@ -49,10 +49,10 @@
 | E05 | F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching | primary_sections_read | [结构化分析](../reviews/E05.md) | 核心三遍与五项检查完成 |
 | E06 | Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model（TeaCache） | primary_sections_read | [结构化分析](../reviews/E06.md) | 核心三遍与五项检查完成 |
 | E07 | clDice: A Novel Topology-Preserving Loss Function for Tubular Structure Segmentation | primary_sections_read | [结构化分析](../reviews/E07.md) | 核心三遍与五项检查完成 |
-| F01 | Differentiable Vector Graphics Rasterization for Editing and Learning（diffvg） | primary_sections_read | [结构化分析](../reviews/F01.md) | 未完成 |
-| F02 | Bézier Splatting for Fast and Differentiable Vector Graphics | primary_sections_read | [结构化分析](../reviews/F02.md) | 未完成 |
-| F03 | FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment | primary_sections_read | [结构化分析](../reviews/F03.md) | 未完成 |
-| F04 | CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting | primary_sections_read | [结构化分析](../reviews/F04.md) | 未完成 |
+| F01 | Differentiable Vector Graphics Rasterization for Editing and Learning（diffvg） | primary_sections_read | [结构化分析](../reviews/F01.md) | 核心三遍与五项检查完成 |
+| F02 | Bézier Splatting for Fast and Differentiable Vector Graphics Rendering | primary_sections_read | [结构化分析](../reviews/F02.md) | 核心三遍与五项检查完成 |
+| F03 | FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment | primary_sections_read | [结构化分析](../reviews/F03.md) | 核心三遍与五项检查完成 |
+| F04 | CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting | primary_sections_read | [结构化分析](../reviews/F04.md) | 核心三遍与五项检查完成 |
 | F05 | Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model | primary_sections_read | [结构化分析](../reviews/F05.md) | 未完成 |
 | X01 | InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write | primary_sections_read | [结构化分析](../reviews/X01.md) | 未完成 |
 | R01 | Hanzi Writer（工具，不是论文） | primary_sections_read | [结构化分析](../reviews/R01.md) | 未完成 |

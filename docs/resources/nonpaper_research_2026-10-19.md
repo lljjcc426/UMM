@@ -165,3 +165,8 @@ MF固定d70cb55 JAX/TPU与B4发布checkpoint/FIDstats，另有作者py-meanflow/
 ## 第三十九批补充
 
 关联E04：facebookresearch/flow_matching固定11568d37，后续Guide库FineWeb-EDU/WikiText103示例、1Msteps/8H100/AdamW配置，采样1−exp跳转与原论文δ+h·u分列。关联E05：Git2f866649与HF84e5a410，Base1200K/v1 1250K/BigVGAN/no_zero_init权重清单，MIT代码与CC-BY-NC-4.0模型分列；只读卡/配置不下载权重。关联E06：ali-vilab/TeaCache7c10efc，opensora四阶系数、首末强算/残差/阈值与VBench/参考指标协议，Wan等适配待逐个审查。关联E07：jocpae/clDice47d31a6，PyTorch实际num_iter10与iter_接口不一致、hardmetric P/R命名对换但分数对称；未运行。均为配套制品，不重复计独立论文/资源。
+
+
+## 第四十批补充
+
+配套制品不重复计论文：diffvg85802a71（Apache2.0）读wrapper/use_prefiltering、弧长采样pdf和VAE/GAN关键配置，须结合官方Eq6/7勘误。Bezier9612a228（MIT）读gsplat依赖bcca3ec、Adan/剪增500步与正文差异、full_eval SSIM和导出helper；逐层代码README仍TODO。FRIDA ICRA2023 tag df3f06f（GPL3）与ICRA2024 CoFRIDA tag1bf0205分开，原3参数→12编码、RMSprop规划与Adam笔触拟合；CoFRIDA冻结VAE/text、UNet全参MSE/AdamW8bit发布脚本及额外数据过滤已核。当前HEADf42fa618不替原实验；train_lora与HF权重卡仍待补，不据仓库同名认定已精读/运行。
