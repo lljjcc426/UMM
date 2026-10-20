@@ -285,7 +285,7 @@
 | L177 | PaintFlow: A Unified Framework for Interactive Oil Paintings Editing and Generation | primary_sections_read | [结构化分析](../reviews/L177.md) | 核心三遍与五项检查完成 |
 | L178 | Drawing and Recognizing Chinese Characters with Recurrent Neural Network | primary_sections_read | [结构化分析](../reviews/L178.md) | 核心三遍与五项检查完成 |
 | L179 | UM-Text: A Unified Multimodal Model for Image Understanding and Visual Text Editing | primary_sections_read | [结构化分析](../reviews/L179.md) | 核心三遍与五项检查完成 |
-| L180 | Painter: Teaching Auto-Regressive Language Models to Draw Sketches | primary_sections_read | [结构化分析](../reviews/L180.md) | 未完成 |
+| L180 | Painter: Teaching Auto-Regressive Language Models to Draw Sketches | primary_sections_read | [结构化分析](../reviews/L180.md) | 核心三遍与五项检查完成 |
 | L181 | Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding | primary_sections_read | [结构化分析](../reviews/L181.md) | 未完成 |
 | N14 | SteerVTE: Seamless Video Text Editing with Style and Glyph Control | primary_sections_read | [结构化分析](../reviews/N14.md) | 未完成 |
 | S001 | Ketaba-OCR at AR-MS NakbaNLP 2026 | primary_sections_read | [结构化分析](../reviews/S001.md) | 未完成 |
@@ -325,7 +325,7 @@
 | G021 | A Rank Stabilization Scaling Factor for Fine-Tuning with LoRA | primary_sections_read | [结构化分析](../reviews/G021.md) | 核心三遍与五项检查完成 |
 | G022 | Diffusion Models in Vision: A Survey | primary_sections_read | [结构化分析](../reviews/G022.md) | 未完成 |
 | G023 | Efficient Diffusion Models: A Comprehensive Survey from Principles to Practices | primary_sections_read | [结构化分析](../reviews/G023.md) | 未完成 |
-| G024 | StrokeFusion: Vector Sketch Generation via Joint Stroke-UDF Encoding and Latent Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G024.md) | 未完成 |
+| G024 | StrokeFusion: Vector Sketch Generation via Joint Stroke-UDF Encoding and Latent Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G024.md) | 核心三遍与五项检查完成 |
 | G025 | Adding Conditional Control to Text-to-Image Diffusion Models | primary_sections_read | [结构化分析](../reviews/G025.md) | 核心三遍与五项检查完成 |
 | G026 | Classifier-Free Diffusion Guidance | primary_sections_read | [结构化分析](../reviews/G026.md) | 核心三遍与五项检查完成 |
 | G027 | Elucidating the Design Space of Diffusion-Based Generative Models | primary_sections_read | [结构化分析](../reviews/G027.md) | 核心三遍与五项检查完成 |

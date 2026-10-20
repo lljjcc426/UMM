@@ -330,3 +330,8 @@ L185配套无独立论文GPU/LoRA实现固定1958463与HF美学3941662/对齐23c
 ## 第七十三批补充（2026-10-21）
 
 L001数据声明处理数据/实现需向作者合理请求，未当公开可下载/未发索取消息；L004官方源包仅TeX/图/模板、未含正文引用supp或训练实现，不能当开源训练配方。未下载权重/执行。见[审查](../evidence/ordered_recovery_and_layout_strokes_audit_2026-10-21.md)。
+
+
+## 第七十四批补充（2026-10-21）
+
+StrokeFusion官方GitHub4fddf5d训练/采样/metric与HF abe809b数据/检查点纳入原G024制品关联，不重复新增独立论文。HF仅license卡、无配置说明；公共代码已摘实超参并注明与正式split/归一化/采样/metric差异，未权重下载/模型执行。见[审查](../evidence/painter_and_strokefusion_feedback_geometry_audit_2026-10-21.md)及[制品JSON](../../data/strokefusion_artifact_audit_2026-10-21.json)。

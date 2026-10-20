@@ -326,3 +326,8 @@ L185后续须同rollout/FLOPs/teacher墙钟比较优化器，因子化更数/交
 ## 第七十三批补充（2026-10-21）
 
 L001同骨干联合/后排序×起点来源、匹配复杂度/点密度并测方向/contact；L004 layout×MS四格、真/预测/扰动框，直接测CER/WER/词距/漏词与pen事件。两者同终态错序/反向、多seed，视频GT不能由静态恢复器自证。未运行。
+
+
+## 第七十四批补充（2026-10-21）
+
+Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规模控制；StrokeFusion norm×box×视觉输入×image loss，保长尾/匹配复杂度，统一FIDweights/PR球并集/k/RDP，再测合法顺序器/AR/规则SVG及反向事件。方案未运行。

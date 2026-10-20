@@ -215,3 +215,6 @@ python scripts/validate_catalog.py
 
 
 第七十三批（2026-10-21）补完L001有序轨迹恢复/L004布局笔迹核心，350目录、157核心/159书面，193条未确认核心三遍（含资源）。核严格OrderAcc边界/方向与密度、原始消融冲突及源包缺supp，见[审查](docs/evidence/ordered_recovery_and_layout_strokes_audit_2026-10-21.md)、[逐文件说明](docs/evidence/seventy_third_changes_2026-10-21.md)。无删除或模型复现。
+
+
+第七十四批（2026-10-21）补完Painter L180/StrokeFusion G024正式核心、实际表图及固定代码/HF；350目录、159核心/161书面，191条未确认核心三遍（含资源）。核反馈缺失消融、集合等变/笔顺边界、主表反例与PR实现差异，见[审查](docs/evidence/painter_and_strokefusion_feedback_geometry_audit_2026-10-21.md)、[逐文件说明](docs/evidence/seventy_fourth_changes_2026-10-21.md)。无删除或模型复现。

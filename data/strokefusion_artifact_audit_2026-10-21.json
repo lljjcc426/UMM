@@ -1,0 +1,180 @@
+{
+  "id": "G024",
+  "checked_on": "2026-10-21",
+  "github_revision": "4fddf5d834909bc838faa68f20e7c5ac104c5173",
+  "huggingface_revision": "abe809b1850d2dd0404ad477d5f8141c67206c60",
+  "github_files_read": [
+    "README.md",
+    "train.py",
+    "train_diff.py",
+    "nets/diffusion.py",
+    "models/stroke_fusion.py selected encoder/decode/loss",
+    "models/sketch_diffusion.py training optimizer sampler/RDP",
+    "metrics/metrics.py calculation/preprocess",
+    "data_process/sketch_data.py normalization/distance/split/collate",
+    "sample.py selected configuration"
+  ],
+  "hf_card": "license cc-by-nc-4.0 only; no training card detail",
+  "hf_files": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "README.md"
+    },
+    {
+      "rfilename": "creative/creative_birds.npz"
+    },
+    {
+      "rfilename": "creative/creative_creatures.npz"
+    },
+    {
+      "rfilename": "facex.tar.gz"
+    },
+    {
+      "rfilename": "ready ckpt/best_airplane.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_apple.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_bus.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_cat.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_chair.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_creative_birds.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_creative_creatures.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_face.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_face_no_picture.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_facex.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_fish.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_moon.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_pizza.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_shoe.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_spider.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_television.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_train.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_tu_berlin.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_tu_berlin_diff_1.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/best_umbrella.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_airplane_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_apple_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_bus_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_cat_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_chair_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_creative_birds_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_creative_creatures_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_face_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_face_diff_4.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_face_no_picture_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_facex_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_fish_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_moon_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_pizza_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_shoe_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_spider_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_television_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_train_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_tu_berlin_diff_0.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_tu_berlin_diff_0_64.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_tu_berlin_diff_1.ckpt"
+    },
+    {
+      "rfilename": "ready ckpt/last_umbrella_diff_0.ckpt"
+    },
+    {
+      "rfilename": "tu_berlin.tar.gz"
+    }
+  ],
+  "code_license": "No license metadata in GitHub API; do not infer HF asset license covers code or original data",
+  "findings": [
+    "正式10K生成图FID↓与kNNprecision/recall↑、RDP简化；未报多seed/CI。公开metrics用torchvision InceptionV3 ImageNet预训练/去fc/299²白padding+ImageNetnormalize，非默认可互换的标准FID权重。PR脚本k参数默认20（函数默认3），仅最近中心半径判定，与所引NeurIPS2019§2Eq1任一球覆盖的并集定义一般不等价。此为固定代码静态差异，未确认原表使用同版，不能擅自重算或否定报告数值。无笔间序/方向/时间/接触/物理可执行指标。",
+    "正式未给优化器/LR/batch/总epochs/硬件/运行时和seed；公开4fddf5d代码另记录：VAE d_f64/Np64、坐标权10/点有效性BCE.1/image10/KL.001，AdamW1e-4，train.py b18/device1/无限epochs；stage2 b256/两GPU、16层512宽16头/drop.1、1000线性DDPM噪声MSE/AdamW1e-4/10epochwarmup后恒lr、Ns32筛长，不是已确认原表完整配方。采样1000步clip_sampleFalse，RDP在放大128像素坐标epsilon2；presence训练缩.5但符号不变。总预算/独立种子缺，代码默认dataset与checkpoint命名混用需显式配置，未运行。",
+    "T3 full moon25.00/.68/.41、TV16.28/.63/.55、spider15.19/.71/.48，均优去归一化与去image对照。去归一化同时去box，不能隔离单一规范化；正文去image设γ0，Eq3/4使非空距离场恒1，去几何输入还改变重建目标，非单纯关loss/等容量因子。未给gamma0脚本/配置。F6可视支持结构崩坏但无CI；无纯point/field、norm×box×visual完整因子或条件方向测试。",
+    "有笔画语义的训练集前提，跨多个部件的长笔/复杂高频几何难学，99分位丢长尾/固定Ns32影响分布。正式称推理只vectordecoder但limitations称UDF解码开销；固定DualModal.decode实际同时跑vector+image，sampler弃后者，静态可见额外算量但无运行测时。视觉场对整笔反向不敏感，点序分支可能保留方向却无方向度量，笔间无序丢执行约束。公开code/metric/normalization/split与正式描述差异须保留；不能用FIDs宣称自然笔顺或共享UMM收益。"
+  ],
+  "downloaded_weights": false,
+  "model_executed": false,
+  "links": [
+    "https://ojs.aaai.org/index.php/AAAI/article/view/38372",
+    "https://ojs.aaai.org/index.php/AAAI/article/download/38372/42334",
+    "https://github.com/doudin404/StrokeFusion/tree/4fddf5d834909bc838faa68f20e7c5ac104c5173",
+    "https://huggingface.co/doudin404/stroke_fusion/tree/abe809b1850d2dd0404ad477d5f8141c67206c60",
+    "https://proceedings.neurips.cc/paper_files/paper/2019/file/0234c510bc6d908b28c70ff313743079-Paper.pdf"
+  ]
+}

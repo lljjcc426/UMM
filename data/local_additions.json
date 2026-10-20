@@ -11813,22 +11813,23 @@
     "title": "Painter: Teaching Auto-Regressive Language Models to Draw Sketches",
     "source_urls": [
       "https://arxiv.org/abs/2308.08520",
-      "https://openaccess.thecvf.com/content/ICCV2023W/MMFM/html/Pourreza_Painter_Teaching_Auto-Regressive_Language_Models_to_Draw_Sketches_ICCVW_2023_paper.html"
+      "https://openaccess.thecvf.com/content/ICCV2023W/MMFM/html/Pourreza_Painter_Teaching_Auto-Regressive_Language_Models_to_Draw_Sketches_ICCVW_2023_paper.html",
+      "https://openaccess.thecvf.com/content/ICCV2023W/MMFM/papers/Pourreza_Painter_Teaching_Auto-Regressive_Language_Models_to_Draw_Sketches_ICCVW_2023_paper.pdf"
     ],
-    "method": "构造MultiObjectQuickDraw合成数据与六任务，HTML样式字符串编码笔触，逐笔渲染→反馈RGB→后续AR笔触。 OPT125M/1.3B全量finetune，冻结ResNet50，除末层外残差单头crossattn接图特征+位置；普通LLM词表不加specialtokens，response CE屏蔽placeholder。黑色1pixel画/白色2pixel擦，擦除即覆盖不保证还原重叠对象。",
-    "conclusion": "Table3 1.3B仅绘画分类3.20%，加Pile40.26%；125M则34.50→17.57%，文本正则并非各规模都提升。1.3B+Pile擦all20.64/partial23.90PSNR、reproduce16.97比无Pile17.20差；主生成能力只有选例，不能声称量化领先。",
-    "gap": "仅345类、模板关系合成/真实手绘分布差，确切字符串判分会罚等义句。无主生成定量，白底PSNR易掩盖内容，白色擦除破坏交叠前景；“画布反馈”不自动等于检测错误后修复。",
-    "problem": "让预训练自回归LLM直接生成绘画笔触，并结合中间画布反馈执行生成/编辑/识别多任务。",
+    "method": "从QuickDraw与VisualGenome关系框合成MultiObjectQuickDraw六任务；HTML样式字符串编码stroke颜色/宽度/点串；OPT加冻结ResNet50视觉支路/残差crossattn，每笔渲染画布后反馈并递归继续，标准response-only CE与ThePile联合训练。 OPT125M/1.3B全参数微调；ResNet50预训练冻结，图像特征拼空间位置；图占位处以LLM hidden作Q、图特征作K/V，除最后LLM层外加入单头残差crossattn，后续文本可经selfattn利用图。所有HTML/数字沿原tokenizer、无新增specialtoken。训练只response CE并屏蔽image占位；训练GT中间画布、推理生成中间画布存在暴露差异。Eq1层上限复用L（前文文本长度）与N图层记号不统一，按正文“除末层”和F1解释，不据此猜代码。黑1px画/白2px覆盖擦，非对象图层恢复。",
+    "conclusion": "正式T3 125M分类34.50→17.57（加Pile），1.3B 3.20→40.26；不能说文字正则总改善。1.3B擦all19.56→20.64、partial22.27→23.90PSNR，复画17.20→16.97变差；125M复画17.74→17.21同样降。较大模型加Pile分类较好，但复画全表125M无Pile17.74最高。没有训练seed/区间。新画/补画仅selected样本支持可行性，不证明普遍构图/关系准确。",
+    "gap": "六任务合成/345类封闭词表、精确字符串分类限制、生成无主量化；GT中间画布到错误生成画布的分布偏移未测。白色擦除破坏交叠前景，终图PSNR未分对象区域；长轨迹token/context成本未报。混合文本收益不普遍，反馈未独立消融。AR按时间不约束规范顺序/真实动作，attention热图不构成因果纠错证据。",
+    "problem": "将预训练语言模型变成生成笔触、接收画布反馈的绘画模型，同时执行文本条件新画/补画/擦除/复画/分类。输出虚拟画布动作，可渲染过程；未建模真实手部视频或规范汉字笔顺。",
     "claim": "作者研究目标：让预训练自回归LLM直接生成绘画笔触，并结合中间画布反馈执行生成/编辑/识别多任务。",
-    "version": "Painter: Teaching Auto-Regressive Language Models to Draw Sketches，ICCV2023 Workshops/MMFM pp305–314；精读arXiv:2308.08520",
+    "version": "Painter: Teaching Auto-Regressive Language Models to Draw Sketches；ICCV2023 Workshops/MMFM pp305–314，正式CVF开放10页版本。是workshop，不能标作ICCV主会；arXiv2308.08520为对应预印本。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15笔顺专题原文核查",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L180",
     "canonical_key": "paper:arxiv:2308.08520",
     "evidence_history": [
@@ -11860,17 +11861,22 @@
         "conclusion": "官方摘要包含文字到草图、删除对象、检测与分类。",
         "gap": "本轮仅核查官方摘要；不是中文笔顺实验。",
         "note_path": "docs/handwriting/06_stroke_order_evidence.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 74,
+        "scope": "ICCV2023W/MMFM正式开放10页中的核心Abstract/§1/§2.1–2.3/§3.1–3.3/§4.1–4.2/Conclusions全部研究文本，Eq1/T1–3/F1–6图注；实际p307框架/指令、p308反馈流程/主表核看。定性选图文字及既有attention证据已分析，全部输出像素/参考文献逐项未审；无独立附录声称、无作者代码/模型执行。"
       }
     ],
-    "sections_read": "§2–3完整数据/模型/loss/训练及Table3和discussion，Table1/2协议；§4相关工作，正式CVF元数据核查；全部图/实现未逐项检查",
+    "sections_read": "ICCV2023W/MMFM正式开放10页中的核心Abstract/§1/§2.1–2.3/§3.1–3.3/§4.1–4.2/Conclusions全部研究文本，Eq1/T1–3/F1–6图注；实际p307框架/指令、p308反馈流程/主表核看。定性选图文字及既有attention证据已分析，全部输出像素/参考文献逐项未审；无独立附录声称、无作者代码/模型执行。",
     "review_path": "docs/reviews/L180.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "QuickDraw50M/345类→VisualGenome关系框合成约300K，其他随机1–4对象/位置；完整20M、实际用2M(300K关系+1.7M位置)，约1000eval。BLOOM176B改写模板，ThePile文本保知识；原QuickDraw样本/对象组合身份隔离未详。",
-    "framework": "构造MultiObjectQuickDraw合成数据与六任务，HTML样式字符串编码笔触，逐笔渲染→反馈RGB→后续AR笔触。",
-    "architecture": "OPT125M/1.3B全量finetune，冻结ResNet50，除末层外残差单头crossattn接图特征+位置；普通LLM词表不加specialtokens，response CE屏蔽placeholder。黑色1pixel画/白色2pixel擦，擦除即覆盖不保证还原重叠对象。",
-    "metrics": "classification exactlabel；removeall/removepartial/reproduce PSNR/MSE，generateall/partial仅定性且无用户研究。没有笔触顺序人类合理性或闭环错误恢复评价。",
-    "baselines": "Table3仅OPT两尺寸×有/无ThePile；相关SketchRNN/Sketchforme/Sketchformer/Parti没有匹配主生成量化基线；未消融视觉反馈/视觉encoder。",
-    "experimental_conditions": "2A100/1epoch/b4/Adam1e-5；classificationgreedy、其他top-p.9；256²合成canvas、白底细线。ThePile配比、总体步数与生成token/时延未报，较大模型训练数据/seed差异未独立核。"
+    "dataset": "QuickDraw公称50M/345类，经VisualGenome框/关系筛两端都在类别表并缩放到256²、扰动框约300K；其余随机1–4物体/类别/位置，完整合成约20M，实际训练/验证/评估取约2M（300K关系+1.7M位置），约1000用于eval，余train/val但比例未报。BLOOM176B改写六任务模板，随机抽prompt；ThePile文字正则配比/精确曝光缺。原始对象身份、组合、关系和prompt模板去重/分布留出未完整给。",
+    "framework": "从QuickDraw与VisualGenome关系框合成MultiObjectQuickDraw六任务；HTML样式字符串编码stroke颜色/宽度/点串；OPT加冻结ResNet50视觉支路/残差crossattn，每笔渲染画布后反馈并递归继续，标准response-only CE与ThePile联合训练。",
+    "architecture": "OPT125M/1.3B全参数微调；ResNet50预训练冻结，图像特征拼空间位置；图占位处以LLM hidden作Q、图特征作K/V，除最后LLM层外加入单头残差crossattn，后续文本可经selfattn利用图。所有HTML/数字沿原tokenizer、无新增specialtoken。训练只response CE并屏蔽image占位；训练GT中间画布、推理生成中间画布存在暴露差异。Eq1层上限复用L（前文文本长度）与N图层记号不统一，按正文“除末层”和F1解释，不据此猜代码。黑1px画/白2px覆盖擦，非对象图层恢复。",
+    "metrics": "主T3分类exact输出标签匹配与擦all/partial、复画PSNR↑，正文提MSE但表未报；新画/补画因预算无用户研究、只有定性，不能写FID/人评/生成SOTA。白底PSNR易偏背景，exact匹配会罚等义关系描述及近似类别。无严格笔序/方向/事件、真实纠错恢复、延迟和NFE指标。",
+    "baselines": "主量化只有OPT两尺寸×有/无ThePile四行；SketchRNN/Sketchforme/Sketchformer/Parti只相关工作，无等预算生成头对照。没有关掉反馈、不同频率/encoder或多任务单任务消融。ResNet比CLIP更适合像素的理由是动机，非已证比较；不同规模性能不能直接当独立训练预算缩放律。",
+    "experimental_conditions": "两A100、Adam1e-5、batch4、一epoch；OPT FT/encoder冻结/crossattn随机初始化。256²合成细线白底；分类greedy、其余top-p=.9；所有定性默认1.3B+Pile，F6 attention图特用125M。未给A100显存型、seed/多次训练CI、Pile配比、maxcontext/序列限制、每任务样本数、总tokens/墙钟。正式论文未给实现或数据下载链接，本次仅核正式文献，不宣称公共代码已可用。"
   },
   {
     "title": "Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding",
