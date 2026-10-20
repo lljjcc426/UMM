@@ -406,3 +406,6 @@ L063 NeurIPS2025正式页/41页PDF/官方Supplemental ZIP，完整核心§1–6/
 ## 第七十七批补充（2026-10-21）
 
 L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHub94f2a059指定代码/notebook/log/完整CSV；L184 Wiley正式15页核心文本/公式/T1–4数值/图注，实际图表视觉仍未验，不计核心三遍；下载403/截图超时不反复重试。
+
+
+第七十八批（2026-10-21）：采用ICCV2023正文/正式supplement、ICLR2024 Emu正式全文核心与AppA–D，核实际框架/结果/消融；固定官方代码及HF元数据，只读未执行。见[审查](versatile_diffusion_and_emu_evidence_audit_2026-10-21.md)和[单篇L075](../reviews/L075.md)、[L077](../reviews/L077.md)。

@@ -346,3 +346,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 ## 第七十七批补充（2026-10-21）
 
 女书同源句/书页去重固定split、真实字体/书家留出、原始CER/EM和轨迹事件监督对照；Stroke-Seg ID重编号/gold-pred-noisy识别、count/ID拆分、class/multilabel/loss全因子及同类相交实例，公开一对一匹配/阈值与总识别成本。未运行。
+
+
+第七十八批（2026-10-21）：补等额外2.4K步的时序/字幕干预、同数据预算共享消融、同prompt/RICES/后处理和全部退步分项；加笔事件与RGB指标，方案未运行。见[审查](../evidence/versatile_diffusion_and_emu_evidence_audit_2026-10-21.md)和[单篇L075](../reviews/L075.md)、[L077](../reviews/L077.md)。

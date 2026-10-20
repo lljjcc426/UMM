@@ -180,9 +180,9 @@
 | L072 | UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L072.md) | 未完成 |
 | L073 | OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework | primary_sections_read | [结构化分析](../reviews/L073.md) | 核心三遍与五项检查完成 |
 | L074 | Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks | primary_sections_read | [结构化分析](../reviews/L074.md) | 未完成 |
-| L075 | Versatile Diffusion: Text, Images and Variations All in One Diffusion Model | primary_sections_read | [结构化分析](../reviews/L075.md) | 未完成 |
+| L075 | Versatile Diffusion: Text, Images and Variations All in One Diffusion Model | primary_sections_read | [结构化分析](../reviews/L075.md) | 核心三遍与五项检查完成 |
 | L076 | One Transformer Fits All Distributions in Multi-Modal Diffusion at Scale | primary_sections_read | [结构化分析](../reviews/L076.md) | 未完成 |
-| L077 | Emu: Generative Pretraining in Multimodality | primary_sections_read | [结构化分析](../reviews/L077.md) | 未完成 |
+| L077 | Emu: Generative Pretraining in Multimodality | primary_sections_read | [结构化分析](../reviews/L077.md) | 核心三遍与五项检查完成 |
 | L078 | Planting a SEED of Vision in Large Language Model | primary_sections_read | [结构化分析](../reviews/L078.md) | 未完成 |
 | L079 | Unified Language-Vision Pretraining in LLM with Dynamic Discrete Visual Tokenization | primary_sections_read | [结构化分析](../reviews/L079.md) | 未完成 |
 | L080 | NExT-GPT: Any-to-Any Multimodal LLM | primary_sections_read | [结构化分析](../reviews/L080.md) | 未完成 |

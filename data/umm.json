@@ -4372,22 +4372,26 @@
     "source_urls": [
       "https://arxiv.org/abs/2211.08332",
       "https://arxiv.org/html/2211.08332",
-      "https://openaccess.thecvf.com/content/ICCV2023/html/Xu_Versatile_Diffusion_Text_Images_and_Variations_All_in_One_Diffusion_ICCV_2023_paper.html"
+      "https://openaccess.thecvf.com/content/ICCV2023/html/Xu_Versatile_Diffusion_Text_Images_and_Variations_All_in_One_Diffusion_ICCV_2023_paper.html",
+      "https://openaccess.thecvf.com/content/ICCV2023/papers/Xu_Versatile_Diffusion_Text_Images_and_Variations_All_in_One_Diffusion_ICCV_2023_paper.pdf",
+      "https://openaccess.thecvf.com/content/ICCV2023/supplemental/Xu_Versatile_Diffusion_Text_ICCV_2023_supplemental.pdf",
+      "https://github.com/SHI-Labs/Versatile-Diffusion/tree/cf0f4a2bc426a0567c672e4ab3dfbf61af0e265c",
+      "https://huggingface.co/shi-labs/versatile-diffusion/tree/2926f8e11ea526b562cd592b099fcf9c2985d0b7"
     ],
-    "method": "共享global时间层，按输出选择data层、按条件选择crossattention context层，四flow积累梯度后更新。 SD1.4初始化UNet图像残差data/图文crossattn、global时间；文本FCResBlock将768latent扩展320×4。图像AutoKL、文字Optimus(BERT/GPT2)单768向量；CLIP图文归一化投影特征作条件，四flow共享部分参数，不是所有层相同。",
-    "conclusion": "正文Figure6 T2I SD11.21±.03 vs四flow11.10±.09，小幅差异；variation18.81±.06→4.57±.02。作者声称全面优于baseline，但文字定性与附录明确承认弱点，不能推出语言最优。UniDiffuser后续论文重算VD FID10.09与此口径不同，需保留版本/评估协议。",
-    "gap": "Optimus单向量丢词序、长句重复，训练域PTB/SNLI/Yahoo/Yelp到webcaption偏移；作者在AppE明确讨论。所有“更省训练”比较继承SD预训练，未计其沉没成本；没有视频或规范笔顺。",
-    "problem": "一个扩散网络支持图文双向生成和同模态variation，并混合多条件。",
+    "method": "把UNet拆为任务共用global时间层、按输出选取的data残差层、按条件选取的context crossattention；累积四flow梯度再更新。共享图像data与图/文context支持深层条件加权或逐层选择；Optimus文本latent补上to-text输出。 图像AutoKL f8；文本Optimus BERT/GPT2将整句压成单768向量；文本FCResBlock扩为320×4，global time embedding共用；CLIP图文用normalized/projected特征。图像patch257×768做PCA，保留或移除主要局部主成分经验控制style/semantic，global保持；不保证可识别独立因果因素。正式Eq1将边缘q(xT|x0)写成整路径条件密度乘积，barαt乘积上界写T；需积分中间变量/上界t才是标准边缘式，不把排版记号疑点推为代码错误。正式Eq3是NLL的变分上界。",
+    "conclusion": "正式F6文生图SD11.21±.03→四flow11.10±.09，降低.11；variation18.81±.06→4.57±.02，降低14.24。±口径不明，不能作显著性检验。F5文字生成有重复/错描述，补充§5承认主要瓶颈是文本latent和域偏移；结论“全部base tasks优于baseline”缺全部文字任务定量支持。F7评审偏好图未给统一可复算每类数表/区间，不从选例推普遍优势。",
+    "gap": "单768句latent难保词序/长句，PTB/SNLI/Yahoo/Yelp到网页caption域偏移，附录承认重句；CLIP PCA并无独立语义风格定理。4flow语义/生成成功不等于同预算正迁移。官方cf0f4a2b p_losses计算loss_vlb仅作日志，返回默认simple ε-MSE；与正文weighted-L2描述需分开。README I2T2I暂下线、未来才支持视频，HF同时留deprecated权重；未把所查代码与原表训练版本视为同一。无笔事件/时间/执行约束。",
+    "problem": "一个多路潜空间扩散网络支持文生图、图像variation、图生文字和文字variation，并派生多条件混合与编辑。本文只实际实现图/文，音频/视频/3D列为可扩展方向；没有书写事件或视频生成实验。",
     "claim": "研究目标：一个扩散网络支持图文双向生成和同模态variation，并混合多条件。",
-    "version": "ICCV2023；arXiv首次2022",
+    "version": "Versatile Diffusion: Text, Images and Variations All in One Diffusion Model；正式ICCV2023，pp7754–7765；CVF accepted版正文12页和正式supplement16页，以此表号/数值为准。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L075",
     "canonical_key": "paper:arxiv:2211.08332",
     "evidence_history": [
@@ -4419,17 +4423,22 @@
         "conclusion": "表明多模态统一并非只源自 LLM；任务接口和模块共享已经是早期问题",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 78,
+        "scope": "正式CVF accepted正文Abstract/§1–5全部核心研究文字、Eq1–3/Alg1/T1和图注；实际p7756公式、7757–7758框架/FCResBlock、7759定性和7760完整主结果/梯度表已核。正式supplement§1.1–1.4/§2.1–2.2/§3.1–3.3/§5全文、§4文字variation表指定样例；末图库未逐图/参考文献未逐篇。官方固定cf0f4a2b README到应用/数据/权重说明，configs/model/vd.yaml全文，lib/model_zoo/vd.py初始化/目标/路由/混合段、diffusion_utils.py噪声/DDIM调度段、ddim.py采样/CFG段、app.py默认/四任务入口；HF元数据/文件树。未通读全仓库、下载权重、执行模型或独立复现。"
       }
     ],
-    "sections_read": "§3全部、§4.1–4.5/表1/Fig6文字数值、AppC清洗/训练、AppE局限；部分图未视觉读、采样细节未全核、未复现",
+    "sections_read": "正式CVF accepted正文Abstract/§1–5全部核心研究文字、Eq1–3/Alg1/T1和图注；实际p7756公式、7757–7758框架/FCResBlock、7759定性和7760完整主结果/梯度表已核。正式supplement§1.1–1.4/§2.1–2.2/§3.1–3.3/§5全文、§4文字variation表指定样例；末图库未逐图/参考文献未逐篇。官方固定cf0f4a2b README到应用/数据/权重说明，configs/model/vd.yaml全文，lib/model_zoo/vd.py初始化/目标/路由/混合段、diffusion_utils.py噪声/DDIM调度段、ddim.py采样/CFG段、app.py默认/四任务入口；HF元数据/文件树。未通读全仓库、下载权重、执行模型或独立复现。",
     "review_path": "docs/reviews/L075.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "LAION2B-en/COYO700M，CLIP>.3/NSFW<.3/watermark<.3、aspect.6–1.6667、area>256²×.75。to-text去URL/HTML/括号/符号等，to-image不清洗。各版本256²30M样本再512²6.4M；每阶段从上一ckpt接续。",
-    "framework": "共享global时间层，按输出选择data层、按条件选择crossattention context层，四flow积累梯度后更新。",
-    "architecture": "SD1.4初始化UNet图像残差data/图文crossattn、global时间；文本FCResBlock将768latent扩展320×4。图像AutoKL、文字Optimus(BERT/GPT2)单768向量；CLIP图文归一化投影特征作条件，四flow共享部分参数，不是所有层相同。",
-    "metrics": "COCO30k图像FID、2000样本四评审投票、caption/文字variation主要定性；不是仅凭FID证明全任务语言质量。",
-    "baselines": "SD1.4、SDvariation、BLIP，阶段1/2/4flow；图文联合成本和预训练条件不同。",
-    "experimental_conditions": "1000步DDPM线性β8.5e-5→.012；1/2flow lr1e-4 b2048/1024，4flow5e-5 b512；图像data梯度.1/.1/.2、global.1、其他已激活层1。8A10080GB梯度累积，perGPU256²b64/512²b16。具体采样器/重复FID方差定义未全核。"
+    "dataset": "LAION2B-en/COYO700M网页图文，CLIP>.3/NSFW<.3/watermark<.3，宽高比.6–1.6667、面积>256²×.75；to-text额外去URL/HTML/括号/符号，to-image不清洗。各阶段256²消耗30M样本再512²6.4M，1→2→4flow继续前阶段checkpoint；不是独立从零只花一次36.4M，也未计SD初始化预训练。过滤后总去重数/与COCO重叠未完整给出。",
+    "framework": "把UNet拆为任务共用global时间层、按输出选取的data残差层、按条件选取的context crossattention；累积四flow梯度再更新。共享图像data与图/文context支持深层条件加权或逐层选择；Optimus文本latent补上to-text输出。",
+    "architecture": "图像AutoKL f8；文本Optimus BERT/GPT2将整句压成单768向量；文本FCResBlock扩为320×4，global time embedding共用；CLIP图文用normalized/projected特征。图像patch257×768做PCA，保留或移除主要局部主成分经验控制style/semantic，global保持；不保证可识别独立因果因素。正式Eq1将边缘q(xT|x0)写成整路径条件密度乘积，barαt乘积上界写T；需积分中间变量/上界t才是标准边缘式，不把排版记号疑点推为代码错误。正式Eq3是NLL的变分上界。",
+    "metrics": "COCO30K生成图对validation的FID↓，四评审分担2000样本偏好/同好投票；图生文字对BLIP和文字variation主要定性，未给完整CIDEr/语言质量主表。FID衡量边缘图像分布，不能单独证明输入图条件保真或语义保持；F6的±未明确重复次数/统计定义，不能解释为训练seed置信区间。",
+    "baselines": "SD1.4文生图、独立SD-variation图variation、BLIP图生文字；1/2/4flow与VD-Alt，以及model/layer/attention混合。DALL-E2/Imagen因无公开代码模型未同条件测；引用文献FID和作者自测须分开。各阶段数据/续训/梯度尺度共同改变，缺同初始化、同数据曝光/总FLOPs的四独立模型主对照。",
+    "experimental_conditions": "正文DDPM1000步、称β线性8.5e-5→.012；1/2flow lr1e-4/b2048/1024，4flow5e-5/b512，图data梯度.1/.1/.2、global.1、活跃context和textdata1。8A10080GB梯度累积，perGPU256²b64/512²b16。正式F6扫CFG2.5/5/7.5而完整FID脚本/随机重复与精确采样协议未核。固定官方cf0f4a2b配置β_start .00085（正文十倍），make_beta_schedule的linear为sqrt端点线性后平方；app DDIM50/eta0/CFG7.5、numpy seed/torch seed+100，不充当原FID运行配置。"
   },
   {
     "title": "One Transformer Fits All Distributions in Multi-Modal Diffusion at Scale",
@@ -4499,22 +4508,26 @@
     "title": "Emu: Generative Pretraining in Multimodality",
     "source_urls": [
       "https://arxiv.org/abs/2307.05222",
-      "https://arxiv.org/html/2307.05222"
+      "https://arxiv.org/html/2307.05222",
+      "https://proceedings.iclr.cc/paper_files/paper/2024/hash/34d5143080c89a7ce10932c8c5e1907f-Abstract-Conference.html",
+      "https://proceedings.iclr.cc/paper_files/paper/2024/file/34d5143080c89a7ce10932c8c5e1907f-Paper-Conference.pdf",
+      "https://github.com/baaivision/Emu/tree/d9f12f431a4ea8219bd80ed2aa3173b7fa26fb12/Emu1",
+      "https://huggingface.co/BAAI/Emu/tree/9d5face1ae9d8f5cd5c0ed891dc09e47833d06e1"
     ],
-    "method": "EVA视觉编码+CausalTransformer连续视觉序列，文字CE/视觉L2的AR联合预训，再调SD解码器。 EVA01CLIP1B+12block causal self/cross transformer+Llama13B，总14B；视觉embedding连续回归头、文字分类头。SD1.5 UNet微调生成像素，冻结主干/VAE；下游Emu-I仅selfattention LoRA。Causal embedding顺序不等于物理事件因果。",
-    "conclusion": "COCO零样本CIDEr112.4；T2I COCO30k FID11.66优于GILL12.20、弱于SD1.5 9.93，PNDM50步CFG Emu5/SD3各自调优。Emu-I VQAv2 62.0 vsFlamingo80B56.3，但额外SFT、评估提示与数据需计入。",
-    "gap": "视觉decoder外部扩散成本和预训要计；embedding回归可丢多峰/细节，英文为主、幻觉/AR慢作者明确承认。字幕与缩略图时间相邻不保证笔画标签/对齐，过程细节采样丢失；未证实双向训练协同。",
-    "problem": "在图文与视频字幕交错序列中预测下一个文字或视觉embedding，获得多模态上下文学习。",
+    "method": "EVA-CLIP视觉编码→带causal selfattention/全图crossattention的Causal Transformer→LLaMA交错AR，文字CE与视觉L2两头监督；单独微调SD1.5 UNet从预测visual embedding解码图像。交错视频数据和仅LLM selfattention LoRA的Emu-I是另两项阶段/制品。 EVA01CLIP1B40层ViT、随机初始化12block Causal Transformer与LLaMA13B，主体14B（不含外部SD的全部部署参数）；文本分类/视觉回归头，SD crossattention线性适配维度。固定公开Emu-14B.json n_causal32，CausalFormer从T5Config初始化可学query并投影。Eq1将全数据log条件和写≈p(x)，字面混同log似然与概率；可按latent AR训练动机理解，未给原像素似然的可逆变换/ELBO证明，不能把任意连续L2说成完整原图最大似然定理。",
+    "conclusion": "正式T1 Emu COCO112.4/NoCaps96.5/Flickr72；无星号OKVQA38.2<Flamingo44.7，VisDial47.4<48，MSVD18.8<30.2/MSRVTT8.3<13.7/NExT19.6<23。Emu*分别42.8仍<44.7、47.8<48，其余视频34.3/17.8/23.4改善。SFT Emu→Emu-I无星号VizWiz34.2→32.2、VisDial47.4→43、NExT19.6→5.8下降；同星号NExT23.4→19.9也下降。T2 FID11.66优于GILL12.20但弱于SD1.5 9.93/CM3Leon另表10.82。T3 8shot MSVD39.8<Flamingo40.8；T4总36.3±.3高于LLaVA35.5±.3，但OCR19.2<28.2/Spatial25.2<33/Math3.8<15（亦低DreamLLM）。不能将总分领先写为各能力领先。",
+    "gap": "英文为主、幻觉、知识时效与AR慢作者§7已列；全图条件的causal latent不表示真实事件时序，8帧可能漏细笔。视觉L2易压多峰，独立SD条件空间迁移导致FID劣于SD，作者承认。官方固定d9f12f43 README预训/SFT代码仍未勾选；已公开推理/评价/权重及YT采集处理工具不能当原训练全流程。image_inference.py assert禁止Emu-I直接图生成，pipeline默认CFG7.5不同原FID5；generate_image逐32latent重算前缀、此函数未传复用pastKV。未实测耗时，不据此给倍数。",
+    "problem": "学习交错文字、图像和采样视频帧的下一个文字token或连续视觉embedding，支持多模态上下文理解及静态图像生成。视频为输入与预训练来源，主实验未定义连续视频输出、书写动作或笔顺生成。",
     "claim": "研究目标：在图文与视频字幕交错序列中预测下一个文字或视觉embedding，获得多模态上下文学习。",
-    "version": "Emu，2023",
+    "version": "Emu: Generative Pretraining in Multimodality；正式ICLR2024 Conference，官方proceedings固定论文PDF29页；已核正式题录，以正式§/表号为准。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L077",
     "canonical_key": "paper:arxiv:2307.05222",
     "evidence_history": [
@@ -4546,17 +4559,22 @@
         "conclusion": "让同一序列模型具备图文输入输出与上下文学习；统一序列并不要求所有模态使用相同数值表示",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 78,
+        "scope": "正式ICLR2024 PDF Abstract/§1–8全部核心研究文字、Eq1–2/T1–4及图注；AppA.1–A.2/B.1–B.2/C.1–C.3/D与T5–11全部文字表项，E图库/伦理展开未逐项穷尽、参考文献未逐篇追读。实际p4框架/公式、p7 T1、p8 T2–4、p17 T5–6已视觉核看。固定d9f12f43 Emu1 README核心/权重/roadmap、YT数据README全文、models/Emu-14B.json和causal_former.py全文、image_inference.py全文、pipeline.py初始化/采样/条件段、modeling_emu.py初始化与generate_image段、prediction_mixin.py相关入口检索；HF元数据/文件树。未通读底层全部代码/伦理每项/图库，未下载权重或运行/独立复现。"
       }
     ],
-    "sections_read": "§2–4完整流程/数据、§5主表2/解释/局限、AppA训练/消融表5–7、AppB1；部分图与主表1/3/4未逐行、未复现",
+    "sections_read": "正式ICLR2024 PDF Abstract/§1–8全部核心研究文字、Eq1–2/T1–4及图注；AppA.1–A.2/B.1–B.2/C.1–C.3/D与T5–11全部文字表项，E图库/伦理展开未逐项穷尽、参考文献未逐篇追读。实际p4框架/公式、p7 T1、p8 T2–4、p17 T5–6已视觉核看。固定d9f12f43 Emu1 README核心/权重/roadmap、YT数据README全文、models/Emu-14B.json和causal_former.py全文、image_inference.py全文、pipeline.py初始化/采样/条件段、modeling_emu.py初始化与generate_image段、prediction_mixin.py相关入口检索；HF元数据/文件树。未通读底层全部代码/伦理每项/图库，未下载权重或运行/独立复现。",
     "review_path": "docs/reviews/L077.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "LAION2B/LAIONCOCO600M、MMC4约75M文档/400M图/38B文本token、WebVid10M；YTStoryboard18M视频/1.8B缩略图+字幕按时间交错，不是1.8B原视频。224²，MMC4最多5图/随机段，82M消耗样本约150B tokens。",
-    "framework": "EVA视觉编码+CausalTransformer连续视觉序列，文字CE/视觉L2的AR联合预训，再调SD解码器。",
-    "architecture": "EVA01CLIP1B+12block causal self/cross transformer+Llama13B，总14B；视觉embedding连续回归头、文字分类头。SD1.5 UNet微调生成像素，冻结主干/VAE；下游Emu-I仅selfattention LoRA。Causal embedding顺序不等于物理事件因果。",
-    "metrics": "COCO CIDEr/FID、VQAv2/OKVQA/VizWiz、MSVD/MSRVTTQA、MMVet五次评估；fewshot RICES选择，带*zero-shot含两个文字例、移除对应图像，保留此条件。",
-    "baselines": "Flamingo9/80B/Kosmos1/GILL、SD1.5；Emu-I额外指令数据，不与base混成同样训练。",
-    "experimental_conditions": "128A10080GB/10K步约2天，AdamW β.9/.98 eps1e-6 wd.05 warm.2cosine；视觉/LLM/causal lr4e-5/3e-5/1e-4，表5各源b128/128/64/16/16。decoder32A10040GB/15K步b1600/512²，lr5K1e-4→10K5e-5→14K1e-5，dropcond.1。Emu-I16A10080GB16h、10K步b128、lr1e-5/warm500、LoRA r/alpha16。"
+    "dataset": "LAION2B/600M LAIONCOCO、MMC4约75M文档/400M图/38Btoken、WebVid10M；YTStoryboard1B从18M YouTube视频ID收约1.8B缩略图和字幕，非1.8B原视频。每视频随机8帧/224²；MMC4取最多5图/1024或512token，CLIP相关性阈.32；WebVid约1M需清洗并Vicuna13B改写。预训实际82M样本/150Btokens，不能当全库唯一去重量。",
+    "framework": "EVA-CLIP视觉编码→带causal selfattention/全图crossattention的Causal Transformer→LLaMA交错AR，文字CE与视觉L2两头监督；单独微调SD1.5 UNet从预测visual embedding解码图像。交错视频数据和仅LLM selfattention LoRA的Emu-I是另两项阶段/制品。",
+    "architecture": "EVA01CLIP1B40层ViT、随机初始化12block Causal Transformer与LLaMA13B，主体14B（不含外部SD的全部部署参数）；文本分类/视觉回归头，SD crossattention线性适配维度。固定公开Emu-14B.json n_causal32，CausalFormer从T5Config初始化可学query并投影。Eq1将全数据log条件和写≈p(x)，字面混同log似然与概率；可按latent AR训练动机理解，未给原像素似然的可逆变换/ELBO证明，不能把任意连续L2说成完整原图最大似然定理。",
+    "metrics": "COCO/NoCaps/Flickr30K CIDEr；VQAv2/OKVQA/VizWiz VQAacc（OKVQA Porter stemming）、VisDial NDCG、MSVD/MSRVTTQA Top1、NExTQA WUPS，COCO30K FID；MMVet六能力/总分为5次评估mean/std，非5次独立训练。星号zero-shot含两个移除图像的同任务文字示范；CoT先生成caption再答、VizWiz先yes/no拒答和答案后处理也是协议部分。",
+    "baselines": "正式T1 MetaLM/Kosmos1/Flamingo9B*、per-task PALI-X另列，T3 fewshot Flamingo/Kosmos/PALI-X；T4 DreamLLM7B/LLaVA65B等；T2 GILL/SD1.5及引用其他图像模型；T11 CM3Leon/AnyMAL为另附对照。Emu与Emu-I、有/无星号prompt、不同shot不能混成同一配置胜出；SFT额外数据/解码器成本需计入。",
+    "experimental_conditions": "主预训128A10080GB/10K步约2天，AdamW β.9/.98 eps1e-6 wd.05 warm.2cosine；视觉/LLM/causal lr4e-5/3e-5/1e-4；T5各源b128/128/64/16/16。SD decoder32A10040GB/15K步/b1600/512²，数据LAIONCOCO:aesthetics7:2，超长prompt>150过滤，ε目标/cond drop.1/AdamW.9/.999eps1e-8 wd.01；lr前5K升1e-4，10K/14K降5e-5/1e-5。Emu-I16A10080GB16h/10K步b128，lr1e-5/warm500、LoRA所有selfattention线性r/alpha16。FID PNDM50步CFG Emu5/SD3分别调优，fewshot从5000train池RICES、query视频8/support2帧；无全部训练seed区间。"
   },
   {
     "title": "Planting a SEED of Vision in Large Language Model",

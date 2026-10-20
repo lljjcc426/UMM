@@ -1,0 +1,62 @@
+{
+  "checked_on": "2026-10-21",
+  "scope": "Selected static source/config/model metadata audit; no model execution or weights",
+  "records": [
+    {
+      "id": "L075",
+      "github_revision": "cf0f4a2bc426a0567c672e4ab3dfbf61af0e265c",
+      "hf_revision": "2926f8e11ea526b562cd592b099fcf9c2985d0b7",
+      "inspected_files": [
+        "README.md",
+        "configs/model/vd.yaml",
+        "lib/model_zoo/vd.py:selected initialization/loss/routing/mixing",
+        "lib/model_zoo/diffusion_utils.py:noise/DDIM schedules",
+        "lib/model_zoo/ddim.py:sample/CFG",
+        "app.py:defaults and four task inference"
+      ],
+      "findings": [
+        "Paper beta start 8.5e-5 vs config .00085; linear implementation interpolates sqrt endpoints then squares",
+        "p_losses computes weighted VLB only as log, default return simple epsilon MSE; no claim original paper run used this revision",
+        "app DDIM50 eta0 CFG7.5; variation uncond zeros_embedding vs I2T CLIP zeros_image; text remove_duplicate_word postprocessing",
+        "README I2T2I temporarily disabled and video future; HF has deprecated/current checkpoints"
+      ],
+      "license_metadata": "GitHub/HF MIT; upstream component/weight terms not independently adjudicated",
+      "urls": [
+        "https://openaccess.thecvf.com/content/ICCV2023/html/Xu_Versatile_Diffusion_Text_Images_and_Variations_All_in_One_Diffusion_ICCV_2023_paper.html",
+        "https://openaccess.thecvf.com/content/ICCV2023/papers/Xu_Versatile_Diffusion_Text_Images_and_Variations_All_in_One_Diffusion_ICCV_2023_paper.pdf",
+        "https://openaccess.thecvf.com/content/ICCV2023/supplemental/Xu_Versatile_Diffusion_Text_ICCV_2023_supplemental.pdf",
+        "https://github.com/SHI-Labs/Versatile-Diffusion/tree/cf0f4a2bc426a0567c672e4ab3dfbf61af0e265c",
+        "https://huggingface.co/shi-labs/versatile-diffusion/tree/2926f8e11ea526b562cd592b099fcf9c2985d0b7"
+      ]
+    },
+    {
+      "id": "L077",
+      "github_revision": "d9f12f431a4ea8219bd80ed2aa3173b7fa26fb12",
+      "hf_revision": "9d5face1ae9d8f5cd5c0ed891dc09e47833d06e1",
+      "inspected_files": [
+        "Emu1/README.md",
+        "Emu1/data/yt-sb-1b/README.md",
+        "Emu1/models/Emu-14B.json",
+        "Emu1/models/causal_former.py",
+        "Emu1/image_inference.py",
+        "Emu1/models/pipeline.py:selected sections",
+        "Emu1/models/modeling_emu.py:initialization and generate_image"
+      ],
+      "findings": [
+        "Config n_causal32; image generation loop regenerates prefix without passing reused past_key_values in this function; not benchmarked",
+        "Image example assert instruct=False; cannot assume Emu-I image generation compatibility",
+        "PNDM50 pipeline default/example CFG7.5, in-context10; paper FID CFG5",
+        "README pretraining/instruction training code unchecked; YT release contains source-ID-based acquisition/processing recipe, not proof 1.8B media hosted here"
+      ],
+      "license_metadata": "Emu1 README subjects weights to LLaMA1 license; HF cardData absent is not permissive-license evidence",
+      "urls": [
+        "https://proceedings.iclr.cc/paper_files/paper/2024/hash/34d5143080c89a7ce10932c8c5e1907f-Abstract-Conference.html",
+        "https://proceedings.iclr.cc/paper_files/paper/2024/file/34d5143080c89a7ce10932c8c5e1907f-Paper-Conference.pdf",
+        "https://github.com/baaivision/Emu/tree/d9f12f431a4ea8219bd80ed2aa3173b7fa26fb12/Emu1",
+        "https://huggingface.co/BAAI/Emu/tree/9d5face1ae9d8f5cd5c0ed891dc09e47833d06e1"
+      ]
+    }
+  ],
+  "model_executed": false,
+  "downloaded_weights": false
+}

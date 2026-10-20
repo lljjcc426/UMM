@@ -5759,6 +5759,74 @@
         }
       ],
       "boundary": "本批经正式Wiley 15页全文重新阅读Abstract/§1–6全部核心文本、Eq1–8、T1–4数值/图注、§5.3外部300、§5.4错误/§5.5限制和数据可用性；补核validation/test称谓和19.9pp比较口径。实际PDF图2及主/消融表视觉核查仍未完成（截图超时/直接PDF403），未声称全核心三遍验收。GitHub新tree2451eb75仅目录与此前S016入口关联；未通读全部模块/训练或独立复现。"
+    },
+    {
+      "id": "L075",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "两分钟解释多任务共享或交错视觉预测的问题/动机",
+          "answer": "一个多路潜空间扩散网络支持文生图、图像variation、图生文字和文字variation，并派生多条件混合与编辑。本文只实际实现图/文，音频/视频/3D列为可扩展方向；没有书写事件或视频生成实验。 每个条件—输出组合分别训练网络重复参数，模型间按采样步或输出混合不易共享深层特征。共享模块可能减少部署重复并支持中层条件组合，但减少参数的渐近式不证明同预算质量、训练或实际延迟均更好。",
+          "evidence": "正式核心/实际框架主表与指定补充、固定关联制品；非口试或独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入模块输出及时间语义",
+          "answer": "文字或图像条件经冻结CLIP；随机噪声按目标模态选择AutoKL图latent或Optimus768维句latent，经多flow扩散与相应VAE decoder输出静态图或句子。实际p7757 F2/7758 F3–4及Alg1、p7760 F6主结果/T1梯度已核看。VAE encoder为训练目标构建、decoder为推理输出，扩散步无真实绘画时间含义。 图像AutoKL f8；文本Optimus BERT/GPT2将整句压成单768向量；文本FCResBlock扩为320×4，global time embedding共用；CLIP图文用normalized/projected特征。图像patch257×768做PCA，保留或移除主要局部主成分经验控制style/semantic，global保持；不保证可识别独立因果因素。正式Eq1将边缘q(xT|x0)写成整路径条件密度乘积，barαt乘积上界写T；需积分中间变量/上界t才是标准边缘式，不把排版记号疑点推为代码错误。正式Eq3是NLL的变分上界。",
+          "evidence": "正式核心/实际框架主表与指定补充、固定关联制品；非口试或独立复现"
+        },
+        {
+          "criterion": "解释核心共享/表示机制和优势条件",
+          "answer": "把UNet拆为任务共用global时间层、按输出选取的data残差层、按条件选取的context crossattention；累积四flow梯度再更新。共享图像data与图/文context支持深层条件加权或逐层选择；Optimus文本latent补上to-text输出。 条件模态已由CLIP较好对齐、任务共享输出特征且允许边缘细节变化时，中层共享和多条件混合可能减少重复并提高variation或组合自然性。字符细笔、词序和不可擦除的书写过程需要保留空间/序列信息并单独监督，单句语义latent和FID无法保证。",
+          "evidence": "正式核心/实际框架主表与指定补充、固定关联制品；非口试或独立复现"
+        },
+        {
+          "criterion": "解释实际主结果及一组消融、预算与退步项",
+          "answer": "正式F6文生图SD11.21±.03→四flow11.10±.09，降低.11；variation18.81±.06→4.57±.02，降低14.24。±口径不明，不能作显著性检验。F5文字生成有重复/错描述，补充§5承认主要瓶颈是文本latent和域偏移；结论“全部base tasks优于baseline”缺全部文字任务定量支持。F7评审偏好图未给统一可复算每类数表/区间，不从选例推普遍优势。 1/2/4flow的F5、主F8语义风格操控、补F10起始任务IV vs T2I的VD-Alt，以及补F4 attention/layer/model混合以定性为主。F6 CFG变化显示不同任务最佳scale不同；不是共享机制单因素消融。补§2.1空白图CLIP vs全零embedding各有色彩/结构利弊，§2.2 ControlNet用移除CLIP位置嵌入后额外微调的CLIP-PA variation，不能称原checkpoint直接零训练加入。 COCO30K生成图对validation的FID↓，四评审分担2000样本偏好/同好投票；图生文字对BLIP和文字variation主要定性，未给完整CIDEr/语言质量主表。FID衡量边缘图像分布，不能单独证明输入图条件保真或语义保持；F6的±未明确重复次数/统计定义，不能解释为训练seed置信区间。",
+          "evidence": "正式核心/实际框架主表与指定补充、固定关联制品；非口试或独立复现"
+        },
+        {
+          "criterion": "提出两个以上有原文或制品依据的局限和验证方案",
+          "answer": "单768句latent难保词序/长句，PTB/SNLI/Yahoo/Yelp到网页caption域偏移，附录承认重句；CLIP PCA并无独立语义风格定理。4flow语义/生成成功不等于同预算正迁移。官方cf0f4a2b p_losses计算loss_vlb仅作日志，返回默认simple ε-MSE；与正文weighted-L2描述需分开。README I2T2I暂下线、未来才支持视频，HF同时留deprecated权重；未把所查代码与原表训练版本视为同一。无笔事件/时间/执行约束。 同SD起点、各任务数据曝光与完整训练FLOPs比较独立四flow/共享global/共享data-context；各模态均测语义、结构、CIDEr/OCR与语言重复，分开额外续训和参数共享。固定同prompt/noise报告成对偏好及seed区间；FID外加条件一致性/局部细笔。明确原β/采样版本，测CFG、PCA和空条件类型的质量—总耗时曲线；ControlNet计额外CLIP-PA训练，书写加合法事件和RGB单调性。未运行。",
+          "evidence": "正式核心/实际框架主表与指定补充、固定关联制品；非口试或独立复现"
+        }
+      ],
+      "boundary": "正式CVF accepted正文Abstract/§1–5全部核心研究文字、Eq1–3/Alg1/T1和图注；实际p7756公式、7757–7758框架/FCResBlock、7759定性和7760完整主结果/梯度表已核。正式supplement§1.1–1.4/§2.1–2.2/§3.1–3.3/§5全文、§4文字variation表指定样例；末图库未逐图/参考文献未逐篇。官方固定cf0f4a2b README到应用/数据/权重说明，configs/model/vd.yaml全文，lib/model_zoo/vd.py初始化/目标/路由/混合段、diffusion_utils.py噪声/DDIM调度段、ddim.py采样/CFG段、app.py默认/四任务入口；HF元数据/文件树。未通读全仓库、下载权重、执行模型或独立复现。"
+    },
+    {
+      "id": "L077",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "两分钟解释多任务共享或交错视觉预测的问题/动机",
+          "answer": "学习交错文字、图像和采样视频帧的下一个文字token或连续视觉embedding，支持多模态上下文理解及静态图像生成。视频为输入与预训练来源，主实验未定义连续视频输出、书写动作或笔顺生成。 只对文字算next-token loss的VLM没有视觉预测监督，成对图文也缺天然交错上下文。视频缩略图加字幕可扩展交错数据；像素栅格AR顺序不天然匹配语义，改在连续视觉表示空间建模。该动机不证明视觉latent具有物理事件因果性。",
+          "evidence": "正式核心/实际框架主表与指定补充、固定关联制品；非口试或独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入模块输出及时间语义",
+          "answer": "图文/视频8帧与字幕→视觉N个latent和文字token交错→AR文字或N个视觉预测→SD decoder静态RGB；图像由[IMG]/[/IMG]标界。实际正式p4 Fig2、p7 T1、p8 T2–4和p17 T5–6已核看。causal-query仍cross-attend整图EVA特征，无法解释为逐笔观察或真实墨迹时间顺序。 EVA01CLIP1B40层ViT、随机初始化12block Causal Transformer与LLaMA13B，主体14B（不含外部SD的全部部署参数）；文本分类/视觉回归头，SD crossattention线性适配维度。固定公开Emu-14B.json n_causal32，CausalFormer从T5Config初始化可学query并投影。Eq1将全数据log条件和写≈p(x)，字面混同log似然与概率；可按latent AR训练动机理解，未给原像素似然的可逆变换/ELBO证明，不能把任意连续L2说成完整原图最大似然定理。",
+          "evidence": "正式核心/实际框架主表与指定补充、固定关联制品；非口试或独立复现"
+        },
+        {
+          "criterion": "解释核心共享/表示机制和优势条件",
+          "answer": "EVA-CLIP视觉编码→带causal selfattention/全图crossattention的Causal Transformer→LLaMA交错AR，文字CE与视觉L2两头监督；单独微调SD1.5 UNet从预测visual embedding解码图像。交错视频数据和仅LLM selfattention LoRA的Emu-I是另两项阶段/制品。 任务有丰富交错示范、视觉表征对所需语义充分且RICES可检索邻例时，连续视觉预测/共享上下文可能帮助零/少样本理解和条件图像组合；高频细笔、复杂OCR/数学/未见语言与严格过程时序是否受益仍需专门指标。图像生成不能仅靠视觉QA提高来推出。",
+          "evidence": "正式核心/实际框架主表与指定补充、固定关联制品；非口试或独立复现"
+        },
+        {
+          "criterion": "解释实际主结果及一组消融、预算与退步项",
+          "answer": "正式T1 Emu COCO112.4/NoCaps96.5/Flickr72；无星号OKVQA38.2<Flamingo44.7，VisDial47.4<48，MSVD18.8<30.2/MSRVTT8.3<13.7/NExT19.6<23。Emu*分别42.8仍<44.7、47.8<48，其余视频34.3/17.8/23.4改善。SFT Emu→Emu-I无星号VizWiz34.2→32.2、VisDial47.4→43、NExT19.6→5.8下降；同星号NExT23.4→19.9也下降。T2 FID11.66优于GILL12.20但弱于SD1.5 9.93/CM3Leon另表10.82。T3 8shot MSVD39.8<Flamingo40.8；T4总36.3±.3高于LLaVA35.5±.3，但OCR19.2<28.2/Spatial25.2<33/Math3.8<15（亦低DreamLLM）。不能将总分领先写为各能力领先。 正式AppA T6为7B小模型/不同视觉encoder：加YTStoryboard COCO110.8→112.9、MSVDzero*30.2→30.8/fourshot31.1→34.9、MSRVTT16.9→17.9/19.9→20.8，但OKVQA zero*43.9→42.3下降、fourshot44.6→45.7。先原数据7.2K再加YT2.4K，不能隔离数据类型与额外训练。T1同星号/无星号和SFT可见格式/数据收益与退步，但不是严格同prompt单因素；无同数据FLOPs的视觉loss开关、双向任务共享或因果merger完整消融。 COCO/NoCaps/Flickr30K CIDEr；VQAv2/OKVQA/VizWiz VQAacc（OKVQA Porter stemming）、VisDial NDCG、MSVD/MSRVTTQA Top1、NExTQA WUPS，COCO30K FID；MMVet六能力/总分为5次评估mean/std，非5次独立训练。星号zero-shot含两个移除图像的同任务文字示范；CoT先生成caption再答、VizWiz先yes/no拒答和答案后处理也是协议部分。",
+          "evidence": "正式核心/实际框架主表与指定补充、固定关联制品；非口试或独立复现"
+        },
+        {
+          "criterion": "提出两个以上有原文或制品依据的局限和验证方案",
+          "answer": "英文为主、幻觉、知识时效与AR慢作者§7已列；全图条件的causal latent不表示真实事件时序，8帧可能漏细笔。视觉L2易压多峰，独立SD条件空间迁移导致FID劣于SD，作者承认。官方固定d9f12f43 README预训/SFT代码仍未勾选；已公开推理/评价/权重及YT采集处理工具不能当原训练全流程。image_inference.py assert禁止Emu-I直接图生成，pipeline默认CFG7.5不同原FID5；generate_image逐32latent重算前缀、此函数未传复用pastKV。未实测耗时，不据此给倍数。 等额外2.4K步/数据曝光比较图文续训、随机打乱时间、保持视频次序和真字幕/错字幕；同起点做视觉L2开关、不同N/连续vs离散/全图vs局部causal信息，分别测OCR/空间/数学/时序与FID。固定文字示范/RICES候选池和CoT/拒答/后处理，逐分项测SFT遗忘、多语言及同终帧异笔序。包含32latent生成+PNDM/CFG+检索的端到端耗时/总参数，图像生成以支持的base为准；未运行。",
+          "evidence": "正式核心/实际框架主表与指定补充、固定关联制品；非口试或独立复现"
+        }
+      ],
+      "boundary": "正式ICLR2024 PDF Abstract/§1–8全部核心研究文字、Eq1–2/T1–4及图注；AppA.1–A.2/B.1–B.2/C.1–C.3/D与T5–11全部文字表项，E图库/伦理展开未逐项穷尽、参考文献未逐篇追读。实际p4框架/公式、p7 T1、p8 T2–4、p17 T5–6已视觉核看。固定d9f12f43 Emu1 README核心/权重/roadmap、YT数据README全文、models/Emu-14B.json和causal_former.py全文、image_inference.py全文、pipeline.py初始化/采样/条件段、modeling_emu.py初始化与generate_image段、prediction_mixin.py相关入口检索；HF元数据/文件树。未通读底层全部代码/伦理每项/图库，未下载权重或运行/独立复现。"
     }
   ]
 }

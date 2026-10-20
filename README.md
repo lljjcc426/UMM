@@ -227,3 +227,6 @@ python scripts/validate_catalog.py
 
 
 第七十七批（2026-10-21）补完L047女书正式核心/固定代码与CSV统计，重审L184 Stroke-Seg正式全文；L184实际图表视觉待核，保留未完成。350目录、164核心/167项五条书面记录（含未通过项），186条未确认核心三遍（含资源）。见[审查](docs/evidence/nushu_and_stroke_seg_data_protocol_audit_2026-10-21.md)、[逐文件说明](docs/evidence/seventy_seventh_changes_2026-10-21.md)。无删除或模型复现。
+
+
+第七十八批（2026-10-21）补完L075 Versatile Diffusion与L077 Emu正式核心/指定补充，核对实际框架主表及固定代码/HF。350目录、166核心/169项五条书面（含未通过项），184条未确认核心三遍（含资源）。见[证据审查](docs/evidence/versatile_diffusion_and_emu_evidence_audit_2026-10-21.md)、[逐文件说明](docs/evidence/seventy_eighth_changes_2026-10-21.md)。无删除或模型复现。

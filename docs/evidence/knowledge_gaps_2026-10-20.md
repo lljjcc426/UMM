@@ -358,3 +358,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 ## 第七十七批补充（2026-10-21）
 
 1−CER、位置字符准确与EM不同，原始/清理预测影响；CSV同句/混入字符需保存；训练split未固定而独立评估重新seed42不能保证留出，尚未证明原表泄漏。类mask与实例/动作非唯一、字ID任意编号/识别噪声控制，TSR/FSR匹配和validation/test口径需清楚。
+
+
+第七十八批（2026-10-21）：路径联合/边缘分布、log似然/概率、sqrt线性噪声调度、CFG默认/论文评估、RICES条件与评估std/训练seed需区分。见[审查](versatile_diffusion_and_emu_evidence_audit_2026-10-21.md)和[单篇L075](../reviews/L075.md)、[L077](../reviews/L077.md)。

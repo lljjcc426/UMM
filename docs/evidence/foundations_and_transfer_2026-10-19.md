@@ -153,3 +153,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 ## 第七十七批补充（2026-10-21）
 
 女书静态字体OCR/动态记录分开，未训练视频生成；Stroke-Seg静态重叠类mask不确定唯一动作历史，非汉字应先定义本书写系统规范事件。见[审查](nushu_and_stroke_seg_data_protocol_audit_2026-10-21.md)。
+
+
+第七十八批（2026-10-21）：VD模块路由/连续文本潜空间与Emu交错连续视觉预测是两种统一设计；全图语义causal表征没有真实笔事件时间含义。见[审查](versatile_diffusion_and_emu_evidence_audit_2026-10-21.md)和[单篇L075](../reviews/L075.md)、[L077](../reviews/L077.md)。

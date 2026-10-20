@@ -317,3 +317,6 @@ L063正式NeurIPS/T3 WISE(Natural)非文化、完整语言/理解反例；L029�
 ## 第七十七批补充（2026-10-21）
 
 L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.2352，公开树无MP4；L184外部300/未知150 TSR.831，与验证.982/后续6类加工资源分别记录。
+
+
+第七十八批（2026-10-21）：VD .11的文生图FID改善与variation大幅改善、文字定性分开；Emu按base/I与star、shot分行，保留NExT/OKVQA及MMVet OCR/空间/数学退步。见[审查](versatile_diffusion_and_emu_evidence_audit_2026-10-21.md)和[单篇L075](../reviews/L075.md)、[L077](../reviews/L077.md)。
