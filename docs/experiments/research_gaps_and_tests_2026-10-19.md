@@ -367,3 +367,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第八十四批（2026-10-21）：等预算全成本、teacher/蒸馏、VAE短事件上界与LoRA配置对照，未运行。见[审查](../evidence/diffusion_efficiency_full_pipeline_audit_2026-10-21.md)和[单篇G023](../reviews/G023.md)。
+
+
+第八十五批（2026-10-21）：等预算共享/专家、噪声端点和联合一致性、非汉字与事件检验；未运行。见[审查](../evidence/unidiffuser_distribution_cfg_and_codec_audit_2026-10-21.md)和[单篇L076](../reviews/L076.md)。

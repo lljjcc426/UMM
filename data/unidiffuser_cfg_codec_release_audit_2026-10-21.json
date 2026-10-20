@@ -1,0 +1,29 @@
+{
+  "id": "L076",
+  "date": "2026-10-21",
+  "paper": "ICML2023 PMLR official26p",
+  "github_revision": "845e14f7939fb28a7f8d879ff18b7c9e09c7434b",
+  "hf_revisions": {
+    "v0": "be59f8b18f70bbd10c3e6199ed6962525e669f66",
+    "v1": "c70d4103763c0852ede8b83d9c5893e9846be7a2"
+  },
+  "hf_license_metadata": "agpl-3.0, metadata only; upstream component licences separate",
+  "findings": [
+    "v1 resumed from v0 with less noisy internal paired data and data_type token; not same original training recipe",
+    "Both public configs default scale7,50steps,true_uncond; paper main table s3,efficiency25steps",
+    "Conditional CFG two network calls, joint CFG three; scale0 returns after one call. Formula is (1+s)cond-s*uncond",
+    "depth30 instantiates15input+1middle+15output blocks, agreeing with31 layers in paper",
+    "True-unconditional branches redraw other-modality noise inside each solver model function; do not equate fixed initial noise with deterministic complete sampling",
+    "Published timer surrounds DPM solver only, not subsequent AE/GPT2 decoding or preceding encoding. This does not establish exact original efficiency-table timing boundaries",
+    "Published tree has inference/config/codec implementation and weights links, no complete original model training script located. AppendixE missing minus sign is text issue; actual training loss not independently confirmed"
+  ],
+  "urls": [
+    "https://proceedings.mlr.press/v202/bao23a.html",
+    "https://proceedings.mlr.press/v202/bao23a/bao23a.pdf",
+    "https://github.com/thu-ml/unidiffuser/tree/845e14f7939fb28a7f8d879ff18b7c9e09c7434b",
+    "https://huggingface.co/thu-ml/unidiffuser-v0/tree/be59f8b18f70bbd10c3e6199ed6962525e669f66",
+    "https://huggingface.co/thu-ml/unidiffuser-v1/tree/c70d4103763c0852ede8b83d9c5893e9846be7a2"
+  ],
+  "model_executed": false,
+  "weights_downloaded": false
+}

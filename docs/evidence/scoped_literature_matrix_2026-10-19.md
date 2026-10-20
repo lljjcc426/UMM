@@ -338,3 +338,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第八十四批（2026-10-21）：架构/训练/采样/部署全流程成本、表格NFE/条件与正式版边界。见[审查](diffusion_efficiency_full_pipeline_audit_2026-10-21.md)和[单篇G023](../reviews/G023.md)。
+
+
+第八十五批（2026-10-21）：图文五种分布、CFG调用和同预算因果边界，非书写视频。见[审查](unidiffuser_distribution_cfg_and_codec_audit_2026-10-21.md)和[单篇L076](../reviews/L076.md)。

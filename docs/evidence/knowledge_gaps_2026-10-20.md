@@ -379,3 +379,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第八十四批（2026-10-21）：NFE表头、空条件/zero-conv、冻结前向成本和EMA方向。见[审查](diffusion_efficiency_full_pipeline_audit_2026-10-21.md)和[单篇G023](../reviews/G023.md)。
+
+
+第八十五批（2026-10-21）：CFG尺度定义、噪声重采、31块构造与文字codec重建指标。见[审查](unidiffuser_distribution_cfg_and_codec_audit_2026-10-21.md)和[单篇L076](../reviews/L076.md)。

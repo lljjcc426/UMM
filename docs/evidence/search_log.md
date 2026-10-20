@@ -427,3 +427,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第八十四批（2026-10-21）：固定效率综述v2全文研究核心及实际框架/主表/公式，Crossref正式书目、固定官方代码和201项发现候选。见[审查](diffusion_efficiency_full_pipeline_audit_2026-10-21.md)和[单篇G023](../reviews/G023.md)。
+
+
+第八十五批（2026-10-21）：PMLR正式26页、实际图表算法、固定官方采样/结构/codec与HF两版本元数据。见[审查](unidiffuser_distribution_cfg_and_codec_audit_2026-10-21.md)和[单篇L076](../reviews/L076.md)。

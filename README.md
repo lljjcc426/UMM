@@ -248,3 +248,6 @@ python scripts/validate_catalog.py
 
 
 第八十四批（2026-10-21）补完效率综述G023固定v2研究核心；更正逆SDE/NFE/模型组件归属，201项新增发现层候选未计精读。350目录、172核心/175项五条书面（含未通过项），178条尚未确认核心三遍（含资源）。见[审查](docs/evidence/diffusion_efficiency_full_pipeline_audit_2026-10-21.md)、[逐文件说明](docs/evidence/eighty_fourth_changes_2026-10-21.md)。正式终版待读，无删除或模型复现。
+
+
+第八十五批（2026-10-21）补完UniDiffuser L076正式研究核心与固定制品审查。350目录、173核心/176项五条书面（含未通过项），177条未确认核心三遍（含资源）。CFG额外调用、文字codec与v1内部续训已明确。见[审查](docs/evidence/unidiffuser_distribution_cfg_and_codec_audit_2026-10-21.md)和[逐文件说明](docs/evidence/eighty_fifth_changes_2026-10-21.md)。无删除或模型复现。

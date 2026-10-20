@@ -174,3 +174,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第八十四批（2026-10-21）：逆SDE漂移、非线性近似、KL/VQ与训练/推理全成本。见[审查](diffusion_efficiency_full_pipeline_audit_2026-10-21.md)和[单篇G023](../reviews/G023.md)。
+
+
+第八十五批（2026-10-21）：条件噪声均值总体最优、有限端点近似与随机边缘分支。见[审查](unidiffuser_distribution_cfg_and_codec_audit_2026-10-21.md)和[单篇L076](../reviews/L076.md)。
