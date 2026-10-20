@@ -376,3 +376,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第八十三批（2026-10-21）：负loglikelihood变分上界、原始归属、条件期望及综述检索可复核性。见[审查](diffusion_vision_survey_scope_and_attribution_audit_2026-10-21.md)和[单篇G022](../reviews/G022.md)。
+
+
+第八十四批（2026-10-21）：NFE表头、空条件/zero-conv、冻结前向成本和EMA方向。见[审查](diffusion_efficiency_full_pipeline_audit_2026-10-21.md)和[单篇G023](../reviews/G023.md)。

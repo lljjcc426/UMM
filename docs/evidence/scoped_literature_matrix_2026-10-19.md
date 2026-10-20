@@ -335,3 +335,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第八十三批（2026-10-21）：扩散三框架与14任务节、四轴分类、无统一实测的综述边界。见[审查](diffusion_vision_survey_scope_and_attribution_audit_2026-10-21.md)和[单篇G022](../reviews/G022.md)。
+
+
+第八十四批（2026-10-21）：架构/训练/采样/部署全流程成本、表格NFE/条件与正式版边界。见[审查](diffusion_efficiency_full_pipeline_audit_2026-10-21.md)和[单篇G023](../reviews/G023.md)。

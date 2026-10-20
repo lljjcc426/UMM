@@ -1,0 +1,68 @@
+{
+  "checked_on": "2026-10-21",
+  "linked_id": "G023",
+  "source_scope": "arXiv v2, not the unread 2025 version of record",
+  "paper": "https://arxiv.org/pdf/2410.11795v2",
+  "actual_views": [
+    "p6 F3",
+    "p19 T5/Eq10/11",
+    "p22 T6"
+  ],
+  "corrections": [
+    {
+      "location": "Eq10",
+      "reported": "-beta/2*(x-score)",
+      "correct": "-beta*x/2-beta*score; reverse dt<0",
+      "source": "https://arxiv.org/html/2011.13456v2",
+      "basis": "reverse SDE drift f-g^2*score"
+    },
+    {
+      "location": "T5 ODE DPM-Solver CIFAR10",
+      "reported_nfe": [
+        1,
+        2,
+        4
+      ],
+      "reported_fid": [
+        6.37,
+        4.28,
+        3.9
+      ],
+      "original_nfe": [
+        10,
+        20,
+        44
+      ],
+      "source": "https://arxiv.org/html/2206.00927v3",
+      "basis": "Original Table4, type1 discrete epsilon=1e-3; FID3.90 under 50 column explicitly NFE44"
+    },
+    {
+      "location": "T1 original DiT",
+      "reported": "CLIP ViT-L text encoder",
+      "correct": "class-conditioned ImageNet experiments with class embeddings",
+      "source": "https://arxiv.org/html/2212.09748v2"
+    },
+    {
+      "location": "T1 Flux",
+      "reported": "CLIP-L plus bigG plus T5",
+      "correct": "Fixed official load_t5/load_clip use T5-XXL and CLIP-L; F6 also says CLIP-L/T5",
+      "source": "https://github.com/black-forest-labs/flux/blob/802fb4713906133fcbd0d8dc5351620ca4773036/src/flux/util.py"
+    },
+    {
+      "location": "2.3 VQ-VAE generalization",
+      "correct": "LDM official first_stage AutoencoderKL is a counterexample",
+      "source": "https://github.com/CompVis/latent-diffusion/blob/a506df5756472e2ebaf9078affdde2c4f1502cd4/configs/latent-diffusion/txt2img-1p4B-eval.yaml"
+    },
+    {
+      "location": "2.4 ControlNet",
+      "correct": "zero-convolution outputs spatial residual; null text is encoded independently",
+      "source": "https://github.com/lllyasviel/ControlNet/blob/ed85cd1e25a5ed592f7d8178495b4483de0331bf/cldm/cldm.py"
+    }
+  ],
+  "unresolved": [
+    "Formal TPAMI20-page text may differ; no assertion these v2 issues survive publication",
+    "Other table cells and DDIM Eq13 need original-version alignment; no automatic rewrite of uncertain values",
+    "Current model-specific permissions/release labels in T7 require per-artifact verification"
+  ],
+  "execution": "Static reading and elementary substitution only; no model, training or latency execution"
+}

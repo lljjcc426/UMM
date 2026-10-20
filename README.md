@@ -245,3 +245,6 @@ python scripts/validate_catalog.py
 
 
 第八十三批（2026-10-21）补完扩散视觉综述G022固定v5研究核心，核三框架/分类表、变分界与Ramesh/Avrahami归属。350目录、171核心/174项五条书面（含未通过项），179条尚未确认核心三遍（含资源）。见[审查](docs/evidence/diffusion_vision_survey_scope_and_attribution_audit_2026-10-21.md)、[逐文件说明](docs/evidence/eighty_third_changes_2026-10-21.md)。无删除或模型复现。
+
+
+第八十四批（2026-10-21）补完效率综述G023固定v2研究核心；更正逆SDE/NFE/模型组件归属，201项新增发现层候选未计精读。350目录、172核心/175项五条书面（含未通过项），178条尚未确认核心三遍（含资源）。见[审查](docs/evidence/diffusion_efficiency_full_pipeline_audit_2026-10-21.md)、[逐文件说明](docs/evidence/eighty_fourth_changes_2026-10-21.md)。正式终版待读，无删除或模型复现。

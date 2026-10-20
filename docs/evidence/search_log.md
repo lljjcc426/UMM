@@ -424,3 +424,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第八十三批（2026-10-21）：固定2209.04747v5、25页研究核心/关键附录及实际框架/主表，原始元数据与DDPM架构交叉核查。见[审查](diffusion_vision_survey_scope_and_attribution_audit_2026-10-21.md)和[单篇G022](../reviews/G022.md)。
+
+
+第八十四批（2026-10-21）：固定效率综述v2全文研究核心及实际框架/主表/公式，Crossref正式书目、固定官方代码和201项发现候选。见[审查](diffusion_efficiency_full_pipeline_audit_2026-10-21.md)和[单篇G023](../reviews/G023.md)。
