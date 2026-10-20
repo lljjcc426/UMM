@@ -197,3 +197,8 @@ G031评价16维、G032评价视频分布＋SCV可控任务，均非新书写生�
 ## 第五十三批补充
 
 G034为I2V/可信评价、ImageSuite及Long工程关联；G031原VBench和后继2.0分开。输入图默认比例选择、整图DINO/DreamSim、camera启发式与事件真值边界见[第五十三批](vbench_plus_i2v_trustworthiness_protocol_and_implementation_2026-10-20.md)。
+
+
+## 第五十四批补充
+
+G035已覆盖两动作顺序、动态状态、运动后果、实例保持和通用/专用异常专家；严格笔事件须建立局部时间/轨迹真值及新任务增益，不能再把以上概念整体当空白。见[第五十四批](vbench2_intrinsic_faithfulness_events_and_conditional_scores_2026-10-20.md)。

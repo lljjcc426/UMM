@@ -230,3 +230,8 @@ ControlNet1.0官方ed85cd1所列教程/关键实现已交叉核：fill50k RGB归
 ## 第五十三批补充
 
 关联G034的ImageSuite、I2V/trust评分源码、Long无独立论文工程文档：[固定代码](https://github.com/Vchitect/VBench/tree/fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490)。355图元数据说明、人工两极bbox/crop脚本、采样/聚合/过滤/阈值及文档差异已核指定范围；未下载全图/权重或运行，Long仅README，见[工程审查](../evidence/vbench_plus_i2v_trustworthiness_protocol_and_implementation_2026-10-20.md)。不重复增独立研究或资源数。
+
+
+## 第五十四批补充
+
+G035关联HF VBench-2.0_human_anomaly卡、仓库JSONL结构、人体训练配置/README、实例滑窗推理、prompt改写首例和评分源码已读指定范围；无下载全图/权重或运行，LoRA训练全配方尚未取得，不重复计数。见[资源/协议审查](../evidence/vbench2_intrinsic_faithfulness_events_and_conditional_scores_2026-10-20.md)。
