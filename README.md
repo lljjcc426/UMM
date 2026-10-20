@@ -242,3 +242,6 @@ python scripts/validate_catalog.py
 
 
 第八十二批（2026-10-21）补完MetaMorph L090正式核心/supp及固定代码；核对重复200K行、逐任务负迁移、相关性混杂与条件丢弃参数。350目录、170核心/173项五条书面（含未通过项），180条尚未确认核心三遍（含资源）。见[审查](docs/evidence/metamorph_synergy_and_data_budget_audit_2026-10-21.md)、[逐文件说明](docs/evidence/eighty_second_changes_2026-10-21.md)。无删除或模型复现。
+
+
+第八十三批（2026-10-21）补完扩散视觉综述G022固定v5研究核心，核三框架/分类表、变分界与Ramesh/Avrahami归属。350目录、171核心/174项五条书面（含未通过项），179条尚未确认核心三遍（含资源）。见[审查](docs/evidence/diffusion_vision_survey_scope_and_attribution_audit_2026-10-21.md)、[逐文件说明](docs/evidence/eighty_third_changes_2026-10-21.md)。无删除或模型复现。

@@ -168,3 +168,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第八十二批（2026-10-21）：协同主张需控制数据身份、优化步数和外部decoder；相关性不独立识别因果。见[审查](metamorph_synergy_and_data_budget_audit_2026-10-21.md)和[单篇L090](../reviews/L090.md)。
+
+
+第八十三批（2026-10-21）：DDPM/DSM/SDE、变分上下界与表示/条件/采样的瓶颈分解。见[审查](diffusion_vision_survey_scope_and_attribution_audit_2026-10-21.md)和[单篇G022](../reviews/G022.md)。

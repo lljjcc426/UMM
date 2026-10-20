@@ -332,3 +332,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第八十二批（2026-10-21）：MetaMorph连续视觉响应/SD1.5可视化、低T2I数据但非低总数据、负迁移/重复行。见[审查](metamorph_synergy_and_data_budget_audit_2026-10-21.md)和[单篇L090](../reviews/L090.md)。
+
+
+第八十三批（2026-10-21）：扩散三框架与14任务节、四轴分类、无统一实测的综述边界。见[审查](diffusion_vision_survey_scope_and_attribution_audit_2026-10-21.md)和[单篇G022](../reviews/G022.md)。

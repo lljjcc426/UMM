@@ -323,7 +323,7 @@
 | G019 | QLoRA: Efficient Finetuning of Quantized LLMs | primary_sections_read | [结构化分析](../reviews/G019.md) | 核心三遍与五项检查完成 |
 | G020 | DoRA: Weight-Decomposed Low-Rank Adaptation | primary_sections_read | [结构化分析](../reviews/G020.md) | 核心三遍与五项检查完成 |
 | G021 | A Rank Stabilization Scaling Factor for Fine-Tuning with LoRA | primary_sections_read | [结构化分析](../reviews/G021.md) | 核心三遍与五项检查完成 |
-| G022 | Diffusion Models in Vision: A Survey | primary_sections_read | [结构化分析](../reviews/G022.md) | 未完成 |
+| G022 | Diffusion Models in Vision: A Survey | primary_sections_read | [结构化分析](../reviews/G022.md) | 核心三遍与五项检查完成 |
 | G023 | Efficient Diffusion Models: A Comprehensive Survey from Principles to Practices | primary_sections_read | [结构化分析](../reviews/G023.md) | 未完成 |
 | G024 | StrokeFusion: Vector Sketch Generation via Joint Stroke-UDF Encoding and Latent Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G024.md) | 核心三遍与五项检查完成 |
 | G025 | Adding Conditional Control to Text-to-Image Diffusion Models | primary_sections_read | [结构化分析](../reviews/G025.md) | 核心三遍与五项检查完成 |

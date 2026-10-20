@@ -361,3 +361,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第八十二批（2026-10-21）：补等数据/等算力联合迁移、余弦与梯度、跨集近图去重及同终态异轨迹对照；未运行。见[审查](../evidence/metamorph_synergy_and_data_budget_audit_2026-10-21.md)和[单篇L090](../reviews/L090.md)。
+
+
+第八十三批（2026-10-21）：补同checkpoint数值对照、同骨干文字/glyph及同终态异事件分层验证，未运行。见[审查](../evidence/diffusion_vision_survey_scope_and_attribution_audit_2026-10-21.md)和[单篇G022](../reviews/G022.md)。
