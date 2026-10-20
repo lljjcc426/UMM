@@ -3284,22 +3284,26 @@
     "source_urls": [
       "https://aclanthology.org/2025.emnlp-main.627/",
       "https://aclanthology.org/2025.emnlp-main.627.pdf",
-      "https://github.com/ivoryayang/NushuMultimodal"
+      "https://github.com/ivoryayang/NushuMultimodal",
+      "https://github.com/ivoryayang/NushuMultimodal/tree/94f2a059738299023ea805fef2e1dac38ecd060c",
+      "https://github.com/ivoryayang/NushuMultimodal/blob/94f2a059738299023ea805fef2e1dac38ecd060c/finetuning_nvshu.py",
+      "https://github.com/ivoryayang/NushuMultimodal/blob/94f2a059738299023ea805fef2e1dac38ecd060c/TrOCR_CER.py",
+      "https://github.com/ivoryayang/NushuMultimodal/blob/94f2a059738299023ea805fef2e1dac38ecd060c/output.log"
     ],
-    "method": "NüshuVision合成句子图、NüshuStrokes专家记录，以及TrOCR适配基线。 OCR微调TrOCR base-stage1：视觉encoder/文字decoder；笔画数据用相邻灰度帧MSE<.1、连续静止>1帧提取关键帧，未参与该OCR主实验训练。",
-    "conclusion": "中文OCR均CER1，微调TrOCR .6735；支持低资源、分布差异下适配仍困难，不证明模型理解女书语义，也未验证Strokes提升OCR。",
-    "gap": "单字体合成与单书家限制域外泛化；需查MP4是纸面实拍还是笔迹软件回放，论文Smartpen导出不足以确认接触/遮挡RGB；官方仓库页可见代码/CSV/字体，未据此确认全部MP4已发布。",
-    "problem": "建立女书静态句子图与逐字笔画记录，测试OCR可达性。",
+    "method": "NüshuVision由500专家校验句用单NotoSansNushu字体竖排渲染；NüshuStrokes一位专业书家手写397编码字符、Smartpen记录MP4并按灰度帧MSE停顿抽关键帧；TrOCR encoder-decoder FT静态转录。Strokes在Appendix C/未来工作中的masking用途属于方案，未加入OCR主实验。 TrOCR microsoft/trocr-base-stage1视觉Transformer encoder/文字AR decoder、384²输入、label max128；没有设计共享理解/生成UMM。书写抽帧相邻灰度MSE<.1连续静止>1帧取静止段最早帧，未报fps/灰度归一/pen接触/人工边界一致性，停顿不必等于真实笔画边界。Nüshu为syllabic script，不能默认汉字部件/笔顺约束直接成立。",
+    "conclusion": "正式T1五中文OCR的1−CER均0、TrOCR约.33；§5 CER.6735。固定output.log同报CER.673469387755102，但另报ExactMatch0、按位置字符正确.23517978620019436，直接说明1−CER约.3265不等于此字符正确.2352。日志是作者制品记录、未经重跑；受split/清理/processor/模型版本不清限制。未测笔画记录对OCR增益、真实手稿/多字体/书家/动态生成。",
+    "gap": "单字体合成句图不代表手写图，单书家397字不代表所有个人/方向；400句真实性指专家文本校验，图像仍字体渲染，不混称完全未合成的自然手稿。MSE停顿无明确事件边界/笔内方向。论文Ethics称两个完整数据已公开，但固定repo只有CSV/字体/脚本/notebook/log，无PNGs、MP4、笔画边界/Smartpen处理脚本或checkpoint；可从渲染代码重建部分Vision不等于取得Strokes。训练/评估重新分割可能污染留出但未证实际原表泄漏；无seeds/区间，重复句与清理规则/代价限制复现。",
+    "problem": "为女书建立可OCR的静态句图和397 Unicode字的书写过程记录，评价中文OCR迁移与TrOCR适配。两个数据组件分别服务静态转录/过程研究，没有训练文字→女书书写视频、轨迹或规范笔顺生成器。",
     "claim": "作者研究目标：建立女书静态句子图与逐字笔画记录，测试OCR可达性。",
-    "version": "EMNLP2025 pp12419–12428；DOI10.18653/v1/2025.emnlp-main.627",
+    "version": "Recontextualizing Revitalization: A Mixed Media Approach to Reviving the Nüshu Language；正式EMNLP2025 main pp12419–12428，DOI10.18653/v1/2025.emnlp-main.627，10页ACL PDF；本批关联GitHub固定94f2a059738299023ea805fef2e1dac38ecd060c。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "previous_evidence": "既有调查 B",
     "id": "L047",
     "canonical_key": "paper:https://aclanthology.org/2025.emnlp-main.627",
@@ -3333,17 +3337,22 @@
         "conclusion": "同步采集范例；女书不能充当汉字规范数据",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 77,
+        "scope": "EMNLP2025正式ACL10页PDF全部Abstract/§1–7/Limitations/Ethics及研究附录A–D文字/所有图注；实际p12420 F2数据流程和p12421 T1/MSE/CER视觉核看。参考文献未逐篇验证、文化/历史背景主张未独立调查。GitHub固定94f2a059完整15文件tree；generation.py/TrOCR_CER.py全文、finetuning_nvshu.py数据/训练/评价段及两notebook代码的划分/配置段、output.log尾部指标；完整CSV字符/重复/句长统计。未取得397 MP4/权重，未模型执行/独立复现。"
       }
     ],
-    "sections_read": "ACL正式元数据；10页PDF正文、实验Table1、Limitations/Ethics及AppendixA–D文字；官方仓库目录页；未逐图验收/运行代码",
+    "sections_read": "EMNLP2025正式ACL10页PDF全部Abstract/§1–7/Limitations/Ethics及研究附录A–D文字/所有图注；实际p12420 F2数据流程和p12421 T1/MSE/CER视觉核看。参考文献未逐篇验证、文化/历史背景主张未独立调查。GitHub固定94f2a059完整15文件tree；generation.py/TrOCR_CER.py全文、finetuning_nvshu.py数据/训练/评价段及两notebook代码的划分/配置段、output.log尾部指标；完整CSV字符/重复/句长统计。未取得397 MP4/权重，未模型执行/独立复现。",
     "review_path": "docs/reviews/L047.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "Vision：500专家核句，单NotoSansNushu-Regular字体，30字号25行距，竖排右起，缩至384²；Strokes：一位11年经验书家，397字，Ophaya3-in-1 Smartpen，MP4均长3.94s。",
-    "framework": "NüshuVision合成句子图、NüshuStrokes专家记录，以及TrOCR适配基线。",
-    "architecture": "OCR微调TrOCR base-stage1：视觉encoder/文字decoder；笔画数据用相邻灰度帧MSE<.1、连续静止>1帧提取关键帧，未参与该OCR主实验训练。",
-    "metrics": "CER；文中称CER必在[0,1]不普遍成立，插入多时可>1；1−CER也不等同逐字符分类准确率。",
-    "baselines": "PaddleOCR/Tesseract/EasyOCR/Google/Tencent五种中文OCR零样本；TrOCR适配不同训练条件，不能只按分数评架构。",
-    "experimental_conditions": "400训练/100测试，2000epochs，单GPUbatch16/lr3e-5/wd.01/AdamW；maxlabel128、beam4/lengthpenalty2/no-repeat3。分词器女书覆盖与划分随机种子需代码进一步核。"
+    "dataset": "论文Vision500句，400train/100test，字体NotoSansNushu-Regular/base30/间隔25、传统竖排右起、Lanczos384²；另一位11年古汉字书法经验贡献者397字记录，平均3.94s（均值而非每个视频等长）。固定CSV实际500行/499唯一句/345不同字符，其中343个Unicode名称NUSHU字符及SPACE/汉字漠；原字符串长4–18，完全相同句出现在1-based行294和315。未保存原train/test清单，不断言这对必跨split；原始混入字符不擅删。397是Strokes字符库规模，非Vision独立字数。",
+    "framework": "NüshuVision由500专家校验句用单NotoSansNushu字体竖排渲染；NüshuStrokes一位专业书家手写397编码字符、Smartpen记录MP4并按灰度帧MSE停顿抽关键帧；TrOCR encoder-decoder FT静态转录。Strokes在Appendix C/未来工作中的masking用途属于方案，未加入OCR主实验。",
+    "architecture": "TrOCR microsoft/trocr-base-stage1视觉Transformer encoder/文字AR decoder、384²输入、label max128；没有设计共享理解/生成UMM。书写抽帧相邻灰度MSE<.1连续静止>1帧取静止段最早帧，未报fps/灰度归一/pen接触/人工边界一致性，停顿不必等于真实笔画边界。Nüshu为syllabic script，不能默认汉字部件/笔顺约束直接成立。",
+    "metrics": "CER=(S+D+I)/N可大于1；1−CER不等于按位字符正确率或句子准确率。论文写CER∈[0,1]及约33%字符正确均须限定/纠正。公开TrOCR_CER.py清除U+FFFD与Unicode控制类后计算字符Levenshtein/全部reference长度，另用zip_longest按位置匹配计算字符准确率，两者不同；清理可能删除错误预测，需原始/清理双报告。句子精确匹配另算，不能以CER1推没有任何字符正确。",
+    "baselines": "PaddleOCR（正文v3.6）、Tesseract5.4 chisim/chitra、EasyOCR1.7.2、GoogleCloudVision/TencentCloud中文简繁零样本；TrOCR则有400条监督。不同词表/域适配/训练预算，不能从差异证明TrOCR结构胜出；缺同数据微调其他OCR、字符/字体/版式分层、语言模型无图或邻近检索对照。未把最新API泛化为固定可重跑版本。",
+    "experimental_conditions": "论文：单GPU/2000epochs/b16/lr3e-5/wd.01/AdamW，label128、beam4/lengthpenalty2/no-repeat3。固定finetuning_nvshu.py：200epochs/b8、eval/save每50steps、generation max64，未显式传论文lr/wd；先train_test_split(.2)无random_state，test作为trainer eval。独立TrOCR_CER.py另按random_state42重划、加载本地checkpoint1400且processor改base-handwritten；未有原训练split/配置/ckpt公开，不能保证100样本为原训练留出。两个notebook也未固定split、超参省略，不自动当原表版本。未运行。"
   },
   {
     "title": "Tegaki",
@@ -12058,31 +12067,33 @@
     "source_urls": [
       "https://doi.org/10.1049/ipr2.13255",
       "https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/ipr2.13255",
-      "https://github.com/Rvosuke/BCSS"
+      "https://github.com/Rvosuke/BCSS",
+      "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/ipr2.13255",
+      "https://github.com/Rvosuke/BCSS/tree/2451eb756ff4adb5a6e00e8b3d5cdd8fd8400621"
     ],
     "scope": "handwriting_or_adjacent",
     "category": "L 书写与绘画相关研究",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-20第七批从BCSS配套数据/代码追引正式论文并按DOI去重",
-    "version": "Stroke-Seg: A deep learning-based framework for chinese stroke segmentation；IETImageProcessing18(13):4341–4355，2024-10-18首发；DOI10.1049/ipr2.13255",
-    "last_updated": "2026-10-20",
-    "sections_read": "正式PDF pp4343–4354的相关工作、Figure2说明、§3–6、Tables1–4；主表文字与公式已读，PDF框架/表图未完成可视逐项验收；官方代码选定入口另见S016",
+    "version": "Stroke-Seg: A deep learning-based framework for chinese stroke segmentation；IET Image Processing18(13):4341–4355，首发2024-10-18，DOI10.1049/ipr2.13255；已核正式全文，不附未经核实SCI分区。",
+    "last_updated": "2026-10-21",
+    "sections_read": "本批经正式Wiley 15页全文重新阅读Abstract/§1–6全部核心文本、Eq1–8、T1–4数值/图注、§5.3外部300、§5.4错误/§5.5限制和数据可用性；补核validation/test称谓和19.9pp比较口径。实际PDF图2及主/消融表视觉核查仍未完成（截图超时/直接PDF403），未声称全核心三遍验收。GitHub新tree2451eb75仅目录与此前S016入口关联；未通读全部模块/训练或独立复现。",
     "review_path": "docs/reviews/L184.md",
     "review_depth": "critical_sections_reviewed",
     "note_path": "docs/reviews/L184.md",
     "dataset": "论文Table1：1022trainval(10301笔)+90E3C未知字(1358)+113CCSEW(1660)+97异风格(1447)，1322图、相加14766笔；与repo/HF10653冲突保留。训练872图8793笔、验证150图1508笔；外部300再按150已知/150未知字报告。",
     "framework": "将笔形按相似外观与相交关系归10类；字符识别→字典11维先验；多标签阈值输出和BCE+Dice组合BDLoss，兼容多backbone。",
-    "architecture": "Figure2：recognizer查character-ID+10类计数，经上采样成W×H×1和灰度图拼接。每通道独立阈值，Youden选λ=.6。BDLoss逐类求和，.5BCE+.5Dice，Dice使用平方分母及smooth1；是像素类别而非唯一落笔实例ID。",
+    "architecture": "Figure2：recognizer查character-ID+10类计数，经上采样成W×H×1和灰度图拼接。每通道独立阈值，Youden选λ=.6。BDLoss逐类求和，.5BCE+.5Dice，Dice使用平方分母及smooth1；是像素类别而非唯一落笔实例ID。 类别通道非唯一实例ID；同类相交在该二值表示中可能不可区分。11维先验含任意字符数值ID及10类计数，经空间上采样；应测ID重编号/正确识别/噪声ID，不将字典先验作用称语义推理。Eq5/6的yt在公式应作GT类标签，但原文用是否预测正确的表述有歧义，缺实现不能擅自定实际代码。",
     "metrics": "TSR=按图平均(正确笔数/GT笔数)，正确要求单笔IoU>.8；FSR同以GT笔数作分母计算错误笔，未必1-TSR；非笔顺准确率。FLOPs及Params列用MB，不能无依据解释成百万参数。",
     "baselines": "SSGAN、CCSE(MaskRCNN)、DeepStroke；FCN/UNet/DeepLabv3+/TransUNet/TransDeepLab/Mask2Former/OneFormer(后两SwinB)。原方法是否同样获得真字先验、recognizer误差是否端到端纳入未充分明确。",
-    "experimental_conditions": "400²保比例pad、Otsu及连通域去噪；Adam β(.9,.990)、b16、200epochs/val plateau10，PyTorch1.12/2RTX3090。所读§4.3没有lr；阈值调参所用split未明确。Table2标题updatedtest与正文validation用词不同，保留差异。",
+    "experimental_conditions": "400²保比例pad、Otsu及连通域去噪；Adam β(.9,.990)、b16、200epochs/val plateau10，PyTorch1.12/2RTX3090。所读§4.3没有lr；阈值调参所用split未明确。Table2标题updatedtest与正文validation用词不同，保留差异。 正式§5.1称T2为validation，表注称updated test set；§5.2称four curated visual cases但T3数值多行与T2相同，确切统计集合需澄清；§5.3明确独立300外部集。固定GitHub tree2451eb756ff4adb5a6e00e8b3d5cdd8fd8400621未见完整train/loss/checkpoint，不能以样例推原表配置。",
     "problem": "在静态毛笔字中保留交叉区域的完整笔画结构，并利用字级先验增强分割。",
-    "method": "将笔形按相似外观与相交关系归10类；字符识别→字典11维先验；多标签阈值输出和BCE+Dice组合BDLoss，兼容多backbone。 Figure2：recognizer查character-ID+10类计数，经上采样成W×H×1和灰度图拼接。每通道独立阈值，Youden选λ=.6。BDLoss逐类求和，.5BCE+.5Dice，Dice使用平方分母及smooth1；是像素类别而非唯一落笔实例ID。",
-    "conclusion": "Table3 TransUNet TSR.982/FSR.018(79G)，DeepStroke.935/.068(54.1G)，FCN.961/.045(39.9G)；§5.3/Table4外部300为.897/.103，其中已知150=.962/.065、未知150=.831/.140；不能以98.2%代表外部泛化。",
-    "gap": "作者明确人工字典维护、交叉细边界、极端风格不足；§5.4说PKV未充分利用且需更多消融，不能写已证明其内部推理。类mask不保持同类重叠实例身份和笔顺。外部性能明显下降；HF6类7值、代码固定6输出不能称主表复现。论文计数/表split称谓、FSR具体匹配算法与重复笔计数仍须审。",
+    "method": "将笔形按相似外观与相交关系归10类；字符识别→字典11维先验；多标签阈值输出和BCE+Dice组合BDLoss，兼容多backbone。 Figure2：recognizer查character-ID+10类计数，经上采样成W×H×1和灰度图拼接。每通道独立阈值，Youden选λ=.6。BDLoss逐类求和，.5BCE+.5Dice，Dice使用平方分母及smooth1；是像素类别而非唯一落笔实例ID。 类别通道非唯一实例ID；同类相交在该二值表示中可能不可区分。11维先验含任意字符数值ID及10类计数，经空间上采样；应测ID重编号/正确识别/噪声ID，不将字典先验作用称语义推理。Eq5/6的yt在公式应作GT类标签，但原文用是否预测正确的表述有歧义，缺实现不能擅自定实际代码。",
+    "conclusion": "Table3 TransUNet TSR.982/FSR.018(79G)，DeepStroke.935/.068(54.1G)，FCN.961/.045(39.9G)；§5.3/Table4外部300为.897/.103，其中已知150=.962/.065、未知150=.831/.140；不能以98.2%代表外部泛化。 正式T2 U-Net Dice无prior .681→Dice+prior .880为19.9pp；完整BDLoss+prior .955相对.681为27.4pp，§5.1把19.9写作整框架相对Dice独用的增益口径不清。不能套用摘要增幅而不标比较行。T3参数栏原单位MB，FLOPs不等于实测延迟或包含识别/字典维护成本。",
+    "gap": "作者明确人工字典维护、交叉细边界、极端风格不足；§5.4说PKV未充分利用且需更多消融，不能写已证明其内部推理。类mask不保持同类重叠实例身份和笔顺。外部性能明显下降；HF6类7值、代码固定6输出不能称主表复现。论文计数/表split称谓、FSR具体匹配算法与重复笔计数仍须审。 正式全文补读完成，但本次Wiley PDF实际框架/表页截图超时，直接PDF下载返回403，图2与T2的勾选列仍未完成视觉核验；不登记核心三遍完成。已读正式图注/文字/数值可解释研究流程，不能冒充实际逐图审查。",
     "claim": "研究目标：在静态毛笔字中保留交叉区域的完整笔画结构，并利用字级先验增强分割。",
     "previous_evidence": "formal_publisher_pdf",
     "input": "static calligraphy image and character-derived prior",
@@ -12091,6 +12102,13 @@
     "related_records": [
       "S007",
       "S016"
+    ],
+    "review_history": [
+      {
+        "date": "2026-10-21",
+        "batch": 77,
+        "scope": "本批经正式Wiley 15页全文重新阅读Abstract/§1–6全部核心文本、Eq1–8、T1–4数值/图注、§5.3外部300、§5.4错误/§5.5限制和数据可用性；补核validation/test称谓和19.9pp比较口径。实际PDF图2及主/消融表视觉核查仍未完成（截图超时/直接PDF403），未声称全核心三遍验收。GitHub新tree2451eb75仅目录与此前S016入口关联；未通读全部模块/训练或独立复现。"
+      }
     ]
   },
   {

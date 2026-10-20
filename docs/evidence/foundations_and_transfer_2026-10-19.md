@@ -148,3 +148,8 @@ L005经典少样本部件检索保连笔，L015新版终图条件逆序视频/�
 ## 第七十六批补充（2026-10-21）
 
 MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多轮RF/AR交错。联合训练共同上升非因果协同，中间可擦除语义编辑非严格书写事件。见[审查](mmada_and_think_in_strokes_protocol_audit_2026-10-21.md)。
+
+
+## 第七十七批补充（2026-10-21）
+
+女书静态字体OCR/动态记录分开，未训练视频生成；Stroke-Seg静态重叠类mask不确定唯一动作历史，非汉字应先定义本书写系统规范事件。见[审查](nushu_and_stroke_seg_data_protocol_audit_2026-10-21.md)。

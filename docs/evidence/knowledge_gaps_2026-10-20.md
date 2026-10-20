@@ -353,3 +353,8 @@ StrokeBank正/负margin与hinge符号相反、w非负未定义；真假判别50%
 ## 第七十六批补充（2026-10-21）
 
 logp比值与exp差、平均token logp和序列概率、KL old与fixed reference须分清；后续通用RL实现不等于原三任务配置。GenEval主表/引言不一致、pp和relative、NFE与耗时/文本成本、单轮图像与单次网络forward不混同。
+
+
+## 第七十七批补充（2026-10-21）
+
+1−CER、位置字符准确与EM不同，原始/清理预测影响；CSV同句/混入字符需保存；训练split未固定而独立评估重新seed42不能保证留出，尚未证明原表泄漏。类mask与实例/动作非唯一、字ID任意编号/识别噪声控制，TSR/FSR匹配和validation/test口径需清楚。

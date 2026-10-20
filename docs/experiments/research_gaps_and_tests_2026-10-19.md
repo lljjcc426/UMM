@@ -341,3 +341,8 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 ## 第七十六批补充（2026-10-21）
 
 同teacher/数据曝光/训练与搜索总FLOPs分离joint-vs-separate、终图/多轮/双critique，反馈屏蔽与错误critique干预、正确未完成vs错误标注、质量-NFE/token/秒数曲线与理解遗忘；严格事件禁擦除，实际规范次序/方向/停笔。方案未运行。
+
+
+## 第七十七批补充（2026-10-21）
+
+女书同源句/书页去重固定split、真实字体/书家留出、原始CER/EM和轨迹事件监督对照；Stroke-Seg ID重编号/gold-pred-noisy识别、count/ID拆分、class/multilabel/loss全因子及同类相交实例，公开一对一匹配/阈值与总识别成本。未运行。

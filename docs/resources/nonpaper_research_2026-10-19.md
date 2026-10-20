@@ -345,3 +345,8 @@ Loomis固定GitHub与14B/5B HF LoRA纳入原L015关联。代码rank128/b1/AdamW�
 ## 第七十六批补充（2026-10-21）
 
 MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有token exp差PPO，selected MMU样例SEEDBench/group16/独立随机mask/KLold，非原三任务完整协议。关联原L063去重，见[审查](../evidence/mmada_and_think_in_strokes_protocol_audit_2026-10-21.md)/[制品JSON](../../data/mmada_unigrpo_artifact_audit_2026-10-21.json)，未下载权重或运行。
+
+
+## 第七十七批补充（2026-10-21）
+
+关联L047固定CSV/字体/渲染/训练/评价/log，论文全动态集发布声明与官方15文件tree未见MP4/边界/checkpoint的差异，公开条数/字符/重复统计及split/清理协议；无新增独立论文或权重下载。见[审查](../evidence/nushu_and_stroke_seg_data_protocol_audit_2026-10-21.md)/[制品JSON](../../data/nushu_multimodal_artifact_audit_2026-10-21.json)。S007/S016继续与L184关联，6类加工/样例不能套10类原表。

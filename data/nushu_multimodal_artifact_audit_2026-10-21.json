@@ -1,0 +1,55 @@
+{
+  "id": "L047",
+  "checked_on": "2026-10-21",
+  "github_revision": "94f2a059738299023ea805fef2e1dac38ecd060c",
+  "files": [
+    "NotoSansNushu-Regular.ttf",
+    "TrOCR_CER.py",
+    "chinese_ocr_evaluation.ipynb",
+    "finetune-Copy1.ipynb",
+    "finetuned_TrOCR.ipynb",
+    "finetuning_nvshu.py",
+    "generation.py",
+    "nvshu500iy.csv",
+    "ocr_easyocr.py",
+    "ocr_google_cloud.py",
+    "ocr_paddle.py",
+    "ocr_tencent_cloud.py",
+    "ocr_tesseract.py",
+    "output.log",
+    "png_generation.ipynb"
+  ],
+  "csv_statistics": {
+    "rows": 500,
+    "unique_sentences": 499,
+    "duplicate_groups_1_based": [
+      [
+        294,
+        315
+      ]
+    ],
+    "unique_characters": 345,
+    "length_min": 4,
+    "length_max": 18
+  },
+  "findings": [
+    "论文：单GPU/2000epochs/b16/lr3e-5/wd.01/AdamW，label128、beam4/lengthpenalty2/no-repeat3。固定finetuning_nvshu.py：200epochs/b8、eval/save每50steps、generation max64，未显式传论文lr/wd；先train_test_split(.2)无random_state，test作为trainer eval。独立TrOCR_CER.py另按random_state42重划、加载本地checkpoint1400且processor改base-handwritten；未有原训练split/配置/ckpt公开，不能保证100样本为原训练留出。两个notebook也未固定split、超参省略，不自动当原表版本。未运行。",
+    "正式T1五中文OCR的1−CER均0、TrOCR约.33；§5 CER.6735。固定output.log同报CER.673469387755102，但另报ExactMatch0、按位置字符正确.23517978620019436，直接说明1−CER约.3265不等于此字符正确.2352。日志是作者制品记录、未经重跑；受split/清理/processor/模型版本不清限制。未测笔画记录对OCR增益、真实手稿/多字体/书家/动态生成。",
+    "单字体合成句图不代表手写图，单书家397字不代表所有个人/方向；400句真实性指专家文本校验，图像仍字体渲染，不混称完全未合成的自然手稿。MSE停顿无明确事件边界/笔内方向。论文Ethics称两个完整数据已公开，但固定repo只有CSV/字体/脚本/notebook/log，无PNGs、MP4、笔画边界/Smartpen处理脚本或checkpoint；可从渲染代码重建部分Vision不等于取得Strokes。训练/评估重新分割可能污染留出但未证实际原表泄漏；无seeds/区间，重复句与清理规则/代价限制复现。"
+  ],
+  "log_metrics": {
+    "CER": 0.673469387755102,
+    "sentence_exact_match": 0,
+    "position_character_accuracy": 0.23517978620019436
+  },
+  "public_mp4_files_in_this_tree": false,
+  "original_split_manifest_verified": false,
+  "downloaded_weights": false,
+  "model_executed": false,
+  "urls": [
+    "https://github.com/ivoryayang/NushuMultimodal/tree/94f2a059738299023ea805fef2e1dac38ecd060c",
+    "https://github.com/ivoryayang/NushuMultimodal/blob/94f2a059738299023ea805fef2e1dac38ecd060c/finetuning_nvshu.py",
+    "https://github.com/ivoryayang/NushuMultimodal/blob/94f2a059738299023ea805fef2e1dac38ecd060c/TrOCR_CER.py",
+    "https://github.com/ivoryayang/NushuMultimodal/blob/94f2a059738299023ea805fef2e1dac38ecd060c/output.log"
+  ]
+}
