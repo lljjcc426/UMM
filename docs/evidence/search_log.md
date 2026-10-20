@@ -336,3 +336,8 @@ Emu3 Nature正式核心HTML、T1/实际EDT1–7与Fig1/3/4，完整38页补PDF�
 ## 第六十三批补充（2026-10-21）
 
 AnyText v5核心/实际Fig2/T2–4、A1–3/A7 T7–8，固定3d4a260选择代码与RealisticVision卡；UniVid v2核心/实际Fig2/T1–4/A2/A4–7 Eq6–16，固定98b5c425选择路径、HF固定a9398c3元数据；ActivityNetQA作者README/原摘要。新增2509.21760、2603.13739、2606.05748同名待精读线索，未混计已读/573候选。正式OpenReview最终PDF尚未逐页核。
+
+
+## 第六十四批补充（2026-10-21）
+
+N10 arXivv1全部核心/References书目，实际Fig1失败静帧，核2024N09先例/原Wan书目；N11 v1核心Eq1–4/T1–3与实际Fig2a/2b/4/6a；N12官方Workshop接收项14、完整5页正式PDF核心/附录文本及p1实际图，arXiv同核心/T1–2/AppB四选图交叉。未审完整训练实现/原视频或复现。RePaint完整原文/官方scheduler列待补。

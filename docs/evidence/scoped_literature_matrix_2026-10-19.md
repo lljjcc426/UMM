@@ -247,3 +247,8 @@ Emu3正式扩展已覆盖交错生成、空间变序/修复与CALVIN动作，但
 ## 第六十三批补充（2026-10-21）
 
 AnyText静态指定字形/位置/编辑与OCR感知，v1.1多更新未独立归因；UniVid一般视频生成/问答与外部LLM检索，不含规范书写事件评价。四组UniVid同名工作按作者/编号区分，见[第六十三批](anytext_univid_protocol_code_and_namesake_audit_2026-10-21.md)。
+
+
+## 第六十四批补充（2026-10-21）
+
+N10已有合成文字视频监督路线但协议和定量证据不足，其无既有工作主张须纳入2024N09；N11静态双模式骨架控制/跨字符形状和N12静态修复均是先例，无严格事件/笔顺结果。见[第六十四批](calligraphy_inpainting_and_video_text_evidence_audit_2026-10-21.md)。

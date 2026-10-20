@@ -229,9 +229,9 @@
 | L184 | [Stroke-Seg: A deep learning-based framework for chinese stroke segmentation](L184.md) | 正式PDF pp4343–4354的相关工作、Figure2说明、§3–6、Tables1–4；主表文字与公式已读，PDF框架/表图未完成可视逐项验收；官方代码选定入口另见S016 |
 | L185 | [Training Diffusion Models with Reinforcement Learning（DDPO）](L185.md) | §2相关工作/§3部分、§4.1–4.3、§5–7、AppA/B Table1/C/D与E/F正文；官方23页PDF已获取，未逐图视觉核对、未逐行代码/全部公式或独立复现 |
 | N07 | [A stroke-level large-scale database of Chinese character handwriting and the OpenHandWrite_Toolbox for handwriting research](N07.md) | 正式Springer正文PresentStudy、ToolboxDevelopment、采集/编码/排除/结果/部分Discussion；OSF摘要工作簿字段及R指标代码见R07；Tables3–7逐系数、全部附录和原始数据未完整复核 |
-| N10 | [Video Text Preservation with Synthetic Text-Rich Videos](N10.md) | 全文Abstract/§1–5(方法/评价/结论完整)；参考文献未逐项追溯，图中视频未独立播放，未定位到训练实现 |
-| N11 | [CalliffusionV2: Personalized Natural Calligraphy Generation with Flexible Multi-modal Control](N11.md) | §3–5全部核心方法、数据、Tables1–3、fewshot/编辑/非汉字说明；全部图样与公开训练实现未逐项核，正式发表未确认 |
-| N12 | [CalliPaint: Chinese Calligraphy Inpainting with Diffusion Model](N12.md) | 全文§1–4与AppendixA/B文字和Tables1/2完整；框架图具体层次、所有图选项及原Calliffusion训练实现未核 |
+| N10 | [Video Text Preservation with Synthetic Text-Rich Videos](N10.md) | arXiv2511.05573v1 Abstract/§1–5全部核心及References逐项书目浏览；无核心公式/量化表/消融/方法框架图，明确记录缺失。实际Fig1 letter长文失败静帧已看，图2只按caption与正文理解，未逐视频/全选例审核。交叉N09已读Text-Animator原文/笔记和第四十七批Wan原始报告；未找到本次可核训练实现/数据/模型卡，未执行。 |
+| N11 | [CalliffusionV2: Personalized Natural Calligraphy Generation with Flexible Multi-modal Control](N11.md) | arXiv2410.03787v1 Abstract/§1–5全部核心、Eq1–4/主T1–3/§4.2.1–4.4；实际Fig2a/2b、Fig4 fewshot与Fig6a非汉字已看，其余选例按正文/caption未逐图核。无独立组件loss消融，已分清base/pro信息差与shot敏感性；References未逐篇追读。未核正式版本或可验证的完整训练实现/权重，未执行。 |
+| N12 | [CalliPaint: Chinese Calligraphy Inpainting with Diffusion Model](N12.md) | 官方workshop接收页项14与链接正式5页PDF：Abstract/§1–4/Ethical/Refs/AppA–B全文提取文本已读，PDFp1实际框架图已看；arXivv1同核心/主T1–2/AppA–B交叉，实际Fig1/Q1/Q2图片已看，其他定性图按caption与文字未逐例核。B01原Calliffusion核心已于前批审，未把其全部配置无条件搬来；RePaint本文仅引入作用/来源，完整原方法另列后续补读。未核完整代码/权重或执行。 |
 | N14 | [SteerVTE: Seamless Video Text Editing with Style and Glyph Control](N14.md) | §1/3全部方法与数据、§4 Tables1/3/4主表和消融、§5局限；§7.2/8.1/8.2完整协议；Table2仅关键行/解释，未逐图/代码/数据文件复核 |
 | R01 | [Hanzi Writer（工具，不是论文）](R01.md) | 官方docs Animation/Quiz/Loading character data/Raw Character SVG/配置项；LICENSE来源另列；未核quiz匹配实现或运行浏览器 |
 | R02 | [Make Me a Hanzi（数据/工程资源）](R02.md) | 官方README数据格式/来源/笔顺/坐标/下载说明与COPYING全文；没有下载全库或执行解析 |

@@ -268,3 +268,6 @@ L026/L028/L044/L175/L176/L177/L179/S004/H001九项新增本轮独立17字段分�
 
 
 第六十三批（2026-10-21）补完AnyText/L025、UniVid/L027核心：347目录、140核心/142书面，207项尚未确认核心三遍（含资源）。AnyText v1/v1.1多因素更新、区域OCR指标与社区底模分列；UniVid论文/代码差异、VBench命名和ActivityNetQA规模问题明确保留。见[原文/实现审查](anytext_univid_protocol_code_and_namesake_audit_2026-10-21.md)、[逐文件说明](sixty_third_changes_2026-10-21.md)。无删除/独立复现；同名新线索与剩余记录继续。
+
+
+第六十四批（2026-10-21）补完N10视频文字保持、N11 CalliffusionV2、N12 CalliPaint核心：347目录、143核心/145书面，204项尚未确认核心三遍（含资源）。明确无量化/消融、额外参考信息和四选人评证据限制；确认CalliPaint为NeurIPS2023 Workshop。见[审查](calligraphy_inpainting_and_video_text_evidence_audit_2026-10-21.md)、[逐文件说明](sixty_fourth_changes_2026-10-21.md)。无删除/独立复现；RePaint原始方法与剩余条目继续。

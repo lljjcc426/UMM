@@ -69,9 +69,9 @@
 | N07 | A stroke-level large-scale database of Chinese character handwriting and the OpenHandWrite_Toolbox for handwriting research | primary_sections_read | [结构化分析](../reviews/N07.md) | 未完成 |
 | N08 | Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors | primary_sections_read | [结构化分析](../reviews/N08.md) | 核心三遍与五项检查完成 |
 | N09 | Text-Animator: Controllable Visual Text Video Generation | primary_sections_read | [结构化分析](../reviews/N09.md) | 核心三遍与五项检查完成 |
-| N10 | Video Text Preservation with Synthetic Text-Rich Videos | primary_sections_read | [结构化分析](../reviews/N10.md) | 未完成 |
-| N11 | CalliffusionV2: Personalized Natural Calligraphy Generation with Flexible Multi-modal Control | primary_sections_read | [结构化分析](../reviews/N11.md) | 未完成 |
-| N12 | CalliPaint: Chinese Calligraphy Inpainting with Diffusion Model | primary_sections_read | [结构化分析](../reviews/N12.md) | 未完成 |
+| N10 | Video Text Preservation with Synthetic Text-Rich Videos | primary_sections_read | [结构化分析](../reviews/N10.md) | 核心三遍与五项检查完成 |
+| N11 | CalliffusionV2: Personalized Natural Calligraphy Generation with Flexible Multi-modal Control | primary_sections_read | [结构化分析](../reviews/N11.md) | 核心三遍与五项检查完成 |
+| N12 | CalliPaint: Chinese Calligraphy Inpainting with Diffusion Model | primary_sections_read | [结构化分析](../reviews/N12.md) | 核心三遍与五项检查完成 |
 | N13 | The Unwritten Benchmark: A New Challenge for Multimodal Machine Learning in Abstract Perceptual Reasoning | primary_sections_read | [结构化分析](../reviews/N13.md) | 未完成 |
 | U01 | Chameleon: Mixed-Modal Early-Fusion Foundation Models | primary_sections_read | [结构化分析](../reviews/U01.md) | 核心三遍与五项检查完成 |
 | U02 | Emu3: Next-Token Prediction is All You Need | primary_sections_read | [结构化分析](../reviews/U02.md) | 核心三遍与五项检查完成 |
