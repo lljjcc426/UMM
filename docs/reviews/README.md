@@ -342,8 +342,8 @@
 | G022 | [Diffusion Models in Vision: A Survey](G022.md) | 摘要，三框架分类及生成范式关系；参考文献逐项阅读未完成 |
 | G023 | [Efficient Diffusion Models: A Comprehensive Survey from Principles to Practices](G023.md) | 摘要，§3 VAE，§5.1采样，效率对照表及Limitations |
 | G024 | [StrokeFusion: Vector Sketch Generation via Joint Stroke-UDF Encoding and Latent Sequence Diffusion](G024.md) | 方法、数据/指标、Tables1–3，Fig.6和Limitations；正式会议元数据 |
-| G025 | [Adding Conditional Control to Text-to-Image Diffusion Models](G025.md) | §3训练与结构，§4.2，ADE20K Table2及提示消融 |
-| G026 | [Classifier-Free Diffusion Guidance](G026.md) | §4.1–4.3及Tables1–2，训练条件dropout定义 |
+| G025 | [Adding Conditional Control to Text-to-Image Diffusion Models](G025.md) | 2302.05543v3 Abstract/Intro/§2相关/§3完整Eq1–5/§4完整T1–3及消融讨论/§5；原Fig2/3/5/8视觉核，其他图只读caption/正文，未看全例。CVF正式身份条目；supp46MB未完整下载，未计已读。官方ed85cd1指定cldm的hint/forward/optimizer/no_grad、scribble demo完整、FAQ和tutorial_train/dataset全读，未全源码/其他卡/权重；无训练、推理或复现。 |
+| G026 | [Classifier-Free Diffusion Guidance](G026.md) | 2207.12598v1 Abstract/Intro/§2 Eq1–5背景/§3 Eq6与Algorithm1/2/§4全部T1/2和超参消融/§5讨论/§6结论；原Fig2/4/5视觉核，AppA样本图仅读caption未完整视觉，引用前作架构/全部参考未重读。短Workshop版未全读、无源码/权重运行/训练/独立复现。 |
 | G027 | [Elucidating the Design Space of Diffusion-Based Generative Models](G027.md) | 正式NeurIPS主PDF§1–6/Algorithms1–2/Table1–2/Fig2–5文字解释，原公式已推核；未视觉核全部图，附录B–F在独立supp未读，训练源码未全核 |
 | G028 | [Generative Adversarial Nets](G028.md) | minimax目标与理论假设，§5/Table1，指标限制 |
 | G029 | [Auto-Encoding Variational Bayes](G029.md) | ELBO/重参数化推导，§5实验设置与学习算法比较 |

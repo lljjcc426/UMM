@@ -213,3 +213,8 @@ Wan-VAE过去特征缓存、扩散采样近似attention/CFG缓存、Streamer窗�
 ## 第四十八批补充
 
 LoRA的ΔW低秩不要求总W低秩；DoRA模长缩放可能使总ΔW超r秩，完整norm投影与detach方向梯度分开。rsLoRA SGD首步/条件渐近量级不保证AdamW泛化或最大rank最优。QLoRA冻结NF4存储与BF16计算/activation分开；分页不是无成本。训练PPL、裁判相对分、Elo顺序重排误差及独立任务泛化分开。
+
+
+## 第四十九批补充
+
+零残差初始化函数相等不保证后续行为无损；外层zero权重与内层分支梯度不同步。冻结参数与输入梯度分开。CFG原w与常用s偏移1，理想每噪声score不保证有限步终点精确幂密度；FID最佳与强引导IS最佳不同。ControlNet hint/RW论文代码及CFG图例512/表1024冲突保留，不用库默认猜历史条件。

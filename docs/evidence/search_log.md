@@ -261,3 +261,8 @@ G013实际读2503.20314v2核心/扩展机制/限制、主T1–8与已有消融�
 ## 第四十八批补充
 
 G018 2106.09685v2、G019 2305.14314v1、G020 2402.09353v6、G021 2312.03732v1指定核心/附录、原主结果/消融与所列图视觉核。LoRA Microsoft作者页确认ICLR2022，QLoRA NeurIPS2023、DoRA PMLR ICML2024身份核；rsLoRA未确认正式venue。OpenReview浏览器验证未通读正式LoRA，未将搜索摘要作为全文。现代PEFT/bitsandbytes/QDoRA-FSDP实现及视频适配资源仍须独立版本核。
+
+
+## 第四十九批补充
+
+G025 2302.05543v3主文、原Fig2/3/5/8视觉，G026 2207.12598v1核心/Algorithm1/2/T1/2/Fig2/4/5。CVF ControlNet ICCV2023身份条目已取得；正式supp下载未完整不计。固定ed85cd1官方cldm关键段、scribble demo/FAQ/训练和数据教程；未读全卡/源码。T2I-Adapter2302.08453、ControlNet++2404.07987、CFG++2406.08070、EVCtrl2508.10963只检索标题/摘要，入追引去重队列不计完成。

@@ -210,3 +210,8 @@ G013关联Wan2.1固定9737cba配置/关键实现：1.3B与14B不同维度/head�
 ## 第四十八批补充
 
 LoRA/QLoRA/DoRA/rsLoRA原论文审查已补，但现代PEFT实现、量化/FSDP组合及训练脚本需要独立版本/默认值核查；不从库现默认补历史α/dropout或硬件。Ketaba S001和CogVideoX R11保留各自模型/代码协议，不能用四篇通用原理覆盖具体复核；本批不新增独立资源数。
+
+
+## 第四十九批补充
+
+ControlNet1.0官方ed85cd1所列教程/关键实现已交叉核：fill50k RGB归一化、单GPU/b4/lr1e−5/FP32、sd_locked；demo独立20DDIM/CFG9/附加与负prompt/guess权重。教程无显式50%prompt dropout，不能替原主实验；非论文工程默认纳入G025，独立资源数不变。后续Control-LoRA/新ControlNet卡与训练工作流仍需独立核。

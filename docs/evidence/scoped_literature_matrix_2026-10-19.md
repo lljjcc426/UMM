@@ -172,3 +172,8 @@ G013 Wan2.1：通用OCR过滤＋专用中英文字图/视频分支，3fps密集c
 ## 第四十八批补充
 
 G018–G021分别对应更新表示、冻结权重存储、模长/方向参数化、rank缩放；语言/视觉理解/SDXL静态实验不直接验证书写视频事件。四者方法、训练/数据/主结果/消融、优势条件与反例见[第四十八批](parameter_efficient_adaptation_rank_quantization_and_weight_decomposition_2026-10-20.md)。
+
+
+## 第四十九批补充
+
+G025为静态二维条件图像，G026为类条件ImageNet引导；均没有规范书写时间监督。原图/条件提取/hint/VAE与真实事件分列，成本按两支计算和可训练对象；详[第四十九批](spatial_control_classifier_free_guidance_and_protocol_gaps_2026-10-20.md)。
