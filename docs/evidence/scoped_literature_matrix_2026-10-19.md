@@ -97,3 +97,8 @@
 ## 第三十三批补充
 
 AnyText2静态图、KineTy模板派生Latin RGB动效、DynamicTypography字母SVG形变、InversePainting真实粗画布AR、AnimatePainter合成先验短clip分别列界。DDC的真实参考与理论参考不同，不跨论文排名；这五项均未提供规范逐笔执行验证。
+
+
+## 第三十四批补充
+
+BAGEL双专家共享attention、Show-o2同VAE双路径、ReCA原架构后训按接口分列；BAGEL导航额外FT，Show-o2视频2B与7B不同，ReCA无动作/视频指标。统一多模态已多路线，规范事件协同需要直接新证据。

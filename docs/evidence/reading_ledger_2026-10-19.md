@@ -26,12 +26,12 @@
 | B07 | Inverse Painting: Reconstructing the Painting Process | primary_sections_read | [结构化分析](../reviews/B07.md) | 核心三遍与五项检查完成 |
 | B08 | AnimatePainter（arXiv:2503.17029） | primary_sections_read | [结构化分析](../reviews/B08.md) | 核心三遍与五项检查完成 |
 | B09 | DiffMath: Symbol- and Graph-Aware Latent Diffusion Transformer for Handwritten Mathematical Expression Generation | primary_sections_read | [结构化分析](../reviews/B09.md) | 核心三遍与五项检查完成 |
-| C01 | Emerging Properties in Unified Multimodal Pretraining（BAGEL） | primary_sections_read | [结构化分析](../reviews/C01.md) | 未完成 |
-| C02 | Show-o2: Improved Native Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/C02.md) | 未完成 |
+| C01 | Emerging Properties in Unified Multimodal Pretraining（BAGEL） | primary_sections_read | [结构化分析](../reviews/C01.md) | 核心三遍与五项检查完成 |
+| C02 | Show-o2: Improved Native Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/C02.md) | 核心三遍与五项检查完成 |
 | C03 | Hyper-Bagel: A Unified Acceleration Framework for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/C03.md) | 未完成 |
 | C04 | Flash-Unified: A Training-Free and Task-Aware Acceleration Framework for Native Unified Models（FlashU） | primary_sections_read | [结构化分析](../reviews/C04.md) | 未完成 |
 | C05 | UniCache: Task- and Type-Aware KV Cache Compression for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/C05.md) | 未完成 |
-| C06 | Reconstruction Alignment Improves Unified Multimodal Models（RecA） | primary_sections_read | [结构化分析](../reviews/C06.md) | 未完成 |
+| C06 | Reconstruction Alignment Improves Unified Multimodal Models（RecA） | primary_sections_read | [结构化分析](../reviews/C06.md) | 核心三遍与五项检查完成 |
 | C07 | Learning Native Reflection in Unified Models with Interleaved Reinforcement Learning（UMM-Reflection） | primary_sections_read | [结构化分析](../reviews/C07.md) | 未完成 |
 | D01 | HunyuanVideo 1.5 Technical Report | primary_sections_read | [结构化分析](../reviews/D01.md) | 未完成 |
 | D02 | LTX-2: Efficient Joint Audio-Visual Foundation Model | primary_sections_read | [结构化分析](../reviews/D02.md) | 未完成 |

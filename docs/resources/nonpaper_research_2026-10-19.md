@@ -135,3 +135,8 @@ DiffMath固定ec4aa2c树仅README，代码未发；SDT固定ba1da57默认配方�
 ## 第三十三批补充
 
 KineTy模板版权限制完整584K数据分发，公开构建需许可模板/AfterEffects/Nexrender；DynamicTypography默认参数/运行显存和loss权重可查但逐prompt优化；AnyText2与InversePainting默认训练配置不同于论文。InversePainting HF权重与sample_data不等完整294视频发布。
+
+
+## 第三十四批补充
+
+Show-o2固定45a5a2d README视频理解已发，T2V/I2V/mixed-modality生成权重仍TODO。ReCA固定99ebefe复现指南提供分辨率/瓶颈/冻理解训练经验，Harmon示例50K不同论文5K；BAGEL示例集不等完整预训集。HF量化/ComfyUI存在不自动证明原精度和速度相同。

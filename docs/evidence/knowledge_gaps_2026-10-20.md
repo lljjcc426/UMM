@@ -138,3 +138,8 @@ UMText RCI含传统Canny，需追实现确认哪些路径停止梯度、哪些�
 ## 第三十三批补充
 
 ε预测必须经x_t与α转换成x0才可解释为clean latent；直接VAEdecode ε不能自动等同重建图。IS方向与实现需对应；unsigned角度约束不保证有向拓扑。相邻帧高相似可由静止取得，指标需同时约束运动。延迟下降与吞吐上升分母不同。
+
+
+## 第三十四批补充
+
+Flow时间方向是符号约定，BAGEL data→noise与Show-o2 noise→data需统一后比velocity。active与total参数、packed tokens与batch数、GPUh与wallh、推理seed与训练seed不同。PCA投影相近不证明同构；重建复制捷径、阈值涌现与真正因果转移需受控实验。

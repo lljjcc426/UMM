@@ -2223,6 +2223,108 @@
         }
       ],
       "boundary": "核心问题/方法公式/框架图/主表/现有消融及批判阅读与五条书面答案完成；未逐图全附录或完整源码审计，未运行模型。论文缺失或冲突保留，不补造结果。"
+    },
+    {
+      "id": "C01",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "BAGEL研究交错多模态预训练的规模与理解/生成兼顾。两组MoT专家避免完全共参冲突，共享attention利用长上下文，图像RF/文字AR联合训练。复杂编辑随训练提高，但阶段同时改分辨率和数据配比，尚不能把涌现独立归因token增长。",
+          "evidence": "完整核心问题/动机与独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig2文本与SigLIP2图像token走理解专家，FLUX VAE token走生成专家，各层共享跨模态attention运算；预测文字token或latent velocity。图文交错只缓存先前clean图，video另DiffusionForcing mask，不能把两种训练mask混成一个。",
+          "evidence": "v3p4 Fig2/p6 Fig3/p17 Tables5–6已渲染视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "MoT把全部层参数按模态复制并hard-route，非只复制FFN的MoE；active7B/total14B。视频/web变化caption提供跨图条件，理论上减少小query接口的信息压缩，但无信息损失是未证明表述。实际RF代码t0data/t1noise，target ε−data。",
+          "evidence": "核心公式作用、训练条件和固定代码可核范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "GenEval .82→rewriter .88改变推理输入；WISE无思考.52低MetaQuery .55，SelfCoT .70有额外推理。Fig3同FLOPs1.5B MoT trainMSE较好，不能替主规模协同对照；Fig7智能编辑85%阈值3.61T同时经历训练阶段变化。",
+          "evidence": "主表/消融逐值解释，退化/缺项与协议差保留"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "等总参数/总训练与推理成本的独立双模型是否同样好？所谓涌现是否来自评估阈值、resolution或交错配比？Transfusion/MoT/Janus等已有统一先例，导航另FT且定性，笔顺/物理执行新任务仍需独立事件证据。",
+          "evidence": "原文失败、证据限制与已读相关先例"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架视觉/主表与现有消融、批判阅读及五条书面答案完成；未逐图全附录、全源码审计或独立运行。版本及证据缺项保留。"
+    },
+    {
+      "id": "C02",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "Show-o2在Wan3D VAE中融合SigLIP蒸馏语义与低层patch，给Qwen同时做AR文本和flow视觉；两阶段避免语言大幅遗忘。模型已覆盖短video，但7B主训练不含video，生成checkpoint尚有TODO，不可把全部功能合并成一个已发7B模型。",
+          "evidence": "完整核心问题/动机与独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig1图/视频先VAE再S/P双路径，STF concat归一MLP变成统一token，与文字交错进Qwen；LMhead预测离散文字，10层flowhead估velocity后VAE解码。t1clean，和BAGEL的t1noise约定相反，比较公式先对齐方向。",
+          "evidence": "v3p4 Fig1/p10–11主表与消融已渲染视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "语义蒸馏补VAE的理解弱项，P保低层，冻结LLM先学head后全参高质训。两个路径经投影不保证严格无损；Eq2 logcos在非正值未定义，未取得蒸馏入口不擅替作者补clamp。",
+          "evidence": "核心公式作用、训练条件和固定代码可核范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "1.5B GenEval .73/DPG85.02，但OneIG文字.002，HQ .125仍低FLUX .523。Table10 pilot融合FID21.8→20.5、GQA56.2→57.6但POPE不变；Table12加stage2 .63→.73也加数据和steps，尚非排除预算混杂的因果证明。",
+          "evidence": "主表/消融逐值解释，退化/缺项与协议差保留"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "匹配数据和steps后两阶段是否仍胜合理one-stage基线？S/P融合在主规模video和文字细笔上各贡献多大？BAGEL/Transfusion等也AR+连续生成，创新需限定双路径与recipe；Letter动效/画布过程已有研究，UMM是否协同需直接比。",
+          "evidence": "原文失败、证据限制与已读相关先例"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架视觉/主表与现有消融、批判阅读及五条书面答案完成；未逐图全附录、全源码审计或独立运行。版本及证据缺项保留。"
+    },
+    {
+      "id": "C06",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "ReCA让预训UMM从自己视觉语义embedding重建图，之后仍用原文字/编辑接口，检验语义监督能否改善生成。Harmon无GPT4o数据GenEval .86；.90属于先蒸馏数据SFT再ReCA的plus路线。无新增视频或笔顺能力证明。",
+          "evidence": "完整核心问题/动机与独立书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "Fig4图先缩到理解encoder最小分辨率，语义embedding+普通重建模板交原UMM生成分支，以CE或扩散loss监督原图；多模型冻理解，共参模型加I2T保能力。推理T2I不额外给GT图，重建训练与部署输入不能混淆。",
+          "evidence": "v4p3 Fig4/p8 Tables4–6/p24 Table8已渲染视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "Eq3 ReCA权1、T2I权0，共参I2T权1。信息瓶颈抑制copy而保语义；token同空间同分辨率会复制崩。PCA少数feature靠近并未证明空间同构，低分辨率的token/compute变化也需配平机制实验。",
+          "evidence": "核心公式作用、训练条件和固定代码可核范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table5 MJ同5K SFT74.76、ReCA85.69，密caption74.05，支持当前后训配方；Table7 BAGEL ViT22482.4优ViT51279.2。Table4 POPEF1/GQA略降，WISE Show-o不变；BLIP3o失败必须保留。Table8 Harmon12.5h单A100、BAGEL6×4.5h=27GPUh，不能都写27h单GPU。",
+          "evidence": "主表/消融逐值解释，退化/缺项与协议差保留"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "同token/FLOPs打乱语义和图像是否仍有提升？重建变好对罕见字/计数/事件是否转移？ROSS/REPA/ViLex已有重建/对齐先例，本法后训接口不同；共享UMM的价值应与等成本简单图像预训练比较，不能单靠重建loss宣称理解动作协同。",
+          "evidence": "原文失败、证据限制与已读相关先例"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架视觉/主表与现有消融、批判阅读及五条书面答案完成；未逐图全附录、全源码审计或独立运行。版本及证据缺项保留。"
     }
   ]
 }

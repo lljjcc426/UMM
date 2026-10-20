@@ -26,12 +26,12 @@
 | B07 | [Inverse Painting: Reconstructing the Painting Process](B07.md) | v2核心Abstract/Intro/Related/§3 Eq1–3/§4 Table1/§5，suppAppA1–5/B1–6核心配方/评估/人评/传播文本；PDFp4 Fig3与p8 Table1视觉核。固定3a27592 README、两个train yaml和make_list.py全文已读；demo仅定位调用，未完整text内部/全代码/其余定性附录或运行。核心三遍完成。 |
 | B08 | [AnimatePainter（arXiv:2503.17029）](B08.md) | v1 Abstract/Intro/Related、§3 Eq1–7/§4 Tables1–2/§5/§5.1核心完整文字；PDFp3 Fig3/p7 Table2视觉核。未在已核来源取得训练代码或补充协议，未逐图全例/运行。核心三遍与五项书面检查完成，缺项保留。 |
 | B09 | [DiffMath: Symbol- and Graph-Aware Latent Diffusion Transformer for Handwritten Mathematical Expression Generation](B09.md) | v2 Abstract/Intro/Related、§3 Eq1–9/§4 Tables1–4/§5，AppAlgorithm1/A1–3/B1–4/C1–2核心文字；PDFp5 Fig4与p9 Table3/4视觉核。固定ec4aa2c公开tree与README全文已读，只有README，未取得训练/推理实现，未逐图读末尾全部案例或执行；核心三遍完成。 |
-| C01 | [Emerging Properties in Unified Multimodal Pretraining（BAGEL）](C01.md) | §2架构/注意力、§3数据Table1、§4训练Table3、§5–6消融与能力曲线、§7主表相关行；附录评判说明；完整硬件与所有表值未逐项核 |
-| C02 | [Show-o2: Improved Native Unified Multimodal Models](C02.md) | §1/3–4完整结构与训练、Tables3–10、§5；未逐图核查、完整附录/代码/高分辨率checkpoint未审 |
+| C01 | [Emerging Properties in Unified Multimodal Pretraining（BAGEL）](C01.md) | v3 Abstract/Intro、§2各节/Fig2–3、§3数据各节、§4Table3/Fig5–6、§5–6/Fig7、§7主Tables4–8/§8及suppTable9/10/15caption核心读；PDFp4 Fig2、p6 Fig3、p17 Tables5/6视觉核。固定a2fa77d TRAIN.md1–83/scripts/train.sh及bagel.py178–231流目标已读，README配置提示已读；未全库、全部定性附录/运行。核心三遍完成。 |
+| C02 | [Show-o2: Improved Native Unified Multimodal Models](C02.md) | v3 Abstract/Intro/Related、§3 Eq1–4/Table2、§4设置/主Tables3–9/消融10–14、§5/6核心文字；PDFp4 Fig1/Eq2、p10Table8–10、p11Tables11–14视觉核。官方NeurIPS登记核；固定45a5a2d show-o2 README1–115、stage1a完整yaml、stage2a118–末及model constructor44–149已读。未独立蒸馏代码/全库/逐图全附录或运行，核心三遍完成。 |
 | C03 | [Hyper-Bagel: A Unified Acceleration Framework for Multimodal Understanding and Generation](C03.md) | §2文字草稿与data，§3全部蒸馏阶段，§4主表/ablation相关行；配置细节和代码尚未完整复核 |
 | C04 | [Flash-Unified: A Training-Free and Task-Aware Acceleration Framework for Native Unified Models（FlashU）](C04.md) | §3完整机制、§4主表/消融Table1–5，附录B Tables7–8及C敏感性；全文所有图曲线未逐图验收 |
 | C05 | [UniCache: Task- and Type-Aware KV Cache Compression for Unified Multimodal Models](C05.md) | §3策略与公式、§4主表/消融Table1/3/4、实现和AppB/E；代码kernel未运行，未验收全部附表 |
-| C06 | [Reconstruction Alignment Improves Unified Multimodal Models（RecA）](C06.md) | §2对齐loss与冻结、§3–4主表相关行及消融、AppB Table8超参、AppC失败与数据重叠；全部种子/表图尚未逐项核完 |
+| C06 | [Reconstruction Alignment Improves Unified Multimodal Models（RecA）](C06.md) | v4 Abstract/Intro、§2 Eq1–3、§3主Tables1–7、§4/5、AppC模板/D机制/E配方/Table8、F1/2/3引导及F8/Table13/14、G限制核心读；PDFp3 Fig4、p8 Tables4–6、p24Table8视觉核。官方ICLR登记核；固定99ebefe README1–135/中文复现指南全文、Harmon配置全文、BAGEL train.sh与example.yaml已读，未全库/全部附录逐图/运行。核心三遍完成。 |
 | C07 | [Learning Native Reflection in Unified Models with Interleaved Reinforcement Learning（UMM-Reflection）](C07.md) | §3–7方法、Table1–3主比较/消融/内部probe说明，AppA Table4全参组/超参；其他附录详细probe/图像案例未全部验收 |
 | D01 | [HunyuanVideo 1.5 Technical Report](D01.md) | §2数据、§3架构、§4训练及Tables3/7/8；未逐项摘完所有训练规模和人评协议 |
 | D02 | [LTX-2: Efficient Joint Audio-Visual Foundation Model](D02.md) | §3表示/双流、§4推理、§5数据、§6速度/评测与§7限制 |

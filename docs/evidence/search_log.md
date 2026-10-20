@@ -186,3 +186,8 @@ U26–U31读取固定版本PDF方法/选定结果与附录，U29p3/U30p4方法�
 ## 第三十三批补充
 
 正式ECCV2024 KineTy、ICCV2025 Dynamic Typography和InversePainting v2/supp已核，AnyText2/AnimatePainter不推定正式接收。固定四官方仓库HEAD核代码/配置/许可；用Salimans2016 §4核标准IS定义，仍未取得KineTy完整评估实现。
+
+
+## 第三十四批补充
+
+BAGEL2505.14683v3/Show-o22506.15564v3/ReCA2509.07295v4核心读，官方NeurIPS2025/ICLR2026登记核。固定ByteDance-Seed/Bagel、showlab/Show-o、HorizonWind2004/reconstruction-alignment，核训练示例/复现指南/发布TODO及selected源码，未把后续新增支持模型当全部正式实验。
