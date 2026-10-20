@@ -200,3 +200,8 @@ DDPM官方1e0dceb TF1.15/TPU默认与loss选段；Score-SDE官方JAX0acb9e0配�
 ## 第四十六批补充
 
 新增[R11](../reviews/R11.md)：固定CogVideo7a1af71微调默认/关键实现与HF2B1137dac、5B8fc5b28、1.5fdc5267卡/config。r128/alpha64/QKV-out、AdamW2e−5、iid时刻，不当论文完整预训。latent尺度/时间patch/精度与LoRA/SFT/offload预算分版本；数据resize/抽帧、开发依赖及42GB/4090文档行问题保留。未下载权重或运行。
+
+
+## 第四十七批补充
+
+G013关联Wan2.1固定9737cba配置/关键实现：1.3B与14B不同维度/head；T2V50步/CFG5/shift5、81帧/16fps；1.3B README建议CFG6/shift8–12/480p。VAE逐通道mean/std、空负提示自动回填、T5 CPU/offload与提示扩写应保存。README新FLF2V/VACE制品不回填报告原版，衍生LoRA/量化资源尚待独立审查；不增加独立论文数。

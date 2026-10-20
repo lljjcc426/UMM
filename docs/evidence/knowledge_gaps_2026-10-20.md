@@ -203,3 +203,8 @@ C3D-FID与I3D-FVD/图像Inception FID分开，train/val参考与IS split双值�
 ## 第四十六批补充
 
 几何压缩/位置token/潜元素/字节与完整计算分开；因果VAE不等full-attention生成因果。邻帧L1会混入真实运动，需GT差分/静止反例；EUS是特定均衡条件下的分层时刻采样。expert AdaLN不等稀疏MoE，公开trainer iid不等论文EUS；scale/invert、dtype/heads/timeembed与帧数跨版本不能拼。
+
+
+## 第四十七批补充
+
+Wan-VAE过去特征缓存、扩散采样近似attention/CFG缓存、Streamer窗口/一致性蒸馏分别具有不同假设。FM训练回归不取消采样求解，也不保证精确MLE；逐通道latent mean/std与单标量尺度分开。win-rate-gap带负值不能解释普通获胜概率，缺平局公式不转换；原图PSNR、表步数与帧率冲突按版本保留。

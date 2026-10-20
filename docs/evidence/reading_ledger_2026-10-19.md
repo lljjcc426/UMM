@@ -314,7 +314,7 @@
 | G010 | Align your Latents: High-Resolution Video Synthesis with Latent Diffusion Models | primary_sections_read | [结构化分析](../reviews/G010.md) | 核心三遍与五项检查完成 |
 | G011 | AnimateDiff: Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning | primary_sections_read | [结构化分析](../reviews/G011.md) | 核心三遍与五项检查完成 |
 | G012 | CogVideoX: Text-to-Video Diffusion Models with An Expert Transformer | primary_sections_read | [结构化分析](../reviews/G012.md) | 核心三遍与五项检查完成 |
-| G013 | Wan: Open and Advanced Large-Scale Video Generative Models | primary_sections_read | [结构化分析](../reviews/G013.md) | 未完成 |
+| G013 | Wan: Open and Advanced Large-Scale Video Generative Models | primary_sections_read | [结构化分析](../reviews/G013.md) | 核心三遍与五项检查完成 |
 | G014 | A Neural Representation of Sketch Drawings | primary_sections_read | [结构化分析](../reviews/G014.md) | 核心三遍与五项检查完成 |
 | G015 | Learning to Paint With Model-based Deep Reinforcement Learning | primary_sections_read | [结构化分析](../reviews/G015.md) | 核心三遍与五项检查完成 |
 | G016 | Paint Transformer: Feed Forward Neural Painting with Stroke Prediction | primary_sections_read | [结构化分析](../reviews/G016.md) | 核心三遍与五项检查完成 |

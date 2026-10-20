@@ -162,3 +162,8 @@ G009像素整块扩散/条件重建引导；G010逐帧E潜扩散+时间D/分层�
 ## 第四十六批补充
 
 G012 3D VAE/Expert AdaLN/full attention/Frame Pack/数据筛选及EUS，R11工程微调/卡config单列；35M视频+2B图像与用户少样本微调不同。过滤Text Dominated、caption2秒采帧、公开原版与1.5帧率/时长等差异见[第四十六批](cogvideox_video_compression_data_and_finetuning_2026-10-20.md)。
+
+
+## 第四十七批补充
+
+G013 Wan2.1：通用OCR过滤＋专用中英文字图/视频分支，3fps密集caption，C16/时间4因果VAE、共享调制full-attention DiT/FM。WanBench无独立笔顺/OCR过程指标。I2V/VACE/个性化/相机/Streamer/V2A各任务输入、数据与训练边界分开；详[第四十七批](wan_visual_text_flow_training_and_evaluation_audit_2026-10-20.md)。
