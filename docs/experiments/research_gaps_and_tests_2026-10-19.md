@@ -355,3 +355,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第八十批（2026-10-21）：补等teacher/分辨率/码率/计算的tokenizer因子实验、细字/OCR与完整采样成本；未运行。见[审查](../evidence/uniflow_reconstruction_generation_tradeoff_audit_2026-10-21.md)和[单篇L072](../reviews/L072.md)。
+
+
+第八十一批（2026-10-21）：补共享索引全因子、等调用/等延迟与真实联合LLM正负迁移；未运行。见[审查](../evidence/tokenflow_shared_indices_and_claim_audit_2026-10-21.md)和[单篇L094](../reviews/L094.md)。

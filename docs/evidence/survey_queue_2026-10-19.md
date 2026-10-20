@@ -326,3 +326,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第八十批（2026-10-21）补完UniFlow L072正式ICLR核心/指定附录、实际图表及固定推理制品。350目录、168核心/171项五条书面（含未通过项），182条尚未确认核心三遍（含资源）。见[审查](uniflow_reconstruction_generation_tradeoff_audit_2026-10-21.md)、[逐文件说明](eightieth_changes_2026-10-21.md)。无删除或模型复现。
+
+
+第八十一批（2026-10-21）补完TokenFlow L094正式CVPR核心/官方supp和实际框架主表消融，核固定代码/HF。350目录、169核心/172项五条书面（含未通过项），181条尚未确认核心三遍（含资源）。见[审查](tokenflow_shared_indices_and_claim_audit_2026-10-21.md)、[逐文件说明](eighty_first_changes_2026-10-21.md)。无删除或模型复现。

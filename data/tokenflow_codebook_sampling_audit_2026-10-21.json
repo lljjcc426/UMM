@@ -1,0 +1,31 @@
+{
+  "id": "L094",
+  "date": "2026-10-21",
+  "paper": "CVPR2025 pp2545-2555, 11p main +10p official supplement",
+  "github_revision": "9812da01c0695f4989060cc4eea053715e9e4441",
+  "github_canonical": "ByteVisionLab/TokenFlow; former ByteFlow-AI redirects",
+  "hf_revision": "5924ad7f25fe030292de3995912b895ab9fd9321",
+  "hf_model": "ByteVisionLab/TokenFlow",
+  "license_metadata": {
+    "github": "apache-2.0",
+    "hf_tokenizer": "mit",
+    "upstream_llm": "separate terms not reinterpreted"
+  },
+  "findings": [
+    "Shared normalized semantic+pixel distance coefficient1, dual embedding lookup and straight-through; optional entropy loss default0, no claim actually used",
+    "Codebook usage is a local rolling131072-index training buffer, aggregate_usage=False, distinct from pooled whole-image clustering and full-corpus occupancy",
+    "SigLIP pixel encoder upsamples semantic27x27 grid input to432x432 then decodes/resizes384; endpoint384 is not all internal pixel processing384",
+    "Default T2I script loop1 uses topk600/p.6 vs paper single loop1200/.8; multi-loop3 uses1200,100,1/.8,.8,0; demo negative prompt includes text",
+    "Sampler uses (1+t)*conditional-t*unconditional with t=cfg*scale_fraction, no KV cache; effective standard conditional coefficient1+cfg*ratio, not constant7.5",
+    "CLI g_seed accepted but call hardcodesNone; sample scripts differ formal training: tokenizer ImageNet100epochs/b32, T2I10epochs vs paper2; no result reproduced"
+  ],
+  "urls": [
+    "https://openaccess.thecvf.com/content/CVPR2025/html/Qu_TokenFlow_Unified_Image_Tokenizer_for_Multimodal_Understanding_and_Generation_CVPR_2025_paper.html",
+    "https://openaccess.thecvf.com/content/CVPR2025/papers/Qu_TokenFlow_Unified_Image_Tokenizer_for_Multimodal_Understanding_and_Generation_CVPR_2025_paper.pdf",
+    "https://openaccess.thecvf.com/content/CVPR2025/supplemental/Qu_TokenFlow_Unified_Image_CVPR_2025_supplemental.pdf",
+    "https://github.com/ByteVisionLab/TokenFlow/tree/9812da01c0695f4989060cc4eea053715e9e4441",
+    "https://huggingface.co/ByteVisionLab/TokenFlow/tree/5924ad7f25fe030292de3995912b895ab9fd9321"
+  ],
+  "executed": false,
+  "downloaded_weights": false
+}

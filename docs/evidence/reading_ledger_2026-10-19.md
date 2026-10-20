@@ -177,7 +177,7 @@
 | L069 | Unison: Benchmarking Unified Multimodal Models via Synergistic Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L069.md) | 未完成 |
 | L070 | When Does Visual Generation Help Visual Understanding in Unified Multimodal Models? | primary_sections_read | [结构化分析](../reviews/L070.md) | 未完成 |
 | L071 | GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment | primary_sections_read | [结构化分析](../reviews/L071.md) | 未完成 |
-| L072 | UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L072.md) | 未完成 |
+| L072 | UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L072.md) | 核心三遍与五项检查完成 |
 | L073 | OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework | primary_sections_read | [结构化分析](../reviews/L073.md) | 核心三遍与五项检查完成 |
 | L074 | Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks | primary_sections_read | [结构化分析](../reviews/L074.md) | 未完成 |
 | L075 | Versatile Diffusion: Text, Images and Variations All in One Diffusion Model | primary_sections_read | [结构化分析](../reviews/L075.md) | 核心三遍与五项检查完成 |
@@ -199,7 +199,7 @@
 | L091 | UGen: Unified Autoregressive Multimodal Model with Progressive Vocabulary Learning | primary_sections_read | [结构化分析](../reviews/L091.md) | 未完成 |
 | L092 | Harmonizing Visual Representations for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L092.md) | 核心三遍与五项检查完成 |
 | L093 | X-Omni: Reinforcement Learning Makes Discrete Autoregressive Image Generative Models Great Again | primary_sections_read | [结构化分析](../reviews/L093.md) | 未完成 |
-| L094 | TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L094.md) | 未完成 |
+| L094 | TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L094.md) | 核心三遍与五项检查完成 |
 | L095 | QLIP: Text-Aligned Visual Tokenization Unifies Auto-Regressive Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L095.md) | 未完成 |
 | L096 | DualToken: Towards Unifying Visual Understanding and Generation with Dual Visual Vocabularies | primary_sections_read | [结构化分析](../reviews/L096.md) | 未完成 |
 | L097 | UniToken: Harmonizing Multimodal Understanding and Generation through Unified Visual Encoding | primary_sections_read | [结构化分析](../reviews/L097.md) | 未完成 |

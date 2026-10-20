@@ -6346,22 +6346,26 @@
     "source_urls": [
       "https://arxiv.org/abs/2412.03069",
       "https://openaccess.thecvf.com/content/CVPR2025/html/Qu_TokenFlow_Unified_Image_Tokenizer_for_Multimodal_Understanding_and_Generation_CVPR_2025_paper.html",
-      "https://github.com/ByteVisionLab/TokenFlow"
+      "https://github.com/ByteVisionLab/TokenFlow",
+      "https://openaccess.thecvf.com/content/CVPR2025/papers/Qu_TokenFlow_Unified_Image_Tokenizer_for_Multimodal_Understanding_and_Generation_CVPR_2025_paper.pdf",
+      "https://openaccess.thecvf.com/content/CVPR2025/supplemental/Qu_TokenFlow_Unified_Image_CVPR_2025_supplemental.pdf",
+      "https://github.com/ByteVisionLab/TokenFlow/tree/9812da01c0695f4989060cc4eea053715e9e4441",
+      "https://huggingface.co/ByteVisionLab/TokenFlow/tree/5924ad7f25fe030292de3995912b895ab9fd9321"
     ],
-    "method": "语义和像素双encoder/双码本，以归一化距离加权和选共享索引；多尺度残差量化和nextscale多步采样。 语义encoder教师CLIP/ViTamin/SigLIP初始化、像素encoder；每索引有语义32维+像素8维embedding，i*=argmin(dsem+wdis dpix)；独立语义/像素decoder、teacherL2+pixelL2/LPIPS/GAN+VQ/STE。生成Llama2-7B CE仅图像码、nextscale；理解Vicuna13B/Qwen2.5-14B，通常末尺度混合feature。",
-    "conclusion": "Table4GenEval.55原prompt/.63改写/DPG73.38；VAR.53/71.08。Table6单步.502/ImageReward.722，三步.553/.825，但调用更多。增码本到131K理解/重建提高，classconditional生成超过32768反有下降。附录Table9相对连续teacher仍有差距，384时作者平均差约2.9%，主表胜LLaVA13B与此不矛盾。",
-    "gap": "共享索引不表示LLM共享训练；码本利用率有不同定义：全图pool聚类非空7161/8192=87.4%，与patch131K>95%不能同口径相减。更多采样/更大decoder/教师与分辨率会混杂质量；无视频帧间潜在与笔序保持。码本越大不保证生成更好。",
-    "problem": "一个离散图像tokenizer如何保留语义又可还原像素，分别服务理解与图像生成？",
+    "method": "双encoder和双码本分别编码语义32维及像素8维，用归一化距离之和选择同一索引，再独立解码；多尺度残差量化支持next-scale生成，逐尺度重复收紧采样空间。共享离散索引的表示适用性与共享LLM联合训练是不同研究层级。 语义encoder/冻结teacher为CLIP-B、ViTamin-XL或SigLIP-SO400M初始化，另像素encoder与对应decoder；K32768、semantic32+pixel8维。Eq3 argmin(dsem+wdis*dpix) wdis1，语义L2+像素L2/LPIPS/GAN.5+VQ/STE beta.25。多尺度残差，B/L/XL按T11为8/10/15级，主表256生成另称9级，配置差异待核。增强decoder将residual层和channel各加倍并只调decoder，额外成本需计。",
+    "conclusion": "T2 256²rFID1.37弱于VAR1.00/RQVAE1.30；384²rFID.63/PSNR22.77较好但SSIM.731<VAR.774，正文allmetrics过强。T3 XL-VicunaAvg64.0 vsLLaVA62.9相对约1.7%，VQAv277.9<80/GQA62.7<63.3/RWQA53.7<55.3；XL-QwenAvg67.4相对7.2%但VQA77.6<80/GQA62.5<63.3、TQA62.3<Emu3 64.7。suppT9同LLaVA数据对应teacher Avg58.9/61.3/62.9，离散55.2/57.5/61.1，相对缺口6.3/6.2/2.9%。T4 GenEval.55/.63重写，DPG73.38（正文72.9与表不一致）；弱于Emu3 DPG80.60/SDXL74.65，非所有AR最优。",
+    "gap": "作者suppC承认离散相对连续teacher差距及未联合模型；无训练多seed区间。主表异训练/分辨率，平均改善不等于逐项更优。F6图文范围/阈值不一致且重建和TQA非完全单调；图像pool7161/8192=87.4%与patch>95%不能直接比较。wdis1自动平衡仅动机与固定设置，无广泛权重敏感性或最优保证。GH固定代码usage是本地训练滑窗、未全GPU聚合；推理默认负prompt含text，CLI种子未传入调用，脚本配置不等于正式协议。未执行训练/推理或验证下载权重。",
+    "problem": "如何用一个离散图像tokenizer同时保留语义与像素细节，分别服务理解和静态图像生成。SupplementC明确完全联合理解/生成模型留未来工作，未验证一个共享LLM的协同收益、视频输出或笔顺。",
     "claim": "作者研究目标：一个离散图像tokenizer如何保留语义又可还原像素，分别服务理解与图像生成？",
-    "version": "TokenFlow，2024",
+    "version": "TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation；正式CVPR2025 pp2545–2555，11页主文及10页官方supplement，本批替代旧arXiv2412.03069v2表号/条件。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 2. 表示与 tokenizer：信息容量、语义和细节如何共同保留",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L094",
     "canonical_key": "paper:arxiv:2412.03069",
     "evidence_history": [
@@ -6393,17 +6397,22 @@
         "conclusion": "既可取高层语义又可重建细节；不是把同一向量同时强迫为两种极端表示",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 81,
+        "scope": "正式CVPR主文11页中Abstract/§1–5核心全文、Eq1–4及其余loss定义、T1–5/F1–6图注；官方supp10页AppA.1/A.2/B.1–3/C研究文字与T6–11完整、画廊/聚类图只读指定图注未逐图，参考文献未逐篇。实际主文p4 F3/公式、p7完整T3、p8T4/5/F6、suppp4T9/10/C核看。固定GH9812da01树/README/GETTING_STARTED、tokenizer/vq_model.py ModelArgs/初始化/encode/VectorQuantizer、norm_ema_quantizer.py关键机制、t2i run_llava_samples.py全文/llava_llama.py采样219–320、llava_arch相关入口、tokenizer/i2t/t2i训练shell；固定HF5924ad7元数据/树/README。未全读训练循环/损失底层和所有checkpoint配置，未下载权重或独立执行。"
       }
     ],
-    "sections_read": "§1/3–4主要方法、Table4–6、AppA/A.2/Table11、B.1/B.2/B.3/Table8解释与C；Table9逐行/全部图、优化配置和正式PDF差异未全读",
+    "sections_read": "正式CVPR主文11页中Abstract/§1–5核心全文、Eq1–4及其余loss定义、T1–5/F1–6图注；官方supp10页AppA.1/A.2/B.1–3/C研究文字与T6–11完整、画廊/聚类图只读指定图注未逐图，参考文献未逐篇。实际主文p4 F3/公式、p7完整T3、p8T4/5/F6、suppp4T9/10/C核看。固定GH9812da01树/README/GETTING_STARTED、tokenizer/vq_model.py ModelArgs/初始化/encode/VectorQuantizer、norm_ema_quantizer.py关键机制、t2i run_llava_samples.py全文/llava_llama.py采样219–320、llava_arch相关入口、tokenizer/i2t/t2i训练shell；固定HF5924ad7元数据/树/README。未全读训练循环/损失底层和所有checkpoint配置，未下载权重或独立执行。",
     "review_path": "docs/reviews/L094.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "Tokenizer LAION/COYO且人脸2倍上采样；60M QwenVLcaption图训练T2I2epochs。设计消融ImageNet1K50epoch，VQKD重建诊断100epoch；理解LLaVA1.5训练集。模型B/L/XL分辨率224/256/384；实际全部tokenizer样本筛选未核清。",
-    "framework": "语义和像素双encoder/双码本，以归一化距离加权和选共享索引；多尺度残差量化和nextscale多步采样。",
-    "architecture": "语义encoder教师CLIP/ViTamin/SigLIP初始化、像素encoder；每索引有语义32维+像素8维embedding，i*=argmin(dsem+wdis dpix)；独立语义/像素decoder、teacherL2+pixelL2/LPIPS/GAN+VQ/STE。生成Llama2-7B CE仅图像码、nextscale；理解Vicuna13B/Qwen2.5-14B，通常末尺度混合feature。",
-    "metrics": "ImageNetrFID/PSNR/SSIM；VQA/MME/SEED/TextVQA等，作者Avg将MME-P除20；GenEval原/改写prompt分开，DPG/ImageReward(10KCOCO)。没有轨迹/时间事件指标。",
-    "baselines": "VQKD/VQGAN/LFQ、对应连续语义teacher、VAR同数据训练图像生成器、LlamaGen/Showo/Emu3；跨teacher和LLM比较不能只归因离散表示。",
-    "experimental_conditions": "TokenizerTable11 b256/lr1e-4/β.25/GAN.5/wdis1/maxgrad1，B1Msteps/L/XL500K，码本32768、分辨率各异。理解8A100不到24h；生成Llama2-7B2epoch/dropcaption.1/firstsentence.2/CFG7.5。3步收紧topk[1200,100,1]/topp[.8,.8,0]，完整生成优化器/训练算力未读到。"
+    "dataset": "Tokenizer LAION/COYO且含脸图2倍上采样；正式文未给完整筛选/去重/实际样本数，不从别文6.6M回填。消融ImageNet1K50epoch，VQKD附加重建decoder100epoch。理解B/L为LLaVA558K+665K，XL用Cambrian-Alignment/Cambrian10M；主文随后将8A100<24h与LLaVA数据一并概述，不据此断言覆盖XL全部训练。图像生成60M高质图、QwenVL captions，2epoch；非自然书写事件数据。",
+    "framework": "双encoder和双码本分别编码语义32维及像素8维，用归一化距离之和选择同一索引，再独立解码；多尺度残差量化支持next-scale生成，逐尺度重复收紧采样空间。共享离散索引的表示适用性与共享LLM联合训练是不同研究层级。",
+    "architecture": "语义encoder/冻结teacher为CLIP-B、ViTamin-XL或SigLIP-SO400M初始化，另像素encoder与对应decoder；K32768、semantic32+pixel8维。Eq3 argmin(dsem+wdis*dpix) wdis1，语义L2+像素L2/LPIPS/GAN.5+VQ/STE beta.25。多尺度残差，B/L/XL按T11为8/10/15级，主表256生成另称9级，配置差异待核。增强decoder将residual层和channel各加倍并只调decoder，额外成本需计。",
+    "metrics": "重建ImageNet50K rFID/PSNR/SSIM；理解11项任务平均包括MME-P/20而非另加MME总分；GenEval含原prompt和GPT4V重写两套、DPG、ImageReward10KCOCO。Avg62.9→67.4差4.5分，相对约7.2%；不能写成7.2pp。Codebook usage的pool图像聚类、局部滑窗patch统计和全语料占用不同。无视频时序/文字正确率/笔序事件指标。",
+    "baselines": "VQGAN/LFQ/VQKD与对应连续teacher，重建VAR/LlamaGen/RQVAE/VILA-U；理解LLaVA/Emu3/Show-o等。T4用相同数据与配置重训生成器换released VAR tokenizer是较强控制，但decoder/级数仍需计；主表teacher/尺寸/LLM/数据不同，不能把7.2%全归离散token。另有共享映射/MSVQ/CLIP初始化、采样轮次与输入尺度消融。",
+    "experimental_conditions": "T11 b256/lr1e-4/maxgrad1/K32768/wdis1/beta.25/GAN.5，B1Msteps/L及XL500K，224/256/384与8/10/15尺度；优化器完整参数/总算力未给齐。生成Llama2-7B2epoch/空caption.1/首句截断.2/名义CFG7.5，主文9尺度第一尺度1次、其余3次共25次，topk1200,100,1/topp.8,.8,1；supp说明末p0，但topk1都为贪心。作者报1A100单图2.7s，未独立重测。公开训练示例tokenizer ImageNet100epoch/b32、T2I10epoch/lr5e-4/wd.1/warm5000/context2048，与正式主训练不同，不能抄作论文条件。"
   },
   {
     "title": "QLIP: Text-Aligned Visual Tokenization Unifies Auto-Regressive Multimodal Understanding and Generation",

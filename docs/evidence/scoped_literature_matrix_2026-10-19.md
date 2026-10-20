@@ -326,3 +326,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第八十批（2026-10-21）：UniFlow平均差6.05分、MMEP退步、有CFG生成退步、不同下游tokenizer/模型版本；一步decoder与256AR分别计。见[审查](uniflow_reconstruction_generation_tradeoff_audit_2026-10-21.md)和[单篇L072](../reviews/L072.md)。
+
+
+第八十一批（2026-10-21）：TokenFlow共享索引/独立LLM、相对7.2%与教师差距，TQA/重建和采样反例。见[审查](tokenflow_shared_indices_and_claim_audit_2026-10-21.md)和[单篇L094](../reviews/L094.md)。

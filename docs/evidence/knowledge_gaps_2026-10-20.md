@@ -367,3 +367,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第八十批（2026-10-21）：重建rFID不能推出生成gFID；逆时间flow符号，模拟/实测曲线及SSIM数据范围分别检查。见[审查](uniflow_reconstruction_generation_tradeoff_audit_2026-10-21.md)和[单篇L072](../reviews/L072.md)。
+
+
+第八十一批（2026-10-21）：综合分与相对百分比、局部滑窗/整图聚类利用率、尺度相关CFG和图文矛盾。见[审查](tokenflow_shared_indices_and_claim_audit_2026-10-21.md)和[单篇L094](../reviews/L094.md)。

@@ -415,3 +415,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第八十批（2026-10-21）：UniFlow正式ICLR2026、32页核心与指定附录、实际图表、固定GH/HF和quick_start代码。见[审查](uniflow_reconstruction_generation_tradeoff_audit_2026-10-21.md)和[单篇L072](../reviews/L072.md)。
+
+
+第八十一批（2026-10-21）：TokenFlow正式主文11p+supp10p、核心/指定图表与官方固定GH/HF/训练采样代码。见[审查](tokenflow_shared_indices_and_claim_audit_2026-10-21.md)和[单篇L094](../reviews/L094.md)。

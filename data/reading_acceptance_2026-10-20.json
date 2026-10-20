@@ -5895,6 +5895,40 @@
         }
       ],
       "boundary": "正式ICLR2026 32页PDF Abstract/§1–6核心全文、Eq1–6/T1–6/F1–6图注、AppA/B1–5/D/E/F完整研究文字与T7–15，AppC选择性VQA/重建/视频展示图注，未逐图或逐篇参考文献。实际p4框架F2与Eq1–3、p7完整T2、p9完整T4–6/F5、p32一步图F21核看。固定GH e6322d0 README全文、完整树、modeling_uniflow.py flow468–523/结构738–772/forward及config；HF e8288b98元数据/文件树/config和README核心，quick_start代码单元；未全读flash底层、下载权重、执行训练/推理/独立复现。"
+    },
+    {
+      "id": "L094",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "如何用一个离散图像tokenizer同时保留语义与像素细节，分别服务理解和静态图像生成。SupplementC明确完全联合理解/生成模型留未来工作，未验证一个共享LLM的协同收益、视频输出或笔顺。 Table1像素token理解弱，VQKD语义量化重建模糊；语义相近外观不同patch映到同索引会损细节。作者以实验诊断两方向不足，但图像pool聚类不直接等同patch级量化的信息损失，也没有证明任意连续/离散模型的普遍上限。",
+          "evidence": "正式核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "图像→语义/像素encoder→各自归一化距离→共享索引选两套embedding→语义teacher特征和像素重建；末尺度混合量化特征接理解LLM。生成另由Llama2-7B按文字条件预测多尺度索引，再像素decoder还原256²图。实际主文p4 F3/Eq1–2、p7 T3、p8 T4/5/F6与suppp4 T9/10/C已核看，Galeries未逐图。 语义encoder/冻结teacher为CLIP-B、ViTamin-XL或SigLIP-SO400M初始化，另像素encoder与对应decoder；K32768、semantic32+pixel8维。Eq3 argmin(dsem+wdis*dpix) wdis1，语义L2+像素L2/LPIPS/GAN.5+VQ/STE beta.25。多尺度残差，B/L/XL按T11为8/10/15级，主表256生成另称9级，配置差异待核。增强decoder将residual层和channel各加倍并只调decoder，额外成本需计。",
+          "evidence": "正式核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "双encoder和双码本分别编码语义32维及像素8维，用归一化距离之和选择同一索引，再独立解码；多尺度残差量化支持next-scale生成，逐尺度重复收紧采样空间。共享离散索引的表示适用性与共享LLM联合训练是不同研究层级。 对静态自然图中高层语义和低层外观都重要的离散建模，双距离可减少同义异形合并，多尺度码在有限LLM调用下恢复细节。合适K与decoder容量、采样预算共同影响生成；更大码本不自动更优。同终态图像不唯一决定过程，规范笔序或笔方向优势需额外事件条件和监督。",
+          "evidence": "正式核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2 256²rFID1.37弱于VAR1.00/RQVAE1.30；384²rFID.63/PSNR22.77较好但SSIM.731<VAR.774，正文allmetrics过强。T3 XL-VicunaAvg64.0 vsLLaVA62.9相对约1.7%，VQAv277.9<80/GQA62.7<63.3/RWQA53.7<55.3；XL-QwenAvg67.4相对7.2%但VQA77.6<80/GQA62.5<63.3、TQA62.3<Emu3 64.7。suppT9同LLaVA数据对应teacher Avg58.9/61.3/62.9，离散55.2/57.5/61.1，相对缺口6.3/6.2/2.9%。T4 GenEval.55/.63重写，DPG73.38（正文72.9与表不一致）；弱于Emu3 DPG80.60/SDXL74.65，非所有AR最优。 T5语义only rFID8.07/MMEP1252.38/SEED57.84/TQA49.16；共享映射3.96/1212.51/55.97/47.42，MSVQ2.18/1209.90/56.08/47.40，CLIP初始化2.16/1312.09/58.99/49.29，前两步重建提升伴理解下降。suppT6单轮.502/ImageReward.722→三轮.553/.825，额外调用计入；T7 1B4epoch.485/.677 vs7B2epoch.553/.825，参数和曝光共同变。T8末尺度MME1634.3>全尺度1610.1但TextVQA49.1<49.5<语义only49.7。实际F6横坐标2^12…2^16与正文8192…131072不一致，TextVQA最大码本回落，生成FID图最低约2^14而正文说超32768下降；保留矛盾，不擅定规模阈值。 T11 b256/lr1e-4/maxgrad1/K32768/wdis1/beta.25/GAN.5，B1Msteps/L及XL500K，224/256/384与8/10/15尺度；优化器完整参数/总算力未给齐。生成Llama2-7B2epoch/空caption.1/首句截断.2/名义CFG7.5，主文9尺度第一尺度1次、其余3次共25次，topk1200,100,1/topp.8,.8,1；supp说明末p0，但topk1都为贪心。作者报1A100单图2.7s，未独立重测。公开训练示例tokenizer ImageNet100epoch/b32、T2I10epoch/lr5e-4/wd.1/warm5000/context2048，与正式主训练不同，不能抄作论文条件。",
+          "evidence": "正式核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "作者suppC承认离散相对连续teacher差距及未联合模型；无训练多seed区间。主表异训练/分辨率，平均改善不等于逐项更优。F6图文范围/阈值不一致且重建和TQA非完全单调；图像pool7161/8192=87.4%与patch>95%不能直接比较。wdis1自动平衡仅动机与固定设置，无广泛权重敏感性或最优保证。GH固定代码usage是本地训练滑窗、未全GPU聚合；推理默认负prompt含text，CLI种子未传入调用，脚本配置不等于正式协议。未执行训练/推理或验证下载权重。 同teacher/分辨率/每像素码率/总计算比较单码本、独立双码本与共享索引，扫wdis/码本K并报完整Pareto/OCR最小字形对；控制decoder增强与finetune。对相同LLM/数据真正联合和分别训练，报告语言/视觉正负迁移及完整成本；采样单轮/三轮等调用、等延迟、含CFG双支。固定自然图/新字体/多文字体系，给定同终态不同事件过程测时序可识别性；上述实验未运行，候选创新未完成所有追引排除。",
+          "evidence": "正式核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        }
+      ],
+      "boundary": "正式CVPR主文11页中Abstract/§1–5核心全文、Eq1–4及其余loss定义、T1–5/F1–6图注；官方supp10页AppA.1/A.2/B.1–3/C研究文字与T6–11完整、画廊/聚类图只读指定图注未逐图，参考文献未逐篇。实际主文p4 F3/公式、p7完整T3、p8T4/5/F6、suppp4T9/10/C核看。固定GH9812da01树/README/GETTING_STARTED、tokenizer/vq_model.py ModelArgs/初始化/encode/VectorQuantizer、norm_ema_quantizer.py关键机制、t2i run_llava_samples.py全文/llava_llama.py采样219–320、llava_arch相关入口、tokenizer/i2t/t2i训练shell；固定HF5924ad7元数据/树/README。未全读训练循环/损失底层和所有checkpoint配置，未下载权重或独立执行。"
     }
   ]
 }

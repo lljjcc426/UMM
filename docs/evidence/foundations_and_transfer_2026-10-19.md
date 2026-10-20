@@ -162,3 +162,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第八十批（2026-10-21）：UniFlow层级蒸馏、pixel flow与GTB，重建/生成Pareto和原生输入信息量分开。见[审查](uniflow_reconstruction_generation_tradeoff_audit_2026-10-21.md)和[单篇L072](../reviews/L072.md)。
+
+
+第八十一批（2026-10-21）：共享离散索引不等同共享LLM协同，K/采样/decoder需控制。见[审查](tokenflow_shared_indices_and_claim_audit_2026-10-21.md)和[单篇L094](../reviews/L094.md)。
