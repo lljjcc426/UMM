@@ -146,3 +146,8 @@ UniVideo冻结MLLM的理解成绩不能证明联合训练改善理解；Lance图
 ## 第三十七批补充
 
 同初始化/teacher/prompt/kernel/总FLOPs测TF/DF/SF×exit×cachegrad；SGF加梯度夹角和writer冻结，Salt混步×SC×TRD完整因子、reference可靠性/700vs600warmup。同步测长语义、动态/identity和事件CI，任务RL补奖励各项、合法多解、提取器人工核/删墙攻击；bestK披露选择器及总预算，Target代理/几何/执行分列。
+
+
+## 第三十八批补充
+
+同VAE/teacher/backbone/总FLOPs比较MF/iMF/Shortcut/FM，目标×辅助v×weight×结构×长训独立消融，CFG只在独立验证集选并披露搜索预算/训练ω外推。SGF+同参数加宽shared/双LoRA/梯度投影对照，补长semantic/动态/薄笔事件与聚合角色梯度。CP低方差×CTM/DSM×dropout×mesh和实际encoder/通信/执行计时，规范多模式和接触/漏笔独立评价。

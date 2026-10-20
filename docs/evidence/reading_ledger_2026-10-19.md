@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 339 条，本批有 339 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 340 条，本批有 340 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 核心三遍完成需逐条核问题/方法/框架图、主表/消融及有依据的批判分析，并记录五项书面检查。计时口试、完整代码审查和独立复现另列；没有自动把模板填齐计为完成。
 
@@ -41,9 +41,10 @@
 | D06 | Self Gradient Forcing: Native Long Video Extrapolation | primary_sections_read | [结构化分析](../reviews/D06.md) | 核心三遍与五项检查完成 |
 | D07 | Salt: Self-Consistent Distribution Matching with Cache-Aware Training for Fast Video Generation | primary_sections_read | [结构化分析](../reviews/D07.md) | 核心三遍与五项检查完成 |
 | D08 | Wan-R1: Verifiable-Reinforcement Learning for Video Reasoning | primary_sections_read | [结构化分析](../reviews/D08.md) | 核心三遍与五项检查完成 |
-| E01 | Mean Flows for One-step Generative Modeling | primary_sections_read | [结构化分析](../reviews/E01.md) | 未完成 |
-| E02 | Improved Mean Flows: On the Challenges of Fastforward Generative Models | primary_sections_read | [结构化分析](../reviews/E02.md) | 未完成 |
-| E03 | Consistency Policy: Accelerated Visuomotor Policies via Consistency Distillation | primary_sections_read | [结构化分析](../reviews/E03.md) | 未完成 |
+| D09 | SGF+: Decoupling Gradient Flows for Autoregressive Video Generation | primary_sections_read | [结构化分析](../reviews/D09.md) | 核心三遍与五项检查完成 |
+| E01 | Mean Flows for One-step Generative Modeling | primary_sections_read | [结构化分析](../reviews/E01.md) | 核心三遍与五项检查完成 |
+| E02 | Improved Mean Flows: On the Challenges of Fastforward Generative Models | primary_sections_read | [结构化分析](../reviews/E02.md) | 核心三遍与五项检查完成 |
+| E03 | Consistency Policy: Accelerated Visuomotor Policies via Consistency Distillation | primary_sections_read | [结构化分析](../reviews/E03.md) | 核心三遍与五项检查完成 |
 | E04 | Discrete Flow Matching | primary_sections_read | [结构化分析](../reviews/E04.md) | 未完成 |
 | E05 | F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching | primary_sections_read | [结构化分析](../reviews/E05.md) | 未完成 |
 | E06 | Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model（TeaCache） | primary_sections_read | [结构化分析](../reviews/E06.md) | 未完成 |

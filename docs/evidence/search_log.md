@@ -206,3 +206,8 @@ Hunyuan2511.18870v2/LTX2601.03233v1/VACE正式ICCV2025 PDF与v1附录/WanMove251
 ## 第三十七批补充
 
 D05 arXiv2506.08009v1核心PDF/NeurIPS2025官方登记；D06 2607.20368v1 HTML全文与flowchat原图，另有v2分开；D07 2604.03118v2 PDF/HTML，ECCV作者声明未升独立确认；D08 2603.27866v1 PDF表1/2蓝黄归属与Target图、消融/MF/跨任务。三个固定Git及HF卡、configs、相关梯度/loss路径已读。作者SGF README追到SGF+2610.10429v2，正在精读未新增；第三方SGF复现alphaXiv和MotionStream仅候选，未验证其结果。
+
+
+## 第三十八批补充
+
+E01 NeurIPS2025正式23页PDF；E02 arXiv2512.02012v2/官方Lyy-iiis/imeanflow；E03 RSS正式PDF核心+v2 HTML AppA–C/固定student loss路径；新D09 2610.10429v2核心全文/局部定理与固定Git/HF。各核图/主表/消融，未模型运行。SGF+ Related与MF/iMF官方README追到pMF2601.22158、AlphaFlow/DecoupledMeanFlow/CMT，以及ResamplingForcing、MaskForcing、CausalForcing++、DataForcingDistillation、OneForcing、RewardForcing、DuoMatching、VideoMirai、NextForcing、FreqForcing、MemRoPE等名称：仅追引线索，尚待逐项去重/原始身份/正文核查，不计已读或新颖性证据。

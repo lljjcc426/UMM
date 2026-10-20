@@ -158,3 +158,8 @@ NFE比不自动等walltime；KV预算/managedKV/临时workspace/peakVRAM需分�
 ## 第三十七批补充
 
 自生成历史对齐、历史writer梯度、完整rolloutBPTT互不等价；随机exit留训练推理近似，前向bf16恢复不证明梯度精确。精确ODE flow半群与Euler组合误差有别，论文对称loss不保证实现双支反传。GRPO嵌入相似代理与离散约束oracle可验证性分层，单GT路径奖励会误罚合法多解。
+
+
+## 第三十八批补充
+
+平均速度沿marginal characteristic积分，conditional直线不保证marginal直线；JVP输入条件与切向需按实现链式求导。原MF等价重写和iMF改变JVP输入分开，辅助头停梯度后需独立loss。冻结参数仍可对输入求导，CTM prediction经EMA s→0不能误detach。角色共享限制的局部位移几何不同于参数/算力公平，样本余弦不等聚合梯度。

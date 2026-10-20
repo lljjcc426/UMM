@@ -155,3 +155,8 @@ Show-o2固定45a5a2d README视频理解已发，T2V/I2V/mixed-modality生成权�
 ## 第三十七批补充
 
 固定SF33593df/HF2f8b779、SGF79be9ac/HFffaf490、Salt5fbb513/HF07877f3的模型、初始化、prompt和公开训练配置关联D05–D07，不重复计论文。SF global64/600iter、SGF global8/frame1500/chunk1200与可运行显存不混作原全部实验；Salt TRDmargin.1/weight.1/start700对正文600，CF EMA/LL regular generator、license other及LongLive非商用文件。WanR1官方代码模型入口未定位，不猜URL。
+
+
+## 第三十八批补充
+
+MF固定d70cb55 JAX/TPU与B4发布checkpoint/FIDstats，另有作者py-meanflow/pMF入口待单独读；iMF官方bf60cd7与HF fbc11eb目录含JAX/full/PyTorch权重/两套FIDstats，API无README/license元数据，不能推MIT权重许可。SGF+固定7a7734f/HF784c078含两全参数frame/chunk与SGF诊断generator+critic，64GPU/1900或700参考steps、max2000配置分列；110GB诊断worker/CPUoffload和单B200 Reactor为工程协议，无独立实测。关联已有研究，不重复计资源或论文。

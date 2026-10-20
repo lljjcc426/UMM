@@ -15,7 +15,7 @@
 | 重点论文的方法、结果与限制 | [论文精读](docs/handwriting/papers/README.md) · [四篇指定论文精读](docs/evidence/attachment_reviews.md) · [公开版本对照](docs/evidence/public_preprint_reviews.md) |
 | 数据、标准与评价 | [数据与标准](docs/handwriting/03_data_and_standards.md) · [评测协议](docs/experiments/benchmark_protocol.md) |
 | 研究进展与后续实验 | [研究进展](docs/project/STATUS.md) · [结论依据](docs/project/DECISIONS.md) · [实验计划](docs/project/EXPERIMENTS.md) · [最小研究方案](docs/experiments/stroke_order_pilot.md) |
-| 本轮逐篇阅读、理论与实验迁移 | [339份结构化笔记](docs/reviews/README.md) · [理论与迁移分析](docs/evidence/foundations_and_transfer_2026-10-19.md) · [逐条阅读台账](docs/evidence/reading_ledger_2026-10-19.md) |
+| 本轮逐篇阅读、理论与实验迁移 | [340份结构化笔记](docs/reviews/README.md) · [理论与迁移分析](docs/evidence/foundations_and_transfer_2026-10-19.md) · [逐条阅读台账](docs/evidence/reading_ledger_2026-10-19.md) |
 | 全部文献 | [文献总表](docs/all_literature.md) · [CSV](data/literature.csv) · [Excel](data/literature_public.xlsx) |
 
 ## 主要判断
@@ -27,7 +27,7 @@
 
 ## 文献与证据
 
-主目录包含 **315项论文／研究记录、24项资源，共339条记录**。每项记录包括研究主张、方法、问题、结果、限制、原始来源、版本及核查范围。数量不代表全文精读数量；文献中的数值为作者报告。
+主目录包含 **316项论文／研究记录、24项资源，共340条记录**。每项记录包括研究主张、方法、问题、结果、限制、原始来源、版本及核查范围。数量不代表全文精读数量；文献中的数值为作者报告。
 
 [候选目录](data/discovery/README.md)另含573条arXiv检索记录和200条综述目录候选，两者有重叠，也与主目录重叠。详细记录规则见[核查方法](docs/evidence/method_and_status.md)，早期分析见[研究档案](archive/README.md)。
 
@@ -58,9 +58,9 @@ python scripts/validate_catalog.py
 
 [本轮审查记录](docs/evidence/second_round_audit_2026-10-19.md)说明实际完成范围和纠错；[修改文件说明](docs/evidence/second_round_changes_2026-10-19.md)记录首批新增与修改文件；[继续复核文件说明](docs/evidence/continued_changes_2026-10-20.md)记录后续修改，无文件删除。
 
-截至2026-10-20，累计形成339份逐篇结构化笔记，其中334份核查相关章节或资源协议，5份仅完成第一遍；包含数据、结构、指标、基线、实验条件、消融、可证伪假设及写作学习。并对原281条、首轮16条补录和32条基础候选的首选来源执行访问审计，得到329条访问事件；这些事件有同研究重复，且**访问成功不等于阅读完成**。
+截至2026-10-20，累计形成340份逐篇结构化笔记，其中335份核查相关章节或资源协议，5份仅完成第一遍；包含数据、结构、指标、基线、实验条件、消融、可证伪假设及写作学习。并对原281条、首轮16条补录和32条基础候选的首选来源执行访问审计，得到329条访问事件；这些事件有同研究重复，且**访问成功不等于阅读完成**。
 
-当前339条目录中：334条已读相关原文或资源章节、5条已核摘要、0条仅元数据、0条历史原文待复核（仅指初次章节核查标记）。U18原始来源已解决。**核心三遍阅读与五项书面检查已逐项确认78篇，全部文献的三遍精读尚未完成。独立模型复现为0；不能声称达成零遗漏。** 每一条当前状态见[完成台账](docs/evidence/reading_ledger_2026-10-19.md)。
+当前340条目录中：335条已读相关原文或资源章节、5条已核摘要、0条仅元数据、0条历史原文待复核（仅指初次章节核查标记）。U18原始来源已解决。**核心三遍阅读与五项书面检查已逐项确认82篇，全部文献的三遍精读尚未完成。独立模型复现为0；不能声称达成零遗漏。** 每一条当前状态见[完成台账](docs/evidence/reading_ledger_2026-10-19.md)。
 
 继续复核覆盖23项存量研究：[过程、评价与执行边界](docs/evidence/process_execution_boundaries_2026-10-19.md)比较轨迹恢复、绘画过程与机器人执行；[CoFRIDA-Sharpie资源卡](docs/resources/cofrida_sharpie_card.md)明确模型元数据冲突及论文/权重版本边界。
 
@@ -107,3 +107,6 @@ python scripts/validate_catalog.py
 
 
 第三十七批扩展D05–D08核心三遍和五项书面检查：核自生成历史、cache梯度、少步组合、任务RL；记录Wan-R1表文冲突、Salt负项及固定代码/HF配置。339目录/339笔记、334章节或协议/5摘要、78核心三遍；无独立模型运行。见[自回归训练与视频RL审查](docs/evidence/autoregressive_training_and_video_rl_core_reading_2026-10-20.md)和[逐文件说明](docs/evidence/thirty_seventh_changes_2026-10-20.md)。无删除。
+
+
+第三十八批完成E01–E03核心三遍并新增D09 SGF+同层审查：核平均场/JVP、CFG条件与训练预算、一致性动作计时、视频角色局部梯度理论及负项。主目录340项/340笔记、335章节或协议/5摘要，核心三遍82项；全部三遍仍未完成，无独立模型运行。见[平均场、一致性与角色解耦审查](docs/evidence/meanflow_consistency_and_role_split_core_reading_2026-10-20.md)和[逐文件说明](docs/evidence/thirty_eighth_changes_2026-10-20.md)。无删除。

@@ -2733,6 +2733,142 @@
         }
       ],
       "boundary": "核心问题/方法公式/框架与关键表图视觉核、主表及现有消融、批判阅读及五条书面答案完成；未全附录逐图/全源码/独立模型运行。原论文、官方代码和HF发布版本分别界定；全文局部读不冒充复现。"
+    },
+    {
+      "id": "E01",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "标准FM预测瞬时速度，需要积分才能生成。MF定义同ODE路径平均速度，通过其与瞬时速度的恒等式训练，使网络直接预测跨区间位移；关键困难是平均场真值难直接取样，JVP半梯度目标提供可计算训练方案。",
+          "evidence": "研究问题与动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "正式p4Fig3紫色切向v沿弯曲轨迹，橙色u指向跨时间位移；输入zt/r/t/类别，经DiT预测u，zr=zt−(t−r)u，1NFE得到latent后还要VAE解码。公式r固定，JVP按(z,r,t)切向(v,0,1)，不是任意对两个时间一起求导。",
+          "evidence": "正式p4Fig3/p8T1，主T2–3及AppA/B输入/模块/输出解释"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "贡献是平均速度场定义和恒等式训练，条件vc替marginalv、JVP和stopgrad避免显式轨迹积分及二阶反传；CFG纳入目标保推理1NFE。理想恒等式存在真解不保证有限网络全局训练成功；生成器从头训练仍有预训练VAE，后续iMF已研究训练方差/灵活引导。",
+          "evidence": "关键创新、公式/梯度作用及实现范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table2 XL1NFE3.43，XL2NFE2.93，1000epXL+2NFE2.20须分。Table1 B4/80ep r≠t25%61.06优0%328.91，说明给纯瞬时场只一步不足；p1优p0，CFG3的15.53优CFG5的20.75，非单调。CIFAR2.92低于部分基线质量，不能宣称全分布最佳。",
+          "evidence": "主表/一组以上现有消融及负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "平均场有限误差如何影响薄笔画/长事件？adaptiveweight与单seed最佳CFG会否隐藏模式损失？需同VAE/FLOPs/训练时长对MF/iMF/Shortcut/FM多步，按验证集调CFG，报告FID和逐笔order/recall、encoderdecoder总延迟，不以ImageNet结论替代规范书写。",
+          "evidence": "两条以上有根据问题和已有方法/可证伪设计"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架与关键表图视觉核、主表及现有消融、批判阅读及五条书面答案完成；没有全源码、全部定性示例逐帧审查或独立模型运行。原论文版本、代码/权重发布与作者声明分别界定。"
+    },
+    {
+      "id": "E02",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "iMF关注原MF训练目标/输入的网络依赖及固定CFG，先用等价v-loss表述揭示条件速度进入JVP，再换预测边缘速度切向、引入CFG条件和incontext结构。代数移项自身没有改变算法，真正改动与多因素系统收益需分开。",
+          "evidence": "研究问题与动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "p3Fig2把u-loss改写为V=u+(t−r)JVP回归v，JVP项停梯度；u/v共享主体、最后8层独立，v加辅助FM loss。概念式含r/t，但Table4和固定代码只h=t−r作时间embedding，class8+h/ω/tmin/tmax各4共24条件tokens，显式t未入网络；推理仅u头。",
+          "evidence": "v2p3Fig2/p7T1–2、Table4/Alg1–2、固定imfDiT与imf.py输入/模块/输出解释"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "预测v替样本vc可减少复合函数的未知输入方差，stopgrad仍存在；辅助头独立末层若无auxloss不会被JVP监督。Ω条件让同权重1NFE换引导，incontext/新blocks也贡献收益，不应把1.72归为目标单项；训练额外头/forward仍有成本。",
+          "evidence": "关键创新、公式/梯度作用及实现范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "Table1a B2原MF6.17→boundary5.97/aux5.68，但无CFG时boundary29.42优aux30.76。Table1c4.57→incontext4.09→blocks3.82→长训3.39。Table2XL3.43→1.72同时119→174.6GF、240→800ep，参数676→610M，属于系统级比较。README发布1.70与v2 1.72分版本/评估统计。",
+          "evidence": "主表/一组以上现有消融及负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "辅助v误差与方差降低各占多少？最佳CFG搜索和结构/时长变化是否解释部分增益？MF/Shortcut/IMM已有少步前例，需固定预算逐因素分离并测modecoverage；eval推荐M/Lω10.5超训练8，要独立检验外推。HF文件无card/license字段也不能从MIT代码推权重许可。",
+          "evidence": "两条以上有根据问题和已有方法/可证伪设计"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架与关键表图视觉核、主表及现有消融、批判阅读及五条书面答案完成；没有全源码、全部定性示例逐帧审查或独立模型运行。原论文版本、代码/权重发布与作者声明分别界定。"
+    },
+    {
+      "id": "E03",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "计算受限机器人的多步动作采样延迟高；CP先训EDM动作teacher，再localCTM+DSM蒸馏为1/3步policy，并调低初方差和离散mesh。任务是观测到动作序列，噪声ODE轨迹与实际机器人轨迹概念分开。",
+          "evidence": "研究问题与动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "p4Fig2教师t→u与student u→s构造target，student t→s为学习路径，两端经冻结参数的s→0映射比较动作距离；DSM另对真实动作监督。扩FiLM条件s、teacherwarmstart，输出动作chunk，未输出RGB书写视频。三步为去噪/重新加噪/去噪两次的chaining。",
+          "evidence": "正式p4Fig2/p6T1–3、T4–10，v2 AppA–C输入/模块/输出解释"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "跨领域贡献在localCTM、初方差和网格/dropout适配；teacherfreeCT在当前视觉任务较弱不证明所有CT无效。保持s→0函数对输入的链式导数与冻结其参数需区分；paperEq2负号与官方Euler/Heun正号有差，不据原文符号推运行错误。",
+          "evidence": "关键创新、公式/梯度作用及实现范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "TableI/II27/9等效NFE来自ParaDiGMS引用速度比，TableIII真实100/15/1/3调用与P5000毫秒另列。实机192→21ms，但Microwave success.5→.4。T5local.92对CTM.91差小但训练快；T6低方差3步.91→.96，AppB未收敛CIFAR灰块提醒不能迁移到所有图像。",
+          "evidence": "主表/一组以上现有消融及负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "低方差是否降低合法模式覆盖？teacher质量和DSM锚点是否混杂？需同teacher/总预算多seed×方差/DSM/CTM/dropout，实际测encoder/通信/执行。确定性ODE可传输多模态，不应将偏单侧直接视为ODE必然；写字执行还需漏短笔/接触/笔序成功，相关前例含DP/CTM/CTpolicy。",
+          "evidence": "两条以上有根据问题和已有方法/可证伪设计"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架与关键表图视觉核、主表及现有消融、批判阅读及五条书面答案完成；没有全源码、全部定性示例逐帧审查或独立模型运行。原论文版本、代码/权重发布与作者声明分别界定。"
+    },
+    {
+      "id": "D09",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "SGF已补futureloss到历史KV，但writer/denoiser共享参数仍可能梯度冲突。SGF+以两套全参数分开角色，保留因果交互和DMD同目标，5s训练做长时外推；新代价是参数/显存增加，动态指标也有下降。",
+          "evidence": "研究问题与动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "p4Fig4 Pass1无梯度生成并记录clean/noisyexit；Pass2 writer读stopgradclean写可微KV，denoiser读KV预测当前块，DMD同时更新θc/θd。固定代码clean tokens走memory复制参数、noisy走原denoise参数，context latent历史本身未全BPTT。",
+          "evidence": "v2p4Fig4/p7T1–2、T3/T4、AppG1–6与固定role routing输入/模块/输出解释"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "AppG固定surrogate共享点、等乘积位移预算下，最优一阶下降平方差r²||gC−gD||²/2；任何不等梯度可受共享限制，负对齐更强。该预算不等参数/计算；同lr时负聚合内积且足够小步才favor split，样本/模块负余弦不等全batch负。没有全局AdamW或24h逻辑保证。",
+          "evidence": "关键创新、公式/梯度作用及实现范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1frame60 SGFsubject98.26→99.08，但dynamic71.19→55.38/imaging71.52→71.11；T2full的subject98.48优FFN97.43/attention95.37，未控制参数容量。T3每step11.79→12.76s、推理24.85→27.96GB；T4短视频frameAction96→94.4。24h四展示缺全程量化，不能称全面正确。",
+          "evidence": "主表/一组以上现有消融及负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "额外参数和低运动是否解释一致性改进？采样模块cos能否代表聚合任务梯度？需shared加宽/双LoRA/梯度投影同预算、长semantic/运动/事件和CI；已有SGF/LongLive/SF++等处理梯度/记忆/长监督。书写writer保已写墨迹与新笔去噪可能冲突只是待测假设。",
+          "evidence": "两条以上有根据问题和已有方法/可证伪设计"
+        }
+      ],
+      "boundary": "核心问题/方法公式/框架与关键表图视觉核、主表及现有消融、批判阅读及五条书面答案完成；没有全源码、全部定性示例逐帧审查或独立模型运行。原论文版本、代码/权重发布与作者声明分别界定。"
     }
   ]
 }
