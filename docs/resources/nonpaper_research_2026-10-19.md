@@ -270,3 +270,8 @@ Janus原README的CFG tokenizer_config修复仅作者报告，原Janus与Pro/Flow
 ## 第六十一批补充（2026-10-21）
 
 FontDiffuser两阶段launch与parser默认覆盖、SCR预训代码TODO；DiffBrush固定da9addc融合顺序/默认无CFG混合/5000FID与论文25K差别，yaml2000不可当实际800训练。均未运行。见[工程审查](../evidence/fontdiffuser_diffbrush_generalization_metrics_and_release_audit_2026-10-21.md)。
+
+
+## 第六十二批补充（2026-10-21）
+
+Emu3固定dbbf985 README/HFGen卡默认负提示含text、topk2048/CFG3与论文不同，SFT示例与正式QFT分列；预训/DPO/评测仍TODO。Janus固定1daa72f README Pro示例与默认旧Janus的根推理脚本、HF16K配置上限与论文4K实际上下文分别记录。未下权重或运行。见[发布审查](../evidence/emu3_januspro_versions_training_and_causal_audit_2026-10-21.md)。

@@ -237,3 +237,8 @@ DiffSketcher已有文本→可微矢量素描；Diff-Font已有中/韩计数条�
 ## 第六十一批补充（2026-10-21）
 
 FontDiffuser已有unseen-font/unseen-character静态生成；DiffBrush已有英/中文整行生成与行/词判别。静态文字空间顺序和真实落笔时序分别建模，不以3D层或diffusion称视频。见[第六十一批](fontdiffuser_diffbrush_generalization_metrics_and_release_audit_2026-10-21.md)。
+
+
+## 第六十二批补充（2026-10-21）
+
+Emu3正式扩展已覆盖交错生成、空间变序/修复与CALVIN动作，但并无规范书写视频/真实机器人笔顺评价；Janus-Pro已有数据/训练/规模扩展，不能把继承Janus结构计新贡献。见[第六十二批](emu3_januspro_versions_training_and_causal_audit_2026-10-21.md)。

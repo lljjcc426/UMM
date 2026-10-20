@@ -179,3 +179,6 @@ python scripts/validate_catalog.py
 
 
 第六十一批（2026-10-21）补完FontDiffuser/L019、DiffBrush/L023核心：347目录、136核心/138书面，211项尚未确认核心三遍（含资源）。区分未见内容/字体/作者、静态行与真实事件、下游OCR指标，补齐模块tradeoff及公开推理/文章配方差异。见[原文审查](docs/evidence/fontdiffuser_diffbrush_generalization_metrics_and_release_audit_2026-10-21.md)、[逐文件说明](docs/evidence/sixty_first_changes_2026-10-21.md)。无删除或独立复现；剩余继续。
+
+
+第六十二批（2026-10-21）补完Emu3/U02、Janus-Pro/U04核心：347目录、138核心/140书面，209项尚未确认核心三遍（含资源）。Emu3 Nature正式扩展与2024v1分列，补重写/后处理、tokenizer/配方消融和CALVIN模拟边界；Janus-Pro缺少逐因素消融，明确记录归因限制。见[原文审查](docs/evidence/emu3_januspro_versions_training_and_causal_audit_2026-10-21.md)、[逐文件说明](docs/evidence/sixty_second_changes_2026-10-21.md)。无删除或独立复现；剩余继续。

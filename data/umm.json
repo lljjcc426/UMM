@@ -737,24 +737,29 @@
     "id": "U02",
     "category": "U UMM基础与协同补全",
     "title": "Emu3: Next-Token Prediction is All You Need",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "Emu3: Next-Token Prediction is All You Need，arXiv2409.18869v1（2024-09-27）；同族正式扩展Multimodal learning with next-token prediction for large multimodal models，Nature650,327–333（2026），2026-01-28发表，DOI10.1038/s41586-025-10041-x。新增范式/训练消融、scaling、交错生成与模拟动作结果按正式版本记录，不另计独立论文；特定年份SCI分区未核。",
     "source_urls": [
-      "https://arxiv.org/abs/2409.18869"
+      "https://arxiv.org/abs/2409.18869",
+      "https://arxiv.org/html/2409.18869v1",
+      "https://www.nature.com/articles/s41586-025-10041-x",
+      "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-025-10041-x/MediaObjects/41586_2025_10041_MOESM1_ESM.pdf",
+      "https://github.com/baaivision/Emu3/tree/dbbf9858194d70b8c58293e219ecffe22df0f9c7",
+      "https://huggingface.co/BAAI/Emu3-Gen"
     ],
     "previous_evidence": null,
     "claim": "作者研究目标：统一图文视频的离散自回归建模，检验next-token范式能否支持感知与生成。",
-    "method": "将图像视频压为离散视觉token，单一8B Transformer预测后续token，结合任务后训练。 32层、hidden4096、GQA8KV头、131072上下文；时空视觉tokenizer和文字tokenizer。",
-    "problem": "统一图文视频的离散自回归建模，检验next-token范式能否支持感知与生成。",
-    "conclusion": "DPG81.60低于DALL-E3的83.50等；视频总分略高于OpenSora1.2的79.76。不同表不能概括为所有维度超过所有专门模型。",
-    "gap": "若最终感知和生成模型经过各自任务优化，“单一预训练范式”和“单一最终检查点”需区分；视觉离散化仍有信息瓶颈。",
+    "method": "图像/视频共享VQ tokenizer、文字BPE、单一dense AR decoder从零预训练，视觉loss权重.5；QFT与DPO、理解指令后训练分别适配。正式版补tokenizer码本/压缩、训练loss/dropout、AR/DiT与组合架构对照，改变空间token预测顺序并迁移到交错图文与离散动作。 8.49B（Transformer6.98B、embedding1.51B），32层/hidden4096/FFN14336/32query heads/8KV，RMSNorm/SwiGLU/RoPE/GQA/dropout.1，统一词表184622。文字151643+211特殊项，视觉码本32768；SBER-MoVQGAN270M加入时域3D残差，4×8×8压缩，4帧512²或单图→4096视觉token。tokenizer训练L2/LPIPS/GAN/commitment，主模型CE，DPO+.2SFT；不能把全流水线说仅CE。scaling L=E+A/N^α+B/D^β为经验拟合，非逐笔语法或物理定律。",
+    "problem": "把文字、图像、视频映射为离散序列，用共享decoder的下一token预测训练，检验统一预训练能否支持感知和生成；正式扩展增加交错图文和CALVIN视觉语言动作。需要区分共享预训练范式、任务专门后训练检查点和完整含解码后处理系统。",
+    "conclusion": "正式EDT2/补S10 Emu3原prompt GenEval.54→GPT4V重写.66；DPO.52→重写.64。COCO Emu3 FID12.8/CLIP-I.689/T.313，DPO19.3/.680/.312；DPG80.60→81.60，不能概括全指标改善。正式T1图像人评70.0、理解汇总62.1、视频约81.0为不同单位；EDT3准确80.96、dynamic79.27但human action77.71，低于CogVideoX总81.61/动作99.40、Wan2.1总83.69。EDT5 CALVIN AvgLen4.64，连续5任务.870，对RoboVLMs4.49/.826；仅模拟。scaling β.55、T2I/I2T α.25、T2V α.35，7B外推R²≥.95/MAPE<3%仅验证loss拟合范围。",
+    "gap": "空间raster/spiral与规范落笔时序不同；时域4×压缩和密集高频/大运动重建失败可能抹掉短事件，需先测tokenizer上限。DPO分辨率改变/后处理影响归因，视频整体分数不保证文字/因果物理；数据筛掉文字和低motion与书写域失配。最终Chat/Gen专门后训练不能证明同一最终checkpoint同时最优；CALVIN与真实书写机器人不同。完整预训/DPO/评测代码README仍TODO，所列权重非正式新增全部任务已逐项核发布；未下载权重、运行或完整实现审查。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-19",
+    "checked_on": "2026-10-21",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "§2数据/模型，Tables1–3/7–8及视频VBench表",
-    "last_updated": "2026-10-19",
+    "sections_read": "Nature正式HTML Abstract/Main/Architecture/Pretraining/Posttraining/Inference/Evaluation/Ablations/Applications/Conclusion/Methods全部核心文字、主T1及实际EDT1–7图片、Fig1/3/4；完整38页补PDF取得，选择读§1码本/压缩/S1–4、§2.1主要架构对照/§2.2、§3.1数据/3.2成本与recipe和dropout/loss小节、§4.1.1/4.1.2/S9–10、4.2.1/4.2.2/S11、§5.3、7/8选段，实际PDFp13 FigS9；非全部附录/样例/refs。arXiv v1核心Intro/§2全部、主表4/7/8和§3.1–3.2/3.4及AppB1/B2对照，非v1全页。固定dbbf985 README/HFGen卡（当前读取）与SFT脚本全文，非全代码/权重或执行。",
+    "last_updated": "2026-10-21",
     "canonical_key": "paper:arxiv:2409.18869",
     "evidence_history": [
       {
@@ -801,16 +806,21 @@
         "conclusion": "展示统一离散序列建模能力。",
         "gap": "【边界/推断】长视觉序列的效率、细节保持和合法状态变化需另测。",
         "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 62,
+        "scope": "Nature正式HTML Abstract/Main/Architecture/Pretraining/Posttraining/Inference/Evaluation/Ablations/Applications/Conclusion/Methods全部核心文字、主T1及实际EDT1–7图片、Fig1/3/4；完整38页补PDF取得，选择读§1码本/压缩/S1–4、§2.1主要架构对照/§2.2、§3.1数据/3.2成本与recipe和dropout/loss小节、§4.1.1/4.1.2/S9–10、4.2.1/4.2.2/S11、§5.3、7/8选段，实际PDFp13 FigS9；非全部附录/样例/refs。arXiv v1核心Intro/§2全部、主表4/7/8和§3.1–3.2/3.4及AppB1/B2对照，非v1全页。固定dbbf985 README/HFGen卡（当前读取）与SFT脚本全文，非全代码/权重或执行。"
       }
     ],
     "review_path": "docs/reviews/U02.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "中英文语言、图文网页/合成/内部数据、视频；理解与生成使用对应后训练数据。",
-    "framework": "将图像视频压为离散视觉token，单一8B Transformer预测后续token，结合任务后训练。",
-    "architecture": "32层、hidden4096、GQA8KV头、131072上下文；时空视觉tokenizer和文字tokenizer。",
-    "metrics": "视觉重建LPIPS/PSNR/SSIM、12项理解任务、GenEval、DPG、VBench与人工偏好。",
-    "baselines": "SDXL、LLaVA1.6、OpenSora1.2等原文当时版本。",
-    "experimental_conditions": "DPG每prompt4图、guidance5.0，mPLUG-large裁判；许多基线数字来自既有论文。视频VBench总分80.96。"
+    "dataset": "语言Aquila中英+正式版FineWeb-Edu；图像LAION/COYO/DataComp/OpenImages/SA1B/JourneyDB/DiffusionDB及内部数据，EVA-CLIP聚类补理解图。GPT4V约1Mcaption训Emu2-17B自动标注。视频HowTo100M/YT-Temporal1B及内部，PaddleOCR面积>1%剔除，RAFT motion/美学阈值筛选；对文字/细小笔运动可能产生分布偏差，未经独立测量。tokenizer LAION高分辨率+InternVid；重建Pexels3172视频/UCF101。正式动作仅CALVIN ABCD→D模拟，FAST码本1024。全部训练数据未公开，准确去重/样本数仍不足。",
+    "framework": "图像/视频共享VQ tokenizer、文字BPE、单一dense AR decoder从零预训练，视觉loss权重.5；QFT与DPO、理解指令后训练分别适配。正式版补tokenizer码本/压缩、训练loss/dropout、AR/DiT与组合架构对照，改变空间token预测顺序并迁移到交错图文与离散动作。",
+    "architecture": "8.49B（Transformer6.98B、embedding1.51B），32层/hidden4096/FFN14336/32query heads/8KV，RMSNorm/SwiGLU/RoPE/GQA/dropout.1，统一词表184622。文字151643+211特殊项，视觉码本32768；SBER-MoVQGAN270M加入时域3D残差，4×8×8压缩，4帧512²或单图→4096视觉token。tokenizer训练L2/LPIPS/GAN/commitment，主模型CE，DPO+.2SFT；不能把全流水线说仅CE。scaling L=E+A/N^α+B/D^β为经验拟合，非逐笔语法或物理定律。",
+    "metrics": "图像COCO30K FID/CLIP-I/T、GenEval六项、T2I-CompBench三绑定、DPG mPLUG-large与100prompt×3人偏好；理解15benchmark表及12项归一化汇总，带*数据集图像训练见过；视频VBench16维/表列11维总分，重建rFVD/LPIPS/PSNR/SSIM；CALVIN连续1–5任务成功率及AvgLen。均不直接评价笔顺/方向/笔画事件或真实机器人执行。CI/多seed不足；跨指标平均并非统一正确率。",
+    "baselines": "图像SD1.5/SDXL/DALLE3/SD3/FLUX、Show-o/Transfusion/Chameleon/LlamaGen；理解LLaVA1.5/1.6/EVE等；视频OpenSora/AnimateDiff/CogVideoX/Kling/Gen3及正式表新增Hunyuan/Wan2.1；CALVIN Robo-Flamingo/GR1/UP-VLA/RoboVLMs。多数主表引用报告值，非同预算重训。受控OpenImages1.5B AR与DiT分别用Emu3 VQ/SDXL VAE，不能完全隔离生成范式；scratch理解对照与CLIP预训对照分列。",
+    "experimental_conditions": "正式EDT1三阶段各90K步，ctx5120/5120/65536，seen tokens2.4T/2.4T/7.5T，lr1e−4 cosine/5e−5 constant/5e−5 constant，WD.1、clip1/5/5、AdamW β.9/.95 ε1e−6，warm3600/1800/1800，drop0/.1/.1。S7估995K等效GPU小时、1280张80GB等效卡集群；与v1两阶段ctx5120→131072/lr5e−5 cosine不同。图像QFT720²/b240/ctx9216/15K+5K退火；DPO5120prompts×8–10候选×3评委/1epoch/b128/lr7e−7/KL.5。GenEval4图/CFG5.5、CompBench10图/CFG5、DPG4图/CFG5，topk16384/p1；Emu3512²与DPO720²不同。视频5s24fps、topk8192/p1/T.95，QFTb720/ctx131072/5K/lr5e−5；稳定化和4×SR后测。固定dbbf985 README/HFGen卡及SFT脚本已核，未运行。"
   },
   {
     "id": "U03",
@@ -903,24 +913,27 @@
     "id": "U04",
     "category": "U UMM基础与协同补全",
     "title": "Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling",
-    "version": "arXiv公开版本；会议状态未据此推定",
+    "version": "Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling；arXiv2501.17811v1（2025-01-29），所核官方来源为技术报告，未验证正式会议/期刊接收；原Janus与JanusFlow的发表状态不能移植到Pro。",
     "source_urls": [
-      "https://arxiv.org/abs/2501.17811"
+      "https://arxiv.org/abs/2501.17811",
+      "https://arxiv.org/html/2501.17811v1",
+      "https://github.com/deepseek-ai/Janus/tree/1daa72fa409002d40931bd7b36a9280362469ead",
+      "https://huggingface.co/deepseek-ai/Janus-Pro-7B"
     ],
     "previous_evidence": null,
     "claim": "作者研究目标：扩展Janus理解/生成能力和生成稳定性。",
-    "method": "优化训练阶段与数据混合，扩大高质量数据和模型规模；核心架构沿用Janus。 SigLIP理解、VQ生成、共享AR Transformer；1B/7B标记与基础LLM实际规格需按表记录。",
-    "problem": "扩展Janus理解/生成能力和生成稳定性。",
-    "conclusion": "主表展示扩展能力；数据、训练日程与参数同时改变，不能据跨版本提升估计单个设计的因果收益。",
-    "gap": "静态视觉生成没有直接验证书写过程；模型卡后续版本不能倒填论文表。",
+    "method": "StageI延长ImageNet训练、StageII去ImageNet专注densecaption；StageIII understanding:text:gen由7:3:10→5:1:4；理解预训+90M，生成+72M合成美学，统一预训real:synth1:1；扩大1.5B→7B。未提出独立新注意力/扩散机制。 DeepSeekLLM1.5B/7B共享backbone，SigLIP-Large patch16/384、生成VQ码本16384/downsample16，理解/生成编码分离沿用Janus。T1 embedding2048/4096、layers24/30、heads16/32、ctx4096、词表约100K。HF7B config vision1024→4096、gen8→4096，imagehead16384，vocab102400/max_position_embeddings16384；后者为配置上限，训练/README context仍4096，不据此声称训练16K。1B标签实际LLM1.5B。",
+    "problem": "扩展Janus静态多模态理解与文本到图像生成，研究调整三阶段训练、扩大高质量数据和LLM容量后，指令跟随/美学/理解性能如何改变；输出为答案或384²图，不是笔顺/视频。",
+    "conclusion": "T3 Janus→Pro1B→Pro7B：MMB69.4→75.5→79.2、MME-P1338→1444→1567.1、MM-Vet34.3→39.8→50；POPE87.0→86.2→87.4，1B并非全理解指标提升。T4 GenEval.61→.73→.80；7B六项.99/.89/.59/.90/.79/.66，SD3M overall.74且counting.72高于Pro.59，不能称每子项更优。T5 DPG79.68→82.63→84.19；SD3M84.08，差.11且未给CI；Dalle3 global90.97高于Pro86.90。可支持特定报告协议下系统改善。",
+    "gap": "384²与VQ重建限制OCR/微小脸和细节是作者明确局限；主表未量化文字生成或规范笔顺。数据、encoder预训、参数和采样可比性不足，缺正交消融/CI，.11DPG差不可无检验称显著。HF元数据MIT与正文DeepSeek模型许可范围不同，代码/权重许可要分别读；当前卡/config不能倒填原文训练。未审完整trainer/评测器/权重或执行。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-19",
+    "checked_on": "2026-10-21",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "§2.1–2.3，训练Table2，§3.1及主评测表",
-    "last_updated": "2026-10-19",
+    "sections_read": "arXiv2501.17811v1 Abstract/Intro/§2.1–2.4全部、§3.1–3.4/T1–5、§4Conclusion全部核心文字；实际Fig3框架已看，定性Fig4非逐例质量统计，Refs仅数据来源43选读。无逐因素消融可读，已记录缺失。固定1daa72f README Pro介绍/模型规格/理解与生成示例、generation_inference.py全文；官方HF7B模型卡和config全文（本次读取，未固定HF revision）；未完整trainer/评测/VLMEvalKit、权重或运行。",
+    "last_updated": "2026-10-21",
     "canonical_key": "paper:arxiv:2501.17811",
     "evidence_history": [
       {
@@ -967,16 +980,21 @@
         "conclusion": "统一模型能力可以随配方和数据改善。",
         "gap": "【边界/推断】收益不能自动归因于新的协同机制；不是笔顺过程模型。",
         "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 62,
+        "scope": "arXiv2501.17811v1 Abstract/Intro/§2.1–2.4全部、§3.1–3.4/T1–5、§4Conclusion全部核心文字；实际Fig3框架已看，定性Fig4非逐例质量统计，Refs仅数据来源43选读。无逐因素消融可读，已记录缺失。固定1daa72f README Pro介绍/模型规格/理解与生成示例、generation_inference.py全文；官方HF7B模型卡和config全文（本次读取，未固定HF revision）；未完整trainer/评测/VLMEvalKit、权重或运行。"
       }
     ],
     "review_path": "docs/reviews/U04.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "扩大理解和生成数据，合成及真实图像；理解/文本/生成比例分阶段变化。",
-    "framework": "优化训练阶段与数据混合，扩大高质量数据和模型规模；核心架构沿用Janus。",
-    "architecture": "SigLIP理解、VQ生成、共享AR Transformer；1B/7B标记与基础LLM实际规格需按表记录。",
-    "metrics": "POPE、MME、MMB、SEED、GQA、MMMU、MM-Vet、GenEval和DPG。",
-    "baselines": "Janus及同期开源理解/生成/统一模型。",
-    "experimental_conditions": "AdamW beta.9/.95；阶段表写20K/360K/80K(1B)或40K(7B)，正文又称StageII在270K早停，应保留实际与计划差异；128/256 A10040GB约9/14天。"
+    "dataset": "StageII额外约90M理解样本含YFCC及Docmatix表/图/文档；StageIII另加DeepSeekVL2 MEME、中文对话等，不合并成全部90M都SFT。生成额外72M合成美学，real:synth1:1只指统一预训；Ref43为vivym/midjourney-prompts提示资源，不足证明所有合成样本来源/生成器/许可。完整数量组成、清洗、去重和原始样本清单未公开到可独立核验程度。",
+    "framework": "StageI延长ImageNet训练、StageII去ImageNet专注densecaption；StageIII understanding:text:gen由7:3:10→5:1:4；理解预训+90M，生成+72M合成美学，统一预训real:synth1:1；扩大1.5B→7B。未提出独立新注意力/扩散机制。",
+    "architecture": "DeepSeekLLM1.5B/7B共享backbone，SigLIP-Large patch16/384、生成VQ码本16384/downsample16，理解/生成编码分离沿用Janus。T1 embedding2048/4096、layers24/30、heads16/32、ctx4096、词表约100K。HF7B config vision1024→4096、gen8→4096，imagehead16384，vocab102400/max_position_embeddings16384；后者为配置上限，训练/README context仍4096，不据此声称训练16K。1B标签实际LLM1.5B。",
+    "metrics": "理解GQA/POPE/MME-P/SEED/MMBench/MM-Vet/MMMU；静态生成GenEval六类别与DPG1065denseprompts。主文无OCR/笔顺/视频/真实执行指标，定性简单文字图不等逐字符正确率。多seed/CI、prompt改写、候选选择、生成采样及裁判配置未完整披露，默认示例不得当论文评测协议。",
+    "baselines": "原Janus1.5B与Pro1.5B/7B、TokenFlowXL13B、MetaMorph、Show-o、Chameleon、Emu3、LLaVA等理解统一模型；生成DALLE3/SD3M/Transfusion/SDXL等。LLM参数数不含所有vision/tokenizer等资源与预训练成本，不可视为严格等预算。Pro1.5B比Janus1.5B仍同时改策略/数据；Pro7B比Pro1.5B还变SFT步数。",
+    "experimental_conditions": "图像384：理解长边缩384灰127pad，生成短边384中心裁长边。StageI/II/III lr1e−3/1e−4/4e−5恒定，AdamW β.9/.95、WD0/clip1、warm600/5000/0，batch256/512/128。T2计划steps20K/360K/80K(1.5B)或40K(7B)，§3.1 StageII实际270K早停；不可用360K作为已执行。训练HAI-LLM，16/32nodes×8A10040GB=128/256卡，约9/14天（继承LLM/encoder预训另计）。StageII冻结两encoder，StageIII解冻理解encoder。固定1daa72f README Pro生成示例CFG5/T1/16并行/576码，根generation_inference.py默认旧Janus，不可原样声称Pro推理。"
   },
   {
     "id": "U05",
