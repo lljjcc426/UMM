@@ -4841,6 +4841,74 @@
         }
       ],
       "boundary": "arXiv2501.17811v1 Abstract/Intro/§2.1–2.4全部、§3.1–3.4/T1–5、§4Conclusion全部核心文字；实际Fig3框架已看，定性Fig4非逐例质量统计，Refs仅数据来源43选读。无逐因素消融可读，已记录缺失。固定1daa72f README Pro介绍/模型规格/理解与生成示例、generation_inference.py全文；官方HF7B模型卡和config全文（本次读取，未固定HF revision）；未完整trainer/评测/VLMEvalKit、权重或运行。 核心书面验收，无计时口试/复现。"
+    },
+    {
+      "id": "L025",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "输入指定字符串、文字位置及可选原图，在复杂场景中生成或编辑可读、多语言静态文字。目标为字形正确、背景融合与布局可控；OCR特征中的stroke指字形视觉特征，未建模笔画事件、落笔方向或视频时序。 CLIP文字编码对逐字符和非拉丁字形区分不足，单纯扩散噪声回归不能直接约束指定文字，单一位置/字形条件也难处理局部编辑和不规则布局。作者借助字形渲染、OCR表征和指定区域感知损失引入额外监督；字符级分割/大语言编码器等路线并非普遍失效。",
+          "evidence": "明确版本核心/公式、主表/框架图及已有消融或其明确缺失，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "字符串→Arial Unicode字形图与位置mask；原图/遮罩→VAE；三路融合za与噪声zt进入可训练TextControlNet，冻结SD UNet接收控制残差与融合文字条件→VAE解码静态RGB。每行glyph→冻结PP-OCRv3→线性embedding→替换CLIP星号token；训练把预测x0解码/裁指定文字区域，与原图OCR中间特征对齐。实际Fig2已看。 SD1.5 UNet/VAE/CLIP文字编码器及PP-OCRv3冻结，ControlNet式分支复制SD encoder、glyph/position卷积块与OCR embedding线性层可训练。glyph全图1024²、位置512²，OCR行图80×512。Eq1 L=Ltd+λLtp，Eq2噪声MSE，Eq3 za=f(G(lg)+P(lp)+VAE(lm))，Eq4 OCR字形替换占位，Eq5按文字区域/hw求OCR特征MSE并乘alpha_bar_t。它没有显式字符笔顺图或时间状态；主感知项也非OCR类别交叉熵。",
+          "evidence": "明确版本核心/公式、主表/框架图及已有消融或其明确缺失，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "辅助潜变量模块融合glyph、position与masked-image latent，经TextControlNet控制冻结SD1.5；OCR单行特征线性投影后替换CLIP中的占位符，与语义融合。训练后两epoch加入指定区域OCR特征MSE。v1.1另改标注、无效区域遮罩、数据量/比例、watermark筛选、感知权重和社区基础模型，缺逐项归因。 给定可渲染字形和可靠位置、目标在OCR覆盖语言和训练场景分布内时，显式glyph减少字符语义歧义，OCR特征监督可使指定区域更接近字形，position有利布局；区域loss降低背景的监督干扰。优势应主要体现中英区域识别/布局，不能推出规范笔顺或非覆盖语言序列正确。v1.1多改动只能支持系统层面的结果差异。",
+          "evidence": "明确版本核心/公式、主表/框架图及已有消融或其明确缺失，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "解释主要定量结果与一组实际消融",
+          "answer": "T2 v1英文Sen.ACC/NED/FID=.6588/.8568/35.87，中文.6634/.8264/28.46；ControlNet .5837/.8015/45.41与.3620/.6227/41.86，TextDiffuser .5921/.7951/41.31与.0605/.1262/53.37。v1.1英文.7239/.8760/33.54、中文.6923/.8396/31.58，中文FID28.46→31.58变差，不能称全指标提升。A2参数1426.7M→1431.6M（+.34%）、3476→3512ms/img（+1.04%），无方差。A7伪文本119%/166.8%等超过100，定义/分母不足，不能当发生概率。 T3 Exp1编辑on无glyph-embed .1552/.4070，Exp2编辑off .2024/.4649；CLIP视觉.1416/.3809、卷积.1864/.4402、OCR .4595/.7072；无position .4472/.6974。OCR相对Exp2增加25.71个百分点，非相对25.7%。λ.003/.01/.03对应.4848/.7353、.4996/.7457、.4659/.7286；.01相对OCR组+4.01pp。不同初始/续训安排与生成/编辑目标有取舍，无完整因子、独立validation选择或seedCI。v1.1各更新并未逐项消融。",
+          "evidence": "明确版本核心/公式、主表/框架图及已有消融或其明确缺失，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "伪标错误、复杂长行/字体/不规则区域、跨文字泛化和未指定区域额外文字仍有限；A7抽查中英标错11.8%/2.4%，N与置信区间未知。固定3d4a260发布train.py当前是200K/15epoch/mask0/no-perloss示例，不能直接称完整v1.1配方。ddpm.py无效mask乘噪声MSE后全像素mean，未按有效面积重归一，改变有效权重是实现推论待实验。社区RealisticVision卡建议photoreal负提示含text/sketch/drawing，迁移书写须对照；未跑训练/评测或下载权重。 固定基础SD/社区模型、数据量/质量、位置、采样与总预算，做OCR标注版本×无效mask×感知权重×社区基模因子，单列生成/编辑和训练前后。独立validation择参，多seed按prompt聚类CI；同时检测全图多余文本、区域识别、人工逐字符审核、语言/字符频率/曲率/笔画复杂度/未见作者分层。比较mask固定分母与有效面积归一，披露过滤损失与真实时延。视频扩展须另有时序/事件监督、静态逐帧与规则渲染强基线，全部为未运行方案。",
+          "evidence": "明确版本核心/公式、主表/框架图及已有消融或其明确缺失，代码选择路径与未执行范围分列"
+        }
+      ],
+      "boundary": "arXiv2311.03054v5 Abstract/Intro/§2相关/§3全部Eq1–5/§4数据/§5主实验与T2–4/§6结论核心，实际Fig2框架，AppA1/A2/A3与A7 T7–8；其他附录样例未逐例审。固定3d4a260c67d92c0e27d6e18ed69990e19a40de6d README评测/训练/模型切换，train.py与perloss.yaml全文，cldm.py get_input无效mask与ddpm.py噪声/感知loss选择路径；未全代码/数据/权重或执行。RealisticVision V5.0 noVAE模型卡全文为本次读取未固定revision，不能替代其训练数据审核；正式OpenReviewPDF未完成逐页比对。 核心书面验收，无计时口试/复现。"
+    },
+    {
+      "id": "L027",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "把图像中心MLLM接视频扩散decoder，以有限后训练同时支持文字/图像条件视频生成和视频问答；生成强调条件语义跟随，理解强调较少选帧下的相关证据检索。研究对象为一般场景，未给出中文/其他文字笔顺生成任务或规范书写事件评价。 作者认为流采样中语义/细节需要随时间改变条件强度，图像MLLM均匀抽帧对视频问题效率和相关性不足。关于大量视觉token稀释文字的动机依赖联合softmax/实际注意力池；Wan独立cross-attention不能不经实现分析直接套用联合MM-DiT论证。",
+          "evidence": "明确版本核心/公式、主表/框架图及已有消融或其明确缺失，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "生成：prompt/可选图→BAGEL视觉/文字条件→adapter→Wan DiT交叉注意力，流ODE采样latent→3DVAE视频。理解：视频64均匀候选/16帧全局caption→问题分类→SigLIP2检索或MMR→BAGEL回答→外部Evaluator打分/Reflector改query，至多3轮、阈值.7或accept停止。实际Fig2已看，图中的回路需要计入所有外部模型成本。 BAGEL7B Qwen2风格RMSNorm/SwiGLU/RoPE/GQA/QKnorm，SigLIP2-so400m/14 NaViT及FLUX8×VAE；理解主要ViT，条件接Wan2.2 TI2V5B/3DVAE。Eq1扩散时间与动态长度adapter；Eq2–5论文以alpha乘attention scores，text1.3→1前40%、image1→1.3后40%。AppEq6–9 cosine/soft policy/topk/MMR，10–16借likelihood-ratio/梯度对齐解释反思；真实离散query改写并未求该梯度，Eq15依赖正对齐假设，不能称无条件收敛定理。",
+          "evidence": "明确版本核心/公式、主表/框架图及已有消融或其明确缺失，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "轻量条件adapter耦合BAGEL7B与Wan2.2 TI2V5B，三阶段分任务与联合训练；TMA沿流时间调节文字/视觉注意力增益；Pyramid Reflection用静态4→8→16或动态64→32→16检索和外部LLM反馈改写query。反思属于推理时搜索/重排，不包含RL权重更新。 给定强预训练图像MLLM和视频DiT、训练量有限时，adapter/LoRA可减少需更新参数，时间条件强度有望改善prompt绑定；问题相关选帧有望在证据稀疏且静态语义重要的视频QA上获益。细微短时动作、密集文字和先后次序依赖帧密度/保序，外部caption可能锚定错误。Eq15的正梯度对齐与外部评分可靠性尚未由结果表单独验证。",
+          "evidence": "明确版本核心/公式、主表/框架图及已有消融或其明确缺失，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "解释主要定量结果与一组实际消融",
+          "answer": "T1 total85.27/quality86.44/semantic80.58，对EasyAnimate83.42是+1.85分/相对+2.22%，非+2.2pp。subject98.96/bg97.76/flicker99.88/motion99.25/dynamic61.83/aesthetic64.21/imaging73.03；EasyAnimate aesthetic69.48、Hunyuan dynamic70.83更高，不是各项最优。T2 MSVD80.1/4.2、MSRVTT61.4/3.4、TGIF75.0/4.1、Activity58.8/3.6；SF-LLaVA79.1/4.1、65.8/3.6、78.7/4.2、55.5/3.4。MSVD/Activity +1.0/+3.3个百分点，但另外两数据集低于SF，未给CI。 T3 base76.25/77.11/72.82，woMLLM77.82/78.69/74.32，woTMA80.42/81.51/76.04，full85.27/86.44/80.58。T4 QA Acc按MSVD/MSRVTT/TGIF/Activity：base64.1/48.9/54.2/39.8，woFT71.1/52.2/63.5/46.5，woReflection73.1/55/64.6/52.0，full80.1/61.4/75.0/58.8。表支持报告系统下增益，但没有完整因子、外部API等预算/联合训练额外数据控制、帧/轮次时延与多seed，不能独立归因全部机制。",
+          "evidence": "明确版本核心/公式、主表/框架图及已有消融或其明确缺失，代码选择路径与未执行范围分列"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "固定98b5c425代码所读TMA hook乘context前段特征，非论文attention-score温度；Wan cross-attn有K归一化/独立文字softmax，二者不等价。进度按DiT.forward调用计数，是否受CFG双调用影响需运行trace。理解代码Qwen评估/DeepSeek反思，静态排序反复encode、动态64→32重encode，所读路径未显式时间重排；不直接等论文cache一次/保序实现。HF固定a9398c3仅adapter权重+training_state、无模型卡/完整backbone。README代码TODO已过时，源码存在；未运行，差异不等证明原论文实验错误。 先固定代码、backbone、数据与采样，用随机/均匀/相关/MMR/反思同帧数同token/API预算对照，单列缓存和时间排序；无外部LLM或同外部LLM强baseline、错caption/扰动置信测试和GT可得时的校准。TMA比较score/feature/无gain、同实scheduler步计数，记录attention pool/文字质量质量指标，多seed与按视频CI；三阶段与等数据单任务/联合全因子。先核真实split、VBench版本/片长/列表，再测文字/事件/方向及短动作留出。所有为未执行方案。",
+          "evidence": "明确版本核心/公式、主表/框架图及已有消融或其明确缺失，代码选择路径与未执行范围分列"
+        }
+      ],
+      "boundary": "arXiv2509.24200v2 Abstract/Intro/§2/§3全部与Algorithm1/Eq1–5/§4.1–4.3/T1–2/§5核心，实际Fig2框架；AppA2三阶段/A4提示/A5Eq6–16/A6 T3–4/A7限制全部，A1写作声明已读，A3样例未逐例审。固定98b5c425a15275c4d8b3dc1aaa788134ed6c55f7 README全文/仓库树，inference.py起始配置、model_pipeline.py schedule/hook/generate、WanCrossAttention和BAGEL eval中rank/MMR/evaluator/reflector/static/dynamic选择路径；非全代码/trainer或运行。HF API固定a9398c3a9ad197c8f05f46d7b86c4b8f230418fa仅检查文件元数据，未下/加载权重。ActivityNetQA作者README全文/原论文摘要交叉，实际split仍未确认。 核心书面验收，无计时口试/复现。"
     }
   ]
 }

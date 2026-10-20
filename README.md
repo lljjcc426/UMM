@@ -182,3 +182,6 @@ python scripts/validate_catalog.py
 
 
 第六十二批（2026-10-21）补完Emu3/U02、Janus-Pro/U04核心：347目录、138核心/140书面，209项尚未确认核心三遍（含资源）。Emu3 Nature正式扩展与2024v1分列，补重写/后处理、tokenizer/配方消融和CALVIN模拟边界；Janus-Pro缺少逐因素消融，明确记录归因限制。见[原文审查](docs/evidence/emu3_januspro_versions_training_and_causal_audit_2026-10-21.md)、[逐文件说明](docs/evidence/sixty_second_changes_2026-10-21.md)。无删除或独立复现；剩余继续。
+
+
+第六十三批（2026-10-21）补完AnyText/L025、UniVid/L027核心：347目录、140核心/142书面，207项尚未确认核心三遍（含资源）。AnyText v1/v1.1多因素更新、区域OCR指标与社区底模分列；UniVid论文/代码差异、VBench命名和ActivityNetQA规模问题明确保留。见[原文/实现审查](docs/evidence/anytext_univid_protocol_code_and_namesake_audit_2026-10-21.md)、[逐文件说明](docs/evidence/sixty_third_changes_2026-10-21.md)。无删除/独立复现；同名新线索与剩余记录继续。

@@ -242,3 +242,8 @@ FontDiffuser已有unseen-font/unseen-character静态生成；DiffBrush已有英/
 ## 第六十二批补充（2026-10-21）
 
 Emu3正式扩展已覆盖交错生成、空间变序/修复与CALVIN动作，但并无规范书写视频/真实机器人笔顺评价；Janus-Pro已有数据/训练/规模扩展，不能把继承Janus结构计新贡献。见[第六十二批](emu3_januspro_versions_training_and_causal_audit_2026-10-21.md)。
+
+
+## 第六十三批补充（2026-10-21）
+
+AnyText静态指定字形/位置/编辑与OCR感知，v1.1多更新未独立归因；UniVid一般视频生成/问答与外部LLM检索，不含规范书写事件评价。四组UniVid同名工作按作者/编号区分，见[第六十三批](anytext_univid_protocol_code_and_namesake_audit_2026-10-21.md)。

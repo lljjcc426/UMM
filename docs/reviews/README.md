@@ -75,8 +75,8 @@
 | L022 | [Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本](L022.md) | 官方公开PDF索引标题、摘要、Introduction任务定义；Method/Experiments与正式决定未取得 |
 | L023 | [DiffBrush，ICCV 2025](L023.md) | arXiv v1核心§1–6/Eq1–7/T1及AppB–N全部文字/T2–8/Eq8/9读完（AppA/Refs与O大量图未全部），正式CVF正文/图选对照p1–3/7–8、含附录p14实际查看。固定da9addc README主体/IAMyaml全文、generate.py主体全文、ddim_sample完整、encoder双head/mask/blender与UNet.forward选段；未全训练/判别/数据/评测实现、权重或运行。 |
 | L024 | [Learning to Compose Stylistic Calligraphy Artwork with Emotions，ACM MM 2021](L024.md) | 原PDF9页，§3完整流程/公式、§4数据、§5主表2/消融与Table3layout及§6；未逐一视觉核验所有图或复现代码 |
-| L025 | [AnyText，2023/2024](L025.md) | §3全部模块/公式、§4–6与Tables2–3；AppA.3数据过滤文字及A.2部分参数；v1.1完整新训练细节AppA.7尚未补读，未逐图/源码 |
-| L027 | [UniVid，2025](L027.md) | §3完整架构/公式/Algorithm1、§4–5主表相关行；AppA.2/A.5与A.6 Tables3–4/A.7；未逐图或代码/实际split/全VBench主表逐格核查 |
+| L025 | [AnyText，2023/2024](L025.md) | arXiv2311.03054v5 Abstract/Intro/§2相关/§3全部Eq1–5/§4数据/§5主实验与T2–4/§6结论核心，实际Fig2框架，AppA1/A2/A3与A7 T7–8；其他附录样例未逐例审。固定3d4a260c67d92c0e27d6e18ed69990e19a40de6d README评测/训练/模型切换，train.py与perloss.yaml全文，cldm.py get_input无效mask与ddpm.py噪声/感知loss选择路径；未全代码/数据/权重或执行。RealisticVision V5.0 noVAE模型卡全文为本次读取未固定revision，不能替代其训练数据审核；正式OpenReviewPDF未完成逐页比对。 |
+| L027 | [UniVid，2025](L027.md) | arXiv2509.24200v2 Abstract/Intro/§2/§3全部与Algorithm1/Eq1–5/§4.1–4.3/T1–2/§5核心，实际Fig2框架；AppA2三阶段/A4提示/A5Eq6–16/A6 T3–4/A7限制全部，A1写作声明已读，A3样例未逐例审。固定98b5c425a15275c4d8b3dc1aaa788134ed6c55f7 README全文/仓库树，inference.py起始配置、model_pipeline.py schedule/hook/generate、WanCrossAttention和BAGEL eval中rank/MMR/evaluator/reflector/static/dynamic选择路径；非全代码/trainer或运行。HF API固定a9398c3a9ad197c8f05f46d7b86c4b8f230418fa仅检查文件元数据，未下/加载权重。ActivityNetQA作者README全文/原论文摘要交叉，实际split仍未确认。 |
 | L029 | [Think in Strokes, Not Pixels，2026](L029.md) | §3完整数据与CE/RF流程，§4全部设置、Tables1–7相关行与消融/结论；未逐图/源码复现，发表录用未独立确认 |
 | L030 | [Where a New Concept Must Enter，2026](L030.md) | §3–4协议与substrate相关结果、§5.1 SAR/位置汇总Table3、§6.1架构、§7完整Table6/代价及§8–9限制、AppJ；未完整读取§5.2所有sweep/代码命令 |
 | L031 | [Do Unified Multimodal Models Think in One Space?，2026](L031.md) | §3–6完整流程/主表/逆向/PSP讨论，AppB.1人评表3、B.3逆向、C.6–7层/强度/位置消融及F限制；未逐图核及读取全部原始配置 |

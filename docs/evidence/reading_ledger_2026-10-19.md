@@ -130,9 +130,9 @@
 | L022 | Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本 | primary_abstract_read | [结构化分析](../reviews/L022.md) | 未完成 |
 | L023 | DiffBrush，ICCV 2025 | primary_sections_read | [结构化分析](../reviews/L023.md) | 核心三遍与五项检查完成 |
 | L024 | Learning to Compose Stylistic Calligraphy Artwork with Emotions，ACM MM 2021 | primary_sections_read | [结构化分析](../reviews/L024.md) | 核心三遍与五项检查完成 |
-| L025 | AnyText，2023/2024 | primary_sections_read | [结构化分析](../reviews/L025.md) | 未完成 |
+| L025 | AnyText，2023/2024 | primary_sections_read | [结构化分析](../reviews/L025.md) | 核心三遍与五项检查完成 |
 | L026 | UniVideo | primary_sections_read | [结构化分析](../reviews/L026.md) | 核心三遍与五项检查完成 |
-| L027 | UniVid，2025 | primary_sections_read | [结构化分析](../reviews/L027.md) | 未完成 |
+| L027 | UniVid，2025 | primary_sections_read | [结构化分析](../reviews/L027.md) | 核心三遍与五项检查完成 |
 | L028 | Lance: Unified Multimodal Modeling by Multi-Task Synergy | primary_sections_read | [结构化分析](../reviews/L028.md) | 核心三遍与五项检查完成 |
 | L029 | Think in Strokes, Not Pixels，2026 | primary_sections_read | [结构化分析](../reviews/L029.md) | 未完成 |
 | L030 | Where a New Concept Must Enter，2026 | primary_sections_read | [结构化分析](../reviews/L030.md) | 未完成 |

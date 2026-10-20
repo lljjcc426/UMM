@@ -1667,22 +1667,26 @@
   {
     "title": "AnyText，2023/2024",
     "source_urls": [
-      "https://arxiv.org/abs/2311.03054"
+      "https://arxiv.org/abs/2311.03054",
+      "https://arxiv.org/html/2311.03054v5",
+      "https://openreview.net/forum?id=ezBH9WE9s2",
+      "https://github.com/tyxsspa/AnyText/tree/3d4a260c67d92c0e27d6e18ed69990e19a40de6d",
+      "https://huggingface.co/SG161222/Realistic_Vision_V5.0_noVAE"
     ],
-    "method": "glyph/位置/遮罩图组成辅助latent，PP-OCRv3行特征替换caption占位embedding；区域OCR特征感知损失配合TextControlNet。 冻结SD1.5UNet+可训编码副本TextControlNet；glyph1024²/pos512²卷积、maskedimageVAE，融合feature加noisylatent；PP-OCRv3行图80×512取FC前特征+linear替specialtoken，经CLIPtextcrossattn；Lnoise+lambda Locrfeature，后者按alpha_bar_t权重。",
-    "conclusion": "Table2v1.0英SenACC.6588/中.6634，中文FID28.46；v1.1英.7239/中.6923，中文FID31.58变差，不能写升级全面更好。TextDiffuser中文.0605、GlyphControl.0327/.0454主要反映原模型语言覆盖差异。",
-    "gap": "中文/英文主评不能外推其他文字同等准确；训练OCR伪标签、指定位置/crop的评价范围及字体覆盖影响结论；随机单seed缺不确定性。ArialUnicode静态glyph已给内容结构，做生成基线需匹配该信息。微小字与属性控制列为未来工作；无时序事件。",
-    "problem": "把给定多语言文字准确融入静态场景图，支持指定位置生成或局部编辑。",
+    "method": "辅助潜变量模块融合glyph、position与masked-image latent，经TextControlNet控制冻结SD1.5；OCR单行特征线性投影后替换CLIP中的占位符，与语义融合。训练后两epoch加入指定区域OCR特征MSE。v1.1另改标注、无效区域遮罩、数据量/比例、watermark筛选、感知权重和社区基础模型，缺逐项归因。 SD1.5 UNet/VAE/CLIP文字编码器及PP-OCRv3冻结，ControlNet式分支复制SD encoder、glyph/position卷积块与OCR embedding线性层可训练。glyph全图1024²、位置512²，OCR行图80×512。Eq1 L=Ltd+λLtp，Eq2噪声MSE，Eq3 za=f(G(lg)+P(lp)+VAE(lm))，Eq4 OCR字形替换占位，Eq5按文字区域/hw求OCR特征MSE并乘alpha_bar_t。它没有显式字符笔顺图或时间状态；主感知项也非OCR类别交叉熵。",
+    "conclusion": "T2 v1英文Sen.ACC/NED/FID=.6588/.8568/35.87，中文.6634/.8264/28.46；ControlNet .5837/.8015/45.41与.3620/.6227/41.86，TextDiffuser .5921/.7951/41.31与.0605/.1262/53.37。v1.1英文.7239/.8760/33.54、中文.6923/.8396/31.58，中文FID28.46→31.58变差，不能称全指标提升。A2参数1426.7M→1431.6M（+.34%）、3476→3512ms/img（+1.04%），无方差。A7伪文本119%/166.8%等超过100，定义/分母不足，不能当发生概率。",
+    "gap": "伪标错误、复杂长行/字体/不规则区域、跨文字泛化和未指定区域额外文字仍有限；A7抽查中英标错11.8%/2.4%，N与置信区间未知。固定3d4a260发布train.py当前是200K/15epoch/mask0/no-perloss示例，不能直接称完整v1.1配方。ddpm.py无效mask乘噪声MSE后全像素mean，未按有效面积重归一，改变有效权重是实现推论待实验。社区RealisticVision卡建议photoreal负提示含text/sketch/drawing，迁移书写须对照；未跑训练/评测或下载权重。",
+    "problem": "输入指定字符串、文字位置及可选原图，在复杂场景中生成或编辑可读、多语言静态文字。目标为字形正确、背景融合与布局可控；OCR特征中的stroke指字形视觉特征，未建模笔画事件、落笔方向或视频时序。",
     "claim": "作者研究目标：把给定多语言文字准确融入静态场景图，支持指定位置生成或局部编辑。",
-    "version": "版本见原始来源及历史记录",
+    "version": "AnyText: Multilingual Visual Text Generation And Editing；ICLR2024 Spotlight（官方作者仓库/OpenReview记录交叉），核心按arXiv2311.03054v5（2024-02-21）读取，含A7 v1.1更新。未取得并逐页比对OpenReview最终PDF，不混称正式PDF已全文核对。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "previous_evidence": "既有调查 B",
     "id": "L025",
     "canonical_key": "paper:arxiv:2311.03054",
@@ -1716,17 +1720,22 @@
         "conclusion": "可借字形/位置条件及识别损失；最终图监督不区分写字先后",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 63,
+        "scope": "arXiv2311.03054v5 Abstract/Intro/§2相关/§3全部Eq1–5/§4数据/§5主实验与T2–4/§6结论核心，实际Fig2框架，AppA1/A2/A3与A7 T7–8；其他附录样例未逐例审。固定3d4a260c67d92c0e27d6e18ed69990e19a40de6d README评测/训练/模型切换，train.py与perloss.yaml全文，cldm.py get_input无效mask与ddpm.py噪声/感知loss选择路径；未全代码/数据/权重或执行。RealisticVision V5.0 noVAE模型卡全文为本次读取未固定revision，不能替代其训练数据审核；正式OpenReviewPDF未完成逐页比对。"
       }
     ],
-    "sections_read": "§3全部模块/公式、§4–6与Tables2–3；AppA.3数据过滤文字及A.2部分参数；v1.1完整新训练细节AppA.7尚未补读，未逐图/源码",
+    "sections_read": "arXiv2311.03054v5 Abstract/Intro/§2相关/§3全部Eq1–5/§4数据/§5主实验与T2–4/§6结论核心，实际Fig2框架，AppA1/A2/A3与A7 T7–8；其他附录样例未逐例审。固定3d4a260c67d92c0e27d6e18ed69990e19a40de6d README评测/训练/模型切换，train.py与perloss.yaml全文，cldm.py get_input无效mask与ddpm.py噪声/感知loss选择路径；未全代码/数据/权重或执行。RealisticVision V5.0 noVAE模型卡全文为本次读取未固定revision，不能替代其训练数据审核；正式OpenReviewPDF未完成逐页比对。",
     "review_path": "docs/reviews/L025.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "AnyWord3034486图>9M行，Wukong/LAION400M/OCR数据；中文约1.6M/英文1.39M/其他10K（阿拉伯/孟加拉/印地等）。各抽1000中文/英文图测试，其余训练；长宽/字高/置信度等规则过滤。",
-    "framework": "glyph/位置/遮罩图组成辅助latent，PP-OCRv3行特征替换caption占位embedding；区域OCR特征感知损失配合TextControlNet。",
-    "architecture": "冻结SD1.5UNet+可训编码副本TextControlNet；glyph1024²/pos512²卷积、maskedimageVAE，融合feature加noisylatent；PP-OCRv3行图80×512取FC前特征+linear替specialtoken，经CLIPtextcrossattn；Lnoise+lambda Locrfeature，后者按alpha_bar_t权重。",
-    "metrics": "SenACC按指定区域裁行OCR全匹配，NED越高越好，FID；训练PP-OCRv3，测试换DuGuangOCR，降低同识别器循环评价。仅目标区域OCR可能漏掉额外伪文字。",
-    "baselines": "ControlNetcanny、TextDiffuser、GlyphControl官方模型；基线训练数据/语言不同。GlyphDraw未放权重只用论文样例定性；非定量主表比较。",
-    "experimental_conditions": "8A100/AdamW2e-5/b48/10epochs；5仅生成+3编辑p.5+2加perceptual lambda.01；测试DDIM20/CFG9/seed100/b4，最多5行/每行20字符。消融200K图含160K中文15epochs8V10060h，编辑关闭。"
+    "dataset": "v1 AnyWord-3M为3034486图、>9M行、>20M汉字/拉丁词，约1.6M中文/1.39M英文/10K其他，来自Wukong、LAION400M和ArT/COCOtext/RCTW/LSVT/MLT/MTWI/ReCTS；PP-OCRv3伪标、BLIP2重caption。中英各1000图holdout组成benchmark。训练筛W/H≥256、比例.67–1.5、文字面积≥10%、≤8行、行高≥30、置信≥.7，最多5行×20字符。v1.1以PP-OCRv4重标中文、MARIO-LAION英文，T7总量3.03M→3.53M，watermark<.5剩2.95M，不能把训练分布视为任意语言均衡。",
+    "framework": "辅助潜变量模块融合glyph、position与masked-image latent，经TextControlNet控制冻结SD1.5；OCR单行特征线性投影后替换CLIP中的占位符，与语义融合。训练后两epoch加入指定区域OCR特征MSE。v1.1另改标注、无效区域遮罩、数据量/比例、watermark筛选、感知权重和社区基础模型，缺逐项归因。",
+    "architecture": "SD1.5 UNet/VAE/CLIP文字编码器及PP-OCRv3冻结，ControlNet式分支复制SD encoder、glyph/position卷积块与OCR embedding线性层可训练。glyph全图1024²、位置512²，OCR行图80×512。Eq1 L=Ltd+λLtp，Eq2噪声MSE，Eq3 za=f(G(lg)+P(lp)+VAE(lm))，Eq4 OCR字形替换占位，Eq5按文字区域/hw求OCR特征MSE并乘alpha_bar_t。它没有显式字符笔顺图或时间状态；主感知项也非OCR类别交叉熵。",
+    "metrics": "区域裁图后读出的Sen.ACC与NED相似度（越高越好），测试DuGuang OCR、训练Paddle OCR；FID衡量整图分布。Sen.ACC未惩罚所有框外多余字，两个OCR系统仍可能有共同偏差。核心定量仅中英，各1000prompt/4输出；日/韩/阿拉伯等为定性展示。无笔顺/事件/视频指标，未给多seed/CI或书写执行成功率。",
+    "baselines": "ControlNet同字形、TextDiffuser、GlyphControl LAION-Glyph10M版及TextCaps5K微调版；论文固定相同benchmark位置/负提示与部分采样。独立训练数据、语言词表与模型容量不同，不能解释为纯架构等预算胜负。更晚AnyText2已经纳入本仓库第三十三批，v1的缺口须结合后续工作判断。",
+    "experimental_conditions": "v1 8×A100、AdamW lr2e−5、batch48、10epoch：5生成、3以.5概率编辑、2加入λ.01感知；DDIM20、CFG9、seed100、batch4。T3独立200K/160K中文、15epoch、8V100约60h；感知组从第13epoch续训仅最后2epoch加loss。A7 v1.1从v1再训5epoch，最终2筛watermark/λ.003，训练后用Realistic_Vision_V5.0_noVAE替换基础模型。A2时延单TeslaV100/batch4；README全量约312h是发布说明，不能等同200K配置。"
   },
   {
     "title": "UniVideo",
@@ -1816,22 +1825,27 @@
   {
     "title": "UniVid，2025",
     "source_urls": [
-      "https://arxiv.org/abs/2509.24200"
+      "https://arxiv.org/abs/2509.24200",
+      "https://arxiv.org/html/2509.24200v2",
+      "https://github.com/AIGeeksGroup/UniVid/tree/98b5c425a15275c4d8b3dc1aaa788134ed6c55f7",
+      "https://huggingface.co/AIGeeksGroup/UniVid/tree/a9398c3a9ad197c8f05f46d7b86c4b8f230418fa",
+      "https://github.com/MILVLG/activitynet-qa",
+      "https://arxiv.org/abs/1906.02467"
     ],
-    "method": "BAGEL式MLLM经adapter/LoRA条件化Wan；TemperatureModalityAlignment调整attentionlogit；PyramidReflection用外部LLM评估/反思改关键帧检索。 Qwen2+SigLIP2so400m/14NaViT+FLUXVAE图像token，Wan2.2TI2V5B视频3DVAE；文字adapter与crossattnLoRA。Pyramid64候选缓存，16帧globalcaption，static4→8→16/dynamic64→32→16MMR；DeepSeekv3.1Evaluator、QwenPlusReflector。",
-    "conclusion": "Table1总85.27；Table2MSVD80.1vsSF79.1、Activity58.8vs55.5，但MSRVTT61.4vs65.8/TGIF75.0vs78.7较低，不能称所有QA领先。VBench个别稳定分近100不代表物理和笔顺正确。",
-    "gap": "§3.1称微调MLLM、§4/AppA2称LLM冻结/仅connector，按具体trainables记录。Pyramid不改权重，文字检索修订没有给策略梯度估计，不能把“prompt-space policy gradient”当已运行梯度RL。TMA借MM-DiT混合softmax稀释论证而Wan为独立crossattn；仅缩放logit一般不保证总文字attention质量，需实际mask/实现。附加API强模型影响7B归因；作者也承认细运动/长视频困难。",
-    "problem": "用现成MLLM和视频DiT连接成理解/生成视频系统，并提高文字条件与多帧证据检索。",
+    "method": "轻量条件adapter耦合BAGEL7B与Wan2.2 TI2V5B，三阶段分任务与联合训练；TMA沿流时间调节文字/视觉注意力增益；Pyramid Reflection用静态4→8→16或动态64→32→16检索和外部LLM反馈改写query。反思属于推理时搜索/重排，不包含RL权重更新。 BAGEL7B Qwen2风格RMSNorm/SwiGLU/RoPE/GQA/QKnorm，SigLIP2-so400m/14 NaViT及FLUX8×VAE；理解主要ViT，条件接Wan2.2 TI2V5B/3DVAE。Eq1扩散时间与动态长度adapter；Eq2–5论文以alpha乘attention scores，text1.3→1前40%、image1→1.3后40%。AppEq6–9 cosine/soft policy/topk/MMR，10–16借likelihood-ratio/梯度对齐解释反思；真实离散query改写并未求该梯度，Eq15依赖正对齐假设，不能称无条件收敛定理。",
+    "conclusion": "T1 total85.27/quality86.44/semantic80.58，对EasyAnimate83.42是+1.85分/相对+2.22%，非+2.2pp。subject98.96/bg97.76/flicker99.88/motion99.25/dynamic61.83/aesthetic64.21/imaging73.03；EasyAnimate aesthetic69.48、Hunyuan dynamic70.83更高，不是各项最优。T2 MSVD80.1/4.2、MSRVTT61.4/3.4、TGIF75.0/4.1、Activity58.8/3.6；SF-LLaVA79.1/4.1、65.8/3.6、78.7/4.2、55.5/3.4。MSVD/Activity +1.0/+3.3个百分点，但另外两数据集低于SF，未给CI。",
+    "gap": "固定98b5c425代码所读TMA hook乘context前段特征，非论文attention-score温度；Wan cross-attn有K归一化/独立文字softmax，二者不等价。进度按DiT.forward调用计数，是否受CFG双调用影响需运行trace。理解代码Qwen评估/DeepSeek反思，静态排序反复encode、动态64→32重encode，所读路径未显式时间重排；不直接等论文cache一次/保序实现。HF固定a9398c3仅adapter权重+training_state、无模型卡/完整backbone。README代码TODO已过时，源码存在；未运行，差异不等证明原论文实验错误。",
+    "problem": "把图像中心MLLM接视频扩散decoder，以有限后训练同时支持文字/图像条件视频生成和视频问答；生成强调条件语义跟随，理解强调较少选帧下的相关证据检索。研究对象为一般场景，未给出中文/其他文字笔顺生成任务或规范书写事件评价。",
     "claim": "作者研究目标：用现成MLLM和视频DiT连接成理解/生成视频系统，并提高文字条件与多帧证据检索。",
-    "version": "版本见原始来源及历史记录",
+    "version": "UniVid: The Open-Source Unified Video Model，Luo等，arXiv2509.24200v2（2025-09-30；v1为09-29），未验证最终会议/期刊接收。与Chen等2509.21760、2603.13739和UNIVID2606.05748为不同工作，名称相似不能移植架构、指标或发表状态。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "previous_evidence": "既有调查 A",
     "id": "L027",
     "canonical_key": "paper:arxiv:2509.24200",
@@ -1865,17 +1879,22 @@
         "conclusion": "视频分支候选；通用 VBench 改善不等于笔顺可靠",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 63,
+        "scope": "arXiv2509.24200v2 Abstract/Intro/§2/§3全部与Algorithm1/Eq1–5/§4.1–4.3/T1–2/§5核心，实际Fig2框架；AppA2三阶段/A4提示/A5Eq6–16/A6 T3–4/A7限制全部，A1写作声明已读，A3样例未逐例审。固定98b5c425a15275c4d8b3dc1aaa788134ed6c55f7 README全文/仓库树，inference.py起始配置、model_pipeline.py schedule/hook/generate、WanCrossAttention和BAGEL eval中rank/MMR/evaluator/reflector/static/dynamic选择路径；非全代码/trainer或运行。HF API固定a9398c3a9ad197c8f05f46d7b86c4b8f230418fa仅检查文件元数据，未下/加载权重。ActivityNetQA作者README全文/原论文摘要交叉，实际split仍未确认。"
       }
     ],
-    "sections_read": "§3完整架构/公式/Algorithm1、§4–5主表相关行；AppA.2/A.5与A.6 Tables3–4/A.7；未逐图或代码/实际split/全VBench主表逐格核查",
+    "sections_read": "arXiv2509.24200v2 Abstract/Intro/§2/§3全部与Algorithm1/Eq1–5/§4.1–4.3/T1–2/§5核心，实际Fig2框架；AppA2三阶段/A4提示/A5Eq6–16/A6 T3–4/A7限制全部，A1写作声明已读，A3样例未逐例审。固定98b5c425a15275c4d8b3dc1aaa788134ed6c55f7 README全文/仓库树，inference.py起始配置、model_pipeline.py schedule/hook/generate、WanCrossAttention和BAGEL eval中rank/MMR/evaluator/reflector/static/dynamic选择路径；非全代码/trainer或运行。HF API固定a9398c3a9ad197c8f05f46d7b86c4b8f230418fa仅检查文件元数据，未下/加载权重。ActivityNetQA作者README全文/原论文摘要交叉，实际split仍未确认。",
     "review_path": "docs/reviews/L027.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "OpenVid1M精选子集规模未披露；理解ActivityNetQA20K、4epochs；MSVD/MSRVTT/TGIF/ActivityNet评。正文58KQA/5800视频是ActivityNetQA整库常见规模，文中将其称test需实际split文件核对。",
-    "framework": "BAGEL式MLLM经adapter/LoRA条件化Wan；TemperatureModalityAlignment调整attentionlogit；PyramidReflection用外部LLM评估/反思改关键帧检索。",
-    "architecture": "Qwen2+SigLIP2so400m/14NaViT+FLUXVAE图像token，Wan2.2TI2V5B视频3DVAE；文字adapter与crossattnLoRA。Pyramid64候选缓存，16帧globalcaption，static4→8→16/dynamic64→32→16MMR；DeepSeekv3.1Evaluator、QwenPlusReflector。",
-    "metrics": "VBenchLong总分及细项，QAAcc与0–5score；QAjudge版本/标准、VBench运行配置/全部clip数量/seed待核。外部反思调用与视频frameencode成本不能忽略。",
-    "baselines": "多开闭源video模型，SF-LLaVA等7BQA；base、w/oMLLM、w/oTMA、w/ofinetune、w/oReflection；不同视频骨干/后训练与外部API预算未完全一致。",
-    "experimental_conditions": "Stage1仅adapter+DiTcrossLoRA；Stage2仅connector+ViT末2块/4epochs，LLM冻结；Stage3交替FM+maskedCE主调connector/adapter。推理1280×704/121帧24fps/50步CFG5；TMAtext1.3→1前40%、image后40%→1.3；QA≤3轮/阈.7/MMR.5。lr/batch/LoRAr/卡数/联合步数缺。"
+    "dataset": "生成OpenVid1M中筛选子集，具体N/清洗去重未披露。理解从ActivityNet-QA train取20K、4epoch，评MSVD/MSRVTT/TGIF/ActivityNet-QA。§4.1把ActivityNetQA 58K QA/5800视频写作test规模；原始作者README与1906.02467显示这是全库规模，真实eval split/列表仍需核查，不能据此断言测试泄漏。联合任务采样数与视频/作者交叉去重未完整公开。",
+    "framework": "轻量条件adapter耦合BAGEL7B与Wan2.2 TI2V5B，三阶段分任务与联合训练；TMA沿流时间调节文字/视觉注意力增益；Pyramid Reflection用静态4→8→16或动态64→32→16检索和外部LLM反馈改写query。反思属于推理时搜索/重排，不包含RL权重更新。",
+    "architecture": "BAGEL7B Qwen2风格RMSNorm/SwiGLU/RoPE/GQA/QKnorm，SigLIP2-so400m/14 NaViT及FLUX8×VAE；理解主要ViT，条件接Wan2.2 TI2V5B/3DVAE。Eq1扩散时间与动态长度adapter；Eq2–5论文以alpha乘attention scores，text1.3→1前40%、image1→1.3后40%。AppEq6–9 cosine/soft policy/topk/MMR，10–16借likelihood-ratio/梯度对齐解释反思；真实离散query改写并未求该梯度，Eq15依赖正对齐假设，不能称无条件收敛定理。",
+    "metrics": "主表16维VBench total/quality/semantic及各子项，§4.1称VBench、§4.3/结论称VBench-Long；缺精确脚本/commit、长视频时长与完整评测清单，暂保留此命名不一致。QA报告Acc和0–5 Score，裁判版本/提示/seed和全量split未复核；内部反思confidence.7不等已校准正确率。普通视频整体分数不能代表字形/笔顺/动作因果。",
+    "baselines": "生成EasyAnimateV5.1、MiniMaxVideo01、Kling1.6、HunyuanVideo、Vchitect2.0、Wan2.1等；理解SF-LLaVA、Video-LLaVA、VideoLLaMA2、VideoChat2、Chat-UniVi等。7B标签主要指LLM，另有DiT/ViT/VAE/SigLIP与外部Qwen/DeepSeek服务；不等与单7B端到端等总预算，部分结果来自报告值，无法据此证明计算效率最优。",
+    "experimental_conditions": "I冻结主体，仅text adapter/DiT cross-attn LoRA做flow matching/CFG dropout；II仅connector和ViT后2块训练、LLM冻结、assistant token maskedCE，20K/4epoch；III交替FM+CE主要调connector/adapter。正文缺训练lr/batch/LoRA秩/GPU/联合steps，未从示例倒填。采样1280×704、121帧24fps（约5s）、50steps、CFG5/通用负提示。64候选、16seed、MMR.5、最多3轮。论文称DeepSeekv3.1 Evaluator/Qwen-plus Reflector；固定代码两者分工相反，须分版本。"
   },
   {
     "title": "Lance: Unified Multimodal Modeling by Multi-Task Synergy",

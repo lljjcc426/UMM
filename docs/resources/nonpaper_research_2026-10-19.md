@@ -275,3 +275,8 @@ FontDiffuser两阶段launch与parser默认覆盖、SCR预训代码TODO；DiffBru
 ## 第六十二批补充（2026-10-21）
 
 Emu3固定dbbf985 README/HFGen卡默认负提示含text、topk2048/CFG3与论文不同，SFT示例与正式QFT分列；预训/DPO/评测仍TODO。Janus固定1daa72f README Pro示例与默认旧Janus的根推理脚本、HF16K配置上限与论文4K实际上下文分别记录。未下权重或运行。见[发布审查](../evidence/emu3_januspro_versions_training_and_causal_audit_2026-10-21.md)。
+
+
+## 第六十三批补充（2026-10-21）
+
+AnyText固定3d4a260当前train.py为200K子集示例，v1.1依赖社区RealisticVision V5.0 noVAE，卡许可/外置VAE/采样/含text-sketch-drawing负提示已记录。UniVid固定98b5c425源码存在，当前hook/外部服务/缓存与论文不同，HF a9398c3只有adapter+training_state，无完整backbone或模型卡；未下/载权重或运行。详见[实现/资源审查](../evidence/anytext_univid_protocol_code_and_namesake_audit_2026-10-21.md)。

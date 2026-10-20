@@ -331,3 +331,8 @@ FontDiffuser v1全部核心/附录文字/T1–10及实际Fig2/6，AAAI元数据�
 ## 第六十二批补充（2026-10-21）
 
 Emu3 Nature正式核心HTML、T1/实际EDT1–7与Fig1/3/4，完整38页补PDF选读训练/评测/消融并看p13 FigS9，v1方法/主表/评测交叉；Janus-Pro v1全部核心/T1–5/实际Fig3，缺独立消融。两固定GitHub发布与官方HF卡/config或SFT脚本交叉，未运行。
+
+
+## 第六十三批补充（2026-10-21）
+
+AnyText v5核心/实际Fig2/T2–4、A1–3/A7 T7–8，固定3d4a260选择代码与RealisticVision卡；UniVid v2核心/实际Fig2/T1–4/A2/A4–7 Eq6–16，固定98b5c425选择路径、HF固定a9398c3元数据；ActivityNetQA作者README/原摘要。新增2509.21760、2603.13739、2606.05748同名待精读线索，未混计已读/573候选。正式OpenReview最终PDF尚未逐页核。
