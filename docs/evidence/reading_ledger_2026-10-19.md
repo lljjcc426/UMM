@@ -310,9 +310,9 @@
 | G006 | Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow | primary_sections_read | [结构化分析](../reviews/G006.md) | 核心三遍与五项检查完成 |
 | G007 | Consistency Models | primary_sections_read | [结构化分析](../reviews/G007.md) | 核心三遍与五项检查完成 |
 | G008 | DPM-Solver: A Fast ODE Solver for Diffusion Probabilistic Model Sampling in Around 10 Steps | primary_sections_read | [结构化分析](../reviews/G008.md) | 核心三遍与五项检查完成 |
-| G009 | Video Diffusion Models | primary_sections_read | [结构化分析](../reviews/G009.md) | 未完成 |
-| G010 | Align your Latents: High-Resolution Video Synthesis with Latent Diffusion Models | primary_sections_read | [结构化分析](../reviews/G010.md) | 未完成 |
-| G011 | AnimateDiff: Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning | primary_sections_read | [结构化分析](../reviews/G011.md) | 未完成 |
+| G009 | Video Diffusion Models | primary_sections_read | [结构化分析](../reviews/G009.md) | 核心三遍与五项检查完成 |
+| G010 | Align your Latents: High-Resolution Video Synthesis with Latent Diffusion Models | primary_sections_read | [结构化分析](../reviews/G010.md) | 核心三遍与五项检查完成 |
+| G011 | AnimateDiff: Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning | primary_sections_read | [结构化分析](../reviews/G011.md) | 核心三遍与五项检查完成 |
 | G012 | CogVideoX: Text-to-Video Diffusion Models with An Expert Transformer | primary_sections_read | [结构化分析](../reviews/G012.md) | 未完成 |
 | G013 | Wan: Open and Advanced Large-Scale Video Generative Models | primary_sections_read | [结构化分析](../reviews/G013.md) | 未完成 |
 | G014 | A Neural Representation of Sketch Drawings | primary_sections_read | [结构化分析](../reviews/G014.md) | 核心三遍与五项检查完成 |

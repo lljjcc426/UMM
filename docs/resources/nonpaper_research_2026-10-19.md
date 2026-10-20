@@ -190,3 +190,8 @@ DDPM官方1e0dceb TF1.15/TPU默认与loss选段；Score-SDE官方JAX0acb9e0配�
 ## 第四十四批补充
 
 新增[R10](../reviews/R10.md)：固定HF sd-vae-ft-ema/f04b2c4和sd-vae-ft-mse/31f26fd卡、API与config；decoder-only／两者EMA／未公开LAION-Humans／缺完整训练超参，重建rFID与DiT生成FID分开。另记LDM eval YAML非论文训练lr、DiT默认前三latent噪声通道CFG／MSE+CFG4、CM CT命令带teacher参数且初始化复制、DPM代码默认++；均未执行。
+
+
+## 第四十五批补充
+
+固定AD e92bd56：train.py名称筛选/冻结/AdamW和时间重排实现、v1 train/image-train与v3 infer配置；100步示例不等完整论文训练，image finetune全UNet不等domain LoRA。v2 motion453M与MotionLoRA19M/74MB（prose77MB）不替换原论文约30M storage不明单位。VDM作者不发模型，VideoLDM原项目本次未定位完整检查点；SparseCtrl/SVD另归独立工作，未下载权重。

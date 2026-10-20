@@ -211,3 +211,6 @@ L026/L028/L044/L175/L176/L177/L179/S004/H001九项新增本轮独立17字段分�
 
 
 第四十四批深化LDM／DiT／Consistency Models／DPM-Solver并补HF VAE资源组R10；343项（318研究／25资源），核心三遍104、书面五检查106。核查decoder／CFG、CT例子初始化与超参、原DPM与++默认差异及负指标；见[本批审查](latent_transformer_consistency_and_solver_audit_2026-10-20.md)和[逐文件说明](forty_fourth_changes_2026-10-20.md)。全部剩余三遍与视频等领域继续，未训练或推理。
+
+
+第四十五批深化VDM／VideoLDM／AnimateDiff；343项，核心三遍107、五条书面检查109。分清C3D-FID／I3D-FVD、条件抽样协议、时序／静态质量取舍与论文／示例／后继版本；见[本批审查](video_diffusion_temporal_transfer_and_motion_adapters_2026-10-20.md)及[逐文件说明](forty_fifth_changes_2026-10-20.md)。AnimateDiff原补充训练／评价协议仍待补，全部剩余三遍继续，未训练、推理或复现。

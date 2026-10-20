@@ -152,3 +152,8 @@ G001噪声链/G002连续score与PC/ODE/G005条件速度回归/G006rectification-
 ## 第四十四批补充
 
 G003感知压缩与条件潜扩散／G004类条件latent Transformer／G007端点一致CD-CT／G008固定checkpoint数值采样／R10decoder-only资源，按输入输出、数据／预训练、参数预算与评价分列。见[第四十四批](latent_transformer_consistency_and_solver_audit_2026-10-20.md)；没有规范书写时序／动作的直接实验。
+
+
+## 第四十五批补充
+
+G009像素整块扩散/条件重建引导；G010逐帧E潜扩散+时间D/分层插值；G011兼容SD共享motion/domain空间LoRA/时间MotionLoRA。按数据/条件/版本/成本及静态与时间指标分列；见[第四十五批](video_diffusion_temporal_transfer_and_motion_adapters_2026-10-20.md)。三项均未验证规范笔顺过程。

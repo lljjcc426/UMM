@@ -181,3 +181,8 @@ F01–F04补静态渲染器×剪增×opacity×逐层因子，固定实际参数/
 ## 第四十四批补充
 
 固定E-D与latent／noise seed，拆f×潜通道、DiTblock×patch、CTscratch／teacher-init×LPIPS／L2、DPM／++×ε／映射／NFE；等样本／墙钟／质量分列，teacher与decoder／LPIPS预训练及τ／ε搜索计成本。报告rFID／FID／PSNR／sFID／recall及独立OCR／拓扑／真实笔事件，反例保持同终帧。未运行。
+
+
+## 第四十五批补充
+
+固定E-D/SD/CLIP、参考统计/样本数/fps，拆joint独立帧比例×等样本/墙钟、replacement/重建引导×含corrector反传成本、时间层/时间D/插值×全参/冻结、共享motion/domain/LoRA×兼容域。负指标与重建/生成分列，加静止复制/同终图乱序/瞬时出现、OCR/细线拓扑/运动幅度/事件可观测性；未执行。

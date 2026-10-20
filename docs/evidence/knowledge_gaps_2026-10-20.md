@@ -193,3 +193,8 @@ Reynolds形状导数与弧长Jacobian/滤波核、最近点隐式导数条件；
 ## 第四十四批补充
 
 感知压缩与信息损失、生成FID／重建rFID、EMA权重与EMA target分开。DiT近似GFLOPS对照并非等参数；CT渐近loss对应需真score／平滑，不是有限N精确替代。DPM高阶误差仅相对学得ODE，NFE／步数／阶、终点ε与时刻映射分开；代码默认后续算法不可倒写原文。
+
+
+## 第四十五批补充
+
+C3D-FID与I3D-FVD/图像Inception FID分开，train/val参考与IS split双值分开。噪声时间/真实帧/潜时间压缩/笔事件不同；PC步数需加corrector与重建反传成本。冻结空间θ不代表全部pipeline冻结、初始化恒等不代表训练后恒等；帧平滑/CLIP相似不能替代运动幅度或笔事件。
