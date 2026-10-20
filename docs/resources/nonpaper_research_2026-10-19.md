@@ -353,3 +353,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第七十八批（2026-10-21）：补VD固定配置噪声/目标/空条件/已下线I2T2I及HF旧新权重；Emu公开32latent推理/数据采集配方、SFT图像不兼容断言与未发布训练代码，不新增论文计数。见[审查](../evidence/versatile_diffusion_and_emu_evidence_audit_2026-10-21.md)和[单篇L075](../reviews/L075.md)、[L077](../reviews/L077.md)。
+
+
+第七十九批（2026-10-21）：LaVIT-v2配套后续模型另加24.2M候选库/8K步，HF固定版本及低/高分辨率decoder记录；不另计论文，原训练/finetuning未完整公开。见[审查](../evidence/lavit_dynamic_tokens_and_version_audit_2026-10-21.md)和[单篇L079](../reviews/L079.md)。

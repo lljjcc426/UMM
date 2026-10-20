@@ -1,0 +1,35 @@
+{
+  "id": "L079",
+  "checked_on": "2026-10-21",
+  "paper_revision": "ICLR2024 official 21-page PDF, LLaMA1-7B",
+  "github_revision": "8cde9b4f9d24e077db9e740f3740daba15428e8d",
+  "hf_revision": "b61731821e79e43e84a43e063660deb1bce7a9aa",
+  "hf_model": "rain1011/LaVIT-7B-v2",
+  "license_metadata": "llama2",
+  "inspected_files": [
+    "LaVIT/README.md:selected core/version/results/roadmap",
+    "LaVIT/models/modeling_visual_tokenzier.py:selected sections",
+    "LaVIT/models/lavit_for_understanding.py:continuous visual embedding input",
+    "LaVIT/models/lavit_for_generation.py:initialization/token generation/pixel sampling",
+    "LaVIT/evaluation/evaluate_text2img.py",
+    "LaVIT/scripts/text2image.sh",
+    "LaVIT/evaluate.py",
+    "HF README:selected core",
+    "HF language_model/config.json"
+  ],
+  "findings": [
+    "Official paper LLaMA1; public LLaMA2 v1/v2 differ; v2 extra 20M recaptioned LAIONaesthetics +4.2M JourneyDB, 8K finetuning steps; original weights not claimed available",
+    "Official repo v1->v2 FID7.2->7.1, but NoCaps113.1->112, Flickr83.2->81.4,GQA48->47.9,VizWiz45.3->41; no causal attribution or reproduced result",
+    "Evaluation top_k300, max_new_tokens inherits default200, num_return4 CLIP best1, DDIM50, LLM/decoder CFG1.5, lowres512 branch, seed0+rank; distinct from prose ambiguity and highres demos",
+    "Understanding consumes continuous features; both inference tokenizing paths sample F.gumbel_softmax hard=True; not an event sequence",
+    "HF config 32 layers/4096hidden/2048positions/vocab48386; weights, datasets, and full original training protocol not executed/verified"
+  ],
+  "model_executed": false,
+  "downloaded_weights": false,
+  "urls": [
+    "https://proceedings.iclr.cc/paper_files/paper/2024/hash/e1762b64958760f7bfabe3a7062d007f-Abstract-Conference.html",
+    "https://proceedings.iclr.cc/paper_files/paper/2024/file/e1762b64958760f7bfabe3a7062d007f-Paper-Conference.pdf",
+    "https://github.com/jy0205/LaVIT/tree/8cde9b4f9d24e077db9e740f3740daba15428e8d/LaVIT",
+    "https://huggingface.co/rain1011/LaVIT-7B-v2/tree/b61731821e79e43e84a43e063660deb1bce7a9aa"
+  ]
+}

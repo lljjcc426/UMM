@@ -5827,6 +5827,40 @@
         }
       ],
       "boundary": "正式ICLR2024 PDF Abstract/§1–8全部核心研究文字、Eq1–2/T1–4及图注；AppA.1–A.2/B.1–B.2/C.1–C.3/D与T5–11全部文字表项，E图库/伦理展开未逐项穷尽、参考文献未逐篇追读。实际p4框架/公式、p7 T1、p8 T2–4、p17 T5–6已视觉核看。固定d9f12f43 Emu1 README核心/权重/roadmap、YT数据README全文、models/Emu-14B.json和causal_former.py全文、image_inference.py全文、pipeline.py初始化/采样/条件段、modeling_emu.py初始化与generate_image段、prediction_mixin.py相关入口检索；HF元数据/文件树。未通读底层全部代码/伦理每项/图库，未下载权重或运行/独立复现。"
+    },
+    {
+      "id": "L079",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释统一视觉预测与动态压缩的问题/动机",
+          "answer": "在LLM内联合学习图像理解与静态图像生成，并动态压缩视觉输入token以降低冗余。未定义视频输出、真实绘画动作或规范笔顺；其causal visual token依赖关系是表征/预测约束。 只对文本算loss的adapter式VLM无法直接预测图像，连续回归与离散文本目标不同；固定长视觉序列增加LLM开销，语义重复降低自监督压力。分类可表达多峰是设计动机，但不能据与异数据Emu的分数差证明连续建模普遍不兼容。",
+          "evidence": "正式核心/实际框架主表消融与指定附录、固定关联制品；非口试或独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入、模块、输出和模态角色",
+          "answer": "图/文及组合条件→连续视觉特征或离散视觉目标与文本交错→LLaMA输出文字或离散图码→重建语义特征→SD像素解码静态图。实际正式p4 F3 tokenizer/merger、p5 Eq2–5、p7 T1–2、p9 T3a/b已核看；causal merger仍看全图ViT及任意未选patch，未隔绝未来物理事件。 EVA-CLIP ViT-G/14冻结，MLP selector/Gumbel，12层merger和12层重建decoder，码本K16384；rho1/3、Eq4 cosine语义重建+lambda2的保留率正则。LLaMA1-7B联合视觉/文本分类头；SD1.5初始化UNet另调。Eq3将l2称L2 norm但向量比较更符合归一化意图，固定代码l2norm确为F.normalize，码本初始化归一化，不把每步权重单位范数视为已核。Eq6 p(y)=全数据log条件和混同概率与log似然；Eq5范数未写平方，不能直接补成原实际MSE协议。",
+          "evidence": "正式核心/实际框架主表消融与指定附录、固定关联制品；非口试或独立复现"
+        },
+        {
+          "criterion": "解释具体创新及其优势成立条件",
+          "answer": "冻结EVA-CLIP后由Gumbel selector动态选token，12层causal merger cross-attend未选patch，语义重建训练16384码本；LLM对图文next-token用共享CE。理解路径输入连续merger特征、视觉预测目标离散，生成token后经语义重建及单独扩散像素decoder，不应把系统全部输入表示写成离散同构。 语义冗余较多、复杂度变化较大且高层识别为主时，动态token可降低LLM输入长度，merger缓解直接丢弃信息，离散分类对多峰目标可能优于确定性L2回归。对细笔/OCR、小区域和多语言字符需相同码率下测试；causal token和静态生成收益不推出真实顺序/笔方向优势。",
+          "evidence": "正式核心/实际框架主表消融与指定附录、固定关联制品；非口试或独立复现"
+        },
+        {
+          "criterion": "解释完整主表和消融及候选/版本/预算条件",
+          "answer": "正式T1 NoCaps114.2/Flickr83/VQA66/OKVQA54.6/GQA46.8/VizWiz38.5，列出的各列均高于有值基线；相对BLIP2 Vicuna7B Flickr74.9高8.1，相对Flamingo9B OK44.7高9.9pp。T2 FID7.4优于表内LLM但弱于Imagen7.3/Parti7.2，含CLIP4选1，不能跨预算直接排。AppB T4 MMLU LLaMA35.1，LLMlr1.5e-4/纯文66%为27.1；lr5e-5/纯文50%30.9，66%33.6，仍低1.5分。正式PDF没有证明完全避免遗忘或所有理解生成任务协同。 T3a分类Flickr/VQA/OK73.2/57.1/47.0优于回归60.4/53.6/41.9，只支持此配方；T3b动态94tokens/18h/74.0/57.7/47.6 vs固定256/30h/71.1/56.5/46.4，时长减少40%，不是整个任意系统40%加速定律。T6 causal73.2/57.3/46.4 vs双向69.9/55.6/44.1；T7a连续72.7/56.4/46.2 vs量化70.3/53/44.8；T8无merger70.8/51.9/42.1；T7b冻结LLM63/52.7/44.3 vs解冻72.1/57.1/47.9。均CLIP-L14+子集、不同表配置分开，无完整生成/理解双向公平协同或码率—细节曲线。 NoCaps/Flickr30k CIDEr；VQAv2/OKVQA/GQA/VizWiz VQAacc；COCO30K FID↓；MMLU5shot及视觉token均长/训练时长。正式FID含每prompt四样本用CLIP-ViT-L/14择优，不能当单样本结果/同生成算力。FID不直接测文字拼写/笔画或条件细节。动态压缩Table3为小encoder/子集实验，不与主模型数值混合。",
+          "evidence": "正式核心/实际框架主表消融与指定附录、固定关联制品；非口试或独立复现"
+        },
+        {
+          "criterion": "提出两个以上证据明确的问题及验证方案",
+          "answer": "VQ/动态压缩可能丢细笔信息，语义教师与扩散decoder会重建/补全而非保真还原；无字符/笔顺指标。主表跨模型异预算，4候选选择与外部decoder成本不能省略。MMLU未完全保持；作者AppE承认幻觉、短caption噪声和交错长文训练不足。公开GH8cde9b4f/HFb6173182为LLaMA2版，v2另加20M合成caption与4.2M JourneyDB/8K步、可选高分辨率decoder，非原LLaMA1主表checkpoint；finetuning代码仍未勾选。encode_features/tokenize_image在推理调用Gumbel hard随机选择，未给多seed稳定性。 同EVA/教师数据/LLM/总FLOPs比较连续分布模型与简单回归、VQ分类、固定/动态等码率、无merger及causal/bidirectional；同时测rFID/OCR/最小笔差、语言保持和多文字泛化。分别报1样本和4选1质量/完整AR+tokenizer+DDIM/CLIP筛选耗时，多seed含Gumbel选择。固定原LLaMA1与公开LLaMA2-v1/v2分组，控制额外24.2M候选库和8K步；同终态异笔序需事件监督/动作和RGB评价，未运行。",
+          "evidence": "正式核心/实际框架主表消融与指定附录、固定关联制品；非口试或独立复现"
+        }
+      ],
+      "boundary": "正式ICLR2024 21页PDF Abstract/§1–5全部核心研究文字、Eq1–7/T1–3及图注；AppA/B.1/B.2/D/E全文、AppC指定重建/码本与多模态展示解释，末图库未逐图/参考文献未逐篇。实际p4 F3、p5公式、p7完整理解/生成主表、p9 T3消融已视觉核看；p6统一目标按文本核。固定GH8cde9b4f LaVIT/README核心/版本/表/roadmap，modeling_visual_tokenzier.py初始化/normalize/quantize/merger/两种编码段、lavit_for_understanding.py连续输入段、lavit_for_generation.py初始化/AR/像素采样段、evaluation/evaluate_text2img.py全文及scripts/text2image.sh/evaluate.py，decoder/image_detokenize相关入口检索。固定HFb6173182元数据/文件树/README核心和language_model/config.json全文；未全读底层/原训练代码、下载权重或执行复现。"
     }
   ]
 }

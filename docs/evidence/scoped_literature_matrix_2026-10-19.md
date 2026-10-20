@@ -320,3 +320,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第七十八批（2026-10-21）：VD .11的文生图FID改善与variation大幅改善、文字定性分开；Emu按base/I与star、shot分行，保留NExT/OKVQA及MMVet OCR/空间/数学退步。见[审查](versatile_diffusion_and_emu_evidence_audit_2026-10-21.md)和[单篇L075](../reviews/L075.md)、[L077](../reviews/L077.md)。
+
+
+第七十九批（2026-10-21）：LaVIT COCO FID7.4含四选一；MMLU仍降1.5；正式LLaMA1与公开LLaMA2-v1/v2分组，v2多项理解下降。见[审查](lavit_dynamic_tokens_and_version_audit_2026-10-21.md)和[单篇L079](../reviews/L079.md)。

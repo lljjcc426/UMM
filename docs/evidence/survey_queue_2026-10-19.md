@@ -320,3 +320,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第七十八批（2026-10-21）补完L075 Versatile Diffusion与L077 Emu正式核心/指定补充，核对实际框架主表及固定代码/HF。350目录、166核心/169项五条书面（含未通过项），184条未确认核心三遍（含资源）。见[证据审查](versatile_diffusion_and_emu_evidence_audit_2026-10-21.md)、[逐文件说明](seventy_eighth_changes_2026-10-21.md)。无删除或模型复现。
+
+
+第七十九批（2026-10-21）补完LaVIT L079正式核心/指定附录及实际图表，核固定代码/HF后续LLaMA2-v2模型。350目录、167核心/170项五条书面（含未通过项），183条未确认核心三遍（含资源）。见[审查](lavit_dynamic_tokens_and_version_audit_2026-10-21.md)、[逐文件说明](seventy_ninth_changes_2026-10-21.md)。无删除或模型复现。

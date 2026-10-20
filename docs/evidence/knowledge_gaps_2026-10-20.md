@@ -361,3 +361,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第七十八批（2026-10-21）：路径联合/边缘分布、log似然/概率、sqrt线性噪声调度、CFG默认/论文评估、RICES条件与评估std/训练seed需区分。见[审查](versatile_diffusion_and_emu_evidence_audit_2026-10-21.md)和[单篇L075](../reviews/L075.md)、[L077](../reviews/L077.md)。
+
+
+第七十九批（2026-10-21）：top_k300是候选词表截断，所查实现max_new_tokens默认200；数据源体量/实际曝光与概率/log似然区分。见[审查](lavit_dynamic_tokens_and_version_audit_2026-10-21.md)和[单篇L079](../reviews/L079.md)。

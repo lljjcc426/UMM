@@ -349,3 +349,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第七十八批（2026-10-21）：补等额外2.4K步的时序/字幕干预、同数据预算共享消融、同prompt/RICES/后处理和全部退步分项；加笔事件与RGB指标，方案未运行。见[审查](../evidence/versatile_diffusion_and_emu_evidence_audit_2026-10-21.md)和[单篇L075](../reviews/L075.md)、[L077](../reviews/L077.md)。
+
+
+第七十九批（2026-10-21）：补同码率细笔/OCR、单样本/四选一、Gumbel多seed、版本/额外数据和继续训练控制；测语言保持及事件时序，未运行。见[审查](../evidence/lavit_dynamic_tokens_and_version_audit_2026-10-21.md)和[单篇L079](../reviews/L079.md)。

@@ -409,3 +409,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第七十八批（2026-10-21）：采用ICCV2023正文/正式supplement、ICLR2024 Emu正式全文核心与AppA–D，核实际框架/结果/消融；固定官方代码及HF元数据，只读未执行。见[审查](versatile_diffusion_and_emu_evidence_audit_2026-10-21.md)和[单篇L075](../reviews/L075.md)、[L077](../reviews/L077.md)。
+
+
+第七十九批（2026-10-21）：LaVIT ICLR2024正式核心/AppA/B/D/E与实际框架主表，固定官方GH/HF静态核查；未执行模型。见[审查](lavit_dynamic_tokens_and_version_audit_2026-10-21.md)和[单篇L079](../reviews/L079.md)。
