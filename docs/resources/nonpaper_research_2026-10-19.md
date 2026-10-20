@@ -160,3 +160,8 @@ Show-o2固定45a5a2d README视频理解已发，T2V/I2V/mixed-modality生成权�
 ## 第三十八批补充
 
 MF固定d70cb55 JAX/TPU与B4发布checkpoint/FIDstats，另有作者py-meanflow/pMF入口待单独读；iMF官方bf60cd7与HF fbc11eb目录含JAX/full/PyTorch权重/两套FIDstats，API无README/license元数据，不能推MIT权重许可。SGF+固定7a7734f/HF784c078含两全参数frame/chunk与SGF诊断generator+critic，64GPU/1900或700参考steps、max2000配置分列；110GB诊断worker/CPUoffload和单B200 Reactor为工程协议，无独立实测。关联已有研究，不重复计资源或论文。
+
+
+## 第三十九批补充
+
+关联E04：facebookresearch/flow_matching固定11568d37，后续Guide库FineWeb-EDU/WikiText103示例、1Msteps/8H100/AdamW配置，采样1−exp跳转与原论文δ+h·u分列。关联E05：Git2f866649与HF84e5a410，Base1200K/v1 1250K/BigVGAN/no_zero_init权重清单，MIT代码与CC-BY-NC-4.0模型分列；只读卡/配置不下载权重。关联E06：ali-vilab/TeaCache7c10efc，opensora四阶系数、首末强算/残差/阈值与VBench/参考指标协议，Wan等适配待逐个审查。关联E07：jocpae/clDice47d31a6，PyTorch实际num_iter10与iter_接口不一致、hardmetric P/R命名对换但分数对称；未运行。均为配套制品，不重复计独立论文/资源。

@@ -211,3 +211,8 @@ D05 arXiv2506.08009v1核心PDF/NeurIPS2025官方登记；D06 2607.20368v1 HTML�
 ## 第三十八批补充
 
 E01 NeurIPS2025正式23页PDF；E02 arXiv2512.02012v2/官方Lyy-iiis/imeanflow；E03 RSS正式PDF核心+v2 HTML AppA–C/固定student loss路径；新D09 2610.10429v2核心全文/局部定理与固定Git/HF。各核图/主表/消融，未模型运行。SGF+ Related与MF/iMF官方README追到pMF2601.22158、AlphaFlow/DecoupledMeanFlow/CMT，以及ResamplingForcing、MaskForcing、CausalForcing++、DataForcingDistillation、OneForcing、RewardForcing、DuoMatching、VideoMirai、NextForcing、FreqForcing、MemRoPE等名称：仅追引线索，尚待逐项去重/原始身份/正文核查，不计已读或新颖性证据。
+
+
+## 第三十九批补充
+
+E04 NeurIPS2024正式41页核心/指定证明/附录配置，E05 ACL2025正式17页含B/C，E06 CVPR2025正式11页，E07 CVPR2021正式10页与arXiv HTML补A/D/E/G/H/I选段；核框架图/主表/现有消融，固定Git关键路径及F5 HF卡。CVF网页访问403，已取得正式PDF；未据摘要代替正文。Guide and Code2412.06264、SmoothCache2509.08696，以及TeaCache Related中的AdaCache/FasterCache/FORA/Δ-DiT/PAB等追引待逐项去重和正式原文，只有读取的库配置/已有论文部分计证据，未把追引名单计已读。

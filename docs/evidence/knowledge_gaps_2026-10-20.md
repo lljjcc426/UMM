@@ -163,3 +163,8 @@ NFE比不自动等walltime；KV预算/managedKV/临时workspace/peakVRAM需分�
 ## 第三十八批补充
 
 平均速度沿marginal characteristic积分，conditional直线不保证marginal直线；JVP输入条件与切向需按实现链式求导。原MF等价重写和iMF改变JVP输入分开，辅助头停梯度后需独立loss。冻结参数仍可对输入求导，CTM prediction经EMA s→0不能误detach。角色共享限制的局部位移几何不同于参数/算力公平，样本余弦不等聚合梯度。
+
+
+## 第三十九批补充
+
+离散速度是分类状态转移rate，δ+h·u需合法概率，fixed-t stationary与并行小步近似分开；全mask时间无关仅特定path。Sway改变生成ODE节点，physical时间另有定义；NFE/solver步/CFG批大小分开。TeaCache以t调制input估残差变化，校准系数为经验关系，poly1d不是拟合优化。clDice hard定理与soft有限k/仅前景经验简化分开，静态mask无时间方向，Euler正文/补充定义有待核不一致。

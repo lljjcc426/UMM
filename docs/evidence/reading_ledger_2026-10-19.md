@@ -45,10 +45,10 @@
 | E01 | Mean Flows for One-step Generative Modeling | primary_sections_read | [结构化分析](../reviews/E01.md) | 核心三遍与五项检查完成 |
 | E02 | Improved Mean Flows: On the Challenges of Fastforward Generative Models | primary_sections_read | [结构化分析](../reviews/E02.md) | 核心三遍与五项检查完成 |
 | E03 | Consistency Policy: Accelerated Visuomotor Policies via Consistency Distillation | primary_sections_read | [结构化分析](../reviews/E03.md) | 核心三遍与五项检查完成 |
-| E04 | Discrete Flow Matching | primary_sections_read | [结构化分析](../reviews/E04.md) | 未完成 |
-| E05 | F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching | primary_sections_read | [结构化分析](../reviews/E05.md) | 未完成 |
-| E06 | Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model（TeaCache） | primary_sections_read | [结构化分析](../reviews/E06.md) | 未完成 |
-| E07 | clDice: A Novel Topology-Preserving Loss Function for Tubular Structure Segmentation | primary_sections_read | [结构化分析](../reviews/E07.md) | 未完成 |
+| E04 | Discrete Flow Matching | primary_sections_read | [结构化分析](../reviews/E04.md) | 核心三遍与五项检查完成 |
+| E05 | F5-TTS: A Fairytaler that Fakes Fluent and Faithful Speech with Flow Matching | primary_sections_read | [结构化分析](../reviews/E05.md) | 核心三遍与五项检查完成 |
+| E06 | Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model（TeaCache） | primary_sections_read | [结构化分析](../reviews/E06.md) | 核心三遍与五项检查完成 |
+| E07 | clDice: A Novel Topology-Preserving Loss Function for Tubular Structure Segmentation | primary_sections_read | [结构化分析](../reviews/E07.md) | 核心三遍与五项检查完成 |
 | F01 | Differentiable Vector Graphics Rasterization for Editing and Learning（diffvg） | primary_sections_read | [结构化分析](../reviews/F01.md) | 未完成 |
 | F02 | Bézier Splatting for Fast and Differentiable Vector Graphics | primary_sections_read | [结构化分析](../reviews/F02.md) | 未完成 |
 | F03 | FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment | primary_sections_read | [结构化分析](../reviews/F03.md) | 未完成 |

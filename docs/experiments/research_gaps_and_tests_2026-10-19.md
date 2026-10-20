@@ -151,3 +151,8 @@ UniVideo冻结MLLM的理解成绩不能证明联合训练改善理解；Lance图
 ## 第三十八批补充
 
 同VAE/teacher/backbone/总FLOPs比较MF/iMF/Shortcut/FM，目标×辅助v×weight×结构×长训独立消融，CFG只在独立验证集选并披露搜索预算/训练ω外推。SGF+同参数加宽shared/双LoRA/梯度投影对照，补长semantic/动态/薄笔事件与聚合角色梯度。CP低方差×CTM/DSM×dropout×mesh和实际encoder/通信/执行计时，规范多模式和接触/漏笔独立评价。
+
+
+## 第三十九批补充
+
+离散FM同tokens/FLOPs/precision报PPL+entropy+代码或事件成功及延迟/吞吐；F5启发对齐需固定实际场评估数、参考条件、solver/CFG/vocoder，Sway不作物理时间控制。TeaCache独立70prompt校准及ROI/全局proxy、等延迟solver/cache对照，记录总成本和短笔漏失。clDice补同mask不同笔序、桥接/断连/交叉/多组件，固定实际k/α验证选择，全图+patch拓扑与时序事件共同评估。

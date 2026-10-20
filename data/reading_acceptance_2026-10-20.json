@@ -2869,6 +2869,142 @@
         }
       ],
       "boundary": "核心问题/方法公式/框架与关键表图视觉核、主表及现有消融、批判阅读及五条书面答案完成；没有全源码、全部定性示例逐帧审查或独立模型运行。原论文版本、代码/权重发布与作者声明分别界定。"
+    },
+    {
+      "id": "E04",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "离散类别不能直接沿连续速度相加。DFM定义合法概率速度与源目标条件path，通过后验边缘化构造词元跳转，再CE学后验；把训练、scheduler与corrector解耦，扩展到语言/代码/像素。",
+          "evidence": "研究问题与动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "p4Fig2显示每坐标向类别跳转的rate，row和0/非对角非负；全序列网络预测p1|t，Eq24转u，δ+h·u并行采样，corrector可重掩码。条件坐标独立不等边缘独立，t为生成过程而非书写物理时刻。",
+          "evidence": "正式p4Fig2/p8Tables2–3、T4/T5/Fig8、AppE6/E8与固定后续库输入/模块/输出解释"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "核心是条件速度经后验平均的离散生成场构造。αuf−βub在差1时沿pt、差0时fixed-t stationary，精确后验/小h等条件不能删。特殊all-mask的Prop6时间无关不覆盖uniform源；当前Guide实现1−exp跳转也不等论文每行。",
+          "evidence": "关键创新、核心公式与理论/实现范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T2Eq9 1024NFE Llama3PPL33.8优AR54.8，但T5 double precision变101.3/entropy8.0，AR仍54.8/7.1；不能忽视精度和多样性。T4code Pass1 6.7低AR14.3。Fig8cubic训练/quad推理5.04略优cubic/cubic5.07；CIFAR最佳3.63靠1024NFE/调参，非少步普胜。",
+          "evidence": "主表/一组以上现有消融与负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "代理PPL是否偏向低多样性？有限步corrector/精度怎样改变实际任务和吞吐？同tokens/FLOPs比较AR缓存、MaskGIT/离散扩散，补Pass/entropy与采样预算。已有mask/diffusion前作限制新颖性；离散笔事件仍需独立检验合法顺序与几何/接触约束。",
+          "evidence": "至少两条有依据疑问、直接前例与可证伪设计"
+        }
+      ],
+      "boundary": "核心问题、方法公式/框架与关键表图、主结果和现有消融、批判阅读及五项书面答案完成。未逐行全源码、全部补充例图/理论形式化验证、口头考试或独立模型运行；具体阅读范围、原文缺报和版本差异见笔记。"
+    },
+    {
+      "id": "E05",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "直接把稀疏字符padding与mel拼接的E2在特定Mandarin小数据设置学对齐慢，部分样本持续失败。F5用ConvNeXt细化文本接DiT，再用Sway把积分预算前移；任务为语音生成，字形/笔顺未测。",
+          "evidence": "研究问题与动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "p2Fig1训练：转录字符padding、噪声/已知mel，经ConvNeXt+DiT预测CFM速度；推理参考audio和其转录、目标文本与总长度条件，ODE后去参考mel并vocoder成波形。中文先转拼音，总时长仍按字符比估。",
+          "evidence": "ACL p2Fig1/p7Tables1–2、AppB Tables3–9/主观协议输入/模块/输出解释"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "Sway f(u)=u+s[cos(πu/2)−1+u]改变积分节点，s<0多分配noise侧早期，端点保持、在给定区间单调；不改变物理语速。Conv2Text与架构组合才有效，GT时长/去参考消融帮助定位语义声学干扰；leak-and-override限当前诊断。",
+          "evidence": "关键创新、核心公式与理论/实现范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1 F5 16/32标签WER2.53/2.42、RTF.15/.31，E2 2.95/.68但SIM.69高F5.66。T4F5 4.17、E2 9.63，GTduration E2仍9.48，text-only3.48但SIM.21；T5同midpoint32 Sway使F5 2.84→2.41。T6同标签不同solver开销不同，需核steps/实际评估/CFG。",
+          "evidence": "主表/一组以上现有消融与负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "新增收益是否来自backbone/solver或vocoder？中文拼音、时长估计和ASR偏差是否影响跨文字迁移？同参考/真实评估预算/训练FLOPs、多seed及听评CI，保留难句跳词和LJS久训退步。Voicebox/E2/Seed已有对齐学习，不能将F5方法名当新笔顺课题；v1/HF与原1200K Base须分版本。",
+          "evidence": "至少两条有依据疑问、直接前例与可证伪设计"
+        }
+      ],
+      "boundary": "核心问题、方法公式/框架与关键表图、主结果和现有消融、批判阅读及五项书面答案完成。未逐行全源码、全部补充例图/理论形式化验证、口头考试或独立模型运行；具体阅读范围、原文缺报和版本差异见笔记。"
+    },
+    {
+      "id": "E06",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "均匀缓存浪费在变化小的步，也可能跳过关键变化；先算输出差又耗计算。TeaCache用t调制输入的低成本差作为proxy，经标定后决定复用堆栈残差，基础生成网络不重训。",
+          "evidence": "研究问题与动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "p4Fig4 noisy embedding经norm与t scale/shift形成proxy，p5Fig5/6说明拟合与保留步状态更新；累积重缩放差<δ时current input加previous residual，超阈值算堆栈并刷新。缓存发生在去噪迭代内部，不是跨视频时间KV。",
+          "evidence": "正式p4Fig3–4/p5Fig5–6/p7T1–2、T3–4/固定opensora残差输入/模块/输出解释"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "创新在t/内容联合proxy、70prompt多项式标定、阈值动态刷新；np.poly1d只评价已给系数。固定opensora首末算、四阶系数、.1/.2阈值和残差代码与公式职责对应；经验相关不提供全程误差界。",
+          "evidence": "关键创新、核心公式与理论/实现范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1 Plan150steps65f512²99.65→22.62s即4.41倍/VBench80.39→80.32%，fast6.83倍质量再降；不能推广所有模型。T3无rescale78.21→一阶78.45→四阶78.48，二阶同分；T4八卡32.02倍含并行，等八卡约4.72倍。OpenSora PSNR低PABslow也是负项。",
+          "evidence": "主表/一组以上现有消融与负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "全局mean是否忽视局部薄笔？校准跨CFG/scheduler/字密度是否失效？固定noise/prompt/权重、独立校准测试，比无cache/优化solver/PAB和新cache，报全程延迟与事件Recall。DeepCache/PAB/AdaCache/FasterCache等已有前作，当前论文未统一测完，不能仅发现局部问题就宣称新课题。",
+          "evidence": "至少两条有依据疑问、直接前例与可证伪设计"
+        }
+      ],
+      "boundary": "核心问题、方法公式/框架与关键表图、主结果和现有消融、批判阅读及五项书面答案完成。未逐行全源码、全部补充例图/理论形式化验证、口头考试或独立模型运行；具体阅读范围、原文缺报和版本差异见笔记。"
+    },
+    {
+      "id": "E07",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "体积Dice会让粗结构主导，微小断连仍可能改变网络功能。clDice看骨架与mask交叉覆盖，soft近似后混合Dice训练，针对细长结构空间连通，尚无笔顺或视频任务证据。",
+          "evidence": "研究问题与动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "p3Fig2图像经任意segnet出概率mask；预测/GT各soft骨架与对方mask相乘得P/R再调和；min/maxpool与ReLU迭代使loss可求梯度。推理只用原网络，loss改变训练；k需覆盖半径，固定代码实际10而构造iter_未接入。",
+          "evidence": "正式p3Fig2/p7T1、Theorem1/Cor1.1/Alg1–2、补D/H/I与固定loss输入/模块/输出解释"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "hard指标先定义，nested复形定理/Cor1.1在前景背景图状骨架及双向包含等条件下给同伦等价，两边hardclDice均1；soft近1/仅前景训练无任意对象保证。补A最小修正存在不等SGD找到最少修正，形状连接不包含时间方向。",
+          "evidence": "关键创新、核心公式与理论/实现范围"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1RoadsUNet α.5 clDice86.83→88.17/β1 1.256→.953，但α.3 Dice76.23→74.85、clDice86.83→86.10。Vessap2chα.1 β1 4.323→4.490也退步。补I BCE混合Dice99.81→99.76，不能宣称每项必升；loss计时1.24→1.35s为特定RTX8000条件。",
+          "evidence": "主表/一组以上现有消融与负结果"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "同一mask不同笔顺是否完全同分？soft骨架/k/前景简化在多组件字/交叉中是否有效？需全图与patch拓扑、事件方向顺序共同测，α/k只val选；与Dice/CE/持久同调/形状损失同split同预算。训练配置与Euler定义不一致仍待原协议，现有连通loss不能充当书写过程创新充分依据。",
+          "evidence": "至少两条有依据疑问、直接前例与可证伪设计"
+        }
+      ],
+      "boundary": "核心问题、方法公式/框架与关键表图、主结果和现有消融、批判阅读及五项书面答案完成。未逐行全源码、全部补充例图/理论形式化验证、口头考试或独立模型运行；具体阅读范围、原文缺报和版本差异见笔记。"
     }
   ]
 }
