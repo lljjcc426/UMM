@@ -7154,6 +7154,29 @@
       "checked_on": "2026-10-20",
       "reading_status": "resource_protocol_reviewed",
       "reproduced": false
+    },
+    {
+      "venue": "CogVideoX Diffusers微调与检查点配置资源组；无单独方法论文定位，关联CogVideoX G012，不增独立论文。GitHub固定7a1af7154511e0ce4e4be8d62faa8c5e5a3532d2；HF2B 1137dacfc2c9c012bed6a0793f4ecf2ca8e7ba01、5B 8fc5b281006c82b82d34fd2543d2f0ebb4e7e321、1.5 fdc5267c90b5c06492985b966e43aae984e189e0。",
+      "problem": "怎样在可用GPU预算中给CogVideoX家族做LoRA或全Transformer微调，并正确匹配模型版本、latent尺度、时间patch、数据形状和默认训练目标；公开配方能否直接复现论文？",
+      "motivation": "模型卡、论文和后续工具链更新不同步。显存下限往往来自offload/tiling/量化，训练成本另有条件；看示例shell没有lr/rank也不代表没有默认值。忽略版本、resize、帧采样和语义改写可能损伤字形/事件且难定位。",
+      "contribution": "提供冻结VAE/T5和基础Transformer后注入Q/K/V/out投影LoRA，或训练整个Transformer的SFT；离线缓存latent/文字embedding，支持DDP/ZeRO/offload与指定形状视频。固定args和实际trainer可补足shell省略参数；工程适配协议单列，不冒充新的独立生成理论。",
+      "input_output": "输入prompts.txt/videos.txt和视频目录；I2V可选images.txt/图像，无图取首帧。预处理→固定VAE/T5编码/缓存→加噪latent与文字条件→LoRA或SFT训练→adapter/整模型保存；推理加载兼容pipeline输出RGB视频。原视频的字面文本/笔事件标注未作为结构字段，需自行设计，不能假定caption即可保留。",
+      "architecture": "2B config30层/30heads×64/无RoPE，5B42层/48heads×64/RoPE，均C16/patch2；1.5新增patch_size_t2、sample_frames81。VAE均C16/时间压缩4，但2B scaling1.15258426、5B/1.5 .7，1.5 invert_scale_latents=true。相同类名/形状不证明潜空间可交换；代码encode_video选段乘scaling_factor，未在该段处理invert，和当前pipeline的完整尺度约定仍需进一步核对。",
+      "data": "用户视频-描述逐行配对，可加参考图；文档示例Disney Steamboat Willie链接仅示例数据。经验说明用了70段200×480×720视频，分10/25/50三组、抽帧成49/16帧；不是论文35M预训练集。固定resize可能扭曲长宽比，需外部等比crop/resize并保存事件坐标/时标；缓存一次VAE采样与训练随机噪声分开。",
+      "metrics": "文档主要给每卡VRAM、可运行形状和定性建议，无标准生成/事件定量基准、样本方差或训练seed统计。模型卡低显存推理与finetune文档LoRA/SFT峰值分列；没有实测本设备。资源协议审查不能用给定VRAM表当性能复现或认定调参优越性。",
+      "baselines": "LoRA rank128 DDP与SFT的DDP/ZeRO2/ZeRO3/optimizer-parameter offload；2B/5B/1.5按形状/精度分组。文档alpha1经验与建议rank或rank/2，缺足严格同seed/数据/时长指标对照。固定模型卡早期LoRA47/63GB与后续guide16/24GB设置不同，不能挑最小值当全部配方保证。",
+      "experimental_conditions": "shell示例1.5-T2V、81×768×1360、b1/acc1/10epochs/seed42/bf16，validation=false。args默认AdamW lr2e−5 β.9/.95 wd1e−4、constant+100warmup、clip1、gradient checkpoint/slice/tile，LoRA r128/alpha64/QKV+out；需按数据计算实际steps。当前trainer每样本torch.randint时刻，未实现论文跨rank EUS；1.5固定scheduler config为v_prediction/zero-SNR/1000步，latent预测转换后按1/(1−alphabar)加权对原latent MSE，不因变量名predicted_noise就写ε-MSE。依赖要求安装未锁commit的Diffusers main，完整运行环境待钉定，未执行。",
+      "results": "文档作者报告LoRA2B49×480×720约16GB/4080、5B同形状24GB/4090、1.5 81×768×1360约35GB/A100。SFT 5B+ZeRO2+opt offload每卡42GB是另一条件；表中某行标4090/42GB与常见24GB硬件不符，不能照表推荐，具体设备/单位待澄清。推理低显存3.6/4.4GB为INT8+优化/不同模型，作者亦称INT8变慢；不表示模型训练同成本。",
+      "ablation": "工程经验给rank≥64、alpha≈rank或rank/2、不同视频数量；未提供足够可复算数值消融。当前r128/alpha64为实际默认，与早期alpha1分开。关闭offload等可能增加显存换速度，README同时写3–4倍与另一处约10%加速，需明确启用集合/后端后实测；不将任一比例当统一定律。",
+      "limitations": "开发依赖未钉定、shape与帧率建议跨版本不同；1.5卡16N+1而generic微调校验8N+1，使用应按完整模型配置核实。卡/论文2B heads32vs实际30、timeembed256vs512、论文BF16与2B卡FP16等差异保留，不猜谁为笔误。没有严格写字视频实验、完整训练预算或本次权重运行；部分卡只读规格/精度/优化/许可与config，未核全部样例。",
+      "advantage_hypothesis": "已有骨干能表达目标域而少样本适配主要改变外观/风格时，QKV/out LoRA有望节省可训练状态；SFT更灵活但优化器状态/激活成本大。若E已丢细线或时间采样丢事件，增加LoRA rank不能保证恢复；低显存offload/量化与速度/质量取舍应按硬件验证。",
+      "falsification": "固定checkpoint/HF尺度/帧率与训练验证split，LoRA r32/64/128×alpha/r、SFT×等墙钟/样本；保留E-D/decoder与T5并分别测重建和生成。处理链保存原帧时标/变换，统计resize/抽帧造成笔事件缺失；训练iid/EUS另做控制，不套论文结论。报训练/验证峰值VRAM、完整时延、OCR/拓扑/事件和多seed，数据预处理/latent-cache成本纳入；未运行。",
+      "writing_lesson": "无独立论文工具链也按问题→配方→实际默认→数据→结果与缺口组织。Claim限定作者VRAM报告与版本/后端，README建议不当消融定论；Limitations明确依赖、latent尺度、shape和文档不一致。调参需解释rank容量/alpha缩放/预算，不能只复述命令或凭标签宣称可控书写能力。",
+      "sections_read": "固定GitHub README新闻/模型表/优化条件/许可选段、finetune README完整说明、train_ddp_t2v.sh和train.py入口全读；args默认/解析/shape校验、trainer冻结/LoRA/优化段、t2v dataset cache/resize段、t2v LoRA encode/collate/loss/validation段与1.5继承模块。三个HF API/filelist、VAE/Transformer config全读，卡规格/精度/offload/许可选段；未读全部卡例代码或全部trainer/依赖，未下载权重/训练/推理。 另核1.5固定scheduler_config.json全文的v_prediction/zero-SNR。",
+      "id": "R11",
+      "checked_on": "2026-10-20",
+      "reading_status": "resource_protocol_reviewed",
+      "reproduced": false
     }
   ]
 }

@@ -195,3 +195,8 @@ DDPM官方1e0dceb TF1.15/TPU默认与loss选段；Score-SDE官方JAX0acb9e0配�
 ## 第四十五批补充
 
 固定AD e92bd56：train.py名称筛选/冻结/AdamW和时间重排实现、v1 train/image-train与v3 infer配置；100步示例不等完整论文训练，image finetune全UNet不等domain LoRA。v2 motion453M与MotionLoRA19M/74MB（prose77MB）不替换原论文约30M storage不明单位。VDM作者不发模型，VideoLDM原项目本次未定位完整检查点；SparseCtrl/SVD另归独立工作，未下载权重。
+
+
+## 第四十六批补充
+
+新增[R11](../reviews/R11.md)：固定CogVideo7a1af71微调默认/关键实现与HF2B1137dac、5B8fc5b28、1.5fdc5267卡/config。r128/alpha64/QKV-out、AdamW2e−5、iid时刻，不当论文完整预训。latent尺度/时间patch/精度与LoRA/SFT/offload预算分版本；数据resize/抽帧、开发依赖及42GB/4090文档行问题保留。未下载权重或运行。

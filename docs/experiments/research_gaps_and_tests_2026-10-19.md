@@ -186,3 +186,8 @@ F01–F04补静态渲染器×剪增×opacity×逐层因子，固定实际参数/
 ## 第四十五批补充
 
 固定E-D/SD/CLIP、参考统计/样本数/fps，拆joint独立帧比例×等样本/墙钟、replacement/重建引导×含corrector反传成本、时间层/时间D/插值×全参/冻结、共享motion/domain/LoRA×兼容域。负指标与重建/生成分列，加静止复制/同终图乱序/瞬时出现、OCR/细线拓扑/运动幅度/事件可观测性；未执行。
+
+
+## 第四十六批补充
+
+固定潜元素预算控制空间/时间压缩×channel，先重建OCR/拓扑/GT差分与事件可见性，再生成。full/factorized×参数/计算、Expert/MMDiT×等参数/等层、EUS×rank/seed；筛选器书写保留率、caption时间密度与字面保真、LoRA rank×alpha/r对SFT按等样本/墙钟控制。记录预编码/cache与训练/验证峰值、全推理成本。未执行。

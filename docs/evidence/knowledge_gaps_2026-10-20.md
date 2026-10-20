@@ -198,3 +198,8 @@ Reynolds形状导数与弧长Jacobian/滤波核、最近点隐式导数条件；
 ## 第四十五批补充
 
 C3D-FID与I3D-FVD/图像Inception FID分开，train/val参考与IS split双值分开。噪声时间/真实帧/潜时间压缩/笔事件不同；PC步数需加corrector与重建反传成本。冻结空间θ不代表全部pipeline冻结、初始化恒等不代表训练后恒等；帧平滑/CLIP相似不能替代运动幅度或笔事件。
+
+
+## 第四十六批补充
+
+几何压缩/位置token/潜元素/字节与完整计算分开；因果VAE不等full-attention生成因果。邻帧L1会混入真实运动，需GT差分/静止反例；EUS是特定均衡条件下的分层时刻采样。expert AdaLN不等稀疏MoE，公开trainer iid不等论文EUS；scale/invert、dtype/heads/timeembed与帧数跨版本不能拼。

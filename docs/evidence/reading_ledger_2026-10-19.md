@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 343 条，本批有 343 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 344 条，本批有 344 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 核心三遍完成需逐条核问题/方法/框架图、主表/消融及有依据的批判分析，并记录五项书面检查。计时口试、完整代码审查和独立复现另列；没有自动把模板填齐计为完成。
 
@@ -313,7 +313,7 @@
 | G009 | Video Diffusion Models | primary_sections_read | [结构化分析](../reviews/G009.md) | 核心三遍与五项检查完成 |
 | G010 | Align your Latents: High-Resolution Video Synthesis with Latent Diffusion Models | primary_sections_read | [结构化分析](../reviews/G010.md) | 核心三遍与五项检查完成 |
 | G011 | AnimateDiff: Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning | primary_sections_read | [结构化分析](../reviews/G011.md) | 核心三遍与五项检查完成 |
-| G012 | CogVideoX: Text-to-Video Diffusion Models with An Expert Transformer | primary_sections_read | [结构化分析](../reviews/G012.md) | 未完成 |
+| G012 | CogVideoX: Text-to-Video Diffusion Models with An Expert Transformer | primary_sections_read | [结构化分析](../reviews/G012.md) | 核心三遍与五项检查完成 |
 | G013 | Wan: Open and Advanced Large-Scale Video Generative Models | primary_sections_read | [结构化分析](../reviews/G013.md) | 未完成 |
 | G014 | A Neural Representation of Sketch Drawings | primary_sections_read | [结构化分析](../reviews/G014.md) | 核心三遍与五项检查完成 |
 | G015 | Learning to Paint With Model-based Deep Reinforcement Learning | primary_sections_read | [结构化分析](../reviews/G015.md) | 核心三遍与五项检查完成 |
@@ -349,3 +349,4 @@
 | F06 | Stylized Neural Painting | primary_sections_read | [结构化分析](../reviews/F06.md) | 核心三遍与五项检查完成 |
 | F07 | Synthesizing Programs for Images using Reinforced Adversarial Learning (SPIRAL) | primary_sections_read | [结构化分析](../reviews/F07.md) | 核心三遍与五项检查完成 |
 | R10 | Stable Diffusion VAE ft-EMA / ft-MSE：兼容KL-f8的解码器适配资源组 | primary_sections_read | [结构化分析](../reviews/R10.md) | 未完成 |
+| R11 | CogVideoX Diffusers微调与检查点配置资源组 | primary_sections_read | [结构化分析](../reviews/R11.md) | 未完成 |

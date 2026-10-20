@@ -157,3 +157,8 @@ G003感知压缩与条件潜扩散／G004类条件latent Transformer／G007端�
 ## 第四十五批补充
 
 G009像素整块扩散/条件重建引导；G010逐帧E潜扩散+时间D/分层插值；G011兼容SD共享motion/domain空间LoRA/时间MotionLoRA。按数据/条件/版本/成本及静态与时间指标分列；见[第四十五批](video_diffusion_temporal_transfer_and_motion_adapters_2026-10-20.md)。三项均未验证规范笔顺过程。
+
+
+## 第四十六批补充
+
+G012 3D VAE/Expert AdaLN/full attention/Frame Pack/数据筛选及EUS，R11工程微调/卡config单列；35M视频+2B图像与用户少样本微调不同。过滤Text Dominated、caption2秒采帧、公开原版与1.5帧率/时长等差异见[第四十六批](cogvideox_video_compression_data_and_finetuning_2026-10-20.md)。

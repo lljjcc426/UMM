@@ -3787,6 +3787,40 @@
         }
       ],
       "boundary": "仅明确arXiv v2核心方法、主实验/已有消融、关键图和五条书面检查。G009另读正式PDF §4.1/4.2协议，未通读正式版全部差异。G010附录选读范围见笔记；G011原补充训练/评价协议缺失，公开示例配置未当完整论文协议。全部附录/源码/原视频未逐项完成，未口试、训练、推理或独立复现。"
+    },
+    {
+      "id": "G012",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "长运动视频同时受时空token、模态特征域和数据描述限制。CogVideoX联合3D VAE、文本/视频Expert AdaLN与full attention，渐进分辨率/Frame Pack和密集caption训练；效果来自整个模型与数据流程，未单独证明严格书写过程。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "原Fig3/4/5/6/8及10d已视觉核。视频经因果3D E，latent加噪/patchify，T5文字与视频token串联；两模态分别按噪声t调制，共享全时空注意/FFN，v输出还原latent后3D D生成RGB。因果VAE只约束E-D信息方向，full attention联合生成并不自带因果执行约束。",
+          "evidence": "原Fig3/4/5/6/8与10d视觉核"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "Expert是模态调制而非稀疏MoE；3D full让跨空间运动直接关注，但更昂贵。EUS均等rank分别采不同时间区间，可按分层抽样理解、边际均匀需相应权重条件。f8×4/C16减少时间token，但忽略边界同精度的潜元素压缩48，与2D f8/C4同为48，不能称字节也少4倍。",
+          "evidence": "核心模块/采样目标及分析假设"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T3 5B DynamicDegree62.22差于2B66.39，Scene/Style也非最高。T1 B16channel PSNR28.7/L1 86.3，C32 PSNR30.5/L1 87.7，非channel越多全指标越好。Fig8等参数MMDiT1/同层双参数MMDiT2分开，factorized崩溃限该设置。T9 EUS40K t100 .216对iid.222；T8最高分3D单forward9.60s对4.17s。",
+          "evidence": "主T1–4与已有消融/T8–9"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "过滤文字主导视频和每2秒caption采帧是否遗漏快速笔事件、邻帧L1能否排除静止/平滑损失？统计过滤保留率、重建OCR/拓扑与GT差分，再测真实事件和文字原样保留。原版/1.5/论文超参能否拼用？R11锁卡/尺度/位置/patch与训练默认，原版6秒8fps不套1.5规格。追MAGVIT2/VideoVAE/FramePack及caption/评测原研究，不能凭本篇引用宣布文献空白。",
+          "evidence": "有依据问题、相关工作与可证伪设计"
+        }
+      ],
+      "boundary": "限2408.06072v3核心、所列AppA/B/D–G/I/J/K、关键原图和五条书面检查；正式版PDF与全部例图/视频/源码未逐项通读。论文/卡/代码超参和人评汇总缺口保留。R11为资源协议，不计论文三遍；无口试、权重推理、训练或独立复现。"
     }
   ]
 }

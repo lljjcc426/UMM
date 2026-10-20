@@ -221,3 +221,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第四十五批深化VDM／VideoLDM／AnimateDiff；343项，核心三遍107、五条书面检查109。分清C3D-FID／I3D-FVD、条件抽样协议、时序／静态质量取舍与论文／示例／后继版本；见[本批审查](video_diffusion_temporal_transfer_and_motion_adapters_2026-10-20.md)及[逐文件说明](forty_fifth_changes_2026-10-20.md)。AnimateDiff原补充训练／评价协议仍待补，全部剩余三遍继续，未训练、推理或复现。
+
+
+第四十六批深化CogVideoX并补R11微调／检查点配置资源组；344项（318研究／26资源），核心三遍108、五条书面检查110。核文字主导视频过滤、时空token／元素压缩、负指标、人评聚合与公开版本／默认值差异；见[本批审查](cogvideox_video_compression_data_and_finetuning_2026-10-20.md)及[逐文件说明](forty_sixth_changes_2026-10-20.md)。全部剩余深审继续，未训练／推理／复现。

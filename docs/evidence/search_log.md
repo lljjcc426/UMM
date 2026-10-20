@@ -246,3 +246,8 @@ G001实际读2006.11239v2，G0022011.13456v2，G0052210.02747v2，G0062209.03003
 ## 第四十五批补充
 
 核心阅读G0092204.03458v2／G0102304.08818v2／G0112307.04725v2；G009另交叉核NeurIPS正式§4.1 C3D-FID/10K与§4.2抽样。Fig与附录范围逐篇注明，AD e92bd56训练说明/三配置/冻结与时间attention实现选段已核。原补充未取得，不将ICLR2026检索命中训练参数误配原AD；视频未播放。后续RaMViD/SparseCtrl/VideoFusion/VideoCrafter/LongVideoGAN待去重独立读。
+
+
+## 第四十六批补充
+
+实际读G0122408.06072v3核心及AppA/B/D–G/I/J/K，原Fig3/4/5/6/8与10d完整图已视觉核，ICLR2025身份确认。R11固定GitHub7a1af71的说明/配置/关键trainer和HF三个版本API/config/卡选段；NVIDIA官方标准4090 24GB核文档42GB行。全部例视频/正式PDF/源码未通读。CogKit/MAGVIT2/视频tokenizer与Frame Pack原研究仅追引线索，待去重独立读。
