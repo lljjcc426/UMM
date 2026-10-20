@@ -5726,22 +5726,27 @@
     "title": "JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation",
     "source_urls": [
       "https://arxiv.org/abs/2411.07975",
-      "https://arxiv.org/html/2411.07975"
+      "https://arxiv.org/html/2411.07975",
+      "https://openaccess.thecvf.com/content/CVPR2025/html/Ma_JanusFlow_Harmonizing_Autoregression_and_Rectified_Flow_for_Unified_Multimodal_Understanding_CVPR_2025_paper.html",
+      "https://openaccess.thecvf.com/content/CVPR2025/papers/Ma_JanusFlow_Harmonizing_Autoregression_and_Rectified_Flow_for_Unified_Multimodal_Understanding_CVPR_2025_paper.pdf",
+      "https://openaccess.thecvf.com/content/CVPR2025/supplemental/Ma_JanusFlow_Harmonizing_Autoregression_CVPR_2025_supplemental.pdf",
+      "https://github.com/deepseek-ai/Janus/tree/1daa72fa409002d40931bd7b36a9280362469ead",
+      "https://huggingface.co/deepseek-ai/JanusFlow-1.3B/tree/ba759449ee790649850a00d39caddb0acf1c9132"
     ],
-    "method": "SigLIP理解encoder与VAE+ConvNeXt生成encoder解耦，共享LLM预测连续速度，REPA以干净语义特征对齐带噪中间表示。 增强版DeepSeek1.3B（额外文字语料、不同于Janus起点）、24层/context4096；SigLIP-L/16约300M、SDXL-VAE冻结、生成2×2patchify+两个ConvNeXt/linear，decoder含pixel-shuffle，生成模块约70M。理解与图像生成使用causal LLM；skip连接生成encoder/decoder。第6层特征经3层MLP匹配SigLIP，stop-grad教师。",
-    "conclusion": "主结果MJHQ FID9.51、GenEval.63；不是同消融协议。Table6无REPA→有REPA：FID19.84→17.61、CLIP24.94→26.40，但VQA69.62→69.20下降。单任务按数据比例缩短：理解13K/生成37K，对联合50K；生成only FID16.69优于联合17.61，理解POPE85.03优于联合84.73，联合GQA54.83略高54.23。",
-    "gap": "任务匹配曝光并非匹配总计算；解耦结构与强语义教师贡献需分离。比生成only更差的FID不支持双向正迁移。连续空间/因果mask未监督规范笔画，内部数据、1600GPU-days和VAE重建上限限制复现与迁移。",
-    "problem": "在同一LLM内结合文字AR与连续图像rectified flow，同时降低理解/生成表征冲突。",
+    "method": "理解用SigLIP、生成用SDXL-VAE+轻量ConvNeXt，LLM直接预测连续速度，以第6层带噪中间特征对齐干净图像SigLIP语义；AR CE、RF速度MSE与REPA负余弦按1:1:1组合。先适配随机组件、联合预训、SFT解冻理解encoder三阶段；未提出显式笔事件/物理动态模型。 增强版DeepSeek-LLM1.3B、24层/2048宽、16头；SigLIP-L/16约300M，VAE冻结，生成encoder/decoder共约70M，长skip。训练context4096；HF config max_position_embeddings16384仅配置上限，不能改记训练长度。生成384²→4×48² latent→24²嵌入，decoder768通道；LLM第6层经3层MLP与stop-grad教师对齐。因果attention仍能在每次RF步预测全部latent速度，非逐笔自回归。",
+    "conclusion": "正式T2/3主GenEval.63/DPG80.09/FID9.51；sup256² .70/81.23/12.70，理解多数较低，故更高分辨率并非所有指标改善。T4相对Janus POPE87→88/MMB69.4→74.9/SEED63.7→70.5/VQA77.3→79.8/GQA59.1→60.3，但MME1338→1333.1/MMMU30.5→29.3/MMVet34.3→30.9下降。VILA-U384 FID7.69优于9.51；DALLE3 GenEval.67/DPG83.5优于本方法，不称全面SOTA。",
+    "gap": "加强LLM已改善多选理解（supp明确），因此与Janus跨模型比较不能纯归因生成范式。解耦/REPA各指标有代价，任务曝光匹配与总计算匹配不同；内部图、teacher/caption成本、VAE重建与384²限制迁移。固定README生成默认CFG5与demo函数/主MJHQ2不同；公开demo与README将past_key_values=[]后遍历该空list，未从outputs提取KV，静态上未实现所写prefix cache，实际运行行为未验证。HF卡MIT标签但正文模型受DeepSeek Model License，未推成全部模型MIT。",
+    "problem": "在同一LLM内实现文字自回归理解与连续图像rectified flow生成，考察分离视觉encoder及理解特征对齐是否减轻任务冲突。输出为文字回答/静态图片，RF积分时间不等真实视频或笔画执行时间。",
     "claim": "研究目标：在同一LLM内结合文字AR与连续图像rectified flow，同时降低理解/生成表征冲突。",
-    "version": "JanusFlow，2024",
+    "version": "JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation；CVPR2025正式主会，pp7739–7751，CVF会议页/正式OA PDF与独立supp核实；初版arXiv2411.07975（2024）。正式消融为T5，旧预印本T6编号不得混用。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L086",
     "canonical_key": "paper:arxiv:2411.07975",
     "evidence_history": [
@@ -5773,17 +5778,22 @@
         "conclusion": "说明 Janus 的接口设计可以与连续生成结合；不能把整个 Janus 家族都归入离散 AR",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 70,
+        "scope": "CVPR2025正式OA全文核心Abstract/§1–5、Eq1–8/T1–5及相关正文，实际p4 Fig2和p7 T4/T5；主图1/3–5按正文/caption。正式supp A–E全部研究文字、T1–3、F1–3分析，未逐格看后续全部定性图/全部引用。固定GitHub1daa72f的README JanusFlow段与demo/app_janusflow.py generate完整；HF ba75944完整模型卡及选定配置/公开目录，未全审骨干或训练代码/权重运行。核心三遍书面验收无计时口试/独立复现。"
       }
     ],
-    "sections_read": "§1部分、§3.1–3.4、Table1和§4.1–4.4指定主指标、§4.5 Table6全部、§5、AppB/C/D；未逐行全部主理解表与图、未核代码，未复现",
+    "sections_read": "CVPR2025正式OA全文核心Abstract/§1–5、Eq1–8/T1–5及相关正文，实际p4 Fig2和p7 T4/T5；主图1/3–5按正文/caption。正式supp A–E全部研究文字、T1–3、F1–3分析，未逐格看后续全部定性图/全部引用。固定GitHub1daa72f的README JanusFlow段与demo/app_janusflow.py generate完整；HF ba75944完整模型卡及选定配置/公开目录，未全审骨干或训练代码/权重运行。核心三遍书面验收无计时口试/独立复现。",
     "review_path": "docs/reviews/L086.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "理解DetailedCaption/SAM/arXivQA/DenseFusion/MMSci/PixelProse/recaptionLAION/OpenImages/ShareGPT4V/WikiHow/WIT等；生成LAION/DALLE3-1M/SAM/OpenImages/Megalith/YFCC/JourneyDB/PixelProse及2M内部数据；纯文字DeepSeek语料。25%图文用短caption，SFT另有高质指令。",
-    "framework": "SigLIP理解encoder与VAE+ConvNeXt生成encoder解耦，共享LLM预测连续速度，REPA以干净语义特征对齐带噪中间表示。",
-    "architecture": "增强版DeepSeek1.3B（额外文字语料、不同于Janus起点）、24层/context4096；SigLIP-L/16约300M、SDXL-VAE冻结、生成2×2patchify+两个ConvNeXt/linear，decoder含pixel-shuffle，生成模块约70M。理解与图像生成使用causal LLM；skip连接生成encoder/decoder。第6层特征经3层MLP匹配SigLIP，stop-grad教师。",
-    "metrics": "MJHQ FID30k、GenEval、DPGBench及POPE/VQA/GQA/MME等；消融FID10k与CLIP-L/14，评估样本/CFG不同须分开。",
-    "baselines": "Janus、Show-o、VILA-U、专门生成/理解模型；同架构无REPA、共享encoder、分离同结构encoder、理解only/生成only。增强LLM与教师先验需计入跨模型比较。",
-    "experimental_conditions": "三阶段先训随机组件，再全训除理解encoder，SFT解冻SigLIP。AR CE+RF速度MSE+REPA负余弦；t用logit-normal、caption drop10%；lr1e-4/1e-4/2e-5 constant，AdamW β.9/.95、wd0、clip1、warm2000/2000/1000，10K/390K/26K步，b512/512/256，数据比例理解:生成:纯文50:50:0、14:80:6、21:70:9（stageII前10K为30:50:20）。EMA.99、约1600 A100 GPU-days。主384²，30step/CFG2；消融256²、CFG7.5、50K步。"
+    "dataset": "正式supp A列理解DetailedCaption/SAM/arXivQA/DenseFusion/MMSci/PixelProse/recaption LAION/OpenImages/ShareGPT4V/WikiHow/WIT，charts/tables取DeepSeek-VL训练、另interleaved文图及DeepSeek纯文；生成LAION/DALLE3-1M/SAM/OpenImages/Megalith/YFCC/JourneyDB/PixelProse+2M内部图。部分图按长宽/美学留约20%，25%用短caption；SFT高质量指令。理解长边resize加padding，生成短边resize随机crop，不能当相同像素变换。内部数据/重caption及增强LLM先验限制跨模型因果解释。",
+    "framework": "理解用SigLIP、生成用SDXL-VAE+轻量ConvNeXt，LLM直接预测连续速度，以第6层带噪中间特征对齐干净图像SigLIP语义；AR CE、RF速度MSE与REPA负余弦按1:1:1组合。先适配随机组件、联合预训、SFT解冻理解encoder三阶段；未提出显式笔事件/物理动态模型。",
+    "architecture": "增强版DeepSeek-LLM1.3B、24层/2048宽、16头；SigLIP-L/16约300M，VAE冻结，生成encoder/decoder共约70M，长skip。训练context4096；HF config max_position_embeddings16384仅配置上限，不能改记训练长度。生成384²→4×48² latent→24²嵌入，decoder768通道；LLM第6层经3层MLP与stop-grad教师对齐。因果attention仍能在每次RF步预测全部latent速度，非逐笔自回归。",
+    "metrics": "MJHQ FID30K↓、GenEval/DPGBench↑，POPE/MME-P/MMBench/SEED/VQA/GQA/MMMU/MM-Vet/ChartQA/TextVQA；T5消融是MJHQ FID10K、CLIP-L/14，不等主结果30K。FID是分布距离，GenEval是对象/属性，TextVQA为识别理解，均不验证生成笔顺/动态。",
+    "baselines": "Janus/Show-o/Transfusion/VILA-U等统一模型与SD系列/DALLE/专门理解模型；内部A无REPA/B共享VAE+ConvNeXt/C独立同结构/D理解only/E生成only/F最终解耦+REPA。D13K/E37K与F50K按任务比例匹配曝光，未匹配总FLOPs。增强LLM/SigLIP教师和不同数据必须单列，不能单归因RF。",
+    "experimental_conditions": "正式T1阶段10K/380K/26K步，batch512/512/256、lr1e-4/1e-4/2e-5，constant+warmup2000/2000/1000，AdamWβ(.9,.95)、wd0、clip1、EMA.99、packing4096；数据理解:生成:纯文为50:50:0、14:80:6、21:70:9，II前10K改30:50:20。每模型约1600A100 GPU-days。t logit-normal、caption drop10%、主MJHQ w2/Euler30步/384²；T5统一256²/50K，w7.5/30步/FID10K，D13K/E37K。无正式训练多seed CI；sup分辨率模型不能当同一次评测。"
   },
   {
     "title": "Orthus: Autoregressive Interleaved Image-Text Generation with Modality-Specific Heads",
@@ -6107,22 +6117,27 @@
     "title": "Harmonizing Visual Representations for Unified Multimodal Understanding and Generation",
     "source_urls": [
       "https://arxiv.org/abs/2503.21979",
-      "https://arxiv.org/html/2503.21979"
+      "https://arxiv.org/html/2503.21979",
+      "https://openaccess.thecvf.com/content/ICCV2025/html/Wu_Harmonizing_Visual_Representations_for_Unified_Multimodal_Understanding_and_Generation_ICCV_2025_paper.html",
+      "https://openaccess.thecvf.com/content/ICCV2025/papers/Wu_Harmonizing_Visual_Representations_for_Unified_Multimodal_Understanding_and_Generation_ICCV_2025_paper.pdf",
+      "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Wu_Harmonizing_Visual_Representations_ICCV_2025_supplemental.pdf",
+      "https://github.com/wusize/Harmon/tree/4eb608765629a1d1b1ce28a85f4c3d126d98b690",
+      "https://huggingface.co/wusize/harmon/tree/4cc976310c0866198764eeb153b25a22cb75399e"
     ],
-    "method": "MAR encoder→LLM→MAR decoder，共享连续图像表示；masked patches由条件扩散头生成，文字用CE；三阶段逐步解冻/增加数据和分辨率。 Harmon.5B=Qwen2.5-.5B-Instruct+MAR-B，1.5B=Qwen2.5-1.5B+MAR-H；已见patch+buffer经encoder送LLM融合文字，再送decoder/mask嵌入，MLP噪声头按预测patch条件扩散。理解全部patch不mask。推理prompt可cache，K64外层MAR步、内层扩散另有成本。",
-    "conclusion": "主.5B COCO/MJHQ FID8.86/6.08，1.5B8.39/5.15；.5B消融MAR vsSigLIP top5probe83.1/95.9，POPE86.1/85.1但MME1123/1203、MMMU33.3/35.2，不能说共享生成encoder理解全面更强。",
-    "gap": "共享MAR与独立SigLIP含预训先验/参数差；训练阶段消融混杂数据、分辨率、步数，协同需要更严格预算对照。正文m_k−m_(k−1)作为生成patch数量与递减mask的符号相反，未核代码不认定执行错误。自然图像结果不能推规范文字/事件。",
-    "problem": "检验具有生成预训的MAR encoder能否同时承载视觉理解，并在共享表示中产生任务互促。",
+    "method": "共享MAR encoder→LLM融合文字→MAR decoder+小MLP扩散头预测masked latent patches；理解将无mask图特征送LLM文字CE。三阶段先对齐视觉组件、解冻LLM联合训练、高质量/高分辨率SFT；Fig6考察single/unified以及SigLIP+MAR解耦对照。没有显式RGB视频时间/笔顺或动作输出。 Harmon.5B=Qwen2.5-.5B-Instruct+MAR-B，1.5B=Qwen2.5-1.5B-Instruct+MAR-H；这些名称指LLM量级非全部参数。公开1.5B配置VAE16维/stride16、scale.2325、MAR patch1/buffer64、diffloss深12/宽1536/num_sampling_steps100。64外层MAR包含LLM调用与每批patch内层小头扩散，不能当64次总NFE，也不等6400次全LLM。理解/生成共同MAR语义空间，VAE并未被去掉。",
+    "conclusion": "正式T3 .5B COCO/MJHQ FID8.86/6.08，1.5B8.39/5.15；GenEval.71/.76，JanusPro1.5B.73，但其colors.89/colorattribute.56高于Harmon1.5B.85/.48。1.5B理解POPE87.6/MME-P1155/MMB65.5/SEED67.1/GQA58.9/MMMU38.9，对JanusPro86.2/1444/75.5/68.3/59.3/36.3各有取舍。sup WISE.41优于所列统一模型Show-o.35，但SDXL.43/FLUXdev.50更高，物理.44<Show-o.46。仓库后续仅decoder+BLIP3o60K宣称GenEval.85，配套-o检查点独立记，不替换正式.76且未独立复测。",
+    "gap": "共享收益仍受预训、损失、数据与预算混杂，Fig6没有足够协议/seed支持统计因果结论；正文理解=粗粒度叙述不覆盖OCR/细图理解。正式§3.2写每步新增mk−mk−1但mask递减，实际PDF已核；固定Harmon.sample用oldmask xor newmask取新位置、末步全剩余，未见直接执行该负数计数，不能由文字错号断言代码失败。仅1.5B LLM、MAR预训1.2M均为作者supp限制；自然静图、选例STOP不证明全面文字/视频/笔顺能力。README后续.85和公开训练example freeze_llm=False不同用途，未唯一恢复.85超参/seed/生成协议。",
+    "problem": "生成预训练MAR encoder能否保留理解需要的语义，并使同一共享视觉表示在文字理解与静态图像生成训练中获得可测迁移？需要检验相对语义encoder的能力、共享/双encoder对照及额外监督方向。",
     "claim": "研究目标：检验具有生成预训的MAR encoder能否同时承载视觉理解，并在共享表示中产生任务互促。",
-    "version": "Harmon，2025",
+    "version": "Harmonizing Visual Representations for Unified Multimodal Understanding and Generation（Harmon）；ICCV2025正式主会pp17739–17750，CVF会议页/正式OA PDF与独立supp核实，arXiv2503.21979。正式encoder/阶段/分辨率表为T5/6/7，旧预印本编号不混用。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L092",
     "canonical_key": "paper:arxiv:2503.21979",
     "evidence_history": [
@@ -6154,17 +6169,22 @@
         "conclusion": "是“从生成表示走向理解”的路线；并非所有生成目标都会产生同样的语义特征",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 70,
+        "scope": "ICCV2025正式OA全文核心Abstract/§1–5、Eq1–5/T1–7、实际p4 Fig4和p8 T5–7/Fig6，另实际p7 GenEval/STOP图；其余主视觉例按caption。正式supp S1–S4研究文字全部、T S1/S2，其他S1–S5图按caption未逐格全看。固定GitHub4eb6087 README/FINETUNE全文、1.5B model config/训练example全文、Harmon.sample完整及MAR采样/构造指定段；HF4cc9763目录未下载权重，JanusFlow为比较前作已核。未全审训练执行/所有代码，核心书面验收无计时口试或独立复现。"
       }
     ],
-    "sections_read": "§3.1–3.4、Table1/3、§4设置及§4.2 Tables6–8、Fig6正文解释、§5；未视觉核Fig6/完整图、未逐行全部主表/附录、未复现",
+    "sections_read": "ICCV2025正式OA全文核心Abstract/§1–5、Eq1–5/T1–7、实际p4 Fig4和p8 T5–7/Fig6，另实际p7 GenEval/STOP图；其余主视觉例按caption。正式supp S1–S4研究文字全部、T S1/S2，其他S1–S5图按caption未逐格全看。固定GitHub4eb6087 README/FINETUNE全文、1.5B model config/训练example全文、Harmon.sample完整及MAR采样/构造指定段；HF4cc9763目录未下载权重，JanusFlow为比较前作已核。未全审训练执行/所有代码，核心书面验收无计时口试或独立复现。",
     "review_path": "docs/reviews/L092.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "I公开22M densecaption+ImageNet1.2M类名生成；II InfinityMM20M+5Mcaption理解、50M图文生成（LLM改写densecaption）；III LLaVAOneVision较均衡理解、50M筛20%加6M合成。多教师重caption/指令数据需列入成本与信息条件。",
-    "framework": "MAR encoder→LLM→MAR decoder，共享连续图像表示；masked patches由条件扩散头生成，文字用CE；三阶段逐步解冻/增加数据和分辨率。",
-    "architecture": "Harmon.5B=Qwen2.5-.5B-Instruct+MAR-B，1.5B=Qwen2.5-1.5B+MAR-H；已见patch+buffer经encoder送LLM融合文字，再送decoder/mask嵌入，MLP噪声头按预测patch条件扩散。理解全部patch不mask。推理prompt可cache，K64外层MAR步、内层扩散另有成本。",
-    "metrics": "ImageNet top5 linear probe、POPE/MME/MMBench/SEED/GQA/MMMU；COCO30K/MJHQ30K FID、GenEval/WISE；分encoder/训练阶段/分辨率和单任务协同。",
-    "baselines": "SigLIP/VQGAN/VAE/MAR encoder；Janus式双encoder、single-task与联合；自然图像生成/统一模型排行榜。MAR/SigLIP预训目标/数据不同，top5 probe只作语义证据。",
-    "experimental_conditions": "三阶段各50K步，b4096/4096/1024，分辨率256/256/512，纯文:I2T:T2I 0:1:2、1:3:8、1:3:16；decoder lr1e-4/1e-4/2e-5，encoder1e-5/1e-5/2e-6，LLM阶段I冻结、II1e-5、III2e-6。32A10080GB约4/8天（.5/1.5B）。推理文字greedy、MAR K64/CFG3；完整内层扩散步数本次未核。"
+    "dataset": "I为22M densecaption理解+ImageNet1.2M类名生成；II为InfinityMM20M+从I采5M理解、50M生成；III LLaVAOneVision理解、II美学>6.5/长宽筛10M+JourneyDB/Text-to-Image-2M约6M合成生成。supp S2明确PixelProse等由Gemini/LLaVA/其他教师caption，Qwen2.5-7B重写dense，LAION6M用Qwen2VL72B标注；数据/teacher成本不可省略。MAR先验ImageNet1.2M对比SigLIP十亿级，容量和训练先验不同。",
+    "framework": "共享MAR encoder→LLM融合文字→MAR decoder+小MLP扩散头预测masked latent patches；理解将无mask图特征送LLM文字CE。三阶段先对齐视觉组件、解冻LLM联合训练、高质量/高分辨率SFT；Fig6考察single/unified以及SigLIP+MAR解耦对照。没有显式RGB视频时间/笔顺或动作输出。",
+    "architecture": "Harmon.5B=Qwen2.5-.5B-Instruct+MAR-B，1.5B=Qwen2.5-1.5B-Instruct+MAR-H；这些名称指LLM量级非全部参数。公开1.5B配置VAE16维/stride16、scale.2325、MAR patch1/buffer64、diffloss深12/宽1536/num_sampling_steps100。64外层MAR包含LLM调用与每批patch内层小头扩散，不能当64次总NFE，也不等6400次全LLM。理解/生成共同MAR语义空间，VAE并未被去掉。",
+    "metrics": "ImageNet top5线性probe、POPE/MME-P/C/MMB/SEED/GQA/MMMU↑；COCO30K/MJHQ30K FID↓、GenEval与WISE↑，各测分布质量/对象属性/世界知识隐式提示，并非字符笔顺。Fig6柱形无精确数值标签/训练seed CI，不将读图近似伪装精确数。sup S3文字称WISE见T S3，实际对应T S1，保留正式表号。",
+    "baselines": "VAE/VQGAN/MAR与SigLIP-Base/16，单任务/共享联合、Janus式SigLIP+MAR分离联合；自然图像专用和Janus/JanusPro/Show-o等统一模型。正式T5理解encoder对照只能说明该预训和配置下能力，不能排除先验数据差；阶段去除同时减少数据/训练量，非严格单机制因果消融。",
+    "experimental_conditions": "三阶段各50K步，batch4096/4096/1024，分辨率256/256/512，纯文:I2T:T2I为0:1:2、1:3:8、1:3:16；decoder lr1e-4/1e-4/2e-5，encoder1e-5/1e-5/2e-6，LLM I冻结、II1e-5/III2e-6。32A10080GB约4/8天(.5/1.5B)。文字greedy；图像64外层、CFG3，sup A100约10/30秒；16外层约3/8秒。正式未完整列优化器/全部随机种子，公开50K AdamW训练example是微调示例，不能回填原三阶段或后续.85配方。"
   },
   {
     "title": "X-Omni: Reinforcement Learning Makes Discrete Autoregressive Image Generative Models Great Again",

@@ -310,3 +310,8 @@ G030官方仓库paper dd65516保留RNN原实验，main475e0bc为temporal-attenti
 ## 第六十九批补充（2026-10-21）
 
 G038 GitHub530f8bf/HF0959def配套DFoT/BD/SD/FS/FT与VAE、I3D/RAFT、RE10K档案均有公开目录；Space9077cb7观察RUNTIME_ERROR仅在线部署状态。默认验证数非正式FVD样本数、warmup由dataset override、MC uniform_future与HG-f的ω−1实现已核，未下权重/大数据或执行。见[审查](../evidence/history_guided_video_diffusion_audit_2026-10-21.md)。
+
+
+## 第七十批补充（2026-10-21）
+
+L092配套GitHub4eb6087提供FINETUNE与decoder-only BLIP3o60K后续-o模型，作者报GenEval.85（正式.76），公开example freeze_llm=False不能当该配方；原HF4cc9763目录与JanusFlow HFba75944/代码1daa72f已核，未下权重。MIT/DeepSeek模型许可正文分列，代码prefix cache空list静态问题不当执行结论。见[审查](../evidence/janusflow_harmon_shared_representation_audit_2026-10-21.md)。

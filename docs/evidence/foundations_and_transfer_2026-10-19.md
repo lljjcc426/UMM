@@ -113,3 +113,8 @@ G030正式理论p20存在log比值/KL负号错误，p16/17相关正KL/正MSE式�
 ## 第六十九批补充（2026-10-21）
 
 G038独立噪声无状态非因果DFoT与HG-v/f/t将可变历史、可靠性及动态折中落到具体算法，补完G030后续。正式证明KL方向/符号与路径一致性问题保留；动作/相机历史任务不等文字笔顺或UMM协同。见[审查](history_guided_video_diffusion_audit_2026-10-21.md)。
+
+
+## 第七十批补充（2026-10-21）
+
+L086解耦+REPA与L092共享MAR的正式证据各有取舍；JanusFlow生成only可优于联合，Harmon实际Fig6提示理解监督对生成的特定方向收益，缺完整预算/seed条件。不能把共享或解耦本身当普适答案。见[审查](janusflow_harmon_shared_representation_audit_2026-10-21.md)。

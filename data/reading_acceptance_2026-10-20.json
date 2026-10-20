@@ -5283,6 +5283,74 @@
         }
       ],
       "boundary": "ICML2025正式39页：Abstract/§1–7/Impact、AppA1–A8/B1/C1–C9/D1–D6文字与Alg1/T1/T2完整核心；实际p3Fig2、p4Fig3、p5T1/Fig4、p6F5/6、p13/15理论页已看，其他补充图按caption/正文，未逐格全部视频。固定530f8bf README全文、history_guidance.py的HistorySegment/Manager.__enter__/NFE/fractional段及dfot_video/K600/MC配置；未全审骨干/VAE/机器人实现/所有wiki覆盖。HF固定模型卡/文件目录与Space元数据已查，无权重/数据下载或模型运行，核心书面验收无计时口试。"
+    },
+    {
+      "id": "L086",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释具体问题与先前表示/生成方式的不足",
+          "answer": "在同一LLM内实现文字自回归理解与连续图像rectified flow生成，考察分离视觉encoder及理解特征对齐是否减轻任务冲突。输出为文字回答/静态图片，RF积分时间不等真实视频或笔画执行时间。 VQ离散图像受tokenizer重建限制；同一视觉encoder可能不能同时满足干净语义理解与带噪连续预测。外部生成器则增加独立系统，不能直接验证LLM共享生成能力。对既有Janus解耦架构和RF/REPA分别有先例，具体贡献是其在同LLM中的简洁组合与对照。",
+          "evidence": "正式核心/实际框架与主表/现有消融及指定代码配置；未读/未执行范围单列"
+        },
+        {
+          "criterion": "对照正式框架图解释输入/模块/输出",
+          "answer": "图文理解：384²图像SigLIP特征+文字→共享因果LLM→文字token；图像生成：文字+噪声latent+时间token→2×2 patchify/ConvNeXt→LLM→ConvNeXt/pixel-shuffle速度头→Euler更新→VAE静态图。实际Fig2框架已看；图省略VAE、skip与projection，不能据图说不存在。 增强版DeepSeek-LLM1.3B、24层/2048宽、16头；SigLIP-L/16约300M，VAE冻结，生成encoder/decoder共约70M，长skip。训练context4096；HF config max_position_embeddings16384仅配置上限，不能改记训练长度。生成384²→4×48² latent→24²嵌入，decoder768通道；LLM第6层经3层MLP与stop-grad教师对齐。因果attention仍能在每次RF步预测全部latent速度，非逐笔自回归。",
+          "evidence": "正式核心/实际框架与主表/现有消融及指定代码配置；未读/未执行范围单列"
+        },
+        {
+          "criterion": "解释解耦/对齐或共享机制、损失与优势条件",
+          "answer": "理解用SigLIP、生成用SDXL-VAE+轻量ConvNeXt，LLM直接预测连续速度，以第6层带噪中间特征对齐干净图像SigLIP语义；AR CE、RF速度MSE与REPA负余弦按1:1:1组合。先适配随机组件、联合预训、SFT解冻理解encoder三阶段；未提出显式笔事件/物理动态模型。 当连续latent重建优于VQ瓶颈、语义教师覆盖自然图像且共享LLM容量足够时，分离编码与REPA可能改善生成/部分理解的Pareto取舍；细字与轨迹事件能否受益取决于VAE和教师是否保留所需信息。单任务对照的反例要求先证特定方向迁移，不能把统一接口当正迁移。",
+          "evidence": "正式核心/实际框架与主表/现有消融及指定代码配置；未读/未执行范围单列"
+        },
+        {
+          "criterion": "解释正式主表和同构/单任务/尺度等现有消融及反例",
+          "answer": "正式T2/3主GenEval.63/DPG80.09/FID9.51；sup256² .70/81.23/12.70，理解多数较低，故更高分辨率并非所有指标改善。T4相对Janus POPE87→88/MMB69.4→74.9/SEED63.7→70.5/VQA77.3→79.8/GQA59.1→60.3，但MME1338→1333.1/MMMU30.5→29.3/MMVet34.3→30.9下降。VILA-U384 FID7.69优于9.51；DALLE3 GenEval.67/DPG83.5优于本方法，不称全面SOTA。 正式T5 A→F REPA使FID19.84→17.61/CLIP24.94→26.40、POPE82.40→84.73/GQA54.43→54.83，但VQA69.62→69.20下降。B共享→C独立同构：FID18.05→17.53、VQA53.94→55.41/GQA44.04→44.44，但POPE78.13→75.30/CLIP26.38→26.32下降。换SigLIP的F有更强语义先验。生成only E FID16.69/CLIP26.89优于联合F17.61/26.40；理解only D POPE85.03高于84.73，VQA/GQA略低。证明同系统可兼容任务，未证普遍双向正迁移。supp CFG增大会使CLIP升、FID有最优点；30步为选定质量/成本折中。",
+          "evidence": "正式核心/实际框架与主表/现有消融及指定代码配置；未读/未执行范围单列"
+        },
+        {
+          "criterion": "提出原文/公开实现支持的局限与可证伪对照",
+          "answer": "加强LLM已改善多选理解（supp明确），因此与Janus跨模型比较不能纯归因生成范式。解耦/REPA各指标有代价，任务曝光匹配与总计算匹配不同；内部图、teacher/caption成本、VAE重建与384²限制迁移。固定README生成默认CFG5与demo函数/主MJHQ2不同；公开demo与README将past_key_values=[]后遍历该空list，未从outputs提取KV，静态上未实现所写prefix cache，实际运行行为未验证。HF卡MIT标签但正文模型受DeepSeek Model License，未推成全部模型MIT。 固定LLM起点/teacher/数据/参数/每任务曝光，另做总FLOPs匹配；共享/独立同构/独立语义encoder×REPA因子实验，多训练seed及Pareto前沿。主/消融固定分辨率/样本/CFG，报告ODE NFE/速度和最优点选择预算；字符/笔画身份/方向/事件指标与VAE上限单列，RF时间不当真实书写顺序。公开cache先小规模实测再声明性能，未执行。",
+          "evidence": "正式核心/实际框架与主表/现有消融及指定代码配置；未读/未执行范围单列"
+        }
+      ],
+      "boundary": "CVPR2025正式OA全文核心Abstract/§1–5、Eq1–8/T1–5及相关正文，实际p4 Fig2和p7 T4/T5；主图1/3–5按正文/caption。正式supp A–E全部研究文字、T1–3、F1–3分析，未逐格看后续全部定性图/全部引用。固定GitHub1daa72f的README JanusFlow段与demo/app_janusflow.py generate完整；HF ba75944完整模型卡及选定配置/公开目录，未全审骨干或训练代码/权重运行。核心三遍书面验收无计时口试/独立复现。"
+    },
+    {
+      "id": "L092",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释具体问题与先前表示/生成方式的不足",
+          "answer": "生成预训练MAR encoder能否保留理解需要的语义，并使同一共享视觉表示在文字理解与静态图像生成训练中获得可测迁移？需要检验相对语义encoder的能力、共享/双encoder对照及额外监督方向。 像素重建VAE/VQGAN的语义表征弱，分离SigLIP虽强化理解却减少共享；MAR通过mask重建可兼具语义与可生成信息。论文先以ImageNet线性probe/特征响应提出假设，但不同预训练数据、模型/分辨率和任务决定其适用性，不能仅据图证明普适共享优势。",
+          "evidence": "正式核心/实际框架与主表/现有消融及指定代码配置；未读/未执行范围单列"
+        },
+        {
+          "criterion": "对照正式框架图解释输入/模块/输出",
+          "answer": "图像先经冻结VAE压缩再输入MAR，Fig4省略VAE与projection，不能写直接原始像素共享encoder。生成从全mask+buffer开始，已见latent patches经MAR encoder/LLM/decoder得到条件，扩散头采新patch并按cosine减少mask；理解输入全部latent patches+buffer→LLM文字。实际Fig4/6已看，空间patch顺序不等真实笔事件。 Harmon.5B=Qwen2.5-.5B-Instruct+MAR-B，1.5B=Qwen2.5-1.5B-Instruct+MAR-H；这些名称指LLM量级非全部参数。公开1.5B配置VAE16维/stride16、scale.2325、MAR patch1/buffer64、diffloss深12/宽1536/num_sampling_steps100。64外层MAR包含LLM调用与每批patch内层小头扩散，不能当64次总NFE，也不等6400次全LLM。理解/生成共同MAR语义空间，VAE并未被去掉。",
+          "evidence": "正式核心/实际框架与主表/现有消融及指定代码配置；未读/未执行范围单列"
+        },
+        {
+          "criterion": "解释解耦/对齐或共享机制、损失与优势条件",
+          "answer": "共享MAR encoder→LLM融合文字→MAR decoder+小MLP扩散头预测masked latent patches；理解将无mask图特征送LLM文字CE。三阶段先对齐视觉组件、解冻LLM联合训练、高质量/高分辨率SFT；Fig6考察single/unified以及SigLIP+MAR解耦对照。没有显式RGB视频时间/笔顺或动作输出。 MAR的生成预训若保留足够细节且语义与下游任务相符，共享encoder可能让理解监督改善生成的语义一致性；高知识/细粒度任务受预训与VAE上限影响。当前直接证据主要为理解监督对生成的特定方向，不能由此推理解也持续受益或汉字过程正确。",
+          "evidence": "正式核心/实际框架与主表/现有消融及指定代码配置；未读/未执行范围单列"
+        },
+        {
+          "criterion": "解释正式主表和同构/单任务/尺度等现有消融及反例",
+          "answer": "正式T3 .5B COCO/MJHQ FID8.86/6.08，1.5B8.39/5.15；GenEval.71/.76，JanusPro1.5B.73，但其colors.89/colorattribute.56高于Harmon1.5B.85/.48。1.5B理解POPE87.6/MME-P1155/MMB65.5/SEED67.1/GQA58.9/MMMU38.9，对JanusPro86.2/1444/75.5/68.3/59.3/36.3各有取舍。sup WISE.41优于所列统一模型Show-o.35，但SDXL.43/FLUXdev.50更高，物理.44<Show-o.46。仓库后续仅decoder+BLIP3o60K宣称GenEval.85，配套-o检查点独立记，不替换正式.76且未独立复测。 正式T5 MAR/SigLIP probe83.1/95.9，POPE86.1/85.1及MME-C262/258较高，但MME-P1123/1203、MMB60.1/61.1、SEED62.2/63.2、GQA55.7/56.1、MMMU33.3/35.2较低。T6去III COCO/MJHQ/GenEval15.64/16.85/.56 vs完整8.86/6.08/.71，混杂数据/步数。T7分辨率256→512 FID11.50→8.86/9.91→6.08、GenEval.68→.71。实际Fig6共享联合改善生成、理解柱相近；双encoder生成无同样收益，缺精确表/CI和曝光/总计算细节，不证明普遍或双向迁移。sup T S2 64/32步.76/.71不变，16步.74/.69，8步.66/.60，4步.47/.44。",
+          "evidence": "正式核心/实际框架与主表/现有消融及指定代码配置；未读/未执行范围单列"
+        },
+        {
+          "criterion": "提出原文/公开实现支持的局限与可证伪对照",
+          "answer": "共享收益仍受预训、损失、数据与预算混杂，Fig6没有足够协议/seed支持统计因果结论；正文理解=粗粒度叙述不覆盖OCR/细图理解。正式§3.2写每步新增mk−mk−1但mask递减，实际PDF已核；固定Harmon.sample用oldmask xor newmask取新位置、末步全剩余，未见直接执行该负数计数，不能由文字错号断言代码失败。仅1.5B LLM、MAR预训1.2M均为作者supp限制；自然静图、选例STOP不证明全面文字/视频/笔顺能力。README后续.85和公开训练example freeze_llm=False不同用途，未唯一恢复.85超参/seed/生成协议。 固定预训数据/encoder容量/LLM与图文样本曝光，分别做总FLOPs和每任务样本匹配的共享/解耦×任务组合实验，多seed与梯度冲突/迁移方向量表；用同任务额外数据/compute对照排除仅增训练。阶段消融补等步、仅改分辨率与质量。先测VAE和mask重建上限，再测字符细笔身份/静态OCR/时序事件，空间unmask步与真实执行分开；同时报外层LLM/内层头NFE、wallclock和质量。未运行。",
+          "evidence": "正式核心/实际框架与主表/现有消融及指定代码配置；未读/未执行范围单列"
+        }
+      ],
+      "boundary": "ICCV2025正式OA全文核心Abstract/§1–5、Eq1–5/T1–7、实际p4 Fig4和p8 T5–7/Fig6，另实际p7 GenEval/STOP图；其余主视觉例按caption。正式supp S1–S4研究文字全部、T S1/S2，其他S1–S5图按caption未逐格全看。固定GitHub4eb6087 README/FINETUNE全文、1.5B model config/训练example全文、Harmon.sample完整及MAR采样/构造指定段；HF4cc9763目录未下载权重，JanusFlow为比较前作已核。未全审训练执行/所有代码，核心书面验收无计时口试或独立复现。"
     }
   ]
 }

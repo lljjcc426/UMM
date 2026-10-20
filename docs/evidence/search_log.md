@@ -366,3 +366,8 @@ G030正式NeurIPS2024 PDF核心§1–5、A–F正文与指定实际图表；AppA
 ## 第六十九批补充（2026-10-21）
 
 G038正式ICML2025 PMLR267/song25b全文核心、AppA–D理论/协议文字与现有消融；实际p3–6/p13/15图表公式。固定GitHub530f8bf、HF模型0959def/Space9077cb7，模型卡/目录/指定分数组合代码与配置。与G030独立论文、制品不另计；补完第六十八批待精读项。
+
+
+## 第七十批补充（2026-10-21）
+
+L086 CVPR2025正式全文核心/独立supp A–E、真实Fig2/T4/5；L092 ICCV2025正式核心/supp S1–4/T S1/S2、真实Fig4/6/T5–7。固定Janus1daa72f/HFba75944、Harmon4eb6087/HF4cc9763，公开README/FINETUNE/配置与指定采样代码。仅decoder BLIP3o60K后续.85制品独立记录，不回填正式.76。

@@ -191,13 +191,13 @@
 | L083 | Generative Multimodal Models are In-Context Learners | primary_sections_read | [结构化分析](../reviews/L083.md) | 未完成 |
 | L084 | MM-Interleaved: Interleaved Image-Text Generative Modeling via Multi-modal Feature Synchronizer | primary_sections_read | [结构化分析](../reviews/L084.md) | 核心三遍与五项检查完成 |
 | L085 | VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L085.md) | 未完成 |
-| L086 | JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L086.md) | 未完成 |
+| L086 | JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L086.md) | 核心三遍与五项检查完成 |
 | L087 | Orthus: Autoregressive Interleaved Image-Text Generation with Modality-Specific Heads | primary_sections_read | [结构化分析](../reviews/L087.md) | 核心三遍与五项检查完成 |
 | L088 | Liquid: Language Models are Scalable and Unified Multi-modal Generators | primary_sections_read | [结构化分析](../reviews/L088.md) | 未完成 |
 | L089 | ILLUME: Illuminating Your LLMs to See, Draw, and Self-Enhance | primary_sections_read | [结构化分析](../reviews/L089.md) | 未完成 |
 | L090 | MetaMorph: Multimodal Understanding and Generation via Instruction Tuning | primary_sections_read | [结构化分析](../reviews/L090.md) | 未完成 |
 | L091 | UGen: Unified Autoregressive Multimodal Model with Progressive Vocabulary Learning | primary_sections_read | [结构化分析](../reviews/L091.md) | 未完成 |
-| L092 | Harmonizing Visual Representations for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L092.md) | 未完成 |
+| L092 | Harmonizing Visual Representations for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L092.md) | 核心三遍与五项检查完成 |
 | L093 | X-Omni: Reinforcement Learning Makes Discrete Autoregressive Image Generative Models Great Again | primary_sections_read | [结构化分析](../reviews/L093.md) | 未完成 |
 | L094 | TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L094.md) | 未完成 |
 | L095 | QLIP: Text-Aligned Visual Tokenization Unifies Auto-Regressive Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L095.md) | 未完成 |
