@@ -370,3 +370,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第八十一批（2026-10-21）：综合分与相对百分比、局部滑窗/整图聚类利用率、尺度相关CFG和图文矛盾。见[审查](tokenflow_shared_indices_and_claim_audit_2026-10-21.md)和[单篇L094](../reviews/L094.md)。
+
+
+第八十二批（2026-10-21）：负方向质量指标相关性符号、规模混杂、条件丢弃概率和推理CFG区别。见[审查](metamorph_synergy_and_data_budget_audit_2026-10-21.md)和[单篇L090](../reviews/L090.md)。

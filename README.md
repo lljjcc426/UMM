@@ -239,3 +239,6 @@ python scripts/validate_catalog.py
 
 
 第八十一批（2026-10-21）补完TokenFlow L094正式CVPR核心/官方supp和实际框架主表消融，核固定代码/HF。350目录、169核心/172项五条书面（含未通过项），181条尚未确认核心三遍（含资源）。见[审查](docs/evidence/tokenflow_shared_indices_and_claim_audit_2026-10-21.md)、[逐文件说明](docs/evidence/eighty_first_changes_2026-10-21.md)。无删除或模型复现。
+
+
+第八十二批（2026-10-21）补完MetaMorph L090正式核心/supp及固定代码；核对重复200K行、逐任务负迁移、相关性混杂与条件丢弃参数。350目录、170核心/173项五条书面（含未通过项），180条尚未确认核心三遍（含资源）。见[审查](docs/evidence/metamorph_synergy_and_data_budget_audit_2026-10-21.md)、[逐文件说明](docs/evidence/eighty_second_changes_2026-10-21.md)。无删除或模型复现。

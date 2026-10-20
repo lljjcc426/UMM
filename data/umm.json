@@ -5367,22 +5367,25 @@
     "source_urls": [
       "https://arxiv.org/abs/2412.14164",
       "https://arxiv.org/html/2412.14164",
-      "https://openaccess.thecvf.com/content/ICCV2025/html/Tong_MetaMorph_Multimodal_Understanding_and_Generation_via_Instruction_Tuning_ICCV_2025_paper.html"
+      "https://openaccess.thecvf.com/content/ICCV2025/html/Tong_MetaMorph_Multimodal_Understanding_and_Generation_via_Instruction_Tuning_ICCV_2025_paper.html",
+      "https://openaccess.thecvf.com/content/ICCV2025/papers/Tong_MetaMorph_Multimodal_Understanding_and_Generation_via_Instruction_Tuning_ICCV_2025_paper.pdf",
+      "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Tong_MetaMorph_Multimodal_Understanding_ICCV_2025_supplemental.pdf",
+      "https://github.com/facebookresearch/metamorph/tree/0b13debff55363c81dce90ad21269d05e7f7ac80"
     ],
-    "method": "VPiT：文字CE与连续视觉余弦预测共享AR，只监督response；独立扩散visualizer把视觉token还原为图像，系统比较数据类型/规模。 Llama3/3.1-8B及Llama3-70B研究，正式主模型Llama3.1-8B；SigLIP-SO400M14-384冻结，插值64视觉tokens、2层GELU input adapter、独立linear视觉head；<image_start/end>标记。SD1.5另训condition投影+UNet，非冻结原始文字到图像模型直接调用。",
-    "conclusion": "主表MMBench75.2/SEED71.8/TextVQA60.5/MVBench48.8/COCO FID11.8。AppD 5K T2I：联合FID19.2 vs生成only116.4；200K有两行重复标签（15.2/110.7与14.7/93.7），保留原表疑点，未擅改成500K。固定200K时+ImageQA18.9 vsnone110.5；+VideoQA26.5。仅固定T2I子集不等于固定总训练量。",
-    "gap": "附加数据同时增总步骤（1epoch）/视觉目标/知识，多教师与预训无法从“5K”扣除；强Pearson相关可由共同数据量/训练进度驱动。AppD重复200K行需核正式supp/code；推理/世界知识例子可能受教师先验影响。没有用图像FID证明事件/笔画。",
-    "problem": "检验视觉预测式指令微调能否以较少额外生成数据激活LLM的图文生成，并研究理解/生成数据互促。",
+    "method": "VPiT共享AR骨干用文字CE和视觉cosine预测，response-only监督；独立调扩散visualizer把连续语义特征映到RGB。以数据类型/剂量与LLM网格研究关系，比仅主表排名更接近机制检验，但固定一种数据量时总曝光/总训练步仍改变。 冻结SigLIP-SO400M-patch14-384、2层GELU输入adapter、LLaMA3/3.1-8B或LLaMA3-70B；正式主模型3.1-8B，独立vision投影head。SD1.5冻结VAE和视觉encoder，训练projector/UNet；projector1152→2048(LN/ReLU)→crossattentiondim(LN)。公开代码可配置mlp等vision head、指南默认mlp，论文仅概述投影，不假设发布权重固定了哪支。cosine预测方向不确定范数，不能和L1输出直接做同visualizer生成比较。",
+    "conclusion": "T1 MetaMorph MMB75.2/SEED71.8/RealWorld58.3/MMVP48.3/SQA83.2/MMMU41.8/VStar44/Chart37.1/TQA60.5/MVBench48.8/FID11.8。相对Emu3 SQA83.2<89.2、VStar44<51.8、Chart37.1<68.6、TQA60.5<64.7；FID弱于Janus8.5/Transfusion6.7/SD1.5 9.6，未逐任务最优。suppT4联合5KT2I FID19.2 vs生成only116.4；两对200K重复标签15.2/110.7和14.7/93.7实际视觉确认，不能擅改第二对成500K。T5固定200K+ImageQA18.9/CLIP22 vsnone110.5/5.7；+VideoQA26.5/16.1，但各类型样本数不同。",
+    "gap": "无系统知识/隐式推理成功率或机制干预，不能凭几张例图证明LLM内部执行了作者给出的推理链。固定T2I不固定总token/步数，纯视频/思考/编辑也有视觉预测监督；低T2I量≠低总生成监督/低总成本。C3承认多源图像可能重叠，图像QA对不同不保证无测试信息污染；未给完整去重审计。64token压缩细字信息、逐帧RGB/动作时序和语言保持未完整评估。固定官方README仍称权重待法务/发布，MetaCLIP数据不公开；完整原模型独立复现受限，未执行模型。",
+    "problem": "视觉预测式指令微调VPiT能否让预训练LLM联合预测文字/连续视觉tokens，并研究理解和生成数据的交互、样本效率与任务依赖。主量化为图像生成/图像和视频理解，未建立规范书写视频任务。",
     "claim": "研究目标：检验视觉预测式指令微调能否以较少额外生成数据激活LLM的图文生成，并研究理解/生成数据互促。",
-    "version": "ICCV2025；arXiv首次2024",
+    "version": "MetaMorph: Multimodal Understanding and Generation via Instruction Tuning；正式ICCV2025 pp17001–17012，12页主文+8页官方supplement；本批按正式表/图。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L090",
     "canonical_key": "paper:arxiv:2412.14164",
     "evidence_history": [
@@ -5414,17 +5417,22 @@
         "conclusion": "报告理解数据可有效帮助生成；需要区分数据内容带来的知识和任务形式带来的收益",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 82,
+        "scope": "正式ICCV12页主文Abstract/§1–6全部研究核心、T1/F1–10图注；官方8页supp AppA1–3/B/C1–3/D1–3研究文字与T2–7完整，AppE指定说明/部分例图未逐幅图库，参考文献未逐篇。实际p2F1、p6F8相关图、p7完整T1、suppp5T4重复标签/p6T5–7网格已核看。固定GH0b13debf完整树、README全文、scripts/Train.md、visualization/Train_Visualization.md与submit.sh、visualization/train.py encoder/projector/conditioning510–541/CLI配置段、metamorph_llama.py head/预测loss/greedydecode、inference/load_visualization.py和LICENSE起始标记；未全读数据loader/所有训练循环、下载权重或独立训练/推理。"
       }
     ],
-    "sections_read": "§2.1–2.3、§3.1–3.4、主Table1本作行与讨论、AppA.1/A.2、AppB Table3、AppC.1组成、AppD Tables4/5；正式PDF第2页Fig1已视觉核对。未逐图、未逐行AppD Table6/7及全部主表、未复现",
+    "sections_read": "正式ICCV12页主文Abstract/§1–6全部研究核心、T1/F1–10图注；官方8页supp AppA1–3/B/C1–3/D1–3研究文字与T2–7完整，AppE指定说明/部分例图未逐幅图库，参考文献未逐篇。实际p2F1、p6F8相关图、p7完整T1、suppp5T4重复标签/p6T5–7网格已核看。固定GH0b13debf完整树、README全文、scripts/Train.md、visualization/Train_Visualization.md与submit.sh、visualization/train.py encoder/projector/conditioning510–541/CLI配置段、metamorph_llama.py head/预测loss/greedydecode、inference/load_visualization.py和LICENSE起始标记；未全读数据loader/所有训练循环、下载权重或独立训练/推理。",
     "review_path": "docs/reviews/L090.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "主数据ImageQA Cambrian7.067M；MetaCLIP T2I5M；VideoStar1.055M/ShareVideo.540M；HowTo1.193M/SmthSmth.220M；VisualCoT.361M/VStar.148M；IP2P.313M/Aurora.169M。VideoQA1fps，纯视频包括未来/过去/重排，其他任务本身也含视觉预测监督，5K“生成样本”仅指T2I子集。",
-    "framework": "VPiT：文字CE与连续视觉余弦预测共享AR，只监督response；独立扩散visualizer把视觉token还原为图像，系统比较数据类型/规模。",
-    "architecture": "Llama3/3.1-8B及Llama3-70B研究，正式主模型Llama3.1-8B；SigLIP-SO400M14-384冻结，插值64视觉tokens、2层GELU input adapter、独立linear视觉head；<image_start/end>标记。SD1.5另训condition投影+UNet，非冻结原始文字到图像模型直接调用。",
-    "metrics": "9个ImageQA基准均值、MVBench、COCO30K FID与CLIP；跨数据量Pearson相关及loss选择。知识/推理可视例子不等同量化推理bench。",
-    "baselines": "生成only、联合其他任务、逐数据类型、VQA-only、L1/cosine、不同LLM；Emu3/Chameleon/Show-o/Janus等主表因训练/教师不同作者亦承认难完全公平。",
-    "experimental_conditions": "两阶段adapter预训去除Cambrian中的LAION，后训除SigLIP全训，H100/ZeRO3，每实验1epoch。8B adapter lr4.90e-5/b768，SFT6.93e-5/b1536、wd0；70B SFT4.90e-5/b768。visualizer另b2112、AdamW β.9/.999 wd.01，2000logwarm到1.1e-5再12000线性decay。AppA称CFG level0.7，其实现含义本次未核，不等同常见推理guidance倍率。"
+    "dataset": "主数据F11 ImageQA Cambrian7067K、T2I MetaCLIP5000K、VideoStar1055K/ShareVideo540K、HowTo1193K/SmthSmth220K、VisualCoT361K/VStar148K、IP2P313K/Aurora169K；约16.066M来源条目，非已证明唯一去重数。adapter另用Cambrian且剔LAION，visualizer另MetaCLIP图像训练；5K/200K只计某些实验T2I子集，其他数据本身含图像response。官方README说明MetaCLIP原数据不公开，替换CC12M/LAION/COYO会改变分布。",
+    "framework": "VPiT共享AR骨干用文字CE和视觉cosine预测，response-only监督；独立调扩散visualizer把连续语义特征映到RGB。以数据类型/剂量与LLM网格研究关系，比仅主表排名更接近机制检验，但固定一种数据量时总曝光/总训练步仍改变。",
+    "architecture": "冻结SigLIP-SO400M-patch14-384、2层GELU输入adapter、LLaMA3/3.1-8B或LLaMA3-70B；正式主模型3.1-8B，独立vision投影head。SD1.5冻结VAE和视觉encoder，训练projector/UNet；projector1152→2048(LN/ReLU)→crossattentiondim(LN)。公开代码可配置mlp等vision head、指南默认mlp，论文仅概述投影，不假设发布权重固定了哪支。cosine预测方向不确定范数，不能和L1输出直接做同visualizer生成比较。",
+    "metrics": "9项ImageQA均值：MMBench/SEED/RealWorldQA/MMVP/SQA/MMMU/VStar/ChartQA/TextVQA；MVBench视频理解，COCO30K FID↓/CLIP↑。F8跨18个网格配置Pearson相关，SEED对CLIP.94/FID−.95，TextVQA.87/−.87，VStar.71/−.72，MMMU−.26/.23。相关方向需随FID↓说明，共同数据量/优化步可产生关联，不证明能力互为原因。知识/推理展示为选例，未给系统成功率。",
+    "baselines": "主表Emu3/Janus/VILA-U/Transfusion/Chameleon、GPT4V与SD等；作者承认异数据/LLM难完全公平。核心控制生成only/联合其余任务、固定200K与逐数据类型、1/4/7M VQA×.2/.5/1/2/3/4M T2I网格、VQA-only/L1/cosine、LLM3/3.1/70B。缺同总FLOPs与教师/visualizer消融，不据主表或同epoch把额外数据机制完全隔离。",
+    "experimental_conditions": "全部网格每实验1epoch/H100/ZeRO3；adapter8B lr4.90e-5/b768/wd0，8B指令6.93e-5/b1536/wd0，70B指令4.90e-5/b768。visualizer b2112/AdamW.9,.999/wd.01，2000步logwarm峰1.1e-5后12000线性decay，约29.568M样本曝光非唯一图像数。论文CFGlevel.7；固定代码cfg_prob是训练条件置零概率，指南/submit示例.8、默认.1，未证明原表使用何实际提交。公开README adapter b448/lr3.74e-5、context4096异于正式表；完整原推理CFG/采样步数/seed和训练多seed区间未给齐。"
   },
   {
     "title": "UGen: Unified Autoregressive Multimodal Model with Progressive Vocabulary Learning",

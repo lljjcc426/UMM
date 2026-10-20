@@ -362,3 +362,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第八十一批（2026-10-21）：补TokenFlow固定量化/多轮采样/训练示例及HF许可元数据；公开示例与主训练条件分开。见[审查](../evidence/tokenflow_shared_indices_and_claim_audit_2026-10-21.md)和[单篇L094](../reviews/L094.md)。
+
+
+第八十二批（2026-10-21）：MetaMorph固定代码、条件置零与视觉回投影、原权重/MetaCLIP及替代数据复现限制。见[审查](../evidence/metamorph_synergy_and_data_budget_audit_2026-10-21.md)和[单篇L090](../reviews/L090.md)。

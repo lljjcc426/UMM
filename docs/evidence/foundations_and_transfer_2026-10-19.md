@@ -165,3 +165,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第八十一批（2026-10-21）：共享离散索引不等同共享LLM协同，K/采样/decoder需控制。见[审查](tokenflow_shared_indices_and_claim_audit_2026-10-21.md)和[单篇L094](../reviews/L094.md)。
+
+
+第八十二批（2026-10-21）：协同主张需控制数据身份、优化步数和外部decoder；相关性不独立识别因果。见[审查](metamorph_synergy_and_data_budget_audit_2026-10-21.md)和[单篇L090](../reviews/L090.md)。

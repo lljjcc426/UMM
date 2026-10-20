@@ -418,3 +418,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第八十一批（2026-10-21）：TokenFlow正式主文11p+supp10p、核心/指定图表与官方固定GH/HF/训练采样代码。见[审查](tokenflow_shared_indices_and_claim_audit_2026-10-21.md)和[单篇L094](../reviews/L094.md)。
+
+
+第八十二批（2026-10-21）：MetaMorph ICCV正式主文12p/supp8p、指定实际图表与固定官方仓库，权重和原始MetaCLIP仍受公开状态限制。见[审查](metamorph_synergy_and_data_budget_audit_2026-10-21.md)和[单篇L090](../reviews/L090.md)。

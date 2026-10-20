@@ -1,0 +1,21 @@
+{
+  "id": "L090",
+  "date": "2026-10-21",
+  "paper": "ICCV2025 formal12p +official supplement8p",
+  "github_revision": "0b13debff55363c81dce90ad21269d05e7f7ac80",
+  "findings": [
+    "Official pinned README still says weights pending legal approval; MetaCLIP source data not public, public-data substitutes change protocol",
+    "Training cfg_prob is Bernoulli condition-zeroing; paper level.7 is not inference guidance multiplier; published guide/submit uses.8, CLI default.1, no original checkpoint/config claimed",
+    "README adapter batch448/lr3.74e-5 vs formal768/4.90e-5; sample context4096, configurable mlp head vs formal projection overview",
+    "Cosine branch explicitly normalizes predicted features and takes negative mean cosine; greedy decoding fixes image_token_len and disables KV caching; vision_head->mm_projector feeds image token back",
+    "Code/project majority CC-BY-NC4.0, portions LLaVA/Cambrian separate Apache2 metadata; no broader upstream reuse interpretation"
+  ],
+  "urls": [
+    "https://openaccess.thecvf.com/content/ICCV2025/html/Tong_MetaMorph_Multimodal_Understanding_and_Generation_via_Instruction_Tuning_ICCV_2025_paper.html",
+    "https://openaccess.thecvf.com/content/ICCV2025/papers/Tong_MetaMorph_Multimodal_Understanding_and_Generation_via_Instruction_Tuning_ICCV_2025_paper.pdf",
+    "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Tong_MetaMorph_Multimodal_Understanding_ICCV_2025_supplemental.pdf",
+    "https://github.com/facebookresearch/metamorph/tree/0b13debff55363c81dce90ad21269d05e7f7ac80"
+  ],
+  "model_executed": false,
+  "downloaded_weights": false
+}
