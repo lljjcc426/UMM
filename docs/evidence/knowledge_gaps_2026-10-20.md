@@ -178,3 +178,8 @@ Reynolds形状导数与弧长Jacobian/滤波核、最近点隐式导数条件；
 ## 第四十一批补充
 
 连续密度NLL可负；Nmax归一与EOS mask影响跨分布可比性。KL标量floor不同逐维free-bits；方差温度与标准差缩放分清。可微模拟环境不等物理动力学，终图奖励不识别规范过程。百分点与相对百分比/非劣性检验区分。LoRA矩阵shape可核rank/cross维，不能反推alpha/训练集/唯一底座；卡片/代码默认/原训练日志分层。
+
+
+## 第四十二批补充
+
+集合排列不变loss、alpha渲染有序和规范事件是不同层面；STE为近似梯度。单笔PSNR不能替代整图/视频；Sinkhorn固定迭代近似与精确OT/去偏divergence区分。WGAN势函数符号需随minD/maxreward一致，最优势非唯一不保证学习收益；同预训练家族评价存在相关性。

@@ -3277,6 +3277,142 @@
         }
       ],
       "boundary": "G014明确v2预印本而非未取得终版；G015正式核心正文/图与现有消融。F05限作者技术说明，IEEE正文未取得；H001是资源协议审查，无独立论文主表。四项五条书面检查均记录，仅G014/G015新增核心三遍完成。未口试、全源码/全部附录审查或独立训练/推理/真实执行。"
+    },
+    {
+      "id": "G016",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "静态目标图到笔触程序需要快速分解，逐图优化慢而RL训练复杂。合成随机笔触可提供已知参数监督，集合预测降低标注与推理成本，但无规范顺序标签。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "v2 Fig2/4：target/canvas双CNN→256维Transformer3层encoder/decoder与8query→参数和存在性→笔刷渲染，多尺度coarse-to-fine累积。当前代码5维形状+目标图采色与论文8维学习分开。",
+          "evidence": "v2 Fig2/4/T1–2、当前官方采色调用"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "Hungarian匹配解决集合排列，L1/W2高斯形状距离/BCE共同监督，Sign前向用sigmoid导数近似反传，像素loss约束合成。集合loss忽略顺序，而alpha合成有顺序；两者均不定义书写规范。",
+          "evidence": "关键机制/公式角色及边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1本法真实Lpixel.056/Lper.807不及RL.040/.737；去image/L1/W/BCE的Lpixel.081/.074/.069/.071各变差。T2 512本法.304s、RL.322s、Optim521.447s，速度优势因baseline与分辨率不同；无CI。",
+          "evidence": "主结果、已有消融与缺项"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "跨patch长笔为何会断，采色版是否更好但改变比较条件？固定renderer/笔数/预算拆global-context与5/8维、loss/serial，测结构/时延/事件。SPIRAL、LearningToPaint、SNP已有程序绘画，终图多解需测试而非直接宣称新课题。",
+          "evidence": "基于原文的疑问/前作追引/可证伪实验"
+        }
+      ],
+      "boundary": "核心三遍限已明确的文本版本、框架视觉核、主结果/已有消融和批判性五检查。G016为v2预印本、F06为v1，正式PDF未完整；G017为作者项目正文/补充，F07为PMLR正式正文/补充。没有全源码/全部图例逐一审查、口试或独立训练/推理/实体复现。"
+    },
+    {
+      "id": "G017",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "物体素描要在少笔抽象下保持语义和几何，边缘和纯全局语义各有缺口。CLIPasso以冻结CLIP多层信号优化Bézier，不训练专门素描模型，但使用预训练数据。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "作者PDF Fig5/6：照片→ViTattention×XDoG初始化→n条黑色三次曲线→diffvg→RN101中间特征几何与final语义loss→同时优化各控制点。没有逐笔时序模型。",
+          "evidence": "作者PDF p4Fig5–6/p8T2–3/p20消融"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "表示把笔数作为抽象接口，语义和几何多尺度loss平衡类别与形状，显著初始化/多seed缓解非凸局部解。不能把同CLIP家族裁判的高分类率等同完全独立语义或精确字形。",
+          "evidence": "关键机制/公式角色及边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T2类别4笔36±3而32笔99.3±.5；T3 ResNet34本法16/32笔54/63，CLIP78/91，排名依评价改变。AppD/E初始化、去语义/几何、权重和层选择为定性，未支持普遍统计优势；主121人与补充组和122不一致。",
+          "evidence": "主结果、已有消融与缺项"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "文字近形差别是否被语义抹平，背景/高抽象失效如何界定？独立编码器/人类/拓扑测试且聚类CI，核参与者与层编号；同预算追CLIPDraw/CLIPascene/DiffSketcher已有发展，不能只凭限制推出新颖。",
+          "evidence": "基于原文的疑问/前作追引/可证伪实验"
+        }
+      ],
+      "boundary": "核心三遍限已明确的文本版本、框架视觉核、主结果/已有消融和批判性五检查。G016为v2预印本、F06为v1，正式PDF未完整；G017为作者项目正文/补充，F07为PMLR正式正文/补充。没有全源码/全部图例逐一审查、口试或独立训练/推理/实体复现。"
+    },
+    {
+      "id": "F06",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "纹理笔刷的神经拟合难，且终图像素距离在非重叠简化例对位置梯度平坦。双路径renderer与OT辅助逐图参数优化分别对应这两困难，无人类画迹GT。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "v1 Fig2：参数→前景着色Gs/轮廓Gr→alpha顺序合成→L1+OT（可加VGGstyle）→更新活动笔触，多尺度分块。renderer先用图形引擎随机参数监督训练，推理仍逐图优化。",
+          "evidence": "v1 Fig2/T1/Fig12–13及附录配置"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "分离颜色/轮廓改善单笔拟合，熵正则Sinkhorn空间transport给远距离形状位置反馈。5iter/48²是近似计算条件，不保证收敛或全局最优，归一化mass还需检验颜色总量。",
+          "evidence": "关键机制/公式角色及边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1油画full26.982dB对render-only24.015/shading-only26.048，水彩31.389对25.769/29.045；这是前景/alpha平均PSNR。Fig12有无OT仅例图，Fig13网络学习曲线。最终绘画400vsSPIRAL20且取原文图，不能据此定量SOTA。",
+          "evidence": "主结果、已有消融与缺项"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "OT的提升有多少来自更多计算，神经参数转真实引擎是否漂移？同时间预算拆OT迭代/分辨率/分块并测残差/结构/成本与实引擎。已有RL/前馈/矢量扩散需追引；终图好不等规范顺序。",
+          "evidence": "基于原文的疑问/前作追引/可证伪实验"
+        }
+      ],
+      "boundary": "核心三遍限已明确的文本版本、框架视觉核、主结果/已有消融和批判性五检查。G016为v2预印本、F06为v1，正式PDF未完整；G017为作者项目正文/补充，F07为PMLR正式正文/补充。没有全源码/全部图例逐一审查、口试或独立训练/推理/实体复现。"
+    },
+    {
+      "id": "F07",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "黑盒renderer不可微且程序GT难获取，离散组合空间使像素终图奖励难探索。SPIRAL用策略学习调用绘画/场景引擎，D提供分布相关奖励，无程序GT但有图像与手工环境。",
+          "evidence": "研究问题/动机书面复述"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "正式Fig2/补充Fig12/13：canvas、动作与可选target→CNN残差/LSTM→tuple自回归采样→Libmypaint/MuJoCo→新canvas；D读终图条件对，A2C/IMPALA和值baseline更新π。绘画20步、离散位置/色/压，不是后续连续13维动作。",
+          "evidence": "正式p2Fig2/p8Fig8–10及2页补充全部核心"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "核心是强化学习可用学习D奖励穿过黑盒的不可微边界；WGAN-GP不使renderer本身可微。主文损失最小化对应负距离势，补充正范数解的符号需统一，最优D也不唯一，不能外推普遍语义保证。",
+          "evidence": "关键机制/公式角色及边界"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "主结果为Fig8曲线，四分布条件重建D优于所测固定ℓ2，MNIST blind更差；Fig9早期笔触被覆盖是明确失败。补充Fig11解释非重叠toy，MuJoCo100heldout比MCMC按渲染调用，不含摊销训练成本，未给精确终点/CI。",
+          "evidence": "主结果、已有消融与缺项"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "减少覆盖需何种中间奖励，能否迁移真实笔刷/新动作组合？固定动作/预算拆D、canvas、辅助奖励，测程序合法性/覆盖/终图/真实执行；与LearningToPaint/SNP/PaintTransformer追引。population12×64actors+2GPU配置应计总成本，公开19步无条件模型不等20步条件实验。",
+          "evidence": "基于原文的疑问/前作追引/可证伪实验"
+        }
+      ],
+      "boundary": "核心三遍限已明确的文本版本、框架视觉核、主结果/已有消融和批判性五检查。G016为v2预印本、F06为v1，正式PDF未完整；G017为作者项目正文/补充，F07为PMLR正式正文/补充。没有全源码/全部图例逐一审查、口试或独立训练/推理/实体复现。"
     }
   ]
 }

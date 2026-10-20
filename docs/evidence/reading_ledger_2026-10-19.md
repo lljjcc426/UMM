@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 340 条，本批有 340 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 342 条，本批有 342 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 核心三遍完成需逐条核问题/方法/框架图、主表/消融及有依据的批判分析，并记录五项书面检查。计时口试、完整代码审查和独立复现另列；没有自动把模板填齐计为完成。
 
@@ -317,8 +317,8 @@
 | G013 | Wan: Open and Advanced Large-Scale Video Generative Models | primary_sections_read | [结构化分析](../reviews/G013.md) | 未完成 |
 | G014 | A Neural Representation of Sketch Drawings | primary_sections_read | [结构化分析](../reviews/G014.md) | 核心三遍与五项检查完成 |
 | G015 | Learning to Paint With Model-based Deep Reinforcement Learning | primary_sections_read | [结构化分析](../reviews/G015.md) | 核心三遍与五项检查完成 |
-| G016 | Paint Transformer: Feed Forward Neural Painting with Stroke Prediction | primary_sections_read | [结构化分析](../reviews/G016.md) | 未完成 |
-| G017 | CLIPasso: Semantically-Aware Object Sketching | primary_sections_read | [结构化分析](../reviews/G017.md) | 未完成 |
+| G016 | Paint Transformer: Feed Forward Neural Painting with Stroke Prediction | primary_sections_read | [结构化分析](../reviews/G016.md) | 核心三遍与五项检查完成 |
+| G017 | CLIPasso: Semantically-Aware Object Sketching | primary_sections_read | [结构化分析](../reviews/G017.md) | 核心三遍与五项检查完成 |
 | G018 | LoRA: Low-Rank Adaptation of Large Language Models | primary_sections_read | [结构化分析](../reviews/G018.md) | 未完成 |
 | G019 | QLoRA: Efficient Finetuning of Quantized LLMs | primary_sections_read | [结构化分析](../reviews/G019.md) | 未完成 |
 | G020 | DoRA: Weight-Decomposed Low-Rank Adaptation | primary_sections_read | [结构化分析](../reviews/G020.md) | 未完成 |
@@ -346,3 +346,5 @@
 | L189 | AniClipart: Clipart Animation with Text-to-Video Priors | primary_sections_read | [结构化分析](../reviews/L189.md) | 核心三遍与五项检查完成 |
 | L190 | VitaGlyph: Vitalizing Artistic Typography with Flexible Dual-branch Diffusion Models | primary_sections_read | [结构化分析](../reviews/L190.md) | 核心三遍与五项检查完成 |
 | R09 | Datumwell Handwriting：10个完整模拟书写episode公开样本、动作与低频RGB对齐 | primary_sections_read | [结构化分析](../reviews/R09.md) | 未完成 |
+| F06 | Stylized Neural Painting | primary_sections_read | [结构化分析](../reviews/F06.md) | 核心三遍与五项检查完成 |
+| F07 | Synthesizing Programs for Images using Reinforced Adversarial Learning (SPIRAL) | primary_sections_read | [结构化分析](../reviews/F07.md) | 核心三遍与五项检查完成 |

@@ -175,3 +175,8 @@ MF固定d70cb55 JAX/TPU与B4发布checkpoint/FIDstats，另有作者py-meanflow/
 ## 第四十一批补充
 
 H001模型卡SDXL字段与rank256/cross768 metadata不一致，官方加载为timbrooks/IP2P+canvas；当前Frida f42fa618 train_lora rank32/无canvas forward，不在ICRA24标签，不能绑定该HF权重。基础config固定31519b5/06653d4，权重仅读512KiB元数据，无执行/全下载。Magenta c15687e默认小LSTM/点drop等不同v2论文，LearningToPaint615c070预训练renderer/actor链接和FFmpeg过程视频是制品证据，未运行。
+
+
+## 第四十二批补充
+
+G016官方Paddle a5ceece当前五维预测+采色、serial更新与论文八维/速度表分开，未取得训练代码。G01792262f7默认500iter与论文约2000分开。F06e7a66b2含PyTorch命令/renderer和不同当前模型，未运行；F07google-deepmind5ee538c的19步无条件TFHub制品不等正文20步conditional。均关联论文，不再增加独立论文数。

@@ -314,6 +314,8 @@
 | L190 | [VitaGlyph: Vitalizing Artistic Typography with Flexible Dual-branch Diffusion Models](L190.md) | 正式WACV2026主文§1/3/4/5/6、Tables1/2和Fig2PDFp2视觉核；v3补充I–III/V–X指定prompt/CFG/配置/五轮/人评/耗时/局限。固定ca7d0f8 README、docs/generation115–177及模型位置段、generation.py指定条件/融合调用、acg_attention.py1–75。旧URLCarlofk1返回404，已按正式paper链接修正为Carlofkl；未跑预训模型。三遍核心阅读/五项书面理解检查完成。 |
 | R09 | [Datumwell Handwriting：10个完整模拟书写episode公开样本、动作与低频RGB对齐](R09.md) | 固定HFREADME/API74项列表、publicationstatus、meta/info、coverage、samplemanifest全部10例、qualityflags/camerareadability、featurepolicy、actionschema、loader及UJIprovenance；conversion指定时间/动作字段，首例frames全部378时间戳数值检查。未下载完整视频/轨迹、未执行模型或动作；属于资源协议审查。 |
 | D09 | [SGF+: Decoupling Gradient Flows for Autoregressive Video Generation](D09.md) | v2 Abstract/Intro/Related、§3 Eq1–5/Fig4、§4 Tables1–3、AppA短5sT4/B配置/C–F诊断和24h示例说明/G1–6推导/H未来工作核心读；PDFp4Fig4/p7T1–2视觉核，未逐页检查所有生成示例。固定Git configs/README/gradientguide/role-routing/Pass1–2关键行、HF卡/文件列表已读，未下载权重/独立生成或诊断运行。 |
+| F06 | [Stylized Neural Painting](F06.md) | v1 Abstract/Intro/Related/§3.1–3.6/§4.1–4.3/Conclusion与App6.1–6.2核心含T1–7已读；Fig2渲染优化框架/Fig13训练曲线原图已视觉核。CVF身份与官方e7a66b2 README/许可/运行与renderer命令核查；正式PDF未完整，未全源码或运行。 |
+| F07 | [Synthesizing Programs for Images using Reinforced Adversarial Learning (SPIRAL)](F07.md) | PMLR正式正文§1–5/Eq1–7/所有主实验与补充A–C含网络图已读；正式p2Fig2/p8Fig8–10、补充p2Fig11–13视觉核。官方5ee538c README/TFHub无条件模型说明和agents/default.py选段核。公开19步CelebA-HQ模型不直接等正文20步conditional；未训练/调用TFHub或做实体实验。 |
 | G001 | [Denoising Diffusion Probabilistic Models](G001.md) | §2–4，Algorithms 1–2，Eq.14，Tables 1–2 |
 | G002 | [Score-Based Generative Modeling through Stochastic Differential Equations](G002.md) | 摘要，SDE/ODE方法，§4采样，Table 1 |
 | G003 | [High-Resolution Image Synthesis with Latent Diffusion Models](G003.md) | §3–4，压缩因子实验，Figs.6–7 |
@@ -329,8 +331,8 @@
 | G013 | [Wan: Open and Advanced Large-Scale Video Generative Models](G013.md) | §4.5提示对齐，§4.7及Table 2，VAE/DiT总体结构 |
 | G014 | [A Neural Representation of Sketch Drawings](G014.md) | v2 Abstract/Intro/Related/§3.1–3.5/§4.1–4.3/§5–6/AppA核心已读；p4Fig4–5、p8Eq10–12/Fig8、p10T1/Fig9视觉核。Google Research正式身份、固定magenta c15687e README/model.py/train与utils配置选段核查；OpenReview PDF403未取得，未计终版已读，无运行。 |
 | G015 | [Learning to Paint With Model-based Deep Reinforcement Learning](G015.md) | 正式CVF PDF Abstract/§1–6、Eq1–6、Figs1–10主线已读，p2Fig2与p7Fig8–9视觉核；无主结果表，以主结果曲线和现有消融解释验收。固定官方hzwer/ICCV2019-LearningToPaint615c070 README、train.py、ddpg.py、Actor/Critic及renderer选段核；补充未取得，无训练/推理/物理复现。 |
-| G016 | [Paint Transformer: Feed Forward Neural Painting with Stroke Prediction](G016.md) | 框架、训练/评估条件、Tables 1–2 |
-| G017 | [CLIPasso: Semantically-Aware Object Sketching](G017.md) | §3方法，§4.3/Tables2–3，Appendix A/D/E；其余实验尚有未逐项摘录字段 |
+| G016 | [Paint Transformer: Feed Forward Neural Painting with Stroke Prediction](G016.md) | v2 Abstract/Intro/Related/§3.1–3.4/§4.1–4.4/Conclusion/AppA及T1–2核心已读，Fig2/4原图已视觉核。CVF身份及固定a5ceece README/network.py/inference.py/render_serial.py采色选段核查。正式PDF不完整未读，训练代码未取得，无训练/推理。 |
+| G017 | [CLIPasso: Semantically-Aware Object Sketching](G017.md) | 作者项目34页PDF：正文§1–5/Eq1–3/T2–3，AppA/C/D/E核心及F评价说明已读；正文p4Fig5–6/p8T2–3、补充p20Fig31–32视觉核。官方92262f7 README/config.py/models/loss.py选段核，未全源码/全图库审查；无优化运行/用户实验复现。 |
 | G018 | [LoRA: Low-Rank Adaptation of Large Language Models](G018.md) | 低秩更新定义、初始化、秩及模块消融 |
 | G019 | [QLoRA: Efficient Finetuning of Quantized LLMs](G019.md) | 方法三组成、适配模块研究、评测协议与限制 |
 | G020 | [DoRA: Weight-Decomposed Low-Rank Adaptation](G020.md) | 分解方法、常识推理表、rank与参数量对照 |
