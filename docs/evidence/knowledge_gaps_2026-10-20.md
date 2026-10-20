@@ -208,3 +208,8 @@ C3D-FID与I3D-FVD/图像Inception FID分开，train/val参考与IS split双值�
 ## 第四十七批补充
 
 Wan-VAE过去特征缓存、扩散采样近似attention/CFG缓存、Streamer窗口/一致性蒸馏分别具有不同假设。FM训练回归不取消采样求解，也不保证精确MLE；逐通道latent mean/std与单标量尺度分开。win-rate-gap带负值不能解释普通获胜概率，缺平局公式不转换；原图PSNR、表步数与帧率冲突按版本保留。
+
+
+## 第四十八批补充
+
+LoRA的ΔW低秩不要求总W低秩；DoRA模长缩放可能使总ΔW超r秩，完整norm投影与detach方向梯度分开。rsLoRA SGD首步/条件渐近量级不保证AdamW泛化或最大rank最优。QLoRA冻结NF4存储与BF16计算/activation分开；分页不是无成本。训练PPL、裁判相对分、Elo顺序重排误差及独立任务泛化分开。

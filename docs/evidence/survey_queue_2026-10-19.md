@@ -227,3 +227,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第四十七批深化Wan2.1：344项目录，核心三遍109、五条书面检查111。核专门中英视觉文字数据、流式VAE/采样缓存/蒸馏分支差异、负指标与gap/步数/帧率矛盾，并固定代码默认及负提示。见[本批审查](wan_visual_text_flow_training_and_evaluation_audit_2026-10-20.md)、[逐文件说明](forty_seventh_changes_2026-10-20.md)。全部剩余审查继续；无模型训练、推理或独立复现。
+
+
+第四十八批深化LoRA/QLoRA/DoRA/rsLoRA：344项目录，113核心三遍、115五条书面检查。区分低秩表示、量化存储、模长/方向和rank缩放，保留主表负项、配方冲突与语言证据迁移边界。见[本批审查](parameter_efficient_adaptation_rank_quantization_and_weight_decomposition_2026-10-20.md)与[逐文件说明](forty_eighth_changes_2026-10-20.md)。全部剩余工作继续；无训练、推理或独立复现。

@@ -335,10 +335,10 @@
 | G015 | [Learning to Paint With Model-based Deep Reinforcement Learning](G015.md) | 正式CVF PDF Abstract/§1–6、Eq1–6、Figs1–10主线已读，p2Fig2与p7Fig8–9视觉核；无主结果表，以主结果曲线和现有消融解释验收。固定官方hzwer/ICCV2019-LearningToPaint615c070 README、train.py、ddpg.py、Actor/Critic及renderer选段核；补充未取得，无训练/推理/物理复现。 |
 | G016 | [Paint Transformer: Feed Forward Neural Painting with Stroke Prediction](G016.md) | v2 Abstract/Intro/Related/§3.1–3.4/§4.1–4.4/Conclusion/AppA及T1–2核心已读，Fig2/4原图已视觉核。CVF身份及固定a5ceece README/network.py/inference.py/render_serial.py采色选段核查。正式PDF不完整未读，训练代码未取得，无训练/推理。 |
 | G017 | [CLIPasso: Semantically-Aware Object Sketching](G017.md) | 作者项目34页PDF：正文§1–5/Eq1–3/T2–3，AppA/C/D/E核心及F评价说明已读；正文p4Fig5–6/p8T2–3、补充p20Fig31–32视觉核。官方92262f7 README/config.py/models/loss.py选段核，未全源码/全图库审查；无优化运行/用户实验复现。 |
-| G018 | [LoRA: Low-Rank Adaptation of Large Language Models](G018.md) | 低秩更新定义、初始化、秩及模块消融 |
-| G019 | [QLoRA: Efficient Finetuning of Quantized LLMs](G019.md) | 方法三组成、适配模块研究、评测协议与限制 |
-| G020 | [DoRA: Weight-Decomposed Low-Rank Adaptation](G020.md) | 分解方法、常识推理表、rank与参数量对照 |
-| G021 | [A Rank Stabilization Scaling Factor for Fine-Tuning with LoRA](G021.md) | §3稳定性定义及Theorem3.2，Figs.2–3与实验设置 |
+| G018 | [LoRA: Low-Rank Adaptation of Large Language Models](G018.md) | 2106.09685v2 Abstract/Intro/问题与方法核心、§5主结果T1–4、§6相关/§7模块/秩/子空间/T5–7、§8；AppB延时、C数据、D.1–D.4说明与T9–12及DART T13已核，未逐项读全部F–H附表/证明。原Fig1/3视觉核；Microsoft作者页身份核，正式OpenReview验证阻断、全源码/权重未读/运行。 |
+| G019 | [QLoRA: Efficient Finetuning of Quantized LLMs](G019.md) | 2305.14314v1核心问题/背景/Eq1–6、§3–5方法主表T1–7与Fig1–3、§6.2评价/数据限制、§8/9；§6.1抽读失败案例，未逐例读全。AppA配置、B.1/B.2/T9/B.3/T10/B.4/T11、G内存说明已读，未逐段核全部人评模板/CUDA或正式PDF；原Fig1/2/3视觉核。无权重运行/训练或独立结果复现。 |
+| G020 | [DoRA: Weight-Decomposed Low-Rank Adaptation](G020.md) | 2402.09353v6 Abstract/Intro/相关选段、§3–7核心/Eq1–11/T1–6；AppA.2–A.5配置/内存/T7–12及A.8/T15核，未逐例读A.6回答和全部扩展图。原Fig1/2/4/5完整SVG视觉核；SDXL图10/11只读正文描述，未视觉验收，QDoRA图6未完整核及外部代码未读。PMLR身份核；无训练/权重运行/独立复现。 |
+| G021 | [A Rank Stabilization Scaling Factor for Fine-Tuning with LoRA](G021.md) | 2312.03732v1 Abstract/Intro/§2–5、Definition3.1/Theorem3.2/Eq1–5、AppA Eq6–11已读并核首步SGD尺度作用，未独立重证全部矩/长程轨迹；AppB.1–B.7全部文字已读。原Fig2/3/8完整SVG视觉核，其他附图仅读caption/文字，未全代码核；无权重训练/推理或独立复现。 |
 | G022 | [Diffusion Models in Vision: A Survey](G022.md) | 摘要，三框架分类及生成范式关系；参考文献逐项阅读未完成 |
 | G023 | [Efficient Diffusion Models: A Comprehensive Survey from Principles to Practices](G023.md) | 摘要，§3 VAE，§5.1采样，效率对照表及Limitations |
 | G024 | [StrokeFusion: Vector Sketch Generation via Joint Stroke-UDF Encoding and Latent Sequence Diffusion](G024.md) | 方法、数据/指标、Tables1–3，Fig.6和Limitations；正式会议元数据 |

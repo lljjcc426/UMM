@@ -167,3 +167,8 @@ G012 3D VAE/Expert AdaLN/full attention/Frame Pack/数据筛选及EUS，R11工�
 ## 第四十七批补充
 
 G013 Wan2.1：通用OCR过滤＋专用中英文字图/视频分支，3fps密集caption，C16/时间4因果VAE、共享调制full-attention DiT/FM。WanBench无独立笔顺/OCR过程指标。I2V/VACE/个性化/相机/Streamer/V2A各任务输入、数据与训练边界分开；详[第四十七批](wan_visual_text_flow_training_and_evaluation_audit_2026-10-20.md)。
+
+
+## 第四十八批补充
+
+G018–G021分别对应更新表示、冻结权重存储、模长/方向参数化、rank缩放；语言/视觉理解/SDXL静态实验不直接验证书写视频事件。四者方法、训练/数据/主结果/消融、优势条件与反例见[第四十八批](parameter_efficient_adaptation_rank_quantization_and_weight_decomposition_2026-10-20.md)。

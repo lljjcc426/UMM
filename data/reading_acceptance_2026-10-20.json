@@ -3855,6 +3855,142 @@
         }
       ],
       "boundary": "核心正文与所列主图/表/已有消融及扩展机制的书面三遍检查；未观看全部视频、扩展图或逐条重读相关论文/全源码。T3/7 gap、T5步数与实时fps冲突保留。不能宣称全部制品/新版本已核；无口试、训练、推理、独立复现。"
+    },
+    {
+      "id": "G018",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "多任务全量适配需保存整套检查点和优化器状态。LoRA冻结基础权重，以低秩增量训练并在部署合并；新任务更新低秩是工作假设，不是所有任务已证定理。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "原Fig1已核：输入x并行经过W0与A→B，h=W0x+(α/r)BAx；A随机/B零保持初始函数，更新A/B后合并。r是适配隐维，未定义RGB真实时间。Fig3为所测任务子空间观察。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "r(d+k)替代dk个可训练参数、减少每任务状态/存储，合并后仍普通线性层。基础模型/激活仍在，低内在维数不能直接推出每层最优更新低秩；总W可满秩。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T4 WikiSQL4.7M LoRA73.4低于FT73.8，37.7M为74.0；SAMSum小adapter反而较高。T5固定18M分配，Q/V73.7/91.3对全QKVO73.7/91.7，不能笼统宣称Q/V各项最佳；T6非单调。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "高rank不增益究竟表达已够还是α/r缩放导致训练不足？需追读rsLoRA并按有效更新/调参预算控制。低秩是否适合新语言/细笔时序？原文自己保留新语言高秩需求，需与全参/模块选择、独立作者字形验证；已同时核QLoRA/DoRA，现代实现与视频生成未由本篇证明。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        }
+      ],
+      "boundary": "2106.09685v2核心、所列主表/消融与AppB/C/D选段，原Fig1/3视觉；未逐项读全F–H附表/全部代码。正式OpenReview验证阻断，ICLR身份经作者机构页核。 核心书面三遍检查；未做计时口试、训练、推理或独立复现。"
+    },
+    {
+      "id": "G019",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "LoRA仍存冻结16bit基础模型和长序列激活。QLoRA通过NF4、double quantization和paged optimizer让大语言模型适配在较小GPU运行；需同时看量化误差、主存和评价偏差。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "原Fig1/2/3已核：基础NF4按需反量化到BF16，与BF16 adapter计算并反传输入/适配权重；W冻结，优化状态可CPU/GPU分页。NF4和尺度的存储位宽不同于计算/激活位宽。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "NF4针对近正态权重的码本，DQ把尺度开销约.5降至.127bit/参数；分页缓解峰值但并非无限内存。全线性模块覆盖和强16bit基线调参对结果关键，不能只归因4bit格式。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T4平均53.1对BF1653.0但7B-FLAN44.5低于45.6；65B Guanaco MMLU62.2低于基础63.4。Fig2全线性ROUGE约64.5高于FFN63.9/attention63.4；T3 NF4+DQ空格不补值。Vicuna99.3是相对裁判分；Elo误差主指比较顺序随机化。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "65B是否匹配全参？§8明确大模型未比，7–65B主要比较BF16-LoRA。paged在长视频激活主导时是否仍省且不慢？原作者未做完整hard measurement；需CPU/迁移/步时实测。自动裁判、训练数据/任务能力取舍需独立heldout及反序人评；现有语言证据不能直接迁到笔事件。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        }
+      ],
+      "boundary": "2305.14314v1核心、AppA/B/G所列范围，原Fig1/2/3视觉；未通读正式会议PDF、人评模板、CUDA、全部失败案例。分页hard measurement不足和dropout两处差异保留。 核心书面三遍检查；未做计时口试、训练、推理或独立复现。"
+    },
+    {
+      "id": "G020",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "LoRA有限方向更新对所测任务仍低于FT。DoRA从模长/方向变化的经验相关性提出分解，独立学习模长与低秩方向；相关性本身未证明性能因果。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "原Fig1/2/4/5已核：W0+BA按列归一化，再乘可训m，输出接原任务网络。初始化恢复原W0，训练m/A/B而W0冻结，最终可合并。视频理解输出答案/描述，SDXL静态例证另列。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "完整norm导数含切空间投影；实际后续实验detach分母省显存，方向梯度不再含同一投影，但forward分母仍变化。模长重缩放可能使最终总增量超出r秩；合并推理节路径不等训练零开销。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "T1 LLaMA7B78.4对74.7，但13B半秩80.8对80.5仅.3pp，与正文概述不符。T7完整norm→detach省24.4%/12.4%内存，不是相对LoRA。T15 r64低于r32，两方法均非rank单调；T12若干VQA分项退化。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "完整梯度分析能否解释detach配方增益？需匹配梯度/模块/步幅消融而不能照搬投影。低rank异常分数是容量还是优化/解码提取问题？核实际输出和评测。静态SDXL/logo不证明动态笔顺，外部QDoRA/FSDP需要独立源码/配置核查；四类PEFT轴已与相邻原文对照。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        }
+      ],
+      "boundary": "2402.09353v6核心/T1–6、AppA.2–.5/A.8所列表、原Fig1/2/4/5视觉；SDXL图10/11仅读描述，QDoRA图6/外部源码未全核、A.6回答未逐例读。 核心书面三遍检查；未做计时口试、训练、推理或独立复现。"
+    },
+    {
+      "id": "G021",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "固定α/r时提高rank可能使LoRA训练受缩放抑制。rsLoRA把γ改为α/√r，研究条件下前向/梯度的rank量级，目标是改善可用容量的优化利用。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "BA结构与LoRA相同，输入输出不变，只改缩放；原Fig2训练PPL、Fig3参数梯度、Fig8不同幂缩放已核。没有另行生成架构图，不能把该文当视频模型。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "在B0=0、A iid/固定方差等条件下，首步EΔW1量级为ηγ²r；α/r衰减为1/r而α/√r保持O(1)。这是SGD首步机制解释及条件渐近理论，不是任意AdamW泛化/单调最优rank定理；零初始化瞬间BA恰0。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "主图高r rsLoRA训练PPL更低，原LoRA高r梯度小。AppB.4 r4学习率扫描最好1.863仍高于rs r2048默认1.836，均训练值。Fig8过小1/r²几乎不学、过大r^−1/4后期较差；B.7两法激活矩均温和，机制证据不覆盖所有观测。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "每rank充分调lr或匹配实际更新后增益是否保留？原文没有全组合搜索。更低训练PPL是否改善独立任务/跨作者事件？需要heldout/multiseed及成本。α/硬件/seed未全披露，证明长程依赖未独立形式核；与原LoRA/DoRA负rank结果对照，不能取“最大rank最好”为通用规则。",
+          "evidence": "精确版本原文、已核核心图与主结果/已有消融；范围见boundary及笔记"
+        }
+      ],
+      "boundary": "2312.03732v1核心/Definition3.1/Theorem3.2/AppA证明与AppB全文文字，原Fig2/3/8视觉；未独立形式验证长程矩依赖/全代码，其他附图只读文字/caption。 核心书面三遍检查；未做计时口试、训练、推理或独立复现。"
     }
   ]
 }

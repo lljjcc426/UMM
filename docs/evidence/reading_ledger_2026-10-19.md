@@ -319,10 +319,10 @@
 | G015 | Learning to Paint With Model-based Deep Reinforcement Learning | primary_sections_read | [结构化分析](../reviews/G015.md) | 核心三遍与五项检查完成 |
 | G016 | Paint Transformer: Feed Forward Neural Painting with Stroke Prediction | primary_sections_read | [结构化分析](../reviews/G016.md) | 核心三遍与五项检查完成 |
 | G017 | CLIPasso: Semantically-Aware Object Sketching | primary_sections_read | [结构化分析](../reviews/G017.md) | 核心三遍与五项检查完成 |
-| G018 | LoRA: Low-Rank Adaptation of Large Language Models | primary_sections_read | [结构化分析](../reviews/G018.md) | 未完成 |
-| G019 | QLoRA: Efficient Finetuning of Quantized LLMs | primary_sections_read | [结构化分析](../reviews/G019.md) | 未完成 |
-| G020 | DoRA: Weight-Decomposed Low-Rank Adaptation | primary_sections_read | [结构化分析](../reviews/G020.md) | 未完成 |
-| G021 | A Rank Stabilization Scaling Factor for Fine-Tuning with LoRA | primary_sections_read | [结构化分析](../reviews/G021.md) | 未完成 |
+| G018 | LoRA: Low-Rank Adaptation of Large Language Models | primary_sections_read | [结构化分析](../reviews/G018.md) | 核心三遍与五项检查完成 |
+| G019 | QLoRA: Efficient Finetuning of Quantized LLMs | primary_sections_read | [结构化分析](../reviews/G019.md) | 核心三遍与五项检查完成 |
+| G020 | DoRA: Weight-Decomposed Low-Rank Adaptation | primary_sections_read | [结构化分析](../reviews/G020.md) | 核心三遍与五项检查完成 |
+| G021 | A Rank Stabilization Scaling Factor for Fine-Tuning with LoRA | primary_sections_read | [结构化分析](../reviews/G021.md) | 核心三遍与五项检查完成 |
 | G022 | Diffusion Models in Vision: A Survey | primary_sections_read | [结构化分析](../reviews/G022.md) | 未完成 |
 | G023 | Efficient Diffusion Models: A Comprehensive Survey from Principles to Practices | primary_sections_read | [结构化分析](../reviews/G023.md) | 未完成 |
 | G024 | StrokeFusion: Vector Sketch Generation via Joint Stroke-UDF Encoding and Latent Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G024.md) | 未完成 |

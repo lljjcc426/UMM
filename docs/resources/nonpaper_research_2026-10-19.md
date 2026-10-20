@@ -205,3 +205,8 @@ DDPM官方1e0dceb TF1.15/TPU默认与loss选段；Score-SDE官方JAX0acb9e0配�
 ## 第四十七批补充
 
 G013关联Wan2.1固定9737cba配置/关键实现：1.3B与14B不同维度/head；T2V50步/CFG5/shift5、81帧/16fps；1.3B README建议CFG6/shift8–12/480p。VAE逐通道mean/std、空负提示自动回填、T5 CPU/offload与提示扩写应保存。README新FLF2V/VACE制品不回填报告原版，衍生LoRA/量化资源尚待独立审查；不增加独立论文数。
+
+
+## 第四十八批补充
+
+LoRA/QLoRA/DoRA/rsLoRA原论文审查已补，但现代PEFT实现、量化/FSDP组合及训练脚本需要独立版本/默认值核查；不从库现默认补历史α/dropout或硬件。Ketaba S001和CogVideoX R11保留各自模型/代码协议，不能用四篇通用原理覆盖具体复核；本批不新增独立资源数。
