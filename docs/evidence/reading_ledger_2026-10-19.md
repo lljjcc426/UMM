@@ -54,7 +54,7 @@
 | F03 | FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment | primary_sections_read | [结构化分析](../reviews/F03.md) | 核心三遍与五项检查完成 |
 | F04 | CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting | primary_sections_read | [结构化分析](../reviews/F04.md) | 核心三遍与五项检查完成 |
 | F05 | Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model | primary_sections_read | [结构化分析](../reviews/F05.md) | 五项检查已记录；三遍待确认 |
-| X01 | InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write | primary_sections_read | [结构化分析](../reviews/X01.md) | 未完成 |
+| X01 | InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write | primary_sections_read | [结构化分析](../reviews/X01.md) | 核心三遍与五项检查完成 |
 | R01 | Hanzi Writer（工具，不是论文） | primary_sections_read | [结构化分析](../reviews/R01.md) | 未完成 |
 | R02 | Make Me a Hanzi（数据/工程资源） | primary_sections_read | [结构化分析](../reviews/R02.md) | 未完成 |
 | R03 | CASIA-HWDB / CASIA-OLHWDB（数据） | primary_sections_read | [结构化分析](../reviews/R03.md) | 未完成 |
@@ -115,7 +115,7 @@
 | L007 | B-BSMG，2024 | primary_sections_read | [结构化分析](../reviews/L007.md) | 未完成 |
 | L008 | Three-Dimensional Trajectory Planning for Robotic Chinese Calligraphy，2026 | primary_sections_read | [结构化分析](../reviews/L008.md) | 未完成 |
 | L009 | Video-Based Handwritten Chinese Character Recognition，2005 | primary_sections_read | [结构化分析](../reviews/L009.md) | 未完成 |
-| L010 | VideoSketcher: Sequential Sketch Generation Using Video Model Priors | primary_sections_read | [结构化分析](../reviews/L010.md) | 未完成 |
+| L010 | VideoSketcher: Video Models Prior Enable Versatile Sequential Sketch Generation | primary_sections_read | [结构化分析](../reviews/L010.md) | 核心三遍与五项检查完成 |
 | L011 | Draw This First | primary_sections_read | [结构化分析](../reviews/L011.md) | 核心三遍与五项检查完成 |
 | L012 | SketchAgent，2024/2025 | primary_sections_read | [结构化分析](../reviews/L012.md) | 未完成 |
 | L013 | ProcessPainter，2024 | primary_sections_read | [结构化分析](../reviews/L013.md) | 未完成 |

@@ -245,3 +245,8 @@ U01关联官方推理/viewer/prompts README已读，研究许可/模型需申请
 ## 第五十六批补充
 
 Janus原README的CFG tokenizer_config修复仅作者报告，原Janus与Pro/Flow分列；代码MIT不自动覆盖模型许可。Show-o原代码/三阶段配置已选读，RefinedWeb内部loader需替换，注释LM改变目标，不能称完整复现；配置loss1/.1/1及三阶段步数/seed已记。关联不重复计数。见[资源审查](../evidence/janus_showo_representation_video_and_math_audit_2026-10-20.md)。
+
+
+## 第五十七批补充
+
+关联InkSight公开Small-p卡/三模式InkML输出，HF卡TF2.15–2.17与较新仓库TF2.20/XLA工具分列；生成轨迹不作真实时序标签。VideoSketcher模型/数据HF API可访问并列制品名、无README卡；固定源码LoRA目标/repeat及I2V配方差异；未读zip/权重。见[资源协议审查](../evidence/inksight_videosketcher_trajectory_events_and_resource_audit_2026-10-20.md)。

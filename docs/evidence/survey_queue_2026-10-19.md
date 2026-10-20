@@ -254,3 +254,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第五十六批补完原Janus/U03、Show-o/U06核心精读：347目录不变、126核心/128书面。修订解耦/共享收益、版本/指标、CFG与采样成本；纳入Show-o视频扩展，并限定附录公式问题的适用范围。见[原文审查](janus_showo_representation_video_and_math_audit_2026-10-20.md)、[逐文件说明](fifty_sixth_changes_2026-10-20.md)。无删除/训练复现，剩余精读继续。
+
+
+第五十七批补完InkSight/X01、VideoSketcher/L010核心精读：347目录不变，128核心/130书面。补齐配方、主表/消融、并笔率/统计口径、TF版本与HF制品访问，纠正合理轨迹/规范笔序及偏好/准确率混用。见[原文审查](inksight_videosketcher_trajectory_events_and_resource_audit_2026-10-20.md)、[逐文件说明](fifty_seventh_changes_2026-10-20.md)。无删除/模型复现；SketchAgent及剩余继续。

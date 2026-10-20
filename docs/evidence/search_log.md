@@ -301,3 +301,8 @@ U01 v2核心§1–7/TI–VII/AppB TXI–XIV、框架/稳定/胜平负实际图�
 ## 第五十六批补充
 
 U03 arXiv v1核心/五表/AppA及实际框架/训练/语义encoder图，CVPR正式§4.4/4.5/TV选读；U06 v7核心/五表/AppA–F/I/J/K和实际架构/attention/diffusion图。原Janus README选段；原Show-o固定45a5a2d构造/forward/t2i及四配置全文/README选段。未读范围见专题。
+
+
+## 第五十七批补充
+
+X01 v4核心/三表及AppC–M文字/表，实际Fig2/3/4/8；官方TMLR归属、README/HF两卡/dataset.md/TF工具。L010 v1核心/三表及AppA/B–E文字，实际Fig2/3/7；79067883脚本/代码选段和HF API，仅元数据无zip/权重。WACV2026同名VideoSketcher（视频素描转换）待独立筛查；SketchAgent v1已获取未验收。

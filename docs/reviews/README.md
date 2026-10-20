@@ -61,7 +61,7 @@
 | L007 | [B-BSMG，2024](L007.md) | 出版社全文§1–5、公式与实验正文、baseline和限制；表格标题及正文汇总已核，所有表格独立单元/算法图未全部核；另读官方Table1回归系数与Table4全部单元 |
 | L008 | [Three-Dimensional Trajectory Planning for Robotic Chinese Calligraphy，2026](L008.md) | 出版社§3完整方法/Eqs1–10、§4.1–4.9实验/消融、§5限制与数据可用性；未核全部图与单元格，Zenodo制品未下载；另读官方Tables1/4全部单元 |
 | L009 | [Video-Based Handwritten Chinese Character Recognition，2005](L009.md) | 作者8页PDF §II–V方法/纠错/实验及Conclusion；TableI细分数字与图像逐项视觉尚待核 |
-| L010 | [VideoSketcher: Sequential Sketch Generation Using Video Model Priors](L010.md) | §3–7，Tables1–2，Figures2/3/7/10/12，Appendix B.3 |
+| L010 | [VideoSketcher: Video Models Prior Enable Versatile Sequential Sketch Generation](L010.md) | 2602.15819v1核心§1–7/Eq1–3/TI–III全读；AppA全文、B.1文字/概念及B.2–4/C/D/E文字，F主要caption未逐图/视频。实际Fig2/3/7，其他多为正文/图注。官方README选读1–280/310–410，固定79067883训练shell全文、train.py构造/预处理/forward/优化器等选段、latent wrapper及return路径；非全部pipeline/loader/AR/eval。HF API仅仓库/文件元数据，README404，未下载权重/zip/运行。 |
 | L012 | [SketchAgent，2024/2025](L012.md) | §4、§5.1–5.2、Table1/2、§6–7与官方CVPR书目信息；未完成全部交互附录 |
 | L013 | [ProcessPainter，2024](L013.md) | Abstract、Table1、§4.4.2/4.5、Fig7；样本数与预算待核 |
 | L014 | [Generating Past and Future in Digital Painting Processes / PaintsAlter，2025](L014.md) | 原始13页PDF§3主要框架、§3.4数据/训练、§4.2–4.7及Tables1–4；逐图视觉核对尚未全部完成 |
@@ -258,7 +258,7 @@
 | U06 | [Show-o: One Single Transformer to Unify Multimodal Understanding and Generation](U06.md) | 2408.12528v7核心§1–5/TI–TV，AppA–F、I/J/K文字与公式已读；AppB原证明读过但未独立逐步验证。G prompts/H视频未逐项；实际Fig2/3/4/5/9，其余多为caption/正文，Fig8/12资源下载未完成未计视觉。官方原Show-o固定45a5a2d model构造/forward/t2i_generate、stage1/2/3/demo配置全文、README选段；未全训练loader/mmu代码/原formalPDF或权重运行。 |
 | U17 | [Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System](U17.md) | 摘要，§3/Table1与探针，Tables4–5，系统任务说明和SVG诊断附录 |
 | U18 | [Transferability Between Understanding and Generation in Unified Multimodal Models](U18.md) | §3–5；Tables1/3/4/10/11/12；Appendix0.A、0.B.2、0.C、0.E |
-| X01 | [InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write](X01.md) | §3架构/五任务/token，§4.1–4.7数据、Table2/3及限制；AppendixG尚待完整摘录 |
+| X01 | [InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write](X01.md) | 2402.05804v4核心§1–5/TI–III全读，AppC/D/E/F/G/H/I/J/K/L/M文字和TIV/V/VI/VII/VIII/IX/X/XI已读；AppB/N大批图未逐看，O仅相关开放生成段。实际Fig2/3/4/8；正式TMLR元数据/README全文、HF模型/数据卡全文、dataset.md全文、固定486d4772的TF导入工具全文；未全notebook/训练源码/模型权重，未独立复现。 |
 | N13 | [The Unwritten Benchmark: A New Challenge for Multimodal Machine Learning in Abstract Perceptual Reasoning](N13.md) | §1–5主方法、Tables1–3及§6开头；未读完整§6后段/全部附录、未审数据生成代码；无模型执行 |
 | U07 | [Unified Multimodal Discrete Diffusion (UniDisc)](U07.md) | §3.1–3.4含Eq2/3、§4.1/4.2、AppB1/C/F/H1 Tables3–6；Fig2 PDFp5视觉核。完整检索/大模型训练/AppI/J与全部图未全读；未复现 |
 | U08 | [Zebra-CoT: A Dataset for Interleaved Vision Language Reasoning](U08.md) | §1/§3.1、§5训练/主Table2、AppA1 Table3、Table8 Tetris指定行及脚手架定义；其余类别采集/Bagel补充结果/完整prompt与代码未全读，未复现 |

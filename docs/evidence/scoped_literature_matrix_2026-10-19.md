@@ -212,3 +212,8 @@ U01统一AR与U05混合CE/连续diffusion均为静态图文共享模型，已有
 ## 第五十六批补充
 
 Janus解耦encoder/共享AR骨干与Show-o混合NTP/MTP均已有，不能据统一称普遍正迁移。Show-o GenHowTo关键帧微调/8fps短视频tokenizer必须计入相关先例，但只有定性证据。见[第五十六批](janus_showo_representation_video_and_math_audit_2026-10-20.md)。
+
+
+## 第五十七批补充
+
+InkSight从静态照片输出数字墨迹，VideoSketcher直接生成RGB渐进绘画且已有多笔帧19.58%/36.96%量化。规范事件/执行验证要在现有任务及局限上明确增量；原始轨迹、合理历史和规范顺序需分开。见[第五十七批](inksight_videosketcher_trajectory_events_and_resource_audit_2026-10-20.md)。

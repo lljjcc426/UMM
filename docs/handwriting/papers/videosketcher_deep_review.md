@@ -1,5 +1,9 @@
 # VideoSketcher｜序列素描视频生成：论文与官方开源实现辨析
 
+**2026-10-20第五十七批更新：**核心论文/三张定量表与相关附录现已补读，最新详见[精读笔记](../../reviews/L010.md)及[原表、并笔与资源审查](../../evidence/inksight_videosketcher_trajectory_events_and_resource_audit_2026-10-20.md)。主识别100视频、顺序100prompt×3seed，并笔率19.58%/36.96%；下文为保留的第一轮代码阅读快照，其中“主表/消融待核”等描述属于历史状态。训练shell/latent repeat与HF资源元数据本批也补核，尚未运行模型。
+
+## 第一轮历史快照
+
 第二轮已补方法、主表和消融核查，见[更新阅读笔记](../../reviews/L010.md)；本页保留第一轮代码阅读范围。
 
 - 论文：VideoSketcher: Video Models Prior Enable Versatile Sequential Sketch Generation

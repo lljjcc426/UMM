@@ -4433,6 +4433,74 @@
         }
       ],
       "boundary": "2408.12528v7核心§1–5/TI–TV，AppA–F、I/J/K文字与公式已读；AppB原证明读过但未独立逐步验证。G prompts/H视频未逐项；实际Fig2/3/4/5/9，其余多为caption/正文，Fig8/12资源下载未完成未计视觉。官方原Show-o固定45a5a2d model构造/forward/t2i_generate、stage1/2/3/demo配置全文、README选段；未全训练loader/mmu代码/原formalPDF或权重运行。 核心书面验收，无计时口试/复现。"
+    },
+    {
+      "id": "X01",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "把复杂背景的手写照片转换为可编辑数字墨迹：在缺少多样真实照片—原始轨迹配对时，如何利用识别/书写先验恢复合理几何和序列？静态照片到轨迹通常非唯一；任务评价是合理描摹/人类风格，未验证唯一真实历史或规范汉字笔序。 纯几何骨架/矢量化依赖干净背景，成对真实时序数据昂贵；整页高分辨/长输出难直接单次建模。图像OCR文字和合成轨迹渲染可通过共享任务桥接，但词检测与识别错误仍会传递。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "词图224²+任务prompt/可选OCR文字→ViT特征与文字进mT5 encoder→AR decoder预测文字/数字墨迹token→detokenize坐标与stroke边界。Fig2/3/4实际视觉；整页外部OCR检测词框后逐词推断，不能把词级无文字模式视作整页无需检测。 Small-p/i约340M（ViT85M+mT5形状247M）、Large-i约1B（303M+783M）；mT5权重从头初始化，不能称预训mT5微调。轨迹20ms重采样+RDP+缩到[0,224]，x/y分别225token+起笔=451，文字仅约20K单字符词表；输入128/输出1024。输出没有真实时间/压力，识别训练里按20ms幻想时间。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "预训练冻结ViT+随机初始化mT5式encoder-decoder；真实/合成识别、两种derender、识别+derender共五任务等比训练，合成墨迹渲染增强；离散坐标/起笔token，整页OCR裁词→逐词预测→坐标贴回。属于视觉到数字墨迹及文字识别共享任务，非开放文字到任意书写视频。 复杂背景、可用真实OCR和独立ink数据但配对照片稀少时，五任务+增强提供可迁移语义与书写先验；优势预期在背景分离/合理可编辑轨迹，而非凭静态图识别不可观测真实笔序。已有人评/recognizer增广支持，但需强恢复基线/跨脚本配对真值检验。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "TII HierText Large-i F1.61/Acc.46，GVS.55/.01，人工描摹.64/.74；IAM GVS F1.69高于Large.66而online.02/.58。实际Fig8 Large good52.5%、good+okay87%、humanlike67%；Small-i good+okay87.5高于Large87，不能称所有接受率随规模单调。TVIII CER real6.1，Small-i合成7.8/混合4.6，Small-p8.2/4.5，Large8.4/4.6；支持数据增广应用，不证明恢复真实笔顺。 TIII HierText标准F1.61/Acc.45、Vanilla.53/.35、R+D.57/.42；去增强.23/.13。去all-recognition F1仍.61、Acc降.38；IMGUR F1.51→.55同时Acc.33→.22，说明单指标不能代表语义/序列。移除frozenViT即解冻：HierText .59±.15/.41±.05，标准.61±.07/.45±.01，3seed；AppE记录空墨迹task-confusion方差。有OCR文字确能帮助，但标签错误/矛盾时仅案例分析。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "终图几何不能唯一确定原历史；坐标离散+RDP没有真实速度/压力，20ms为评估构造。页级需词检测，1024输出限制复杂草图；未见语言泛化仅案例，失训文字和背景、笔宽、任务混淆失败明确。R+D空结果fallback Vanilla在AppJ，需统计触发/成本。公开Small-p不能代替更优内部Large-i。AppO100不匹配prompt案例不生成任意文字只限定该测试，不能外推所有输入不可生成。当前HF卡与仓库TF版本存在差异，未运行确认。 用同终图异历史的真实多序轨迹定义可接受集合，区分合理重建/真实顺序/规范顺序；已知隐藏历史不能一概作为唯一标签。OCR提供/内识别/无文字×检测oracle/自动×已见/未见文字，增强/任务/ViT等计算控制，报告多seed、空输出fallback覆盖/成本。用原始时压轨迹独立测方向/实例/几何，recognizer互换防偏置；模型输出HF数据不能当独立真实监督。未执行。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        }
+      ],
+      "boundary": "2402.05804v4核心§1–5/TI–III全读，AppC/D/E/F/G/H/I/J/K/L/M文字和TIV/V/VI/VII/VIII/IX/X/XI已读；AppB/N大批图未逐看，O仅相关开放生成段。实际Fig2/3/4/8；正式TMLR元数据/README全文、HF模型/数据卡全文、dataset.md全文、固定486d4772的TF导入工具全文；未全notebook/训练源码/模型权重，未独立复现。 核心书面验收，无计时口试/复现。"
+    },
+    {
+      "id": "L010",
+      "checked_on": "2026-10-20",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "脱离原文简述研究问题与动机",
+          "answer": "文本指定概念和语义部分顺序，生成从白纸逐笔渐进的RGB素描视频，兼顾外观、顺序/局部笔画连续、笔刷风格和交互。已直接研究逐步绘画视频，不能误说只生成静态图；语义部分不是规范汉字笔画实例。 视频模型外观先验强但直接prompt常输出已完成图；LLM会计划但坐标草图简陋，7幅手画单独训练缺少顺序泛化。需要把顺序监督和外观适配分开，少量目标域数据不等总训练数据/基础成本小。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "对照框架图解释输入、模块与输出",
+          "answer": "概念→LLM语义部分顺序prompt→视频latent flow去噪→81帧480×832渐进绘画RGB；可加左上笔刷首帧。Fig2/3实际视觉：SVG path逐段动画仅作训练构造，模型输出RGB而非带ID的SVG。AR用户可画/擦后续画，9帧重叠拼接多rollout；不输出真实机器人动作。 Wan2.1时空VAE约4×8×8压缩、16通道latent；xt=(1−t)x0+tε，网络学ε−x0 MSE，从t1积分到0。DiT注意力q/k/v/o和ffn.0/ffn.2 LoRA32；视频整体去噪50步，非每步等一个语义笔画。AR基座CausVid/Wan1.3B，full-DiT微调ODE轨迹回归，区别14B LoRA教师。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "解释关键创新及其作用",
+          "answer": "Wan2.1-14B标准rectified-flow/LoRA两阶段：可控几何组合3顺序先学grammar，再7艺术家SVG渲染视频迁移外观；LLM生成编号语义计划。I2V首帧笔刷控制，教师43合成+7真视频训CausVid/Wan1.3B AR续画。未新增基础diffusion目标/核心视频架构。 目标域只少量有序SVG但基础视频先验覆盖目标概念时，几何顺序预训练可能提升计划服从、少量艺术家例迁移画风；自然物体优于数学/符号的条件有案例支持。对严格汉字可把它作为强计划+视频执行基线，不能由语义顺序偏好推断规范笔画身份/方向或真实执行。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "解释主表与一组消融",
+          "answer": "TI主模型Top1/5=.82/.96，原Wan.92/.99、PaintsUndo1/1、SketchAgent.48/.71、Human.52/.70、AR.45/.70；高最终识别不等好过程。TII全模型.82/.95，保留与TI.96差异。实际Fig7是CLIP classifier score对video progress，不能把端点当TI分类准确率；形状渐进只支持逐渐可辨。brushGram3.73 vs随机7.29，约49%下降但不等人类风格完美。TIII多笔帧QuickDraw2975/15196=19.58%，scene2351/6361=36.96%，已有直接量化局限。 TII primitive-only Top1/5 .73/.86，7-human-only .88/.96，全模型.82/.95；全模型最终识别未最好。LLM比较primitive/full偏好26.9/53.4、Neither19.7，7human/full29.6/48.3/22.1；不是53.4或48.3严格顺序准确率。抽取时提供目标ordering限制词汇可能引入确认偏差，作者也承认primitive不可辨影响LLM；未与独立逐帧人工事件真值校准。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        },
+        {
+          "criterion": "提出至少两个有依据的问题并检查相关工作范围",
+          "answer": "无硬stroke-continuity，复杂场景并笔更多，数学函数/图中文字可失败；Base知识与画风先验限制prompt。TI±.04称across-category std，若按每类两样本的硬Top1正确率算、均值.82，最小总体SD=.24，故统计口径需评估代码确认，可能另汇总/SEM，未替作者猜定。并笔分母15196/6361不同于视频数×81，未解释筛选；无官方eval文件定位。模型/data HF仓库元数据可访问无README卡，未读权重/压缩包；WACV27仅作者接收声明。 先复核原LLM评估：抽取有/无目标词汇、评委互换/顺序交换、人工带时间戳标注，报tie/失败/coverage。几何stage×真实样本数×等步数/实际计算，跨7训练概念排除与脚本分类；并笔按fps/时长/ink阈值/空帧分层，区分真实并发和采样遗漏。严格字事件与同终图错序/回擦/漏笔，配规则SVG/SketchAgent/原Wan强基线，细字/长序列、跨文字留出；AR和14B按同预算质量Pareto，计LLM/教师成本。未执行。",
+          "evidence": "精确版本核心/公式、主表/真实消融与实际框架图"
+        }
+      ],
+      "boundary": "2602.15819v1核心§1–7/Eq1–3/TI–III全读；AppA全文、B.1文字/概念及B.2–4/C/D/E文字，F主要caption未逐图/视频。实际Fig2/3/7，其他多为正文/图注。官方README选读1–280/310–410，固定79067883训练shell全文、train.py构造/预处理/forward/优化器等选段、latent wrapper及return路径；非全部pipeline/loader/AR/eval。HF API仅仓库/文件元数据，README404，未下载权重/zip/运行。 核心书面验收，无计时口试/复现。"
     }
   ]
 }
