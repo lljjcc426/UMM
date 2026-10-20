@@ -191,3 +191,6 @@ python scripts/validate_catalog.py
 
 
 第六十五批（2026-10-21）补录G036原RePaint与G037线性理论：349目录、145核心/147书面，204项尚未确认核心三遍（含资源）。核同预算消融/固定实现差异及有效mask条件，记录Th8的局部总体矩反例，未模型复现。见[审计](docs/evidence/repaint_sampling_and_linear_theory_audit_2026-10-21.md)、[逐文件说明](docs/evidence/sixty_fifth_changes_2026-10-21.md)。无删除，旧条目/跨领域覆盖继续。
+
+
+第六十六批（2026-10-21）补完N06 Veo零样本、N07真实多层手写数据库、N13 Unwritten核心/书面检查；349目录、148核心/150书面，201项尚未确认核心三遍（含资源）。核oracle/无效评价、正式回归T3–7、融合与拼接证据及门控卡边界。见[审查](docs/evidence/video_reasoning_and_handwriting_observability_audit_2026-10-21.md)、[逐文件说明](docs/evidence/sixty_sixth_changes_2026-10-21.md)。无新增独立论文、无删除/复现。

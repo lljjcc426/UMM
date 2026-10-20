@@ -404,25 +404,27 @@
     "id": "N06",
     "category": "N 新增中文书写重点调研",
     "title": "Video models are zero-shot learners and reasoners",
-    "version": "Video models are zero-shot learners and reasoners；arXiv2509.20328v2，2025；技术研究报告，未核实正式接收",
+    "version": "Video models are zero-shot learners and reasoners；2509.20328v2（arXiv修订2025-09-29，PDF页首另写2025-10-1），Wiedemer等/Google DeepMind；研究报告，正式接收未核。",
     "source_urls": [
       "https://arxiv.org/html/2509.20328v2",
-      "https://arxiv.org/pdf/2509.20328v2"
+      "https://arxiv.org/pdf/2509.20328v2",
+      "https://arxiv.org/abs/2509.20328",
+      "https://video-zero-shot.github.io/"
     ],
     "previous_evidence": null,
     "claim": "研究目标：已有视频生成API可否仅凭首帧与任务指令完成视觉理解、操作和初步视觉推理？",
     "method": "以固定Veo API测试62定性与7定量任务，比较Veo2/3、图像编辑与LLM，提出chain-of-frames视觉推理视角；没有新训练架构。 黑盒Veo3 veo-3.0-generate-preview与Veo2；VertexAPI包含LLMpromptrewriter。作者将rewriter+video视作系统，对关键任务另检Gemini2.5Pro；不能把全部推理归因video权重。内部骨干/数据/参数/训练recipe本文未披露，不填其他Veo版本细节。",
     "problem": "已有视频生成API可否仅凭首帧与任务指令完成视觉理解、操作和初步视觉推理？",
-    "conclusion": "Figure30逐笔复制成功率.5（12次中6次），颜色/数字为事后标注；识别.33、变体生成.25。不是规范笔顺量化。§4 edgeVeo3 bestpass10 .77对专模.90，seg .74/Nano.73；5×5maze pass10 78%对Veo2 14%。类比reflect/rotate均低于.33chance，保留失败反例。",
-    "gap": "闭源数据不可核、rewriter混杂、小样本及人工定性成功标准；“可解”不等“稳定可靠”。最终Figure30数字/颜色为后加，不能当模型自身strokeID输出；无逐笔合法序/方向/真实时间/压力真值。以LLM价格趋势预测video成本下降是展望，非已测video效率证据。",
+    "conclusion": "Fig3 edge bestframe@10 Veo3 .77 vs专模.90；Fig4分割.74 vsNano.73属oracle和容易子集协议。Fig5提取数量pass10 .93，不证明相同对象身份；Fig6编辑fidelity100%/precision60% vsVeo2 20%/10%，仅30图。Fig7 5×5maze pass10 78% vsVeo2 14%，Nano与ASCII Gemini在部分矩形更强。Fig8对称shape best/last@10 88%/44%，random100%/72%，最佳时刻并非默认末帧。Fig9 color95/resize67/reflect29/rotate19%，后两低于约33%三选chance。Fig30复制.5（12次6次）、识别.33/变体.25，定性标准且无规范笔顺/方向量化。",
+    "gap": "闭源预训练/rewriter混杂、定性每项12与作者判据、oracle选帧/选解、不同输入表示/评价规则限制外推。类比无效生成随机猜测与特权autorater须报覆盖；物体count不核身份。总视频统计/实际额外采样及部分prompt百分比分母尚未统一。所谓performance lower bound指可能更好prompt下的表现，不构成数学能力下界；费用下降引用LLM趋势是展望。Fig30非规范书写数据，静帧不能核完整运动。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "v2 §1–2/§3定性协议、§4.1–4.7/讨论、AppA Figure30、B总表/B1/B2/B5/B6与Cpromptstudy指定段。未逐读62任务全部视频、未独立审生成原片；Figure30 caption核而非完整stroke实测，未复现",
-    "last_updated": "2026-10-20",
+    "sections_read": "2509.20328v2全部核心§1–5、七项量化结果Fig3–9/主协议，AppB总表/B1–B7全部任务协议与C全部prompt建议；AppA Fig30实际PDFp23、Fig8/9实际p8，其他62任务图按指定正文/caption非逐一读所有原视频，AppD未全核。未审服务端代码/数据/内部骨干，未实际调用Veo或复现。",
+    "last_updated": "2026-10-21",
     "note_path": "docs/reviews/N06.md",
     "canonical_key": "paper:arxiv:2509.20328",
     "evidence_history": [
@@ -453,41 +455,51 @@
         "conclusion": "Figure 30包含Omniglot逐笔复制示例，作者示例成功率0.5；颜色/编号标注为事后添加。",
         "gap": "【边界】这是该任务的示例/局部实验，不是中文规范笔顺总体50%准确率；没有完整字符/书体大样本协议。【推断】须把公开个案与系统基准分开。",
         "note_path": "docs/handwriting/papers/video_zero_shot.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 66,
+        "scope": "2509.20328v2全部核心§1–5、七项量化结果Fig3–9/主协议，AppB总表/B1–B7全部任务协议与C全部prompt建议；AppA Fig30实际PDFp23、Fig8/9实际p8，其他62任务图按指定正文/caption非逐一读所有原视频，AppD未全核。未审服务端代码/数据/内部骨干，未实际调用Veo或复现。"
       }
     ],
     "review_path": "docs/reviews/N06.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "18384videos=定性62×12=744+定量17640。BIPEDv2全部50test、LVIS50个1–3物体图、54animal组合、EmuEdit30、不同size随机/手画maze、2×25对称grid、KiVA四变换各50。Figure30非完整Omniglot标准split，未声明汉字笔顺benchmark。",
+    "dataset": "作者报告18384=744定性（62任务×12）+17640量化（AppB T1），未独立统计生成文件。BIPEDv2全50test、LVIS50张1–3物体容易图、NanoBanana生成并人工核的54animal图（每count1–9各6）、EmuEdit30、矩形maze每size50/不规则10手画变换为40、对称每split25、KiVA四变换各50。Figure30为Omniglot启发的选例，非标准完整split。T1 maze写2×4 splits每50/8000而B5不规则40，统计未完全解释；editing表60只计每图首个评价样本，B4写实际每图生成2个，不能将总数当所有API调用的独立清点。",
     "framework": "以固定Veo API测试62定性与7定量任务，比较Veo2/3、图像编辑与LLM，提出chain-of-frames视觉推理视角；没有新训练架构。",
     "architecture": "黑盒Veo3 veo-3.0-generate-preview与Veo2；VertexAPI包含LLMpromptrewriter。作者将rewriter+video视作系统，对关键任务另检Gemini2.5Pro；不能把全部推理归因video权重。内部骨干/数据/参数/训练recipe本文未披露，不填其他Veo版本细节。",
-    "metrics": "边OIS/F1（16阈值、容许.75%对角线偏移）；segmIoU、物体连通数、editing人评、maze全程合法成功、对称零错格/CIELAB阈15、类比pass@k。bestframe和bestof10用已知真值事后选，部署需另选帧/解，非直接单次可用准确率。",
+    "metrics": "边OIS/F1：NMS、16阈值、容许.75%图像对角线偏移；分割GT对象分别选最高IoU（非一对一匹配），最佳帧/最佳k用真值oracle；物体提取只以灰度阈200连通数判断，正确数量不验证身份/结构保持。编辑人评fidelity/precision；maze检查全程越墙/目标改变；对称全格零错、CIELAB阈15。类比末帧裁下右对象由Gemini2.5Pro带条件特权信息三选比对，没对象/类型不符随机三选；因此无效输出可能偶然得分，pass@k进一步放大，不能当严格有效解。",
     "baselines": "Veo2与3、NanoBanana（gemini2.5flashimagepreview）、Gemini2.5Pro图像/ASCII，以及任务专模参考。分割允许任意颜色且GT各选最高IoU，需和一对一匹配标准分开；不做跨协议SOTA推断。",
-    "experimental_conditions": "720p/16:9/24fps/8秒，VertexAPI；每qual12样本，quant一般10samples，editing每30图单次/三human。Veo2主文ID veo-2.0-generate-001，附录写veo-2.0-generate-preview-001，版本差保留待核。闭源预训练数据与是否含同类任务不可核，zero-shot指无本次任务适配，不能证实无任何训练接触。"
+    "experimental_conditions": "VertexAPI首帧+prompt，16:9/720p/24fps/8s；Veo3 veo-3.0-generate-preview，Veo2主文veo-2.0-generate-001/附录veo-2.0-generate-preview-001有版本差。qual每task12，作者判成功；quant一般每输入10次，editing每图生成2次仅首个交3人评价（未按好坏择优）。类比autorater在每condition25例与作者专家agreement>88%，不是所有任务/错误类校准。没有本次训练；预训练集、内部网络、rewriter具体权重/改写内容、实际每次费用/延迟/失败API调用未披露。"
   },
   {
     "id": "N07",
     "category": "N 新增中文书写重点调研",
     "title": "A stroke-level large-scale database of Chinese character handwriting and the OpenHandWrite_Toolbox for handwriting research",
-    "version": "Behavior Research Methods 2026-05-11",
+    "version": "A stroke-level large-scale database of Chinese character handwriting and the OpenHandWrite_Toolbox for handwriting research；Xu/Yu/Torrance/Nottbusch/Zhao/Cai，Behavior Research Methods58:162，2026-05-11，DOI10.3758/s13428-026-03001-4；正式Springer正文/独立表页核读，未核年度SCI分区。",
     "source_urls": [
       "https://link.springer.com/article/10.3758/s13428-026-03001-4",
       "https://arxiv.org/abs/2509.05335",
-      "https://osf.io/rn2ck/"
+      "https://osf.io/rn2ck/",
+      "https://link.springer.com/article/10.3758/s13428-026-03001-4/tables/3",
+      "https://link.springer.com/article/10.3758/s13428-026-03001-4/tables/4",
+      "https://link.springer.com/article/10.3758/s13428-026-03001-4/tables/5",
+      "https://link.springer.com/article/10.3758/s13428-026-03001-4/tables/6",
+      "https://link.springer.com/article/10.3758/s13428-026-03001-4/tables/7"
     ],
     "previous_evidence": null,
     "claim": "研究目标：建立字符/部件/笔画层的在线手写测量数据，研究词汇因素是否跨层递减影响书写。",
-    "method": "PsychoPyBuilder+GetWrite/MarkWrite工具链，时间/xy/压力含hover，42人×1200字数据库，按字符聚合的多层回归与可靠性分析。 Builder GUI设置trial，MarkWrite人工分层分段，R批处理提取指标；item-level多元线性回归，14词汇因素z变换，VIF<5、FDRp<.05；不同层在字符内平均保持字符为分析单位，不是trial混合效应模型。",
+    "method": "PsychoPyBuilder+GetWrite/MarkWrite工具链，时间/xy/压力含hover，42人×1200字数据库，按字符聚合的多层回归与可靠性分析。 PsychoPyBuilder+GetWrite采集，MarkWrite人工分层分段，R批处理指标（R07另审资源）。每字符先跨人平均，部件/笔画在字符内平均，维持字符为分析单位；14因素均z变换、多元线性回归，VIF<5、全回归FDR p<.05。部件顺序原始编码声旁先写+.5/否则−.5（非形声字也−.5），不能误解释为所有字都存在声旁。Table6/7层×变量比较不是trial层混合模型；Table7另外控制Length及交互。",
     "problem": "建立字符/部件/笔画层的在线手写测量数据，研究词汇因素是否跨层递减影响书写。",
-    "conclusion": "作者字符amnesia/latency/duration R²=.420/.482/.907；rad latency/dur .291/.866、stroke .173/.795。多数词汇因素作用向低层减弱；观察性相关支持分层描述，不能证明唯一神经因果通路。",
-    "gap": "成人窄年龄/右利手/筛选频率与笔数限制外推；丢弃错误修订对生成鲁棒性数据有选择效应。逐字聚合掩盖个体差异，不能据不显著即断言该层完全无作用。规范与真实个人写法可不同；全部附录表系数/原始轨迹未逐项审。",
+    "conclusion": "字符amnesia/latency/duration R² .420/.482/.907，部件 .291/.866，笔画 .173/.795。T3频率latency β−158.005,p<.001；T4部件−7.408,p<.001；T5笔画−3.471,p=.007，仍有低层关联。T6频率字符vs部件/笔画交互−149.66/−154.60,p<.001，但部件vs笔画−4.25,p=.104；不能说每一级差异均显著。T5笔画时长仅笔画数明确显著β5.702,p<.001；形声/左右/上下时长p均.055。T4声旁先写部件时长β−35.183,p=.001，与讨论一处later shorter表述相反，按编码/表与不同段文字分列。",
+    "gap": "42名19–22右利手成人、筛选频率/笔数与听写任务限制外推；错误/修订排除让运动统计偏正确流利样本，熟悉度规范仅15人。字符内聚合掩盖个体/早晚部件耦合，作者明确承认。R²/相关不能定唯一认知因果通路；不显著不等于相应语言系统完全不参与。正文duration层排序同句重复stroke疑似笔误、Discussion声旁顺序时长与T4符号冲突；不自行修成已证层级。T6/7部分交互不显著及任务差异要保留，完整附录与原始轨迹未全审。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "正式Springer正文PresentStudy、ToolboxDevelopment、采集/编码/排除/结果/部分Discussion；OSF摘要工作簿字段及R指标代码见R07；Tables3–7逐系数、全部附录和原始数据未完整复核",
-    "last_updated": "2026-10-20",
+    "sections_read": "正式Springer Abstract/Introduction各小节/PresentStudy/ToolboxDevelopment/数据库方法/Results/Discussion/Conclusion全部核心文字；独立Tables3–7全部系数/t/FDR p逐行核读，实际Fig3界面与Fig10认知图。其余图按正文/caption未逐格读，Table1/2字段及OSF工作簿/R指标代码见前批R07，不冒充完整附录/全部原始轨迹审计；未重拟合回归/采集/训练模型。",
+    "last_updated": "2026-10-21",
     "note_path": "docs/reviews/N07.md",
     "canonical_key": "paper:arxiv:2509.05335",
     "evidence_history": [
@@ -518,14 +530,19 @@
         "conclusion": "提供真实过程数据与处理工具的研究资源；不将采集到的实际书写自动判为规范金标准。",
         "gap": "【边界】特定采集人群和目标字表；许可/原始字段需按数据文档核对。【推断】可对照速度代理压力、真实事件时长和合成轨迹分布。",
         "note_path": "docs/handwriting/papers/openhandwrite.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 66,
+        "scope": "正式Springer Abstract/Introduction各小节/PresentStudy/ToolboxDevelopment/数据库方法/Results/Discussion/Conclusion全部核心文字；独立Tables3–7全部系数/t/FDR p逐行核读，实际Fig3界面与Fig10认知图。其余图按正文/caption未逐格读，Table1/2字段及OSF工作簿/R指标代码见前批R07，不冒充完整附录/全部原始轨迹审计；未重拟合回归/采集/训练模型。"
       }
     ],
     "review_path": "docs/reviews/N07.md",
     "review_depth": "critical_sections_reviewed",
     "dataset": "42右利手普通话成人(32女，19–22岁均20.5)；SUBTLEXlogfreq1.5–5、>4笔、常见双字词熟悉度≥4/7筛选1200。50400trials：44065正确/4950错误/1385修订，后两者排除运动学分析。",
     "framework": "PsychoPyBuilder+GetWrite/MarkWrite工具链，时间/xy/压力含hover，42人×1200字数据库，按字符聚合的多层回归与可靠性分析。",
-    "architecture": "Builder GUI设置trial，MarkWrite人工分层分段，R批处理提取指标；item-level多元线性回归，14词汇因素z变换，VIF<5、FDRp<.05；不同层在字符内平均保持字符为分析单位，不是trial混合效应模型。",
-    "metrics": "正确/遗忘率、各层延迟/时长等；人工与自述97.62%一致，ICC.829(CI.827–.831)；split-half SpearmanBrown latency .95/duration .80/amnesia .88。R²是解释度，不是视频/轨迹生成准确率。",
+    "architecture": "PsychoPyBuilder+GetWrite采集，MarkWrite人工分层分段，R批处理指标（R07另审资源）。每字符先跨人平均，部件/笔画在字符内平均，维持字符为分析单位；14因素均z变换、多元线性回归，VIF<5、全回归FDR p<.05。部件顺序原始编码声旁先写+.5/否则−.5（非形声字也−.5），不能误解释为所有字都存在声旁。Table6/7层×变量比较不是trial层混合模型；Table7另外控制Length及交互。",
+    "metrics": "自述遗忘率、人工正确/修订、字符/部件/笔画latency/duration、length/pressure；自述与人工一致97.62%，ICC .829(CI .827–.831)。split-half按21/21人得到1200字均值相关经SpearmanBrown校正，latency .95/duration .80/amnesia .88。R²是字符层解释度；β为原文z预测变量下的回归系数，非个体因果效应或生成准确率。FDR后p=.055/.104不能改成显著或证明零效应。",
     "baselines": "与Wang2020字符级latency r.74/duration .94相关；不是神经模型基线。多词汇变量回归和层间交互用于检验假设。",
     "experimental_conditions": "Wacom KP13000DB/PTH651，200Hz，8×5纸格，听写后尽快准确写；3×400字sessions，间隔2h–4d。>10s字符latency、<1或>10s字符duration；rad/stroke>2s排除。先做图像判读再分析，人工分段和硬件量纲需保留。",
     "related_records": [
@@ -879,27 +896,29 @@
     "id": "N13",
     "category": "N 新增中文书写重点调研",
     "title": "The Unwritten Benchmark: A New Challenge for Multimodal Machine Learning in Abstract Perceptual Reasoning",
-    "version": "The Unwritten Benchmark；arXiv2608.14558v1，页面/正文均写2026-05-15，编号月份与日期不一致，保留来源原状；未核实正式接收",
+    "version": "The Unwritten Benchmark: A New Challenge for Multimodal Machine Learning in Abstract Perceptual Reasoning；Yadav/Yilmaz/Yang，arXiv2608.14558v1，页面提交2026-05-15与编号月份不一致，照源保留。作者项目/HF卡及arXiv comments称CVPR2026 Findings，未找到并核实CVF正式接收/出版条目，不写CVPR主会或已核CCF-A接收。",
     "source_urls": [
       "https://arxiv.org/abs/2608.14558",
       "https://nilayyilmaz.dev/publications/",
       "https://arxiv.org/html/2608.14558v1",
-      "https://arxiv.org/pdf/2608.14558v1"
+      "https://arxiv.org/pdf/2608.14558v1",
+      "https://riri-y.github.io/unwritten-benchmark/",
+      "https://huggingface.co/datasets/RiRi-y/unwritten-benchmark"
     ],
     "previous_evidence": null,
     "claim": "研究目标：不见墨迹时，能否从干笔运动视频和摩擦音推断所写英文单词？",
-    "method": "提出acousto-kinematic word inference基准；实录字母片段拼词和连续整词验证，按三书写风格/三输入模态评估MLLM与人类。没有提出视频生成模型。 采集同步片段、wordfreq筛2–5字母小写词、同风格原始片段依次连接，零样本提示API/开放QwenOmni；模型结构继承各系统，本文没有新骨干。",
+    "method": "提出acousto-kinematic word inference基准；实录字母片段拼词和连续整词验证，按三书写风格/三输入模态评估MLLM与人类。没有提出视频生成模型。 三位各自固定风格记录字母→wordfreq去重/ASCII a-z/2–5长/逐风格字母可用性过滤→同风格字母片段拼接→三模态prompt零样本评估。视频ffmpeg concat demuxer -c copy，音频直接拼MP3字节，不添人工停顿；作者手工同步及随机检查，未提供量化同步精度证明。API系统/QwenOmni结构沿用，未训练新模型。",
     "problem": "不见墨迹时，能否从干笔运动视频和摩擦音推断所写英文单词？",
-    "conclusion": "Table1人类MV80.78/AV77.01/A19.47，GeminiPro A10.04/MV8.71/AV9.07，Qwen A7.83/MV5.03/AV3.95。摘要“模型均未超10%”不严格，Table2 Retrace音11.69；实录Table3 GeminiPro音13.15/AV6.37。人机差距明确，但不能按摘要给全部分数上限。",
-    "gap": "三书写者与字母复用限制外推；拼接无真实连写协同发音/运动。人类300文件和模型大集不同需匹配。日期元数据不一致需作者确认。音视频融合变差不能唯一归因架构缺因果推理。跨拉丁语言需重做词频/变音符；阿拉伯上下文连写无法由孤立字母简单拼接充分代表。",
+    "conclusion": "T1人类A19.47/MV80.78/AV77.01；GeminiPro A10.04/MV8.71/AV9.07，Qwen7.83/5.03/3.95。T2 Retrace Pro A11.69，故摘要模型全不超10%过强；人类Standard MV84.56→AV87.58但Cursive65.57→57.22，融合不总增益。T3实录Pro音13.15/AV6.37、GPT音11.65、Flash静音10.86。合成静音GPT8.85>Pro8.71>Flash8.38，实录Flash10.86>Pro9.56>GPT8.80，排名并非原文所称identical。仍支持这些系统当前协议下明显低分，但不是拼接等效或机制因果证明。",
+    "gap": "仅三人且风格与人混杂、字母复用、剪接边界和孤立字母无真实连写过渡；模型大集/人类300不同协议。讨论把失败归因bag-of-frames和缺因果融合是待验证假设，作者只提MediaPipe+CTC为未来可行对照、未实际证明。长度先验、提示选择/解析/采帧与数据域替代解释未排除；无CI/检验。作者自引WritingHacker2016音频推断前例，不能声称无墨迹书写识别从无研究。Latin扩展仍需变音符/词频，阿拉伯上下文连写不能直接靠孤立字母拼接充分覆盖。日期/Findings身份及HF实际文件访问边界保留。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "record_type": "paper",
     "scope": "handwriting",
     "privacy": "public_source_note",
-    "sections_read": "§1–5主方法、Tables1–3及§6开头；未读完整§6后段/全部附录、未审数据生成代码；无模型执行",
-    "last_updated": "2026-10-20",
+    "sections_read": "2608.14558v1 Abstract/§1–7全部核心、Alg1/2、T1–3、AppA1–A5全部文字；原PDF实际p2 Fig1及p7 T2/3，其他worksheet/定性图按caption非逐一核动作。作者项目全部静态研究文本与公开HF数据卡全文核读（2026-10-21），未播放原片/访问门控媒体、未找到官方CVF出版条目、未审完整评估代码或运行模型。",
+    "last_updated": "2026-10-21",
     "note_path": "docs/reviews/N13.md",
     "canonical_key": "paper:arxiv:2608.14558",
     "evidence_history": [
@@ -930,16 +949,21 @@
         "conclusion": "作者报告人机差距和某些融合退化；不能直接解释为中文笔顺模型能力。",
         "gap": "【边界】无墨迹词推断不是中文规范视频生成；本文不使用摘要日期异常来推定首发时间。",
         "note_path": "docs/handwriting/papers/unwritten.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 66,
+        "scope": "2608.14558v1 Abstract/§1–7全部核心、Alg1/2、T1–3、AppA1–A5全部文字；原PDF实际p2 Fig1及p7 T2/3，其他worksheet/定性图按caption非逐一核动作。作者项目全部静态研究文本与公开HF数据卡全文核读（2026-10-21），未播放原片/访问门控媒体、未找到官方CVF出版条目、未审完整评估代码或运行模型。"
       }
     ],
     "review_path": "docs/reviews/N13.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "三位书写者：Standard/Cursive各全字母，Retrace仅17字母。基础409个字母级文件，合成评测10491文件，另309连续实录整词文件；这些是文件数，三模态派生不能当独立书写人数/词数。20名MTurk成人各15trial共300文件人类评测子集。",
+    "dataset": "三位书写者分别Standard/Cursive/Retrace，前两各大小写26字母、Retrace17；409字母级文件、10491合成测试文件、309连续整词文件，不能把文件数当独立词/录制人数（各模态派生且字母复用）。人评20名MTurk成人/native或fluentEnglish，每人15trial，总300文件子集、风格/词长平衡。HF公开卡MIT元数据、需接受条件并分享账户资料才访问文件，未接受/下载或检查9.89GB媒体；此数据卡是N13关联制品不新增独立论文。",
     "framework": "提出acousto-kinematic word inference基准；实录字母片段拼词和连续整词验证，按三书写风格/三输入模态评估MLLM与人类。没有提出视频生成模型。",
-    "architecture": "采集同步片段、wordfreq筛2–5字母小写词、同风格原始片段依次连接，零样本提示API/开放QwenOmni；模型结构继承各系统，本文没有新骨干。",
-    "metrics": "Ordered Letter Accuracy逐位置字符匹配/n，要求预测和真实同长度；全词准确率作者称接近零，无完整主表值。不是字符编辑距离CER。非法词长/解析失败处理未在已读公式完整说明。",
+    "architecture": "三位各自固定风格记录字母→wordfreq去重/ASCII a-z/2–5长/逐风格字母可用性过滤→同风格字母片段拼接→三模态prompt零样本评估。视频ffmpeg concat demuxer -c copy，音频直接拼MP3字节，不添人工停顿；作者手工同步及随机检查，未提供量化同步精度证明。API系统/QwenOmni结构沿用，未训练新模型。",
+    "metrics": "OLA=(1/n)∑逐位置字符一致，公式要求预测/真实都长n；它不含插删对齐，与CER/整词accuracy不同。主文说整词accuracy近零但没完整量化；错误词长/额外文本/空回复的清理、聚合权重和API失败分母未明确。给真实长度会缩小词表和位置字母先验空间，不能说完全没有答案相关信息；缺同长度词频/位置频率/无输入/随机与专用轨迹识别基线。",
     "baselines": "GPT4o、Gemini2.5Pro/Flash、Qwen2.5Omni7B；人类参考，缺专用笔尖跟踪/轨迹识别和词频/随机字母基线。",
-    "experimental_conditions": "均zero-shot，prompt给真实词长；GPT4o API不接受合并AV，AV缺项；Qwen30FPS失败逐步降至10FPS，改变视觉观测条件。API精确snapshot/温度/音频重采样/各样本最终FPS未核齐；没有训练预算可报。"
+    "experimental_conditions": "全zero-shot、真实词长和同style note；GPT4o不能直接接合并AV故缺AV，不能写模型不具任何多模态能力。Qwen30fps失败逐步降至10fps，各样本最终帧率/丢弃率未披露；原始媒体分辨率/实际采帧数/音频规格/API精确snapshot/温度/费用/硬件未完整给。作者称人工亚毫秒同步但无测量误差表；人机是否同300文件完整配对未给。AppA3多轮试prompt后选择，开发/测试隔离不清；无本次训练成本。"
   },
   {
     "id": "N14",

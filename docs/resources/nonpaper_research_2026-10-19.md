@@ -290,3 +290,8 @@ N10训练教师链Sora与T2I→I2V不一致，未核公开数据/配置/权重�
 ## 第六十五批补充（2026-10-21）
 
 已读RePaint固定8e2a055 README、face示例与指定scheduler/gaussian_diffusion路径：代码重构未全重评，实际keep mask/注入时序、NFE与参数字段需单列。未下载权重/核完整训练保存，示例不填充CalliPaint缺项；附本仓库stdlib理论审计脚本及输出。见[审计](../evidence/repaint_sampling_and_linear_theory_audit_2026-10-21.md)。
+
+
+## 第六十六批补充（2026-10-21）
+
+N13关联HF卡公开MIT标记/9.89GB，文件需接受访问条件并分享账户资料，未访问媒体或同意条款；作者项目静态文字已读，未播放原视频。N06未获黑盒训练/rewriter配置，N07结合R07字段/指标代码仍不等全部原轨迹审计。见[审查](../evidence/video_reasoning_and_handwriting_observability_audit_2026-10-21.md)。
