@@ -481,3 +481,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百二十二批（2026-10-22）：mask×压缩全因子、teacher预算、STI与LLM容量替代及书写事件/FPS测试，未执行。见[审查](../evidence/hydrax_temporal_tokenization_and_editing_audit_2026-10-22.md)、[L107](../reviews/L107.md)。
+
+
+第一百二十三批（2026-10-22）：p×τ×head×CFG、等15K继续训练和F8目标子集/事件对照，未执行。见[审查](../evidence/pixelumm_xprediction_tubelet_and_protocol_audit_2026-10-22.md)、[L108](../reviews/L108.md)。

@@ -213,7 +213,7 @@
 | L105 | Tuna-2: Pixel Embeddings Beat Vision Encoders for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L105.md) | 核心三遍与五项检查完成 |
 | L106 | Representation Forcing for Bottleneck-Free Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L106.md) | 核心三遍与五项检查完成 |
 | L107 | HYDRA-X: Native Unified Multimodal Models with Holistic Visual Tokenizers | primary_sections_read | [结构化分析](../reviews/L107.md) | 核心三遍与五项检查完成 |
-| L108 | PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L108.md) | 未完成 |
+| L108 | PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L108.md) | 核心三遍与五项检查完成 |
 | L109 | FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities | primary_sections_read | [结构化分析](../reviews/L109.md) | 未完成 |
 | L110 | Muddit: Liberating Generation Beyond Text-to-Image with a Unified Discrete Diffusion Model | primary_sections_read | [结构化分析](../reviews/L110.md) | 核心三遍与五项检查完成 |
 | L111 | Lavida-O: Elastic Large Masked Diffusion Models for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L111.md) | 未完成 |

@@ -288,3 +288,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百二十二批（2026-10-22）：2位置mask的层级感受野、fs与总码率、无交互边与统计独立区分。见[审查](hydrax_temporal_tokenization_and_editing_audit_2026-10-22.md)、[L107](../reviews/L107.md)。
+
+
+第一百二十三批（2026-10-22）：patchify重排与线性单射条件，跨空间loss不可比、步数不等FLOPs收益。见[审查](pixelumm_xprediction_tubelet_and_protocol_audit_2026-10-22.md)、[L108](../reviews/L108.md)。

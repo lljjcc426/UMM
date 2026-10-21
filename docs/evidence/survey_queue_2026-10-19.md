@@ -459,3 +459,8 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 第一百二十二批（2026-10-22）完成L107 HYDRA-X固定v1核心/十三表、AppA–G与十页实际PDF，补视频运动反例、时间压缩/编辑/解码接口和训练比例边界；官方核L107及L103的NeurIPS2026身份。357目录，231核心/234书面含未通过项，126条未确认核心（含资源）。见[审查](hydrax_temporal_tokenization_and_editing_audit_2026-10-22.md)、[逐文件说明](one_hundred_twenty_second_changes_2026-10-22.md)。没有删除或模型复现。
 
 本批追引定位：AToken（2509.14476）、OmniTokenizer（NeurIPS2024，37:28281–28295）、Beyond Language Modeling（2603.03276，本文简称TransNext）。需用正式标题/ID去重再独立精读，当前不增验收。HYDRA-X OpenReview3mwm6O3FZt及HYDRA sNTc0XTEDc正式版本未对读；已有BitDance/WeTok和RF追引队列保留。
+
+
+第一百二十三批（2026-10-22）完成L108 PixelUMM固定v1核心/九表八组实验与十页实际PDF，补官方代码/模型卡，记录15.2B总参、F7十一项图像退步、F8条件分层及linearhead发布边界。357目录，232核心/235书面含未通过项，125条未确认核心（含资源）。见[审查](pixelumm_xprediction_tubelet_and_protocol_audit_2026-10-22.md)、[逐文件说明](one_hundred_twenty_third_changes_2026-10-22.md)。没有删除或模型复现。
+
+本批追引：SenseNova-U1/U1.5、MiniT2I、JiT、PixelDiT、NEO及Cosmos3需按正式标题/ID与现有目录去重后补独立阅读；ViPE2508.10934目前仅核本作参考条目，未独立精读。PixelUMM主生成来源/完整训练预算、F18/F19/F21检查点能力与F7完整编辑定量评测仍待；已有AToken/OmniTokenizer/TransNext等追引保留。

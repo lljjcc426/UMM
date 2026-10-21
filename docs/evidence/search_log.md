@@ -541,3 +541,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百二十二批（2026-10-22）：固定v1十三表/实际PDF与NeurIPS官方155676/149164；OpenReview API403、正式全文未对读。见[审查](hydrax_temporal_tokenization_and_editing_audit_2026-10-22.md)、[L107](../reviews/L107.md)。
+
+
+第一百二十三批（2026-10-22）：固定2609.38597v1、官方GH e19e91a/HF4bb3ce9与完整九表；未核正式会场。见[审查](pixelumm_xprediction_tubelet_and_protocol_audit_2026-10-22.md)、[L108](../reviews/L108.md)。

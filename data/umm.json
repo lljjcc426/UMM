@@ -6912,22 +6912,28 @@
     "title": "PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation",
     "source_urls": [
       "https://arxiv.org/abs/2609.38597",
-      "https://arxiv.org/html/2609.38597"
+      "https://arxiv.org/html/2609.38597",
+      "https://arxiv.org/abs/2609.38597v1",
+      "https://arxiv.org/html/2609.38597v1",
+      "https://arxiv.org/pdf/2609.38597v1",
+      "https://nv-tlabs.github.io/PixelUMM/",
+      "https://github.com/nv-tlabs/PixelUMM/tree/e19e91aabb99784f7b5524268ed42ec59c1ad660",
+      "https://huggingface.co/nvidia/PixelUMM/tree/4bb3ce9a112e7e1c7d375b1c5bd64f54d259ecc8"
     ],
-    "method": "直接imagepatch16²/video4×16²线性映射，Qwen3-MoT理解/生成两expert，cleanpixel预测/velocityloss；六阶段渐进训练与八组经验实验。 输入分图/视频×理解/生成四线性投影，输出RMSNorm+linear/unpatchify，视觉无独立encoder/VAE。MoT共享attention操作但route-specificQKV/输出proj/norm/FFN；3轴RoPE。未显式timestepembedding，t仍用于噪声/损失/solver；z_t=(1−t)x+tε，v用max(t,.05)分母。",
-    "conclusion": "主GenEval原.77/重写.83、DPG85.74；VBenchQS84.10/SS79.80/总83.24、Dynamic64.44，低于Lance总85.11等。MVBench70.53，MMMU41.67；主表不证明架构全面优越。",
-    "gap": "本次已视觉读PDFp23 VBench全表，保留动态/语义和prompt增强条件。无timestep输入不等于算法无t；encoderfree不等于理解生成全部参数共享。F8通用QA未检验快动作，不能推出高FPS对笔顺无价值。公开配方及域外文字/事件、长视频仍需核，未核代码与checkpoint。",
-    "problem": "能否用简单像素接口共同支持图像/视频理解生成，时间patch和decoder怎样影响训练？",
+    "method": "图像16×16与视频4×16×16 RGB→各任务独立单层线性→Qwen3 MoT；clean图像/视频和text用理解专家，noisy目标用生成专家，每层共同attention运算，Norm/QKV/out/FFN参数仍分专家。无显式timestep/AdaLN，clean x预测转换v-loss和采样；8组F1–F8消融展示时空token化/decoder伪影、规模和条件学习边界。 F3默认线性head保留于发布/主表/非消融展示；卷积和PixelShuffle仅替代head消融，不能写成最终模型已修复网格。图像一个双向块；sparse视频帧内双向、帧间causal；dense segment可为一个双向tubelet块；生成完整noisy目标内双向，前文不回读目标。共享attention不等所有投影权重共享，也不保证生成RGB规范因果动作。RoPE temporal半head/HW各1/4，thetaT1e6/HW1e4。理解FlexAttention，生成two_way两次变长FlashAttention。z_t=(1−t)x+tε，预测xhat，v=(z−xhat)/max(t,.05)，误差等于max(t,.05)^−2加权cleanMSE；t仍用于加噪/积分，不能说整个算法不用时间。",
+    "conclusion": "T5图像按MMMU/MMStar/RW/SEEDI/AI2D/Doc/Chart/Info/Text/OCR/MME/GQA/MMVP/SEED2+/CV/Count/PixMo/V*/MMMUPro/BLINK/Muir为41.67/53.99/71.63/70.39/80.12/90.42/82.96/63.67/78.76/78/1809.54/61.9/80.33/64.51/77.6/94.3/73.03/76.96/27.63/53.46/38.31。计数强但MMMU41.67<BAGEL55.3/Tuna2 50.7、Doc90.42<Qwen94.9、Info63.67<81.7。T6video70.53/57.33/59.61/40.41高于所列Showo/TUNA，VideoMME低于LLaVAOV2 71.9、Qwen71.4，MV低于PLM77.1。T7原GenEval.77→改写.83，低于BAGEL†.88/TUNA.90，原六项.99/.95/.65/.84/.55/.64；改写.98/.95/.72/.92/.71/.72含single下降/2obj持平。DPG85.74低于TUNA86.76/Tuna2 86.54、Showo86.14，Other92.62较高。T8/9 VBenchQS84.10/SS79.80/Total83.24低于TUNA84.32/83.04/84.06、Lance85.14/84.96/85.11；subject95.05低于TUNA95.99、dynamic64.44低于69.39；imaging67.63/temporalstyle25.84/overallconsistency27.9较所列UMM强，不能扩为全指标最佳。",
+    "gap": "31页无独立Limitations节，Conclusion承认专家参数仍分离、p64/t8待研究；官网另列同类实体合并/数量漂移、手部细节、物理交互失败，像素生成未消除latent模型常见错误。F8只短≤96s/source≥4fps实际改变路径：dense4fps≤384frames/τ4，sparse1fps≤96；其余均fallback逐帧/均匀96，对全部样本平均会稀释子集效应。发布GH完整115tree/README及选定源码/profile；未全审attention/dataloader/solver/评测实现，未下载权重/运行。HF模型卡15,199,672,064参数约15.2B；8B MoT是专家/骨干规模，非总参。GH默认F22R05主评测；F18R01另10K480/720p微调但无videoUnd，不能混比。仅四步toy训练/无optimizerstate不能复现六stage全训练。",
+    "problem": "去掉独立预训练ViT/VAE，用原始图像patch与视频tubelet连接同一MoT，支持图像/视频理解和生成，并研究时空patch、输出head、训练规模与视觉条件。真实T2V设置96帧/24FPS/4秒；F7另微调I2V/编辑。无文字笔顺、跨文字书写或绘画事件评测，不能解释为专用书写视频UMM。",
     "claim": "研究目标：能否用简单像素接口共同支持图像/视频理解生成，时间patch和decoder怎样影响训练？",
-    "version": "arXiv2609.38597v1，2026-09-29",
+    "version": "PixelUMM；固定arXiv2609.38597v1（2026-09-29），完整31页，其中核心至p25、参考文献至p31，无独立附录；本批未核实正式会议/期刊接收。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 2. 表示与 tokenizer：信息容量、语义和细节如何共同保留",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-22",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-22",
     "id": "L108",
     "canonical_key": "paper:arxiv:2609.38597",
     "evidence_history": [
@@ -6959,17 +6965,22 @@
         "conclusion": "将 encoder-free 路线扩到视频；仍要考虑时空 token 数与训练成本",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-22",
+        "batch": 123,
+        "scope": "固定v1完整31页，Abstract/§1–5全部核心、Eq1–2及未编号目标、全部T1–9/全部F1–21图注与F1–F8文字；实际PDF p5/7/8/11/13/14/17/19/22/23十页框架/曲线/表已核，其他展示未逐图、参考文献未逐篇，无附录。官网文本/模型链接已读，动态视频未播放。GH e19e91aabb99784f7b5524268ed42ec59c1ad660完整115tree，README/CHECKPOINT/EVAL/TRAIN、F22/F18profiles、regular21contract与GPUtubeify全文，model_factory前115、pixelumm构造/加噪与loss/flow指定片段选读；未全审全部源码/依赖/solver。HF4bb3ce9a112e7e1c7d375b1c5bd64f54d259ecc8模型卡全文/目录摘要；许可证标识仅模型卡/README，非法律文本审查。未下载权重、训练/推理或独立复现。"
       }
     ],
-    "sections_read": "§2.1–2.4、§3.1 F1/F2/F3/F4/F5/F6/F8及F7部分、§3.2主表本作行、§5；PDFp23 Tables8/9视觉核对。F3全部decoder细节/F7案例/全部图、完整源码与主采样未读，未复现",
+    "sections_read": "固定v1完整31页，Abstract/§1–5全部核心、Eq1–2及未编号目标、全部T1–9/全部F1–21图注与F1–F8文字；实际PDF p5/7/8/11/13/14/17/19/22/23十页框架/曲线/表已核，其他展示未逐图、参考文献未逐篇，无附录。官网文本/模型链接已读，动态视频未播放。GH e19e91aabb99784f7b5524268ed42ec59c1ad660完整115tree，README/CHECKPOINT/EVAL/TRAIN、F22/F18profiles、regular21contract与GPUtubeify全文，model_factory前115、pixelumm构造/加噪与loss/flow指定片段选读；未全审全部源码/依赖/solver。HF4bb3ce9a112e7e1c7d375b1c5bd64f54d259ecc8模型卡全文/目录摘要；许可证标识仅模型卡/README，非法律文本审查。未下载权重、训练/推理或独立复现。",
     "review_path": "docs/reviews/L108.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "FineVision、VideoChatFlash、LLaVAVideo178K；生成称公共真实/合成数据，完整名称/量/过滤未见所读正文。理解nativeaspect，主imagegeneration512²、video512²；训练数据跨模型不一致。",
-    "framework": "直接imagepatch16²/video4×16²线性映射，Qwen3-MoT理解/生成两expert，cleanpixel预测/velocityloss；六阶段渐进训练与八组经验实验。",
-    "architecture": "输入分图/视频×理解/生成四线性投影，输出RMSNorm+linear/unpatchify，视觉无独立encoder/VAE。MoT共享attention操作但route-specificQKV/输出proj/norm/FFN；3轴RoPE。未显式timestepembedding，t仍用于噪声/损失/solver；z_t=(1−t)x+tε，v用max(t,.05)分母。",
-    "metrics": "21理解任务LMMS-Eval64750generations；视频QA；GenEval553prompt×4含原提示/重写、DPG1065×4；VBench18维。跨空间MSE不能直接比较收敛质量，步数效率/每任务曝光/墙钟/FLOPs分开。",
-    "baselines": "BAGEL/Tuna/Tuna2/Showo/UniVideo/Lance与专家主表；F1patch16/32、F2时空tubelet、F3linear/conv/PixelShuffle、F4pixel/WanVAE、F5规模、F6分布训练资源、F7条件、F8帧采样。",
-    "experimental_conditions": "六阶段150K/200K/100K/20K/15K/20K，seq60K→80K；AdamWβ.9/.95 eps1e-8 wd0 clip.2，lr前2stage1e-4后2e-5，warm1K；最终lossCE:image:video1:10:30。主视频4s24fps96帧；理解sparse1fps最多96帧，部分dense4fps×4tubelet。采样NFE/CFG/硬件主训练总量待补，F1图为DPM50步CFG3.5。"
+    "dataset": "理解FineVision、VideoChat-Flash集合、LLaVA-Video-178K；生成称public real/synthetic并引[52]ViPE: Video Pose Engine for 3D Geometric Perception（2508.10934）。此引用不能补齐实际生成语料清单，主训练完整生成来源/筛选/各源样本量、text-only来源、总曝光/重合未齐，不能把F6 MidJourney实验当全部主数据。21图像任务LMMS-Eval报告64750次generation；四video tasks主表sparse≤96frames无字幕VideoMME。GenEval553prompt×4，原prompt与BAGEL-long改写分别测；DPG1065×4。VBench使用GPT-enhanced prompt，本作与UniVideo标†，其他未标†不等于未改写。F3另72prompts×4heads=288clips。",
+    "framework": "图像16×16与视频4×16×16 RGB→各任务独立单层线性→Qwen3 MoT；clean图像/视频和text用理解专家，noisy目标用生成专家，每层共同attention运算，Norm/QKV/out/FFN参数仍分专家。无显式timestep/AdaLN，clean x预测转换v-loss和采样；8组F1–F8消融展示时空token化/decoder伪影、规模和条件学习边界。",
+    "architecture": "F3默认线性head保留于发布/主表/非消融展示；卷积和PixelShuffle仅替代head消融，不能写成最终模型已修复网格。图像一个双向块；sparse视频帧内双向、帧间causal；dense segment可为一个双向tubelet块；生成完整noisy目标内双向，前文不回读目标。共享attention不等所有投影权重共享，也不保证生成RGB规范因果动作。RoPE temporal半head/HW各1/4，thetaT1e6/HW1e4。理解FlexAttention，生成two_way两次变长FlashAttention。z_t=(1−t)x+tε，预测xhat，v=(z−xhat)/max(t,.05)，误差等于max(t,.05)^−2加权cleanMSE；t仍用于加噪/积分，不能说整个算法不用时间。",
+    "metrics": "理解21项任务保留原评分尺度，MME为perception+cognition总分，不能当accuracy。图像GenEval六类/overall、DPG五类/overall；视频VBench完整16具名子维度+QS/SS/Total，T8/9拆两表。训练active pixel-flow MSE、CE、preclip梯度norm；F3 float32 preclamp空间边界/非边界与时间tubelet边界/组内差，逐prompt归一后mean±SEM72。仅此SEM不等训练多seedCI；无文字exactmatch、抬笔/笔画事件/书写拓扑/执行指标。",
+    "baselines": "图像BAGEL/TUNA/TUNA2及QwenVL/LLaVA/NEO；视频Showo2/TUNA/Lance和专用VLM；生成FLUX/SD3/QwenImage/Janus/BAGEL/Showo/TUNA/Lance等，视频Wan2.1/Hunyuan/CogVideoX/UniVideo。主表引用原论文分数，各自训练/采帧/参数/改写不同；不能仅按8B标签称等参数公平比较。F1/2同初始化与sequence budget但样本吞吐/linear参数随patch改变；F4还混x/v参数化与目标空间，F7缺等15K继续训练无条件任务对照。",
+    "experimental_conditions": "六stage顺序Joint1/Gen1/Und1/Und2/Und3/Joint2，150K/200K/100K/20K/15K/20K步；两joint训双专家，Gen只gen、三Und只und。lr1e-4前二后2e-5/constant/warm1K/AdamW.9,.95eps1e-8/wd0/clip.2。lossCE/img/video1:10:0/0:10:30/1:0:0/1:0:0/1:0:0/1:10:30；seq60K前三/80K后三；生成256后512，理解image256后native/video224→448。T1各stage text/I2T/T2I/V2T/T2V examples比例.5:1:4:0:0、0:0:1:0:3、1:10:0:0:0、1:5:0:5:0两stage、1:5:11:5:33；非loss权重/非统一归一。shift sqrt(HW/256²)。主globalbatch/总GPU时/型号及主表完整采样CFG/NFE未给，不从demo或toy填。F7额外15K、2e-5/FusedAdam.9,.99eps1e-8、clip.2、CE/img/video1:10:30、visual/textcap60K/32768；8tasks比例1:2:2:2:3:3:2:3，256生成/448videoUnd。"
   },
   {
     "title": "FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities",

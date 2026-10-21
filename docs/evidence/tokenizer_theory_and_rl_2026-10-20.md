@@ -84,3 +84,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百二十二批（2026-10-22）：17帧→5时间位置、动态度/平滑退步，因果mask不推出规范笔顺。见[审查](hydrax_temporal_tokenization_and_editing_audit_2026-10-22.md)、[L107](../reviews/L107.md)。
+
+
+第一百二十三批（2026-10-22）：3072→4096可单射，四帧tubelet不自动推出信息损失；边界平滑需控制模糊。见[审查](pixelumm_xprediction_tubelet_and_protocol_audit_2026-10-22.md)、[L108](../reviews/L108.md)。

@@ -8037,6 +8037,40 @@
         }
       ],
       "boundary": "固定v1完整27页Abstract/§1–7核心、Eq1–7、T1–13全部行、F1–11图注、AppA–G研究全文及AppH文字/图注已读；参考文献未逐篇，H六页展示未逐图。实际PDFp4/5/6/7/8/9/17/19/20/21全部核看，p19F5四例。NeurIPS2026Downloads和官方155676/149164海报标题/作者/摘要/会议信息已核，官方链接OpenReview定位/API403，未读camera-ready/proceedings全文；作者主页与HF论文页作者评论作补充，非模型卡。原HYDRA README发布/模型列表相关选读，不能充X代码审查。未下载权重、执行模型或独立复现。"
+    },
+    {
+      "id": "L108",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "去掉独立预训练ViT/VAE，用原始图像patch与视频tubelet连接同一MoT，支持图像/视频理解和生成，并研究时空patch、输出head、训练规模与视觉条件。真实T2V设置96帧/24FPS/4秒；F7另微调I2V/编辑。无文字笔顺、跨文字书写或绘画事件评测，不能解释为专用书写视频UMM。 双ViT/VAE条件流在相近token分辨率下重复视觉上下文，且改变传统单流VLM训练管线；图像像素UMM已有Tuna2/SenseNova系列，视频生成3DVAE与理解逐帧接口不同。本作研究rawtubelet接口及实际优化/伪影取舍；双流近2倍context限定相近token数，并非所有架构/全系统FLOPs固定2倍。",
+          "evidence": "固定v1全部核心/九表八组实验、十页实际PDF与指定官方发布制品，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "text+clean图像/视频→ChatML时序块/Native3DRoPE→理解专家自回归回答；prompt(+F7clean参考)与noisy图像/视频目标→生成专家→RMSNorm+linear→unpatchify RGB，迭代积分。图像768RGB值/patch，视频3072/tubelet；图示d4096。3Dreshape本身可逆，3072→4096线性在满列秩时可单射，不能把4帧合token直接认作必丢3/4信息。实际p5/7/8/11/13/14/17/19/22/23框架、mask、训练和结果已核。 F3默认线性head保留于发布/主表/非消融展示；卷积和PixelShuffle仅替代head消融，不能写成最终模型已修复网格。图像一个双向块；sparse视频帧内双向、帧间causal；dense segment可为一个双向tubelet块；生成完整noisy目标内双向，前文不回读目标。共享attention不等所有投影权重共享，也不保证生成RGB规范因果动作。RoPE temporal半head/HW各1/4，thetaT1e6/HW1e4。理解FlexAttention，生成two_way两次变长FlashAttention。z_t=(1−t)x+tε，预测xhat，v=(z−xhat)/max(t,.05)，误差等于max(t,.05)^−2加权cleanMSE；t仍用于加噪/积分，不能说整个算法不用时间。",
+          "evidence": "固定v1全部核心/九表八组实验、十页实际PDF与指定官方发布制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "图像16×16与视频4×16×16 RGB→各任务独立单层线性→Qwen3 MoT；clean图像/视频和text用理解专家，noisy目标用生成专家，每层共同attention运算，Norm/QKV/out/FFN参数仍分专家。无显式timestep/AdaLN，clean x预测转换v-loss和采样；8组F1–F8消融展示时空token化/decoder伪影、规模和条件学习边界。 同视觉token分辨率且多参考上下文较长时，单rawconditionstream可避免ViT+VAE重复context；收益需计实际patch数/激活专家/所有NFE，不能由删除VAE推出总算力低。相近数据/时间预算下较细时空patch可减小输出学习难度，卷积邻域可压网格，但会平滑细笔/短事件。p16t4单射可能性说明事件损失需分开追查输入FPS/resize、投影秩及学习/输出，而非由4帧合token直接判必丢失。",
+          "evidence": "固定v1全部核心/九表八组实验、十页实际PDF与指定官方发布制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T5图像按MMMU/MMStar/RW/SEEDI/AI2D/Doc/Chart/Info/Text/OCR/MME/GQA/MMVP/SEED2+/CV/Count/PixMo/V*/MMMUPro/BLINK/Muir为41.67/53.99/71.63/70.39/80.12/90.42/82.96/63.67/78.76/78/1809.54/61.9/80.33/64.51/77.6/94.3/73.03/76.96/27.63/53.46/38.31。计数强但MMMU41.67<BAGEL55.3/Tuna2 50.7、Doc90.42<Qwen94.9、Info63.67<81.7。T6video70.53/57.33/59.61/40.41高于所列Showo/TUNA，VideoMME低于LLaVAOV2 71.9、Qwen71.4，MV低于PLM77.1。T7原GenEval.77→改写.83，低于BAGEL†.88/TUNA.90，原六项.99/.95/.65/.84/.55/.64；改写.98/.95/.72/.92/.71/.72含single下降/2obj持平。DPG85.74低于TUNA86.76/Tuna2 86.54、Showo86.14，Other92.62较高。T8/9 VBenchQS84.10/SS79.80/Total83.24低于TUNA84.32/83.04/84.06、Lance85.14/84.96/85.11；subject95.05低于TUNA95.99、dynamic64.44低于69.39；imaging67.63/temporalstyle25.84/overallconsistency27.9较所列UMM强，不能扩为全指标最佳。 F1p16比p32训练MSE低，p32同seq预算4倍image曝光；F2p32t4/p32t2/p16t4/p32t1约4096/2048/1024/1024像素每token，p32t1loss最低，最终选p16t4为对齐常见视频VAE约定，非最优理论。F3linear133GFLOPs12.6M；Wan2274/18.3M、TSshuffle1279/52.9M、ST747/15.1M，仅head卷积计数，非总模型。Wan边界接近1却更模糊且loss>.05，shuffle约.02；linear空间1.078/时间1.160，TS1.033/1.033、ST1.039/1.037，near1不等动作正确。F4VAE10Kloss4.3倍不能跨空间比学习速度且x/v参数化不同。F5同b256的8B约14Kvs40KMSE.06、10Kvs31KCE.5，为步数非walltime/FLOPs。F6 8→128GPU，CE1约2Kvs17.5K、MSE.065约17Kvs23K，globalbatch/曝光/通信未齐。F7图像9升11降1平，SEEDI−5.41、OCR−.30、V*−1.57，四video在两mode全升；无等15K继续多任务对照不能唯一归视觉条件。F8同Und3第9Kcheckpoint，dense相对sparse +.07/−.22/−.68/0，无训练多seed/显著性；不能称4FPS普遍无用或等价证明。 六stage顺序Joint1/Gen1/Und1/Und2/Und3/Joint2，150K/200K/100K/20K/15K/20K步；两joint训双专家，Gen只gen、三Und只und。lr1e-4前二后2e-5/constant/warm1K/AdamW.9,.95eps1e-8/wd0/clip.2。lossCE/img/video1:10:0/0:10:30/1:0:0/1:0:0/1:0:0/1:10:30；seq60K前三/80K后三；生成256后512，理解image256后native/video224→448。T1各stage text/I2T/T2I/V2T/T2V examples比例.5:1:4:0:0、0:0:1:0:3、1:10:0:0:0、1:5:0:5:0两stage、1:5:11:5:33；非loss权重/非统一归一。shift sqrt(HW/256²)。主globalbatch/总GPU时/型号及主表完整采样CFG/NFE未给，不从demo或toy填。F7额外15K、2e-5/FusedAdam.9,.99eps1e-8、clip.2、CE/img/video1:10:30、visual/textcap60K/32768；8tasks比例1:2:2:2:3:3:2:3，256生成/448videoUnd。",
+          "evidence": "固定v1全部核心/九表八组实验、十页实际PDF与指定官方发布制品，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "31页无独立Limitations节，Conclusion承认专家参数仍分离、p64/t8待研究；官网另列同类实体合并/数量漂移、手部细节、物理交互失败，像素生成未消除latent模型常见错误。F8只短≤96s/source≥4fps实际改变路径：dense4fps≤384frames/τ4，sparse1fps≤96；其余均fallback逐帧/均匀96，对全部样本平均会稀释子集效应。发布GH完整115tree/README及选定源码/profile；未全审attention/dataloader/solver/评测实现，未下载权重/运行。HF模型卡15,199,672,064参数约15.2B；8B MoT是专家/骨干规模，非总参。GH默认F22R05主评测；F18R01另10K480/720p微调但无videoUnd，不能混比。仅四步toy训练/无optimizerstate不能复现六stage全训练。 固定预训/总参和token/样本/FLOPs分别对齐，交叉p×τ×linear/shuffle×CFG，测OCR/笔画拓扑、真实动作/边界谱以及全延迟；边界probe加同模糊度平滑/无运动基线，避免靠模糊取胜。F7加等15K无新条件数据继续训练、只增video监督和冻结专家对照，报告全理解/生成Pareto、多seedCI。F8只在真正切换的≤96s/≥4fps子集及短笔画/逆序最小对照，分FPS×τ×token预算控制，测eventGT/抬笔，报告长clipfallback占比。无t输入补显式t/AdaLN和跨噪声/分辨率分布，核tbar加权。核F22/F18和8B/总参后再公平比较。所有建议未执行，创新须进一步查新。",
+          "evidence": "固定v1全部核心/九表八组实验、十页实际PDF与指定官方发布制品，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定v1完整31页，Abstract/§1–5全部核心、Eq1–2及未编号目标、全部T1–9/全部F1–21图注与F1–F8文字；实际PDF p5/7/8/11/13/14/17/19/22/23十页框架/曲线/表已核，其他展示未逐图、参考文献未逐篇，无附录。官网文本/模型链接已读，动态视频未播放。GH e19e91aabb99784f7b5524268ed42ec59c1ad660完整115tree，README/CHECKPOINT/EVAL/TRAIN、F22/F18profiles、regular21contract与GPUtubeify全文，model_factory前115、pixelumm构造/加噪与loss/flow指定片段选读；未全审全部源码/依赖/solver。HF4bb3ce9a112e7e1c7d375b1c5bd64f54d259ecc8模型卡全文/目录摘要；许可证标识仅模型卡/README，非法律文本审查。未下载权重、训练/推理或独立复现。"
     }
   ]
 }

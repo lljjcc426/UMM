@@ -493,3 +493,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百二十二批（2026-10-22）：T8比例/文字类别、latent→RGB调用、ReconPSNR协议、NFE/CFG/fps与正式版本待核。见[审查](hydrax_temporal_tokenization_and_editing_audit_2026-10-22.md)、[L107](../reviews/L107.md)。
+
+
+第一百二十三批（2026-10-22）：完整生成语料、globalbatch/总预算、主表NFE/CFG、F8子集及正式会场待核。见[审查](pixelumm_xprediction_tubelet_and_protocol_audit_2026-10-22.md)、[L108](../reviews/L108.md)。

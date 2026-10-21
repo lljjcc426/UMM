@@ -1,0 +1,68 @@
+{
+  "id": "L108",
+  "date": "2026-10-22",
+  "fixed_version": "2609.38597v1",
+  "pdf_pages": 31,
+  "all_tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "experimental_families_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "actual_visual_pages": [
+    5,
+    7,
+    8,
+    11,
+    13,
+    14,
+    17,
+    19,
+    22,
+    23
+  ],
+  "github_revision": "e19e91aabb99784f7b5524268ed42ec59c1ad660",
+  "hf_revision": "4bb3ce9a112e7e1c7d375b1c5bd64f54d259ecc8",
+  "hf_card_parameters": 15199672064,
+  "main_checkpoint": "S8-F22-R05",
+  "findings": [
+    "Fourimage/video tasks in rawpixels; no strictstroke/drawingevent evaluation",
+    "Separate experts QKV/FFN; shared attention operation not full parameter unification",
+    "Fourframe3072RGBto4096hidden can be injective; tubelet grouping not automatic information loss",
+    "F3convheads ablation only; released/defaultbenchmark linear heads retain gridartifacts",
+    "F4MSE different spaces/parameterizations not learningspeed",
+    "F5/F6steps-to-loss not walltime/compute efficiency; F6globalbatch/exposure not fully given",
+    "F7image9up11down1tie; allfourvideo benchmarksup both modes; no matched15Kcontinuation control",
+    "F8changedsubset only short highFPS; aggregate4FPS not consistentlybetter than1FPS, no equivalence test",
+    "GenEvalorig.77/rewritten.83 andVBench83.24 belowseveralbaselines; no universalbest",
+    "HFcard15.199B total vs8BMoTexpertscale",
+    "F18additional10KhighresandnoVideoUnd notF22benchmarkcheckpoint",
+    "Publicfoursteptoytraining nooptimizerresume orcompleteoriginalsixstagerecipe"
+  ],
+  "sources": [
+    "https://arxiv.org/abs/2609.38597v1",
+    "https://arxiv.org/html/2609.38597v1",
+    "https://arxiv.org/pdf/2609.38597v1",
+    "https://nv-tlabs.github.io/PixelUMM/",
+    "https://github.com/nv-tlabs/PixelUMM/tree/e19e91aabb99784f7b5524268ed42ec59c1ad660",
+    "https://huggingface.co/nvidia/PixelUMM/tree/4bb3ce9a112e7e1c7d375b1c5bd64f54d259ecc8"
+  ],
+  "downloaded_weights": false,
+  "executed": false,
+  "reproduced": false
+}
