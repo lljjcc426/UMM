@@ -446,3 +446,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百二十批（2026-10-22）：直接像素理解/图像生成/编辑，不能把原TUNA VAE视频归Tuna2。见[审查](tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[L105](../reviews/L105.md)。
+
+
+第一百二十一批（2026-10-22）：保留联合DINO理解encoder、AR表示前缀→像素flow，静态生成非书写过程。见[审查](representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[L106](../reviews/L106.md)。

@@ -475,3 +475,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百二十批（2026-10-22）：等全部预训/FLOPs、mask×预算/规模、重建额外微调、偏好原票与attention干预，未运行。见[审查](../evidence/tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[L105](../reviews/L105.md)。
+
+
+第一百二十一批（2026-10-22）：对VLM-only、匹配容量辅助任务、R条件与共享梯度的等成本协同检验，未执行。见[审查](../evidence/representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[L106](../reviews/L106.md)。

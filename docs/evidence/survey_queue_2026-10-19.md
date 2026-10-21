@@ -449,3 +449,8 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百二十批（2026-10-22）完成L105 Tuna-2固定v2核心/全部六表及八页实际图表，补任务退步、重建额外微调、偏好90.1%和mask/噪声公开默认差异。357目录，229核心/232书面含未通过项，128条未确认核心（含资源）。见[审查](tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_twentieth_changes_2026-10-22.md)。没有删除或模型复现。
+
+
+第一百二十一批（2026-10-22）完成L106 Representation Forcing固定v4核心/三表含五子消融、AppA–C与六页实际PDF；核VLM-only反例、量化伪代码及AR完整成本。357目录，230核心/233书面含未通过项，127条未确认核心（含资源）。见[审查](representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[逐文件说明](one_hundred_twenty_first_changes_2026-10-22.md)。没有删除或模型复现。
+
+追引未完成项：Latent Forcing（2602.11401）、REPA、DINOv3（2508.10104）和SwAV。已在本作参考文献/算法关联中定位；除SwAV归一化函数对照外，未作独立完整精读，不计验收数。BitDance/WeTok等既有追引队列保留。

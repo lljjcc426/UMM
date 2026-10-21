@@ -7969,6 +7969,40 @@
         }
       ],
       "boundary": "固定v2完整21页Abstract/§1–5核心全文、Eq1–4、T1–6全行、F1–7图注；无附录研究节，参考文献未逐篇。实际PDFp1/5/6/7/8/9/10/11全部核看。GH b53594e3完整2142项树过滤定位，root README全文、tuna README相关发布/参数、Tuna2/R模型配置及train/predict副本、patch_embed全文、_wrapper_base全文、jit_utils全文，主模型init/forward/prepare与R视觉/mask路径选读；train.yaml核心、两个lmms适配配置全文与评测shell全文、noneencoder adapter加载/生成路径选读。非全仓代码逐行；HF搜索只作定位线索不证明不存在。未下载权重/运行模型/训练或独立复现。"
+    },
+    {
+      "id": "L106",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "去掉冻结生成VAE后，如何补偿像素UMM难同时学习高层结构/低层渲染的质量下降，并检验生成路径是否改善理解。提出先AR预测自身理解encoder的离散表示，再在同MoT中条件像素flow。实验仅静态图像，作者明确未扩视频/时间模态，没有规范笔顺任务。 固定VAE限制decoder输出范围且训练目标不同，但重建失真不直接构成所有生成质量/GenEval指标的统一上界。无VAE像素训练在作者配方256消融中GenEval.25低于VAE.52，反映此数据/架构/预算下的缺口；不证明任意像素模型或无限预算都失败。理解encoder仍保留且来自预训DINOv3，与无独立视觉tower的Tuna-2有别。",
+          "evidence": "固定v4核心/三表含五子表/AppA–C与六页实际PDF及项目页/SwAV选读，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "训练理解：图像→DINOv3ViT-H+/16→MLP→语言回答。生成训练：GT→EMAencoder→在线量化得到teacher-forced R；序列T/R/P中T和R causal，P图像patch内部双向并读此前T/R。推理：文字→AR生成完整R→文字+R条件噪声patch→25步flow→RGB，生成不用EMAencoder或VAE。16像素patch、2×2pool令每N表示对应4N像素patch；1024²方图按此配置1024R/4096P，AR前缀成本不可忽略。实际PDFp2/5/7/8/9/16核架构、完整主表/消融/算法。 Qwen3-A3B初始化MoT，每token活跃3B不等于总参数3B或全系统3B，完整总量未列。DINOv3理解encoder在alignment冻结，后续解冻；EMAteacher和online prototype更新产生动态分类目标，hard argmax没有通常连续反传路径，不能说flow梯度直接穿过EMA/argmax训练encoder。Eq1 zt=t*x+(1−t)*eps、Eq2 x预测的速度MSE，等价(1−t)^−2加权clean误差；Eq3语言CE+flow+表示CE。R=position2D+identity可学嵌入，无额外crossattention。量化仅为条件前缀，像素另读文字/噪声，不能把它误解成固定VAE的唯一重建瓶颈。",
+          "evidence": "固定v4核心/三表含五子表/AppA–C与六页实际PDF及项目页/SwAV选读，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "把可训练理解encoder的EMA末层归一化前patch特征，经2×2pool和online VQ转K16384的表示token；共享decoder先AR分类预测这些token，它们留在context条件双向像素flow。三类MoT FFN池承载理解/表示预测/像素生成，selfattention共享。量化prototype与表示token的可学identity embedding是不同表，不应混写成直接扩散VQ码本向量。 当理解表示保留可由文字预测的结构、EMA/VQ目标稳定、结构前缀能降低给定文本的像素条件建模难度且额外AR成本可接受，RF可能在有限预算补偿像素生成结构缺口；高语义任务可能优于文档细字。T2对VLM-only的五降表明协同尚未全面成立；结构token raster顺序无规范书写时序意义。离散条件不需要保存所有像素细节，但还需验证局部文本/多语言精度。",
+          "evidence": "固定v4核心/三表含五子表/AppA–C与六页实际PDF及项目页/SwAV选读，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1无改写GenEval.84/DPG84.15；BAGEL.82/85.07、Showo2 .76/86.14、JanusPro .80/84.19，DPG并非UMM最高。加改写GenEval.88与BAGEL†同，六项.98/.95/.88/.87/.92/.70，颜色.87低于无改写.89及BAGEL†.95；非全维度胜。T2 Pixel+RF 54.2/64.8/80.2/53/65.8/90.3/88/81.3，比Pixel六升、Doc−2/Chart−.4；比VAE+RF六升，RW65.8<66.6/Doc88<88.3。关键与VLM-only56.2/65/79.7/56.2/65.8/90.3/89.3/86比较：仅MME+.5，RW/AI2D同，其余五降，不能称联合生成普遍提升理解。VAE+RF比VAE五升三降，MMMU−1.4/AI2D−2.9/Doc−1.7。 T3(a)256 GenEval Pixel.25→RF.76、VAE.52→RF.77；此设置明显缩小缺口，无CI不能当统计等效。T3(b)无指导.25/REPA.43/RF.76，未对齐额外参数/前缀/预算与完整REPA调参，不能独归条件注入。T3(c)无.25/连续.26/离散.76，离散也有AR曝光/分类错误传播，不能推出连续一般必败或高层/低层自动完全解耦。T3(d)K16384 .76/32768 .77只测两点、无误差，不能泛称任意码本鲁棒。T3(e)VLM-only DINOv3在五项中四高于SigLIP2，MMMU56.2<56.3；缺生成比较和等上游预训控制，不能只归预训目标。F4结构改善精选例支持可视化，非结构失真率统计。 三阶段alignment10K只MLP；joint50K≤256全解冻；continue20K≤1024动态NaViT打包，每GPU32768token。AdamWβ.9/.95eps1e-8/wd.1/clip1，warmup后constant，base前两阶段5e-5/第三2.5e-5，新生成参数4×lr。online码本decay.9999/temperature.5/一次SK；推理EMA.9999，top-k值未给，25flowsteps+动态tshift，wrep2/wpix3、文字/R独立drop.1。GPU型号/数目、globalbatch/卡时、flow时间分布/shift公式、各表快照/seed/CI、两条件CFG精确组合未齐；25步不等全推理25次含AR/CFG调用。",
+          "evidence": "固定v4核心/三表含五子表/AppA–C与六页实际PDF及项目页/SwAV选读，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "作者Discussion承认预训LLM初始化与只做静态图像；实际还依赖预训DINOv3，联合解冻不等从零获得所有能力。数据/总成本/统计/细字和推理曝光误差未齐。实际p16算法先softmax(dim1)再softmax(dim0)，与SwAV源码exp后按边际除法迭代的SK不同；单次软平衡及argmax也不保证硬指派均衡。scatter index扩成(BL,K)却src(BL,D)，prototype和计数除法未显式[:,None]，按通常PyTorch语义有维度疑点。属论文伪代码/文字对应问题，未定位本作官方运行实现，不能据此否定实测结果或声称已复现失败。项目页仅论文/展示，无可核代码/权重直链，全球存在性未断言。 同数据曝光/预训资源/总FLOPs、可训练参数/序列/推理预算比较VLM-only、加匹配成本辅助CE、VAE/Pixel×RF，画三任务质量成本Pareto和多seedCI。冻结理解encoder/打乱R/无R条件但保CE/保R条件但屏蔽梯度等拆分辅助学习、条件和共享梯度作用；teacher-forced/预测/扰动R对照量化曝光误差。连续方案统一head容量/维数/噪声/训练与采样调参，并统计R误差传播。先向作者核SK/shape与实际码本更新，再测熵/占用/空簇/跨batch指派稳定；论文伪代码差异不代替运行。匹配原prompt/改写和完整AR+25stepCFG延迟。多语言细字生成/OCR与真实事件视频另测，建议未执行、创新性待追引。",
+          "evidence": "固定v4核心/三表含五子表/AppA–C与六页实际PDF及项目页/SwAV选读，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定v4完整16页Abstract/§1–5核心、Eq1–3、T1/2与T3(a–e)全部行、F1–4图注及实际PDFAppA/B/C全文/Alg1。HTML将附录转成§6/7/8，按实际PDF命名；参考文献未逐篇，F2/F4展示未逐图。实际PDFp2/5/7/8/9/16核架构/训练/主表/全部消融/算法。项目页完整结构与对外链接已核；SwAV官方main_swav.py distributed_sinkhorn353–376选读作算法定义对照，未读全部SwAV，未定位本作官方运行实现。未下载权重/运行模型/独立复现。"
     }
   ]
 }

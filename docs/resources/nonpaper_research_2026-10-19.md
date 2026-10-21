@@ -476,3 +476,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百二十批（2026-10-22）：像素/R配置、JiT噪声/分母截断、模型与评测适配入口已核；完整内部配方/实际权重仍待核。见[审查](../evidence/tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[L105](../reviews/L105.md)。
+
+
+第一百二十一批（2026-10-22）：项目页无已核运行代码/权重直链；SwAV SK函数为算法对照，不当成本作发布。见[审查](../evidence/representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[L106](../reviews/L106.md)。

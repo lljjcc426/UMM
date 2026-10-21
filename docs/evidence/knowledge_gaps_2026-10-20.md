@@ -487,3 +487,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百二十批（2026-10-22）：GPT质量份额90.1%、mask默认与论文规则、重建微调/完整预算和权重定位待核。见[审查](tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[L105](../reviews/L105.md)。
+
+
+第一百二十一批（2026-10-22）：Alg1 nestedsoftmax/shape与实际实现、全数据/成本/CI及top-k/CFG细节待核。见[审查](representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[L106](../reviews/L106.md)。

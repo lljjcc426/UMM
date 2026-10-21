@@ -78,3 +78,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百二十批（2026-10-22）：像素patch非自动无损、加权MSE与分母截断、mask后标签可辨性及额外预训成本。见[审查](tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[L105](../reviews/L105.md)。
+
+
+第一百二十一批（2026-10-22）：SK软边际/硬argmax、跨batch指派与AR曝光误差；VLM-only五降保留。见[审查](representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[L106](../reviews/L106.md)。

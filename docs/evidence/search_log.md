@@ -535,3 +535,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百二十批（2026-10-22）：固定v2六表与八页实际图表、GH b53594e3选读；正式会场与可验证官方权重链接未核。见[审查](tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[L105](../reviews/L105.md)。
+
+
+第一百二十一批（2026-10-22）：固定v4/实际PDFAppA–C、项目页外链与SwAV函数选读；会场/运行代码未核。见[审查](representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[L106](../reviews/L106.md)。
