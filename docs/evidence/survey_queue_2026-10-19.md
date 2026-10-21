@@ -374,3 +374,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第九十五批追引待精读：AutoConverter/VMCBench（CVPR2025，官方摘要9018题）及ObjectMLLM（ICCV2025，六视频QA/有公开代码模型），见本批审查末尾的官方入口。已确认主目录尚无这两标题；待完整原文/制品核查后补录，不算已完成核心。
+
+
+第九十六批（2026-10-21）追引新增G042 AutoConverter/VMCBench和G043 ObjectMLLM正式核心/指定附录、实际图表与固定发布，补正L053的9450筛查前含义、L054的既有画框/标注实验边界。356目录、193核心/196书面含未通过项，163条未确认核心。见[审查](autoconverter_objectmllm_benchmark_and_coordinate_audit_2026-10-21.md)、[逐文件说明](ninety_sixth_changes_2026-10-21.md)。无删除/模型复现。

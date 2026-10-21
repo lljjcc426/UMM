@@ -371,3 +371,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第九十五批（2026-10-21）：静态query排版服务VQA与已观测轨迹服务视频QA，未做视频/笔顺生成；分表示与额外信息。见[审查](timage_boxtuning_input_prompts_and_evidence_audit_2026-10-21.md)、[L053](../reviews/L053.md)、[L054](../reviews/L054.md)。
+
+
+第九十六批（2026-10-21）：MC基准造题与视频坐标理解单列，六QA含原3D姿态，不归为视频/笔顺生成。见[审查](autoconverter_objectmllm_benchmark_and_coordinate_audit_2026-10-21.md)、[G042](../reviews/G042.md)、[G043](../reviews/G043.md)。

@@ -400,3 +400,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第九十五批（2026-10-21）：等K/辅助先验排版对照、等信息与等context轨迹对照，motion反事实/上游误差及强底座多seed；未运行。见[审查](../evidence/timage_boxtuning_input_prompts_and_evidence_audit_2026-10-21.md)、[L053](../reviews/L053.md)、[L054](../reviews/L054.md)。
+
+
+第九十六批（2026-10-21）：等调用/独立盲审造题；同感知和曝光的坐标/投影/画框/legend/轨迹，ID时序与漏检干预、总成本；未运行。见[审查](../evidence/autoconverter_objectmllm_benchmark_and_coordinate_audit_2026-10-21.md)、[G042](../reviews/G042.md)、[G043](../reviews/G043.md)。

@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-21",
+  "artifacts": [
+    {
+      "id": "G042",
+      "paper": "CVPR2025 formal11p core and24p supplement proseA-C/p1-2 plus selected references/tables; not all galleries/prompts",
+      "github_revision": "4b918c60e0b38f9354a1dabd18f69fe8687d8c3e",
+      "github_tree_blobs": 5,
+      "hf_revision": "ac748b6f2a4454900477721f2bc9077f55c7c21f",
+      "sources": [
+        "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_Automated_Generation_of_Challenging_Multiple-Choice_Questions_for_Vision_Language_Model_CVPR_2025_paper.html",
+        "https://openaccess.thecvf.com/content/CVPR2025/papers/Zhang_Automated_Generation_of_Challenging_Multiple-Choice_Questions_for_Vision_Language_Model_CVPR_2025_paper.pdf",
+        "https://openaccess.thecvf.com/content/CVPR2025/supplemental/Zhang_Automated_Generation_of_CVPR_2025_supplemental.pdf",
+        "https://arxiv.org/abs/2501.03225",
+        "https://github.com/yuhui-zh15/AutoConverter/tree/4b918c60e0b38f9354a1dabd18f69fe8687d8c3e",
+        "https://huggingface.co/datasets/suyc21/VMCBench/tree/ac748b6f2a4454900477721f2bc9077f55c7c21f"
+      ],
+      "findings": [
+        "9450 initial->9018 retained,1000dev/8018test;2400 humans checked not all9018;8151score5only1101sampled",
+        "Highest score is not guaranteed valid;95percent highscore correctness vs97percent in3dataset comparison have different scopes",
+        "Paper threshold<4,max3refinements;fixed Gradio alwaysonecorrectnessrefinement if enabled and no threshold/loop",
+        "gpt-4o alias unpinned;temperature0commented;randomseed1234doesnotseed remoteAPI",
+        "Formal33models vsREADME28;formalT1 Qwen72B85.0/GPT80.3 vs suppC1 bestGPT80.6 version discrepancy retained",
+        "NoRefinerharder37.8butcorrectness4.28 vsfull40.7/4.69;difficulty alone notquality",
+        "HF MIT tag and GHMITbadge;noLICENSEblob in5filetree;20upstream dataset terms not audited",
+        "HFdatafilesabout867MBnotdownloaded;no APIrequests/models or benchmark replication"
+      ]
+    },
+    {
+      "id": "G043",
+      "paper": "ICCV2025formal10p core,10p supplementA-F prose/tablesA1-11;selectedvisuals,not allgallery",
+      "github_revision": "4d04960f41b92675d46ce9b7ca377e74614e0311",
+      "github_tree_blobs": 95,
+      "sources": [
+        "https://openaccess.thecvf.com/content/ICCV2025/html/Tang_How_Can_Objects_Help_Video-Language_Understanding_ICCV_2025_paper.html",
+        "https://openaccess.thecvf.com/content/ICCV2025/papers/Tang_How_Can_Objects_Help_Video-Language_Understanding_ICCV_2025_paper.pdf",
+        "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Tang_How_Can_Objects_ICCV_2025_supplemental.pdf",
+        "https://arxiv.org/abs/2504.07454",
+        "https://github.com/brown-palm/ObjectMLLM/tree/4d04960f41b92675d46ce9b7ca377e74614e0311"
+      ],
+      "findings": [
+        "YOLO-World perbenchmark fine-tuned on train box annotations;not zero-label perception",
+        "Boxtext integers0-100 vscontinuous0-1projector;originaltiming/objectlabels retained",
+        "Paperprojectorzero initialized,A2 random->zero42.8->64.9;publicptest_box_projector.sh doesnotpass--zero_init,parserFalse;noassumption howreleased weights trained",
+        "PTest textual script max_seq1200vsprojector700;b1accum8gpus8effective64;blr.09scalesto.0225;AdamWbeta.9,.95/wd.14",
+        "Current data loader reads cachedbbox_textual/projectorJSON;quantization/1k budget and perception generation not fully reproducible from readloader alone",
+        "CurrentVideoLLaMA2 PTestscript16F/336tower/LoRAr128alpha256/dropdefault.05/AdamWlr2e-5/wd0/warm.03/cosine/epochs10/bglobal128/local4/context2048;llama2conversation config distinct fromMistral base ID",
+        "LLaMA3 trainable gates/adapters/mmprojs;doesnotunfreeze wholeLLM;default32adapterlayers/10queries,not LoRA in thisbranch",
+        "A9 annotation comparison also retrains and changes object selection;STAR question graph prior acknowledged",
+        "Spatialfree caption also changes generator and forbids specificobjects;not isolated spatialcausal effect",
+        "A10 fixedcolor visualboxes59.7 vscontinuous60.1/text63.5 already explored beforeBoxTuning",
+        "README GoogleDrive archives/checkpoints linked;not downloaded or validated;MITcode not fullstack model/data license",
+        "Noall95fileaudit,training/inference/timing/reproduction"
+      ]
+    }
+  ],
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "executed": false
+}

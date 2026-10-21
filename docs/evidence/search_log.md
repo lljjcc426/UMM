@@ -460,3 +460,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第九十五批（2026-10-21）：固定两v1完整PDF、实际框架/主表/消融，BoxNeurIPS官方149433/固定GH及两项基准追引。见[审查](timage_boxtuning_input_prompts_and_evidence_audit_2026-10-21.md)、[L053](../reviews/L053.md)、[L054](../reviews/L054.md)。
+
+
+第九十六批（2026-10-21）：由Timage/BoxTuning直接基准追引CVPR2025 AutoConverter及ICCV2025 ObjectMLLM；正式PDF/supp均完整取得，Web工具CVF403由curl读取；固定GH/HF，不下载大数据。见[审查](autoconverter_objectmllm_benchmark_and_coordinate_audit_2026-10-21.md)、[G042](../reviews/G042.md)、[G043](../reviews/G043.md)。

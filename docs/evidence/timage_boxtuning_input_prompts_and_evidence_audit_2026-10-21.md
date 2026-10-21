@@ -19,7 +19,7 @@ Timage生成的是静态图中的query排版，以理解准确率为目标；Box
 | 原文可核事实 | 审查结论/仍需证据 |
 | --- | --- |
 | §3.4模块100epochs/16H20/b128/AdamWlr1e-4/wd.01/cosine；§4称training-free，T2 TrainingNo | MLLM冻结有依据；整方法无需训练与该训练段冲突，训练数据/拆分也未交代 |
-| Timage称VMCBench9450题；所引[CVPR2025 AutoConverter官方入口](https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_Automated_Generation_of_Challenging_Multiple-Choice_Questions_for_Vision_Language_Model_CVPR_2025_paper.html)报告9018题 | 待补版本、样本ID、新增432题来源；未把两个数量强行统一 |
+| Timage称VMCBench9450题；所引[CVPR2025 AutoConverter官方入口](https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_Automated_Generation_of_Challenging_Multiple-Choice_Questions_for_Vision_Language_Model_CVPR_2025_paper.html)报告9018题 | 第九十六批原文追引已明确9450为筛查前、9018为最终发布；仍待Timage使用阶段、样本ID与清洗/隔离协议，不能据此认定新增432题 |
 | T1 Base79.1→87.7；四类差值5.7/7.6/3.2/6.1 | 若Overall为同层四类分数固定非负权重均值，差值须≤7.6，8.6不满足；不同层级聚合需明确脚本/权重，暂不判定成因 |
 | T2 FullFT Reasoning75.1，本作75.8 | 差.7个百分点，正文1.6不对应此对照；后者对应LoRA74.2 |
 | T3 79.1→81.6→84.6→86→87.7 | semantic2.5/mask3/style1.4/ensemble1.7；文字最后2.2有误，style1.4与表一致 |
@@ -53,3 +53,6 @@ Timage先公开训练/测试ID、所有方法逐题输出与聚合，核总分�
 Timage的where/how→energy→dynamics、BoxTuning的获取→渲染→图例→训练组织方式清楚。科研写作应使每个Claim对应具体分布/指标/预算，算力包含外部模块，理论可行性与经验优势分别证明。表文矛盾、少量负迁移与原配方未知项直接保留，不能为叙事完整而补造。
 
 本批追引确认了尚需完整纳入的两项原始工作：[AutoConverter/VMCBench（CVPR2025）](https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_Automated_Generation_of_Challenging_Multiple-Choice_Questions_for_Vision_Language_Model_CVPR_2025_paper.html)、[ObjectMLLM（ICCV2025）](https://openaccess.thecvf.com/content/ICCV2025/html/Tang_How_Can_Objects_Help_Video-Language_Understanding_ICCV_2025_paper.html)。本批仅核其官方摘要/书目和关联，不宣称完成它们的原文精读。
+
+
+第九十六批订正：原VMCBench正式§5已说明9450为转换/清洗前、9018为最终保留（dev1000/test8018），因此前文数量疑点现收窄为Timage使用阶段、题目ID和清洗/隔离协议，不能断言新加432题。ObjectMLLM正式suppD/F已有标注框重训对照、固定颜色画框负尝试，BoxTuning新颖性需据此界定。详见[追引审查](autoconverter_objectmllm_benchmark_and_coordinate_audit_2026-10-21.md)。

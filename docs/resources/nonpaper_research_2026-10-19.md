@@ -401,3 +401,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第九十五批（2026-10-21）：Box固定GH仅README，新增延迟/FLOPs/动态显存作者报告，代码/CR待发布；Timage有限检索未确认实现。见[审查](../evidence/timage_boxtuning_input_prompts_and_evidence_audit_2026-10-21.md)、[L053](../reviews/L053.md)、[L054](../reviews/L054.md)。
+
+
+第九十六批（2026-10-21）：GH AutoConverter5blob与ObjectMLLM95blob、固定HF VMCBench dev/test、单题API实现/训练参数、未下载GoogleDrive制品和许可边界。见[审查](../evidence/autoconverter_objectmllm_benchmark_and_coordinate_audit_2026-10-21.md)、[G042](../reviews/G042.md)、[G043](../reviews/G043.md)。

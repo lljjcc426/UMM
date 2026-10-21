@@ -3729,11 +3729,16 @@
       "https://arxiv.org/abs/2606.19944v1",
       "https://arxiv.org/pdf/2606.19944v1",
       "https://arxiv.org/html/2606.19944v1",
-      "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_Automated_Generation_of_Challenging_Multiple-Choice_Questions_for_Vision_Language_Model_CVPR_2025_paper.html"
+      "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_Automated_Generation_of_Challenging_Multiple-Choice_Questions_for_Vision_Language_Model_CVPR_2025_paper.html",
+      "https://openaccess.thecvf.com/content/CVPR2025/papers/Zhang_Automated_Generation_of_Challenging_Multiple-Choice_Questions_for_Vision_Language_Model_CVPR_2025_paper.pdf",
+      "https://openaccess.thecvf.com/content/CVPR2025/supplemental/Zhang_Automated_Generation_of_CVPR_2025_supplemental.pdf",
+      "https://arxiv.org/abs/2501.03225",
+      "https://github.com/yuhui-zh15/AutoConverter/tree/4b918c60e0b38f9354a1dabd18f69fe8687d8c3e",
+      "https://huggingface.co/datasets/suyc21/VMCBench/tree/ac748b6f2a4454900477721f2bc9077f55c7c21f"
     ],
     "method": "以query相关Hq和object/saliency生成可写mask；区域能量负∫αHq、hard约束supportα⊂Mcand，样式用ink预算及平滑。区域/外观两阶段所谓cSB，以条件drift SDE及投影EulerMaruyama采样；用Langevin伪目标的直线velocity MSE和冻结MLLM任务NLL/STE训练外部网络，K5投票。 外部vθ接μt/Fourier时间/条件，文本特征经crossattention，骨干示例Qwen2.5VL7B，mask例MaskRCNN。未给drift网络层数/hidden/精确参数、热图抽取层/heads、segmenter/saliency权重/阈值、渲染器和字体词表；不能用通用UNet/SD结构补填。Eq5随机drift、Eq6投影、Eq7直线FM、Eq8作者称任务NLL；未在核心建立其与路径KL最优SchrodingerBridge的对应证明，也不保证MLLM答对。",
     "conclusion": "作者T1称Avg87.7 vsBase79.1/FullFT85.2/GPT4o80.3，四类91.3/75.8/98.5/92.6；均作为未复现且协议未明的报告值。T4 LLaVA51.8→57.4、Qwen2VL78.1→83.9、InternVL72.5→78.3、Qwen2.5VL79.1→87.7、Qwen3 87.3→92.1；同模块迁移/每骨干再训练未说明。T2vsFullFT Reasoning75.8−75.1=.7，不是正文1.6；Doc92.6−92.3=.3。基准规模/聚合/训练与K预算未解决前，不将“超过大模型/全参SOTA”作为确证结论。",
-    "gap": "§5作者Limitations是字形不完整/低对比透明度，并称少影响准确率，未给该失败比例。额外审查问题为训练free矛盾、训练/测试隔离与9018/9450、Avg聚合/差值、外部辅助模型和5vote成本未明。hard projection最多约束估计mask内布局；漏分割、可写面积和实际渲染/识读误差未由投影消除，不能保证真实前景无遮挡或答案正确。符号μ0=δ被称noiseprior但未充分定义，Eq8概率事件也需标准条件NLL/可反传实现说明。未找到可确认官方代码入口，GitHub79个同名结果非本作证据；未宣称全网不存在。",
+    "gap": "§5作者Limitations是字形不完整/低对比透明度，并称少影响准确率，未给该失败比例。额外审查问题为训练free矛盾、训练/测试隔离与筛查前9450/发布9018使用阶段、Avg聚合/差值、外部辅助模型和5vote成本未明。hard projection最多约束估计mask内布局；漏分割、可写面积和实际渲染/识读误差未由投影消除，不能保证真实前景无遮挡或答案正确。符号μ0=δ被称noiseprior但未充分定义，Eq8概率事件也需标准条件NLL/可反传实现说明。未找到可确认官方代码入口，GitHub79个同名结果非本作证据；未宣称全网不存在。",
     "problem": "把用户问题排版到原图的合适区域，以冻结VLM做静态图VQA/空间推理。生成对象是query overlay的区域/字体/颜色，不是自由内容文生图或文字视频，更无书写笔画事件生成。目标是理解准确率而非文字渲染benchmark。",
     "claim": "作者研究目标：将问题文字放到图中合适位置，提升冻结VLM的空间语义问答。",
     "version": "Timage: A Generative Text-in-Image Paradigm for Fine-Tuning Vision-Language Models；arXiv2606.19944v1，2026-06-18，完整16页PDF。arXiv comments写ECCV，本次未独立核实正式录用或正式PDF，保留预印身份。",
@@ -3784,10 +3789,10 @@
         "scope": "固定2606.19944v1完整16页PDF+完整HTML核心Abstract/§1–6、Eq1–8、T1–4/F1–5说明，实际p5F2/p7Eq5–7/p9T1/p10T2及正文差值/p11T3/F3/p12T4/F4–5。未逐篇参考文献；引用VMCBench CVPR官方入口摘要交叉确认9018题，不冒充该作全文。未取得所称Langevin补充、官方实现/训练数据；GitHub同名100条页取79结果的检索有限，无权重/数据下载/模型执行。"
       }
     ],
-    "sections_read": "固定2606.19944v1完整16页PDF+完整HTML核心Abstract/§1–6、Eq1–8、T1–4/F1–5说明，实际p5F2/p7Eq5–7/p9T1/p10T2及正文差值/p11T3/F3/p12T4/F4–5。未逐篇参考文献；引用VMCBench CVPR官方入口摘要交叉确认9018题，不冒充该作全文。未取得所称Langevin补充、官方实现/训练数据；GitHub同名100条页取79结果的检索有限，无权重/数据下载/模型执行。",
+    "sections_read": "固定2606.19944v1完整16页PDF+完整HTML核心Abstract/§1–6、Eq1–8、T1–4/F1–5说明，实际p5F2/p7Eq5–7/p9T1/p10T2及正文差值/p11T3/F3/p12T4/F4–5。未逐篇参考文献；引用VMCBench CVPR官方入口摘要交叉确认9018题，不冒充该作全文。未取得所称Langevin补充、官方实现/训练数据；GitHub同名100条页取79结果的检索有限，无权重/数据下载/模型执行。 第九十六批追引G042正式§5与HF split，补正9450为筛查前数量。",
     "review_path": "docs/reviews/L053.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "作者称VMCBench20个VQA集/9450题/四类，例VQAv2/MathVista/DocVQA。其所引原论文CVPR2025 AutoConverter/VMCBench官方入口摘要为9018题，两者差异未解释，未给新增432题来源或精确eval ID/split。模块100epochs训练使用的监督集/伪目标数量、split/测试隔离未披露，无法从frozen backbone或zero-shot措辞排除训练数据交叠。",
+    "dataset": "作者称VMCBench20个VQA集/9450题/四类。第九十六批追读原CVPR2025 G042 §5确认9450是转换筛查前数量，最终去已识别错题后9018，dev1000/test8018；HF固定卡亦同。Timage未给所用阶段、精确eval ID/split与是否保留错题，不能仅凭9450认定新增432题。模块100epochs训练监督集/伪目标数、split/测试隔离仍未披露，frozen backbone不足排除交叠。",
     "framework": "以query相关Hq和object/saliency生成可写mask；区域能量负∫αHq、hard约束supportα⊂Mcand，样式用ink预算及平滑。区域/外观两阶段所谓cSB，以条件drift SDE及投影EulerMaruyama采样；用Langevin伪目标的直线velocity MSE和冻结MLLM任务NLL/STE训练外部网络，K5投票。",
     "architecture": "外部vθ接μt/Fourier时间/条件，文本特征经crossattention，骨干示例Qwen2.5VL7B，mask例MaskRCNN。未给drift网络层数/hidden/精确参数、热图抽取层/heads、segmenter/saliency权重/阈值、渲染器和字体词表；不能用通用UNet/SD结构补填。Eq5随机drift、Eq6投影、Eq7直线FM、Eq8作者称任务NLL；未在核心建立其与路径KL最优SchrodingerBridge的对应证明，也不保证MLLM答对。",
     "metrics": "multiplechoice Accuracy、General/Reasoning/OCR/Doc&Chart及Avg；T1四类差值5.7/7.6/3.2/6.1，而总分79.1→87.7为8.6。若Avg是四类同层accuracy的固定非负加权平均，差值必须在3.2–7.6之间，现值不满足；若采用不同层级宏微聚合需明确权重/脚本，暂不认定具体原因。F4另画trainableparams/extraGFLOPs/extrainferencetime，无完整测量协议。无字形OCR生成质量、视频或笔顺指标。",
@@ -3802,11 +3807,16 @@
       "https://neurips.cc/Downloads/2026",
       "https://neurips.cc/virtual/2026/poster/149433",
       "https://openreview.net/forum?id=q6gwQDgllS",
-      "https://github.com/zekunqian/BoxTuning/tree/b722eb7d571e9f1a5e3ef02b3314b117d4c11e91"
+      "https://github.com/zekunqian/BoxTuning/tree/b722eb7d571e9f1a5e3ef02b3314b117d4c11e91",
+      "https://openaccess.thecvf.com/content/ICCV2025/html/Tang_How_Can_Objects_Help_Video-Language_Understanding_ICCV_2025_paper.html",
+      "https://openaccess.thecvf.com/content/ICCV2025/papers/Tang_How_Can_Objects_Help_Video-Language_Understanding_ICCV_2025_paper.pdf",
+      "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Tang_How_Can_Objects_ICCV_2025_supplemental.pdf",
+      "https://arxiv.org/abs/2504.07454",
+      "https://github.com/brown-palm/ObjectMLLM/tree/4d04960f41b92675d46ce9b7ca377e74614e0311"
     ],
     "method": "YOLOWorld开放词检测+SAM2跨全帧跟踪，32色一致ID的box及近L原始帧中心trail绘在16个抽样关键帧，图例关联color与类别。冻结VideoLLaMA2视觉encoder，全调STCconnector和Mistral7B的q/v LoRA，用Answer nexttoken CE学习解释视觉标记，原文含宽度/长度/图例消融。 VideoLLaMA2-7B由冻结CLIPViTL14、全参STC时空卷积connector及Mistral7B构成；LoRA仅LLMquery/value rank128/alpha256/drop.05，connector另有训练参数。palette32色、box3px/trail2px，L=floor(Tvideo/16)。Eq2列t−L…t−1最近历史，正文称覆盖到下一帧的gap，past/future方向与边界需代码核实；不是已有规范笔画因果时间保证。",
     "conclusion": "T2 text coord→legend CLEVRER611→61/Perc1241→120/STAR761→96/NExT1184→77/Intent1204→85，作者均值1000→88/降90.8%。T3Box78.5/67.2/67.7/79.7/76.5 vsObj77.6/66.6/67.2/78.5/75.5；本作相对base67.9/66/66.5/79.8/76.7为+10.6/+1.2/+1.2/−.1/−.2百分点，NExT/Intent仍低于base。不写全任务无损或所有增益统计显著。README另报.525→.3465s/1.52×、FLOPs−30.2%/动态显存−37.8%，是新公开作者报告，原协议待核。",
-    "gap": "v1§1–5/完整17页无独立Limitations段，也未见将上游误差/密集多框列为作者局限的文字，不能照搬示例归因作者。审查问题：YOLO漏检/SAM2漂移/ID-switch、32色密集遮挡，polyline栅格化不保每点时间/遮挡细节，lossless temporal resolution缺信息可逆性证据；trail speed/direction可提供代理线索，不保证完整真实运动理解。tokenoverflow解释无实际截断统计/扩context对照。正式修订版未取得；README纯资源声明不等代码实现/可复现模型。",
+    "gap": "v1§1–5/完整17页无独立Limitations段，也未见将上游误差/密集多框列为作者局限的文字，不能照搬示例归因作者。审查问题：YOLO漏检/SAM2漂移/ID-switch、32色密集遮挡，polyline栅格化不保每点时间/遮挡细节，lossless temporal resolution缺信息可逆性证据；trail speed/direction可提供代理线索，不保证完整真实运动理解。tokenoverflow解释无实际截断统计/扩context对照。正式修订版未取得；README纯资源声明不等代码实现/可复现模型。 第九十六批追读G043正式suppD/F：ObjectMLLM已有annotation-vs-track重训对照及固定颜色画框负结果；BoxTuning应与其区分底座、感知训练、caption/坐标/轨迹和预算，不能声称前人未尝试画框。该证据不代替BoxTuning自身误差/密度实验。",
     "problem": "用目标框/稠密轨迹视觉标记改善视频多选QA，并减少ObjectMLLM文本坐标开销。输入视频+外部检测跟踪+图例+问题，输出答案文字；不生成视频、笔画或动作。其轨迹是被观测物体中心，不是书写笔顺真值。",
     "claim": "作者研究目标：用固定视觉token预算把对象框和帧间轨迹传给视频QA模型，减少坐标文字token。",
     "version": "BoxTuning；正式NeurIPS2026官方poster149433/Downloads条目核实，现标题Object-Aware Visual Prompting for Multimodal Model Fine-Tuning。实际读旧标题Directly Injecting the Object Box…的arXiv2604.11136v1（2026-04-13，17页），正式OpenReviewq6gwQDgllS PDF403未读，不能把新README实验回填旧文。",
@@ -3857,7 +3867,7 @@
         "scope": "固定2604.11136v1完整17页PDF+HTML Abstract/§1–5、Eq1–4/T1–7，实际p7F2/p8F3/p12T2–3/p13T4/p14T5–7；未逐篇参考文献。正式NeurIPS2026Downloads与poster149433原HTML核标题/作者/摘要和OpenReviewq6gwQDgllS入口，PDF403未读修订全文。GHb722eb7完整树仅1blob及README全文，camera-ready/code待发布/新效率数字；无代码、模型权重或数据媒体下载/运行。"
       }
     ],
-    "sections_read": "固定2604.11136v1完整17页PDF+HTML Abstract/§1–5、Eq1–4/T1–7，实际p7F2/p8F3/p12T2–3/p13T4/p14T5–7；未逐篇参考文献。正式NeurIPS2026Downloads与poster149433原HTML核标题/作者/摘要和OpenReviewq6gwQDgllS入口，PDF403未读修订全文。GHb722eb7完整树仅1blob及README全文，camera-ready/code待发布/新效率数字；无代码、模型权重或数据媒体下载/运行。",
+    "sections_read": "固定2604.11136v1完整17页PDF+HTML Abstract/§1–5、Eq1–4/T1–7，实际p7F2/p8F3/p12T2–3/p13T4/p14T5–7；未逐篇参考文献。正式NeurIPS2026Downloads与poster149433原HTML核标题/作者/摘要和OpenReviewq6gwQDgllS入口，PDF403未读修订全文。GHb722eb7完整树仅1blob及README全文，camera-ready/code待发布/新效率数字；无代码、模型权重或数据媒体下载/运行。 第九十六批追引ObjectMLLM正式suppA–F与固定代码，补充既有画框/标注对照。",
     "review_path": "docs/reviews/L054.md",
     "review_depth": "critical_sections_reviewed",
     "dataset": "五集CLEVRER-MC采用MVBench转换、PerceptionTest、STAR、NExTQA、IntentQA；称沿用ObjectMLLM split/protocol，v1未给各集确切训练数/epoch/样本清单。检测类别词表针对benchmark设置，额外语义先验需列出；主baseline数据来自ObjectMLLM论文引用，非本作全部重跑。视频原始帧率/编码、全部检测键帧清单/漏检率/ID-switch及色数超32策略未披露。",

@@ -6638,11 +6638,11 @@
         },
         {
           "criterion": "提出两个有依据的问题和验证方案",
-          "answer": "§5作者Limitations是字形不完整/低对比透明度，并称少影响准确率，未给该失败比例。额外审查问题为训练free矛盾、训练/测试隔离与9018/9450、Avg聚合/差值、外部辅助模型和5vote成本未明。hard projection最多约束估计mask内布局；漏分割、可写面积和实际渲染/识读误差未由投影消除，不能保证真实前景无遮挡或答案正确。符号μ0=δ被称noiseprior但未充分定义，Eq8概率事件也需标准条件NLL/可反传实现说明。未找到可确认官方代码入口，GitHub79个同名结果非本作证据；未宣称全网不存在。 先公开9018/9450逐题ID、训练/验证拆分、每题各方法预测及macro/micro聚合脚本，核T1/2/3差值与样本一致；冻结同骨干/data与推理budgetK1/5，比较同Hq/mask的简单栅格/梯度/Langevin排版、投影FM、作者cSB，另做无文字/乱文字/语义错配。记录外部模型/训练/总延迟显存和OCR可读性、mask误差分层；独立多seed/heldout语言字体。证明SB对应所需路径目标或收窄Claim，完整代码先复核Eq8与STE。均未运行。",
+          "answer": "§5作者Limitations是字形不完整/低对比透明度，并称少影响准确率，未给该失败比例。额外审查问题为训练free矛盾、训练/测试隔离与筛查前9450/发布9018使用阶段、Avg聚合/差值、外部辅助模型和5vote成本未明。hard projection最多约束估计mask内布局；漏分割、可写面积和实际渲染/识读误差未由投影消除，不能保证真实前景无遮挡或答案正确。符号μ0=δ被称noiseprior但未充分定义，Eq8概率事件也需标准条件NLL/可反传实现说明。未找到可确认官方代码入口，GitHub79个同名结果非本作证据；未宣称全网不存在。 先公开筛查前9450/发布9018使用阶段及逐题ID、训练/验证拆分、每题各方法预测及macro/micro聚合脚本，核T1/2/3差值与样本一致；冻结同骨干/data与推理budgetK1/5，比较同Hq/mask的简单栅格/梯度/Langevin排版、投影FM、作者cSB，另做无文字/乱文字/语义错配。记录外部模型/训练/总延迟显存和OCR可读性、mask误差分层；独立多seed/heldout语言字体。证明SB对应所需路径目标或收窄Claim，完整代码先复核Eq8与STE。均未运行。",
           "evidence": "固定v1完整核心/实际框架主表消融、来源交叉核查；正式书目与所读版本分开，结论争议保留，非口试/独立复现"
         }
       ],
-      "boundary": "固定2606.19944v1完整16页PDF+完整HTML核心Abstract/§1–6、Eq1–8、T1–4/F1–5说明，实际p5F2/p7Eq5–7/p9T1/p10T2及正文差值/p11T3/F3/p12T4/F4–5。未逐篇参考文献；引用VMCBench CVPR官方入口摘要交叉确认9018题，不冒充该作全文。未取得所称Langevin补充、官方实现/训练数据；GitHub同名100条页取79结果的检索有限，无权重/数据下载/模型执行。"
+      "boundary": "固定2606.19944v1完整16页PDF+完整HTML核心Abstract/§1–6、Eq1–8、T1–4/F1–5说明，实际p5F2/p7Eq5–7/p9T1/p10T2及正文差值/p11T3/F3/p12T4/F4–5。未逐篇参考文献；引用VMCBench CVPR官方入口摘要交叉确认9018题，不冒充该作全文。未取得所称Langevin补充、官方实现/训练数据；GitHub同名100条页取79结果的检索有限，无权重/数据下载/模型执行。 第九十六批追引G042正式§5与HF split，补正9450为筛查前数量。"
     },
     {
       "id": "L054",
@@ -6672,11 +6672,79 @@
         },
         {
           "criterion": "提出两个有依据的问题和验证方案",
-          "answer": "v1§1–5/完整17页无独立Limitations段，也未见将上游误差/密集多框列为作者局限的文字，不能照搬示例归因作者。审查问题：YOLO漏检/SAM2漂移/ID-switch、32色密集遮挡，polyline栅格化不保每点时间/遮挡细节，lossless temporal resolution缺信息可逆性证据；trail speed/direction可提供代理线索，不保证完整真实运动理解。tokenoverflow解释无实际截断统计/扩context对照。正式修订版未取得；README纯资源声明不等代码实现/可复现模型。 固定同检测/跟踪和dense样本，分等信息量/等context预算两套对照：紧凑坐标、带timestamp点/箭头/衰减trail、box/legend、ROI特征；K/帧/分辨率及总参数训练曝光匹配。主动置换/反转轨迹、同终态异时序、错color类别/随机框，测是否依赖真实motion。按miss/IDswitch/物体数/遮挡/32色冲突分层，测新底座与多seed。把预处理/检测/跟踪/渲染/LLM分段计时显存，并报truncate日志与扩大context对照；规范笔顺需事件监督。未运行。",
+          "answer": "v1§1–5/完整17页无独立Limitations段，也未见将上游误差/密集多框列为作者局限的文字，不能照搬示例归因作者。审查问题：YOLO漏检/SAM2漂移/ID-switch、32色密集遮挡，polyline栅格化不保每点时间/遮挡细节，lossless temporal resolution缺信息可逆性证据；trail speed/direction可提供代理线索，不保证完整真实运动理解。tokenoverflow解释无实际截断统计/扩context对照。正式修订版未取得；README纯资源声明不等代码实现/可复现模型。 第九十六批追读G043正式suppD/F：ObjectMLLM已有annotation-vs-track重训对照及固定颜色画框负结果；BoxTuning应与其区分底座、感知训练、caption/坐标/轨迹和预算，不能声称前人未尝试画框。该证据不代替BoxTuning自身误差/密度实验。 固定同检测/跟踪和dense样本，分等信息量/等context预算两套对照：紧凑坐标、带timestamp点/箭头/衰减trail、box/legend、ROI特征；K/帧/分辨率及总参数训练曝光匹配。主动置换/反转轨迹、同终态异时序、错color类别/随机框，测是否依赖真实motion。按miss/IDswitch/物体数/遮挡/32色冲突分层，测新底座与多seed。把预处理/检测/跟踪/渲染/LLM分段计时显存，并报truncate日志与扩大context对照；规范笔顺需事件监督。未运行。",
           "evidence": "固定v1完整核心/实际框架主表消融、来源交叉核查；正式书目与所读版本分开，结论争议保留，非口试/独立复现"
         }
       ],
-      "boundary": "固定2604.11136v1完整17页PDF+HTML Abstract/§1–5、Eq1–4/T1–7，实际p7F2/p8F3/p12T2–3/p13T4/p14T5–7；未逐篇参考文献。正式NeurIPS2026Downloads与poster149433原HTML核标题/作者/摘要和OpenReviewq6gwQDgllS入口，PDF403未读修订全文。GHb722eb7完整树仅1blob及README全文，camera-ready/code待发布/新效率数字；无代码、模型权重或数据媒体下载/运行。"
+      "boundary": "固定2604.11136v1完整17页PDF+HTML Abstract/§1–5、Eq1–4/T1–7，实际p7F2/p8F3/p12T2–3/p13T4/p14T5–7；未逐篇参考文献。正式NeurIPS2026Downloads与poster149433原HTML核标题/作者/摘要和OpenReviewq6gwQDgllS入口，PDF403未读修订全文。GHb722eb7完整树仅1blob及README全文，camera-ready/code待发布/新效率数字；无代码、模型权重或数据媒体下载/运行。 第九十六批追引ObjectMLLM正式suppA–F与固定代码，补充既有画框/标注对照。"
+    },
+    {
+      "id": "G042",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题与动机",
+          "answer": "给定静态图像、开放式问题及原正确答案(v,q,a)，自动产生3个有迷惑性且错误的选项，构成四选一VQA，并构建VMCBench。目标是评测格式、干扰项质量及可复用基准；没有文字生图/生视频、书写过程或UMM生成模型。 开放式答案的词形/格式差异会被规则指标误判，模型裁判又有版本、绝对分数及API成本问题；人工编高质量干扰项费力。规则分低不必然代表视觉能力弱，选择题也引入选项线索和猜测，需同时验证正确性、难度和原任务排序保持，不能假设格式转换无损。",
+          "evidence": "正式核心/指定附录说明、实际框架/主表/已有消融、固定公开发布指定段；非口试或模型复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "静态图像+原问题+原答案→5类错误候选→reviewer/各类修订→selector3项+真答案→正确性评分/条件refine→四选一。保留题干/答案仍会继承错误真值，评分不保证唯一正确。实际核主文p4F3框架/消融、p8T1，以及suppp2排列/排序实验。 各agent为提示驱动GPT-4o，非独立训练网络；5种角色与审查/选择/裁判/修订相互调用。正式稿未完整冻结每次调用的日期模型ID、temperature、候选数/审核轮数及总token成本。当前代码main.py用gpt-4o浮动别名与结构化Pydantic输出，temperature=0注释；Python随机seed1234只控制选项排列，不能使远端模型确定。",
+          "evidence": "正式核心/指定附录说明、实际框架/主表/已有消融、固定公开发布指定段；非口试或模型复现"
+        },
+        {
+          "criterion": "解释创新与优势条件",
+          "answer": "GPT-4o分别扮演概念、视觉、推理、数据处理、问题偏见5类proposer；reviewer反馈后更新候选、selector选3项。正确性evaluator给1–5分，低于4时refiner改干扰项、最多3轮。由20原VQA集转换/加强选项并人工抽查剔错，最终9018题；这是多agent推理流程，未训练一个新视觉生成骨干。 当答案真值可靠、3个干扰项可判错且选项不能泄露答案时，转换可减少规则词形误差和在线裁判成本；精心干扰项可提高有限基准区分度。成立范围为给定选择题分布及模型排序/准确率，不能等同开放生成质量或过程因果理解。书写评测可借其构造同终态异顺序的候选，但需独立事件真值和人审，不能直接复用静态VQA分数。",
+          "evidence": "正式核心/指定附录说明、实际框架/主表/已有消融、固定公开发布指定段；非口试或模型复现"
+        },
+        {
+          "criterion": "解释主表/已有消融/缺失与条件",
+          "answer": "主T1 Qwen2-VL72B85.0>GPT4o80.3，7B78.1；InstructBLIP7B42.1>13B41.1，不能说每家都随参数单调。§3.1 GPT4o规则约32→人类校正88，代理与人评agreement.95；12模型规则/代理Spearman.09。MMVet两裁判排序1.0但绝对约差6分，不由此推出人类对齐。评分1–5人工正确51/51/63/84/95%；三集转换比较过滤最高分仍3%错，和全构建抽查5%错为不同范围。supp人类91.7但样本/多评者协议不足；suppC1称当前最好GPT4o80.6，与正式T1 85.0/80.3不同，保留版本疑点。 实际F3b MMMU：human C4.59/模型均准确41.8、naive4.59/46.0、full4.69/40.7；去Reviewer4.64/42.7，去Refiner4.28/37.8。去Refiner更低accuracy伴随更低正确性，不能只以越难越好判优。full四模型27.8/37.2/44.2/53.6，M2/M4比human35.2/52.4更高，非逐模型更难。supp换3家生成器排序平均Spearman.90，MC与开放式模型代理在VQAv2/OKVQA/VizWiz .85/.71/.97；两随机选项置换主分数小变，非所有prompt/模型/文字任务不变证明。 主表zero-shot统一题干+ABCD并要求直接输出字母，正式T1是8018测试集。MMMU/MathVista/AI2D转换难度对照保留四选一题并换干扰项。§3.1在12VLM/VQAv2分析规则与人类代理，§3.2固定MMVet预测和prompt换GPT-4o-0513/0806裁判。未完整披露每模型分辨率、seed、API调用成本、全套输出/解析失败与置信区间。公开Gradio只单题流水线，不等同正式批处理实验。",
+          "evidence": "正式核心/指定附录说明、实际框架/主表/已有消融、固定公开发布指定段；非口试或模型复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证设计",
+          "answer": "作者supp明确最高分仍5%错、约半源于原数据且覆盖不全；伦理段要求人审。高分8151只抽1101，保留的未审题仍可能错。各agent同家模型易相关错误/自偏，.90相关及两次置换不足排除。开放式转MC改变信息和25%猜测基线，未证明生成能力或细粒度笔顺测量有效。固定代码Refiner开关下总是裁判后修订一次、不读取correctness做阈值分支/最多3轮，与论文流程不同；浮动API/无完整批处理使精确重现仍待。 固定全部API日期ID/预算/候选数和抽样种子；造题与评分用不同模型及盲人评，抽查每评分层、报告加权错率/区间。匹配人工/naive/full总调用预算，随机多次置换、无图/只选项/语义等价词改写、对抗不唯一正确项；开放式原任务由独立人工评同一模型，测排序与能力保持。分9450→9018→1000/8018公开ID、版本及清洗记录。笔顺扩展加入同终态异时序与逐事件判定；未运行。",
+          "evidence": "正式核心/指定附录说明、实际框架/主表/已有消融、固定公开发布指定段；非口试或模型复现"
+        }
+      ],
+      "boundary": "CVPR2025正式11页核心Abstract/§1–6、主F2/F3/T1/已有消融与结论；实际p4F3框架/表、p8T1。正式24页suppp1–2全部A–C说明/Limitations/伦理/可复现段和置换T2，指定相关表/图注；未逐页精读p3–24全部示例/全部prompt。固定GH4b918c6完整5blob树、README、main.py调用/候选/审查/选择/正确性/Gradio主流程指定段；prompts.py取得但未全文审计。HF ac748b6元数据/README与split/license/schema；未下载Parquet/TSV、媒体/权重、未调用API或独立复现。"
+    },
+    {
+      "id": "G043",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题与动机",
+          "answer": "视频+问题/候选→问答，研究显式对象标签、时间戳与框坐标能否补足caption/视觉embedding及如何少数据适配LLM；另在BABEL-QA研究3D姿态文字表示。既不生成视频，也未验证汉字笔顺、笔画分割或动作执行。 caption易省略精确运动/位置，隐式视觉embedding需数据对齐且少数据下投影学习困难；显式坐标可借既有词表。论文假设涉及表示/适配/任务分布；所谓对象仍necessary只能按已测任务条件理解，不能推广所有VideoLLM或最新模型。",
+          "evidence": "正式核心/指定附录说明、实际框架/主表/已有消融、固定公开发布指定段；非口试或模型复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "原视频→CLIP视觉帧/LLAVA caption；YOLO-World在1FPS关键帧检测、SAM2按原帧率跟踪，新检测与旧轨IoU>.5去重复→对象ID/类名/时间戳/框；坐标0–100整数文本或0–1四维向量→原词embedding或线性projector→LLM答案。实际p3F2与p4F3/F4说明数据流，非把原视频运动压成一个类别。 LLaMA3-8B+LLaMA-Adapter，CLIP ViT-L14均匀10帧，LLaVA1.5-13B均匀6帧caption，vision/box线性映到4096维，论文box projector零初始化；modality-by-modality顺序caption→box→visual。另从VideoLLaMA2-7B-16F（CLIP/STC/Mistral）起训LoRA，视觉encoder冻结。语言框多token、projector默认每框1token。BABEL 6帧3D关键点整数0–1000，GPT4o caption来自渲染姿态视频。",
+          "evidence": "正式核心/指定附录说明、实际框架/主表/已有消融、固定公开发布指定段；非口试或模型复现"
+        },
+        {
+          "criterion": "解释创新与优势条件",
+          "answer": "统一视觉embedding、frame caption、显式轨迹三种可选输入；量化整数坐标转普通文字vs连续4维向量投影，比较数据效率及多模态组合。YOLO-World逐基准微调+SAM2跟踪提对象，以LLaMA3-Adapter或VideoLLaMA2-LoRA做答案监督，另给标签/采样/投影/跟踪标注/负尝试消融。 在有稳定对象ID/类名与足够时采样、问题依赖位移/计数、有限适配数据且LLM数值词表可用时，文字坐标可避开新projector对齐、提高QA；外观/细动作或长密集视频可能信息不足/超上下文。该依据可迁移为书写轨迹表示基线设计，仍需笔画/事件/工具接触真值，不能由通用对象框直接得到规范书写或RGB可观察性。",
+          "evidence": "正式核心/指定附录说明、实际框架/主表/已有消融、固定公开发布指定段；非口试或模型复现"
+        },
+        {
+          "criterion": "解释主表/已有消融/缺失与条件",
+          "answer": "F5文字/投影full：CLEVR77.6/64.9，PTest63.5/60.1；CLEVR约1/8训练10k为63.8/44.5。T1 caption→caption+box：47.8→75.5、62.4→65.7、60.1→64.4、76.6→76.6、75.7→75.6；三模态75.4/63.9/62.9/76.2/75.0更低，不支持模态越多越好。T3 VideoLLaMA2 LoRA→+box为67.9→77.6/66→66.6/66.5→67.2/79.8→78.5/76.7→75.5；zero-shot+box严重下降。T5 BABEL video66.6、caption60.2、pose63.5、V+P68.6、C+P69.4，原3D姿态输入不等于真实视频检测姿态泛化。 suppA2 random→zero投影CLEVR42.8→64.9、PTest57.6→60.1；A3加2/3层仍约65/60；A4每框1→9token64.9→63.4<文字77.6。A6 labels→+box CLEVR59.8→77.6、PTest60→63.5、STAR58.8→59.1，STAR多来自类别。A7 CLEVR .25/.5/1/2FPS=74/73.9/77.6/78，非严格单调。A9改标注且重新训练：CLEVR74.9、PTest66.8、STAR78.9、NExT65.5、Intent65.3；部分标注仍算法框，STAR有关对象选择先验。A10视觉画框59.7<投影60.1<文字63.5；A11框+objectembedding63.3<box63.5，不能说ObjectMLLM未尝试画框/未研究上游质量。 检测YOLO-World-v2-L_CLIP-Large800、SAM2.1hiera_large；检测lr2e-4/wd.05/b64；CLEVR60k图7epoch阈.001，PTest46k/50/.35，STAR106k/20/.2，NExT/Intent151k/10/.4。QA LLaMA-Adapter b64/lr.0225/warm20%/cosine；VideoLLaMA2 LoRAr128/b128/lr2e-5/warm3%/cosine。epoch CLEVR1、NExT/STAR5、PTest/Intent10、BABEL50；同率训练projector、冻vision。框二分找最多采样率使文字<1000tokens，CLEVR1FPS6帧。未完整披露GPU/时长、全部seed/区间和检测训练成本。",
+          "evidence": "正式核心/指定附录说明、实际框架/主表/已有消融、固定公开发布指定段；非口试或模型复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证设计",
+          "answer": "正文无独立Limitations标题；附录已讨论跟踪/标注差异、STAR有关对象先验、NExT/Intent空间非决定因素、外观/状态/动作失败与无效模态融合。需新增审查的是各结构信息/总token和训练曝光成本公平性，有限任务零样本泛化、独立多seed和检测ID误差/密集分层。spatial-free caption同时要求不提具体对象且更换caption模型，故不是纯移除空间的因果干预；A9也同时换对象/来源/重训，不纯跟踪精度。 同底座/同感知结果/数据曝光，分别匹配token预算和FLOPs，对照文字坐标、1/9token投影、ROI、画框/legend/过去轨迹；原文已有画框负例须保留。分标签only/无时间戳/ID置换/时序逆转/框扰动/漏检，匹配训练分布后测未见动作字体；检测训练、预处理与在线QA分开计总成本。空间caption实验固定同生成器且仅删空间短语；annotation实验固定对象集合再改精度。笔顺用同终态异序与最小转折、停顿/落抬笔指标；未运行。",
+          "evidence": "正式核心/指定附录说明、实际框架/主表/已有消融、固定公开发布指定段；非口试或模型复现"
+        }
+      ],
+      "boundary": "ICCV2025正式10页核心Abstract/§1–5，F2–7/T1–5及全部方法/已有消融文字，实际p3F2、p5F5、p6T1/T2、p7T3、p8T4/T5。正式10页supp A–F全部说明、A1–11表及相关图注，实际p2A2–4/p3A5–8/p4A9/p5A10–11/F A3；未逐图精读p6–10所有成功失败帧。固定GH4d04960完整95blob树、README/LICENSE、LLaMA3指定训练脚本/args优化器、mm初始化/可训参数/loader截断及bbox缓存，VideoLLaMA2 PTest脚本和训练/多模态截断指定段；未审所有95文件。下载README链接制品的存在性/内容未逐包验证，未下载GoogleDrive数据/checkpoint或运行训练、推理和复现。"
     }
   ]
 }
