@@ -526,3 +526,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百一十七批（2026-10-22）：固定v3全文/全部33表、GH59f56e67树与README、HF2d4e8863卡与配置；UniWeTok collection404，不把BitDance会场或权重直接移植。见[审查](uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。
+
+
+第一百一十八批（2026-10-22）：固定v1全部核心/五表，六页实际图表；GH147b1b2选读，ECCV官方接收列表注明preliminary，正式出版待核。见[审查](evotok_residual_depth_and_training_protocol_audit_2026-10-22.md)、[L102](../reviews/L102.md)。

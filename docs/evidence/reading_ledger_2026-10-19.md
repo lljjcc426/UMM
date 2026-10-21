@@ -207,7 +207,7 @@
 | L099 | UniCode$^2$: Cascaded Large-scale Codebooks for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L099.md) | 核心三遍与五项检查完成 |
 | L100 | TUNA: Taming Unified Visual Representations for Native Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L100.md) | 核心三遍与五项检查完成 |
 | L101 | UniWeTok: An Unified Binary Tokenizer with Codebook Size $\mathit{2^{128}}$ for Unified Multimodal Large Language Model | primary_sections_read | [结构化分析](../reviews/L101.md) | 核心三遍与五项检查完成 |
-| L102 | EvoTok: A Unified Image Tokenizer via Residual Latent Evolution for Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L102.md) | 未完成 |
+| L102 | EvoTok: A Unified Image Tokenizer via Residual Latent Evolution for Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L102.md) | 核心三遍与五项检查完成 |
 | L103 | HYDRA: Representation Harmonized Tokenization for Multimodal Generation and Understanding | primary_sections_read | [结构化分析](../reviews/L103.md) | 核心三遍与五项检查完成 |
 | L104 | UniCom: Unified Multimodal Modeling via Compressed Continuous Semantic Representations | primary_sections_read | [结构化分析](../reviews/L104.md) | 未完成 |
 | L105 | Tuna-2: Pixel Embeddings Beat Vision Encoders for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L105.md) | 未完成 |

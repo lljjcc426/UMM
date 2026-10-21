@@ -466,3 +466,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百一十七批（2026-10-22）：等bits/FLOPs与等曝光的因子消融、多seed/真实联合熵、独立OCR/事件GT；未运行。见[审查](../evidence/uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。
+
+
+第一百一十八批（2026-10-22）：等bits/容量/FLOPs的4/4与4/16和16/4、多任务Pareto、教师/decoder干预与事件GT；未运行。见[审查](../evidence/evotok_residual_depth_and_training_protocol_audit_2026-10-22.md)、[L102](../reviews/L102.md)。

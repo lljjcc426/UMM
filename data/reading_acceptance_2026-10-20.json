@@ -7867,6 +7867,40 @@
         }
       ],
       "boundary": "固定v3完整29页：Abstract/§1–5核心全文、Eq1–9和T1–13全部行；AppA/B研究文字及T14–33全部配置，AppC研究图注，参考文献和所有定性图未逐项。实际PDFp4F2/Eq1/2、p6F4、p8T1–5、p10T8/9、p11T10/11、p12T12/13、p21F5核看。GH59f56e67完整84项树、README_UniWeTok全文、rootREADME主要方法/发布/训练/评测段、INREADME全文；autoencoder_uni结构/有界激活/decodernoise/encode、共用MLLM和pipeline import、GFQ entropy/STE代码选读，trainyaml/脚本非本作。HF BitDanceTokenizer固定2d4e8863 metadata/全文件名/README/config；未下载权重。UniWeTok collection404、作者公开model列表无UniWeTok命名，不证明未发布其他制品。未全读MLLM/attention/flowhead、执行模型或独立复现。"
+    },
+    {
+      "id": "L102",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "在同一图像残差量化路径中为重建保留像素信息、为理解保留语义，检验共享残差前缀比同码混合或分层/分支解耦的效果。任务为静态重建、图像问答、文本生图；residual evolution是表示深度，不对应真实绘画或笔顺时间。 相同表示受像素和语义目标可能相互干扰，完全独立分支可能失去信息关联。作者以较早残差前缀解码像素、完整前缀解码语义形成折中；未证明所有共享目标必然冲突或分encoder必然不一致。本文共享tokenizer与分别训练下游LLM的条件应分开，不能把两方向主表当单checkpoint联合训练正协同。",
+          "evidence": "固定v1全部核心/五表、六页实际图表及GH训练和模型选读，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "图像256²→16×16位置×16残差码；理解各位置合16码再semanticdecoder/MLP→文字。文字→LLM空间状态→depthhead依次采4个32768分类码→累积32维特征/pixeldecoder→RGB256²。理解256个聚合位置不等于16×16×16个LLM独立序列位置，生成须计256×4个码预测。实际PDFp5F2/Eq6–8、p7T1、p8T2、p10T3/4、p11F5、p12F6/T5已核。 SigLIP2-large16-256，RQ每层独立32768中心×32维；shared指两个任务共用同一前缀路径，不指所有深度绑同一embedding。T1的131072=4×32768为像素四表相加，完整16表名义524288中心槽位；不能解释成每码131072类别。Eq7仅对encoder的stopgrad累积commitment，代码另用EMA.99/restart更新各码本，不因无显式可导codebook项判未训练。code encode取SigLIP倒数第二层，semanticdecoder3层；STE两个分支各向同encoder传梯度，未从数学上消除梯度冲突。公开depthhead6层/2560维/40heads、每depth分类器，理解MLP读1024维、生成MLP读32维，模式配置不同。",
+          "evidence": "固定v1全部核心/五表、六页实际图表及GH训练和模型选读，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "SigLIP2初始化共享encoder→16级RQ；前4级和经pixeldecoder重建，16级和经semanticdecoder对齐冻结SigLIP2特征。像素MSE/LPIPS/GAN、语义cosine与累积VQcommitment训练；下游理解读semanticdecoder特征+MLP+Qwen，生成用空间AR和depthRQ head预测每位置前4码。 当较短残差前缀足够重建、额外残差提高教师可对齐性时，4/16分工可形成比4/4更好的理解/生成折中。是否优于等总bits/参数的其他层次化编码需受控检验；早4级不保留细笔时，后12级语义改善不能自动回补生成细节。图像表示能力不能推出中文笔顺、非汉字书写或绘画视频过程正确。",
+          "evidence": "固定v1全部核心/五表、六页实际图表及GH训练和模型选读，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1 rFID.43优于DualToken.52/TokenFlowL.63，低于UniTok.33（原表来源/配方），非全方法最佳。T2本作71.8/39.9/61.8/76.2/62.0/45.9/74.9/1895.1/1455.9；SEED71.8/MMB74.9与DualToken并列、GQA61.8与QLIP并列；MMVet39.9<40.5、MMEP1455.9<TokLIP1488.4。连续ShareGPT4V GQA63.3/MME1943.8更高，ILLUME MMB75.1更高；MMMU45.9与Dual45.8仅.1差无CI。T3 GenAI Basic.87较高但Advanced.66<UniTok.67；GenEval.75与DualToken同、count.44<DALLE3.47及ILLUME/TokenFlow.45。Position.69/colorattr.62优势限该表，GPT4o重写与旧基线条件需保留。 T4(4,4)→(4,16) rFID.66→.55/PSNR22.96→23.60/SSIM.76→.77、SEED62.7→67.1/GQA58→61.3/MME1668.9→1793.5、GenAI.70/.59→.75/.62/GenEval.64→.67。反向(16,4) rFID.44/PSNR24.39/SSIM.79更好，GenEval.60更低，像素码数/词表参数和生成深度也变，不是纯方向单因果。T5同码.66/异层.59/双分支.68/本法.55仅报告rFID，不能证明理解生成全面更优；T4.55与T1.43的训练设置差异未交代。F5 rFID至depth4最低后略升至~.5，pix相似度趋平、sem继续升；tSNE/选簇样例不能证明后12级纯语义/信息无冗余，取样/聚类超参和多seed未齐。 正文tokenizer500K/global256/lr1e-4、256²、16GPU（型号未说明），生成CFG7.5。固定代码tokenizer脚本g4/sem16、32768×32、bf16、vqEMA warm2K、cosine+fold、restart。parser+实际Adam调用β.9/.95；weightdecay参数默认.05但Adam调用未传，不能写实际.05；LPIPS1/GAN.5且20K启动，semantic1+fold4，commitment代码各深度mean而Eq7sum，loss尺度需核。MLLM示例1epoch/perGPU8/accum1、lr1e-3对齐→2e-5SFT、wd0/cos/warm.03/context2048/ZeRO2；均为公开示例，不作主表13M/22M完整协议。论文实际MLLM步数/混合/GPU型号/总卡时/采样张数seed与改写预算未齐。",
+          "evidence": "固定v1全部核心/五表、六页实际图表及GH训练和模型选读，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "未单列Limitations或附录；缺统一单checkpoint的联合任务消融、多seed/CI、实际FLOPs/速度/显存和文字保真指标。F5/F6相关曲线受分支decoder和教师监督影响，不能证明自然语义演化的一般定律或真实时间轨迹。公开理解SFT为665K而非主文13M，生成pre/SFT均指558K_generation_debug而非22M；重建脚本dataset=coco且路径LLaVA图，不直接复现T1IN。权重在README/树未给对应下载链接，HF同名搜索无相关作者制品，不能证明其他地方未发布；未执行这些代码，不将差异推为论文结果失效。 固定teacher初始化/encoder/decoder、训练数据和总FLOPs，扫描4/4、4/16、16/4及等总码bits/参数替代，控制更深生成head预测难度；同时报三任务Pareto/多seed。不同层/分支补理解/生成，而非只rFID；F5对不同监督位置/随机teacher、冻结probe和模块干预，并公开采样/聚类/CLIP定义。区分共享tokenizer下独立下游和单checkpoint联合训练；同原始/改写prompt、CFG/seed/采样次数比较。加入OCR/非汉字/细笔最小差及真实接触/抬笔/墨迹GT；建议未运行，新颖性需追引。",
+          "evidence": "固定v1全部核心/五表、六页实际图表及GH训练和模型选读，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定v1完整16页Abstract/§1–5核心全文、Eq1–11/T1–5全部行/F1–6图注；无附录，参考文献未逐篇。实际p5F2/Eq6–8、p7T1、p8T2、p10T3/4、p11F5、p12F6/T5。GH147b1b2完整90项树、README、tokenizer/reconstruction/理解和生成四训练脚本及data脚本；选读EvoTok init/encode/decode、SharedResidualQuantizer独立码本/EMA/STE/commitment、VQLoss教师/目标/fold、rqtrain优化器/parser、MLLMVQtower冻结/模式/decoder/RQhead和Qwen自定义图像路径。未全读attention/pixel/数据加载/全部LLM训练；HF搜索未获相关对应制品。无权重下载、模型执行或独立复现。"
     }
   ]
 }

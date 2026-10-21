@@ -15360,22 +15360,26 @@
     "source_urls": [
       "https://arxiv.org/abs/2603.12108",
       "https://arxiv.org/html/2603.12108",
-      "https://github.com/VisionXLab/EvoTok/tree/147b1b2aaac32bb28c5eb246e2a4a04c3e80041c"
+      "https://github.com/VisionXLab/EvoTok/tree/147b1b2aaac32bb28c5eb246e2a4a04c3e80041c",
+      "https://arxiv.org/abs/2603.12108v1",
+      "https://arxiv.org/html/2603.12108v1",
+      "https://arxiv.org/pdf/2603.12108v1",
+      "https://eccv.ecva.net/Conferences/2026/AcceptedPapers"
     ],
-    "method": "前4层RQ码之和解码像素，完整16层之和经semanticdecoder对齐SigLIP2；深度RQhead只生成前4层码。 SigLIP2-large16-256骨干/教师，每深度32768码，pixel decoder MSE+LPIPS+GAN，semantic decoder cosine，VQ前缀commitment；理解聚合16码后投影Qwen2.5-7B，生成空间AR+depthRQ4。Table1总131072与每层32768按聚合计数区分。",
-    "conclusion": "Table1 tokenizer rFID.43；主理解AI2D76.2/MMMU45.9/MME1895.1，GenEval.75/GenAI Basic.87、Advanced.66。13M仅tokenizer，不能写全UMM只训13M。",
-    "gap": "“no distillation across all stages”需限定：方法明确用SigLIP2特征监督且训练数据含GPT4o合成；可说未新增数据重标/蒸馏步骤，不能称无教师。tSNE/聚类趋势是相关观察。代码README分列理解/生成训练，未见本次已读脚本定义单checkpoint联合任务；不能把两方向分别效果当共享训练互利。",
-    "problem": "在一个残差量化序列中分层保留重建和理解信息，避免单深层码冲突或完全分离视觉塔。",
+    "method": "SigLIP2初始化共享encoder→16级RQ；前4级和经pixeldecoder重建，16级和经semanticdecoder对齐冻结SigLIP2特征。像素MSE/LPIPS/GAN、语义cosine与累积VQcommitment训练；下游理解读semanticdecoder特征+MLP+Qwen，生成用空间AR和depthRQ head预测每位置前4码。 SigLIP2-large16-256，RQ每层独立32768中心×32维；shared指两个任务共用同一前缀路径，不指所有深度绑同一embedding。T1的131072=4×32768为像素四表相加，完整16表名义524288中心槽位；不能解释成每码131072类别。Eq7仅对encoder的stopgrad累积commitment，代码另用EMA.99/restart更新各码本，不因无显式可导codebook项判未训练。code encode取SigLIP倒数第二层，semanticdecoder3层；STE两个分支各向同encoder传梯度，未从数学上消除梯度冲突。公开depthhead6层/2560维/40heads、每depth分类器，理解MLP读1024维、生成MLP读32维，模式配置不同。",
+    "conclusion": "T1 rFID.43优于DualToken.52/TokenFlowL.63，低于UniTok.33（原表来源/配方），非全方法最佳。T2本作71.8/39.9/61.8/76.2/62.0/45.9/74.9/1895.1/1455.9；SEED71.8/MMB74.9与DualToken并列、GQA61.8与QLIP并列；MMVet39.9<40.5、MMEP1455.9<TokLIP1488.4。连续ShareGPT4V GQA63.3/MME1943.8更高，ILLUME MMB75.1更高；MMMU45.9与Dual45.8仅.1差无CI。T3 GenAI Basic.87较高但Advanced.66<UniTok.67；GenEval.75与DualToken同、count.44<DALLE3.47及ILLUME/TokenFlow.45。Position.69/colorattr.62优势限该表，GPT4o重写与旧基线条件需保留。",
+    "gap": "未单列Limitations或附录；缺统一单checkpoint的联合任务消融、多seed/CI、实际FLOPs/速度/显存和文字保真指标。F5/F6相关曲线受分支decoder和教师监督影响，不能证明自然语义演化的一般定律或真实时间轨迹。公开理解SFT为665K而非主文13M，生成pre/SFT均指558K_generation_debug而非22M；重建脚本dataset=coco且路径LLaVA图，不直接复现T1IN。权重在README/树未给对应下载链接，HF同名搜索无相关作者制品，不能证明其他地方未发布；未执行这些代码，不将差异推为论文结果失效。",
+    "problem": "在同一图像残差量化路径中为重建保留像素信息、为理解保留语义，检验共享残差前缀比同码混合或分层/分支解耦的效果。任务为静态重建、图像问答、文本生图；residual evolution是表示深度，不对应真实绘画或笔顺时间。",
     "claim": "研究目标：在一个残差量化序列中分层保留重建和理解信息，避免单深层码冲突或完全分离视觉塔。",
-    "version": "arXiv2603.12108v1；作者标ECCV2026，正式全文未对读",
+    "version": "EvoTok；固定arXiv2603.12108v1（2026-03-12），完整16页，核心§1–5/Eq1–11/T1–5；本次从ECCV2026官方AcceptedPapers核到同题同作者，页面仍称preliminary pending publisher checks，未定位正式出版全文/页码。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 2. 表示与 tokenizer：信息容量、语义和细节如何共同保留",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-22",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-22",
     "id": "L102",
     "canonical_key": "paper:arxiv:2603.12108",
     "evidence_history": [
@@ -15407,17 +15411,22 @@
         "conclusion": "13M 图像训练，256 分辨率 rFID 0.43；GenEval 0.75；轨迹方向和监督层次是关键",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-22",
+        "batch": 118,
+        "scope": "固定v1完整16页Abstract/§1–5核心全文、Eq1–11/T1–5全部行/F1–6图注；无附录，参考文献未逐篇。实际p5F2/Eq6–8、p7T1、p8T2、p10T3/4、p11F5、p12F6/T5。GH147b1b2完整90项树、README、tokenizer/reconstruction/理解和生成四训练脚本及data脚本；选读EvoTok init/encode/decode、SharedResidualQuantizer独立码本/EMA/STE/commitment、VQLoss教师/目标/fold、rqtrain优化器/parser、MLLMVQtower冻结/模式/decoder/RQhead和Qwen自定义图像路径。未全读attention/pixel/数据加载/全部LLM训练；HF搜索未获相关对应制品。无权重下载、模型执行或独立复现。"
       }
     ],
-    "sections_read": "§3.1–3.3、§4.1–4.4 Tables1/4/5及主表本作行、§5；官方README、tokenizer/生成预训/SFT脚本已读固定revision147b1b2；未逐图或全部实现/正式全文，未复现",
+    "sections_read": "固定v1完整16页Abstract/§1–5核心全文、Eq1–11/T1–5全部行/F1–6图注；无附录，参考文献未逐篇。实际p5F2/Eq6–8、p7T1、p8T2、p10T3/4、p11F5、p12F6/T5。GH147b1b2完整90项树、README、tokenizer/reconstruction/理解和生成四训练脚本及data脚本；选读EvoTok init/encode/decode、SharedResidualQuantizer独立码本/EMA/STE/commitment、VQLoss教师/目标/fold、rqtrain优化器/parser、MLLMVQtower冻结/模式/decoder/RQhead和Qwen自定义图像路径。未全读attention/pixel/数据加载/全部LLM训练；HF搜索未获相关对应制品。无权重下载、模型执行或独立复现。",
     "review_path": "docs/reviews/L102.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "Tokenizer CC12M+IN1K约13M；理解558K预训+13M来自OV/Next780K/Cambrian/Honeybee；生成22M含ImageNet-QwenImage、BLIP3o、OV1.5、Share/OpenGPT4o。公开合成数据仍有teacher来源。",
-    "framework": "前4层RQ码之和解码像素，完整16层之和经semanticdecoder对齐SigLIP2；深度RQhead只生成前4层码。",
-    "architecture": "SigLIP2-large16-256骨干/教师，每深度32768码，pixel decoder MSE+LPIPS+GAN，semantic decoder cosine，VQ前缀commitment；理解聚合16码后投影Qwen2.5-7B，生成空间AR+depthRQ4。Table1总131072与每层32768按聚合计数区分。",
-    "metrics": "ImageNet256²rFID，SEED/MMVet/GQA/AI2D/RWQA/MMMU/MMB/MME/MME-P，GenAI-Bench Basic/Advanced及GenEval；GenEval用GPT4o重写。",
-    "baselines": "重建LlamaGen/RQVAE/UniTok/DualToken，离散及连续VLM；同方法深度4/4、16/4、4/16；不同层/分支/共享与本法。",
-    "experimental_conditions": "Tokenizer500K步globalb256 lr1e-4，256²，16GPU但类型未述于所读段落；生成CFG7.5。代码revision147b1b2脚本确认D4/16、32768×32、warm2K、BF16；生成预训指558K_debug配置，MM_MODE=generation，SFT独立入口。全MLLM步数/数据混合/同checkpoint双任务仍待核。"
+    "dataset": "Tokenizer CC12M+IN1K约13M；理解LLaVA558K对齐后13M SFT从OV/NeXT780K/Cambrian10M/HoneyBee采样；生成22M从ImageNet1K-QwenImage/BLIP3oShort/OV1.5/ShareGPT4oImage/OpenGPT4oImage。13M只指tokenizer新训练图像，不能写全系统只用13M或忽略SigLIP/Qwen预训。原文无recaption/distillation应限作者未新增数据重标步骤：明确有SigLIP2特征教师和继承合成图数据。确切各源比例/去重/数据泄漏审计未齐。",
+    "framework": "SigLIP2初始化共享encoder→16级RQ；前4级和经pixeldecoder重建，16级和经semanticdecoder对齐冻结SigLIP2特征。像素MSE/LPIPS/GAN、语义cosine与累积VQcommitment训练；下游理解读semanticdecoder特征+MLP+Qwen，生成用空间AR和depthRQ head预测每位置前4码。",
+    "architecture": "SigLIP2-large16-256，RQ每层独立32768中心×32维；shared指两个任务共用同一前缀路径，不指所有深度绑同一embedding。T1的131072=4×32768为像素四表相加，完整16表名义524288中心槽位；不能解释成每码131072类别。Eq7仅对encoder的stopgrad累积commitment，代码另用EMA.99/restart更新各码本，不因无显式可导codebook项判未训练。code encode取SigLIP倒数第二层，semanticdecoder3层；STE两个分支各向同encoder传梯度，未从数学上消除梯度冲突。公开depthhead6层/2560维/40heads、每depth分类器，理解MLP读1024维、生成MLP读32维，模式配置不同。",
+    "metrics": "ImageNet1K val256² rFID↓，消融另PSNR/SSIM↑；理解SEED/MMVet/GQA/AI2D/RWQA/MMMU/MMB/MME及MMEperception按原表，不将MME原分与百分准确率直接平均。GenAI-Bench Basic/Advanced↑和GenEval6项/overall↑，GenEval作者明确用GPT4o重写。F5 rFID、CLIPSIMpix（重建图对原图）、CLIPSIMsem（解码特征对GT语义特征）为三种测量，双纵轴不横比数值，不作为事件顺序或因果证明。",
+    "baselines": "重建LlamaGen/RQVAE/VQGANLC/IBQ/TokenFlow/VILAU/SemHiTok/UniTok/DualToken，教师/码率/数据和原生分辨率不同。理解按连续专用、连续统一、离散统一三组，含QwenVL/ShareGPT4V/LLaVA/Janus/IO2/LaVIT/ILLUME/QLIP/TokLIP/Emu3/DualToken等；7/9只限所列离散组且含并列。生成SD1.5/2.1/SDXL/DALLE3、Janus/ILLUME/TokenFlow/Emu3/UniTok/DualToken等，旧基线集合与重写/总算力未全部匹配；不能宣称当下所有模型最优。",
+    "experimental_conditions": "正文tokenizer500K/global256/lr1e-4、256²、16GPU（型号未说明），生成CFG7.5。固定代码tokenizer脚本g4/sem16、32768×32、bf16、vqEMA warm2K、cosine+fold、restart。parser+实际Adam调用β.9/.95；weightdecay参数默认.05但Adam调用未传，不能写实际.05；LPIPS1/GAN.5且20K启动，semantic1+fold4，commitment代码各深度mean而Eq7sum，loss尺度需核。MLLM示例1epoch/perGPU8/accum1、lr1e-3对齐→2e-5SFT、wd0/cos/warm.03/context2048/ZeRO2；均为公开示例，不作主表13M/22M完整协议。论文实际MLLM步数/混合/GPU型号/总卡时/采样张数seed与改写预算未齐。"
   },
   {
     "title": "HYDRA: Representation Harmonized Tokenization for Multimodal Generation and Understanding",

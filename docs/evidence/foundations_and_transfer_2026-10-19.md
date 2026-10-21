@@ -273,3 +273,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百一十七批（2026-10-22）：名义bits/位置token/曝光/完整算力分开；SigLu有界不证明entropy/commitment函数等价。见[审查](uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。
+
+
+第一百一十八批（2026-10-22）：shared前缀不等于各层绑码本；EMA与commitment作用不同；残差深度不等于物理时间。见[审查](evotok_residual_depth_and_training_protocol_audit_2026-10-22.md)、[L102](../reviews/L102.md)。

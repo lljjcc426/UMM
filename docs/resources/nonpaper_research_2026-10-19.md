@@ -467,3 +467,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百一十七批（2026-10-22）：BitDanceTokenizer三配置/权重文件名已核，未下载；d32c128不自动等于本作三类MLLM权重；公共训练脚本TODO。见[审查](../evidence/uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。
+
+
+第一百一十八批（2026-10-22）：EvoTok训练脚本/模型模块选读，公开示例不对应主表完整配方；未定位相关权重链接。见[审查](../evidence/evotok_residual_depth_and_training_protocol_audit_2026-10-22.md)、[L102](../reviews/L102.md)。

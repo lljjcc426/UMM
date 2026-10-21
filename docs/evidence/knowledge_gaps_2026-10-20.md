@@ -478,3 +478,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百一十七批（2026-10-22）：100%usage定义、正文/代码SigLu符号、T1/5 gFID及T29标题冲突；MLLM发布对应待核。见[审查](uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。
+
+
+第一百一十八批（2026-10-22）：T4/主表.55/.43、sum/mean与foldloss、665K/558Kdebug对13M/22M和checkpoint待核。见[审查](evotok_residual_depth_and_training_protocol_audit_2026-10-22.md)、[L102](../reviews/L102.md)。

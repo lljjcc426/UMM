@@ -69,3 +69,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百一十七批（2026-10-22）：UniWeTok的位置数、组合码本、有限usage和bits口径；T3前/后蒸馏需追读出位置，不据T2不同SigLu设置直接判错。见[审查](uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。
+
+
+第一百一十八批（2026-10-22）：残差层级分配、独立码本槽位和256位置×4depthhead成本；F5曲线受监督位置和decoder影响。见[审查](evotok_residual_depth_and_training_protocol_audit_2026-10-22.md)、[L102](../reviews/L102.md)。

@@ -437,3 +437,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百一十七批（2026-10-22）：隐式128bit×64位置tokenizer，Gen/Edit/Chat分别SFT，无文字视频或笔顺评价。见[审查](uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。
+
+
+第一百一十八批（2026-10-22）：4/16残差前缀静态表示；理解/生成分别入口，没有书写时序或单checkpoint正协同证据。见[审查](evotok_residual_depth_and_training_protocol_audit_2026-10-22.md)、[L102](../reviews/L102.md)。
