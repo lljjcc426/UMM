@@ -502,3 +502,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百零九批（2026-10-21）：固定两项v1/v3核心与实际图表、正式ECCV身份；DN当前唯一README/svd404，DA固定代码/HF与343JSON文本统计。见[审查](dragnuwa_draganything_entity_metric_and_release_audit_2026-10-21.md)、[L040](../reviews/L040.md)、[L041](../reviews/L041.md)。
+
+
+第一百一十批（2026-10-21）：固定v1核心/实际框架主表失败表难度图，有限主源未确认正式venue/官方制品；不把released声明当代码核验。见[审查](textvbench_correspondence_and_metric_validity_audit_2026-10-21.md)、[L042](../reviews/L042.md)。

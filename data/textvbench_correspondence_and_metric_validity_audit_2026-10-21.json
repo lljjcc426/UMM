@@ -1,0 +1,33 @@
+{
+  "id": "L042",
+  "date": "2026-10-21",
+  "version": "2610.13412v1",
+  "core_sections": "Abstract/1–9/Eq1–7/T1–2/F1–9 captions",
+  "actual_visuals": [
+    "F2 original overview",
+    "T1 complete main comparison",
+    "T2 complete failure statistics",
+    "F5 SVG difficulty diagnostics"
+  ],
+  "task": "Benchmark/evaluator for persistent visual text creation and preservation",
+  "new_generator": false,
+  "component_ablation_present": false,
+  "human_metric_calibration_present": false,
+  "official_artifact_confirmed": false,
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false,
+  "findings": [
+    "ExtraTextRatio separate from harmonic headline; whitespace/punctuation removed",
+    "Ref2V targets inherit runtime reference OCR, visibility routing conditions averaging",
+    "Within-batch candidate reuse but across-batch consumption creates permutation sensitivity to test",
+    "3fps/cap30 cannot guarantee detection of all transient corruption",
+    "F5/T2 exclude aggregate-only Kandinsky; difficulty axes confounded",
+    "Progressive writing explicitly requires time-indexed ground truth; Challenge proposed only"
+  ],
+  "sources": [
+    "https://arxiv.org/abs/2610.13412v1",
+    "https://arxiv.org/html/2610.13412v1",
+    "https://arxiv.org/html/2610.13412v1/fig2_textvbench_overview.png"
+  ]
+}

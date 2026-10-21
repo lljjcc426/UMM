@@ -454,3 +454,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百零九批（2026-10-21）：DN两阶段预算/当前迁移；DA原坐标缩放/截帧/可见性、343变长原标注、训练主文件缺失/lr差异、demo/HF/论文帧数未对齐。见[审查](dragnuwa_draganything_entity_metric_and_release_audit_2026-10-21.md)、[L040](../reviews/L040.md)、[L041](../reviews/L041.md)。
+
+
+第一百一十批（2026-10-21）：OCR/VLM版本/人工校准、官方manifest制品、批划分偏差与瞬态漏采；没有组件消融。见[审查](textvbench_correspondence_and_metric_validity_audit_2026-10-21.md)、[L042](../reviews/L042.md)。

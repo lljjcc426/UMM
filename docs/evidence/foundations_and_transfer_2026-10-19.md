@@ -249,3 +249,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百零九批（2026-10-21）：dense→sparse课程、anchor后仍按强度采样、空间身份pool与位置Gaussian、点加权均值和26/12百分点。见[审查](dragnuwa_draganything_entity_metric_and_release_audit_2026-10-21.md)、[L040](../reviews/L040.md)、[L041](../reviews/L041.md)。
+
+
+第一百一十批（2026-10-21）：先对应再字符计分、S/T分离、每视频调和后平均；条件观测和字符加权影响测量对象。见[审查](textvbench_correspondence_and_metric_validity_audit_2026-10-21.md)、[L042](../reviews/L042.md)。

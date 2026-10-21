@@ -323,3 +323,6 @@ python scripts/validate_catalog.py
 
 
 第一百零九批（2026-10-21）完成L040 DragNUWA/L041 DragAnything固定核心和实际图表，确认ECCV身份，审查当前发布、ObjMC和343JSON/4367轨迹；区分原LD/HD与SVD、额外mask、26/12百分点与正式评测输入。356目录，218核心/221书面含未通过项，138条未确认核心（含资源）。见[审查](docs/evidence/dragnuwa_draganything_entity_metric_and_release_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_ninth_changes_2026-10-21.md)。无删除/模型复现。
+
+
+第一百一十批（2026-10-21）完成L042 TextVBench核心/实际F2/T1/T2/F5：持续文字双轨评价，extra未进H、归一移除标点空白、活跃路由/批划分/采样和诊断混杂；渐进书写需时变GT。356目录，219核心/222书面含未通过项，137条未确认核心（含资源）。见[审查](docs/evidence/textvbench_correspondence_and_metric_validity_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_tenth_changes_2026-10-21.md)。无删除/模型复现。

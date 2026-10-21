@@ -413,3 +413,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百零九批（2026-10-21）：开放域文字/图像/轨迹与额外mask实体运动；艺术绘画外观不等于逐笔过程，二维实体控制不保证接触/旧墨迹/笔顺。见[审查](dragnuwa_draganything_entity_metric_and_release_audit_2026-10-21.md)、[L040](../reviews/L040.md)、[L041](../reviews/L041.md)。
+
+
+第一百一十批（2026-10-21）：持续文字T2V/Ref2V评价；动态/渐进书写为需新GT的扩展，无新生成器/UMM。见[审查](textvbench_correspondence_and_metric_validity_audit_2026-10-21.md)、[L042](../reviews/L042.md)。

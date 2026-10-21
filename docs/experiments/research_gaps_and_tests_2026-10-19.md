@@ -442,3 +442,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百零九批（2026-10-21）：同mask/同数据预算的区域/常量/随机/DINO/CLIP/DIFT，课程与Gaussian拆分、分割/轨迹误差、背景/物理/笔画事件独立评价；未执行。见[审查](../evidence/dragnuwa_draganything_entity_metric_and_release_audit_2026-10-21.md)、[L040](../reviews/L040.md)、[L041](../reviews/L041.md)。
+
+
+第一百一十批（2026-10-21）：oracleOCR/关联/路由分解、受控错误/批顺序/采样密度、配对多seed与可见覆盖率，书写时变墨迹/事件GT；未执行。见[审查](../evidence/textvbench_correspondence_and_metric_validity_audit_2026-10-21.md)、[L042](../reviews/L042.md)。
