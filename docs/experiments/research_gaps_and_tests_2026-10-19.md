@@ -373,3 +373,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第八十六批（2026-10-21）：等预算编码/融合/课程、绑定负对照和同终态异过程/接触留墨检验，未运行。见[审查](../evidence/tora_motion_binding_and_process_boundary_audit_2026-10-21.md)、[L034](../reviews/L034.md)/[L035](../reviews/L035.md)。
+
+
+第八十七批（2026-10-21）：2×2路径×loss、独立事件标注/同轨迹不同声音、等预算adapter与offload主机成本方案，未运行。见[审查](../evidence/tora3_kinematics_flow_and_nonpaper_adapter_audit_2026-10-21.md)、[G039](../reviews/G039.md)/[R12](../reviews/R12.md)。

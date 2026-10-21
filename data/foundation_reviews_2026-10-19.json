@@ -875,6 +875,29 @@
       "checked_on": "2026-10-21",
       "reading_status": "critical_sections_reviewed",
       "reproduced": false
+    },
+    {
+      "venue": "Tora3: Trajectory-Guided Audio-Video Generation with Physical Coherence；arXiv2604.09057v3（2026-08-25）10页研究核心。arXiv comment和作者共享Tora README报告ACM MM2026接收；关联DOI10.1145/3767308.3835041的Crossref查询404，出版全文/正式题录尚未核实。勿将接收声明或v3当已读出版版。",
+      "problem": "首图、文字和对象二维轨迹条件下联合生成视频与声音，使对象运动、接触事件时刻与声音强弱相关。作者将physical coherence具体限定为trajectory-level motion/event/intensity对齐，未声称完整真实物理模拟，也未测文字、笔顺或UMM理解—生成协同。",
+      "motivation": "单独视频运动条件或通用视听attention可能让运动与发声时刻/强度错配；把同一轨迹同时作为视觉位置与声音运动学先验可提供更直接的共同条件。二维中心轨迹缺材质/接触力/声源深度，相同轨迹也可能对应多种声音，故这种先验不足以唯一决定物理音频。",
+      "contribution": "视频侧将首帧latent特征传播到后续稀疏轨迹坐标，省去额外运动encoder；声音侧从位置/速度/加速度及其模长构造8D特征，通过时间RoPE与门控crossattention注入。混合flow matching在轨迹mask内用轨迹latent作t=1端点、外用Gaussian，另对内外区域各归一化加权；PAV伪标注训练集和ETE/MAIC评测。",
+      "input_output": "首图经videoVAE得z0，坐标时间平均池化/缩放/取整，后续帧在轨迹位置放对应首图特征、其余为0；碰撞位置随机选一条轨迹。文字经T5；视频及音频latent进入Ovi twin-DiT并跨模态交换。音频query对运动学MLP的K/V做时间对齐CA、sigmoid门控残差；各VAE解码出RGB与声音。实际p4F3、p6完整T1/p8T3–5已核看。",
+      "architecture": "Ovi底座11.66B，完整12.25B；F3显示T5和视听VAE冻结，未提供所有骨干参数是否冻结的完整训练清单。视频条件注入+0参数仅指该分支，额外音频模块使总参数约+.59B，不能说整个方法零开销。8D=[r(2),v(2),a(2),|v|,|a|]，长边归一化坐标、tau=1/fps中心差分，动态6维signed log10(1+abs)再训练统计Norm，3层MLP；边界用前/后差分，gate gamma初始−10，sigmoid约4.54e−5，非精确零。",
+      "data": "PAV460K片来自VGGSound/ACAV100M/OpenVid1M/Pexels及内部数据；Qwen3VL筛平移/旋转/滑动/抛物/振荡/缩放/形变，SAM2首帧对象中心+CoTracker3跟踪作伪轨迹，Qwen3VL8B-Instruct与Qwen3Omni-Captioner配对描述。评测50段代表性视频，完整split/去重、各运动事件子集N和公开PAV下载未定位。未将960K训练曝光当960K独立样本。",
+      "metrics": "FVD↓；AS↑由MANIQA/MUSIQ平均，是作者命名的图像质量代理；AudioBox-Aesthetics CE/CU/PQ↑、PC↓；CLAP/CLIP-T↑；PhyAVBench的CAV-MAE Sync余弦FGAS↑。TrajError为L2，与Tora的L1不能直接跨论文比。新增ETE↓为轨迹事件和音频onset时间差，MAIC↑为运动强度与音频energy envelope的Pearson相关；分别用于离散/连续事件片。ETE单位、事件阈值/onset提取/时间滞后和分母未完整公开，不能将.181擅自写秒。",
+      "baselines": "Ovi11.66B、LTX2 22.16B、MOVA30B、AVControl22.32B；表3为在共同框架移植Tora-style/WanMove-style的注入变体，区别独立发表模型。主表基础模型、额外轨迹输入、训练预算及采样协议未完全等同，不能用较小参数量证明同算力SOTA。缺轨迹项以横线呈现，不填0。",
+      "experimental_conditions": "Ovi初始化，32A100、global batch32/30Ksteps，AdamW lr4e−5/beta.9,.999/wd.01、BF16/clip1；5000随机训练样本统计运动Norm，trajectory dropout.05，soft mask Gaussian sigma.5；区域loss系数.5/.5，最终视频/声音loss .85/.15。未报告完整训练分辨率/帧数/fps/音频采样率/CFG/推理步数/多seed与计时，不能借用Tora/Tora2配置。只读源码公开范围，未执行模型。",
+      "results": "T1 Tora3 FVD784.1、FGAS.234、ETE.181、MAIC.63、Traj12.13；AVControl829.6/.209/.214/.55/19.95，Ovi887.7/.156/.301/.37/无轨迹项。Tora3 AS4.61低于MOVA4.63，PC1.81高于MOVA1.77（越低越好），CLAP.44低于MOVA.46；PQ7.09/CE3.34/CU6.43较优，CLIP-T.31并列。50片及无区间限制总体推断，不能宣称全指标最佳或完整物理正确。",
+      "ablation": "T2无/仅视频/仅音频/双分支FGAS .173/.198/.209/.225，ETE .296/.247/.221/.193，MAIC .39/.46/.61/.66；AS双4.47低于仅视频4.51。T3 Tora-style/WanMove-style/本文视频注入Traj17.06/13.91/13.03、额外视频参数.99B/590K/0。T4 none→r+v→r+v+a→加模长使MAIC .39/.48/.56/.61，支持该配置组合。T5无/有hybrid FVD811.8/784.1、Traj12.94/12.13、FGAS.225/.234，但未报ETE/MAIC；主表MAIC.63低于T2 hybrid前.66，不能说hybrid改善全部同步指标。",
+      "limitations": "混合路径同时改变端点与区域loss权重，现有T5未隔离两者。Eq14为binary mask定义路径，soft mask只明示用于loss；推理t=1为mask内轨迹latent/外Gaussian，条件flow并不强制t=0最终轨迹必正确。二维位置不是世界速度/接触力，镜头/尺度混杂；中心差分放大跟踪噪声且接触瞬间不光滑，池化后tau对应真实采样间隔仍需代码核实。加速度向量本身不足以判速度增加，需v·a等关系。伪轨迹作训练条件与评测事件来源有共同偏差，50片缺CI/完整提取失败分母；仅项目展示/论文链接，未定位Tora3训练代码、检查点或PAV下载。",
+      "advantage_hypothesis": "在二维轨迹可靠、声音主要随运动强弱和离散接触变化、视觉对象可从首帧传播的分布，显式共同运动学条件可能降低跨模态时刻错配与位置漂移。对材质、摩擦/形变、遮挡/相机运动或同轨迹不同声音，优势依赖额外信息。混合端点可能减小已知条件区域初期搜索难度，需等loss/预算比较；不推出笔画事件、留墨或UMM协同收益。",
+      "falsification": "固定Ovi/训练数据/预算做video×audio两分支与轨迹打乱/延时/同轨迹不同材质负对照，完整模型比较同参数通用CA/MLP；2×2路径端点×区域loss权重隔离hybrid。真实时间重采样保持轨迹/声音物理时标，测试跟踪噪声/镜头变化/像素尺度、遮挡和碰撞，独立人工事件/onset标注、失败分母、多seed/配对CI与更大N FVD。书写检验笔尖位置/接触/墨迹和摩擦音各自可观测性，跨文字CER/事件次序/方向与音频同步分开报告。均为未运行方案。",
+      "writing_lesson": "Introduction将physical coherence落到运动/事件/强度定义，Method按共同条件、两个注入分支、训练路径组织，表2/3/4/5对应机制；这种对应关系值得学习。Claim保留AS/PC/CLAP和MAIC取舍、有限N，physical词不得外推完整物理。无独立Limitations节，Conclusion提出材质/接触/3D声学未来方向；本笔记的差分、loss混杂和公开性问题为审查推论，不能写成作者自认。",
+      "sections_read": "固定v3 10页Abstract/§1–5全部研究核心与Eq1–19、T1–5、F1–5图注；实际p4框架F3、p6主表T1/p8消融T3–5与F5已看。无独立附录/Limitations；未逐篇参考文献或逐段观看全部AV展示。官方项目HTML/链接、共享Tora固定README与目录核查；网站导航landmark-tokenized-dit属其他项目，不当Tora3代码。Crossref404未核正式出版全文；未下载模型/数据/执行生成。",
+      "id": "G039",
+      "checked_on": "2026-10-21",
+      "reading_status": "critical_sections_reviewed",
+      "reproduced": false
     }
   ]
 }

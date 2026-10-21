@@ -7177,6 +7177,29 @@
       "checked_on": "2026-10-20",
       "reading_status": "resource_protocol_reviewed",
       "reproduced": false
+    },
+    {
+      "venue": "Wan Toy Transform：官方GitHub/Hugging Face的Wan2.1-I2V14B480P风格变形LoRA；未定位对应独立论文。GH固定c86ea3638c137792389f2fc0f1c4d912353634dc、HF固定94ca3cd260d4b824c7f8e909fd2edbaf9e94db90。作为非论文工程资源独立登记，不计论文精读验收。",
+      "problem": "给定首帧物体图和文字，如何使用可加载的LoRA将对象逐渐变成毛绒玩偶，并在不同GPU显存预算下推理；资源体现外观变形域适配，不含规范笔画、素描绘制或笔尖动作控制。",
+      "motivation": "全量14B视频模型适配/驻留成本高，LoRA减少可训练增量而offload减少GPU驻留。风格trigger与训练数据可能承载强先验，但未公开配方，不能仅凭示例解释实际学习因果；低VRAM不等于更少总内存或更快。",
+      "contribution": "发布Wan2.1 I2V毛绒玩偶变形adapter和完整推理入口，支持none/model/block/leaf offload。给出A100下显存/生成时长作者报告，提供复用资源实例，未提出可核的新生成理论或受控质量benchmark。",
+      "input_output": "首图按约480×832面积和长宽比缩放，再向下对齐VAE空间倍率×patch宽；文字模板含b6e9636和JellyCat-style→Wan图像/文字条件+LoRA→81帧RGB，导出16fps视频。resize后长宽随输入比例变化，不能说始终480×832；未编码笔顺/事件或轨迹。",
+      "architecture": "默认Wan-AI/Wan2.1-I2V-14B-480P-Diffusers；CLIPVision与VAE显式FP32，其余pipeline BF16。adapter_config为标准LoRA r96/alpha96/dropout0/bias none，target q/k_img/k/v_img/v/o/ffn.2/ffn.0，未用DoRA/rsLoRA且无rank/alpha pattern，标准alpha/r=1。config base/revision为空，实际base从generate.py确定；inference_mode=false不表明该脚本执行训练。未下载权重独立核shape。",
+      "data": "训练样本/数量/清洗/字幕/许可和验证split未公开定位；README四个showcase是定性展示。不能由致谢diffusion-pipe推断其完整训练器、数据或超参；无书写/非汉字过程数据声明。",
+      "metrics": "README报告VRAM与A100生成时间，缺明确峰值测量边界/热启动/系统RAM/种子与统计；无FVD/人工风格质量/身份/时序/事件指标或本项目实测。显存节省不可直接当生成质量收益。",
+      "baselines": "同资源none/model/block(num_blocks_per_group1)/leaf offload的工程条件，未含base无LoRA、全参SFT或不同rank/目标层的质量对照。不同offload比较模型驻留/传输策略，不能证明r96最优。",
+      "experimental_conditions": "README测试Python3.12、PyTorch2.6.0/cu124；requirements锁diffusers0.33.1/transformers4.51.3/accelerate1.6.0/peft.15.2/ftfy6.3.1。generate.py显式81frames/CFG5/空negative/16fps，未设Generator种子或num_inference_steps；固定diffusers v0.33.1 WanImageToVideoPipeline签名核实默认50步（非猜当前版本）。无训练lr/步数/优化器/预算公开定位，未执行脚本。",
+      "results": "作者A100表：leaf11.9GB/17m17、block20.5GB/16m48、model39.4GB/16m24、none55.9GB/16m08；较低GPU驻留伴随更长时长。A100具体容量/CPU/RAM、精确shape/计时边界/热启动和方差不足，不能当本机复现或全部输入保证。展示物体变玩偶可作为待验证能力线索，未测笔顺或绘制过程。",
+      "ablation": "只有四种offload作者报告，无适配机制或质量消融。rank96/alpha96/attention+FFN是发布配置，缺r/alpha/目标层与全SFT搜索；不能据配置倒推为何采用或理论最佳。脚本未指定adapter scale，实际load默认不等于已验证任何手工融合值。",
+      "limitations": "固定GH树10项，非assets仅README/generate.py/requirements；未定位训练/数据/验证脚本或GH LICENSE文件。HF有MIT元数据及adapter文件/config，但底座/组件许可应分别核对，不据标签扩展到全部组成。依赖版本固定但模型ID未锁revision、seed未固定；trigger依赖/多主体身份/跨域/文字细线保持未知，offload增加主机内存/传输成本。appearance morph不具备单调留墨或规范事件约束。",
+      "advantage_hypothesis": "底座已覆盖对象与变形、目标域主要改变风格时，低秩适配可能以较小增量实现域迁移；训练集及对照缺失使该解释仍待验证。offload在GPU驻留受限而主机/互连足够时有部署价值，质量/速度需实测；细笔结构已被VAE/抽帧丢失时加rank不能保证恢复。",
+      "falsification": "固定底座/adapter revision、数据曝光、prompt/首图/种子/步数，比较base/LoRA/全参等预算，r×alpha/r和attention-only/FFN-only/组合；补风格强度、身份保持、变形时刻与时序稳定、多物体/文字/非汉字分层。offload配对测完整端到端时间/峰值GPU与CPU RAM并区分加载/首步/稳态；书写任务另测事件顺序/方向/留墨和OCR，不能只看最终玩偶。未运行。",
+      "writing_lesson": "无论文资源也按输入输出→实际配置→依赖默认→报告指标→缺失训练/质量证据组织。Claim将作者工程报告与独立测量分开，标准LoRA机制与本adapter效果分开；Limitations具体列训练公开性、基础版本、种子/计时和任务迁移。来源致谢不等于可复现训练配方。",
+      "sections_read": "固定GH完整10项文件树，README/requirements/generate.py102行全文；固定HF API/文件表/README/adapter_config全文。另读diffusers v0.33.1官方Wan I2V pipeline __call__签名与scheduler/denoise相关段，未全审依赖库或读取权重张量。未下载基础/LoRA权重、运行推理/训练或本机测量；resource_protocol_reviewed，无论文五项完成声明。",
+      "id": "R12",
+      "checked_on": "2026-10-21",
+      "reading_status": "resource_protocol_reviewed",
+      "reproduced": false
     }
   ]
 }

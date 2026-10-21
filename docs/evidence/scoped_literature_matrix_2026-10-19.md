@@ -344,3 +344,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第八十六批（2026-10-21）：轨迹中心/实体身份/事件接触和留墨分别定义，OpenSora/Cog及主表/消融协议分开。见[审查](tora_motion_binding_and_process_boundary_audit_2026-10-21.md)、[L034](../reviews/L034.md)/[L035](../reviews/L035.md)。
+
+
+第八十七批（2026-10-21）：首图轨迹→视听联合、外观变形资源、绘画事件与UMM协同分别界定。见[审查](tora3_kinematics_flow_and_nonpaper_adapter_audit_2026-10-21.md)、[G039](../reviews/G039.md)/[R12](../reviews/R12.md)。

@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-21",
+  "ids": [
+    "G039",
+    "R12"
+  ],
+  "tora3": {
+    "paper": "2604.09057v3",
+    "pages": 10,
+    "published_full_text_verified": false,
+    "doi": "10.1145/3767308.3835041",
+    "crossref_status": 404,
+    "public_code_or_checkpoint_located": false,
+    "pav_download_located": false,
+    "project_navigation_other_repository": "alibaba/landmark-tokenized-dit is not Tora3 release",
+    "findings": [
+      "50 evaluation videos; event subset counts/uncertainty/ETE extraction units missing",
+      "Hybrid path and region loss reweight not independently ablated",
+      "AS/PC/CLAP not all best; MAIC .66 before hybrid vs .63 full; T5 lacks ETE/MAIC",
+      "Sparse collisions random selection, 2D coordinates do not determine sound/contact force"
+    ]
+  },
+  "wan_toy": {
+    "github_revision": "c86ea3638c137792389f2fc0f1c4d912353634dc",
+    "hf_revision": "94ca3cd260d4b824c7f8e909fd2edbaf9e94db90",
+    "rank": 96,
+    "alpha": 96,
+    "training_recipe_located": false,
+    "targets": [
+      "q",
+      "k_img",
+      "k",
+      "v_img",
+      "v",
+      "o",
+      "ffn.2",
+      "ffn.0"
+    ],
+    "diffusers": "0.33.1",
+    "verified_default_steps": 50,
+    "frames": 81,
+    "cfg": 5,
+    "export_fps": 16,
+    "explicit_generator": false,
+    "hf_license_metadata": "mit",
+    "github_license_file_located": false,
+    "author_report_only": true
+  },
+  "source_urls": [
+    "https://arxiv.org/abs/2604.09057v3",
+    "https://arxiv.org/pdf/2604.09057v3",
+    "https://ali-videoai.github.io/tora3_page/",
+    "https://github.com/alibaba/Tora/tree/9a23dceb905d8b224983f7a94f42a6db79c9c63b",
+    "https://doi.org/10.1145/3767308.3835041",
+    "https://github.com/alibaba/wan-toy-transform/tree/c86ea3638c137792389f2fc0f1c4d912353634dc",
+    "https://huggingface.co/Alibaba-Research-Intelligence-Computing/wan-toy-transform/tree/94ca3cd260d4b824c7f8e909fd2edbaf9e94db90",
+    "https://github.com/huggingface/diffusers/blob/v0.33.1/src/diffusers/pipelines/wan/pipeline_wan_i2v.py"
+  ],
+  "model_executed": false,
+  "weights_downloaded": false
+}

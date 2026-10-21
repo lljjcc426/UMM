@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 350 条，本批有 350 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 352 条，本批有 352 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 核心三遍完成需逐条核问题/方法/框架图、主表/消融及有依据的批判分析，并记录五项书面检查。计时口试、完整代码审查和独立复现另列；没有自动把模板填齐计为完成。
 
@@ -356,3 +356,5 @@
 | G036 | RePaint: Inpainting using Denoising Diffusion Probabilistic Models | primary_sections_read | [结构化分析](../reviews/G036.md) | 核心三遍与五项检查完成 |
 | G037 | A Theoretical Justification for Image Inpainting using Denoising Diffusion Probabilistic Models | primary_sections_read | [结构化分析](../reviews/G037.md) | 核心三遍与五项检查完成 |
 | G038 | History-Guided Video Diffusion | primary_sections_read | [结构化分析](../reviews/G038.md) | 核心三遍与五项检查完成 |
+| G039 | Tora3: Trajectory-Guided Audio-Video Generation with Physical Coherence | primary_sections_read | [结构化分析](../reviews/G039.md) | 核心三遍与五项检查完成 |
+| R12 | Wan Toy Transform：Wan2.1 I2V玩偶变形LoRA | primary_sections_read | [结构化分析](../reviews/R12.md) | 未完成 |

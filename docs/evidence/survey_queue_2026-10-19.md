@@ -344,3 +344,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第八十六批（2026-10-21）补完Tora L034正式版和Tora2 L035固定v2研究核心/制品边界。350目录、175核心/178项五条书面（含未通过项），175条未确认核心三遍（含资源）。见[审查](tora_motion_binding_and_process_boundary_audit_2026-10-21.md)与[逐文件说明](eighty_sixth_changes_2026-10-21.md)。Tora3和Wan玩偶LoRA只进入追查，无删除/模型复现。
+
+
+第八十七批（2026-10-21）新增Tora3 G039固定v3核心精读和Wan玩偶LoRA R12非论文资源协议审查。352目录、176核心/179项五条书面（含未通过项），176条未确认核心三遍（含资源）。见[审查](tora3_kinematics_flow_and_nonpaper_adapter_audit_2026-10-21.md)与[逐文件说明](eighty_seventh_changes_2026-10-21.md)。资源审查不计论文完成；无删除/模型复现。

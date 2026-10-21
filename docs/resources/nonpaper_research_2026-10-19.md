@@ -374,3 +374,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第八十六批（2026-10-21）：Tora固定发布/训练样例、低显存配置成本、两模型元数据/许可；Tora2专门制品未定位，Wan玩偶LoRA候选待审查。见[审查](../evidence/tora_motion_binding_and_process_boundary_audit_2026-10-21.md)、[L034](../reviews/L034.md)/[L035](../reviews/L035.md)。
+
+
+第八十七批（2026-10-21）：R12 Wan玩偶LoRA完整代码/config/依赖/作者VRAM表，无训练公开定位或质量对照；与Tora3仅项目展示不同证据。见[审查](../evidence/tora3_kinematics_flow_and_nonpaper_adapter_audit_2026-10-21.md)、[G039](../reviews/G039.md)/[R12](../reviews/R12.md)。

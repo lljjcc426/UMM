@@ -385,3 +385,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第八十六批（2026-10-21）：latent帧数、256画布量化/重采样、同像素覆盖、绝对分差/相对百分比及冻结图文矛盾。见[审查](tora_motion_binding_and_process_boundary_audit_2026-10-21.md)、[L034](../reviews/L034.md)/[L035](../reviews/L035.md)。
+
+
+第八十七批（2026-10-21）：时间池化后tau、ETE提取/单位、伪标签偏差、固定依赖默认与未锁模型revision。见[审查](tora3_kinematics_flow_and_nonpaper_adapter_audit_2026-10-21.md)、[G039](../reviews/G039.md)/[R12](../reviews/R12.md)。
