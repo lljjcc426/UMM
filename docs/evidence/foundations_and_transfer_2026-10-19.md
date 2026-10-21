@@ -234,3 +234,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百零四批（2026-10-21）：经验规模趋势与评价饱和、原基座/文本继续控制、教师引导SFT和历史预训成本；局部联合增益与严格共享协同分开。见[审查](liquid_illume_scaling_synergy_and_teacher_audit_2026-10-21.md)、[L088](../reviews/L088.md)、[L089](../reviews/L089.md)。
+
+
+第一百零五批（2026-10-21）：masked目标熵/PPL、课程速度预算、奖励泛化与分布差因果；无序Counter召回/长度加权与有序过程区分。见[审查](ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[L091](../reviews/L091.md)、[L093](../reviews/L093.md)。

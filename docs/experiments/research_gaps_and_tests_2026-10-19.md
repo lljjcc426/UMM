@@ -427,3 +427,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百零四批（2026-10-21）：同基座/codec/token/FLOPs的共享/独立/增普通数据控制；50K匹配教师调用、去评价/改图/推理及多seed细粒度分项，尚未执行。见[审查](../evidence/liquid_illume_scaling_synergy_and_teacher_audit_2026-10-21.md)、[L088](../reviews/L088.md)、[L089](../reviews/L089.md)。
+
+
+第一百零五批（2026-10-21）：同目标/预算课程与恒定mask、逐奖励和BoN/拒绝采样SFT、GT/预测码与有序文字/布局评价，多seed待执行。见[审查](../evidence/ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[L091](../reviews/L091.md)、[L093](../reviews/L093.md)。

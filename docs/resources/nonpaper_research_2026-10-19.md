@@ -428,3 +428,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百零四批（2026-10-21）：Liquid固定7B指令制品与LoRA/有效128/任务配比差异、部分WIP和内部数据限制；ILLUME后续制品不归原模型；两后续候选仍未新增主目录。见[审查](../evidence/liquid_illume_scaling_synergy_and_teacher_audit_2026-10-21.md)、[L088](../reviews/L088.md)、[L089](../reviews/L089.md)。
+
+
+第一百零五批（2026-10-21）：X-Omni En/Zh/PT/SFT与LongText固定制品关联，10blob推理/评价非完整训练；prompt每语160、实评分无序召回/脚本适配。见[审查](../evidence/ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[L091](../reviews/L091.md)、[L093](../reviews/L093.md)。

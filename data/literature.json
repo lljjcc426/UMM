@@ -14482,22 +14482,24 @@
     "title": "UGen: Unified Autoregressive Multimodal Model with Progressive Vocabulary Learning",
     "source_urls": [
       "https://arxiv.org/abs/2503.21193",
-      "https://arxiv.org/html/2503.21193"
+      "https://arxiv.org/html/2503.21193",
+      "https://arxiv.org/html/2503.21193v1",
+      "https://arxiv.org/pdf/2503.21193v1"
     ],
-    "method": "Progressive Vocabulary Learning：随机按每k步激活一个视觉ID，未激活ID在训练序列替为[MASK]，全部加入后继续联合预训；SFT单一混合模型。 TinyLlama1.1B、32K文本词表/context4096，SBER-MoVQGAN67M、16384视觉词表、空间8倍压缩，256²为32²视觉码；共享CE监督全序列/同loss权重。先有文字预训起点，后混纯文/I2T/T2I；CFG logits默认5。",
-    "conclusion": "Table2 Vanilla文本/理解/生成42.1/61.0/42.5，UGen46.1/66.0/52.1；单任务48.8/66.4/55.9，UGen仍低于单任务综合分。Table4细项UGen VQA70.0/GQA58.2/MME1110(55.5)/POPE80.4，单任务73.1/54.9/1128(56.4)/81.2，有互利与退化。",
-    "gap": "没有消除单任务差距；同配置不自动等每任务曝光/总计算。随机激活应与频率/语义课程及普通mask退火区分；未激活ID若连target也替mask会简化训练目标，课程收益需固定难度评估。内部数据/实际k与上述算法疑点限制复现。",
-    "problem": "缓解统一文字、图像理解与图像生成AR训练中的任务干扰。",
+    "method": "不改TinyLlama主体，以MoVQGAN码与文本BPE共享因果next-token CE；预训练时每k步随机激活一个尚未激活视觉ID，其余视觉位置改为MASK，全部激活后继续训练；SFT统一混合三类任务。激活的是既有码本ID的可用性，不是重新学习笔画、增加图像时间帧或训练扩散模型。仍依赖预训练图像codec。 TinyLlama1.1B预训练初始化、文本词表32K/context4096，额外随机视觉embedding/输出词表；SBER-MoVQGAN67M、16384视觉码、固定256²。统一AR全参数预训练/SFT且各任务loss等权；图像codec及文本基础模型历史训练成本未包含在当前学习量中。论文未公开原模型代码/权重一手入口供核定层数/训练mask实现。",
+    "conclusion": "T2 vanilla文字42.1/理解61.0/生成42.5→UGen46.1/66.0/52.1，+4.0/+5.0/+9.6百分点；各自单任务48.8/66.4/55.9，UGen仍低2.7/.4/3.8，原TinyLlama文字52.9亦更高。附T4 GQA58.2高于单任务54.9，但VQA70<73.1/MME55.5<56.4/POPE80.4<81.2；T5单物体91.2>88.7、颜色属性36>32，其余含计数33.7<45/位置26<35。UGen总体52.1低于Show-o53/Emu3Gen54/SDXL55/Janus61，不能概括超越全部。",
+    "gap": "无法由整体PPL独立识别共享任务冲突，masked目标更简单可构成混杂；k∞/默认k、500Kvs600K、7vs8语言指标及基线附表差异限制协议精度。随机ID激活未控制频率/类别/随机顺序方差，单任务仍较强、语言相对原基座退化；内部数据与确切基准train/test清单未公开。13.3%的聚合/分母不能由概述直接当机制证明。未确认官方完整训练/权重发布，未做模型复现。",
+    "problem": "同一自回归Transformer同时完成语言任务、图像理解和图像生成，减少直接混合全视觉词表时相对单任务模型的性能下降。输入/输出文本与静态图像token，混合图文为定性例；未生成视频或规范书写动作/笔顺。",
     "claim": "研究目标：缓解统一文字、图像理解与图像生成AR训练中的任务干扰。",
-    "version": "UGen，2025",
+    "version": "UGen: Unified Autoregressive Multimodal Model with Progressive Vocabulary Learning；固定arXiv2503.21193v1，2025-03-27，唯一列出版本；完整13页PDF及HTML交叉。未由一手出版记录确认正式会议/期刊，不将引用它的ICLR等论文误认成其录用证明。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L091",
     "canonical_key": "paper:arxiv:2503.21193",
     "evidence_history": [
@@ -14529,17 +14531,22 @@
         "conclusion": "报告相对普通统一 AR 配方的综合改善；提示训练课程也是变量",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 105,
+        "scope": "完整固定arXiv2503.21193v1 HTML核心§1–5/Alg1/Eq1–5/T1–2及附A T3–5，完整13页PDF交叉与实际F2/完整T2/PDFp8 F6/7/8；图表k3/6/9/∞与scratch柱数读取，非全部定性例/每篇引用。所选一手链接/定向检索未确认原版官方代码、权重或正式会议身份；不是穷尽网络不存在证明。无权重/图像数据下载、模型训练推理/原表复现或口试。"
       }
     ],
-    "sections_read": "§2.1–2.3及Algorithm1、§3.1–3.5、Tables1/2、AppA Table4相关行；未逐图/读取全部k曲线与附录细项、未核代码，未复现",
+    "sections_read": "完整固定arXiv2503.21193v1 HTML核心§1–5/Alg1/Eq1–5/T1–2及附A T3–5，完整13页PDF交叉与实际F2/完整T2/PDFp8 F6/7/8；图表k3/6/9/∞与scratch柱数读取，非全部定性例/每篇引用。所选一手链接/定向检索未确认原版官方代码、权重或正式会议身份；不是穷尽网络不存在证明。无权重/图像数据下载、模型训练推理/原表复现或口试。",
     "review_path": "docs/reviews/L091.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "纯文DCLM15M+SlimPajama15M约30B文字token；30M图文：ImageNet1M/JourneyDB4M/CC12M12M/LAIONaesthetics12M/内部1M，CogVLM统一recaption，I2T/T2I同图翻转。SFT纯文118K+内部1M、理解1.2M+内部1M、生成4.4M+内部1M；captionsdrop10%。",
-    "framework": "Progressive Vocabulary Learning：随机按每k步激活一个视觉ID，未激活ID在训练序列替为[MASK]，全部加入后继续联合预训；SFT单一混合模型。",
-    "architecture": "TinyLlama1.1B、32K文本词表/context4096，SBER-MoVQGAN67M、16384视觉词表、空间8倍压缩，256²为32²视觉码；共享CE监督全序列/同loss权重。先有文字预训起点，后混纯文/I2T/T2I；CFG logits默认5。",
-    "metrics": "8个文本基准宏均值、VQA/GQA/POPE及MME-P/20归一后4项均值、GenEval百分数；困惑度/不同k曲线。综合相对改进不是每项绝对提高13.3点。",
-    "baselines": "同数据/骨干/训练配置的Vanilla Unified AR、三个Task-specific AR；随机初始化训练、不同激活速度；SD/Show-o/Chameleon/Janus跨模型对照仅辅助。",
-    "experimental_conditions": "AdamW lr预训1e-4/SFT3e-5、cosine/wd.01/clip1、warm5K/1K、500K/10K步、b256/128，纯文:I2T:T2I为3:2:5及2:6:2，packing。已读正文未明确最终k的数值与全部激活阶段采样细节，不能伪补；没有完整总GPU时长/每单任务曝光匹配说明。"
+    "dataset": "预训练30M文本约30Btoken=DCLM15M+SlimPajama15M；30M图文=ImageNet1M/JourneyDB4M/CC12M12M/LAION-aesthetics12M/内部1M，CogVLM重描述；反向生成使用同图文，不是再有30M独立图像，生成caption10%drop。SFT文本公开118K+内部1M、理解公开1.2M+内部1M、生成公开4.4M+内部1M。文本SFT引用BoolQ/PIQA/HellaSwag/WinoGrande/ARC/OpenBook等被测基准来源，未给精确split/样本清单，不能断言测试泄漏，也不能视为完全无相关监督。",
+    "framework": "不改TinyLlama主体，以MoVQGAN码与文本BPE共享因果next-token CE；预训练时每k步随机激活一个尚未激活视觉ID，其余视觉位置改为MASK，全部激活后继续训练；SFT统一混合三类任务。激活的是既有码本ID的可用性，不是重新学习笔画、增加图像时间帧或训练扩散模型。仍依赖预训练图像codec。",
+    "architecture": "TinyLlama1.1B预训练初始化、文本词表32K/context4096，额外随机视觉embedding/输出词表；SBER-MoVQGAN67M、16384视觉码、固定256²。统一AR全参数预训练/SFT且各任务loss等权；图像codec及文本基础模型历史训练成本未包含在当前学习量中。论文未公开原模型代码/权重一手入口供核定层数/训练mask实现。",
+    "metrics": "语言正文称HellaSwag/WinoGrande/ARC-e/c/OpenBookQA/PIQA/SIQA/BoolQ共8项宏平均，但附T3实际7项、不含SIQA；各行显示Avg与七项平均相符。理解VQAv2/GQA/MME/POPE四项宏平均，附T4 MME先/20归一（1110→55.5），不能把原始MME直接相加。生成GenEval六分项/总体；PPL曲线须固定未mask评估目标/词表。13.3%为作者综合相对提升说法，非13.3百分点或每项提升。",
+    "baselines": "同1.1B基座/数据/配置的三种Task-specific AR、Vanilla Unified AR及UGen；另TinyLlama、LLaVA1.5Phi/MobileVLM/LLaVA7B/mPLUG-Owl2、SD2.1/XL、Janus/Show-o/Chameleon/Emu3Gen。主T2声称严格匹配但三单任务模型与混合模型各自数据暴露/三模型总计算仍需日志核；主T2 Janus/Show-o语言41.0/36.1与附T3平均40.7/36.0略异，不能任意混用。",
+    "experimental_conditions": "T1预训AdamW lr1e-4/cosine/wd.01/clip1/warm5000/500Kstep/b256，数据text:understanding:generation=3:2:5；SFT lr3e-5/warm1000/10Kstep/b128/比例2:6:2，其余同。sequence packing、context4096、256²、CFG5。F7测试k3/6/9/∞至600K，与主T1 500K边界不同；正文未明确主表默认k、激活随机seed/顺序和硬件/完整算力。算法与k∞图注存在不一致，不能用猜测补配置。"
   },
   {
     "title": "Harmonizing Visual Representations for Unified Multimodal Understanding and Generation",
@@ -14618,22 +14625,30 @@
     "title": "X-Omni: Reinforcement Learning Makes Discrete Autoregressive Image Generative Models Great Again",
     "source_urls": [
       "https://arxiv.org/abs/2507.22058",
-      "https://arxiv.org/html/2507.22058"
+      "https://arxiv.org/html/2507.22058",
+      "https://arxiv.org/html/2507.22058v1",
+      "https://x-omni-team.github.io/",
+      "https://github.com/X-Omni-Team/X-Omni/tree/2b8237bb3789638c290eeda3e83ed81bd3652c3b",
+      "https://huggingface.co/X-Omni/X-Omni-En/tree/db70091623513f616c6da7a049773ec5934be88e",
+      "https://huggingface.co/X-Omni/X-Omni-Zh/tree/9ec2a05d820a845e881fdb5a74486260407edd5f",
+      "https://huggingface.co/X-Omni/X-Omni-PT/tree/51a5d872fcc0cd1ed251030fad194fbde0b09f7f",
+      "https://huggingface.co/X-Omni/X-Omni-SFT/tree/6c1b96fad2c9619e4826a21eb51a107d274ccdaf",
+      "https://huggingface.co/datasets/X-Omni/LongText-Bench/tree/429e30e9c1e0dea535038ae4238ea6ec42823098"
     ],
-    "method": "SigLIP-VQ+QwenAR+FLUX图像decoder，以整图多奖励GRPO优化AR采样；建立静态LongText-Bench。 SigLIP2-g+16384×2048码本先对齐Qwen2.5-1.5B理解任务，后固定tokenizer；主Qwen2.5-7B前后各4个vision-only transformer block及视觉embedding/head、1DRoPE、height/width前缀。线性适配语义码至FLUX.1-dev中间特征、重建训练decoder；GRPO冻结decoder，用旧策略16rollouts/组relative advantage+clip/KL。",
-    "conclusion": "Table1 OneIG英/中.901/.895、LongText英/中.900/.814；Seedream3 .865/.928/.896/.878，X-Omni中两项均较低，正文称长中文领先所有模型与表不符。GPT4o .857/.650/.956/.619，LongText英文低于GPT4o。GenEval.83含改写；DPG表本作总分87.65，未独立复现。",
-    "gap": "LongText OCR不可靠地保留多段相对顺序，作者因此改用TextAccuracy；该指标不证明全局排版/阅读顺序。训练和评价虽部分使用不同OCR，仍需独立字符/人工及复杂布局核验。静态字形长文和视频事件是不同任务，另有中文分支/提示改写/评测子集差异。",
-    "problem": "提高离散AR图像生成的长文字与复杂指令遵循，缓解AR生成语义码与扩散decoder训练条件的分布差异。",
+    "method": "SigLIP2-g语义encoder+VQ，Qwen2.5-7B共享AR与视觉专用block/embedding/head，FLUX.1-dev语义条件扩散decoder；预训/SFT后对AR做GRPO。多奖励HPSv2、UnifiedReward、Qwen2.5VL32B对齐、GOT-OCR2/PaddleOCR文字，新增LongText-Bench。统一离散AR是中间token目标，整条像素生成仍执行扩散且依赖外部奖励模型，不应称无扩散生成。 Qwen2.5-7B原28层前后各4个视觉block，共36层，image-only输出更新通过mask实现；固定HF forward仍对序列调用新增层再where保留文本，不能说语言侧计算绝无开销。图像词表16384、mm词表16448/文本151936，SigLIP2-g-patch16；量化训练有IBQ式soft/hard straight-through与commit loss，推理nearest-code。独立FLUXdecoder28步；论文说不依赖CFG限定AR，公开decoder true_cfg1.5并双分支预测。7B是基座量级，非整个含codec/decoder/奖励系统总参数。",
+    "conclusion": "T1 OneIG EN.901/CN.895；LongText EN.900/CN.814，中文低于Seedream.878、英文低于GPT4o.956，正文中文长文本“超过全部”与表/官方HF榜不符。T2 DPG87.65高于表中GPT4o86.23/Showo2 86.14，但global84.8低于DALLE90.97/Showo89、other84.2低于Showo91.64。T3 GenEval.83低于Mogao.89/BAGEL.88/OmniGen2.86/BLIP3o.84。T4 POPE89.3/GQA62.8/MMB74.8/SEED74.1/Doc88.6/OCR704，MMB低于JanusPro79.2/Showo79.3，OCR低于MiniCPM725等，非全面领先。",
+    "gap": "长文本指标忽略顺序/额外字、较长样本权重更大、OCR本身错误与预训练先验；未测时序/布局完整性，160×两语小范围非所有文字体系。RL奖励含强教师/多OCR，独立judge和手工核查缺失，训练奖励提升可能过拟合；“消除累积误差/弥合分布差”的强因果解释未单独验证。内部过滤/中文训练细节、奖励权重/codec成本不全。固定GH10blob仅推理和评测，HF提供模型实现/PT/SFT制品但无完整原训练/GRPO脚本；当前若干入口/labels分支尚需适配，未运行证实。",
+    "problem": "减少离散AR静态图像生成的伪影、复杂指令和长文字错误，同时保留图像理解；以图像级奖励优化AR产生的语义码与冻结扩散decoder配合。英文/中文模型分开，输出静态RGB或文字，未研究文字逐笔出现的视频/规范笔顺。",
     "claim": "研究目标：提高离散AR图像生成的长文字与复杂指令遵循，缓解AR生成语义码与扩散decoder训练条件的分布差异。",
-    "version": "X-Omni，2025",
+    "version": "X-Omni: Reinforcement Learning Makes Discrete Autoregressive Image Generative Models Great Again；固定arXiv2507.22058v1，2025-07-29，作者项目/GH/HF交叉；未核正式会议/期刊录用，一手引用仍CoRR。LongText-Bench作为其配套基准关联，不重复计论文。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L093",
     "canonical_key": "paper:arxiv:2507.22058",
     "evidence_history": [
@@ -14665,17 +14680,22 @@
         "conclusion": "改善生成质量和文字渲染；主干是 AR 不等于整条像素生成链没有扩散",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 105,
+        "scope": "完整固定arXiv2507.22058v1核心§1–5/GRPOEq1/T1–4/附A全文，实际F3架构、F2 RL流程/BoN曲线与T1，非逐篇参考/所有定性展示。固定GH2b8237bb完整10blob树、README/generate/chat/benchmark三脚本与两语prompt统计；HF En db700916卡/config/指定modeling量化/视觉层/采样/decoderCFG片段、Zh/PT/SFT及data固定元数据。未全读FLUX/ViT底层、下载权重或样本图，未运行OCR/生成/训练或原表复现。"
       }
     ],
-    "sections_read": "§3.1–3.2、§4.1–4.2、Table1和§4.3.1、Tables2/3本作行及协议、§4.4正文、§5、AppA；未视觉读Fig2/6、未逐行全部理解表、未核代码，未复现",
+    "sections_read": "完整固定arXiv2507.22058v1核心§1–5/GRPOEq1/T1–4/附A全文，实际F3架构、F2 RL流程/BoN曲线与T1，非逐篇参考/所有定性展示。固定GH2b8237bb完整10blob树、README/generate/chat/benchmark三脚本与两语prompt统计；HF En db700916卡/config/指定modeling量化/视觉层/采样/decoderCFG片段、Zh/PT/SFT及data固定元数据。未全读FLUX/ViT底层、下载权重或样本图，未运行OCR/生成/训练或原表复现。",
     "review_path": "docs/reviews/L093.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "生成约200M COYO/DataComp/LAION高质图，Qwen2.5VL72B densecaption，约600B多模态token；理解59M约100Btoken。SFT BLIP3o30K+合成30K+高质预训数据及LLaVA/Cauldron/Cambrian，共1.5Btoken。RL180Kprompt=80KMidjourney+50K文字长度分桶+50K自然。LongText160prompt/8场景、GPT4o生成后人工复核。",
-    "framework": "SigLIP-VQ+QwenAR+FLUX图像decoder，以整图多奖励GRPO优化AR采样；建立静态LongText-Bench。",
-    "architecture": "SigLIP2-g+16384×2048码本先对齐Qwen2.5-1.5B理解任务，后固定tokenizer；主Qwen2.5-7B前后各4个vision-only transformer block及视觉embedding/head、1DRoPE、height/width前缀。线性适配语义码至FLUX.1-dev中间特征、重建训练decoder；GRPO冻结decoder，用旧策略16rollouts/组relative advantage+clip/KL。",
-    "metrics": "OneIG文字综合EditDistance/Completion/WordAcc；LongText Qwen2.5VL7B OCR后TextAccuracy，每prompt4张；GenEval（有prompt rewriting）、DPG、图像理解。训练奖励HPSv2/UnifiedReward/Qwen2.5VL32B对齐/GOT-OCR2+PaddleOCR。",
-    "baselines": "JanusPro/BLIP3o/BAGEL/OmniGen2/Show-o2、GPT4o、FLUX/Seedream；RL对SFT best-of-N、AR CFG依赖图。GPT4o DPG仅1张且排被拒prompt，不能当相同测试预算/集合。",
-    "experimental_conditions": "图像短边384/长边≤1152保持比例。AR阶段I仅新视觉模块10K步b256/context16384约42Btoken，II全训150K步629Btoken、lr1e-4，III高质42Btoken退火；SFT b64/context16384、lr1e-5→0。RL lr1e-6、200step、b512、每prompt16rollout、KL.01；总decoder/奖励推理成本未给。AR不需要CFG的声明不自动包含FLUX解码成本或CFG设定。"
+    "dataset": "PT生成约200M筛选COYO700M/DataComp1B/LAION2B图，Qwen2.5VL72B稠密重描述约600Btoken；理解59M来自OneVision/BLIP3KALE/InfinityMM等约100Btoken，短边384/长边≤1152。SFT BLIP3o60k中30K+合成文字30K+高质PT与NeXT/Cauldron/Cambrian，合1.5Btoken。RL180Kprompt=80KMJ+文字按长度桶50K+自然图文50K；中文由RL中间checkpoint追加中文训练，En/Zh非同权重同时能力证据。LongText每语160、8场景×20，short/long各80，公开ID0–199非连续。",
+    "framework": "SigLIP2-g语义encoder+VQ，Qwen2.5-7B共享AR与视觉专用block/embedding/head，FLUX.1-dev语义条件扩散decoder；预训/SFT后对AR做GRPO。多奖励HPSv2、UnifiedReward、Qwen2.5VL32B对齐、GOT-OCR2/PaddleOCR文字，新增LongText-Bench。统一离散AR是中间token目标，整条像素生成仍执行扩散且依赖外部奖励模型，不应称无扩散生成。",
+    "architecture": "Qwen2.5-7B原28层前后各4个视觉block，共36层，image-only输出更新通过mask实现；固定HF forward仍对序列调用新增层再where保留文本，不能说语言侧计算绝无开销。图像词表16384、mm词表16448/文本151936，SigLIP2-g-patch16；量化训练有IBQ式soft/hard straight-through与commit loss，推理nearest-code。独立FLUXdecoder28步；论文说不依赖CFG限定AR，公开decoder true_cfg1.5并双分支预测。7B是基座量级，非整个含codec/decoder/奖励系统总参数。",
+    "metrics": "OneIG文字综合EditDistance/Completion/WordAccuracy；LongText论文称TextAccuracy、Qwen2.5VL7B OCR/每prompt4图，公开summary为英文词/中文字符Counter交集召回、总匹配数/总GT数，按长度加权，无序/不罚多余字、英文小写去标点。不能当逐字序列准确率、整图完全正确率、布局或笔顺。生成DPG/GenEval（后者prompt rewriting）、理解POPE/GQA/MMB/SEED/DocVQA/OCRBench；奖励分数与独立泛化/人类质量区分。",
+    "baselines": "文字FLUX/HiDream/Kolors2/Seedream3、JanusPro/BLIP3o/BAGEL/OmniGen2/Show-o2/GPT4o；生成加SDXL/3/DALLE、MetaQueries/UniWorld/Mogao/OvisU等；理解LLaVA1.5/NeXT/OneVision/VILA/MiniCPM。F2 SFT best-of8/16作奖励参照，F6不同CFG定性；没有完整逐奖励消融/同奖励预算SFT拒绝采样控制。GPT4o DPG每prompt仅一图且拒绝prompt剔除，其子集与采样条件不等同其他方法；GenEval GPT4o分数引自外部。",
+    "experimental_conditions": "PT I仅新视觉层/embed，10Kstep/b256/context16384/lr1e-4≈42Btoken；II全部AR/150K同b/length/lr≈629B，III过滤42B并lranneal。SFT b64/context16384/lr1e-5→0/1.5Btoken。RL lr1e-6/200step/b512/每prompt16rollout/KLβ.01；数值奖励权重/clipε及完整codec/decoder训练协议未由已读主文给齐。公开生成1152²/16→72²=5184 AR码，temp1/minp.03/topp1/ARCFG1/seed1234，再28步decoderCFG1.5。HF maxpos8192与论文训练16384区分，不据此断言长上下文不可用。"
   },
   {
     "title": "TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation",

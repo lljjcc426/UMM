@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L091",
+    "L093"
+  ],
+  "sources": {
+    "L091": [
+      "https://arxiv.org/html/2503.21193v1",
+      "https://arxiv.org/pdf/2503.21193v1"
+    ],
+    "L093": [
+      "https://arxiv.org/html/2507.22058v1",
+      "https://x-omni-team.github.io/",
+      "https://github.com/X-Omni-Team/X-Omni/tree/2b8237bb3789638c290eeda3e83ed81bd3652c3b",
+      "https://huggingface.co/X-Omni/X-Omni-En/tree/db70091623513f616c6da7a049773ec5934be88e",
+      "https://huggingface.co/X-Omni/X-Omni-Zh/tree/9ec2a05d820a845e881fdb5a74486260407edd5f",
+      "https://huggingface.co/X-Omni/X-Omni-PT/tree/51a5d872fcc0cd1ed251030fad194fbde0b09f7f",
+      "https://huggingface.co/X-Omni/X-Omni-SFT/tree/6c1b96fad2c9619e4826a21eb51a107d274ccdaf",
+      "https://huggingface.co/datasets/X-Omni/LongText-Bench/tree/429e30e9c1e0dea535038ae4238ea6ec42823098"
+    ]
+  },
+  "executed": false,
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "artifacts": [
+    {
+      "id": "L091",
+      "paper": "Fixed arxiv2503.21193v1 complete HTML and13p PDF; formal venue not confirmed",
+      "visuals": [
+        "v1F2",
+        "v1T2",
+        "PDFp8F6/F7/F8"
+      ],
+      "findings": [
+        "Algorithm activates one code ID each k steps; MASK replaces inactive IDs",
+        "PPL across changed targets/vocabularies not independent evidence of task interference",
+        "Figurek-infinity vanilla caption inconsistent with initial text-only active set",
+        "Text evaluation says8 datasets, AppendixT3 has7/noSIQA; MME divided20 before average",
+        "Main13.3percent is aggregated relative claim, not absolute points",
+        "Task-specific and original TinyLlama still stronger overall; submetric exceptions",
+        "Defaultk/activationseed, benchmark train-test split lists and original release not confirmed"
+      ]
+    },
+    {
+      "id": "L093",
+      "paper": "Fixed arxiv2507.22058v1 complete core andAppendixA",
+      "github_revision": "2b8237bb3789638c290eeda3e83ed81bd3652c3b",
+      "tree_blobs": 10,
+      "hf_revisions": {
+        "en": "db70091623513f616c6da7a049773ec5934be88e",
+        "zh": "9ec2a05d820a845e881fdb5a74486260407edd5f",
+        "pretrain": "51a5d872fcc0cd1ed251030fad194fbde0b09f7f",
+        "sft": "6c1b96fad2c9619e4826a21eb51a107d274ccdaf",
+        "data": "429e30e9c1e0dea535038ae4238ea6ec42823098"
+      },
+      "visuals": [
+        "v1F3",
+        "v1F2",
+        "v1T1"
+      ],
+      "findings": [
+        "Semantic discrete AR followed by FLUX diffusion;28shared+4before/4aftervision blocks",
+        "En andZh are different checkpoints; LongText160each/8categories/80short80long",
+        "Counter-based Englishword/Chinesechar recall ignores order/extras; final aggregate GT-length weighted",
+        "Chinese LongText.814 belowSeedream.878 contrary to universal superiority prose",
+        "No AR CFG does not mean no diffusion CFG: fixed decoder28steps/trueCFG1.5 with doubled noise branch",
+        "BoN16.529 vs final rewardabout.577 is own-reward optimization, not measured decoder-gap closure",
+        "GH has inference/evaluation but no complete original PT/SFT/GRPO training pipeline",
+        "Current eval.sh writesjsonl but callsjson; Chinese README --model_path differs parser; selected HF labels reshape uses text vocabulary despite expanded logits, training compatibility unverified"
+      ]
+    }
+  ]
+}

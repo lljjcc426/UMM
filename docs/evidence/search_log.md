@@ -487,3 +487,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百零四批（2026-10-21）：Liquid固定v4与正式IJCV身份，ILLUME完整正式11页/旧v1附录A；实际框架/主表/消融，Liquid固定GH76blob/HF卡与配置；期刊全文/正式supp边界明确。见[审查](liquid_illume_scaling_synergy_and_teacher_audit_2026-10-21.md)、[L088](../reviews/L088.md)、[L089](../reviews/L089.md)。
+
+
+第一百零五批（2026-10-21）：UGen唯一v1完整13页/HTML及实际p8，X-Omni固定v1核心/附A、实际框架/主表/RL曲线，GH10blob/HF五项固定revision与两语prompt统计。见[审查](ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[L091](../reviews/L091.md)、[L093](../reviews/L093.md)。

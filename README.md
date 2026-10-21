@@ -308,3 +308,6 @@ python scripts/validate_catalog.py
 
 
 第一百零四批（2026-10-21）完成L088 Liquid/L089 ILLUME指定版本核心、实际图表及发布范围；纠正Liquid语言对照缺失的旧说法，区分规模趋势、额外数据收益与协同，明确ILLUME教师及15M成本口径/版本差异。356目录、209核心/212书面含未通过项，147条未确认核心；ILLUME+/X留后续审查。见[审查](docs/evidence/liquid_illume_scaling_synergy_and_teacher_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_fourth_changes_2026-10-21.md)。无删除/模型复现。
+
+
+第一百零五批（2026-10-21）完成L091 UGen/L093 X-Omni固定核心、实际框架/主表/已有消融及指定制品；核课程mask与PPL、7/8基准和k∞差异，纠正中文长文本全优说法，明确无序加权召回、En/Zh与扩散CFG。356目录、211核心/214书面含未通过项，145条未确认核心。见[审查](docs/evidence/ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_fifth_changes_2026-10-21.md)。无删除/模型复现。

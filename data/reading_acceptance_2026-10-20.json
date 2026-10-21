@@ -7289,6 +7289,74 @@
         }
       ],
       "boundary": "完整正式ICCV2025 11页主文Abstract/§1–6核心、Eq/全部T1–9、框架和消融分析；实际p3 F3与p8 F6/7/T8/9。固定arXiv2412.06673v1核心交叉与附录A quantizer/decoder实施；非全部附录B定性图或每篇参考文献。正式supp下载不完整并排除，未把它标已读。原论文链接与选定GH/HF检索未确认原版完整发布；ILLUME+/ILLUME-X作者仓库README仅用于发现与版本区分，未用作原版实现。无权重/图像下载、训练推理、原表复现或口试。"
+    },
+    {
+      "id": "L091",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "同一自回归Transformer同时完成语言任务、图像理解和图像生成，减少直接混合全视觉词表时相对单任务模型的性能下降。输入/输出文本与静态图像token，混合图文为定性例；未生成视频或规范书写动作/笔顺。 新视觉词表随机初始化、与语言混合可能增加优化难度和任务干扰；已有路线常增加分支/不同目标。作者用逐步激活视觉ID的课程保留简单主干。但不同词表或MASK比例的PPL受目标熵/可预测性影响，PPL降低本身不足以证明任务冲突减少。",
+          "evidence": "完整固定预印本核心、实际框架/主表/现有消融、指定附录与发布文本；非口试/复现，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "文本→TinyLlama BPE；256²图→MoVQGAN8×空间压缩/32²=1024码；用SOS/EOS与SOI/EOI排成text-only、image-to-text、text-to-image序列→课程MASK→共享decoder全序列CE→文字输出或图像码/VQ解码。Alg1 VA初始仅VT，每k步随机加入一个VI元素，未激活输入ID替成MASK；未明确区分标签/输入的独立mask实现。实际F2流程、完整T2与PDFp8 F6/7/8核看；图像推理CFG logits lu+s(lc−lu)，s5。 TinyLlama1.1B预训练初始化、文本词表32K/context4096，额外随机视觉embedding/输出词表；SBER-MoVQGAN67M、16384视觉码、固定256²。统一AR全参数预训练/SFT且各任务loss等权；图像codec及文本基础模型历史训练成本未包含在当前学习量中。论文未公开原模型代码/权重一手入口供核定层数/训练mask实现。",
+          "evidence": "完整固定预印本核心、实际框架/主表/现有消融、指定附录与发布文本；非口试/复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "不改TinyLlama主体，以MoVQGAN码与文本BPE共享因果next-token CE；预训练时每k步随机激活一个尚未激活视觉ID，其余视觉位置改为MASK，全部激活后继续训练；SFT统一混合三类任务。激活的是既有码本ID的可用性，不是重新学习笔画、增加图像时间帧或训练扩散模型。仍依赖预训练图像codec。 有限1.1B容量、新视觉词表与语言分布差异大且训练早期新标签难时，渐进课程可能降低早期优化难度、缩小同条件混训劣化。若频繁mask抹去稀有字/精细视觉信息或激活太慢，可能伤害细节；需要在固定最终目标和计算下验证。该论文没有证明共享模型优于全部专用模型，也没有对时序/笔画事件给优势保证。",
+          "evidence": "完整固定预印本核心、实际框架/主表/现有消融、指定附录与发布文本；非口试/复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2 vanilla文字42.1/理解61.0/生成42.5→UGen46.1/66.0/52.1，+4.0/+5.0/+9.6百分点；各自单任务48.8/66.4/55.9，UGen仍低2.7/.4/3.8，原TinyLlama文字52.9亦更高。附T4 GQA58.2高于单任务54.9，但VQA70<73.1/MME55.5<56.4/POPE80.4<81.2；T5单物体91.2>88.7、颜色属性36>32，其余含计数33.7<45/位置26<35。UGen总体52.1低于Show-o53/Emu3Gen54/SDXL55/Janus61，不能概括超越全部。 实际PDFp8 F6 PPL更低但masked目标/评估协议未分清；F7 k9约200K最高，k6约500K最高且600K略降，说明最佳速度依赖预算而非普遍鲁棒最优；k∞注为vanilla，但Alg1初始无视觉激活且每k步加入一个ID，∞会一直MASK，按文字定义不等价，保留未解决。F8全随机初始化vanilla→UGen文字39.8→43.8/理解60.4→65.1/生成38.2→42.0，支持该设置局部收益，未给CI/频率课程/恒定mask或等目标熵控制。 T1预训AdamW lr1e-4/cosine/wd.01/clip1/warm5000/500Kstep/b256，数据text:understanding:generation=3:2:5；SFT lr3e-5/warm1000/10Kstep/b128/比例2:6:2，其余同。sequence packing、context4096、256²、CFG5。F7测试k3/6/9/∞至600K，与主T1 500K边界不同；正文未明确主表默认k、激活随机seed/顺序和硬件/完整算力。算法与k∞图注存在不一致，不能用猜测补配置。",
+          "evidence": "完整固定预印本核心、实际框架/主表/现有消融、指定附录与发布文本；非口试/复现，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "无法由整体PPL独立识别共享任务冲突，masked目标更简单可构成混杂；k∞/默认k、500Kvs600K、7vs8语言指标及基线附表差异限制协议精度。随机ID激活未控制频率/类别/随机顺序方差，单任务仍较强、语言相对原基座退化；内部数据与确切基准train/test清单未公开。13.3%的聚合/分母不能由概述直接当机制证明。未确认官方完整训练/权重发布，未做模型复现。 固定全部数据/曝光/token/FLOPs与同一随机ID顺序，对比全激活、随机恒定mask、逐步降低mask率、按频率/语义激活、仅新embedding预热和统一梯度隔离；全部以同一未mask验证集/词表报告分模态CE/PPL、梯度冲突和下游曲线，扫k及总预算多seed。公开基准split并去重，重算7/8项宏平均与原基座/等计算继续预训控制。书写迁移用稀有字/反事实换字/复杂笔画及内容-顺序分开评价，不能仅看GenEval。待执行。",
+          "evidence": "完整固定预印本核心、实际框架/主表/现有消融、指定附录与发布文本；非口试/复现，非口试/独立复现"
+        }
+      ],
+      "boundary": "完整固定arXiv2503.21193v1 HTML核心§1–5/Alg1/Eq1–5/T1–2及附A T3–5，完整13页PDF交叉与实际F2/完整T2/PDFp8 F6/7/8；图表k3/6/9/∞与scratch柱数读取，非全部定性例/每篇引用。所选一手链接/定向检索未确认原版官方代码、权重或正式会议身份；不是穷尽网络不存在证明。无权重/图像数据下载、模型训练推理/原表复现或口试。"
+    },
+    {
+      "id": "L093",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "减少离散AR静态图像生成的伪影、复杂指令和长文字错误，同时保留图像理解；以图像级奖励优化AR产生的语义码与冻结扩散decoder配合。英文/中文模型分开，输出静态RGB或文字，未研究文字逐笔出现的视频/规范笔顺。 教师强制训练AR推理可能积累错误，真实图像语义码训练的decoder面对生成码有分布差；作者用图像级RL改AR以提高最终奖励。误差累积/decoder分布差是动机与假设，主表和奖励提升没有单独因果测量二者减少多少，不能当已验证机制。",
+          "evidence": "完整固定预印本核心、实际框架/主表/现有消融、指定附录与发布文本；非口试/复现，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "图像→SigLIP2/VQ16384码（2048维，先与Qwen1.5B理解训练）→分辨率前缀+图像码/文字→AR预测码→线性映射接FLUX中间特征→RGB。理解仅监督语言、生成仅监督图像码。GRPO同prompt16rollout→冻结decoder成图→加权奖励→组归一优势、clip比率和KL更新AR。实际F3架构/F2流程及曲线与完整T1核图；离散采样不需奖励可导，decoder也非每步反传训练。 Qwen2.5-7B原28层前后各4个视觉block，共36层，image-only输出更新通过mask实现；固定HF forward仍对序列调用新增层再where保留文本，不能说语言侧计算绝无开销。图像词表16384、mm词表16448/文本151936，SigLIP2-g-patch16；量化训练有IBQ式soft/hard straight-through与commit loss，推理nearest-code。独立FLUXdecoder28步；论文说不依赖CFG限定AR，公开decoder true_cfg1.5并双分支预测。7B是基座量级，非整个含codec/decoder/奖励系统总参数。",
+          "evidence": "完整固定预印本核心、实际框架/主表/现有消融、指定附录与发布文本；非口试/复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "SigLIP2-g语义encoder+VQ，Qwen2.5-7B共享AR与视觉专用block/embedding/head，FLUX.1-dev语义条件扩散decoder；预训/SFT后对AR做GRPO。多奖励HPSv2、UnifiedReward、Qwen2.5VL32B对齐、GOT-OCR2/PaddleOCR文字，新增LongText-Bench。统一离散AR是中间token目标，整条像素生成仍执行扩散且依赖外部奖励模型，不应称无扩散生成。 预训AR已有足够视觉/文字能力、冻结decoder能区分优劣码、OCR/VLM奖励与真实目标一致且探索有效时，GRPO可在不可微离散输出上提高终图长文字覆盖/组合语义；若OCR忽略顺序/奖励偏差或罕见文字不可识别，可能奖励投机或损害其他能力。普通静态文字收益不推出规范书写视频优势，AR无CFG也不消除扩散成本。",
+          "evidence": "完整固定预印本核心、实际框架/主表/现有消融、指定附录与发布文本；非口试/复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1 OneIG EN.901/CN.895；LongText EN.900/CN.814，中文低于Seedream.878、英文低于GPT4o.956，正文中文长文本“超过全部”与表/官方HF榜不符。T2 DPG87.65高于表中GPT4o86.23/Showo2 86.14，但global84.8低于DALLE90.97/Showo89、other84.2低于Showo91.64。T3 GenEval.83低于Mogao.89/BAGEL.88/OmniGen2.86/BLIP3o.84。T4 POPE89.3/GQA62.8/MMB74.8/SEED74.1/Doc88.6/OCR704，MMB低于JanusPro79.2/Showo79.3，OCR低于MiniCPM725等，非全面领先。 实际F2奖励由约.416升至约.577，SFT BoN8=.513/BoN16=.529；支持当前奖励和prompt上的优化收益，无CI/独立heldout奖励证明，不能证明RL普遍超过任意N或同总计算SFT。F2定性50/100/150/200步显示改善；F6 CFG只给定性例，不等于同质量全流程实测加速。缺逐奖励开关、固定codec换GT/预测码、teacher-forcing/rollout误差、同预算best-of/rejection SFT和RL前后理解多seed对照，协同与机制仍待验证。 PT I仅新视觉层/embed，10Kstep/b256/context16384/lr1e-4≈42Btoken；II全部AR/150K同b/length/lr≈629B，III过滤42B并lranneal。SFT b64/context16384/lr1e-5→0/1.5Btoken。RL lr1e-6/200step/b512/每prompt16rollout/KLβ.01；数值奖励权重/clipε及完整codec/decoder训练协议未由已读主文给齐。公开生成1152²/16→72²=5184 AR码，temp1/minp.03/topp1/ARCFG1/seed1234，再28步decoderCFG1.5。HF maxpos8192与论文训练16384区分，不据此断言长上下文不可用。",
+          "evidence": "完整固定预印本核心、实际框架/主表/现有消融、指定附录与发布文本；非口试/复现，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "长文本指标忽略顺序/额外字、较长样本权重更大、OCR本身错误与预训练先验；未测时序/布局完整性，160×两语小范围非所有文字体系。RL奖励含强教师/多OCR，独立judge和手工核查缺失，训练奖励提升可能过拟合；“消除累积误差/弥合分布差”的强因果解释未单独验证。内部过滤/中文训练细节、奖励权重/codec成本不全。固定GH10blob仅推理和评测，HF提供模型实现/PT/SFT制品但无完整原训练/GRPO脚本；当前若干入口/labels分支尚需适配，未运行证实。 固定PT/SFT、decoder和prompt预算，比较无RL、逐奖励移除/随机奖励、BoN8/16与同调用/算力拒绝采样SFT/DPO，单独量GT码与生成码decoder质量/rollout位置误差和多seedheldout人评。文字用有序CER/WER、precision/recall/整串exact/layout及人工忠实度，新增反序、重复、多余字、稀字/阿拉伯文与跨字体；按prompt宏平均与长度桶同时报告。固定promptrewrite/商业API子集和采样数，分别计AR及含CFG扩散端到端时间。视频另建事件/可见性真值。待执行。",
+          "evidence": "完整固定预印本核心、实际框架/主表/现有消融、指定附录与发布文本；非口试/复现，非口试/独立复现"
+        }
+      ],
+      "boundary": "完整固定arXiv2507.22058v1核心§1–5/GRPOEq1/T1–4/附A全文，实际F3架构、F2 RL流程/BoN曲线与T1，非逐篇参考/所有定性展示。固定GH2b8237bb完整10blob树、README/generate/chat/benchmark三脚本与两语prompt统计；HF En db700916卡/config/指定modeling量化/视觉层/采样/decoderCFG片段、Zh/PT/SFT及data固定元数据。未全读FLUX/ViT底层、下载权重或样本图，未运行OCR/生成/训练或原表复现。"
     }
   ]
 }

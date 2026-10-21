@@ -439,3 +439,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百零四批（2026-10-21）：Liquid正式期刊全文、内部数据/原训练配比日志、max-z实现对应；ILLUME原版完整发布与正式supp、教师数据匹配及后续ILLUME+/X全文待核。见[审查](liquid_illume_scaling_synergy_and_teacher_audit_2026-10-21.md)、[L088](../reviews/L088.md)、[L089](../reviews/L089.md)。
+
+
+第一百零五批（2026-10-21）：UGen默认k/k∞、7vs8语言宏平均、数据split/代码；X-Omni完整奖励权重/训练协议、原入口适配、独立机制/人评待核。见[审查](ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[L091](../reviews/L091.md)、[L093](../reviews/L093.md)。

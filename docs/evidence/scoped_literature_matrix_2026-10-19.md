@@ -398,3 +398,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百零四批（2026-10-21）：静态图像的离散统一decoder、连续输入/离散输出和扩散detokenizer；交错例图/未来方向不等同书写视频。ILLUME+/X发现池候选待精读。见[审查](liquid_illume_scaling_synergy_and_teacher_audit_2026-10-21.md)、[L088](../reviews/L088.md)、[L089](../reviews/L089.md)。
+
+
+第一百零五批（2026-10-21）：渐进视觉词表、图像级GRPO、语义AR+FLUX与长文字图像基准；静态文字覆盖不等同布局/顺序或视频笔顺。见[审查](ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[L091](../reviews/L091.md)、[L093](../reviews/L093.md)。
