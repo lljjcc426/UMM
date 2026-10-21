@@ -81,3 +81,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百二十一批（2026-10-22）：SK软边际/硬argmax、跨batch指派与AR曝光误差；VLM-only五降保留。见[审查](representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[L106](../reviews/L106.md)。
+
+
+第一百二十二批（2026-10-22）：17帧→5时间位置、动态度/平滑退步，因果mask不推出规范笔顺。见[审查](hydrax_temporal_tokenization_and_editing_audit_2026-10-22.md)、[L107](../reviews/L107.md)。

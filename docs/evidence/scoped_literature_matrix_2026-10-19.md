@@ -449,3 +449,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百二十一批（2026-10-22）：保留联合DINO理解encoder、AR表示前缀→像素flow，静态生成非书写过程。见[审查](representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[L106](../reviews/L106.md)。
+
+
+第一百二十二批（2026-10-22）：图像/视频ViT时间压缩、双教师、Sem内编辑交互，17帧视频不等逐笔过程。见[审查](hydrax_temporal_tokenization_and_editing_audit_2026-10-22.md)、[L107](../reviews/L107.md)。

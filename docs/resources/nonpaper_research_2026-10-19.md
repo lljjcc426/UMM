@@ -479,3 +479,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百二十一批（2026-10-22）：项目页无已核运行代码/权重直链；SwAV SK函数为算法对照，不当成本作发布。见[审查](../evidence/representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[L106](../reviews/L106.md)。
+
+
+第一百二十二批（2026-10-22）：原HYDRA发布不能代替X；X仅论文/作者说明/官方海报，未定位可核运行制品。见[审查](../evidence/hydrax_temporal_tokenization_and_editing_audit_2026-10-22.md)、[L107](../reviews/L107.md)。

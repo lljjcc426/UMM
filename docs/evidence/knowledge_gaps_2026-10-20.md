@@ -490,3 +490,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百二十一批（2026-10-22）：Alg1 nestedsoftmax/shape与实际实现、全数据/成本/CI及top-k/CFG细节待核。见[审查](representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[L106](../reviews/L106.md)。
+
+
+第一百二十二批（2026-10-22）：T8比例/文字类别、latent→RGB调用、ReconPSNR协议、NFE/CFG/fps与正式版本待核。见[审查](hydrax_temporal_tokenization_and_editing_audit_2026-10-22.md)、[L107](../reviews/L107.md)。

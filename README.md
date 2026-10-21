@@ -359,3 +359,6 @@ python scripts/validate_catalog.py
 
 
 第一百二十一批（2026-10-22）完成L106 Representation Forcing固定v4核心/三表含五子消融、AppA–C与六页实际PDF；核VLM-only反例、量化伪代码及AR完整成本。357目录，230核心/233书面含未通过项，127条未确认核心（含资源）。见[审查](docs/evidence/representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twenty_first_changes_2026-10-22.md)。没有删除或模型复现。
+
+
+第一百二十二批（2026-10-22）完成L107 HYDRA-X固定v1核心/十三表、AppA–G与十页实际PDF，补视频运动反例、时间压缩/编辑/解码接口和训练比例边界；官方核L107及L103的NeurIPS2026身份。357目录，231核心/234书面含未通过项，126条未确认核心（含资源）。见[审查](docs/evidence/hydrax_temporal_tokenization_and_editing_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twenty_second_changes_2026-10-22.md)。没有删除或模型复现。

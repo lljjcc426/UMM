@@ -285,3 +285,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百二十一批（2026-10-22）：固定VAE重建误差不直接给GenEval上界，EMA/硬VQ联合训练非全路径连续反传。见[审查](representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[L106](../reviews/L106.md)。
+
+
+第一百二十二批（2026-10-22）：2位置mask的层级感受野、fs与总码率、无交互边与统计独立区分。见[审查](hydrax_temporal_tokenization_and_editing_audit_2026-10-22.md)、[L107](../reviews/L107.md)。

@@ -454,3 +454,8 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 第一百二十一批（2026-10-22）完成L106 Representation Forcing固定v4核心/三表含五子消融、AppA–C与六页实际PDF；核VLM-only反例、量化伪代码及AR完整成本。357目录，230核心/233书面含未通过项，127条未确认核心（含资源）。见[审查](representation_forcing_synergy_and_quantization_audit_2026-10-22.md)、[逐文件说明](one_hundred_twenty_first_changes_2026-10-22.md)。没有删除或模型复现。
 
 追引未完成项：Latent Forcing（2602.11401）、REPA、DINOv3（2508.10104）和SwAV。已在本作参考文献/算法关联中定位；除SwAV归一化函数对照外，未作独立完整精读，不计验收数。BitDance/WeTok等既有追引队列保留。
+
+
+第一百二十二批（2026-10-22）完成L107 HYDRA-X固定v1核心/十三表、AppA–G与十页实际PDF，补视频运动反例、时间压缩/编辑/解码接口和训练比例边界；官方核L107及L103的NeurIPS2026身份。357目录，231核心/234书面含未通过项，126条未确认核心（含资源）。见[审查](hydrax_temporal_tokenization_and_editing_audit_2026-10-22.md)、[逐文件说明](one_hundred_twenty_second_changes_2026-10-22.md)。没有删除或模型复现。
+
+本批追引定位：AToken（2509.14476）、OmniTokenizer（NeurIPS2024，37:28281–28295）、Beyond Language Modeling（2603.03276，本文简称TransNext）。需用正式标题/ID去重再独立精读，当前不增验收。HYDRA-X OpenReview3mwm6O3FZt及HYDRA sNTc0XTEDc正式版本未对读；已有BitDance/WeTok和RF追引队列保留。
