@@ -439,3 +439,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第八十八批（2026-10-21）：作者22页v2/补充A–E、正式Crossref题录，固定主代码/配置/HF，未全审其他分支。见[审查](motionctrl_camera_object_and_observability_audit_2026-10-21.md)、[L039](../reviews/L039.md)。
+
+
+第八十九批（2026-10-21）：CVPR/ACL正式PDF及指定补充、固定源码/训练脚本/模型与数据卡。见[审查](unified_io2_anygpt_discrete_interfaces_and_protocol_audit_2026-10-21.md)、[L058](../reviews/L058.md)/[L059](../reviews/L059.md)。

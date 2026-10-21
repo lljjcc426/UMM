@@ -186,3 +186,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第八十八批（2026-10-21）：时空注入、顺序适配、dense/sparse条件偏移、零位移信息不可辨。见[审查](motionctrl_camera_object_and_observability_audit_2026-10-21.md)、[L039](../reviews/L039.md)。
+
+
+第八十九批（2026-10-21）：离散MoD/mask泄漏、模态边缘对齐不能确定联合耦合、codec上限。见[审查](unified_io2_anygpt_discrete_interfaces_and_protocol_audit_2026-10-21.md)、[L058](../reviews/L058.md)/[L059](../reviews/L059.md)。

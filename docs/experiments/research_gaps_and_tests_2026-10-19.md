@@ -379,3 +379,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第八十八批（2026-10-21）：等40K步课程、相机×对象全因子、静止/接触/留墨与独立提取器方案，未运行。见[审查](../evidence/motionctrl_camera_object_and_observability_audit_2026-10-21.md)、[L039](../reviews/L039.md)。
+
+
+第八十九批（2026-10-21）：共享正负迁移、同候选成本、真实/生成音频history和open/closed-loop对照，未运行。见[审查](../evidence/unified_io2_anygpt_discrete_interfaces_and_protocol_audit_2026-10-21.md)、[L058](../reviews/L058.md)/[L059](../reviews/L059.md)。

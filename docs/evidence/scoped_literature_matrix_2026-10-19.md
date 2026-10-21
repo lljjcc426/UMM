@@ -350,3 +350,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第八十八批（2026-10-21）：相机407/对象283组合、独立轨迹数量与UMM/书写任务边界。见[审查](motionctrl_camera_object_and_observability_audit_2026-10-21.md)、[L039](../reviews/L039.md)。
+
+
+第八十九批（2026-10-21）：四模态离散接口与视频/书写事件区分；base/chat和训练阶段独立。见[审查](unified_io2_anygpt_discrete_interfaces_and_protocol_audit_2026-10-21.md)、[L058](../reviews/L058.md)/[L059](../reviews/L059.md)。

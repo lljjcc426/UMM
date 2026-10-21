@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L058",
+    "L059"
+  ],
+  "sources": {
+    "L058": [
+      "https://openaccess.thecvf.com/content/CVPR2024/html/Lu_Unified-IO_2_Scaling_Autoregressive_Multimodal_Models_with_Vision_Language_Audio_CVPR_2024_paper.html",
+      "https://openaccess.thecvf.com/content/CVPR2024/papers/Lu_Unified-IO_2_Scaling_Autoregressive_Multimodal_Models_with_Vision_Language_Audio_CVPR_2024_paper.pdf",
+      "https://openaccess.thecvf.com/content/CVPR2024/supplemental/Lu_Unified-IO_2_Scaling_CVPR_2024_supplemental.pdf",
+      "https://github.com/allenai/unified-io-2/tree/502ac4d81239f82c891a9f412b000c3c8d4e2946"
+    ],
+    "L059": [
+      "https://aclanthology.org/2024.acl-long.521/",
+      "https://aclanthology.org/2024.acl-long.521.pdf",
+      "https://github.com/OpenMOSS/AnyGPT/tree/fc3bcc4e9dd76edec8a63300b7ae163a9ecec3d4",
+      "https://huggingface.co/fnlp/AnyGPT-base/tree/7f3d03542f4dfa7738978f5f07918490e0a932e5",
+      "https://huggingface.co/fnlp/AnyGPT-chat/tree/c8999624b077b3837f32c3948f0f9e90bd67b860",
+      "https://huggingface.co/datasets/fnlp/AnyInstruct/tree/3949858dd47345b63bdb310209087dbef47c593f"
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "L058",
+      "github_revision": "502ac4d81239f82c891a9f412b000c3c8d4e2946",
+      "release": "README links S3 XXL/XL/Large 3m checkpoints; initial task pipeline subset; separate official PyTorch repository linked but not fully audited",
+      "findings": [
+        "Image actual VQ16384 +2 reserved -> padded head16512; audio code VQ8192 +2 reserved -> padded8320, paper8196 unresolved",
+        "Audio main diagram256 input vs appendix128 and fixed config128 unresolved; history32visual/16audio per frame",
+        "XXL config resampler scaled-cosine enabled and qk-norm disabled; not all model configs identical",
+        "Caption-to-image FID best-of-8 CLIP selection for30K captions, distinct from unqualified single-sample generation",
+        "AudioCaps evaluation uses real audio history; VIMA evaluates open-loop all-action prediction with initial observation",
+        "README evaluation says most official scores computed offline; public seqio validation metrics do not alone reproduce full formal tables"
+      ]
+    },
+    {
+      "id": "L059",
+      "github_revision": "fc3bcc4e9dd76edec8a63300b7ae163a9ecec3d4",
+      "hf_revisions": {
+        "base": "7f3d03542f4dfa7738978f5f07918490e0a932e5",
+        "chat": "c8999624b077b3837f32c3948f0f9e90bd67b860",
+        "anyinstruct": "3949858dd47345b63bdb310209087dbef47c593f"
+      },
+      "findings": [
+        "Formal music vocab8192 agrees with code4*2048, supersedes old4096 table conflict",
+        "Music tokens frame-first offset each layer; decode applies modulo2048 and drops incomplete4-code tail; malformed-layer stream failure rate not tested",
+        "Paper81K pretrain/b480/lr6e-5 vs published stage1max4096/lr3e-5; SFT context4500 paper vs4096 script",
+        "Base CLI active text config sampling, not paper beam5; music input20seconds is not evaluated20sec output evidence",
+        "HF base config max_position_embeddings2048 vs paper train4500, effective runtime override not fully traced; no declared model failure",
+        "AnyInstruct paper additional100K speech dialogues vs card108K; image224downsample vs separate1024release",
+        "Model metadata Apache2 vs card body Llama2 license unresolved; base codecs and generator licenses separate",
+        "LAION-COCO is distinct from MS-COCO; no unsupported claim that caption benchmark was used for pretraining"
+      ]
+    }
+  ],
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "executed": false
+}

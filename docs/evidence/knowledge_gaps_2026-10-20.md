@@ -391,3 +391,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第八十八批（2026-10-21）：SE3单位/gauge、GUI位移位置约定、投票分母及HF权重文件映射。见[审查](motionctrl_camera_object_and_observability_audit_2026-10-21.md)、[L039](../reviews/L039.md)。
+
+
+第八十九批（2026-10-21）：UIO2音频码本/输入、batch-token口径；AnyGPT100K/108K、音乐规模及许可未决，正式词表旧冲突解除。见[审查](unified_io2_anygpt_discrete_interfaces_and_protocol_audit_2026-10-21.md)、[L058](../reviews/L058.md)/[L059](../reviews/L059.md)。

@@ -380,3 +380,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第八十八批（2026-10-21）：主配置/模型卡文件名冲突、run.sh最终camera、不同底座发布与原表分开。见[审查](../evidence/motionctrl_camera_object_and_observability_audit_2026-10-21.md)、[L039](../reviews/L039.md)。
+
+
+第八十九批（2026-10-21）：UIO2部分任务/S3与离线评测、AnyGPT固定训练/采样差异和模型卡/数据制品。见[审查](../evidence/unified_io2_anygpt_discrete_interfaces_and_protocol_audit_2026-10-21.md)、[L058](../reviews/L058.md)/[L059](../reviews/L059.md)。

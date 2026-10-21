@@ -6201,6 +6201,74 @@
         }
       ],
       "boundary": "作者项目22页PDF（arXivv2/会议页眉）Abstract/§1–6/Eq1–3/T1–3及附A/B/C研究文字、T4–5、D/E文字与T6；其余画廊按正文/图注选读，未逐幅全部视频或逐篇参考文献。实际p4F2/p7完整T1–2/p14T4–5/F12已核。Crossref书目已核，非出版社全文对照。固定主GH树162项/README全文、motionctrl.py全文/modified关键forward、config_both/run.sh全文、inference条件加载与采样/轨迹UI/Adapter选定段；未全审基础UNet/sampler、训练分支或SVD。固定HF元数据/卡，权重未下载，未运行/复现。"
+    },
+    {
+      "id": "L058",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "以同一个encoder-decoder自回归Transformer处理视觉、语言、音频、视频历史及动作条件，输出文字/图像/音频/离散坐标和动作。输入视频与下一帧预测不等于长时RGB视频生成；动作和图像共同表示未建立规范笔画事件/接触/留墨监督。 多模态任务输入输出、序列长度及监督方式不同，简单共享Transformer会出现训练不稳定、padding浪费与去噪/自回归目标泄漏；仅扩大参数不足以解决。设计模态编码、混合去噪、动态mask/packing及两阶段训练，分别对应稳定性、利用率和任务迁移。",
+          "evidence": "正式核心、实际框架/主表、已有机制证据或原文消融缺失说明及指定附录/固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "文字token、当前384²图像、最多4个训练历史图像/音频段、音频logmel、坐标/任务提示→专用encoder与模态/位置嵌入→共享24层encoder+24层decoder→文字、图像VQ码、音频VQ码或文本形式坐标/动作→相应decoder。已实际核主F2：history按32视觉/16音频token每帧压缩；图示audio input256与D1的128不一致，保留未决。 L/XL/XXL约1.1/3.2/6.8B，width1024/2048/3072、heads16/16/24、各24encoder/decoder。ViT-B与AST取第二层及倒数第二层特征，PT阶段冻结、IT末段解冻；当前图像patch16→576token，历史视觉32/帧。音频16kHz/4.08s、mel128×256/FFT1024/hop256、patch16→128输入token。输出256²图像1024码、实际码本16384，TPU补齐head16512；音频正文/D1码本8196与固定代码8192不一致，代码+2保留token后补齐head8320，不能把8320当实际码本。text用Llama BPE加sentinel/坐标等，head33280；1000坐标bin/[y,x]及bbox[y1,x1,y2,x2]。",
+          "evidence": "正式核心、实际框架/主表、已有机制证据或原文消融缺失说明及指定附录/固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "统一离散输出与模态专用输入encoder；二维/历史RoPE、QK归一化/FP32 attention、Perceiver改进；Mixture-of-Denoisers将text R/S/X和image/audio R/S混合；dynamic decoder mask阻止去噪target经teacher-forcing泄漏；tokenize后再按长度动态packing。这里denoising是离散mask/重建目标，不是Gaussian DDPM采样。 当各任务可用有限离散输出表达、视频/音频历史很短且共享语义有迁移时，统一encoder-decoder与MoD可能复用监督；动态mask在去噪/AR并行时保证条件正确，packing在长短混合且padding占主耗时的分布可提高利用率。优势不推出未观测长过程/精确亚bin轨迹、跨文字系统或真实接触可恢复；共享收益应在同信息/总预算下独立验证。",
+          "evidence": "正式核心、实际框架/主表、已有机制证据或原文消融缺失说明及指定附录/固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "正式T3 GRIT ablation L/XL/XXL60.8/65.2/66.9，法向44.5/46.7/45.2，XXL并非逐项超过XL；test67.0 vs UI1 64.3，但VQA71.1<74.5、ref75.5<78.9。T4图像FID13.39弱于CoDi11.26/Emu11.66，TIFA81.3高于71.6/65.5；suppG6 CFG使FID13.39→33.77，定性偏好与FID取舍。音频FAD2.64弱于AudioLDM1.96/CoDi1.80，且真实history不匹配纯T2A；XL2.59优于XXL2.64。VIMA XXL L1/L2/L3/L4=71.3/70.4/68.0/15.5，avg56.3，低于对象VIMA72.6，强于若干图像接口baseline。L3新对象与L4新任务必须区分。 suppD3/F3解释随机decoder attention mask与泄漏；D7/F5展示模态增加时gradient norm爆炸及XXL loss/accuracy崩塌，支持稳定性问题真实存在，未给各归一化/FP32/位置改动的完整定量全因子贡献表。F6三规模训练loss曲线支持该训练过程收敛趋势；T3规模比较不隔离额外计算和每项能力，法向反例已记。50%MAE+causal的生成较差、packing约4×为作者指定条件观察，缺统一预算/多seed，不能替代强因果消融。 suppD5 Adafactorβ1=.9/β2=1−k^−.8、5K warmup/invsqrt/clip1；PT与IT各1.5M步。D5先写PT batch512/IT256，后又称两阶段effective512，各约1Ttoken；主文语言比较约250Btoken，token计数/packing单位与batch口径未完全协调。模型维8×数据维64的TPU布局，不能据此擅自命名硬件型号。packing pool10、长度864/1280、作者报约4×利用率，无完整walltime/多seed区间。F2 top-p .95/temp1，10%无信息图像prompt用于CFGα10。主表称通用模型不任务专调，但depth专调.623→.423及K400五epoch73.8→79.1为另外诊断，必须分别说明。",
+          "evidence": "正式核心、实际框架/主表、已有机制证据或原文消融缺失说明及指定附录/固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "suppB明确depth/video/3D较弱、音频单段约4秒、未见指令泛化差、生成质量距专用模型有差距。主文所有任务随scale提升措辞被法向/FAD等反例限制。G4 VQAv2同源caption结果84.6 vs58.5与主文84.6 vs81.2的对应协议未解；数据/码本/audio输入长度/batch-token口径冲突保留。VIMA G9从初始图像一次性open-loop出全动作，基线有下一步反馈/对象crop/box，信息接口不同。官方release只含部分任务，缺完整120数据集管线；无规范笔顺或UMM正迁移控制实验。 固定codec/数据/token或FLOPs做单任务/多任务及归一化×RoPE×mask×packing，报告held-out任务和负迁移、walltime/峰值内存/多seed。图像同时报1候选和8候选及总成本；音频纯文字、真实history、生成history分别比较；动作统一open/closed loop及对象信息。对书写以同终态不同过程、未见字形/语言、笔画事件/接触/留墨与RGB拓扑联合评价，并与规则渲染/独立专家模型比较。方案未运行，不把未决口径当已证bug。",
+          "evidence": "正式核心、实际框架/主表、已有机制证据或原文消融缺失说明及指定附录/固定制品，非口试/独立复现"
+        }
+      ],
+      "boundary": "CVF正式17页PDF Abstract/§1–6核心全文、主T2–5指定结果和F2实际框架；官方20页supp A/B/C、D1–7文字/T7–8、E1/E2指定构造与F6曲线、F1–3、G1/G3–10所用协议/T13–16/T19。E1全部语料明细、F全任务行表/提示及画廊未逐项全读。实际主p4F2/p6T2–3/p7T4，suppp3F3/p6F5/p8F6已核；未遍读参考文献。固定GH502ac4d完整树/README、base/large/xxl gin全文，config/target_modalities加2保留码与forward指定段、Perceiver符号/配置，非全审底层训练器；S3发布路径与部分任务说明已核，另PyTorch仓库未深审。未下载权重或执行/独立复现。"
+    },
+    {
+      "id": "L059",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "让Llama2以同一next-token接口理解/生成text、image、speech、music，并支持多轮交错对话。没有video模态/书写过程流；Any-to-any能力需分别验证转换组合，不能由四模态token接口自动推出所有组合都可靠。 连续特征输入常只支持文本输出，异构扩散/音频decoder难整合，多模态联合标注稀缺。离散token接入原LLM、文字为桥的双向预训练、合成多模态对话分别缓解接口与数据问题；代价是codec瓶颈、序列变长和合成数据偏差。",
+          "evidence": "正式核心、实际框架/主表、已有机制证据或原文消融缺失说明及指定附录/固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "文字及图/语音/音乐→对应tokenizer→模态起止符交错离散序列→Llama2-7B下一token预测→SEED/MLP+unCLIP图像、SpeechTokenizer/SoundStorm语音、Encodec音乐或文字。实际F1已核四模态箭头与codec，F4为跨图/音对话例图；接口不包含视频或笔尖接触。 SEED图像224²/patch16→16×16特征，causalQformer32码、8192词表，MLP映到unCLIP SD条件。SpeechTokenizer 8层RVQ×1024/50Hz；LLM只首层1024，SoundStorm variant在MLS训练/3秒voiceprompt补后7层。Encodec32kHz/mono/50Hz、4层RVQ×2048，按每帧四层展开，8192词表/200token每秒/5秒1000码；正式T1和正文一致8192，旧4096冲突解除。Llama2-7B原层不改；公开HF base32层/4096hidden/32heads、词表53516，表中8B不擅自解释为另一8B骨干。",
+          "evidence": "正式核心、实际框架/主表、已有机制证据或原文消融缺失说明及指定附录/固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "冻结独立模态codec，将非文字码扩充到Llama词表，仅改embedding/head适配；先用text↔X、交错图文训练，再用GPT4文本对话经DALL-E3/MusicGen/AzureTTS转为AnyInstruct做SFT。语音只让LLM生成首层语义码，SoundStorm补余7层，大幅减少LLM长度；像素最终仍经unCLIP扩散重建，不能称所有输出一步纯AR。 当预训codec保留任务所需语义、跨模态关系主要由文字描述覆盖，离散token可复用成熟LLM训练和对话序列结构；首层语音语义码降低LLM token预算。细笔位置/字形拓扑若被32个图像码丢弃，LLM不能凭接口保证恢复；文字桥对未配对模态联合不具可识别性，真正跨模态能力需在真实未见组合上测试。",
+          "evidence": "正式核心、实际框架/主表、已有机制证据或原文消融缺失说明及指定附录/固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "正式T2 AnyGPT CIDEr107.5低于Dream115.4/Emu112.4，灰SEED123.6异训练条件；T3 CLIP.65低于SEED.69/GILL.67/Emu.66。T4 ASR WER8.5弱于Whisper2.7且训练预算不同。T5 TTS WER8.5/SIM.77，USLM6.5/.84两项更优，VALL-E7.9/.75有取舍；GT1.9/.93说明自动指标也有非零误差。T6 music captionCLAP.11低于real.16，generation.14低于Riffusion.19/Mousai.23。主定量表测预训练base，SFT chat以实例为主，不能移植为AnyInstruct使全部任务提升的证据。 正式核心及所读AppA–C没有去掉text-centric桥/AnyInstruct、换codec、语音层数或匹配数据预算的受控定量消融。T2–6为不同任务主比较，T7–9为数据/超参，不将其虚构成机制消融。F3是数据构造图，F4是演示；可讲清缺失的因果证据及需怎样设计实验，当前仍无法据表归因各核心机制。 正式T8 Adam/A100但GPU总数未给；PT81K步/b480/lr6e−5/context4500，另高质量4K；SFT5K/b64/lr2e−5/context4500；cosine/warm.03/globalclip1。T9文字beam5/repetition1、图/语音top-p.7、音乐top-p1/repetition1.15。固定发布stage1却4096步/lr3e−5/FSDP/bf16、单GPU1与动态节点；stage2为5K/lr2e−5但context4096，不能叫论文原配方。baseCLI实际按模态加载配置，文字do_sample=true/top-p1且无beam5，音乐top-k200/maxnew2000；当前inference music input20秒参数不证明论文测过20秒生成。",
+          "evidence": "正式核心、实际框架/主表、已有机制证据或原文消融缺失说明及指定附录/固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "作者明确多模态loss仍高于单模态、codec信息损失、音乐限5秒、长音序列/有限训练与缺统一benchmark。§3.3将复杂度称随长度exponential缺严谨支持：标准dense attention矩阵为二次规模，AR步数/cache代价另计。仅p(X|T)对齐不决定不同模态的联合耦合；合成描述再生成可强化生成器偏差。正式表1音乐冲突已解决，但T7数据数、speech_conv100K/108K、公开配置vs论文仍未解。HF卡metadata Apache2，正文却声明Llama2许可，不能统一写所有组件Apache2。无中文规范笔画/时序/接触评价。 固定LLM/codec/原始数据/总token-FLOPs，预训练text↔X与额外真实X↔Y/合成对话做全因子，分别测base/chat、真实/合成domain及未见组合；对AnyInstruct加入等量文本SFT和单向合成对照。语音首层/SoundStorm与全部RVQ在等码率/成本比较；图像codec用OCR/笔画拓扑测重建上限再测生成。报告端到端含unCLIP/SoundStorm的延迟与采样多seed；长音乐按5秒外推单独评测，标注错误和模型裁断/剩余码处理列分母。方案未运行，暂不把代码路径推论当已观测错误率。",
+          "evidence": "正式核心、实际框架/主表、已有机制证据或原文消融缺失说明及指定附录/固定制品，非口试/独立复现"
+        }
+      ],
+      "boundary": "ACL正式26页Abstract/§1–6/Limitations全文、AppA1/A2/C文字与T7–9，B对话图及构造图示；D合成提示/E画廊未逐项全读，参考文献未遍读。实际p2F1/p7T2–3灰字/p8T4–6/p13T7–8核看；没有原创受控消融，已明确证据限制。固定GH fc3bcc4完整树/README、anything2token全文、两个训练sh全文、baseCLI编码/生成/解码和stage1/group-label/stage2 assistant-mask指定段、文字/音乐采样配置；未全审FastChat/FSDP/codec网络。固定HF base/chat/AnyInstruct元数据与卡、base config；speech_conv数量/许可冲突核对，未下载媒体/权重、执行模型或独立复现。"
     }
   ]
 }

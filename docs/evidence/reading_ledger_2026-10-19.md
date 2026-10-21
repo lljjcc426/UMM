@@ -163,8 +163,8 @@
 | L055 | Online Reasoning Video Object Segmentation；公开预印本版本 | primary_sections_read | [结构化分析](../reviews/L055.md) | 未完成 |
 | L056 | CoT-RVS / ThinkVideo | primary_sections_read | [结构化分析](../reviews/L056.md) | 未完成 |
 | L057 | Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities | primary_sections_read | [结构化分析](../reviews/L057.md) | 未完成 |
-| L058 | Unified-IO 2: Scaling Autoregressive Multimodal Models with Vision, Language, Audio, and Action | primary_sections_read | [结构化分析](../reviews/L058.md) | 未完成 |
-| L059 | AnyGPT: Unified Multimodal LLM with Discrete Sequence Modeling | primary_sections_read | [结构化分析](../reviews/L059.md) | 未完成 |
+| L058 | Unified-IO 2: Scaling Autoregressive Multimodal Models with Vision, Language, Audio, and Action | primary_sections_read | [结构化分析](../reviews/L058.md) | 核心三遍与五项检查完成 |
+| L059 | AnyGPT: Unified Multimodal LLM with Discrete Sequence Modeling | primary_sections_read | [结构化分析](../reviews/L059.md) | 核心三遍与五项检查完成 |
 | L060 | SEED-X: Multimodal Models with Unified Multi-granularity Comprehension and Generation | primary_sections_read | [结构化分析](../reviews/L060.md) | 未完成 |
 | L061 | UniTok: A Unified Tokenizer for Visual Generation and Understanding | primary_sections_read | [结构化分析](../reviews/L061.md) | 未完成 |
 | L062 | Transfer between Modalities with MetaQueries | primary_sections_read | [结构化分析](../reviews/L062.md) | 未完成 |
