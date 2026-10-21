@@ -496,3 +496,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百零七批（2026-10-21）：MotiMotion正式ICML/PMLR19p、固定v1/实际图表、GH5blob四文本与HF固定62行/来源表；Fluid-Gen-Zero v1核心/附1–7/实际图表及作者项目/GH404。见[审查](motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[L036](../reviews/L036.md)、[L037](../reviews/L037.md)。
+
+
+第一百零八批（2026-10-21）：固定RefTokv1核心、F2/T1–3及arXiv身份，PDF不完整/正文所指附录未取得；有限官方实现/录用检索未确认。Stroke-Seg新精确F2下载入口403，保留未验收。见[审查](reftok_reference_rate_and_stroke_access_audit_2026-10-21.md)、[L038](../reviews/L038.md)。

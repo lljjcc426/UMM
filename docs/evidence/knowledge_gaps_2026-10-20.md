@@ -448,3 +448,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百零七批（2026-10-21）：HF Flow8/Tool9与正式表9/8；原像素轨迹到20点归一预处理、原控制器代码/预算；Fluid仿真标定、完整NFE/评估光流与公开实现待核。见[审查](motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[L036](../reviews/L036.md)、[L037](../reviews/L037.md)。
+
+
+第一百零八批（2026-10-21）：RefTok所指Appendix、lr/steps/码本和原代码未核齐；hr/ht排印与75tokens/%、配对预测采样、参考传输成本待核。L184实际图表仍缺。见[审查](reftok_reference_rate_and_stroke_access_audit_2026-10-21.md)、[L038](../reviews/L038.md)。

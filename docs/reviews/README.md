@@ -86,7 +86,7 @@
 | L035 | [Tora2，2025](L035.md) | arXiv2507.05963v2固定10页Abstract/§1–5研究核心、Eq1–8/T1–5/F1–5图注；实际p4完整F2/p6T1–2/p8F4–5/T4。参考文献按特定基线/encoder来源选查，未逐篇或观看全部演示；无单独Limitations/附录正文。Crossref正式MM25题录与页码已核，正式出版全文尚未取得核对。共享固定Tora仓库树/README和Tora发布制品已审查，未定位Tora2专门训练/权重；未执行模型。 |
 | L036 | [MotiMotion: Motion-Controlled Video Generation with Visual Reasoning](L036.md) | 固定v1完整核心§1–5/Eq1、附A.1–A.2/B.1–B.3/C及全部现有T1–9、实际F2/T1/T4；完整正式19p PDF取得并核对应主T1/T2、配置/附T6及讨论，未逐图全视频/逐篇参考。固定GHb3baf016完整5blob树与README/reason/eval/eval-2afc四文本；HF4b3f3bf8卡/元数据、62行test.jsonl和licenses.csv静态统计，未下载62图。未核原控制器完整训练/采样实现或执行模型/复现。 |
 | L037 | [Fluid-Gen-Zero: Grounding Pretrained Video Generators in Physics without Training](L037.md) | 固定v1完整核心§1–5/Eq1–5，附1–7的重建/复杂度信号与归一/边界/参照/噪声调度/数据/消融/人评及T1–8；实际F2/F4/T1/T8。未逐图所有定性样例/逐篇参考或审看全部视频。作者项目元数据/所链GH核查（API404），无公开原代码可交叉实现；未下载权重/媒体数据、运行仿真/生成或原表复现。 |
-| L038 | [RefTok，2025](L038.md) | §3全部流程、§4–5/Tables1–3；已读框架文字与限制，HTML未见所称超参附录，未逐图/代码 |
+| L038 | [RefTok: Reference-Based Tokenization for Video Generation](L038.md) | 固定v1 Abstract/§1–5全部核心研究文字与Eq1–3、完整T1–3/图注；实际F2独立原图及完整重建T1、生成T2、消融T3。参考文献未逐篇原文阅读，所有定性图未逐图核；正文所指Appendix未在取得HTML中出现，18.20MB PDF仅2.64MB下载失败，不用作证据。有限官方实现/正式录用检索无确认，未读不存在于证据中的代码；未下载权重/视频数据或执行模型/复现。 |
 | L039 | [MotionCtrl，2023/2024](L039.md) | 作者项目22页PDF（arXivv2/会议页眉）Abstract/§1–6/Eq1–3/T1–3及附A/B/C研究文字、T4–5、D/E文字与T6；其余画廊按正文/图注选读，未逐幅全部视频或逐篇参考文献。实际p4F2/p7完整T1–2/p14T4–5/F12已核。Crossref书目已核，非出版社全文对照。固定主GH树162项/README全文、motionctrl.py全文/modified关键forward、config_both/run.sh全文、inference条件加载与采样/轨迹UI/Adapter选定段；未全审基础UNet/sampler、训练分支或SVD。固定HF元数据/卡，权重未下载，未运行/复现。 |
 | L040 | [DragNUWA，2023](L040.md) | §3全部流程/公式、§4与Table1、Figures4–6文字说明及§5；未视觉核全部图，也未核后续官方SVD实现 |
 | L041 | [DragAnything，2024](L041.md) | §3–5、Tables1–3、Figure10文字限制；未逐图/源码/附录全条件复核 |

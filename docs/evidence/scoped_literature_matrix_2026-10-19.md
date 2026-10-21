@@ -407,3 +407,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百零七批（2026-10-21）：欠指定触发运动推断与仿真对齐长视频；允许改轨迹、区域latent锚定和规范笔顺任务分开。见[审查](motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[L036](../reviews/L036.md)、[L037](../reviews/L037.md)。
+
+
+第一百零八批（2026-10-21）：参考条件离散表示、视频重建/未来预测/外观编辑分开；已有字保真不代表新文字/笔顺生成。见[审查](reftok_reference_rate_and_stroke_access_audit_2026-10-21.md)、[L038](../reviews/L038.md)。

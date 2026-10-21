@@ -436,3 +436,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百零七批（2026-10-21）：正确/欠指定/违规输入、独立judge/raw偏好、多seed；边界与prompt分离、同NFE、真实物理及preview控制、笔尖/旧墨迹锚定，未执行。见[审查](../evidence/motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[L036](../reviews/L036.md)、[L037](../reviews/L037.md)。
+
+
+第一百零八批（2026-10-21）：等总bit/同骨干的无/量化/连续/打乱参考，重建与预测分开；空白起笔/已有字/新显露与静态复制/错时、终态参考泄漏控制，未执行。见[审查](../evidence/reftok_reference_rate_and_stroke_access_audit_2026-10-21.md)、[L038](../reviews/L038.md)。

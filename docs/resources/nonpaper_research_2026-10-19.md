@@ -437,3 +437,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百零七批（2026-10-21）：MotiMotion固定规划/评价指令与MotiBench HF62条/98轨迹/来源许可，不重复计论文；Fluid项目GH404与uponacceptance边界。见[审查](../evidence/motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[L036](../reviews/L036.md)、[L037](../reviews/L037.md)。
+
+
+第一百零八批（2026-10-21）：有限检索未确认RefTok原作者代码/模型卡，不能用自动文献列表当实际发布；不新增资源计数。见[审查](../evidence/reftok_reference_rate_and_stroke_access_audit_2026-10-21.md)、[L038](../reviews/L038.md)。

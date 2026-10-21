@@ -317,3 +317,6 @@ python scripts/validate_catalog.py
 
 
 第一百零七批（2026-10-21）完成L036 MotiMotion/L037 Fluid-Gen-Zero固定核心、实际框架/主表/消融，确认正式ICML身份并审查公开指令/HF标注；区分加权偏好、仿真参照与真实物理，记录Flow/Tool类别差异及质量退步。356目录、215核心/218书面含未通过项，141条未确认核心。见[审查](docs/evidence/motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_seventh_changes_2026-10-21.md)。无删除/模型复现。
+
+
+第一百零八批（2026-10-21）完成L038 RefTok固定核心/实际F2和完整T1–3，补全题名并区分参考side information、名义压缩和新文字生成；L184新图2下载入口仍403，保留未验收。356目录，216核心/219书面含未通过项，140条未确认核心（含资源）。见[审查](docs/evidence/reftok_reference_rate_and_stroke_access_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_eighth_changes_2026-10-21.md)。无删除/模型复现。

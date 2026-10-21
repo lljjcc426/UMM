@@ -243,3 +243,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百零七批（2026-10-21）：二档source-confidence/校准、偏好点份额/胜率、仿真条件与评估参照、有限保护惩罚/可行性、代理RGB参照。见[审查](motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[L036](../reviews/L036.md)、[L037](../reviews/L037.md)。
+
+
+第一百零八批（2026-10-21）：参考side information与条件熵动机、实际总码率/名义token比、完整因果隔离/目标内部上下文、PSNR与混合百分比。见[审查](reftok_reference_rate_and_stroke_access_audit_2026-10-21.md)、[L038](../reviews/L038.md)。
