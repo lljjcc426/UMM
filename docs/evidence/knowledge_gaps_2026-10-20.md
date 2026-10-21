@@ -484,3 +484,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百一十九批（2026-10-22）：World4.35/4.12、F2与冻结状态、1152/1216理解入口静态对应，需真实加载验证。见[审查](unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[L104](../reviews/L104.md)。
+
+
+第一百二十批（2026-10-22）：GPT质量份额90.1%、mask默认与论文规则、重建微调/完整预算和权重定位待核。见[审查](tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[L105](../reviews/L105.md)。

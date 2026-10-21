@@ -6682,22 +6682,26 @@
     "title": "Tuna-2: Pixel Embeddings Beat Vision Encoders for Multimodal Understanding and Generation",
     "source_urls": [
       "https://arxiv.org/abs/2604.24763",
-      "https://arxiv.org/html/2604.24763"
+      "https://arxiv.org/html/2604.24763",
+      "https://arxiv.org/abs/2604.24763v2",
+      "https://arxiv.org/html/2604.24763v2",
+      "https://arxiv.org/pdf/2604.24763v2",
+      "https://github.com/facebookresearch/tuna-2/tree/b53594e308095b573c31be46f24ea62936f3c440"
     ],
-    "method": "Tuna-R保留SigLIP2但去VAE；Tuna-2仅patch16→共享LLM→文字/像素flowhead，后期加入随机mask特征学习。 Qwen2.5-7BInstruct、简单像素patchembedding、clean-x prediction转velocity loss，x_t=t*x+(1−t)noise、vθ=(xθ−x_t)/(1−t)；Euler采样。50%例子随机mask0–50%patch，生成预测masked/unmasked全图，理解根据部分图答题。Encoderfree指无独立视觉塔，仍继承LLM先验/flowhead。",
-    "conclusion": "Tuna-R→2 OCR78.3→79.7、Count77.8→81.7，但MMMU51.1→50.7/RWQA67.9→67.7。GenEval.88→.87、DPG86.35→86.54；ImgEdit4.18→4.09，原Tuna4.31。不能称去encoder全任务优势。",
-    "gap": "大规模内部预训、额外TunaR对齐、参数和token长度影响成本。注意力热图只示例，不能证明模型可靠推理/抵抗先验；重建Table5来自额外微调，不能视作原模型无训练重建。缺视频协议、规范笔顺及独立人工评价。",
-    "problem": "检验统一模型是否可移除VAE/视觉encoder，直接用像素patch共同学习理解和生成。",
+    "method": "对照原TUNA、去VAE但保留SigLIP2的Tuna-R，以及同时去VAE/SigLIP2的Tuna-2。主模型Conv2d16patch/RMSNorm接Qwen2.5-7B，语言CE与clean-image预测的速度flow损失联合，理解/生成输入用learned mask token随机替换部分patch；生成仍预测全部clean patches。 Eq1线性路径、Eq2预测xθ(clean)、Eq3 vθ=(xθ−xt)/(1−t)、Eq4速度MSE。因vθ−(x1−x0)=(xθ−x1)/(1−t)，等价clean误差按(1−t)^−2加权，并非无权重像素MSE。公开JiT损失把分母clamp到.05，权重上限400；噪声scale2与论文标准N(0,I)记法有别。默认Euler50/CFG7.5/shift3，采样速度也clamp .05。连续扩散/flow时间不等同真实书写时间。learned mask用于两任务、图像仍全patch监督；不证明丢失文字可辨识或不会幻觉。patch扩维也不保证投影满秩/全链路无损。",
+    "conclusion": "T1 Tuna2十二值65/67.7/51.7/50.7/77.3/61.1/79.6/85.6/79.7/59.2/81.7/28.8，相对R九升、RW67.7<67.9/MMMU50.7<51.1、Chart85.6同；原Tuna Chart85.8更高。OneCat MMVet52.2/SEED61.6/V*63.4等更高。T2 GenEval原.90/R.88/2 .87；DPG86.76/86.35/86.54，2的DPG反比R好。2 GenEval六项.99/.96/.80/.91/.84/.76，计数/位置/颜色属性仍低于R .82/.86/.79。T3质量GPT22.3/35.7/32.1合计90.1%，9.9%未说明，不归一化或虚构平票；Claude28.1/37.2/34.8。多样性GPT20.6/30.9/48.4、Claude28.2/29.9/41.9，支持2多样性、质量R更强。T4 ImgEdit4.31/4.18/4.09，2仅style4.58>R4.54，其余八类下降；Qwen4.27/GPTImage4.20更高。T5额外微调后R .12/32.22/.93，2 .15/32.80/.93；FLUXVAE同512 .06/33.65/.93更强/同，不能称重建全优。",
+    "gap": "作者没有独立Limitations节或一般性优势定理。主表已显示生成/编辑、部分理解和重建退步。内部550M、重建额外微调、LLM投票90.1%及完整预算未齐。GH b53594e3 root README的权重TODO/production不可释与tuna子README released/reinit文字不完全一致；所读链接未定位可验证Tuna2官方checkpoint，不能推断全HF不存在。静态像素代码/评测适配器存在，未下权重/执行。公开模型mask min−.7/max.3且int负数不mask，约30%样本遮0–30%，R默认maskfalse，均与主文训练规则不同；可能需外部override，不能把默认等同论文实际训练。评测maskoff正常，不作为错误。",
+    "problem": "去掉独立VAE和视觉理解encoder后，简单像素patch能否同时支撑静态图像理解、生成和编辑，随机mask能否改善低预算下的理解与生成学习。本文图像实验不等同视频/文字书写过程生成，原仓库TUNA的VAE视频入口不能转记成Tuna-2的像素视频结果。",
     "claim": "研究目标：检验统一模型是否可移除VAE/视觉encoder，直接用像素patch共同学习理解和生成。",
-    "version": "arXiv2604.24763v2，2026-05-18",
+    "version": "Tuna-2；固定arXiv2604.24763v2（2026-05-18），完整21页。未从正式出版源核到会场，保留预印本身份。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 2. 表示与 tokenizer：信息容量、语义和细节如何共同保留",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-22",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-22",
     "id": "L105",
     "canonical_key": "paper:arxiv:2604.24763",
     "evidence_history": [
@@ -6729,17 +6733,22 @@
         "conclusion": "大规模训练下理解优于编码器变体；编码器变体早期收敛及部分生成更好，不能写成无条件胜出",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-22",
+        "batch": 120,
+        "scope": "固定v2完整21页Abstract/§1–5核心全文、Eq1–4、T1–6全行、F1–7图注；无附录研究节，参考文献未逐篇。实际PDFp1/5/6/7/8/9/10/11全部核看。GH b53594e3完整2142项树过滤定位，root README全文、tuna README相关发布/参数、Tuna2/R模型配置及train/predict副本、patch_embed全文、_wrapper_base全文、jit_utils全文，主模型init/forward/prepare与R视觉/mask路径选读；train.yaml核心、两个lmms适配配置全文与评测shell全文、noneencoder adapter加载/生成路径选读。非全仓代码逐行；HF搜索只作定位线索不证明不存在。未下载权重/运行模型/训练或独立复现。"
       }
     ],
-    "sections_read": "§1、§2.1–2.3、§3.1–3.6指定主行与完整Table6、§5；未逐图/全部大表/源码或完整硬件采样协议，未复现",
+    "sections_read": "固定v2完整21页Abstract/§1–5核心全文、Eq1–4、T1–6全行、F1–7图注；无附录研究节，参考文献未逐篇。实际PDFp1/5/6/7/8/9/10/11全部核看。GH b53594e3完整2142项树过滤定位，root README全文、tuna README相关发布/参数、Tuna2/R模型配置及train/predict副本、patch_embed全文、_wrapper_base全文、jit_utils全文，主模型init/forward/prepare与R视觉/mask路径选读；train.yaml核心、两个lmms适配配置全文与评测shell全文、noneencoder adapter加载/生成路径选读。非全仓代码逐行；HF搜索只作定位线索不证明不存在。未下载权重/运行模型/训练或独立复现。",
     "review_path": "docs/reviews/L105.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "550M内部图文，图文任务caption:T2I3:7，另Nemotron纯文占总预训20%；SFT FineVision13M/OmniEdit约2M及精选生成。主模型内部语料无法完整重建。",
-    "framework": "Tuna-R保留SigLIP2但去VAE；Tuna-2仅patch16→共享LLM→文字/像素flowhead，后期加入随机mask特征学习。",
-    "architecture": "Qwen2.5-7BInstruct、简单像素patchembedding、clean-x prediction转velocity loss，x_t=t*x+(1−t)noise、vθ=(xθ−x_t)/(1−t)；Euler采样。50%例子随机mask0–50%patch，生成预测masked/unmasked全图，理解根据部分图答题。Encoderfree指无独立视觉塔，仍继承LLM先验/flowhead。",
-    "metrics": "通用VQA/MMMU/MMVP/SEED/AI2D/ChartQA/OCRBench；V*/CountBench/VisuLogic；GenEval/DPG、ImgEdit。另1500prompt各4图GPT5.4/ClaudeOpus4.7 judge偏好，不能当独立人评。重建需额外轻量微调。",
-    "baselines": "Tuna/Showo/BAGEL/其他UMM及专家，matched Tuna-R；1.5B模型mask/无mask、混合比例和按消耗tokens的学习曲线。",
-    "experimental_conditions": "预训300K步64nodes AdamWlr1e-4，SFT50K步2e-5，perGPU序列16K；最后40%预训加mask。Tuna-R多3Kalignmentlr5e-4。mask消融1.5B先50K再分叉各50K；主文未给完整GPU型号/batch/采样Euler步数与CFG。"
+    "dataset": "预训练550M内部图文对，其中caption:T2I=30:70；Nemotron纯文本占总预训数据20%，两个比例分母不同。SFT FineVision约13M对话、OmniEdit约2M与精选生成数据（数量未齐）。重建另经lightweight finetuning，具体数据/步数/冻结未报。LLM评价1500 prompts、每模型每prompt4图，GPT-5.4/Claude Opus4.7在三个模型间选择质量/多样性；提示来源、顺序盲法、有效票/平票和CI未齐。图文独立去重、内部数据发布与完整训练集溯源未给。",
+    "framework": "对照原TUNA、去VAE但保留SigLIP2的Tuna-R，以及同时去VAE/SigLIP2的Tuna-2。主模型Conv2d16patch/RMSNorm接Qwen2.5-7B，语言CE与clean-image预测的速度flow损失联合，理解/生成输入用learned mask token随机替换部分patch；生成仍预测全部clean patches。",
+    "architecture": "Eq1线性路径、Eq2预测xθ(clean)、Eq3 vθ=(xθ−xt)/(1−t)、Eq4速度MSE。因vθ−(x1−x0)=(xθ−x1)/(1−t)，等价clean误差按(1−t)^−2加权，并非无权重像素MSE。公开JiT损失把分母clamp到.05，权重上限400；噪声scale2与论文标准N(0,I)记法有别。默认Euler50/CFG7.5/shift3，采样速度也clamp .05。连续扩散/flow时间不等同真实书写时间。learned mask用于两任务、图像仍全patch监督；不证明丢失文字可辨识或不会幻觉。patch扩维也不保证投影满秩/全链路无损。",
+    "metrics": "理解12项GQA/RWQA/MMVet/MMMU/MMVP/SEED2+/AI2D/ChartQA/OCRBench/V*/Count/VisuLogic；生成GenEval六项/overall、DPG五类/overall、两LLM偏好份额；编辑ImgEdit九类/overall；重建rFID↓/PSNR↑/SSIM↑。F5训练CE/MSE、F6训练token曲线、F7精选attention heatmaps。OCRBench理解不替代生成文字exact match，精选注意力不构成因果证据，没有规范笔顺/视频指标。",
+    "baselines": "T1 Qwen2.5VL/InternVL/JanusPro/Emu3/Showo2/Harmon/OneCat/BAGEL/原Tuna/R等；不同参数、视觉tower、数据和上游预训成本。T2 QwenImage/Seedream/Flux/SD3及BAGEL/Mogao等，†LLM改写条件不同。T4 QwenImage/GPTImage/FLUX/OmniGen2/BAGEL等；T5 VAE/RAE/PSVAE等原生256/384/512不同。主要受控链为TUNA→Tuna-R→Tuna-2，但移除模块同时改变预训、额外alignment与模型容量，未等完整FLOPs。",
+    "experimental_conditions": "主预训300K步/64nodes/AdamWlr1e-4，SFT50K/lr2e-5，每GPU pad16Ktoken；GPU型号/每node卡数/globalbatch/wdβ/全部分辨率/卡时/seed未齐。最后40%预训练50%样本做mask，mask ratio uniform0–50%。R另3K步connector-only alignment lr5e-4。T6为1.5B、共享先50K再各分支50K，不能冒充主7B的同预算mask证据。F6横轴总训练token≤3T，无完整FLOPs/卡时换算。重建需要额外微调。公开train.yaml是示例配方，T2I/edit/MMU/text=.5/.2/.2/.1、maxsteps1M，不能当成论文300K+50K实际运行记录。"
   },
   {
     "title": "Representation Forcing for Bottleneck-Free Unified Multimodal Models",

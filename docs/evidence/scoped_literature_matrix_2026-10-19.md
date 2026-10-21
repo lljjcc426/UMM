@@ -443,3 +443,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百一十九批（2026-10-22）：通道连续压缩、理解原特征/编辑压缩条件、FLUX/VAE两级解码，未测视频。见[审查](unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[L104](../reviews/L104.md)。
+
+
+第一百二十批（2026-10-22）：直接像素理解/图像生成/编辑，不能把原TUNA VAE视频归Tuna2。见[审查](tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[L105](../reviews/L105.md)。

@@ -472,3 +472,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百一十九批（2026-10-22）：等Nd/FLOPs/上下文预算、PathI/II冻结与容量控制、细字OCR/未改区/完整两级成本；未运行。见[审查](../evidence/unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[L104](../reviews/L104.md)。
+
+
+第一百二十批（2026-10-22）：等全部预训/FLOPs、mask×预算/规模、重建额外微调、偏好原票与attention干预，未运行。见[审查](../evidence/tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[L105](../reviews/L105.md)。

@@ -7935,6 +7935,40 @@
         }
       ],
       "boundary": "固定v1完整22页核心Abstract/§1–5、Eq1–5、T1–7全部行、AppA–G研究文字及全部图注；参考文献未逐篇，定性页未逐图。实际PDFp4/5/6/8/9/10/19核框架、重建/生成/编辑主表与消融、收敛/tSNE及World总表。GH55b9001完整94项树、README全文、compression.py全文、decoder base/default/reconstruction配置、runtimeVAE加载/解码、decoder压缩入口、Qwen图像路径选读；HF78e43059文件清单/README/config、modeling图像路径/SigLIP2输出/LightProjector对应选读。attention底层/全MLLM与pipeline未逐行，未下载权重或执行模型/独立复现。"
+    },
+    {
+      "id": "L105",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "去掉独立VAE和视觉理解encoder后，简单像素patch能否同时支撑静态图像理解、生成和编辑，随机mask能否改善低预算下的理解与生成学习。本文图像实验不等同视频/文字书写过程生成，原仓库TUNA的VAE视频入口不能转记成Tuna-2的像素视频结果。 独立视觉编码器可能限制细粒度信息且增加外部预训/推理成本，VAE改变建模空间。移除它们同时失去语义归纳偏置，需要更多联合训练；保留原像素进入patch模块不保证后续有限维模型无损，也不能由后期部分理解优势推出所有任务/预算均胜。",
+          "evidence": "固定v2全部核心/六表与八页实际PDF及GH选读，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "RGB→16×16×3的768值patch→3584维嵌入→Qwen；文字输出为自回归token，图像输出经16层flow head预测clean RGB patch并积分。512²图像有1024个patch。生成xt=t*x1+(1−t)*x0，t从噪声0到数据1。Tuna-R经SigLIP2-So400M patch16-384改512、倒数第2层26/27layers及1152→3584→3584投影；主Tuna-2没有独立视觉tower。实际PDFp1/5/6/7/8/9/10/11核框架、全部六表、mask/比例/缩放和attention图。 Eq1线性路径、Eq2预测xθ(clean)、Eq3 vθ=(xθ−xt)/(1−t)、Eq4速度MSE。因vθ−(x1−x0)=(xθ−x1)/(1−t)，等价clean误差按(1−t)^−2加权，并非无权重像素MSE。公开JiT损失把分母clamp到.05，权重上限400；噪声scale2与论文标准N(0,I)记法有别。默认Euler50/CFG7.5/shift3，采样速度也clamp .05。连续扩散/flow时间不等同真实书写时间。learned mask用于两任务、图像仍全patch监督；不证明丢失文字可辨识或不会幻觉。patch扩维也不保证投影满秩/全链路无损。",
+          "evidence": "固定v2全部核心/六表与八页实际PDF及GH选读，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "对照原TUNA、去VAE但保留SigLIP2的Tuna-R，以及同时去VAE/SigLIP2的Tuna-2。主模型Conv2d16patch/RMSNorm接Qwen2.5-7B，语言CE与clean-image预测的速度flow损失联合，理解/生成输入用learned mask token随机替换部分patch；生成仍预测全部clean patches。 当充分联合训练数据/预算能替代独立视觉预训先验、局部细节对任务有信息、输入遮罩保持标签可辨时，直接patch和mask可改善部分细粒度理解；在预训有限或高质量生成/编辑上，SigLIP先验可能更有益。主表支持有条件的任务折中与多样性，未支持全面胜过encoder。共享patch/head与两任务训练不自动证明协同，也不证明中文生成、时序或机器人执行优势。",
+          "evidence": "固定v2全部核心/六表与八页实际PDF及GH选读，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1 Tuna2十二值65/67.7/51.7/50.7/77.3/61.1/79.6/85.6/79.7/59.2/81.7/28.8，相对R九升、RW67.7<67.9/MMMU50.7<51.1、Chart85.6同；原Tuna Chart85.8更高。OneCat MMVet52.2/SEED61.6/V*63.4等更高。T2 GenEval原.90/R.88/2 .87；DPG86.76/86.35/86.54，2的DPG反比R好。2 GenEval六项.99/.96/.80/.91/.84/.76，计数/位置/颜色属性仍低于R .82/.86/.79。T3质量GPT22.3/35.7/32.1合计90.1%，9.9%未说明，不归一化或虚构平票；Claude28.1/37.2/34.8。多样性GPT20.6/30.9/48.4、Claude28.2/29.9/41.9，支持2多样性、质量R更强。T4 ImgEdit4.31/4.18/4.09，2仅style4.58>R4.54，其余八类下降；Qwen4.27/GPTImage4.20更高。T5额外微调后R .12/32.22/.93，2 .15/32.80/.93；FLUXVAE同512 .06/33.65/.93更强/同，不能称重建全优。 T6 1.5B R无mask GQA58.3/RW56.7/MMVP57.2/Gen55.7→有mask59.2/58/58.2/56；Tuna2 55.4/52.3/53.4/47.6→56.8/55.7/57.6/48.2，增1.4/3.4/4.2/.6点，但Gen仍低于R无mask55.7及原Tuna57.2。F5生成:理解3:7/5:5/7:3/7.5:2.5/8:2、约11K步CE/MSE，有任务曝光混杂；7:3的tradeoff没有独立效用函数或全评测最优证明。F6前期R理解较强、后期2在OCR/MMVP/V*超过，GenEval R始终较好；训练token不等总计算、图无多seedCI，不能称普适缩放律。F7四个精选attention示例没有受控遮挡/答案反事实/聚合协议或定位统计，不能证明更真实推理。 主预训300K步/64nodes/AdamWlr1e-4，SFT50K/lr2e-5，每GPU pad16Ktoken；GPU型号/每node卡数/globalbatch/wdβ/全部分辨率/卡时/seed未齐。最后40%预训练50%样本做mask，mask ratio uniform0–50%。R另3K步connector-only alignment lr5e-4。T6为1.5B、共享先50K再各分支50K，不能冒充主7B的同预算mask证据。F6横轴总训练token≤3T，无完整FLOPs/卡时换算。重建需要额外微调。公开train.yaml是示例配方，T2I/edit/MMU/text=.5/.2/.2/.1、maxsteps1M，不能当成论文300K+50K实际运行记录。",
+          "evidence": "固定v2全部核心/六表与八页实际PDF及GH选读，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "作者没有独立Limitations节或一般性优势定理。主表已显示生成/编辑、部分理解和重建退步。内部550M、重建额外微调、LLM投票90.1%及完整预算未齐。GH b53594e3 root README的权重TODO/production不可释与tuna子README released/reinit文字不完全一致；所读链接未定位可验证Tuna2官方checkpoint，不能推断全HF不存在。静态像素代码/评测适配器存在，未下权重/执行。公开模型mask min−.7/max.3且int负数不mask，约30%样本遮0–30%，R默认maskfalse，均与主文训练规则不同；可能需外部override，不能把默认等同论文实际训练。评测maskoff正常，不作为错误。 把上游LLM/SigLIP/VAE、Ralignment、主训练token和总FLOPs/卡时全部计入，固定数据/曝光/分辨率/生成NFE和重写，比较encoder链与像素链的质量-成本Pareto。mask方式×预算×模型规模，分别用论文50%×U(0,.5)、公开U(−.7,.3)和无mask，固定遮后GT可辨性，测多seedCI及7B是否保留T6收益。重建冻结状态和额外步数/数据相同。公开1500prompt原票/弃票/顺序协议处理90.1%。attention用遮挡干预、答案一致性与定量定位检验。多语言生成字串/局部笔画拓扑与真实事件视频独立评测，防止OCR理解替代书写生成。建议未执行，新颖性仍需追引。",
+          "evidence": "固定v2全部核心/六表与八页实际PDF及GH选读，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定v2完整21页Abstract/§1–5核心全文、Eq1–4、T1–6全行、F1–7图注；无附录研究节，参考文献未逐篇。实际PDFp1/5/6/7/8/9/10/11全部核看。GH b53594e3完整2142项树过滤定位，root README全文、tuna README相关发布/参数、Tuna2/R模型配置及train/predict副本、patch_embed全文、_wrapper_base全文、jit_utils全文，主模型init/forward/prepare与R视觉/mask路径选读；train.yaml核心、两个lmms适配配置全文与评测shell全文、noneencoder adapter加载/生成路径选读。非全仓代码逐行；HF搜索只作定位线索不证明不存在。未下载权重/运行模型/训练或独立复现。"
     }
   ]
 }

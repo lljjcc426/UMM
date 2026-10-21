@@ -279,3 +279,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百一十九批（2026-10-22）：Eq1条件分解需充分性；低维/连续不保证无损，18倍维数不等于上下文或完整bits/FLOPs。见[审查](unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[L104](../reviews/L104.md)。
+
+
+第一百二十批（2026-10-22）：x预测速度MSE对应时间加权clean误差；flow噪声时间不等于真实书写时间。见[审查](tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[L105](../reviews/L105.md)。

@@ -532,3 +532,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百一十九批（2026-10-22）：固定v1全部七表/AppA–G、七页实际图表，GH55b9001/HF78e43059固定制品；正式会场未核。见[审查](unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[L104](../reviews/L104.md)。
+
+
+第一百二十批（2026-10-22）：固定v2六表与八页实际图表、GH b53594e3选读；正式会场与可验证官方权重链接未核。见[审查](tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[L105](../reviews/L105.md)。

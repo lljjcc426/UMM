@@ -210,7 +210,7 @@
 | L102 | EvoTok: A Unified Image Tokenizer via Residual Latent Evolution for Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L102.md) | 核心三遍与五项检查完成 |
 | L103 | HYDRA: Representation Harmonized Tokenization for Multimodal Generation and Understanding | primary_sections_read | [结构化分析](../reviews/L103.md) | 核心三遍与五项检查完成 |
 | L104 | UniCom: Unified Multimodal Modeling via Compressed Continuous Semantic Representations | primary_sections_read | [结构化分析](../reviews/L104.md) | 核心三遍与五项检查完成 |
-| L105 | Tuna-2: Pixel Embeddings Beat Vision Encoders for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L105.md) | 未完成 |
+| L105 | Tuna-2: Pixel Embeddings Beat Vision Encoders for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L105.md) | 核心三遍与五项检查完成 |
 | L106 | Representation Forcing for Bottleneck-Free Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L106.md) | 未完成 |
 | L107 | HYDRA-X: Native Unified Multimodal Models with Holistic Visual Tokenizers | primary_sections_read | [结构化分析](../reviews/L107.md) | 未完成 |
 | L108 | PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L108.md) | 未完成 |

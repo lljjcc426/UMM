@@ -75,3 +75,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百一十九批（2026-10-22）：OCR19.40点下降、原特征拼接成本，连续通道瓶颈与空间压缩需等资源比较。见[审查](unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[L104](../reviews/L104.md)。
+
+
+第一百二十批（2026-10-22）：像素patch非自动无损、加权MSE与分母截断、mask后标签可辨性及额外预训成本。见[审查](tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[L105](../reviews/L105.md)。

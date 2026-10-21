@@ -473,3 +473,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百一十九批（2026-10-22）：HF四分片/decoder/VAE/teacher清单与代码配置已核，未下权重，公开为推理入口。见[审查](../evidence/unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[L104](../reviews/L104.md)。
+
+
+第一百二十批（2026-10-22）：像素/R配置、JiT噪声/分母截断、模型与评测适配入口已核；完整内部配方/实际权重仍待核。见[审查](../evidence/tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[L105](../reviews/L105.md)。

@@ -353,3 +353,6 @@ python scripts/validate_catalog.py
 
 
 第一百一十九批（2026-10-22）完成L104 UniCom固定v1核心/全部七表和七页实际图表，补原始特征旁路、OCR下降、VAEdecoder与WorldEdit文字/表格冲突；核GH/HF配置和理解入口shape待核项。357目录，228核心/231书面含未通过项，129条未确认核心（含资源）。见[审查](docs/evidence/unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_nineteenth_changes_2026-10-22.md)。没有删除或模型复现。
+
+
+第一百二十批（2026-10-22）完成L105 Tuna-2固定v2核心/全部六表及八页实际图表，补任务退步、重建额外微调、偏好90.1%和mask/噪声公开默认差异。357目录，229核心/232书面含未通过项，128条未确认核心（含资源）。见[审查](docs/evidence/tuna2_pixel_flow_masking_and_release_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twentieth_changes_2026-10-22.md)。没有删除或模型复现。
