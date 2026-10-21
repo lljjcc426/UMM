@@ -338,3 +338,6 @@ python scripts/validate_catalog.py
 
 
 第一百一十四批（2026-10-22）补录G044 DDT-LLaMA正式CVPR2025核心/完整supp研究说明及实际图表，关联L098前身/扩展而不作独立重复创新；分别记录480码/GenEval.66、文本perplexity与人评案例、发布跳转范围。357目录，223核心/226书面含未通过项，134条未确认核心（含资源）。见[审查](docs/evidence/ddtllama_formal_precursor_and_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_fourteenth_changes_2026-10-22.md)。无删除/模型复现。
+
+
+第一百一十五批（2026-10-22）完成L099 UniCode²固定v2核心、T1–6/AppA研究文字与七页实际图表公式，纠正T4参数单位位置，补全部主表/消融和量化反例；未定位对应版本公开代码/权重。357目录，224核心/227书面含未通过项，133条未确认核心（含资源）。见[审查](docs/evidence/unicode2_codebook_theory_and_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_fifteenth_changes_2026-10-22.md)。没有文件删除或模型复现。

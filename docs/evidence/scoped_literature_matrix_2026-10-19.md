@@ -428,3 +428,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百一十四批（2026-10-22）：480码递归表示/静态共享AR，关联L098同家族版本；非真实笔顺或已完成视频生成。见[审查](ddtllama_formal_precursor_and_protocol_audit_2026-10-22.md)、[G044](../reviews/G044.md)、[L098](../reviews/L098.md)。
+
+
+第一百一十五批（2026-10-22）：固定SigLIP索引与适配embedding、静态AR→扩散；外部decoder/大词表成本，未验证文字视频或笔顺。见[审查](unicode2_codebook_theory_and_protocol_audit_2026-10-22.md)、[L099](../reviews/L099.md)。

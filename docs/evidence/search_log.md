@@ -517,3 +517,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百一十四批（2026-10-22）：Selftok追引补正式CVPR2025前身G044，正式11页与supp11页完整核心/实际图表，code/HF跳转映射。见[审查](ddtllama_formal_precursor_and_protocol_audit_2026-10-22.md)、[G044](../reviews/G044.md)、[L098](../reviews/L098.md)。
+
+
+第一百一十五批（2026-10-22）：固定v2/arXiv元数据和HF论文页、定向GH/HF/原始发表源检索；未定位对应代码/权重不等于证明未发布。见[审查](unicode2_codebook_theory_and_protocol_audit_2026-10-22.md)、[L099](../reviews/L099.md)。

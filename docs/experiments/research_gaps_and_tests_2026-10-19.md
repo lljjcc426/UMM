@@ -457,3 +457,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百一十四批（2026-10-22）：同LLM/曝光/码率/FLOPs空间-query×mask对照、独立文本集和盲人评；全部未执行。见[审查](../evidence/ddtllama_formal_precursor_and_protocol_audit_2026-10-22.md)、[G044](../reviews/G044.md)、[L098](../reviews/L098.md)。
+
+
+第一百一十五批（2026-10-22）：等词表成本/码率/数据级联对照、真实q/H和训练曲线、独立OCR与同终图异过程GT；未执行。见[审查](../evidence/unicode2_codebook_theory_and_protocol_audit_2026-10-22.md)、[L099](../reviews/L099.md)。

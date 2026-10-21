@@ -458,3 +458,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百一十四批（2026-10-22）：项目当前code/checkpoint跳转Selftok512/1024目录，不作480正式制品复现证据，无权重下载。见[审查](../evidence/ddtllama_formal_precursor_and_protocol_audit_2026-10-22.md)、[G044](../reviews/G044.md)、[L098](../reviews/L098.md)。
+
+
+第一百一十五批（2026-10-22）：未定位UniCode²对应公开制品，HF论文关联0不证明未发布；不把论文页误记成模型权重。见[审查](../evidence/unicode2_codebook_theory_and_protocol_audit_2026-10-22.md)、[L099](../reviews/L099.md)。

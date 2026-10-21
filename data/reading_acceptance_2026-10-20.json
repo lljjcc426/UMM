@@ -7765,6 +7765,40 @@
         }
       ],
       "boundary": "CVPR2025正式完整11页PDF Abstract/§1–6全部核心研究文字、Eq1/2/T1–4/F1–9图注，实际p3F2/公式、p4完整T1/2、p7T3/4/F6、p8F7/8/9；正式完整11页supp A/B1–2/C/D/E/F1–3/G全部研究说明和超参表，实际suppp1；其他定性图未逐图、参考文献未逐篇。正式元数据与作者DDT项目/后续关系核查；其code/checkpoint链接实际转Selftok，复用113批固定GH4695474全63树及HF a3ee3c29清单证据，仅关联不证明480正式版可复现。本批无新增权重/数据媒体下载、模型执行或独立复现。"
+    },
+    {
+      "id": "L099",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "在静态图像理解和文本生图共享AR模型中扩大离散语义词表，同时避免索引漂移与码闲置，保留预训练视觉语义并适配外部扩散decoder。没有建立文字生成视频、规范笔顺、真实绘画过程或视频理解实验。 小型像素重建码对细粒度理解有限；直接扩大可训练码本可能出现闲置，encoder与码中心同时变化会使索引不稳。作者希望把离散分配与下游embedding学习分开；比较不同语义先验、LLM、训练数据的主表不能单独识别码本机制的因果收益。",
+          "evidence": "固定v2核心/全部主表与消融、AppA研究文字及七页实际框架图表公式；非口试/独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "图像+问题→SigLIP/C1量化→C2 embedding/MLP→共享AR→文字；文字提示→共享AR→视觉ID→C2/mapping→冻结扩散→RGB图像。F2有编辑示意，但未提供编辑benchmark。实际PDF p3 Eq1、p4 F2/Eq2–3、p7 T1、p8 T2/3、p9 T4/5、p18 T6、p19 Eq12–18均已核；其余定性图选读图注。 siglip-so400m-patch14-384冻结，C1与C2均从聚类中心初始化，C1冻结，C2按同一索引适配。MLP连接视觉与LLM空间，文字/视觉输出各自CE Eq7/8；Eq9逐码mapping至diffusion条件，Eq10温度τ的batch内对比cos目标，对齐冻结文本encoder。未给足token序列长度/池化、FLUX多encoder与pooled条件适配、损失权重、视觉head绑定等实现细节，不自行补写。",
+          "evidence": "固定v2核心/全部主表与消融、AppA研究文字及七页实际框架图表公式；非口试/独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "对冻结SigLIP的patch特征分层Kmeans建目标500K中心；C1固定最近邻索引，C2同ID查表可训练，再投影到Qwen2.5-7B-Instruct。生图预测离散ID，经可学习mapping与冻结扩散textencoder特征对比对齐，再条件化FLUX.1-dev或SDXL。所谓级联的第二级是embedding lookup，没有第二次独立nearest-neighbor或残差量化。 当冻结视觉encoder语义与目标分布相符、索引固定可避免训练target漂移，且C2能适配下游语言空间时，级联可能在相同数据下改善理解并借外部decoder完成静态组合生图。优势应落到理解平均/组合准确与词表成本折中；coverage、同ID embedding、例图好看均不证明严格字形保真、中文笔顺或时序物理，跨域罕见字符可能被冻结SigLIP不可逆丢失。",
+          "evidence": "固定v2核心/全部主表与消融、AppA研究文字及七页实际框架图表公式；非口试/独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1本作SEED73.5/MMVet48.6/MMStar54.0/GQA69.2/TextVQA65.7/AI2D79.6/RW65.4/MMMU47.1/MMB79/MME2052；离散组GQA低于Chameleon69.6，连续LLaVA-OV在SEED75.4/MMVet57.5/MMStar61.7/AI2D81.4/RW66.3/MMMU48.8/MMB80.8更高，不称所有理解最优。T2 FLUX路径GenEval .65、DPG83.5，低于DALL-E3 GenEval .67/DPG同83.5；其two .82<.87、color .79<SDXL.85，count .64高于表内所列。没有同表FLUX整体定量基线，F4手选案例不能证明总体优于FLUX。 T3聚类10K/100K/500K avg74.6/76.3/77.4、coverage99.5/99.1/98.7；VQGAN500K avg48.2/coverage2.3。扩大K同时增加词表/head成本，不是等码率。VQGAN10K63.1/56.2/63.1均值60.8与印64.1冲突，原值及算术都保留。T4直接encoder75.6、单冻结72.2、单可训69.7、双可训67.1、级联77.4；无训练曲线/多seedCI，最终分数不直接量化稳定性。T5 SDXL基座.55/74.7、200K冻结.62/77.3、解冻.61/78.4、20K.59/76.5、4M.62/77.1，解冻和增数据未全面改善；未有单任务对照识别共享模型正协同。 128H100、perGPU4/global512、oneepoch、BF16/DeepSpeedZeRO3，AdamWβ.9/.95、wd0、Stage1 lr1e-3后续1e-5、warmup.03/cos。FLUX默认50去噪步/guidance3.5，SDXL-base1.0另一decoder；F3例图512²，未据此确定全部benchmark输出分辨率。AR采样温度/topk/topp、每prompt张数/seed、mapping结构/对比τ、聚类超参、训练卡时、峰值显存和等FLOPs条件未齐。T4参数列单位印GB（3.3/0/2/4/2），不能解释成十亿参数；约40%差额只对应所列列值，不是总训练/推理成本减少40%。",
+          "evidence": "固定v2核心/全部主表与消融、AppA研究文字及七页实际框架图表公式；非口试/独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "作者Limitations只强调固定码容量适应分布限制。进一步：Eq1正λ中心散度最小化会收缩，不能支持正文展开/防坍缩解释；Eq2无权方差均值一般下界无效，不平衡簇反例见专题。AppEq12为有权失真，中心不等条件均值时还含偏差，不总是纯条件variance；Eq14的−βH不同于Eq1、Algorithm1未显式熵项。Eq15 I≤H正确，但高熵不足保证语义信息，令标签与token独立即可I=0。Eq17常数/等用码最优叙述缺源分布、尺度与高分辨条件，缩放特征会缩放失真，不能仅由维度推普适正下界。理论缺口不抹去实测表，也不能据此断言未公开代码实现失败。 固定SigLIP/LLM/decoder/数据/总FLOPs，分别控制token数、码率与词表head规模，比较连续、单码/级联以及有/无显式熵项；记录真实q、H/perplexity、量化误差、训练曲线/梯度和多seed。独立标签测I或可分性，验证高coverage与语义信息差别；源分布缩放/不平衡簇解析反例检验理论。共同原始/重写prompt对照FLUX和SDXL，固定采样seed/次数，保留独立OCR、组合、审美和多样性指标。字符最小差/非汉字/细笔及同终图异书写事件另建GT，先检查encoder信息损失，再决定是否需新时序机制。建议未运行，尚需追引判断创新。",
+          "evidence": "固定v2核心/全部主表与消融、AppA研究文字及七页实际框架图表公式；非口试/独立复现，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定2506.20214v2完整19页PDF配合HTML，Abstract/§1–5核心全文、Eq1–10、完整T1–5、AppA1研究文字与F4/F5图注、A2含Algorithm1/T6、A3 Eq11–18全读；参考文献未逐篇读，F1/F3–5未逐图。实际p3 Eq1、p4 F2/Eq2–3、p7 T1、p8 T2/3、p9 T4/5/F3、p18 T6、p19 Eq12–18核看。本次arXiv元数据/HF论文页及定向GH/HF/正式来源检索，未定位可对应版本公开代码/权重，不能宣称不存在；无权重下载、模型运行/速度测试/独立复现。"
     }
   ]
 }

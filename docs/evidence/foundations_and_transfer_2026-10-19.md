@@ -264,3 +264,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百一十四批（2026-10-22）：排列/文本perplexity与协同因果边界，前缀渐进非物理时间；名义相同比特仍需同数据/decoder预算。见[审查](ddtllama_formal_precursor_and_protocol_audit_2026-10-22.md)、[G044](../reviews/G044.md)、[L098](../reviews/L098.md)。
+
+
+第一百一十五批（2026-10-22）：Eq1中心梯度、Eq2不平衡簇反例、H上界与语义信息差别、Eq17分布/尺度条件。见[审查](unicode2_codebook_theory_and_protocol_audit_2026-10-22.md)、[L099](../reviews/L099.md)。

@@ -469,3 +469,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百一十四批（2026-10-22）：人评65比10缺完整分母/盲法、规模趋势未拟合、VAE/decoder初始化和480权重未齐。见[审查](ddtllama_formal_precursor_and_protocol_audit_2026-10-22.md)、[G044](../reviews/G044.md)、[L098](../reviews/L098.md)。
+
+
+第一百一十五批（2026-10-22）：VQGAN均值60.8/印64.1、T2UniToken/UniTok歧义、GB单位与最终K′/mapping/采样未齐。见[审查](unicode2_codebook_theory_and_protocol_audit_2026-10-22.md)、[L099](../reviews/L099.md)。
