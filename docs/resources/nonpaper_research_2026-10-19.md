@@ -449,3 +449,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百一十一批（2026-10-22）：实际固定模型卡/训练推理代码/数据230+157文本清单/13×157公开数字审查，无权重/视频下载；不重复计独立论文或新资源。见[审查](../evidence/vitex_glyph_correction_and_release_protocol_audit_2026-10-22.md)、[L043](../reviews/L043.md)。
+
+
+第一百一十二批（2026-10-22）：固定stageII卡/训练yaml和问答/图像采样，独立提示词资源553+300行文本统计；无权重/媒体/推理下载执行。见[审查](../evidence/unitoken_version_interference_and_prompt_protocol_audit_2026-10-22.md)、[L097](../reviews/L097.md)。

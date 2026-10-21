@@ -1,0 +1,43 @@
+{
+  "id": "L097",
+  "date": "2026-10-22",
+  "official_paper": "CVPR2025 Workshops/MMFM pp3609–3619, 11pages",
+  "official_pdf_complete": true,
+  "official_pdf_bytes": 1476050,
+  "arxiv_version": "2504.04423v1",
+  "github_revision": "9181c61367baf44e67f08984cac8347c1d5a1626",
+  "model_revision": "96d1e4c505e4298cd4cbe9eed27850cf6b738e9a",
+  "prompt_dataset_revision": "579054e1dc28083a7157fe333566df7b80f1652d",
+  "prompt_text_counts": {
+    "GenEval": 553,
+    "T2I_CompBench_color": 300
+  },
+  "actual_visuals": [
+    "Formal p3F2",
+    "Formal p4T1/T2",
+    "Formal p5T3/T4",
+    "Formal p6T5/T6"
+  ],
+  "findings": [
+    "Formal two-stage versus arXiv third-stage SFT; table5/6 numbering reversed",
+    "Formal GenEval.58; arXivIII.63 with some understanding/counting regressions",
+    "Joint UniToken reduces but does not eliminate generation degradation:51.1to49.4",
+    "Data ratio ablation changes total data/generation exposure, not universal optimal1to1",
+    "Currentstage2shell points to phase1 captions; undefinedaccum_iter, separatephase2yaml does not prove original training run",
+    "Two inference methods explain greedy understanding versus sampled generate_img; no incorrect claim all inference greedy",
+    "Prompt rewriting is a separate released text artifact; comparative evaluation protocol not fully mapped",
+    "OCR reading and static generation do not establish glyph writing or temporal order"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false,
+  "incomplete_model_config_excluded": true,
+  "sources": [
+    "https://openaccess.thecvf.com/content/CVPR2025W/MMFM/papers/Jiao_UniToken_Harmonizing_Multimodal_Understanding_and_Generation_through_Unified_Visual_Encoding_CVPRW_2025_paper.pdf",
+    "https://arxiv.org/abs/2504.04423v1",
+    "https://arxiv.org/html/2504.04423v1",
+    "https://github.com/SxJyJay/UniToken/tree/9181c61367baf44e67f08984cac8347c1d5a1626",
+    "https://huggingface.co/OceanJay/UniToken-AnyRes-StageII/tree/96d1e4c505e4298cd4cbe9eed27850cf6b738e9a",
+    "https://huggingface.co/datasets/OceanJay/rewrite_geneval_t2icompbench/tree/579054e1dc28083a7157fe333566df7b80f1652d"
+  ]
+}

@@ -508,3 +508,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百一十一批（2026-10-22）：固定v2完整核心/AppA–O/实际框架主表消融；GH/HF及已报逐片数字核查，NeurIPS为作者声明未独立确认。见[审查](vitex_glyph_correction_and_release_protocol_audit_2026-10-22.md)、[L043](../reviews/L043.md)。
+
+
+第一百一十二批（2026-10-22）：正式CVF完整11页核心/实际p3–6；固定arXiv方法/更新表、GH/HF及prompt文本核查。见[审查](unitoken_version_interference_and_prompt_protocol_audit_2026-10-22.md)、[L097](../reviews/L097.md)。

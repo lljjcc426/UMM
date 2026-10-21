@@ -329,3 +329,6 @@ python scripts/validate_catalog.py
 
 
 第一百一十一批（2026-10-22）完成L043 ViTeX固定v2核心/AppA–O/实际F3-T2-T7，区分glyph加载纠正、CI跨0/时间取舍与旧人评；审查固定GH/HF/230+157清单和2041逐片已报数字，记录margin/PSNR/OCR串发布差异。356目录，220核心/223书面含未通过项，136条未确认核心（含资源）。见[审查](docs/evidence/vitex_glyph_correction_and_release_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_eleventh_changes_2026-10-22.md)。无删除/模型复现。
+
+
+第一百一十二批（2026-10-22）完成L097 UniToken正式workshop核心/实际p3–6，并核arXiv更新表、固定GH/HF和改写prompt。纠正两阶段/三阶段、负迁移与指标退步，保留当前配置/评测协议缺口。356目录，221核心/224书面含未通过项，135条未确认核心（含资源）。见[审查](docs/evidence/unitoken_version_interference_and_prompt_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twelfth_changes_2026-10-22.md)。无删除/模型复现。

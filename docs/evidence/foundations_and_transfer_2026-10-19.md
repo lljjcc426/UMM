@@ -255,3 +255,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百一十一批（2026-10-22）：fitting子串/可读support/Pareto反例，glyph推理消融与训练归因、池化时序可识别性需实验。见[审查](vitex_glyph_correction_and_release_protocol_audit_2026-10-22.md)、[L043](../reviews/L043.md)。
+
+
+第一百一十二批（2026-10-22）：单任务/联合干扰减轻仍有负迁移；输入连续支路不等于T2I输出连续码，额外先验/成本需对齐。见[审查](unitoken_version_interference_and_prompt_protocol_audit_2026-10-22.md)、[L097](../reviews/L097.md)。

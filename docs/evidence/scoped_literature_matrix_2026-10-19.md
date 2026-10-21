@@ -419,3 +419,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百一十一批（2026-10-22）：视频局部文字替换Benchmark+参考编辑器；手写外观与笔画过程区分，关联已录L182 STRIVE，GlyphMastero/VidTextPres待原文/别名核验。见[审查](vitex_glyph_correction_and_release_protocol_audit_2026-10-22.md)、[L043](../reviews/L043.md)。
+
+
+第一百一十二批（2026-10-22）：双输入共享AR静态理解/生成；workshop与主会区分，OCR读取与指定字/时序生成分开。见[审查](unitoken_version_interference_and_prompt_protocol_audit_2026-10-22.md)、[L097](../reviews/L097.md)。
