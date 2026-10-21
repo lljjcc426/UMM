@@ -8241,6 +8241,40 @@
         }
       ],
       "boundary": "arxivv1完整25页PDF，Abstract/§1–6所有核心研究文字、Eq1–8/T1–14/F1–9图注，实际p5/6/7/9/10/12/13/14/15/16/17/18/19十三页；未逐篇Refs或逐例全部定性图。GH ee9dfd5完整41项树（含diffusers submodule，未递归读该外部仓库）、README全文，scripts T2I/MMU/edit全文、decoder decode/SigVQ全文、encoder1–64/464–510与指定接口；HF dc2cde4元数据/configs（主干/两decoder/image/VAE）全文、modeling router464–541/forward1249–1356/SPRINT1507–1610与2180–2249、highlevel2282–2350/2406–2441选读。HFREADME仅模型/推理选段；底层transport/attention、全部modeling、训练基础设施和新SGLang/FP8未深读。未下载权重/原数据、执行模型、复现训练或速度。"
+    },
+    {
+      "id": "L115",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "在保留SD3-M/FLUX.1-dev既有图像先验的条件下，以少量可训练参数给文生图flow骨干增加图像描述、图文联合生成和适配后VQA。研究对象是静态图像与自然语言序列，未生成连续视频、规范笔顺或书写动作；文本token插入与物理笔画事件不同。 mask文本难直接复用冻结的多tokenizer编码器；增加文本预测可能改变图像先验，MSE与分类损失梯度尺度不同，纯端点任务训练不覆盖共同带噪状态。作者选择删除/插入保留可解码token串、双独立时间及teacher约束。冻结CLIP可接受删除后的串，并不证明这些串语法通顺或等于原语义；也没有证明所有mask方法都无法低成本适配。",
+          "evidence": "arxivv1全部核心与十表、指定附录证明/CFG/十五实际PDF页，网页制品树，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "RGB→冻结VAE latent、文字→T5删除子序列→T5编码及decode/re-tokenize后的CLIP编码→共享LoRA MM-DiT分别受图像t与文本τ调制→图像velocity和文本插入计数/类别；Euler/插入过程推进至图像latent与完整字符串→VAE RGB/文本。固定τ=1文生图，固定t=1图生文；联合τ=t^(2^p)，p<0文本先、p>0图像先、p=0对角。实际看p4/5/6/7/8/9/17/19/20/21/22/24/27/28/34十五页。任意单调路径可用于采样不等于每条路径质量相同或近似训练场具有严格一致联合分布。 冻结SD3/FLUX骨干、T5/CLIP encoders；MM-DiT所有transformer_blocks线性层LoRA r32/alpha32/dropout.05/no bias，并直接训练新文本头、text AdaLN与τ处理器；SD3约136.1M可训、FLUX约298M。冻结参数仍占前向/显存，不能把136M当全系统大小。x_t=(1−t)noise+t*data，t0noise/1clean；文本每个非EOS token以τ保留，τ0EOS-only/1完整，反向插入是离散CTMC，不是标准连续高斯文本噪声。Eq2.8 Poisson count NLL加被删token CE；实际B6加BCE非零门π与条件Poisson，π称P(n>0)，但若门开后用未截断Poisson仍可抽0，是否截断/夹正及具体离散采样代码未给，保留待核。",
+          "evidence": "arxivv1全部核心与十表、指定附录证明/CFG/十五实际PDF页，网页制品树，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "保留图像连续RF latent，文本采用T5空间删除到EOS、反向按位置插入的Edit Flow，共享MM-DiT加独立t/τ调制、LoRA及计数/身份头；删除串解码再重分词喂冻结CLIP。用共享参数梯度比EMA平衡文本，LoRA关闭的同骨干作同噪teacher维持图像先验；先二维独立噪声训练再交替clean细化。双时间允许条件生成与联合轨迹、固定题目仅生成答案。不是新增外部AR语言decoder；这里decoder-free仅指文本生成接口，图像仍需VAE。 已有高质RF图像先验、冻结多encoder接纳删除子串、图像teacher目标与期望分布相近、少量caption数据足够时，可低成本增加文本端而维持基础生成分布。二维预训练可能让后续端点适配更快，但T8反例/无配对seed和各切换预算限制普适性。TeacherSN约束的是base行为，也可能继承基础缺陷、约束新域适配；少可训参数并不保证总内存/全预训成本少。输出梯度理论只解释一种潜在尺度来源，自适应EMA合理性仍要受控实验，不能从保先验FID推出新文字/细笔/视频优势。",
+          "evidence": "arxivv1全部核心与十表、指定附录证明/CFG/十五实际PDF页，网页制品树，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1 100K LoRA-only CIDEr40.1、refiner-only0、LoRA+refiner19.9，同参预算不证明所有refiner无用；200K全部encoder对仅T5 CMMD.11<.50/FID34.25<44.55/CIDEr65.42>63.96，CLIP.25<.26，非所有指标改善。T2 FM→TeacherSN FID63.46→30.38/CMMD.579→.084，TeacherCT39.49/.310；只证对基础模型分布更接近，没有同表caption质量取舍。T4 DD62.65/.870/CIDEr2.0/BERT−.27，own-step29.32/.021/13.4/.02，own-time31.57/.121/99.4/.44；step反而更保先验，不能把time99.4配step显著更低FID。T9另报DD2.06/−.28、step13.16/.03、time107.11/.47，与T4差异未解释，不拼成一组结果。 T8 @200K val CIDEr纯ind65.43、纯ac96.97；switch75K111.80/100K107.63/125K108.76/150K84.68/175K107.11。150K切换低于96.97，反驳正文全部五种胜pureac；CI是5K样本不含训练seed不确定性，五实验是五切换时刻。T3/10 ownCOCO54.93/VQA56.5/Viz50.7/OK23.3；Viz优表内统一模型但专用InternVL2 62.9更高，VQA低ShowO64.7/69.4、OK低Dual28.5/25.3，不能称所有理解更优。F12γ1.2 CIDEr107.1→110、长度34.4→33.8而参考35.9，原文称更近与这些均值不符；γ4长57.8/CIDEr15表明强CFG退步。联合F6约1K样本对角CLIP较好，F21图像先常到约77token上限；长度更长不保证描述更准确。FLUX仅转移定性示例/算力，未单列完整FLUX主指标。 SD3 2RTXA5000×24GB/DDP-NCCL/BF16、optimizerFP32/no checkpoint，globalbatch10(5/GPU)、T5max77、seed42；AdamW(.9,.999,1e-8)、constantlr/warm5K/clip2、EMAtrainable.9995。B4 LoRA/时间处理器lr1e-4 wd0，新heads/AdaLN5e-4 wd.01；T5却把head并到1e-4组、5e-4标Baseparameter，分组名称不一致，不能推全骨干解冻。梯度比每100步取micro3、EMA.99且先乘5，另wtxt.05再乘自适应λ，不能仅λ≈.04视作完整损失权重。主生产100K独立+50K交替=150K，收敛分析200K。采样28FlowMatchEuler步、文本shift1/topk1/temp.7、主结果CFG1；VQA另100K步wimg0/8步；FLUX3A5000手工分片、40K+20K/60K步36h/max128，非同两卡预算。",
+          "evidence": "arxivv1全部核心与十表、指定附录证明/CFG/十五实际PDF页，网页制品树，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "T5称两方法两卡/200K，T6基线4卡24h，不能据wallclock称等GPU预算；baseline .25step/s与200K/24h不相容，缺各checkpoint实际步数。T6 SD3 18runs×2×28h=1008但行报864；列行864+108+96=1068而总报1212，总数与1008+108+96一致，需作者澄清。38GB vs84GB是峰显存总口径未说明，1.96/.25≈7.84为训练吞吐，非推理加速。E1证明中(n+n−2n)漏σ，应n+n−2nσ；最终8(1−σ)/n在假设下成立。E/F9用4×32²=4096与B1实际16×32²不一致；MSE/CE输出梯度界不直接推出共享参数梯度25倍，仍需Jacobian与尺度条件。项目repo固定9a04534完整192项只有网页/静态制品、无py/yaml/sh/权重；README模板，项目Code soon链作者主页，不能称模型训练代码已开源。 先取得同一checkpoint映射和完整训练代码，固定原SD3/data/teacher/seed/总GPUh，对deletevs合法mask桥、encoder冻/训、SN/CT/RF、单固定权重/自适应、ind/ac/两阶段做因子消融。报告base与real-reference FID分别、caption人参考/伪参考各指标、人工事实性/物体计数/静态OCR和稀有script；不同阶段多训练seed而非只5K样本CI。校正lr分组/实际步数、所有可训及冻结参数总资源，分开训练吞吐和完整28步含编码/VAE推理延迟；对比同GPUh及同steps两种协议。联合路径固定seed评长度截断、图文幻觉与路径一致性，限制与不限制77长度；非零计数截断协议独立核清。若扩书写须新增真实连续帧/事件监督及笔顺合规、事件完整率、速度/可观测性指标，先与已有绘画/书法和SVG强基线比。全部为实验设计，未执行。",
+          "evidence": "arxivv1全部核心与十表、指定附录证明/CFG/十五实际PDF页，网页制品树，非口试/独立复现"
+        }
+      ],
+      "boundary": "arxivv1完整36页PDF，Abstract/§1–6及Eq2.1–2.9/3.1–3.5，AppA–H全部研究文字/B1–11/C–G/E1E2证明与H1CFG公式，AppI引言/I1及全T1–10/F1–26图注；实际p4/5/6/7/8/9/17/19/20/21/22/24/27/28/34十五页。未逐例看全部qual图或逐篇参考文献。项目正文/recipe/链接及GH9a04534完整192树、README全文已核，网页不含原模型训练/推理代码；关联thesis仅定位未读，未下载权重/数据、执行模型或独立复现。"
     }
   ]
 }

@@ -380,3 +380,6 @@ python scripts/validate_catalog.py
 
 
 第一百二十八批（2026-10-22）完成L114 LLaDA2.0-Uni完整核心、十四表/Eq1–8与十三实际PDF页，核固定GH/HF的MoE、decoder与SPRINT。记录文字渲染差距、T4正文/表冲突、缓存剪枝及质量-速度折中。357目录，237核心/240书面；未确认核心93论文／研究+27资源（资源单独审）。见[审查](docs/evidence/llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twenty_eighth_changes_2026-10-22.md)。无删除或执行模型。
+
+
+第一百二十九批（2026-10-22）完成L115 FullFlow完整核心、十表与十五实际PDF页，核双时间RF/插入、输出梯度理论、先验保留评价及网页制品树。保留T4/T9数值、T8反例、T5/T6预算与算术冲突。357目录，238核心/241书面；未确认核心92论文／研究+27资源（资源另审）。见[审查](docs/evidence/fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twenty_ninth_changes_2026-10-22.md)。无删除或执行模型。

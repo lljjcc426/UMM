@@ -306,3 +306,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百二十八批（2026-10-22）：语义充分性、独立连续decoder、key范数与注意力贡献及逆sqrt长度折中。见[审查](llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[L114](../reviews/L114.md)。
+
+
+第一百二十九批（2026-10-22）：MSE/CE输出梯度界到共享参数须Jacobian条件；二维时间路径不保证路径无关质量。见[审查](fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[L115](../reviews/L115.md)。

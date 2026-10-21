@@ -499,3 +499,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百二十八批（2026-10-22）：等预算tokenizer/MoE/block与SPRINT三项消融、含细字的decoder端到端Pareto，未执行。见[审查](../evidence/llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[L114](../reviews/L114.md)。
+
+
+第一百二十九批（2026-10-22）：因子拆解删除/encoder/teacher/schedule，同GPUh与同steps分别测、实图与base参考FID分列，多seed和真实书写事件；未执行。见[审查](../evidence/fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[L115](../reviews/L115.md)。

@@ -102,3 +102,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百二十八批（2026-10-22）：语义码损细节、主干CE/decoderFM分别优化，RL为未来方向，互补mask不等独立数据翻倍。见[审查](llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[L114](../reviews/L114.md)。
+
+
+第一百二十九批（2026-10-22）：T5删除子词可decode/re-tokenize冻结CLIP但不保证语法；两阶段调度反例及Poisson非零门协议。见[审查](fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[L115](../reviews/L115.md)。

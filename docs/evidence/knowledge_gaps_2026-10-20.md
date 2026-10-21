@@ -511,3 +511,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百二十八批（2026-10-22）：Eq3/5符号、原优化超参和完整训练、模态topk与公开pin/global实现待核。见[审查](llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[L114](../reviews/L114.md)。
+
+
+第一百二十九批（2026-10-22）：T4/T9 checkpoint、T5/B4优化组、非零Poisson采样、GPU预算与表6算术待澄清。见[审查](fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[L115](../reviews/L115.md)。

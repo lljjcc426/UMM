@@ -500,3 +500,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百二十八批（2026-10-22）：16.322B主干、额外6B decoder/VAE、HF配置与两种decoder/CLI参数；SGLang消息版本区别。见[审查](../evidence/llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[L114](../reviews/L114.md)。
+
+
+第一百二十九批（2026-10-22）：同名GH为gh-pages网页：192项静态资源/模板README，不将Code soon或网页许可视为模型发布。见[审查](../evidence/fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[L115](../reviews/L115.md)。

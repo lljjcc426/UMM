@@ -559,3 +559,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百二十八批（2026-10-22）：arxivv1完整25页/GHee9dfd5/HFdc2cde4；全部14表/Eq1–8及13实际PDF页。见[审查](llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[L114](../reviews/L114.md)。
+
+
+第一百二十九批（2026-10-22）：arxivv1完整36页/全部十表/十五实际PDF页，G H网页树9a04534共192项，关联thesis未读。见[审查](fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[L115](../reviews/L115.md)。
