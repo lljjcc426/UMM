@@ -1,0 +1,241 @@
+{
+  "id": "L043",
+  "date": "2026-10-22",
+  "paper_version": "2609.40356v2",
+  "venue_status": "Author-reported NeurIPS2026 E&D; independent official venue page not confirmed",
+  "github_revision": "bbbd258512b1c6920c2088e7c1821145ddab23cf",
+  "model_revision": "b3abf44f166d3936905b0430ef1e9d7560b19a62",
+  "dataset_revision": "c5e4fe16a6c8dd532fd8c48118c9cd4969f78fa2",
+  "actual_visuals": [
+    "F3 architecture",
+    "T2 complete main comparison",
+    "T7 complete glyph inference ablation"
+  ],
+  "statistics": {
+    "dataset": {
+      "train": 230,
+      "evaluation": 157,
+      "overlapping_ids": [],
+      "train_edited_video_paths": 230,
+      "eval_edited_video_paths": 0
+    },
+    "published_results": {
+      "method_variants": 13,
+      "methods": [
+        {
+          "key": "identity",
+          "label": "Source video",
+          "records": 157,
+          "seq_support": 152,
+          "char_support": 152,
+          "tts_support": 152,
+          "per_clip_ocr_string_records": 0,
+          "SeqAcc_mean": 0.0,
+          "CharAcc_mean": 0.3165408461004333,
+          "Warp_crop_mean": 1.2690219210512326,
+          "PSNR_loc_mean": 100.0
+        },
+        {
+          "key": "ViTeX-14B",
+          "label": "ViTeX-Edit-14B",
+          "records": 157,
+          "seq_support": 152,
+          "char_support": 152,
+          "tts_support": 152,
+          "per_clip_ocr_string_records": 0,
+          "SeqAcc_mean": 0.3631011277280345,
+          "CharAcc_mean": 0.7136909090591781,
+          "Warp_crop_mean": 1.6165256169001767,
+          "PSNR_loc_mean": 29.696284122730262
+        },
+        {
+          "key": "ViTeX-14B_Corp",
+          "label": "ViTeX-Edit-14B (Composite)",
+          "records": 157,
+          "seq_support": 152,
+          "char_support": 152,
+          "tts_support": 152,
+          "per_clip_ocr_string_records": 0,
+          "SeqAcc_mean": 0.361207663249616,
+          "CharAcc_mean": 0.7183896816278694,
+          "Warp_crop_mean": 1.6146540624225976,
+          "PSNR_loc_mean": 42.67267442893577
+        },
+        {
+          "key": "anytext2",
+          "label": "AnyText2",
+          "records": 157,
+          "seq_support": 152,
+          "char_support": 152,
+          "tts_support": 152,
+          "per_clip_ocr_string_records": 0,
+          "SeqAcc_mean": 0.27973291436891057,
+          "CharAcc_mean": 0.6332210144114335,
+          "Warp_crop_mean": 3.9516436691464083,
+          "PSNR_loc_mean": 25.55582150532182
+        },
+        {
+          "key": "fluxtext",
+          "label": "FLUX-Text",
+          "records": 157,
+          "seq_support": 152,
+          "char_support": 152,
+          "tts_support": 152,
+          "per_clip_ocr_string_records": 0,
+          "SeqAcc_mean": 0.5283744349135131,
+          "CharAcc_mean": 0.7367738685630717,
+          "Warp_crop_mean": 13.00984947474886,
+          "PSNR_loc_mean": 31.48887345775677
+        },
+        {
+          "key": "re-ste",
+          "label": "RS-STE",
+          "records": 157,
+          "seq_support": 152,
+          "char_support": 152,
+          "tts_support": 152,
+          "per_clip_ocr_string_records": 0,
+          "SeqAcc_mean": 0.3539735290248826,
+          "CharAcc_mean": 0.6258597181299173,
+          "Warp_crop_mean": 1.8147908492065754,
+          "PSNR_loc_mean": 37.00242438437832
+        },
+        {
+          "key": "text_ctrl",
+          "label": "TextCtrl",
+          "records": 157,
+          "seq_support": 152,
+          "char_support": 152,
+          "tts_support": 152,
+          "per_clip_ocr_string_records": 0,
+          "SeqAcc_mean": 0.47475474732914913,
+          "CharAcc_mean": 0.7335025097206169,
+          "Warp_crop_mean": 2.087607682354121,
+          "PSNR_loc_mean": 41.143448625451185
+        },
+        {
+          "key": "text_ctrl+anyv2v",
+          "label": "TextCtrl + AnyV2V",
+          "records": 157,
+          "seq_support": 152,
+          "char_support": 152,
+          "tts_support": 152,
+          "per_clip_ocr_string_records": 0,
+          "SeqAcc_mean": 0.05678677944709493,
+          "CharAcc_mean": 0.3077995278798651,
+          "Warp_crop_mean": 3.9674498647429868,
+          "PSNR_loc_mean": 21.084345629665755
+        },
+        {
+          "key": "wan2.2vace14b",
+          "label": "Wan2.1-VACE-14B",
+          "records": 157,
+          "seq_support": 152,
+          "char_support": 152,
+          "tts_support": 152,
+          "per_clip_ocr_string_records": 0,
+          "SeqAcc_mean": 0.0,
+          "CharAcc_mean": 0.29842756354252414,
+          "Warp_crop_mean": 1.5609657061512834,
+          "PSNR_loc_mean": 35.21163969961195
+        },
+        {
+          "key": "videopainter",
+          "label": "VideoPainter",
+          "records": 157,
+          "seq_support": 152,
+          "char_support": 152,
+          "tts_support": 152,
+          "per_clip_ocr_string_records": 0,
+          "SeqAcc_mean": 0.364495972867382,
+          "CharAcc_mean": 0.6187952902754302,
+          "Warp_crop_mean": 3.3452600061138553,
+          "PSNR_loc_mean": 28.55595774316484
+        },
+        {
+          "key": "kling",
+          "label": "Kling Video 3.0 Omni",
+          "records": 157,
+          "seq_support": 152,
+          "char_support": 152,
+          "tts_support": 152,
+          "per_clip_ocr_string_records": 0,
+          "SeqAcc_mean": 0.0,
+          "CharAcc_mean": 0.20752862556378657,
+          "Warp_crop_mean": 2.9020875204225516,
+          "PSNR_loc_mean": 21.18163157585067
+        },
+        {
+          "key": "ViTeX-14B_noglyph",
+          "label": "ViTeX-Edit-14B (text-only)",
+          "records": 157,
+          "seq_support": 152,
+          "char_support": 152,
+          "tts_support": 152,
+          "per_clip_ocr_string_records": 0,
+          "SeqAcc_mean": 0.33937566865484636,
+          "CharAcc_mean": 0.6879557735176203,
+          "Warp_crop_mean": 1.5463221168150223,
+          "PSNR_loc_mean": 29.253247061707157
+        },
+        {
+          "key": "ViTeX-14B_noglyph_Corp",
+          "label": "ViTeX-Edit-14B (text-only, Composite)",
+          "records": 157,
+          "seq_support": 152,
+          "char_support": 152,
+          "tts_support": 152,
+          "per_clip_ocr_string_records": 0,
+          "SeqAcc_mean": 0.3471056649647316,
+          "CharAcc_mean": 0.69140439227399,
+          "Warp_crop_mean": 1.5590431603279995,
+          "PSNR_loc_mean": 42.66966251122218
+        }
+      ]
+    },
+    "computed_from_published_records_only": true,
+    "model_executed": false,
+    "source_detectability": {
+      "language_counts": {
+        "en": 150,
+        "ja": 1,
+        "zh": 4,
+        "ru": 2
+      },
+      "empty_ids": [
+        "0000742_00000",
+        "0001104_00000",
+        "0001716_00000",
+        "0002982_00000",
+        "028"
+      ],
+      "mean_frame_coverage": 0.8949044585987261,
+      "source_psnr_values": [
+        100.0
+      ]
+    }
+  },
+  "findings": [
+    "Original submitted outputs had glyph inactive due loader reinitialization; corrected results and no-glyph inference ablation separated",
+    "Correctness gains paired CIs cross zero; Warp-c and Flicker-c worsen with glyph, perceptual MUSIQ-c improves",
+    "Human studies and Composite pipeline check still use earlier no-glyph outputs",
+    "Subset substring match ignores candidate prefix/suffix; L/N-only normalizer drops symbols and marks",
+    "Core says mask-ranking tau.94; AppL says.89, unresolved",
+    "AppE margin16px versus code10percent; Source theoretical infinite PSNR versus code/results cap100dB",
+    "README claims per-clip OCR strings but released2041records have none; cannot redo text metric from release alone",
+    "Flat glyph latent pooling has no explicit position indexing in selected code; temporal information may remain in VAE, requires controlled permutation test",
+    "Current evaluation skips missing files/OCR and truncates to common length; published records cover157 each but new submissions need completeness reporting"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false,
+  "downloaded_video_dataset": false,
+  "incomplete_pdf_excluded": true,
+  "sources": [
+    "https://arxiv.org/abs/2609.40356v2",
+    "https://arxiv.org/html/2609.40356v2",
+    "https://github.com/taco-group/ViTeX-Bench/tree/bbbd258512b1c6920c2088e7c1821145ddab23cf",
+    "https://huggingface.co/ViTeX-Bench/ViTeX-Edit-14B/tree/b3abf44f166d3936905b0430ef1e9d7560b19a62",
+    "https://huggingface.co/datasets/ViTeX-Bench/ViTeX-Dataset/tree/c5e4fe16a6c8dd532fd8c48118c9cd4969f78fa2"
+  ]
+}

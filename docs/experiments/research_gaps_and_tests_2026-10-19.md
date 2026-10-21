@@ -445,3 +445,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百一十批（2026-10-21）：oracleOCR/关联/路由分解、受控错误/批顺序/采样密度、配对多seed与可见覆盖率，书写时变墨迹/事件GT；未执行。见[审查](../evidence/textvbench_correspondence_and_metric_validity_audit_2026-10-21.md)、[L042](../reviews/L042.md)。
+
+
+第一百一十一批（2026-10-22）：同预算无/静态/错时glyph与位置token、Oracle上游/误差注入、严格整串与可读覆盖、corrected人评；书写事件另建GT，未执行。见[审查](../evidence/vitex_glyph_correction_and_release_protocol_audit_2026-10-22.md)、[L043](../reviews/L043.md)。

@@ -446,3 +446,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百一十批（2026-10-21）：TextVBench论文称released200manifest，有限主源检索未确认实际代码/数据入口，不冒充已审查制品或新增资源。见[审查](../evidence/textvbench_correspondence_and_metric_validity_audit_2026-10-21.md)、[L042](../reviews/L042.md)。
+
+
+第一百一十一批（2026-10-22）：实际固定模型卡/训练推理代码/数据230+157文本清单/13×157公开数字审查，无权重/视频下载；不重复计独立论文或新资源。见[审查](../evidence/vitex_glyph_correction_and_release_protocol_audit_2026-10-22.md)、[L043](../reviews/L043.md)。

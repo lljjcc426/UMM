@@ -457,3 +457,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百一十批（2026-10-21）：OCR/VLM版本/人工校准、官方manifest制品、批划分偏差与瞬态漏采；没有组件消融。见[审查](textvbench_correspondence_and_metric_validity_audit_2026-10-21.md)、[L042](../reviews/L042.md)。
+
+
+第一百一十一批（2026-10-22）：glyph正确性CI跨0、旧人评；maskτ.94/.89、16px/10%、∞/100dB、发布缺OCR串；新提交跳过/截帧的support问题。见[审查](vitex_glyph_correction_and_release_protocol_audit_2026-10-22.md)、[L043](../reviews/L043.md)。

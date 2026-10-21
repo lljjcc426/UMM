@@ -505,3 +505,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百一十批（2026-10-21）：固定v1核心/实际框架主表失败表难度图，有限主源未确认正式venue/官方制品；不把released声明当代码核验。见[审查](textvbench_correspondence_and_metric_validity_audit_2026-10-21.md)、[L042](../reviews/L042.md)。
+
+
+第一百一十一批（2026-10-22）：固定v2完整核心/AppA–O/实际框架主表消融；GH/HF及已报逐片数字核查，NeurIPS为作者声明未独立确认。见[审查](vitex_glyph_correction_and_release_protocol_audit_2026-10-22.md)、[L043](../reviews/L043.md)。

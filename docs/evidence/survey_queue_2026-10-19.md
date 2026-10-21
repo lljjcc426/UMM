@@ -419,3 +419,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百一十批（2026-10-21）完成L042 TextVBench核心/实际F2/T1/T2/F5：持续文字双轨评价，extra未进H、归一移除标点空白、活跃路由/批划分/采样和诊断混杂；渐进书写需时变GT。356目录，219核心/222书面含未通过项，137条未确认核心（含资源）。见[审查](textvbench_correspondence_and_metric_validity_audit_2026-10-21.md)、[逐文件说明](one_hundred_tenth_changes_2026-10-21.md)。无删除/模型复现。
+
+
+第一百一十一批（2026-10-22）完成L043 ViTeX固定v2核心/AppA–O/实际F3-T2-T7，区分glyph加载纠正、CI跨0/时间取舍与旧人评；审查固定GH/HF/230+157清单和2041逐片已报数字，记录margin/PSNR/OCR串发布差异。356目录，220核心/223书面含未通过项，136条未确认核心（含资源）。见[审查](vitex_glyph_correction_and_release_protocol_audit_2026-10-22.md)、[逐文件说明](one_hundred_eleventh_changes_2026-10-22.md)。无删除/模型复现。

@@ -148,7 +148,7 @@
 | L040 | DragNUWA: Fine-grained Control in Video Generation by Integrating Text, Image, and Trajectory | primary_sections_read | [结构化分析](../reviews/L040.md) | 核心三遍与五项检查完成 |
 | L041 | DragAnything: Motion Control for Anything using Entity Representation | primary_sections_read | [结构化分析](../reviews/L041.md) | 核心三遍与五项检查完成 |
 | L042 | TextVBench: Evaluating Text Rendering and Preservation in Video Generation | primary_sections_read | [结构化分析](../reviews/L042.md) | 核心三遍与五项检查完成 |
-| L043 | ViTeX-Bench，2026 | primary_sections_read | [结构化分析](../reviews/L043.md) | 未完成 |
+| L043 | ViTeX-Bench: Benchmarking High-Fidelity Video Scene Text Editing | primary_sections_read | [结构化分析](../reviews/L043.md) | 核心三遍与五项检查完成 |
 | L044 | CalligraphyBench | primary_sections_read | [结构化分析](../reviews/L044.md) | 未完成 |
 | L045 | CalliReader / CalliBench，ICCV 2025 | primary_sections_read | [结构化分析](../reviews/L045.md) | 核心三遍与五项检查完成 |
 | L046 | AWCV100K | primary_sections_read | [结构化分析](../reviews/L046.md) | 核心三遍与五项检查完成 |

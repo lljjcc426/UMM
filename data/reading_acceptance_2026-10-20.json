@@ -7629,6 +7629,40 @@
         }
       ],
       "boundary": "固定2610.13412v1 Abstract/§1–9全部核心研究文字、Eq1–7、完整T1/T2/F1–9图注；实际F2原框架、完整T1主表/T2失败表及F5难度图。未逐图核全部定性样例，参考文献未逐篇原文读；有限arXiv/作者/GH/HF检索未确认官方代码/数据发布入口，未把第三方索引当制品。未下载权重/视频数据，未运行生成器/评价器或独立复现。"
+    },
+    {
+      "id": "L043",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "给定真实源视频、逐帧可编辑文字mask、源串和目标串，局部替换场景文字，同时保持字符正确、视频时间质量和未编辑区域。主要是数据/评价Benchmark，另给ViTeX-Edit-14B参考编辑器；未提出空白起笔的规范笔顺生成或理解生成共享UMM。 逐帧文字编辑容易闪烁，首帧传播会漂移，通用视频编辑未保证准确字符；稳定、好看或复制原文都不能证明替换成功。真实视频配对数据少且无唯一编辑外观GT，需三轴分开衡量。字形结构与源表面运动对齐有动机，但必须用受控训练和时序消融核实其独立收益。",
+          "evidence": "固定v2核心/AppA–O/实际F3-T2-T7与指定固定制品，非独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "源V/maskM/源串src/目标串tgt→Qwen字体选择/非Latin默认font、EasyOCR四边形、CoTracker3及maskfallback→目标字形逐帧homography投影→冻结WanVAE→glyph池化64token；目标串经uMT5、V/M经VCU，三路进VACE控制DiT→编辑视频。评价源OCR限定可读support，预测OCR/图像/局部指标输出13向量。实际F3原图、完整T2主表/T7消融已核；文字运动跟随不等于按书写事件逐笔出墨。 Wan2.1-VACE14B：40层DiT/hidden5120/40heads/FFN13824；VCU96ch=16inactive+16reactive+64mask，8VACE块接0/5/10/15/20/25/30/35层。glyph VAE16ch经stride(1,2,2)3Dpatch、preNorm、64learnedqueries cross-attn pool和zero-initout；各VACE块hidden作query读取glyph再zero-init残差。冻结DiT/uMT5/VAE，仅训练约4.02B（VACE约3.89B、glyph约132M等）。当前代码pool前flatten全部时空token未显式添加位置/逐帧索引；这不证明VAE内时序全丢失，但需latent-token置换/时间对齐消融检验运动归因。",
+          "evidence": "固定v2核心/AppA–O/实际F3-T2-T7与指定固定制品，非独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "387真实视频/230训练配对/157冻结评价，13指标三轴并以SeqAcc/Warp-c/DreamSim-loc作Pareto；提供OCR/人评/标注敏感性校准。参考编辑器在冻结Wan2.1-VACE14B上训练VACE/glyph/条件cross-attention，glyph视频依源文字跟踪投影；Composite为所有模型共享无训练后处理。v2纠正加载器曾重置glyph权重的问题，原提交输出实际无glyph。 本地可读文字、较短5秒、近似平面/可跟踪源几何且目标字体可渲染时，配对SFT提供任务分布适配，glyph提供字符结构，源视频VACE提供运动；应在同信息同训练预算相较prompt-only/静态glyph/错时glyph体现。64全时空pool缺显式坐标引出具体时间对应假设，需实验检验。对新文字体系、弯曲/遮挡/快速形变和空白起笔，条件或分布不足；书写任务还需动作接触和墨迹事件监督。",
+          "evidence": "固定v2核心/AppA–O/实际F3-T2-T7与指定固定制品，非独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2 correctedSeq.363/Char.714/TTS.658/Warp-c1.62，对text-only.339/.688/.653/1.55；Char高于VideoPainter.619（+.095），Seq略低于.364；FLUX/TextCtrl .528/.737与.475/.734，故非总体文字最佳。Kling最高MUSIQ但Seq0，源TTS.760但Seq0。Composite使29.70→42.67dB/DreamSim.020→.003，Seq.363→.361，主要源像素还原。T12Pareto含WanVACESeq0。AppO correctedArcFace.87低于TextCtrl.99/RS.97/FLUX与Wan.96，稳定背景不保证身份。实际发布13变体各157行/SeqCharTTS各152support，按已报逐片值重算correctedSeq.363101/Char.713691/Warp-c1.616526，属于发布数字汇总非模型复现。 T7同权重仅推理去glyph：Seq差+.024、paired95%CI[−.025,+.079]；Char+.026[−.003,+.056]，均跨0；Warp-c+ .07[.05,.10]/Flicker-c+.14[.09,.19]更差，MUSIQ-c+2.39[1.94,2.93]。未训练no-glyph、等参数无运动字形/错时字形、两阶段/规模全消融。Composite各基线PSNR约43、Flicker趋源3.72，反映sourcecopy/encode；全基线未完整重算OCR/crop-temporal，不作CompositePareto。旧输出Composite管线复算与两个人评仍glyphinactive，不能支持correctedglyph因果收益。 参考编辑器8H10080GB/bf16/FM SFT，stage1:49帧720p/5epochs/repeat10/AdamW5e-5/wd.01/b64=8×1×acc8/~22h；stage2:121帧/2epochs/1e-5/~50h，合576GPUh，DiT预训和数据生成费用另计。corrected50steps/CFG5/seed42/121输出去末帧；trainglyph仅检测跟踪，eval新增mask有效性校验：149跟踪（14部分fallback）/8全mask。评价PaddleOCR3.4.1/PaddleX3.4.3/Paddle3.2.2，bootstrap1000视频重采样；代码CIseed0，排名稳定性另seed2064。作者评价环境5090/32core，与训练分开。未独立执行训练/推理/指标或新生成实验。",
+          "evidence": "固定v2核心/AppA–O/实际F3-T2-T7与指定固定制品，非独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "主文mask复标Kendall写.94、AppL写.89（Warp均1.00），保留冲突待作者澄清。独立12clip同SAM管线IoU.95/Dice.98/cropIoU.94，仅测mask，非所有标注协议。七例nonLatin AnyText2 Seq.168/Char.295，其他Char<.19，无分语言泛化证据。OCR校准源exact.851/Char.966不是所有target上界；训练参考OCR.585/.790、人类Char.917/97%可读仍非无误。人转录351crop一作者，非Latin9排除；三非作者70输出，localityα.37偏低。当前制品有16px/10%margin、Source∞/100dB、声明有OCR串但发布无串等差异；PDF120秒仅1.77/6.99MB排除。未逐图核F1/F2/F4/F5所有样例、未执行模型或复现。 同Wan/230对/参数/预算，训练无glyph/静态glyph/对齐glyph/错时及VAE后token置换，拆64pool与带时空位置/逐帧token；多seed配对视频CI，测Oracle与扰动mask/OCR角点/字体。先固定文字成功门槛再比Warp/locality与Pareto，增加严格整串/额外字/符号变音、可读覆盖率和瞬时失败；对照静止/源复制/模糊防指标投机。统一raw/Composite/编码/源复制接口及采样fps，公开漏片/短片和各support，不由缺失截帧获得优势。扩非Latin/长目标/曲面/遮挡且独立多人复标；对correctedglyph补人评。严格书写另用时变墨迹/笔顺/接触抬笔真值，同终态不同过程。均为未执行建议，创新需继续查重。",
+          "evidence": "固定v2核心/AppA–O/实际F3-T2-T7与指定固定制品，非独立复现，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定v2HTML Abstract/§1–8全部核心、Eq1–9、AppA–O全部研究文字与T1–13（含完整CI、消融、Composite、人评和背景身份表）；参考文献只查相关条目，未逐篇原文读。实际F3框架/完整T2/T7；未逐图核全部其他定性图。固定GH bbbd2585完整126树项、README/selected协议、完整textmetrics/evaluate、OCR裁剪/RAFT/locality核心、glyphencoder/条件attention/加载器/训练接口及shell；vendored大pipeline未全读。固定HF b3abf44f模型卡/目录和c5e4fe16数据卡/230+157文本清单；发布eval_all全部2041逐片数值汇总，不含OCR串、未重算模型/指标。PDF不完整排除；未下载权重/图片视频数据、执行模型或独立复现。"
     }
   ]
 }

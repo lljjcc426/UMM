@@ -416,3 +416,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百一十批（2026-10-21）：持续文字T2V/Ref2V评价；动态/渐进书写为需新GT的扩展，无新生成器/UMM。见[审查](textvbench_correspondence_and_metric_validity_audit_2026-10-21.md)、[L042](../reviews/L042.md)。
+
+
+第一百一十一批（2026-10-22）：视频局部文字替换Benchmark+参考编辑器；手写外观与笔画过程区分，关联已录L182 STRIVE，GlyphMastero/VidTextPres待原文/别名核验。见[审查](vitex_glyph_correction_and_release_protocol_audit_2026-10-22.md)、[L043](../reviews/L043.md)。

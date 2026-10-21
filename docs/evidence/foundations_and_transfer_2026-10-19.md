@@ -252,3 +252,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百一十批（2026-10-21）：先对应再字符计分、S/T分离、每视频调和后平均；条件观测和字符加权影响测量对象。见[审查](textvbench_correspondence_and_metric_validity_audit_2026-10-21.md)、[L042](../reviews/L042.md)。
+
+
+第一百一十一批（2026-10-22）：fitting子串/可读support/Pareto反例，glyph推理消融与训练归因、池化时序可识别性需实验。见[审查](vitex_glyph_correction_and_release_protocol_audit_2026-10-22.md)、[L043](../reviews/L043.md)。
