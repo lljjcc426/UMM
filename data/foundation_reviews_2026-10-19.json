@@ -898,6 +898,29 @@
       "checked_on": "2026-10-21",
       "reading_status": "critical_sections_reviewed",
       "reproduced": false
+    },
+    {
+      "venue": "SEED-Data-Edit Technical Report: A Hybrid Dataset for Instructional Image Editing；arXiv:2405.04007v1，2024-05-07，8页技术报告；未确认正式会议版本。",
+      "problem": "构建规模、真实细节及多步编辑需求兼顾的图像指令编辑数据。任务是源图+自然语言指令→编辑后静态图像；多轮表示由若干编辑后图像检查点组成，没有鼠标/笔触/手部/物理接触轨迹或连续绘画视频。",
+      "motivation": "仅合成编辑可能不真实，人工配对昂贵；真实PS图缺结构化指令，多轮局部控制也缺数据。用自动编辑扩大覆盖、网络真实PS对补真实性、人工PS序列补连续指令。数据组成动机合理，但实际各分量对性能的贡献尚缺受控定量验证。",
+      "contribution": "三类混合数据及两条自动管线：物体检测/分割/擦除并反向形成添加对；caption由ChatGPT修改，再PnP生成对应源/目标并以CLIP过滤；真实网络PS对重标，人工作多轮PS。发布数据集及SEED-X-Edit定性选例，技术报告未提出新的书写视频生成架构。",
+      "input_output": "自动A：LLaVA1.5选物体→GroundingDINO/SAM掩码→LaMa擦除→删除/交换源目标得到添加指令对。自动B：原caption→ChatGPT改caption→PnP分别生成目标/源以保持一致→CLIP相对匹配过滤。网络PS图对→重标指令；人工图像→逐轮PS编辑+指令→最多5轮序列。训练SEED-X-Edit时明确拆成单轮使用。实际核p3T1/p4F2流程/p6F4比较。",
+      "architecture": "数据工程报告；所用SEED-X-Edit沿L060的ViT连续特征、Llama2+LoRA、SDXL/VAE源图旁路。数据制作涉及LLaVA1.5、GroundingDINO、SAM、LaMa、ChatGPT、PnP和CLIP，具体版本/全部阈值未完整给出。CLIP相对筛选只保证指定嵌入比较，不保证身份、物理、局部像素或实际指令真实性。",
+      "data": "T1总3,669,644对、21,382多轮序列、最长5轮；正文约3.5M自动/52K真实/95K人工，近似数不能直接当精确和。报告A来源Unsplash约1.5M、B OpenImages约2M；网络四PS站点含同原图多结果，人工含物体增删替换/动作/文字图案/数量等。HF整体卡与三个分包已核，首3条OpenImages/首3条Unsplash的字段反映另一管线对应，来源/版本映射未解；仅6条样本不能断定全包颠倒。",
+      "metrics": "主T1是规模/来源/多轮性质对比，不是模型性能表。F4只展示指令遵循和细节保留选例；未给独立heldout样本数、量化质量/人工盲评、CI或多轮累计误差。不能自行补FID/CLIP分数或将数据制作时CLIP筛选当模型测试。",
+      "baselines": "数据性质对InstructPix2Pix/MagicBrush/HQEdit；F4模型案例比较MagicBrush、MGIE、HQEdit训练模型。缺同底座/同数据量/同优化预算的定量对照，且作者模型同时使用本数据+InstructPix2Pix+MagicBrush及专用decoder，不能把选例优势唯一归于本数据或共享UMM。",
+      "experimental_conditions": "§4明确将多轮拆单轮，SEED-X-Edit使用LoRA，16×A10040G约40小时，decoder也在本数据训练并带源图旁路。论文未给全量lr/batch/步数、split/近重复隔离、每类抽样与CLIP阈值。固定公开sft_edit示例仅Part1两个源、context320/每流batch6，不能证明包含Part2/3及外部两集的完整报告配方；数据未全量下载。",
+      "results": "报告图示物体精准替换/删除及保留源图细节，支持所选案例的可用性。没有定量结果主表、随机样本分母或多轮训练/测试，故不能得出总体性能优于各baseline、混合数据各分量有效或已学会长程过程控制。21,382多轮序列的存在与利用其历史监督是两个待分别验证的问题。",
+      "ablation": "所读8页报告没有数据组成/规模/多轮flat-vs-history/decoder旁路的受控消融。F4是跨系统选例，不是此类消融；T1是数据属性比较。缺失已明确登记，通过设计成分、序列及底座控制实验补验证，不能编造消融以满足阅读检查。",
+      "limitations": "原文无独立Limitations节；以下为本次分析：自动标签/CLIP过滤偏差，真实PS网页许可与身份分布、同原图跨split泄漏，多轮拆分使历史因果信息丢失，缺定量主表/消融和完整训练配方。首3+3样本来源/管线对应与文字不符但不足全量判错；多轮文件首3条是source/edit_image_i/instruction_i结构，不能当普通target_image单轮表无损读取。",
+      "advantage_hypothesis": "若合成覆盖带来有效指令变化、真实PS补目标域细节且人工对纠正噪声，混合数据可在未见真实编辑上提高局部指令准确和保留区质量。需要数据域接近、近重复隔离和噪声受控；单轮展开可能改善单次编辑，但缺历史条件时无法单凭数据存在证明多轮规划或笔画过程学习。",
+      "falsification": "以原图/编辑链/网站来源分组去重分割，固定L060或另一编辑底座及总样本/token/FLOPs，逐一增删自动A/B/真实/人工，匹配样本数和指令类别。多轮flat/history与打乱历史、同终态不同顺序对照，测逐步目标满足、保留区LPIPS/OCR/身份、累计漂移和完整链成功率。标注盲评与多seed、训练/测试数据泄漏，单独消融源图旁路；先核全量来源管线。以上未执行。",
+      "writing_lesson": "Intro按规模/真实细节/多轮三缺口组织，数据小节对应具体构造流程，T1清晰给性质与规模。可学习流水线可复用性，但结果Claim必须收缩到有分母的证据；报告只有选例时应直说，不把数据制作质量过滤写成测试性能。建议补Limitations、版本化schema/分割协议及明确flat与history任务区别。",
+      "sections_read": "arXiv2405.04007v1完整8页核心Abstract/§1–5及T1、F2/F4，实际核p3/p4/p6；参考文献未逐篇读。HF整体0849db8卡全文、三分包固定元数据/文件树；每包首16KiB HTTP Range仅解析前3个完整JSONL记录（共9条），未取媒体/全量标注，不能代表全量分布。与L060固定sft_edit配置/脚本和datapipe指定段交叉；未读全部模型/数据制作源码、许可全文、训练模型或独立复现。",
+      "id": "G040",
+      "checked_on": "2026-10-21",
+      "reading_status": "critical_sections_reviewed",
+      "reproduced": false
     }
   ]
 }

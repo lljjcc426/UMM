@@ -189,3 +189,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第八十九批（2026-10-21）：离散MoD/mask泄漏、模态边缘对齐不能确定联合耦合、codec上限。见[审查](unified_io2_anygpt_discrete_interfaces_and_protocol_audit_2026-10-21.md)、[L058](../reviews/L058.md)/[L059](../reviews/L059.md)。
+
+
+第九十批（2026-10-21）：重建上限/可学性/任务能力分开；MCQ实际条目/组合数/码率与RQ参数条件。见[审查](seedx_unitok_seeddata_representation_and_process_audit_2026-10-21.md)、[L060](../reviews/L060.md)/[L061](../reviews/L061.md)/[G040](../reviews/G040.md)。

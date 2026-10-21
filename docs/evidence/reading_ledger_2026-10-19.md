@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 352 条，本批有 352 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 353 条，本批有 353 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 核心三遍完成需逐条核问题/方法/框架图、主表/消融及有依据的批判分析，并记录五项书面检查。计时口试、完整代码审查和独立复现另列；没有自动把模板填齐计为完成。
 
@@ -165,8 +165,8 @@
 | L057 | Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities | primary_sections_read | [结构化分析](../reviews/L057.md) | 未完成 |
 | L058 | Unified-IO 2: Scaling Autoregressive Multimodal Models with Vision, Language, Audio, and Action | primary_sections_read | [结构化分析](../reviews/L058.md) | 核心三遍与五项检查完成 |
 | L059 | AnyGPT: Unified Multimodal LLM with Discrete Sequence Modeling | primary_sections_read | [结构化分析](../reviews/L059.md) | 核心三遍与五项检查完成 |
-| L060 | SEED-X: Multimodal Models with Unified Multi-granularity Comprehension and Generation | primary_sections_read | [结构化分析](../reviews/L060.md) | 未完成 |
-| L061 | UniTok: A Unified Tokenizer for Visual Generation and Understanding | primary_sections_read | [结构化分析](../reviews/L061.md) | 未完成 |
+| L060 | SEED-X: Multimodal Models with Unified Multi-granularity Comprehension and Generation | primary_sections_read | [结构化分析](../reviews/L060.md) | 核心三遍与五项检查完成 |
+| L061 | UniTok: A Unified Tokenizer for Visual Generation and Understanding | primary_sections_read | [结构化分析](../reviews/L061.md) | 核心三遍与五项检查完成 |
 | L062 | Transfer between Modalities with MetaQueries | primary_sections_read | [结构化分析](../reviews/L062.md) | 未完成 |
 | L063 | MMaDA: Multimodal Large Diffusion Language Models | primary_sections_read | [结构化分析](../reviews/L063.md) | 核心三遍与五项检查完成 |
 | L064 | MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer | primary_sections_read | [结构化分析](../reviews/L064.md) | 未完成 |
@@ -358,3 +358,4 @@
 | G038 | History-Guided Video Diffusion | primary_sections_read | [结构化分析](../reviews/G038.md) | 核心三遍与五项检查完成 |
 | G039 | Tora3: Trajectory-Guided Audio-Video Generation with Physical Coherence | primary_sections_read | [结构化分析](../reviews/G039.md) | 核心三遍与五项检查完成 |
 | R12 | Wan Toy Transform：Wan2.1 I2V玩偶变形LoRA | primary_sections_read | [结构化分析](../reviews/R12.md) | 未完成 |
+| G040 | SEED-Data-Edit Technical Report: A Hybrid Dataset for Instructional Image Editing | primary_sections_read | [结构化分析](../reviews/G040.md) | 核心三遍与五项检查完成 |

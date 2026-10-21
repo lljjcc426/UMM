@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L060",
+    "L061",
+    "G040"
+  ],
+  "sources": {
+    "L060": [
+      "https://arxiv.org/abs/2404.14396v2",
+      "https://arxiv.org/html/2404.14396v2",
+      "https://github.com/AILab-CVC/SEED-X/tree/420d347dc50ba9ccdb8747efe9da3d250a50946c",
+      "https://huggingface.co/AILab-CVC/SEED-X-17B/tree/534d2ff6669f36e4241a3d3fbbfa2d40adc04cdf"
+    ],
+    "L061": [
+      "https://proceedings.neurips.cc/paper_files/paper/2025/hash/bbe04d329d531e8814f1199098bd8fb6-Abstract-Conference.html",
+      "https://proceedings.neurips.cc/paper_files/paper/2025/file/bbe04d329d531e8814f1199098bd8fb6-Paper-Conference.pdf",
+      "https://arxiv.org/abs/2502.20321v3",
+      "https://github.com/FoundationVision/UniTok/tree/bb8012e8e8d7be66928bedd80506c56a55ea6305",
+      "https://huggingface.co/FoundationVision/unitok_tokenizer/tree/7f6ea34f2f669d8d250a4376468c69fe4bcb6c65",
+      "https://huggingface.co/FoundationVision/unitok_mllm/tree/710296c945726b56ad41267517b6550c79155c72"
+    ],
+    "G040": [
+      "https://arxiv.org/abs/2405.04007v1",
+      "https://arxiv.org/pdf/2405.04007v1",
+      "https://huggingface.co/datasets/AILab-CVC/SEED-Data-Edit/tree/0849db8e86f7095a41ac40d634fe0eaff8ee0abd",
+      "https://huggingface.co/datasets/AILab-CVC/SEED-Data-Edit-Part1-Openimages/tree/704654287eafe7919bc0b70b0202fb8b2180edcb",
+      "https://huggingface.co/datasets/AILab-CVC/SEED-Data-Edit-Part1-Unsplash/tree/013f8d0dc0581d3b286b1179f87101f24b9f5e29",
+      "https://huggingface.co/datasets/AILab-CVC/SEED-Data-Edit-Part2-3/tree/a927311a860bb1d2c115634f1ebb2e3db7b881bc"
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "L060",
+      "github_revision": "420d347dc50ba9ccdb8747efe9da3d250a50946c",
+      "hf_revision": "534d2ff6669f36e4241a3d3fbbfa2d40adc04cdf",
+      "findings": [
+        "Fixed v2 HTML core and actual source F3/F4/F7/F8; partial PDF not used as full-PDF evidence",
+        "Continuous ViT features rather than previous SEED VQ; CE1/MSE6, LoRA r32/alpha32/drop.05",
+        "Default greedy text generation: do_sample=False; temperature/top_p values are inactive unless sampling enabled",
+        "Published t2i/edit50 steps and adapter CFG7.5/1024 default, t2i seedNone vs edit42; not automatically the formal GenEval recipe",
+        "Default edit grid1x1 plus global view is two resized views, not lossless arbitrary-resolution input",
+        "SFT sh batch50 is not forwarded to DataLoader2 construction; data config batch6/context320 and DeepSpeed microbatch8 do not establish effective batch800",
+        "Public edit config only two Part1 sources; no complete Part2/3/external-data mixture verified",
+        "HF custom license and README Apache2 with third-party exceptions are asset-specific; full terms not audited"
+      ]
+    },
+    {
+      "id": "L061",
+      "github_revision": "bb8012e8e8d7be66928bedd80506c56a55ea6305",
+      "hf_revisions": {
+        "tokenizer": "7f6ea34f2f669d8d250a4376468c69fe4bcb6c65",
+        "mllm": "710296c945726b56ad41267517b6550c79155c72"
+      },
+      "findings": [
+        "Formal NeurIPS2025 24p, core and specified appendix/checklist; actual F2/T2/T6-8/F6/T10-11",
+        "MCQ 8*4096 actual entries, 2^96 possible tuples, 96 raw bits per spatial site; not single-token14bit",
+        "TokenEmbedder sums eight embeddings; LlamaGen inner ARhead4 layers vs MLLM depth head3 layers are different release paths",
+        "Formal lr1e-3/disc2e-4 differs from code/HF defaults5e-4/2e-5; defaults not full formal recipe",
+        "Formal GenEval .59 and appendix GenAI-Bench basic.85/advanced.67 are distinct benchmarks",
+        "T2 table arithmetic12.14 vs prose12.11, T6 joint understanding regressions and T2 CFG reversal retained",
+        "Same total entries in RQ-vs-MCQ does not imply equal codebook parameters or bitrate; initial roadmap figure dimension8 vs prose16 unresolved",
+        "README GenAI advanced subitems differ from formal table; causal experiment-name string does not establish attention type of weights"
+      ]
+    },
+    {
+      "id": "G040",
+      "hf_revisions": {
+        "aggregate": "0849db8e86f7095a41ac40d634fe0eaff8ee0abd",
+        "openimages": "704654287eafe7919bc0b70b0202fb8b2180edcb",
+        "unsplash": "013f8d0dc0581d3b286b1179f87101f24b9f5e29",
+        "part2_3": "a927311a860bb1d2c115634f1ebb2e3db7b881bc"
+      },
+      "sample_scope": "HTTP Range first16KiB of one split_0001.jsonl per release; first3 complete records each,9 total; no media/full annotations",
+      "samples": {
+        "openimages": {
+          "n": 3,
+          "fields": [
+            "source_image",
+            "target_image",
+            "remove_object",
+            "num_object",
+            "task_type",
+            "instruction",
+            "mask_ratio"
+          ],
+          "tasks": [
+            "add",
+            "add",
+            "remove"
+          ]
+        },
+        "unsplash": {
+          "n": 3,
+          "fields": [
+            "source_caption",
+            "target_caption",
+            "match_score",
+            "source_image_origin",
+            "source_image",
+            "target_image",
+            "edited object",
+            "instruction",
+            "task_type"
+          ],
+          "tasks": [
+            "add object",
+            "replace object",
+            "change style"
+          ]
+        },
+        "multiturn": {
+          "n": 3,
+          "fields": "source_image, edit_image_i, instruction_i",
+          "turns": [
+            3,
+            5,
+            5
+          ]
+        }
+      },
+      "findings": [
+        "Formal exact3,669,644 pairs/21,382 sequences/max5turns; rounded source counts not an exact sum",
+        "PaperA Unsplash mask-removal/B OpenImages caption-PnP, first3+3 release fields show opposite source-schema association; bounded discrepancy, cannot infer all package labels or pixel content",
+        "SEED-X-Edit explicitly flattens multi-turn chains to single-turn, no history-conditioned result established",
+        "Report has dataset-statistics T1 and selected qualitative F4; no quantitative performance main table, controlled ablation or independent Limitations section",
+        "Report16A10040G/~40h does not supply full optimizer/batch/split details; example SFT only Part1",
+        "Aggregate data CC-BY-NC4 metadata vs article CC-BY-NC-SA4 are different assets, not license equivalence"
+      ]
+    }
+  ],
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "executed": false
+}

@@ -353,3 +353,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第八十九批（2026-10-21）：四模态离散接口与视频/书写事件区分；base/chat和训练阶段独立。见[审查](unified_io2_anygpt_discrete_interfaces_and_protocol_audit_2026-10-21.md)、[L058](../reviews/L058.md)/[L059](../reviews/L059.md)。
+
+
+第九十批（2026-10-21）：静态图像表示/编辑与连续书写过程、分版本模型及flat/history区别。见[审查](seedx_unitok_seeddata_representation_and_process_audit_2026-10-21.md)、[L060](../reviews/L060.md)/[L061](../reviews/L061.md)/[G040](../reviews/G040.md)。

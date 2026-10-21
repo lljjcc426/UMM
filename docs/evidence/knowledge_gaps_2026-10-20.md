@@ -394,3 +394,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第八十九批（2026-10-21）：UIO2音频码本/输入、batch-token口径；AnyGPT100K/108K、音乐规模及许可未决，正式词表旧冲突解除。见[审查](unified_io2_anygpt_discrete_interfaces_and_protocol_audit_2026-10-21.md)、[L058](../reviews/L058.md)/[L059](../reviews/L059.md)。
+
+
+第九十批（2026-10-21）：来源—管线有限样本差异、正式/发布学习率与batch、投影维/表差值未决。见[审查](seedx_unitok_seeddata_representation_and_process_audit_2026-10-21.md)、[L060](../reviews/L060.md)/[L061](../reviews/L061.md)/[G040](../reviews/G040.md)。
