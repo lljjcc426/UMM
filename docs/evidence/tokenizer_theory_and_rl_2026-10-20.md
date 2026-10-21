@@ -96,3 +96,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百二十六批（2026-10-22）：SelfGRPO权重均值抵消/无old但有reference；离散局部码固定不推出RGB不变。见[审查](lumina_dimoo_cache_selfgrpo_and_editing_protocol_audit_2026-10-22.md)、[L112](../reviews/L112.md)。
+
+
+第一百二十七批（2026-10-22）：语音codec接口非全离散；负熵选择和采样温度并非规范笔画顺序。见[审查](omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[L113](../reviews/L113.md)。

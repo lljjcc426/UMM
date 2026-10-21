@@ -218,7 +218,7 @@
 | L110 | Muddit: Liberating Generation Beyond Text-to-Image with a Unified Discrete Diffusion Model | primary_sections_read | [结构化分析](../reviews/L110.md) | 核心三遍与五项检查完成 |
 | L111 | Lavida-O: Elastic Large Masked Diffusion Models for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L111.md) | 核心三遍与五项检查完成 |
 | L112 | Lumina-DiMOO: An Omni Diffusion Large Language Model for Multi-Modal Generation and Understanding | primary_sections_read | [结构化分析](../reviews/L112.md) | 核心三遍与五项检查完成 |
-| L113 | Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion | primary_sections_read | [结构化分析](../reviews/L113.md) | 未完成 |
+| L113 | Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion | primary_sections_read | [结构化分析](../reviews/L113.md) | 核心三遍与五项检查完成 |
 | L114 | LLaDA2.0-Uni: Unifying Multimodal Understanding and Generation with Diffusion Large Language Model | primary_sections_read | [结构化分析](../reviews/L114.md) | 未完成 |
 | L115 | FullFlow: Upgrading Text-to-Image Flow Matching Models for Bidirectional Vision--Language Generation | primary_sections_read | [结构化分析](../reviews/L115.md) | 未完成 |
 | L116 | Multimodal Flow: Unified Flow Modeling of Language and Vision in Embedding Spaces | primary_sections_read | [结构化分析](../reviews/L116.md) | 未完成 |

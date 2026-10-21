@@ -553,3 +553,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百二十六批（2026-10-22）：arxivv1完整33页/GH81344e6/HFf014549e与11实际PDF页。见[审查](lumina_dimoo_cache_selfgrpo_and_editing_protocol_audit_2026-10-22.md)、[L112](../reviews/L112.md)。
+
+
+第一百二十七批（2026-10-22）：ICML PMLR306正式15页、arxivv2、GHc4f4625/HF2233ee1；八实际PDF页与全部正式八表。见[审查](omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[L113](../reviews/L113.md)。

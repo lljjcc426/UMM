@@ -479,3 +479,8 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 第一百二十六批（2026-10-22）完成L112 Lumina-DiMOO全核心/十表与十一页实际PDF，补固定GH/HF及cache/SelfGRPO/局部编辑协议，纠正32倍重复相乘、任务全优和保留码等于RGB保持的误述。357目录，235核心/238书面；未确认核心95论文／研究+27资源（资源单独审）。见[审查](lumina_dimoo_cache_selfgrpo_and_editing_protocol_audit_2026-10-22.md)、[逐文件说明](one_hundred_twenty_sixth_changes_2026-10-22.md)。无删除或执行模型。
 
 继续：L113 OmniDiff及L114–116，保留dMLLM-TTS/HT-GRPO/aMUSEd/Meissonic与cache理论追引；HTGRPO有arxiv2605.16842，非无论文资源，尚未计核心完成。L112待补完整原RL/数据与cache质量协议，未将推理源码选读等同全系统复现。
+
+
+第一百二十七批（2026-10-22）完成L113 Omni-Diffusion正式核心、全部八表与八实际PDF页，核对arxivv2及固定GH/HF。明确连续语音输入、两版WER/CLIP/RTF、位置缩放/预填与源码差异。357目录，236核心/239书面；未确认核心94论文／研究+27资源（资源单独审）。见[审查](omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[逐文件说明](one_hundred_twenty_seventh_changes_2026-10-22.md)。无删除或执行模型。
+
+继续L114 LLaDA2.0-Uni、L115 FullFlow和L116 MultimodalFlow；语音/视觉codecs原论文按ID去重追引。保留L184原PDF图证及封闭来源项，未降低验收范围。

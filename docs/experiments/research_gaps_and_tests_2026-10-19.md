@@ -493,3 +493,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百二十六批（2026-10-22）：cache质量-时间-显存Pareto、等曝光RL与模板OOD、区域RGB误差/复合基线，未执行。见[审查](../evidence/lumina_dimoo_cache_selfgrpo_and_editing_protocol_audit_2026-10-22.md)、[L112](../reviews/L112.md)。
+
+
+第一百二十七批（2026-10-22）：同预算比较两类位置缩放、预填/长度/pad mask和真实语音heldout，未执行。见[审查](../evidence/omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[L113](../reviews/L113.md)。

@@ -505,3 +505,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百二十六批（2026-10-22）：完整RL训练/选步奖励与cache质量曲线、普通MMU早停/评价入口差异待核。见[审查](lumina_dimoo_cache_selfgrpo_and_editing_protocol_audit_2026-10-22.md)、[L112](../reviews/L112.md)。
+
+
+第一百二十七批（2026-10-22）：原三stage完整mix/总步数、计时边界、.2/.25预填与位置源码差异仍需对照实验。见[审查](omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[L113](../reviews/L113.md)。

@@ -464,3 +464,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百二十六批（2026-10-22）：静态离散图文，视频/音频仍未来方向，后续sketch隐喻需独立核。见[审查](lumina_dimoo_cache_selfgrpo_and_editing_protocol_audit_2026-10-22.md)、[L112](../reviews/L112.md)。
+
+
+第一百二十七批（2026-10-22）：静态图文+语音、连续输入/离散输出；未覆盖真实书写视频和规范事件。见[审查](omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[L113](../reviews/L113.md)。

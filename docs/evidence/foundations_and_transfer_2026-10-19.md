@@ -300,3 +300,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百二十六批（2026-10-22）：最大rawlogit标度/softmax公共baseline抵消、码保持与RGB保持区别。见[审查](lumina_dimoo_cache_selfgrpo_and_editing_protocol_audit_2026-10-22.md)、[L112](../reviews/L112.md)。
+
+
+第一百二十七批（2026-10-22）：负熵提交、统一缩放与依正负logit变换、mask揭示时间不等物理时间。见[审查](omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[L113](../reviews/L113.md)。

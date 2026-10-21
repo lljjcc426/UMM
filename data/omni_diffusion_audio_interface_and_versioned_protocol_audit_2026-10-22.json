@@ -1,0 +1,51 @@
+{
+  "id": "L113",
+  "date": "2026-10-22",
+  "paper": "ICML2026 PMLR306:68853-68867,15pages",
+  "all_formal_tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "actual_visual_pages": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    13,
+    14,
+    15
+  ],
+  "arxiv_crosscheck": "2603.06577v2",
+  "github_revision": "c4f4625f84197a72d556ea00f10e5b2775524252",
+  "hf_revision": "2233ee1ae2aa2b63e00466197afdeea0ca9e0901",
+  "hf_safetensors_parameters": 8037762367,
+  "findings": [
+    "Speech input continuous SenseVoice/MLP, output discrete GLM4Voice; not allinputdiscrete",
+    "FormalTTS2.22 vs v2 3.07; no mixedversion latencyWER",
+    "Formalposition .014/.015 vs v2 .002/.001; no CI",
+    "Released sign-dependent position transform differs from paper uniformscale; entropy notguaranteed",
+    "Prefill code.2L vs paper.25L",
+    "Per-position random mask thresholds vs shared-noisetime interpretation; returnedp unused",
+    "JourneyDB4M row duplicated; cannot assert8M",
+    "SpokenMME lower than textMME; no jointtrainingpositivecausalproof",
+    "10step generation faster but lowerCLIP; RTF notstreamingfirsttoken",
+    "No video/stroke generation experiments; no weightdownload/modelrun/reproduction"
+  ],
+  "sources": [
+    "https://proceedings.mlr.press/v306/li26dv.html",
+    "https://raw.githubusercontent.com/mlresearch/v306/main/assets/li26dv/li26dv.pdf",
+    "https://arxiv.org/abs/2603.06577v2",
+    "https://github.com/VITA-MLLM/Omni-Diffusion/tree/c4f4625f84197a72d556ea00f10e5b2775524252",
+    "https://huggingface.co/lijiang/Omni-Diffusion/tree/2233ee1ae2aa2b63e00466197afdeea0ca9e0901"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}
