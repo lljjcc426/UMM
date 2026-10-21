@@ -291,3 +291,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百二十三批（2026-10-22）：patchify重排与线性单射条件，跨空间loss不可比、步数不等FLOPs收益。见[审查](pixelumm_xprediction_tubelet_and_protocol_audit_2026-10-22.md)、[L108](../reviews/L108.md)。
+
+
+第一百二十四批（2026-10-22）：给定路径/权重动能最优及负对角条件，概率时间与书写执行时间分清。见[审查](fudoki_discrete_flow_self_correction_and_protocol_audit_2026-10-22.md)、[L109](../reviews/L109.md)。

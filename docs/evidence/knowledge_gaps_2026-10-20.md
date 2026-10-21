@@ -496,3 +496,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百二十三批（2026-10-22）：完整生成语料、globalbatch/总预算、主表NFE/CFG、F8子集及正式会场待核。见[审查](pixelumm_xprediction_tubelet_and_protocol_audit_2026-10-22.md)、[L108](../reviews/L108.md)。
+
+
+第一百二十四批（2026-10-22）：3.86M/3.71M计数、L2/四次方、原训练配方/硬件、judge版本和纠错显著性待核。见[审查](fudoki_discrete_flow_self_correction_and_protocol_audit_2026-10-22.md)、[L109](../reviews/L109.md)。

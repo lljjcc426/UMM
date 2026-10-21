@@ -485,3 +485,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百二十三批（2026-10-22）：真实GH/HF发布15.2B总参；F22/F18与四步toy/完整原训练区分。见[审查](../evidence/pixelumm_xprediction_tubelet_and_protocol_audit_2026-10-22.md)、[L108](../reviews/L108.md)。
+
+
+第一百二十四批（2026-10-22）：FUDOKI公开权重/embedding与推理入口；32/128/50步、CFG两前向、topk1与长度协议需锁定。见[审查](../evidence/fudoki_discrete_flow_self_correction_and_protocol_audit_2026-10-22.md)、[L109](../reviews/L109.md)。

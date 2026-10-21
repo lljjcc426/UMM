@@ -8071,6 +8071,40 @@
         }
       ],
       "boundary": "固定v1完整31页，Abstract/§1–5全部核心、Eq1–2及未编号目标、全部T1–9/全部F1–21图注与F1–F8文字；实际PDF p5/7/8/11/13/14/17/19/22/23十页框架/曲线/表已核，其他展示未逐图、参考文献未逐篇，无附录。官网文本/模型链接已读，动态视频未播放。GH e19e91aabb99784f7b5524268ed42ec59c1ad660完整115tree，README/CHECKPOINT/EVAL/TRAIN、F22/F18profiles、regular21contract与GPUtubeify全文，model_factory前115、pixelumm构造/加噪与loss/flow指定片段选读；未全审全部源码/依赖/solver。HF4bb3ce9a112e7e1c7d375b1c5bd64f54d259ecc8模型卡全文/目录摘要；许可证标识仅模型卡/README，非法律文本审查。未下载权重、训练/推理或独立复现。"
+    },
+    {
+      "id": "L109",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "统一图像理解I2T与图像生成T2I的离散flow建模，研究双向上下文、非mask语义退化及迭代纠错。真实输出是文字回答或384×384静态图像，非视频/轨迹/规范汉字笔顺；OCR/手写识别训练数据与图中文字失败案例不提供书写动作生成证据。 AR逐位置采样难直接改已生成token，默认absorbing-mask采样已解mask的位置通常固定；从零DFM成本高。FUDOKI以AR初始化改双向Transformer、用embedding距离定义概率路径和可重复修改的跳转。AR可另加编辑/重采样，mask也可配remask/corrector；其限制应限定论文实际基线与采样协议。",
+          "evidence": "NeurIPS2025正式核心/五表/八页实际PDF、AppA–F及指定GH/HF制品，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "I2T：clean图像→SigLIP-L16-384→1024到2048两层MLP，问题+随机文字目标→24层双向Llama→102400文字head；T2I：prompt+576个随机图像token→同Transformer→16384图像head→VQ16 decoder还原384RGB。去因果mask并输出logit后移一位承接nexttoken预训练，无显式t embedding。实际PDF p4/5/8/9/10/35/38/39框架、完整主表、消融、数据图与局限已核。 正文d为归一化embedding的L2距离；p_t(x|x1)∝exp(−β_t d(x,x1))，β=3(t/(1−t))^.9。offdiagonal u_t(x,z|x1)=p_t(x|x1) βdot [d(z,x1)−d(x,x1)]+，diagonal=−sumoffdiag，非Eq5自转移零；AppE已给负对角。固定路径/权重w=1/p_t(x)下最小动能flux，不是对所有路径/任务质量的全局最优。推理重新预测x1，速率λ=sumoffdiag，1−exp(−hλ)跳转、目的地正速率归一化；冻结速率有限步近似，最后一步源码直接取预测终态。条件固定真x1时距离下降，不保证预测x1变动时相对真实答案/笔顺单调正确。文字距离用JanusPro7B embedding，图像LlamaGencodebook，额外7B预训先验须计。",
+          "evidence": "NeurIPS2025正式核心/五表/八页实际PDF、AppA–F及指定GH/HF制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "Janus1.5B继续训练，文字与图像输出均用离散CE预测clean终态；softmax距离概率路径及给定路径下kinetic-optimal条件速率，非absorbing状态可再跳转。共享Transformer和双head，保留SigLIP理解及LlamaGen生成双视觉接口。kinetic-optimal公式继承[38]，本作贡献是多模态适配/训练与评测，不能当新提出全部DFM理论。 当embedding邻近关系能反映任务可修正性、双向条件有用、允许重复改token且预算容纳多步全词表距离时，DFM可能胜固定后不重访的采样。给定p_t/权重的动能最优只约束概率流，不保证样本正确率、规范笔画或真实运动最优；CTMC的生成时间与RGB书写视频时间不同。跨文字embedding语义相近也未必笔形/笔顺接近，需明确事件表示和约束。",
+          "evidence": "NeurIPS2025正式核心/五表/八页实际PDF、AppA–F及指定GH/HF制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1GenEval .77：Janus .61、JanusPro1B .73、SD3 .74；single .96低Janus .97/Pro .98，color .88低Pro .89，count .56低SD3 .72。Best32→top4 .88是额外judge选样。T2DPG83.63高Pro82.63低SD3 84.08，global80.55/attr88.05/Other78均低Pro87.58/88.17/88.3。T3对Janus理解5升2降，对Pro1B只MME-P升、其余6降；MMVet38低Pro39.8。T4原37.98→AR1B36.33/AR7B38.30/FUDOKI38.53，+.55pp且对7B纠错仅+.23，未给显著性。Best8MMVet38→55.5不能归作单样本模型分数。T5MathVista38.6高Janus32.4/Pro35.1。正文并未独立验证规范文字生成/书写顺序，F12明示特定文字生成失败。 F5AR初始化前8Kloss低于scratch，含继承预训成本；不加timeembedding训练loss略优但缺对应终任务/跨噪声控制；NFE小更快但质量低，步数增大质量上升速度下降，不能把32步说成无条件双赢。T4纠错存在接口/预算混杂、无错→对/对→错统计。F9/10maze三个规模和4步轨迹仅定性，额外训练预算/成功率未详，不证明一般规划能力。AppE速率与固定路径动能推导已读，未独立核[38]全部定理。 基于Janus1.5B，两阶段先仅Transformer、后称wholemodel，VQcodec是否实际参与stage2需完整训练源码核明。uniformt/目标CE含EOS和pad，论文文字response500/image576、384²/default32steps，约43000GPUhours；未齐GPU型号、optimizer/LR/globalbatch、各stage步数/epochs与混合比例。HF fixed6827760配置24层/hidden2048/16heads/FFN5632/ctx16384，VQ16/code8。发布Python入口默认128steps，shell显式50，均不等论文32；T2I CFG_SCALE=5。脚本float32、seed999，I2T max500在代码实际限制prompt+answer非单独500回答。理解head topk1，生成两次conditional/unconditional logits，CFG=(1+s)cond−s uncond；一步不等一次前向。",
+          "evidence": "NeurIPS2025正式核心/五表/八页实际PDF、AppA–F及指定GH/HF制品，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "固定长度/全词表距离与双前向CFG成本、细字/复杂prompt/专业视觉推理失败；数据计数不一致、完整13M与训练配置缺、没有严格同预算mask/AR纠错对照、主张效应缺CI。发布metric公式是(归一化向量平方欧氏距离)^2，即L2四次方；正文仅写L2，路径和solver同用四次方，属论文/代码距离定义差异，未运行不能判发布分数错误。a=.9使理论βdot在0奇异但可积；发布t0特设0且末步直接终态，是有限步实现选择。AppA误称D-DiT全离散、把BAGEL列全AR/Transfusion整体U-Net式及CNF起源归Lipman，均不沿用。 固定Janus初始化/同13M有效样本与总FLOPs，交叉mask+remask、metricL2/L2²/L2⁴/随机度量与AR编辑器，分别对齐NFE和墙钟，计距离/CFG/外部judge成本。同错误答案用一致上下文/修改预算比AR/FUDOKI，分错→对/对→错、校准和长度，多seed/bootstrapCI。BestN固定judge并报全候选/独立终评避免同judge选评。逐文字体系以笔形/事件距离作控制，固定初始/终图建立相反顺序最小对照，联合exact文字/时序/拓扑/执行评价。核完整训练数据/split/类别计数后做去重留域/留字实验；建议均未执行，需继续查新。",
+          "evidence": "NeurIPS2025正式核心/五表/八页实际PDF、AppA–F及指定GH/HF制品，非口试/独立复现"
+        }
+      ],
+      "boundary": "NeurIPS2025正式39页：Abstract/§1–5核心与Eq1–6/T1–5，全部F1–12图注，AppA1–3/B/C/D/E/F研究文字；实际PDFp4/5/8/9/10/35/38/39八页，maze图仅文字/图注未逐图。checklist6/7选读，参考文献仅定位关键[38]等未逐篇。独立supp22页前十为同AppA–F、后参考，未另全读22页。arxivv3仅intro/β等版本对照。GH固定ffcfc8e完整626tree/README、model.py/eval_loop/mixturepath全文、solver308–640及modelattention/head/两inference入口指定段/shell；非全部626文件审计。HF固定6827760元数据/目录、README/config全文；未下载pt/safetensors、训练推理或独立复现。"
     }
   ]
 }

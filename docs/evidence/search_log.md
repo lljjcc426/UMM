@@ -544,3 +544,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百二十三批（2026-10-22）：固定2609.38597v1、官方GH e19e91a/HF4bb3ce9与完整九表；未核正式会场。见[审查](pixelumm_xprediction_tubelet_and_protocol_audit_2026-10-22.md)、[L108](../reviews/L108.md)。
+
+
+第一百二十四批（2026-10-22）：NeurIPS2025正式39页、GHffcfc8e/HF6827760；D-DiT原作方法段与NeuralODE2018摘要仅核特定纠错。见[审查](fudoki_discrete_flow_self_correction_and_protocol_audit_2026-10-22.md)、[L109](../reviews/L109.md)。

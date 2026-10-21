@@ -87,3 +87,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百二十三批（2026-10-22）：3072→4096可单射，四帧tubelet不自动推出信息损失；边界平滑需控制模糊。见[审查](pixelumm_xprediction_tubelet_and_protocol_audit_2026-10-22.md)、[L108](../reviews/L108.md)。
+
+
+第一百二十四批（2026-10-22）：动能最优限制与非mask回访；BestN外部judge选择不等已实施RL，L2四次方代码差异。见[审查](fudoki_discrete_flow_self_correction_and_protocol_audit_2026-10-22.md)、[L109](../reviews/L109.md)。

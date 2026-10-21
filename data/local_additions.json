@@ -7861,22 +7861,28 @@
     "title": "FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities",
     "source_urls": [
       "https://arxiv.org/abs/2505.20147",
-      "https://arxiv.org/html/2505.20147"
+      "https://arxiv.org/html/2505.20147",
+      "https://proceedings.neurips.cc/paper_files/paper/2025/hash/74e9002aef14078b3a6346129990763f-Abstract-Conference.html",
+      "https://proceedings.neurips.cc/paper_files/paper/2025/file/74e9002aef14078b3a6346129990763f-Paper-Conference.pdf",
+      "https://proceedings.neurips.cc/paper_files/paper/2025/file/74e9002aef14078b3a6346129990763f-Supplemental-Conference.zip",
+      "https://arxiv.org/abs/2505.20147v3",
+      "https://github.com/fudoki-hku/FUDOKI/tree/ffcfc8eff85eaf55f0f1da1455e5726fa177f2e0",
+      "https://huggingface.co/LucasJinWang/FUDOKI/tree/6827760f631d253b9219158a6a36d3fda2b38821"
     ],
-    "method": "以embedding距离定义概率路径，构造给定路径下kinetic-optimal CTMC速度，从Janus的AR权重转为双向离散流。 Janus1.5B双向attention、输出logit移一位继承AR，不用显式timeembedding；理解SigLIP、生成LlamaGenVQ16384。p_t(z|x1)∝exp(−β_t d(z,x1))，β0=0为均匀、β1趋∞集中目标；offdiagonal速度p_t(z|x1)βdot[d(current,x1)−d(z,x1)]正部。文字距离来自JanusPro7B归一embedding，图像来自LlamaGencodebook；不是直接使用1.5B新学embedding。",
-    "conclusion": "GenEval.77，选32候选中top4后.88；MMVet38.0，8候选选优55.5；MMMU34.3、DPG83.63。选优成绩含额外采样/裁判，不能当单样本效果。",
-    "gap": "kinetic最优要求给定p_t及特定权w=1/p_t，不代表全局最优图像质量或最少GPUh。固定长度和复杂文字渲染失败为作者已列限制；少量自纠案例未统计误改率。内部训练、额外7B embedding先验及选优限制归因。",
-    "problem": "用可在普通离散词/图像码之间反复跳转的生成过程，支持静态图像理解与生成。",
+    "method": "Janus1.5B继续训练，文字与图像输出均用离散CE预测clean终态；softmax距离概率路径及给定路径下kinetic-optimal条件速率，非absorbing状态可再跳转。共享Transformer和双head，保留SigLIP理解及LlamaGen生成双视觉接口。kinetic-optimal公式继承[38]，本作贡献是多模态适配/训练与评测，不能当新提出全部DFM理论。 正文d为归一化embedding的L2距离；p_t(x|x1)∝exp(−β_t d(x,x1))，β=3(t/(1−t))^.9。offdiagonal u_t(x,z|x1)=p_t(x|x1) βdot [d(z,x1)−d(x,x1)]+，diagonal=−sumoffdiag，非Eq5自转移零；AppE已给负对角。固定路径/权重w=1/p_t(x)下最小动能flux，不是对所有路径/任务质量的全局最优。推理重新预测x1，速率λ=sumoffdiag，1−exp(−hλ)跳转、目的地正速率归一化；冻结速率有限步近似，最后一步源码直接取预测终态。条件固定真x1时距离下降，不保证预测x1变动时相对真实答案/笔顺单调正确。文字距离用JanusPro7B embedding，图像LlamaGencodebook，额外7B预训先验须计。",
+    "conclusion": "T1GenEval .77：Janus .61、JanusPro1B .73、SD3 .74；single .96低Janus .97/Pro .98，color .88低Pro .89，count .56低SD3 .72。Best32→top4 .88是额外judge选样。T2DPG83.63高Pro82.63低SD3 84.08，global80.55/attr88.05/Other78均低Pro87.58/88.17/88.3。T3对Janus理解5升2降，对Pro1B只MME-P升、其余6降；MMVet38低Pro39.8。T4原37.98→AR1B36.33/AR7B38.30/FUDOKI38.53，+.55pp且对7B纠错仅+.23，未给显著性。Best8MMVet38→55.5不能归作单样本模型分数。T5MathVista38.6高Janus32.4/Pro35.1。正文并未独立验证规范文字生成/书写顺序，F12明示特定文字生成失败。",
+    "gap": "固定长度/全词表距离与双前向CFG成本、细字/复杂prompt/专业视觉推理失败；数据计数不一致、完整13M与训练配置缺、没有严格同预算mask/AR纠错对照、主张效应缺CI。发布metric公式是(归一化向量平方欧氏距离)^2，即L2四次方；正文仅写L2，路径和solver同用四次方，属论文/代码距离定义差异，未运行不能判发布分数错误。a=.9使理论βdot在0奇异但可积；发布t0特设0且末步直接终态，是有限步实现选择。AppA误称D-DiT全离散、把BAGEL列全AR/Transfusion整体U-Net式及CNF起源归Lipman，均不沿用。",
+    "problem": "统一图像理解I2T与图像生成T2I的离散flow建模，研究双向上下文、非mask语义退化及迭代纠错。真实输出是文字回答或384×384静态图像，非视频/轨迹/规范汉字笔顺；OCR/手写识别训练数据与图中文字失败案例不提供书写动作生成证据。",
     "claim": "研究目标：用可在普通离散词/图像码之间反复跳转的生成过程，支持静态图像理解与生成。",
-    "version": "FUDOKI；arXiv:2505.20147，2025；所读HTML会场写TBD，正式会场未核",
+    "version": "FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities；NeurIPS2025正式主会，官方合并PDF39页；arXiv2505.20147v3仅作版本对照。官方会议身份已核，README的Spotlight/Top3.5%未另核官方奖项元数据。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 3. 生成目标：AR、离散扩散、连续流并没有收敛到唯一答案",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-22",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-22",
     "id": "L109",
     "canonical_key": "paper:arxiv:2505.20147",
     "evidence_history": [
@@ -7908,17 +7914,22 @@
         "conclusion": "超出单纯 mask 恢复的转移过程；试验支持双向上下文与迭代细化的可行性",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-22",
+        "batch": 124,
+        "scope": "NeurIPS2025正式39页：Abstract/§1–5核心与Eq1–6/T1–5，全部F1–12图注，AppA1–3/B/C/D/E/F研究文字；实际PDFp4/5/8/9/10/35/38/39八页，maze图仅文字/图注未逐图。checklist6/7选读，参考文献仅定位关键[38]等未逐篇。独立supp22页前十为同AppA–F、后参考，未另全读22页。arxivv3仅intro/β等版本对照。GH固定ffcfc8e完整626tree/README、model.py/eval_loop/mixturepath全文、solver308–640及modelattention/head/两inference入口指定段/shell；非全部626文件审计。HF固定6827760元数据/目录、README/config全文；未下载pt/safetensors、训练推理或独立复现。"
       }
     ],
-    "sections_read": "§2、§3.1–3.4、§4.1–4.3、本作主表行/表头、AppD数据主段与类别、AppE约束、AppF；Fig5仅文字说明未视觉读曲线，完整优化配置/代码未核，未复现",
+    "sections_read": "NeurIPS2025正式39页：Abstract/§1–5核心与Eq1–6/T1–5，全部F1–12图注，AppA1–3/B/C/D/E/F研究文字；实际PDFp4/5/8/9/10/35/38/39八页，maze图仅文字/图注未逐图。checklist6/7选读，参考文献仅定位关键[38]等未逐篇。独立supp22页前十为同AppA–F、后参考，未另全读22页。arxivv3仅intro/β等版本对照。GH固定ffcfc8e完整626tree/README、model.py/eval_loop/mixturepath全文、solver308–640及modelattention/head/两inference入口指定段/shell；非全部626文件审计。HF固定6827760元数据/目录、README/config全文；未下载pt/safetensors、训练推理或独立复现。",
     "review_path": "docs/reviews/L109.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "正文约13M；AppD准确12.62M=8.76M内部生成+3.86M理解。理解覆盖OCR/文档/表/图/屏幕/数理/语言，General另含70K内部；不能称理解数据完全公开。继承Janus预训练成本。",
-    "framework": "以embedding距离定义概率路径，构造给定路径下kinetic-optimal CTMC速度，从Janus的AR权重转为双向离散流。",
-    "architecture": "Janus1.5B双向attention、输出logit移一位继承AR，不用显式timeembedding；理解SigLIP、生成LlamaGenVQ16384。p_t(z|x1)∝exp(−β_t d(z,x1))，β0=0为均匀、β1趋∞集中目标；offdiagonal速度p_t(z|x1)βdot[d(current,x1)−d(z,x1)]正部。文字距离来自JanusPro7B归一embedding，图像来自LlamaGencodebook；不是直接使用1.5B新学embedding。",
-    "metrics": "GenEval/DPG；POPE/MME-P/MMB/SEED/GQA/MMMU/MMVet，速度images/min和NFE；推理扩展还用VILA-Judge/LLM选优。迷宫为另行训练的展示任务，未取得完整成功率协议。",
-    "baselines": "Janus/JanusPro、D-DiT、UniDisc、AR和扩散图像模型；AR初始化vs随机、有无timeembedding、不同步数曲线。",
-    "experimental_conditions": "阶段1只训transformer，2全模型；CE预测干净token，随机t、β=3(t/(1−t))^.9；CTMC指数概率1−exp(−hλ)与归一跳率采样。默认32步，约43000GPUh；GPU型号、optimizer/batch/两阶段步数本次未取得，不能视为同算力比较。"
+    "dataset": "正文约13M=9M in-house生成+4M理解；AppD称12.62M=8.76M+3.86M。但八类K值1506.8/428/155.8/180.2/362.6/24.6/544.9/510.2相加3713.1K，F11图3.71M与图注3.86M不符146.9K；chart细项359.6K对362.6K、math547.9K对544.9K相反各3K。general含70K in-house，理解非全public。OCR有IAM5.7K/ChromeWriting8.8K等静态识别，FUNSD跨OCR/doc重复出现；具体版本/split/去重及8.76M生成未完整发布。测试GenEval、DPG、POPE/MME-P/MMB/SEED/GQA/MMMU/MMVet、MathVista testmini；maze仅附录定性，额外训练集/划分/量未详。",
+    "framework": "Janus1.5B继续训练，文字与图像输出均用离散CE预测clean终态；softmax距离概率路径及给定路径下kinetic-optimal条件速率，非absorbing状态可再跳转。共享Transformer和双head，保留SigLIP理解及LlamaGen生成双视觉接口。kinetic-optimal公式继承[38]，本作贡献是多模态适配/训练与评测，不能当新提出全部DFM理论。",
+    "architecture": "正文d为归一化embedding的L2距离；p_t(x|x1)∝exp(−β_t d(x,x1))，β=3(t/(1−t))^.9。offdiagonal u_t(x,z|x1)=p_t(x|x1) βdot [d(z,x1)−d(x,x1)]+，diagonal=−sumoffdiag，非Eq5自转移零；AppE已给负对角。固定路径/权重w=1/p_t(x)下最小动能flux，不是对所有路径/任务质量的全局最优。推理重新预测x1，速率λ=sumoffdiag，1−exp(−hλ)跳转、目的地正速率归一化；冻结速率有限步近似，最后一步源码直接取预测终态。条件固定真x1时距离下降，不保证预测x1变动时相对真实答案/笔顺单调正确。文字距离用JanusPro7B embedding，图像LlamaGencodebook，额外7B预训先验须计。",
+    "metrics": "GenEval六类/overall和DPG五类/overall；理解各自原尺度，MME-P1485.4不能作百分accuracy。纠错MMVet分数/差值；F5训练loss与步数-生成质量/速度曲线，没有硬件/全成本rawpoint或CI。没有文字exactmatch、笔画/抬笔事件、执行/视频时序指标。checklist自报统计充分，但本批已读主表/消融未见足以支持+.55pp纠错收益的多seed/CI。",
+    "baselines": "图像Janus/JanusPro、SD3/DALL-E3/SDXL/PixArt及UniDisc/D-DiT/Showo；理解LLaVA、Chameleon、Janus、VILAU、ILLUME等。跨表混引用分数/不同数据与外部预训练，非同预算架构对照。T4同JanusPro1B起始回答，AR1B/7B把原回答接prompt要求纠正，FUDOKI把回答作初始状态32步；输入接口/上下文/调用成本不同。Bestof32选4图用VILA-Judge，8文字用未明确版本LLMjudge，选择成本与外部能力不可省略。",
+    "experimental_conditions": "基于Janus1.5B，两阶段先仅Transformer、后称wholemodel，VQcodec是否实际参与stage2需完整训练源码核明。uniformt/目标CE含EOS和pad，论文文字response500/image576、384²/default32steps，约43000GPUhours；未齐GPU型号、optimizer/LR/globalbatch、各stage步数/epochs与混合比例。HF fixed6827760配置24层/hidden2048/16heads/FFN5632/ctx16384，VQ16/code8。发布Python入口默认128steps，shell显式50，均不等论文32；T2I CFG_SCALE=5。脚本float32、seed999，I2T max500在代码实际限制prompt+answer非单独500回答。理解head topk1，生成两次conditional/unconditional logits，CFG=(1+s)cond−s uncond；一步不等一次前向。"
   },
   {
     "title": "Muddit: Liberating Generation Beyond Text-to-Image with a Unified Discrete Diffusion Model",

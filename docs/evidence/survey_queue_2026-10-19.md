@@ -464,3 +464,8 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 第一百二十三批（2026-10-22）完成L108 PixelUMM固定v1核心/九表八组实验与十页实际PDF，补官方代码/模型卡，记录15.2B总参、F7十一项图像退步、F8条件分层及linearhead发布边界。357目录，232核心/235书面含未通过项，125条未确认核心（含资源）。见[审查](pixelumm_xprediction_tubelet_and_protocol_audit_2026-10-22.md)、[逐文件说明](one_hundred_twenty_third_changes_2026-10-22.md)。没有删除或模型复现。
 
 本批追引：SenseNova-U1/U1.5、MiniT2I、JiT、PixelDiT、NEO及Cosmos3需按正式标题/ID与现有目录去重后补独立阅读；ViPE2508.10934目前仅核本作参考条目，未独立精读。PixelUMM主生成来源/完整训练预算、F18/F19/F21检查点能力与F7完整编辑定量评测仍待；已有AToken/OmniTokenizer/TransNext等追引保留。
+
+
+第一百二十四批（2026-10-22）完成L109 FUDOKI正式NeurIPS2025核心/五表/AppA–F及八页实际PDF，补固定GH/HF源码与配置，记录3.86M/3.71M、L2/四次方、32/128/50步差异与纠错对照限制。357目录，233核心/236书面，未确认核心97论文／研究+27资源（资源单独审查）。见[审查](fudoki_discrete_flow_self_correction_and_protocol_audit_2026-10-22.md)、[逐文件说明](one_hundred_twenty_fourth_changes_2026-10-22.md)。没有删除文件或执行模型。
+
+本批追引：[38]Flow Matching with General Discrete Paths（ICLR2025/2412.03487）正式源已定位，D-DiT（CVPR2025/2501.00289）仅核§3纠错，NeuralODE（NeurIPS2018/1806.07366）仅核摘要起源。需去重后独立全篇与制品审查；FUDOKI原训练数据计数、距离/步数版本、GPU与完整配方、judge和maze定量/额外训练仍待。LaViDa-O/LuminaDiMOO等原队列继续。
