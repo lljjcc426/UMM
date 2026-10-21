@@ -397,3 +397,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第九十四批（2026-10-21）：causal/bidirectional×自由/强制32码，等追加LoRA/全参预算、同生成条件蒸馏、跨文字codec；未运行。见[审查](../evidence/seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[L078](../reviews/L078.md)、[L082](../reviews/L082.md)。
+
+
+第九十五批（2026-10-21）：等K/辅助先验排版对照、等信息与等context轨迹对照，motion反事实/上游误差及强底座多seed；未运行。见[审查](../evidence/timage_boxtuning_input_prompts_and_evidence_audit_2026-10-21.md)、[L053](../reviews/L053.md)、[L054](../reviews/L054.md)。

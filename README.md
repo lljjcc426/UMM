@@ -278,3 +278,6 @@ python scripts/validate_catalog.py
 
 
 第九十四批（2026-10-21）补完L078初版SEED/L082 SEED-LLaMA指定版本核心三遍、实际框架/表格及发布。354目录、189核心/192书面含未通过项，165条未确认核心。见[审查](docs/evidence/seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[逐文件说明](docs/evidence/ninety_fourth_changes_2026-10-21.md)。区分77文字/1图像条件、格式成功/语义质量、原始论文/发布配方；无删除/模型复现。
+
+
+第九十五批（2026-10-21）补完L053 Timage/L054 BoxTuning公开v1核心三遍、实际框架/主表/消融和指定发布。354目录、191核心/194书面含未通过项，163条未确认核心。见[审查](docs/evidence/timage_boxtuning_input_prompts_and_evidence_audit_2026-10-21.md)、[逐文件说明](docs/evidence/ninety_fifth_changes_2026-10-21.md)。Timage训练/样本/聚合矛盾和Box正式书目/README效率分别记录，核心阅读完成不表示结论确证；无删除/模型复现。

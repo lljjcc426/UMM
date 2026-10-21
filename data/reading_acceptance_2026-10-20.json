@@ -6609,6 +6609,74 @@
         }
       ],
       "boundary": "固定2310.01218v1完整HTML Abstract/§1–5、T1–10、AppA/B/C/D及AppE限定/图注；实际F3原PNG和HTML T1–4/T6/T9原元素重排渲染，另实际核对完整AppA F8原PNG，图像条件保留更多主体语义仍改变姿态/布局/细节，不遍读全部定性画廊/参考文献。ICLR2024正式书目核实，正式PDF部分下载排除。固定GH93b3cf4完整526blob树、README/SEED1文档、tokenizer/init/VQ及decode指定段、peft接口指定段、pretrain/SFT脚本与model/tokenizer/data yaml；未全审LLM/数据管线/评测。HF tokenizer2/8Bsft固定短卡/metadata及config/generationconfig，不下载权重/tokenizer二进制/数据媒体或执行。"
+    },
+    {
+      "id": "L053",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "把用户问题排版到原图的合适区域，以冻结VLM做静态图VQA/空间推理。生成对象是query overlay的区域/字体/颜色，不是自由内容文生图或文字视频，更无书写笔画事件生成。目标是理解准确率而非文字渲染benchmark。 作者认为文字query缺几何锚点、启发式覆盖可能挡前景，故让可读query与图像证据共处像素域；但PEFT必然遗忘/所有crossmodal模型必有同一瓶颈等强措辞未由受控实验普遍证明。应比较等推理次数、数据和空间先验的简单排版/裁剪基线。",
+          "evidence": "固定v1完整核心/实际框架主表消融、来源交叉核查；正式书目与所读版本分开，结论争议保留，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "image+query→冻结VLM query/patch相关图Hq及segmenter/saliency→candidate binarymask→条件drift投影采样placementα→font/size/color样式β及文字渲染→复合图x1→冻结MLLM答案→5候选投票。Intro称单视觉输入/正文M(x1)，但是否仍送原query文字及投票最终布局/答案有措辞差异，缺实现澄清。实际p5F2、p7Eq5–7、p9–10T1–2、p11T3/F3、p12T4/F4–5。 外部vθ接μt/Fourier时间/条件，文本特征经crossattention，骨干示例Qwen2.5VL7B，mask例MaskRCNN。未给drift网络层数/hidden/精确参数、热图抽取层/heads、segmenter/saliency权重/阈值、渲染器和字体词表；不能用通用UNet/SD结构补填。Eq5随机drift、Eq6投影、Eq7直线FM、Eq8作者称任务NLL；未在核心建立其与路径KL最优SchrodingerBridge的对应证明，也不保证MLLM答对。",
+          "evidence": "固定v1完整核心/实际框架主表消融、来源交叉核查；正式书目与所读版本分开，结论争议保留，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "以query相关Hq和object/saliency生成可写mask；区域能量负∫αHq、hard约束supportα⊂Mcand，样式用ink预算及平滑。区域/外观两阶段所谓cSB，以条件drift SDE及投影EulerMaruyama采样；用Langevin伪目标的直线velocity MSE和冻结MLLM任务NLL/STE训练外部网络，K5投票。 当VLM已有相应文字识别能力、query短且存在足够可写区域、Hq和mask可靠时，query位置可提供空间先验，K次候选可能降低布局偶然性。但同样收益可来自额外视觉先验/额外查询预算，需控制。直线FM配投影能产生候选不自动等于entropicSB最优输运，何种理论优势尚缺端点耦合/路径约束论证；自然图VQA收益不推出严格字形/笔顺。",
+          "evidence": "固定v1完整核心/实际框架主表消融、来源交叉核查；正式书目与所读版本分开，结论争议保留，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "作者T1称Avg87.7 vsBase79.1/FullFT85.2/GPT4o80.3，四类91.3/75.8/98.5/92.6；均作为未复现且协议未明的报告值。T4 LLaVA51.8→57.4、Qwen2VL78.1→83.9、InternVL72.5→78.3、Qwen2.5VL79.1→87.7、Qwen3 87.3→92.1；同模块迁移/每骨干再训练未说明。T2vsFullFT Reasoning75.8−75.1=.7，不是正文1.6；Doc92.6−92.3=.3。基准规模/聚合/训练与K预算未解决前，不将“超过大模型/全参SOTA”作为确证结论。 T3顺序79.1→81.6→84.6→86→87.7，对应semantic+2.5/mask+3/style+1.4/ensemble+1.7百分点；正文最后写+2.2，与表不合。T3RandomBase79.1不同于T2RandomOverlay79.8，需要配置解释。逐步增加非全因子，缺semantic×mask交互、去taskloss/STE、无SB的同energy优化和等5次简单prompt/排版/CoT；无训练多seed。F3热图与个例不能证明注意力因果机制。 §3.4外部模块100epochs、16H20、b128、AdamWlr1e-4/wd.01/cosine/κ80pixels-per-character，PyTorch2.1/Diffusers.24/Qwen2.5VL，K5。正文又称strictzero-shot/training-free、T2训练No；只能确定MLLM冻结，整方法无需训练不被训练段支持。未给训练集、seed/CI、采样步数/噪声表/λ/γ、Langevin补充、完整显存/延迟协议。所谓supplement未在16页PDF/HTML内取得；未运行。",
+          "evidence": "固定v1完整核心/实际框架主表消融、来源交叉核查；正式书目与所读版本分开，结论争议保留，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "§5作者Limitations是字形不完整/低对比透明度，并称少影响准确率，未给该失败比例。额外审查问题为训练free矛盾、训练/测试隔离与9018/9450、Avg聚合/差值、外部辅助模型和5vote成本未明。hard projection最多约束估计mask内布局；漏分割、可写面积和实际渲染/识读误差未由投影消除，不能保证真实前景无遮挡或答案正确。符号μ0=δ被称noiseprior但未充分定义，Eq8概率事件也需标准条件NLL/可反传实现说明。未找到可确认官方代码入口，GitHub79个同名结果非本作证据；未宣称全网不存在。 先公开9018/9450逐题ID、训练/验证拆分、每题各方法预测及macro/micro聚合脚本，核T1/2/3差值与样本一致；冻结同骨干/data与推理budgetK1/5，比较同Hq/mask的简单栅格/梯度/Langevin排版、投影FM、作者cSB，另做无文字/乱文字/语义错配。记录外部模型/训练/总延迟显存和OCR可读性、mask误差分层；独立多seed/heldout语言字体。证明SB对应所需路径目标或收窄Claim，完整代码先复核Eq8与STE。均未运行。",
+          "evidence": "固定v1完整核心/实际框架主表消融、来源交叉核查；正式书目与所读版本分开，结论争议保留，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定2606.19944v1完整16页PDF+完整HTML核心Abstract/§1–6、Eq1–8、T1–4/F1–5说明，实际p5F2/p7Eq5–7/p9T1/p10T2及正文差值/p11T3/F3/p12T4/F4–5。未逐篇参考文献；引用VMCBench CVPR官方入口摘要交叉确认9018题，不冒充该作全文。未取得所称Langevin补充、官方实现/训练数据；GitHub同名100条页取79结果的检索有限，无权重/数据下载/模型执行。"
+    },
+    {
+      "id": "L054",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "用目标框/稠密轨迹视觉标记改善视频多选QA，并减少ObjectMLLM文本坐标开销。输入视频+外部检测跟踪+图例+问题，输出答案文字；不生成视频、笔画或动作。其轨迹是被观测物体中心，不是书写笔顺真值。 文本逐帧box描述约O(NTC)，受context预算需下采样；图像patch已有固定输入预算，故改把几何/轨迹渲染进RGB并保O(NC′)文字图例。坐标数字并非本质不能描述运动；在相同context/视觉token预算下的表示与信息取舍才是可检验问题，额外dense中间帧需要算入信息与预处理成本。",
+          "evidence": "固定v1完整核心/实际框架主表消融、来源交叉核查；正式书目与所读版本分开，结论争议保留，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "benchmark类别词表→YOLOWorldL关键帧置信.3/NMSIoU.5→SAM2propagation masks→tightbox，后续关键帧新检测IoU>.5去重/新增track→固定color box+trail→CLIPViTL14→STC→Mistral7B+legend+question→answer。实际p7F2、p8F3、p12T2–3、p13T4、p14T5–7。视频16帧进MLLM，但trail利用原始稠密track，不能写保留全部原视频像素或无信息损失。 VideoLLaMA2-7B由冻结CLIPViTL14、全参STC时空卷积connector及Mistral7B构成；LoRA仅LLMquery/value rank128/alpha256/drop.05，connector另有训练参数。palette32色、box3px/trail2px，L=floor(Tvideo/16)。Eq2列t−L…t−1最近历史，正文称覆盖到下一帧的gap，past/future方向与边界需代码核实；不是已有规范笔画因果时间保证。",
+          "evidence": "固定v1完整核心/实际框架主表消融、来源交叉核查；正式书目与所读版本分开，结论争议保留，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "YOLOWorld开放词检测+SAM2跨全帧跟踪，32色一致ID的box及近L原始帧中心trail绘在16个抽样关键帧，图例关联color与类别。冻结VideoLLaMA2视觉encoder，全调STCconnector和Mistral7B的q/v LoRA，用Answer nexttoken CE学习解释视觉标记，原文含宽度/长度/图例消融。 在物体可检测/跟踪、运动在图像平面可见、标记不盖关键细节且context受限时，固定视觉token可载稠密轨迹和少量文字ID，预期改善motion/spatialQA。高层意图主要取决场景语义时，额外box收益可能小或负；表3支持限定取舍。轨迹同时引入更多中间帧信息，表示媒介效应与信息增量需分开；多条历史可渲同一路径图时无法据图唯一恢复所有速度/访问顺序。",
+          "evidence": "固定v1完整核心/实际框架主表消融、来源交叉核查；正式书目与所读版本分开，结论争议保留，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2 text coord→legend CLEVRER611→61/Perc1241→120/STAR761→96/NExT1184→77/Intent1204→85，作者均值1000→88/降90.8%。T3Box78.5/67.2/67.7/79.7/76.5 vsObj77.6/66.6/67.2/78.5/75.5；本作相对base67.9/66/66.5/79.8/76.7为+10.6/+1.2/+1.2/−.1/−.2百分点，NExT/Intent仍低于base。不写全任务无损或所有增益统计显著。README另报.525→.3465s/1.52×、FLOPs−30.2%/动态显存−37.8%，是新公开作者报告，原协议待核。 T5box77/66.3/66.8/79.3/76.1→legend77.3/66.5/67.2/79.4/76.2→trail78.5/67.2/67.7/79.7/76.5。legend在NExT/Intent仅+.1，正文+.2–.4不涵盖全部列。T6 L10CLEVRER77.6/Perc66.5，L30 78.2/67，自适78.5/67.2，限两集/无方差不能称全局最优。T7box3/trail2最佳78.5，box8为77.1/trail8为76.8。线宽变粗明显降QA，支持干扰风险；未做数量密度/漏检/换更强底座和motion反事实干预。 v1同四A10080GB、b16、AdamWlr2e-4/wd.01/cosine/warm100，STC和LoRA同lr。视频16帧、检测阈值.3/NMS.5、新轨迹IoU.5去重，SAM2默认。缺epochs/steps/精确分辨率/上下文上限/实际截断量/seed/耗时，不能把文字减少直接算端到端加速。固定GHb722eb7只有README，代码和camera-ready TODO；其新效率数值缺GPU/batch/输入长度/上下游计时边界，未复现。",
+          "evidence": "固定v1完整核心/实际框架主表消融、来源交叉核查；正式书目与所读版本分开，结论争议保留，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "v1§1–5/完整17页无独立Limitations段，也未见将上游误差/密集多框列为作者局限的文字，不能照搬示例归因作者。审查问题：YOLO漏检/SAM2漂移/ID-switch、32色密集遮挡，polyline栅格化不保每点时间/遮挡细节，lossless temporal resolution缺信息可逆性证据；trail speed/direction可提供代理线索，不保证完整真实运动理解。tokenoverflow解释无实际截断统计/扩context对照。正式修订版未取得；README纯资源声明不等代码实现/可复现模型。 固定同检测/跟踪和dense样本，分等信息量/等context预算两套对照：紧凑坐标、带timestamp点/箭头/衰减trail、box/legend、ROI特征；K/帧/分辨率及总参数训练曝光匹配。主动置换/反转轨迹、同终态异时序、错color类别/随机框，测是否依赖真实motion。按miss/IDswitch/物体数/遮挡/32色冲突分层，测新底座与多seed。把预处理/检测/跟踪/渲染/LLM分段计时显存，并报truncate日志与扩大context对照；规范笔顺需事件监督。未运行。",
+          "evidence": "固定v1完整核心/实际框架主表消融、来源交叉核查；正式书目与所读版本分开，结论争议保留，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定2604.11136v1完整17页PDF+HTML Abstract/§1–5、Eq1–4/T1–7，实际p7F2/p8F3/p12T2–3/p13T4/p14T5–7；未逐篇参考文献。正式NeurIPS2026Downloads与poster149433原HTML核标题/作者/摘要和OpenReviewq6gwQDgllS入口，PDF403未读修订全文。GHb722eb7完整树仅1blob及README全文，camera-ready/code待发布/新效率数字；无代码、模型权重或数据媒体下载/运行。"
     }
   ]
 }

@@ -409,3 +409,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第九十四批（2026-10-21）：初版未披露超参、强制码长对照、原配方/发布差异、训练组合隔离及codec细笔精度。见[审查](seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[L078](../reviews/L078.md)、[L082](../reviews/L082.md)。
+
+
+第九十五批（2026-10-21）：Timage训练/数据9450vs9018/聚合及补充缺口；Box修订全文/代码、时间边界/端到端效率协议。见[审查](timage_boxtuning_input_prompts_and_evidence_audit_2026-10-21.md)、[L053](../reviews/L053.md)、[L054](../reviews/L054.md)。

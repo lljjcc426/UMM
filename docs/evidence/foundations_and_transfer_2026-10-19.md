@@ -204,3 +204,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第九十四批（2026-10-21）：链式分解不要求encoder causal；格式稳定、语义保真和可执行真实过程分开验证。见[审查](seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[L078](../reviews/L078.md)、[L082](../reviews/L082.md)。
+
+
+第九十五批（2026-10-21）：估计mask可行性不保证准确率，FM与SB路径目标需对应；固定权重均值差值界及polyline时序信息限制。见[审查](timage_boxtuning_input_prompts_and_evidence_audit_2026-10-21.md)、[L053](../reviews/L053.md)、[L054](../reviews/L054.md)。

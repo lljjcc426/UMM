@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L053",
+    "L054"
+  ],
+  "sources": {
+    "L053": [
+      "https://arxiv.org/abs/2606.19944v1",
+      "https://arxiv.org/pdf/2606.19944v1",
+      "https://arxiv.org/html/2606.19944v1",
+      "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_Automated_Generation_of_Challenging_Multiple-Choice_Questions_for_Vision_Language_Model_CVPR_2025_paper.html"
+    ],
+    "L054": [
+      "https://arxiv.org/abs/2604.11136v1",
+      "https://arxiv.org/pdf/2604.11136v1",
+      "https://neurips.cc/Downloads/2026",
+      "https://neurips.cc/virtual/2026/poster/149433",
+      "https://openreview.net/forum?id=q6gwQDgllS",
+      "https://github.com/zekunqian/BoxTuning/tree/b722eb7d571e9f1a5e3ef02b3314b117d4c11e91"
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "L053",
+      "version_read": "2606.19944v1 complete16pPDF/HTML core",
+      "visuals": [
+        "p5F2",
+        "p7Eq5-7",
+        "p9T1",
+        "p10T2",
+        "p11T3/F3",
+        "p12T4/F4/F5"
+      ],
+      "findings": [
+        "100epoch16H20 supervised module training vs training-free/TrainingNo assertions; backbone freeze does not settle whole-method training requirement",
+        "9450 VMCBench questions vs cited original CVPR2025 official abstract9018; version/sample IDs missing",
+        "T1category differences5.7/7.6/3.2/6.1 vs overall8.6; conditional inconsistency if same nonnegative category weighting, aggregation unresolved",
+        "T3style84.6->86=1.4;ensemble86->87.7=1.7 vsprose2.2;random79.1 vsT2random79.8",
+        "T2Reasoning75.8-75.1=.7 vsprose1.6 relativeFullFT; table preserved",
+        "Projection feasibility relative estimatedmask is not guaranteed real foreground coverage or downstreamaccuracy; FM MSE not itself proof of SBpathKLoptimality",
+        "v1PDF contains references but no claimed Langevin supplement; no confirmed official code found in limitedprimary searches; do not assert nonexistence"
+      ]
+    },
+    {
+      "id": "L054",
+      "version_read": "2604.11136v1 complete17pPDF/HTML core; NeurIPS2026poster149433 metadata separate",
+      "github_revision": "b722eb7d571e9f1a5e3ef02b3314b117d4c11e91",
+      "tree_blobs": 1,
+      "formal_openreview": "q6gwQDgllS",
+      "formal_pdf_status": "403 unavailable",
+      "findings": [
+        "Formal new title Object-AwareVisualPrompting verified NeurIPSofficial poster; no independent new study counted",
+        "Current fixed official repo onlyREADME; camera-ready/codeTODO, CC-BY4 badge not full code-licenseaudit",
+        "README new.5250->.3465slatency/1.52x/FLOPs-30.2%/dynamicpeakmemory-37.8% not inv1 and lacks full measurementconditions",
+        "v1 core has no independentLimitations or author claim of detector/many-object caveat; critique explicitly ours",
+        "T3QA NExT79.7<base79.8/Intent76.5<base76.7; smallgaps no multi-seedCI",
+        "T5legendNExT/Intent+.1 not all+.2-.4; T7width8 worsensaccuracy",
+        "16MLLMkeyframes use dense originaltracking trails; tokenreductiononlyobjecttext, not totalcompute/information-lossless promise",
+        "Eq2past t-L:t-1 vs narrative next-gap coverage; needs released render implementation and causalboundary audit"
+      ]
+    }
+  ],
+  "executed": false,
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false
+}

@@ -398,3 +398,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第九十四批（2026-10-21）：共享SEED526blob固定树、训练脚本/多数据yaml、tokenizer2和8Bsft模型卡/config，区别初版/后续与另训demo。见[审查](../evidence/seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[L078](../reviews/L078.md)、[L082](../reviews/L082.md)。
+
+
+第九十五批（2026-10-21）：Box固定GH仅README，新增延迟/FLOPs/动态显存作者报告，代码/CR待发布；Timage有限检索未确认实现。见[审查](../evidence/timage_boxtuning_input_prompts_and_evidence_audit_2026-10-21.md)、[L053](../reviews/L053.md)、[L054](../reviews/L054.md)。

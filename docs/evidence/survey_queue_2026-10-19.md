@@ -368,3 +368,9 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第九十四批（2026-10-21）补完L078初版SEED/L082 SEED-LLaMA指定版本核心三遍、实际框架/表格及发布。354目录、189核心/192书面含未通过项，165条未确认核心。见[审查](seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[逐文件说明](ninety_fourth_changes_2026-10-21.md)。区分77文字/1图像条件、格式成功/语义质量、原始论文/发布配方；无删除/模型复现。
+
+
+第九十五批（2026-10-21）补完L053 Timage/L054 BoxTuning公开v1核心三遍、实际框架/主表/消融和指定发布。354目录、191核心/194书面含未通过项，163条未确认核心。见[审查](timage_boxtuning_input_prompts_and_evidence_audit_2026-10-21.md)、[逐文件说明](ninety_fifth_changes_2026-10-21.md)。Timage训练/样本/聚合矛盾和Box正式书目/README效率分别记录，核心阅读完成不表示结论确证；无删除/模型复现。
+
+
+第九十五批追引待精读：AutoConverter/VMCBench（CVPR2025，官方摘要9018题）及ObjectMLLM（ICCV2025，六视频QA/有公开代码模型），见本批审查末尾的官方入口。已确认主目录尚无这两标题；待完整原文/制品核查后补录，不算已完成核心。

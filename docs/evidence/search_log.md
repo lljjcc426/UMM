@@ -457,3 +457,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第九十四批（2026-10-21）：固定初版v2PDF/后续v1HTML，ICLR2024正式书目、实际图表、共享代码与HF模型卡追引；正式PDF下载未完成排除。见[审查](seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[L078](../reviews/L078.md)、[L082](../reviews/L082.md)。
+
+
+第九十五批（2026-10-21）：固定两v1完整PDF、实际框架/主表/消融，BoxNeurIPS官方149433/固定GH及两项基准追引。见[审查](timage_boxtuning_input_prompts_and_evidence_audit_2026-10-21.md)、[L053](../reviews/L053.md)、[L054](../reviews/L054.md)。

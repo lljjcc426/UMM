@@ -368,3 +368,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第九十四批（2026-10-21）：离散语义码/图像条件静态解码、抽帧视频理解，多图序列不外推连续视频或笔顺。见[审查](seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[L078](../reviews/L078.md)、[L082](../reviews/L082.md)。
+
+
+第九十五批（2026-10-21）：静态query排版服务VQA与已观测轨迹服务视频QA，未做视频/笔顺生成；分表示与额外信息。见[审查](timage_boxtuning_input_prompts_and_evidence_audit_2026-10-21.md)、[L053](../reviews/L053.md)、[L054](../reviews/L054.md)。
