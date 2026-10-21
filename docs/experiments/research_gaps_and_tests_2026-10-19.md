@@ -403,3 +403,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第九十六批（2026-10-21）：等调用/独立盲审造题；同感知和曝光的坐标/投影/画框/legend/轨迹，ID时序与漏检干预、总成本；未运行。见[审查](../evidence/autoconverter_objectmllm_benchmark_and_coordinate_audit_2026-10-21.md)、[G042](../reviews/G042.md)、[G043](../reviews/G043.md)。
+
+
+第九十七批（2026-10-21）：等分辨率/token率/两套预算的hybrid对照及旁路消融；跨生成器/艺术/字体独立校准评价、完整样本和逐图结果，笔顺另加事件真值；未执行。见[审查](../evidence/manzano_hybrid_tokenizer_and_geneval_measurement_audit_2026-10-21.md)、[L064](../reviews/L064.md)、[L071](../reviews/L071.md)。

@@ -210,3 +210,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第九十六批（2026-10-21）：评价代理/人类效度、答案选项信息、显式坐标与有限预算对齐；既有画框负结果进入选题新颖性。见[审查](autoconverter_objectmllm_benchmark_and_coordinate_audit_2026-10-21.md)、[G042](../reviews/G042.md)、[G043](../reviews/G043.md)。
+
+
+第九十七批（2026-10-21）：连续理解/离散生成的量化取舍、任务曝光与总FLOPs、实例级测量效度和六任务宏均。见[审查](manzano_hybrid_tokenizer_and_geneval_measurement_audit_2026-10-21.md)、[L064](../reviews/L064.md)、[L071](../reviews/L071.md)。

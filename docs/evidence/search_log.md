@@ -463,3 +463,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第九十六批（2026-10-21）：由Timage/BoxTuning直接基准追引CVPR2025 AutoConverter及ICCV2025 ObjectMLLM；正式PDF/supp均完整取得，Web工具CVF403由curl读取；固定GH/HF，不下载大数据。见[审查](autoconverter_objectmllm_benchmark_and_coordinate_audit_2026-10-21.md)、[G042](../reviews/G042.md)、[G043](../reviews/G043.md)。
+
+
+第九十七批（2026-10-21）：MANZANO v1/Apple和ICLR正式书目分开；GenEval完整arXiv v1、NeurIPS书目和固定18blob发布。正式PDF403/不完整均未作正文证据，实际核框架/结果/消融/人评UI。见[审查](manzano_hybrid_tokenizer_and_geneval_measurement_audit_2026-10-21.md)、[L064](../reviews/L064.md)、[L071](../reviews/L071.md)。

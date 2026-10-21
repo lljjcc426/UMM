@@ -415,3 +415,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第九十六批（2026-10-21）：高分未审题、浮动API、正式/Gradio流程差异；投影零初始化开关、检测预处理与上下文实际截断待核。见[审查](autoconverter_objectmllm_benchmark_and_coordinate_audit_2026-10-21.md)、[G042](../reviews/G042.md)、[G043](../reviews/G043.md)。
+
+
+第九十七批（2026-10-21）：MANZANO v1 T3 3B子项与Overall、正式修订全文/完整训练协议待核；GenEval上游误测、十色自动与十一色人评、above公式方向和正文22点需区分。见[审查](manzano_hybrid_tokenizer_and_geneval_measurement_audit_2026-10-21.md)、[L064](../reviews/L064.md)、[L071](../reviews/L071.md)。

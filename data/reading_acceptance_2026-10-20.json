@@ -6745,6 +6745,74 @@
         }
       ],
       "boundary": "ICCV2025正式10页核心Abstract/§1–5，F2–7/T1–5及全部方法/已有消融文字，实际p3F2、p5F5、p6T1/T2、p7T3、p8T4/T5。正式10页supp A–F全部说明、A1–11表及相关图注，实际p2A2–4/p3A5–8/p4A9/p5A10–11/F A3；未逐图精读p6–10所有成功失败帧。固定GH4d04960完整95blob树、README/LICENSE、LLaMA3指定训练脚本/args优化器、mm初始化/可训参数/loader截断及bbox缓存，VideoLLaMA2 PTest脚本和训练/多模态截断指定段；未审所有95文件。下载README链接制品的存在性/内容未逐包验证，未下载GoogleDrive数据/checkpoint或运行训练、推理和复现。"
+    },
+    {
+      "id": "L064",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "同一模型执行图像理解、文生图及参考图编辑：统一语义视觉encoder，理解保留连续embedding，生成用离散语义token再由独立flow像素decoder成图。主评测是静态图问答/图像生成；v1没有文字视频、规范汉字笔顺或真实动作执行任务。 双encoder增加体系复杂度，纯离散量化损失影响细粒度理解，像素重建式token不一定适合语义推理。作者以共同语义encoder加连续/离散两adapter折中；统一encoder不意味着理解、AR生成和像素解码共享全部参数。数据、分辨率、token率和训练曝光均可能解释相对收益，必须控制。",
+          "evidence": "固定v1核心、实际框架主表消融/指定附录与选定发布；正式书目与未读修订正文分开，表文疑点保留，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "图像→ViT 42×42×1024→3×3 STC→14×14×9216→连续MLP给理解LLM，或FSQ量化→离散ID/embedding；文字→同LLM→文本答案或AR图像语义ID→外部DiT-Air从噪声生成RGB。参考图编辑把参考信息同时给LLM和像素decoder。实际F3架构/F4三阶段、F5两规模任务消融、F6a/b扩展曲线及T1–3。 统一LLM规模300M/1B/3B/30B；tokenizer语义训练挂预训300M小LLM后弃去。FSQ词表64K，未给各维levels、完整encoder参数/主LLM层宽等。主LLM训练明确冻encoder和离散adapter，连续adapter不在该冻结声明内；图4亦不标其冻结。图像/文字CE权重.5/1。像素decoder为Air设计、.9/1.75/3.52B；主干AR与外部flow并存，不等于全流程一次生成或全共享扩散骨干。v1没有完整flow target/solver/NFE/CFG和学习率/GPU配置。",
+          "evidence": "固定v1核心、实际框架主表消融/指定附录与选定发布；正式书目与未读修订正文分开，表文疑点保留，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "先把CLIP预训ViT与STC、连续MLP/离散FSQ两路径和小LLM联合语义训练；每例随机走一路，以文字NTP优化且全参数解冻。再冻encoder/离散adapter，让主LLM既预测文本又自回归预测64K语义视觉token；另训以这些token为条件的Flow DiT-Air像素decoder。没有要求tokenizer阶段以像素重建损失对齐，细粒度编辑另向decoder送参考图。 语义共享encoder已覆盖理解概念、离散瓶颈足够承载生成语义时，连续路避免量化丢失，离散路可用文字式AR建模；像素细节由有条件flow decoder恢复。相对语义与重建彻底共用token可能减冲突，优势应出现在固定encoder/data/预算下的理解与可控成图Pareto面。该表示不唯一决定精确字形/轨迹，编辑旁路有效也不证明无旁路的语义ID能保细节。",
+          "evidence": "固定v1核心、实际框架主表消融/指定附录与选定发布；正式书目与未读修订正文分开，表文疑点保留，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1 hybrid理解64.9/66.5/73.3高于discrete63.3/62.2/62.3，生成GE77/DPG79.9/WISE35；discrete77/80.9/35，故“各任务都更好”不被该表完全支持。T2 3B Doc93.5低于Qwen3B93.9，Info75低于Qwen77.1/Intern78；30B SEED76/RW70.1/MMB83.4/AI2D86低于BAGEL78.5/72.8/85/89.2，不能照抄“理解一致超越全部统一模型”。T3 30B ColorAttr.65低于3B.71，WISE.54仍低于GPT4o.80/QwenImage.67。T3的3B GE聚合疑点单列，所有数值为作者报告未复现。 实际F5a 300M unified相对专家理解general+.4/knowledge−2.3/text−1.5，生成GE+2/DPG+.2/WISE−1；F5b 3B理解−.8/−.3/−.8、生成GE0/DPG−1.6/WISE0。支持近似保持伴小负迁移，不能称双任务普遍协同增益。F6a增LLM规模总体上升，但30B半PT曝光且无多seed，非纯参数因果；F6b增decoder结构人评约+9.9、GE/DPG近持平，最大decoder美学下降。F9参考图编辑等只有定性例，无去参考旁路/量化编辑指标。 统一PT1.6T tokens但30B只有.8T，CPT83B；像素decoder256²400k steps、512/1024/2048各100k。F5无CPT并匹配单任务token曝光，非等总steps或FLOPs；F6a同.9B decoder与配比但30B曝光不同。F6b固定3B LLM。800提示×3内部标注者，匿名随机次序、三档错误评分；精确换算/一致性/CI未充分披露。v1未给足optimizer/batch/GPU/全部seed/sampler；所读官方入口未给可确认完整训练代码权重，不据有限检索断言全网不存在。未执行。",
+          "evidence": "固定v1核心、实际框架主表消融/指定附录与选定发布；正式书目与未读修订正文分开，表文疑点保留，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "作者讨论量化细节损失、需要参考图decoder旁路、benchmark饱和/调优和decoder扩展的美学代价；v1无独立Limitations标题。本次问题：T3聚合与正文“all/consistently”范围、dual分辨率混杂、单任务预算非等FLOPs、私有大数据/缺训练参数及统计。GenEval饱和不能代替书写、复杂时序与跨文字字形有效性。核心阅读通过仅说明能解释与批判所读证据，未确认全部作者结论。 固定encoder/数据/分辨率/token率，分别控制总FLOPs和各任务曝光，比较连续/离散/双encoder/hybrid；全因子检验语义训练、量化、任务混合、decoder旁路，报告每任务退步及多seed。先要GenEval逐图输出/重写标志/评测commit，核T3聚合；跨风格/新组合校准检测器。文字方向加未见字符/多语字体、OCR与人审、同终态异笔顺事件及真实RGB时序，单独控制decoder和参考信息，按总系统参数/延迟比较强SVG/轨迹渲染基线。均为未运行方案。",
+          "evidence": "固定v1核心、实际框架主表消融/指定附录与选定发布；正式书目与未读修订正文分开，表文疑点保留，非口试/独立复现"
+        }
+      ],
+      "boundary": "2509.16197v1 HTML Abstract/§1–6核心全部、框架/训练F3–4、T1–3原HTML表实际渲染核读、F5a/b、F6a/b六张原图实际核读及编辑说明，未逐篇参考文献。Apple官方研究页/ICLR OpenReview只核书目；正式PDF403未读。交叉读GenEval原§3.2及固定官方summary脚本确认标准宏平均；算术核对非模型复现。未取得完整公开训练配置/权重，未运行。"
+    },
+    {
+      "id": "L071",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "评估文字生成静态图的对象、数量、颜色、二维相对位置和颜色绑定，给可解释的逐项成功/失败。输入提示/结构化约束与图像，输出检测结果和binary任务通过率；它是评价框架与553提示基准，无自有文生图/视频/笔顺生成模型。 FID分布质量不解释逐提示语义，整体CLIP相似度对计数/组合/绑定不够敏感。用实例级检测和颜色分类把句子约束分解。其成立前提是detector/分类器在生成图分布仍可靠；作者专门做人工一致性检验，不能把检测结果当无误真值，也不能把它推广到字形和绘制过程。",
+          "evidence": "固定v1核心、实际框架主表消融/指定附录与选定发布；正式书目与未读修订正文分开，表文疑点保留，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "提示及其COCO类别/数量/颜色/相对位置元数据+生成图→Mask2Former/SwinS实例预测→阈值/最多对象过滤→颜色crop/mask与CLIP→逐条件判定→每图correct及reason→任务通过率/六任务Overall。非计数通常只要求至少若干对象；计数通过exclude n+1实现恰好n，不能把所有任务都解释成严格无额外对象。实际p2F1框架、p6F3人评、p8T2/F5、p14T4/F8及p21人评UI已核。 COCO80类Mask2Former/Swin-S；CLIP ViT-L/14对实例crop且背景置灰，3种颜色prompt模板的归一特征平均，十色argmax。§3.1提11基本色是理论来源；AppC1明确排除gray，实际颜色候选10。人评UI p21仍提供11色含gray，是人工选项口径，不能混为自动十色classifier。当前固定代码取指定数量的最高confidence对象，不搜索较低分的替代匹配。位置用box中心及尺度margin；代码额外单位方向阈.5，不只是简单四个轴不等式。",
+          "evidence": "固定v1核心、实际框架主表消融/指定附录与选定发布；正式书目与未读修订正文分开，表文疑点保留，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "模板生成六类提示及include/exclude元数据，Mask2Former检测对象与实例mask，presence/count/boxcentroid判约束，mask+crop后CLIP识别颜色，要求所请求条件全通过。计数使用更高置信阈值；所有图像分别评分、各任务平均后再六任务等权宏平均。提供可追踪reason和人工效度/超参数消融，无可学习的新生成主干。 在COCO可检测对象和可分基本色、二维中心关系足以表达提示时，显式实例判断可比整体相似度更敏感于计数/绑定，且可解释失败来源。优势分布须落在评估器校准范围，人体微结构/抽象素描/字体/密集遮挡不满足同样前提。十色离散分类和box位置是代理测量，不能确证真实世界三维关系或生成时序。",
+          "evidence": "固定v1核心、实际框架主表消融/指定附录与选定发布；正式书目与未读修订正文分开，表文疑点保留，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2 IFXL六项.97/.74/.66/.81/.13/.35/Overall.61；SDXL.98/.74/.39/.85/.15/.23/.55；SD2.1.50/SD1.5.43/minDALLE.23/检索.35。计数/位置/绑定仍弱。人评表T5 GenEval.834/互评.878/H14CLIP.798，GenEval计数.823 vsH14.734为+8.9百分点，位置.823 vs.682为+14.1；实际F3相符，正文称计数+22点与所选H14口径不一致，保留待解释，不照抄。twoobject.799低于H14.828，不能说四个复杂任务全更好。一致分项子集91vs87仅条件子集。 实际T4颜色κ无crop/mask .32/绑定.01；仅crop.37/.33、仅mask.43/.47、二者.45/.49；互评.55/.65，仍有差距。计数阈.3→.9使κ.37→.65，五折agreement.823±.013；位置margin五折.822±.013。F5 IF规模增大计数/绑定多有提升，位置非严格单调；SD1.x训练checkpoint波动，更多训练不保证全项上升。无独立控制encoder/data/算力的因果消融，不能唯一归因T5XXL或扩模型。 论文各生成器默认采样，minDALLE256²/SDv1 512²/SDv2 768²、SDXL不用refiner，IF用stage1+2到256²不加stage3，XL第二阶段L。普通检测阈.3、计数.9、位置尺度margin.1；NMS尝试无收益。人工1–2分钟/图、估计$15/h、总$3600含平台费；随机/模型盲法全细节和最新分布重校准仍需公开。GH af4902f评测默认每类最多16个box、max_overlap1相当禁NMS；不强制553×4完整，summary只对实际读入图求均值，缺图会改变分布。未运行生成器或检测器。",
+          "evidence": "固定v1核心、实际框架主表消融/指定附录与选定发布；正式书目与未读修订正文分开，表文疑点保留，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "作者明确COCO80对象/组合限制，不能识别手指细节；photographic detector在艺术图OOD、重叠同物合并、mask孔洞污染颜色。v1AppC3第二组above不等式符号与前组和代码不同，疑排版方向错误，未自动修正正式版。当前代码选择最高分对象及角度阈会影响绑定/位置；论文/代码/数据版本需固定。没有图中文字、细粒度书法、审美、视频时间、落抬笔评价；新模型刷高标准集不等于跨域可靠。 独立heldout模型/风格/密度分层人工标注，先冻结阈值和版本再测评估器TP/FP/FN/κ及CI，分离生成错误和测量错误；用人工框/真mask与预测框对比定位误差来源。报告六项、宏微/按prompt四图完整性、原始逐图结果与rewrite/seed/采样设置。用于UMM应同采样预算/后处理，加入组合holdout和无基准调优集；文字/笔顺另建OCR+人审和同终态异事件测试，不把GenEval替代这些任务。未运行。",
+          "evidence": "固定v1核心、实际框架主表消融/指定附录与选定发布；正式书目与未读修订正文分开，表文疑点保留，非口试/独立复现"
+        }
+      ],
+      "boundary": "2310.11513v1完整21页PDF核心Abstract/§1–7、T1–2、F1–6说明；实际p2F1/p6F3/p8T2-F5/p14T4-F8/p21F11；精读AppA1/A2、C1–3/T5、D人评协议，未逐个例图/参考文献。正式NeurIPS2023proceedings只核书目，正式PDF不完整排除。固定官方GH af4902f24d3ca90ebbb446dd9891a59e0f82725f完整18blob树，读README/MITLICENSE、evaluate_images.py/summary_scores.py和create_prompts.py，解析553行metadata；未读所有生成/环境/下载文件，未取图像/权重或执行评估。"
     }
   ]
 }

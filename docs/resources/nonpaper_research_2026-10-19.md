@@ -404,3 +404,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第九十六批（2026-10-21）：GH AutoConverter5blob与ObjectMLLM95blob、固定HF VMCBench dev/test、单题API实现/训练参数、未下载GoogleDrive制品和许可边界。见[审查](../evidence/autoconverter_objectmllm_benchmark_and_coordinate_audit_2026-10-21.md)、[G042](../reviews/G042.md)、[G043](../reviews/G043.md)。
+
+
+第九十七批（2026-10-21）：GenEval固定af4902f代码/MIT与553metadata；top-confidence选择、额外位置角阈、汇总宏微/anysuccess差异。未下载权重/图像或执行生成检测。见[审查](../evidence/manzano_hybrid_tokenizer_and_geneval_measurement_audit_2026-10-21.md)、[L064](../reviews/L064.md)、[L071](../reviews/L071.md)。

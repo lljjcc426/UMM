@@ -4514,22 +4514,26 @@
     "title": "MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer",
     "source_urls": [
       "https://arxiv.org/abs/2509.16197",
-      "https://arxiv.org/html/2509.16197"
+      "https://arxiv.org/html/2509.16197",
+      "https://arxiv.org/abs/2509.16197v1",
+      "https://arxiv.org/html/2509.16197v1",
+      "https://machinelearning.apple.com/research/manzano",
+      "https://openreview.net/forum?id=FIXPFUeO9Z"
     ],
-    "method": "同一ViT的连续/FSQ离散双接口，LLM理解用连续、生成预测离散语义码，再flow图像解码。 ViT STC3×3将42²压成14²特征，MLP连续/FSQ64K码；小300M LLM参与tokenizer NTP预训后丢弃。统一LLM冻结视觉/离散接口，文字:图像CE权重1:.5；Air flow DiT.9/1.75/3.52B渲染像素，不能只计AR骨干成本。",
-    "conclusion": "1B Table1 hybrid64.9/66.5/73.3(三组理解)、GenEval77/DPG79.9/WISE35；纯离散63.3/62.2/62.3、77/80.9/35，DPG并未提高。dual63.8/63.6/72、65/66.3/17，但该baseline为固定256token采用128²autoencoder，而原图256²，分辨率混杂。",
-    "gap": "输出质量受flow解码器与参考旁路影响；离散/连续分支和冻结策略不等于所有参数共享；大规模私有数据限制复现。表中单项下降、分辨率不匹配和task-token匹配应写在claim附近。",
-    "problem": "共享视觉表示与AR骨干能否同时保持理解与图像生成能力。",
+    "method": "先把CLIP预训ViT与STC、连续MLP/离散FSQ两路径和小LLM联合语义训练；每例随机走一路，以文字NTP优化且全参数解冻。再冻encoder/离散adapter，让主LLM既预测文本又自回归预测64K语义视觉token；另训以这些token为条件的Flow DiT-Air像素decoder。没有要求tokenizer阶段以像素重建损失对齐，细粒度编辑另向decoder送参考图。 统一LLM规模300M/1B/3B/30B；tokenizer语义训练挂预训300M小LLM后弃去。FSQ词表64K，未给各维levels、完整encoder参数/主LLM层宽等。主LLM训练明确冻encoder和离散adapter，连续adapter不在该冻结声明内；图4亦不标其冻结。图像/文字CE权重.5/1。像素decoder为Air设计、.9/1.75/3.52B；主干AR与外部flow并存，不等于全流程一次生成或全共享扩散骨干。v1没有完整flow target/solver/NFE/CFG和学习率/GPU配置。",
+    "conclusion": "T1 hybrid理解64.9/66.5/73.3高于discrete63.3/62.2/62.3，生成GE77/DPG79.9/WISE35；discrete77/80.9/35，故“各任务都更好”不被该表完全支持。T2 3B Doc93.5低于Qwen3B93.9，Info75低于Qwen77.1/Intern78；30B SEED76/RW70.1/MMB83.4/AI2D86低于BAGEL78.5/72.8/85/89.2，不能照抄“理解一致超越全部统一模型”。T3 30B ColorAttr.65低于3B.71，WISE.54仍低于GPT4o.80/QwenImage.67。T3的3B GE聚合疑点单列，所有数值为作者报告未复现。",
+    "gap": "作者讨论量化细节损失、需要参考图decoder旁路、benchmark饱和/调优和decoder扩展的美学代价；v1无独立Limitations标题。本次问题：T3聚合与正文“all/consistently”范围、dual分辨率混杂、单任务预算非等FLOPs、私有大数据/缺训练参数及统计。GenEval饱和不能代替书写、复杂时序与跨文字字形有效性。核心阅读通过仅说明能解释与批判所读证据，未确认全部作者结论。",
+    "problem": "同一模型执行图像理解、文生图及参考图编辑：统一语义视觉encoder，理解保留连续embedding，生成用离散语义token再由独立flow像素decoder成图。主评测是静态图问答/图像生成；v1没有文字视频、规范汉字笔顺或真实动作执行任务。",
     "claim": "研究目标：共享视觉表示与AR骨干能否同时保持理解与图像生成能力。",
-    "version": "MANZANO，2025 / ICLR 2026",
+    "version": "MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer；ICLR2026正式身份由Apple研究页与OpenReview FIXPFUeO9Z核实。实际精读arXiv2509.16197v1（2025-09-19）HTML核心；正式PDF403，未把正式身份当修订正文已读。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L064",
     "canonical_key": "paper:arxiv:2509.16197",
     "evidence_history": [
@@ -4561,17 +4565,22 @@
         "conclusion": "1B 消融显示 text-rich 理解提升且保持生成能力；较大模型结论需结合规模",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 97,
+        "scope": "2509.16197v1 HTML Abstract/§1–6核心全部、框架/训练F3–4、T1–3原HTML表实际渲染核读、F5a/b、F6a/b六张原图实际核读及编辑说明，未逐篇参考文献。Apple官方研究页/ICLR OpenReview只核书目；正式PDF403未读。交叉读GenEval原§3.2及固定官方summary脚本确认标准宏平均；算术核对非模型复现。未取得完整公开训练配置/权重，未运行。"
       }
     ],
-    "sections_read": "§3–4表示/训练、§5.1/5.2 Table1和联合对照/Fig5、§5.4–5.5讨论、结论；未逐行精读全部主表/图、未复现",
+    "sections_read": "2509.16197v1 HTML Abstract/§1–6核心全部、框架/训练F3–4、T1–3原HTML表实际渲染核读、F5a/b、F6a/b六张原图实际核读及编辑说明，未逐篇参考文献。Apple官方研究页/ICLR OpenReview只核书目；正式PDF403未读。交叉读GenEval原§3.2及固定官方summary脚本确认标准宏平均；算术核对非模型复现。未取得完整公开训练配置/权重，未运行。",
     "review_path": "docs/reviews/L064.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "2.3B图文、1.7B交错文档、1B内部生成数据；24M能力CPT；SFT含真实DreamO、90k合成与4M Fluxschnell。大部分内部筛选/总token不完全公开。",
-    "framework": "同一ViT的连续/FSQ离散双接口，LLM理解用连续、生成预测离散语义码，再flow图像解码。",
-    "architecture": "ViT STC3×3将42²压成14²特征，MLP连续/FSQ64K码；小300M LLM参与tokenizer NTP预训后丢弃。统一LLM冻结视觉/离散接口，文字:图像CE权重1:.5；Air flow DiT.9/1.75/3.52B渲染像素，不能只计AR骨干成本。",
-    "metrics": "General/Knowledge/Text-rich分组理解；GenEval/DPG/WISE；800prompt×3人评结构/指令/美学。",
-    "baselines": "纯连续/纯离散/dual tokenizer，specialist理解/生成、JanusPro/XOmni/Bagel等。",
-    "experimental_conditions": "预训1.6T(30B.8T)+CPT83B，I2T/T2I/text40/40/20，SFT41/45/14；decoder256²400K再512/1024/2048各100K。完整优化器/batch/硬件/采样CFG未从本次所读主体取得。对联合/专用对照匹配每任务token曝光，专用总步数更少，未固定总FLOPs。"
+    "dataset": "理解预训2.3B图文对（CC3M/12M/COYO/VeCap及授权数据）和1.7B文档；CPT24M文档/图表/多语OCR/推理/合成caption并用image splitting。生成预训1B私有/授权重描述对，caption20–128tokens；SFT含DreamO真实样本、约90k DALLE3/BLIP3o/ShareGPT4o及4M Fluxschnell合成图。混合PT40/40/20理解/生成/纯文，SFT41/45/14；理解SFT称75%image/25%text及30/20/25子项，不能错误再将子项当已归一化图像内比例。未公开逐样本清单/全部去污染协议。",
+    "framework": "先把CLIP预训ViT与STC、连续MLP/离散FSQ两路径和小LLM联合语义训练；每例随机走一路，以文字NTP优化且全参数解冻。再冻encoder/离散adapter，让主LLM既预测文本又自回归预测64K语义视觉token；另训以这些token为条件的Flow DiT-Air像素decoder。没有要求tokenizer阶段以像素重建损失对齐，细粒度编辑另向decoder送参考图。",
+    "architecture": "统一LLM规模300M/1B/3B/30B；tokenizer语义训练挂预训300M小LLM后弃去。FSQ词表64K，未给各维levels、完整encoder参数/主LLM层宽等。主LLM训练明确冻encoder和离散adapter，连续adapter不在该冻结声明内；图4亦不标其冻结。图像/文字CE权重.5/1。像素decoder为Air设计、.9/1.75/3.52B；主干AR与外部flow并存，不等于全流程一次生成或全共享扩散骨干。v1没有完整flow target/solver/NFE/CFG和学习率/GPU配置。",
+    "metrics": "理解SEED/RWQA/MMBench/AI2D/SQA/MMMU/MathVista及Chart/Text/Doc/InfoVQA/OCRBench；生成GenEval/DPG/WISE、人评结构/指令/美学。GenEval标准六任务宏均分需与每行子项核对；v1 T3的3B .98/.91/.82/.71/.78/.71均值.8183，与Overall.85不相容于仅两位小数舍入，需作者逐图结果或不同聚合协议，原值保留且不代填.82。30B子项均值.85一致。没有笔顺事件、时序、轨迹或动作可执行性指标。",
+    "baselines": "T1内部discrete/dual/hybrid，1B/无CPT；dual用MagViT2 FSQ f8且128²输入获得256tokens，非其他分支256²的严格同分辨率对照。F5理解/生成单任务，删另一模态并减steps以匹配剩余任务token曝光。T2 Qwen2.5VL/InternVL、SEEDLLaMA/Emu3/Janus/MMaDA/MetaQuery/BAGEL等及闭源异数据模型；T3 Flux/SD3/JanusPro/MetaQuery/XOmni等。部分†重跑/部分公开leaderboard，数据/参数/提示和分辨率异质，不能从排行榜单独归因架构。",
+    "experimental_conditions": "统一PT1.6T tokens但30B只有.8T，CPT83B；像素decoder256²400k steps、512/1024/2048各100k。F5无CPT并匹配单任务token曝光，非等总steps或FLOPs；F6a同.9B decoder与配比但30B曝光不同。F6b固定3B LLM。800提示×3内部标注者，匿名随机次序、三档错误评分；精确换算/一致性/CI未充分披露。v1未给足optimizer/batch/GPU/全部seed/sampler；所读官方入口未给可确认完整训练代码权重，不据有限检索断言全网不存在。未执行。"
   },
   {
     "title": "Qwen3-Omni Technical Report",
@@ -4957,22 +4966,26 @@
     "title": "GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment",
     "source_urls": [
       "https://arxiv.org/abs/2310.11513",
-      "https://arxiv.org/html/2310.11513"
+      "https://arxiv.org/html/2310.11513",
+      "https://arxiv.org/abs/2310.11513v1",
+      "https://arxiv.org/pdf/2310.11513v1",
+      "https://papers.neurips.cc/paper_files/paper/2023/hash/a3bf71c7c63f0c3bcb7ff67c67b1e7b1-Abstract-Datasets_and_Benchmarks.html",
+      "https://github.com/djghosh13/geneval/tree/af4902f24d3ca90ebbb446dd9891a59e0f82725f"
     ],
-    "method": "组合已有实例检测/分割、局部颜色分类与规则，按prompt预期逐项验证；构建六类模板和人类一致性实验。 MMDetection Mask2Former/Swin-S在COCO训练；默认检测阈值.3、counting .9；bbox中心与最小距离比例.1判空间。颜色用CLIP ViT-L/14，在bbox裁切/分割灰背景后做11色零样本分类。因此它使用局部CLIP，但整体评分不等于全图CLIPScore。",
-    "conclusion": "GenEval整体人类一致83%，标注者间88%，CLIPScore80%；860张全体一致子集91%vs87%。IFXL整体.61，position.13/attribute binding.35；主表随机seed波动.01–.02。不能把91%外推所有图像。",
-    "gap": "80类COCO和照片风格限制，重叠物体/孔洞分割错、clipart OOD；人几乎全正确时single-object kappa近0。没有美感、文字、视频、动作正确性评价；按模板微调/选优后的高分需另用独立组合验证。",
-    "problem": "评估静态文字到图像的物体存在、数量、颜色、位置和属性绑定，并给出可解释的失败原因。",
+    "method": "模板生成六类提示及include/exclude元数据，Mask2Former检测对象与实例mask，presence/count/boxcentroid判约束，mask+crop后CLIP识别颜色，要求所请求条件全通过。计数使用更高置信阈值；所有图像分别评分、各任务平均后再六任务等权宏平均。提供可追踪reason和人工效度/超参数消融，无可学习的新生成主干。 COCO80类Mask2Former/Swin-S；CLIP ViT-L/14对实例crop且背景置灰，3种颜色prompt模板的归一特征平均，十色argmax。§3.1提11基本色是理论来源；AppC1明确排除gray，实际颜色候选10。人评UI p21仍提供11色含gray，是人工选项口径，不能混为自动十色classifier。当前固定代码取指定数量的最高confidence对象，不搜索较低分的替代匹配。位置用box中心及尺度margin；代码额外单位方向阈.5，不只是简单四个轴不等式。",
+    "conclusion": "T2 IFXL六项.97/.74/.66/.81/.13/.35/Overall.61；SDXL.98/.74/.39/.85/.15/.23/.55；SD2.1.50/SD1.5.43/minDALLE.23/检索.35。计数/位置/绑定仍弱。人评表T5 GenEval.834/互评.878/H14CLIP.798，GenEval计数.823 vsH14.734为+8.9百分点，位置.823 vs.682为+14.1；实际F3相符，正文称计数+22点与所选H14口径不一致，保留待解释，不照抄。twoobject.799低于H14.828，不能说四个复杂任务全更好。一致分项子集91vs87仅条件子集。",
+    "gap": "作者明确COCO80对象/组合限制，不能识别手指细节；photographic detector在艺术图OOD、重叠同物合并、mask孔洞污染颜色。v1AppC3第二组above不等式符号与前组和代码不同，疑排版方向错误，未自动修正正式版。当前代码选择最高分对象及角度阈会影响绑定/位置；论文/代码/数据版本需固定。没有图中文字、细粒度书法、审美、视频时间、落抬笔评价；新模型刷高标准集不等于跨域可靠。",
+    "problem": "评估文字生成静态图的对象、数量、颜色、二维相对位置和颜色绑定，给可解释的逐项成功/失败。输入提示/结构化约束与图像，输出检测结果和binary任务通过率；它是评价框架与553提示基准，无自有文生图/视频/笔顺生成模型。",
     "claim": "研究目标：评估静态文字到图像的物体存在、数量、颜色、位置和属性绑定，并给出可解释的失败原因。",
-    "version": "GenEval；arXiv:2310.11513v1，2023-10-17；正式会场本次未核",
+    "version": "GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment；NeurIPS2023 Datasets and Benchmarks，官方proceedings条目核实。实际读arXiv2310.11513v1完整21页；正式PDF下载不完整排除，未声称正式版全文同v1。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L071",
     "canonical_key": "paper:arxiv:2310.11513",
     "evidence_history": [
@@ -5004,17 +5017,22 @@
         "conclusion": "提供可分解指令遵循指标；不覆盖所有视觉质量与物理一致性",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 97,
+        "scope": "2310.11513v1完整21页PDF核心Abstract/§1–7、T1–2、F1–6说明；实际p2F1/p6F3/p8T2-F5/p14T4-F8/p21F11；精读AppA1/A2、C1–3/T5、D人评协议，未逐个例图/参考文献。正式NeurIPS2023proceedings只核书目，正式PDF不完整排除。固定官方GH af4902f24d3ca90ebbb446dd9891a59e0f82725f完整18blob树，读README/MITLICENSE、evaluate_images.py/summary_scores.py和create_prompts.py，解析553行metadata；未读所有生成/环境/下载文件，未取图像/权重或执行评估。"
       }
     ],
-    "sections_read": "§1、§3.1–3.2、§4、§5.1/5.2关键段/本作比较行、§6、AppA1/A2/Table4、C2/C3检测段；完整标注UI/AppD及全部表格未逐项核，框架图仅文字说明，未运行评价器",
+    "sections_read": "2310.11513v1完整21页PDF核心Abstract/§1–7、T1–2、F1–6说明；实际p2F1/p6F3/p8T2-F5/p14T4-F8/p21F11；精读AppA1/A2、C1–3/T5、D人评协议，未逐个例图/参考文献。正式NeurIPS2023proceedings只核书目，正式PDF不完整排除。固定官方GH af4902f24d3ca90ebbb446dd9891a59e0f82725f完整18blob树，读README/MITLICENSE、evaluate_images.py/summary_scores.py和create_prompts.py，解析553行metadata；未读所有生成/环境/下载文件，未取图像/权重或执行评估。",
     "review_path": "docs/reviews/L071.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "553模板prompts，80COCO物类、11基本色、计数2/3/4、四空间方向；每prompt四图全取平均。人评1200图各400来自SD2.1/IF-XL/LAION检索，共6000标注、每图5人。",
-    "framework": "组合已有实例检测/分割、局部颜色分类与规则，按prompt预期逐项验证；构建六类模板和人类一致性实验。",
-    "architecture": "MMDetection Mask2Former/Swin-S在COCO训练；默认检测阈值.3、counting .9；bbox中心与最小距离比例.1判空间。颜色用CLIP ViT-L/14，在bbox裁切/分割灰背景后做11色零样本分类。因此它使用局部CLIP，但整体评分不等于全图CLIPScore。",
-    "metrics": "每图所有条件同时满足才1，先任务内均值再六任务平均；与人类percent agreement和Cohen kappa，分项存在/数量/色/位置；人评并非真实任务全分布的准确率。",
-    "baselines": "CLIPScore阈值按每任务最优设置，比较多个CLIP后选OpenCLIP ViT-H/14；生成模型minDALL-E、SD1/2/XL、IF M/L/XL及LAION CLIP检索。",
-    "experimental_conditions": "各模型默认分辨率/采样方法/步数，IF只到第二级256²，不含第三上采样；SDXL不用refiner。4图全部纳入，检索取top4。未统一NFE/分辨率/算力，评估结果不是纯结构因果对比；阈值选择另有5fold验证。"
+    "dataset": "553唯一提示：single80/two99/count80/colors94/position100/colorattr100；COCO80物类，计数2/3/4，left/right/above/below，颜色题排除person和gray。每提示4图共2212/模型，全部图均纳入不选最好。人工验证1200图（SD2.1/IFXL/LAION检索各400，100提示×4）共6000标注、每图5人；另有8605个全体一致的分项子集，不等同8605图或全样本。固定metadata逐行解析确认553及标签分布，未下载原生成图。",
+    "framework": "模板生成六类提示及include/exclude元数据，Mask2Former检测对象与实例mask，presence/count/boxcentroid判约束，mask+crop后CLIP识别颜色，要求所请求条件全通过。计数使用更高置信阈值；所有图像分别评分、各任务平均后再六任务等权宏平均。提供可追踪reason和人工效度/超参数消融，无可学习的新生成主干。",
+    "architecture": "COCO80类Mask2Former/Swin-S；CLIP ViT-L/14对实例crop且背景置灰，3种颜色prompt模板的归一特征平均，十色argmax。§3.1提11基本色是理论来源；AppC1明确排除gray，实际颜色候选10。人评UI p21仍提供11色含gray，是人工选项口径，不能混为自动十色classifier。当前固定代码取指定数量的最高confidence对象，不搜索较低分的替代匹配。位置用box中心及尺度margin；代码额外单位方向阈.5，不只是简单四个轴不等式。",
+    "metrics": "每图所有指定约束均过为1，任务内均值，Overall为六任务宏平均；不同于553图微均分、至少一张成功的prompt率或bestof4。论文人工agreement和Cohenκ检验评估器有效性，模型生成通过率是另一量。83%是对人工分项判断一致，不是83%图像生成成功；五折.823±.013/.822±.013未声明95%CI，不擅改区间含义。",
+    "baselines": "评估器比较原CLIP B32/更强OpenCLIP H14，按任务调阈值、与人工/标注者互相一致性。生成模型SD1.1–1.5/2.1/SDXL、DeepFloydIF S/M/L/XL、minDALLE，CLIP检索LAIONtop4；不是所有模型等训练数据/计算/分辨率比较。消融crop/mask、count threshold、position margin和pretrain checkpoints。各新UMM使用时需说明评测版本、prompt rewrite和完整样本，不能直接与2023全默认结果作纯架构比较。",
+    "experimental_conditions": "论文各生成器默认采样，minDALLE256²/SDv1 512²/SDv2 768²、SDXL不用refiner，IF用stage1+2到256²不加stage3，XL第二阶段L。普通检测阈.3、计数.9、位置尺度margin.1；NMS尝试无收益。人工1–2分钟/图、估计$15/h、总$3600含平台费；随机/模型盲法全细节和最新分布重校准仍需公开。GH af4902f评测默认每类最多16个box、max_overlap1相当禁NMS；不强制553×4完整，summary只对实际读入图求均值，缺图会改变分布。未运行生成器或检测器。"
   },
   {
     "title": "UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation",

@@ -374,3 +374,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第九十六批（2026-10-21）：MC基准造题与视频坐标理解单列，六QA含原3D姿态，不归为视频/笔顺生成。见[审查](autoconverter_objectmllm_benchmark_and_coordinate_audit_2026-10-21.md)、[G042](../reviews/G042.md)、[G043](../reviews/G043.md)。
+
+
+第九十七批（2026-10-21）：静态图理解/AR语义加flow像素生成，与对象组合评价分列；均无视频/规范笔顺实验。见[审查](manzano_hybrid_tokenizer_and_geneval_measurement_audit_2026-10-21.md)、[L064](../reviews/L064.md)、[L071](../reviews/L071.md)。

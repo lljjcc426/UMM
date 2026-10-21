@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L064",
+    "L071"
+  ],
+  "sources": {
+    "L064": [
+      "https://arxiv.org/abs/2509.16197v1",
+      "https://arxiv.org/html/2509.16197v1",
+      "https://machinelearning.apple.com/research/manzano",
+      "https://openreview.net/forum?id=FIXPFUeO9Z"
+    ],
+    "L071": [
+      "https://arxiv.org/abs/2310.11513v1",
+      "https://arxiv.org/pdf/2310.11513v1",
+      "https://papers.neurips.cc/paper_files/paper/2023/hash/a3bf71c7c63f0c3bcb7ff67c67b1e7b1-Abstract-Datasets_and_Benchmarks.html",
+      "https://github.com/djghosh13/geneval/tree/af4902f24d3ca90ebbb446dd9891a59e0f82725f"
+    ]
+  },
+  "executed": false,
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "artifacts": [
+    {
+      "id": "L064",
+      "version_read": "2509.16197v1 HTML core; ICLR2026 metadata separate, formalPDF403",
+      "visuals": [
+        "F3",
+        "F4",
+        "F5a",
+        "F5b",
+        "F6a",
+        "F6b",
+        "T1",
+        "T2",
+        "T3"
+      ],
+      "findings": [
+        "Shared semantic encoder with continuous/discrete adapters; imageAR semantic IDs plus separate flow pixel decoder, not full shared image/video backbone",
+        "T1hybridDPG79.9<discrete80.9 and GE/WISE tie; all-task-superiority prose too broad",
+        "F5token-exposurematched specialists show small negative transfer, not universal mutual improvement",
+        "T3GenEval3B six displayed task scores mean.8183333333, vs reportedOverall.85; rounding alone cannot reconcile under standard six-task macro; preserve original and request per-image protocol",
+        "30B ColorAttr.65<3B.71; T2multipleunderstandingcolumns below BAGEL; ranking claims bounded",
+        "Reference-imageediting supplies decoder extra information; quantitative bypass ablation absent in readversion; formal revisedbody notread"
+      ]
+    },
+    {
+      "id": "L071",
+      "version_read": "2310.11513v1 complete21pPDF; NeurIPS2023 metadata separate; incompleteformalPDF excluded",
+      "github_revision": "af4902f24d3ca90ebbb446dd9891a59e0f82725f",
+      "tree_blobs": 18,
+      "metadata_prompts": 553,
+      "task_counts": [
+        80,
+        99,
+        80,
+        94,
+        100,
+        100
+      ],
+      "color_candidates": 10,
+      "human_ui_colors": 11,
+      "selected_files": [
+        "README.md",
+        "LICENSE",
+        "evaluation/evaluate_images.py",
+        "evaluation/summary_scores.py",
+        "prompts/create_prompts.py",
+        "prompts/evaluation_metadata.jsonl"
+      ],
+      "visuals": [
+        "p2F1",
+        "p6F3",
+        "p8T2/F5",
+        "p14T4/F8",
+        "p21F11"
+      ],
+      "findings": [
+        "Gray excluded automatic prompts/classifier; eleven basic colors or eleven human UI options not actual classifier cardinality",
+        "Six-task macro not image micro, any-of-four prompt success or best-of-four; no enforced sample completeness in current evaluator",
+        "T5andF3 counting GenEval.823-H14CLIP.734=.089 vs prose22points; twoobject .799<.828, prose four-complex-task superiority too broad",
+        "83%evaluation-humanagreement not generation passrate; unanimous8605subset not8605images",
+        "Current code highestconfidence required objects, relativeposition additionalnormalizeddirectionthreshold.5; appendixaboveformula sign inconsistent with code/simplepreviousformula",
+        "No text-rendering/video/stroke-event validity claims; photo-domain evaluator requires independent newstyle calibration"
+      ]
+    }
+  ]
+}
