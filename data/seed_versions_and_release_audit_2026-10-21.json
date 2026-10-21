@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L078",
+    "L082"
+  ],
+  "sources": {
+    "L078": [
+      "https://arxiv.org/abs/2307.08041v2",
+      "https://arxiv.org/pdf/2307.08041v2",
+      "https://github.com/AILab-CVC/SEED/tree/93b3cf408196735ec4820ad2eb4d9dc4a670003d"
+    ],
+    "L082": [
+      "https://arxiv.org/abs/2310.01218v1",
+      "https://arxiv.org/html/2310.01218v1",
+      "https://proceedings.iclr.cc/paper_files/paper/2024/hash/97011c648eda678424f9292dadeae72e-Abstract-Conference.html",
+      "https://openreview.net/forum?id=0Nui91LBQS",
+      "https://github.com/AILab-CVC/SEED/tree/93b3cf408196735ec4820ad2eb4d9dc4a670003d",
+      "https://huggingface.co/AILab-CVC/seed-tokenizer-2/tree/c6d957a9b280d9ed3879b1eb5d99036cf8390012",
+      "https://huggingface.co/AILab-CVC/seed-llama-8b-sft/tree/2c7d1d3532caa8c6ac7d41b3696dfe9911aaed7a"
+    ]
+  },
+  "github_revision": "93b3cf408196735ec4820ad2eb4d9dc4a670003d",
+  "tree_blobs": 526,
+  "artifacts": [
+    {
+      "id": "L078",
+      "version_read": "2307.08041v2 complete10pPDF core",
+      "visuals": [
+        "p4F2/T1",
+        "p5F3/T2",
+        "p6F4",
+        "p7T3"
+      ],
+      "findings": [
+        "Initial77textcondition target distinct from later1imagecondition unCLIP",
+        "Quantization reduces retrieval; caption/VQA belowBLIP2",
+        "T2 image reconstruction vs caption-conditioned baselines are different inputs",
+        "Abstract5.7days64V100 overall vsF4OPT44h64V100; do not conflate",
+        "Current shared codebook model defaults image distillation,not initialtext target",
+        "SEED1 README demo_recon.py absent from fixed526blobtree; old weights not inspected"
+      ]
+    },
+    {
+      "id": "L082",
+      "version_read": "2310.01218v1 completeHTML core/AppA-D andE caveat; formalPDF incomplete excluded",
+      "visuals": [
+        "F3 originalPNG",
+        "originalHTMLT1-4/T6/T9 rendered and viewed",
+        "AppA F8 complete originalPNG; image-conditioned reconstruction still changes pose/layout/details"
+      ],
+      "hf_releases": [
+        {
+          "id": "AILab-CVC/seed-tokenizer-2",
+          "revision": "c6d957a9b280d9ed3879b1eb5d99036cf8390012",
+          "card": "shortApache2header; seed_quantizer.pt linked not downloaded",
+          "config": "LlamaTokenizer model_max_length huge sentinel not actual unlimited context"
+        },
+        {
+          "id": "AILab-CVC/seed-llama-8b-sft",
+          "revision": "2c7d1d3532caa8c6ac7d41b3696dfe9911aaed7a",
+          "card": "shortllama2header",
+          "config": "32layers4096hidden,40194vocab=32000+8192+2,maxpositions/maxseq2048,float32config; not actual measured memory"
+        }
+      ],
+      "findings": [
+        "Causal vsbidirectional2134/4997 correct32token outputs of5000; formatting failure not pure semantic metric, constrain length for test",
+        "T2CLIP-L14 generated-vs-groundtruth image similarity, not text-imageCLIP;quantization/reconstruction loss persists",
+        "AppE explicitly says multimodal-prompt imagegeneration trained on paired data is not emergent",
+        "Two LLM bases Vicuna7B andLlama2Chat13B confound size comparisons; SFT14BVQA63.4<8B66.2",
+        "T4LoRA124.5/68.87->125/69.07 adds10kfulltraining; missing equal-exposure LoRA continuation",
+        "Currentpretrain script betas.9/.95eps1e-5 vs paper.9/.98eps1e-6; sixdatapipesincludeWikipedia, lengths200/140 vs160/128; sampleweights not actualexamplefractions without sampling/batchingaudit",
+        "LoRA publicconfig rank16alpha32drop.05 plusmodules_to_save embedding/head/norms; not only lowrank params",
+        "Publictokenizer decode defaults20steps/CFG10/noiselevel0 and caches initial Gaussianlatents per instance; not verified paper evaluation sampler",
+        "README current sft excludes separatelytunedMMC4 interleavedoutput ability; do not merge demos into one checkpoint capability",
+        "Tokenizer2Apache2 header/LLMsftLlama2/unCLIP separate artifacts and inherited terms; not infer entire stack license from one card"
+      ]
+    }
+  ],
+  "executed": false,
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false
+}

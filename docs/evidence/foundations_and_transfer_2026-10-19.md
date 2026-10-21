@@ -201,3 +201,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第九十三批（2026-10-21）：零梯度与AdamW衰减、argmin码量化、剩余曝光/总FLOPs两种控制。见[审查](metaqueries_unifiedio_transfer_and_freezing_audit_2026-10-21.md)、[L062](../reviews/L062.md)、[L074](../reviews/L074.md)。
+
+
+第九十四批（2026-10-21）：链式分解不要求encoder causal；格式稳定、语义保真和可执行真实过程分开验证。见[审查](seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[L078](../reviews/L078.md)、[L082](../reviews/L082.md)。

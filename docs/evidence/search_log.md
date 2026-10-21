@@ -454,3 +454,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第九十三批（2026-10-21）：固定MetaQueries v1HTML/UnifiedIO v2PDF与正式书目、实际图表、固定代码/HF数据卡。见[审查](metaqueries_unifiedio_transfer_and_freezing_audit_2026-10-21.md)、[L062](../reviews/L062.md)、[L074](../reviews/L074.md)。
+
+
+第九十四批（2026-10-21）：固定初版v2PDF/后续v1HTML，ICLR2024正式书目、实际图表、共享代码与HF模型卡追引；正式PDF下载未完成排除。见[审查](seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[L078](../reviews/L078.md)、[L082](../reviews/L082.md)。

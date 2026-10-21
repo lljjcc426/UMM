@@ -365,3 +365,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第九十三批（2026-10-21）：知识条件单向迁移、连续patch/离散输出和任务移除正负效果。见[审查](metaqueries_unifiedio_transfer_and_freezing_audit_2026-10-21.md)、[L062](../reviews/L062.md)、[L074](../reviews/L074.md)。
+
+
+第九十四批（2026-10-21）：离散语义码/图像条件静态解码、抽帧视频理解，多图序列不外推连续视频或笔顺。见[审查](seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[L078](../reviews/L078.md)、[L082](../reviews/L082.md)。

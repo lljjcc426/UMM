@@ -406,3 +406,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第九十三批（2026-10-21）：embedding实际漂移/覆盖配置、target min/mean/阈值标度、未发布完整训练及多seed。见[审查](metaqueries_unifiedio_transfer_and_freezing_audit_2026-10-21.md)、[L062](../reviews/L062.md)、[L074](../reviews/L074.md)。
+
+
+第九十四批（2026-10-21）：初版未披露超参、强制码长对照、原配方/发布差异、训练组合隔离及codec细笔精度。见[审查](seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[L078](../reviews/L078.md)、[L082](../reviews/L082.md)。

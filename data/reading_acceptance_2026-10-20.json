@@ -6541,6 +6541,74 @@
         }
       ],
       "boundary": "固定arXiv2206.08916v2 33p Abstract/§1–6完整核心、T1–7，A1.1文字合成/补绘、A1.3密集后处理、A1.6 VQA及A2/A3指定说明；未遍读全部附录任务/数据图/参考文献。实际p5F2/p7T3/p9T5–6/p10T7。ICLR2023官方PDF摘要入口确认会议但本地403，未将其当已读正式全文。固定GH ee0bd9d 13blob完整树、README/config全文、runner指定主入口/任务API、network config/词表与VAE、t5x_layers量化函数；未全审network/decoding/训练，不下载权重或执行。"
+    },
+    {
+      "id": "L078",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "为现成LLM构建支持图像理解与图像生成的离散视觉接口：编码高层语义并方便一维AR预测。图像是已有完整静态输入，32个语义query位置不含物理时间/笔画事件，不是书写视频生成模型。 作者认为pixel VQ码对有限规模LLM理解训练不够高效，提出高层语义和query间因果依赖两项设计。CC3M/OPT pilot中BEiTv2 CIDEr42高于pixelVQVAE34，支持指定配置相对语义优势；不能据此声称像素码只含低层信息或双向encoder数学上不能AR，任意联合分布仍可用链式分解。",
+          "evidence": "固定预印本核心、实际框架/主表/消融及指定附录/发布；正式书目与所读版本分开，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "已知图像→冻结BLIP2 ViT16×16features→causalQFormer32连续query→逐位置nearestVQ→32码；码→语义重建Transformer/ReverseQFormer77条件→冻结SD图。理解码经FC接OPT词embedding；生成caption/prefix→OPT预测码→同decoder。实际p4F2/T1、p5T2/重建F3、p6F4及p7T3。query因果mask不屏蔽完整图像信息，不能当未来真实帧不可见。 ViT与SD UNet冻结，tokenizer阶段训练causalQFormer/码本/ReverseQFormer，stageII含语义重建Transformer；LLM阶段冻结tokenizer/OPT主干调LoRA与接口。初版generation目标77个文字条件embedding，不能回填后续1个unCLIP图像条件。论文未披露码本大小、精确LoRA rank/采样配置；当前共享仓库模型默认8192×32并已改为image distillation，不能追溯断言初版原权重也该配置。",
+          "evidence": "固定预印本核心、实际框架/主表/消融及指定附录/发布；正式书目与所读版本分开，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "从BLIP2初始化causal QFormer，32query之间causal selfattn、对完整ViT特征crossattn；先以最终query与caption对比优化。再将32连续embedding做VQ，以Transformer重建语义embedding最大化cosine，用ReverseQFormer的77query拟合冻结SD caption特征MSE。最后冻结OPT2.7B并用LoRA先I2T再I2T/T2I联合nexttoken训练，接冻结SD生成静态图。 当完整图像语义可由少量query压缩，且LLM有限适配主要依赖语义时，32码可降低AR长度；对齐生成条件可复用强SD先验。causal selfattn可能改善既定训练可学习性，但链式分解本身不要求encoder因果，需经验对照。该设计在语义检索/caption和静态自然图可用，不保证空间精确文字、局部重建或唯一笔画过程。",
+          "evidence": "固定预印本核心、实际框架/主表/消融及指定附录/发布；正式书目与所读版本分开，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1Flickr mean BLIP2 92.9/causalcontinuous93.7/quantized91.7，COCO80.3/80.7/77.4，量化损失明显；continuous各方向也有退步。T2COCO GILL67.45/SD68.43/SEED68.23，Flickr65.16/65.40/65.22，且输入图/文字不同。T3SEED-OPT captionCIDEr119 vsBLIP2 131，VQAv2 42.8 vs51.9/GQA28.8 vs32.6，均不能写超过BLIP2。LLM T2I主要F6定性；F3保语义同时布局/实例细节明显变化，未证忠实还原。 现有证据为pixelVQVAE34 vsBEiTv2 42 pilot、T1连续/量化与BLIP2对照；未有匹配参数/额外数据/训练预算的causal vsbidirectional、去语义/去SD蒸馏/码率/LoRA全因子及多seed。T2比较生成接口并改变输入条件，不是同输入严格消融；无法单凭主表确认两条设计是所有统一模型的必要条件。 v2摘要称SEED整体5.7天/64V100/5M，Fig4明确SEED-OPT阶段44小时/64V100，不能把44h当完整tokenizer+LLM成本，未给足各stage拆分。正文无lr/batch/epoch/LoRArank/完整SD采样表。当前共享发布codebook.sh8节点×8卡、yamlCC3M/224²/batch256/maxepoch500/lr1e-4→1e-5/warm2000/seed42是后续公开示例，不补填为初版论文原配方。未执行训练/推理。",
+          "evidence": "固定预印本核心、实际框架/主表/消融及指定附录/发布；正式书目与所读版本分开，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "报告无独立Limitations段，结尾仍在进行中；高层语义可丢精确数量/位置/细笔，77文字特征监督可能无唯一图像逆映射。量化降低检索、caption/VQA弱于BLIP2，缺完整复现超参/样本清单和统计误差。当前SEED_Tokenizer训练类默认distill_image=True/distill_text=False并设1个图像query，不符合初版77文字目标；保留text branch不等于默认执行。SEED-1.md指demo_recon.py，而固定完整树无同名文件，旧入口需修订/找历史版本。未核初版GoogleDrive权重内容。 固定BLIP2初始化、训练曝光/参数/码率/LLM与SD，做causal/bidirectional×semantic/pixel×量化/连续，对理解、预测码质量、GT码重建分别测多seedPareto。SD条件分别给图像/同一caption，统一采样和候选；补显式图像重建与文字feature目标的对照。报告新增/继承训练成本、codec上限OCR/字形拓扑及未见字体/语言；同终态异笔顺验证过程不可辨识。以上未运行。",
+          "evidence": "固定预印本核心、实际框架/主表/消融及指定附录/发布；正式书目与所读版本分开，非口试/独立复现"
+        }
+      ],
+      "boundary": "arXiv2307.08041v2完整核心Abstract/§1–5、所有Tables1–3与F1–6说明；实际p4F2/T1、p5F3/T2、p6F4、p7T3，未逐篇参考文献或复现。固定GH93b3cf4完整526blob树、README/SEED1文档、SEED_Tokenizer codebook训练yaml/sh及模型核心初始化/目标/支路指定段；当前版本含后续图像蒸馏，未当初版完整原配方。未遍读全repo/优化器/全部训练代码，未权重/数据媒体下载或执行。"
+    },
+    {
+      "id": "L082",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "用离散图像语义码把现成LLM扩展为图像/文字交错理解与静态图像生成，含抽帧视频问答。视频是理解输入，多图故事/序列图不是时空连续视频生成；没有规范笔顺、落抬笔或机器人执行实验。 像素重建码未必在给定LLM预算下高效传达理解语义；连续特征需另设生成回归/接口。作者将高层语义与query因果mask当tokenizer设计原则，初版文字条件也不足保图像信息。双向图像encoder依然可用概率链式分解建AR模型，所称不兼容应限定经验可学习性，不能写数学不可能。",
+          "evidence": "固定预印本核心、实际框架/主表/消融及指定附录/发布；正式书目与所读版本分开，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "已知完整图像224²→ViT16×16连续特征→32causalqueries→32离散码；文字/图像码经共享LLM预测文字/图像码，码经重建网络/MLP→1个图像条件→冻结unCLIP-SD出静态图。视频预训取4帧，评MSVD/MSRVTT4帧、NExTQA8帧。query可crossattend完整图像，因果序列不等于真实时间。实际v1 F3原图与原始HTML T1–4/T6/T9重排渲染；图表布局转换已去原缩放style后核对。 tokenizer的ViT来自BLIP2，unCLIP UNet冻结；32query/8192visual IDs，新词embedding/head扩展。8B以Vicuna7B、14B以Llama2Chat13B初始化，不能当同族仅放大参数的尺度对照。语义decoder多层Transformer/MLP重建生成条件。固定公开QformerQuantizer默认8192×32、4层semantic/4层image blocks，image_down将每query768→32后拼1024再proj1024；这是当前实现指定段，未核所有checkpoint内部权重形状。",
+          "evidence": "固定预印本核心、实际框架/主表/消融及指定附录/发布；正式书目与所读版本分开，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "更新SEED tokenizer：BLIP2 ViT→32query causalQFormer→8192码本nearestVQ，同时重建语义embedding与1个unCLIP图像embedding，冻结unCLIP-SD解码。相对初版77个文字embedding监督，改图像条件；LLM扩词表以nexttoken目标训练，先LoRA+embedding/head，再merge并冻embedding做全参，后LoRA指令微调。 当目标任务依赖可压成32码的高层语义且unCLIP图像条件保留更多视觉信息时，可降低LLM长度并复用扩散先验；双重目标有利于两类任务接口，但不保证同时超过各自专模。causal query在本训练/自由解码可提高格式学习稳定性，属于经验假设；需固定输出长度再检语义优势。对精确多语言字形/笔顺过程无已证优势，codec和不可识别性先构成限制。",
+          "evidence": "固定预印本核心、实际框架/主表/消融及指定附录/发布；正式书目与所读版本分开，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1Flickr continuous93.6/quant90.8/BLIP292.9，COCO82.5/78.2/80.3，量化有损。T2重建SEED77.35/76.52强于初版68.23/65.22，低于unCLIP79.30/79.55；T2I SEED69.07/65.54，SFT70.68/66.55，GILL67.45/65.16。T3 8B SFTVQA44.2→66.2/SEEDBench42.2→51.5、14B48.1→63.4/46→53.7；14B SFTVQA低于8B66.2且SEEDBench53.7低于InstructBLIP58.8，caption126.9低于BLIP2144.5，不能宣称全面SOTA。视频问答进步不能外推视频生成。 §4.3双向码5000caption只2134生成正确32码，causal4997；失败按长度，缺固定码长/受限解码/等质量多seed对照，因果结论仅限设置。T2改1个图像条件大幅改善重建，但目标空间与SD版本共同变化，不能全归因token数。T4 LoRA→加全参 CIDEr124.5→125/图像相似68.87→69.07，同时多10k训练，缺LoRA等追加预算；小幅提升无CI。SFT同时加任务监督，不能把多任务能力当生成—理解双向协同实证。 v1T6：224²，30kLoRA+10k全参，AdamWlr1.5e-4/cosine/warm.03/β.9,.98/eps1e-6/wd.05；五组seq160/128/1024/1024/200，8B各batch146/180/26/26/116，14B46/56/8/8/36，sample4.5/54.5/9.1/27.3/4.5%。64A10040G预训144h/216h，32A10080G SFT16h/27h，不含完整基础模型/codec成本。固定公开pretrain.sh30k/lr1.5e-4/β.9,.95/eps1e-5/perdevice128/accum4；yaml六组加Wikipedia，前两max200/140，不等v1T6。SFT.sh50k/lr1e-4/warm.07；未以示例补原SFT全超参。",
+          "evidence": "固定预印本核心、实际框架/主表/消融及指定附录/发布；正式书目与所读版本分开，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "v1无独立Limitations段；32码/单图像条件易丢空间细节，重建保语义不保字形。自由长度失败也可能受停止/解码策略影响，需控制。AppE明确multimodal prompt generation因见过对应微调数据不算emergent；多轮/组合主要精选定性，未做训练组合隔离/成功率/失败分布。当前README称MMC4交错内容另训，发布sft不具该特性，不能把各demo能力合并给同一权重。正式PDF未完整取得；当前代码/数据/optimizer与所读v1有差异，未验证原结果复现。 固定初始化/训练曝光/codec码率/decoder/参数预算，双向与causal×自由与强制32码解码，分别报格式成功、给定成功样本和全部样本语义/画质；比较nextcode NLL与多seed。图像/文字蒸馏交叉同SD条件接口，补codec OCR/拓扑/位置误差。LoRA续训10k与merge全参10k等FLOPs或另列成本；同底座SFT正负迁移、组合隔离与全量多轮成功率。发布制品与论文配方分开复现，书写还需同终态异序事件监督。以上未运行。",
+          "evidence": "固定预印本核心、实际框架/主表/消融及指定附录/发布；正式书目与所读版本分开，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定2310.01218v1完整HTML Abstract/§1–5、T1–10、AppA/B/C/D及AppE限定/图注；实际F3原PNG和HTML T1–4/T6/T9原元素重排渲染，另实际核对完整AppA F8原PNG，图像条件保留更多主体语义仍改变姿态/布局/细节，不遍读全部定性画廊/参考文献。ICLR2024正式书目核实，正式PDF部分下载排除。固定GH93b3cf4完整526blob树、README/SEED1文档、tokenizer/init/VQ及decode指定段、peft接口指定段、pretrain/SFT脚本与model/tokenizer/data yaml；未全审LLM/数据管线/评测。HF tokenizer2/8Bsft固定短卡/metadata及config/generationconfig，不下载权重/tokenizer二进制/数据媒体或执行。"
     }
   ]
 }

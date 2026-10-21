@@ -394,3 +394,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第九十三批（2026-10-21）：接口/显式问答对照，等FLOPs/曝光两组，codec/后处理与同终态异事件；未运行。见[审查](../evidence/metaqueries_unifiedio_transfer_and_freezing_audit_2026-10-21.md)、[L062](../reviews/L062.md)、[L074](../reviews/L074.md)。
+
+
+第九十四批（2026-10-21）：causal/bidirectional×自由/强制32码，等追加LoRA/全参预算、同生成条件蒸馏、跨文字codec；未运行。见[审查](../evidence/seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[L078](../reviews/L078.md)、[L082](../reviews/L082.md)。

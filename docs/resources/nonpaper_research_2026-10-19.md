@@ -395,3 +395,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第九十三批（2026-10-21）：MetaQuery固定训练/采样/curation及HF原/512数据；UnifiedIO推理配置和四模型下载入口，未取权重。见[审查](../evidence/metaqueries_unifiedio_transfer_and_freezing_audit_2026-10-21.md)、[L062](../reviews/L062.md)、[L074](../reviews/L074.md)。
+
+
+第九十四批（2026-10-21）：共享SEED526blob固定树、训练脚本/多数据yaml、tokenizer2和8Bsft模型卡/config，区别初版/后续与另训demo。见[审查](../evidence/seed_initial_llama_causal_codes_and_release_audit_2026-10-21.md)、[L078](../reviews/L078.md)、[L082](../reviews/L082.md)。
