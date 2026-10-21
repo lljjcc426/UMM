@@ -451,3 +451,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百一十二批（2026-10-22）：同SigLIP先验/长度/FLOPs表示对照、固定曝光比例、统一prompt交叉与多seed双任务Pareto，未执行。见[审查](../evidence/unitoken_version_interference_and_prompt_protocol_audit_2026-10-22.md)、[L097](../reviews/L097.md)。
+
+
+第一百一十三批（2026-10-22）：同码率/LLM/数据/renderer和FLOPs的RL替换、独立奖励评价器及真实书写事件；仅理论反例，未运行模型实验。见[审查](../evidence/selftok_bellman_gradient_and_release_audit_2026-10-22.md)、[L098](../reviews/L098.md)。

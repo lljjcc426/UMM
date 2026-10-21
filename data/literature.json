@@ -15057,22 +15057,29 @@
     "title": "Selftok: Discrete Visual Tokens of Autoregression, by Diffusion, and for Reasoning",
     "source_urls": [
       "https://arxiv.org/abs/2505.07538",
-      "https://arxiv.org/html/2505.07538"
+      "https://arxiv.org/html/2505.07538",
+      "https://arxiv.org/abs/2505.07538v3",
+      "https://arxiv.org/pdf/2505.07538v3",
+      "https://selftok-team.github.io/report/",
+      "https://github.com/selftok-team/SelftokTokenizer/tree/46954740736f406b909a221b8eda8fd6962e1880",
+      "https://huggingface.co/selftok-team/SelftokTokenizer/tree/a3ee3c2918e7029921cb15f84afcecc37d62ff6c",
+      "https://openaccess.thecvf.com/content/CVPR2025/html/Pan_Generative_Multimodal_Pretraining_with_Discrete_Diffusion_Timestep_Tokens_CVPR_2025_paper.html",
+      "https://ddt-llama.github.io/"
     ],
-    "method": "以噪声时间选择token后缀训练一致重建，非空间query经VQ形成码；另训一步renderer，Llama3做纯离散AR，再用检测/VQA奖励的简化策略优化。 SD3 VAE×8、双流MMDiT image/query、token-aware AdaLN，码本32768×16、cos最近邻/STE、EMA.8及entropy/deadcode。decoder SD3初始化image流、token流重训；x_t=(1-t)noise+timage，后缀Vk(t):K重建。一步renderer冻结tokens换learnedcanvas，加MSE/LPIPS/GAN。Llama3-8B扩32768词，标准CE。",
-    "conclusion": "GenEval Pre.60/SFT.74/Zero.95；同RL JanusPro复现.79→.85。DPG SFT81.80→85.57；MME1381.3仍低于LLaVA1532.1及JanusPro1576。正文有“+18”等与表74→95的+21不一致，按表保留。",
-    "gap": "§4.1“空间token不满足Bellman无法RL”不成立为一般必要条件：将空间码前缀作为状态、下一码为action、末图reward可定义MDP；数据编码依赖和生成策略时间因果需区分。已有DDPO(L185)对扩散定义MDP。Eq20 PDF第25页确为-A+KL，未显式出现logπ/ratio；若A固定，缺策略梯度因子，需读代码确认省略记法。不能据报告判实现错误。256²、内部数据/教师、无纯等预算tokenizer替换限制因果归因。",
-    "problem": "学习非空间离散视觉序列，将扩散重建的分步结构引入AR，并测试视觉RL。",
+    "method": "以扩散时间和token后缀重建损失鼓励渐进非空间表示，VQ后另训一步renderer，接Llama纯离散AR；程序检测/多问VQA奖励用于简化GRPO式后训练。实验显示所测组合生成收益；码率、renderer、数据、基础模型和奖励差异未隔离为“只有此类码能RL”的因果/必要条件。 SD3VAE×8、MMDiT双流image/query和token-aware AdaLN，encoder hidden512，VQ瓶颈16维/32768码/cos最近邻/STE；论文codebookEMA.8、softassignmentτ.1、deadcode EMA.99。decoder SD3 image流初始化、token流重训。x_t=(1−t)noise+timage、条件V≥k(t)，Eq9前向不变/梯度按.5/p_k缩放。renderer以learnedcanvas换x_t，冻结tokens优化MSE/LPIPS/GAN，前30K权重.1/0后.5/.5。Llama3-8B+32768视觉词、CE共享head；公开注记AR码序须反向，未将代码时间/索引符号直接当原文同向。",
+    "conclusion": "T1 1024码rFID.54/PSNR26.30/SSIM.805/LPIPS.063；FlowMoHi .56/24.93/.785/.073但码本16384比32768低1bit/token。512码rFID.70弱于LlamaGen1024码.59，跨码率不能笼统全优。T7 Pre60→PreZero84；SFT74→Zero95（+21分），Janus†79→85（+6），最终95−85=10分；正文92/+18/+7与表不一致分别保留。T8 81.80→85.57（+3.77）但HiDream85.89更高，不称DPG全表SOTA。MME1381.3<Janus1576/LLaVA1532.1。PIE比EditAR多项好但LPIPS124.48差于117.15，未全面领先。",
+    "gap": "256²/内部数据/teacher与缺多seed和等码率单变量替换限制归因。§2以噪声为IV的论证未给明确估计量及完整识别假设，独立噪声本身不足证明所有表示无偏；递减/分段预测entropy也非AR的必要充分条件。§4空间token不能Bellman主张有前缀MDP反例；同表JanusRL收益也不支持不兼容的一般结论。Eq20纸面为−mean(A−λKL)，固定rollout与停止梯度奖励下未显式logπ/ratio；可能省记，不能据此判实际实现错误。公开GH只有tokenizer重建主路径，不能核RL梯度。扩散DPO轨迹替代不推出所有diffusionRL不可能，关联已读L185DDPO。",
+    "problem": "学习便于AR预测、重建且可用于奖励后训练的非空间静态图像离散码；以共享Llama骨干做图像生成、编辑和理解。未建立规范字形/笔顺/视频任务；扩散重建轨迹与物理书写事件区分，物理视频为后续方向。",
     "claim": "研究目标：学习非空间离散视觉序列，将扩散重建的分步结构引入AR，并测试视觉RL。",
-    "version": "Selftok，2025",
+    "version": "Selftok: Discrete Visual Tokens of Autoregression, by Diffusion, and for Reasoning；固定2505.07538v3，2025-05-27，完整42页技术报告；未另确认正式会场。前身DDT-LLaMA正式CVPR2025 pp26136–26146，作者项目明确为扩展关系；Selftok的RL/renderer与新数字不回填为前身正式结果。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 2. 表示与 tokenizer：信息容量、语义和细节如何共同保留",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-22",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-22",
     "id": "L098",
     "canonical_key": "paper:arxiv:2505.07538",
     "evidence_history": [
@@ -15104,17 +15111,22 @@
         "conclusion": "探索适合 AR 与 RL 的视觉序列；其 Bellman 论证依赖特定构造，不能扩成空间 token 无法做 RL",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-22",
+        "batch": 113,
+        "scope": "固定v3完整42页PDF Abstract/§1–5全部核心研究文字，Eq1–20、T1–8/F2–19图注、AppA1–3含T9/Algorithm1和AppB全部研究文字；参考文献未逐篇读，其他定性样例未逐图。实际p10F7、p15T2/T4/F8/F9、p22F15/T6、p25Eq19/20、p27F17、p28完整T7/T8已核。固定GH4695474全63树、README/TRAIN声明/测试/两evalyaml、ImageTokenizer采样/forward与Pipeline编解码/renderer路径、quantizer参数与EMA核心、diti映射；未全读MMDiT/向量量化/flow底层。HF a3ee3c29卡/6文件清单，无4权重下载；未运行训练/推理/accuracy/速度或独立复现。前身DDT-LLaMA正式CVF身份/摘要与sup首表新查，尚未全读，列后续队列不算Selftok重复论文。"
       }
     ],
-    "sections_read": "§2.1指定Eq1–5/叙述、§2.2、§2.3表2–4及指标、§3.1/3.2叙述、§4.1–4.3表7/8本作与Janus行、§5、AppA训练/Algorithm1/评估与B；42页PDF第25页Eq20交叉核。部分公式/全部大表图和代码未读，未复现",
+    "sections_read": "固定v3完整42页PDF Abstract/§1–5全部核心研究文字，Eq1–20、T1–8/F2–19图注、AppA1–3含T9/Algorithm1和AppB全部研究文字；参考文献未逐篇读，其他定性样例未逐图。实际p10F7、p15T2/T4/F8/F9、p22F15/T6、p25Eq19/20、p27F17、p28完整T7/T8已核。固定GH4695474全63树、README/TRAIN声明/测试/两evalyaml、ImageTokenizer采样/forward与Pipeline编解码/renderer路径、quantizer参数与EMA核心、diti映射；未全读MMDiT/向量量化/flow底层。HF a3ee3c29卡/6文件清单，无4权重下载；未运行训练/推理/accuracy/速度或独立复现。前身DDT-LLaMA正式CVF身份/摘要与sup首表新查，尚未全读，列后续队列不算Selftok重复论文。",
     "review_path": "docs/reviews/L098.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "Tokenizer IN1k256²train/val；AR530M公共COYO/DataComp/LAION及内部文字/图文，QwenVL/MiniCPM多层caption；SFT内部252202生成、约2K编辑等。RL仅无需成对真图，不代表预训练未用图文。GenEval/DPG、PIE700、MME/NoCaps。",
-    "framework": "以噪声时间选择token后缀训练一致重建，非空间query经VQ形成码；另训一步renderer，Llama3做纯离散AR，再用检测/VQA奖励的简化策略优化。",
-    "architecture": "SD3 VAE×8、双流MMDiT image/query、token-aware AdaLN，码本32768×16、cos最近邻/STE、EMA.8及entropy/deadcode。decoder SD3初始化image流、token流重训；x_t=(1-t)noise+timage，后缀Vk(t):K重建。一步renderer冻结tokens换learnedcanvas，加MSE/LPIPS/GAN。Llama3-8B扩32768词，标准CE。",
-    "metrics": "rFID（val重建对train分布）、PSNR/SSIM/LPIPS；GenEval/DPG、PIE结构/背景/CLIP编辑、MME等。RL与相同检测/VQA评价器的依赖需单独审查。",
-    "baselines": "空间TiTok/VAR/FlowMo/Cosmos等tokenizer，JanusPro等统一模型；JanusPro7B同RL流程基线；SelftokPre/SFT/Zero及有无renderer/不同schedule。",
-    "experimental_conditions": "256²；AR384Ascend910B2、b7680、200K步AdamWβ.9/.95、lr1e-4 cos→1e-5。生成SFT8芯片b32lr1e-5。renderer前30K LPIPS.1/GAN0再.5/.5，单910B2 b1重建8.2s→.31s。RL检测阈值.6，InternVL/mPLUG QA，称训练提示去重且RL后无额外testtimescaling；精确RL lr/rollout数未在所读段取得。"
+    "dataset": "Tokenizer ImageNet1K train/50Kval、resize中心裁256²。AR530M为公共COYO/DataComp/LAION子集+内部图文和文字序列总和，不能全部计530M独立图文；QwenVL/MiniCPM多级caption。生成SFT252202内部模型合成对；编辑总1487148含PIPE/UltraEdit/OmniEdit+约2K内部精调，旧笔记只记约2K不完整已补。理解VQAv2/OKVQA/AOKVQA/IconQA/GQA/OCRVQA/OneVision/TextVQA/PixMo/VizWiz，重配比例未全给。RL作者称去重训练prompt与test，但未提供完整清单/semantic-overlap审计。",
+    "framework": "以扩散时间和token后缀重建损失鼓励渐进非空间表示，VQ后另训一步renderer，接Llama纯离散AR；程序检测/多问VQA奖励用于简化GRPO式后训练。实验显示所测组合生成收益；码率、renderer、数据、基础模型和奖励差异未隔离为“只有此类码能RL”的因果/必要条件。",
+    "architecture": "SD3VAE×8、MMDiT双流image/query和token-aware AdaLN，encoder hidden512，VQ瓶颈16维/32768码/cos最近邻/STE；论文codebookEMA.8、softassignmentτ.1、deadcode EMA.99。decoder SD3 image流初始化、token流重训。x_t=(1−t)noise+timage、条件V≥k(t)，Eq9前向不变/梯度按.5/p_k缩放。renderer以learnedcanvas换x_t，冻结tokens优化MSE/LPIPS/GAN，前30K权重.1/0后.5/.5。Llama3-8B+32768视觉词、CE共享head；公开注记AR码序须反向，未将代码时间/索引符号直接当原文同向。",
+    "metrics": "重建rFID为重建val与真实train分布，PSNR/SSIM/LPIPS；T2I GenEval六任务与DPG Global/Entity/Attribute/Relation/Other及Overall。PIE700以DINO结构距离、背景PSNR/LPIPS×1e3/MSE×1e4/SSIM×1e2、CLIP全图/编辑×1e2，统一512²评价而生成256²。理解MME与NoCapsCIDEr，协同Δ=双任务−单任务。奖励与GenEval程序/DPG问答有结构同源风险，检测阈值和教师误差需独立指标检查，不能直接叫验证了普遍推理。",
+    "baselines": "重建2D LlamaGen/Cosmos/VQGAN/VAR、1D TiTok/FlexTok/FlowMo等，部分†取原文，码率与预训decoder不同。生成T7/T8含SDXL/SD3/FLUX/HiDream/Show-o/TokenFlow/Janus等；JanusPro7B†作者重测再同RL，非单换tokenizer的等预算对照。编辑含NTI/PnP/MasaCtrl/SEED-X/EditAR等；理解专用与统一模型分组，作者称统一行用公开代码重测。DDT-LLaMA是前身，不把其CVPR录用等同此扩展报告录用。",
+    "experimental_conditions": "AR48节点384Ascend910B2/b7680/200K/AdamWβ.9,.95/lr1e-4cos→1e-5；生成SFT8芯片/b32/lr1e-5/256²，编辑16芯片/b128/lr1e-5/白pad，理解32芯片/b128/lr1e-5。自适应logitadjustment高entropy才开启；生成γ10/τ2、编辑γ7.5/τ2，top-k实际k/采样数/seed未齐；RL后无额外testtimescaling为作者声明，不取消基本采样/renderer成本。程序MMDetection阈值.6、QA InternVL/mPLUG；编辑RL用InternVL2.5-78B0–5分。RL lr/rollout数/总卡时及tokenizer完整训练预算未齐。单910B2/b1重建8.2s→.31s约26.45倍，未包含Llama512次串行生成，非全链路一步。"
   },
   {
     "title": "UniCode$^2$: Cascaded Large-scale Codebooks for Unified Multimodal Understanding and Generation",

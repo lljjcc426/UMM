@@ -511,3 +511,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百一十二批（2026-10-22）：正式CVF完整11页核心/实际p3–6；固定arXiv方法/更新表、GH/HF及prompt文本核查。见[审查](unitoken_version_interference_and_prompt_protocol_audit_2026-10-22.md)、[L097](../reviews/L097.md)。
+
+
+第一百一十三批（2026-10-22）：固定v3核心/AppA/B和六页实际图表，GH/HF；前身DDT-LLaMA正式CVPR身份新查，尚待独立全文。见[审查](selftok_bellman_gradient_and_release_audit_2026-10-22.md)、[L098](../reviews/L098.md)。

@@ -1,0 +1,42 @@
+{
+  "id": "L098",
+  "date": "2026-10-22",
+  "arxiv_version": "2505.07538v3",
+  "pdf_complete": true,
+  "pages": 42,
+  "github_revision": "46954740736f406b909a221b8eda8fd6962e1880",
+  "github_tree_entries": 63,
+  "hf_revision": "a3ee3c2918e7029921cb15f84afcecc37d62ff6c",
+  "actual_visual_pages": [
+    10,
+    15,
+    22,
+    25,
+    27,
+    28
+  ],
+  "analytical_counterexample": "Fixed prompt plus spatial-token prefix as state, append sampled token as deterministic transition, terminal decoded-image reward: a finite-horizon MDP and Bellman recursion regardless of encoder spatial order. Does not establish equal optimization efficiency.",
+  "findings": [
+    "RL-only no paired supervision does not remove530M pretraining/SFT data",
+    "GenEval74to95 +21; Janus79to85 +6 and final gap10; prose92/+18/+7 conflicts",
+    "DPG85.57 belowHiDream85.89; MME1381.3 belowJanus1576",
+    "Eq20 lacks explicitlogprob/ratio for stopped-reward fixedrollout; no publicRL loop to resolve notation",
+    "F15 positiveSelftok delta but5M spatial slightlyhigher; F17 both models improve, shadingnotdefinedCI",
+    "One-step renderer is extra trained decoder; whole generation stillserialAR;1024PSNR26.26vs26.30 unresolved",
+    "Evalyaml quantizerdecay.99 drivescodebookEMA unlikepaper.8; ema_entropy_ratio.8 controlsotherterm",
+    "README training forthcoming; HF examples missingargs/sd3_path and nonexistentGPU module cannot prove full reproducibility",
+    "DDT-LLaMA CVPR2025 precursor separate from report; queuedfullread"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false,
+  "sources": [
+    "https://arxiv.org/abs/2505.07538v3",
+    "https://arxiv.org/pdf/2505.07538v3",
+    "https://selftok-team.github.io/report/",
+    "https://github.com/selftok-team/SelftokTokenizer/tree/46954740736f406b909a221b8eda8fd6962e1880",
+    "https://huggingface.co/selftok-team/SelftokTokenizer/tree/a3ee3c2918e7029921cb15f84afcecc37d62ff6c",
+    "https://openaccess.thecvf.com/content/CVPR2025/html/Pan_Generative_Multimodal_Pretraining_with_Discrete_Diffusion_Timestep_Tokens_CVPR_2025_paper.html",
+    "https://ddt-llama.github.io/"
+  ]
+}

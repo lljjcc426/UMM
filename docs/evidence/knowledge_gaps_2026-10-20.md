@@ -463,3 +463,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百一十二批（2026-10-22）：正式/arXiv阶段和表号，III退步、比例数据/步数混杂；stage2引用/accum_iter与prompt版本未齐。见[审查](unitoken_version_interference_and_prompt_protocol_audit_2026-10-22.md)、[L097](../reviews/L097.md)。
+
+
+第一百一十三批（2026-10-22）：Eq20实现未公开、reward同源、92/95与+18/+21/+7/+10差异、26.26/26.30及EMA.8/.99。见[审查](selftok_bellman_gradient_and_release_audit_2026-10-22.md)、[L098](../reviews/L098.md)。

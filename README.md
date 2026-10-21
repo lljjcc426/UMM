@@ -332,3 +332,6 @@ python scripts/validate_catalog.py
 
 
 第一百一十二批（2026-10-22）完成L097 UniToken正式workshop核心/实际p3–6，并核arXiv更新表、固定GH/HF和改写prompt。纠正两阶段/三阶段、负迁移与指标退步，保留当前配置/评测协议缺口。356目录，221核心/224书面含未通过项，135条未确认核心（含资源）。见[审查](docs/evidence/unitoken_version_interference_and_prompt_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twelfth_changes_2026-10-22.md)。无删除/模型复现。
+
+
+第一百一十三批（2026-10-22）完成L098 Selftok固定v3核心/AppA/B与六页实际图表公式，补编辑总数据及负例，给出空间码前缀MDP反例、保留Eq20实现待核；核GH/HF发布和EMA/码序，前身DDT正式文献入全文队列。356目录，222核心/225书面含未通过项，134条未确认核心（含资源）。见[审查](docs/evidence/selftok_bellman_gradient_and_release_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_thirteenth_changes_2026-10-22.md)。无删除/模型复现。

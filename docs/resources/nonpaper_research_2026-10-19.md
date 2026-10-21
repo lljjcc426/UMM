@@ -452,3 +452,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百一十二批（2026-10-22）：固定stageII卡/训练yaml和问答/图像采样，独立提示词资源553+300行文本统计；无权重/媒体/推理下载执行。见[审查](../evidence/unitoken_version_interference_and_prompt_protocol_audit_2026-10-22.md)、[L097](../reviews/L097.md)。
+
+
+第一百一十三批（2026-10-22）：63树/四权重目录、evalyaml与50步/一步路径，HF旧示例和GH当前代码区分，无权重下载。见[审查](../evidence/selftok_bellman_gradient_and_release_audit_2026-10-22.md)、[L098](../reviews/L098.md)。

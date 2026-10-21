@@ -7697,6 +7697,40 @@
         }
       ],
       "boundary": "正式CVF完整11页PDF的Abstract/§1–5全部核心、Eq1、完整T1–6/F1–4图注及§6致谢；实际p3F2、p4T1/2、p5T3/4、p6T5/6，定性F3/F4未逐图核、参考文献未逐篇读。另固定arXivv1§3–5研究文字、T2–6更新主表/配方选读，其他重复引言/相关工作未逐字再读。固定GH9181c613完整104树，README/TRAIN/两stage2shell/phase2yaml，AnyRes模型特征插入和label/zloss、generate_img/理解generate及CFG核心；未全读预token化/solver底层。固定HF96d1e4c模型卡/树、579054e提示词目录与GenEval/color全文文本计数/首例抽读，其他七组未下载，模型config不完整排除。无权重/图片视频下载、训练推理/指标运行或独立复现。"
+    },
+    {
+      "id": "L098",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "学习便于AR预测、重建且可用于奖励后训练的非空间静态图像离散码；以共享Llama骨干做图像生成、编辑和理解。未建立规范字形/笔顺/视频任务；扩散重建轨迹与物理书写事件区分，物理视频为后续方向。 空间码重建强不保证序列学习效率；理解/生成混训和组合生成可能有冲突/数据偏差。作者进一步主张空间token违反Bellman、不兼容RL，必要性不由其表示因果图或实验推出：前缀状态+追加空间码+终图奖励仍是有限MDP。原文§2已明确链式分解恒成立，不把作者论证误读为只用链式法则。",
+          "evidence": "固定v3核心/实际六页框架图表公式、AppA/B与固定制品选读；非独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "图像→SD3VAE→image/query双流encoder→K离散码→多步扩散或一步renderer→RGB；图文/编辑提示→共享Llama3-8B扩展词表→文字或图像码。编码训练从完整图像学tokens，用带噪中间点和后缀条件复原，非直接学习可观测真实作画顺序。实际p10F7、p15T2/T4/F8/F9、p22F15/T6、p25Eq19/20、p27F17、p28完整T7/T8已核。 SD3VAE×8、MMDiT双流image/query和token-aware AdaLN，encoder hidden512，VQ瓶颈16维/32768码/cos最近邻/STE；论文codebookEMA.8、softassignmentτ.1、deadcode EMA.99。decoder SD3 image流初始化、token流重训。x_t=(1−t)noise+timage、条件V≥k(t)，Eq9前向不变/梯度按.5/p_k缩放。renderer以learnedcanvas换x_t，冻结tokens优化MSE/LPIPS/GAN，前30K权重.1/0后.5/.5。Llama3-8B+32768视觉词、CE共享head；公开注记AR码序须反向，未将代码时间/索引符号直接当原文同向。",
+          "evidence": "固定v3核心/实际六页框架图表公式、AppA/B与固定制品选读；非独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "以扩散时间和token后缀重建损失鼓励渐进非空间表示，VQ后另训一步renderer，接Llama纯离散AR；程序检测/多问VQA奖励用于简化GRPO式后训练。实验显示所测组合生成收益；码率、renderer、数据、基础模型和奖励差异未隔离为“只有此类码能RL”的因果/必要条件。 在组合对象/属性与同分布奖励可可靠评判、非空间码渐进信息可被LLM较易建模时，表示及renderer可改善后训练效率；需与数据/先验/容量/采样预算拆开。有限码带宽不自动保证解耦或因果可识别，连续表示也可RL。重建细笔可改善输入，未测指定字准确性、非汉字文字生成或书写事件；扩散时间顺序不可替代真实笔顺监督。",
+          "evidence": "固定v3核心/实际六页框架图表公式、AppA/B与固定制品选读；非独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1 1024码rFID.54/PSNR26.30/SSIM.805/LPIPS.063；FlowMoHi .56/24.93/.785/.073但码本16384比32768低1bit/token。512码rFID.70弱于LlamaGen1024码.59，跨码率不能笼统全优。T7 Pre60→PreZero84；SFT74→Zero95（+21分），Janus†79→85（+6），最终95−85=10分；正文92/+18/+7与表不一致分别保留。T8 81.80→85.57（+3.77）但HiDream85.89更高，不称DPG全表SOTA。MME1381.3<Janus1576/LLaVA1532.1。PIE比EditAR多项好但LPIPS124.48差于117.15，未全面领先。 T2 uniform-time/customschedule PSNR21.86/.600/.150，uniform/uniform21.10/.564/.177；其他4组合更弱，仅重建不证明唯一因果结构。T3码本32768→65536 PSNR21.86→22.12伴随增bit。T4 renderer512码21.86→24.14/LPIPS.150→.084，1024为26.26而T1/README26.30，未解释.04差；renderer额外GAN/LPIPS训练单独计。F15固定4:6混训各点SelftokΔ正，空间码部分负；左5M点空间码略高，不照抄Selftok各点胜，且未报CI/等FLOPs/精确点。F17两模型GenEval奖励均随步改善，DPG曲线近且阴影重叠；阴影含义未说明，不作训练多seedCI。 AR48节点384Ascend910B2/b7680/200K/AdamWβ.9,.95/lr1e-4cos→1e-5；生成SFT8芯片/b32/lr1e-5/256²，编辑16芯片/b128/lr1e-5/白pad，理解32芯片/b128/lr1e-5。自适应logitadjustment高entropy才开启；生成γ10/τ2、编辑γ7.5/τ2，top-k实际k/采样数/seed未齐；RL后无额外testtimescaling为作者声明，不取消基本采样/renderer成本。程序MMDetection阈值.6、QA InternVL/mPLUG；编辑RL用InternVL2.5-78B0–5分。RL lr/rollout数/总卡时及tokenizer完整训练预算未齐。单910B2/b1重建8.2s→.31s约26.45倍，未包含Llama512次串行生成，非全链路一步。",
+          "evidence": "固定v3核心/实际六页框架图表公式、AppA/B与固定制品选读；非独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "256²/内部数据/teacher与缺多seed和等码率单变量替换限制归因。§2以噪声为IV的论证未给明确估计量及完整识别假设，独立噪声本身不足证明所有表示无偏；递减/分段预测entropy也非AR的必要充分条件。§4空间token不能Bellman主张有前缀MDP反例；同表JanusRL收益也不支持不兼容的一般结论。Eq20纸面为−mean(A−λKL)，固定rollout与停止梯度奖励下未显式logπ/ratio；可能省记，不能据此判实际实现错误。公开GH只有tokenizer重建主路径，不能核RL梯度。扩散DPO轨迹替代不推出所有diffusionRL不可能，关联已读L185DDPO。 固定LLM/预训和SFT数据、renderer/码率与总FLOPs，只换空间/非空间码；分别按固定rollout/总计算做RL，核scorefunction或ratio梯度，公开prompt/语义近邻去重/采样seed。使用与奖励独立的检测/VLM/人工/多样性和OCR指标检验rewardhacking。prefix空间码MDP给出理论反例；改变顺序并量条件熵不等于因果识别。对IV写出估计目标与排除/相关性假设再检验；同终态异笔顺过程测接触/抬笔/墨迹事件，先用静态生成强基线。以上建议未执行，分析性反例不等于新发表课题。",
+          "evidence": "固定v3核心/实际六页框架图表公式、AppA/B与固定制品选读；非独立复现，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定v3完整42页PDF Abstract/§1–5全部核心研究文字，Eq1–20、T1–8/F2–19图注、AppA1–3含T9/Algorithm1和AppB全部研究文字；参考文献未逐篇读，其他定性样例未逐图。实际p10F7、p15T2/T4/F8/F9、p22F15/T6、p25Eq19/20、p27F17、p28完整T7/T8已核。固定GH4695474全63树、README/TRAIN声明/测试/两evalyaml、ImageTokenizer采样/forward与Pipeline编解码/renderer路径、quantizer参数与EMA核心、diti映射；未全读MMDiT/向量量化/flow底层。HF a3ee3c29卡/6文件清单，无4权重下载；未运行训练/推理/accuracy/速度或独立复现。前身DDT-LLaMA正式CVF身份/摘要与sup首表新查，尚未全读，列后续队列不算Selftok重复论文。"
     }
   ]
 }

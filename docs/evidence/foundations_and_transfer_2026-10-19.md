@@ -258,3 +258,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百一十二批（2026-10-22）：单任务/联合干扰减轻仍有负迁移；输入连续支路不等于T2I输出连续码，额外先验/成本需对齐。见[审查](unitoken_version_interference_and_prompt_protocol_audit_2026-10-22.md)、[L097](../reviews/L097.md)。
+
+
+第一百一十三批（2026-10-22）：空间码前缀MDP反例、entropy不等于因果、IV假设与Eq20梯度；关联已读L185DDPO。见[审查](selftok_bellman_gradient_and_release_audit_2026-10-22.md)、[L098](../reviews/L098.md)。

@@ -422,3 +422,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百一十二批（2026-10-22）：双输入共享AR静态理解/生成；workshop与主会区分，OCR读取与指定字/时序生成分开。见[审查](unitoken_version_interference_and_prompt_protocol_audit_2026-10-22.md)、[L097](../reviews/L097.md)。
+
+
+第一百一十三批（2026-10-22）：扩散渐进码/静态纯AR与视觉RL；前身正式版关联，视频物理/笔顺为后续非本作已完成能力。见[审查](selftok_bellman_gradient_and_release_audit_2026-10-22.md)、[L098](../reviews/L098.md)。
