@@ -514,3 +514,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百一十三批（2026-10-22）：固定v3核心/AppA/B和六页实际图表，GH/HF；前身DDT-LLaMA正式CVPR身份新查，尚待独立全文。见[审查](selftok_bellman_gradient_and_release_audit_2026-10-22.md)、[L098](../reviews/L098.md)。
+
+
+第一百一十四批（2026-10-22）：Selftok追引补正式CVPR2025前身G044，正式11页与supp11页完整核心/实际图表，code/HF跳转映射。见[审查](ddtllama_formal_precursor_and_protocol_audit_2026-10-22.md)、[G044](../reviews/G044.md)、[L098](../reviews/L098.md)。

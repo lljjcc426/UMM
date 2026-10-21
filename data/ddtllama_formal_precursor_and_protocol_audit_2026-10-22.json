@@ -1,0 +1,43 @@
+{
+  "id": "G044",
+  "date": "2026-10-22",
+  "official_venue": "CVPR2025 pp26136–26146",
+  "pdf_complete": true,
+  "pdf_pages": 11,
+  "pdf_bytes": 4943187,
+  "supplement_complete": true,
+  "supplement_pages": 11,
+  "supplement_bytes": 6908233,
+  "actual_visuals": [
+    "Formalp3F2/Eq1/2",
+    "Formalp4T1/T2",
+    "Formalp7T3/T4/F6",
+    "Formalp8F7/F8/F9",
+    "Suppp1T1"
+  ],
+  "related_report": "L098Selftok2505.07538v3",
+  "shared_artifact_github_revision": "46954740736f406b909a221b8eda8fd6962e1880",
+  "shared_artifact_hf_revision": "a3ee3c2918e7029921cb15f84afcecc37d62ff6c",
+  "findings": [
+    "Missing formalprecursor added with explicitfamily relation, no assumption independentinnovation",
+    "480codes/65536vocab/GenEval.66 distinct fromSelftok512or1024/32768vocab/.95RL",
+    "No one-step renderer orvisualRL in formalpaper",
+    "MLLMpt andft betas.9/.95, tokenizer.9/.99 from actualsuppT1; VAE path/decoder initialization not specified",
+    "F9a istextperplexity notjoint-minus-single; F9b65vs10cases not65percent and full denominator unknown",
+    "TwoObj.64 belowEmu3.71, SEED67.9 belowEmu368.2, VQA76.4 belowEmu2chat84.9",
+    "Scaling familyandcapacity change together withselectedexamples, nofitlaw",
+    "Project code/checkpoint route toSelftokcurrentrelease, no480formalMLLMcheckpoint confirmed"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false,
+  "sources": [
+    "https://openaccess.thecvf.com/content/CVPR2025/html/Pan_Generative_Multimodal_Pretraining_with_Discrete_Diffusion_Timestep_Tokens_CVPR_2025_paper.html",
+    "https://openaccess.thecvf.com/content/CVPR2025/papers/Pan_Generative_Multimodal_Pretraining_with_Discrete_Diffusion_Timestep_Tokens_CVPR_2025_paper.pdf",
+    "https://openaccess.thecvf.com/content/CVPR2025/supplemental/Pan_Generative_Multimodal_Pretraining_CVPR_2025_supplemental.pdf",
+    "https://arxiv.org/abs/2504.14666",
+    "https://ddt-llama.github.io/",
+    "https://github.com/selftok-team/SelftokTokenizer/tree/46954740736f406b909a221b8eda8fd6962e1880",
+    "https://huggingface.co/selftok-team/SelftokTokenizer/tree/a3ee3c2918e7029921cb15f84afcecc37d62ff6c"
+  ]
+}

@@ -7731,6 +7731,40 @@
         }
       ],
       "boundary": "固定v3完整42页PDF Abstract/§1–5全部核心研究文字，Eq1–20、T1–8/F2–19图注、AppA1–3含T9/Algorithm1和AppB全部研究文字；参考文献未逐篇读，其他定性样例未逐图。实际p10F7、p15T2/T4/F8/F9、p22F15/T6、p25Eq19/20、p27F17、p28完整T7/T8已核。固定GH4695474全63树、README/TRAIN声明/测试/两evalyaml、ImageTokenizer采样/forward与Pipeline编解码/renderer路径、quantizer参数与EMA核心、diti映射；未全读MMDiT/向量量化/flow底层。HF a3ee3c29卡/6文件清单，无4权重下载；未运行训练/推理/accuracy/速度或独立复现。前身DDT-LLaMA正式CVF身份/摘要与sup首表新查，尚未全读，列后续队列不算Selftok重复论文。"
+    },
+    {
+      "id": "G044",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题与动机",
+          "answer": "学习非空间递归图像码，通过共享Llama下一token预测同时理解、静态生成与指令编辑；训练decoder在不同噪声时间仅凭相应前缀恢复原图。未训练逐笔书写、规范笔顺或视频生成，素描为图像风格/编辑例而非作画过程。 作者认为理解抽象与生成细节保留冲突，空间序列排列扰动不影响收敛而缺语言递归；用扩散属性损失组织视觉码。排列敏感性是经验特征，不能推出空间码为LLM不可能掌握的语言或证明所有图像因子解耦；有限baseline且decoder/码率/数据混杂。",
+          "evidence": "正式核心/实际框架主表与F9已有对照、完整supp研究说明；非口试或独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "无噪图像/learnedquery→双流encoder→480连续query→65536码本ID；加噪x_t=t*epsilon+(1−t)x0和前t码→decoder还原x0，后码mask0。图文序列→Llama输出文字或480视觉码→多步decoder。正式p3F2/Eq1/2、p4T1/2、p7T3/4/F6、p8F7/8/9、suppp1完整超参表已实际核。作者encoder-free特指不用预训CLIP，模型仍有自训图像encoder。 Encoder两独立20层Transformer/hidden256，1024图像位置与480learnedquery，1D/2Dsinusoidal位置、联合attention；只保留query。VQ256→16维、L2/cos最近邻、65536码、EMA与deadcode重激活。decoder依SD3 MMDiT双流各24层hidden1536，以量化码替text、16→1536投影/移除pooledtext；正式材料未明确VAE路径/decoder权重初始化，不照搬后续SelftokSD3VAE。Llama3-8B扩65536视觉码与BOV/EOV、共享预测头，当前输出模态外词logits屏蔽。",
+          "evidence": "正式核心/实际框架主表与F9已有对照、完整supp研究说明；非口试或独立复现"
+        },
+        {
+          "criterion": "解释创新与优势条件",
+          "answer": "ImageNet训练的query型非空间encoder+VQ+时间条件前缀MMDiT重建；视觉ID并入Llama3-8B词表、统一CE与共享head，200M对齐后多任务SFT。递归式f_t=(f_t−1,V_t)为表示设计，非新增物理时间事件。正式版没有Selftok的一步renderer或视觉RL，后续.95成绩不可移入本作.66结果。 在扩散噪声移除的属性层级与编辑需求相合、量化码可预测、训练语言图文分布覆盖时，非空间码可降低局部拼贴并保留文本预测能力。适合验证静态属性编辑和组合生成；对精确小字/新文字、背景不变及过程事件需分别测，有限排列/定性插码不能证明抽象因子已可识别。",
+          "evidence": "正式核心/实际框架主表与F9已有对照、完整supp研究说明；非口试或独立复现"
+        },
+        {
+          "criterion": "解释主表/已有消融/缺失与条件",
+          "answer": "正式T1 GenEval.66（single.99/two.64/count.56/color.87/pos.39/attr.48），高于表内MLLM整体但低于SD3.74/DALL-E3.67；two.64<Emu3.71，Compcomplex.345<SEED-X.361，Draw.267与Lumina持平。T2本作EVR14.5/85.5、MA5K14.2/29.6、MagicBrush7.1/92.4，在该MLLM组均优；EVRL1仍差于UltraEdit14.4、MA5KL1差于MGIE13.3、MBL1差于Ultra6.6。T3 124.2/88.5/76.4/66.3/65.9/57.3/1378.9/67.9/86.9，VQA低于Emu2chat84.9/SEED低于Emu368.2，MME低于多专用理解模型。T4 PSNR21.7/FID6.1为选定同表比较，非当前所有codecSOTA。 F1排列normal/reverse/partreverse/oddshuffle的收敛曲线差异支持序列顺序重要，未隔离所有表示/数据影响。F9a文字perplexity DDT约2.58→2.48、空间约2.58→2.71，缺测量集/CI/等预算详细条件；不是双任务减单任务曲线。F9b Gemma对照global40比2/local25比8，总65比10偏好案例，未给标注者数/盲法/完整分母/平局，不能写65%或86.7%人类胜率。F6属性替码/F8前缀定性，未量解耦；F7两底座Gemma2B/Llama8B×三训练阶段50/75/100%选例，不是拟合scalinglaw，参数和模型家族同时变。无去递归/固定全部码/独立head/码长和词表的完整因子消融。 正式suppT1实际β行：MLLMpt/ft AdamWβ.9,.95/eps1e-6，tokenizerβ.9,.99；pt lr1e-4/cos/b1280/360K/warm5K/wd.05/clip1、512Ascend910B/MegatronTP8约2周；ft1e-5/cos/b256或128/160K/warm2K/wd.05/clip1、256Ascend；tokenizer1e-4/linear+cos/b1024/140K/warm5K/wd0、32A800DDP约1周，均bf16。推理texttopk50/topp1，imagetopk4096/topp.9/CFG8；确切实际denoise调用数/seed/图数/采样耗时未齐，不套用Selftok50step或.31s。训练一次loss小spike回退500步为作者处理，非稳定性定理。",
+          "evidence": "正式核心/实际框架主表与F9已有对照、完整supp研究说明；非口试或独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证设计",
+          "answer": "正式suppG明确ImageNet256²限制开放域重建/美感，未完成500M扩展和视频。自建/重caption数据、多个预训先验/解码器、单运行无CI和人评协议不全限制因果解释。训练噪声时序/码前缀长度不保证表示无耦合，更不等于物理笔顺；用CLIP筛数据与相关CLIP指标存在选择偏差待独立评价。实际codec/VAE和decoder初始化未齐，release链接现转Selftok512/1024版，无480正式MLLM检查点/整套训练验证。 固定LLM/文本图文曝光、词表码率/码长、decoder容量和预训、总训练FLOPs，对空间/learnedquery、时间前缀/全部码/随机等长mask做完整因子；同时报rFID/PSNR/独立OCR、生成属性、理解与编辑source保留。独立heldout文本perplexity与单双任务差，多个seed；blind多标注者A/B含平局/总分母/一致性。Gemma与Llama同参数对照后拟合算力曲线与残差，不由6组例图声称定律。把480×16bit=7680与Selftok512×15bit=7680作相同比特起点仍要匹配数据/renderer。书写另采时变墨迹/笔画事件；建议未执行，需查新。",
+          "evidence": "正式核心/实际框架主表与F9已有对照、完整supp研究说明；非口试或独立复现"
+        }
+      ],
+      "boundary": "CVPR2025正式完整11页PDF Abstract/§1–6全部核心研究文字、Eq1/2/T1–4/F1–9图注，实际p3F2/公式、p4完整T1/2、p7T3/4/F6、p8F7/8/9；正式完整11页supp A/B1–2/C/D/E/F1–3/G全部研究说明和超参表，实际suppp1；其他定性图未逐图、参考文献未逐篇。正式元数据与作者DDT项目/后续关系核查；其code/checkpoint链接实际转Selftok，复用113批固定GH4695474全63树及HF a3ee3c29清单证据，仅关联不证明480正式版可复现。本批无新增权重/数据媒体下载、模型执行或独立复现。"
     }
   ]
 }

@@ -261,3 +261,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百一十三批（2026-10-22）：空间码前缀MDP反例、entropy不等于因果、IV假设与Eq20梯度；关联已读L185DDPO。见[审查](selftok_bellman_gradient_and_release_audit_2026-10-22.md)、[L098](../reviews/L098.md)。
+
+
+第一百一十四批（2026-10-22）：排列/文本perplexity与协同因果边界，前缀渐进非物理时间；名义相同比特仍需同数据/decoder预算。见[审查](ddtllama_formal_precursor_and_protocol_audit_2026-10-22.md)、[G044](../reviews/G044.md)、[L098](../reviews/L098.md)。

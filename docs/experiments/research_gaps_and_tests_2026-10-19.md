@@ -454,3 +454,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百一十三批（2026-10-22）：同码率/LLM/数据/renderer和FLOPs的RL替换、独立奖励评价器及真实书写事件；仅理论反例，未运行模型实验。见[审查](../evidence/selftok_bellman_gradient_and_release_audit_2026-10-22.md)、[L098](../reviews/L098.md)。
+
+
+第一百一十四批（2026-10-22）：同LLM/曝光/码率/FLOPs空间-query×mask对照、独立文本集和盲人评；全部未执行。见[审查](../evidence/ddtllama_formal_precursor_and_protocol_audit_2026-10-22.md)、[G044](../reviews/G044.md)、[L098](../reviews/L098.md)。

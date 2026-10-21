@@ -7112,7 +7112,11 @@
     "architecture": "SD3VAE×8、MMDiT双流image/query和token-aware AdaLN，encoder hidden512，VQ瓶颈16维/32768码/cos最近邻/STE；论文codebookEMA.8、softassignmentτ.1、deadcode EMA.99。decoder SD3 image流初始化、token流重训。x_t=(1−t)noise+timage、条件V≥k(t)，Eq9前向不变/梯度按.5/p_k缩放。renderer以learnedcanvas换x_t，冻结tokens优化MSE/LPIPS/GAN，前30K权重.1/0后.5/.5。Llama3-8B+32768视觉词、CE共享head；公开注记AR码序须反向，未将代码时间/索引符号直接当原文同向。",
     "metrics": "重建rFID为重建val与真实train分布，PSNR/SSIM/LPIPS；T2I GenEval六任务与DPG Global/Entity/Attribute/Relation/Other及Overall。PIE700以DINO结构距离、背景PSNR/LPIPS×1e3/MSE×1e4/SSIM×1e2、CLIP全图/编辑×1e2，统一512²评价而生成256²。理解MME与NoCapsCIDEr，协同Δ=双任务−单任务。奖励与GenEval程序/DPG问答有结构同源风险，检测阈值和教师误差需独立指标检查，不能直接叫验证了普遍推理。",
     "baselines": "重建2D LlamaGen/Cosmos/VQGAN/VAR、1D TiTok/FlexTok/FlowMo等，部分†取原文，码率与预训decoder不同。生成T7/T8含SDXL/SD3/FLUX/HiDream/Show-o/TokenFlow/Janus等；JanusPro7B†作者重测再同RL，非单换tokenizer的等预算对照。编辑含NTI/PnP/MasaCtrl/SEED-X/EditAR等；理解专用与统一模型分组，作者称统一行用公开代码重测。DDT-LLaMA是前身，不把其CVPR录用等同此扩展报告录用。",
-    "experimental_conditions": "AR48节点384Ascend910B2/b7680/200K/AdamWβ.9,.95/lr1e-4cos→1e-5；生成SFT8芯片/b32/lr1e-5/256²，编辑16芯片/b128/lr1e-5/白pad，理解32芯片/b128/lr1e-5。自适应logitadjustment高entropy才开启；生成γ10/τ2、编辑γ7.5/τ2，top-k实际k/采样数/seed未齐；RL后无额外testtimescaling为作者声明，不取消基本采样/renderer成本。程序MMDetection阈值.6、QA InternVL/mPLUG；编辑RL用InternVL2.5-78B0–5分。RL lr/rollout数/总卡时及tokenizer完整训练预算未齐。单910B2/b1重建8.2s→.31s约26.45倍，未包含Llama512次串行生成，非全链路一步。"
+    "experimental_conditions": "AR48节点384Ascend910B2/b7680/200K/AdamWβ.9,.95/lr1e-4cos→1e-5；生成SFT8芯片/b32/lr1e-5/256²，编辑16芯片/b128/lr1e-5/白pad，理解32芯片/b128/lr1e-5。自适应logitadjustment高entropy才开启；生成γ10/τ2、编辑γ7.5/τ2，top-k实际k/采样数/seed未齐；RL后无额外testtimescaling为作者声明，不取消基本采样/renderer成本。程序MMDetection阈值.6、QA InternVL/mPLUG；编辑RL用InternVL2.5-78B0–5分。RL lr/rollout数/总卡时及tokenizer完整训练预算未齐。单910B2/b1重建8.2s→.31s约26.45倍，未包含Llama512次串行生成，非全链路一步。",
+    "related_records": [
+      "G044"
+    ],
+    "work_family": "DDT-LLaMA/Selftok"
   },
   {
     "title": "UniCode$^2$: Cascaded Large-scale Codebooks for Unified Multimodal Understanding and Generation",

@@ -455,3 +455,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百一十三批（2026-10-22）：63树/四权重目录、evalyaml与50步/一步路径，HF旧示例和GH当前代码区分，无权重下载。见[审查](../evidence/selftok_bellman_gradient_and_release_audit_2026-10-22.md)、[L098](../reviews/L098.md)。
+
+
+第一百一十四批（2026-10-22）：项目当前code/checkpoint跳转Selftok512/1024目录，不作480正式制品复现证据，无权重下载。见[审查](../evidence/ddtllama_formal_precursor_and_protocol_audit_2026-10-22.md)、[G044](../reviews/G044.md)、[L098](../reviews/L098.md)。

@@ -428,3 +428,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百一十三批（2026-10-22）完成L098 Selftok固定v3核心/AppA/B与六页实际图表公式，补编辑总数据及负例，给出空间码前缀MDP反例、保留Eq20实现待核；核GH/HF发布和EMA/码序，前身DDT正式文献入全文队列。356目录，222核心/225书面含未通过项，134条未确认核心（含资源）。见[审查](selftok_bellman_gradient_and_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_thirteenth_changes_2026-10-22.md)。无删除/模型复现。
+
+
+第一百一十四批（2026-10-22）补录G044 DDT-LLaMA正式CVPR2025核心/完整supp研究说明及实际图表，关联L098前身/扩展而不作独立重复创新；分别记录480码/GenEval.66、文本perplexity与人评案例、发布跳转范围。357目录，223核心/226书面含未通过项，134条未确认核心（含资源）。见[审查](ddtllama_formal_precursor_and_protocol_audit_2026-10-22.md)、[逐文件说明](one_hundred_fourteenth_changes_2026-10-22.md)。无删除/模型复现。

@@ -425,3 +425,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百一十三批（2026-10-22）：扩散渐进码/静态纯AR与视觉RL；前身正式版关联，视频物理/笔顺为后续非本作已完成能力。见[审查](selftok_bellman_gradient_and_release_audit_2026-10-22.md)、[L098](../reviews/L098.md)。
+
+
+第一百一十四批（2026-10-22）：480码递归表示/静态共享AR，关联L098同家族版本；非真实笔顺或已完成视频生成。见[审查](ddtllama_formal_precursor_and_protocol_audit_2026-10-22.md)、[G044](../reviews/G044.md)、[L098](../reviews/L098.md)。

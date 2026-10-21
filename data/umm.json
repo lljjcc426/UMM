@@ -6237,7 +6237,11 @@
     "architecture": "SD3VAE×8、MMDiT双流image/query和token-aware AdaLN，encoder hidden512，VQ瓶颈16维/32768码/cos最近邻/STE；论文codebookEMA.8、softassignmentτ.1、deadcode EMA.99。decoder SD3 image流初始化、token流重训。x_t=(1−t)noise+timage、条件V≥k(t)，Eq9前向不变/梯度按.5/p_k缩放。renderer以learnedcanvas换x_t，冻结tokens优化MSE/LPIPS/GAN，前30K权重.1/0后.5/.5。Llama3-8B+32768视觉词、CE共享head；公开注记AR码序须反向，未将代码时间/索引符号直接当原文同向。",
     "metrics": "重建rFID为重建val与真实train分布，PSNR/SSIM/LPIPS；T2I GenEval六任务与DPG Global/Entity/Attribute/Relation/Other及Overall。PIE700以DINO结构距离、背景PSNR/LPIPS×1e3/MSE×1e4/SSIM×1e2、CLIP全图/编辑×1e2，统一512²评价而生成256²。理解MME与NoCapsCIDEr，协同Δ=双任务−单任务。奖励与GenEval程序/DPG问答有结构同源风险，检测阈值和教师误差需独立指标检查，不能直接叫验证了普遍推理。",
     "baselines": "重建2D LlamaGen/Cosmos/VQGAN/VAR、1D TiTok/FlexTok/FlowMo等，部分†取原文，码率与预训decoder不同。生成T7/T8含SDXL/SD3/FLUX/HiDream/Show-o/TokenFlow/Janus等；JanusPro7B†作者重测再同RL，非单换tokenizer的等预算对照。编辑含NTI/PnP/MasaCtrl/SEED-X/EditAR等；理解专用与统一模型分组，作者称统一行用公开代码重测。DDT-LLaMA是前身，不把其CVPR录用等同此扩展报告录用。",
-    "experimental_conditions": "AR48节点384Ascend910B2/b7680/200K/AdamWβ.9,.95/lr1e-4cos→1e-5；生成SFT8芯片/b32/lr1e-5/256²，编辑16芯片/b128/lr1e-5/白pad，理解32芯片/b128/lr1e-5。自适应logitadjustment高entropy才开启；生成γ10/τ2、编辑γ7.5/τ2，top-k实际k/采样数/seed未齐；RL后无额外testtimescaling为作者声明，不取消基本采样/renderer成本。程序MMDetection阈值.6、QA InternVL/mPLUG；编辑RL用InternVL2.5-78B0–5分。RL lr/rollout数/总卡时及tokenizer完整训练预算未齐。单910B2/b1重建8.2s→.31s约26.45倍，未包含Llama512次串行生成，非全链路一步。"
+    "experimental_conditions": "AR48节点384Ascend910B2/b7680/200K/AdamWβ.9,.95/lr1e-4cos→1e-5；生成SFT8芯片/b32/lr1e-5/256²，编辑16芯片/b128/lr1e-5/白pad，理解32芯片/b128/lr1e-5。自适应logitadjustment高entropy才开启；生成γ10/τ2、编辑γ7.5/τ2，top-k实际k/采样数/seed未齐；RL后无额外testtimescaling为作者声明，不取消基本采样/renderer成本。程序MMDetection阈值.6、QA InternVL/mPLUG；编辑RL用InternVL2.5-78B0–5分。RL lr/rollout数/总卡时及tokenizer完整训练预算未齐。单910B2/b1重建8.2s→.31s约26.45倍，未包含Llama512次串行生成，非全链路一步。",
+    "related_records": [
+      "G044"
+    ],
+    "work_family": "DDT-LLaMA/Selftok"
   },
   {
     "title": "UniCode$^2$: Cascaded Large-scale Codebooks for Unified Multimodal Understanding and Generation",
@@ -11175,5 +11179,53 @@
     "gap": "只检验一个ThinkMorph家族；teacher有预存额外视觉信息且起点已有ThinkMorph训练，未分离生成预训与一般特权视觉监督。AppB的forwardKL算术混合最优性与JSD凸性下界不推出本文截断clamp/EMA的收敛或学生优于teacher。作者AppK/L展示错误强化/像素干扰及局部颜色/裁剪导致student失败，非全样本机制频率。原文总参、公开EVAL示例和SFT初始化均须保留；未审全部trainer/数据/外部harness、未复现。",
     "claim": "研究目标：已有UMM的视觉思考图像是否值得昂贵的生成成本，能否将带额外视觉参考的teacher预测分布迁入不生成图像的student？",
     "version": "Visual-OPSD: Cross-Modal On-Policy Self-Distillation for Efficient Unified Multimodal Reasoning；arXiv2606.18974v6，2026-09-25；未核实正式接收"
+  },
+  {
+    "id": "G044",
+    "title": "Generative Multimodal Pretraining with Discrete Diffusion Timestep Tokens (DDT-LLaMA)",
+    "canonical_key": "paper:arxiv:2504.14666",
+    "source_urls": [
+      "https://openaccess.thecvf.com/content/CVPR2025/html/Pan_Generative_Multimodal_Pretraining_with_Discrete_Diffusion_Timestep_Tokens_CVPR_2025_paper.html",
+      "https://openaccess.thecvf.com/content/CVPR2025/papers/Pan_Generative_Multimodal_Pretraining_with_Discrete_Diffusion_Timestep_Tokens_CVPR_2025_paper.pdf",
+      "https://openaccess.thecvf.com/content/CVPR2025/supplemental/Pan_Generative_Multimodal_Pretraining_CVPR_2025_supplemental.pdf",
+      "https://arxiv.org/abs/2504.14666",
+      "https://ddt-llama.github.io/",
+      "https://github.com/selftok-team/SelftokTokenizer/tree/46954740736f406b909a221b8eda8fd6962e1880",
+      "https://huggingface.co/selftok-team/SelftokTokenizer/tree/a3ee3c2918e7029921cb15f84afcecc37d62ff6c"
+    ],
+    "aliases": [
+      "DDT-LLaMA",
+      "Discrete Diffusion Timestep Tokens"
+    ],
+    "scope": "umm",
+    "category": "UMM及相关机制 / 2. 表示与tokenizer：信息容量、语义和细节如何共同保留",
+    "record_type": "paper",
+    "privacy": "public_source_note",
+    "provenance": "2026-10-22 第一百一十四批，Selftok前身追引补漏；正式CVPR核心/完整supp研究文字与实际图表",
+    "verification": "primary_sections_read",
+    "review_path": "docs/reviews/G044.md",
+    "note_path": "docs/reviews/G044.md",
+    "review_depth": "critical_sections_reviewed",
+    "version": "Generative Multimodal Pretraining with Discrete Diffusion Timestep Tokens（DDT-LLaMA）；正式CVPR2025 pp26136–26146，完整11页PDF与11页正式supp；arXiv2504.14666仅作身份关联，本批按正式版。是L098Selftok的前身，作者明确扩展关系，分别记录版本而不当两项独立无关创新。",
+    "checked_on": "2026-10-22",
+    "last_updated": "2026-10-22",
+    "sections_read": "CVPR2025正式完整11页PDF Abstract/§1–6全部核心研究文字、Eq1/2/T1–4/F1–9图注，实际p3F2/公式、p4完整T1/2、p7T3/4/F6、p8F7/8/9；正式完整11页supp A/B1–2/C/D/E/F1–3/G全部研究说明和超参表，实际suppp1；其他定性图未逐图、参考文献未逐篇。正式元数据与作者DDT项目/后续关系核查；其code/checkpoint链接实际转Selftok，复用113批固定GH4695474全63树及HF a3ee3c29清单证据，仅关联不证明480正式版可复现。本批无新增权重/数据媒体下载、模型执行或独立复现。",
+    "dataset": "Tokenizer ImageNet1K约1.28M、中心裁256²；原图重建val与类别生成ImageNet。MLLM Laion/Coyo200M对，ShareGPT4V为>400M图生成长caption后CLIP筛200M；训练长/短60/40、captiondrop10%，另Wiki/Pile文字10%。SFT图生ShareGPT4V/ALLaVA/GRIT，编辑InstructPix2Pix/HIVE和自建高质量对，理解ShareGPT4V/ALLaVA-instruct及InstructBLIP held-in训练；未给完整采样数/ID。评GenEval/CompBench/DrawBench，EVR/MA5K/MagicBrush，NoCaps/Flickr/VQAv2/GQA/OKVQA/VizWiz/MME/SEED/POPE。",
+    "framework": "ImageNet训练的query型非空间encoder+VQ+时间条件前缀MMDiT重建；视觉ID并入Llama3-8B词表、统一CE与共享head，200M对齐后多任务SFT。递归式f_t=(f_t−1,V_t)为表示设计，非新增物理时间事件。正式版没有Selftok的一步renderer或视觉RL，后续.95成绩不可移入本作.66结果。",
+    "architecture": "Encoder两独立20层Transformer/hidden256，1024图像位置与480learnedquery，1D/2Dsinusoidal位置、联合attention；只保留query。VQ256→16维、L2/cos最近邻、65536码、EMA与deadcode重激活。decoder依SD3 MMDiT双流各24层hidden1536，以量化码替text、16→1536投影/移除pooledtext；正式材料未明确VAE路径/decoder权重初始化，不照搬后续SelftokSD3VAE。Llama3-8B扩65536视觉码与BOV/EOV、共享预测头，当前输出模态外词logits屏蔽。",
+    "metrics": "GenEval六子任务平均，CompBench属性BLIP-VQA/空间UniDet/非空间CLIP/复杂3in1，DrawBenchCLIPtext。编辑L1与目标图CVS，MA5K LPIPS；均值近GT不唯一代表指令正确，须另测源保留。理解CIDEr、VQA准确、MMEperception、SEEDMCQ、POPEF1；重建PSNR/类别生成FID。F9文字perplexity支持当前混训文本保留，不自动代表VQA/因果协同。无码序/非Latin生成CER/时间事件指标。",
+    "baselines": "T1区分diffusion专门T2I和MLLM generalist，含DALL-E/SD/PixArt/SEED/LaVIT/Emu2/3/VILA-U/Lumina/Transfusion；Emu3明确不用promptrewrite。理解Emu2chat与生成Emu2Gen分别是任务版本，不能当同权重双用。T2编辑专用IP2P/MGIE/UltraEdit与GILL/Emu2/SEED/LaVIT；T4 VQGAN/VQGANLC/RQ/MoVQ。Gemma2-2B同200M/同编辑数据和步数对MoVQ，是更直接表示对照，但码率/decoder参数与算力未完全匹配。",
+    "experimental_conditions": "正式suppT1实际β行：MLLMpt/ft AdamWβ.9,.95/eps1e-6，tokenizerβ.9,.99；pt lr1e-4/cos/b1280/360K/warm5K/wd.05/clip1、512Ascend910B/MegatronTP8约2周；ft1e-5/cos/b256或128/160K/warm2K/wd.05/clip1、256Ascend；tokenizer1e-4/linear+cos/b1024/140K/warm5K/wd0、32A800DDP约1周，均bf16。推理texttopk50/topp1，imagetopk4096/topp.9/CFG8；确切实际denoise调用数/seed/图数/采样耗时未齐，不套用Selftok50step或.31s。训练一次loss小spike回退500步为作者处理，非稳定性定理。",
+    "problem": "学习非空间递归图像码，通过共享Llama下一token预测同时理解、静态生成与指令编辑；训练decoder在不同噪声时间仅凭相应前缀恢复原图。未训练逐笔书写、规范笔顺或视频生成，素描为图像风格/编辑例而非作画过程。",
+    "method": "ImageNet训练的query型非空间encoder+VQ+时间条件前缀MMDiT重建；视觉ID并入Llama3-8B词表、统一CE与共享head，200M对齐后多任务SFT。递归式f_t=(f_t−1,V_t)为表示设计，非新增物理时间事件。正式版没有Selftok的一步renderer或视觉RL，后续.95成绩不可移入本作.66结果。 Encoder两独立20层Transformer/hidden256，1024图像位置与480learnedquery，1D/2Dsinusoidal位置、联合attention；只保留query。VQ256→16维、L2/cos最近邻、65536码、EMA与deadcode重激活。decoder依SD3 MMDiT双流各24层hidden1536，以量化码替text、16→1536投影/移除pooledtext；正式材料未明确VAE路径/decoder权重初始化，不照搬后续SelftokSD3VAE。Llama3-8B扩65536视觉码与BOV/EOV、共享预测头，当前输出模态外词logits屏蔽。",
+    "conclusion": "正式T1 GenEval.66（single.99/two.64/count.56/color.87/pos.39/attr.48），高于表内MLLM整体但低于SD3.74/DALL-E3.67；two.64<Emu3.71，Compcomplex.345<SEED-X.361，Draw.267与Lumina持平。T2本作EVR14.5/85.5、MA5K14.2/29.6、MagicBrush7.1/92.4，在该MLLM组均优；EVRL1仍差于UltraEdit14.4、MA5KL1差于MGIE13.3、MBL1差于Ultra6.6。T3 124.2/88.5/76.4/66.3/65.9/57.3/1378.9/67.9/86.9，VQA低于Emu2chat84.9/SEED低于Emu368.2，MME低于多专用理解模型。T4 PSNR21.7/FID6.1为选定同表比较，非当前所有codecSOTA。",
+    "gap": "正式suppG明确ImageNet256²限制开放域重建/美感，未完成500M扩展和视频。自建/重caption数据、多个预训先验/解码器、单运行无CI和人评协议不全限制因果解释。训练噪声时序/码前缀长度不保证表示无耦合，更不等于物理笔顺；用CLIP筛数据与相关CLIP指标存在选择偏差待独立评价。实际codec/VAE和decoder初始化未齐，release链接现转Selftok512/1024版，无480正式MLLM检查点/整套训练验证。",
+    "claim": "学习非空间递归图像码，通过共享Llama下一token预测同时理解、静态生成与指令编辑；训练decoder在不同噪声时间仅凭相应前缀恢复原图。未训练逐笔书写、规范笔顺或视频生成，素描为图像风格/编辑例而非作画过程。",
+    "related_records": [
+      "L098"
+    ],
+    "work_family": "DDT-LLaMA/Selftok",
+    "review_history": [],
+    "evidence_history": []
   }
 ]
