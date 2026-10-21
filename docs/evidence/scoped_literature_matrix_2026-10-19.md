@@ -383,3 +383,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第九十九批（2026-10-21）：两项静态图文/交错评测，非新视频生成模型；正确性对称、内容一致、实际状态理解、目标完成与内部机制分别定义。见[审查](xtc_imug_correctness_consistency_and_dynamic_history_audit_2026-10-21.md)、[L067](../reviews/L067.md)、[L068](../reviews/L068.md)。
+
+
+第一百批（2026-10-21）：两项协同/规划Benchmark，均无规范书写视频模型；直接回答、有辅助回答、联合质量与成本分开。见[审查](unison_vgau_synergy_oracle_and_stop_protocol_audit_2026-10-21.md)、[L069](../reviews/L069.md)、[L070](../reviews/L070.md)。

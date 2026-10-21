@@ -472,3 +472,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第九十九批（2026-10-21）：固定v1完整核心及指定附录；XTC GH500blob/HF清单，IMUG GH1060blob/HF卡及完整12.9MB文本metadata；实际框架/主表/TTS、人评，原BLIP3o摘要交叉核分组；少量纯函数反例。见[审查](xtc_imug_correctness_consistency_and_dynamic_history_audit_2026-10-21.md)、[L067](../reviews/L067.md)、[L068](../reviews/L068.md)。
+
+
+第一百批（2026-10-21）：PMLR正式11页、arXivv1/v2、两GH固定树59/718blob、HF固定卡/全部指定文本；核作者录用声明与正式出版层级，未找到VGAU对应正式页。见[审查](unison_vgau_synergy_oracle_and_stop_protocol_audit_2026-10-21.md)、[L069](../reviews/L069.md)、[L070](../reviews/L070.md)。

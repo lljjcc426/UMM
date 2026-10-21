@@ -424,3 +424,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第九十九批（2026-10-21）：原表脚本/日志、XTC目标家族分组/三teacher单独敏感性、GT/predID碰撞、IMUG连续多选解析和动态真实文字history/完整覆盖待进一步核。见[审查](xtc_imug_correctness_consistency_and_dynamic_history_audit_2026-10-21.md)、[L067](../reviews/L067.md)、[L068](../reviews/L068.md)。
+
+
+第一百批（2026-10-21）：Unison judge训练/人评独立性和rho类型、ME累计并集/GT回退原表版本；VGAU fixed BAGEL接线、停止混杂与规划/视觉瓶颈分离待核。见[审查](unison_vgau_synergy_oracle_and_stop_protocol_audit_2026-10-21.md)、[L069](../reviews/L069.md)、[L070](../reviews/L070.md)。

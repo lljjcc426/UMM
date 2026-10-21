@@ -1,0 +1,209 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L069",
+    "L070"
+  ],
+  "sources": {
+    "L069": [
+      "https://proceedings.mlr.press/v306/liu26dv.html",
+      "https://raw.githubusercontent.com/mlresearch/v306/main/assets/liu26dv/liu26dv.pdf",
+      "https://arxiv.org/html/2606.26984v1",
+      "https://github.com/FudanCVL/Unison/tree/407b7b565b5752bb1708cb2e997169f11711d02c",
+      "https://huggingface.co/FudanCVL/Unison-Judge/tree/a96105e4a0189b4a7eb2e5866db1aeded7b3d59c",
+      "https://huggingface.co/datasets/FudanCVL/Unison/tree/0ce48d3d0f22159520a00fde2a2688ad28852626"
+    ],
+    "L070": [
+      "https://arxiv.org/abs/2608.22174v2",
+      "https://arxiv.org/html/2608.22174v2",
+      "https://github.com/zyb1029/VGAU-Diag/tree/b250b81cd1252e5a6785f9a94898a54a01e6187a"
+    ]
+  },
+  "model_inference_executed": false,
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "metadata_counts": {
+    "Internal_Consistency__questions": {
+      "rows": 556,
+      "wrapper": [
+        "questions"
+      ],
+      "questions": 10359
+    },
+    "Und_Guided_Gen__UGG": {
+      "rows": 543,
+      "first_fields": [
+        "image_path",
+        "object",
+        "bbox",
+        "mask",
+        "tuple",
+        "dependency",
+        "complex_description",
+        "instruction",
+        "operation"
+      ]
+    },
+    "Gen_Guided_Und__2D_Spatial__2d_spatial": {
+      "rows": 182,
+      "first_fields": [
+        "image_path",
+        "question",
+        "options",
+        "answer",
+        "description",
+        "quality_questions"
+      ]
+    },
+    "Gen_Guided_Und__3D_Spatial__spatial": {
+      "rows": 180,
+      "first_fields": [
+        "image_path",
+        "question",
+        "options",
+        "answer",
+        "description",
+        "quality_questions"
+      ]
+    },
+    "Gen_Guided_Und__Complex_Relation__complex_relation": {
+      "rows": 180,
+      "first_fields": [
+        "question",
+        "options",
+        "answer",
+        "description",
+        "image_generation_validate"
+      ]
+    },
+    "Mutual_Enhancement__ME": {
+      "rows": 264,
+      "first_fields": [
+        "image_path",
+        "operation",
+        "instruction",
+        "final_caption"
+      ]
+    },
+    "judge_consistency": {
+      "rows": 231,
+      "task_counts": {
+        "GGU": 56,
+        "IC": 57,
+        "ME": 62,
+        "UGG": 56
+      },
+      "model_counts": {
+        "BAGEL-7B-MoT": 50,
+        "OmniGen2": 69,
+        "SEED-X-17B": 49,
+        "UniWorld-V1": 63
+      },
+      "first_fields": [
+        "id",
+        "task",
+        "family",
+        "model",
+        "questions",
+        "options",
+        "dimensions",
+        "context_text",
+        "model_answer",
+        "images"
+      ]
+    },
+    "ggu_table_reconstruction": [
+      {
+        "model": "BAGEL",
+        "direct": 28.2,
+        "generation": 41.6,
+        "unified": 32.0,
+        "implied_guided": 22.4,
+        "implied_answer_gain_pp": -5.8
+      },
+      {
+        "model": "OmniGen2",
+        "direct": 19.7,
+        "generation": 41.9,
+        "unified": 30.9,
+        "implied_guided": 19.9,
+        "implied_answer_gain_pp": 0.2
+      },
+      {
+        "model": "Gemini3Pro",
+        "direct": 42.2,
+        "generation": 46.5,
+        "unified": 43.9,
+        "implied_guided": 41.3,
+        "implied_answer_gain_pp": -0.9
+      },
+      {
+        "model": "GPT5.2",
+        "direct": 44.8,
+        "generation": 58.2,
+        "unified": 52.7,
+        "implied_guided": 47.2,
+        "implied_answer_gain_pp": 2.4
+      }
+    ],
+    "VG_parking": {
+      "rows": 100,
+      "difficulty_counts": {
+        "easy": 20,
+        "middle": 30,
+        "hard": 50
+      }
+    },
+    "VG_klotski": {
+      "rows": 100,
+      "difficulty_counts": {
+        "easy": 20,
+        "middle": 30,
+        "hard": 50
+      }
+    }
+  },
+  "artifacts": [
+    {
+      "id": "L069",
+      "paper": "Official ICML2026 complete 11-page PDF; arXivv1 cross-reference",
+      "github_revision": "407b7b565b5752bb1708cb2e997169f11711d02c",
+      "tree_blobs": 59,
+      "hf_judge_revision": "a96105e4a0189b4a7eb2e5866db1aeded7b3d59c",
+      "hf_dataset_revision": "0ce48d3d0f22159520a00fde2a2688ad28852626",
+      "visuals": [
+        "Formal F1",
+        "Formal T2",
+        "Formal T3"
+      ],
+      "findings": [
+        "GGU Und is direct; Uni averages guided correctness and generation quality, so table is not direct arithmetic inconsistency",
+        "IC current code joint yes, not latent representation equality",
+        "ME current code uses across-round deduplicated mismatch union softF1 and final edit; final score is not initial-to-final gain",
+        "UGG missing prediction falls back to GTbbox and GGU missing generated image may use original image; report coverage",
+        "Judge rho .887 not accuracy88.7%; definition/CI/train-eval independence insufficiently specified; no measured cost evidence",
+        "Formal related work misdescribes SEED-X visual representation; reference reviewed original L060"
+      ]
+    },
+    {
+      "id": "L070",
+      "paper_version": "2608.22174v2",
+      "venue_status": "Author GitHub claims EMNLP2026 Main; formal entry not independently located",
+      "github_revision": "b250b81cd1252e5a6785f9a94898a54a01e6187a",
+      "tree_blobs": 718,
+      "visuals": [
+        "F2",
+        "T2",
+        "T4"
+      ],
+      "findings": [
+        "Self generation easy only; Path ordered-label exact match differs from action-replay tasks",
+        "OracleGtA is deterministic grid/coordinate aid, no solution; controlled reference not mathematical upperbound",
+        "Fixed VCoT adds side-channel remaining-step stop probe and formatting criterion; not pure single-factor removal",
+        "Fixed helper still checks optimal length and true simulator goal as evaluator, not necessarily explicit model-visible GT",
+        "Current published BAGEL adapter invokes original run_step_protocol, fixed helper present but not wired through this selected adapter",
+        "Scale and LPIPS proxy do not identify pure vision encoder bottleneck or universal phase transition"
+      ]
+    }
+  ]
+}

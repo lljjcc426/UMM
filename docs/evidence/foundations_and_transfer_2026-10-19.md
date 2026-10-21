@@ -219,3 +219,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第九十九批（2026-10-21）：二元AW等于联合正确、共同事件锚/动态实际历史与规范目标；错误同分不保证同内容，家族均值不足因果归因。见[审查](xtc_imug_correctness_consistency_and_dynamic_history_audit_2026-10-21.md)、[L067](../reviews/L067.md)、[L068](../reviews/L068.md)。
+
+
+第一百批（2026-10-21）：GGU差值代数、双正确与潜在表征因果分开，oracle受控参考和stopprobe改变任务；迁移到事件GT/真实执行状态。见[审查](unison_vgau_synergy_oracle_and_stop_protocol_audit_2026-10-21.md)、[L069](../reviews/L069.md)、[L070](../reviews/L070.md)。

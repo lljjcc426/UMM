@@ -413,3 +413,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第九十九批（2026-10-21）：固定两GH/HF制品、quickstart教师差异、MCQ实际函数反例/37连续多真值、CV几何评分和demo参数；资源条件不与原表混用。见[审查](../evidence/xtc_imug_correctness_consistency_and_dynamic_history_audit_2026-10-21.md)、[L067](../reviews/L067.md)、[L068](../reviews/L068.md)。
+
+
+第一百批（2026-10-21）：Unison固定GH/HF文本计数、judge231和模型配置、UGG回退/ME跨轮并集；VGAU公共driver/BAGEL调用与两manifest，原表与公开默认分开。见[审查](../evidence/unison_vgau_synergy_oracle_and_stop_protocol_audit_2026-10-21.md)、[L069](../reviews/L069.md)、[L070](../reviews/L070.md)。

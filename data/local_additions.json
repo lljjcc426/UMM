@@ -4879,22 +4879,28 @@
   {
     "title": "Unison: Benchmarking Unified Multimodal Models via Synergistic Understanding and Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2606.26984"
+      "https://arxiv.org/abs/2606.26984",
+      "https://proceedings.mlr.press/v306/liu26dv.html",
+      "https://raw.githubusercontent.com/mlresearch/v306/main/assets/liu26dv/liu26dv.pdf",
+      "https://arxiv.org/html/2606.26984v1",
+      "https://github.com/FudanCVL/Unison/tree/407b7b565b5752bb1708cb2e997169f11711d02c",
+      "https://huggingface.co/FudanCVL/Unison-Judge/tree/a96105e4a0189b4a7eb2e5866db1aeded7b3d59c",
+      "https://huggingface.co/datasets/FudanCVL/Unison/tree/0ce48d3d0f22159520a00fde2a2688ad28852626"
     ],
-    "method": "2169条任务与四维/分离和联合track，额外8K人工评分数据微调Unison-Judge。 IC比较原图答案与生成图judge答案且惩罚双错；UGG先预测box/mask再编辑；GGU先生成辅助图再答；ME检查→反馈→编辑→stop；judge Qwen3VL8B。",
-    "conclusion": "整体BAGEL53.2、OmniGen2 51.3；BAGEL UGG67.9，OmniGen2 ME47.7；Judge人类相关均.887 vsGemini .884差.003，无CI不足宣称显著更好。",
-    "gap": "行为IC不直接测内部表示一致；平均定位/编辑分可掩盖某步失败；逐轮改善无法自动归因共享权重。Judge偏差、prompt随机性与多轮成本作者有说明；无视频/时序规范评价。",
-    "problem": "联合评价理解指导生成、生成辅助理解、内部一致性及迭代互促。",
+    "method": "2169联合任务样本，IC对同属性分别问原图和生成图、双错归零；UGG先定位再条件编辑；GGU先生成辅助图再答4选1；ME循环诊错/编辑最多5次。另以8000人工标注样本微调Qwen3VL8B裁判，在231样本上报告人类对齐ρ。贡献为任务/数据/评价模型及诊断，无生成模型训练创新。 评测编排及Qwen3VL8B-Instruct微调judge，模型正文未给训练lr/batch/epoch/GPU。数据用GenEval属性、RefCOCOg拥挤遮挡图、LAION美学>5、QwenImage、OpenCV空间图，GPT5.2/Gemini3Pro模板、DSG+Qwen3VL235B问答、人工框+SAM3 mask。§2将SEED-X作为离散图像AR示例不准确：已复核L060为连续表征/LLM接SDXL，不能照搬该分类。",
+    "conclusion": "正式T3 BAGEL IC80.3/UGG67.9/GGU32/ME32.5/Overall53.2，OmniGen2 74.5/52/30.9/47.7/51.3，GPT5.2 84.7/77.7/52.7/70.2/71.3，Gemini86.9/76.9/43.9/71.4/69.8。BAGEL GGU Und28.2/Gen41.6/Uni32，按现代码公式隐含带辅助22.4，下降约5.8分；GPT约47.2对44.8升2.4。此由一位小数表反推，非逐样本复算。T2 judge平均ρ.887对Gemini.884，仅差.003，无CI且IC/ME落后Gemini；不能称每轴最佳或显著优越/实测更快。",
+    "gap": "至少四项依据：黑箱双正确不等内部表示对齐；Overall包含IC本身导致部分相关性为构造所致，不能推必要性；judge训练/人评独立性、ρ类型/CI和训练配方不充分；多轮终值无初值和成本不能证自增强。当前UGG GT回退/GGU缺图回退及ME累计并集可能改变协议；没有确认原表受影响量。静态生成空间与自然图不能外推严格笔画事件/连续视频，作者亦列成本/随机性/高分辨率及未来视频。",
+    "problem": "如何在同一框架下评价UMM理解与图像生成的联合正确性、理解引导编辑、辅助图引导回答和多轮自修正。新增静态图文Benchmark与专用裁判，未提出新生成骨干、视频模型、规范汉字笔顺系统。输出行为评分无法单独确认内部语义表示相同或共享训练产生因果收益。",
     "claim": "作者研究目标：联合评价理解指导生成、生成辅助理解、内部一致性及迭代互促。",
-    "version": "Unison，2026",
+    "version": "Unison: Benchmarking Unified Multimodal Models via Synergistic Understanding and Generation；正式ICML2026，PMLR306:78454–78464，官方完整11页PDF；arXiv2606.26984v1用于交叉定位，当前只见v1。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L069",
     "canonical_key": "paper:arxiv:2606.26984",
     "evidence_history": [
@@ -4926,37 +4932,45 @@
         "conclusion": "提供更细的联合能力诊断；裁判与人类一致性仍属于评价条件",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 100,
+        "scope": "正式ICML2026完整11页PDF：Abstract/§1–9研究正文、Eq1–2/F1–3图注/T1–3全表及Impact/未来方向；参考文献未逐篇追读，未逐图分析F3全部例。arXivv1核心交叉。实际F1框架、T2人评/T3主表；GH407b7b56完整59blob树、README及11指定源码/配置路径，HF judge a96105e4/data0ce48d3d元数据/卡、全部七个文本标注与config计数，未全审低层judge/模型adapter。只计数与GGU表代数反推，无权重/媒体/模型推理训练/原表复现。"
       }
     ],
-    "sections_read": "§3–5任务/构造/指标/实验，Table2judge及Table3相关行、§6–9insights/limits；源码/训练配置及所有子项未逐一核",
+    "sections_read": "正式ICML2026完整11页PDF：Abstract/§1–9研究正文、Eq1–2/F1–3图注/T1–3全表及Impact/未来方向；参考文献未逐篇追读，未逐图分析F3全部例。arXivv1核心交叉。实际F1框架、T2人评/T3主表；GH407b7b56完整59blob树、README及11指定源码/配置路径，HF judge a96105e4/data0ce48d3d元数据/卡、全部七个文本标注与config计数，未全审低层judge/模型adapter。只计数与GGU表代数反推，无权重/媒体/模型推理训练/原表复现。",
     "review_path": "docs/reviews/L069.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "GenEval式属性、RefCOCOg、LAIONAesthetics>5，QwenImage图、OpenCV空间题；11复合编辑种类，10人3周校核；Judge8K/每维2K，人评231。",
-    "framework": "2169条任务与四维/分离和联合track，额外8K人工评分数据微调Unison-Judge。",
-    "architecture": "IC比较原图答案与生成图judge答案且惩罚双错；UGG先预测box/mask再编辑；GGU先生成辅助图再答；ME检查→反馈→编辑→stop；judge Qwen3VL8B。",
-    "metrics": "IoU、VQA、编辑1–5映至0–1，四维平均；UGG将定位和编辑平均，GGU将理解和生成平均，需保留子分。",
-    "baselines": "Showo/Showo2/JanusPro/DDiT/ILLUME+/OmniGen2/TokenFlow/BAGEL/SEEDX/UniWorld及两闭源；分离vs联合。",
-    "experimental_conditions": "统一512²、MEmax5轮可早停；Judge训练优化器/lr/epochs/hardware在所读正文未给完整；人评训练与231验证集独立性尚待文件核。"
+    "dataset": "正式F2：IC556、UGG543、GGU542（2D182/3D180/关系180）、ME528（264编辑+264理解），合2169。固定HF文本全部计数确认IC556组/10359原子问、UGG543、三GGU182/180/180、ME264行双方向，不能把264行漏算或两方向当独立图像。作者10人3周双验证；训练judge8K每轴2K与人评231独立性/重叠未充分披露。固定人评文本231、IC57/UGG56/GGU56/ME62，四开放被测模型，不代表全部闭源/视频分布。",
+    "framework": "2169联合任务样本，IC对同属性分别问原图和生成图、双错归零；UGG先定位再条件编辑；GGU先生成辅助图再答4选1；ME循环诊错/编辑最多5次。另以8000人工标注样本微调Qwen3VL8B裁判，在231样本上报告人类对齐ρ。贡献为任务/数据/评价模型及诊断，无生成模型训练创新。",
+    "architecture": "评测编排及Qwen3VL8B-Instruct微调judge，模型正文未给训练lr/batch/epoch/GPU。数据用GenEval属性、RefCOCOg拥挤遮挡图、LAION美学>5、QwenImage、OpenCV空间图，GPT5.2/Gemini3Pro模板、DSG+Qwen3VL235B问答、人工框+SAM3 mask。§2将SEED-X作为离散图像AR示例不准确：已复核L060为连续表征/LLM接SDXL，不能照搬该分类。",
+    "metrics": "IC同题双yes均值，正确性锚下排除双错，与纯内容相等不同。UGG=(IoU+编辑分)/2；GGU=(有辅助图回答正确率+生成分)/2，T3 Und.列却为无辅助回答，故不可直接用列内Und/Gen重算Uni。ME两个方向均分，整体四轴等权；缺失任务横线不填0。原文编辑1–5→归一，固定代码明确(score−1)/4∈[0,1]。人评ρ类型未明确，不擅填Pearson/Spearman或88.7%正确率；无笔顺/视频指标。",
+    "baselines": "Showo/Showo2、JanusPro、D-DiT、ILLUME+、OmniGen2、TokenFlow、BAGEL、SEED-X、UniWorld及Gemini3Pro/GPT5.2，参数与数据、架构/预训练预算不同。T2原Qwen3VL8B/GPT/Gemini为judge对照；缺消融的单独理解+生成组合、固定预算多轮/单轮、同数据共享/分离训练。跨模型分数关联不能确定共享表示或目标耦合原因。",
+    "experimental_conditions": "原文生成/编辑512²、ME最多5次且自判无错早停，未完整给所有模型NFE/seed/API日期/硬件/方差。固定GH407b7b56完整59blob，读4评分任务/聚合、模板/指定推理分支和BAGEL配置；BAGEL当前JSON steps50/CFGtext4,img1.5/interval.4–1/shift3、seed666、maxnew/maxthink8192/do_samplefalse/T.3，为公开配置而非所有原表运行证明。UGG缺理解输出时unify回退GT框；GGU缺生成图时回退原图；应报告失败覆盖，不能一概当纯闭环。"
   },
   {
     "title": "When Does Visual Generation Help Visual Understanding in Unified Multimodal Models?",
     "source_urls": [
-      "https://arxiv.org/abs/2608.22174"
+      "https://arxiv.org/abs/2608.22174",
+      "https://arxiv.org/abs/2608.22174v2",
+      "https://arxiv.org/html/2608.22174v2",
+      "https://github.com/zyb1029/VGAU-Diag/tree/b250b81cd1252e5a6785f9a94898a54a01e6187a"
     ],
-    "method": "难度分层六规划任务、GtA/VCoT/VR统一比较、oracle视觉与泄漏修正。 评测和提示流程，非新生成架构；oracle用外部构造图替模型生成；SelfVCoTfixed让模型自己预测剩余步数并停。",
-    "conclusion": "Table4Parking Showo2 SelfVCoT56.6%→去最优步数先验0%，LLaDA2 40→0；Table3Qwen3.5-9B TextCoT25，OracleGtA90，noiseGtA8.3/mismatch5，NB2GtA45，说明错误可见辅助会有害。",
-    "gap": "oracle是特定视觉格式的参考条件，非所有自生成策略的数学上界；多数self超过oracle本身提示格式/域匹配因素。静态2D合成规划不能直接推广纸笔视频，文字greedy不保证图采样确定。",
-    "problem": "区分视觉辅助规划的生成质量、理解能力和评价协议造成的收益。",
+    "method": "VGAU-Diag六个程序任务/三级难度；Direct/TextCoT、SelfGtA一次网格坐标图、SelfVCoT动作与下一状态逐步生成、SelfVR视觉解题，配OracleGtA/VCoT/AugVCoT。解算器回放动作区分可行与最优，另移除VCoT已知最优步数的停止先验、询问剩余步数；贡献是评测和协议分析，非新训练架构。 评测框架，外接VLM/UMM。OracleGtA为原图叠网格/坐标，无解序列；OracleVCoT由模型动作更新真实模拟状态，Aug再叠网格。自生成使用各模型既有图像生成/编辑能力，部分仅单图输入使用上一图、外部多次调用编排。不同规模Qwen与不同生成器分开配对，规模也是训练/架构混杂代理；公开树当前simple仅bagel.py，不能称全部被测模型adapter齐全。",
+    "conclusion": "T1 Qwen3.5-9B Maze easy TextCoT25→OracleGtA90；BAGEL5→15；NanoBanana2 35→85，效果随模型/任务/难度不同。T2 SelfGtA NanoBanana2六easy为55/25/50/70/40/30，相对CoT+20/+5/+25/+35/+30/+20，BAGEL仅0/0/20/0/5/0；不概括所有UMM受益。T3 Qwen9B SelfGtA noise8.3/mismatch5/QwenImage0/Edit26.6/Nano45/Oracle90，对25基线，且27B Nano58.3<CoT60反例。T4 Showo2 Parking56.6→fixed0，LLaDA40→0；BAGEL Maze6.6→5仍非全零。均作者报告，未独立模型复现。",
+    "gap": "至少五项：静态程序网格/easy自生成不足外推视频/书写；oracle低分仍含规划/提示/解码能力，不能只归视觉理解模块；fixed停止任务更难并增调用，需进一步因果分离；20easy×3均值方差未知；图像分布/LPIPS与法律状态差异。当前fixed helper仍用GT optimal作评估截断/成功要求，属于最优解协议，不等于模型输入明示GT，也不足声明已移除所有oracle依赖；公开BAGEL未接fixed，完整复现支撑仍待补。",
+    "problem": "何时生成的辅助视觉能提升理解/可执行规划，以及失败源自生成、读图还是推理协议。提出可验证六任务和难度/范式/oracle诊断，未提出新UMM骨干、视频或规范书写生成模型。研究重点为推理阶段视觉辅助，不等于证明多任务联合训练提升表征。",
     "claim": "作者研究目标：区分视觉辅助规划的生成质量、理解能力和评价协议造成的收益。",
-    "version": "When Does Visual Generation Help… / VGAU-Diag，2026",
+    "version": "When Does Visual Generation Help Visual Understanding in Unified Multimodal Models? / VGAU-Diag；固定arXiv2608.22174v2（2026-08-25；v1 08-23）。官方GitHub当前README称EMNLP2026 Main录用，本批ACL/会议正式条目检索未找到对应页面，保留作者声明层级，未确认正式出版。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L070",
     "canonical_key": "paper:arxiv:2608.22174",
     "evidence_history": [
@@ -4988,17 +5002,22 @@
         "conclusion": "难任务收益不稳定，忠实辅助图也可能无法被利用；结论有任务范围",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 100,
+        "scope": "固定2608.22174v2完整Abstract/§1–6研究正文、T1–4全行、AppA1–A4任务/构建/评价及协议全文、T5–9、T12–35对应协议描述与选定Maze/Parking源码prompt，未逐字精读全部提示表/T10–11或F1/F3所有曲线、未逐篇追引。实际F2框架与原HTML T2/T4。GHb250b81c完整718blob树/README，12指定代码/YAML（BAGEL调用/两step_adapter/公共原fixeddriver/六任务评分核心）及两完整manifest计数，未全审模型/依赖。无媒体/权重/训练推理或原表复现。"
       }
     ],
-    "sections_read": "§3完整任务/协议、§4.2–4.4结果与Tables2–4、§6限制、AppA.3–A.4实现；完整大表所有行、图像和代码未全核",
+    "sections_read": "固定2608.22174v2完整Abstract/§1–6研究正文、T1–4全行、AppA1–A4任务/构建/评价及协议全文、T5–9、T12–35对应协议描述与选定Maze/Parking源码prompt，未逐字精读全部提示表/T10–11或F1/F3所有曲线、未逐篇追引。实际F2框架与原HTML T2/T4。GHb250b81c完整718blob树/README，12指定代码/YAML（BAGEL调用/两step_adapter/公共原fixeddriver/六任务评分核心）及两完整manifest计数，未全审模型/依赖。无媒体/权重/训练推理或原表复现。",
     "review_path": "docs/reviews/L070.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "Maze/Sokoban/Path/Onet/Parking/Klotski，每任务100样本三难度；selfgeneration只在easy测，不能推断全部难度已全面生成实验。",
-    "framework": "难度分层六规划任务、GtA/VCoT/VR统一比较、oracle视觉与泄漏修正。",
-    "architecture": "评测和提示流程，非新生成架构；oracle用外部构造图替模型生成；SelfVCoTfixed让模型自己预测剩余步数并停。",
-    "metrics": "optimal/feasible tasklevelaccuracy，LPIPS作为辅助图proxy；同任务三次开放UMM平均。",
-    "baselines": "TextCoT、OracleVCoT/GtA/AugVCoT、SelfGtA/VCoT/VR，Qwen规模系列、noise/mismatch/QwenImage/QwenImageEdit/NanoBanana2辅助图。",
-    "experimental_conditions": "maxnew8192、文字greedytemp0，lmms-eval；部分UMM只输入最后一图并多次外部调用。样本容易20/中30/难50之类划分须逐任务核，未统一补写；硬件/NFE缺项。"
+    "dataset": "六任务各100，共600，README每任务easy20/middle30/hard50。Maze10²唯一无环通路，最短1–6/7–17/18–30；单箱Sokoban1–8/10–16/20–39；Path2–5/8–14/18–25；Parking8²最短1–5/8–16/18–34；Onet6²移除4–6/7–10/12–16对；Klotski6²最短1–4/6–10/15–20。固定Parking/Klotski两完整manifest各100与20/30/50已数；其他任务依据正文/发布卡，未逐样本读所有600。自生成只评easy120，总体结论应限定该分布。",
+    "framework": "VGAU-Diag六个程序任务/三级难度；Direct/TextCoT、SelfGtA一次网格坐标图、SelfVCoT动作与下一状态逐步生成、SelfVR视觉解题，配OracleGtA/VCoT/AugVCoT。解算器回放动作区分可行与最优，另移除VCoT已知最优步数的停止先验、询问剩余步数；贡献是评测和协议分析，非新训练架构。",
+    "architecture": "评测框架，外接VLM/UMM。OracleGtA为原图叠网格/坐标，无解序列；OracleVCoT由模型动作更新真实模拟状态，Aug再叠网格。自生成使用各模型既有图像生成/编辑能力，部分仅单图输入使用上一图、外部多次调用编排。不同规模Qwen与不同生成器分开配对，规模也是训练/架构混杂代理；公开树当前simple仅bagel.py，不能称全部被测模型adapter齐全。",
+    "metrics": "Maze/Sokoban/Parking/Klotski报告可行终态成功与最短长度成功；Onet需全合法清空，Path按路径经过A–E标签顺序精确匹配，不能把六任务都叫同一种solver动作评分。步级正确不替代全程合法。LPIPS为辅助图感知相似代理，非状态守恒/合法动作正确率或视觉质量充分序。Oracle为给定协议经验参考，非数学上界；换图可使输出退步/改善均需报告。",
+    "baselines": "四开放VLM Qwen2.5VL7B/Nemotron12B/Qwen3VL8B/Qwen3.5-9B；Qwen3.6Plus/DoubaoSeed2Pro/Gemini3.1Pro/GPT5.4；八开放UMM MammothModa2/STAR/OmniGen2/JanusPro/BAGEL/Showo2/LongCatNext/LLaDA2Uni及两NanoBanana。三范式/oracle/原图CoT、Gaussian/mismatch/QwenImage/QwenImageEdit/NanoBanana2及Qwen尺度对照。参数近似匹配无法消除数据/预训练差异，未做共享/分离训练控制。",
+    "experimental_conditions": "AppA4：maxnew8192/文本greedy T0，UMM独立3次均值；未完整给CI、每图seed/NFE/硬件/总成本及闭源API时间。单图backend仅上一状态，Qwen9B T7仅Maze/Sokoban/Path对照，不能证明所有模型所有任务无影响。固定GHb250b81c完整718blob，当前BAGEL defaults50图步/CFGtext4/img1.5/do_samplefalse/T.3等，为发布默认而非原表完整协议；文本greedy不使扩散生成确定。原VCoT driver按GT解长预算；fixed helper额外要求停时判断，BAGEL当前调用原run_step_protocol，未见此adapter接入fixed。"
   },
   {
     "title": "GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment",
