@@ -216,3 +216,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第九十八批（2026-10-21）：共享任务非劣性与曝光/FLOPs、低码率多码本流式、AR到离散双向去噪、外部像素/视频decoder与时序可辨。见[审查](qwen3omni_emu35_generation_scope_and_release_audit_2026-10-21.md)、[L065](../reviews/L065.md)、[L066](../reviews/L066.md)。
+
+
+第九十九批（2026-10-21）：二元AW等于联合正确、共同事件锚/动态实际历史与规范目标；错误同分不保证同内容，家族均值不足因果归因。见[审查](xtc_imug_correctness_consistency_and_dynamic_history_audit_2026-10-21.md)、[L067](../reviews/L067.md)、[L068](../reviews/L068.md)。

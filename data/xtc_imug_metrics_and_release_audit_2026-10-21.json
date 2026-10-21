@@ -1,0 +1,214 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L067",
+    "L068"
+  ],
+  "sources": {
+    "L067": [
+      "https://arxiv.org/abs/2604.25072v1",
+      "https://arxiv.org/html/2604.25072v1",
+      "https://weixingw.github.io/xtc-bench/",
+      "https://github.com/liudvikaszekas/xtc-benchmark/tree/8a916eb9cc25642db5f435456778b5f317e2fc35",
+      "https://huggingface.co/datasets/XTC-Bench/xtc-dataset/tree/de2b3e775abfd332f0404adaac2874b9166eda93",
+      "https://arxiv.org/abs/2505.09568v1"
+    ],
+    "L068": [
+      "https://arxiv.org/abs/2606.09169v1",
+      "https://arxiv.org/html/2606.09169v1",
+      "https://github.com/ccccEsion/IMUG-Bench/tree/9a6a67e92c6f93478ae89f44c2ada14296726803",
+      "https://huggingface.co/datasets/ccccEsion/IMUG-Bench/tree/43ef4e31e6d16adcec26815dc93abae3aa825c90"
+    ]
+  },
+  "model_inference_executed": false,
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "pure_metric_functions_executed": true,
+  "metadata_counts": {
+    "bytes": 12912572,
+    "samples": 3113,
+    "turns": 12034,
+    "domains": 19,
+    "tasks_distinct": 97,
+    "modalities": {
+      "text": 5046,
+      "image": 6988
+    },
+    "dialogue_lengths": {
+      "4": 807,
+      "2": 403,
+      "5": 622,
+      "3": 932,
+      "6": 349
+    },
+    "domain_samples": {
+      "Apparel": 233,
+      "Botany": 132,
+      "Chemistry": 254,
+      "Color_Reasoning": 90,
+      "Cooking": 90,
+      "Counterintuitive_Reasoning": 159,
+      "DIY": 91,
+      "Damage_Repair": 188,
+      "Everyday_Tasks": 89,
+      "Geometric_Coloring": 64,
+      "Interior_Design": 240,
+      "Mechanisms": 232,
+      "Mirror_Reasoning": 120,
+      "Object_Inference": 430,
+      "Paper_Crafting": 45,
+      "Physics": 310,
+      "Stack_Simulation": 40,
+      "Storage": 68,
+      "Weather": 238
+    },
+    "static_mcq_turns": 4327,
+    "dynamic_mcq_turns": 719,
+    "static_multianswer_turns": 190,
+    "static_contiguous_multianswer_turns": 37,
+    "answer_examples": [
+      "ABE",
+      "ABD",
+      "AC",
+      "ACE",
+      "ADF",
+      "ABDE"
+    ],
+    "caution": "Text metadata only; no images downloaded or annotations/GT independently verified; counts concern this fixed release, not the original experiment logs"
+  },
+  "counterexamples": {
+    "type": "Small deterministic checks of extracted pure scoring functions; no model/data-media inference, no external API scoring",
+    "imug_cases": [
+      {
+        "answer": "A",
+        "response": "A",
+        "expected_extracted": [
+          "A"
+        ],
+        "response_extracted": [
+          "A"
+        ],
+        "format_multiplier": 1.0,
+        "actual_score": 1.0
+      },
+      {
+        "answer": "AB",
+        "response": "AB",
+        "expected_extracted": [],
+        "response_extracted": [],
+        "format_multiplier": 1.0,
+        "actual_score": 0.0
+      },
+      {
+        "answer": "A B",
+        "response": "AB",
+        "expected_extracted": [
+          "A",
+          "B"
+        ],
+        "response_extracted": [],
+        "format_multiplier": 1.0,
+        "actual_score": 0.0
+      },
+      {
+        "answer": "A B",
+        "response": "A,B",
+        "expected_extracted": [
+          "A",
+          "B"
+        ],
+        "response_extracted": [
+          "A",
+          "B"
+        ],
+        "format_multiplier": 0.75,
+        "actual_score": 0.75
+      }
+    ],
+    "xtc_id_namespace_counterexample": {
+      "reference": {
+        "type": "attribute",
+        "object_id": "7"
+      },
+      "matched_pairs": [
+        [
+          "7",
+          "3"
+        ]
+      ],
+      "actual_matched": true,
+      "assumption": "pairs=(pred_id,gt_id), reference is a GT id; GT7 is unmatched while prediction7 maps to GT3; conditional counterexample, no original result logs audited"
+    },
+    "xtc_binary_formula": [
+      {
+        "g": 0,
+        "u": 0,
+        "ccta": 1,
+        "aw_ccta": 0.0
+      },
+      {
+        "g": 0,
+        "u": 1,
+        "ccta": 0,
+        "aw_ccta": 0.0
+      },
+      {
+        "g": 1,
+        "u": 0,
+        "ccta": 0,
+        "aw_ccta": 0.0
+      },
+      {
+        "g": 1,
+        "u": 1,
+        "ccta": 1,
+        "aw_ccta": 1.0
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "L067",
+      "paper_version": "2604.25072v1",
+      "github_revision": "8a916eb9cc25642db5f435456778b5f317e2fc35",
+      "tree_blobs": 500,
+      "hf_revision": "de2b3e775abfd332f0404adaac2874b9166eda93",
+      "visuals": [
+        "F2",
+        "F3",
+        "T4",
+        "T6",
+        "T8"
+      ],
+      "findings": [
+        "Static benchmark; correctness-score symmetry not response-identity or internalrepresentation proof",
+        "Binary AW equals jointcorrect, rawCCTA doublewrong can score1 even with differentincorrectcontent",
+        "T5 PureAR includes BLIP3o although originalpaper explicitly diffusiontransformer; uncontrolledfamilycomparisons not objectivecoupling causal evidence",
+        "T6 replaces three roles; CCTA increases with smallerjudge whileAWfalls; no equivalenceestablished",
+        "Quickstart Qwen2.5VL7B/Qwen2.5-7B differs frompaper Qwen3/VL235B",
+        "Summaryforces unmatchedg0 and validqidintersection; standaloneconsistency entry differs; conditionalGT/predIDcollision verified with actual purefunction, impactonoriginaltablesunknown"
+      ]
+    },
+    {
+      "id": "L068",
+      "paper_version": "2606.09169v1",
+      "github_revision": "9a6a67e92c6f93478ae89f44c2ada14296726803",
+      "tree_blobs": 1060,
+      "hf_revision": "43ef4e31e6d16adcec26815dc93abae3aa825c90",
+      "visuals": [
+        "F3",
+        "T2",
+        "T4",
+        "T7"
+      ],
+      "findings": [
+        "Full fixedtextmetadata confirms3113/12034/19/97 and5046text6988image; 37contiguousstaticmultianswerGT",
+        "Current wordboundary regex cannot extract contiguousAB; AB/ABscore0; codeclipsnegativeunlikeunclippedpaperformula",
+        "Current dynamicfallback uses benchmarkGTtext when nooutputimage, not actualresultJSONtext; depends onannotatedreferences",
+        "CurrentpipelinecubeCVscorer separatefromgenericVLM; turnmicroaverage andmissingcoverage matter",
+        "T4SV1/2/3nonmonotonic53.7below54.1baseline; noCIs/seedcostcontrol; declineacrossturnsnotidentifiedteacherforcingcause",
+        "T7meanPearson.804notallsubscore>.72; currentBAGELdemoparams separatefromoriginalpaper fullprotocol; noexecutedmodel"
+      ]
+    }
+  ]
+}

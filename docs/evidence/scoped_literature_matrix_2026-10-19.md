@@ -380,3 +380,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第九十八批（2026-10-21）：Qwen输入视听输出文字/语音；Emu图文关键帧/DiDA/SD3.5像素解码/Wan视频解码分开，具身无低层动作或执行成功率。见[审查](qwen3omni_emu35_generation_scope_and_release_audit_2026-10-21.md)、[L065](../reviews/L065.md)、[L066](../reviews/L066.md)。
+
+
+第九十九批（2026-10-21）：两项静态图文/交错评测，非新视频生成模型；正确性对称、内容一致、实际状态理解、目标完成与内部机制分别定义。见[审查](xtc_imug_correctness_consistency_and_dynamic_history_audit_2026-10-21.md)、[L067](../reviews/L067.md)、[L068](../reviews/L068.md)。

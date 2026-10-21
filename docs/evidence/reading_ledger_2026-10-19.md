@@ -172,8 +172,8 @@
 | L064 | MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer | primary_sections_read | [结构化分析](../reviews/L064.md) | 核心三遍与五项检查完成 |
 | L065 | Qwen3-Omni Technical Report | primary_sections_read | [结构化分析](../reviews/L065.md) | 核心三遍与五项检查完成 |
 | L066 | Emu3.5: Native Multimodal Models are World Learners | primary_sections_read | [结构化分析](../reviews/L066.md) | 核心三遍与五项检查完成 |
-| L067 | Beyond Accuracy: Benchmarking Cross-Task Consistency in Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L067.md) | 未完成 |
-| L068 | IMUG-Bench: Benchmarking Unified Multimodal Models on Interleaved Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L068.md) | 未完成 |
+| L067 | Beyond Accuracy: Benchmarking Cross-Task Consistency in Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L067.md) | 核心三遍与五项检查完成 |
+| L068 | IMUG-Bench: Benchmarking Unified Multimodal Models on Interleaved Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L068.md) | 核心三遍与五项检查完成 |
 | L069 | Unison: Benchmarking Unified Multimodal Models via Synergistic Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L069.md) | 未完成 |
 | L070 | When Does Visual Generation Help Visual Understanding in Unified Multimodal Models? | primary_sections_read | [结构化分析](../reviews/L070.md) | 未完成 |
 | L071 | GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment | primary_sections_read | [结构化分析](../reviews/L071.md) | 核心三遍与五项检查完成 |

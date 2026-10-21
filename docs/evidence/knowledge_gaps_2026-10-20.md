@@ -421,3 +421,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第九十八批（2026-10-21）：Qwen理论首包硬件/配方/统计待补；Emu150Bsamples单位、331vs311、DiDA噪声/步数与训练发布、judge版本与机器人执行均待核。见[审查](qwen3omni_emu35_generation_scope_and_release_audit_2026-10-21.md)、[L065](../reviews/L065.md)、[L066](../reviews/L066.md)。
+
+
+第九十九批（2026-10-21）：原表脚本/日志、XTC目标家族分组/三teacher单独敏感性、GT/predID碰撞、IMUG连续多选解析和动态真实文字history/完整覆盖待进一步核。见[审查](xtc_imug_correctness_consistency_and_dynamic_history_audit_2026-10-21.md)、[L067](../reviews/L067.md)、[L068](../reviews/L068.md)。

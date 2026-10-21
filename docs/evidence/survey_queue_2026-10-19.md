@@ -383,3 +383,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第九十八批（2026-10-21）完成L065 Qwen3-Omni/L066 Emu3.5固定v1核心、主表/实际图表、选定GH/HF发布；区分真实生成模态、受控Base与后训练、三种扩散/负迁移、未发布DiDA和自动具身评价。356目录、197核心/200书面含未通过项，159条未确认核心。见[审查](qwen3omni_emu35_generation_scope_and_release_audit_2026-10-21.md)、[逐文件说明](ninety_eighth_changes_2026-10-21.md)。无删除/模型复现。
+
+
+第九十九批（2026-10-21）完成L067 XTC-Bench/L068 IMUG-Bench固定v1核心、实际图表及固定代码/文本元数据审查；记录正确性对称与内容一致性、BLIP3o误分PureAR、MCQ连续多选解析缺陷/37条真值、动态history/几何评分差异。356目录、199核心/202书面含未通过项，157条未确认核心。见[审查](xtc_imug_correctness_consistency_and_dynamic_history_audit_2026-10-21.md)、[逐文件说明](ninety_ninth_changes_2026-10-21.md)。无删除/模型复现。

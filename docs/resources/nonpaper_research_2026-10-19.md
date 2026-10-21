@@ -410,3 +410,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第九十八批（2026-10-21）：两固定GH/HF、Qwen配置/采样/后端/显存与整段WAVdemo、Emu公开AR/DiDA待发布、CFG/seed/backend区别，代码卡不等完整训练流水线。见[审查](../evidence/qwen3omni_emu35_generation_scope_and_release_audit_2026-10-21.md)、[L065](../reviews/L065.md)、[L066](../reviews/L066.md)。
+
+
+第九十九批（2026-10-21）：固定两GH/HF制品、quickstart教师差异、MCQ实际函数反例/37连续多真值、CV几何评分和demo参数；资源条件不与原表混用。见[审查](../evidence/xtc_imug_correctness_consistency_and_dynamic_history_audit_2026-10-21.md)、[L067](../reviews/L067.md)、[L068](../reviews/L068.md)。

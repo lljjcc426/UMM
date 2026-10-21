@@ -469,3 +469,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第九十八批（2026-10-21）：固定v1提交表、GH28/72blob与HF小配置；实际框架/主表/控制对照，Emu F9初次空图排除后直接原SVG核读，不取模型媒体/权重。见[审查](qwen3omni_emu35_generation_scope_and_release_audit_2026-10-21.md)、[L065](../reviews/L065.md)、[L066](../reviews/L066.md)。
+
+
+第九十九批（2026-10-21）：固定v1完整核心及指定附录；XTC GH500blob/HF清单，IMUG GH1060blob/HF卡及完整12.9MB文本metadata；实际框架/主表/TTS、人评，原BLIP3o摘要交叉核分组；少量纯函数反例。见[审查](xtc_imug_correctness_consistency_and_dynamic_history_audit_2026-10-21.md)、[L067](../reviews/L067.md)、[L068](../reviews/L068.md)。

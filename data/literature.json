@@ -12749,22 +12749,28 @@
   {
     "title": "Beyond Accuracy: Benchmarking Cross-Task Consistency in Unified Multimodal Models",
     "source_urls": [
-      "https://arxiv.org/abs/2604.25072"
+      "https://arxiv.org/abs/2604.25072",
+      "https://arxiv.org/abs/2604.25072v1",
+      "https://arxiv.org/html/2604.25072v1",
+      "https://weixingw.github.io/xtc-bench/",
+      "https://github.com/liudvikaszekas/xtc-benchmark/tree/8a916eb9cc25642db5f435456778b5f317e2fc35",
+      "https://huggingface.co/datasets/XTC-Bench/xtc-dataset/tree/de2b3e775abfd332f0404adaac2874b9166eda93",
+      "https://arxiv.org/abs/2505.09568v1"
     ],
-    "method": "场景图对齐的VQA与生成prompt；CCTA及正确度加权AW-CCTA。 kMaXDeepLab+FairPSG，Qwen3VL235B验证/属性；同类别Hungarian按attribute.7/edge.3，MiniLM语义similarity；Qwen3-235B评分。指标1−|g−u|及再乘(g+u)/2。",
-    "conclusion": "BAGEL G.725/U.724，CCTA .675/AW.569；MMaDA .630/.144。32B替代使均AW.331→.301，7B .273，不能当绝对结果可互换。",
-    "gap": "CCTA比较正确性分数接近度，两个不同错误都0也得1，不能据此断言答案内容一致或内部表示同空间；AW降低双错奖励但仍依赖评分尺度。图解析/合并/匹配会丢细节；只按类别强配可能错身份。架构家族非受控对比不足因果归因。",
-    "problem": "用同一场景图事实比较UMM在原图理解与文字生成图中的表现。",
+    "method": "以真实图自动提取场景图、生成自然化prompt与原子VQA，重生成图用相同pipeline解析并按类别Hungarian节点/边匹配。CCTA=mean(1−|g−u|)，AW再乘(g+u)/2，g/u为0–5裁判分除5；另报G/U和all/matched覆盖，观察低准确/高对称的失败。它新增评价接口和指标组合，未提出训练解决方案。 评测框架：kMaXDeepLab+重训DSFormer/FairPSG、Qwen3VL235B关系验证/属性、Qwen3-235B自然化/答案语义评分，MiniLM-L6v2属性embedding与两层Hungarian，α.7/β.3；边相似.4关系embedding+.6端点属性均值。匹配只同类、无Cmax拒绝阈值，数量多余节点不强配；all与matched统计不可互代。作者§4/T5 PureAR分组含BLIP3-o，后者原论文明确DiT，不能当本仓库认可的架构分类。",
+    "conclusion": "T2/3 BAGEL G.725/U.724为开放最佳，Gemini.795/.740、分离GPT.804/.684；T4Gemini CCTA.706/AW.623，BAGEL.675/.569，MMaDA.630/.144，说明对称且不正确可高CCTA。T6三角色235→32→7B，mean G.447/.436/.389、U.603/.542/.534、CCTA.594/.623/.603、AW.331/.301/.273；不是所有分数随裁判缩小而下降（CCTA反升）。T7图94.02/Prompt97.15为归一均分、人评judge Pearson.892；T8CCTA一致性ρ.79/可靠性.39，AW.57/.86。均作者报告。",
+    "gap": "作者§5承认teacher偏差、黑箱机制不可识别、等事实权重、缺坐标和仅静态图；这些限制应压住Abstract/Conclusion“representation/governed by”强Claim。同错误分不保证同错误内容；GT漏检/群合并/同类强配会改变事实和身份。固定代码总表只交集有效qid，未配对g强制0；独立consistency脚本无该匹配强制，两个入口非自动等价。总表is_node_matched将GT reference ID与pred/GT两侧都比，重名ID可能误判，已用纯函数条件反例确认，未审原始结果影响。",
+    "problem": "在同一参考场景事实下，比较UMM原图VQA与据文字重生成图的语义正确性及评分对称程度。工作提供静态图像/文字Benchmark、数据构造和评价协议，没有提出新生成骨干、视频模型或汉字笔顺系统。黑箱行为测量不能直接定位内部共享表征。",
     "claim": "作者研究目标：用同一场景图事实比较UMM在原图理解与文字生成图中的表现。",
-    "version": "Beyond Accuracy… / XTC-Bench，2026",
+    "version": "Beyond Accuracy: Benchmarking Cross-Task Consistency in Unified Multimodal Models / XTC-Bench；arXiv2604.25072v1，2026-04-27。固定HTML核心及指定附录；当前提交列表仅v1，未核实正式会议，不擅填录用身份。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L067",
     "canonical_key": "paper:arxiv:2604.25072",
     "evidence_history": [
@@ -12796,37 +12802,46 @@
         "conclusion": "8 个开放模型和 1 个商业模型中，能力与一致性不能互相替代",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 99,
+        "scope": "固定2604.25072v1 Abstract/§1–6核心、Eq1–7/Algorithm1/T1–8全部行，App6.1–6.3研究文字与T9–12、6.4分析文字/图注；未逐图读全部tornado/UI或逐篇追引。实际F2/F3原PNG、原HTML T4/T6/T8。GH8a916eb9完整500blob树、README运行核心、quickstart/test配置、指定Hungarian/匹配调用/属性/关系/judge/总表/consistency代码路径；HFde2b3e775元数据文件清单，不读全部媒体/GT。额外核BLIP3o原摘要的DiT分类；少量抽取纯函数/指标代数反例，未载入模型/下载权重/跑数据评测或重现表。"
       }
     ],
-    "sections_read": "§3完整构造/匹配/公式、§4 Tables2–8主结果/人评/规模替换、§5–6限制；附录细类全部表和代码未核",
+    "sections_read": "固定2604.25072v1 Abstract/§1–6核心、Eq1–7/Algorithm1/T1–8全部行，App6.1–6.3研究文字与T9–12、6.4分析文字/图注；未逐图读全部tornado/UI或逐篇追引。实际F2/F3原PNG、原HTML T4/T6/T8。GH8a916eb9完整500blob树、README运行核心、quickstart/test配置、指定Hungarian/匹配调用/属性/关系/judge/总表/consistency代码路径；HFde2b3e775元数据文件清单，不读全部媒体/GT。额外核BLIP3o原摘要的DiT分类；少量抽取纯函数/指标代数反例，未载入模型/下载权重/跑数据评测或重现表。",
     "review_path": "docs/reviews/L067.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "COCO2017val1000+VG1000，Table1 facts16618+14912=31530；30元类、人工筛选，≥3重叠同类实例会合并。",
-    "framework": "场景图对齐的VQA与生成prompt；CCTA及正确度加权AW-CCTA。",
-    "architecture": "kMaXDeepLab+FairPSG，Qwen3VL235B验证/属性；同类别Hungarian按attribute.7/edge.3，MiniLM语义similarity；Qwen3-235B评分。指标1−|g−u|及再乘(g+u)/2。",
-    "metrics": "G/U/CCTA/AW-CCTA，all vsmatched节点，五名CS学生200样本分项0–5人评相关；静态无过程。",
-    "baselines": "8开放UMM+Gemini；GPTimage1.5/GPT5分任务参考不报统一一致性；judge235B/32B/7B替换。",
-    "experimental_conditions": "作者标准推理；全部NFE/硬件/seed未从本次设置摘全。无生成模型训练；Qwen构造及judge重复角色需审计共同偏差。"
+    "dataset": "COCO2017val1000/VG1000图，共31530“unique facts”（16618/14912）；平均对象10.48/8.22、关系16.84/11.70、属性8.03/6.76，事实计数与各图成分计数口径不擅自相加。30元类定义属性，NR>.5丢对象对、predicate≥.4保留再验证，重叠同类≥3合并并去内部边。此自然图/自动事实分布不覆盖文字逐笔事件、连续视频或任意抽象图。HF固定de2b3e775文件清单核实预计算GT制品，未下载图像或全部注释。",
+    "framework": "以真实图自动提取场景图、生成自然化prompt与原子VQA，重生成图用相同pipeline解析并按类别Hungarian节点/边匹配。CCTA=mean(1−|g−u|)，AW再乘(g+u)/2，g/u为0–5裁判分除5；另报G/U和all/matched覆盖，观察低准确/高对称的失败。它新增评价接口和指标组合，未提出训练解决方案。",
+    "architecture": "评测框架：kMaXDeepLab+重训DSFormer/FairPSG、Qwen3VL235B关系验证/属性、Qwen3-235B自然化/答案语义评分，MiniLM-L6v2属性embedding与两层Hungarian，α.7/β.3；边相似.4关系embedding+.6端点属性均值。匹配只同类、无Cmax拒绝阈值，数量多余节点不强配；all与matched统计不可互代。作者§4/T5 PureAR分组含BLIP3-o，后者原论文明确DiT，不能当本仓库认可的架构分类。",
+    "metrics": "G/U为归一化语义评分均值，CCTA/AW量化正确性评分接近度和联合正确程度；事实等权，覆盖需另报。二元g/u时AW恰为两任务同时正确指示，不能当独立于正确性的内部一致性证据；连续分需裁判尺度校准。T7图/Prompt“Acc%”实际是0–5平均÷5×100，非二值事实完全正确率；judge Pearson与T8 Spearman轴、人类一致性/可靠性定义分开。无规范笔顺/视频时序指标。",
+    "baselines": "8开放BAGEL/BLIP3o/JanusPro/MMaDA/OmniGen2/Showo/Showo2/Tar及Gemini2.5FlashImage；GPTImage1.5+GPT5只给G/U参考，不给同一UMM一致性。模型任务参数、训练数据、decoder、推理预算未控制。T5按作者家族均值且BLIP分类有误，不用其均值做AR/扩散优劣或目标耦合的因果结论。与L071 GenEval的生成专用事实诊断及L068动态多轮评测互补。",
+    "experimental_conditions": "评测不训练生成模型；作者附录另重训DSFormer以代未发布FairPSG权重，但lr/batch/epochs/GPU/完整split未给足。主235B三角色改32B/7B是协议敏感性而非生成模型消融，精确每模型采样/NFE/seed/API日期未披露。固定GH8a916eb9完整500blob（含大量嵌套外部代码）；quickstart JanusPro/steps8–19/单GPU，用Qwen2.5VL7B提取与Qwen2.5-7B文本judge，非论文235B配置；judge指定文件T0/max256/context4096，未运行。"
   },
   {
     "title": "IMUG-Bench: Benchmarking Unified Multimodal Models on Interleaved Understanding and Generation",
     "source_urls": [
-      "https://arxiv.org/abs/2606.09169"
+      "https://arxiv.org/abs/2606.09169",
+      "https://arxiv.org/abs/2606.09169v1",
+      "https://arxiv.org/html/2606.09169v1",
+      "https://github.com/ccccEsion/IMUG-Bench/tree/9a6a67e92c6f93478ae89f44c2ada14296726803",
+      "https://huggingface.co/datasets/ccccEsion/IMUG-Bench/tree/43ef4e31e6d16adcec26815dc93abae3aa825c90"
     ],
-    "method": "三任务类、静态/动态MCQ与生成评分点；动态答案由模型真实输出确定；CoT/自验证/BestofN分析。 评测pipeline，不新建生成骨干；开放模型按接口重构历史，Ovis横向拼全部历史图；Qwen3VL235BThinking评分/动态答案，DeepSeekV3.2参与构造。",
-    "conclusion": "主表BLIP3o8B65.0、BAGEL51.9；BAGEL图像T1 68.5→T6 24.7。轮次任务/存活样本构成可变，下降只能作为误差累积线索，不能单独识别训练exposurebias机制。",
-    "gap": "格式乘权把遵循格式与知识混合；judge生成动态GT可能错；不同输入历史接口是条件混杂；后期更难和上下文长度需受控；Benchmark未证明共享参数协同。",
-    "problem": "评价多轮交错图文中依赖历史的理解、生成及自生成图动态问答。",
+    "method": "人工多轮模板/关键词→DeepSeek/Qwen填充→双人审查；指定依赖轮次和图像评价点。静态MCQ固定答案，动态MCQ用外部VLM读相关历史输出确定真值，生成图按0–5要点均分。CoT先列当前计划，自验证闭环修图，BoN用被测模型理解能力选候选，仅最终图进入后续历史；未训练新生成架构。 Benchmark pipeline而非模型结构创新；构造DeepSeekV3.2/Qwen3VL235BA22BThinking，动态真值与图评分Qwen3VL235BThinking。六开放和两闭源适配，各自骨干/encoder/decoder不同；不能把统一接口当共享权重协同证明。当前GH提供通用client与BAGEL/BLIP3o两个server示例，未全审所有后端或复现论文closed历史。",
+    "conclusion": "T2 GPT82.3/Nano79.5/BLIP3o8B65.0/BAGEL51.9为作者汇总；不能忽略历史接口差异。T3BAGEL图T1 68.5→T6 24.7、GPT94.3→54.8，但轮次任务/样本构成不同。T6Static/Dynamic GPT83.5/50.6、BAGEL52.7/25.3、BLIP8B67.3/47.0，不控制题难度不足证明动态本身因果。T7五模型每task抽1样本、双人人评Pearson总.804，分项GPT Temporal图.662明显更低；不说所有细项>.72，原文只限定行列均值。",
+    "gap": "作者讨论指令遵循、累计错误、幻觉及推理仍不充分，未见独立Limitations章节；本仓库补judge共同偏差、混合来源/泄漏、格式/语义耦合、history接口和成本。固定当前score_mcq纯函数AB/AB→0，A B/AB→0，A B/A,B→.75；37条连续静态多真值也因expected提取为空必得0，不推论论文原日志同样受影响。dynamic extractor无输出图时用benchmark理想answer充当AIResp，未读实际result.json文字；与论文实际history定义有差异需核标注依赖。当前另有CV几何cube评分，不能统称全部图经同VLM。",
+    "problem": "评测2–6轮交错图文交互中理解、生成/编辑、历史保持和对模型实际生成内容的再理解。静态/动态MCQ与图生成是评价任务，作者没有训练新UMM或提出文字视频、规范笔顺生成模型。Temporal Causal分类主要是图文状态序列与常识任务，不自动等同RGB视频因果测量。",
     "claim": "作者研究目标：评价多轮交错图文中依赖历史的理解、生成及自生成图动态问答。",
-    "version": "IMUG-Bench，2026",
+    "version": "IMUG-Bench: Benchmarking Unified Multimodal Models on Interleaved Understanding and Generation；arXiv2606.09169v1，2026-06-08。固定HTML核心及AppA–E指定范围；当前仅v1，未核实正式会议。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L068",
     "canonical_key": "paper:arxiv:2606.09169",
     "evidence_history": [
@@ -12858,17 +12873,22 @@
         "conclusion": "诊断交错推理与 exposure bias；本次未逐项审查全部实验表",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 99,
+        "scope": "固定2606.09169v1 Abstract/§1–5核心、T1–4全部行/公式、AppA来源/B完整T5分布行/C分析与T6/D完整人评T7/E1–4模板全文；未逐图读取所有radar/案例或追读全部引文。实际F3原PNG、原HTML T2/T4/T7。GH9a6a67e9完整1060blob树、README、benchmark全部文本元数据计数、score_mcq/image/grid、dynamic/summary/client/scoring与BAGELdemo指定路径；HF43ef4e31卡/元数据（LICENSE空文件未作为有效许可文本），未下载数据媒体或原表结果。抽取三纯函数4例与文本统计已执行，无模型/权重/API评分或表格复现。"
       }
     ],
-    "sections_read": "§3完整构造/评分/TTS，§4主表2–4/设置/退化/消融，Conclusion；humanjudge附录及所有任务提示未完整核",
+    "sections_read": "固定2606.09169v1 Abstract/§1–5核心、T1–4全部行/公式、AppA来源/B完整T5分布行/C分析与T6/D完整人评T7/E1–4模板全文；未逐图读取所有radar/案例或追读全部引文。实际F3原PNG、原HTML T2/T4/T7。GH9a6a67e9完整1060blob树、README、benchmark全部文本元数据计数、score_mcq/image/grid、dynamic/summary/client/scoring与BAGELdemo指定路径；HF43ef4e31卡/元数据（LICENSE空文件未作为有效许可文本），未下载数据媒体或原表结果。抽取三纯函数4例与文本统计已执行，无模型/权重/API评分或表格复现。",
     "review_path": "docs/reviews/L068.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "3113samples/12034turns，2–6轮均3.87，19域97任务；人工模板/填词/双人校核。",
-    "framework": "三任务类、静态/动态MCQ与生成评分点；动态答案由模型真实输出确定；CoT/自验证/BestofN分析。",
-    "architecture": "评测pipeline，不新建生成骨干；开放模型按接口重构历史，Ovis横向拼全部历史图；Qwen3VL235BThinking评分/动态答案，DeepSeekV3.2参与构造。",
-    "metrics": "MCQ正确减错误选项、再乘格式权重1/.75/.5/0；generation每point0–5归一；多轮平均。公式未明示下界截断，错误多时可能负分，需实现核。",
-    "baselines": "6开放模型含BAGEL/BLIP3o4B8B/OmniGen2/Ovis/UniWorld；两闭源API；BAGEL三种TTS。",
-    "experimental_conditions": "BAGEL保交错，其他image-list+placeholder，Ovis拼接改变每图有效分辨率；closed officialhistory；BAGELSVmax1及BoN3主设置，训练不适用。完整NFE/seed/成本缺项。"
+    "dataset": "固定GH9a6a67e9完整文本benchmark.jsonl 12912572B实际解析：3113样本、12034轮、19domain/97task；5046文字/6988图像，2/3/4/5/6轮样本403/932/807/622/349。4327静态MCQ/719动态，静态多正确选项190轮，其中37条为连续多字母真值。三类StaticSpatial/TemporalCausal/Hybrid；图像来自平台、GPT/Nano/Grok生成、真实采集/专业制作，双人审核是作者报告，未独立逐图校验。HF43ef4e31卡英文/混合许可，作者文本/自制内容CCBY4与第三方图原许可区分。",
+    "framework": "人工多轮模板/关键词→DeepSeek/Qwen填充→双人审查；指定依赖轮次和图像评价点。静态MCQ固定答案，动态MCQ用外部VLM读相关历史输出确定真值，生成图按0–5要点均分。CoT先列当前计划，自验证闭环修图，BoN用被测模型理解能力选候选，仅最终图进入后续历史；未训练新生成架构。",
+    "architecture": "Benchmark pipeline而非模型结构创新；构造DeepSeekV3.2/Qwen3VL235BA22BThinking，动态真值与图评分Qwen3VL235BThinking。六开放和两闭源适配，各自骨干/encoder/decoder不同；不能把统一接口当共享权重协同证明。当前GH提供通用client与BAGEL/BLIP3o两个server示例，未全审所有后端或复现论文closed历史。",
+    "metrics": "论文MCQ=wfmt*(ncorr−nincorrect)/真值个数，w=1/.75/.5/0；公式未写截断，现代码明确max(0,...)。图每point0–5除5均分，当前汇总先图每轮要点均值，再按有效轮micro平均，不能把T2Avg算六格宏平均；缺结果/动态答案会跳过，须报告覆盖。当前score_mcq正则单字母词界不能识别规范连续AB，格式奖励与语义解析矛盾。Pearson相关衡量共变、不证明动态真值无误或等绝对标尺。",
+    "baselines": "GPT5Mini+GPTImage1Mini、Gemini2.5FlashImage/NanoBanana；BAGEL15B、BLIP3o名4/8B实际表总10/14B、OmniGen2 7B、OvisU1 3B、UNIWORLD20B。参数名/总系统成本与不同论文口径分开，API/训练数据/输入history分辨率和采样预算不同。TTS仅BAGEL对原推理、CoT、SV1–3/BoN2–5，无等调用预算的外部模型selector/单独模块强基线或完整随机方差。",
+    "experimental_conditions": "无生成模型训练；作者BAGEL TTS主设SVmax1/BoN3，CoT不写入后续history、中间失败图也丢弃。论文未列全GPU/生成采样/seed/API日期/重试成本。固定GH9a6a67e9完整1060blob（含媒体）；当前BAGEL demo BF16/每GPU max80GiB、sampleTrue/T.7/thinkcap512/50steps/CFGtext3/image1.5/interval.4–1/shift3，非已证原表相同。judge需用户配置、dynamic/image T.1。没有模型训练或推理运行。"
   },
   {
     "title": "Unison: Benchmarking Unified Multimodal Models via Synergistic Understanding and Generation",

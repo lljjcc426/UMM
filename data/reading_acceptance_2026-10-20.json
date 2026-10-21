@@ -6881,6 +6881,74 @@
         }
       ],
       "boundary": "固定2510.26583v1 HTML Abstract/§1–7完整核心、T1–16全部表行与定性说明，实际F3原PNG、F9原SVG（初次嵌入渲染缺图已排除，另本地原SVG核读）和T5/T6/T7/T16；未逐张精读所有补充案例/参考文献。固定GH8fcf1da完整72blob树，读README/ApacheLICENSE首部、config、inference/model_runtime/model_utils和generation_utils指定路径；HFef6e632元数据与主干config。未审全部transformer/quantizer/vLLM补丁，未取得DiDA/SD3.5/Wan视频权重或数据媒体，未运行/机器人测试。"
+    },
+    {
+      "id": "L067",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "在同一参考场景事实下，比较UMM原图VQA与据文字重生成图的语义正确性及评分对称程度。工作提供静态图像/文字Benchmark、数据构造和评价协议，没有提出新生成骨干、视频模型或汉字笔顺系统。黑箱行为测量不能直接定位内部共享表征。 独立VQA/图像生成总分无法定位同一对象、属性、关系的跨任务不对称。作者用同一场景图生成两种任务，试图区分单任务正确与一致性。需要进一步区分“两个响应正确性同分”和“响应内容相同”；不同错误同为0也有CCTA=1，所谓coherent hallucination不能自动认定为相同幻觉内容。",
+          "evidence": "固定v1核心/表行，实际框架主表及协议敏感性/TTS对照、指定附录/固定代码，非模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "COCO/VG参考图→kMaX分割/FairPSG关系→阈值和Qwen验证/同类重叠群合并→spotlight+crop属性→图线性化/两阶段语言自然化→生成prompt及VQA。UMM分别生成图、回答原图；生成图重新解析→同label节点/边匹配→查图答案/LLM judge→G/U/CCTA/AW。实际F2/F3与T4/T6/T8核读。 评测框架：kMaXDeepLab+重训DSFormer/FairPSG、Qwen3VL235B关系验证/属性、Qwen3-235B自然化/答案语义评分，MiniLM-L6v2属性embedding与两层Hungarian，α.7/β.3；边相似.4关系embedding+.6端点属性均值。匹配只同类、无Cmax拒绝阈值，数量多余节点不强配；all与matched统计不可互代。作者§4/T5 PureAR分组含BLIP3-o，后者原论文明确DiT，不能当本仓库认可的架构分类。",
+          "evidence": "固定v1核心/表行，实际框架主表及协议敏感性/TTS对照、指定附录/固定代码，非模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "以真实图自动提取场景图、生成自然化prompt与原子VQA，重生成图用相同pipeline解析并按类别Hungarian节点/边匹配。CCTA=mean(1−|g−u|)，AW再乘(g+u)/2，g/u为0–5裁判分除5；另报G/U和all/matched覆盖，观察低准确/高对称的失败。它新增评价接口和指标组合，未提出训练解决方案。 同一场景事实、可靠parser和正确judge标尺下，成对评测能暴露G/U全局均分看不到的样本级差异；AW在正确性重要的部署可抑制双错高分。对书写可将笔画身份/顺序/落抬笔作为共同语义锚，但必须直接比较响应内容/事件并保留正确性、覆盖和对称性，不能仅借静态自然图CCTA证明共享UMM获益。",
+          "evidence": "固定v1核心/表行，实际框架主表及协议敏感性/TTS对照、指定附录/固定代码，非模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2/3 BAGEL G.725/U.724为开放最佳，Gemini.795/.740、分离GPT.804/.684；T4Gemini CCTA.706/AW.623，BAGEL.675/.569，MMaDA.630/.144，说明对称且不正确可高CCTA。T6三角色235→32→7B，mean G.447/.436/.389、U.603/.542/.534、CCTA.594/.623/.603、AW.331/.301/.273；不是所有分数随裁判缩小而下降（CCTA反升）。T7图94.02/Prompt97.15为归一均分、人评judge Pearson.892；T8CCTA一致性ρ.79/可靠性.39，AW.57/.86。均作者报告。 αβ .7/.3、.5/.5、.3/.7约5%节点配对不同，作者抽样认为属性优先更准，未给该抽样数/匹配GT和终排名置信区间。T6同时替换属性/关系/judge，无法分离各角色偏差且附录未定位其声称的逐模型小裁判表。T9kMaX PQ58.1/stuff48.8；T10关系meanAcc.77但F1.18，不能据Acc宣称所有关系高质。5名硕士各实验200样本，T12α .78/.75/.84支撑有限人评协议，不能推出自动噪声处处可忽略。没有等数据/FLOPs的架构或耦合目标干预。 评测不训练生成模型；作者附录另重训DSFormer以代未发布FairPSG权重，但lr/batch/epochs/GPU/完整split未给足。主235B三角色改32B/7B是协议敏感性而非生成模型消融，精确每模型采样/NFE/seed/API日期未披露。固定GH8a916eb9完整500blob（含大量嵌套外部代码）；quickstart JanusPro/steps8–19/单GPU，用Qwen2.5VL7B提取与Qwen2.5-7B文本judge，非论文235B配置；judge指定文件T0/max256/context4096，未运行。",
+          "evidence": "固定v1核心/表行，实际框架主表及协议敏感性/TTS对照、指定附录/固定代码，非模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "作者§5承认teacher偏差、黑箱机制不可识别、等事实权重、缺坐标和仅静态图；这些限制应压住Abstract/Conclusion“representation/governed by”强Claim。同错误分不保证同错误内容；GT漏检/群合并/同类强配会改变事实和身份。固定代码总表只交集有效qid，未配对g强制0；独立consistency脚本无该匹配强制，两个入口非自动等价。总表is_node_matched将GT reference ID与pred/GT两侧都比，重名ID可能误判，已用纯函数条件反例确认，未审原始结果影响。 以人工场景/事件GT和oracle parser建立同内容同错、异内容同错、单侧正确、双方正确配对，验证指标辨识与校准；同时公布qid完整分母/漏生成/新增事实、GT与pred命名空间及matched日志。逐独立替换三teacher角色，扫αβ/拒配阈值/群合并，按图paired bootstrap做排名区间；同初始化/数据/总预算干预目标耦合再比较架构。书写加入同终态异笔顺/逆序/漏笔、跨语字和时序事件匹配，以上模型实验未运行。",
+          "evidence": "固定v1核心/表行，实际框架主表及协议敏感性/TTS对照、指定附录/固定代码，非模型复现，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定2604.25072v1 Abstract/§1–6核心、Eq1–7/Algorithm1/T1–8全部行，App6.1–6.3研究文字与T9–12、6.4分析文字/图注；未逐图读全部tornado/UI或逐篇追引。实际F2/F3原PNG、原HTML T4/T6/T8。GH8a916eb9完整500blob树、README运行核心、quickstart/test配置、指定Hungarian/匹配调用/属性/关系/judge/总表/consistency代码路径；HFde2b3e775元数据文件清单，不读全部媒体/GT。额外核BLIP3o原摘要的DiT分类；少量抽取纯函数/指标代数反例，未载入模型/下载权重/跑数据评测或重现表。"
+    },
+    {
+      "id": "L068",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "评测2–6轮交错图文交互中理解、生成/编辑、历史保持和对模型实际生成内容的再理解。静态/动态MCQ与图生成是评价任务，作者没有训练新UMM或提出文字视频、规范笔顺生成模型。Temporal Causal分类主要是图文状态序列与常识任务，不自动等同RGB视频因果测量。 单轮/固定答案无法评价多轮生成误差传播，固定理想答案不能正确评判模型已画出什么。作者动态从实际输出确定后续答案，提出CoT/自验证/BoN改善推理。动态状态理解与原目标完成是两个不同目标；图画错后正确辨认错误状态也可得动态QA分，需要与生成目标分开报告。",
+          "evidence": "固定v1核心/表行，实际框架主表及协议敏感性/TTS对照、指定附录/固定代码，非模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "场景模板和可选输入图→轮次问题→被测模型文字答案或图像→更新历史→后续问题；评分读指定历史图/问答、目标图/要点，动态judge先生成正确选项再规则比对。BAGEL重建原交错顺序，其余图列表+placeholder，Ovis水平拼所有历史图；closed用官方history。实际F3构造/评分图和T2/T4/T7核读。 Benchmark pipeline而非模型结构创新；构造DeepSeekV3.2/Qwen3VL235BA22BThinking，动态真值与图评分Qwen3VL235BThinking。六开放和两闭源适配，各自骨干/encoder/decoder不同；不能把统一接口当共享权重协同证明。当前GH提供通用client与BAGEL/BLIP3o两个server示例，未全审所有后端或复现论文closed历史。",
+          "evidence": "固定v1核心/表行，实际框架主表及协议敏感性/TTS对照、指定附录/固定代码，非模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "人工多轮模板/关键词→DeepSeek/Qwen填充→双人审查；指定依赖轮次和图像评价点。静态MCQ固定答案，动态MCQ用外部VLM读相关历史输出确定真值，生成图按0–5要点均分。CoT先列当前计划，自验证闭环修图，BoN用被测模型理解能力选候选，仅最终图进入后续历史；未训练新生成架构。 当后续问题依赖已发生的实际视觉状态，动态GT可避免拿理想目标错判正确状态识别；对书写应同步保存规范目标与实际墨迹两套事实。计划CoT可能减少漏约束，自验证/候选选择仅在理解judge可靠且预算允许时有效；当前结果支持限定BAGEL/任务条件的增益，不证明共享参数优于强分离系统或所有重试越多越好。",
+          "evidence": "固定v1核心/表行，实际框架主表及协议敏感性/TTS对照、指定附录/固定代码，非模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2 GPT82.3/Nano79.5/BLIP3o8B65.0/BAGEL51.9为作者汇总；不能忽略历史接口差异。T3BAGEL图T1 68.5→T6 24.7、GPT94.3→54.8，但轮次任务/样本构成不同。T6Static/Dynamic GPT83.5/50.6、BAGEL52.7/25.3、BLIP8B67.3/47.0，不控制题难度不足证明动态本身因果。T7五模型每task抽1样本、双人人评Pearson总.804，分项GPT Temporal图.662明显更低；不说所有细项>.72，原文只限定行列均值。 T4BAGEL图均分baseline54.1→CoT65.9、SVmax1 55.2/max2 54.6/max3 53.7、BoN2 54.8/3 57.4/4 58.2/5 58.6。SV不单调且max3低于baseline，BoN增加成本；无CI/多seed，饱和与“not coincidental”未被统计证明。TTS不能单凭轮次曲线识别teacherforcing exposurebias；需要同题oraclehistory/注错history和难度、长度匹配。AppD关联不等独立动态真值准确率、未给充分人间一致性或区间。 无生成模型训练；作者BAGEL TTS主设SVmax1/BoN3，CoT不写入后续history、中间失败图也丢弃。论文未列全GPU/生成采样/seed/API日期/重试成本。固定GH9a6a67e9完整1060blob（含媒体）；当前BAGEL demo BF16/每GPU max80GiB、sampleTrue/T.7/thinkcap512/50steps/CFGtext3/image1.5/interval.4–1/shift3，非已证原表相同。judge需用户配置、dynamic/image T.1。没有模型训练或推理运行。",
+          "evidence": "固定v1核心/表行，实际框架主表及协议敏感性/TTS对照、指定附录/固定代码，非模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "作者讨论指令遵循、累计错误、幻觉及推理仍不充分，未见独立Limitations章节；本仓库补judge共同偏差、混合来源/泄漏、格式/语义耦合、history接口和成本。固定当前score_mcq纯函数AB/AB→0，A B/AB→0，A B/A,B→.75；37条连续静态多真值也因expected提取为空必得0，不推论论文原日志同样受影响。dynamic extractor无输出图时用benchmark理想answer充当AIResp，未读实际result.json文字；与论文实际history定义有差异需核标注依赖。当前另有CV几何cube评分，不能统称全部图经同VLM。 先修复自用解析并保留原版结果，逐样本报告格式/内容分与37连续多真值、完整5046/6988覆盖；核当前代码与原表脚本/日志版本。成对固定同任务/当前请求/图像数分辨率、随机轮次与oracle/生成/人为注错history，分离训练曝光、任务难度、历史长度和错误传播。独立人评动态选项/多judge与题目难度匹配；CoT/SV/BoN匹配总生成次数、tokens/时延，外部selector+独立模型对照；书写同终态异事件检查实际状态/规范顺序。除少量评分纯函数反例和文本计数，均未运行。",
+          "evidence": "固定v1核心/表行，实际框架主表及协议敏感性/TTS对照、指定附录/固定代码，非模型复现，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定2606.09169v1 Abstract/§1–5核心、T1–4全部行/公式、AppA来源/B完整T5分布行/C分析与T6/D完整人评T7/E1–4模板全文；未逐图读取所有radar/案例或追读全部引文。实际F3原PNG、原HTML T2/T4/T7。GH9a6a67e9完整1060blob树、README、benchmark全部文本元数据计数、score_mcq/image/grid、dynamic/summary/client/scoring与BAGELdemo指定路径；HF43ef4e31卡/元数据（LICENSE空文件未作为有效许可文本），未下载数据媒体或原表结果。抽取三纯函数4例与文本统计已执行，无模型/权重/API评分或表格复现。"
     }
   ]
 }

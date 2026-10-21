@@ -409,3 +409,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第九十八批（2026-10-21）：分阶段等预算非劣/模态对齐；等decoder交错/RL消融、质量延迟曲线、独立人评和状态/事件/接触干预；未执行。见[审查](../evidence/qwen3omni_emu35_generation_scope_and_release_audit_2026-10-21.md)、[L065](../reviews/L065.md)、[L066](../reviews/L066.md)。
+
+
+第九十九批（2026-10-21）：同内容/异内容同错事件配对；oracle/生成/注错history和同题/分辨率/预算、多seed，人评双真值；原评分与修复版分开，模型实验未执行。见[审查](../evidence/xtc_imug_correctness_consistency_and_dynamic_history_audit_2026-10-21.md)、[L067](../reviews/L067.md)、[L068](../reviews/L068.md)。
