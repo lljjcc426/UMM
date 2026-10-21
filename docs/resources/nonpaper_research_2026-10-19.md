@@ -407,3 +407,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第九十七批（2026-10-21）：GenEval固定af4902f代码/MIT与553metadata；top-confidence选择、额外位置角阈、汇总宏微/anysuccess差异。未下载权重/图像或执行生成检测。见[审查](../evidence/manzano_hybrid_tokenizer_and_geneval_measurement_audit_2026-10-21.md)、[L064](../reviews/L064.md)、[L071](../reviews/L071.md)。
+
+
+第九十八批（2026-10-21）：两固定GH/HF、Qwen配置/采样/后端/显存与整段WAVdemo、Emu公开AR/DiDA待发布、CFG/seed/backend区别，代码卡不等完整训练流水线。见[审查](../evidence/qwen3omni_emu35_generation_scope_and_release_audit_2026-10-21.md)、[L065](../reviews/L065.md)、[L066](../reviews/L066.md)。

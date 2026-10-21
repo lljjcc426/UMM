@@ -287,3 +287,6 @@ python scripts/validate_catalog.py
 
 
 第九十七批（2026-10-21）完成L064 MANZANO/L071 GenEval固定v1核心、实际图表/指定附录与选定代码；校正颜色候选、任务协同范围、表文及GenEval聚合疑点。356目录、195核心/198书面含未通过项、161条未确认核心。见[审查](docs/evidence/manzano_hybrid_tokenizer_and_geneval_measurement_audit_2026-10-21.md)和[逐文件说明](docs/evidence/ninety_seventh_changes_2026-10-21.md)。无删除/模型复现。
+
+
+第九十八批（2026-10-21）完成L065 Qwen3-Omni/L066 Emu3.5固定v1核心、主表/实际图表、选定GH/HF发布；区分真实生成模态、受控Base与后训练、三种扩散/负迁移、未发布DiDA和自动具身评价。356目录、197核心/200书面含未通过项，159条未确认核心。见[审查](docs/evidence/qwen3omni_emu35_generation_scope_and_release_audit_2026-10-21.md)、[逐文件说明](docs/evidence/ninety_eighth_changes_2026-10-21.md)。无删除/模型复现。

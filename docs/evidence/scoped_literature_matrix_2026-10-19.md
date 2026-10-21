@@ -377,3 +377,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第九十七批（2026-10-21）：静态图理解/AR语义加flow像素生成，与对象组合评价分列；均无视频/规范笔顺实验。见[审查](manzano_hybrid_tokenizer_and_geneval_measurement_audit_2026-10-21.md)、[L064](../reviews/L064.md)、[L071](../reviews/L071.md)。
+
+
+第九十八批（2026-10-21）：Qwen输入视听输出文字/语音；Emu图文关键帧/DiDA/SD3.5像素解码/Wan视频解码分开，具身无低层动作或执行成功率。见[审查](qwen3omni_emu35_generation_scope_and_release_audit_2026-10-21.md)、[L065](../reviews/L065.md)、[L066](../reviews/L066.md)。

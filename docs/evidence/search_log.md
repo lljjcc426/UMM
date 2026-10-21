@@ -466,3 +466,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第九十七批（2026-10-21）：MANZANO v1/Apple和ICLR正式书目分开；GenEval完整arXiv v1、NeurIPS书目和固定18blob发布。正式PDF403/不完整均未作正文证据，实际核框架/结果/消融/人评UI。见[审查](manzano_hybrid_tokenizer_and_geneval_measurement_audit_2026-10-21.md)、[L064](../reviews/L064.md)、[L071](../reviews/L071.md)。
+
+
+第九十八批（2026-10-21）：固定v1提交表、GH28/72blob与HF小配置；实际框架/主表/控制对照，Emu F9初次空图排除后直接原SVG核读，不取模型媒体/权重。见[审查](qwen3omni_emu35_generation_scope_and_release_audit_2026-10-21.md)、[L065](../reviews/L065.md)、[L066](../reviews/L066.md)。

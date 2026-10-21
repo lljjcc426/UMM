@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L065",
+    "L066"
+  ],
+  "sources": {
+    "L065": [
+      "https://arxiv.org/abs/2509.17765v1",
+      "https://arxiv.org/html/2509.17765v1",
+      "https://github.com/QwenLM/Qwen3-Omni/tree/e4235853125589c789f06a2dd83e9f4126df5e9d",
+      "https://huggingface.co/Qwen/Qwen3-Omni-30B-A3B-Instruct/tree/26291f793822fb6be9555850f06dfe95f2d7e695"
+    ],
+    "L066": [
+      "https://arxiv.org/abs/2510.26583v1",
+      "https://arxiv.org/html/2510.26583v1",
+      "https://github.com/baaivision/Emu3.5/tree/8fcf1da48f9c5252fe0a0b8dc842e07b6efcd745",
+      "https://huggingface.co/BAAI/Emu3.5/tree/ef6e632f2cbda5269f766b04e443bbf116cd093e"
+    ]
+  },
+  "executed": false,
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "artifacts": [
+    {
+      "id": "L065",
+      "read_version": "2509.17765v1 HTML core/T1-16/App9.1T17-18",
+      "github_revision": "e4235853125589c789f06a2dd83e9f4126df5e9d",
+      "tree_blobs": 28,
+      "hf_revision": "26291f793822fb6be9555850f06dfe95f2d7e695",
+      "visuals": [
+        "F2 white composite for alpha transparency",
+        "T2",
+        "T4",
+        "T13",
+        "T16"
+      ],
+      "findings": [
+        "Inputtext/image/audio/video outputtext/speech; Thinking/Captioner onlyThinker, no image/video generator",
+        "T16claimed matchedBase comparison contains negative deltas; T4/5posttrainedsame-size textdrop; no noninferioritystatistics",
+        "T2theoreticalfirstpacket audio234->1172ms/video547->2284ms with1->6concurrency, hardware/inputprotocol underspecified; RTF<1 separate",
+        "ThinkingASR/musicworse inApp9.1; perception not universally helped by chainofthought",
+        "GH README evaluationgreedy/2fps vswebdemo thinker_do_sampleTrue/.7 and generatefulloutputthenyieldaudiofile; neither promises paper streamingimplementation",
+        "HF metadata licenseother+license_nameapache-2.0; GH LICENSE Apache2; notupstreamdata licensing",
+        "HF16codegroups/config dimensions distinct from full externalmodelimplementation; WhisperFeatureExtractor label not Whisperencoderidentity"
+      ]
+    },
+    {
+      "id": "L066",
+      "read_version": "2510.26583v1 completecore/T1-16",
+      "github_revision": "8fcf1da48f9c5252fe0a0b8dc842e07b6efcd745",
+      "tree_blobs": 72,
+      "hf_revision": "ef6e632f2cbda5269f766b04e443bbf116cd093e",
+      "visuals": [
+        "F3",
+        "F9originalSVG actual rendered separate after missingobject initialrender excluded",
+        "T5",
+        "T6",
+        "T7",
+        "T16"
+      ],
+      "findings": [
+        "MainAR/DiDAvisualtoken model vsSD3.5imageflowdecoder vsWan2.2video decoder separated; embodiedoutputs plans/keyframes notmotoraction",
+        "SFTtable150.1Btokens vs overview150Bsamples unit mismatch; manipulationeval331vs listed10+109+192=311",
+        "T16samebackendnaive512/22~23.3x,FlagScale120/10=12x; GenEvalflat,DPG-.8,GEdit-.03; full latencyhardware/samplingconditions missing",
+        "T15diffdecoder textimproves but rFID/LPIPSworse andfaceflat; extraresolution/model computeconfounds",
+        "T7easy pnED .43>Seedream.34; LongTextZH.928<Qwen.946; OneIGZH.529<Qwen.548; automaticfourtaskpreference notexecutionproof",
+        "OfficialfixedREADME bothmainweights pureAR,DiDAweights/inferenceTODO; vLLM4-5xclaim separatefrompaperDiDA20x",
+        "Selectedgenericstoryconfig CFG3 routedcustomlogits, seed6666Pythononlyinmain vs vLLMseedparameter; defaultparams notpapercompleteprotocol",
+        "Public72blob release has inference/tokenizer/runtime/vLLMpatch; no complete paperdata/pretrain/SFT/RL/DiDA trainingworkflow established by readfiles"
+      ]
+    }
+  ]
+}

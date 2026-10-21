@@ -418,3 +418,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第九十七批（2026-10-21）：MANZANO v1 T3 3B子项与Overall、正式修订全文/完整训练协议待核；GenEval上游误测、十色自动与十一色人评、above公式方向和正文22点需区分。见[审查](manzano_hybrid_tokenizer_and_geneval_measurement_audit_2026-10-21.md)、[L064](../reviews/L064.md)、[L071](../reviews/L071.md)。
+
+
+第九十八批（2026-10-21）：Qwen理论首包硬件/配方/统计待补；Emu150Bsamples单位、331vs311、DiDA噪声/步数与训练发布、judge版本与机器人执行均待核。见[审查](qwen3omni_emu35_generation_scope_and_release_audit_2026-10-21.md)、[L065](../reviews/L065.md)、[L066](../reviews/L066.md)。
