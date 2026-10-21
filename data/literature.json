@@ -14268,22 +14268,26 @@
     "title": "Liquid: Language Models are Scalable and Unified Multi-modal Generators",
     "source_urls": [
       "https://arxiv.org/abs/2412.04332",
-      "https://arxiv.org/html/2412.04332"
+      "https://arxiv.org/html/2412.04332",
+      "https://doi.org/10.1007/s11263-025-02639-5",
+      "https://arxiv.org/html/2412.04332v4",
+      "https://github.com/FoundationVision/Liquid/tree/b2a7dd53bb02ef9728a848d3aa8aaf1955553b02",
+      "https://huggingface.co/Junfeng5/Liquid_V1_7B/tree/a0e7b763fe3869d383a22c64cde1a9dcaab65160"
     ],
-    "method": "不改LLM主体，仅扩8192视觉embedding/head；用纯文/图文混训及多尺寸模型探查loss、预算和任务权衡。 Chameleon VQGAN将512²映成32²=1024码，码本8192；Gemma7B主模型，其他Llama3-1B/Gemma2-2B9B/Qwen2.5-.5B7B32B用于规模实验；文字BPE，统一CE。不同模型家族/原预训随尺寸一起变，不能直接作为纯参数规模因果实验。",
-    "conclusion": "主MJHQ FID5.47；Table1基线gFID19.9/VQAv2 60.7，加10M生成12.8/64.5，加10M理解14.9/63.5，支持扩展数据配方两指标提高。§3.2承认所有尺寸混训视觉验证loss更高，VQAScore损失随规模减小也可能有指标饱和；正文“消除冲突”需收窄。",
-    "gap": "Table1更多总样本/训练量和SFT共同影响，不能据此证明优化方向天然一致或普遍无冲突。VQ损细节，内部合成数据限制复现，主/†/‡变体混写会误导。无完整局部文字/时间指标，多规模结果只在所测分布成立。",
-    "problem": "检验现有LLM增加视觉词表后能否统一图文，并研究规模、任务取舍及数据互促。",
+    "method": "扩文本词表加入8192图像码，沿用LLM主体与next-token训练；直接使用Chameleon预训练VQGAN图像编解码，未另加CLIP语义分支或扩散解码器。六种规模分别文本/图像/混合继续预训，分析loss、VQAScore与语言差距，并增加生成/理解数据测试跨任务变化。并非完全不依赖外部视觉模块，‡UniTok变体另有语义先验且基座不同。 原decoder主体不变，扩embedding与输出头；六规模0.5/1/2/7/9/32B横跨Qwen2.5/Llama3/Gemma2等基座家族，不能只归因参数数目。发布7B配置GemmaForCausalLM、28层/h3072/16head/16KV、vocab264192=256000+8192，config最大8192而论文训练context2048。基础Gemma7B/512与‡LLaMA2-7B/UniTok256、†额外epoch须区分。",
+    "conclusion": "MJHQ FID5.47优于SDXL9.55/PixArt6.14，低于Playground4.48的质量排名。GenAI基本.83/高级.65，但universal logical.46低于SDXL.50/VILA256 .53；WISE总体.41低于SDXL.43/PixArt.47/FLUXdev.50。T5 Gemma原MMLU62.6→Liquid56.0，自身文本继续55.5→混合56.0；Qwen32B文本68→混合66.5。理解基础VQAv2 68/GQA56.1/Text40.4/POPE81.1/MME1107.2，†71.3/58.4/42.4/81.1/1119.3，‡76.8/61.1/51.6/83.2/1448，不能把‡归基础Gemma。原Gemma行ARC-e53.8/ARC-c81.0看似列序疑点，按原表保留，不用于优势结论。",
+    "gap": "六规模跨基座、混合vs单任务数据量/预算不同；加任务同时加数据不能独立识别统一架构/共享梯度协同。语言相对原基座与相对继续预训对照结论不同，存在多指标反例。100×训练成本声称复用LLM/VQGAN，不含其完整历史预训成本。内部数据、理解SFT WIP与当前LoRA/批量/配比差异限制复现；所读核心代码未定位max-z实现但未全仓逐行审计，不断言全仓没有。期刊全文未获得，未训练推理或复现原表。",
+    "problem": "将已有文本LLM扩展为共享decoder的文本生成、图像理解、图像生成模型，研究规模、训练混合和跨任务影响。主要定量任务为文本/图像；交错少样本仅定性。没有文字视频、书写事件、字内笔顺生成或验证。",
     "claim": "研究目标：检验现有LLM增加视觉词表后能否统一图文，并研究规模、任务取舍及数据互促。",
-    "version": "Liquid，2024",
+    "version": "Liquid: Language Models are Scalable and Unified Multi-modal Generators；IJCV2026 134(1), article39，2026-01-07在线，DOI10.1007/s11263-025-02639-5。正式身份由出版/Crossref与作者资料核实；正式全文受限，方法实验读取完整固定arXiv2412.04332v4（2025-04-10），不把该版本全部细节追认为期刊最终版，未核年度SCI分区。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L088",
     "canonical_key": "paper:arxiv:2412.04332",
     "evidence_history": [
@@ -14315,39 +14319,45 @@
         "conclusion": "报告任务干扰随规模减弱；是特定规模区间的经验结果，不是一般性定理",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 104,
+        "scope": "完整固定arXiv2412.04332v4核心§1–6、方法/训练与全部T1–6、F3/5/6相关分析；实际F2框架/F3/F5/F6与T1/T5核图，非逐篇参考文献或每幅定性图。正式IJCV仅出版身份/摘要元数据，全文受限未据其验方法。固定GH b2a7dd53完整76blob树、README/Data/TRAIN/EVAL指定段、expand_vocab/train/PEFT/collator/trainer相关片段、默认脚本、T2I/i2t与GenAI/MJHQ/FID核心；非全仓逐行审计。HF a0e7b763卡/config/目录/generation与trainer_state，不把指令checkpoint日志当原混合预训证据；未下载权重/图像或执行模型。"
       }
     ],
-    "sections_read": "§2预备/数据/训练、§3.1–3.3、Table1、§4.1 Table3、§4.2解释、§4.3训练/变体、§4.6和§6；未逐图、未逐行全部主理解/语言表、未核代码，未复现",
+    "sections_read": "完整固定arXiv2412.04332v4核心§1–6、方法/训练与全部T1–6、F3/5/6相关分析；实际F2框架/F3/F5/F6与T1/T5核图，非逐篇参考文献或每幅定性图。正式IJCV仅出版身份/摘要元数据，全文受限未据其验方法。固定GH b2a7dd53完整76blob树、README/Data/TRAIN/EVAL指定段、expand_vocab/train/PEFT/collator/trainer相关片段、默认脚本、T2I/i2t与GenAI/MJHQ/FID核心；非全仓逐行审计。HF a0e7b763卡/config/目录/generation与trainer_state，不把指令checkpoint日志当原混合预训证据；未下载权重/图像或执行模型。",
     "review_path": "docs/reviews/L088.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "DCLM15M/SlimPajama12M/StarCoder3M，约60B纯文token；JourneyDB+内部Midjourney式合成30M图文、约30B图码。20%T2I翻转caption。主SFT3.5M（LMSYS1M+T2I1M+MiniGemini1.5M）。",
-    "framework": "不改LLM主体，仅扩8192视觉embedding/head；用纯文/图文混训及多尺寸模型探查loss、预算和任务权衡。",
-    "architecture": "Chameleon VQGAN将512²映成32²=1024码，码本8192；Gemma7B主模型，其他Llama3-1B/Gemma2-2B9B/Qwen2.5-.5B7B32B用于规模实验；文字BPE，统一CE。不同模型家族/原预训随尺寸一起变，不能直接作为纯参数规模因果实验。",
-    "metrics": "训练/验证CE、token acc、GenAIbench VQAScore；MJHQ FID、WISE；8类纯文基准/MMLU5shot及VQA/GQA/TextVQA/POPE/MME。loss、文字准确率与整体图像指标需分开。",
-    "baselines": "纯文字30M、纯T2I30M、混合60M三组；同尺寸/数据阶段、额外理解/生成数据；Chameleon/LWM/VILA-U/Show-o/SDXL等。主Liquid、加epoch†、UniTok替换‡为不同配方。",
-    "experimental_conditions": "lr2e-5、b1024/context2048、ZeRO3，规模实验constant其余cosine；≥7B早期loss spike用clip.5及max-z loss。三组模型数据30M/30M/60M，Table1基线30M总样本，加一类后40M；已读部分未给统一总GPU/固定曝光条件，不把数据增加直接当固定计算。"
+    "dataset": "继续预训30M文本：DCLM15M/SlimPajama12M/StarCoder3M，约60B文本token；30M JourneyDB+内部MidJourney风格图文，约30B图像码。混合60M与各30M单任务版本；20%T2I反转caption。SFT3.5M=1MLMSYS+1MT2I+1.5MMiniGemini。T1局部30M=10M文本/10M生成/10M理解，再分别加10M生成或理解。§4.4交错定性另外加入交错训练数据，不能称全模型未见交错数据。内部图文不可由JourneyDB单独复现，官方Data.md明确提示。",
+    "framework": "扩文本词表加入8192图像码，沿用LLM主体与next-token训练；直接使用Chameleon预训练VQGAN图像编解码，未另加CLIP语义分支或扩散解码器。六种规模分别文本/图像/混合继续预训，分析loss、VQAScore与语言差距，并增加生成/理解数据测试跨任务变化。并非完全不依赖外部视觉模块，‡UniTok变体另有语义先验且基座不同。",
+    "architecture": "原decoder主体不变，扩embedding与输出头；六规模0.5/1/2/7/9/32B横跨Qwen2.5/Llama3/Gemma2等基座家族，不能只归因参数数目。发布7B配置GemmaForCausalLM、28层/h3072/16head/16KV、vocab264192=256000+8192，config最大8192而论文训练context2048。基础Gemma7B/512与‡LLaMA2-7B/UniTok256、†额外epoch须区分。",
+    "metrics": "MJHQ30K FID↓、GenAI-Bench基本/高级及分项VQAScore↑、WISE语义/知识生成；MMLU/BoolQ/PIQA/SIQA/HellaSwag/Winogrande/ARC-e/c与VQAv2/GQA/TextVQA/POPE/MME。FID不保证审美、文字正确或笔顺；不同tokenizer的CE不直接可比。F3 R²=.9051是VQAScore对验证loss线性拟合，不能称规模幂律指数或普遍外推定律。",
+    "baselines": "生成SD1.5/2.1/XL/3、PixArt、Playground、FLUX、VILA-U、Show-o、Emu3等；理解VILA、Janus、LaVIT、Chameleon等。T5明确包含原始Gemma、各自文本继续训练与混合训练对照，纠正旧笔记隐含的对照缺失。T6不同分辨率、额外epoch与UniTok/LLaMA基座不作同checkpoint严格比较；不同模型训练数据与成本不完全一致。",
+    "experimental_conditions": "v4正文lr2e-5、b1024、context2048/ZeRO3，规模实验constant lr、其余cosine，≥7B梯度clip.5与max-z稳定策略。当前固定GH默认示例8进程/perGPU4/累积4通常有效128，LoRA r64/alpha16/drop.05且T2I_ratio=.1（代码分支=10%T2I），与论文80%T2I/20%caption及批量不同，不能当原实跑日志。公开understanding SFT/多比例提取部分标WIP；expand_vocab使用mean_resizing需Transformers≥4.46，训练推荐4.39.2是分步骤环境要求。T2I默认4样本/CFG7/temp.99/topk4096/topp.96/1024步；采样函数默认过滤时屏蔽文本词表，不能误报没有图像mask。"
   },
   {
     "title": "ILLUME: Illuminating Your LLMs to See, Draw, and Self-Enhance",
     "source_urls": [
       "https://arxiv.org/abs/2412.06673",
       "https://arxiv.org/html/2412.06673",
-      "https://openaccess.thecvf.com/content/ICCV2025/html/Wang_ILLUME_Illuminating_Your_LLMs_to_See_Draw_and_Self-Enhance_ICCV_2025_paper.html"
+      "https://openaccess.thecvf.com/content/ICCV2025/html/Wang_ILLUME_Illuminating_Your_LLMs_to_See_Draw_and_Self-Enhance_ICCV_2025_paper.html",
+      "https://arxiv.org/html/2412.06673v1"
     ],
-    "method": "UNIT语义量化+SDXL还原，理解保留连续UNIT特征；三阶段训练后加入自生成图像、GPT4o评价/分析及纠错SFT。 Vicuna7B+UNIT理解encoder/adapter；生成16384码、512²对应256tokens，semantic tokenizer用cosine+smoothL1重建；SDXL attention-only适配恢复像素。理解连续/生成离散，不能称所有表示已同一离散空间。高分辨理解最多9个448²slice，每slice256token。",
-    "conclusion": "主表MJHQ FID7.76、GenEval.61。Table2联合比理解only MME1339→1358.6、POPE84.6→86.4，但MMVet28.0→27.4；生成GenEval.58→.56，GenAIbench同.63。作者明确简单联合未观察到明显互促，不能写成已有全面协同。",
-    "gap": "自生成语料但外部GPT4o提供评估标签，不能称无外部监督自学习；代码未核具体权重/采样/teacher成本。UNIT/SDXL预训加80M图，15M仅LLM对齐阶段。语义量化可能丢文字细节，错误对象奖励没有规范笔顺约束。",
-    "problem": "降低统一图文LLM的对齐数据需求，并通过错误评估训练促进理解/生成。",
+    "method": "生成侧把UNIT语义特征VQ为16384码本/256位置，再以SDXL扩散detokenizer恢复512²像素；理解侧连续视觉特征经adapter入Vicuna7B。三阶段初始化/预训/SFT，加入重建任务及高分辨率切片；生成图经GPT4o分析评分构建50K assessment/refinement数据做自增强SFT。该流程属于教师引导SFT，CE是LLM目标，quantizer与扩散decoder有独立目标/训练。 Vicuna7B+UNIT连续视觉encoder/adapter与生成词表。VQ最近L2码、feature decoder以smoothL1+1−cos重建UNIT语义，不能称直接像素重建损失；扩散detokenizer为SDXL，冻结其他参数只训练attention。I阶段224²/256视觉位置，III高分辨率最多9个448²切片、每片downsample至256token。连续输入与离散输出非完全统一离散接口；T9明确检验二者差异。Eq1排版条件写至当前yi，按文中next-token因果定义解释为历史，不据排版断言实现泄漏。",
+    "conclusion": "正式T4 POPE88.5/MMB75.1/SEED72.9/MME1445.3/MMVet37/MMMU38.2/AI2D71.4/Text72.1/Chart66.7/Doc76/Info45.5/OCR669；MMVet低于LLaVANeXT43.9，Doc低于Emu3-Chat的76.3等。T6 FID7.76比SDXL9.55好但比VILA384 7.69/PixArt6.14差；GenEval.61与Janus持平，颜色.71<.84/位置.39<.46/颜色属性.28<.42。GenAI基本.75/高级.60低于VILA256 .76/.64与SDXL.83/.63。T7编辑DINO.791低于EmuEdit.819/OmniGen.804、CLIPI.879最高、CLIPT.260低于PUMA.270，各指标结论分开。",
+    "gap": "50K自增强依赖GPT4o教师额外标注/推理成本，未隔离评估推理、优质样本和额外训练量，也无多seed/置信区间。直接joint并无稳定双向协同，多主表/分项反例限制全优表述。15M不含80Mtokenizer/10M扩散与SFT及基础预训，不能推导端到端较Janus省4倍计算。内部数据和未确认原版完整发布限制复现，正式补充不完整不可据其补齐条件；无视频/时序/规范笔画证据。",
+    "problem": "用相对少量LLM图文对齐数据建立图像理解、生成和编辑统一模型，并探究是否可用生成/评估/修正数据改善多任务。输入/输出为文本和静态图像；视频、音频和3D仅未来工作，未解决书写视频或严格笔顺。",
     "claim": "研究目标：降低统一图文LLM的对齐数据需求，并通过错误评估训练促进理解/生成。",
-    "version": "ICCV2025；arXiv首次2024",
+    "version": "ILLUME: Illuminating Your LLMs to See, Draw, and Self-Enhance；正式ICCV2025:21612–21622，完整11页正式主文为主要实验版本；arXiv2412.06673v1（2024-12-09，唯一列出版本）交叉，并选读其完整附录A。正式补充PDF下载未完整，不作为已读正式证据。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L089",
     "canonical_key": "paper:arxiv:2412.06673",
     "evidence_history": [
@@ -14379,17 +14389,22 @@
         "conclusion": "强调数据效率和自增强对齐；自评是否可靠是后续自训练研究的共同问题",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 104,
+        "scope": "完整正式ICCV2025 11页主文Abstract/§1–6核心、Eq/全部T1–9、框架和消融分析；实际p3 F3与p8 F6/7/T8/9。固定arXiv2412.06673v1核心交叉与附录A quantizer/decoder实施；非全部附录B定性图或每篇参考文献。正式supp下载不完整并排除，未把它标已读。原论文链接与选定GH/HF检索未确认原版完整发布；ILLUME+/ILLUME-X作者仓库README仅用于发现与版本区分，未用作原版实现。无权重/图像下载、训练推理、原表复现或口试。"
       }
     ],
-    "sections_read": "§3全部、§4自增强、§5.1/Table5、主Table4本作行、Table2/7和§5.4、结论、AppA tokenizer训练；正式题录已核，未逐行全部主表/全部图、未核代码，未复现",
+    "sections_read": "完整正式ICCV2025 11页主文Abstract/§1–6核心、Eq/全部T1–9、框架和消融分析；实际p3 F3与p8 F6/7/T8/9。固定arXiv2412.06673v1核心交叉与附录A quantizer/decoder实施；非全部附录B定性图或每篇参考文献。正式supp下载不完整并排除，未把它标已读。原论文链接与选定GH/HF检索未确认原版完整发布；ILLUME+/ILLUME-X作者仓库README仅用于发现与版本区分，未用作原版实现。无权重/图像下载、训练推理、原表复现或口试。",
     "review_path": "docs/reviews/L089.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "StageI LLaVA558K+重建初始化；II15M混纯文、caption/文档、重建/T2I；III指令/高质T2I/混合任务。Tokenizer另80M纯图、2epoch、80K步，SDXL另80K步。自增强从训练prompt生成图片，GPT4o对对象/数目/颜色/空间做评估，约50K好坏样本；bad两轮包含refinement，good仅评估。",
-    "framework": "UNIT语义量化+SDXL还原，理解保留连续UNIT特征；三阶段训练后加入自生成图像、GPT4o评价/分析及纠错SFT。",
-    "architecture": "Vicuna7B+UNIT理解encoder/adapter；生成16384码、512²对应256tokens，semantic tokenizer用cosine+smoothL1重建；SDXL attention-only适配恢复像素。理解连续/生成离散，不能称所有表示已同一离散空间。高分辨理解最多9个448²slice，每slice256token。",
-    "metrics": "POPE/MME/MMBench/SEED/GQA/MMVet/MMMU、MJHQ FID、GenAIbench、GenEval、编辑CLIP指标；评价来源和T2I采样预算仍需完整代码核查。",
-    "baselines": "Janus/Show-o/VILA-U/Chameleon/SDXL等；理解only/生成only/联合；像素tokenizer对语义tokenizer（双方均接扩散decoder）、自增强assessment消融。",
-    "experimental_conditions": "三阶段5000/15000/8000步、b256/1024/1024，StageI adapter1e-3/视觉embedhead2e-4，II adapter/LLM5e-5，III vision2e-6/LLMadapter2e-5；作者称32节点×8Ascend NPU约3天。tokenizer b2048/lr5e-5/80K，SDXL attention b128/lr2e-5/80K，另预训成本不可忽略；自增强消融SFT子集1.3M+50K。"
+    "dataset": "I LLaVA558kcaption+COYO600krecon；II15M=EMOVA2.5Mcaption/1MOCR/1Mtext+内部7MT2I+COYO.5Mrecon/2MT2I/1Mcaption。III约7.36M：EMOVA1.5M通用/1.2M文档/.7M数学科学/.2M文本+COYO.5MT2I/COCO.01M/内部2M/UltraEdit.1M/SEED-data1.1M/assessment.05M。另tokenizer COYO80M、SDXLdecoder COYO4M+内部6M；预训练Vicuna/UNIT/SDXL亦非零成本。T8用1.3MSFT子集+50K，不能与完整主模型表混为同训练量。",
+    "framework": "生成侧把UNIT语义特征VQ为16384码本/256位置，再以SDXL扩散detokenizer恢复512²像素；理解侧连续视觉特征经adapter入Vicuna7B。三阶段初始化/预训/SFT，加入重建任务及高分辨率切片；生成图经GPT4o分析评分构建50K assessment/refinement数据做自增强SFT。该流程属于教师引导SFT，CE是LLM目标，quantizer与扩散decoder有独立目标/训练。",
+    "architecture": "Vicuna7B+UNIT连续视觉encoder/adapter与生成词表。VQ最近L2码、feature decoder以smoothL1+1−cos重建UNIT语义，不能称直接像素重建损失；扩散detokenizer为SDXL，冻结其他参数只训练attention。I阶段224²/256视觉位置，III高分辨率最多9个448²切片、每片downsample至256token。连续输入与离散输出非完全统一离散接口；T9明确检验二者差异。Eq1排版条件写至当前yi，按文中next-token因果定义解释为历史，不据排版断言实现泄漏。",
+    "metrics": "理解POPE/MMBench/SEED/MME-P/MMVet/MMMU/AI2D/TextVQA/ChartQA/DocVQA/InfoVQA/OCRBench；生成MJHQ30KFID、GenEval含计数/位置/颜色属性、GenAI-Bench；编辑DINO/CLIPI/CLIPT。CLIPI高可能只反映原图保留，不能单独证明按指令改对；FID不保证文字/笔顺。不同tokenizer的训练CE尺度/熵不同，需合并实际质量和学习曲线解释。",
+    "baselines": "理解LLaVA1.5/NeXT、InternVL2、Qwen2VL、MiniGemini、Emu/Emu2、SEEDX/LaVIT/Chameleon/Show-o/VILA-U/Janus；生成SD1.5/XL、PixArt、VILA-U/Janus/Show-o等；编辑InstructPix2Pix、EmuEdit、PUMA、SEEDX、OmniGen等。T3含understanding-only/generation-only/joint；T8自增强局部对照；T9连续/离散输入。训练量、预训练codec、分辨率与基座不同，不能按主表整体排名作严格因果结论。",
+    "experimental_conditions": "正式T5 I adapter1e-3/新增视觉embedding-head2e-4，II adapter/LLM5e-5，III所有组件2e-5；batch256/1024/1024，step5000/15000/8000；32nodes×8Ascend NPU约3天。v1附录A tokenizer80Kstep/b2048/lr5e-5/2epochs；SDXL80K/b128/lr2e-5/attention-only，是旧固定版实施补充，未确认与正式补充完全同版。旧v1 III视觉2e-6与正式T5所有2e-5有版本差异，以正式核心为准。未由原论文一手链接确认原版完整训练/权重；后续ILLUME+/X制品不代替原版复现。"
   },
   {
     "title": "MetaMorph: Multimodal Understanding and Generation via Instruction Tuning",

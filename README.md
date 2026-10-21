@@ -305,3 +305,6 @@ python scripts/validate_catalog.py
 
 
 第一百零三批（2026-10-21）完成L045 CalliReader/CalliBench与L046 AWCV-100K/VCRec核心、实际图表及固定GH/HF发布审查；区分阅读顺序、空中书写识别与规范笔顺生成，记录无序F1、发布数据行数、参数/解码协议和英文反例。356目录、207核心/210书面含未通过项，149条未确认核心。见[审查](docs/evidence/callireader_awcv_recognition_order_and_release_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_third_changes_2026-10-21.md)。无删除/模型复现。
+
+
+第一百零四批（2026-10-21）完成L088 Liquid/L089 ILLUME指定版本核心、实际图表及发布范围；纠正Liquid语言对照缺失的旧说法，区分规模趋势、额外数据收益与协同，明确ILLUME教师及15M成本口径/版本差异。356目录、209核心/212书面含未通过项，147条未确认核心；ILLUME+/X留后续审查。见[审查](docs/evidence/liquid_illume_scaling_synergy_and_teacher_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_fourth_changes_2026-10-21.md)。无删除/模型复现。

@@ -425,3 +425,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百零三批（2026-10-21）：CalliReader三个HF固定制品/卡/配置与CalliTrain卡误写及API行数差异；AWCV网站数据链接未等同完整VCRec代码；与主论文关联去重。见[审查](../evidence/callireader_awcv_recognition_order_and_release_audit_2026-10-21.md)、[L045](../reviews/L045.md)、[L046](../reviews/L046.md)。
+
+
+第一百零四批（2026-10-21）：Liquid固定7B指令制品与LoRA/有效128/任务配比差异、部分WIP和内部数据限制；ILLUME后续制品不归原模型；两后续候选仍未新增主目录。见[审查](../evidence/liquid_illume_scaling_synergy_and_teacher_audit_2026-10-21.md)、[L088](../reviews/L088.md)、[L089](../reviews/L089.md)。

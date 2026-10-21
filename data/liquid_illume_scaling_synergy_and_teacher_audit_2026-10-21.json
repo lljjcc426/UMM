@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L088",
+    "L089"
+  ],
+  "sources": {
+    "L088": [
+      "https://doi.org/10.1007/s11263-025-02639-5",
+      "https://arxiv.org/html/2412.04332v4",
+      "https://github.com/FoundationVision/Liquid/tree/b2a7dd53bb02ef9728a848d3aa8aaf1955553b02",
+      "https://huggingface.co/Junfeng5/Liquid_V1_7B/tree/a0e7b763fe3869d383a22c64cde1a9dcaab65160"
+    ],
+    "L089": [
+      "https://openaccess.thecvf.com/content/ICCV2025/html/Wang_ILLUME_Illuminating_Your_LLMs_to_See_Draw_and_Self-Enhance_ICCV_2025_paper.html",
+      "https://arxiv.org/html/2412.06673v1"
+    ]
+  },
+  "executed": false,
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "artifacts": [
+    {
+      "id": "L088",
+      "paper": "Fixed complete arxiv2412.04332v4; formal IJCV2026 DOI/metadata only, paywalled full text excluded",
+      "github_revision": "b2a7dd53bb02ef9728a848d3aa8aaf1955553b02",
+      "tree_blobs": 76,
+      "hf_revision": "a0e7b763fe3869d383a22c64cde1a9dcaab65160",
+      "visuals": [
+        "v4F2",
+        "v4F3",
+        "v4F5",
+        "v4F6",
+        "v4T1",
+        "v4T5"
+      ],
+      "findings": [
+        "Correct previous claim: T5 includes original Gemma and text-continued baselines",
+        "Language gap not monotonic; visual validation loss interference persists even when VQAScore gap small",
+        "T1 adds data; no iso-compute ordinary-data control",
+        "WISE/logical/generation and original-base language counterexamples",
+        "Current LoRA/effective128/T2I.1 script differs paper1024/T2I.8",
+        "Only7B instructed checkpoint confirmed; six pretrain releases unchecked",
+        "JourneyDB alone cannot reproduce internal-data T2I; understanding SFT WIP",
+        "GenAI sampling default masks text logits; do not report absent image mask",
+        "HF instruction trainer state not original mixed pretrain logs"
+      ]
+    },
+    {
+      "id": "L089",
+      "paper": "Complete official ICCV2025 11p core; fixed arxiv2412.06673v1 AppendixA selected; incomplete official supplement excluded",
+      "visuals": [
+        "Officialp3F3",
+        "Officialp8F6/F7/T8/T9"
+      ],
+      "findings": [
+        "Continuous image input, semantic discrete output with SDXL decoder, not all-discrete pipeline",
+        "Self-enhancement uses GPT4o teacher and50K SFT, not teacher-free/RL",
+        "StageII15M excludes80M tokenizer,10M decoder, SFT and base pretraining",
+        "Direct joint ablation does not demonstrate mutual enhancement; feedback has POPE/position regressions",
+        "Official stageIII all2e-5 differs old v1 vision2e-6",
+        "Original release not confirmed through primary paper links; later ILLUME+/X are distinct works"
+      ]
+    }
+  ],
+  "discovery_queue": [
+    {
+      "arxiv_id": "2504.01934",
+      "title": "ILLUME+: Illuminating Unified MLLM with Dual Visual Tokenization and Diffusion Refinement",
+      "existing_pool": "data/discovery/arxiv_candidates.json",
+      "paper": "https://arxiv.org/abs/2504.01934",
+      "code": "https://github.com/illume-unified-mllm/ILLUME_plus",
+      "status": "Author README/release outline only; not master or core accepted; formal venue/full methods/results require next review"
+    },
+    {
+      "arxiv_id": "2606.30054",
+      "title": "Illuminating Unified Multimodal Model for Free-form Interleaved Text-Image Generation",
+      "existing_pool": "data/discovery/arxiv_candidates.json",
+      "paper": "https://arxiv.org/abs/2606.30054",
+      "code": "https://github.com/ChonghuinanWang/ILLUME-X",
+      "status": "Author master-branch README only; ECCV2026 claim not formal-verified; not master/core accepted"
+    }
+  ]
+}

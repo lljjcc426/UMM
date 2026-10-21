@@ -395,3 +395,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百零三批（2026-10-21）：CalliBench识别/文化VQA与L044 Calligraphy Bench区分；字符阅读顺序、空中轨迹、规范字内笔顺分开。见[审查](callireader_awcv_recognition_order_and_release_audit_2026-10-21.md)、[L045](../reviews/L045.md)、[L046](../reviews/L046.md)。
+
+
+第一百零四批（2026-10-21）：静态图像的离散统一decoder、连续输入/离散输出和扩散detokenizer；交错例图/未来方向不等同书写视频。ILLUME+/X发现池候选待精读。见[审查](liquid_illume_scaling_synergy_and_teacher_audit_2026-10-21.md)、[L088](../reviews/L088.md)、[L089](../reviews/L089.md)。

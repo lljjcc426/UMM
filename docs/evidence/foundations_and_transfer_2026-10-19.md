@@ -231,3 +231,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百零三批（2026-10-21）：视觉-文字embedding对齐及语言先验；无序内容F1与NED，轨迹片段GAT不等于规范笔画；不从识别推出生成能力。见[审查](callireader_awcv_recognition_order_and_release_audit_2026-10-21.md)、[L045](../reviews/L045.md)、[L046](../reviews/L046.md)。
+
+
+第一百零四批（2026-10-21）：经验规模趋势与评价饱和、原基座/文本继续控制、教师引导SFT和历史预训成本；局部联合增益与严格共享协同分开。见[审查](liquid_illume_scaling_synergy_and_teacher_audit_2026-10-21.md)、[L088](../reviews/L088.md)、[L089](../reviews/L089.md)。

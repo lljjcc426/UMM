@@ -436,3 +436,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百零三批（2026-10-21）：OrderFormer lr、CalliAlign64vs8head、HF任务行数/原表子集与GT清洗；AWCV FC层数、s_t来源、writer名单与tracker计时范围待核。见[审查](callireader_awcv_recognition_order_and_release_audit_2026-10-21.md)、[L045](../reviews/L045.md)、[L046](../reviews/L046.md)。
+
+
+第一百零四批（2026-10-21）：Liquid正式期刊全文、内部数据/原训练配比日志、max-z实现对应；ILLUME原版完整发布与正式supp、教师数据匹配及后续ILLUME+/X全文待核。见[审查](liquid_illume_scaling_synergy_and_teacher_audit_2026-10-21.md)、[L088](../reviews/L088.md)、[L089](../reviews/L089.md)。
