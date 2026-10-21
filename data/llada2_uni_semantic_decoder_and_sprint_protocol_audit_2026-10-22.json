@@ -1,0 +1,63 @@
+{
+  "id": "L114",
+  "date": "2026-10-22",
+  "version": "arxiv2604.20796v1/25pages",
+  "all_tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "actual_visual_pages": [
+    5,
+    6,
+    7,
+    9,
+    10,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "github_revision": "ee9dfd57c59e231aec4245df76e2e8a6758485b7",
+  "hf_revision": "dc2cde43e008aafd53ab6e4049187ae7e1cbc22e",
+  "hf_backbone_safetensors_parameters": 16322752256,
+  "findings": [
+    "Backbone sharedmaskobjective; frozenencoder and separatelytrainedcontinuousdecoder",
+    "390Bbackbonetokens excludes earlierpretraining anddecoderextra training",
+    "T2vsQwen4above17below underreportedroundednumbers",
+    "T4Other93.18table vs94.04prose unresolved",
+    "T7text.765strongunified but belowLongCat.865, no strokemotionbenchmark",
+    "WISE.68to.78absolute+.10 vsrelative14.7percent",
+    "SPRINT24.3to39.8TPSwithOCR75.7to73.4; notqualityfree",
+    "Decoder32.95to2.90s excludesunverifiedfullsystemboundary; cannotmultiply1.6x11.4",
+    "SPRINTfractionalmodalratio notpermodalitytopkinpublicfunction; allpinnedreturnsfullprefix",
+    "Pinnedinfprecedingmean-normalization mayyieldNaN inpartialpinconfidencebranch; analysisonly",
+    "Eq3/5signneedsclarification, originaltrainingnotpublicinexaminedtree",
+    "Interleaved2to6frames5secapart notcontinuouswritingvideo",
+    "No originalfulltrainingrecipe, weights/modelrun/reproduction"
+  ],
+  "sources": [
+    "https://arxiv.org/abs/2604.20796v1",
+    "https://arxiv.org/pdf/2604.20796v1",
+    "https://github.com/inclusionAI/LLaDA2.0-Uni/tree/ee9dfd57c59e231aec4245df76e2e8a6758485b7",
+    "https://huggingface.co/inclusionAI/LLaDA2.0-Uni/tree/dc2cde43e008aafd53ab6e4049187ae7e1cbc22e"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}

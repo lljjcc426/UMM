@@ -508,3 +508,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百二十七批（2026-10-22）：原三stage完整mix/总步数、计时边界、.2/.25预填与位置源码差异仍需对照实验。见[审查](omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[L113](../reviews/L113.md)。
+
+
+第一百二十八批（2026-10-22）：Eq3/5符号、原优化超参和完整训练、模态topk与公开pin/global实现待核。见[审查](llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[L114](../reviews/L114.md)。

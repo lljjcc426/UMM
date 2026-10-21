@@ -303,3 +303,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百二十七批（2026-10-22）：负熵提交、统一缩放与依正负logit变换、mask揭示时间不等物理时间。见[审查](omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[L113](../reviews/L113.md)。
+
+
+第一百二十八批（2026-10-22）：语义充分性、独立连续decoder、key范数与注意力贡献及逆sqrt长度折中。见[审查](llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[L114](../reviews/L114.md)。

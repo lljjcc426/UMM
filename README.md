@@ -377,3 +377,6 @@ python scripts/validate_catalog.py
 
 
 第一百二十七批（2026-10-22）完成L113 Omni-Diffusion正式核心、全部八表与八实际PDF页，核对arxivv2及固定GH/HF。明确连续语音输入、两版WER/CLIP/RTF、位置缩放/预填与源码差异。357目录，236核心/239书面；未确认核心94论文／研究+27资源（资源单独审）。见[审查](docs/evidence/omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twenty_seventh_changes_2026-10-22.md)。无删除或执行模型。
+
+
+第一百二十八批（2026-10-22）完成L114 LLaDA2.0-Uni完整核心、十四表/Eq1–8与十三实际PDF页，核固定GH/HF的MoE、decoder与SPRINT。记录文字渲染差距、T4正文/表冲突、缓存剪枝及质量-速度折中。357目录，237核心/240书面；未确认核心93论文／研究+27资源（资源单独审）。见[审查](docs/evidence/llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twenty_eighth_changes_2026-10-22.md)。无删除或执行模型。

@@ -497,3 +497,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百二十七批（2026-10-22）：SenseVoice连续特征、GLM离散speech码、微调脚本与HF模型卡加载边界。见[审查](../evidence/omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[L113](../reviews/L113.md)。
+
+
+第一百二十八批（2026-10-22）：16.322B主干、额外6B decoder/VAE、HF配置与两种decoder/CLI参数；SGLang消息版本区别。见[审查](../evidence/llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[L114](../reviews/L114.md)。

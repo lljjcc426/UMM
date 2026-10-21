@@ -99,3 +99,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百二十七批（2026-10-22）：语音codec接口非全离散；负熵选择和采样温度并非规范笔画顺序。见[审查](omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[L113](../reviews/L113.md)。
+
+
+第一百二十八批（2026-10-22）：语义码损细节、主干CE/decoderFM分别优化，RL为未来方向，互补mask不等独立数据翻倍。见[审查](llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[L114](../reviews/L114.md)。

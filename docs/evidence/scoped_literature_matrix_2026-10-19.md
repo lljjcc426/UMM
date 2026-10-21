@@ -467,3 +467,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百二十七批（2026-10-22）：静态图文+语音、连续输入/离散输出；未覆盖真实书写视频和规范事件。见[审查](omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[L113](../reviews/L113.md)。
+
+
+第一百二十八批（2026-10-22）：静态文字渲染和稀疏交错生成覆盖，未验证真实笔顺视频。见[审查](llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[L114](../reviews/L114.md)。

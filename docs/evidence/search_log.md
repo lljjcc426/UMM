@@ -556,3 +556,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百二十七批（2026-10-22）：ICML PMLR306正式15页、arxivv2、GHc4f4625/HF2233ee1；八实际PDF页与全部正式八表。见[审查](omni_diffusion_audio_interface_and_versioned_protocol_audit_2026-10-22.md)、[L113](../reviews/L113.md)。
+
+
+第一百二十八批（2026-10-22）：arxivv1完整25页/GHee9dfd5/HFdc2cde4；全部14表/Eq1–8及13实际PDF页。见[审查](llada2_uni_semantic_decoder_and_sprint_protocol_audit_2026-10-22.md)、[L114](../reviews/L114.md)。
