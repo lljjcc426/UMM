@@ -475,3 +475,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百一十六批（2026-10-22）：正文/附录lr、7B无视频、权重README/guide差异及clean/noisy分支待执行。见[审查](tuna_formal_version_synergy_and_release_audit_2026-10-22.md)、[L100](../reviews/L100.md)。
+
+
+第一百一十七批（2026-10-22）：100%usage定义、正文/代码SigLu符号、T1/5 gFID及T29标题冲突；MLLM发布对应待核。见[审查](uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。

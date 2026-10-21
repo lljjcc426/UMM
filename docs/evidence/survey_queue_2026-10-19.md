@@ -437,3 +437,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百一十六批（2026-10-22）完成L100 TUNA正式CVPR正文、官方附录、固定v1和公开原版实现选读；记录联合训练MME下降、正文/附录学习率冲突、公开配方/发布边界及clean/noisy条件分支待测试。357目录，225核心/228书面含未通过项，132条未确认核心（含资源）。见[审查](tuna_formal_version_synergy_and_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_sixteenth_changes_2026-10-22.md)。没有文件删除或模型复现。
+
+
+第一百一十七批（2026-10-22）完成L101 UniWeTok固定v3核心/Eq1–9/33表和七页实际图表，核查BitDance共用代码与HF相关tokenizer制品；区分64位置/128bit、33B位置token/全成本及三个独立SFT变体。357目录，226核心/229书面含未通过项，131条未确认核心（含资源）。见[审查](uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_seventeenth_changes_2026-10-22.md)。没有删除或模型复现。

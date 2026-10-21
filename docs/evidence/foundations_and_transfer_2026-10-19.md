@@ -270,3 +270,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百一十六批（2026-10-22）：连续Transfusion分类纠正；CKNNA相关与因果、VAE时空压缩对短事件的边界。见[审查](tuna_formal_version_synergy_and_release_audit_2026-10-22.md)、[L100](../reviews/L100.md)。
+
+
+第一百一十七批（2026-10-22）：名义bits/位置token/曝光/完整算力分开；SigLu有界不证明entropy/commitment函数等价。见[审查](uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。

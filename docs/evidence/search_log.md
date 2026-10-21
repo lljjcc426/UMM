@@ -523,3 +523,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百一十六批（2026-10-22）：正式CVPR全索引/正文/官方zip内PDF、arXivv1及固定GH原版TUNA路径；未播放zip视频。见[审查](tuna_formal_version_synergy_and_release_audit_2026-10-22.md)、[L100](../reviews/L100.md)。
+
+
+第一百一十七批（2026-10-22）：固定v3全文/全部33表、GH59f56e67树与README、HF2d4e8863卡与配置；UniWeTok collection404，不把BitDance会场或权重直接移植。见[审查](uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。

@@ -463,3 +463,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百一十六批（2026-10-22）：等总FLOPs与等任务曝光共享对照、多seedPareto、短接触/抬笔事件GT；未执行。见[审查](../evidence/tuna_formal_version_synergy_and_release_audit_2026-10-22.md)、[L100](../reviews/L100.md)。
+
+
+第一百一十七批（2026-10-22）：等bits/FLOPs与等曝光的因子消融、多seed/真实联合熵、独立OCR/事件GT；未运行。见[审查](../evidence/uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。

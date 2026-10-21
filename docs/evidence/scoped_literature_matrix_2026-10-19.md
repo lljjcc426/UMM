@@ -434,3 +434,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百一十六批（2026-10-22）：连续VAE→SigLIP2共享表示、图文/视频任务；静态文字与VBench不提供笔顺GT。见[审查](tuna_formal_version_synergy_and_release_audit_2026-10-22.md)、[L100](../reviews/L100.md)。
+
+
+第一百一十七批（2026-10-22）：隐式128bit×64位置tokenizer，Gen/Edit/Chat分别SFT，无文字视频或笔顺评价。见[审查](uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。

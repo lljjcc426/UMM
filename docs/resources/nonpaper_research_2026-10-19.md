@@ -464,3 +464,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百一十六批（2026-10-22）：固定Tuna2仓库原版cfg/train/inference/dataset选读；默认Tuna2不可混充原版，发布/复现边界保留。见[审查](../evidence/tuna_formal_version_synergy_and_release_audit_2026-10-22.md)、[L100](../reviews/L100.md)。
+
+
+第一百一十七批（2026-10-22）：BitDanceTokenizer三配置/权重文件名已核，未下载；d32c128不自动等于本作三类MLLM权重；公共训练脚本TODO。见[审查](../evidence/uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。

@@ -7833,6 +7833,40 @@
         }
       ],
       "boundary": "正式CVPR12页PDF Abstract/§1–5全部核心文字、Eq1–3、T1–6/F1–4图注，官方supp12页中§6–12研究文字、T7–11/F5–8图注/Algorithm无新增，参考文献和全部定性图/视频未逐项读。固定arXivv1核心全文/T1–7另读用于版本差异；实际正式p3F2、p6T2–4、p7T5/6、p8F4、supp p2T7–10已核。GHb53594e3完整2142项树清单定位（lmms-eval未逐文件）、README/训练guide、两原版模型cfg、示例train/video/predict、Tuna初始化/forward/输入选择/损失、SiglipMixin按帧、dataset返回images_clip与默认loader/训练unit核心选读，未全读transport/attention/VAE/eval底层。无模型权重下载/训练推理/速度/独立复现。"
+    },
+    {
+      "id": "L101",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "训练兼顾像素重建、语义抽取和下游可生成性的二进制图像tokenizer，并用于静态图像理解/文生图/编辑。×32空间压缩使256²图像变64个位置，每位置128bit；未定义视频、书写动作或规范笔顺。独立Gen/Edit/Chat微调变体须分别解释。 大二进制组合空间有助重建但可能难生成；语义监督与量化/commitment优化可能冲突，单一固定分辨率不适配高分辨率/细字。作者以PPD、GAP、SigLu、混合骨干和课程响应；这些是所测设计动机，未证明连续AR必然modecollapse或解耦表示必然限制所有编辑任务。",
+          "evidence": "固定v3全部核心/33表、七页实际图表及指定发布选读，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "图像→Conv/Transformer→SigLu→g16×d′8 sign/STE→128bit位置向量，训练前后pool蒸馏、shifted序列GAP，图像重建由decoder接随机高斯noise。下游遵BitDance空间AR+二进制diffusion head处理视觉，理解输出文字；理解表Chat骨干Qwen3-8B，Gen表8B不自动推其同一LLM初始化。实际PDF p4F2、p6F4、p8T1–5、p10T8/9、p11T10/11、p12T12/13、p21F5已核。 GQ每组8bit256组合，共16组的隐式笛卡尔积2^128，未显式存2^128项embedding；STE=U+sg[Q−U]。Eq4/5双pool全局向量对齐teacher，η调post，Eq8总loss有θ/μ；多数完整权重未给。Eq9 SigLu=(1−exp x)/(1+exp x)=−tanh(x/2)，有限输入范围(−1,1)；有界只支持约束/共同偏好端点，不证明entropy与commitment数值/梯度等价。F5与公开uni decoder均把noise与binary码concat，含随机生成重建路径，需固定decodernoise测指标。",
+          "evidence": "固定v3全部核心/33表、七页实际图表及指定发布选读，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "量化前/后各attentionpool与冻结SigLIP2全局教师特征做cosine蒸馏；轻量8.6M BitDance-T以shifted token+query做next-token diffusion MSE，为tokenizer提供生成先验。Conv下采样同时扩channel再Transformer；末层SigLu有界，删commitment系数α；固定256→多分辨率→人脸/文字敏感域退火三阶段。 固定总bitrate/encoder/teacher和训练曝光时，前后蒸馏可保语义、带query先验可降低token可预测性难度，混合骨干改善局部/全局折中；64位置降低主干序列负担，但128bit与扩散head仍有成本。对于细字/非汉字需验证×32压缩与敏感域课程，不从TextVQA或定性重建推文字生成准确、时序或笔顺。",
+          "evidence": "固定v3全部核心/33表、七页实际图表及指定发布选读，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T8 IN64位置rFID.79/PSNR23.26，rFID与GigaTok.79并列；100%usage未定义。T9 B/L/H 242M/527M/1.0B均33B位置tokens，FID2.35/1.68/1.38，H IS284.34低于REPA305.7、precision.80低于OpenMAGVIT.84；未测全成本八倍减少。T10 DC resize256 COCO6.18/22.58/.66、IN1.18/22.97/.66；原尺寸COCO6.46劣于WeTok16的5.30，IN1.25劣于.81，且QLIP-L resizePSNR25.36高于22.97。T11 Gen.81与SANA1.5同、DPG86.63；count.43低于SANA.86/JanusPro.59，position.78低于JanusPro.79。T12 Chat69.3/85.6/75.8/63.1/80.3/53.7/65.1/73.9/54.8/40/1415.7/1796.6，TQA低于Emu364.7/CQA65.1<68.6，POPE85.6<Harmon87.6，多个专用模型更强。T13EN5.86/5.89/5.09，CN5.78/5.92/5.11；ENoverall略高OmniGen5.06但语义5.86<5.96，远低BAGEL6.52/Step1X6.70；不泛称胜扩散编辑器。 T1 baselinegFID2.38/rFID1.33/PSNR22.67/SSIM.66→PPD2.66/1.12/22.32/.65→GAP2.35/1.18/22.27/.63，分类46.89→48.77，存在取舍。T5 GAP无querygFID3.89，有query2.38，与T1完整2.35不一致。T2 pre无SigLu55.26、post.10、SigLu+post41.51；T3有SigLu preonly.10/post41.51/both51.32，AppT17/T20有SigLu差别，仍未明零样本读pre还是post，因此不直接称T2/T3表错。T4double39.45→46.89为7.44个百分点，rFID1.58→1.12。T6attention rFID2.91→3.10反降，b128→1024 top4.09→11.69但等步曝光×8；T7CNN/Transformer/Hybrid rFID1.75/3.38/1.35、top11.69/26.09/35.41，HybridPSNR22.54低于CNN22.56、AlexLPIPS.13>.12。F4阶段对照是少量重建样例，无独立OCR/人脸分层统计。 全部IN消融正文250K，AppT14–33各250250步，Adamβ.5/.9、wd0、lr1e-4 constant、warm0、EMAtrue，randomcrop256²；g16/d′8/ch128/chmult1,1,2,2,4,8，通常2resblock+16attention、global128，DC后组1024、head线性/attention、GANdecoder。T29标题bs1024但单元global128，T30才1024；保留标题歧义。T8仅IN训练rFID.79，与DC重建1.18不同设置。三阶段步数/完整数据、MLLM GPU/globalbatch/epoch/学习率及实际评测CFG/denoise步/种子/提示改写未齐，不能用BitDance脚本补填。",
+          "evidence": "固定v3全部核心/33表、七页实际图表及指定发布选读，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "未单列Limitations；主要缺完整MLLM训练/评价配方、细字敏感域数据、多seed/CI、实际FLOPs和端到端latency。2^128组合不能在50K×64位置遍历，100%若为组/bit覆盖需给定义；不能从少位置推码率少75%。SigLu有界与entropy/commitment等价缺q/温度/梯度证明。代码uni分支用+ tanh(x/2)，与Eq9符号相反，可能由权重符号约定吸收，不据此判结果失败。当前release不能建立三个MLLM权重与表11–13的逐一对应。没有视频/笔顺、OCR生成定量或真实事件GT。 固定总bits、架构/参数/数据和总FLOPs，PPD×GAP×query×SigLu因子对照，多seed同时报重建/语义/生成及实际用码q/H/联合相关。比较同总步与同图像曝光，控制b128/1024差别。按bits算本作64×128=8192，而256×log2(16384)=3584，说明位置数和无熵编码名义bits可反向，不当实际压缩率。类别33B/64约.516B图曝光对262B/256约1.023B，约2倍差而非8倍完整算力，尚含四舍五入/参数差。统一单checkpoint与三独立SFT分别评，固定原始/改写prompt与AR/denoise/decodernoise预算，加入人工OCR/细笔最小差/非汉字和真实书写事件GT；实验未运行，创新性须追引。",
+          "evidence": "固定v3全部核心/33表、七页实际图表及指定发布选读，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定v3完整29页：Abstract/§1–5核心全文、Eq1–9和T1–13全部行；AppA/B研究文字及T14–33全部配置，AppC研究图注，参考文献和所有定性图未逐项。实际PDFp4F2/Eq1/2、p6F4、p8T1–5、p10T8/9、p11T10/11、p12T12/13、p21F5核看。GH59f56e67完整84项树、README_UniWeTok全文、rootREADME主要方法/发布/训练/评测段、INREADME全文；autoencoder_uni结构/有界激活/decodernoise/encode、共用MLLM和pipeline import、GFQ entropy/STE代码选读，trainyaml/脚本非本作。HF BitDanceTokenizer固定2d4e8863 metadata/全文件名/README/config；未下载权重。UniWeTok collection404、作者公开model列表无UniWeTok命名，不证明未发布其他制品。未全读MLLM/attention/flowhead、执行模型或独立复现。"
     }
   ]
 }

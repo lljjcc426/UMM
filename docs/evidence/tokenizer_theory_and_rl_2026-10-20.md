@@ -66,3 +66,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百一十五批（2026-10-22）：UniCode²核心全读更新：Eq12含条件偏差、H高不保证I、分布缩放限制Eq17；实际PDF T4参数单位GB、T6训练超参，旧位置已修正。见[审查](unicode2_codebook_theory_and_protocol_audit_2026-10-22.md)、[L099](../reviews/L099.md)。
+
+
+第一百一十七批（2026-10-22）：UniWeTok的位置数、组合码本、有限usage和bits口径；T3前/后蒸馏需追读出位置，不据T2不同SigLu设置直接判错。见[审查](uniwetok_binary_rate_and_release_audit_2026-10-22.md)、[L101](../reviews/L101.md)。
