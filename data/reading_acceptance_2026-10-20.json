@@ -7153,6 +7153,74 @@
         }
       ],
       "boundary": "固定2409.04429v3 Abstract/§1–6全文、Eq1–7/T1–9全部行（T5含两子表）、AppA分类/C失败recipe全文，AppB图注与选择性文本；未逐一实际查看B全部定性图/参考文献。实际F1/F2官方原图、HTML T6视频主表/T7消融。ICLR2025正式条目核实、正式PDF部分下载未读。GH4ea42ead完整91blob树、README、8指定路径的推理/两train脚本/arch与RQ训练生成核心及constants，旧同revision数据混合记录交叉；HF256 91f97e4b元数据/卡/root/vision/LLM config及collection，384直接路径401不当存在证据。未完整审计底层transformer/视觉塔训练或执行模型、口试、原表复现。"
+    },
+    {
+      "id": "L045",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "给定书法页面或局部静态图像，识别文字、阅读顺序和书体/布局/作者，并解释/推断文化语境（CC²）。输出文字答案，未训练文字到书写视频、笔画事件或规范笔顺生成；OrderFormer恢复字符/列的阅读顺序，不提供字内笔顺标签。 草书字形、连笔、任意布局及历史字形使OCR和VLM易漏字、读序错乱及凭诗词上下文补全；整页视觉下采样损失字形，整页标注稀缺。作者把页面拆成单字、把视觉特征对齐LLM已有语义，再用伪文本embedding扩增。Gaussian噪声pilot只证明特定扰动容忍，不证明真实检测/视觉误差同分布。",
+          "evidence": "指定完整核心、实际框架/主实验与消融表、选定补充/发布文本，非口试或原表复现，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "高分辨率页面→检测bbox→阅读排序→裁剪/补边/448²单字→冻结ViT/MLP→CalliAlign三查询→反归一化→与用户query及可用全局图像token输入InternLM2.5-7b-chat→文字答案。实际正式p4 F4训练框架/Eq1–4及p7 T3–8；F4灰色冻结/火焰更新明确模块分阶段。256→3的98.8%是每字视觉位置减少，不等于整条管线计算或延迟减少98.8%。 InternVL2-8B=InternViT-300M-448px+InternLM2.5-7b-chat；slicing约.31B、CalliAlign约.57B，合计额外.88B。Perceiver四层/3查询/4096维，L2对齐padding后文本embedding，Eq4每token均值/标准差归一，推理按近邻token的mu/sigma还原。正文称CalliAlign64heads，固定GH实际load_perceiver_resampler_2→models/perceiver_resampler.py默认8heads、dim_head64，未下载checkpoint核形状，保留论文/实现差异。OrderFormer四层8head/256维/4输入1输出/max50，回归排序索引后argsort恢复秩。",
+          "evidence": "指定完整核心、实际框架/主实验与消融表、选定补充/发布文本，非口试或原表复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "YOLOv10+OrderFormer字符切片/排序；CalliAlign以单字图像监督把256视觉位置压成3个归一化伪文本embedding；e-IT将真实页面/ChinesePoetry单字检索合成序列置于共享embedding接口，仅LoRA适配LLM。另建CalliBench全页/局部识别及文化VQA。语言先验纠错与真实视觉忠实性仍需专门干预实验分离。 在单字库充分、页面标注稀缺、检测能覆盖大部分字且阅读布局可排序的静态书法分布，单字高分辨率+紧凑对齐有望提高召回/NED并降低长序列成本。语言先验可能改善正常诗句，但对反事实错字/生僻人名可能过纠正；不存在从上述识别结果推出规范笔顺生成优势的理论结论。",
+          "evidence": "指定完整核心、实际框架/主实验与消融表、选定补充/发布文本，非口试或原表复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2 Hard F1 .609 vsInternVLft .511=+9.8百分点，NED .516 vs.579；Easy .907 vs.896，Medium .813 vs.789。T3 style75.33低于Qwen2.5VLft78.67，layout77.81/author95.06/STSim61.14/intent76.88较强，不能写各项最佳。T4三中文外域F1 .650/.716/.781；补充OCRBenchv2 CN均值41.3>36.3，但EN38.6<39.6，多项退化。人研142人含18专家、30随机页；报告.918vs.512为+40.6百分点/相对79.3%，NED .092vs.590下降84.4%，原“40%higher/50%reduction”需按原数解释；不外推全部页面或人群。 T5四层LN L2 .096/Acc.897；两层.146/.865、GN.529/.791，额外ratio/contrastive损失反降。T6 hard e-IT+scale .609/.516，e-IT .600/.530，无Align .489/.614，img+Align .496/.617、img无Align .511/.579。支持所测接口/增广的局部收益，但缺统一样本/总计算严格匹配及多seed置信区间。T7 Easy1.48s慢于1.32；Hard33.50快于41.29，受重复输出/长度影响，不等于同输出长度加速。补充hard检测recall.830是级联瓶颈。 YOLO1000epoch/8RTX4080/b80/SGD lr.01。OrderFormer57627列排序样本/1000epoch/b4/RTX4080；正文AdamW lr.01+cosinewarm，补充D2.2 lr2e-4/wd0/amsgrad/CosineAnnealingWarmRestarts(T0=10,Tmult2,min1e-6)，固定GH train默认支持后者，不能据此断言论文实跑配置。CalliAlign50000step/4A6000/b256/lr1e-4/AdamW/cosine。e-IT2A6000/ZeRO1/1epoch，正文b2；公开配置per-device2/累积2，通常两进程有效b8，lr5e-5/warm.03/LoRA r128 alpha256/dropout.05/maxlen8192；这是当前配置非原日志。inference max1024/greedy/beam1/repetition1。",
+          "evidence": "指定完整核心、实际框架/主实验与消融表、选定补充/发布文本，非口试或原表复现，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "未验证作者/作品/诗词内容互斥划分和预训污染；知名诗句先验、款识和视觉风格对作者/意图贡献未因果隔离。检测漏字/连笔切分和读序错误级联，草书仍差。F1忽略读序、STSim/宽容judge不保证逐字/事实正确；人研仅30页。正文/补充OrderFormer lr、64vs8head和当前数据行数差异保留。当前evaluate.py只清洗GT标点/数字而response仅简繁转换，选择题按字母/文本包含判定，未证这些实现与论文评测完全同版。未做模型复现。 固定基座/相同页面与合成数量/LoRA预算，比较整页、GT切片、预测切片、规则排序、OrderFormer、硬OCR文字、伪embedding及去全局视觉；分别报告检测/读序/识别误差。作品/作者/诗词内容分组互斥，新增反事实改字/遮字/打乱诗句与新款识，比较识别保真和知识补全。翻译逐实体核对+盲审judge一致性；固定生成长度测各模块与端到端延迟。迁移书写视频另需事件/帧差/笔顺人工真值，不用无序F1验顺序。以上待执行。",
+          "evidence": "指定完整核心、实际框架/主实验与消融表、选定补充/发布文本，非口试或原表复现，非口试/独立复现"
+        }
+      ],
+      "boundary": "完整正式主PDF11页核心§1–7及固定v2核心交叉、Eq1–4/T1–8完整表；官方补充10页选读A–D2、D3损失/替代切片、E机制、F数据/intent judge全文及S1–4，未逐一实际核全部S定性图或参考文献。实际正式p4 F4/Eq与p7 T3–8。固定GH797808d4完整830blob树/README、训练README与e-IT配置、核心模型/推理/评测/embedding注入/resampler/排序与度量相关片段；非全部vendored XTuner/底层网络审计。HF三个固定revision的卡/目录及当前规模API；未下载权重/图像数据，未训练推理/原表复现或口试。"
+    },
+    {
+      "id": "L046",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "从普通RGB相机30fps拍摄的空中手指书写视频识别中文单字；另比较英文单词及传感器轨迹识别。输出字符/字符序列，未生成视频、墨迹、规范笔画顺序或可执行书写动作。空中连写轨迹和字内规范落笔事件不可等同。 高成本高速/专用传感器轨迹较精确，普通相机时间采样稀疏，复杂汉字、快速运动/模糊、遮挡与环境变化使端到端视频模型难定位书写信号。已有RGB数据多为少类字母/词，缺大中文字符覆盖；采用显式指尖几何表征与时空编码缩小学习空间，但上游跟踪误差仍可能主导。",
+          "evidence": "指定完整核心、实际框架/主实验与消融表、选定补充/发布文本，非口试或原表复现，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "RGB视频→指尖轨迹(p_t,q_t,s_t)→XY差分、方向sin/cos、曲率sin/cos及相邻stroke-id相同/不同两指示共8D→层级1DCNN→片段GAT→时序/空间特征相加、时间平均→FC字符概率/argmax；英文多字符改CTC。实际作者PDFp7 F6–9/Eq3–4与p10 T6–11，完整实验T3–11读完。s_t的实际生成/切分细节未充分公开，不把它当可靠人工pen-up真值。 时序ReduceBlock/NormalBlock以Conv1D、残差、BN、PReLU/dropout建模并下采样，通道64/128/256；空间单层8head GAT学习片段依赖，再与时序特征相加。正文称单层FC、F6图注CTC，而T8最优2层FC、§VE明确英文WiTA改用CTC；中文按T8解释，单/两层正文差异未解决。3.9M为表中VCRec参数；MediaPipe预训成本/跟踪是否纳入FPS未清楚说明，不能宣称全系统仅3.9M。",
+          "evidence": "指定完整核心、实际框架/主实验与消融表、选定补充/发布文本，非口试或原表复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "建立211人、3755 GB1汉字的AWCV-100K RGB数据集；VCRec先MediaPipe指尖跟踪/8D轨迹特征，再1D残差时序CNN与StrokeGAT，对轨迹片段的空间关系建模并融合分类。GAT节点是时序编码片段，不是经人工规范笔画分割的stroke事件；名称StrokeGAT不代表已恢复规范笔顺。 在普通RGB低帧率但指尖可稳定跟踪、有限3755单字标签且字形空间结构显著的同域cross-writer测试，几何差分可减背景/绝对位置干扰，时序+片段图关系有望优于只读原帧或只做时序。若跟踪崩溃、语言主要依赖时序、设备外域或细笔画被采样遗漏，优势可能消失；不构成视频生成或严格笔顺正确性的理论保证。",
+          "evidence": "指定完整核心、实际框架/主实验与消融表、选定补充/发布文本，非口试或原表复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T3 AWCV VCRec52.43%/3.9M/88.2FPS，ST-R3D23.40%/55.4M/168.7FPS；准确率更好但FPS更低。T4强时序1DCNN47.51%，增加4.92百分点，仍有47.57%错误。T9 IAHCC96.85 vs1DCNN96.78仅+.07百分点，无方差不能认定稳健提升。T10 WiTA CER30.12差于ST-R3D29.24和TR-AWR29.86；T11 IAHEW CAR96.51差于1DCNN+Decoder97.45和LSTM+CTC97.13，不能声称跨语言全面领先。 T5融合A/B/C/D AR47.51/48.19/51.77/52.43%，D和C同3.9M仅+.66百分点。T6无时序39.67%、1D-TCRN49.31/LSTM47.22/Transformer44.11、1DCNN52.43；T7 GCN51.88/SparseGAT49.34/StrokeGAT52.43，其中对GCN仅+.55百分点且参数3.8/3.9M。T8 CTC49.66、FC1/3/2层50.43/51.43/52.43。支持当前采样/优化下的组合表现，未隔离参数规模、调参预算、跟踪质量与真正空间关系。F12热图是定性相关，不证明学到了合法笔画拓扑。 PyTorch默认初始化、图像112²、4TITAN RTX24G、Adam b8/lr.001、识别plateau时乘.01、dropout.2；GAT1层8head。未从已读实现段获得完整epoch/停止准则、seed重复、精确writer名单/划分复现与FPS计时细节。WiTA原数据说明224²、统一实现又写112²，保留数据描述与实际resize区分。没有公开模型训练源码可交叉这些原实验条件。",
+          "evidence": "指定完整核心、实际框架/主实验与消融表、选定补充/发布文本，非口试或原表复现，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "上游指尖检测/遮挡/运动模糊可能限制两阶段，未给oracle轨迹上限和30fps降采样/跟踪误差消融；空中单字连写不提供墨迹/接触/抬笔规范标签。训练人群年轻且几乎全右手，场景/设备外域证据不足；类覆盖3755不等于所有汉字或长文本覆盖。外语表反例、无重复seed/置信区间、3.9M和FPS范围不明、FC层数/图注与人口统计差异保留。当前官方GH265blob是网站/数据链接，未找到VCRec .py/config/模型训练权重路径；不是已实现复现。 固定同一tracker/训练划分/参数和调参计算，比较时序CNN、CNN+GCN/GAT、随机/固定邻接、去位置/方向/曲率、反转/乱序轨迹及强视频预训基线；多seed/按writer分层置信区间。人工标一小份轨迹/关键事件建立oracle，对30→15→7.5fps、遮挡、噪声、镜像/左手/背景设备外域做可观测性曲线；统一报告tracker与分类端到端速度。生成研究另评笔画身份、接触/抬落笔、RGB状态和动作合法性，加入规则SVG及独立识别器；所有为待执行设计。",
+          "evidence": "指定完整核心、实际框架/主实验与消融表、选定补充/发布文本，非口试或原表复现，非口试/独立复现"
+        }
+      ],
+      "boundary": "作者公开完整13页accepted PDF：Abstract/§I、§III–VI核心、§II与引用的MediaPipe/数据集相关段落，Eq1–4/TI–XI全部表，非逐篇参考文献/所有定性例图；实际p7 F6–9/Eq3–4与p10 T6–11。出版DOI/卷期页核实，未把accepted排版当最终全文。固定GH308bafd7完整265blob树/README与数据网站状态，未下载Baidu视频、权重或执行tracker/模型/原表复现；未验证SCI分区、全部数据标注与划分名单。"
     }
   ]
 }

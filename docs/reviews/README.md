@@ -92,8 +92,8 @@
 | L041 | [DragAnything，2024](L041.md) | §3–5、Tables1–3、Figure10文字限制；未逐图/源码/附录全条件复核 |
 | L042 | [TextVBench，2026](L042.md) | §4–7协议、匹配/分数/采样、Tables1–2、§8–9局限结论；§3挑战与代码/原始工件未逐项核 |
 | L043 | [ViTeX-Bench，2026](L043.md) | 正文§3–7/方程及Tables1–2相关指标；AppA/B/G/H/I/L/M及Table7，部分F基线适配；未逐图/源码/附录O全部身份probe，mask相关Kendall冲突待核 |
-| L045 | [CalliReader / CalliBench，ICCV 2025](L045.md) | 正文§1/3–7、Tables2–8；正式CVF元信息，官方supp B/C/D.1–D.2/F.1与TablesS1–S4；未完整D.3/逐图/评审prompt/源码 |
-| L046 | [AWCV100K](L046.md) | PDF§III数据、§IV特征/网络、§V设置与TablesIII–V；其他消融表/正式终版与代码待核 |
+| L045 | [CalliReader / CalliBench，ICCV 2025](L045.md) | 完整正式主PDF11页核心§1–7及固定v2核心交叉、Eq1–4/T1–8完整表；官方补充10页选读A–D2、D3损失/替代切片、E机制、F数据/intent judge全文及S1–4，未逐一实际核全部S定性图或参考文献。实际正式p4 F4/Eq与p7 T3–8。固定GH797808d4完整830blob树/README、训练README与e-IT配置、核心模型/推理/评测/embedding注入/resampler/排序与度量相关片段；非全部vendored XTuner/底层网络审计。HF三个固定revision的卡/目录及当前规模API；未下载权重/图像数据，未训练推理/原表复现或口试。 |
+| L046 | [AWCV100K](L046.md) | 作者公开完整13页accepted PDF：Abstract/§I、§III–VI核心、§II与引用的MediaPipe/数据集相关段落，Eq1–4/TI–XI全部表，非逐篇参考文献/所有定性例图；实际p7 F6–9/Eq3–4与p10 T6–11。出版DOI/卷期页核实，未把accepted排版当最终全文。固定GH308bafd7完整265blob树/README与数据网站状态，未下载Baidu视频、权重或执行tracker/模型/原表复现；未验证SCI分区、全部数据标注与划分名单。 |
 | L047 | [Recontextualizing Revitalization: A Mixed Media Approach to Reviving the Nüshu Language（NüshuVision / NüshuStrokes）](L047.md) | EMNLP2025正式ACL10页PDF全部Abstract/§1–7/Limitations/Ethics及研究附录A–D文字/所有图注；实际p12420 F2数据流程和p12421 T1/MSE/CER视觉核看。参考文献未逐篇验证、文化/历史背景主张未独立调查。GitHub固定94f2a059完整15文件tree；generation.py/TrOCR_CER.py全文、finetuning_nvshu.py数据/训练/评价段及两notebook代码的划分/配置段、output.log尾部指标；完整CSV字符/重复/句长统计。未取得397 MP4/权重，未模型执行/独立复现。 |
 | L048 | [Tegaki](L048.md) | 官网功能、API样例、FAQ全文；源码/版本/实际字体导出与质量尚未验证 |
 | L049 | [SCUT-COUCH2009-TL](L049.md) | PDF采集/标注/算法§2–5、Tables1–4；完整文件规范/授权与当前下载未核 |

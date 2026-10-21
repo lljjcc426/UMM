@@ -392,3 +392,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百零二批（2026-10-21）：连续AR+独立扩散器与离散RQ空间/深度AR、base/Chat/Gen权重、视频展示与视频主量化分开。见[审查](emu2_vilau_representations_icl_and_video_release_audit_2026-10-21.md)、[L083](../reviews/L083.md)、[L085](../reviews/L085.md)。
+
+
+第一百零三批（2026-10-21）：CalliBench识别/文化VQA与L044 Calligraphy Bench区分；字符阅读顺序、空中轨迹、规范字内笔顺分开。见[审查](callireader_awcv_recognition_order_and_release_audit_2026-10-21.md)、[L045](../reviews/L045.md)、[L046](../reviews/L046.md)。

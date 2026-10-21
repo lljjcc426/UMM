@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L045",
+    "L046"
+  ],
+  "sources": {
+    "L045": [
+      "https://openaccess.thecvf.com/content/ICCV2025/html/Luo_CalliReader_Contextualizing_Chinese_Calligraphy_via_an_Embedding-Aligned_Vision-Language_Model_ICCV_2025_paper.html",
+      "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Luo_CalliReader_Contextualizing_Chinese_ICCV_2025_supplemental.pdf",
+      "https://arxiv.org/html/2503.06472v2",
+      "https://github.com/LoYuXr/CalliReader/tree/797808d4e394d03b918167b0412b7e616926b06a",
+      "https://huggingface.co/gtang666/CalliReader/tree/14dbb524edb60a513b192f89b45f7e7b404e1089",
+      "https://huggingface.co/datasets/gtang666/CalliBench/tree/b6d48f6c45cf90ba72a0edf2ae95f41bf7721ffb",
+      "https://huggingface.co/datasets/gtang666/CalliTrain/tree/7667b4f9297f211452e28fccde765fe6b8c0eb20",
+      "https://datasets-server.huggingface.co/size?dataset=gtang666/CalliBench",
+      "https://datasets-server.huggingface.co/size?dataset=gtang666/CalliTrain"
+    ],
+    "L046": [
+      "https://doi.org/10.1109/TCSVT.2024.3385851",
+      "https://huuuuusy.github.io/files/AWCV100k.pdf",
+      "https://github.com/wmeiqi/AWCV-100K-UCAS2024/tree/308bafd7100d92f30c80a090164d9470fd606933"
+    ]
+  },
+  "executed": false,
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "artifacts": [
+    {
+      "id": "L045",
+      "paper": "Complete official ICCV2025 11p main and10p supplement; fixed arxiv2503.06472v2 cross-check",
+      "github_revision": "797808d4e394d03b918167b0412b7e616926b06a",
+      "tree_blobs": 830,
+      "hf_revisions": {
+        "model": "14dbb524edb60a513b192f89b45f7e7b404e1089",
+        "benchmark": "b6d48f6c45cf90ba72a0edf2ae95f41bf7721ffb",
+        "training": "7667b4f9297f211452e28fccde765fe6b8c0eb20"
+      },
+      "visuals": [
+        "Officialp4F4/Eq1-4",
+        "Officialp7T3-8"
+      ],
+      "findings": [
+        "Reading order is not within-character stroke order; CalliBench differs L044 Calligraphy Bench",
+        "Current character-count F1 ignores order; NED needed",
+        "OrderFormer main lr.01 vs supplement/code.0002",
+        "CalliAlign main64heads vs selected loader default8heads/64dimhead, not checkpoint-inspected",
+        "Current unversioned dataset size metadata Bilingual2310/Intent191/Region726 differs paper; not independent image counts or proof of original table subset",
+        "Training card copied3192 description vs API/GH7357",
+        "Style, English OCRBench and easy latency counterexamples bound claims",
+        "Prompt permits factual minutiae; recognition does not causally isolate cultural reasoning"
+      ]
+    },
+    {
+      "id": "L046",
+      "paper": "Complete author accepted13p PDF; formal TCSVT2024 34(9)8602-8613 metadata",
+      "github_revision": "308bafd7100d92f30c80a090164d9470fd606933",
+      "tree_blobs": 265,
+      "visuals": [
+        "Acceptedp7F6-9/Eq3-4",
+        "Acceptedp10T6-11"
+      ],
+      "findings": [
+        "RGB video air-writing recognition, not generation or normative stroke labels",
+        "SinglecharFC vs EnglishCTC explained in text; oneFC vs besttwoFC remains",
+        "GAT clip nodes not explicit stroke events",
+        "4.92 and29.03 are percentage points; 52.43AR still leaves47.57error",
+        "English WiTA/IAHEW below strongest listed baselines; IAHCC gain.07pp without uncertainty",
+        "3.9M/FPS inclusion of tracker unclear; mainIDparam gaps confound graph mechanism",
+        "Current full tree is dataset website/assets without VCRec .py/config; no model reproduction",
+        "Hand width bins sum231 vs211 source discrepancy"
+      ]
+    }
+  ]
+}

@@ -228,3 +228,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百零二批（2026-10-21）：视觉压缩/重建上限、RICES与格式、量化depth成本及对齐/重建取舍；统一接口非协同证据。见[审查](emu2_vilau_representations_icl_and_video_release_audit_2026-10-21.md)、[L083](../reviews/L083.md)、[L085](../reviews/L085.md)。
+
+
+第一百零三批（2026-10-21）：视觉-文字embedding对齐及语言先验；无序内容F1与NED，轨迹片段GAT不等于规范笔画；不从识别推出生成能力。见[审查](callireader_awcv_recognition_order_and_release_audit_2026-10-21.md)、[L045](../reviews/L045.md)、[L046](../reviews/L046.md)。

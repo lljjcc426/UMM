@@ -481,3 +481,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百零二批（2026-10-21）：CVPR完整12页交叉及固定v2完整核心/附录、VILA-U固定v3/ICLR身份、实际图表，GH184/91blob和固定HF卡配置；部分PDF与猜测384地址排除。见[审查](emu2_vilau_representations_icl_and_video_release_audit_2026-10-21.md)、[L083](../reviews/L083.md)、[L085](../reviews/L085.md)。
+
+
+第一百零三批（2026-10-21）：CalliReader正式11页+补充10页、固定v2，AWCV作者accepted13页与DOI卷期页；实际框架/实验，GH830/265blob、HF三个固定revision/当前规模API。见[审查](callireader_awcv_recognition_order_and_release_audit_2026-10-21.md)、[L045](../reviews/L045.md)、[L046](../reviews/L046.md)。

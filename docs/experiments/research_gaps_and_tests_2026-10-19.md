@@ -421,3 +421,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百零二批（2026-10-21）：固定encoder/decoder/FLOPs分离规模、压缩/目标、检索与同格式示例；细笔画可重建性、事件状态与完整采样成本。未运行模型。见[审查](../evidence/emu2_vilau_representations_icl_and_video_release_audit_2026-10-21.md)、[L083](../reviews/L083.md)、[L085](../reviews/L085.md)。
+
+
+第一百零三批（2026-10-21）：反事实诗词/改字/遮挡与作者内容互斥；oracle轨迹、降fps/噪声和设备外域、同预算强基线；书写事件另行标注。未运行模型。见[审查](../evidence/callireader_awcv_recognition_order_and_release_audit_2026-10-21.md)、[L045](../reviews/L045.md)、[L046](../reviews/L046.md)。

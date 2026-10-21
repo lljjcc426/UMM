@@ -433,3 +433,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百零二批（2026-10-21）：Emu warmup/语言token冲突及video decoder发布，VILA384制品/原表batch/完整时序协议与共享收益待核。见[审查](emu2_vilau_representations_icl_and_video_release_audit_2026-10-21.md)、[L083](../reviews/L083.md)、[L085](../reviews/L085.md)。
+
+
+第一百零三批（2026-10-21）：OrderFormer lr、CalliAlign64vs8head、HF任务行数/原表子集与GT清洗；AWCV FC层数、s_t来源、writer名单与tracker计时范围待核。见[审查](callireader_awcv_recognition_order_and_release_audit_2026-10-21.md)、[L045](../reviews/L045.md)、[L046](../reviews/L046.md)。

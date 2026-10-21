@@ -150,8 +150,8 @@
 | L042 | TextVBench，2026 | primary_sections_read | [结构化分析](../reviews/L042.md) | 未完成 |
 | L043 | ViTeX-Bench，2026 | primary_sections_read | [结构化分析](../reviews/L043.md) | 未完成 |
 | L044 | CalligraphyBench | primary_sections_read | [结构化分析](../reviews/L044.md) | 未完成 |
-| L045 | CalliReader / CalliBench，ICCV 2025 | primary_sections_read | [结构化分析](../reviews/L045.md) | 未完成 |
-| L046 | AWCV100K | primary_sections_read | [结构化分析](../reviews/L046.md) | 未完成 |
+| L045 | CalliReader / CalliBench，ICCV 2025 | primary_sections_read | [结构化分析](../reviews/L045.md) | 核心三遍与五项检查完成 |
+| L046 | AWCV100K | primary_sections_read | [结构化分析](../reviews/L046.md) | 核心三遍与五项检查完成 |
 | L047 | Recontextualizing Revitalization: A Mixed Media Approach to Reviving the Nüshu Language（NüshuVision / NüshuStrokes） | primary_sections_read | [结构化分析](../reviews/L047.md) | 核心三遍与五项检查完成 |
 | L048 | Tegaki | primary_sections_read | [结构化分析](../reviews/L048.md) | 未完成 |
 | L049 | SCUT-COUCH2009-TL | primary_sections_read | [结构化分析](../reviews/L049.md) | 未完成 |

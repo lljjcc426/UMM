@@ -302,3 +302,6 @@ python scripts/validate_catalog.py
 
 
 第一百零二批（2026-10-21）完成L083 Emu2固定v2与L085 VILA-U固定v3核心、实际指定框架/主表/现有消融及GH/HF发布审查；分开base/Chat/Gen、0*、表征取舍、空间/深度AR和8帧PNG协议。356目录、205核心/208书面含未通过项，151条未确认核心。见[审查](docs/evidence/emu2_vilau_representations_icl_and_video_release_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_second_changes_2026-10-21.md)。无删除/模型复现。
+
+
+第一百零三批（2026-10-21）完成L045 CalliReader/CalliBench与L046 AWCV-100K/VCRec核心、实际图表及固定GH/HF发布审查；区分阅读顺序、空中书写识别与规范笔顺生成，记录无序F1、发布数据行数、参数/解码协议和英文反例。356目录、207核心/210书面含未通过项，149条未确认核心。见[审查](docs/evidence/callireader_awcv_recognition_order_and_release_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_third_changes_2026-10-21.md)。无删除/模型复现。
