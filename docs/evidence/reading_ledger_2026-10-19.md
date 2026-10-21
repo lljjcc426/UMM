@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 353 条，本批有 353 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 354 条，本批有 354 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 核心三遍完成需逐条核问题/方法/框架图、主表/消融及有依据的批判分析，并记录五项书面检查。计时口试、完整代码审查和独立复现另列；没有自动把模板填齐计为完成。
 
@@ -359,3 +359,4 @@
 | G039 | Tora3: Trajectory-Guided Audio-Video Generation with Physical Coherence | primary_sections_read | [结构化分析](../reviews/G039.md) | 核心三遍与五项检查完成 |
 | R12 | Wan Toy Transform：Wan2.1 I2V玩偶变形LoRA | primary_sections_read | [结构化分析](../reviews/R12.md) | 未完成 |
 | G040 | SEED-Data-Edit Technical Report: A Hybrid Dataset for Instructional Image Editing | primary_sections_read | [结构化分析](../reviews/G040.md) | 核心三遍与五项检查完成 |
+| G041 | DS-Fusion: Artistic Typography via Discriminated and Stylized Diffusion | primary_sections_read | [结构化分析](../reviews/G041.md) | 核心三遍与五项检查完成 |

@@ -400,3 +400,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第九十一批（2026-10-21）：论文/代码tone与LR、部件/刚体归因、模板误差和无源码/多seed边界。见[审查](semantic_modal_typography_static_animation_and_writing_2026-10-21.md)、[L051](../reviews/L051.md)/[L052](../reviews/L052.md)。
+
+
+第九十二批（2026-10-21）：候选协议/量化分母、20/25图、epoch-step/optimizer、generic配方及checkpoint对应未决。见[审查](dsfusion_adversarial_typography_and_express_audit_2026-10-21.md)、[G041](../reviews/G041.md)。

@@ -359,3 +359,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第九十一批（2026-10-21）补完Word-As-Image L051、Strike a Chord L052固定核心/指定附录与实际框架/主表/消融，核静态优化video输出及论文/发布差异。353目录、184核心/187书面含未通过项，169条未确认核心。见[审查](semantic_modal_typography_static_animation_and_writing_2026-10-21.md)、[逐文件说明](ninety_first_changes_2026-10-21.md)。DS-Fusion已定位ICCV2023来源待下一批，不计本批已读。无删除/模型复现。
+
+
+第九十二批（2026-10-21）完成前批待补DS-Fusion：新增G041正式核心/实际图表/指定supp和固定代码/HF Express制品。354目录、185核心/188书面含未通过项，169条未确认核心。见[审查](dsfusion_adversarial_typography_and_express_audit_2026-10-21.md)、[逐文件说明](ninety_second_changes_2026-10-21.md)。保留SF/MF取舍、胜出与Equal区别及epoch/step/风格图/默认首字符等发布条件，无删除/模型复现。

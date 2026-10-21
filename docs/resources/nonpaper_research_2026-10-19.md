@@ -389,3 +389,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第九十一批（2026-10-21）：固定Word-As-Image配置/优化循环/视频输出；Strike项目仍Code(soon)。见[审查](../evidence/semantic_modal_typography_static_animation_and_writing_2026-10-21.md)、[L051](../reviews/L051.md)/[L052](../reviews/L052.md)。
+
+
+第九十二批（2026-10-21）：DS-Fusion固定训练/采样/配置、HF Express首字符/四候选及UI条件，关联论文避免重复计数。见[审查](../evidence/dsfusion_adversarial_typography_and_express_audit_2026-10-21.md)、[G041](../reviews/G041.md)。

@@ -6439,6 +6439,40 @@
         }
       ],
       "boundary": "补完固定v1完整核心Abstract/§1–6/相关工作、全部核心方程/T1/T2；AppA4/A5/A7–A12及A1–3说明复核，A12全部文字/定量说明，实际p4F2/p7T1/p9T2，p3相关工作也核看。未重推全部FEM装配/遍看全部附图动画帧/所有引用。项目页当前Code(soon)，未发现可审训练实现；未观看全部真实循环媒体、未下载模型、执行优化或复现。"
+    },
+    {
+      "id": "G041",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题与动机",
+          "answer": "输入语义/风格词、可选属性及栅格字形，输出结合语义与字形的静态彩色艺术字。论文包括单字、多字整体、中文/日文与一般形状例；没有空白逐笔成字、连续动画、规范笔顺或动作执行监督。任务不能简化成只有Latin或普通文本生图。 语义风格和字形可读性竞争、缺配对目标且搜索空间大；直接生成难保字形、几何轮廓法又限制色彩/纹理。作者用合成style图保语义先验、以真实glyph latent对抗约束形状，并逐style–glyph微调；任意无配对任务并非都能由该目标唯一识别，需看域/评价。",
+          "evidence": "ICCV正式核心、实际框架/主表/已有定性消融及指定supp/固定发布；非口试或独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "风格词/属性→冻结LDM合成style图；字形栅格与style图→冻结VAE→z_g/z_s；加噪z_s+冻结BERT文字condition→可训练UNet→预测噪声/反算clean z_hat；D在z_hat(fake)/z_g(real)给字形约束→更新UNet/D；推理噪声→微调扩散→VAE decode彩色图。主组合例用rembg去背景、其余字母渲染/配色排版。实际核p2F2/p7T1/p8T2与中文F12/p9F15–19及supp用户界面。 默认BERT条件的LDM，256²/4×32×32 latent，VAE及文字encoder冻结，UNet可训练；不是默认CLIP版SD1.5，也不是UMM理解生成共享模型。固定配置BERT32层/1280维、UNet base320/倍数1,2,4,4、heads8/crossattn1280、1000步线性beta.00085–.012/scale.18215。DCGAN式D输入4通道latent、64→128→256→512卷积/BN/LeakyReLU/Sigmoid；普通1输出，generic26头。论文未明确总可训练参数量，未自行补数。",
+          "evidence": "ICCV正式核心、实际框架/主表/已有定性消融及指定supp/固定发布；非口试或独立复现"
+        },
+        {
+          "criterion": "解释创新与优势条件",
+          "answer": "冻结LDM产生约25张风格图，冻结VAE编码style与glyph；U-Net预测加噪style latent的噪声、还原clean latent，CNN判别器把还原latent与glyph latent作真假判别。交替微调UNet与D，diffusion MSE+λ对抗项（论文λ.01），图像输出经冻结decoder。CLIP字形/风格双轴候选排序，另展示40风格/26字泛化版本。与Word-As-Image的冻结SD/SDS控制点优化有不同训练变量及输出表示。 当语义可由少量生成style图概括且glyph在冻结VAE中可辨，扩散重建维持风格域、latent D拉近glyph分布，可能在指定静态艺术字分布提高可读性并允许色彩/纹理/整体多字变化。优势应在保持字形的语义设计与特定OCR/偏好指标验证；无条件D的分布匹配不保证样本逐一正确，通用版还需条件辨识和真正未见组合测试。",
+          "evidence": "ICCV正式核心、实际框架/主表/已有定性消融及指定supp/固定发布；非口试或独立复现"
+        },
+        {
+          "criterion": "解释主表/已有消融/缺失与条件",
+          "answer": "正式T1 SF OCR36.4/blur61.8/CLIP21.1，SD7.0/4.9/23.1、DALL-E2 4.9/9.8/22.3、CLIPDraw SF4.6/15.8/22.7；SF可读分优势伴随风格分下降。MF5.1/20.5/24.1，CLIPDraw MF6.4/17.9/23.2，原OCR反而较低。T2方法间DS49.06%、DALL-E29.38/SD9.38/CLIPDraw6.88/Equal5.31；人类57.14/Equal11.19/DS31.67，DS加Equal42.86%，不能写42%击败艺术家。中文/日文、多字、泛化和个性化主要定性，无相应系统量化表。 F15 λ.1/.01/.001与100–1000训练epoch标尺展示字形/语义取舍；F16风格图5/25/50为选例，作者选25；F17换CLIP文字encoder、suppF3有无white-background说明。未给受控λ0/去D量化、全部组件/多seed区间；BERT/CLIP同时模型/分辨率变化不纯文字encoder消融。T1 SF/MF改变训练字体分布，不能由此独立归因D优越性。 正式Adam：UNet lr1e-5/D1e-4，单字体800 epochs/约5min、多字体1200 epochs/约8min，RTX3090；未拆风格生成、训练、采样/筛选成本及多seed区间。固定发布实际上AdamW/G lr/D10lr，batch1、max_steps800而非800完整数据epoch，num_samples2001；style脚本2×10=20张，非论文25。数据i%(N−1)沿未排序list排除最后一项，20张新目录条件下19项可达，未执行验证实际缓存。txt2img显式example50步/CFG5/eta1/256²，parser默认200步/eta0；内部随机1–500覆盖声明seed42，不能当固定seed。",
+          "evidence": "ICCV正式核心、实际框架/主表/已有定性消融及指定supp/固定发布；非口试或独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证设计",
+          "answer": "原§5：style与glyph不相合、多字/整词结构错、美感失败，每组合微调耗时，自动排序可能挑错。D只约束latent分布，未证明每候选准确字形、拓扑或指定字体；SF rawOCR36.4也距全正确很远。代码/论文optimizer、epoch-step、20/25风格图、类别表及候选协议不齐。默认预生成字体分支截为首字符，custom_font才保留输入串，实际多字/中文未跑；generic配置仍接普通Rasterizer/number0，公开示例不构成完整40style×26字训练配方。HF Express与论文generic权重对应未知，未做模型复现。 固定底座/样本/总训练推理FLOPs及字体信息，比较无D、像素/latent D、显式OCR/几何约束、相同候选随机/CLIP排序/人工筛选，交叉λ/style图量/字体混合并做多seed。独立OCR+人类自由转录与盲语义/美感，报告全部候选失败和完整词/中文复杂度；heldout style×letter×font与同量文本条件对照检泛化。先核20/25图和实际有效样本、epoch单位及generic训练源。书写需另加同终态不同过程和事件监督，不能由静态D转移保证笔顺。方案未运行。",
+          "evidence": "ICCV正式核心、实际框架/主表/已有定性消融及指定supp/固定发布；非口试或独立复现"
+        }
+      ],
+      "boundary": "ICCV2023正式11页Abstract/§1–6/全部核心式、T1/T2与已有消融文字；实际p2F2/p7T1/p8T2/F12/p9F15–19。作者17页supp§1–6全部说明、指定F3/F6及人评界面/来源说明，未遍读全部图/参考文献。固定GH c63e5de根16项树、ldm78项树、README/两finetune配置、script_basic核心/txt2img采样、D全文、Rasterizer核心、ddpm判别loss/冻结/optimizer、main数据/LR指定段，未全审UNet/Lightning/DDIM/所有库；大型递归总树未完整取得，不当完整树证据。HF Express482a035元数据/README、app生成/界面/背景函数指定段；未下载权重、媒体或执行任何模型/在线demo。"
     }
   ]
 }

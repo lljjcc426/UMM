@@ -195,3 +195,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第九十一批（2026-10-21）：有限元空间基/周期时间基、线性旋转、tanh高频/DC解析反例与参数分离定义。见[审查](semantic_modal_typography_static_animation_and_writing_2026-10-21.md)、[L051](../reviews/L051.md)/[L052](../reviews/L052.md)。
+
+
+第九十二批（2026-10-21）：冻结VAE/BERT、噪声MSE和latent对抗分布约束不保证逐样本字形/事件。见[审查](dsfusion_adversarial_typography_and_express_audit_2026-10-21.md)、[G041](../reviews/G041.md)。

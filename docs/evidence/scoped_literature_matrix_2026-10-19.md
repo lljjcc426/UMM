@@ -359,3 +359,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第九十一批（2026-10-21）：静态轮廓设计、优化迭代MP4、循环字体动画和书写事件四者区分。见[审查](semantic_modal_typography_static_animation_and_writing_2026-10-21.md)、[L051](../reviews/L051.md)/[L052](../reviews/L052.md)。
+
+
+第九十二批（2026-10-21）：静态单字/多字/非Latin栅格艺术字，逐例微调与通用Express分开。见[审查](dsfusion_adversarial_typography_and_express_audit_2026-10-21.md)、[G041](../reviews/G041.md)。

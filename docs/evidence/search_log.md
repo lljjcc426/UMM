@@ -448,3 +448,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第九十一批（2026-10-21）：固定预印本PDF/实际图表、TOG书目/DOI、Word-As-Image固定源码及Code(soon)状态；DS-Fusion正式来源待补读。见[审查](semantic_modal_typography_static_animation_and_writing_2026-10-21.md)、[L051](../reviews/L051.md)/[L052](../reviews/L052.md)。
+
+
+第九十二批（2026-10-21）：ICCV2023正式PDF/作者supp、固定源码根/ldm子树和HF Express关联补漏。见[审查](dsfusion_adversarial_typography_and_express_audit_2026-10-21.md)、[G041](../reviews/G041.md)。

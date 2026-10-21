@@ -1,0 +1,36 @@
+{
+  "id": "G041",
+  "date": "2026-10-21",
+  "paper": "ICCV2023 formal pp374-384,11p",
+  "supplement": "Author project17p: prose sections1-6, selected figures/UI; not every gallery",
+  "sources": [
+    "https://openaccess.thecvf.com/content/ICCV2023/html/Tanveer_DS-Fusion_Artistic_Typography_via_Discriminated_and_Stylized_Diffusion_ICCV_2023_paper.html",
+    "https://openaccess.thecvf.com/content/ICCV2023/papers/Tanveer_DS-Fusion_Artistic_Typography_via_Discriminated_and_Stylized_Diffusion_ICCV_2023_paper.pdf",
+    "https://ds-fusion.github.io/",
+    "https://ds-fusion.github.io/static/pdf/supp.pdf",
+    "https://arxiv.org/abs/2303.09604",
+    "https://github.com/tmaham/DS-Fusion/tree/c63e5de51244914033ea444751cbfd6e757b6d9c",
+    "https://huggingface.co/spaces/tmaham/DS-Fusion-Express/tree/482a03580b670affd03511829e8453f2c517e1c5"
+  ],
+  "github_revision": "c63e5de51244914033ea444751cbfd6e757b6d9c",
+  "github_tree_scope": "Root16items and ldm subtree78items complete; oversized recursive whole-repository response incomplete and excluded",
+  "hf_space_revision": "482a03580b670affd03511829e8453f2c517e1c5",
+  "findings": [
+    "Default BERT32x1280/LDM256 not defaultCLIP SD1.5; frozenVAE/text encoder, trainUNet and latentDCGAN discriminator",
+    "Generator non-saturating BCE(Dfake,1), discriminator BCE real1/fake0; paper minmax is not an exact implementation scalar",
+    "PaperAdam vs releaseAdamW; paper800/1200 epochs vs max_steps800 release; no silent conversion between epoch and optimizer steps",
+    "Style generation new-directory2*10=20 rather than paper25; Rasterizer i%(N-1) makes last unordered entry unreachable; ifN20 then19 possible files, actual cached-directory count not measured",
+    "Rasterizer non-custom branch truncates to firstuppercase character; custom_font retains string, no local multi-letter/Chinese test",
+    "Generic config26discriminator heads still uses standard single-letterRasterizer withnumber0; complete40style/26letter training pipeline not established",
+    "classes.txt42nonempty entries/41unique, CACTUSduplicate; not paper exact40class manifest",
+    "Text2img random1-500 internal seed overrides declared42; example50step/eta1 differs parserdefault200step/eta0; no CLIP rank in read sampling entry",
+    "Paper CLIP ranking vs T1random4 vs designerselected1of4 human protocol distinct; no single candidate-selection cost assumed",
+    "Human preference31.67% plus tie11.19%=42.86%, human57.14%; not42% strict wins",
+    "HFExpress app genericckpt all2.ckpt, first input char, 4images/50DDIM/CFG5/eta1/256; font selection UI and removeBG button commented; no per-input finetune invoked in read generation function",
+    "Express≈60seconds UI text is an author claim, not measured runtime; weights-to-paper checkpoint mapping unverified",
+    "Git code MIT, projectwebpage CC-BY-SA4 footer, checkpoint/base/font terms separate; full license audit not performed"
+  ],
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "executed": false
+}
