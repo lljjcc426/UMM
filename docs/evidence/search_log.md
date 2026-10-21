@@ -547,3 +547,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百二十四批（2026-10-22）：NeurIPS2025正式39页、GHffcfc8e/HF6827760；D-DiT原作方法段与NeuralODE2018摘要仅核特定纠错。见[审查](fudoki_discrete_flow_self_correction_and_protocol_audit_2026-10-22.md)、[L109](../reviews/L109.md)。
+
+
+第一百二十五批（2026-10-22）：ICLR2026正式33页、GHe3a80df4/HF8e805608，全部16表/12实际页。见[审查](lavida_o_elastic_mot_and_reflection_protocol_audit_2026-10-22.md)、[L111](../reviews/L111.md)。

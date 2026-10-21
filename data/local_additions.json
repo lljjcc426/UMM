@@ -8001,22 +8001,27 @@
     "title": "Lavida-O: Elastic Large Masked Diffusion Models for Unified Multimodal Understanding and Generation",
     "source_urls": [
       "https://arxiv.org/abs/2509.19244",
-      "https://arxiv.org/html/2509.19244"
+      "https://arxiv.org/html/2509.19244",
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/52d7e1f59be8a140bd5c3b0b5b8bdee2-Abstract-Conference.html",
+      "https://proceedings.iclr.cc/paper_files/paper/2026/file/52d7e1f59be8a140bd5c3b0b5b8bdee2-Paper-Conference.pdf",
+      "https://arxiv.org/abs/2509.19244v2",
+      "https://github.com/adobe-research/LaVida-O/tree/e3a80df47a4c2b433a4d26ac4918b95ab083f392",
+      "https://huggingface.co/jacklishufan/LaViDa-O-v1.0/tree/8e80560856f2ad6ea6ee711e885cdd0249290977"
     ],
-    "method": "ElasticMoT缩窄生成分支/仅前半层跨模态attention，模态collapse/expand路由、分层空间采样及框规划和反思。 8B LaViDa理解+2.4B生成，32层中前16joint后16模态内；T2I激活6.4B、理解8B、交错10.4B。语义SigLIP+MeissonicVQ；输入编辑源加4×压缩VQ。前向在t_exp将整图mask折为exp，反向exp展开图mask；生成空间递归分层，每区选token。1025坐标符号每框4token并行。",
-    "conclusion": "GenEval基础.77→规划.85→反思.89，DPG81.8→82.9→83.2，基础MJHQFID6.68；ImgEdit3.71→规划3.80，但两个全局编辑分项4.06→4.00、4.82→4.75。MathVista56.9；相应原LaViDa44.8的改善伴数据扩充。",
-    "gap": "作者明确：小字不能被VQ忠实重建，文字生成/编辑能力有限；合成编辑继承pixelshift，数学推理有差距。规划/反思叠加额外样本与计算，未与等预算通用选优充分隔离；动态exp只解决路由结构，不证明任意长度生成稳定。",
-    "problem": "将理解型masked diffusion扩成支持静态图像生成、编辑、定位与交错规划/反思的统一系统。",
+    "method": "ElasticMoT理解8B/生成2.4B不等宽，32层前16joint后16模态内attention，支持任务按需装载；VQ嵌入空间2×2卷积压到1/4token、输出转置卷积展开；[exp]动态展开图像槽，stratified空间揭示、文本形式microcondition、1025坐标bin四token并行框，以及同模型布局规划和反思重生成。tokencompression不是学习文字笔顺，规划/反思有额外参数激活与采样成本。 SigLIP-SO400M-p14-384，理解hidden4096/FFN12288，生成hidden2048/FFN8192，QKV映射共同4096维，RMSNorm/RoPE。Meissonic VQ8192/stride16，1024→64²=4096原码；2×2conv压后32²=1024Transformer位置，upconv恢复4096码logits，不能把1024压缩位置说成原VQ仅1024码。q(Xt|X0)=(1−t)X0+tM，模型maskedCE；反向1→0，已解mask保留。模态aware仅交错任务：正向高噪声把整图折成exp，反向出现exp展开固定分辨率图像槽；输出模态位置可变，初始文字长度/图像分辨率仍预设。Eq7及A3正文短目标t区间与Fig7相反，应按图高t→折叠X0prime/低t→完整X0理解，作为原文待勘误，未擅改原作。",
+    "conclusion": "T2对baseLaViDa11指标均升，数学56.9对44.8，伴扩数据而不能唯一归联合生成；对MMaDa也升，但MMMU45.1/MMEP1431低Dimple45.2/1514，理解整体仍落后强Qwen/Intern/BAGEL。T3GenEval .77→planning.85→reflection.89，DPG81.8→82.9→83.2；FID6.68优所列FLUX10.15，不启规划/反思。T4 4step对Intern8split6升1平1降，Refval92.3<92.5；1step对Intern2升1平5降，虽对Qwen更强。T5编辑3.71→3.80，低GPT4o4.20、与QwenVL+Flux3.80持平；replace/remove4.40/4.05高GPT4o4.35/3.66，background/style4.06→4.00/4.82→4.75下降。T16N1/2/4/8/12/16/20分数.848/.864/.875/.882/.890/.886/.886，延迟27.2/32.6/39.3/47.1/53.4/58.3/62.2s；非更多反思单调更好，.89有约53.4s条件。",
+    "gap": "VQ小字不能忠实重建且未加文字专用数据；编辑继承蒸馏teacher局部外pixelshift，数学弱/幻觉。规划对全局风格/背景负作用、反思额外时间且N>12无增益、联合收益受数据/预算混杂。正式Eq7时间区间/Fig7冲突；T6attnout形状与发布共享4096×4096实现不同；源码blocks零起且split=layer_id>16，HF dual16时该构造路径17joint/15split，论文写16/16，仍待全加载override/实运行核明。发布精选训练forward未定位完整t_exp动态折叠，规划/反馈由显式分次调用；不能宣称已核复现Alg1。缺原parquet、脚本局部绝对路径/debugdataset/缺eval_hd.yaml，训练脚本旗标与T7非完整对应。",
+    "problem": "把理解型LaViDa masked diffusion扩为静态图像理解、REC定位、1024²图像生成/指令编辑及布局规划/反思。研究MoT预训成本、未知输出模态路由、图像并行揭示的空间覆盖和理解对生成的实用增益。输出token揭示时间/框布局顺序不对应真实书写时间，无视频、规范笔画或执行数据/指标。",
     "claim": "研究目标：将理解型masked diffusion扩成支持静态图像生成、编辑、定位与交错规划/反思的统一系统。",
-    "version": "LaViDa-O；arXiv:2509.19244；PDF首页标ICLR2026，正式proceedings未对读",
+    "version": "Lavida-O: Elastic Large Masked Diffusion Models for Unified Multimodal Understanding and Generation；ICLR2026正式Conference，proceedings完整33页，正式会场身份已独立核。GH README另用Efficient Scaling旧标题，HF引用2509.19244v2，正式结果按会议版。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 3. 生成目标：AR、离散扩散、连续流并没有收敛到唯一答案",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-22",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-22",
     "id": "L111",
     "canonical_key": "paper:arxiv:2509.19244",
     "evidence_history": [
@@ -8048,17 +8053,22 @@
         "conclusion": "支持 grounding、编辑、1024px 生成；全扩散并不意味着所有分支等大或所有参数相同",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-22",
+        "batch": 125,
+        "scope": "ICLR2026正式33页Abstract/§1–5核心全部、Eq1–7/Alg1–3/T1–16、F1–16图注与AppA1–7/B1–8/C–F全部研究文字；实际PDFp5/6/8/9/17/18/19/25/27/28/29/30十二页，其他展示未逐图/参考文献未逐篇。arxiv最新HTML已取仅用于目录版本辅助，未另全读。GH固定e3a80df4完整1987tree/README/训练readme、base及s1/s2-256/s2-1024/s3四入口与evalshell全文；stage1/2yaml全文、stage3names/weights/指定块选读；model574–628/742–868/988–1088/1100–1143/1180–1248/构造与CE段，llava_arch96–137/embeddinghead/codec片段、maskedforward51–97/232–469、预测接口/分层选取/规划反馈指定段、UVitclass与pmj算法全文。train/process/interleaved仅关键词定位，非全文审计或已验证动态exp。HF8e805608元数据/README/config/VQconfig及index键摘要；未下载权重/训练数据、运行模型或独立复现。"
       }
     ],
-    "sections_read": "§2、§3.1/3.2、§4.1–4.3本作主行及表头、AppB1/2部分/B3/B5主要结果/B6/B7、C/D；未逐图/全部附录公式/代码，未复现",
+    "sections_read": "ICLR2026正式33页Abstract/§1–5核心全部、Eq1–7/Alg1–3/T1–16、F1–16图注与AppA1–7/B1–8/C–F全部研究文字；实际PDFp5/6/8/9/17/18/19/25/27/28/29/30十二页，其他展示未逐图/参考文献未逐篇。arxiv最新HTML已取仅用于目录版本辅助，未另全读。GH固定e3a80df4完整1987tree/README/训练readme、base及s1/s2-256/s2-1024/s3四入口与evalshell全文；stage1/2yaml全文、stage3names/weights/指定块选读；model574–628/742–868/988–1088/1100–1143/1180–1248/构造与CE段，llava_arch96–137/embeddinghead/codec片段、maskedforward51–97/232–469、预测接口/分层选取/规划反馈指定段、UVitclass与pmj算法全文。train/process/interleaved仅关键词定位，非全文审计或已验证动态exp。HF8e805608元数据/README/config/VQconfig及index键摘要；未下载权重/训练数据、运行模型或独立复现。",
     "review_path": "docs/reviews/L111.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "200M过滤公共来源LAION/COYO/SA1B/JourneyDB/BLIP3o/ShareGPT4o；理解LLaVAOV/OpenLLaVANext/MAmmoth/VisualWebInstruct及GranD/RefCOCO；编辑GPTEdit/UniWorld，规划GroundingDinoL标框、反思ReflectDiT/ReflectionFlow。使用公共图不等于无合成teacher。",
-    "framework": "ElasticMoT缩窄生成分支/仅前半层跨模态attention，模态collapse/expand路由、分层空间采样及框规划和反思。",
-    "architecture": "8B LaViDa理解+2.4B生成，32层中前16joint后16模态内；T2I激活6.4B、理解8B、交错10.4B。语义SigLIP+MeissonicVQ；输入编辑源加4×压缩VQ。前向在t_exp将整图mask折为exp，反向exp展开图mask；生成空间递归分层，每区选token。1025坐标符号每框4token并行。",
-    "metrics": "GenEval、DPG、MJHQ30KFID；理解11项、RefCOCO Precision@.5、ImgEdit；训练step延迟、端到端推理。审美条件人评300responses，本次未视觉取胜率/人数。",
-    "baselines": "Flux/Meissonic、BAGEL/MMaDA/Muddit，定位Qwen2.5VL/InternVL/GroundingDino；分支宽度/joint层数、confidence/uniform/Halton/stratified、规划/反思和数据scheduler消融。",
-    "experimental_conditions": "三阶段80K/400K/100K、lr5e-6/1e-4/2e-5，AdamWβ.99/.999；64A100约34.2天/53K GPUh；gen256→512→1024，末阶段全10.4B训。分支消融globalb1024训50K；采样比较64步。主训练batch和完整推理参数本次尚未核齐。"
+    "dataset": "A过滤公共LAION2B/COYO700M/SA1B/JourneyDB/BLIP3o60K/ShareGPT4o共200M图，CLIP/aesthetic/分辨率过滤，RecapLAION/COYO与BLIP3o重描述；B LLaVAOV/OpenLLaVANext/MAmmoTHVL/VisualWebInstruct；C GranD/RefCOCO，stage1<1Mground/>10Munderstanding；D ShareGPT4o/GPTEdit1.5M/UniWorld；E GroundingDinoL在生成/编辑图上标layout，ReflectDiT/ReflectionFlow反思。公共来源包括合成teacher输出，非无teacher。发布私有S3地址parquet未给，stage3yaml还列Echo4o/OmniEdit/HQEdit/UltraEdit等，与论文粗列表非完全一一映射；确切200M样本/划分/去重需自行重建，未下载数据。",
+    "framework": "ElasticMoT理解8B/生成2.4B不等宽，32层前16joint后16模态内attention，支持任务按需装载；VQ嵌入空间2×2卷积压到1/4token、输出转置卷积展开；[exp]动态展开图像槽，stratified空间揭示、文本形式microcondition、1025坐标bin四token并行框，以及同模型布局规划和反思重生成。tokencompression不是学习文字笔顺，规划/反思有额外参数激活与采样成本。",
+    "architecture": "SigLIP-SO400M-p14-384，理解hidden4096/FFN12288，生成hidden2048/FFN8192，QKV映射共同4096维，RMSNorm/RoPE。Meissonic VQ8192/stride16，1024→64²=4096原码；2×2conv压后32²=1024Transformer位置，upconv恢复4096码logits，不能把1024压缩位置说成原VQ仅1024码。q(Xt|X0)=(1−t)X0+tM，模型maskedCE；反向1→0，已解mask保留。模态aware仅交错任务：正向高噪声把整图折成exp，反向出现exp展开固定分辨率图像槽；输出模态位置可变，初始文字长度/图像分辨率仍预设。Eq7及A3正文短目标t区间与Fig7相反，应按图高t→折叠X0prime/低t→完整X0理解，作为原文待勘误，未擅改原作。",
+    "metrics": "11理解任务MMMU/MMEP/C/MMB/Chart/Doc/Info/SciQA/AI2D/MathVista/MathVerse；GenEval/DPG/MJHQ30K FID，T2ICompbench++3D/2D/texture；RefCOCO/+ /g REC P@IoU.5（每表达框命中，非检测mAP或多对象身份完整性）；ImgEdit九类/overall。训练s/iteration、端到端s/sample、F13人评300responses偏好（人数/独立图对数未齐）。无文字exactmatch/细字OCR重建主表/笔画时序指标；主消融缺多seedCI，约70%/5%/25%人评仅按图估读，不造精确比例。",
+    "baselines": "理解MMaDa/Muddit/LaViDa/Dimple、Qwen2.5VL/InternVL3/BAGEL/Janus/Showo；生成FLUXdev/SD3/DALLE3/Meissonic/BAGEL/MMaDa；groundQwen/Intern/GroundingDINO/SegLLM；编辑GPT4o/FluxKontext/OmniGen2/UniWorld/BAGEL等。BAGEL的T2 AR标签只对应文字侧，实际视觉flow见C01，不能照抄为全AR。跨表数据/预训/参数/采样不同；规划/反思不能和裸模型按相同成本直接排名，T3baselineGenEval.77低BAGEL.82，所有本作DPG≤83.2低SD3 84.1/FLUX84。",
+    "experimental_conditions": "正式T7 stage1/2/3=80K/400K/100K步，lr5e-6/1e-4/2e-5、AdamWβ.99/.999；可训8B/2.4B/10.4B，生成256→512→1024后1024，语义encoder stage1/3可训、stage2不装载，VQ仅Loaded未称训。64A100、34.2天≈53K GPUh；主训练globalbatch/每分辨率子阶段时长未齐。branch消融50K/globalb1024，M消融stage2 100K/stage3从同M16预训点50K；sampler比64steps/MJHQ30K。F14数学max256tokens/FastDLLM阈值调速；反思N是最多生成图数，history≤3轮/ctx8192，早停非固定执行N次。发布64steps/CFG4.5/shift7/1024/score6.711/dynamictemp5→.2脚本、GenEval加realistic4k前缀，num_samples1；此公开入口缺eval_hd.yaml，不能自动填成论文全部主表协议。"
   },
   {
     "title": "Lumina-DiMOO: An Omni Diffusion Large Language Model for Multi-Modal Generation and Understanding",

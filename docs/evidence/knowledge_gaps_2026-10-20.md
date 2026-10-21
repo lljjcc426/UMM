@@ -499,3 +499,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百二十四批（2026-10-22）：3.86M/3.71M计数、L2/四次方、原训练配方/硬件、judge版本和纠错显著性待核。见[审查](fudoki_discrete_flow_self_correction_and_protocol_audit_2026-10-22.md)、[L109](../reviews/L109.md)。
+
+
+第一百二十五批（2026-10-22）：Eq7/Fig7、16/17层边界/attnout、原200M parquet与完整stage时间线待核。见[审查](lavida_o_elastic_mot_and_reflection_protocol_audit_2026-10-22.md)、[L111](../reviews/L111.md)。

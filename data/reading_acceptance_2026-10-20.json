@@ -8105,6 +8105,40 @@
         }
       ],
       "boundary": "NeurIPS2025正式39页：Abstract/§1–5核心与Eq1–6/T1–5，全部F1–12图注，AppA1–3/B/C/D/E/F研究文字；实际PDFp4/5/8/9/10/35/38/39八页，maze图仅文字/图注未逐图。checklist6/7选读，参考文献仅定位关键[38]等未逐篇。独立supp22页前十为同AppA–F、后参考，未另全读22页。arxivv3仅intro/β等版本对照。GH固定ffcfc8e完整626tree/README、model.py/eval_loop/mixturepath全文、solver308–640及modelattention/head/两inference入口指定段/shell；非全部626文件审计。HF固定6827760元数据/目录、README/config全文；未下载pt/safetensors、训练推理或独立复现。"
+    },
+    {
+      "id": "L111",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "把理解型LaViDa masked diffusion扩为静态图像理解、REC定位、1024²图像生成/指令编辑及布局规划/反思。研究MoT预训成本、未知输出模态路由、图像并行揭示的空间覆盖和理解对生成的实用增益。输出token揭示时间/框布局顺序不对应真实书写时间，无视频、规范笔画或执行数据/指标。 等宽MoT从8B理解复制同宽生成分支、dense混训练以防遗忘成本大；mask初始模态未知、语义图像条件丢编辑低层细节、高置信揭示聚簇可能损害并行质量。统一MDM目标仍需数据scheduler和文本/图像loss归一，不能由单一CE推出任务完全无冲突/无需平衡。邻近空间相关只是分层采样动机，未给条件互信息理论或证明条件独立恢复。",
+          "evidence": "ICLR2026正式核心/16表/12页实际PDF及AppA–F、GH/HF指定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "图像→SigLIP语义Ci；编辑/历史图另MeissonicVQ Cv→压缩；prompt Cp与masked目标Xt连接，双分支预测clean文本/图像码，decompress/VQdecoder输出1024²。理解只8B；T2I读前半理解4B和全部生成2.4B=6.4B；交错读10.4B。HF元数据safetensors11,094,351,587参数，不能把2.4B可训/6.4B激活/10.4B双branch当全制品同一总量。实际正式PDF p5/6/8/9/17/18/19/25/27/28/29/30十二页框架/主表/附录公式/曲线已看。 SigLIP-SO400M-p14-384，理解hidden4096/FFN12288，生成hidden2048/FFN8192，QKV映射共同4096维，RMSNorm/RoPE。Meissonic VQ8192/stride16，1024→64²=4096原码；2×2conv压后32²=1024Transformer位置，upconv恢复4096码logits，不能把1024压缩位置说成原VQ仅1024码。q(Xt|X0)=(1−t)X0+tM，模型maskedCE；反向1→0，已解mask保留。模态aware仅交错任务：正向高噪声把整图折成exp，反向出现exp展开固定分辨率图像槽；输出模态位置可变，初始文字长度/图像分辨率仍预设。Eq7及A3正文短目标t区间与Fig7相反，应按图高t→折叠X0prime/低t→完整X0理解，作为原文待勘误，未擅改原作。",
+          "evidence": "ICLR2026正式核心/16表/12页实际PDF及AppA–F、GH/HF指定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "ElasticMoT理解8B/生成2.4B不等宽，32层前16joint后16模态内attention，支持任务按需装载；VQ嵌入空间2×2卷积压到1/4token、输出转置卷积展开；[exp]动态展开图像槽，stratified空间揭示、文本形式microcondition、1025坐标bin四token并行框，以及同模型布局规划和反思重生成。tokencompression不是学习文字笔顺，规划/反思有额外参数激活与采样成本。 在生成分支中等容量已够、跨模态早层可提供布局/语义、固定图像分布和相同步数下，缩小分支/后层解耦与空间均匀揭示可能改善质量-成本。对象定位/局部替换更适合bbox规划，全局风格未必受益；反思可在所学错误类别/预算内提高组合对齐，但自评可能饱和或错停。细字生成先受VQ可重建性制约，额外布局不保证笔形/书写时序；同一CE不证明同一表示/所有任务正迁移。",
+          "evidence": "ICLR2026正式核心/16表/12页实际PDF及AppA–F、GH/HF指定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2对baseLaViDa11指标均升，数学56.9对44.8，伴扩数据而不能唯一归联合生成；对MMaDa也升，但MMMU45.1/MMEP1431低Dimple45.2/1514，理解整体仍落后强Qwen/Intern/BAGEL。T3GenEval .77→planning.85→reflection.89，DPG81.8→82.9→83.2；FID6.68优所列FLUX10.15，不启规划/反思。T4 4step对Intern8split6升1平1降，Refval92.3<92.5；1step对Intern2升1平5降，虽对Qwen更强。T5编辑3.71→3.80，低GPT4o4.20、与QwenVL+Flux3.80持平；replace/remove4.40/4.05高GPT4o4.35/3.66，background/style4.06→4.00/4.82→4.75下降。T16N1/2/4/8/12/16/20分数.848/.864/.875/.882/.890/.886/.886，延迟27.2/32.6/39.3/47.1/53.4/58.3/62.2s；非更多反思单调更好，.89有约53.4s条件。 T8小分支50K GenEval.57/DPG63.1/3.67s对8B .55/58.6/11.64s，约3.17倍每步速度，较大模型可能需更久，不等同达到相同终质量节省3.17倍总预算。T9M16/24/32stage3 .89/.81/.85和83.2/83/83.2，均从M16预训点再训，不能唯一证明后层交互有害；M8更快但弱。T10同64steps分层FID6.68<Halton7.38<uniform8.22<confidence11.42，支持所测分布采样有效。T11动态ground3:1→1:3对固定有权衡，MME436低固定1:3 449；T12ground带来GenEval.74→.77/ImgEdit3.60→3.71但DPG82→81.8。T13planning位置.65→.84，reflection到.89；T14texture.613→.715、3D.414→.442，仅2D框不证明3D几何执行。F13约300人次评价，未完整人群/CI，不能推广普遍偏好。 正式T7 stage1/2/3=80K/400K/100K步，lr5e-6/1e-4/2e-5、AdamWβ.99/.999；可训8B/2.4B/10.4B，生成256→512→1024后1024，语义encoder stage1/3可训、stage2不装载，VQ仅Loaded未称训。64A100、34.2天≈53K GPUh；主训练globalbatch/每分辨率子阶段时长未齐。branch消融50K/globalb1024，M消融stage2 100K/stage3从同M16预训点50K；sampler比64steps/MJHQ30K。F14数学max256tokens/FastDLLM阈值调速；反思N是最多生成图数，history≤3轮/ctx8192，早停非固定执行N次。发布64steps/CFG4.5/shift7/1024/score6.711/dynamictemp5→.2脚本、GenEval加realistic4k前缀，num_samples1；此公开入口缺eval_hd.yaml，不能自动填成论文全部主表协议。",
+          "evidence": "ICLR2026正式核心/16表/12页实际PDF及AppA–F、GH/HF指定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "VQ小字不能忠实重建且未加文字专用数据；编辑继承蒸馏teacher局部外pixelshift，数学弱/幻觉。规划对全局风格/背景负作用、反思额外时间且N>12无增益、联合收益受数据/预算混杂。正式Eq7时间区间/Fig7冲突；T6attnout形状与发布共享4096×4096实现不同；源码blocks零起且split=layer_id>16，HF dual16时该构造路径17joint/15split，论文写16/16，仍待全加载override/实运行核明。发布精选训练forward未定位完整t_exp动态折叠，规划/反馈由显式分次调用；不能宣称已核复现Alg1。缺原parquet、脚本局部绝对路径/debugdataset/缺eval_hd.yaml，训练脚本旗标与T7非完整对应。 同初始化/有效样本/总FLOPs分别对齐M×width全因子，重训不同M的stage2再同stage3，核16/17代码边界与总参。sampler同NFE/CFG/seed/曝光，测FID、组合/细字OCR和局部条件依赖，图区分4096码与1024压缩位置。ground数据移除用等token等训练曝光替补，给DPG下降/遗忘和多seedCI。planning/reflection对随机框/Oracle框、无反馈等候选BestN/固定judge与等墙钟，分错误类型与错改率，画质量-延迟Pareto。先做原图→VQ重建文字exactmatch/拓扑上限，再考虑字形和笔画事件条件/逆序最小对照；全部建议未执行，须查新。",
+          "evidence": "ICLR2026正式核心/16表/12页实际PDF及AppA–F、GH/HF指定制品，非口试/独立复现"
+        }
+      ],
+      "boundary": "ICLR2026正式33页Abstract/§1–5核心全部、Eq1–7/Alg1–3/T1–16、F1–16图注与AppA1–7/B1–8/C–F全部研究文字；实际PDFp5/6/8/9/17/18/19/25/27/28/29/30十二页，其他展示未逐图/参考文献未逐篇。arxiv最新HTML已取仅用于目录版本辅助，未另全读。GH固定e3a80df4完整1987tree/README/训练readme、base及s1/s2-256/s2-1024/s3四入口与evalshell全文；stage1/2yaml全文、stage3names/weights/指定块选读；model574–628/742–868/988–1088/1100–1143/1180–1248/构造与CE段，llava_arch96–137/embeddinghead/codec片段、maskedforward51–97/232–469、预测接口/分层选取/规划反馈指定段、UVitclass与pmj算法全文。train/process/interleaved仅关键词定位，非全文审计或已验证动态exp。HF8e805608元数据/README/config/VQconfig及index键摘要；未下载权重/训练数据、运行模型或独立复现。"
     }
   ]
 }

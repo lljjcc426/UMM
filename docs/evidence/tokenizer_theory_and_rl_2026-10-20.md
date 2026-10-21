@@ -90,3 +90,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百二十四批（2026-10-22）：动能最优限制与非mask回访；BestN外部judge选择不等已实施RL，L2四次方代码差异。见[审查](fudoki_discrete_flow_self_correction_and_protocol_audit_2026-10-22.md)、[L109](../reviews/L109.md)。
+
+
+第一百二十五批（2026-10-22）：4096原VQ码→1024压缩位置，分层采样不等笔顺，反思非单调/无RL执行。见[审查](lavida_o_elastic_mot_and_reflection_protocol_audit_2026-10-22.md)、[L111](../reviews/L111.md)。

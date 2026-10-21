@@ -458,3 +458,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百二十四批（2026-10-22）：静态I2T/T2I离散DFM，理解连续SigLIP路径仍保留，非笔顺视频。见[审查](fudoki_discrete_flow_self_correction_and_protocol_audit_2026-10-22.md)、[L109](../reviews/L109.md)。
+
+
+第一百二十五批（2026-10-22）：静态理解/ground/编辑/1024²T2I，空间分层揭示与真实书写事件区分。见[审查](lavida_o_elastic_mot_and_reflection_protocol_audit_2026-10-22.md)、[L111](../reviews/L111.md)。

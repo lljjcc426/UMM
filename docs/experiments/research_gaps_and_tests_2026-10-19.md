@@ -487,3 +487,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百二十四批（2026-10-22）：同初始/数据/墙钟的mask-remask、距离、AR编辑及错对转移，多seed；事件与RGB顺序对照未执行。见[审查](../evidence/fudoki_discrete_flow_self_correction_and_protocol_audit_2026-10-22.md)、[L109](../reviews/L109.md)。
+
+
+第一百二十五批（2026-10-22）：M×width全因子、ground等token替补、反思等墙钟/BestN和VQ文字重建上限，未执行。见[审查](../evidence/lavida_o_elastic_mot_and_reflection_protocol_audit_2026-10-22.md)、[L111](../reviews/L111.md)。

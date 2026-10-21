@@ -368,3 +368,6 @@ python scripts/validate_catalog.py
 
 
 第一百二十四批（2026-10-22）完成L109 FUDOKI正式NeurIPS2025核心/五表/AppA–F及八页实际PDF，补固定GH/HF源码与配置，记录3.86M/3.71M、L2/四次方、32/128/50步差异与纠错对照限制。357目录，233核心/236书面，未确认核心97论文／研究+27资源（资源单独审查）。见[审查](docs/evidence/fudoki_discrete_flow_self_correction_and_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twenty_fourth_changes_2026-10-22.md)。没有删除文件或执行模型。
+
+
+第一百二十五批（2026-10-22）完成L111 LaViDa-O正式ICLR2026核心/16表/AppA–F及12页实际PDF，补固定GH/HF制品，记录Eq7区间冲突、16/17层边界、ground数据DPG退步和反思质量-延迟条件。357目录，234核心/237书面；未确认核心96论文／研究+27资源（资源单独审）。见[审查](docs/evidence/lavida_o_elastic_mot_and_reflection_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twenty_fifth_changes_2026-10-22.md)。没有删除文件或执行模型。

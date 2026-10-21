@@ -216,7 +216,7 @@
 | L108 | PixelUMM: Encoder-Free Unified Image and Video Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L108.md) | 核心三遍与五项检查完成 |
 | L109 | FUDOKI: Discrete Flow-based Unified Understanding and Generation via Kinetic-Optimal Velocities | primary_sections_read | [结构化分析](../reviews/L109.md) | 核心三遍与五项检查完成 |
 | L110 | Muddit: Liberating Generation Beyond Text-to-Image with a Unified Discrete Diffusion Model | primary_sections_read | [结构化分析](../reviews/L110.md) | 核心三遍与五项检查完成 |
-| L111 | Lavida-O: Elastic Large Masked Diffusion Models for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L111.md) | 未完成 |
+| L111 | Lavida-O: Elastic Large Masked Diffusion Models for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L111.md) | 核心三遍与五项检查完成 |
 | L112 | Lumina-DiMOO: An Omni Diffusion Large Language Model for Multi-Modal Generation and Understanding | primary_sections_read | [结构化分析](../reviews/L112.md) | 未完成 |
 | L113 | Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion | primary_sections_read | [结构化分析](../reviews/L113.md) | 未完成 |
 | L114 | LLaDA2.0-Uni: Unifying Multimodal Understanding and Generation with Diffusion Large Language Model | primary_sections_read | [结构化分析](../reviews/L114.md) | 未完成 |

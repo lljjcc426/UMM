@@ -488,3 +488,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百二十四批（2026-10-22）：FUDOKI公开权重/embedding与推理入口；32/128/50步、CFG两前向、topk1与长度协议需锁定。见[审查](../evidence/fudoki_discrete_flow_self_correction_and_protocol_audit_2026-10-22.md)、[L109](../reviews/L109.md)。
+
+
+第一百二十五批（2026-10-22）：公开脚本/配置、私有parquet省略、缺eval_hd.yaml和实际11.09B参数标识；未运行。见[审查](../evidence/lavida_o_elastic_mot_and_reflection_protocol_audit_2026-10-22.md)、[L111](../reviews/L111.md)。
