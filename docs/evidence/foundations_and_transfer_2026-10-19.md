@@ -225,3 +225,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百零一批（2026-10-21）：冻结专家参数/条件梯度/真实训练成本分开，KL最优专家假设和T3局部协同对照，交错数据非指令数据。见[审查](nextgpt_dreamllm_interfaces_synergy_and_release_audit_2026-10-21.md)、[L080](../reviews/L080.md)、[L081](../reviews/L081.md)。
+
+
+第一百零二批（2026-10-21）：视觉压缩/重建上限、RICES与格式、量化depth成本及对齐/重建取舍；统一接口非协同证据。见[审查](emu2_vilau_representations_icl_and_video_release_audit_2026-10-21.md)、[L083](../reviews/L083.md)、[L085](../reviews/L085.md)。

@@ -299,3 +299,6 @@ python scripts/validate_catalog.py
 
 
 第一百零一批（2026-10-21）完成L080 NExT-GPT正式核心和L081 DreamLLM固定v2核心、实际图表/消融及GH/HF配置审查，纠正155M参数归属与ID含义，保留表间冲突/发布配方差异。356目录、203核心/206书面含未通过项，153条未确认核心。见[审查](docs/evidence/nextgpt_dreamllm_interfaces_synergy_and_release_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_first_changes_2026-10-21.md)。无删除/模型复现。
+
+
+第一百零二批（2026-10-21）完成L083 Emu2固定v2与L085 VILA-U固定v3核心、实际指定框架/主表/现有消融及GH/HF发布审查；分开base/Chat/Gen、0*、表征取舍、空间/深度AR和8帧PNG协议。356目录、205核心/208书面含未通过项，151条未确认核心。见[审查](docs/evidence/emu2_vilau_representations_icl_and_video_release_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_second_changes_2026-10-21.md)。无删除/模型复现。

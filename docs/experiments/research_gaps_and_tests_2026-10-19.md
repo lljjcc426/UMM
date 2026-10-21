@@ -418,3 +418,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百零一批（2026-10-21）：相同专家/数据/FLOPs的caption/连续接口和单目标/联合、冻结UNet停止梯度对照；书写事件/可见状态双标注。未运行模型。见[审查](../evidence/nextgpt_dreamllm_interfaces_synergy_and_release_audit_2026-10-21.md)、[L080](../reviews/L080.md)、[L081](../reviews/L081.md)。
+
+
+第一百零二批（2026-10-21）：固定encoder/decoder/FLOPs分离规模、压缩/目标、检索与同格式示例；细笔画可重建性、事件状态与完整采样成本。未运行模型。见[审查](../evidence/emu2_vilau_representations_icl_and_video_release_audit_2026-10-21.md)、[L083](../reviews/L083.md)、[L085](../reviews/L085.md)。

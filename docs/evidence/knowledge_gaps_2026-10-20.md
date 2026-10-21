@@ -430,3 +430,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百零一批（2026-10-21）：NExT正式zero-shot表间冲突、视频FID协议、legacy/新code绑定；Dream正式PDF、配置扩充、候选预算与协同方差待核。见[审查](nextgpt_dreamllm_interfaces_synergy_and_release_audit_2026-10-21.md)、[L080](../reviews/L080.md)、[L081](../reviews/L081.md)。
+
+
+第一百零二批（2026-10-21）：Emu warmup/语言token冲突及video decoder发布，VILA384制品/原表batch/完整时序协议与共享收益待核。见[审查](emu2_vilau_representations_icl_and_video_release_audit_2026-10-21.md)、[L083](../reviews/L083.md)、[L085](../reviews/L085.md)。

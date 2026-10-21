@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L083",
+    "L085"
+  ],
+  "sources": {
+    "L083": [
+      "https://openaccess.thecvf.com/content/CVPR2024/html/Sun_Generative_Multimodal_Models_are_In-Context_Learners_CVPR_2024_paper.html",
+      "https://openaccess.thecvf.com/content/CVPR2024/papers/Sun_Generative_Multimodal_Models_are_In-Context_Learners_CVPR_2024_paper.pdf",
+      "https://arxiv.org/html/2312.13286v2",
+      "https://github.com/baaivision/Emu/tree/d9f12f431a4ea8219bd80ed2aa3173b7fa26fb12",
+      "https://huggingface.co/BAAI/Emu2/tree/fa835ec101e52da5e081695107e1ddd3c7c4d88a",
+      "https://huggingface.co/BAAI/Emu2-Chat/tree/20ea30b04f8fee599cf97535e655c200df728501",
+      "https://huggingface.co/BAAI/Emu2-Gen/tree/a41a2dcd777a68225dddc72c7213b064ee06f4a0"
+    ],
+    "L085": [
+      "https://proceedings.iclr.cc/paper_files/paper/2025/hash/e9e140df6de01afb672cb859d203c307-Abstract-Conference.html",
+      "https://arxiv.org/html/2409.04429v3",
+      "https://github.com/mit-han-lab/vila-u/tree/4ea42ead2ce22b035ee74c7966eed245bca3e927",
+      "https://huggingface.co/mit-han-lab/vila-u-7b-256/tree/91f97e4b4746e6c2a27a168726ff5a2b9fe0d850",
+      "https://huggingface.co/collections/mit-han-lab/vila-u-7b-6716f7dd5331e4bdf944ffa6"
+    ]
+  },
+  "executed": false,
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "artifacts": [
+    {
+      "id": "L083",
+      "paper": "Complete CVPR2024 official12page PDF cross-check; fixed2312.13286v2 full core and AppA-E; partial formal supplement excluded",
+      "github_revision": "d9f12f431a4ea8219bd80ed2aa3173b7fa26fb12",
+      "tree_blobs": 184,
+      "hf_revisions": {
+        "base": "fa835ec101e52da5e081695107e1ddd3c7c4d88a",
+        "chat": "20ea30b04f8fee599cf97535e655c200df728501",
+        "gen": "a41a2dcd777a68225dddc72c7213b064ee06f4a0"
+      },
+      "visuals": [
+        "FormalF2",
+        "FormalT1",
+        "FormalT4-5"
+      ],
+      "findings": [
+        "Base/Chat/Gen differentweights; stageIcaptiononly thenmixedloss and independentdecoder",
+        "0star image0shot buttext2shot differs true0; RICES and promptformat change matter",
+        "T4 CLIPT contradicts broadSOTA prose; T3 CogVLM gray rows stronger",
+        "Texttoken3.8Bvs3.6B and decoderwarmup2000vs2500/Gen100vs0 unresolved",
+        "Video decoder and F10qualitative in paper; no video generation quantitative table or separately verified release in selectedpaths",
+        "Native visual64step recomputes prefix; no all-implementation latency claim"
+      ]
+    },
+    {
+      "id": "L085",
+      "paper": "Fixed2409.04429v3 fullcore; ICLR2025 metadata; partialformalPDFexcluded",
+      "github_revision": "4ea42ead2ce22b035ee74c7966eed245bca3e927",
+      "tree_blobs": 91,
+      "hf256_revision": "91f97e4b4746e6c2a27a168726ff5a2b9fe0d850",
+      "visuals": [
+        "OriginalF1",
+        "OriginalF2",
+        "T6",
+        "T7"
+      ],
+      "findings": [
+        "Jointtowerobjective not proof of multimodal task synergy; conclusion explicit no significant synergy",
+        "RQ saves LLMpositions, stilldepthsequentialcodes and CFGbranches",
+        "T7 understanding-only downstream, T8 1.3B T2I only",
+        "384 improvesFID but lowerGenAIbench overall scores",
+        "Currentvideo hardcodes8frames; CLI concatenates PNG nofps",
+        "Defaultbatch formula implies4096 under ordinaryDDP assumptions, not logged originalbatch",
+        "T2LaVIT continuous label conflicts AppA and reviewedoriginalL079",
+        "Only256 in officialcollection; guessed384401 cannot identify private/nonexistent"
+      ]
+    }
+  ]
+}

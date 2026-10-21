@@ -5886,22 +5886,29 @@
     "title": "Generative Multimodal Models are In-Context Learners",
     "source_urls": [
       "https://arxiv.org/abs/2312.13286",
-      "https://arxiv.org/html/2312.13286"
+      "https://arxiv.org/html/2312.13286",
+      "https://openaccess.thecvf.com/content/CVPR2024/html/Sun_Generative_Multimodal_Models_are_In-Context_Learners_CVPR_2024_paper.html",
+      "https://openaccess.thecvf.com/content/CVPR2024/papers/Sun_Generative_Multimodal_Models_are_In-Context_Learners_CVPR_2024_paper.pdf",
+      "https://arxiv.org/html/2312.13286v2",
+      "https://github.com/baaivision/Emu/tree/d9f12f431a4ea8219bd80ed2aa3173b7fa26fb12",
+      "https://huggingface.co/BAAI/Emu2/tree/fa835ec101e52da5e081695107e1ddd3c7c4d88a",
+      "https://huggingface.co/BAAI/Emu2-Chat/tree/20ea30b04f8fee599cf97535e655c200df728501",
+      "https://huggingface.co/BAAI/Emu2-Gen/tree/a41a2dcd777a68225dddc72c7213b064ee06f4a0"
     ],
-    "method": "37B连续视觉AR模型、均值池化替代C-Former，独立训练CLIP-Diffusers重建器；分别派生Emu2-Chat与Emu2-Gen。 EVA02-CLIP-E-plus→8×8均值池化64视觉embedding+linear→LLaMA33B，文字CE/视觉回归；SDXL decoder全量UNet按图像autoencoding训练、encoder/VAE冻结，448²输入→1024²输出。Chat阶段静态图改16×16token；视频pretrain8帧、SFT8/12/16随机帧、评测16帧。",
-    "conclusion": "Table4 Emu2-Gen CLIP-I .686，高于SDXL .674及GILL .684；CLIP-T .297，低于SDXL .310、SD1.5 .302、DALLE3 .320。正文称两指标都SOTA与该表不符，以表收窄结论。Table5 DreamBench DINO .766/CLIP-I .850高于KosmosG .694/.847，CLIP-T同.287，低于SuTI .304，显示主体保真与文字遵循需分别解释。MMVet48.5，GPT4V67.7（AppA）。",
-    "gap": "不同Chat/Gen权重、教师生成高质数据、RICES检索、强decoder增加成本与归因难度。拥挤计数/复杂上下文失败、闭源QA差距。少量CLIP-I领先不支持通用生成质量领先，视频decoder设计不等于已有严格时序验证。",
-    "problem": "通过扩大生成式图文模型，增强上下文示例学习与可控主体生成。",
+    "method": "EVA02-CLIP-E-plus+LLaMA33B组成37B base，8×8均值池化/linear替代C-Former；文字分类/视觉连续回归的next-element预训，独立训练CLIP-Diffusers图像重建器；分别Chat答案CE、Gen末图视觉回归SFT。Gen把bbox画在黑图作为位置条件，支持多主体组合和无需测试时主体微调。视频decoder另以SD2.1时空UNet训练，不能与图像SDXL decoder混为同一模型配置。 StageI视觉/LLM/projector共同做caption文本监督，224²→448²；StageII冻结视觉encoder，LLM/projector做文字分类与视觉回归。图像autoencoder用EVA条件、SDXL-base初始化UNet，全训UNet而视觉encoder/VAE冻结，448²输入→1024²输出，独立于LLM训练。视频decoder从SD2.1增加时间卷积与时空attention。native generate_image逐个回归64位置且已读路径每次重算完整前缀，未见KV复用；这只描述该native路径，不代表HF实现/实测延迟。",
+    "conclusion": "正式/v2 T1 Emu2 VQA0/4/8/16shot33.5/67/67.8/68.8，OK26.7/53.2/54.1/57.1；16shotOK57.1低于Flamingo57.8、Hateful66低于70，不能全任务最佳。T2 ChatVQA84.9*/MSVD49/MSRVTT31.4/MMVet48.5；GPT4V67.7来自局限，非同表完整公平复测。T4 CLIP-I.686>SDXL.674/GILL.684，CLIP-T.297<SDXL.310/SD1.5.302/DALLE3.320，正文两指标SOTA与表冲突。T5 DINO.766/CLIP-I.850/CLIP-T.287，高于KosmosG前两项.694/.847但CLIP-T同.287、低于SuTI.304。",
+    "gap": "作者列拥挤计数/复杂任务上下文失败与闭源QA差距。两SFT权重、RICES检索、合成高质数据和强decoder限制性能归因；语义相似度未充分测局部字形/主体位置的精确绑定。视频decoder训练/定性不等完整视频生成评测或规范事件能力。正文/附录warmup和语言token量差异未解决。固定GH/HF主要公开推理，未见Emu2训练路径或所核制品的独立video decoder，不能宣称论文配方完整复现。",
+    "problem": "扩大连续视觉表示的生成式图文模型，支持少样本上下文理解，以及主体/布局条件图像生成。区分base few-shot、Emu2-Chat和Emu2-Gen两独立指令变体。论文确述视频时空decoder与定性生成，未提供视频生成主量化或严格汉字笔顺/逐笔绘画任务；不能写成无视频能力，也不能把图像主体指标当时序规范证据。",
     "claim": "研究目标：通过扩大生成式图文模型，增强上下文示例学习与可控主体生成。",
-    "version": "Emu2，2023",
+    "version": "Generative Multimodal Models are In-Context Learners / Emu2；正式CVPR2024:14398–14409，完整12页官方PDF核Abstract/F2/T1/T4–5等；核心及完整实现附录阅读固定arXiv2312.13286v2（2024-05-08）。正式补充PDF部分下载排除，附录依据完整v2 HTML。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L083",
     "canonical_key": "paper:arxiv:2312.13286",
     "evidence_history": [
@@ -5933,17 +5940,22 @@
         "conclusion": "支持视觉提示、主体条件生成等；扩规模效果不能只归因于统一架构",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 102,
+        "scope": "固定2312.13286v2 Abstract/§1–5核心全文、T1–5全行、AppA–E研究文字与T6–10全行；F1–4与F5–14图注，未实际逐图核全部例图/参考文献。正式CVPR完整12页PDF确认，核Abstract/输入输出/训练主描述及实际p3F2/p5T1/p8T4–5；正式补充PDF部分下载不算已读。GHd9f12f43完整184blob树、root/Emu2 README、6指定源码/配置的native接口/采样/生成核心；HFbase fa835ec1、chat20ea30b0、gena41a2dcd的元数据/卡与对应config（gen为multimodal_encoder/config，root404非缺模型）。未全审HF远程源码/媒体/权重或运行训练推理、口试/原表复现。"
       }
     ],
-    "sections_read": "§2.1–2.3、§3.1–3.3、Tables3–5、AppA/B含Tables6/7、AppD含Table9、AppE示例选择/Chat协议；未逐行Tables1/2及全部图、未核代码，未复现",
+    "sections_read": "固定2312.13286v2 Abstract/§1–5核心全文、T1–5全行、AppA–E研究文字与T6–10全行；F1–4与F5–14图注，未实际逐图核全部例图/参考文献。正式CVPR完整12页PDF确认，核Abstract/输入输出/训练主描述及实际p3F2/p5T1/p8T4–5；正式补充PDF部分下载不算已读。GHd9f12f43完整184blob树、root/Emu2 README、6指定源码/配置的native接口/采样/生成核心；HFbase fa835ec1、chat20ea30b0、gena41a2dcd的元数据/卡与对应config（gen为multimodal_encoder/config，root404非缺模型）。未全审HF远程源码/媒体/权重或运行训练推理、口试/原表复现。",
     "review_path": "docs/reviews/L083.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "LAION2B、CapsFusion120M、WebVid10M、MMC4、YTStoryboard、GRIT20M、CapsFusion-grounded100M与Pile。阶段I实际162M图文+7M视频样本，II约160M图文；正文纯文3.8Btoken与AppB3.6B描述不同保留差异。Gen使用约5M SAM主体分割及约500K高质Unsplash/MidjourneyV5/DALLE3等数据。",
-    "framework": "37B连续视觉AR模型、均值池化替代C-Former，独立训练CLIP-Diffusers重建器；分别派生Emu2-Chat与Emu2-Gen。",
-    "architecture": "EVA02-CLIP-E-plus→8×8均值池化64视觉embedding+linear→LLaMA33B，文字CE/视觉回归；SDXL decoder全量UNet按图像autoencoding训练、encoder/VAE冻结，448²输入→1024²输出。Chat阶段静态图改16×16token；视频pretrain8帧、SFT8/12/16随机帧、评测16帧。",
-    "metrics": "VQA/SEEDBench/MMVet/TouchStone、RefCOCO acc；COCO30K CLIP-I和CLIP-T；DreamBench DINO/CLIP-I/CLIP-T，需分语义、主体保真、文字遵循。",
-    "baselines": "Flamingo/IDEFICS、QwenVL/Shikra/CogVLM、SD1.5/SDXL/DALLE、GILL/SEED/Emu、DreamBooth/BLIPDiffusion/KosmosG/SuTI；RICES示例选择与SFT专用数据影响条件。",
-    "experimental_conditions": "预训I 35.2K步224²+4K步448²，AdamW β.9/.95 eps1e-6，lrprojector1e-4/LLM3e-5/vision5e-5；II20.35K步冻结vision，lr1e-5，bf16。decoder8K步b2048、lr1e-4、wd.01；正文warm2000而Table7为2500，待代码核。Chat8K步b768/lr1e-5；Gen3K步+QFT900步、lr5e-5/1e-5。DreamBench每prompt4张共3000。COCO部分DALLE CLIP-T仅4096样本，不能当同30K。"
+    "dataset": "LAION2B/CapsFusion120M/WebVid10M/MMC4/YTStoryboard1B/GRIT20M/CapsFusion-grounded100M/Pile为来源，不能把来源规模直接当实际消费。StageI162M图文+7M视频样本，II约160M图文；正文3.8B语言token与AppB3.6B差异保留。Gen约5M SAM主体分割+InstructPix2Pix等，QFT500K Unsplash/MidjourneyV5/DALLE3等高质图文。Chat含VQA/grounding训练集、VideoChat和语言/视觉指令；未完整核发布样本/污染与去重。",
+    "framework": "EVA02-CLIP-E-plus+LLaMA33B组成37B base，8×8均值池化/linear替代C-Former；文字分类/视觉连续回归的next-element预训，独立训练CLIP-Diffusers图像重建器；分别Chat答案CE、Gen末图视觉回归SFT。Gen把bbox画在黑图作为位置条件，支持多主体组合和无需测试时主体微调。视频decoder另以SD2.1时空UNet训练，不能与图像SDXL decoder混为同一模型配置。",
+    "architecture": "StageI视觉/LLM/projector共同做caption文本监督，224²→448²；StageII冻结视觉encoder，LLM/projector做文字分类与视觉回归。图像autoencoder用EVA条件、SDXL-base初始化UNet，全训UNet而视觉encoder/VAE冻结，448²输入→1024²输出，独立于LLM训练。视频decoder从SD2.1增加时间卷积与时空attention。native generate_image逐个回归64位置且已读路径每次重算完整前缀，未见KV复用；这只描述该native路径，不代表HF实现/实测延迟。",
+    "metrics": "VQA score/GQA视频QA EM、HatefulMemes ROC-AUC、RefCOCO准确、MMVet/TouchStone GPT4分；图像COCO30K CLIP-I（ViT-L）/CLIP-T（ViT-B），DreamBench DINO/CLIP-I/CLIP-T。相似度与主体保真/指令遵循分别解释，非FID、事件规范或运动正确率。T1 0*为text2shot/image0shot，与Emu2真0shot不同。T2星号是任务训练集已见、MMVet五次评分均值；五次judge重复不等多seed训练方差。",
+    "baselines": "few-shot Flamingo9/80B、IDEFICS80B、Kosmos1、Emu14B；Chat QwenVL/Shikra/LLaVA/CogVLM/InstructBLIP等；生成SD1.5/SDXL/DALLE/GILL/SEED、主体DreamBooth/BLIPDiffusion/KosmosG/SuTI。37B与80B的跨模型比较同时混合数据/表示/检索和训练差异。T3 CogVLM灰色行在所有列仍高于Emu2，作者按specialist排除的叙述要说明；Emu2本身也用grounding训练，不能省略该强基线。",
+    "experimental_conditions": "预训I35.2K+4K步/II20.35K步；AdamW β.9/.95 eps1e-6，I projector1e-4/LLM3e-5/vision5e-5、II1e-5/bf16，具体分任务batch6144/768和12800/6400/3200/800。decoder8K/b2048/lr1e-4，正文warm2000、T7为2500；Gen正文warm100步、T9 warmratio0，未解决。Chat8K/b768/lr1e-5/context2048，视频8/12/16训练、16评测。RICES选择fewshot，0shot还改提示控制格式。生成Euler50/CFG3，DreamBench每prompt4张共3000、单参考与KosmosG相同，修改部分prompt；DALLE CLIP-T4096与30K不等。"
   },
   {
     "title": "MM-Interleaved: Interleaved Image-Text Generative Modeling via Multi-modal Feature Synchronizer",
@@ -6013,22 +6025,26 @@
     "source_urls": [
       "https://arxiv.org/abs/2409.04429",
       "https://arxiv.org/html/2409.04429",
-      "https://github.com/mit-han-lab/vila-u/tree/4ea42ead2ce22b035ee74c7966eed245bca3e927"
+      "https://github.com/mit-han-lab/vila-u/tree/4ea42ead2ce22b035ee74c7966eed245bca3e927",
+      "https://proceedings.iclr.cc/paper_files/paper/2025/hash/e9e140df6de01afb672cb859d203c307-Abstract-Conference.html",
+      "https://arxiv.org/html/2409.04429v3",
+      "https://huggingface.co/mit-han-lab/vila-u-7b-256/tree/91f97e4b4746e6c2a27a168726ff5a2b9fe0d850",
+      "https://huggingface.co/collections/mit-han-lab/vila-u-7b-6716f7dd5331e4bdf944ffa6"
     ],
-    "method": "预训SigLIP初始化、冻结文本encoder并联合视觉对比+重建，以残差量化/深度transformer保留表示容量；多模态AR接轻量视觉decoder。 Llama2-7B+SigLIP-L256或SO400M384；共享16384码本RQ，256图16×16×4、384图27×27×16；LLM预测空间位置特征，depth transformer再顺序预测残差D码。视频为逐帧图码拼接，无额外扩散decoder。RQ层内顺序与栅格/帧序不能当书写事件规范。",
-    "conclusion": "同16²×4：RQ-VAE rFID1.30，统一塔1.80但ImageNet Top1 73.3；384塔rFID1.25/Top1 78.0。MJHQ FID256版12.81/384版7.69；VBench256版74.01/76.26/65.04，对OpenSora75.91/78.82/64.28、CogVideoX81.61/82.75/77.04。只比较已列条件，不能宣称视频总体领先。",
-    "gap": "结论明确尚未观察到理解/生成显著协同；语义对齐与重建存在取舍。内部15M数据/未核真实有效batch与采样时长、帧数/fps限制复现，视频指标未覆盖字形/笔顺。代码入口PNG保存不否定模型具备帧生成，但实际视频封装/时间协议需另定义。",
-    "problem": "用可重建且语义对齐的同一离散视觉塔，支持图像/视频理解与生成。",
+    "method": "SigLIP初始化的统一视觉塔、对比/重建双目标、共享16384码本的RQ；空间LLM与depth Transformer分层自回归，支持图像/视频帧。Eq1双损失各权1，Eq2–4逐残差最近邻量化，Eq5文字NLL/Eq6前层码和/Eq7视觉逐深度NLL。塔训练中的语义与重建共存不等UMM两任务收益，T8和结论保留取舍。 256版SigLIP-Large-p16/16×16×4，384版SO400M-p14/27×27×16；同16384码本、Llama2-7B、MLP projector与RQ-VAE式decoder。HF256配置确认共享码本/EMA.99、latent1024、depth Transformer6层/hidden2560/40heads，code_shape16/16/4。高层LLM位置减少，深度码仍顺序采样；256单图256位置×4码、8帧2048位置×4码，不能把1024个码称256次全部模型调用或无时序生成成本。",
+    "conclusion": "T1同16²×4的RQVAE rFID1.30对统一塔1.80/Top1 73.3；384塔1.25/78.0同时改变视觉骨干/分辨率/RQ深度，不能只归分辨率。T2 256/384 VQA75.3*/79.4*、MMVet27.7/33.5，仍低于VILA34.9等；T3视频MSVD73.4/75.3、MSRVTT58.9/60。T4 FID12.81/7.69，但T5基本VQAScore总.76/.73、高级.64/.61，384非全面提高。T6视频74.01/76.26/65.04，对OpenSora75.91/78.82/64.28、CogVideoX81.61/82.75/77.04；不能称所有维度超OpenSora或整体超CogVideoX。",
+    "gap": "作者明确尚无显著理解/生成互益，且对比目标损害重建。缺同数据/预算共享与分离训练、帧时序/真实状态消融；内部15M及完整视觉塔训练脚本/原始实验日志、GPU/时长/方差披露不足。384量化成绩与当前官方collection仅列256模型的制品覆盖分开；直接猜测384仓库返回401，未确认该checkpoint存在/私有。AppA与T2 LaViT分类冲突保留。PNG帧条不否定模型视频生成，fps与真实视频协议仍待补，规范书写能力未验证。",
+    "problem": "同一离散视觉塔同时提供文本对齐的理解特征和可直接解码的图像码，以单一多模态AR支持文本/图像/视频理解与生成。研究包含通用视频帧生成，但没有规范文字事件/汉字笔顺监督与评价。统一接口/离散表征是否产生理解与生成互益另需验证，结论明确尚未观察到显著协同。",
     "claim": "研究目标：用可重建且语义对齐的同一离散视觉塔，支持图像/视频理解与生成。",
-    "version": "VILA-U，2024",
+    "version": "VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation；正式ICLR2025条目已确认，本批完整研究来源固定arXiv2409.04429v3（2025-03-04）。ICLR正式PDF部分下载排除，未声称全文读正式版。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L085",
     "canonical_key": "paper:arxiv:2409.04429",
     "evidence_history": [
@@ -6060,17 +6076,22 @@
         "conclusion": "展示无需独立扩散生成器的图像/视频理解与生成；效果依赖视觉表示和训练数据质量",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 102,
+        "scope": "固定2409.04429v3 Abstract/§1–6全文、Eq1–7/T1–9全部行（T5含两子表）、AppA分类/C失败recipe全文，AppB图注与选择性文本；未逐一实际查看B全部定性图/参考文献。实际F1/F2官方原图、HTML T6视频主表/T7消融。ICLR2025正式条目核实、正式PDF部分下载未读。GH4ea42ead完整91blob树、README、8指定路径的推理/两train脚本/arch与RQ训练生成核心及constants，旧同revision数据混合记录交叉；HF256 91f97e4b元数据/卡/root/vision/LLM config及collection，384直接路径401不当存在证据。未完整审计底层transformer/视觉塔训练或执行模型、口试、原表复现。"
       }
     ],
-    "sections_read": "§1/3–6相关方法与Tables1/4/6–9、部分GenAIbench表尾、AppA解释与AppC失败配方；官方README、pretrain.sh/sft.sh、datasets_mixture.py、inference.py已读；未逐行Tables2/3/5、未读全部底层generation实现、未复现",
+    "sections_read": "固定2409.04429v3 Abstract/§1–6全文、Eq1–7/T1–9全部行（T5含两子表）、AppA分类/C失败recipe全文，AppB图注与选择性文本；未逐一实际查看B全部定性图/参考文献。实际F1/F2官方原图、HTML T6视频主表/T7消融。ICLR2025正式条目核实、正式PDF部分下载未读。GH4ea42ead完整91blob树、README、8指定路径的推理/两train脚本/arch与RQ训练生成核心及constants，旧同revision数据混合记录交叉；HF256 91f97e4b元数据/卡/root/vision/LLM config及collection，384直接路径401不当存在证据。未完整审计底层transformer/视觉塔训练或执行模型、口试、原表复现。",
     "review_path": "docs/reviews/L085.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "视觉塔COYO700M；理解ShareGPT4V1M+MMC4约6M，生成内部高质图文15M+OpenVid1M。SFT脚本还列vflan/shot2story/videochat/youcook/vatex/sharegptvideo/scienceqa/wit/sherlock等；data路径空待自备，内部数据可得性限制严格复现。",
-    "framework": "预训SigLIP初始化、冻结文本encoder并联合视觉对比+重建，以残差量化/深度transformer保留表示容量；多模态AR接轻量视觉decoder。",
-    "architecture": "Llama2-7B+SigLIP-L256或SO400M384；共享16384码本RQ，256图16×16×4、384图27×27×16；LLM预测空间位置特征，depth transformer再顺序预测残差D码。视频为逐帧图码拼接，无额外扩散decoder。RQ层内顺序与栅格/帧序不能当书写事件规范。",
-    "metrics": "ImageNet rFID与zero-shot Top1；VQAv2/POPE/MME/SEED/MMVet、视频QA；MJHQ30K FID、GenAIbench VQAScore、VBench总/质量/语义。",
-    "baselines": "RQ-VAE/VQGAN、SD2.1/SDXL、Show-o/LWM及多种VLM；视频OpenSora/CogVideo/CogVideoX。15M只指后续图文生成数据，不能忽略COYO700M/SigLIP/Llama预训成本。",
-    "experimental_conditions": "对比/重建权重各1；文本encoder冻结、视觉塔可训；预训[image,text]/[text,image]/[text,video]只监督后项，交错仅监督文字，video-to-text留SFT。CFG3。官方脚本预训lr5e-5、SFT1e-4，wd0/warm.03/cosine/1epoch、bf16/context8192、MLP2xGELU投影；README请求8节点×8GPU、4h为作业参数不等于实测耗时。脚本global_bs512却以512/n_node/acc作per_device batch，每节点8进程，名义值不能直接当全局有效512，需运行配置核验；未执行。"
+    "dataset": "视觉塔COYO700M；UMM理解ShareGPT4V1M+MMC4约6M，生成内部高质图文15M+OpenVid1M。15M只为后续图文生成量，不能忽略700M及SigLIP/Llama预训。已核SFT脚本还用vflan/shot2story/videochat/youcook/vatex/sharegptvideo/scienceqa/wit/sherlock等混合，完整规模/样本清单不齐，internal数据需自备。消融25M COYO子集与700M完整组、ShearedLlama1.3B生成实验分开。",
+    "framework": "SigLIP初始化的统一视觉塔、对比/重建双目标、共享16384码本的RQ；空间LLM与depth Transformer分层自回归，支持图像/视频帧。Eq1双损失各权1，Eq2–4逐残差最近邻量化，Eq5文字NLL/Eq6前层码和/Eq7视觉逐深度NLL。塔训练中的语义与重建共存不等UMM两任务收益，T8和结论保留取舍。",
+    "architecture": "256版SigLIP-Large-p16/16×16×4，384版SO400M-p14/27×27×16；同16384码本、Llama2-7B、MLP projector与RQ-VAE式decoder。HF256配置确认共享码本/EMA.99、latent1024、depth Transformer6层/hidden2560/40heads，code_shape16/16/4。高层LLM位置减少，深度码仍顺序采样；256单图256位置×4码、8帧2048位置×4码，不能把1024个码称256次全部模型调用或无时序生成成本。",
+    "metrics": "ImageNet rFID/zero-shot Top1，VQA/GQA/TextVQA/POPE/MME/SEED/MMVet、四视频QA；MJHQ30K FID、GenAI-Bench基础/高级VQAScore、VBench总/质量/语义。Top1/rFID是视觉塔中间指标，非下游充分保证；VQAScore与FID可能分歧。视频通用质量分不保证文字字形/笔画身份/抬落笔规范。主表星号任务训练图像已见，不能称所有benchmark严格未见。",
+    "baselines": "VQGAN/RQVAE重建；VILA/LLaVA/VideoLaVIT/VideoLLaVA/Emu2/Showo/LWM等理解；SD2.1/SDXL/PixArt/Playground/Midjourney/DALLE图像，OpenSora/CogVideo/CogVideoX视频。不同分辨率、encoder初始化、预训练、数据质量/预算不能仅按LLM7B当公平。T2给LaVIT标Continuous，与本文AppA将LaViT归语义量化及已核L079不一致，本仓库不据该表改写LaVIT原始表示分类。",
+    "experimental_conditions": "视觉塔冻结文本encoder、视觉encoder/RQ/decoder训练，对比/重建权1:1；UMM预训image→text/text→image/text→video只监督后项，交错仅文字，video→text留SFT。当前GH pretrain/SFT lr5e-5/1e-4、wd0/warm.03/cosine/1epoch、bf16/context8192。脚本名义global_bs512除节点/acc却未除每节点8GPU，按常规DDP及默认整除预期有效4096，未执行确认/核原表。README8节点×8GPU/4h是申请资源非实测耗时。depth生成T1/top_p.96/top_k900/CFG3、视频8帧，无fps；原VBench全部采样/时长/seed/NFE成本与CI未充分给出。"
   },
   {
     "title": "JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation",

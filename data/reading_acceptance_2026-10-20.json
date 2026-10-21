@@ -7085,6 +7085,74 @@
         }
       ],
       "boundary": "固定2309.11499v2完整Abstract/§1–7核心全文、Eq1–6、T1–3全表；AppA5 queries/latency、A6 rewrite全文与T9–10、C1–2实现及T11–12、E局限/失败，T4语言/T7POPE/T8fewshot指定表。A1–4其他理解分析/定性案例、T5–6及全部附录例图/参考文献未逐一精读。实际原framework、T2/T3/T9a/T9b。正式ICLR条目确认，正式PDF/OpenReview未读成功。GH9dc76778完整295blob树、README/项目README、9指定路径配置和插件训练forward核心，HF官方collection及两发布元数据/config/generation_config，文件清单未见独立README模型卡；无权重/媒体/训练推理/原表复现或口试。"
+    },
+    {
+      "id": "L083",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "扩大连续视觉表示的生成式图文模型，支持少样本上下文理解，以及主体/布局条件图像生成。区分base few-shot、Emu2-Chat和Emu2-Gen两独立指令变体。论文确述视频时空decoder与定性生成，未提供视频生成主量化或严格汉字笔顺/逐笔绘画任务；不能写成无视频能力，也不能把图像主体指标当时序规范证据。 为每个长尾任务设计架构/收集大监督集扩展成本高，原Emu视觉接口与重建能力受限；作者用更大LLM、简化均值池化和更强独立视觉decoder增强上下文适配。规模、数据、视觉表示与SDXL同时变化，实验未隔离各因素的因果贡献。“更大模型产生新能力”在此为经验观察，未证明只由参数规模导致。",
+          "evidence": "指定完整v2/v3核心、实际框架主表/现有对照和消融缺失说明、选定附录及固定GH/HF文本，非口试/模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "图像/视频采帧→EVA连续特征→平均池化64视觉位置→linear→LLaMA文本token/连续视觉embedding；视觉embedding经另训SDXL解码图像。Chat静态图改256位置、视频帧仍64；Gen输入文字、bbox黑图、参考主体图并预测目标图。实际正式p3 F2/p5 T1/p8 T4–5，v2 F10视频生成图注已核，未实际完整核F10图像。不同Chat/Gen权重分别完成问答和生成，不计作单checkpoint双向协同证据。 StageI视觉/LLM/projector共同做caption文本监督，224²→448²；StageII冻结视觉encoder，LLM/projector做文字分类与视觉回归。图像autoencoder用EVA条件、SDXL-base初始化UNet，全训UNet而视觉encoder/VAE冻结，448²输入→1024²输出，独立于LLM训练。视频decoder从SD2.1增加时间卷积与时空attention。native generate_image逐个回归64位置且已读路径每次重算完整前缀，未见KV复用；这只描述该native路径，不代表HF实现/实测延迟。",
+          "evidence": "指定完整v2/v3核心、实际框架主表/现有对照和消融缺失说明、选定附录及固定GH/HF文本，非口试/模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "EVA02-CLIP-E-plus+LLaMA33B组成37B base，8×8均值池化/linear替代C-Former；文字分类/视觉连续回归的next-element预训，独立训练CLIP-Diffusers图像重建器；分别Chat答案CE、Gen末图视觉回归SFT。Gen把bbox画在黑图作为位置条件，支持多主体组合和无需测试时主体微调。视频decoder另以SD2.1时空UNet训练，不能与图像SDXL decoder混为同一模型配置。 具有语义先验的连续特征、足够强重建器和相近分布的上下文示例可提升主体保持、少样本格式适配，尤其参考图比纯文字更能约束外观时。优势应体现在主体DINO/CLIP-I及同题fewshot效果，文字遵循/拥挤计数和新动作顺序仍需独立测。视频/书写需检验视觉压缩能否保留细小墨迹与事件差异，不能从参数规模推断。",
+          "evidence": "指定完整v2/v3核心、实际框架主表/现有对照和消融缺失说明、选定附录及固定GH/HF文本，非口试/模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "正式/v2 T1 Emu2 VQA0/4/8/16shot33.5/67/67.8/68.8，OK26.7/53.2/54.1/57.1；16shotOK57.1低于Flamingo57.8、Hateful66低于70，不能全任务最佳。T2 ChatVQA84.9*/MSVD49/MSRVTT31.4/MMVet48.5；GPT4V67.7来自局限，非同表完整公平复测。T4 CLIP-I.686>SDXL.674/GILL.684，CLIP-T.297<SDXL.310/SD1.5.302/DALLE3.320，正文两指标SOTA与表冲突。T5 DINO.766/CLIP-I.850/CLIP-T.287，高于KosmosG前两项.694/.847但CLIP-T同.287、低于SuTI.304。 T1增加示例为现有受控趋势，仍有RICES与zero-shot格式提示变化；F3重建可视和COCO autoencoding CLIP-I.907支持decoder重建能力。论文没有同数据/同预算规模扫描、CFormer/均值、冻结/联合目标或SDXL/旧decoder严格组件消融。明确记录缺失，不能把跨模型榜单或单张重建图充作协同因果实验；该项验收只解释现有对照及缺失，未声称读到不存在的消融。 预训I35.2K+4K步/II20.35K步；AdamW β.9/.95 eps1e-6，I projector1e-4/LLM3e-5/vision5e-5、II1e-5/bf16，具体分任务batch6144/768和12800/6400/3200/800。decoder8K/b2048/lr1e-4，正文warm2000、T7为2500；Gen正文warm100步、T9 warmratio0，未解决。Chat8K/b768/lr1e-5/context2048，视频8/12/16训练、16评测。RICES选择fewshot，0shot还改提示控制格式。生成Euler50/CFG3，DreamBench每prompt4张共3000、单参考与KosmosG相同，修改部分prompt；DALLE CLIP-T4096与30K不等。",
+          "evidence": "指定完整v2/v3核心、实际框架主表/现有对照和消融缺失说明、选定附录及固定GH/HF文本，非口试/模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "作者列拥挤计数/复杂任务上下文失败与闭源QA差距。两SFT权重、RICES检索、合成高质数据和强decoder限制性能归因；语义相似度未充分测局部字形/主体位置的精确绑定。视频decoder训练/定性不等完整视频生成评测或规范事件能力。正文/附录warmup和语言token量差异未解决。固定GH/HF主要公开推理，未见Emu2训练路径或所核制品的独立video decoder，不能宣称论文配方完整复现。 同训练样本/总FLOPs比较LLM尺度、64/256视觉位置、均值/CFormer、仅文字/文字+视觉回归，固定图像decoder或交叉替换以拆表示/解码上限。random/RICES示例与无示例用相同格式提示，核示例源/泄漏，按字符/主体/模板隔离；共享单checkpoint与独立Chat/Gen并列。生成固定50步/CFG/候选预算，报OCR/位置计数、主体/文字分数和视频事件/时序；量完整AR+扩散延迟。未运行模型实验。",
+          "evidence": "指定完整v2/v3核心、实际框架主表/现有对照和消融缺失说明、选定附录及固定GH/HF文本，非口试/模型复现，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定2312.13286v2 Abstract/§1–5核心全文、T1–5全行、AppA–E研究文字与T6–10全行；F1–4与F5–14图注，未实际逐图核全部例图/参考文献。正式CVPR完整12页PDF确认，核Abstract/输入输出/训练主描述及实际p3F2/p5T1/p8T4–5；正式补充PDF部分下载不算已读。GHd9f12f43完整184blob树、root/Emu2 README、6指定源码/配置的native接口/采样/生成核心；HFbase fa835ec1、chat20ea30b0、gena41a2dcd的元数据/卡与对应config（gen为multimodal_encoder/config，root404非缺模型）。未全审HF远程源码/媒体/权重或运行训练推理、口试/原表复现。"
+    },
+    {
+      "id": "L085",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "同一离散视觉塔同时提供文本对齐的理解特征和可直接解码的图像码，以单一多模态AR支持文本/图像/视频理解与生成。研究包含通用视频帧生成，但没有规范文字事件/汉字笔顺监督与评价。统一接口/离散表征是否产生理解与生成互益另需验证，结论明确尚未观察到显著协同。 只重建训练的VQ视觉语义不足，CLIP语义量化常借外部扩散解码；同时从零学习对比与重建可能冲突。作者先借预训练SigLIP语义，再以冻结文本塔、可训练视觉塔联合对比/重建，残差量化增加每个LLM位置容量。该路线减少外部扩散栈，仍有视觉decoder、深度Transformer和大预训成本。",
+          "evidence": "指定完整v2/v3核心、实际框架主表/现有对照和消融缺失说明、选定附录及固定GH/HF文本，非口试/模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "图像/视频逐帧→SigLIP视觉encoder/RQ离散码和对应embedding→与文字拼接→Llama2-7B预测空间位置h；depth Transformer按h和已采残差码逐层预测D码→累加embedding→视觉decoder还原RGB。视频是帧码拼接，因果条件可利用前帧，未新增时空扩散器。实际F1/F2原图、T6视频主表/T7消融；代码generate_video_content固定8帧，inference.save_video横拼PNG，未封装fps/MP4。 256版SigLIP-Large-p16/16×16×4，384版SO400M-p14/27×27×16；同16384码本、Llama2-7B、MLP projector与RQ-VAE式decoder。HF256配置确认共享码本/EMA.99、latent1024、depth Transformer6层/hidden2560/40heads，code_shape16/16/4。高层LLM位置减少，深度码仍顺序采样；256单图256位置×4码、8帧2048位置×4码，不能把1024个码称256次全部模型调用或无时序生成成本。",
+          "evidence": "指定完整v2/v3核心、实际框架主表/现有对照和消融缺失说明、选定附录及固定GH/HF文本，非口试/模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "SigLIP初始化的统一视觉塔、对比/重建双目标、共享16384码本的RQ；空间LLM与depth Transformer分层自回归，支持图像/视频帧。Eq1双损失各权1，Eq2–4逐残差最近邻量化，Eq5文字NLL/Eq6前层码和/Eq7视觉逐深度NLL。塔训练中的语义与重建共存不等UMM两任务收益，T8和结论保留取舍。 已有语义预训、需要离散码可直接还原、LLM长序列受限且重建语义取舍可接受时，RQ双目标塔可提高理解并保持实用生成。优势依赖数据/表示和depth成本；不保证比同重建专用塔FID更好。针对书写应先测细笔画和帧差在重建/量化时是否保留，若不可见/不可重建，增加AR能力也未必弥补。",
+          "evidence": "指定完整v2/v3核心、实际框架主表/现有对照和消融缺失说明、选定附录及固定GH/HF文本，非口试/模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1同16²×4的RQVAE rFID1.30对统一塔1.80/Top1 73.3；384塔1.25/78.0同时改变视觉骨干/分辨率/RQ深度，不能只归分辨率。T2 256/384 VQA75.3*/79.4*、MMVet27.7/33.5，仍低于VILA34.9等；T3视频MSVD73.4/75.3、MSRVTT58.9/60。T4 FID12.81/7.69，但T5基本VQAScore总.76/.73、高级.64/.61，384非全面提高。T6视频74.01/76.26/65.04，对OpenSora75.91/78.82/64.28、CogVideoX81.61/82.75/77.04；不能称所有维度超OpenSora或整体超CogVideoX。 T7同SigLIP/25M reconstruction-only VQA57.7/MMVet15.3，加contrastive68/20.8、Top1 62.9；700M再到75.3/27.7同时混数据规模。此消融UMM阶段仅理解数据，不能证明理解+生成联合收益。T8 ShearedLlama1.3B仅T2I：RQVAE FID12对统一塔13.2，体现语义对齐/重建取舍，非主7B联合消融。T9 CFG1/2/3/5 FID14.1/13/12.8/13.2。AppC四失败配方与batch冲突/视觉冻结/文本漂移解释为作者经验，无完整matched-budget量化，不推冻结语义特征在理论上绝不可能重建。 视觉塔冻结文本encoder、视觉encoder/RQ/decoder训练，对比/重建权1:1；UMM预训image→text/text→image/text→video只监督后项，交错仅文字，video→text留SFT。当前GH pretrain/SFT lr5e-5/1e-4、wd0/warm.03/cosine/1epoch、bf16/context8192。脚本名义global_bs512除节点/acc却未除每节点8GPU，按常规DDP及默认整除预期有效4096，未执行确认/核原表。README8节点×8GPU/4h是申请资源非实测耗时。depth生成T1/top_p.96/top_k900/CFG3、视频8帧，无fps；原VBench全部采样/时长/seed/NFE成本与CI未充分给出。",
+          "evidence": "指定完整v2/v3核心、实际框架主表/现有对照和消融缺失说明、选定附录及固定GH/HF文本，非口试/模型复现，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "作者明确尚无显著理解/生成互益，且对比目标损害重建。缺同数据/预算共享与分离训练、帧时序/真实状态消融；内部15M及完整视觉塔训练脚本/原始实验日志、GPU/时长/方差披露不足。384量化成绩与当前官方collection仅列256模型的制品覆盖分开；直接猜测384仓库返回401，未确认该checkpoint存在/私有。AppA与T2 LaViT分类冲突保留。PNG帧条不否定模型视频生成，fps与真实视频协议仍待补，规范书写能力未验证。 固定SigLIP、分辨率、RQ深度、样本/FLOPs，扫描对比/重建权与shared/separate、理解-only/生成-only/joint；报Top1/rFID与下游VQA/OCR/FID/VQAScore Pareto和完整空间+深度采样延迟。分辨率/骨干/深度分别干预，多seed/CI；视频声明8帧/fps/时长、参考VBench统一协议、状态与事件评分。检验同终态异笔顺、漏笔细线在编码/重建的可识别性，规则SVG/外部分离组合为强基线。未运行模型实验。",
+          "evidence": "指定完整v2/v3核心、实际框架主表/现有对照和消融缺失说明、选定附录及固定GH/HF文本，非口试/模型复现，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定2409.04429v3 Abstract/§1–6全文、Eq1–7/T1–9全部行（T5含两子表）、AppA分类/C失败recipe全文，AppB图注与选择性文本；未逐一实际查看B全部定性图/参考文献。实际F1/F2官方原图、HTML T6视频主表/T7消融。ICLR2025正式条目核实、正式PDF部分下载未读。GH4ea42ead完整91blob树、README、8指定路径的推理/两train脚本/arch与RQ训练生成核心及constants，旧同revision数据混合记录交叉；HF256 91f97e4b元数据/卡/root/vision/LLM config及collection，384直接路径401不当存在证据。未完整审计底层transformer/视觉塔训练或执行模型、口试、原表复现。"
     }
   ]
 }

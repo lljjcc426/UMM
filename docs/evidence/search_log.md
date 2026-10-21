@@ -478,3 +478,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百零一批（2026-10-21）：正式ICML32页/v3与DreamLLM固定v2、ICLR身份、实际框架/表格、固定GH307/295blob及HF元数据配置；正式DreamPDF部分下载排除。见[审查](nextgpt_dreamllm_interfaces_synergy_and_release_audit_2026-10-21.md)、[L080](../reviews/L080.md)、[L081](../reviews/L081.md)。
+
+
+第一百零二批（2026-10-21）：CVPR完整12页交叉及固定v2完整核心/附录、VILA-U固定v3/ICLR身份、实际图表，GH184/91blob和固定HF卡配置；部分PDF与猜测384地址排除。见[审查](emu2_vilau_representations_icl_and_video_release_audit_2026-10-21.md)、[L083](../reviews/L083.md)、[L085](../reviews/L085.md)。

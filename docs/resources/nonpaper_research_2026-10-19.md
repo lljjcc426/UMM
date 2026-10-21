@@ -419,3 +419,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百零一批（2026-10-21）：NExT旧HF与当前两代码线、Dream普通/美学checkpoint固定revision、缺独立卡与训练配置差异，均关联原研究去重。见[审查](../evidence/nextgpt_dreamllm_interfaces_synergy_and_release_audit_2026-10-21.md)、[L080](../reviews/L080.md)、[L081](../reviews/L081.md)。
+
+
+第一百零二批（2026-10-21）：Emu三HF权重/目录和native推理路径；VILA256HF/RQ配置、8帧PNG、batch公式与内部数据可得性，制品关联去重。见[审查](../evidence/emu2_vilau_representations_icl_and_video_release_audit_2026-10-21.md)、[L083](../reviews/L083.md)、[L085](../reviews/L085.md)。

@@ -188,9 +188,9 @@
 | L080 | NExT-GPT: Any-to-Any Multimodal LLM | primary_sections_read | [结构化分析](../reviews/L080.md) | 核心三遍与五项检查完成 |
 | L081 | DreamLLM: Synergistic Multimodal Comprehension and Creation | primary_sections_read | [结构化分析](../reviews/L081.md) | 核心三遍与五项检查完成 |
 | L082 | Making LLaMA SEE and Draw with SEED Tokenizer | primary_sections_read | [结构化分析](../reviews/L082.md) | 核心三遍与五项检查完成 |
-| L083 | Generative Multimodal Models are In-Context Learners | primary_sections_read | [结构化分析](../reviews/L083.md) | 未完成 |
+| L083 | Generative Multimodal Models are In-Context Learners | primary_sections_read | [结构化分析](../reviews/L083.md) | 核心三遍与五项检查完成 |
 | L084 | MM-Interleaved: Interleaved Image-Text Generative Modeling via Multi-modal Feature Synchronizer | primary_sections_read | [结构化分析](../reviews/L084.md) | 核心三遍与五项检查完成 |
-| L085 | VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L085.md) | 未完成 |
+| L085 | VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L085.md) | 核心三遍与五项检查完成 |
 | L086 | JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L086.md) | 核心三遍与五项检查完成 |
 | L087 | Orthus: Autoregressive Interleaved Image-Text Generation with Modality-Specific Heads | primary_sections_read | [结构化分析](../reviews/L087.md) | 核心三遍与五项检查完成 |
 | L088 | Liquid: Language Models are Scalable and Unified Multi-modal Generators | primary_sections_read | [结构化分析](../reviews/L088.md) | 未完成 |
