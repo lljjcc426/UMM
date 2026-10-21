@@ -240,3 +240,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百零六批（2026-10-21）：固定loss尺度与梯度冲突、语义层级/量化瓶颈、rFID/PSNR/码率Pareto；序列长度不变与额外残差预测成本区分。见[审查](qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[L095](../reviews/L095.md)、[L096](../reviews/L096.md)。
+
+
+第一百零七批（2026-10-21）：二档source-confidence/校准、偏好点份额/胜率、仿真条件与评估参照、有限保护惩罚/可行性、代理RGB参照。见[审查](motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[L036](../reviews/L036.md)、[L037](../reviews/L037.md)。

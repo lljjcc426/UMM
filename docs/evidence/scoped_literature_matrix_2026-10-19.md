@@ -404,3 +404,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百零六批（2026-10-21）：联合训练tokenizer、连续理解接口与双RVQ离散理解/生成；共享视觉主干、双词表和双输出head分别辨明，静态能力不推笔顺。见[审查](qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[L095](../reviews/L095.md)、[L096](../reviews/L096.md)。
+
+
+第一百零七批（2026-10-21）：欠指定触发运动推断与仿真对齐长视频；允许改轨迹、区域latent锚定和规范笔顺任务分开。见[审查](motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[L036](../reviews/L036.md)、[L037](../reviews/L037.md)。

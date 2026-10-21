@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L036",
+    "L037"
+  ],
+  "sources": {
+    "L036": [
+      "https://arxiv.org/html/2605.22818v1",
+      "https://proceedings.mlr.press/v306/hsin-ying26a.html",
+      "https://raw.githubusercontent.com/mlresearch/v306/main/assets/hsin-ying26a/hsin-ying26a.pdf",
+      "https://motimotion.github.io/",
+      "https://github.com/motimotion/motimotion/tree/b3baf01615279b2912d2dee1c91924139de9db38",
+      "https://huggingface.co/datasets/shinying/motibench/tree/4b3f3bf83e2d6b062873af12f910c8d5d9ed6ff6"
+    ],
+    "L037": [
+      "https://arxiv.org/html/2610.10984v1",
+      "https://hongh0.github.io/Fluid-Gen-Zero/",
+      "https://github.com/hongh0/Fluid-Gen-Zero"
+    ]
+  },
+  "executed": false,
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "text_annotations_read": true,
+  "artifacts": [
+    {
+      "id": "L036",
+      "formal": "ICML2026/PMLR306:44433-44451; complete19p formalPDF available, selected core/table/protocol crosscheck; full reading fixed arxivv1",
+      "github_revision": "b3baf01615279b2912d2dee1c91924139de9db38",
+      "tree_blobs": 5,
+      "hf_revision": "4b3f3bf83e2d6b062873af12f910c8d5d9ed6ff6",
+      "visuals": [
+        "v1F2",
+        "v1T1",
+        "v1T4"
+      ],
+      "dataset_metadata": {
+        "rows": 62,
+        "image_directory_entries": 62,
+        "raw_tracks": 98,
+        "tracks_per_scene": [
+          1,
+          5
+        ],
+        "points_per_track": [
+          1,
+          20
+        ],
+        "coordinate_range": [
+          14,
+          1483
+        ],
+        "paper_card_categories": {
+          "collision": 9,
+          "constraint_change": 17,
+          "tool_mechanism": 8,
+          "flow": 9,
+          "common_object": 19
+        },
+        "actual_json_categories": {
+          "collision": 9,
+          "constraint_change": 17,
+          "tool_mechanism": 9,
+          "flow": 8,
+          "common_object": 19
+        },
+        "image_sources": {
+          "Generated": 16,
+          "Pexels": 23,
+          "Unsplash": 23
+        }
+      },
+      "findings": [
+        "Only external reasoner training-free; generator trains5K+3Ksteps",
+        "Confidence is binary source setting1/.5, not learned/calibrated probability",
+        "Preference rates weighted1/2/3/tie0 and exclude ties; no raw win-rate interpretation",
+        "Photo.520 below MagicMotion.550 contradicts all-metric tablecaption",
+        "One-stage selected for latency but physical.302 below two-stage.319",
+        "Public repo has prompts/instructions but not complete controller training/sampling/weights",
+        "HF raw pixel annotations differ from normalized20point output schema; Flow/Tool counts differ from card/paper"
+      ]
+    },
+    {
+      "id": "L037",
+      "paper": "Fixed arxiv2610.10984v1 core andAppendices1-7",
+      "visuals": [
+        "v1F2",
+        "v1F4",
+        "v1T1",
+        "v1T8"
+      ],
+      "repository_status": "Author-project-linked GitHub HEAD API404 at check; no public original implementation confirmed",
+      "findings": [
+        "Frozen generators plus reconstruction/simulation/threeVLMcalls; no free end-to-end compute claim",
+        "Centroid-translated object alpha-composite reference is not full fluid advection or3D rendering",
+        "Evaluation aligns to same simulation used as condition, not independently measured real physics",
+        "Planner changes both boundaries and captions; latent-only has better fEPE andsubject thanfull",
+        "WanMove aesthetic/image/PhysR decline despite trajectory gains",
+        "2AFC8scenes/13people/442pairs, notall43; preview shown",
+        "Finite no-cut penalty10 prioritizes unprotected candidates when available, not proof of global feasibility"
+      ]
+    }
+  ]
+}

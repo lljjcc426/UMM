@@ -433,3 +433,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百零六批（2026-10-21）：同码率/初始化/预算连续与离散接口、固定/在线权重、单/双码/双encoder/等容量head控制、梯度与细字/时序评价，多seed待执行。见[审查](../evidence/qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[L095](../reviews/L095.md)、[L096](../reviews/L096.md)。
+
+
+第一百零七批（2026-10-21）：正确/欠指定/违规输入、独立judge/raw偏好、多seed；边界与prompt分离、同NFE、真实物理及preview控制、笔尖/旧墨迹锚定，未执行。见[审查](../evidence/motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[L036](../reviews/L036.md)、[L037](../reviews/L037.md)。

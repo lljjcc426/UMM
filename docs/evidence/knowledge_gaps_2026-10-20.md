@@ -445,3 +445,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百零六批（2026-10-21）：QLIP 28bit下游词表打包、4/5/15/16M与曝光；DualToken归一宏平均、总步数/内部数据、run.sh与论文配置及统一系统发布待核。见[审查](qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[L095](../reviews/L095.md)、[L096](../reviews/L096.md)。
+
+
+第一百零七批（2026-10-21）：HF Flow8/Tool9与正式表9/8；原像素轨迹到20点归一预处理、原控制器代码/预算；Fluid仿真标定、完整NFE/评估光流与公开实现待核。见[审查](motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[L036](../reviews/L036.md)、[L037](../reviews/L037.md)。

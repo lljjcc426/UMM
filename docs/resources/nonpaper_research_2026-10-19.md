@@ -434,3 +434,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百零六批（2026-10-21）：QLIP GH7blob/HF B16固定权重卡配置和分制品许可证；DualToken tokenizer训练loss/8卡入口已发、统一MLLM待发，不将论文/制品重复计独立研究。见[审查](../evidence/qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[L095](../reviews/L095.md)、[L096](../reviews/L096.md)。
+
+
+第一百零七批（2026-10-21）：MotiMotion固定规划/评价指令与MotiBench HF62条/98轨迹/来源许可，不重复计论文；Fluid项目GH404与uponacceptance边界。见[审查](../evidence/motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[L036](../reviews/L036.md)、[L037](../reviews/L037.md)。

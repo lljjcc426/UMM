@@ -493,3 +493,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百零六批（2026-10-21）：QLIP唯一v1核心/附A–D/实际图表、7blob与HF固定配置；DualToken正式ICLR身份、v3核心/附A–G/实际图表、241blob树/训练loss，正式PDF部分下载排除。见[审查](qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[L095](../reviews/L095.md)、[L096](../reviews/L096.md)。
+
+
+第一百零七批（2026-10-21）：MotiMotion正式ICML/PMLR19p、固定v1/实际图表、GH5blob四文本与HF固定62行/来源表；Fluid-Gen-Zero v1核心/附1–7/实际图表及作者项目/GH404。见[审查](motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[L036](../reviews/L036.md)、[L037](../reviews/L037.md)。

@@ -407,3 +407,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百零六批（2026-10-21）完成L095 QLIP/L096 DualToken固定核心、实际框架/主表/消融与指定代码；核量化前后理解、固定loss比例、双码head与完整成本、受控双encoder及脚本/论文差异。356目录、213核心/216书面含未通过项，143条未确认核心。见[审查](qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[逐文件说明](one_hundred_sixth_changes_2026-10-21.md)。无删除/模型复现。
+
+
+第一百零七批（2026-10-21）完成L036 MotiMotion/L037 Fluid-Gen-Zero固定核心、实际框架/主表/消融，确认正式ICML身份并审查公开指令/HF标注；区分加权偏好、仿真参照与真实物理，记录Flow/Tool类别差异及质量退步。356目录、215核心/218书面含未通过项，141条未确认核心。见[审查](motimotion_fluidgen_motion_physics_and_release_audit_2026-10-21.md)、[逐文件说明](one_hundred_seventh_changes_2026-10-21.md)。无删除/模型复现。
