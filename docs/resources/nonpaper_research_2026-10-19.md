@@ -491,3 +491,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百二十五批（2026-10-22）：公开脚本/配置、私有parquet省略、缺eval_hd.yaml和实际11.09B参数标识；未运行。见[审查](../evidence/lavida_o_elastic_mot_and_reflection_protocol_audit_2026-10-22.md)、[L111](../reviews/L111.md)。
+
+
+第一百二十六批（2026-10-22）：HF8.081B元数据、SFT占位配置、两类MMU接口与采样CFG实际成本。见[审查](../evidence/lumina_dimoo_cache_selfgrpo_and_editing_protocol_audit_2026-10-22.md)、[L112](../reviews/L112.md)。

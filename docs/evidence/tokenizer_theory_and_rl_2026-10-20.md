@@ -93,3 +93,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百二十五批（2026-10-22）：4096原VQ码→1024压缩位置，分层采样不等笔顺，反思非单调/无RL执行。见[审查](lavida_o_elastic_mot_and_reflection_protocol_audit_2026-10-22.md)、[L111](../reviews/L111.md)。
+
+
+第一百二十六批（2026-10-22）：SelfGRPO权重均值抵消/无old但有reference；离散局部码固定不推出RGB不变。见[审查](lumina_dimoo_cache_selfgrpo_and_editing_protocol_audit_2026-10-22.md)、[L112](../reviews/L112.md)。

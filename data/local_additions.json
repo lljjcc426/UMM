@@ -8075,22 +8075,25 @@
     "source_urls": [
       "https://arxiv.org/abs/2510.06308",
       "https://arxiv.org/html/2510.06308",
-      "https://github.com/Alpha-VLLM/Lumina-DiMOO/tree/81344e60545ae8d70f11039d3450717d974f831b"
+      "https://github.com/Alpha-VLLM/Lumina-DiMOO/tree/81344e60545ae8d70f11039d3450717d974f831b",
+      "https://arxiv.org/abs/2510.06308v1",
+      "https://arxiv.org/pdf/2510.06308v1",
+      "https://huggingface.co/Alpha-VLLM/Lumina-DiMOO/tree/f014549e17679e41b119959754cdd9320af9bdc8"
     ],
-    "method": "LLaDA8B扩aMUSEdVQ8192图像词表、行分隔支持非方图，分阶段多任务，最大logit复用cache和SelfGRPO。 ×16 VQ，原126345文字词表，图像全局掩码、文字分块半AR；文字块完成遇answer结束标志提前停。MLcache按logit选择复用K/V与logit，warmup和周期refresh，属于有损近似。SelfGRPO为softmax奖励权重的图/问答loglikelihood加KL，去oldpolicy；不能自动等同标准clippedGRPO。",
-    "conclusion": "GenEval.88→SelfGRPO.91；理解POPE87.4/MME1534.2/MMB84.5/SEED83.1/MMMU58.6。cache作者报图2.05×/文字1.87×加速，图显存38.9→45.9GB；不能只报告速度而略显存与质量误差。",
-    "gap": "正文“保留未mask码保证区域100%像素不变”不成立为普遍保证：decoder跨区域感受野仍可能影响其他像素，需实测/显式合成。正文已揭示token置信−∞的表述应结合选择域理解；实际generator仅在当前mask集合重mask、vq_len固定初始计数，与Eq4当前L_t表述有差异。最大logit缓存不等于无损KV。",
-    "problem": "在同一离散masked backbone中支持图像理解、生成和多类静态图像条件任务，并降低采样开销。",
+    "method": "LLaDA-Base8B保持主干结构、扩8192视觉词表和特殊符号，用aMUSEd-VQ同时输入/输出；行末符号保二维网格，图像全局并行/文字半AR分块；四阶段多任务，ML-Cache复用高maxlogit位置K/V及输出logits，Self-GRPO把同模型QA正确数化softmax权重，加权生成/理解loglikelihood和KL。范围为静态任务，纯离散不代表无codec或免费同预算。 原126345文字vocab+8192视觉+特殊token，发布vocab/embedding134548、视觉offset126356，共新增11词条；32层hidden4096/FFN12288/32QKVheads/RMSNorm/1DRoPE500000，HF safetensors元数据8,081,805,312 BF16参数，不等全系统含VQ总数。aMUSEd-VQ五尺度/latent64/stride16/8192码，未用SigLIP双encoder。Eq1–3随机mask、clean目标CE，Eq2写tilde目标需结合Eq3理解；目标条件乘积分解是模型近似，不保证真实token条件独立。训练代码cosine随机mask/至少1mask、ignore-100 CE平均，条件不训，CFG文字10%丢。图像先全mask，当前mask集合预测/采样再留低置信mask；已提交码不改。文字各块内部并行、块间顺序，故不能写全部文字无AR依赖。",
+    "conclusion": "T3基础GenEval.88→SelfGRPO.91，two.94→.96/count.85→.87/color.89→.95/attr.76→.82，position.85不变；基础two低OmniGen2.95/color低GPT4o.92，无全部类别全胜。§6.1正文FLUX.82与T3 .66冲突，可能协议差但未解释，不能当同协议确定值。T4overall86.04优所列表，entity92.08/relation94.31强，global81.46/attr88.98/other82低多基线。T5UniGen71.12，但text25.57低SD3.5 32.76/FLUX32.18；T6OneIG overall.455/text.551优表内，style.400< SANA.401/diversity.232低多项，两套文字分数不能混比。T7overall短71.27>FLUX71.09、长68.53<71.78；笼统第二名省略了短长区别。T10MMMU58.6/POPE87.4分别与UniWorld/JanusPro平，SEED83.1高，MMEP1534.2/MMB84.5低BAGEL1687/85，也有更低其他对手项。",
+    "gap": "正文100%区域外不变过强：即使z外码保持，D(z)跨区感受野和原图VQ重建误差已足以破坏原RGB逐像素保证；发布decode全图、只做前后拼接展示，无外区pixelcomposite。mask只公开中心矩形/反转，未验证F13任意精细标注UI。Eq4用当前L_tprime且ceil，代码固定初始vq_len且floor；正文已解码置信−inf需结合仅在当前mask选取理解，否则方向矛盾。普通MMU generator早停判断126081（HF eos）且返回引用未定义input_p_len/rows；按所读作用域触发分支有问题，未实际执行，不能代替全模型效果结论。它未接MLcache；VLMEval另路径无该早停，且预填answer_end/pad只留一个答案mask，适合选择题配置不能当1024token生成测速。公开完整SelfGRPO复现入口未定位；训练yaml为占位、SFT shell clip4对T2clip1/2epochs不能视同完整原配方；宽高赋值也需与预提码格式核对。",
+    "problem": "在LLaDA8B的同一离散masked backbone和单aMUSEd-VQ图像接口内扩展理解、T2I、多类I2I、任意宽高比表示及局部重绘，降低双向注意力多步开销。研究对象为静态图文，视频/音频在Conclusion列未来方向，无书写动作、真实逐笔视频任务或严格笔顺指标。",
     "claim": "研究目标：在同一离散masked backbone中支持图像理解、生成和多类静态图像条件任务，并降低采样开销。",
-    "version": "Lumina-DiMOO；arXiv:2510.06308v1，2025-10-07；正式会场未核",
+    "version": "Lumina-DiMOO: An Omni Diffusion Large Language Model for Multi-Modal Generation and Understanding；arXiv2510.06308v1/2025-10-07，完整33页（核心含结论至p25，其余参考文献）。本批未核到本作正式会场接收；根README的CVPR2026消息对应后续dMLLM-TTS，不能移植给本作。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 3. 生成目标：AR、离散扩散、连续流并没有收敛到唯一答案",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-22",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-22",
     "id": "L112",
     "canonical_key": "paper:arxiv:2510.06308",
     "evidence_history": [
@@ -8122,17 +8125,22 @@
         "conclusion": "缓存加速同时增显存；图像采样速度收益明显大于分块文本生成，不能只报最高倍率",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-22",
+        "batch": 126,
+        "scope": "arXiv2510.06308v1完整33页，Abstract/§1–8所有核心研究文字、Eq1–8/T1–10/F1–13图注；实际p4/8/10/12/13/14/17/18/22/23/24十一页，其他定性图未逐例、Refs未逐篇。GH81344e6完整741树/README全文/config、train.sh与train.py全文、yaml、modeling_xllmx全文；imagegenerator/generationutils/textgenerator全文，I2Igenerator55–120、T2I88–163/MMU30–125入口、imageutils13–62/163–272、prompt108–125、model905–972/1240–1264/1386–1426指定cache段及VLMEval wrapper1–203全文。data/item_processor只定位函数非全文；HTGRPO仅README，为后续独立论文不计本作新结果。HFf014549e元数据/完整卡/config/VQconfig，未权重/原数据/完整底层源码审计、未模型运行或独立复现。"
       }
     ],
-    "sections_read": "§3.1–3.3、§4.1–4.4、§5、主表本作行、§7.1–7.3/结论；官方README、image_generation_generator与generation_utils相关段，revision81344e6；ht_grpoREADME为后续工作且有正式arXiv，已识别未深读；未全表/全部源码，未复现",
+    "sections_read": "arXiv2510.06308v1完整33页，Abstract/§1–8所有核心研究文字、Eq1–8/T1–10/F1–13图注；实际p4/8/10/12/13/14/17/18/22/23/24十一页，其他定性图未逐例、Refs未逐篇。GH81344e6完整741树/README全文/config、train.sh与train.py全文、yaml、modeling_xllmx全文；imagegenerator/generationutils/textgenerator全文，I2Igenerator55–120、T2I88–163/MMU30–125入口、imageutils13–62/163–272、prompt108–125、model905–972/1240–1264/1386–1426指定cache段及VLMEval wrapper1–203全文。data/item_processor只定位函数非全文；HTGRPO仅README，为后续独立论文不计本作新结果。HFf014549e元数据/完整卡/config/VQconfig，未权重/原数据/完整底层源码审计、未模型运行或独立复现。",
     "review_path": "docs/reviews/L112.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "I80M=30M公共重标+50M来自Lumina先前工作；II额外3M图表数学UI等及编辑数据；III15M理解+15M生成（含内部合成）、VisualCloze每类200K等；RL GenRef子集和Qwen2.5VL生成QA，模板近GenEval。",
-    "framework": "LLaDA8B扩aMUSEdVQ8192图像词表、行分隔支持非方图，分阶段多任务，最大logit复用cache和SelfGRPO。",
-    "architecture": "×16 VQ，原126345文字词表，图像全局掩码、文字分块半AR；文字块完成遇answer结束标志提前停。MLcache按logit选择复用K/V与logit，warmup和周期refresh，属于有损近似。SelfGRPO为softmax奖励权重的图/问答loglikelihood加KL，去oldpolicy；不能自动等同标准clippedGRPO。",
-    "metrics": "GenEval/DPG/UniGenBench/OneIG/TIIF、编辑/条件任务、POPE/MME/MMB/SEED/MMMU；采样秒、显存。交互修改展示不提供逐像素不变率。",
-    "baselines": "BAGEL/MMaDA/Emu/LuminaAR与专家；cache开关；LLaDA初始化vs从零；SelfGRPO前后；没有把全部训练/推理模块做等预算拆解。",
-    "experimental_conditions": "I/II/III用64A800，lr2e-4/2e-4/2e-5，b1024/512/512，wd.1 clip1 AdamWβ.9/.95；RL8H20 b48 lr3e-6 β.9/.99。T2I1024默认64步；文字block256/128步，速度比较输出固定1024token。各阶段总步数/epoch本次所读Table2未给。"
+    "dataset": "I约80M=公共LAION400M/CC12M重描述30M+先前LuminaImage2/mGPT2来源50M；II另3M MMTable/TinyChart/AutoGeo/MAVIS/MultiUI，Qwen2.5VL描述，并加UltraEdit/OmniEdit/OminiControl等I2I；III理解15M=2M MAmmoTHVL+13M InternVL2.5SFT，生成15M含BLIP3o60K/ShareGPT4o和内部合成，VisualCloze主体/控制/dense/style各200K、UniWorld编辑500K、低层200K及多视图。作者承认低层任务差。IV GenRef子集提示近GenEval模板，DSG抽(entity,relation,value)制singlechoice QA/近义干扰项；Qwen在II重描述，未把其擅说成IV全部QA教师。未提供完整原样本清单/去重/80M开放下载与划分，未下载训练数据。",
+    "framework": "LLaDA-Base8B保持主干结构、扩8192视觉词表和特殊符号，用aMUSEd-VQ同时输入/输出；行末符号保二维网格，图像全局并行/文字半AR分块；四阶段多任务，ML-Cache复用高maxlogit位置K/V及输出logits，Self-GRPO把同模型QA正确数化softmax权重，加权生成/理解loglikelihood和KL。范围为静态任务，纯离散不代表无codec或免费同预算。",
+    "architecture": "原126345文字vocab+8192视觉+特殊token，发布vocab/embedding134548、视觉offset126356，共新增11词条；32层hidden4096/FFN12288/32QKVheads/RMSNorm/1DRoPE500000，HF safetensors元数据8,081,805,312 BF16参数，不等全系统含VQ总数。aMUSEd-VQ五尺度/latent64/stride16/8192码，未用SigLIP双encoder。Eq1–3随机mask、clean目标CE，Eq2写tilde目标需结合Eq3理解；目标条件乘积分解是模型近似，不保证真实token条件独立。训练代码cosine随机mask/至少1mask、ignore-100 CE平均，条件不训，CFG文字10%丢。图像先全mask，当前mask集合预测/采样再留低置信mask；已提交码不改。文字各块内部并行、块间顺序，故不能写全部文字无AR依赖。",
+    "metrics": "T3GenEval六类/overall，T4DPG六列，T5UniGenBench十维/overall，T6OneIG-EN五维宏平均（作者重定义overall），T7TIIFmini短/长指令Basic/Advanced/Designer；T8Graph200K控制F1/RMSE、FID/SSIM/MANIQA/MUSIQ/CLIP；T9styleCLIP/subjectDINOv2、CLIPI/T、四类ImgEdit GPT4.1 1–5；T10POPE/MMEP/MMB/SEED/MMMU。F12端到端秒/显存，F4例子logitscosine不是质量保真证明。无规范笔顺/时间事件/视频OCR指标，也无掩码外RGB最大误差或零变化率实测主表。",
+    "baselines": "生成FLUX/SD3/SDXL/SANA/mGPT/Emu3/MMaDA/JanusPro/BAGEL/UniWorld/OmniGen2等；控制ControlNet/OminiControl/OmniGen/OneDiffusion/mGPT1/2，风格InstantStyle；理解LLaVA/QwenVLChat/BLIP3o/TokenFlow/BAGEL等，多为不同数据/模型/预算。T6把BAGEL记全AR应以C01视觉flow纠正；不能把该标签当新事实。引用D-DiT为离散文字+连续图像，保留两侧区别。cache开关与随机初始化有实验，但缺完整各阶段/分支协同等预算因果拆解。",
+    "experimental_conditions": "T2 I/II/III=64A800，lr2e-4/2e-4/2e-5，b1024/512/512，constant、wd.1/clip1、AdamW(.9,.95)；IV8H20/b48/lr3e-6/AdamW(.9,.99)，固定1024且不支持arbitraryres。I256→512，II/IIIT2I1024/I2I512/und动态512–1024；总阶段步数/epochs/天数未齐。RL候选G、问数N、alpha/beta、选轨迹步集合、完整奖励实现未齐。F12图64steps/1024²，AR对手768²/720²，文字固定1024token/block256/128steps；未给全硬件计时边界/多seedCI。发布例T2I64/temp1/CFG4（实现5cond−4uncond，两次前向），I2Itext2.5/image4需三前向。通用文字函数把总steps均分给块；README示例128token/32block与F12协议不同。"
   },
   {
     "title": "Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion",

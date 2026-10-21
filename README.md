@@ -371,3 +371,6 @@ python scripts/validate_catalog.py
 
 
 第一百二十五批（2026-10-22）完成L111 LaViDa-O正式ICLR2026核心/16表/AppA–F及12页实际PDF，补固定GH/HF制品，记录Eq7区间冲突、16/17层边界、ground数据DPG退步和反思质量-延迟条件。357目录，234核心/237书面；未确认核心96论文／研究+27资源（资源单独审）。见[审查](docs/evidence/lavida_o_elastic_mot_and_reflection_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twenty_fifth_changes_2026-10-22.md)。没有删除文件或执行模型。
+
+
+第一百二十六批（2026-10-22）完成L112 Lumina-DiMOO全核心/十表与十一页实际PDF，补固定GH/HF及cache/SelfGRPO/局部编辑协议，纠正32倍重复相乘、任务全优和保留码等于RGB保持的误述。357目录，235核心/238书面；未确认核心95论文／研究+27资源（资源单独审）。见[审查](docs/evidence/lumina_dimoo_cache_selfgrpo_and_editing_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twenty_sixth_changes_2026-10-22.md)。无删除或执行模型。

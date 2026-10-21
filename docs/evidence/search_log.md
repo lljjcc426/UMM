@@ -550,3 +550,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百二十五批（2026-10-22）：ICLR2026正式33页、GHe3a80df4/HF8e805608，全部16表/12实际页。见[审查](lavida_o_elastic_mot_and_reflection_protocol_audit_2026-10-22.md)、[L111](../reviews/L111.md)。
+
+
+第一百二十六批（2026-10-22）：arxivv1完整33页/GH81344e6/HFf014549e与11实际PDF页。见[审查](lumina_dimoo_cache_selfgrpo_and_editing_protocol_audit_2026-10-22.md)、[L112](../reviews/L112.md)。

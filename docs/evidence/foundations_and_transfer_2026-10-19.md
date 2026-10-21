@@ -297,3 +297,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百二十五批（2026-10-22）：maskedCE归一/条件独立近似、exp时间方向与codec小字上限。见[审查](lavida_o_elastic_mot_and_reflection_protocol_audit_2026-10-22.md)、[L111](../reviews/L111.md)。
+
+
+第一百二十六批（2026-10-22）：最大rawlogit标度/softmax公共baseline抵消、码保持与RGB保持区别。见[审查](lumina_dimoo_cache_selfgrpo_and_editing_protocol_audit_2026-10-22.md)、[L112](../reviews/L112.md)。

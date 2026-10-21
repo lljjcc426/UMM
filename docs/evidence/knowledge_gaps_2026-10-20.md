@@ -502,3 +502,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百二十五批（2026-10-22）：Eq7/Fig7、16/17层边界/attnout、原200M parquet与完整stage时间线待核。见[审查](lavida_o_elastic_mot_and_reflection_protocol_audit_2026-10-22.md)、[L111](../reviews/L111.md)。
+
+
+第一百二十六批（2026-10-22）：完整RL训练/选步奖励与cache质量曲线、普通MMU早停/评价入口差异待核。见[审查](lumina_dimoo_cache_selfgrpo_and_editing_protocol_audit_2026-10-22.md)、[L112](../reviews/L112.md)。

@@ -1,0 +1,57 @@
+{
+  "id": "L112",
+  "date": "2026-10-22",
+  "version": "arxiv2510.06308v1/33pages",
+  "all_tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "actual_visual_pages": [
+    4,
+    8,
+    10,
+    12,
+    13,
+    14,
+    17,
+    18,
+    22,
+    23,
+    24
+  ],
+  "github_revision": "81344e60545ae8d70f11039d3450717d974f831b",
+  "hf_revision": "f014549e17679e41b119959754cdd9320af9bdc8",
+  "hf_safetensors_parameters": 8081805312,
+  "findings": [
+    "Statictext/image only; video/audio future directions",
+    "T3SelfGRPO.88to.91 onlyreportedpairedbenchmark, notjointMMUproof",
+    "T3FLUX.66 vsprose.82 unresolvedprotocol",
+    "T5text25.57 belowSD3.5/FLUX, T6text.551 underdifferentmetric",
+    "T7short71.27>FLUX71.09/long68.53<71.78",
+    "T8CannyF1.38 belowseveralbaselines; T9subjectCLIPTbelowOneDiffusion",
+    "F12AR32.3speed alreadyincludesMLCache; noextra2xmultiplication",
+    "Paper45to22vsREADME58.2to32.2differentprotocol; memory+7GB",
+    "SelfGRPOsoftmaxcommonmean cancels, notzero-meannegativeadvantage/clippedGRPO",
+    "VQcodepreservation notoriginalRGBpreservation; releasedfullimageDecode nooutsidepixelcomposite",
+    "ReleasedMMUconditionalearlystop usesundefinedlocals; notexecuted",
+    "VLMEvalwrapper oneanswermask choiceprotocol separatefromlongtextspeed",
+    "No fullSelfGRPOrecipefound; datayamlplaceholders andSFTclipdifferent"
+  ],
+  "sources": [
+    "https://arxiv.org/abs/2510.06308v1",
+    "https://arxiv.org/pdf/2510.06308v1",
+    "https://github.com/Alpha-VLLM/Lumina-DiMOO/tree/81344e60545ae8d70f11039d3450717d974f831b",
+    "https://huggingface.co/Alpha-VLLM/Lumina-DiMOO/tree/f014549e17679e41b119959754cdd9320af9bdc8"
+  ],
+  "downloaded_weights": false,
+  "executed": false,
+  "reproduced": false
+}
