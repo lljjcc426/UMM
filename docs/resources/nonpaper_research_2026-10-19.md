@@ -392,3 +392,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第九十二批（2026-10-21）：DS-Fusion固定训练/采样/配置、HF Express首字符/四候选及UI条件，关联论文避免重复计数。见[审查](../evidence/dsfusion_adversarial_typography_and_express_audit_2026-10-21.md)、[G041](../reviews/G041.md)。
+
+
+第九十三批（2026-10-21）：MetaQuery固定训练/采样/curation及HF原/512数据；UnifiedIO推理配置和四模型下载入口，未取权重。见[审查](../evidence/metaqueries_unifiedio_transfer_and_freezing_audit_2026-10-21.md)、[L062](../reviews/L062.md)、[L074](../reviews/L074.md)。

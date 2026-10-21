@@ -451,3 +451,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第九十二批（2026-10-21）：ICCV2023正式PDF/作者supp、固定源码根/ldm子树和HF Express关联补漏。见[审查](dsfusion_adversarial_typography_and_express_audit_2026-10-21.md)、[G041](../reviews/G041.md)。
+
+
+第九十三批（2026-10-21）：固定MetaQueries v1HTML/UnifiedIO v2PDF与正式书目、实际图表、固定代码/HF数据卡。见[审查](metaqueries_unifiedio_transfer_and_freezing_audit_2026-10-21.md)、[L062](../reviews/L062.md)、[L074](../reviews/L074.md)。

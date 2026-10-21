@@ -272,3 +272,6 @@ python scripts/validate_catalog.py
 
 
 第九十二批（2026-10-21）完成前批待补DS-Fusion：新增G041正式核心/实际图表/指定supp和固定代码/HF Express制品。354目录、185核心/188书面含未通过项，169条未确认核心。见[审查](docs/evidence/dsfusion_adversarial_typography_and_express_audit_2026-10-21.md)、[逐文件说明](docs/evidence/ninety_second_changes_2026-10-21.md)。保留SF/MF取舍、胜出与Equal区别及epoch/step/风格图/默认首字符等发布条件，无删除/模型复现。
+
+
+第九十三批（2026-10-21）补完L062 MetaQueries/L074 Unified-IO固定核心三遍/实际图表与指定发布。354目录、187核心/190书面含未通过项，167条未确认核心。见[审查](docs/evidence/metaqueries_unifiedio_transfer_and_freezing_audit_2026-10-21.md)、[逐文件说明](docs/evidence/ninety_third_changes_2026-10-21.md)。记录单向迁移、任务干扰、embedding梯度/decay与数据构造差异；无删除/模型复现。

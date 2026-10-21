@@ -167,7 +167,7 @@
 | L059 | AnyGPT: Unified Multimodal LLM with Discrete Sequence Modeling | primary_sections_read | [结构化分析](../reviews/L059.md) | 核心三遍与五项检查完成 |
 | L060 | SEED-X: Multimodal Models with Unified Multi-granularity Comprehension and Generation | primary_sections_read | [结构化分析](../reviews/L060.md) | 核心三遍与五项检查完成 |
 | L061 | UniTok: A Unified Tokenizer for Visual Generation and Understanding | primary_sections_read | [结构化分析](../reviews/L061.md) | 核心三遍与五项检查完成 |
-| L062 | Transfer between Modalities with MetaQueries | primary_sections_read | [结构化分析](../reviews/L062.md) | 未完成 |
+| L062 | Transfer between Modalities with MetaQueries | primary_sections_read | [结构化分析](../reviews/L062.md) | 核心三遍与五项检查完成 |
 | L063 | MMaDA: Multimodal Large Diffusion Language Models | primary_sections_read | [结构化分析](../reviews/L063.md) | 核心三遍与五项检查完成 |
 | L064 | MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer | primary_sections_read | [结构化分析](../reviews/L064.md) | 未完成 |
 | L065 | Qwen3-Omni Technical Report | primary_sections_read | [结构化分析](../reviews/L065.md) | 未完成 |
@@ -179,7 +179,7 @@
 | L071 | GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment | primary_sections_read | [结构化分析](../reviews/L071.md) | 未完成 |
 | L072 | UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L072.md) | 核心三遍与五项检查完成 |
 | L073 | OFA: Unifying Architectures, Tasks, and Modalities Through a Simple Sequence-to-Sequence Learning Framework | primary_sections_read | [结构化分析](../reviews/L073.md) | 核心三遍与五项检查完成 |
-| L074 | Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks | primary_sections_read | [结构化分析](../reviews/L074.md) | 未完成 |
+| L074 | Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks | primary_sections_read | [结构化分析](../reviews/L074.md) | 核心三遍与五项检查完成 |
 | L075 | Versatile Diffusion: Text, Images and Variations All in One Diffusion Model | primary_sections_read | [结构化分析](../reviews/L075.md) | 核心三遍与五项检查完成 |
 | L076 | One Transformer Fits All Distributions in Multi-Modal Diffusion at Scale | primary_sections_read | [结构化分析](../reviews/L076.md) | 核心三遍与五项检查完成 |
 | L077 | Emu: Generative Pretraining in Multimodality | primary_sections_read | [结构化分析](../reviews/L077.md) | 核心三遍与五项检查完成 |

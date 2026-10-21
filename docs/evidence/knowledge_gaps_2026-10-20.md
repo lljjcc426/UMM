@@ -403,3 +403,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第九十二批（2026-10-21）：候选协议/量化分母、20/25图、epoch-step/optimizer、generic配方及checkpoint对应未决。见[审查](dsfusion_adversarial_typography_and_express_audit_2026-10-21.md)、[G041](../reviews/G041.md)。
+
+
+第九十三批（2026-10-21）：embedding实际漂移/覆盖配置、target min/mean/阈值标度、未发布完整训练及多seed。见[审查](metaqueries_unifiedio_transfer_and_freezing_audit_2026-10-21.md)、[L062](../reviews/L062.md)、[L074](../reviews/L074.md)。

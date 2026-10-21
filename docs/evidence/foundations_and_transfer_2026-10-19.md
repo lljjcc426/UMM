@@ -198,3 +198,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第九十二批（2026-10-21）：冻结VAE/BERT、噪声MSE和latent对抗分布约束不保证逐样本字形/事件。见[审查](dsfusion_adversarial_typography_and_express_audit_2026-10-21.md)、[G041](../reviews/G041.md)。
+
+
+第九十三批（2026-10-21）：零梯度与AdamW衰减、argmin码量化、剩余曝光/总FLOPs两种控制。见[审查](metaqueries_unifiedio_transfer_and_freezing_audit_2026-10-21.md)、[L062](../reviews/L062.md)、[L074](../reviews/L074.md)。

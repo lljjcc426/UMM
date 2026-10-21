@@ -362,3 +362,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第九十二批（2026-10-21）：静态单字/多字/非Latin栅格艺术字，逐例微调与通用Express分开。见[审查](dsfusion_adversarial_typography_and_express_audit_2026-10-21.md)、[G041](../reviews/G041.md)。
+
+
+第九十三批（2026-10-21）：知识条件单向迁移、连续patch/离散输出和任务移除正负效果。见[审查](metaqueries_unifiedio_transfer_and_freezing_audit_2026-10-21.md)、[L062](../reviews/L062.md)、[L074](../reviews/L074.md)。

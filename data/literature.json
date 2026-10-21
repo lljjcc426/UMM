@@ -12351,22 +12351,28 @@
     "title": "Transfer between Modalities with MetaQueries",
     "source_urls": [
       "https://arxiv.org/abs/2504.06256",
-      "https://arxiv.org/html/2504.06256"
+      "https://arxiv.org/html/2504.06256",
+      "https://arxiv.org/abs/2504.06256v1",
+      "https://arxiv.org/html/2504.06256v1",
+      "https://xichenpan.com/metaquery/",
+      "https://github.com/facebookresearch/metaquery/tree/a44e6e20edf25469a8160a244411950f5e4dcd25",
+      "https://huggingface.co/datasets/xcpan/MetaQuery_Instruct_2.4M/tree/7b1c054ff00d25756edabec87d426c56940f938d",
+      "https://github.com/huggingface/transformers/blob/v4.49.0/src/transformers/trainer.py"
     ],
-    "method": "可学习query直接接入冻结MLLM因果序列，24层双向connector再接扩散条件，使用生成去噪目标训练。 MLLM冻结，query参与原causal attention；Enc-Proj先同MLLM维度24层Qwen式encoder后投影，比Proj-Enc更有效。主体Base LLaVAOneVision.5B、Large Qwen2.5VL3B、XL7B，256queries；图像分别SD1.5/Sana1.6B，主表COCO FID使用SD，其余Sana，不能合并成单一decoder的全部指标。",
-    "conclusion": "Table1 learnable64 FID7.43/GenEval.56/DPG75.35 vslastlayer7.49/.55/78.41，DPG下降。Table2冻结MLLM+调DiT6.06/.61/76.66 vs全调6.28/.61/79.39，质量/对齐取舍。Table4XL COCO8.69(SD)/MJHQ6.02(Sana)/GenEval.80改写。Table9queries WISE.55 vslastlayer.48/commonsense57.67vs52.83，但DPG81.10低于81.23。",
-    "gap": "冻结原任务路径保留理解是架构保证的一种边界，未证明生成训练反向提高理解。重建baseline未同等重建微调，而本作专门调过；知识生成对照支持该设置的单向迁移，非所有LLM能力自动传输。2.4M自然图像非真实同物体变换真值，合成指令可能把关联误述为编辑。",
-    "problem": "保留现成MLLM理解能力时，如何把其知识、视觉条件和上下文能力接到图像扩散生成。",
+    "method": "可学习MetaQueries附加到MLLM原因果序列，读取其hidden states；24层双向Qwen式connector先在MLLM维度变换再投影到生成器条件维度，直接用原生成目标训练query/connector和可选生成器。可用SD1.5或Sana，后者公开实现是flow matching；只需图文对完成T2I对齐，再用自然关联图像指令微调。 Base LLaVA-OneVision.5B hidden896、Large Qwen2.5VL3B hidden2048、XL Qwen2.5VL7B hidden3584；主模型256queries/24层connector，设计实验64queries+.5B+Sana.6B512²。Enc-Proj先同MLLM维度双向encoder后两层投影/RMSNorm，T3 Base24层316M；不能称仅很小query参数成本。固定XL Sana1.6B/DC-AE32通道/32倍压缩/512²，MLLM冻结与query反传计算并存。",
+    "conclusion": "T1 learned64 FID7.43/GenEval.56/DPG75.35 vs lastlayer7.49/.55/78.41，DPG退步；512query7.34/.56/78.43。T2冻MLLM+调DiT6.06/.61/76.66 vs全调6.28/.61/79.39，为视觉/对齐取舍。T4XL COCO8.69(SD1.5)、MJHQ6.02(Sana)、GenEval.80†、DPG82.05；理解沿原模型，不构成双向收益。T5BaseInstruct DINO.737/CLIPI.852/CLIPT.301，CLIPT低于DreamBooth.305。T9Large WiScore.55/Commonsense57.67 vs lastlayer.48/52.83，但DPG81.10<81.23。",
+    "gap": "核心没有单列Limitations；其数据扩大解释仍是假设。关联图像不等同实体保持/几何编辑真值；重建比较额外微调不匹配，通用知识迁移评测受代理/样本/负prompt限制。公开实现freeze_hook仅将旧embedding梯度清零，扩展embedding整体requires_grad=True；train默认AdamW wd.1且固定HF4.49.0 Trainer将embed_tokens.weight归decay组。按默认优化路径，清零梯度不足单独保证旧行严格不变，AdamW仍可有乘性衰减；未知原实验是否另覆盖参数/保存原理解分支，未检查权重或实际漂移，不能断言原理解结果错误。PDF下载不完整已排除完整PDF证据。",
+    "problem": "在保留既有MLLM理解路径的条件下，把其上下文、知识与视觉条件接到图像生成器，支持T2I/重建/编辑/主体驱动。本文实验集中静态图像，音频/视频/3D是扩展设想；没有书写事件或规范笔顺生成实验。",
     "claim": "研究目标：保留现成MLLM理解能力时，如何把其知识、视觉条件和上下文能力接到图像扩散生成。",
-    "version": "Transfer between Modalities with MetaQueries，2025",
+    "version": "Transfer between Modalities with MetaQueries；arXiv2504.06256v1，2025-04-08。固定HTML核心/附录阅读；本次未取得完整PDF或核实正式录用，不依据项目措辞补写会议。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L062",
     "canonical_key": "paper:arxiv:2504.06256",
     "evidence_history": [
@@ -12398,17 +12404,22 @@
         "conclusion": "XL GenEval 0.80，使用改写提示词；冻结理解能力不属于双向迁移证据",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 93,
+        "scope": "固定2504.06256v1 HTML Abstract/§1–6完整核心、T1–10及AppA/C全部说明，AppB只图注/指定对照，不遍读参考文献/画廊。实际F1原PNG及HTML原表T1–4/T9–10重排渲染；PDF只部分下载不当完整PDF。固定GH a44e6e2完整小树、README/两配置/eval说明、models/model初始化/connector、metaquery冻结/两目标/采样指定段、train参数/入口、trainer优化相关方法索引及curate分组/target/MLLM段。HF4.49.0 Trainer权重衰减分组指定段；HF原数据卡/元数据和集合。未全审所有库、eval/训练函数，未权重/arrow/媒体下载、未模型运行或复现。"
       }
     ],
-    "sections_read": "Introduction、§3设计/表1–3、§4训练数据、§5.1–5.6解释/表8–9、AppA/C及Table10；未逐行全部主表/全图/代码，未复现",
+    "sections_read": "固定2504.06256v1 HTML Abstract/§1–6完整核心、T1–10及AppA/C全部说明，AppB只图注/指定对照，不遍读参考文献/画廊。实际F1原PNG及HTML原表T1–4/T9–10重排渲染；PDF只部分下载不当完整PDF。固定GH a44e6e2完整小树、README/两配置/eval说明、models/model初始化/connector、metaquery冻结/两目标/采样指定段、train参数/入口、trainer优化相关方法索引及curate分组/target/MLLM段。HF4.49.0 Trainer权重衰减分组指定段；HF原数据卡/元数据和集合。未全审所有库、eval/训练函数，未权重/arrow/媒体下载、未模型运行或复现。",
     "review_path": "docs/reviews/L062.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "25M公开图文(已读主体未给完整来源清单)，预训8epochs；MMC4core-fewer-faces按SigLIP captions相似>.5/每组至多6图，最小平均相似者target，构造2.4M自然图像对。正文指令标Qwen2.5VL3B，AppA标Qwen2VL7B，存在版本/注释差异，未代作者选定。",
-    "framework": "可学习query直接接入冻结MLLM因果序列，24层双向connector再接扩散条件，使用生成去噪目标训练。",
-    "architecture": "MLLM冻结，query参与原causal attention；Enc-Proj先同MLLM维度24层Qwen式encoder后投影，比Proj-Enc更有效。主体Base LLaVAOneVision.5B、Large Qwen2.5VL3B、XL7B，256queries；图像分别SD1.5/Sana1.6B，主表COCO FID使用SD，其余Sana，不能合并成单一decoder的全部指标。",
-    "metrics": "MJHQ30k/COCO FID、GenEval/DPG、WISE/CommonsenseT2I、DreamBench DINO/CLIPI/T；重建/编辑主要定性，理解分数保持来自冻结原骨干。",
-    "baselines": "lastlayer/randomquery/fullLLMtune/end-to-end、Sana/JanusPro/MetaMorph/Emu等；prompt改写†、WISE部分基线仅200/1000子集需分开。",
-    "experimental_conditions": "设计实验.5B MLLM+Sana.6B512²、64query、25M×4epoch；主模型256query/25M×8、lr1e-4cosine→1e-5 warm4000 global4096。指令3epoch b2048，编辑1000步。完整optimizer/GPU总时长/采样NFE未从本次章节取得；冻结MLLM仍需反传到query，计算成本非零。"
+    "dataset": "主预训25M公开图文、8epochs，但固定论文未列完整源配比。MMC4 core-fewer-faces自然图像/配caption按SigLIP相似分组至多6张，论文称阈值.5、选最小平均相似target，构造2.4M关联组；不是同一实体编辑真值。正文标Qwen2.5VL3B，AppA/发布curate_dataset.py标Qwen2VL7B。固定代码caption cosine经logit_scale/bias后阈值50、图像target用min(row)再argmin而非mean；不可直接把50解释为cosine.5。HF原版与512res两资产，原版固定7b1c054，未下载arrow/媒体核实消费量。",
+    "framework": "可学习MetaQueries附加到MLLM原因果序列，读取其hidden states；24层双向Qwen式connector先在MLLM维度变换再投影到生成器条件维度，直接用原生成目标训练query/connector和可选生成器。可用SD1.5或Sana，后者公开实现是flow matching；只需图文对完成T2I对齐，再用自然关联图像指令微调。",
+    "architecture": "Base LLaVA-OneVision.5B hidden896、Large Qwen2.5VL3B hidden2048、XL Qwen2.5VL7B hidden3584；主模型256queries/24层connector，设计实验64queries+.5B+Sana.6B512²。Enc-Proj先同MLLM维度双向encoder后两层投影/RMSNorm，T3 Base24层316M；不能称仅很小query参数成本。固定XL Sana1.6B/DC-AE32通道/32倍压缩/512²，MLLM冻结与query反传计算并存。",
+    "metrics": "COCO/MJHQ30k FID；GenEval/DPG文字组合对齐，主GenEval†有prompt rewriting；WISE WiScore、CommonsenseT2I以CLIP为代理且负prompt改变条件；DreamBench DINO/CLIP-I/CLIP-T衡量主体与语义。重建/编辑主要定性；没有PSNR/OCR/笔顺/视频指标，理解分数来自保留既有路径。",
+    "baselines": "last-layer embeddings/random vslearned query，冻结/调MLLM×冻结/调DiT，connector顺序/宽深和token数、objective；外部JanusPro/MetaMorph/Emu/Transfusion/Sana等异底座和数据。重建对照多为未经同等重建微调的encoder直接解码，本作经过重建微调；WISE部分他作∗∗为200/1000子集，不能无条件整表同样本排名。",
+    "experimental_conditions": "论文设计实验25M×4epochs，主模型25M×8、global4096/lr1e-4→1e-5 cosine warm4000；指令Base3epochs/global2048，编辑1000步。固定XL Sana配置CC12M、10epochs/per-device8、lr5e-5→1e-6 warm5000；3B指令配置10epochs/per-device1 warm2000。README明确仅提供CC12M预训示例不足复现原表。train默认AdamW β.9/.95 eps1e-8 wd.1、clip.5、bf16、seed42，未据单卡batch推原global/成本。eval示例30步，COCO/MJHQ CFG3，GenEval/DPG CFG7.5；未运行。"
   },
   {
     "title": "MMaDA: Multimodal Large Diffusion Language Models",
@@ -13133,22 +13144,26 @@
     "title": "Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks",
     "source_urls": [
       "https://arxiv.org/abs/2206.08916",
-      "https://arxiv.org/html/2206.08916"
+      "https://arxiv.org/html/2206.08916",
+      "https://arxiv.org/abs/2206.08916v2",
+      "https://arxiv.org/pdf/2206.08916v2",
+      "https://openreview.net/pdf?id=E01k9048soZ",
+      "https://github.com/allenai/unified-io-inference/tree/ee0bd9d848aafc855c0f3dbe24ac8714baa87496"
     ],
-    "method": "把深度/法线/分割映射RGB再VQGAN离散化，加坐标token与文字指令；大规模联合多任务训练。 T5式encoder–decoder，patch线性输入384²→576patch；输出256²→256 VQGAN码(Imagenet预训16384)。词表49536=32152文字+1000位置+16384视觉。每实例随机分割颜色，文字给颜色类别映射；避免固定类表。71/241/776/2925M不含VQGAN。",
-    "conclusion": "GRIT XL test平均64.3，keypoint67.7表中，说明段另引用68.1(ablation列)，需按split。深度RMSE.385、ImageNet79.1/Places53.2；非全任务SOTA。提示改写Refexp78.9→“Where is”41.5，加引号附近无空格变.1，存在格式脆弱。",
-    "gap": "VQGAN预训分布限制密集图还原上界；遮挡密集目标召回不足，关键点先检测再预测有误差传播。提示格式敏感、任务采样不均深度仅.43%。XL消融因算力未做，不能直接推广Large解释；未独立复现或排除web新概念。",
-    "problem": "用一个encoder–decoder同时解决密集视觉输出、稀疏坐标和文字任务，不做任务特定微调。",
+    "method": "深度/法线/实例分割先转RGB，再用冻结ImageNet VQGAN编码；框/关节用1000坐标token，文字SentencePiece。T5式encoder–decoder接patch输入及统一词表输出，以文本/图像去噪预训后联合95任务数据。随机实例颜色并用文字指定颜色–类映射，支持开放类别而非固定颜色标签表。 T5 encoder–decoder，1D/2D relative与absolute position；词表49536=32152文字+1000坐标+16384图像。输入文本≤256/输出≤128，576图像patch/输出16×16码。Small71M(8/8,512)、Base241M(12/12,768)、Large776M(24/24,1024)、XL2925M(24/24,2048)，参数不含VQGAN。代码config.vocab_size33152另加image_vocab_size16384，与总49536一致。v2F2写argmax||z−zi||而固定源码VectorQuantizer是平方欧氏argmin，按最近邻解释并记录图示符号疑误。",
+    "conclusion": "T3 XL GRIT ablation64.5/test64.3，test分类60.8/定位67.1/VQA74.5/Ref78.9/分割56.5/关键点67.7/法线44.3；关键点低于MaskRCNN70.6，法线低于NLL50.5。T6NYU RMSE.385优于UViM.467但弱于BinsFormer.330；ImageNet79.1/Places53.2、COCOtest CIDEr122.3均非普遍SOTA。T4new概念定位74.4/分割64.2，限primary定义。T7训练prompt78.9，Where is带空格41.5、合并引号/标点.1；格式脆弱。",
+    "gap": "§4.6密集场景检测召回低、ImageNet VQGAN限制生成/密集还原、prompt不稳；关节先检测再预测有误差传播。实际codec法线重建59.8是作者该数据上的经验参考，不是所有任务数学上界。任务均为见过的训练定义，new仅primary概念之外；不能称完全新任务通用。A1.3分割需要颜色聚类/删<8像素连通域，细笔场景可能丢细节，需单独评估而非直接断言字形错误。发布repo为推理代码/权重入口，不含原95数据混合训练配方；未运行评测。",
+    "problem": "一个encoder–decoder联合处理文字、RGB/密集像素图和稀疏坐标等输入输出，覆盖22类任务/95数据集，不做各benchmark单独微调。图像输出包括合成/补绘，关键点输出是空间坐标，不含笔画时间、视频或机器人动作约束。",
     "claim": "研究目标：用一个encoder–decoder同时解决密集视觉输出、稀疏坐标和文字任务，不做任务特定微调。",
-    "version": "Unified-IO，2022",
+    "version": "Unified-IO: A Unified Model for Vision, Language, and Multi-Modal Tasks；ICLR2023正式书目/官方PDF摘要入口核对；实际核心阅读固定arXiv2206.08916v2（2022-10-04，33页），正式PDF本地受403未逐页审，不混写版本。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L074",
     "canonical_key": "paper:arxiv:2206.08916",
     "evidence_history": [
@@ -13180,17 +13195,22 @@
         "conclusion": "将经典视觉任务与语言任务置于同一模型；是 Unified-IO 2 的前序",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 93,
+        "scope": "固定arXiv2206.08916v2 33p Abstract/§1–6完整核心、T1–7，A1.1文字合成/补绘、A1.3密集后处理、A1.6 VQA及A2/A3指定说明；未遍读全部附录任务/数据图/参考文献。实际p5F2/p7T3/p9T5–6/p10T7。ICLR2023官方PDF摘要入口确认会议但本地403，未将其当已读正式全文。固定GH ee0bd9d 13blob完整树、README/config全文、runner指定主入口/任务API、network config/词表与VAE、t5x_layers量化函数；未全审network/decoding/训练，不下载权重或执行。"
       }
     ],
-    "sections_read": "§3.1–3.4全部、§4 GRIT解释、Table5全表/预算、§4.4–4.6及Table7；未逐行所有任务数据/主表、未视觉验收与复现",
+    "sections_read": "固定arXiv2206.08916v2 33p Abstract/§1–6完整核心、T1–7，A1.1文字合成/补绘、A1.3密集后处理、A1.6 VQA及A2/A3指定说明；未遍读全部附录任务/数据图/参考文献。实际p5F2/p7T3/p9T5–6/p10T7。ICLR2023官方PDF摘要入口确认会议但本地403，未将其当已读正式全文。固定GH ee0bd9d 13blob完整树、README/config全文、runner指定主入口/任务API、network config/词表与VAE、t5x_layers量化函数；未全审network/decoding/训练，不下载权重或执行。",
     "review_path": "docs/reviews/L074.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "95数据集/62来源；C4/Wikipedia、ImageNet21K/YFCC15M等。预训文本15%span mask、图像75%mask；8组联合任务，图像合成3/16/密集1/16，余每组1/8，组内按sqrt规模采样。",
-    "framework": "把深度/法线/分割映射RGB再VQGAN离散化，加坐标token与文字指令；大规模联合多任务训练。",
-    "architecture": "T5式encoder–decoder，patch线性输入384²→576patch；输出256²→256 VQGAN码(Imagenet预训16384)。词表49536=32152文字+1000位置+16384视觉。每实例随机分割颜色，文字给颜色类别映射；避免固定类表。71/241/776/2925M不含VQGAN。",
-    "metrics": "GRIT七任务与same/new概念；深度RMSE、分类acc、VQA/caption、NLP；新概念相对primary数据集定义，未保证从所有web语料未见。",
-    "baselines": "GRIT MaskRCNN/OFA/GPV2/NLL-AngMF及各任务专家；部分专家task-finetune，UnifiedIO单一联合版本。",
-    "experimental_conditions": "Adafactor前10k lr1e-2随后1/sqrt(k)、β1.9 β2=1-k^-.8、clip1、无dropout；500K预训+500K多任务，b2048或XL1024，4路模型×128路数据并行。预训采128/多任务256图像patch。消融Large基线250K，移除任务缩短到200K/220K/235K以匹配其余任务样本曝光，非等总FLOPs。"
+    "dataset": "95任务数据集/62公开源，合计约130M任务实例，8组22任务；文本C4/Wikipedia，预训图像/标签ImageNet21K及caption/YFCC15M等。T1合成约56M/43%数据但采样18.7%，密集约2.4M/1.8%数据但采样6.2%。预训text15%span/image75%mask，各半；多任务合成3/16、dense1/16、其余1/8，组内sqrt(size)，depth实际约.43%。来源数量/规模不等真实去重或实际消费数。",
+    "framework": "深度/法线/实例分割先转RGB，再用冻结ImageNet VQGAN编码；框/关节用1000坐标token，文字SentencePiece。T5式encoder–decoder接patch输入及统一词表输出，以文本/图像去噪预训后联合95任务数据。随机实例颜色并用文字指定颜色–类映射，支持开放类别而非固定颜色标签表。",
+    "architecture": "T5 encoder–decoder，1D/2D relative与absolute position；词表49536=32152文字+1000坐标+16384图像。输入文本≤256/输出≤128，576图像patch/输出16×16码。Small71M(8/8,512)、Base241M(12/12,768)、Large776M(24/24,1024)、XL2925M(24/24,2048)，参数不含VQGAN。代码config.vocab_size33152另加image_vocab_size16384，与总49536一致。v2F2写argmax||z−zi||而固定源码VectorQuantizer是平方欧氏argmin，按最近邻解释并记录图示符号疑误。",
+    "metrics": "GRIT七任务含Categorization/Localization/VQA/Refexp/Segmentation/Keypoint/Normal以及跨任务平均，same/new按primary数据集概念定义。额外16benchmark用RMSE/acc/IoU/CIDEr/F1等，不能当同量纲平均或严格跨所有web未见概念。GRIT未支持任务栏为空却全任务平均计入榜单，整体64.3 vsGPV2 32不代表共享四任务分数翻倍。无书写/视频指标。",
+    "baselines": "GRIT GPV1/2、OFA、CLIP、MaskRCNN、NLL-AngMF；额外任务与Flamingo/UViM及专门微调SOTA比较。其多任务支持范围、参数/预训数据、任务微调和输入条件不同，不能称严格等数据/算力。共享词表/codec和任务后处理需要分别核查。",
+    "experimental_conditions": "500K预训+500K多任务；Adafactor前10K lr1e-2再1/sqrt(k)，β1.9/β2=1−k^−.8、clip1、无dropout。Small/Base/Large batch2048，XL1024；4路in-layer×128数据并行，TPU致谢但具体型号/总小时未报告。预训随机128/多任务256个图像patch，最大完整576。任务消融Large250K，移除合成降至200K、dense235K、多数220K以保持其余任务曝光；不同于等步数/等FLOPs，更不是XL消融。未报告多seed误差。"
   },
   {
     "title": "Versatile Diffusion: Text, Images and Variations All in One Diffusion Model",

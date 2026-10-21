@@ -391,3 +391,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第九十二批（2026-10-21）：等底座预算/候选、D/显式OCR、style量/字体混合及heldout组合和过程评价，未运行。见[审查](../evidence/dsfusion_adversarial_typography_and_express_audit_2026-10-21.md)、[G041](../reviews/G041.md)。
+
+
+第九十三批（2026-10-21）：接口/显式问答对照，等FLOPs/曝光两组，codec/后处理与同终态异事件；未运行。见[审查](../evidence/metaqueries_unifiedio_transfer_and_freezing_audit_2026-10-21.md)、[L062](../reviews/L062.md)、[L074](../reviews/L074.md)。

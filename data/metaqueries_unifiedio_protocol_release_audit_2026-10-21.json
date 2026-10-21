@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L062",
+    "L074"
+  ],
+  "sources": {
+    "L062": [
+      "https://arxiv.org/abs/2504.06256v1",
+      "https://arxiv.org/html/2504.06256v1",
+      "https://xichenpan.com/metaquery/",
+      "https://github.com/facebookresearch/metaquery/tree/a44e6e20edf25469a8160a244411950f5e4dcd25",
+      "https://huggingface.co/datasets/xcpan/MetaQuery_Instruct_2.4M/tree/7b1c054ff00d25756edabec87d426c56940f938d",
+      "https://github.com/huggingface/transformers/blob/v4.49.0/src/transformers/trainer.py"
+    ],
+    "L074": [
+      "https://arxiv.org/abs/2206.08916v2",
+      "https://arxiv.org/pdf/2206.08916v2",
+      "https://openreview.net/pdf?id=E01k9048soZ",
+      "https://github.com/allenai/unified-io-inference/tree/ee0bd9d848aafc855c0f3dbe24ac8714baa87496"
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "L062",
+      "github_revision": "a44e6e20edf25469a8160a244411950f5e4dcd25",
+      "hf_dataset_revision": "7b1c054ff00d25756edabec87d426c56940f938d",
+      "scope": "fixed v1 HTML core and selected appendices, original F1 and original HTML tables visually inspected; PDF incomplete excluded",
+      "findings": [
+        "Paper25M8epochs/lr1e-4,warm4k vs XL publicCC12M10epochs/lr5e-5,warm5k; README explicitly says example data cannot guarantee paper performance",
+        "COCOFID usesSD1.5; other generation scores useSana; prompt rewriting and negative prompts separate",
+        "Frozen backbones still propagate query gradients; connector24layers316M inBase design, not negligible overhead",
+        "Old embedding gradient hook zeros rows; expanded embedding parameter unfrozen, defaultAdamWwd0.1, fixedTransformers4.49.0 excludes bias/norm but not embeddings from decay; zero gradient alone does not guarantee identity under default update. Original checkpoint optimizer overrides and actual drift unmeasured",
+        "curate_dataset caption graph threshold50 on scaled/bias logits, not automatically cosine.5; image target is argmin(row-min) not mean; default instruction generator Qwen2VL7B vs main prose Qwen2.5VL3B",
+        "T10Mix worsensFID7.43->8.27/GenEval.56->.54 whileDPG75.35->76.53 and2.61xrelativewalltime; not no-loss universal synergy",
+        "HF original/512res datasets linked, no Arrow/media inspected"
+      ]
+    },
+    {
+      "id": "L074",
+      "github_revision": "ee0bd9d848aafc855c0f3dbe24ac8714baa87496",
+      "tree_blobs": 13,
+      "scope": "33p arXivv2 core and selectedAppendix, actualF2/T3/T5-7; ICLR2023 bibliography separate from unavailable local formalPDF",
+      "findings": [
+        "Continuous image input patches vs discrete VQ output;33152text+coordinate plus16384image matches49536total",
+        "v2F2 prints argmax distance; actual VectorQuantizer uses argmin squared Euclidean, record diagram typo without attributing argmax to implementation",
+        "GRIT total includes coverage of all7tasks vs partial baseline coverage; does not imply supported-task scores double",
+        "Task removal keeps remaining exposure approximately equal and reduces steps200/220/235k vs250k; not equal totalFLOPs and not XL study",
+        "Removing synthesis keypoint69.2->18.3; removingNLP category50.3->56.1,captionVQA65.7->68.0: positive transfer and interference both present",
+        "Public ModelRunner defaultmaxinput64 truncates vs papermax256, textdefaultbeam/image sampling; image outputs256codes; no complete95dataset training code inferred",
+        "Paper dense segmentation uses color clustering/deletecomponents<8pixels; code depth API returns grayscale/rescaled image without metric-depth units; checkpoints only linked not downloaded"
+      ]
+    }
+  ],
+  "executed": false,
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false
+}
