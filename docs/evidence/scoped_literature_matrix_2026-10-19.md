@@ -341,3 +341,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第八十五批（2026-10-21）：图文五种分布、CFG调用和同预算因果边界，非书写视频。见[审查](unidiffuser_distribution_cfg_and_codec_audit_2026-10-21.md)和[单篇L076](../reviews/L076.md)。
+
+
+第八十六批（2026-10-21）：轨迹中心/实体身份/事件接触和留墨分别定义，OpenSora/Cog及主表/消融协议分开。见[审查](tora_motion_binding_and_process_boundary_audit_2026-10-21.md)、[L034](../reviews/L034.md)/[L035](../reviews/L035.md)。

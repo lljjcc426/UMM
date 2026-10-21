@@ -370,3 +370,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第八十五批（2026-10-21）：等预算共享/专家、噪声端点和联合一致性、非汉字与事件检验；未运行。见[审查](../evidence/unidiffuser_distribution_cfg_and_codec_audit_2026-10-21.md)和[单篇L076](../reviews/L076.md)。
+
+
+第八十六批（2026-10-21）：等预算编码/融合/课程、绑定负对照和同终态异过程/接触留墨检验，未运行。见[审查](../evidence/tora_motion_binding_and_process_boundary_audit_2026-10-21.md)、[L034](../reviews/L034.md)/[L035](../reviews/L035.md)。

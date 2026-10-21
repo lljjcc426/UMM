@@ -371,3 +371,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第八十五批（2026-10-21）：固定v0/v1权重元数据、内部数据续训标记、默认引导/计时范围和训练脚本未定位。见[审查](../evidence/unidiffuser_distribution_cfg_and_codec_audit_2026-10-21.md)和[单篇L076](../reviews/L076.md)。
+
+
+第八十六批（2026-10-21）：Tora固定发布/训练样例、低显存配置成本、两模型元数据/许可；Tora2专门制品未定位，Wan玩偶LoRA候选待审查。见[审查](../evidence/tora_motion_binding_and_process_boundary_audit_2026-10-21.md)、[L034](../reviews/L034.md)/[L035](../reviews/L035.md)。

@@ -82,8 +82,8 @@
 | L031 | [Do Unified Multimodal Models Think in One Space?，2026](L031.md) | §3–6完整流程/主表/逆向/PSP讨论，AppB.1人评表3、B.3逆向、C.6–7层/强度/位置消融及F限制；未逐图核及读取全部原始配置 |
 | L032 | [UReason，2026](L032.md) | §1–5核心方法、Table2/3、AppC/E、I及K/L；主表BAGEL和全部趋势、指定人评协议；未完整所有子类/主表其余逐行/attention图/源码 |
 | L033 | [Recursive Self-Improvement in Unified Multimodal Models，2026](L033.md) | §1–4完整主要机制/结果/失败、Tables1–3、AppA–D(含盲审)、Table5/6说明；决策Table4逐项/全量F分布表/可执行验证源码未全核 |
-| L034 | [Tora，CVPR 2025](L034.md) | §3–5、Tables1–4，App§7–9相关数据/人评及§11/Table8；框架文字流程已读，未视觉逐图/代码/全部引用数据核查 |
-| L035 | [Tora2，2025](L035.md) | §3全部公式/数据、§4与Tables1–5及结论；未逐图或源码复现，发表元数据另核 |
+| L034 | [Tora，CVPR 2025](L034.md) | 正式CVPR11页Abstract/§1–5全部研究核心、Eq1–8/T1–4/F1–7图注，参考仅选定数据引用；官方supp7页§1–6研究核心/T1–4与prompt说明，未逐幅视频/图库。实际主p4F3框架/p7完整T1–3及F5。固定GH9a23dceb完整树、README全文/diffusersREADME、SAT model/train_dense/train_sparse/inference配置、train_video的flow构建、sample_video帧数/条件、diffusers轨迹坐标/插值/覆盖与MGF/transformer注入路径，未全读底层/执行。HF两发布元数据与树，无权重下载；原OpenSora完整实现和原评测未复现。 实际主p8T4/F7训练量图另核看，横轴值仅作图示约数。 |
+| L035 | [Tora2，2025](L035.md) | arXiv2507.05963v2固定10页Abstract/§1–5研究核心、Eq1–8/T1–5/F1–5图注；实际p4完整F2/p6T1–2/p8F4–5/T4。参考文献按特定基线/encoder来源选查，未逐篇或观看全部演示；无单独Limitations/附录正文。Crossref正式MM25题录与页码已核，正式出版全文尚未取得核对。共享固定Tora仓库树/README和Tora发布制品已审查，未定位Tora2专门训练/权重；未执行模型。 |
 | L036 | [MotiMotion，ICML 2026](L036.md) | §1/3–5全部流程、Tables1–5，AppA.1–A.2/B.3/C；未完整逐图/其他附录例/源码，未独立核ICML论文集 |
 | L037 | [Fluid-Gen-Zero，2026](L037.md) | §3全部方程、§4/Tables1–2/§5；App§4–5、§6.1–6.3/Tables6–8、§7人评；复杂度各子公式/全部图/代码未读 |
 | L038 | [RefTok，2025](L038.md) | §3全部流程、§4–5/Tables1–3；已读框架文字与限制，HTML未见所称超参附录，未逐图/代码 |

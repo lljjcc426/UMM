@@ -139,8 +139,8 @@
 | L031 | Do Unified Multimodal Models Think in One Space?，2026 | primary_sections_read | [结构化分析](../reviews/L031.md) | 未完成 |
 | L032 | UReason，2026 | primary_sections_read | [结构化分析](../reviews/L032.md) | 未完成 |
 | L033 | Recursive Self-Improvement in Unified Multimodal Models，2026 | primary_sections_read | [结构化分析](../reviews/L033.md) | 未完成 |
-| L034 | Tora，CVPR 2025 | primary_sections_read | [结构化分析](../reviews/L034.md) | 未完成 |
-| L035 | Tora2，2025 | primary_sections_read | [结构化分析](../reviews/L035.md) | 未完成 |
+| L034 | Tora，CVPR 2025 | primary_sections_read | [结构化分析](../reviews/L034.md) | 核心三遍与五项检查完成 |
+| L035 | Tora2，2025 | primary_sections_read | [结构化分析](../reviews/L035.md) | 核心三遍与五项检查完成 |
 | L036 | MotiMotion，ICML 2026 | primary_sections_read | [结构化分析](../reviews/L036.md) | 未完成 |
 | L037 | Fluid-Gen-Zero，2026 | primary_sections_read | [结构化分析](../reviews/L037.md) | 未完成 |
 | L038 | RefTok，2025 | primary_sections_read | [结构化分析](../reviews/L038.md) | 未完成 |

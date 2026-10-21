@@ -177,3 +177,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第八十五批（2026-10-21）：条件噪声均值总体最优、有限端点近似与随机边缘分支。见[审查](unidiffuser_distribution_cfg_and_codec_audit_2026-10-21.md)和[单篇L076](../reviews/L076.md)。
+
+
+第八十六批（2026-10-21）：时空压缩、残差identity调制、三方绑定与两向跨模态InfoNCE。见[审查](tora_motion_binding_and_process_boundary_audit_2026-10-21.md)、[L034](../reviews/L034.md)/[L035](../reviews/L035.md)。

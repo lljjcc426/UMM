@@ -1,0 +1,34 @@
+{
+  "ids": [
+    "L034",
+    "L035"
+  ],
+  "date": "2026-10-21",
+  "github_revision": "9a23dceb905d8b224983f7a94f42a6db79c9c63b",
+  "hf_revisions": {
+    "Tora": "e6df4064927f07a802d2d670767bb80665be0725",
+    "Tora_T2V_diffusers": "055ee0f4fcfbabcedd33065a15405a60865da5fb"
+  },
+  "findings": [
+    "Public implementation is CogVideoX5B based, not original OpenSora main table; README historical non-full-release statement and later completed TODO cannot settle exact release completeness",
+    "Public SAT config42layers/3072hidden/48heads/latent16; dense and sparse15K each, lr1e-4/5e-5,49frames480x720. Not original main table30stepsCFG7/multibucket",
+    "SAT sampling_num_frames13 is latent length; code computes49RGB frames. Diffusers CLI defaults49frames/50steps/CFG6/720x480/8fps, Python function default81 overridden by CLI",
+    "Trajectory coordinates256canvas, integer interpolation/rescaling,99x99 Gaussian sigma10; overlapping trajectories at same pixel overwrite vector, no explicit entity/pen state. No measured failure-rate claim",
+    "MGF zero-initialized temporal gamma/beta and residual h+GroupNorm(h)*gamma+beta implement identity initialization; no Tora2 Eq2 implementation inferred",
+    "HF metadata license other, source LICENSEApache2 plus explicit CogVideoX model licence requirement in README, no universal licence inference",
+    "Published SAT trainable_modules fuser/traj_extractor; Tora2 F2 symbols versus section4.1 training description unresolved, dedicated DPE/gated/CL/weights not located in fixed tree",
+    "README links Tora3 arxiv2604.09057/MM26 and Wan toy LoRA; candidate followups, not counted as read in this batch"
+  ],
+  "source_urls": [
+    "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_Tora_Trajectory-oriented_Diffusion_Transformer_for_Video_Generation_CVPR_2025_paper.html",
+    "https://openaccess.thecvf.com/content/CVPR2025/papers/Zhang_Tora_Trajectory-oriented_Diffusion_Transformer_for_Video_Generation_CVPR_2025_paper.pdf",
+    "https://openaccess.thecvf.com/content/CVPR2025/supplemental/Zhang_Tora_Trajectory-oriented_Diffusion_CVPR_2025_supplemental.pdf",
+    "https://github.com/alibaba/Tora/tree/9a23dceb905d8b224983f7a94f42a6db79c9c63b",
+    "https://arxiv.org/abs/2507.05963v2",
+    "https://arxiv.org/pdf/2507.05963v2",
+    "https://doi.org/10.1145/3746027.3754869",
+    "https://api.crossref.org/works/10.1145/3746027.3754869"
+  ],
+  "model_executed": false,
+  "weights_downloaded": false
+}

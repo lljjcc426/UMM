@@ -6065,6 +6065,74 @@
         }
       ],
       "boundary": "正式PMLR26页Abstract/§1–7研究核心、Eq1–5与CFG、T1/F1–8图注；AppB/C/D/E/F/H完整研究说明与Alg1–5/T2–4，AppI许可声明；AppA/G部分图注/示例非逐幅图库，参考文献未逐篇。实际p4F2、p8完整T1/F6、p20算法/CFG表/配置、p26T4核看。固定GH845e14f7完整树/README全文、v0/v1配置、samplev0各任务网络/CFG/solver/计时、UViT块构造与v1data_type、caption_decoder前缀/labels/beam推理；HF v0/v1元数据与文件树，未下载权重/执行模型/核查完整训练loss或逐行全部底层。"
+    },
+    {
+      "id": "L034",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "给定文本、可选图像和对象轨迹，如何在DiT时空压缩表示下控制不同长度/分辨率视频中的运动；任务不包含笔尖接触、墨迹累积或规范书写事件。 逐帧稀疏位移与压缩多个帧的token难直接对齐；UNet方法顺序延长会累积偏差。底座容量、预训数据、轨迹编码和融合共同影响结果；不能仅由跨底座主表推出DiT结构天然符合物理。",
+          "evidence": "明确版本研究核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "每帧坐标→首帧零位移图/后帧稀疏flow→高斯平滑/流颜色图→motionVAE和多层卷积→MGF→视频DiT→RGB；文本T5 crossattn，给定图像用随机无噪帧mask训练。主OpenSora版交替空间/时间块，注入时间块；公开Cog版全3Dattention前注入。已核正式p4F3、p7T1–3/F5，正式表号与旧arXiv附录表号分开。 OpenSora1.2 STDiT，视频潜码空8/时4/4通道；独立motionVAE基于MAGVITv2式无codebook结构，空间SDXL VAE初始化，384M/200K步后冻结，卷积残差→MGF。相同网格/通道不保证运动和RGB潜变量具有完全相同语义坐标。Cog迁移保留该底座VAE并在expert fullattention前注MGF，ToraCog2B约2.5B/5B约6.3B。公开42层/hidden3072/48头/latent16配置对应Cog5B，不能套主OpenSora4通道配置。",
+          "evidence": "明确版本研究核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "轨迹位移可视化RGB并经3D motionVAE压成时空patch，残差卷积生成逐块条件；MGF用零初始化scale/shift的残差调制，dense光流预训再sparse轨迹适配。正式版另在CogVideoX2B/5B展示规模/数据量趋势；不是已验证普适scaling law。 当对象轨迹可由稳定相机下可见mask中心描述，且时空压缩与条件网格相容时，专门运动codec与逐层调制可降低长片控制偏差。高频折返、短促接触、对象交叉及逐笔新增墨迹超出其主要分布，像素中心误差优势不直接推出规范书写优势。",
+          "evidence": "明确版本研究核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "正式T1 128帧Tora FVD494/CLIPSIM.2418/TrajError11.72，MotionCtrl731/.2331/38.39，同底座DragNUWA565/.2393/21.75；16帧OpenSora FVD430/CLIP.2452优于Tora438/.2447。F7 约200/500/630K训练量下Cog5B误差15.37/11.47/10.52，2B23.82/15.65/13.28，是离散网格趋势，未固定总FLOPs。suppT1对Kling物理45/观感43/遵指41%均低于50；对Vidu54/48/47%有取舍。 主T2中帧采样/平均池/3DVAE TrajError27.61/20.97/14.25、FVD581/558/513；T3通道/cross/adapt误差21.07/18.36/14.25、FVD542/526/513。主T4dense/sparse/hybrid误差39.34/24.73/14.25、FVD601/556/513，时间块注入23.39→14.25。suppT4运动VAE相对视频VAE PSNR27.34→28.76/SSIM.842→.860/下游误差17.09→14.25。支持指定配置选择；hybrid训练时长与extraVAE预算未完整控制，不能排除计算量贡献。 OpenSora1.2初始化，8A100/Adam2e-5，144–720p/51–204帧，多bucket b1–50，dense2epochs+sparse1epoch，最多16条轨迹；30步CFG7，测试GPT4o扩写英语prompt。motionVAE200K/b1/随机≤34帧；缺多seed区间和完整轨迹提取失败协议。公开Cog训练样例49帧480×720/8fps，各15K步，dense lr1e-4/sparse5e-5，bf16/ZeRO2/microbatch1，不等同正式主表配方。公开50步DynamicCFG6；SAT latentT13→(13−1)*4+1=49RGB帧，非13RGB。",
+          "evidence": "明确版本研究核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "无严格接触/动力学/物理守恒指标或机制保证，偏好与FVD不足以证明真实物理。相机过滤偏稳定背景、185样本FVD/轨迹误差无完整不确定性，主表缺原生成轨迹提取/失败计数。公开README仍保留旧不开放完整版声明，TODO后又勾选complete；固定树为Cog版本，未定位原OpenSora主表完整代码/数据，不能据TODO判原表可复现。轨迹256画布整数化/重采样/高斯扩散改变微细位移，多轨迹同像素赋值会覆盖，未带实体ID或落笔状态；这能提示碰撞信息损失，未证明发生率/模型错误。 固定底座/数据/总FLOPs做压缩×融合×dense/sparse配方因子对照，匹配VAE额外训练与总曝光；统一prompt扩写和输入条件，同分辨率/帧率给归一化轨迹误差、检测失败分母/盲评/CI。加入相机平移、遮挡、交叉/同位置反向轨迹、稀密点和高频折返，测重建前后事件/方向保留；与直接坐标token/多通道实体flow/接触mask比较。纸面方案未运行，需追引Tora2/Tora3及WanMove等再判新颖性。",
+          "evidence": "明确版本研究核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        }
+      ],
+      "boundary": "正式CVPR11页Abstract/§1–5全部研究核心、Eq1–8/T1–4/F1–7图注，参考仅选定数据引用；官方supp7页§1–6研究核心/T1–4与prompt说明，未逐幅视频/图库。实际主p4F3框架/p7完整T1–3及F5。固定GH9a23dceb完整树、README全文/diffusersREADME、SAT model/train_dense/train_sparse/inference配置、train_video的flow构建、sample_video帧数/条件、diffusers轨迹坐标/插值/覆盖与MGF/transformer注入路径，未全读底层/执行。HF两发布元数据与树，无权重下载；原OpenSora完整实现和原评测未复现。 实际主p8T4/F7训练量图另核看，横轴值仅作图示约数。"
+    },
+    {
+      "id": "L035",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "给多实体参考图、词和轨迹，同时保留各实体外观身份并沿正确轨迹生成视频；需避免把人的路径用于猫或背景。未定义新增笔画事件、落笔/抬笔或留痕。 先定制首图再I2V缺持续身份条件，单点运动不带实体身份；DINO语义特征对精细外观可能不足，多个条件易错配。身份先验与训练数据/容量贡献需控制，图像encoder不严格等同低/高频分解。",
+          "evidence": "明确版本研究核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "多参考图→冻结DINO/Face或Object encoder→两个appearance adapter/QFormer；轨迹→TE；文字→textencoder并提entitywords；每实体三方tokens→门控selfattn分别残差给p/m→DiT插入motion与appearance条件→RGB视频。实际v2p4F2、p6T1/T2、p8F4/F5/T4已核看。框架图TE/MGF雪花与§4.1称两者联合优化不一致，不能仅按图标定实际冻结。 ToraCogVideoX5B初始化、原Cog参数冻结，新增TE/MGF/QFormer/adapter/gatedselfattn按文字说联合训。DINO语义+人脸和通用ReID类特定prior，QFormer学查询；Gp/Gm分别调p/m残差，未给完整尺寸/门控实现。Eq6为p_i·m_j和m_j·p_i两向softmax，不含显式p_i·p_j/m_i·m_j负对项；其三性质是作者解释，非三个独立loss。pool/归一化、负样本池和温度值未充分报告。",
+          "evidence": "明确版本研究核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "DPE将DINOv2与人脸/通用ReID先验经adapter/QFormer组合；每实体外观/词/轨迹concat后门控selfattn得到外观/运动条件。两向跨模态InfoNCE拉近匹配实体运动，主去噪loss加lambda.2。motion adaptive调制→图文3Dfullattention→外观crossattention，按绑定/对比/注入顺序做消融。 实体可被先验encoder识别、图文实体名可稳定定位、mask轨迹较可靠时，按实体三方绑定可减少错配，持续外观条件可改善首图管线后续漂移。对相似笔画、低可见新笔、密集交叉或身份encoder域外，优势需单独测；身份保持未解决留墨累计和事件顺序。",
+          "evidence": "明确版本研究核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1非人TextS.273/VidS.741/SubjS.615/Traj17.43，VideoAlchemist.268/.743/.626/无轨迹值；人TextS.274/VidS.702/FaceS.419/Traj13.52 vsVA.272/.694/.411。Tora+Flux非人轨迹19.72/人17.41，Tora2较低。Subj差−.011、Face差+.008为原cosine单位，乘100是−1.1/+0.8分，不是相对百分比；相对Subj约−1.76%/Face约+1.95%。无逐指标最优或严格物理证明。 T2去motion/绑定时DPE Text.266/Vid.733/Subj.621/Face.413最高；DINO+ReID反弱于DINO单独，先验融合未必自动有益。T3nobind/linear/gated误差29.95/20.74/17.31；门控Text.259低于linear.261。T4加CL使误差17.31→14.16，Subj.604→.613/Face.395→.404；T5 M→P误差14.16优于P→M19.23，但Face.404低于.409。支持配置内取舍，不证明注意力/对比具唯一必要性，缺等新增参数/计算控制及CI。 Cog5B固定，AdamW3e-6/b32/15K步、CL权重.2，caption/参考/轨迹drop .5/.33/.33；DPM-Solver50步/text guidance6。0.48M训练样本曝光不等于遍历1.1M唯一视频；实际采样/重复未给。GPU数/训练分辨率与帧数/完整温度/学习率调度/训练多seed区间未齐，不从Tora原主表补入。tuning-free指新主体推理时不另微调，仍有通用训练。",
+          "evidence": "明确版本研究核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "没有独立频谱分解实验证明DINO必低频、ReID必高频；多先验更大模型/额外监督和融合机制贡献不完全隔离。图F2 TE/MGF冻结图标与§4.1训练描述冲突；Eq2零初始化γβ且无显式identity项，与原Tora Eq7残差简写不同，Tora2实现未定位，实际初始化未据此判定。固定共享Tora树/README有Tora2链接，未找到DPE/门控/CL训练与对应权重，不能把Tora发布当Tora2完整可复现。无专门Limitations节，需明确本笔记问题非作者承认；检测失败/同类多实体/遮挡与文字过滤的外推未充分检验。 同底座/数据/总FLOPs/参数量比较持续单一视觉adapter、单/双prior、QFormer/MLP、门控/普通attention及两向对比；加入打乱实体/词/轨迹、同类相近身份和高重合路径负对照。按实体数/遮挡/交叉/相机运动分层，独立检测器/人工位置、失败计数、IDswitch与漏实体；同时报告外观/轨迹Pareto和多seed区间。书写另绑定笔事件ID、接触状态/累计mask，测顺序/方向/旧墨迹稳定与非汉字，未运行，追引后续才能判创新。",
+          "evidence": "明确版本研究核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        }
+      ],
+      "boundary": "arXiv2507.05963v2固定10页Abstract/§1–5研究核心、Eq1–8/T1–5/F1–5图注；实际p4完整F2/p6T1–2/p8F4–5/T4。参考文献按特定基线/encoder来源选查，未逐篇或观看全部演示；无单独Limitations/附录正文。Crossref正式MM25题录与页码已核，正式出版全文尚未取得核对。共享固定Tora仓库树/README和Tora发布制品已审查，未定位Tora2专门训练/权重；未执行模型。"
     }
   ]
 }

@@ -341,3 +341,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第八十五批（2026-10-21）补完UniDiffuser L076正式研究核心与固定制品审查。350目录、173核心/176项五条书面（含未通过项），177条未确认核心三遍（含资源）。CFG额外调用、文字codec与v1内部续训已明确。见[审查](unidiffuser_distribution_cfg_and_codec_audit_2026-10-21.md)和[逐文件说明](eighty_fifth_changes_2026-10-21.md)。无删除或模型复现。
+
+
+第八十六批（2026-10-21）补完Tora L034正式版和Tora2 L035固定v2研究核心/制品边界。350目录、175核心/178项五条书面（含未通过项），175条未确认核心三遍（含资源）。见[审查](tora_motion_binding_and_process_boundary_audit_2026-10-21.md)与[逐文件说明](eighty_sixth_changes_2026-10-21.md)。Tora3和Wan玩偶LoRA只进入追查，无删除/模型复现。
