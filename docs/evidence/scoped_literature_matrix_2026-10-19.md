@@ -347,3 +347,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第八十七批（2026-10-21）：首图轨迹→视听联合、外观变形资源、绘画事件与UMM协同分别界定。见[审查](tora3_kinematics_flow_and_nonpaper_adapter_audit_2026-10-21.md)、[G039](../reviews/G039.md)/[R12](../reviews/R12.md)。
+
+
+第八十八批（2026-10-21）：相机407/对象283组合、独立轨迹数量与UMM/书写任务边界。见[审查](motionctrl_camera_object_and_observability_audit_2026-10-21.md)、[L039](../reviews/L039.md)。

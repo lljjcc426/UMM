@@ -183,3 +183,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第八十七批（2026-10-21）：条件flow端点、区域loss混杂、二维差分噪声/真实时标及alpha/r缩放。见[审查](tora3_kinematics_flow_and_nonpaper_adapter_audit_2026-10-21.md)、[G039](../reviews/G039.md)/[R12](../reviews/R12.md)。
+
+
+第八十八批（2026-10-21）：时空注入、顺序适配、dense/sparse条件偏移、零位移信息不可辨。见[审查](motionctrl_camera_object_and_observability_audit_2026-10-21.md)、[L039](../reviews/L039.md)。

@@ -1,0 +1,27 @@
+{
+  "id": "L039",
+  "date": "2026-10-21",
+  "paper": "Author project PDF arXiv2312.03641v2 22pages; Crossref formal publication1-11; publisher full text not compared",
+  "github_revision": "6242d55414d3f4ad690bf0934889660f78e81b6e",
+  "hf_revision": "475b66ef80e0d77752cbade485bb56171340071a",
+  "source_urls": [
+    "https://wzhouxiff.github.io/projects/MotionCtrl/assets/paper/MotionCtrl.pdf",
+    "https://arxiv.org/abs/2312.03641v2",
+    "https://api.crossref.org/works/10.1145/3641519.3657518",
+    "https://github.com/TencentARC/MotionCtrl/tree/6242d55414d3f4ad690bf0934889660f78e81b6e",
+    "https://huggingface.co/TencentARC/MotionCtrl/tree/475b66ef80e0d77752cbade485bb56171340071a"
+  ],
+  "findings": [
+    "CMCM original temporal attn2 and added FC trainable, not only small FC",
+    "Fixed main configuration 2D AutoencoderKL C4/scale.18215 and per-frame 2D OMCM PixelUnshuffle8; not Tora motionVAE",
+    "run.sh sequential assignments end camera_motion; sample5/seed1234/50DDIM eta1/CFG7.5 differs unspecified main paper sampler",
+    "UI1024->256 integer points,16frames,99Gaussian sigma10, displacement stored at previous position for next frame; paper Eq3 wording current position. Training-array convention unverified",
+    "HF README SVD/LVDM checkpoint links inconsistent with filenames/main run; usage motionctrl.ckpt absent fixed file list, not weight compatibility validation",
+    "407camera combinations and283object combinations from74trajectories/77prompts; 34participant preference raw denominators missing",
+    "Main Table2 non-temporal variants substantially below base CamMC .9010, despite text close-to; full joint complex control low success acknowledged"
+  ],
+  "source_license": "Apache2",
+  "hf_license_metadata": "apache-2.0",
+  "weights_downloaded": false,
+  "model_executed": false
+}

@@ -257,3 +257,6 @@ python scripts/validate_catalog.py
 
 
 第八十七批（2026-10-21）新增Tora3 G039固定v3核心精读和Wan玩偶LoRA R12非论文资源协议审查。352目录、176核心/179项五条书面（含未通过项），176条未确认核心三遍（含资源）。见[审查](docs/evidence/tora3_kinematics_flow_and_nonpaper_adapter_audit_2026-10-21.md)与[逐文件说明](docs/evidence/eighty_seventh_changes_2026-10-21.md)。资源审查不计论文完成；无删除/模型复现。
+
+
+第八十八批（2026-10-21）补完MotionCtrl L039明确v2核心/补充与固定发布审查。352目录、177核心/180项五条书面（含未通过项），175条未确认核心三遍（含资源）。见[审查](docs/evidence/motionctrl_camera_object_and_observability_audit_2026-10-21.md)与[逐文件说明](docs/evidence/eighty_eighth_changes_2026-10-21.md)。保留联合复杂运动低成功率与HF链接/采样配置未决，无删除/模型复现。

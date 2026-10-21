@@ -87,7 +87,7 @@
 | L036 | [MotiMotion，ICML 2026](L036.md) | §1/3–5全部流程、Tables1–5，AppA.1–A.2/B.3/C；未完整逐图/其他附录例/源码，未独立核ICML论文集 |
 | L037 | [Fluid-Gen-Zero，2026](L037.md) | §3全部方程、§4/Tables1–2/§5；App§4–5、§6.1–6.3/Tables6–8、§7人评；复杂度各子公式/全部图/代码未读 |
 | L038 | [RefTok，2025](L038.md) | §3全部流程、§4–5/Tables1–3；已读框架文字与限制，HTML未见所称超参附录，未逐图/代码 |
-| L039 | [MotionCtrl，2023/2024](L039.md) | §3、§4.1–4.4/Tables1–3、§5–6；附录目录/部分定量未逐项深读，框架为文字核对，代码未跑 |
+| L039 | [MotionCtrl，2023/2024](L039.md) | 作者项目22页PDF（arXivv2/会议页眉）Abstract/§1–6/Eq1–3/T1–3及附A/B/C研究文字、T4–5、D/E文字与T6；其余画廊按正文/图注选读，未逐幅全部视频或逐篇参考文献。实际p4F2/p7完整T1–2/p14T4–5/F12已核。Crossref书目已核，非出版社全文对照。固定主GH树162项/README全文、motionctrl.py全文/modified关键forward、config_both/run.sh全文、inference条件加载与采样/轨迹UI/Adapter选定段；未全审基础UNet/sampler、训练分支或SVD。固定HF元数据/卡，权重未下载，未运行/复现。 |
 | L040 | [DragNUWA，2023](L040.md) | §3全部流程/公式、§4与Table1、Figures4–6文字说明及§5；未视觉核全部图，也未核后续官方SVD实现 |
 | L041 | [DragAnything，2024](L041.md) | §3–5、Tables1–3、Figure10文字限制；未逐图/源码/附录全条件复核 |
 | L042 | [TextVBench，2026](L042.md) | §4–7协议、匹配/分数/采样、Tables1–2、§8–9局限结论；§3挑战与代码/原始工件未逐项核 |

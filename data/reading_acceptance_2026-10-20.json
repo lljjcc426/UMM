@@ -6167,6 +6167,40 @@
         }
       ],
       "boundary": "固定v3 10页Abstract/§1–5全部研究核心与Eq1–19、T1–5、F1–5图注；实际p4框架F3、p6主表T1/p8消融T3–5与F5已看。无独立附录/Limitations；未逐篇参考文献或逐段观看全部AV展示。官方项目HTML/链接、共享Tora固定README与目录核查；网站导航landmark-tokenized-dit属其他项目，不当Tora3代码。Crossref404未核正式出版全文；未下载模型/数据/执行生成。"
+    },
+    {
+      "id": "L039",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "文本视频扩散中分别或联合控制全局相机运动与局部对象运动，并避免每条新轨迹重新微调。unified指一个运动控制器支持两类条件，未联合理解/生成任务；没有文字笔顺/留墨/机器人执行评测。 相机pose与对象轨迹具有不同范围/结构，共用motion vector会耦合背景和对象形状；理想caption+pose+object轨迹全标注数据难得。分别标注两套数据、匹配全局/局部注入并顺序训练有现实动机，但解耦是否严格成立仍需联合复杂场景量化。",
+          "evidence": "明确版本核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "prompt经CLIP，Gaussian视频latent经带空间/时间层的UNet；可给相机R3×3/t3×1、对象逐帧坐标（转局部位移，非完整物理状态）或二者→条件去噪/VAE解码RGB。实际p4F2核看输入、时间concat/FC/attn2及encoder加法；主版本VideoCrafter1被文中称LVDM，后续SVD/AnimateDiff发布分别记录。 主实现latentC4/空间倍率8/scaling.18215，UNet base320、mult1/2/4/4、context1024，16帧，时间双selfattn；OMCM逐帧2D卷积，PixelUnshuffle8把2通道变128，四级320/640/1280/1280各2resblocks。CMCM训练不仅新FC，还包含原attn2。论文preliminary以通用LVDM3D-AE介绍，固定主配置为AutoencoderKL，不能因此把发布VAE记成3D运动VAE。",
+          "evidence": "明确版本核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "CMCM把逐帧12维R/t复制到空间位置，拼在时间块第一selfattn输出后，经FC回C维再第二selfattn；OMCM卷积/下采样提取稀疏位移场多尺度特征，加到UNet encoder。先训练CMCM和时间attn2，再冻结并训练OMCM dense→sparse，减轻两套数据与用户稀疏条件错配。 相机全局变换/对象局部运动可由可靠pose与分离动态轨迹描述、底座已能表达场景时，不同注入位置及分阶段适配有望改善可组合控制；dense→sparse可减轻条件稀疏分布差。对复杂联合、镜头+遮挡/形变、静止锚点或微细笔画，优势仍需分层验证。模块化统一不推出UMM理解与生成协同。",
+          "evidence": "明确版本核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1基本CamMC .0289 vs AnimateDiff .0548；复杂.0735 vs VC.0950；ObjMC28.877 vs36.8351；FID124.09 vs130.97/FVD852.15 vs1004.99/CLIP.2319 vs.2214。附T4 RE/WebVid/HDVILA分层CamMC .0840/.0589/.0499，均低于VC.1073/.0702/.0953；附T5整体偏好.9261但缺CI/票数。T2原LVDM FID130.62优于CMCM132.36，CLIP.2359也高于.2355，不能说加入控制全指标提升。 T2时间块CamMC.0289低于timeemb.0887/spatialCA.0857/spatialSA.0902，而它们也明显低于原LVDM.9010；正文称这些结果close to original不能照搬成数值接近。T3 dense/sparse/hybrid Obj54.4114/34.6937/25.1198、FVD2227.87/2385.39/2001.57，hybrid的CLIP.2342低于sparse.2365；T1与T3 FVD/Obj不同，完整协议映射不足，不拼成同表结论。§4.3.3反序损伤对象控制只有定性/文字结论，无对应数值表或等总步数完整隔离。 主文8V100、Adam/batch128/lr1e−4、16×256²，CMCM约50K步；OMCM dense20K+sparse20K，最多8轨迹。未给全部baseline同预算/多seed/不确定性。固定公开run.sh seed1234/n_samples5/b1/256²/50DDIM/eta1/CFG7.5，主文未报告同套采样配置；run.sh依次both→object→camera赋值，最终camera有效，需要修改才同时控制。后续AnimateDiff训练分支与SVD均不等同主表完整复现。",
+          "evidence": "明确版本核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "作者§5明确复杂相机+复杂对象同时控制成功率较低且需精心设计轨迹。静止轨迹全零位移与空条件表示相同，不能单靠该表示固定静止对象位置（表示推论，未测失败率）；稀疏位移缺实体ID/接触/留墨状态。固定UI 1024→256整数重采样/99Gaussian sigma10；Eq3在当前位置存位移，UI在前一点p_i把p_i+1−p_i存到帧i+1，坐标约定需与训练文件核实，未直接判实现错误。HF卡SVD/LVDM区的权重链接和命名相互矛盾，usage要求motionctrl.ckpt却固定目录无此文件；未下载权重验证兼容性。 同底座/数据/步数/参数量交叉CMCM位置×OMCM/课程，dense20K+sparse20K与sparse40K/dense40K/混合40K比较，固定prior/采样与多seed；相机pose×对象轨迹全因子，独立标注/第二提取器、漏跟踪与SE3尺度对齐，同时报告失败分母。静止同位移不同起点、交叉/暂停/反向、图像坐标与世界坐标分开；显式接触/累计墨迹强基线与文字事件/CER，检查UI/训练坐标一致性。校准HF文件映射后才进行权重实验，方案未运行。",
+          "evidence": "明确版本核心、实际框架主表消融及指定附录与固定制品，非口试/独立复现"
+        }
+      ],
+      "boundary": "作者项目22页PDF（arXivv2/会议页眉）Abstract/§1–6/Eq1–3/T1–3及附A/B/C研究文字、T4–5、D/E文字与T6；其余画廊按正文/图注选读，未逐幅全部视频或逐篇参考文献。实际p4F2/p7完整T1–2/p14T4–5/F12已核。Crossref书目已核，非出版社全文对照。固定主GH树162项/README全文、motionctrl.py全文/modified关键forward、config_both/run.sh全文、inference条件加载与采样/轨迹UI/Adapter选定段；未全审基础UNet/sampler、训练分支或SVD。固定HF元数据/卡，权重未下载，未运行/复现。"
     }
   ]
 }

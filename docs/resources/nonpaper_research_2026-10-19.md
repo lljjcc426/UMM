@@ -377,3 +377,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第八十七批（2026-10-21）：R12 Wan玩偶LoRA完整代码/config/依赖/作者VRAM表，无训练公开定位或质量对照；与Tora3仅项目展示不同证据。见[审查](../evidence/tora3_kinematics_flow_and_nonpaper_adapter_audit_2026-10-21.md)、[G039](../reviews/G039.md)/[R12](../reviews/R12.md)。
+
+
+第八十八批（2026-10-21）：主配置/模型卡文件名冲突、run.sh最终camera、不同底座发布与原表分开。见[审查](../evidence/motionctrl_camera_object_and_observability_audit_2026-10-21.md)、[L039](../reviews/L039.md)。

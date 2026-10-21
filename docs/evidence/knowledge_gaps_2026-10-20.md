@@ -388,3 +388,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第八十七批（2026-10-21）：时间池化后tau、ETE提取/单位、伪标签偏差、固定依赖默认与未锁模型revision。见[审查](tora3_kinematics_flow_and_nonpaper_adapter_audit_2026-10-21.md)、[G039](../reviews/G039.md)/[R12](../reviews/R12.md)。
+
+
+第八十八批（2026-10-21）：SE3单位/gauge、GUI位移位置约定、投票分母及HF权重文件映射。见[审查](motionctrl_camera_object_and_observability_audit_2026-10-21.md)、[L039](../reviews/L039.md)。

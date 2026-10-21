@@ -10778,22 +10778,27 @@
   {
     "title": "MotionCtrl，2023/2024",
     "source_urls": [
-      "https://arxiv.org/abs/2312.03641"
+      "https://arxiv.org/abs/2312.03641",
+      "https://wzhouxiff.github.io/projects/MotionCtrl/assets/paper/MotionCtrl.pdf",
+      "https://arxiv.org/abs/2312.03641v2",
+      "https://api.crossref.org/works/10.1145/3641519.3657518",
+      "https://github.com/TencentARC/MotionCtrl/tree/6242d55414d3f4ad690bf0934889660f78e81b6e",
+      "https://huggingface.co/TencentARC/MotionCtrl/tree/475b66ef80e0d77752cbade485bb56171340071a"
     ],
-    "method": "CMCM把12维R/t接入时序attention；OMCM用稀疏位移轨迹的多尺度卷积接入UNet；分数据集分阶段训练。 LVDM/VideoCrafter1，CMCM在temporal两selfattn之间concat+FC，训练该FC及第二selfattn；OMCM类似T2IAdapter仅注UNetencoder，训练时底座/CMCM冻结。高斯稀疏flow首帧零。",
-    "conclusion": "Table1基本CamMC.0289vsAnimateDiff.0548，复杂.0735vsVideoComposer.0950；ObjMC28.877vs36.8351，FID124.09vs130.97，FVD852.15vs1004.99。",
-    "gap": "作者明确复杂镜头+复杂对象同时控制成功率较低、需仔细设计轨迹；数据域及两阶段参数漂移限制解耦。对象位置成功不等于笔尖轨迹、落笔、留痕正确。Table2 FID132.36高于LVDM130.62、FVD1005.24vs1007.63，差异未有CI，不能以“保持不变”作严格等价。",
-    "problem": "分开或组合控制视频中的镜头运动和物体运动。",
+    "method": "CMCM把逐帧12维R/t复制到空间位置，拼在时间块第一selfattn输出后，经FC回C维再第二selfattn；OMCM卷积/下采样提取稀疏位移场多尺度特征，加到UNet encoder。先训练CMCM和时间attn2，再冻结并训练OMCM dense→sparse，减轻两套数据与用户稀疏条件错配。 主实现latentC4/空间倍率8/scaling.18215，UNet base320、mult1/2/4/4、context1024，16帧，时间双selfattn；OMCM逐帧2D卷积，PixelUnshuffle8把2通道变128，四级320/640/1280/1280各2resblocks。CMCM训练不仅新FC，还包含原attn2。论文preliminary以通用LVDM3D-AE介绍，固定主配置为AutoencoderKL，不能因此把发布VAE记成3D运动VAE。",
+    "conclusion": "T1基本CamMC .0289 vs AnimateDiff .0548；复杂.0735 vs VC.0950；ObjMC28.877 vs36.8351；FID124.09 vs130.97/FVD852.15 vs1004.99/CLIP.2319 vs.2214。附T4 RE/WebVid/HDVILA分层CamMC .0840/.0589/.0499，均低于VC.1073/.0702/.0953；附T5整体偏好.9261但缺CI/票数。T2原LVDM FID130.62优于CMCM132.36，CLIP.2359也高于.2355，不能说加入控制全指标提升。",
+    "gap": "作者§5明确复杂相机+复杂对象同时控制成功率较低且需精心设计轨迹。静止轨迹全零位移与空条件表示相同，不能单靠该表示固定静止对象位置（表示推论，未测失败率）；稀疏位移缺实体ID/接触/留墨状态。固定UI 1024→256整数重采样/99Gaussian sigma10；Eq3在当前位置存位移，UI在前一点p_i把p_i+1−p_i存到帧i+1，坐标约定需与训练文件核实，未直接判实现错误。HF卡SVD/LVDM区的权重链接和命名相互矛盾，usage要求motionctrl.ckpt却固定目录无此文件；未下载权重验证兼容性。",
+    "problem": "文本视频扩散中分别或联合控制全局相机运动与局部对象运动，并避免每条新轨迹重新微调。unified指一个运动控制器支持两类条件，未联合理解/生成任务；没有文字笔顺/留墨/机器人执行评测。",
     "claim": "作者研究目标：分开或组合控制视频中的镜头运动和物体运动。",
-    "version": "版本见原始来源及历史记录",
+    "version": "MotionCtrl: A Unified and Flexible Motion Controller for Video Generation；ACM SIGGRAPH2024 Conference Papers，DOI10.1145/3641519.3657518，Crossref页码1–11。所读作者项目PDF为arXiv2312.03641v2（2024-07-16）22页，带正式会议页眉及补充图表；未将22页当出版页码或宣称已核出版社全文。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "previous_evidence": "既有调查 C",
     "id": "L039",
     "canonical_key": "paper:arxiv:2312.03641",
@@ -10827,17 +10832,22 @@
         "conclusion": "分离相机变化与纸面书写动作；广义运动方法",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 88,
+        "scope": "作者项目22页PDF（arXivv2/会议页眉）Abstract/§1–6/Eq1–3/T1–3及附A/B/C研究文字、T4–5、D/E文字与T6；其余画廊按正文/图注选读，未逐幅全部视频或逐篇参考文献。实际p4F2/p7完整T1–2/p14T4–5/F12已核。Crossref书目已核，非出版社全文对照。固定主GH树162项/README全文、motionctrl.py全文/modified关键forward、config_both/run.sh全文、inference条件加载与采样/轨迹UI/Adapter选定段；未全审基础UNet/sampler、训练分支或SVD。固定HF元数据/卡，权重未下载，未运行/复现。"
       }
     ],
-    "sections_read": "§3、§4.1–4.4/Tables1–3、§5–6；附录目录/部分定量未逐项深读，框架为文字核对，代码未跑",
+    "sections_read": "作者项目22页PDF（arXivv2/会议页眉）Abstract/§1–6/Eq1–3/T1–3及附A/B/C研究文字、T4–5、D/E文字与T6；其余画廊按正文/图注选读，未逐幅全部视频或逐篇参考文献。实际p4F2/p7完整T1–2/p14T4–5/F12已核。Crossref书目已核，非出版社全文对照。固定主GH树162项/README全文、motionctrl.py全文/modified关键forward、config_both/run.sh全文、inference条件加载与采样/轨迹UI/Adapter选定段；未全审基础UNet/sampler、训练分支或SVD。固定HF元数据/卡，权重未下载，未运行/复现。",
     "review_path": "docs/reviews/L039.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "CMCM RealEstate10K>60K视频BLIP2补caption；OMCM WebVid约243000片ParticleSfM提动态轨迹；对象测试283手绘轨迹prompt；相机基本8类及RealEstate/WebVid/HDVILA复杂轨迹；FID/FVD参照1000WebVid。",
-    "framework": "CMCM把12维R/t接入时序attention；OMCM用稀疏位移轨迹的多尺度卷积接入UNet；分数据集分阶段训练。",
-    "architecture": "LVDM/VideoCrafter1，CMCM在temporal两selfattn之间concat+FC，训练该FC及第二selfattn；OMCM类似T2IAdapter仅注UNetencoder，训练时底座/CMCM冻结。高斯稀疏flow首帧零。",
-    "metrics": "CamMC估计R/t到真值的欧氏距离，ObjMC预测与目标轨迹距离，均ParticleSfM提取；CLIPSIM/FID/FVD；外部估计失败分母待核实现。",
-    "baselines": "AnimateDiff固定相机LoRA和VideoComposer；DragNUWA当时代码未公开未直接比，不能引后续Tora表说本篇已比。CMCM位置及dense/sparse/课程消融。",
-    "experimental_conditions": "8V100/Adamb128/lr1e-4；CMCM50K步，OMCMdense20K+sparse20K；最多8轨迹，16帧256²。采样步/CFG/seed未从本段取得；AnimateDiff迁移另不同设置。"
+    "dataset": "相机用RealEstate10K>60K视频；BLIP2在首/1/4/中/3/4/末五帧分别caption再拼接。对象用WebVid约243K片，随机32帧/skip1–16，ParticleSfM动态轨迹；作者报告每32帧处理约2min但设备细节不足。相机评测407=80基本（8×10prompt）+200RE（20×10）+100WebVid+27HDVILA；对象283组合来自74轨迹/77prompt，并非283独立轨迹。完整释放/有效评测分母仍需核实。",
+    "framework": "CMCM把逐帧12维R/t复制到空间位置，拼在时间块第一selfattn输出后，经FC回C维再第二selfattn；OMCM卷积/下采样提取稀疏位移场多尺度特征，加到UNet encoder。先训练CMCM和时间attn2，再冻结并训练OMCM dense→sparse，减轻两套数据与用户稀疏条件错配。",
+    "architecture": "主实现latentC4/空间倍率8/scaling.18215，UNet base320、mult1/2/4/4、context1024，16帧，时间双selfattn；OMCM逐帧2D卷积，PixelUnshuffle8把2通道变128，四级320/640/1280/1280各2resblocks。CMCM训练不仅新FC，还包含原attn2。论文preliminary以通用LVDM3D-AE介绍，固定主配置为AutoencoderKL，不能因此把发布VAE记成3D运动VAE。",
+    "metrics": "CamMC/ObjMC↓为ParticleSfM从生成片估计pose/轨迹与条件的Euclidean距离；SE3旋转/平移尺度、单目gauge对齐、对象关联与提取失败处理未完整公开说明。FID/FVD参考1000WebVid，特征分布差不直接等同单视频时序正确；CLIPSIM为语义。34人偏好研究覆盖质量/文字/运动/整体，原始票数/片数/随机化/区间未给完整，.9261不能直接改写成34人中92.61%的人。",
+    "baselines": "AnimateDiff的8类相机motion-LoRA、VideoComposer motionvector；当时DragNUWA代码未公开所以原文未直接比较，这一历史理由不能当当前未发布事实。T2同LVDM注入位置/T3 dense/sparse课程；附E文字将MotionDirector/VideoComposer的来源分别描述为motionvectors/trajectories，T6则为templatevideos/motionvectors，存在不一致；需回原研究核对，不由二手比较重定义任务。",
+    "experimental_conditions": "主文8V100、Adam/batch128/lr1e−4、16×256²，CMCM约50K步；OMCM dense20K+sparse20K，最多8轨迹。未给全部baseline同预算/多seed/不确定性。固定公开run.sh seed1234/n_samples5/b1/256²/50DDIM/eta1/CFG7.5，主文未报告同套采样配置；run.sh依次both→object→camera赋值，最终camera有效，需要修改才同时控制。后续AnimateDiff训练分支与SVD均不等同主表完整复现。"
   },
   {
     "title": "DragNUWA，2023",

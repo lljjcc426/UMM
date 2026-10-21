@@ -376,3 +376,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第八十七批（2026-10-21）：2×2路径×loss、独立事件标注/同轨迹不同声音、等预算adapter与offload主机成本方案，未运行。见[审查](../evidence/tora3_kinematics_flow_and_nonpaper_adapter_audit_2026-10-21.md)、[G039](../reviews/G039.md)/[R12](../reviews/R12.md)。
+
+
+第八十八批（2026-10-21）：等40K步课程、相机×对象全因子、静止/接触/留墨与独立提取器方案，未运行。见[审查](../evidence/motionctrl_camera_object_and_observability_audit_2026-10-21.md)、[L039](../reviews/L039.md)。

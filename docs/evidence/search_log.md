@@ -436,3 +436,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第八十七批（2026-10-21）：从Tora作者共享README追引Tora3 v3与Wan玩偶LoRA，固定论文/项目/源码与HF配置，核Diffusers0.33.1默认50步。见[审查](tora3_kinematics_flow_and_nonpaper_adapter_audit_2026-10-21.md)、[G039](../reviews/G039.md)/[R12](../reviews/R12.md)。
+
+
+第八十八批（2026-10-21）：作者22页v2/补充A–E、正式Crossref题录，固定主代码/配置/HF，未全审其他分支。见[审查](motionctrl_camera_object_and_observability_audit_2026-10-21.md)、[L039](../reviews/L039.md)。

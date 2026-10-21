@@ -144,7 +144,7 @@
 | L036 | MotiMotion，ICML 2026 | primary_sections_read | [结构化分析](../reviews/L036.md) | 未完成 |
 | L037 | Fluid-Gen-Zero，2026 | primary_sections_read | [结构化分析](../reviews/L037.md) | 未完成 |
 | L038 | RefTok，2025 | primary_sections_read | [结构化分析](../reviews/L038.md) | 未完成 |
-| L039 | MotionCtrl，2023/2024 | primary_sections_read | [结构化分析](../reviews/L039.md) | 未完成 |
+| L039 | MotionCtrl，2023/2024 | primary_sections_read | [结构化分析](../reviews/L039.md) | 核心三遍与五项检查完成 |
 | L040 | DragNUWA，2023 | primary_sections_read | [结构化分析](../reviews/L040.md) | 未完成 |
 | L041 | DragAnything，2024 | primary_sections_read | [结构化分析](../reviews/L041.md) | 未完成 |
 | L042 | TextVBench，2026 | primary_sections_read | [结构化分析](../reviews/L042.md) | 未完成 |
