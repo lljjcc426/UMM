@@ -356,3 +356,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第九十批（2026-10-21）补完SEED-X L060固定v2HTML核心/实际来源图、UniTok L061正式核心/指定附录，补录SEED-Data-Edit G040报告/固定标注样本。353目录、182核心/185书面含未通过项，171条未确认核心。保留CFG反例、缺定量消融/多轮拆单轮与有限样本来源映射未决。见[审查](seedx_unitok_seeddata_representation_and_process_audit_2026-10-21.md)、[逐文件说明](ninetieth_changes_2026-10-21.md)。无删除/模型复现。
+
+
+第九十一批（2026-10-21）补完Word-As-Image L051、Strike a Chord L052固定核心/指定附录与实际框架/主表/消融，核静态优化video输出及论文/发布差异。353目录、184核心/187书面含未通过项，169条未确认核心。见[审查](semantic_modal_typography_static_animation_and_writing_2026-10-21.md)、[逐文件说明](ninety_first_changes_2026-10-21.md)。DS-Fusion已定位ICCV2023来源待下一批，不计本批已读。无删除/模型复现。

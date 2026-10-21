@@ -156,8 +156,8 @@
 | L048 | Tegaki | primary_sections_read | [结构化分析](../reviews/L048.md) | 未完成 |
 | L049 | SCUT-COUCH2009-TL | primary_sections_read | [结构化分析](../reviews/L049.md) | 未完成 |
 | L050 | CASIA-OHFC | primary_sections_read | [结构化分析](../reviews/L050.md) | 未完成 |
-| L051 | Word-As-Image，2023 | primary_sections_read | [结构化分析](../reviews/L051.md) | 未完成 |
-| L052 | Strike a Chord! Modal Kinetic Typography，2026 | primary_sections_read | [结构化分析](../reviews/L052.md) | 未完成 |
+| L051 | Word-As-Image for Semantic Typography | primary_sections_read | [结构化分析](../reviews/L051.md) | 核心三遍与五项检查完成 |
+| L052 | Strike a Chord! Modal Kinetic Typography | primary_sections_read | [结构化分析](../reviews/L052.md) | 核心三遍与五项检查完成 |
 | L053 | Timage: A Generative Text-in-Image Paradigm for Fine-Tuning Vision-Language Models；公开预印本版本 | primary_sections_read | [结构化分析](../reviews/L053.md) | 未完成 |
 | L054 | BoxTuning: Directly Injecting the Object Box for Multimodal Model Fine-Tuning；公开预印本版本 | primary_sections_read | [结构化分析](../reviews/L054.md) | 未完成 |
 | L055 | Online Reasoning Video Object Segmentation；公开预印本版本 | primary_sections_read | [结构化分析](../reviews/L055.md) | 未完成 |

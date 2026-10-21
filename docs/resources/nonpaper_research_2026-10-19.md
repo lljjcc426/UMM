@@ -386,3 +386,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第九十批（2026-10-21）：固定SEED-X/UniTok源码/模型配置、三数据分包和首3条标注各包，未取媒体/权重。见[审查](../evidence/seedx_unitok_seeddata_representation_and_process_audit_2026-10-21.md)、[L060](../reviews/L060.md)/[L061](../reviews/L061.md)/[G040](../reviews/G040.md)。
+
+
+第九十一批（2026-10-21）：固定Word-As-Image配置/优化循环/视频输出；Strike项目仍Code(soon)。见[审查](../evidence/semantic_modal_typography_static_animation_and_writing_2026-10-21.md)、[L051](../reviews/L051.md)/[L052](../reviews/L052.md)。

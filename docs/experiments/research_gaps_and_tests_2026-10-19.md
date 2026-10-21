@@ -385,3 +385,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第九十批（2026-10-21）：同码率/总预算/CFG/源图旁路、数据成分及flat/history可证伪对照，未运行。见[审查](../evidence/seedx_unitok_seeddata_representation_and_process_audit_2026-10-21.md)、[L060](../reviews/L060.md)/[L061](../reviews/L061.md)/[G040](../reviews/G040.md)。
+
+
+第九十一批（2026-10-21）：全样本自由识别、等参数平滑基/drive/部件/静止区域/DC与非周期书写对照，未运行。见[审查](../evidence/semantic_modal_typography_static_animation_and_writing_2026-10-21.md)、[L051](../reviews/L051.md)/[L052](../reviews/L052.md)。

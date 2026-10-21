@@ -397,3 +397,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第九十批（2026-10-21）：来源—管线有限样本差异、正式/发布学习率与batch、投影维/表差值未决。见[审查](seedx_unitok_seeddata_representation_and_process_audit_2026-10-21.md)、[L060](../reviews/L060.md)/[L061](../reviews/L061.md)/[G040](../reviews/G040.md)。
+
+
+第九十一批（2026-10-21）：论文/代码tone与LR、部件/刚体归因、模板误差和无源码/多seed边界。见[审查](semantic_modal_typography_static_animation_and_writing_2026-10-21.md)、[L051](../reviews/L051.md)/[L052](../reviews/L052.md)。

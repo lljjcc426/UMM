@@ -11590,24 +11590,29 @@
     "experimental_conditions": "Huawei平板每人约15图；writer-disjoint7:1:2；模板train/val/test覆盖可能重叠，页面并未承诺template-disjoint。"
   },
   {
-    "title": "Word-As-Image，2023",
+    "title": "Word-As-Image for Semantic Typography",
     "source_urls": [
-      "https://arxiv.org/abs/2303.01818"
+      "https://arxiv.org/abs/2303.01818",
+      "https://arxiv.org/abs/2303.01818v2",
+      "https://arxiv.org/pdf/2303.01818v2",
+      "https://doi.org/10.1145/3592123",
+      "https://wordasimage.github.io/Word-As-Image-Page/",
+      "https://github.com/Shiriluz/Word-As-Image/tree/ed72b2b33f7b2fecc5aecc610700973af754b2b7"
     ],
-    "method": "FreeType取字形并细分Bézier，diffvg把SD1.5的SDS梯度回传到控制点；用ACAP角度和低频tone约束平衡语义与字形。 冻结SD1.5/CLIP/VAE，经600²raster与512²增强得到LSDS梯度，控制点位置是优化变量，颜色/线宽固定。约束Delaunay三角角度L2及blur后图像L2；α=.5，tone β=100exp(−(t−300)²/(2×30²))在中段峰值，不能说单调后期增强。",
-    "conclusion": "Table1完整语义.80/字母.90/字体.51，OnlySDS .88/.53/.33；语义下降8百分点换可读+37与字体+18，支持取舍。不能宣称三项同时更好或完整自由文字生成。",
-    "gap": "letter-by-letter无法联动词布局，具体视觉概念优于抽象；人工选最合适字和结果组合，评价有选择偏差。固定拓扑不能任意增加/删除部件，可读率4选1不等于自由转录。所有超参作者按视觉调节，跨未见复杂字泛化需试。SDS大模型先验并未给真实书写方向/落笔时间。",
-    "problem": "把单个字母轮廓变形成表达词语语义的静态矢量图，同时保持可读性和字体。",
+    "method": "FreeType取字形并细分Bézier，diffvg把SD1.5的SDS梯度回传到控制点；用ACAP角度和低频tone约束平衡语义与字形。 仅优化Bézier控制点位置，颜色/线宽不变；600²渲染→随机perspective/crop512²→VAE latent→SD1.5 UNet/CLIP语义SDS；不训练UMM。ACAP控制Delaunay三角角度差，tone约束blur后图像MSE。论文α=.5、β(t)=100exp[−(t−300)^2/(2×30²)]，中段峰值并向后下降；非单调后期增强。固定代码SDS权sqrt(alpha_bar)*(1−alpha_bar)、CFG100，t取[50,948]整数；不是50步SD图像采样本身。",
+    "conclusion": "T1完整语义.80/字母.90/字体.51，对OnlySDS .88/.53/.33；语义下降8个百分点，换可读+37、字体+18，支持取舍。随机四选一基准25%不构成强模型baseline。主跨方法图仅bird/dress/tulip三代表词，补充有更多选例，无法从图推整体胜率或全部语言泛化。",
+    "gap": "作者§6：逐字母无法联动词布局、具体概念更适合、抽象概念困难、布局选择仍人工。人评人工挑字与有限干扰项限制外推；固定轮廓拓扑没有书写事件。代码用SciPy Delaunay+质心位于polygon过滤，未见显式约束边接口，与论文constrained措辞不完全相同；未运行并量化边界/形状影响。许可头CC-BY-NC-SA4，未做全部依赖/字体许可审计；没有模型复现。",
+    "problem": "将给定单字母矢量轮廓变形以表达词语语义，同时保持字母可读与字体风格。每字母分别优化，再由用户挑选替换组合成词；静态设计目标不提供空白到成字的笔画顺序或连续视频监督。",
     "claim": "作者研究目标：把单个字母轮廓变形成表达词语语义的静态矢量图，同时保持可读性和字体。",
-    "version": "版本见原始来源及历史记录",
+    "version": "Word-As-Image for Semantic Typography；ACM TOG42(4), article151,2023，SIGGRAPH2023。正式书目信息与DOI3592123核对；实际精读arXiv2303.01818v2含附录28页，未把预印本等同正式排版逐页审查。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "previous_evidence": "既有调查 B",
     "id": "L051",
     "canonical_key": "paper:arxiv:2303.01818",
@@ -11630,7 +11635,8 @@
     ],
     "aliases": [
       "local_focused:M076",
-      "local_handwriting:R76"
+      "local_handwriting:R76",
+      "Word-As-Image，2023"
     ],
     "note_path": "docs/reviews/L051.md",
     "review_history": [
@@ -11641,39 +11647,45 @@
         "conclusion": "可做艺术形态条件；主要是静态字形，非运笔",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 91,
+        "scope": "本次复核固定v2核心§1–6及AppA/B/C和F18中文，参考文献未逐篇读、AppD全部画廊未遍审。完整取得28页含附录PDF，实际核p4F5/6、p6T1、p8F13–16、p12F18/AppA–C；PDF读取曾自动重建xref，所述页面实际可见，未宣称逐页视觉核全部28页。固定GH ed72b2b README/31项完整树、main/losses/config/baseyaml/runsh全文、utils学习率/增强/预处理/拼词/视频函数及ttf转cubic/细分指定段；未读全部bezier/save_svg/diffvg库/许可全文。未下载权重、运行模型或独立复现。"
       }
     ],
-    "sections_read": "正文§1/3–6、全部核心损失/权重、Table1；AppA/B/C及Figure18中文说明；没有逐图视觉复查全部SVG，代码未核",
+    "sections_read": "本次复核固定v2核心§1–6及AppA/B/C和F18中文，参考文献未逐篇读、AppD全部画廊未遍审。完整取得28页含附录PDF，实际核p4F5/6、p6T1、p8F13–16、p12F18/AppA–C；PDF读取曾自动重建xref，所述页面实际可见，未宣称逐页视觉核全部28页。固定GH ed72b2b README/31项完整树、main/losses/config/baseyaml/runsh全文、utils学习率/增强/预处理/拼词/视频函数及ttf转cubic/细分指定段；未读全部bezier/save_svg/diffvg库/许可全文。未下载权重、运行模型或独立复现。",
     "review_path": "docs/reviews/L051.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "ChatGPT五类各10词=50，4字体每词随机选，逐字优化，可组合2^n结果。人评每类随机2词再人工视觉挑1字=10字、40参与者；评估样本经过人工选字。基线主要正文3词，附录补例，未大规模客观OCR测试。",
+    "dataset": "ChatGPT五类各10词共50，四字体每词随机一种，逐字母优化；n字母可组合2^n种替换。人评每类随机两词、再人工视觉挑一字，共10字/40参与者，四选一语义/字母/字体。AppC列具体选项与字母/字体，AppD大画廊未全部审。中文F18仅鸟/兔/猫/冲浪等定性例，未有中文数据集或自由转录/笔顺实验。",
     "framework": "FreeType取字形并细分Bézier，diffvg把SD1.5的SDS梯度回传到控制点；用ACAP角度和低频tone约束平衡语义与字形。",
-    "architecture": "冻结SD1.5/CLIP/VAE，经600²raster与512²增强得到LSDS梯度，控制点位置是优化变量，颜色/线宽固定。约束Delaunay三角角度L2及blur后图像L2；α=.5，tone β=100exp(−(t−300)²/(2×30²))在中段峰值，不能说单调后期增强。",
-    "metrics": "4选1语义识别/字母可读/字体匹配，机会25%；没有FID/FVD/笔顺指标。现有实验关注静态设计偏好与识别。",
+    "architecture": "仅优化Bézier控制点位置，颜色/线宽不变；600²渲染→随机perspective/crop512²→VAE latent→SD1.5 UNet/CLIP语义SDS；不训练UMM。ACAP控制Delaunay三角角度差，tone约束blur后图像MSE。论文α=.5、β(t)=100exp[−(t−300)^2/(2×30²)]，中段峰值并向后下降；非单调后期增强。固定代码SDS权sqrt(alpha_bar)*(1−alpha_bar)、CFG100，t取[50,948]整数；不是50步SD图像采样本身。",
+    "metrics": "三项四选一识别准确率，随机25%；语义标签同类干扰项、字母随机四选项、四字体匹配。90%是该选择题可读率，不能等同无提示OCR/自由转录、完整词正确率或规范汉字书写。没有FID/FVD/笔画事件指标及多seed区间。",
     "baselines": "SD、SDEdit、DALL-E2整词/单字、CLIPDraw；OnlySDS去两个约束，CLIP替SDS、控制点数/ACAP/blurσ/权重定性消融。",
-    "experimental_conditions": "每字500步/~5minRTX2080/≥10GB；Adam β1=.9/β2=.9/eps1e-6，lr.1→.8 warm100后400衰减到.4。透视distortion.5概率.7，随机512crop；SD基线50步CFG7.5，SDEditstrength.85；不同调用成本未等预算。"
+    "experimental_conditions": "论文每字500步/RTX2080约5分钟、≥10GB；Adam(.9,.9),eps1e-6，lr.1→.8 warm100后400衰减至.4；透视distortion.5概率.7、512crop。SD基线50步/CFG7.5，SDEditstrength.85，非等预算。固定发布lr_base1、LambdaLR=delay×exp插值/.002，delay.1→1/100步，故step100约.833、step500 .4；与论文简化warm描述不完全同值。tone代码exp[−(t−300)^2/2000]等效σ≈31.62，论文σ30；图像blurσ30/kernel201与时间权重σ必须分开。"
   },
   {
-    "title": "Strike a Chord! Modal Kinetic Typography，2026",
+    "title": "Strike a Chord! Modal Kinetic Typography",
     "source_urls": [
       "https://arxiv.org/abs/2609.38325",
       "https://arxiv.org/pdf/2609.38325v1",
-      "https://strikeachordkt.github.io/strikeachord/"
+      "https://strikeachordkt.github.io/strikeachord/",
+      "https://arxiv.org/abs/2609.38325v1"
     ],
-    "method": "从字形有限元低频本征模态+部件刚体模态建运动空间，以整周期谐波参数驱动；形状MLP与motion分开，先动后塑形。 48均匀边界点平滑/约束Delaunay网格，plane-stress Kϕ=λMϕ；wholeletter去3零模态留1最软，part每个3闭式刚体+2局部本征，区域外弹簧µ=10×mean diagK为软约束；刚体先做GramSchmidt。3part16modes，3harmonic48amplitude+4phase共52motion参数，basis在原字上只解一次。tanh幅值约束，shapeMLP只改同一base。FrozenModelScope1.7B经diffvg给videoSDS。",
-    "conclusion": "Table1full vsDynamic：Artic9.24vs6.28/Jerk.84vs2.67/stretch3.32vs9.05/Concept19.54vs18.23/M&L27%vs14%；full人评motion1.32/visual1.28是0/1/2排名均分，不能作132%胜率。FrozenArtic10.83vsAni5.22/M&L43%vs19%，但Temp.966低于.981/stretch2.03高于1.24。",
-    "gap": "固定单轮廓拓扑/2D/循环，不能破碎、消散、转深度或单次落笔终止；实际墨迹新增须变拓扑。大形变后basis不重算不再是当前几何精确振动，算法是语义动画子空间，不是求解受力时间积分。tanh对3谐波会产生高阶频率，附录也测>3能量.0004，不能称严格频率截断。IoU字母matcher有12%cleanerror，有限样本人评/seed不能泛化至汉字。",
+    "method": "从字形有限元低频本征模态+部件刚体模态建运动空间，以整周期谐波参数驱动；形状MLP与motion分开，先动后塑形。 48均匀平滑边界点/约束Delaunay，plane-stress Kφ=λMφ，ν=.3/E=1；whole-letter舍三零模态留一最软，part各3闭式线性刚体+2局部本征，区域外µ=10×mean diagK软弹簧。先刚体后Gram–Schmidt；基在原字上仅解一次。3part有16modes，H3共48amp+4phase；amax20.7px/tanh夹幅，单shape MLP与motion参数分开。冻结ModelScope1.7B经diffvg的视频SDS给幅相/shape梯度；整数谐波不按sqrtλ物理频率积分，不构成真实受力仿真。",
+    "conclusion": "T1 full vsDynamic Artic9.24/6.28、jerk.84/2.67、stretch3.32/9.05、concept19.54/18.23、M&L27%/14%；full人评motion1.32/visual1.28是0/1/2排名均分。Frozen vsAniClip Artic10.83/5.22、M&L43%/19%，但Temp .966<.981/stretch2.03>1.24/dead1.6%>.3%。Astra为不同生成机制/预算的一次性SVG参考，不是严格同条件baseline；不得由本文选例/有限人评推其总体能力。",
+    "gap": "§6/AppA12：2D单轮廓拓扑、不能碎裂/消散/转深度，周期不能表达不同终态的一次动作；闭式rotation是线性切向位移，大角会拉长。原basis塑形后不重算；固定26字75部件不适应概念解剖和汉字；应静止部件仍动，如锤base/head .96。tanh会引入高次谐波（AppT4>3能量.0004）且一般可有DC，不能声称严格频率截断/严格零均值。人评筛选10例、模板88%和单seed限制结论；项目代码未发布。",
     "problem": "用有语义表达力的运动动画化矢量单字母，并保持字母身份；另设冻结基础形状任务。",
     "claim": "作者研究目标：用有语义表达力的运动动画化矢量单字母，并保持字母身份；另设冻结基础形状任务。",
-    "version": "版本见原始来源及历史记录",
+    "version": "Strike a Chord! Modal Kinetic Typography；arXiv2609.38325v1，2026-09-29，18页；预印本，未核实正式会议接收。项目截至2026-10-21仍Code(soon)，无代码发布审查替代物。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "previous_evidence": "既有调查 B",
     "id": "L052",
     "canonical_key": "paper:arxiv:2609.38325",
@@ -11696,7 +11708,8 @@
     ],
     "aliases": [
       "local_focused:M079",
-      "local_handwriting:R79"
+      "local_handwriting:R79",
+      "Strike a Chord! Modal Kinetic Typography，2026"
     ],
     "note_path": "docs/reviews/L052.md",
     "review_history": [
@@ -11707,15 +11720,20 @@
         "conclusion": "低维结构约束可避免轮廓撕裂；不是笔画顺序方法",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 91,
+        "scope": "补完固定v1完整核心Abstract/§1–6/相关工作、全部核心方程/T1/T2；AppA4/A5/A7–A12及A1–3说明复核，A12全部文字/定量说明，实际p4F2/p7T1/p9T2，p3相关工作也核看。未重推全部FEM装配/遍看全部附图动画帧/所有引用。项目页当前Code(soon)，未发现可审训练实现；未观看全部真实循环媒体、未下载模型、执行优化或复现。"
       }
     ],
-    "sections_read": "18页正式arXivPDF正文§1–6/全部核心方程/Tables1–2；AppA.4–A.5/A.7–A.11/部分A.12；未逐图/全部FEM附推导/源码（项目页soon）",
+    "sections_read": "补完固定v1完整核心Abstract/§1–6/相关工作、全部核心方程/T1/T2；AppA4/A5/A7–A12及A1–3说明复核，A12全部文字/定量说明，实际p4F2/p7T1/p9T2，p3相关工作也核看。未重推全部FEM装配/遍看全部附图动画帧/所有引用。项目页当前Code(soon)，未发现可审训练实现；未观看全部真实循环媒体、未下载模型、执行优化或复现。",
     "review_path": "docs/reviews/L052.md",
     "review_depth": "critical_sections_reviewed",
     "dataset": "每任务LM随机字母/12字体/caption100case。人评full44人/frozen39人，每10case；full5基线代表例+5从双方高概念20例挑，frozen从双方高运动20例挑。非完全随机评测子集，作者认为偏向强基线仍须报告筛选。部件表26字母75命名部件，由LM一次生成跨字体/caption固定。",
     "framework": "从字形有限元低频本征模态+部件刚体模态建运动空间，以整周期谐波参数驱动；形状MLP与motion分开，先动后塑形。",
-    "architecture": "48均匀边界点平滑/约束Delaunay网格，plane-stress Kϕ=λMϕ；wholeletter去3零模态留1最软，part每个3闭式刚体+2局部本征，区域外弹簧µ=10×mean diagK为软约束；刚体先做GramSchmidt。3part16modes，3harmonic48amplitude+4phase共52motion参数，basis在原字上只解一次。tanh幅值约束，shapeMLP只改同一base。FrozenModelScope1.7B经diffvg给videoSDS。",
-    "metrics": "Global/Articulation由outline点刚体拟合后余位移计算并按字半径归一化；jerk/speed、acceleration近零deadtime、maxedge stretch、featurecosine时间、XCLIPconcept。XCLIP打乱帧差<2%，仅概念。M&L=运动≥半笔宽且多数帧IoU模板匹配正确；匹配器holdout字体clean准确88%，不是人类可读率。",
+    "architecture": "48均匀平滑边界点/约束Delaunay，plane-stress Kφ=λMφ，ν=.3/E=1；whole-letter舍三零模态留一最软，part各3闭式线性刚体+2局部本征，区域外µ=10×mean diagK软弹簧。先刚体后Gram–Schmidt；基在原字上仅解一次。3part有16modes，H3共48amp+4phase；amax20.7px/tanh夹幅，单shape MLP与motion参数分开。冻结ModelScope1.7B经diffvg的视频SDS给幅相/shape梯度；整数谐波不按sqrtλ物理频率积分，不构成真实受力仿真。",
+    "metrics": "outline点跨帧mean-rest刚体拟合，余位移为Articulated/字半径，Global由总运动减去该量；预先保留主时间频率，非像素光流。Jerk=三阶导/mean speed；Dead按近零加速度，匀速也计dead，不等于完全静止比例。stretch为最大边长比/排除太短边；时间特征cosine、XCLIP概念（打乱帧差<2%）。M&L=运动≥半笔宽约7.4%字尺度、且多数帧IoU26字模板匹配对，heldout字体clean仅88%；非人类自由识别率。",
     "baselines": "DynamicTypography完整塑形+运动；AniClipart冻结形状；AstraGPT6单次SVG为额外参考，字体可用性不同，非同模型/预算。四消融freeframe/globalonly/noorthogonalization/4eigenpart。",
     "experimental_conditions": "单24GBGPU/1000优化步/先250motiononly；320²16帧/seed0；SDS CFG30/tuniform[50,949]/(1−αbar)权。motionlr warm200到amp.30/phase.03后cosine减半，shapelr warm300到.011→.0044；幅值20.7px，perceptual/conformal各2000/edge100。未给完整optimizer/运行秒与多seed。"
   },

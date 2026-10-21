@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L051",
+    "L052"
+  ],
+  "sources": {
+    "L051": [
+      "https://arxiv.org/abs/2303.01818v2",
+      "https://arxiv.org/pdf/2303.01818v2",
+      "https://doi.org/10.1145/3592123",
+      "https://wordasimage.github.io/Word-As-Image-Page/",
+      "https://github.com/Shiriluz/Word-As-Image/tree/ed72b2b33f7b2fecc5aecc610700973af754b2b7"
+    ],
+    "L052": [
+      "https://arxiv.org/abs/2609.38325v1",
+      "https://arxiv.org/pdf/2609.38325v1",
+      "https://strikeachordkt.github.io/strikeachord/"
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "L051",
+      "github_revision": "ed72b2b33f7b2fecc5aecc610700973af754b2b7",
+      "tree_entries": 31,
+      "findings": [
+        "main.py save.video and utils.create_video save optimization-iteration frames at30fps; not a learned writing trajectory or target-time animation",
+        "Frozen SD1.5, defaultCFG100, actual randint low50/high949 exclusive, so50-948; vanilla image sampling baseline CFG7.5 is different",
+        "Paper tone time sigma30 vs code denominator2000 -> sqrt1000≈31.62; image Gaussian blur sigma30/kernel201 is a different parameter",
+        "lr_base1 multiplied by normalized log-linear/delay schedule ->0.1 at0/~.833 at100/.4 at500, not exactly paper .1->.8 then .4 description",
+        "SciPy Delaunay plus polygon-centroid filtering, no explicit constrained-edge interface in reviewed file; effect not measured",
+        "Paper4-choice10selectedletters/40participants; no free-transcription accuracy or writing-event evaluation",
+        "License header CC-BY-NC-SA4 and SD/fonts/dependency terms separate; full legal audit not performed"
+      ]
+    },
+    {
+      "id": "L052",
+      "release": "Official project page Code(soon) on2026-10-21; no source/weights inspected",
+      "findings": [
+        "Fixed18p arXivv1; actualF2/T1/T2 and specified core/appendix",
+        "Full vs frozen-shape different tasks; latter disables base sculpting but allows deformation motion",
+        "Mode frequencies are whole-cycle harmonics, not physical eigenfrequency integration; linear rotation mode is tangent displacement",
+        "T2 allArticulated differences nonsignificant; global-only removes both localization and part rigid motion",
+        "Single seed0, filtered10case human study and IoU matcher88% clean held-out-font accuracy limit generality",
+        "Analytical note: tanh of multiple zero-mean harmonics can generate DC; for epsilon(cos(theta)+cos(2theta)), mean tanh=-epsilon^3/4+O(epsilon^5). No empirical output measurement",
+        "Periodic smoothness does not establish nonperiodic pen-contact or incremental-ink control"
+      ]
+    }
+  ],
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "executed": false
+}

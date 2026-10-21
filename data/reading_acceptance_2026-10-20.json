@@ -6371,6 +6371,74 @@
         }
       ],
       "boundary": "arXiv2405.04007v1完整8页核心Abstract/§1–5及T1、F2/F4，实际核p3/p4/p6；参考文献未逐篇读。HF整体0849db8卡全文、三分包固定元数据/文件树；每包首16KiB HTTP Range仅解析前3个完整JSONL记录（共9条），未取媒体/全量标注，不能代表全量分布。与L060固定sft_edit配置/脚本和datapipe指定段交叉；未读全部模型/数据制作源码、许可全文、训练模型或独立复现。"
+    },
+    {
+      "id": "L051",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "将给定单字母矢量轮廓变形以表达词语语义，同时保持字母可读与字体风格。每字母分别优化，再由用户挑选替换组合成词；静态设计目标不提供空白到成字的笔画顺序或连续视频监督。 扩散直接画字可能不读、丢字体；基于图标替换受限于现有图标和栅格表达。",
+          "evidence": "固定预印本核心、实际框架/主表/消融、指定附录及可得发布，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "词语/语义概念、字体及选中字母→FreeType轮廓转cubic Bézier并细分→diffvg栅格→冻结SD1.5提供SDS梯度→更新控制点→静态SVG；可人工组合替换整词。实际核p4F5/6端到端与细分、p6T1、p8F13–16、p12F18中文及AppA–C。公开save.video将优化各步渲染为MP4，时间轴是求解迭代，不是目标书写/动画时间。 仅优化Bézier控制点位置，颜色/线宽不变；600²渲染→随机perspective/crop512²→VAE latent→SD1.5 UNet/CLIP语义SDS；不训练UMM。ACAP控制Delaunay三角角度差，tone约束blur后图像MSE。论文α=.5、β(t)=100exp[−(t−300)^2/(2×30²)]，中段峰值并向后下降；非单调后期增强。固定代码SDS权sqrt(alpha_bar)*(1−alpha_bar)、CFG100，t取[50,948]整数；不是50步SD图像采样本身。",
+          "evidence": "固定预印本核心、实际框架/主表/消融、指定附录及可得发布，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "FreeType取字形并细分Bézier，diffvg把SD1.5的SDS梯度回传到控制点；用ACAP角度和低频tone约束平衡语义与字形。 当已有可读矢量字体、语义可用少量轮廓变化表达且输出需尺度无关，SDS语义先验+局部几何/tone约束可在语义与字形之间提供可调折中。适用于静态创意设计的指定选择题/人工评价；人工选字、固定拓扑和图像先验不识别笔画中心线、方向、接触或真实时序。",
+          "evidence": "固定预印本核心、实际框架/主表/消融、指定附录及可得发布，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1完整语义.80/字母.90/字体.51，对OnlySDS .88/.53/.33；语义下降8个百分点，换可读+37、字体+18，支持取舍。随机四选一基准25%不构成强模型baseline。主跨方法图仅bird/dress/tulip三代表词，补充有更多选例，无法从图推整体胜率或全部语言泛化。 T1合并去ACAP+tone，不能独立估计两组件贡献；p8实际F13 blurσ1/5/30/200/去tone，F14 CLIP替SDS，F15 OnlySDS，F16 α1/.75/.5/.25/0为定性。F11控制点少/多的定性比较说明表达自由度与字形约束取舍，没有对应完整受控量化曲线/重复种子。 论文每字500步/RTX2080约5分钟、≥10GB；Adam(.9,.9),eps1e-6，lr.1→.8 warm100后400衰减至.4；透视distortion.5概率.7、512crop。SD基线50步/CFG7.5，SDEditstrength.85，非等预算。固定发布lr_base1、LambdaLR=delay×exp插值/.002，delay.1→1/100步，故step100约.833、step500 .4；与论文简化warm描述不完全同值。tone代码exp[−(t−300)^2/2000]等效σ≈31.62，论文σ30；图像blurσ30/kernel201与时间权重σ必须分开。",
+          "evidence": "固定预印本核心、实际框架/主表/消融、指定附录及可得发布，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "作者§6：逐字母无法联动词布局、具体概念更适合、抽象概念困难、布局选择仍人工。人评人工挑字与有限干扰项限制外推；固定轮廓拓扑没有书写事件。代码用SciPy Delaunay+质心位于polygon过滤，未见显式约束边接口，与论文constrained措辞不完全相同；未运行并量化边界/形状影响。许可头CC-BY-NC-SA4，未做全部依赖/字体许可审计；没有模型复现。 按全部50词及全部字母、未见字体/中文复杂度分层，以自由转录/整词准确和盲语义评价替代只选十字；等控制点/总FLOPs/采样和多seed分别消融ACAP/tone、SDS/CLIP及blur/时间权重。对优化迭代MP4单独标记不可作为书写轨迹；若扩展过程，给相同终图多种顺序，测中心线方向/笔顺/累计墨迹与不可观察案例。方案未运行，局限待追检已有解决方案。",
+          "evidence": "固定预印本核心、实际框架/主表/消融、指定附录及可得发布，非口试/独立复现"
+        }
+      ],
+      "boundary": "本次复核固定v2核心§1–6及AppA/B/C和F18中文，参考文献未逐篇读、AppD全部画廊未遍审。完整取得28页含附录PDF，实际核p4F5/6、p6T1、p8F13–16、p12F18/AppA–C；PDF读取曾自动重建xref，所述页面实际可见，未宣称逐页视觉核全部28页。固定GH ed72b2b README/31项完整树、main/losses/config/baseyaml/runsh全文、utils学习率/增强/预处理/拼词/视频函数及ttf转cubic/细分指定段；未读全部bezier/save_svg/diffvg库/许可全文。未下载权重、运行模型或独立复现。"
+    },
+    {
+      "id": "L052",
+      "checked_on": "2026-10-21",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "用有语义表达力的运动动画化矢量单字母，并保持字母身份；另设冻结基础形状任务。 自由逐点逐帧SDS易撕裂抖动；人类骨架等类别先验不适配任意字形，形状和运动共用变量会竞争。",
+          "evidence": "固定预印本核心、实际框架/主表/消融、指定附录及可得发布，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "大写Latin矢量单字母+动作caption→源字形划部件/网格/FEM基→shape MLP给单base→共享谐波drive→diffvg16帧循环SVG动画。Frozen-shape关闭塑形，允许基于同一轮廓变形运动；不是要求逐帧轮廓完全静止。上下文其他字母静态排版，不是整词联合动画或空白逐笔写成。实际核p4F2/p7T1/p9T2。 48均匀平滑边界点/约束Delaunay，plane-stress Kφ=λMφ，ν=.3/E=1；whole-letter舍三零模态留一最软，part各3闭式线性刚体+2局部本征，区域外µ=10×mean diagK软弹簧。先刚体后Gram–Schmidt；基在原字上仅解一次。3part有16modes，H3共48amp+4phase；amax20.7px/tanh夹幅，单shape MLP与motion参数分开。冻结ModelScope1.7B经diffvg的视频SDS给幅相/shape梯度；整数谐波不按sqrtλ物理频率积分，不构成真实受力仿真。",
+          "evidence": "固定预印本核心、实际框架/主表/消融、指定附录及可得发布，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "从字形有限元低频本征模态+部件刚体模态建运动空间，以整周期谐波参数驱动；形状MLP与motion分开，先动后塑形。 低自由度字形本征/部件基与整周期drive可将SDS梯度限制在较平滑、循环的可表达空间，适合几何与概念部件相合的Latin单字母动画。时间平滑保证来自解析参数化，但语义/可读和运动定位仍依赖优化/先验；单次落笔、停顿、新墨迹和任意拓扑变化不在该表示保障内。形状参数分开也不自动保证输出时间平均轮廓等于base。",
+          "evidence": "固定预印本核心、实际框架/主表/消融、指定附录及可得发布，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1 full vsDynamic Artic9.24/6.28、jerk.84/2.67、stretch3.32/9.05、concept19.54/18.23、M&L27%/14%；full人评motion1.32/visual1.28是0/1/2排名均分。Frozen vsAniClip Artic10.83/5.22、M&L43%/19%，但Temp .966<.981/stretch2.03>1.24/dead1.6%>.3%。Astra为不同生成机制/预算的一次性SVG参考，不是严格同条件baseline；不得由本文选例/有限人评推其总体能力。 T2同20例/step1000配对Wilcoxon中位数：freeframe jerk2.86 vs.78,p<.001，Temp.95 vs.96,p.01；Artic9.96 vs8.92,p.65。global-only concentration.48 vs.39,p<.001但同时去部件定位/刚体，非二者各自贡献。noorthogonalization改变eigen drive .22/.05及global6.38/5.50,p.04，jerk p.48；4eigenpart无显著Artic收益。所有变体Artic差均不显著；无多重比较修正说明和多seed区间，不能说各机制全部指标显著增益。 单24GBGPU/1000优化步/先250motiononly；320²16帧/seed0；SDS CFG30/tuniform[50,949]/(1−αbar)权。motionlr warm200到amp.30/phase.03后cosine减半，shapelr warm300到.011→.0044；幅值20.7px，perceptual/conformal各2000/edge100。未给完整optimizer/运行秒与多seed。",
+          "evidence": "固定预印本核心、实际框架/主表/消融、指定附录及可得发布，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "§6/AppA12：2D单轮廓拓扑、不能碎裂/消散/转深度，周期不能表达不同终态的一次动作；闭式rotation是线性切向位移，大角会拉长。原basis塑形后不重算；固定26字75部件不适应概念解剖和汉字；应静止部件仍动，如锤base/head .96。tanh会引入高次谐波（AppT4>3能量.0004）且一般可有DC，不能声称严格频率截断/严格零均值。人评筛选10例、模板88%和单seed限制结论；项目代码未发布。 等motion参数、loss、数据、FLOPs比较自由表/平滑惩罚、spline/傅里叶/MLP及eigen/随机平滑基；部件定位与刚体分开消融、多seed和校正后的显著性。对全100随机例/字体字母概念分层做人类自由识别，标静止部件、物理碰撞/速度和loop接缝，检验模板代理。数学上tanh[ε(cosθ+cos2θ)]周期均值=−ε³/4+O(ε⁵)，故建议核驱动实际DC并对比减均值版本；这是本次解析反例，非模型观测。书写另评非周期事件/拓扑新增，不直接继承循环先验。实验未运行。",
+          "evidence": "固定预印本核心、实际框架/主表/消融、指定附录及可得发布，非口试/独立复现"
+        }
+      ],
+      "boundary": "补完固定v1完整核心Abstract/§1–6/相关工作、全部核心方程/T1/T2；AppA4/A5/A7–A12及A1–3说明复核，A12全部文字/定量说明，实际p4F2/p7T1/p9T2，p3相关工作也核看。未重推全部FEM装配/遍看全部附图动画帧/所有引用。项目页当前Code(soon)，未发现可审训练实现；未观看全部真实循环媒体、未下载模型、执行优化或复现。"
     }
   ]
 }

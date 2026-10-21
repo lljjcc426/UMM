@@ -98,8 +98,8 @@
 | L048 | [Tegaki](L048.md) | 官网功能、API样例、FAQ全文；源码/版本/实际字体导出与质量尚未验证 |
 | L049 | [SCUT-COUCH2009-TL](L049.md) | PDF采集/标注/算法§2–5、Tables1–4；完整文件规范/授权与当前下载未核 |
 | L050 | [CASIA-OHFC](L050.md) | 官方说明的数据/partition/usage/InkML格式；压缩包与配套论文实验尚未完整核查 |
-| L051 | [Word-As-Image，2023](L051.md) | 正文§1/3–6、全部核心损失/权重、Table1；AppA/B/C及Figure18中文说明；没有逐图视觉复查全部SVG，代码未核 |
-| L052 | [Strike a Chord! Modal Kinetic Typography，2026](L052.md) | 18页正式arXivPDF正文§1–6/全部核心方程/Tables1–2；AppA.4–A.5/A.7–A.11/部分A.12；未逐图/全部FEM附推导/源码（项目页soon） |
+| L051 | [Word-As-Image for Semantic Typography](L051.md) | 本次复核固定v2核心§1–6及AppA/B/C和F18中文，参考文献未逐篇读、AppD全部画廊未遍审。完整取得28页含附录PDF，实际核p4F5/6、p6T1、p8F13–16、p12F18/AppA–C；PDF读取曾自动重建xref，所述页面实际可见，未宣称逐页视觉核全部28页。固定GH ed72b2b README/31项完整树、main/losses/config/baseyaml/runsh全文、utils学习率/增强/预处理/拼词/视频函数及ttf转cubic/细分指定段；未读全部bezier/save_svg/diffvg库/许可全文。未下载权重、运行模型或独立复现。 |
+| L052 | [Strike a Chord! Modal Kinetic Typography](L052.md) | 补完固定v1完整核心Abstract/§1–6/相关工作、全部核心方程/T1/T2；AppA4/A5/A7–A12及A1–3说明复核，A12全部文字/定量说明，实际p4F2/p7T1/p9T2，p3相关工作也核看。未重推全部FEM装配/遍看全部附图动画帧/所有引用。项目页当前Code(soon)，未发现可审训练实现；未观看全部真实循环媒体、未下载模型、执行优化或复现。 |
 | L053 | [Timage: A Generative Text-in-Image Paradigm for Fine-Tuning Vision-Language Models；公开预印本版本](L053.md) | §1/3全方法公式与训练/§4.1–4.5 Tables1–3/§5 Table4效率与局限/§6；未读到supp/代码/训练数据，原文矛盾保留 |
 | L054 | [BoxTuning: Directly Injecting the Object Box for Multimodal Model Fine-Tuning；公开预印本版本](L054.md) | §1–5完整方法/训练、Tables1–7和所有主要对照；未核代码/数据清单/训练步数/独立Limitations（正文未见） |
 | L055 | [Online Reasoning Video Object Segmentation；公开预印本版本](L055.md) | §3–6完整任务/方法/数据/主表1–3和消融；§1–2关键背景；所有示例图/来源视频与代码未逐一核，未复现 |

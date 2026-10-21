@@ -356,3 +356,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第九十批（2026-10-21）：静态图像表示/编辑与连续书写过程、分版本模型及flat/history区别。见[审查](seedx_unitok_seeddata_representation_and_process_audit_2026-10-21.md)、[L060](../reviews/L060.md)/[L061](../reviews/L061.md)/[G040](../reviews/G040.md)。
+
+
+第九十一批（2026-10-21）：静态轮廓设计、优化迭代MP4、循环字体动画和书写事件四者区分。见[审查](semantic_modal_typography_static_animation_and_writing_2026-10-21.md)、[L051](../reviews/L051.md)/[L052](../reviews/L052.md)。

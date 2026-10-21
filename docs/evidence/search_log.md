@@ -445,3 +445,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第九十批（2026-10-21）：固定arXiv HTML/报告、NeurIPS正式PDF与指定源码/模型卡/分包标注。见[审查](seedx_unitok_seeddata_representation_and_process_audit_2026-10-21.md)、[L060](../reviews/L060.md)/[L061](../reviews/L061.md)/[G040](../reviews/G040.md)。
+
+
+第九十一批（2026-10-21）：固定预印本PDF/实际图表、TOG书目/DOI、Word-As-Image固定源码及Code(soon)状态；DS-Fusion正式来源待补读。见[审查](semantic_modal_typography_static_animation_and_writing_2026-10-21.md)、[L051](../reviews/L051.md)/[L052](../reviews/L052.md)。

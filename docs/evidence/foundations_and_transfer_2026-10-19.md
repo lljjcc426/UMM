@@ -192,3 +192,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第九十批（2026-10-21）：重建上限/可学性/任务能力分开；MCQ实际条目/组合数/码率与RQ参数条件。见[审查](seedx_unitok_seeddata_representation_and_process_audit_2026-10-21.md)、[L060](../reviews/L060.md)/[L061](../reviews/L061.md)/[G040](../reviews/G040.md)。
+
+
+第九十一批（2026-10-21）：有限元空间基/周期时间基、线性旋转、tanh高频/DC解析反例与参数分离定义。见[审查](semantic_modal_typography_static_animation_and_writing_2026-10-21.md)、[L051](../reviews/L051.md)/[L052](../reviews/L052.md)。
