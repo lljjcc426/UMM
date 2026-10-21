@@ -469,3 +469,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百一十八批（2026-10-22）：等bits/容量/FLOPs的4/4与4/16和16/4、多任务Pareto、教师/decoder干预与事件GT；未运行。见[审查](../evidence/evotok_residual_depth_and_training_protocol_audit_2026-10-22.md)、[L102](../reviews/L102.md)。
+
+
+第一百一十九批（2026-10-22）：等Nd/FLOPs/上下文预算、PathI/II冻结与容量控制、细字OCR/未改区/完整两级成本；未运行。见[审查](../evidence/unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[L104](../reviews/L104.md)。

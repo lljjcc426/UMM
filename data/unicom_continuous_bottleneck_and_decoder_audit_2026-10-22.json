@@ -1,0 +1,48 @@
+{
+  "id": "L104",
+  "date": "2026-10-22",
+  "fixed_version": "2603.10702v1",
+  "pdf_pages": 22,
+  "all_tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "actual_visual_pages": [
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    19
+  ],
+  "github_revision": "55b9001a0fee623528676d995d8945fd6db7e23e",
+  "hf_revision": "78e43059d8358a045e64fca35698fda86c476154",
+  "findings": [
+    "SemanticpredictionandreferenceconditioningwithoutVAElatentsbutdecoderusesFluxVAE",
+    "OCR55.40toMHA36.00;Seqconcat55.50withoriginalfeatures",
+    "Channel18xnotLLMcontext18x;3.8xiterationthresholdnotwalltime",
+    "FulltablescontainGenEvalDPG/ImgEdit/GEditandWorldcategorycounterexamples",
+    "WorldEditAppEprose4.35vsT3/T7total4.12unresolved",
+    "PathIIprosefrozenMLLMvsFig2fire;notpurequeryablation",
+    "HFunderstandingalignerinput1216vsvision1152;selectedGH/HFpathsnosuchconcat;requiresload/runtimevalidation",
+    "Publiceditingcompressed64pathseparate;notinferallgenerationfails",
+    "Eq1modelsufficiencyassumption;manifoldandsemanticpreservationnotproved",
+    "Privatedata/fulltrainingrecipeunreleasedinreviewedtree"
+  ],
+  "sources": [
+    "https://arxiv.org/abs/2603.10702v1",
+    "https://arxiv.org/html/2603.10702v1",
+    "https://arxiv.org/pdf/2603.10702v1",
+    "https://github.com/Tencent-Hunyuan/UniCom/tree/55b9001a0fee623528676d995d8945fd6db7e23e",
+    "https://huggingface.co/tencent/Unicom-Unified-Multimodal-Modeling-via-Compressed-Continuous-Semantic-Representations/tree/78e43059d8358a045e64fca35698fda86c476154"
+  ],
+  "downloaded_weights": false,
+  "executed": false,
+  "reproduced": false
+}

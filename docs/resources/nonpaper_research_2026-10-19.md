@@ -470,3 +470,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百一十八批（2026-10-22）：EvoTok训练脚本/模型模块选读，公开示例不对应主表完整配方；未定位相关权重链接。见[审查](../evidence/evotok_residual_depth_and_training_protocol_audit_2026-10-22.md)、[L102](../reviews/L102.md)。
+
+
+第一百一十九批（2026-10-22）：HF四分片/decoder/VAE/teacher清单与代码配置已核，未下权重，公开为推理入口。见[审查](../evidence/unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[L104](../reviews/L104.md)。

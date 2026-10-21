@@ -7901,6 +7901,40 @@
         }
       ],
       "boundary": "固定v1完整16页Abstract/§1–5核心全文、Eq1–11/T1–5全部行/F1–6图注；无附录，参考文献未逐篇。实际p5F2/Eq6–8、p7T1、p8T2、p10T3/4、p11F5、p12F6/T5。GH147b1b2完整90项树、README、tokenizer/reconstruction/理解和生成四训练脚本及data脚本；选读EvoTok init/encode/decode、SharedResidualQuantizer独立码本/EMA/STE/commitment、VQLoss教师/目标/fold、rqtrain优化器/parser、MLLMVQtower冻结/模式/decoder/RQhead和Qwen自定义图像路径。未全读attention/pixel/数据加载/全部LLM训练；HF搜索未获相关对应制品。无权重下载、模型执行或独立复现。"
+    },
+    {
+      "id": "L104",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "能否把高维SigLIP2特征沿通道压缩成更易flow建模的连续目标，同时保留图像重建和语义能力；比较Transfusion与query连接的生成/编辑表现。任务为静态图文、重建和编辑，视频仅未来工作，无规范笔顺或绘画过程生成实验。 直接生成高维语义特征在作者训练设置中收敛较慢，空间降采样丢失布局细节，query条件可能限制空间对应。离散化对任意连续输入通常有率失真代价，但不能由此断言每个有限数据集或每种任务均损失必要语义；通道变少也不保证任意分布更平滑或无损。",
+          "evidence": "固定v1全部核心/七表与指定实际PDF页及GH/HF选读，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "图像→SigLIP2→最多1024位置×1152→MHA→1024×64；生成文字→Qwen跨模态双向图像/causal文字→预测64维语义latent→decompress/FLUX diffusion→VAEdecode→RGB。理解原始特征经2层MLP回答；编辑源图为压缩latent条件。实际PDFp4F2、p5T1/Eq2–5、p6T2、p8F4/5、p9T3/4与F6/7、p10T5/F8、p19T7已核。保持N时d减18倍不等于LLM序列缩短18倍，正文减少context说法需具体token打包协议。 AttentionCompressionNet是AttnProjection+线性残差+GeGLU，1152→64压缩时18个64维attention head的输出求均值，扩展64→1152用18head拼接；没有VQ码本。Eq1为建模分解p(x|c)=∫p(z|c)p(x|z)dz，若当真实分布等式需z对c的条件充分性，论文未证明；Eq3 z_t=t*z+(1−t)*eps，Eq4 v=z−eps，Eq5MSE，在t0噪声→t1数据。低维流形/更平滑为动机与经验，无分布一般定理。公开decoder runtime明确FluxAutoencoderKL、s_ratio8、16channels及vae.decode；语义预测/源图条件不使用VAE latent，不支持整条推理完全无VAE。",
+          "evidence": "固定v1全部核心/七表与指定实际PDF页及GH/HF选读，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "冻结SigLIP2-SO400M16NaFlex，attention compressor将每位置1152维压到64，decompress后条件FLUX扩散decoder；先联合训练压缩/解码，再冻结两者训练Qwen2.5-7B的文字CE+视觉flow。最终选Transfusion；理解正文直接原始特征，编辑用压缩特征，另有原始/压缩拼接消融。 密集空间特征含可压缩通道冗余、teacher具可恢复细节、强预训decoder且训练预算充足时，保位置减通道可优于降空间位置，并改善固定设置下生成收敛。该条件不保证低精度/细字/OOD文字无损，也不保证比直接像素方案更省端到端算力；应以质量/完整成本Pareto评价。静态语义可重建性不能推出规范笔顺或绘画视频。",
+          "evidence": "固定v1全部核心/七表与指定实际PDF页及GH/HF选读，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1d64 rFID.42/PSNR22.28/SSIM.61对d1152 .38/22.60/.61；低于FLUXVAE .06/33.65/.93及VA-VAE .26，UniTok .38不同分辨率，不是全重建最佳。T2GenEval.87<Mogao.89/BAGEL.88，DPG85.92<XOmni87.65/Showo2 86.14；WISE.58为所列最高，但Culture.55<MetaQuery.56、Time.56<FLUX.58，Space.73与UniWorld同。T3ImgEdit4.22<TUNA4.31/QwenImage4.27，GEdit8.06/7.33/7.32语义强但GPQ<TUNA7.48/Qwen7.86、overall<Qwen7.56；KRIS70.11/World4.12在所列开放组较高。T7总分同4.12<Seedream4.45/GPT4o4.36/NanoBanana4.22；正文AppE称4.35与两表4.12冲突待澄清。WorldTime4.08<WorldEdit4.10、Light4.02<4.09、Squeeze3.63<3.73、Twist4.13<4.16等，不能全部类别胜。 T4原始1024×1152 .40/23.26/.69→256×1152 .72/20.29/.56；MLP1024×256 .62/21.73/.66，MLP64 .55/22.17/.66，MHA64 .56/22.61/.69。通道压缩此配方较好，但未等总Nd/参数/算力；MHA rFID不优MLP。T5MHA较MLP六指标均高，仍较原始65.25/64.31/74.63/44.56/69.04/55.40全部下降至64.01/63.14/71.75/44.11/62.12/36.00；OCR降19.40点，不能泛称minor。Seqconcat65.03/64.58/73.62/43.33/69.24/55.50恢复部分但GQA/SEED/MMMU仍低，额外原特征/位置成本需计。Dimconcat OCR48.10仍低。F6正文约5×、caption/实际箭头3.8×为迭代达阈值，不是完整walltime；F7MLLM预训1.5×/Transfusion3.4×同属作者曲线。F8六类各150图tSNE不足证明所有类/因果；F9初期通道压缩更慢、后期追近，也限制普遍加速表述。 Decoder global256/50K、1024base；主alignment/PT/CT/SFT20K/115K/60K/7K步，lr2e-5/1e-4/1e-4/1e-5，cosine后constant，wd0/.01/.01/.01，warm600/5000/5000/100，AdamWβ.9/.95eps1e-6、clip1、后3阶段FM:CE5:1。encoder冻结，max1024位置。私有数据/硬件/总卡时/主batch、LPIPSλ、多seed/CI未齐。固定公开CLI主latent50步/CFG3.5/shift3、decoder100步/CFG1；重建demo50步/shift3/CFG1，均为示例默认，不冒充所有主表采样。默认think_recaption/max1536token、README每prompt4样本，需固定重写/CoT和采样预算。",
+          "evidence": "固定v1全部核心/七表与指定实际PDF页及GH/HF选读，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "AppG作者承认极细节压缩损失和高训练成本。读者补充：主模型缺独立理解总表、OCR原特征旁路、分辨率/预训数据/CoT/采样预算未全匹配；CoT仅例图无开关受控定量。公开94项树为推理路径，完整四阶段训练/私有数据未见。GH55b9001与HF78e43059 code/config显示理解vision hidden1152但aligner input1216，HF/GH _forward_vision_encoder直接传last_hidden_state、选读SigLIP2未拼接；为理解入口静态shape对应待核，需检查加载与运行，未下权重不能判所有生成失败。编辑src64走单独patch路径，避免扩大问题范围。 控制teacher/原生分辨率/FLUX预训、总Nd/bits/参数/FLOPs/曝光，扫描N×d与MLP/MHA并报告三任务Pareto、多seed。PathI/II匹配冻结状态、可训练参数、query长度、训练数据/步数；将理解预训预算计入MLLM初始化对照。压缩/原始/拼接在固定LLM上下文预算下测OCR最小差、局部编辑未改区、真实多语言。公开两级NFE/CFG调用/decoder与CoT总延迟，分开原prompt、重写与bestof采样。对理解入口先做真实加载shape追踪；本文未执行。书写过程另加事件GT/同终态不同过程对照；建议未运行，新颖性需追引。",
+          "evidence": "固定v1全部核心/七表与指定实际PDF页及GH/HF选读，非口试/独立复现"
+        }
+      ],
+      "boundary": "固定v1完整22页核心Abstract/§1–5、Eq1–5、T1–7全部行、AppA–G研究文字及全部图注；参考文献未逐篇，定性页未逐图。实际PDFp4/5/6/8/9/10/19核框架、重建/生成/编辑主表与消融、收敛/tSNE及World总表。GH55b9001完整94项树、README全文、compression.py全文、decoder base/default/reconstruction配置、runtimeVAE加载/解码、decoder压缩入口、Qwen图像路径选读；HF78e43059文件清单/README/config、modeling图像路径/SigLIP2输出/LightProjector对应选读。attention底层/全MLLM与pipeline未逐行，未下载权重或执行模型/独立复现。"
     }
   ]
 }

@@ -350,3 +350,6 @@ python scripts/validate_catalog.py
 
 
 第一百一十八批（2026-10-22）完成L102 EvoTok固定v1核心/Eq1–11/五表和六页实际图表，核GH独立码本/EMA与训练入口及ECCV官方接收列表；保留表示深度、三项并列与主表/公开配方差异。357目录，227核心/230书面含未通过项，130条未确认核心（含资源）。见[审查](docs/evidence/evotok_residual_depth_and_training_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_eighteenth_changes_2026-10-22.md)。没有删除或模型复现。
+
+
+第一百一十九批（2026-10-22）完成L104 UniCom固定v1核心/全部七表和七页实际图表，补原始特征旁路、OCR下降、VAEdecoder与WorldEdit文字/表格冲突；核GH/HF配置和理解入口shape待核项。357目录，228核心/231书面含未通过项，129条未确认核心（含资源）。见[审查](docs/evidence/unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_nineteenth_changes_2026-10-22.md)。没有删除或模型复现。

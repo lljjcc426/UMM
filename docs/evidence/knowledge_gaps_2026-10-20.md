@@ -481,3 +481,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百一十八批（2026-10-22）：T4/主表.55/.43、sum/mean与foldloss、665K/558Kdebug对13M/22M和checkpoint待核。见[审查](evotok_residual_depth_and_training_protocol_audit_2026-10-22.md)、[L102](../reviews/L102.md)。
+
+
+第一百一十九批（2026-10-22）：World4.35/4.12、F2与冻结状态、1152/1216理解入口静态对应，需真实加载验证。见[审查](unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[L104](../reviews/L104.md)。

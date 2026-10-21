@@ -276,3 +276,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百一十八批（2026-10-22）：shared前缀不等于各层绑码本；EMA与commitment作用不同；残差深度不等于物理时间。见[审查](evotok_residual_depth_and_training_protocol_audit_2026-10-22.md)、[L102](../reviews/L102.md)。
+
+
+第一百一十九批（2026-10-22）：Eq1条件分解需充分性；低维/连续不保证无损，18倍维数不等于上下文或完整bits/FLOPs。见[审查](unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[L104](../reviews/L104.md)。

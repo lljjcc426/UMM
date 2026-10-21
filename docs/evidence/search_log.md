@@ -529,3 +529,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百一十八批（2026-10-22）：固定v1全部核心/五表，六页实际图表；GH147b1b2选读，ECCV官方接收列表注明preliminary，正式出版待核。见[审查](evotok_residual_depth_and_training_protocol_audit_2026-10-22.md)、[L102](../reviews/L102.md)。
+
+
+第一百一十九批（2026-10-22）：固定v1全部七表/AppA–G、七页实际图表，GH55b9001/HF78e43059固定制品；正式会场未核。见[审查](unicom_continuous_bottleneck_and_decoder_audit_2026-10-22.md)、[L104](../reviews/L104.md)。
