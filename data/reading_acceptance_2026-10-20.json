@@ -7799,6 +7799,40 @@
         }
       ],
       "boundary": "固定2506.20214v2完整19页PDF配合HTML，Abstract/§1–5核心全文、Eq1–10、完整T1–5、AppA1研究文字与F4/F5图注、A2含Algorithm1/T6、A3 Eq11–18全读；参考文献未逐篇读，F1/F3–5未逐图。实际p3 Eq1、p4 F2/Eq2–3、p7 T1、p8 T2/3、p9 T4/5/F3、p18 T6、p19 Eq12–18核看。本次arXiv元数据/HF论文页及定向GH/HF/正式来源检索，未定位可对应版本公开代码/权重，不能宣称不存在；无权重下载、模型运行/速度测试/独立复现。"
+    },
+    {
+      "id": "L100",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "构建VAE潜变量上共享的连续语义表示，使同一主干处理图像/视频理解、静态生图/编辑及视频生成；检验表示形式和单/双任务训练。没有评价规范字形/笔顺/笔画视频；OneIG文字维与文字案例只涉及静态生成，视频例中的磁贴字也非逐笔书写。 分离语义/生成encoder可能产生分辨率、时间压缩和通道差异；晚融合可能偏语义，纯VAE理解弱。作者以深层共享适配缓解冲突。native在脚注定义为共同预训任务，不等于全部权重从零；连续优于离散和统一优于解耦的一般必要性未由有限配置实验建立。Intro把Transfusion称VQ-VAE不准确，已读U05用连续VAE/flowdiffusion，不沿用该分类。",
+          "evidence": "正式核心与supp研究文字/主表/消融、实际五页、固定GH选读；非口试/独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "图像/视频经VAE→SigLIP2/MLP→Qwen→文字；提示和带噪latent经同路径/flowhead迭代速度→VAE RGB图像或视频，编辑含源图/指令。7B无视频训练，视频主表为1.5B LLM骨干变体，非全系统仅1.5B。实际正式p3F2、p6T2–4、p7T5/6、p8F4与sup p2T7–10已核，其他定性图主要研究文字/图注。 Wan2.2 causal3DVAE空间×16/时间×4；SigLIP2-400M16-512原patch16改随机1×1接VAE48通道（48由公开配置核），2层MLP入Qwen2.5-1.5B/7B-Instruct。xt=t*x1+(1−t)*noise，理解t=1、生成采样t。latent frame并batch独立encoder，论文称每4输入帧窗口，但causalVAE可能含此前信息，不推断严格4帧感受野。LLM文字causal/视觉bidirectional，时间token；随机flowhead沿LLM结构+AdaLNZero，generation/edit3DRoPE。CE+velocityMSE，sup权重.2:1；不误解为先AR预测所有图像码。",
+          "evidence": "正式核心与supp研究文字/主表/消融、实际五页、固定GH选读；非口试/独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "冻结Wan2.2 VAE后级联经patch层改造的SigLIP2，统一干净/带噪潜变量的语义特征；共享Qwen做文字AR、另随机flowhead回归速度。三阶段从表示/head适配到全模型继续预训与SFT。级联作用于连续特征，区别L099固定索引/embedding级联；未额外学习离散书写状态或笔顺约束。 在VAE仍保留任务信息、语义初始化能适配带噪潜空间且任务混合合适时，深层共享可改善理解/组合生成的折中。须在相同encoder/VAE/head容量/数据和总计算下验证早/晚融合，而非将有限任务优势推广到所有离散/解耦表示。针对文字和绘画需独立量化小字/非汉字OCR、帧间文字、事件起止和工具运动，视频VBench和静态OneIG均不提供严格笔顺证据。",
+          "evidence": "正式核心与supp研究文字/主表/消融、实际五页、固定GH选读；非口试/独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "正式T1 7B1641.5/63.9/66.1/74.7/49.8/61.2/79.3/85.8/74.3（按九任务顺序）；BAGEL MME1687/SEED78.5/MMMU55.3/AI2D89.2更强，1.5B SEED69.3<JanusFlow70.5。T2 7BGenEval.90（count.81<BAGEL.84，color.91<Mogao.93）；1.5B.88。DPG86.76/86.03；supOneIG7Bavg.50/text.82，QwenImage.54/.89更高，diversity.19<Janus.37。正式ImgEdit4.31，但extract2.46<Qwen3.43/style4.69<4.81；v1各编辑子分不同，总4.31同。GEdit7.29<Qwen7.56。视频VBench84.06/Q84.32/S83.04、DD69.39<Emu379.27；SC95.99<Showo297.28、AS23.18/TS24.68亦低于Showo2。视频理解54.4/49.1/49.7/27.4，不胜大专用模型所有任务。 正式T6九行，supT11完整13行（v1T7）。同TUNA单理解1386/37.6/62.9/57.4→联合1361/38.1/66.5/58.2，MME−25；生成77.8/83.33→79.4/84.20，+1.6/.87，不能写全指标互利。联合解耦1346/37.2/61.4/56.5/78.3/83.50，TUNA各项较高。SigLIP→SigLIP2全部升，但DINOv3相对SigLIP2 MME1396更高/MMMU37.3更低/Gen78.9更低，不是单调更强encoder全优。Wan2.1→2.2同SigLIP2 MME1379→1361/GQA58.4→58.2下降。正式Showo2联合MMMU35.5，v1为35.4，保留版本。F4SigLIP2对齐两曲线各有高低，SD3各层TUNA较高；未报CI或干预。 正式正文lr阶段1/2=1e-4、III2e-5，II2Kwarm；supT7阶段1/2/3 lr1e-4/5e-5/1e-5，constant、steps200K/100K/30K、warm2K/2K/3K、wd0、clip1、CE:MSE.2:1、EMA.9999/.9999/.995、gen:und:text4:1:0→3:1:0→4:2:1。Optimizer I/II β.9/.999 ε1e-15，IIIβ.9/.95，IIIε未给。分辨率短边/长边I/II gen和und(384,672)、IIIgen(384,1024)/und(384,672)，shift3/3/4。正文512²基准及近token数宽高比；原文/附录lr冲突并列。完整GPU数/globalbatch/卡时、视频FPS/帧长、每prompt张数/采样seed等未齐；公开示例不同，不能回填。",
+          "evidence": "正式核心与supp研究文字/主表/消融、实际五页、固定GH选读；非口试/独立复现，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "未见单列Limitations，需补私有大数据/过滤、完整成本/seed与因果归因。CKNNA高只说明所测邻域相似，不证明表示必然消除冲突；F4两曲线不是全层都>0.5，0.45/.07支路对齐也不直接量化任务有效信息。VAE时空压缩/窗口可能丢细笔与短接触事件，固定frame相似度不能识别物理笔顺。公开训练若T2I携带images_clip，模型把其cleanVAE结果作为pixel_values，_prepare_embeds优先于xt；此静态路径需排查训练/纯噪声推理不一致，未执行，不能判正式模型原始训练错误。 固定VAE/语义encoder/flowhead/LLM、样本与总FLOPs，对照解耦/晚融合/深融合及单/双任务，分别固定总步和每任务曝光，报告多seedPareto与各退步项。改窗口/时间压缩，按不足4帧短事件分层，真实接触/抬笔/墨迹GT+静态SVG强基线；CKNNA配合模块替换/信息probe而非纯相关归因。公开代码优先追clean/noisy两路和视频latent帧含义，再核与正式配方差异；在权重和完整数据未核齐前不称复现。以上实验未运行，新颖性须补追引。",
+          "evidence": "正式核心与supp研究文字/主表/消融、实际五页、固定GH选读；非口试/独立复现，非口试/独立复现"
+        }
+      ],
+      "boundary": "正式CVPR12页PDF Abstract/§1–5全部核心文字、Eq1–3、T1–6/F1–4图注，官方supp12页中§6–12研究文字、T7–11/F5–8图注/Algorithm无新增，参考文献和全部定性图/视频未逐项读。固定arXivv1核心全文/T1–7另读用于版本差异；实际正式p3F2、p6T2–4、p7T5/6、p8F4、supp p2T7–10已核。GHb53594e3完整2142项树清单定位（lmms-eval未逐文件）、README/训练guide、两原版模型cfg、示例train/video/predict、Tuna初始化/forward/输入选择/损失、SiglipMixin按帧、dataset返回images_clip与默认loader/训练unit核心选读，未全读transport/attention/VAE/eval底层。无模型权重下载/训练推理/速度/独立复现。"
     }
   ]
 }

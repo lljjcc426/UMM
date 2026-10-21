@@ -267,3 +267,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百一十五批（2026-10-22）：Eq1中心梯度、Eq2不平衡簇反例、H上界与语义信息差别、Eq17分布/尺度条件。见[审查](unicode2_codebook_theory_and_protocol_audit_2026-10-22.md)、[L099](../reviews/L099.md)。
+
+
+第一百一十六批（2026-10-22）：连续Transfusion分类纠正；CKNNA相关与因果、VAE时空压缩对短事件的边界。见[审查](tuna_formal_version_synergy_and_release_audit_2026-10-22.md)、[L100](../reviews/L100.md)。

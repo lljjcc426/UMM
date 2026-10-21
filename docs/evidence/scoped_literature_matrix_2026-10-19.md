@@ -431,3 +431,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百一十五批（2026-10-22）：固定SigLIP索引与适配embedding、静态AR→扩散；外部decoder/大词表成本，未验证文字视频或笔顺。见[审查](unicode2_codebook_theory_and_protocol_audit_2026-10-22.md)、[L099](../reviews/L099.md)。
+
+
+第一百一十六批（2026-10-22）：连续VAE→SigLIP2共享表示、图文/视频任务；静态文字与VBench不提供笔顺GT。见[审查](tuna_formal_version_synergy_and_release_audit_2026-10-22.md)、[L100](../reviews/L100.md)。

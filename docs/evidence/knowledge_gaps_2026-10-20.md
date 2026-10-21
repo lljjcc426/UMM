@@ -472,3 +472,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百一十五批（2026-10-22）：VQGAN均值60.8/印64.1、T2UniToken/UniTok歧义、GB单位与最终K′/mapping/采样未齐。见[审查](unicode2_codebook_theory_and_protocol_audit_2026-10-22.md)、[L099](../reviews/L099.md)。
+
+
+第一百一十六批（2026-10-22）：正文/附录lr、7B无视频、权重README/guide差异及clean/noisy分支待执行。见[审查](tuna_formal_version_synergy_and_release_audit_2026-10-22.md)、[L100](../reviews/L100.md)。

@@ -520,3 +520,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百一十五批（2026-10-22）：固定v2/arXiv元数据和HF论文页、定向GH/HF/原始发表源检索；未定位对应代码/权重不等于证明未发布。见[审查](unicode2_codebook_theory_and_protocol_audit_2026-10-22.md)、[L099](../reviews/L099.md)。
+
+
+第一百一十六批（2026-10-22）：正式CVPR全索引/正文/官方zip内PDF、arXivv1及固定GH原版TUNA路径；未播放zip视频。见[审查](tuna_formal_version_synergy_and_release_audit_2026-10-22.md)、[L100](../reviews/L100.md)。

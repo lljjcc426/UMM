@@ -460,3 +460,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百一十五批（2026-10-22）：等词表成本/码率/数据级联对照、真实q/H和训练曲线、独立OCR与同终图异过程GT；未执行。见[审查](../evidence/unicode2_codebook_theory_and_protocol_audit_2026-10-22.md)、[L099](../reviews/L099.md)。
+
+
+第一百一十六批（2026-10-22）：等总FLOPs与等任务曝光共享对照、多seedPareto、短接触/抬笔事件GT；未执行。见[审查](../evidence/tuna_formal_version_synergy_and_release_audit_2026-10-22.md)、[L100](../reviews/L100.md)。
