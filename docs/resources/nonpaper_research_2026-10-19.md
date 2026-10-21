@@ -431,3 +431,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百零五批（2026-10-21）：X-Omni En/Zh/PT/SFT与LongText固定制品关联，10blob推理/评价非完整训练；prompt每语160、实评分无序召回/脚本适配。见[审查](../evidence/ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[L091](../reviews/L091.md)、[L093](../reviews/L093.md)。
+
+
+第一百零六批（2026-10-21）：QLIP GH7blob/HF B16固定权重卡配置和分制品许可证；DualToken tokenizer训练loss/8卡入口已发、统一MLLM待发，不将论文/制品重复计独立研究。见[审查](../evidence/qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[L095](../reviews/L095.md)、[L096](../reviews/L096.md)。

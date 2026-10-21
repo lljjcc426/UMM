@@ -311,3 +311,6 @@ python scripts/validate_catalog.py
 
 
 第一百零五批（2026-10-21）完成L091 UGen/L093 X-Omni固定核心、实际框架/主表/已有消融及指定制品；核课程mask与PPL、7/8基准和k∞差异，纠正中文长文本全优说法，明确无序加权召回、En/Zh与扩散CFG。356目录、211核心/214书面含未通过项，145条未确认核心。见[审查](docs/evidence/ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_fifth_changes_2026-10-21.md)。无删除/模型复现。
+
+
+第一百零六批（2026-10-21）完成L095 QLIP/L096 DualToken固定核心、实际框架/主表/消融与指定代码；核量化前后理解、固定loss比例、双码head与完整成本、受控双encoder及脚本/论文差异。356目录、213核心/216书面含未通过项，143条未确认核心。见[审查](docs/evidence/qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_sixth_changes_2026-10-21.md)。无删除/模型复现。

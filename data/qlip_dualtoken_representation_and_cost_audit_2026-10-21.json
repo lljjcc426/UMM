@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L095",
+    "L096"
+  ],
+  "sources": {
+    "L095": [
+      "https://arxiv.org/html/2502.05178v1",
+      "https://arxiv.org/abs/2502.05178",
+      "https://nvlabs.github.io/QLIP/",
+      "https://github.com/NVlabs/QLIP/tree/cf86fcc5131c2bb008c349fe9456ccbd1e0e1619",
+      "https://huggingface.co/nvidia/QLIP-B-16-256/tree/fbe07ff2d8c8798ca9f2f5c0699608bcc3da48a0"
+    ],
+    "L096": [
+      "https://arxiv.org/html/2503.14324v3",
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/0dbc636d5667a522cbfd92e7401ab704-Abstract-Conference.html",
+      "https://github.com/songweii/DualToken/tree/499e5b1d716bb72f5e5e2a91eae78ab53cf2ef3d"
+    ]
+  },
+  "executed": false,
+  "downloaded_weights": false,
+  "downloaded_dataset_media": false,
+  "artifacts": [
+    {
+      "id": "L095",
+      "paper": "Fixed arxiv2502.05178v1; techreport, formal venue not confirmed",
+      "github_revision": "cf86fcc5131c2bb008c349fe9456ccbd1e0e1619",
+      "tree_blobs": 7,
+      "hf_revision": "fbe07ff2d8c8798ca9f2f5c0699608bcc3da48a0",
+      "visuals": [
+        "v1F2",
+        "v1T2",
+        "v1T3a",
+        "v1T6"
+      ],
+      "findings": [
+        "Post-hoc fixed loss ratio, not online adaptive weighting",
+        "Main LLaVA uses prequantization second-last layer; postquantization understanding degrades",
+        "Reconstruction rFID vs PSNR/SSIM and UM3 text/generation remain tradeoffs",
+        "4/5/15/16M T2I subsets and B8 exposure vs4B summary not fully reconciled",
+        "28bit implicit codebook packing into finite UM3 vocabulary not verified from public training code",
+        "Only tokenizer implementation/checkpoints confirmed, not complete original unified training"
+      ]
+    },
+    {
+      "id": "L096",
+      "paper": "ICLR2026 official identity; fixed arxiv2503.14324v3 full core/AppendicesA-G; incomplete formalPDF excluded",
+      "github_revision": "499e5b1d716bb72f5e5e2a91eae78ab53cf2ef3d",
+      "tree_blobs": 241,
+      "visuals": [
+        "v3F2",
+        "v3F4",
+        "v3T3",
+        "v3T5a",
+        "v3T11",
+        "v3T13"
+      ],
+      "findings": [
+        "Shared SigLIP backbone with two RVQ codebooks; concat feature dimension/project to fixed LLM dimension",
+        "GenAI.60to.68 is about13.3percent relative, .08absolute",
+        "Controlled adapted dual-encoder baseline has same token lengths/RVQ depths/data; not stock MoVQ",
+        "About276.1M extra params, 73.8to78.2G/11.42to12.97s; no free inference claim",
+        "Equation2 repeated commitment index is not current code: training sums semantic and pixel losses",
+        "Published tokenizer stage1 includes both feature and pooled teacher MSE/cosine; train script globalbatch256 differs appendix64",
+        "Tokenizer training/inference code exists; complete unified MLLM release not confirmed"
+      ]
+    }
+  ]
+}

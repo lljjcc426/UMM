@@ -237,3 +237,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百零五批（2026-10-21）：masked目标熵/PPL、课程速度预算、奖励泛化与分布差因果；无序Counter召回/长度加权与有序过程区分。见[审查](ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[L091](../reviews/L091.md)、[L093](../reviews/L093.md)。
+
+
+第一百零六批（2026-10-21）：固定loss尺度与梯度冲突、语义层级/量化瓶颈、rFID/PSNR/码率Pareto；序列长度不变与额外残差预测成本区分。见[审查](qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[L095](../reviews/L095.md)、[L096](../reviews/L096.md)。

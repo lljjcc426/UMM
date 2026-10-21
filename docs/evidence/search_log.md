@@ -490,3 +490,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百零五批（2026-10-21）：UGen唯一v1完整13页/HTML及实际p8，X-Omni固定v1核心/附A、实际框架/主表/RL曲线，GH10blob/HF五项固定revision与两语prompt统计。见[审查](ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[L091](../reviews/L091.md)、[L093](../reviews/L093.md)。
+
+
+第一百零六批（2026-10-21）：QLIP唯一v1核心/附A–D/实际图表、7blob与HF固定配置；DualToken正式ICLR身份、v3核心/附A–G/实际图表、241blob树/训练loss，正式PDF部分下载排除。见[审查](qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[L095](../reviews/L095.md)、[L096](../reviews/L096.md)。

@@ -200,8 +200,8 @@
 | L092 | Harmonizing Visual Representations for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L092.md) | 核心三遍与五项检查完成 |
 | L093 | X-Omni: Reinforcement Learning Makes Discrete Autoregressive Image Generative Models Great Again | primary_sections_read | [结构化分析](../reviews/L093.md) | 核心三遍与五项检查完成 |
 | L094 | TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L094.md) | 核心三遍与五项检查完成 |
-| L095 | QLIP: Text-Aligned Visual Tokenization Unifies Auto-Regressive Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L095.md) | 未完成 |
-| L096 | DualToken: Towards Unifying Visual Understanding and Generation with Dual Visual Vocabularies | primary_sections_read | [结构化分析](../reviews/L096.md) | 未完成 |
+| L095 | QLIP: Text-Aligned Visual Tokenization Unifies Auto-Regressive Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L095.md) | 核心三遍与五项检查完成 |
+| L096 | DualToken: Towards Unifying Visual Understanding and Generation with Dual Visual Vocabularies | primary_sections_read | [结构化分析](../reviews/L096.md) | 核心三遍与五项检查完成 |
 | L097 | UniToken: Harmonizing Multimodal Understanding and Generation through Unified Visual Encoding | primary_sections_read | [结构化分析](../reviews/L097.md) | 未完成 |
 | L098 | Selftok: Discrete Visual Tokens of Autoregression, by Diffusion, and for Reasoning | primary_sections_read | [结构化分析](../reviews/L098.md) | 未完成 |
 | L099 | UniCode$^2$: Cascaded Large-scale Codebooks for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L099.md) | 未完成 |

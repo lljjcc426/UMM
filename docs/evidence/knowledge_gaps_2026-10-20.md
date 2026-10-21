@@ -442,3 +442,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百零五批（2026-10-21）：UGen默认k/k∞、7vs8语言宏平均、数据split/代码；X-Omni完整奖励权重/训练协议、原入口适配、独立机制/人评待核。见[审查](ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[L091](../reviews/L091.md)、[L093](../reviews/L093.md)。
+
+
+第一百零六批（2026-10-21）：QLIP 28bit下游词表打包、4/5/15/16M与曝光；DualToken归一宏平均、总步数/内部数据、run.sh与论文配置及统一系统发布待核。见[审查](qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[L095](../reviews/L095.md)、[L096](../reviews/L096.md)。

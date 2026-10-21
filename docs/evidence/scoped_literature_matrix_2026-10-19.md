@@ -401,3 +401,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百零五批（2026-10-21）：渐进视觉词表、图像级GRPO、语义AR+FLUX与长文字图像基准；静态文字覆盖不等同布局/顺序或视频笔顺。见[审查](ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[L091](../reviews/L091.md)、[L093](../reviews/L093.md)。
+
+
+第一百零六批（2026-10-21）：联合训练tokenizer、连续理解接口与双RVQ离散理解/生成；共享视觉主干、双词表和双输出head分别辨明，静态能力不推笔顺。见[审查](qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[L095](../reviews/L095.md)、[L096](../reviews/L096.md)。

@@ -430,3 +430,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百零五批（2026-10-21）：同目标/预算课程与恒定mask、逐奖励和BoN/拒绝采样SFT、GT/预测码与有序文字/布局评价，多seed待执行。见[审查](../evidence/ugen_xomni_curriculum_reward_and_text_metric_audit_2026-10-21.md)、[L091](../reviews/L091.md)、[L093](../reviews/L093.md)。
+
+
+第一百零六批（2026-10-21）：同码率/初始化/预算连续与离散接口、固定/在线权重、单/双码/双encoder/等容量head控制、梯度与细字/时序评价，多seed待执行。见[审查](../evidence/qlip_dualtoken_representation_and_cost_audit_2026-10-21.md)、[L095](../reviews/L095.md)、[L096](../reviews/L096.md)。
