@@ -427,3 +427,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百批（2026-10-21）：Unison judge训练/人评独立性和rho类型、ME累计并集/GT回退原表版本；VGAU fixed BAGEL接线、停止混杂与规划/视觉瓶颈分离待核。见[审查](unison_vgau_synergy_oracle_and_stop_protocol_audit_2026-10-21.md)、[L069](../reviews/L069.md)、[L070](../reviews/L070.md)。
+
+
+第一百零一批（2026-10-21）：NExT正式zero-shot表间冲突、视频FID协议、legacy/新code绑定；Dream正式PDF、配置扩充、候选预算与协同方差待核。见[审查](nextgpt_dreamllm_interfaces_synergy_and_release_audit_2026-10-21.md)、[L080](../reviews/L080.md)、[L081](../reviews/L081.md)。

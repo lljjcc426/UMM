@@ -386,3 +386,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百批（2026-10-21）：两项协同/规划Benchmark，均无规范书写视频模型；直接回答、有辅助回答、联合质量与成本分开。见[审查](unison_vgau_synergy_oracle_and_stop_protocol_audit_2026-10-21.md)、[L069](../reviews/L069.md)、[L070](../reviews/L070.md)。
+
+
+第一百零一批（2026-10-21）：四模态接口与图文交错联合学习分开；视频CLIPSIM/FID、图像FID/理解指标不能替代笔顺事件。见[审查](nextgpt_dreamllm_interfaces_synergy_and_release_audit_2026-10-21.md)、[L080](../reviews/L080.md)、[L081](../reviews/L081.md)。

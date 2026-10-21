@@ -415,3 +415,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百批（2026-10-21）：固定同题直接/辅助回答、oracle/预测框、GT/自判停止2×2、逐轮初值Δ和预算；书写事件规范与状态可见性独立测量。未执行模型实验。见[审查](../evidence/unison_vgau_synergy_oracle_and_stop_protocol_audit_2026-10-21.md)、[L069](../reviews/L069.md)、[L070](../reviews/L070.md)。
+
+
+第一百零一批（2026-10-21）：相同专家/数据/FLOPs的caption/连续接口和单目标/联合、冻结UNet停止梯度对照；书写事件/可见状态双标注。未运行模型。见[审查](../evidence/nextgpt_dreamllm_interfaces_synergy_and_release_audit_2026-10-21.md)、[L080](../reviews/L080.md)、[L081](../reviews/L081.md)。

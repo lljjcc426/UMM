@@ -416,3 +416,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百批（2026-10-21）：Unison固定GH/HF文本计数、judge231和模型配置、UGG回退/ME跨轮并集；VGAU公共driver/BAGEL调用与两manifest，原表与公开默认分开。见[审查](../evidence/unison_vgau_synergy_oracle_and_stop_protocol_audit_2026-10-21.md)、[L069](../reviews/L069.md)、[L070](../reviews/L070.md)。
+
+
+第一百零一批（2026-10-21）：NExT旧HF与当前两代码线、Dream普通/美学checkpoint固定revision、缺独立卡与训练配置差异，均关联原研究去重。见[审查](../evidence/nextgpt_dreamllm_interfaces_synergy_and_release_audit_2026-10-21.md)、[L080](../reviews/L080.md)、[L081](../reviews/L081.md)。

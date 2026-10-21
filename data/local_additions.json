@@ -5666,22 +5666,27 @@
     "title": "NExT-GPT: Any-to-Any Multimodal LLM",
     "source_urls": [
       "https://arxiv.org/abs/2309.05519",
-      "https://arxiv.org/html/2309.05519"
+      "https://arxiv.org/html/2309.05519",
+      "https://proceedings.mlr.press/v235/wu24e.html",
+      "https://raw.githubusercontent.com/mlresearch/v235/main/assets/wu24e/wu24e.pdf",
+      "https://arxiv.org/html/2309.05519v3",
+      "https://github.com/NExT-GPT/NExT-GPT/tree/60d618b067ee4cb0d70e7075ae79852780b34fc2",
+      "https://huggingface.co/ChocoWu/nextgpt_7b_tiva_v0/tree/f28bea33714c810ef6cb9b9e440edcddb93297a4"
     ],
-    "method": "输入概念分组projector、输出扩散条件projector与三阶段对齐/LoRA指令微调；构造MosIT多轮跨模态数据。 ImageBind1.2B→输入projector→Vicuna7B-v0→模态signal hidden states→各自4层encoder/4层decoder、512dim/4head projector→SD1.5(1.3B)、Zeroscope-v2-576w(1.8B)、AudioLDM-l-full(.975B)。projector约155M，总系统约12.43B；“1%”是参数更新比例近似，LoRA额外更新与冻结模块计算仍需计入。",
-    "conclusion": "Table4明确分两行：非zero-shot FID10.07/FAD1.68/CLIPSIM31.97，带†zero-shot为11.18/1.74/30.96。SD1.5 FID11.21、CoDi11.26/1.80/28.9；小FID差未报告统计区间，不能据非零样本行宣称零样本领先。",
-    "gap": "四模态覆盖不等于任意组合均已充分量化；生成上限依赖冻结decoder，MosIT较小且人工筛选。§4.2 signal索引0..4/8/24与§6.2“4/8/24个”有一位差，本次不据此认定代码错误。精确视频笔画时间与局部文字没有独立评价。",
-    "problem": "让LLM接受和生成文字、图像、音频、视频的组合，并学习多轮模态切换指令。",
+    "method": "分组输入投影、模态signal token与输出Transformer条件投影，三阶段输入/输出对齐和MosIT多模态指令训练；构造5K条3–7轮会话。主要创新为冻结专家间可训练接口和模态切换，不等于训练一个共享图像/视频/音频像素生成网络。正式T1可训练155M含LoRA33M；输入28M+输出31/31/32M约122M，修正旧笔记“projector约155M”。 ImageBind1.2B、Vicuna7B-v0（最终LoRA33M）、SD1.5约1.3B/AudioLDM-l-full约.975B/Zeroscope-v2-576w约1.8B。输入Gumbel-Softmax分组和straight-through硬指派；输出4encoder/4decoder层、hidden512、4heads、dropout.1。文本/signal NLL、生成器文本条件L2蒸馏与条件去噪目标分阶段使用，冻结专家权重仍允许对条件传播梯度。全系统约12.43B、155M约1.25%；参数比例不能替代显存、训练FLOPs或时间比较。",
+    "conclusion": "正式T2图caption NoCaps123.7/Flickr84.5/COCO124.9 CIDEr，VQA66.7/Viz48.4/OK52.1/MMB58/SEED57.5；VQA/MMB低于Video-LLaVA74.7/60.9。T3 MSVD64.5/MSRVTT61.4，MSVD低于Video-LLaVA70.7。T4非零样本FID10.07/FAD1.68/CLIPSIM31.97；零样本dagger11.18/1.74/30.96。SD1.5 FID11.21与11.18差.03，无CI不可称显著。附录T9视频CLIPSIM31.97且称zero-shot，与T4 dagger30.96口径未解决；分别保留。T15视频编辑CLIP-T.2684/CLIP-I.9647低于Pix2Video.2891/.9767，未全面超过专用模型。",
+    "gap": "四模态接口覆盖不代表所有组合任务同等可靠；作者列7B规模、冻结专家上限、MosIT规模及更复杂输入困难。主表与附录zero-shot标签/数值、视频FID协议、不同caption结果条件不统一，不强行合并。分组优于linear可能混合容量因素，caption失败未证明连续接口必然保留细节。当前legacy/新版与HF旧checkpoint绑定有差异；未核原表日志。静态语义与视频相似度无法证明时序笔画身份、动作合法、抬落笔或RGB过程可见性。",
+    "problem": "在同一会话系统中理解并输出文本、图像、音频、视频的混合组合，同时复用冻结感知/扩散专家，降低新增训练参数。该工作提出跨模态适配系统与MosIT数据，未建立新视频扩散骨干，也未验证规范汉字笔顺或逐笔绘画视频能力。any-to-any是系统接口范围，不能当所有输入输出组合都完成等强量化验证。",
     "claim": "研究目标：让LLM接受和生成文字、图像、音频、视频的组合，并学习多轮模态切换指令。",
-    "version": "NExT-GPT，2023",
+    "version": "NExT-GPT: Any-to-Any Multimodal LLM；正式ICML2024，PMLR235:53366–53397，完整32页正式PDF；arXiv2309.05519v3交叉定位。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L080",
     "canonical_key": "paper:arxiv:2309.05519",
     "evidence_history": [
@@ -5713,38 +5718,47 @@
         "conclusion": "是 any-to-any 系统的重要起点；主要复用已有专家，不能当作单一共享生成主干的证据",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 101,
+        "scope": "正式完整32页PDF Abstract/§1–7核心全文与Impact、T1–5/分组与条件损失定义/F1–6图注，AppA局限、C1–6实现/数据/T6–7、D1主结果T8–16/D2人评/D3案例文字；D4演示、全部例图/参考文献未逐一精读。实际p5 F2/p7 T2–4/p9 F6/T5。GH60d618b0完整307blob树、README与13指定路径的配置/训练核心/接口；另读projector指定实现。HF f28bea33元数据及卡/config/token文本（无权重）。未全审全部低层代码/全部MosIT媒体，未运行训练推理、原表复现或口试。"
       }
     ],
-    "sections_read": "§3–6核心方法、Table4/5及人评说明、AppA、AppC三阶段和Table7、AppD开头及零样本生成表；未逐一核全部QA结果、视频采样条件或代码，未复现",
+    "sections_read": "正式完整32页PDF Abstract/§1–7核心全文与Impact、T1–5/分组与条件损失定义/F1–6图注，AppA局限、C1–6实现/数据/T6–7、D1主结果T8–16/D2人评/D3案例文字；D4演示、全部例图/参考文献未逐一精读。实际p5 F2/p7 T2–4/p9 F6/T5。GH60d618b0完整307blob树、README与13指定路径的配置/训练核心/接口；另读projector指定实现。HF f28bea33元数据及卡/config/token文本（无权重）。未全审全部低层代码/全部MosIT媒体，未运行训练推理、原表复现或口试。",
     "review_path": "docs/reviews/L080.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "CC3M约3M、WebVid2M、AudioCaps约46K用于对齐；LLaVA150K、VideoChat、清洗Alpaca、T2M等SFT。MosIT约5K、3–7轮、>100主题，GPT4模板/示例辅以网络检索及SDXL/Midjourney生成素材和人工筛查；不能称全部来自自然真实对话。",
-    "framework": "输入概念分组projector、输出扩散条件projector与三阶段对齐/LoRA指令微调；构造MosIT多轮跨模态数据。",
-    "architecture": "ImageBind1.2B→输入projector→Vicuna7B-v0→模态signal hidden states→各自4层encoder/4层decoder、512dim/4head projector→SD1.5(1.3B)、Zeroscope-v2-576w(1.8B)、AudioLDM-l-full(.975B)。projector约155M，总系统约12.43B；“1%”是参数更新比例近似，LoRA额外更新与冻结模块计算仍需计入。",
-    "metrics": "图像/视频QA准确率、音频caption CIDEr等；COCO FID、AudioCaps FAD、MSRVTT CLIPSIM。100条GPT4复杂指令由5名志愿者给1–100分，评指令遵循/合理性/质量。",
-    "baselines": "CoDi、UIO2、SD1.5、AudioLDM、视频生成系统及LLM工具流水线；输入projector对linear/QFormer/grouping；规模、预训和评估协议不同。",
-    "experimental_conditions": "S1仅训输入projector CE；S2输出projector signal NLL+对文本encoder条件L2+扩散噪声MSE；S3输入/输出projector与LLM LoRA、回答CE+生成loss，底层encoders和diffusion冻结。Table7 Adam lr4e-4/4e-4/5e-4、wd.001、warm.1线性、每阶段1epoch、每GPU batch18/8/4、max512。未从已读内容取得总GPU时长、完整采样步数及非zero-shot专属微调协议，保留待核。"
+    "dataset": "输入/输出对齐CC3M3M、WebVid2M、AudioCaps46K；T2M指令15K（三模态各5K）；MosIT5K会话、3–7轮/均4.8轮、>100主题，GPT4模板、网络媒体检索/SDXL/Midjourney与人工筛选。T6每媒体类型4K是该表统计，不据此推断源媒体互斥或唯一总数。还含Alpaca/LLaVA等文本图文指令。未核完整发布标注、去重或各基准预训练污染；5K不能代表全部模态组合/长尾语义。",
+    "framework": "分组输入投影、模态signal token与输出Transformer条件投影，三阶段输入/输出对齐和MosIT多模态指令训练；构造5K条3–7轮会话。主要创新为冻结专家间可训练接口和模态切换，不等于训练一个共享图像/视频/音频像素生成网络。正式T1可训练155M含LoRA33M；输入28M+输出31/31/32M约122M，修正旧笔记“projector约155M”。",
+    "architecture": "ImageBind1.2B、Vicuna7B-v0（最终LoRA33M）、SD1.5约1.3B/AudioLDM-l-full约.975B/Zeroscope-v2-576w约1.8B。输入Gumbel-Softmax分组和straight-through硬指派；输出4encoder/4decoder层、hidden512、4heads、dropout.1。文本/signal NLL、生成器文本条件L2蒸馏与条件去噪目标分阶段使用，冻结专家权重仍允许对条件传播梯度。全系统约12.43B、155M约1.25%；参数比例不能替代显存、训练FLOPs或时间比较。",
+    "metrics": "图像caption CIDEr、VQA类准确率、视频问答准确率/视频与音频caption、COCO FID、AudioCaps FAD、MSRVTT CLIPSIM；附录另列音频FD/IS、编辑CLIP/FID、语音MCD与人评。FID不等FVD，CLIPSIM不评时序有效/笔顺，FD不等FAD。正式F6视频图纵轴明确标FID，主表T4视频用CLIPSIM，两处协议不能混写；视频FID帧采样/聚合未充分披露。",
+    "baselines": "理解含Video-LLaVA/InstructBLIP/VideoChat等，生成含SD1.5/GILL/Emu/CoDi/AudioLDM/UnifiedIO；人评VisualChatGPT/HuggingGPT与NExT-GPT-caption。不同LLM/专家、预训练与任务微调不能当完全匹配成本对照。T5相同框架改输入linear或Q-former+linear，F6改signal数；缺完整MosIT去除/纯caption控制的数据与预算匹配、共享/分离专家训练因果对照。",
+    "experimental_conditions": "正式T7三阶段Adam、lr4e-4/4e-4/5e-4、wd.001、1epoch、warmup.1/linear，perGPU batch18/8/4、max512；未充分给GPU数/总时长/全表seed与CI。GH60d618b0完整307blob树；当前新脚本Vicuna1.5+SD2、LoRA128/alpha256/batch4/2/56，与论文不同。legacy base为Vicuna-v0/SD1.5/4image8audio24video信号、stage3 LoRA32；legacy输入是线性层、已读训练核心仅CE+条件L2，新代码具有group builder及去噪项。两实现不能合并声称复现正式模型。"
   },
   {
     "title": "DreamLLM: Synergistic Multimodal Comprehension and Creation",
     "source_urls": [
       "https://arxiv.org/abs/2309.11499",
-      "https://arxiv.org/html/2309.11499"
+      "https://arxiv.org/html/2309.11499",
+      "https://proceedings.iclr.cc/paper_files/paper/2024/hash/1a7a22152cd21f0ca3c0f8139bb32905-Abstract-Conference.html",
+      "https://arxiv.org/html/2309.11499v2",
+      "https://github.com/RunpeiDong/DreamLLM/tree/9dc767781b9bf81c0f2c857585665328ed782068",
+      "https://huggingface.co/collections/RunpeiDong/dreamllm-65fa8297e12a435e55e4b5ca"
     ],
-    "method": "<dream>标记预测图像位置，64可学习query从LLM查询上下文，直接以冻结扩散模型的像素生成loss学习条件，不强制中间CLIP对齐。 Vicuna7B、冻结CLIP-L/14（224²、256patch）、线性视觉projector与条件projector、64dream query、冻结SD2.1（512²）。文字CE+扩散MSE；虽然UNet冻结，条件梯度仍穿过UNet到query/LLM。§3.1 KL/MLE解释依赖假定预训SD为理想score，不能泛化成任意冻结教师都精确最大似然的保证。",
-    "conclusion": "主表COCO FID8.46/LNCOCO20.53；StageI8.76/22.42，不能当单样本共同协议。Table3相同训练数据：联合+指令MMVet35.9/VQAv2 56.6/FID8.46，对理解only+指令34.4/54.3，对创建only+指令FID8.57，支持本配方部分协同，生成差值较小且缺置信区间。",
-    "gap": "冻结SD提供强先验且有容量/score偏差；联合与单任务虽同数据，完整FLOPs/更新次数尚未严格匹配。广告/噪声MMC4、组合对象相混淆、仅7B等限制。8选1和CLIP评价器依赖不能证明局部文字或时间正确。",
-    "problem": "在交错图文中同时理解与生成，并让生成学习为理解提供有用信息。",
+    "method": "图文交错I-GPT：文本自回归CE+连续dream queries条件图像去噪损失，联合训练LLM/输入输出线性投影及64 queries，冻结CLIP/SD。三阶段接口对齐、交错预训练与指令训练。T3同架构/作者称同数据的理解-only/生成-only/联合目标控制，为协同提供局部实验依据。旧笔记“+指令数据”需修正：T3 ID指第二阶段interleaved dataset，第三阶段SFT另列。 Vicuna7B-v1.1、CLIP ViT-L14/224²冻结、SD2.1 VAE+UNet冻结，输入/输出线性映射和64 queries。Eq1–6把文档概率分解为文本NLL与图像条件分布，去噪MSE梯度穿过冻结UNet回传条件/queries/LLM。§3最优扩散器假设下的KL/MLE联系不构成任意冻结专家皆能学全分布的保证；与3D SDS省略UNet Jacobian的常用实现不可直接混称。当前代码同时支持epsilon/v_prediction，以scheduler配置为准。",
+    "conclusion": "T1默认CIDEr115.4/VQA56.6/OK44.3/Viz45.8/TQA34.9/MMB49.9/MMVet35.9；665K星版VQA72.9/MMB58.2/MMVet36.6但CIDEr103.7下降；Intro MMB49.1与表49.9不合，主表值分开保留。T2 COCO8.46/LN20.53优于SD12.43/34.26及同数据微调11.91/25.35，仍落后专用Parti7.23/15.97等。T4语言MMLU45→41.8，不能说所有语言能力保持/提高。交错人评150文档×5人，作者60.68%对GT77.24%，不足确认普遍接近人类或通过标准Turing测试。",
+    "gap": "作者列7B规模、MMC4广告/噪声、prompt敏感及多图组合退化。联合单目标对照未完全披露等计算/优化稳定性，−.11FID无方差不能称显著；生成排序与LN采样不一致。固定v2为本批正文，正式PDF未全文核；当前repo配置扩充且含未来/其他项目插件，不能回填为原论文功能。主表/Intro MMB差异保留；定性attention、文档例子未构成因果理解机制证据。未训练规范文字/事件/运动，不提供笔顺保证。",
+    "problem": "让同一LLM联合建模图像理解、图像生成与自由图文交错文档，通过生成训练改善理解，同时保持语言能力。本文为图文UMM与冻结扩散解码器的条件学习，无视频/音频生成、汉字笔顺或书写事件建模。协同需要同数据目标对照，不能由单一多任务总分或定性故事确认。",
     "claim": "研究目标：在交错图文中同时理解与生成，并让生成学习为理解提供有用信息。",
-    "version": "DreamLLM，2023",
+    "version": "DreamLLM: Synergistic Multimodal Comprehension and Creation；正式ICLR2024条目已确认。本批完整研究来源固定arXiv2309.11499v2 HTML；ICLR正式PDF下载不完整、OpenReview PDF403，均未作为已读正文。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 1. 早期形成：图像如何成为语言模型能够读写的内容",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-21",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-21",
     "id": "L081",
     "canonical_key": "paper:arxiv:2309.11499",
     "evidence_history": [
@@ -5776,17 +5790,22 @@
         "conclusion": "将“理解—生成协同”和交错内容生成放到同一研究问题中；具体协同仍需数据与计算控制",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-21",
+        "batch": 101,
+        "scope": "固定2309.11499v2完整Abstract/§1–7核心全文、Eq1–6、T1–3全表；AppA5 queries/latency、A6 rewrite全文与T9–10、C1–2实现及T11–12、E局限/失败，T4语言/T7POPE/T8fewshot指定表。A1–4其他理解分析/定性案例、T5–6及全部附录例图/参考文献未逐一精读。实际原framework、T2/T3/T9a/T9b。正式ICLR条目确认，正式PDF/OpenReview未读成功。GH9dc76778完整295blob树、README/项目README、9指定路径配置和插件训练forward核心，HF官方collection及两发布元数据/config/generation_config，文件清单未见独立README模型卡；无权重/媒体/训练推理/原表复现或口试。"
       }
     ],
-    "sections_read": "§2背景/2.1动机、§3方法/三阶段、§4.2主T2I表尾与协议、§5.1 Table3、AppA Table9、AppC Table11及AppE失败；未逐图/全部主表、未复现",
+    "sections_read": "固定2309.11499v2完整Abstract/§1–7核心全文、Eq1–6、T1–3全表；AppA5 queries/latency、A6 rewrite全文与T9–10、C1–2实现及T11–12、E局限/失败，T4语言/T7POPE/T8fewshot指定表。A1–4其他理解分析/定性案例、T5–6及全部附录例图/参考文献未逐一精读。实际原framework、T2/T3/T9a/T9b。正式ICLR条目确认，正式PDF/OpenReview未读成功。GH9dc76778完整295blob树、README/项目README、9指定路径配置和插件训练forward核心，HF官方collection及两发布元数据/config/generation_config，文件清单未见独立README模型卡；无权重/媒体/训练推理/原表复现或口试。",
     "review_path": "docs/reviews/L081.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "StageI约30M（558KLLaVA预训+8MBLIPLAION+11MLAION400+11MLAIONCOCO）；II 2MMMC4、CLIP>.25及2MBLIPLAION；III约120K（80K视觉+各20K交错指令）。Table11列80K/665K视觉版本，不能把所有变体的主表合成同一训练配方。",
-    "framework": "<dream>标记预测图像位置，64可学习query从LLM查询上下文，直接以冻结扩散模型的像素生成loss学习条件，不强制中间CLIP对齐。",
-    "architecture": "Vicuna7B、冻结CLIP-L/14（224²、256patch）、线性视觉projector与条件projector、64dream query、冻结SD2.1（512²）。文字CE+扩散MSE；虽然UNet冻结，条件梯度仍穿过UNet到query/LLM。§3.1 KL/MLE解释依赖假定预训SD为理想score，不能泛化成任意冻结教师都精确最大似然的保证。",
-    "metrics": "COCO/I2Para caption、VQAv2/OKVQA/VizWiz/TextVQA/MMBench/MMVet；COCO30k及LNCOCO zero-shot FID；query数、延迟和理解/生成联合消融。",
-    "baselines": "SD、Emu、CM3Leon、GILL、Parti及同配方理解only/创建only/联合/CLIP-align；Parti16选与本作8选仍不等预算。",
-    "experimental_conditions": "I只训projector/query，II加LLM，III SFT；AdamW lr2e-3/2e-5/4e-5、wd0、warm.003/cosine，每GPU batch8/context2048；I/II1epoch、III3epoch，128A800约6/10/1.5h。COCO每prompt采8张CLIP排序，LNCOCO1张不排序；CFG默认7.5、COCO用2。"
+    "dataset": "T11 StageI LLaVA预训558K+LAION400M8M+LAIONCOCO11M+BLIPLAION11M约30M，StageII MMC4core2M（CLIP>.25）+BLIPLAION2M，StageIII约80KVL+20KInstructMMC4+20KInstructBLIPLAION；T11另标665K LLaVA1.5增强变体，须与默认80K分开。主文StageII LAION来源文字与T11 BLIP标签未完全一致。交错评估15K held-out文档/30主题，各500，未完整核样本去重与预训练污染。",
+    "framework": "图文交错I-GPT：文本自回归CE+连续dream queries条件图像去噪损失，联合训练LLM/输入输出线性投影及64 queries，冻结CLIP/SD。三阶段接口对齐、交错预训练与指令训练。T3同架构/作者称同数据的理解-only/生成-only/联合目标控制，为协同提供局部实验依据。旧笔记“+指令数据”需修正：T3 ID指第二阶段interleaved dataset，第三阶段SFT另列。",
+    "architecture": "Vicuna7B-v1.1、CLIP ViT-L14/224²冻结、SD2.1 VAE+UNet冻结，输入/输出线性映射和64 queries。Eq1–6把文档概率分解为文本NLL与图像条件分布，去噪MSE梯度穿过冻结UNet回传条件/queries/LLM。§3最优扩散器假设下的KL/MLE联系不构成任意冻结专家皆能学全分布的保证；与3D SDS省略UNet Jacobian的常用实现不可直接混称。当前代码同时支持epsilon/v_prediction，以scheduler配置为准。",
+    "metrics": "理解COCO CIDEr/I2P/VQA/OKVQA/VizWiz/TextVQA、MMBench/MMVet、POPE及语言benchmark；图像COCO/LNCOCO FID、交错文档FID/人类区分率。FID测分布而非事实/文字内容/逐笔过程正确。文档FID74.77→36.62在给定GT前置文本下生成，不能视为完全自由生成整篇文档成功率。人类区分/支持比例缺完整CI与一致性，30%阈值不是通用图像Turing标准。",
+    "baselines": "理解BLIP2/InstructBLIP/LLaVA/QwenVL/Idefics/Emu；生成SD2.1及同StageI数据微调SD2.1†、GILL/Emu/CM3Leon/CM3，专用Muse/Imagen/Parti等。T3 creation-only/comprehension-only/joint同架构目标对照最接近因果假设；T10 rewrite-then-generate为自建初步baseline，不能等同复现DALL-E3完整训练系统。跨模型数据和生成候选选择预算不同。",
+    "experimental_conditions": "论文T11 AdamW/lr2e-3→2e-5→4e-5、wd0、epochs1/1/3、warmup.003/cosine、perGPU8/context2048、128A800约6/10/1.5h，不含专家预训练。COCO30K每prompt采8图CLIP选择；LNCOCO每prompt1图不用CLIP，Parti16候选CoCa，预算不等。CFG默认7.5、COCO2。GH master9dc76778完整295blob，当前StageI creation-only三数据各20M/batch16，StageII7M+10M/batch16、SFT665298+600K+20231/1epoch/batch16，与论文表不同。不能用发布默认反证原表或宣称一致复现。"
   },
   {
     "title": "Making LLaMA SEE and Draw with SEED Tokenizer",

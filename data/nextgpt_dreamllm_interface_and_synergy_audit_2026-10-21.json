@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L080",
+    "L081"
+  ],
+  "sources": {
+    "L080": [
+      "https://proceedings.mlr.press/v235/wu24e.html",
+      "https://raw.githubusercontent.com/mlresearch/v235/main/assets/wu24e/wu24e.pdf",
+      "https://arxiv.org/html/2309.05519v3",
+      "https://github.com/NExT-GPT/NExT-GPT/tree/60d618b067ee4cb0d70e7075ae79852780b34fc2",
+      "https://huggingface.co/ChocoWu/nextgpt_7b_tiva_v0/tree/f28bea33714c810ef6cb9b9e440edcddb93297a4"
+    ],
+    "L081": [
+      "https://proceedings.iclr.cc/paper_files/paper/2024/hash/1a7a22152cd21f0ca3c0f8139bb32905-Abstract-Conference.html",
+      "https://arxiv.org/html/2309.11499v2",
+      "https://github.com/RunpeiDong/DreamLLM/tree/9dc767781b9bf81c0f2c857585665328ed782068",
+      "https://huggingface.co/collections/RunpeiDong/dreamllm-65fa8297e12a435e55e4b5ca"
+    ]
+  },
+  "executed": false,
+  "downloaded_weights": false,
+  "downloaded_media": false,
+  "artifacts": [
+    {
+      "id": "L080",
+      "paper": "Official ICML2024 complete32page PDF, selected core/appendices",
+      "github_revision": "60d618b067ee4cb0d70e7075ae79852780b34fc2",
+      "tree_blobs": 307,
+      "hf_revision": "f28bea33714c810ef6cb9b9e440edcddb93297a4",
+      "visuals": [
+        "F2 training framework",
+        "T2-4",
+        "F6 and T5"
+      ],
+      "findings": [
+        "155M trainable includes33M LoRA; projectors122M",
+        "Formal T4 zero-shot CLIPSIM30.96 differs appendix T9 zero-shot31.97; unresolved",
+        "F6 video axis FID, not FVD and not main CLIPSIM",
+        "Legacy input linear and core CE+conditionL2, current grouped/new loss path; current Vicuna1.5 SD2 configs differ formal Vicunav0 SD1.5",
+        "Signal index notation inclusive endpoints vs count; legacy range counts4/8/24"
+      ]
+    },
+    {
+      "id": "L081",
+      "paper": "Complete fixed arxiv2309.11499v2 HTML; ICLR2024 official metadata only; partial formal PDF excluded",
+      "github_revision": "9dc767781b9bf81c0f2c857585665328ed782068",
+      "tree_blobs": 295,
+      "visuals": [
+        "Original framework",
+        "T2",
+        "T3",
+        "T9a",
+        "T9b"
+      ],
+      "findings": [
+        "ID in T3 means interleaved dataset stageII, not instruction data",
+        "Joint local synergy; ID alone decreases VQA55.1 to54.3 and generation FID8.50 to8.57",
+        "Frozen UNet weights do not block condition gradient; actual latent VAE diffusion",
+        "COCO8samples CLIP ranking vs LN1sample noCLIP and Parti16CoCa differ selection budget",
+        "Current repository training sizes/batches/epoch differ paper; base/aesthetic checkpoint variants separate",
+        "No video/stroke-event capabilities established"
+      ]
+    }
+  ]
+}

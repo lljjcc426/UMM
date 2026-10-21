@@ -185,8 +185,8 @@
 | L077 | Emu: Generative Pretraining in Multimodality | primary_sections_read | [结构化分析](../reviews/L077.md) | 核心三遍与五项检查完成 |
 | L078 | Planting a SEED of Vision in Large Language Model | primary_sections_read | [结构化分析](../reviews/L078.md) | 核心三遍与五项检查完成 |
 | L079 | Unified Language-Vision Pretraining in LLM with Dynamic Discrete Visual Tokenization | primary_sections_read | [结构化分析](../reviews/L079.md) | 核心三遍与五项检查完成 |
-| L080 | NExT-GPT: Any-to-Any Multimodal LLM | primary_sections_read | [结构化分析](../reviews/L080.md) | 未完成 |
-| L081 | DreamLLM: Synergistic Multimodal Comprehension and Creation | primary_sections_read | [结构化分析](../reviews/L081.md) | 未完成 |
+| L080 | NExT-GPT: Any-to-Any Multimodal LLM | primary_sections_read | [结构化分析](../reviews/L080.md) | 核心三遍与五项检查完成 |
+| L081 | DreamLLM: Synergistic Multimodal Comprehension and Creation | primary_sections_read | [结构化分析](../reviews/L081.md) | 核心三遍与五项检查完成 |
 | L082 | Making LLaMA SEE and Draw with SEED Tokenizer | primary_sections_read | [结构化分析](../reviews/L082.md) | 核心三遍与五项检查完成 |
 | L083 | Generative Multimodal Models are In-Context Learners | primary_sections_read | [结构化分析](../reviews/L083.md) | 未完成 |
 | L084 | MM-Interleaved: Interleaved Image-Text Generative Modeling via Multi-modal Feature Synchronizer | primary_sections_read | [结构化分析](../reviews/L084.md) | 核心三遍与五项检查完成 |

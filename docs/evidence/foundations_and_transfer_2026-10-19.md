@@ -222,3 +222,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百批（2026-10-21）：GGU差值代数、双正确与潜在表征因果分开，oracle受控参考和stopprobe改变任务；迁移到事件GT/真实执行状态。见[审查](unison_vgau_synergy_oracle_and_stop_protocol_audit_2026-10-21.md)、[L069](../reviews/L069.md)、[L070](../reviews/L070.md)。
+
+
+第一百零一批（2026-10-21）：冻结专家参数/条件梯度/真实训练成本分开，KL最优专家假设和T3局部协同对照，交错数据非指令数据。见[审查](nextgpt_dreamllm_interfaces_synergy_and_release_audit_2026-10-21.md)、[L080](../reviews/L080.md)、[L081](../reviews/L081.md)。
