@@ -410,3 +410,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百零八批（2026-10-21）：参考条件离散表示、视频重建/未来预测/外观编辑分开；已有字保真不代表新文字/笔顺生成。见[审查](reftok_reference_rate_and_stroke_access_audit_2026-10-21.md)、[L038](../reviews/L038.md)。
+
+
+第一百零九批（2026-10-21）：开放域文字/图像/轨迹与额外mask实体运动；艺术绘画外观不等于逐笔过程，二维实体控制不保证接触/旧墨迹/笔顺。见[审查](dragnuwa_draganything_entity_metric_and_release_audit_2026-10-21.md)、[L040](../reviews/L040.md)、[L041](../reviews/L041.md)。

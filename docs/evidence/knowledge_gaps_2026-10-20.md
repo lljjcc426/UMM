@@ -451,3 +451,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百零八批（2026-10-21）：RefTok所指Appendix、lr/steps/码本和原代码未核齐；hr/ht排印与75tokens/%、配对预测采样、参考传输成本待核。L184实际图表仍缺。见[审查](reftok_reference_rate_and_stroke_access_audit_2026-10-21.md)、[L038](../reviews/L038.md)。
+
+
+第一百零九批（2026-10-21）：DN两阶段预算/当前迁移；DA原坐标缩放/截帧/可见性、343变长原标注、训练主文件缺失/lr差异、demo/HF/论文帧数未对齐。见[审查](dragnuwa_draganything_entity_metric_and_release_audit_2026-10-21.md)、[L040](../reviews/L040.md)、[L041](../reviews/L041.md)。

@@ -440,3 +440,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百零八批（2026-10-21）：有限检索未确认RefTok原作者代码/模型卡，不能用自动文献列表当实际发布；不新增资源计数。见[审查](../evidence/reftok_reference_rate_and_stroke_access_audit_2026-10-21.md)、[L038](../reviews/L038.md)。
+
+
+第一百零九批（2026-10-21）：DN固定官方主树只迁移说明；DA当前推理/指标/HF卡与343JSON轨迹包实际审查，训练主文件未见，不重复计论文/新增资源。见[审查](../evidence/dragnuwa_draganything_entity_metric_and_release_audit_2026-10-21.md)、[L040](../reviews/L040.md)、[L041](../reviews/L041.md)。

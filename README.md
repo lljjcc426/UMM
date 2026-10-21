@@ -320,3 +320,6 @@ python scripts/validate_catalog.py
 
 
 第一百零八批（2026-10-21）完成L038 RefTok固定核心/实际F2和完整T1–3，补全题名并区分参考side information、名义压缩和新文字生成；L184新图2下载入口仍403，保留未验收。356目录，216核心/219书面含未通过项，140条未确认核心（含资源）。见[审查](docs/evidence/reftok_reference_rate_and_stroke_access_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_eighth_changes_2026-10-21.md)。无删除/模型复现。
+
+
+第一百零九批（2026-10-21）完成L040 DragNUWA/L041 DragAnything固定核心和实际图表，确认ECCV身份，审查当前发布、ObjMC和343JSON/4367轨迹；区分原LD/HD与SVD、额外mask、26/12百分点与正式评测输入。356目录，218核心/221书面含未通过项，138条未确认核心（含资源）。见[审查](docs/evidence/dragnuwa_draganything_entity_metric_and_release_audit_2026-10-21.md)、[逐文件说明](docs/evidence/one_hundred_ninth_changes_2026-10-21.md)。无删除/模型复现。

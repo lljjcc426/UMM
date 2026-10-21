@@ -246,3 +246,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百零八批（2026-10-21）：参考side information与条件熵动机、实际总码率/名义token比、完整因果隔离/目标内部上下文、PSNR与混合百分比。见[审查](reftok_reference_rate_and_stroke_access_audit_2026-10-21.md)、[L038](../reviews/L038.md)。
+
+
+第一百零九批（2026-10-21）：dense→sparse课程、anchor后仍按强度采样、空间身份pool与位置Gaussian、点加权均值和26/12百分点。见[审查](dragnuwa_draganything_entity_metric_and_release_audit_2026-10-21.md)、[L040](../reviews/L040.md)、[L041](../reviews/L041.md)。

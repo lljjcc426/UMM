@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-21",
+  "papers": [
+    "L040",
+    "L041"
+  ],
+  "sources": {
+    "L040": [
+      "https://arxiv.org/html/2308.08089v1",
+      "https://www.microsoft.com/en-us/research/project/dragnuwa/",
+      "https://github.com/ProjectNUWA/DragNUWA/tree/babf27afb5fc72b9e65da3d0134840d26717c8f1"
+    ],
+    "L041": [
+      "https://arxiv.org/html/2403.07420v3",
+      "https://link.springer.com/chapter/10.1007/978-3-031-72670-5_19",
+      "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/03277.pdf",
+      "https://github.com/showlab/DragAnything/tree/79355363218a7eb9b3437a31b8604b6d436d9337",
+      "https://huggingface.co/weijiawu/DragAnything/tree/f66fb7cc44da731feae9393c7ba4959bd1daf37d",
+      "https://weijiawu.github.io/draganything_page/"
+    ]
+  },
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false,
+  "downloaded_video_data": false,
+  "text_annotations_read": true,
+  "artifacts": [
+    {
+      "id": "L040",
+      "paper": "2308.08089v1 core",
+      "visuals": [
+        "F3",
+        "T1 configuration; no quantitative main table exists",
+        "F6 qualitative condition removal"
+      ],
+      "github_revision": "babf27afb5fc72b9e65da3d0134840d26717c8f1",
+      "tree_entries": 1,
+      "svd_branch_api_status": 404,
+      "release": "Current main only transfer README, historical SVD release not read"
+    },
+    {
+      "id": "L041",
+      "paper": "2403.07420v3 core/Appendix6.1-6.2; formalECCV2024 identity only, incomplete formalPDF excluded",
+      "visuals": [
+        "F4",
+        "T1",
+        "T2",
+        "T3",
+        "F8"
+      ],
+      "github_revision": "79355363218a7eb9b3437a31b8604b6d436d9337",
+      "tree_entries": 1872,
+      "hf_revision": "f66fb7cc44da731feae9393c7ba4959bd1daf37d",
+      "annotation_statistics": {
+        "files": 343,
+        "tracks": 4367,
+        "track_counts": {
+          "26": 5,
+          "12": 19,
+          "11": 17,
+          "9": 33,
+          "8": 27,
+          "18": 13,
+          "5": 24,
+          "3": 6,
+          "13": 17,
+          "48": 2,
+          "4": 18,
+          "17": 9,
+          "10": 22,
+          "16": 9,
+          "14": 10,
+          "7": 28,
+          "19": 3,
+          "38": 1,
+          "6": 26,
+          "2": 3,
+          "27": 3,
+          "23": 6,
+          "15": 11,
+          "22": 4,
+          "21": 4,
+          "51": 1,
+          "24": 1,
+          "29": 2,
+          "28": 3,
+          "79": 1,
+          "39": 1,
+          "31": 1,
+          "35": 2,
+          "25": 1,
+          "33": 1,
+          "78": 1,
+          "52": 1,
+          "20": 2,
+          "57": 1,
+          "37": 1,
+          "60": 1,
+          "30": 1,
+          "34": 1
+        },
+        "lengths": {
+          "15": 2006,
+          "31": 91,
+          "46": 706,
+          "41": 72,
+          "21": 219,
+          "36": 19,
+          "13": 76,
+          "26": 158,
+          "16": 57,
+          "14": 61,
+          "11": 54,
+          "5": 18,
+          "43": 6,
+          "17": 5,
+          "20": 534,
+          "25": 111,
+          "18": 18,
+          "30": 49,
+          "10": 36,
+          "40": 18,
+          "35": 26,
+          "9": 12,
+          "23": 15
+        },
+        "coordinate_min": [
+          -48031,
+          -14374
+        ],
+        "coordinate_max": [
+          28573,
+          23241
+        ],
+        "total_points": 99203,
+        "negative_coordinate_points": 10863,
+        "tracks_with_negative_coordinates": 702,
+        "files_with_negative_coordinates": 202
+      },
+      "findings": [
+        "ObjMC point-weighted mean on filename intersection/zip-truncated tracks, no missing/visibility penalty in current script; original-table preprocessing not recovered",
+        "Raw343JSON variable5-46frames and extreme/negative pixel coordinates, not14frame256normalized",
+        "Human63vs37/56vs44 equals26/12percentage-point margins",
+        "Training launcherlr2e-5/500epochs versus paper1e-5/100K; called maintrain file absent",
+        "DIFT one fixed noisestep t261 with8noiseensemble, not8denoising iterations",
+        "Demo20frames/HF14/paper25 and demo defaults not assumed originalevaluation",
+        "Entity-only FVD494.5 slightly better thanboth494.8",
+        "HF card Apache metadata does not relicense inherited SVD/ChilloutMix"
+      ]
+    }
+  ]
+}
