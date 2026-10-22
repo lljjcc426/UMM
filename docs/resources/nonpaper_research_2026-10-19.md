@@ -557,3 +557,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百四十七批（2026-10-23）：官方代码仍03b07e7，README承认joint未完成；SIM/dual/配置与正式论文不齐，调试validate不代表全套评测。见[审查](../evidence/chinese_radical_joint_tpe_geometry_and_negative_transfer_audit_2026-10-23.md)、[L181](../reviews/L181.md)。
+
+
+第一百四十八批（2026-10-23）：固定8c675f9仅README+三裁图+AWS，无模型训练/权重/正式评测；Unity与AWS框来源、parser转换和存储占位需补。见[审查](../evidence/strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[L182](../reviews/L182.md)。

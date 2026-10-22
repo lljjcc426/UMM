@@ -437,3 +437,6 @@ python scripts/validate_catalog.py
 
 
 第一百四十七批（2026-10-23）完成L181正式11页全部研究正文/8表/Eq1–24/11图、10实际PDF页及固定官方源码。记录汉字部件联合学习的已有贡献、遮挡负迁移、TPE纸面/实现/几何证明差异及公开joint未完成边界。357目录，256核心/259书面；未确认核心74论文／研究+27资源。见[审查](docs/evidence/chinese_radical_joint_tpe_geometry_and_negative_transfer_audit_2026-10-23.md)、[逐文件说明](docs/evidence/one_hundred_forty_seventh_changes_2026-10-23.md)。无删除或模型执行。
+
+
+第一百四十八批（2026-10-23）完成L182 STRIVE正式研究正文/2表/4式/10图、8实际PDF页和固定五文件发布审查；区分已有视频编辑、时序proxy与书写过程，核到Eq2符号/OCR口径和多副本速度条件。357目录，257核心/260书面；未确认核心73论文／研究+27资源。见[审查](docs/evidence/strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[逐文件说明](docs/evidence/one_hundred_forty_eighth_changes_2026-10-23.md)。无删除或模型执行。

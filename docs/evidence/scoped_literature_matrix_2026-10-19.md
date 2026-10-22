@@ -527,3 +527,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百四十七批（2026-10-23）：部件caption与32²静态字图的双网监督学习；CTW/印刷/手写总体收益与遮挡负迁移并存，结构遍历及FPS不等笔顺视频证据。见[审查](chinese_radical_joint_tpe_geometry_and_negative_transfer_audit_2026-10-23.md)、[L181](../reviews/L181.md)。
+
+
+第一百四十八批（2026-10-23）：已有视频+目标mask的局部换字，STTN正面/SRNet参考/LCM+BPN传播；持续文字编辑与笔画生成任务区分。见[审查](strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[L182](../reviews/L182.md)。

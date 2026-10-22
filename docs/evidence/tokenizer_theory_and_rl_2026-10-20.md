@@ -159,3 +159,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百四十七批（2026-10-23）：部件树位置与书写时序分开；TPE纸面频率/源码路径均值/原始内积反例；InfoNCE/dual为监督联合机制，未使用策略强化学习。见[审查](chinese_radical_joint_tpe_geometry_and_negative_transfer_audit_2026-10-23.md)、[L181](../reviews/L181.md)。
+
+
+第一百四十八批（2026-10-23）：STTN为SpatialTransformer几何，不属自注意力UMM；BPN合成参数监督再真实重构自监督，无策略强化学习或笔画事件token。见[审查](strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[L182](../reviews/L182.md)。

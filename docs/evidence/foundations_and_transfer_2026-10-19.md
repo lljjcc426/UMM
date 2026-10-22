@@ -363,3 +363,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百四十七批（2026-10-23）：祖先路径均值的原始点积有深度偏置；纸面Root=L1与源码独立基区分，双向一致性不保证外部语义正确。见[审查](chinese_radical_joint_tpe_geometry_and_negative_transfer_audit_2026-10-23.md)、[L181](../reviews/L181.md)。
+
+
+第一百四十八批（2026-10-23）：Eq2负w高斯模糊/正w反遮罩锐化与文字相反；同族算子模拟不等真实核泛化，角度不可辨和时间平滑不等正确运动。见[审查](strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[L182](../reviews/L182.md)。

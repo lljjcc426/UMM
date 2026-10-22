@@ -616,3 +616,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百四十七批（2026-10-23）：正式11页全文/8表/Eq1–24/F1–11/10实际PDF页；58项固定官方树、生成/识别/联合/损失/训练/测试/数据位置与归一；明确分区体系未另核。见[审查](chinese_radical_joint_tpe_geometry_and_negative_transfer_audit_2026-10-23.md)、[L181](../reviews/L181.md)。
+
+
+第一百四十八批（2026-10-23）：STRIVE正式10页全部研究正文、2表/4式/10图与8实际PDF页；固定五文件完整385行，Drive工具不可读、未观看补充视频。见[审查](strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[L182](../reviews/L182.md)。

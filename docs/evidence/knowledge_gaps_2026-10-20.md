@@ -568,3 +568,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百四十七批（2026-10-23）：27533总类与22933+4172不齐；CTW联合子集规模/随机caption划分、SSIM.858/.838、Top5.92.44/.92.47、正式训练版/权重和等预算待核。见[审查](chinese_radical_joint_tpe_geometry_and_negative_transfer_audit_2026-10-23.md)、[L181](../reviews/L181.md)。
+
+
+第一百四十八批（2026-10-23）：OCR错误比例/accuracy方向与数据聚合冲突、完整split/λ/batch/GTX型号/ROI尺寸、200与5000clip对应及端到端成本待核。见[审查](strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[L182](../reviews/L182.md)。

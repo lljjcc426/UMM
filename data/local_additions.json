@@ -12844,32 +12844,42 @@
     "source_urls": [
       "https://openaccess.thecvf.com/content/ICCV2021/papers/G_STRIVE_Scene_Text_Replacement_in_Videos_ICCV_2021_paper.pdf",
       "https://arxiv.org/abs/2109.02762",
-      "https://striveiccv2021.github.io/STRIVE-ICCV2021/"
+      "https://striveiccv2021.github.io/STRIVE-ICCV2021/",
+      "https://github.com/striveiccv2021/STRIVE-ICCV2021/tree/8c675f9bb48b40b02b7cfcba3a132cffd744ca35",
+      "https://github.com/striveiccv2021/STRIVE-ICCV2021/blob/8c675f9bb48b40b02b7cfcba3a132cffd744ca35/runAWS.py",
+      "https://github.com/striveiccv2021/STRIVE-ICCV2021/blob/8c675f9bb48b40b02b7cfcba3a132cffd744ca35/preprocessing_syntheticVideos.py"
     ],
     "scope": "handwriting_or_adjacent",
     "category": "视频场景文字编辑",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-23",
     "provenance": "2026-10-20第五批参考文献追引，正式会议全文与官方制品核查",
-    "version": "正式会议版本；详见逐篇笔记",
-    "last_updated": "2026-10-20",
-    "sections_read": "CVF正式全文§1/3–5、全部主实验Tables1–2、BPN方程/训练/模拟与结论假设；未读视频/代码/补充，公式符号与OCR定义保留待核",
+    "version": "STRIVE: Scene Text Replacement In Videos，ICCV2021 pp14549–14558；CVF正式PDF10页4391905bytes；arXiv2109.02762v1/2021-09-06。本文使用正式会议版，预印本年份不作新研究重复计数。",
+    "last_updated": "2026-10-23",
+    "sections_read": "CVF完整10页4391905bytes；Abstract/§1–5全部研究正文，T1–2/Eq1–4/F1–10和全部图注；实际PDFp1–8共8研究页，p9–10参考文献仅定位未逐篇独立精读。官方项目页面全文/嵌入视频链接未观看，arxivv1 metadata；固定GitHub8c675f9/2021-08-13完整5项树、README及四个Python文件全部385行已读。Drive目录工具不可访问，未下载数据/权重、观看视频、执行AWS/模型/训练或独立复现；补充视频内容不计入已读证据。",
     "review_path": "docs/reviews/L182.md",
     "review_depth": "critical_sections_reviewed",
     "note_path": "docs/reviews/L182.md",
-    "dataset": "Synthtext为本文Unity120视频，注意与同名静态SynthText区分；Robotext约5000短片，Pixel2XL+Create2机器人拍相邻同风格不同词海报；Realworld=ICDAR2015挑15/25+自采22。确切测试clip/frame数及场景级split清单未取得，作者称独立测试。",
-    "framework": "先把ROI用STTN正面归一化，只选高质量参考帧用SRNet换字；学习原视频参考→当前的照明及差分blur变换，再迁移到改字参考。",
-    "architecture": "AmazonRekognition文本ROI，MaskRCNN二值mask；STTN监督homography及pixelMSE并罚邻帧参数差。TPM=LCM背景inpainting ratio平滑+ResNet18/avgpool/2FC预测N×4[σx,σy,ρ,w]，作用于可微orientedGaussian blur/sharp模型；BPN先合成参数监督、后真实video自监督重构/时间项。",
-    "metrics": "synthetic对齐ROI MSE/PSNR/SSIM，Rekognition OCR、检测框顶点高通残差jitter、同输入产生K改字副本时fps。OCR文字定义为source可识别帧上的targeterrors比例，但Table1方向↑且.957叫accuracy，1−error转换未写清；不能当无条件全帧95.7%准确。",
-    "baselines": "逐帧SRNet（同train增广）、pix2pix3相邻帧加temporalcoherence；w/oframe选择/w/oBPN；995frame5scene模拟blur参数误差。时代基线非最新视频扩散。",
-    "experimental_conditions": "SRNet/pix2pix1000trainclips；STTN100clips；BPNstage1 Synth100含10%val，stage2Robot900+Synth25，各100epoch，Adam stage1 .0005/stage2 .0003，N3。ref权.7/.3crossval；LinuxUbuntu16.04单GeForceGTX具体型号/batch/lossλ未取得，20video平均计时，未独立运行。",
-    "problem": "在视频已有场景文字区域换成新字符串，同时保持平面姿态、光照、模糊与时间一致。",
-    "method": "先把ROI用STTN正面归一化，只选高质量参考帧用SRNet换字；学习原视频参考→当前的照明及差分blur变换，再迁移到改字参考。 AmazonRekognition文本ROI，MaskRCNN二值mask；STTN监督homography及pixelMSE并罚邻帧参数差。TPM=LCM背景inpainting ratio平滑+ResNet18/avgpool/2FC预测N×4[σx,σy,ρ,w]，作用于可微orientedGaussian blur/sharp模型；BPN先合成参数监督、后真实video自监督重构/时间项。",
-    "conclusion": "Table1STRIVE MSE.0186/PSNR17.31/SSIM.604 vsSRNet.0227/16.44/.598；OCR.957vs.771、jitter1.48vs5.10，受上述源识别筛选。SRNet1.67fps，STRIVE K1/50/100为2.11/7.83/8.01，后者复用离线几何/blur，不能当单片无条件8fps。",
-    "gap": "平面文字、平滑背景和文字/背景类似反射假设，遮挡/曲面/自发光未覆盖；选参考需扫全片，不适于直接在线。Eq2 (1+w)I−w(I*G)中w>0应锐化、w<0模糊，后文符号解释反向；应核代码/勘误，勿照抄。同源自监督降低label成本仍依赖旧文字/GT框/换字teacher误差。没有长书写墨迹增长的机制。",
-    "claim": "作者研究目标：在视频已有场景文字区域换成新字符串，同时保持平面姿态、光照、模糊与时间一致。"
+    "dataset": "本文Synthtext为Unity120视频、室内外多文字/光照/相机/物体运动、同场景不同字符串成对，须与同名静态SynthText区分。Robotext约5000短clip，GooglePixel2XL装Create2机器人，室内海报相邻词同背景风格，可裁下方背景。Realworld从ICDAR2015 TextinVideos25挑15质量适用片+自采22。正式称所有测试独立，未给完整场景级split/测试clip及帧数/写者和语言覆盖。公开README称Robo10h+、约200预处理视频，其与论文5000clip的分段/版本映射未给。当前树只有5文件，无数据manifest，Drive目录本轮工具无法读取；未下载压缩视频或核内部样本。论文称全数据AWS框，README指出合成框来自Unity；两种标注来源差别保留。",
+    "framework": "模块化STTN正面归一化、整段参考选择、SRNet单帧换字、TPM光度传播与逆几何回填；主要新组件TPM把原始参考到当前帧的差分照明和模糊变换迁移到改字参考。BPN先合成参数监督、后真实帧对自监督。新增Unity/机器人/真实视频数据。SRNet、ResNet18、STN、MaskRCNN和AWS检测有既有来源；自监督仅用于BPN真实适配阶段，整套不属无监督或统一基础模型。",
+    "architecture": "STTN沿用STN定位网络/网格重采样，平面文字用透视；几何参数和像素监督并罚相邻θ差。SRNet单帧换字，训练加透视/运动/离焦模糊。TPM=LCM+BPN；BPN输入参考+N邻帧，共N+1图，ResNet18/avgpool/两FC，正文输出4N个ψ=[σx,σy,ρ,w]，N=3。Fig3两FC标FC128，最终4N输出层细节未完整给，不能凭图补造网络。Eq2 Ii=(1+w)IR−w(IR*Gσρ)；w=−1为高斯模糊，0恒等，+1为2IR−IR*G的unsharp锐化，与正文称负w锐化/正w模糊相反。实际PDFp5已核，无公开BPN实现可判哪一项对应正式训练。",
+    "metrics": "合成测试ROI的MSE/PSNR/SSIM；AWSRekognition OCR列及检测框顶点高通残差RMS jitter；同一原视频产生K不同文字副本的fps。正文OCR描述target词错误数/源正确识别帧数，表头↑并称accuracy，1−error转换未定义；Table1 .957只按报告分数记录，不能写无条件全帧95.7%准确。OCR与jitter共同依赖AWS检测，存在可读源条件和漏检选择，jitter低不保证文字正确/无闪烁；低通滤波器/截止频率及归一单位未给。Laplacian清晰度相关.9912只支持该proxy相关，不能等同主观真实/字形正确/时序事件。无CER/语言分层/人评/笔顺评价。",
+    "baselines": "逐帧SRNet；pix2pix输入3邻帧并加当前输出与邻输出MSE时间一致项，不能称完全无时间基线。两者训练均加姿态增广。STRIVE去参考选择（固定首帧）、去BPN（w=0）；逐帧SRNet同时去正面和传播，无法单独辨各模块因果。995帧5场景差分算子模拟，含±5像素扰动。没有现代视频扩散/光流传播/更强单帧编辑器的同条件比较，历史结果不自动代表当前最优。",
+    "experimental_conditions": "pix2pix/SRNet取Synth+Robot1000trainclip；STTN100clip；BPNstage1 Synth100其中10%validation，stage2Robot900+Synth25，两阶段各100epochs，Adam学习率.0005/.0003，N3。ref先OCR>.99、Laplacian最清晰top10，再最大.7s1对比+.3s2正面度；§3称视觉启发，§4称crossvalidation。λ数值、batch、ROI标准尺寸、种子/方差、完整split未给。计时20随机原视频、Ubuntu16.04单GeForceGTX，具体型号未给；几何/光照/模糊离线算一次复用K，是否完整含AWS与全片参考扫描成本未清。模型运行和复现未执行。",
+    "problem": "输入已有场景文字视频和目标文字mask，在指定文字ROI换字，保持原视频几何、光照、模糊和时间特征。依赖检测和原文字载体，输出编辑视频；没有从自然语言生成新场景、汉字笔顺/写字动作或新增笔画事件。STTN中的transformer是Spatial Transformer几何变换网络，不等自注意力语言Transformer或UMM。",
+    "method": "模块化STTN正面归一化、整段参考选择、SRNet单帧换字、TPM光度传播与逆几何回填；主要新组件TPM把原始参考到当前帧的差分照明和模糊变换迁移到改字参考。BPN先合成参数监督、后真实帧对自监督。新增Unity/机器人/真实视频数据。SRNet、ResNet18、STN、MaskRCNN和AWS检测有既有来源；自监督仅用于BPN真实适配阶段，整套不属无监督或统一基础模型。 STTN沿用STN定位网络/网格重采样，平面文字用透视；几何参数和像素监督并罚相邻θ差。SRNet单帧换字，训练加透视/运动/离焦模糊。TPM=LCM+BPN；BPN输入参考+N邻帧，共N+1图，ResNet18/avgpool/两FC，正文输出4N个ψ=[σx,σy,ρ,w]，N=3。Fig3两FC标FC128，最终4N输出层细节未完整给，不能凭图补造网络。Eq2 Ii=(1+w)IR−w(IR*Gσρ)；w=−1为高斯模糊，0恒等，+1为2IR−IR*G的unsharp锐化，与正文称负w锐化/正w模糊相反。实际PDFp5已核，无公开BPN实现可判哪一项对应正式训练。",
+    "conclusion": "T1 STRIVE MSE.0186/PSNR17.31/SSIM.604，对SRNet.0227/16.44/.598、pix2pix.0593/12.27/.531；SSRNet到STRIVE MSE下降约18.1%、PSNR+.87dB、SSIM+.006。OCR报告.771→.957，jitter5.10→1.48，分母/筛选和检测proxy边界同上，未给置信区间。SRNet1.67fps所有K；STRIVE K1/50/100为2.11/7.83/8.01fps，约1.26/4.69/4.80倍，后两者含多副本摊销，不能当新输入单片8fps或实时在线。T1标题称后两列Robotext+Realworld，而正文OCR比较又称real+synthetic，数据聚合口径尚不齐。",
+    "gap": "平面几何、平滑背景、前景/背景相似光谱反射、可读清晰参考；作者明确遮挡/曲面/自发光及非文字物体待研究。无OCR>.99帧的回退、检测漏检/多目标关联、特大文字长度变化未完整协议；全片选参考和对称邻域使用未来信息，流式因果条件不成立。正则平滑不等正确运动，急变可能被压；误差可经检测/对齐/inpaint/SRNet传播。Eq2与w文字反向；Fig4 blurmodel(1)标号与正式Eq2不齐，末段把当前输出写IR′应与Ii′图区分。OCR定义/聚合、计时成本及split缺少明细。固定官方树仅README+三crop预处理+runAWS，无BPN/STTN/SRNet训练/推理、权重或正式评测；裁图脚本只留存储注释，AWS输出CSV与裁图parser的bbox文本需中间转换，不能认定一键复现。",
+    "claim": "作者研究目标：在视频已有场景文字区域换成新字符串，同时保持平面姿态、光照、模糊与时间一致。",
+    "review_history": [
+      {
+        "date": "2026-10-23",
+        "batch": 148,
+        "scope": "CVF完整10页4391905bytes；Abstract/§1–5全部研究正文，T1–2/Eq1–4/F1–10和全部图注；实际PDFp1–8共8研究页，p9–10参考文献仅定位未逐篇独立精读。官方项目页面全文/嵌入视频链接未观看，arxivv1 metadata；固定GitHub8c675f9/2021-08-13完整5项树、README及四个Python文件全部385行已读。Drive目录工具不可访问，未下载数据/权重、观看视频、执行AWS/模型/训练或独立复现；补充视频内容不计入已读证据。"
+      }
+    ]
   },
   {
     "id": "L183",

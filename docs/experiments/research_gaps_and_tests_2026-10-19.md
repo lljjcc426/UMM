@@ -556,3 +556,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百四十七批（2026-10-23）：SIM/DUAL/TPE/冻结及等5M图/总计算析因，遮挡分布负迁移、独立部件oracle、TPE几何修正及同终图时序对照；未运行。见[审查](../evidence/chinese_radical_joint_tpe_geometry_and_negative_transfer_audit_2026-10-23.md)、[L181](../reviews/L181.md)。
+
+
+第一百四十八批（2026-10-23）：参考/几何/LCM/BPN析因，全帧OCR+覆盖、独立几何/闪烁与同源K多副本总成本；曲面/遮挡/自发光/新增墨迹及因果参考分层，未执行。见[审查](../evidence/strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[L182](../reviews/L182.md)。
