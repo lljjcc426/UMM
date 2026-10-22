@@ -551,3 +551,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百四十五批（2026-10-22）：LVRPO正文声称open-source，但本轮出链与有限GH/HF名称检索未核官方代码/模型/500K制品，维持证据边界。见[审查](../evidence/lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[L134](../reviews/L134.md)。
+
+
+第一百四十六批（2026-10-22）：UniCTokens固定代码新增cleaned Sync-R1路径，四专家部署待发布；本轮发现评分器接口/续算参数问题；HF卡头MIT与正文CC-BY-NC4冲突，原2025制品不等完整2026++。见[审查](../evidence/uni_synergy_dgs_theory_and_personalization_release_audit_2026-10-22.md)、[L135](../reviews/L135.md)。

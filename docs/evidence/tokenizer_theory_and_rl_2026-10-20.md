@@ -153,3 +153,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百四十五批（2026-10-22）：组相对baseline/除std、KL梯度与下界、dense max复用patch、缺归一flow重加权和稀疏路由非正交保证。见[审查](lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[L134](../reviews/L134.md)。
+
+
+第一百四十六批（2026-10-22）：固定MaskGIT位置logp与真正采样动作概率区分；DrGRPO去std/响应长度归一为既有方法；同组随机baseline协方差、DGS选择偏差、TIER维数界和控制误差符号。见[审查](uni_synergy_dgs_theory_and_personalization_release_audit_2026-10-22.md)、[L135](../reviews/L135.md)。

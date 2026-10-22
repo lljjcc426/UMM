@@ -1,0 +1,194 @@
+{
+  "id": "L135",
+  "date": "2026-10-22",
+  "version": "arxiv2605.10445v1",
+  "formal_venue_verified": false,
+  "pdf_complete": true,
+  "pdf_bytes": 4098853,
+  "pdf_pages": 23,
+  "actual_pdf_pages_viewed": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    14,
+    15,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "numbered_equations_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34
+  ],
+  "figures_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "github_revision": "9ca4254c4e94dce82f0fe0e131f27632f89424a2",
+  "github_tree_entries": 122,
+  "hf_dataset_revision": "332df6e7d6d26f2a577f1a7e85874c92ab0cd963",
+  "hf_archive_internal_read": false,
+  "hf_archive_range_failure": "read length mismatch at central directory; stopped, no internal JSON/images read",
+  "hf_license_conflict": {
+    "front_matter": "mit",
+    "body": "CC-BY-NC 4.0"
+  },
+  "closed_form_checks": [
+    {
+      "pass_probability": 0.1,
+      "standard_normal_truncated_variance": 0.16913516927691274,
+      "claimed_upper_bound": 0.1
+    },
+    {
+      "pass_probability": 0.25,
+      "standard_normal_truncated_variance": 0.2416369621617609,
+      "claimed_upper_bound": 0.25
+    }
+  ],
+  "code_findings": [
+    {
+      "path": "sync_r1_grpo/grpo.py",
+      "lines": [
+        21,
+        430,
+        256,
+        758
+      ],
+      "finding": "imports SHOWO_P_CLIPEvaluator absent from current local clip_eval; accepted DGS resume omits required input_ids"
+    },
+    {
+      "path": "sync_r1_grpo/clip_eval.py",
+      "lines": [
+        122,
+        125,
+        142,
+        158
+      ],
+      "finding": "exports SHOWOConceptClipEvaluator with changed constructor/score_prompt_images interface; no imported legacy name"
+    },
+    {
+      "path": "sync_r1_grpo/grpo.py",
+      "lines": [
+        332,
+        337,
+        343
+      ],
+      "finding": "checkpoint fills preview image positions before saving state; original remasking map not preserved"
+    },
+    {
+      "path": "sync_r1_grpo/grpo.py",
+      "lines": [
+        790,
+        805,
+        838,
+        1068,
+        1092,
+        1104,
+        1142
+      ],
+      "finding": "image-step trajectory old/current/ref clipping and sum loss; no sampled IR text logp action loss"
+    },
+    {
+      "path": "sync_r1_grpo/grpo.py",
+      "lines": [
+        490,
+        492,
+        1016,
+        1221
+      ],
+      "finding": "first-half personalized prompts under test path require split audit, not automatic leakage; src1 broadcast contradicts single-GPU example; controller reverses paper sign with deadband .005"
+    }
+  ],
+  "findings": [
+    "Personalized static reasoning/imagegeneration, no text-rendering/video/stroke demonstration",
+    "NeurIPS2025 metadata belongs UniCTokens prior, Sync-R1 formal venue not verified",
+    "Paper four reward experts differ cleaned CLIP/FaceNet/API/BLEU code",
+    "Loss alpha .4/.6 vs reward 4:6 separate; public direct text action loss missing",
+    "Main T1 matched predecessor improves but specialized baselines sometimes higher",
+    "Ablations noDGSQA/PureGen and noFERRea exceptions retained",
+    "Joint initialization RL helps yet below full Sync and needs personalized SFT",
+    "F5 1.9x wallclock to98percent baseline peak reward, not per-step throughput",
+    "All-position fixed-code logps not exact sampled-action likelihood",
+    "Theory group mean stochastic and cross covariance ignored",
+    "Top-p variance<=p invalid general bound; default p=.25 not refuted by p=.1 counterexample",
+    "Higher expected reward not proof of higher mean gradient norm/SNR",
+    "Simplified controller linearization missing lnTstar; full switched controller unproved",
+    "Equal accepted G sampling cost1.6x at .25/.2 vs equal proposed N cost .4x",
+    "TIER vector distance bounded2 not assured with dimension/cosine ranges",
+    "Current cleaned code import/interface and resume signature problems statically identified",
+    "DGS preview checkpoint drops mask map; code temperature/settings and controller differ",
+    "Original HF20concept card not verified full2026UnifyBench++",
+    "HF archive internals not read; card license inconsistent",
+    "No independent training/inference/reproduction or weights download"
+  ],
+  "sources": [
+    "https://arxiv.org/abs/2605.10445",
+    "https://arxiv.org/html/2605.10445v1",
+    "https://arxiv.org/pdf/2605.10445v1",
+    "https://github.com/arctanxarc/UniCTokens/tree/9ca4254c4e94dce82f0fe0e131f27632f89424a2",
+    "https://github.com/arctanxarc/UniCTokens/blob/9ca4254c4e94dce82f0fe0e131f27632f89424a2/sync_r1_grpo/grpo.py",
+    "https://github.com/arctanxarc/UniCTokens/blob/9ca4254c4e94dce82f0fe0e131f27632f89424a2/sync_r1_grpo/clip_eval.py",
+    "https://github.com/arctanxarc/UniCTokens/blob/9ca4254c4e94dce82f0fe0e131f27632f89424a2/sync_r1_grpo/README.md",
+    "https://huggingface.co/datasets/HankYang428/unictokens_data/tree/332df6e7d6d26f2a577f1a7e85874c92ab0cd963",
+    "https://arxiv.org/html/2503.20783v2",
+    "https://arxiv.org/abs/2505.14671"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}

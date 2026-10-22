@@ -560,3 +560,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百四十五批（2026-10-22）完成L134 LVRPO完整17页核心/全部附录、7表/Eq1–16/Algo1、12实际PDF页。记录Eq16归一缺口、MI/梯度/W2论证边界、F3/F5与主表配置差异及公开制品待核。357目录，254核心/257书面；未确认核心76论文／研究+27资源。见[审查](lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[逐文件说明](one_hundred_forty_fifth_changes_2026-10-22.md)。无删除或模型执行。
+
+
+第一百四十六批（2026-10-22）完成L135 Uni-Synergy完整23页核心/全部研究附录、6表/Eq1–34、17实际PDF页与固定官方cleaned源码/原HF卡片。保留主表收益，记录截断正态/SNR/控制器证明缺口、正式与公开奖励/loss差异、DGS接口问题及归档内部待核。357目录，255核心/258书面；未确认核心75论文／研究+27资源。见[审查](uni_synergy_dgs_theory_and_personalization_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_forty_sixth_changes_2026-10-22.md)。无删除或模型执行。

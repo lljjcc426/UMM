@@ -357,3 +357,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百四十五批（2026-10-22）：Eq16缺partition常数，常数奖励平移即反例；条件均值速度不等终态均图，MI降条件熵需边缘和下界条件。见[审查](lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[L134](../reviews/L134.md)。
+
+
+第一百四十六批（2026-10-22）：选择性采样改变目标/score分布，精确截断正态方差不满足通用≤p界；奖励均值不等梯度信号，阈值局部线性化需lnT*。见[审查](uni_synergy_dgs_theory_and_personalization_release_audit_2026-10-22.md)、[L135](../reviews/L135.md)。

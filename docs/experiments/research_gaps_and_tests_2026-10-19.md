@@ -550,3 +550,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百四十五批（2026-10-22）：等GPUh的G/BestN、dense/规则/知识析因，分模块梯度与共享attention干预、常数平移/合成多模态W2验证；未运行。见[审查](../evidence/lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[L134](../reviews/L134.md)。
+
+
+第一百四十六批（2026-10-22）：同预算SFT/改写/image-only/joint/DGS析因；等G/N/时间分别计成本、ρ和梯度协方差；同终图反序/细笔/多语言/执行验证。未运行。见[审查](../evidence/uni_synergy_dgs_theory_and_personalization_release_audit_2026-10-22.md)、[L135](../reviews/L135.md)。

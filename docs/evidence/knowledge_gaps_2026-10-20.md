@@ -562,3 +562,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百四十五批（2026-10-22）：BAGEL与Llama3/top2八专家构型关系、500K划分、正文clipvsAlgo1及F3/F5分数映射未解决。见[审查](lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[L134](../reviews/L134.md)。
+
+
+第一百四十六批（2026-10-22）：完整++条目/split、正式四奖励专家/IRloss、cleaned接口与DGS掩码状态、G9/8GPU映射、实际计时分项及归档内部仍待核。见[审查](uni_synergy_dgs_theory_and_personalization_release_audit_2026-10-22.md)、[L135](../reviews/L135.md)。

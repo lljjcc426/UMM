@@ -521,3 +521,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百四十五批（2026-10-22）：外部SigLIP2/规则/知识VQA奖励的静态生成编辑理解；T5匹配BAGEL均涨，但F3/F5配置未映射，不推普遍协同。见[审查](lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[L134](../reviews/L134.md)。
+
+
+第一百四十六批（2026-10-22）：个性化静态理解/生成，Dense为提示语义密集；前作同表多指标涨，消融局部例外及Joint冷启动限制保留；F5为达到reward目标的墙钟时间。见[审查](uni_synergy_dgs_theory_and_personalization_release_audit_2026-10-22.md)、[L135](../reviews/L135.md)。
