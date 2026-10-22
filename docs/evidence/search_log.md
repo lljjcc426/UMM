@@ -613,3 +613,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百四十六批（2026-10-22）：完整23页/6表/Eq1–34/F1–8/17实际PDF页；官方固定源码122项树及HF原20概念卡片/归档元数据，归档Range内部读取失败停止；DrGRPO§3.1–3.2与UniCTokens版本记录定向追引。见[审查](uni_synergy_dgs_theory_and_personalization_release_audit_2026-10-22.md)、[L135](../reviews/L135.md)。
+
+
+第一百四十七批（2026-10-23）：正式11页全文/8表/Eq1–24/F1–11/10实际PDF页；58项固定官方树、生成/识别/联合/损失/训练/测试/数据位置与归一；明确分区体系未另核。见[审查](chinese_radical_joint_tpe_geometry_and_negative_transfer_audit_2026-10-23.md)、[L181](../reviews/L181.md)。

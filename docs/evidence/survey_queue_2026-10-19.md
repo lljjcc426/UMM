@@ -563,3 +563,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百四十六批（2026-10-22）完成L135 Uni-Synergy完整23页核心/全部研究附录、6表/Eq1–34、17实际PDF页与固定官方cleaned源码/原HF卡片。保留主表收益，记录截断正态/SNR/控制器证明缺口、正式与公开奖励/loss差异、DGS接口问题及归档内部待核。357目录，255核心/258书面；未确认核心75论文／研究+27资源。见[审查](uni_synergy_dgs_theory_and_personalization_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_forty_sixth_changes_2026-10-22.md)。无删除或模型执行。
+
+
+第一百四十七批（2026-10-23）完成L181正式11页全部研究正文/8表/Eq1–24/11图、10实际PDF页及固定官方源码。记录汉字部件联合学习的已有贡献、遮挡负迁移、TPE纸面/实现/几何证明差异及公开joint未完成边界。357目录，256核心/259书面；未确认核心74论文／研究+27资源。见[审查](chinese_radical_joint_tpe_geometry_and_negative_transfer_audit_2026-10-23.md)、[逐文件说明](one_hundred_forty_seventh_changes_2026-10-23.md)。无删除或模型执行。

@@ -565,3 +565,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百四十六批（2026-10-22）：完整++条目/split、正式四奖励专家/IRloss、cleaned接口与DGS掩码状态、G9/8GPU映射、实际计时分项及归档内部仍待核。见[审查](uni_synergy_dgs_theory_and_personalization_release_audit_2026-10-22.md)、[L135](../reviews/L135.md)。
+
+
+第一百四十七批（2026-10-23）：27533总类与22933+4172不齐；CTW联合子集规模/随机caption划分、SSIM.858/.838、Top5.92.44/.92.47、正式训练版/权重和等预算待核。见[审查](chinese_radical_joint_tpe_geometry_and_negative_transfer_audit_2026-10-23.md)、[L181](../reviews/L181.md)。

@@ -360,3 +360,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百四十六批（2026-10-22）：选择性采样改变目标/score分布，精确截断正态方差不满足通用≤p界；奖励均值不等梯度信号，阈值局部线性化需lnT*。见[审查](uni_synergy_dgs_theory_and_personalization_release_audit_2026-10-22.md)、[L135](../reviews/L135.md)。
+
+
+第一百四十七批（2026-10-23）：祖先路径均值的原始点积有深度偏置；纸面Root=L1与源码独立基区分，双向一致性不保证外部语义正确。见[审查](chinese_radical_joint_tpe_geometry_and_negative_transfer_audit_2026-10-23.md)、[L181](../reviews/L181.md)。

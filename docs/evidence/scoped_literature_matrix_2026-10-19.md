@@ -524,3 +524,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百四十六批（2026-10-22）：个性化静态理解/生成，Dense为提示语义密集；前作同表多指标涨，消融局部例外及Joint冷启动限制保留；F5为达到reward目标的墙钟时间。见[审查](uni_synergy_dgs_theory_and_personalization_release_audit_2026-10-22.md)、[L135](../reviews/L135.md)。
+
+
+第一百四十七批（2026-10-23）：部件caption与32²静态字图的双网监督学习；CTW/印刷/手写总体收益与遮挡负迁移并存，结构遍历及FPS不等笔顺视频证据。见[审查](chinese_radical_joint_tpe_geometry_and_negative_transfer_audit_2026-10-23.md)、[L181](../reviews/L181.md)。
