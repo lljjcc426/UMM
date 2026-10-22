@@ -538,3 +538,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百四十一批（2026-10-22）：固定数据量/类分布/总rollout，独立与配对/加权/梯度操作全因子、多seed和完整单检查点评价；未执行。见[审查](../evidence/pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。
+
+
+第一百四十二批（2026-10-22）：匹配5K/14K/40K和总预算；生成×识别交叉矩阵、无图/错配图、人评和完整分母、字符序及时序约束；未执行。见[审查](../evidence/unicorn_selfplay_joint_objective_and_unicycle_protocol_audit_2026-10-22.md)、[L131](../reviews/L131.md)。

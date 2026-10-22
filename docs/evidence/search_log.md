@@ -598,3 +598,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百四十一批（2026-10-22）：v3完整HTML核心/附录、10表/Eq1–4、7实际原图，固定187项树及训练/reward；PDF部分下载不算全文。见[审查](pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。
+
+
+第一百四十二批（2026-10-22）：正式ACL32页完整、17表/Eq1–9、13实际PDF页和6旧版原图；固定主代码/基准/HF、两JSONL全解析，未运行模型。见[审查](unicorn_selfplay_joint_objective_and_unicycle_protocol_audit_2026-10-22.md)、[L131](../reviews/L131.md)。

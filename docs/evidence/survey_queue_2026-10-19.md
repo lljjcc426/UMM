@@ -548,3 +548,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百四十一批（2026-10-22）完成L130 PairUni完整HTML核心与附录、10表/Eq1–4和7实际原始图，核独立优势/std后权重、平方根与梯度解释、模板和阈值矛盾、主表退步与公开损失差异。更正旧会场断言及Lumina编辑表述。357目录，250核心/253书面；未确认核心80论文／研究+27资源。见[审查](pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_forty_first_changes_2026-10-22.md)。无删除或模型执行。
+
+
+第一百四十二批（2026-10-22）完成L131 UniCorn正式ACL32页核心、17表/Eq1–9、指定附录及13实际PDF页；交叉核固定自身采样/SFT、HF和UniCycle完整评分代码。承认正式理论修正，记录外部persona、指标退步、裁判/词数接口和分母差异。357目录，251核心/254书面；未确认核心79论文／研究+27资源。见[审查](unicorn_selfplay_joint_objective_and_unicycle_protocol_audit_2026-10-22.md)、[逐文件说明](one_hundred_forty_second_changes_2026-10-22.md)。无删除或模型执行。

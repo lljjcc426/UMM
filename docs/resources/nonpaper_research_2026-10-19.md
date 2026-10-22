@@ -539,3 +539,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百四十一批（2026-10-22）：PairUni固定源码0097f419/HFcomingsoon/占位引用，HPSv2.1/软文本reward与示例8000steps非正文1200。见[审查](../evidence/pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。
+
+
+第一百四十二批（2026-10-22）：UniCorn固定e3b4518d/HF5e8d1df7/UniCycleaa1cf81f，发布权重14.607B F32及model/ema索引差异，PersonaHub/seed来源条件。见[审查](../evidence/unicorn_selfplay_joint_objective_and_unicycle_protocol_audit_2026-10-22.md)、[L131](../reviews/L131.md)。

@@ -550,3 +550,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百四十一批（2026-10-22）：阈值.6与低分直方图、原QA/自验证缺失模板、GenEval1787溯源、46.4/46.1、PPOclip实现差异待核。见[审查](pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。
+
+
+第一百四十二批（2026-10-22）：论文1401与发布2338提示映射、Qwen3/自裁判/gpt4omini、yes/no对数字词数、全失败分母及seed/PersonaHub待核。见[审查](unicorn_selfplay_joint_objective_and_unicycle_protocol_audit_2026-10-22.md)、[L131](../reviews/L131.md)。

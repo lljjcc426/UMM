@@ -509,3 +509,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百四十一批（2026-10-22）：静态图文独立优势加权，BAGEL仅数据SFT迁移，连续书写视频无证据；主表计数/颜色/两对象下降。见[审查](pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。
+
+
+第一百四十二批（2026-10-22）：自身选优+四模式静态图像SFT；循环分混合生成与VQA，理解及多样性局部下降，不代表连续书写生成。见[审查](unicorn_selfplay_joint_objective_and_unicycle_protocol_audit_2026-10-22.md)、[L131](../reviews/L131.md)。

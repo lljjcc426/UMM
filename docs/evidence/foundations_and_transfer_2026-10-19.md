@@ -345,3 +345,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百四十一批（2026-10-22）：平方根压缩高分差距、同正标量保持pair梯度夹角，std前后权重不等效。见[审查](pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。
+
+
+第一百四十二批（2026-10-22）：正式Eq7–8补条件期望/MC，MI/Bayes恒等式不保证有限容量CE+MSE正迁移；Best轨迹与无偏MC区分。见[审查](unicorn_selfplay_joint_objective_and_unicycle_protocol_audit_2026-10-22.md)、[L131](../reviews/L131.md)。

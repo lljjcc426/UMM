@@ -141,3 +141,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百四十一批（2026-10-22）：独立task优势std后sqrt、无oldpolicyclip的scorefunction、模态token总分母和CFG概率边界。见[审查](pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。
+
+
+第一百四十二批（2026-10-22）：UniCorn离线选优CE+flowMSE，未用在线GRPO；固定数据MI与学习交叉熵不可混同，拒绝采样代价纳入。见[审查](unicorn_selfplay_joint_objective_and_unicycle_protocol_audit_2026-10-22.md)、[L131](../reviews/L131.md)。
