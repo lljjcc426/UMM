@@ -521,3 +521,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百三十五批（2026-10-22）：原生18文件/diffusers24文件/HF数据仅3文件的发布边界，固定配置和RL默认与论文协议差异，未下载权重。见[审查](../evidence/deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[L121](../reviews/L121.md)。
+
+
+第一百三十六批（2026-10-22）：固定模型组件配置、TextEdit数据与评分实现、GenEditEvalKit集成wrapper，发布推理和原训练/评分日志的边界。见[审查](../evidence/internvlu_retention_cot_and_textedit_metric_audit_2026-10-22.md)、[L123](../reviews/L123.md)。

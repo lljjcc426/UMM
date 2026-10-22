@@ -524,3 +524,8 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 第一百三十五批（2026-10-22）完成L121 DeepGen1 v2全部核心/附录11表与13实际PDF页，核主仓、独立RL和三类HF制品。记录SCB全上下文、投影/超参差异、RL任务退化、概率代理及公开UniGen训练提示与600测试提示的3条精确交集，未推定最终运行使用。357目录，244核心/247书面；未确认核心86论文／研究+27资源。见[审查](deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[逐文件说明](one_hundred_thirty_fifth_changes_2026-10-22.md)。无删除或模型执行。
 
 继续L123 InternVLU；追引CPS2509.05952/GDPO2601.05242/PrefGRPO、UniReason/CVTG。相关引用与制品读取不计各原工作独立精读。保留3条公开提示交集的实际训练使用及近重复边界。
+
+
+第一百三十六批（2026-10-22）完成L123 InternVL-U v1全部核心/附录、24表、17实际PDF页与固定模型/代码/TextEdit/EvalKit指定实现。记录理解5/7退化、CoT子类权衡及CFG混杂、RISE原表聚合疑问、TextEdit报告与发布指标差异、LongText无序召回边界。357目录，245核心/248书面；未确认核心85论文／研究+27资源。见[审查](internvlu_retention_cot_and_textedit_metric_audit_2026-10-22.md)、[逐文件说明](one_hundred_thirty_sixth_changes_2026-10-22.md)。无删除或模型执行。
+
+继续L124 Mamoda2.5；追引门控/MSRoPE、FluxText/FluxReason、GenExam/LongText/CVTG、GeoGebra/Graphviz/PubChem。引用不计原文独立精读，RISE与TextEdit原运行版本问题继续保留。

@@ -8479,6 +8479,40 @@
         }
       ],
       "boundary": "v2完整21页5602480bytes；Abstract/§1–6全部核心与Appendix A/B全文（T8–11），T1–11所有单元/公式1–7，主框架及图注；实际p4/6/7/8/9/10/11/12/13/14/19/20/21十三页核框架/所有表/曲线/公式。GH fbaaaf4完整92项树、README介绍/新闻/配方及TRAIN/DATA/EVAL/INFERENCE、SCB/PT/SFT/数据配置；model构造/prepareinputs/llm2dit/text2image/image2image/diff_loss、GenEval/CVTG/UniGen指定推理段。独立RL c4d5dc2完整378项树，README/训练参数与YAML、训练入口默认/脚本、SFT数据配置及trainer CPS335–481/GDPO2080–2140/优化和KL3716–4042指定段、奖励evaluator来源入口；未读整310KB trainer。原生与diffusers两HF固定metadata/card/config，后者连接器/DiT/VLM/scheduler及pipeline构造/SCB/推理默认选段；数据HF仅三文件metadata/card。公开RL两提示表和UniGen官方600行测试做精确规范化交集，未做语义近重复/CoRE全交集。参考文献按需追引，未读全仓/全部附加奖励服务/原运行日志/数据/权重或独立复现。"
+    },
+    {
+      "id": "L123",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "以约4B统一模型做图像/文字理解、知识推理、生图与静态编辑，改善轻量UMM的条件保真、知识生成、文本渲染和任务覆盖，并建立TextEdit文字编辑评价。输入文字/参考静态图，输出文字或静态RGB；3D位置编码和旋转编辑不构成视频生成、可执行绘画或汉字规范笔顺能力。 较大UMM训练/部署成本高，轻量VLM条件与去噪图像表示不对齐，复杂指令和文字/科学生成缺特定数据；一般编辑基准较少覆盖文字替换与背景保持。作者结合预训语义骨干、新MMDiT、分阶段联合训练和专门合成数据。数据、教师、初始化和结构同时变化，不能把总分归因某一个新模块，也不能将总参数较小直接等同于等质量低总成本。",
+          "evidence": "v1全部核心/附录24表及17实际PDF页、指定固定代码/模型配置与评价实现；架构受控消融缺失明确记录，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "理解：输入图经ViT与pixel shuffle/projector加文字→VLM自回归文字。直接生成：VLM倒数两层选中上下文沿通道cat4096→RMSNorm/Linear→MMDiT条件；编辑的参考图另经QwenImage VAE作为条件latent。目标噪声16通道VAE latent经2×2 patch为64特征，20步DPM更新后VAE解码静态RGB。CoT先在条件分支生成最多默认200新文字token，再重跑VLM并生图；不是只加学习query，未核到每张图生成后反复自省修改循环。mask从每例第二个im_start到待生成img_start，排除system/padding，保留所选上下文；不等于仅取最后token。 表2约0.3B ViT+2B语义骨干+1.7B新初始化MMDiT≈4B，表中2B+1.7B标签未计ViT。HF VLM Qwen3-1.7B为28L/2048/16Q8KV/head128/FFN6144/vocab151936；ViT24L/1024/16heads/patch14/448，shuffle.5。生成20L/hidden1536=12×128/FFN6144，text joint4096，外projector identity但内部RMSNorm4096再Linear1536，RMSNorm不做均值中心化。VAE16原始通道/空间8倍压缩，in_channels64是patch化维度；输出16通道。MSRoPE轴16/56/56，视觉scale1、VLM条件.25；论文插值统一位置范围，其实际实现全路径未逐行核。独立文本/图像流不等于完全无跨模态交互。",
+          "evidence": "v1全部核心/附录24表及17实际PDF页、指定固定代码/模型配置与评价实现；架构受控消融缺失明确记录，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "从InternVL3.5-2B扩展新1.7B MMDiT，文本AR交叉熵与连续图像latent flow matching共享上下文；双流有独立QKVO/FFN但联合注意，元素门控和多尺度3D RoPE；文本生图、参考图编辑经阶段对齐再混入理解联合训练。最后两层VLM状态通道拼接作为生成条件；可先AR输出显式CoT再条件生成图。另给TextEdit2148样本/18子类与OCR、MLLM复合评价。门控/位置机制单项因果和“首次”主张未由本轮独立新颖性检索证明。 若预训语义骨干已含任务知识，连续生成分支经足量专门数据对齐，选定上下文与双参考可改善静态文字/知识编辑；显式CoT在可分解指令或科学关系下可能提高遵从。门控可能压低无关条件、位置尺度对齐可能减轻异粒度token混合，这些是动机假设，缺独立消融。优势取决于静态分布、caption/教师质量、采样CFG和评价器；共享模型是否促进理解、严格顺序、真实细笔可恢复均需单独证据。",
+          "evidence": "v1全部核心/附录24表及17实际PDF页、指定固定代码/模型配置与评价实现；架构受控消融缺失明确记录，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "理解相对InternVL3.5-2B：MME1552.1→1607.5、OCR83.6→83.9，但SEED75.3→75.2、Chart80.7→76.6、MMMU59→54.7、MathVerse53.4→45.6、Logic47.7→40.3，5/7降；原基座无星号重评标记，需配对协议后归因遗忘。GenEval.85（Qwen.87），DPG85.18（Qwen88.32），TIIF短74.9/长73.9，OneIG英/中.50/.50；均非所有子类更优。CVTG词平均.623（BAGEL.356、Qwen.829），LongText英.738/中.860（Qwen.943/.946）。CoT WISE.46→.58、GenExam20.8→22.9、ImgEdit3.67→3.82、GEdit6.66→6.88，但GenExam历史24.9→20.3、ImgEdit风格4.77→4.69/混合3.03→3.00，GEdit若干子类退化。TextEdit full经典Real/Virtual F1 .71/.75，MLLM平均.88/.83，低于Nano .91/.92；mini MLLM .89/.79不可混full。RISE CoT空间原表5→1.8，四类4.7/7.8/1.8/5.9却总9.4，超过任一分项；保留原数、聚合一致性待解，不自行改成18。 报告无专门拆门控/MSRoPE/两层条件/阶段数据/训练预算的受控消融表；主要有同模型CoT开关的任务对比。WISE六类皆上升，但GenExam、ImgEdit、GEdit和RISE空间有退步，且公开默认CFG随模式不同，不能当显式推理机制单独因果。T4是原骨干与联合系统的结果对比，非固定数据/损失/训练步的理解保留控制；T23/24 mini只是另一子集评测，非结构消融。无给定等参数/等算力单任务生成器及联合训练正迁移因果实验。 T3阶段1：512/250K更新/b2048/lr3e-4/constant/wd0/clip.2，backbone冻结、T2I:IT2I4:1、CE:FM0:1；阶段2：512–1024/长宽.5–2/60K/b1024/1e-4/cos/wd0/clip.2，仍冻结并加VAE参考、3:4/0:1；阶段3全骨干解冻20K/b1024/1e-5/cos/wd.01/clip1，T2I:IT2I:理解1:1:2、CE:FM1:20。AdamW(.9,.999,eps1e-8)、warm1000、shift3，理解448。按通常batch×更新推算总593.92M样本呈现，非unique且含理解，缺日志确认步定义。T2I条件drop10%，编辑全条件5%/仅文字5%。论文评价20 DPM solver/CFG3.5、1.5；HF scheduler dpmsolver++二阶/midpoint/flow_prediction/shift3。源码直接image默认4.5、2.0，text_image为3.5、1.5，CoT对照必须显式对齐；每步三CFG分支拼batch，有AR/ViT/VAE额外成本。未给硬件延迟、多训练seed或CI，本轮未运行。",
+          "evidence": "v1全部核心/附录24表及17实际PDF页、指定固定代码/模型配置与评价实现；架构受控消融缺失明确记录，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "T19 RISE原表不满足同指标分类均值的凸组合约束，固定EvalKit确用各类/全体同score.mean再25(s−1)，原逐例结果缺失，无法判笔误/协议差异。TextEdit Eq7/8背景最佳文本匹配与代码目标.5+背景.5贪心行匹配不同；Eq12(s−1)/4与代码{1:0,2:.2,3:.6,4:.8,5:1}不同，cutoff需CLI开启。ROI代码另要求sim(source,target)<.5才把仍像源图的结果×.2，比报告多一条件；故报告可能惩罚近似正确短修改的假设不应直接套代码。报告AES通常1–5但表值>5，代码线性预测未限界可解释值域，不构成证伪结果。指标NFKC/去标点空格/小写会忽略部分真实文字错误；LongText无序召回不测行序。数据/训练日志和完整trainer未发布于32项主树，科学图像去重不等全域无交叉；小模型标签不含教师/总预训。无视频时序/笔顺/动作指标及独立统计复现。 固定初始化、unique数据/曝光、teacher、参数与训练FLOPs，交叉门控/双流/MSRoPE/最后一层或两层/条件ViT+VAE，报告生成/编辑/理解Pareto。CoT用同20步/CFG/随机种子、固定token预算与等延迟直接生成，纳入改写提示、额外采样和独立人工judge，测错误推理传播及每子类CI。取得RISE逐例JSON按四分类/同映射重算；TextEdit同输出同时跑报告公式与固定代码，公开归一化/cutoff/行配对/ROI与OCR版本，做标点/大小写/行序、最小字符修改、额外字/重复字/透视/空背景压力测试及盲评校准。LongText另报有序CER/WER、严格整行正确与额外内容精度。训练测试做图像/提示/来源族语义独立切分。迁移汉字视频先oracleVAE细笔可恢复，再同终态异笔顺、规则SVG/VideoSketcher/强视频基线测事件顺序/可见性/持续性/真实执行；均未执行。",
+          "evidence": "v1全部核心/附录24表及17实际PDF页、指定固定代码/模型配置与评价实现；架构受控消融缺失明确记录，非口试/独立复现"
+        }
+      ],
+      "boundary": "v1完整61页35474152bytes；Abstract/§1–6全部核心、AppendixA/B全部研究文字/指标及评价提示，T1–24文本单元、Eq1–14、F1–29图注；实际p9/10/25/26/27/28/29/31/33/35/36/37/52/53/54/55/59共17页核框架、指定表和公式，未逐页看全部示例/参考文献。主GH固定018a59c完整32项树，README介绍/使用选段、MIT全文，pipeline mask141–264/条件339–429/CoT497–605及模式默认、decoder构造/transformer指定构造/RMSNorm/gate/三分支去噪535–607；未全读110KB transformer/processor/attention底层。HF固定f012d76共23项metadata/card介绍与示例、VLM/生成/VAE/scheduler配置全文。TextEdit固定721741a完整50blob树/README介绍与指标/经典metric100–340和特定clip/aesthetic入口、OCRtools1–60/MLLM归一化与204–246聚合及cutoff参数；数据HF固定9ac3f14元数据4348文件，未下载图像/标注内容。GenEditEvalKit固定bab8bf9完整3640blob树，README介绍/功能选段，InternVL-U两wrapper全文，LongText summary全文/OCR入口1–130，RISE指定judge/score/分类聚合段；未全读全工具箱/原运行JSON/训练日志/权重，无模型运行或独立复现。"
     }
   ]
 }

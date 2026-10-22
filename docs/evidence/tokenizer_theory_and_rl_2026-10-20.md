@@ -123,3 +123,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百三十五批（2026-10-22）：CPS残差代理logp、带方差速度约束、MR-GRPO/GDPO/持续SFT、静态生成与真实笔画时间区分。见[审查](deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[L121](../reviews/L121.md)。
+
+
+第一百三十六批（2026-10-22）：AR显式CoT与连续latent flow分工、16通道与2×2 patch64维、VAE细笔和文字无序计数局限；本工作不作为新RL算法归类。见[审查](internvlu_retention_cot_and_textedit_metric_audit_2026-10-22.md)、[L123](../reviews/L123.md)。

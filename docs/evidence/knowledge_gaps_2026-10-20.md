@@ -532,3 +532,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百三十五批（2026-10-22）：公开测试/训练提示3条交集、原运行日志/语义近重复/CoRE与GenEval清单、PT批大小/暖启动/投影与图表差异待解决。见[审查](deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[L121](../reviews/L121.md)。
+
+
+第一百三十六批（2026-10-22）：RISE四类与总分矛盾、TextEdit归一化/目标背景权重/ROI/cutoff差异和原逐例运行版本待解。见[审查](internvlu_retention_cot_and_textedit_metric_audit_2026-10-22.md)、[L123](../reviews/L123.md)。

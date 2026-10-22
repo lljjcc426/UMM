@@ -491,3 +491,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百三十五批（2026-10-22）：五种静态生成任务、英文词渲染与中文笔顺视频/理解保留的评价边界，RISE和WISE Space退化。见[审查](deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[L121](../reviews/L121.md)。
+
+
+第一百三十六批（2026-10-22）：4B静态理解/生图/编辑和TextEdit基准的真实任务范围，理解保留/CoT子类负例与文字顺序边界。见[审查](internvlu_retention_cot_and_textedit_metric_audit_2026-10-22.md)、[L123](../reviews/L123.md)。

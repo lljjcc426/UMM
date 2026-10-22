@@ -580,3 +580,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百三十五批（2026-10-22）：v2完整21页/11表/13实际PDF页、固定主仓92项与RL378项树的指定源码、三HF制品元数据，以及固定UniGen600提示对公开RL两提示文件交集。见[审查](deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[L121](../reviews/L121.md)。
+
+
+第一百三十六批（2026-10-22）：v1完整61页全部核心/附录24表、17实际PDF页，固定GH32项/HF23项、TextEdit50blob与EvalKit3640blob树及指定指标代码；仅元数据不算数据逐例读取。见[审查](internvlu_retention_cot_and_textedit_metric_audit_2026-10-22.md)、[L123](../reviews/L123.md)。

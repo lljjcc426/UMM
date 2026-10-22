@@ -327,3 +327,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百三十五批（2026-10-22）：六层全上下文特征、一次前向学习query与显式CoT区分，概率比中加性常数与方差系数，组标准化的作用条件。见[审查](deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[L121](../reviews/L121.md)。
+
+
+第一百三十六批（2026-10-22）：两层上下文通道融合、双流联合注意、RMSNorm二阶矩、3CFG成本及分类均值凸组合一致性。见[审查](internvlu_retention_cot_and_textedit_metric_audit_2026-10-22.md)、[L123](../reviews/L123.md)。
