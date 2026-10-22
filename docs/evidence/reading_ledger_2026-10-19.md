@@ -234,7 +234,7 @@
 | L126 | Rosetta: Composable Native Multimodal Pretraining | primary_sections_read | [结构化分析](../reviews/L126.md) | 核心三遍与五项检查完成 |
 | L127 | HermesFlow: Seamlessly Closing the Gap in Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L127.md) | 核心三遍与五项检查完成 |
 | L128 | MindOmni: Unleashing Reasoning Generation in Vision Language Models with RGPO | primary_sections_read | [结构化分析](../reviews/L128.md) | 核心三遍与五项检查完成 |
-| L129 | Co-Reinforcement Learning for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L129.md) | 未完成 |
+| L129 | Co-Reinforcement Learning for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L129.md) | 核心三遍与五项检查完成 |
 | L130 | PairUni: Pairwise Training for Unified Multimodal Language Models | primary_sections_read | [结构化分析](../reviews/L130.md) | 未完成 |
 | L131 | UniCorn: Towards Self-Improving Unified Multimodal Models through Self-Generated Supervision | primary_sections_read | [结构化分析](../reviews/L131.md) | 未完成 |
 | L132 | Understanding vs. Generation: Navigating Optimization Dilemma in Multimodal Models | primary_sections_read | [结构化分析](../reviews/L132.md) | 未完成 |

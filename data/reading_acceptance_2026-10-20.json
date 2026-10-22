@@ -8615,6 +8615,40 @@
         }
       ],
       "boundary": "NeurIPS2025正式25页PDF完整下载17065999bytes，Abstract/Intro/Related/Method§3.1–3.4/Experiments§4.1–4.4/Conclusion、T1–9与Eq1–7核心原文；A1训练全文、A2 GEdit、A3详细response选读、A4限制/A5图注及checklist统计/资源相关声明；非逐篇参考文献/全checklist泛用指南。实际p4/5/6/7/8/9/10/16/18共9页核框架、公式、主表/消融、曲线与CoT样例；其他定性页未逐图。arxiv v2 HTML全部核心及A1–4，正式新增星号/编辑优先正式版；官方ZIP中4页旧RG-VLM补充仅读A1与部分详细CoT，不独立算新研究。固定GH a4c9436完整171项树/137blob，README发布/数据/结果段，pretrain model构造/connector、loss核心、两启动全文、train冻结/LoRA优化器段；RL stage3启动全文/主入口/奖励选择、trainer冻结和policy损失、qwen奖励与gen_kl活跃函数；src mindomni图文/CoT隐藏/生成入口、image_pipeline采样/两CFG段。HF9329cf5元数据25文件/卡片全文与mllm/image_decoder/VAE配置全文。无权重下载、运行训练推理或独立复现。"
+    },
+    {
+      "id": "L129",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "统一图文AR模型能否经联合GRPO建立理解/生成基础，再经任务特定RL增强两种能力；比较独立、权重合并、交替、统一策略，并研究图文语义循环与token匹配奖励。研究为静态T2I/图像QA后训练；无连续视频、文字笔顺或真实笔触动作评价。 仅理解RL容易牺牲生成，单独CLIP奖励对细对象/关系辨别有限；共享LLM允许跨任务参数迁移和联合优势。用真实图-描述-QA对将两个任务配在同个组，视觉感知相似与caption循环约束、token级匹配加QA正确/格式形成联合奖励。无coldSFT的RL仍依赖有标注图/QA/原始caption、预训Janus及感知/语言评价器，不能写不依赖监督数据。",
+          "evidence": "v3全部核心、正式24页关键8页/8表/Eq1–6及A1/A2，固定联合RL源码与HF数据；最终分支和公开实现差异已记，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "stageI真实图/QA→独立SigLIP语义encoder+aligner→共享AR LLM→think/answer文字；同样本原caption→同LLM+图像code embedding/head→576离散image IDs→VQ decoder成384²图。两路各采G，图像重caption及真实图比对、TIM与QA格式/正确性算reward，共享优势反馈两路LLM。stageII分支各自输入输出；没有图像帧序列、扩散去噪、显式笔画轨迹或闭环执行。图像code的raster AR顺序不等于书写时间顺序。 Janus-Pro-1B为基座，主表LLM实际列DeepSeek1.5B；原HF960ab331配置24层/hidden2048/16Q16KV/FF5632/vocab102400/context16384。理解SigLIP-large-patch16-384输出1024→2层GELU MLP2048；生成VQ-16/码本16384/8维code，24×24=576token，独立gen_embed/aligner/head和VQ图像decoder，共享language_model。当前init_trainable_parameters冻结理解vision/aligner及生成VQ/aligner/head/embed，仅训练LLM；表7 Janus1.3B全参语言训练、7B LoRA，非所有系统模块都全参。扩展同AR家族，不能证明扩散/flow UMM均适用。",
+          "evidence": "v3全部核心、正式24页关键8页/8表/Eq1–6及A1/A2，固定联合RL源码与HF数据；最终分支和公开实现差异已记，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "CoRL stageI对同个真实样本分别采G张图和G个文字推理答案，把cycle+TIM+.8*(QA+format)合成联合奖励/组内std优势，同时更新共享LLM，β0；stageII分别T2I、MC、OE用各自奖励/数据和β.02继续。循环为1−LPIPS(真实图,生成图)+SPICE(原prompt,BLIP重caption)，TIM为双向token max-cos均值；对应ULM-R1。混合QA额外合并MC/OE两个模型；所有最终结果不由同一权重得到的证据须保留。 共享语言参数、配对样本实体覆盖高、QA答案和语义reward可靠时，联合优势可能让生成学到理解实体并让两任务减少遗忘；phaseI为后续专门任务RL提供较好起点。真实图感知奖励适合受限图文配对分布，开放多解生成可能损多样性；token最近cos不足保证对象关系/字序/细笔。权重分支与合并、相同家族基座及预算限制使普遍协同不能由最终主表直接推出。",
+          "evidence": "v3全部核心、正式24页关键8页/8表/Eq1–6及A1/A2，固定联合RL源码与HF数据；最终分支和公开实现差异已记，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1 JanusPro1.5B GenEval.73/WISE.26/DPG82.63→ULMR1约.77/.33/83.92，消融精度Gen77.3；计数.51→.71/属性.56→.80。统一模型GenEval低于Janus7B.80；WISE.33低于Harmon.41/Emu3.39/Janus7B与Showo.35，正文second-on-WISE与表不符；计数.71仅统一组最佳，专用SD3.72更高。T2九项36.3/43.1/5.9/39.8/86.2/23.9/37.3/13.5/13.4→42.3/47.6/21.1/43.9/88.9/34.5/42.5/25.4/22.0；MMMU仍低ILLUME+44.3、MathVista42.5低SGen42.7、MMVet43.9低Janus7B50。混合题用MC/OE权重合并，不能写全部由同一生成+理解检查点同步达到。 F1 pilot生成/理解平均77.8/38.1；单T2I78.4/36.1、单理解77.1/41.0、合并78.4/39.1、交替77.9/40.1、统一79.1/41.5，无预算/方差完整隔离。T3统一S1 Gen75.9/DPG83.3/MMMU40.3/WeMath14/MMVet42.5/Logic30.2；ColdSFT72.8/82.5/41.0/18.0/42.0/27.9，统一在MMMU和WeMath更低。最终CoRL77.3/83.9/42.3/21.1/43.9/34.5较ColdSFT+RL74.5/82.8/41.8/22.5/43.7/35.9：生成更优、WeMath和Logic更低。T4 CLIP74.2/82.4、TIM74.1/83.0、cycle76.2/83.5、cycleCLIP77/83.4、cycleTIM77.3/83.9；TIM单独Gen低CLIP。T5 SSIM77.5/83.6 vsLPIPS77.3/83.9有取舍。T6 λ.7/.8同77.3/42.3，.9为77.1/43.5，非唯一最优。T7 Janus1.3B和7B各九项均升，但模型/LoRA方式改变，增益非线性。T3ColdSFT Gen72.8−73.0=−.2pp，表打印−.3待核。 8×H20 96GB/AdamW；正式T8 stageI G8/β0/batch16/lr4e-6/epoch1/最大prompt1024/completion512；stageII G16/β.02/lr1e-6/epoch1，T2I batch16/prompt256，MC/OE batch32/prompt1024/completion512。文字评测greedy，图像384²/CFG5/576AR tokens。公开统一脚本8rank×perdevice1×accum4、maxcompletion576/lr4e-6/epoch1/G8/β0，名称bs16不解释实际采样有效batch口径，不能直接当正式全配置。代码温度固定1；图像含两CFG分支；无端到端时间/总训练GPU小时、多seed区间。阶段II/权重合并完整配方和最终检查点未在所读固定入口/官方集合核到。",
+          "evidence": "v3全部核心、正式24页关键8页/8表/Eq1–6及A1/A2，固定联合RL源码与HF数据；最终分支和公开实现差异已记，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "TIM对固定token向量集合置换和重复最近匹配不敏感，无一对一/显式空间约束；上下文hidden可编码位置，不能直接说整个模型对文字顺序恒不变。真实图LPIPS把多解T2I偏向单一布局；学习中自身TIM/recaption可共同漂移。论文说cycle/TIM归一到[0,1]，所读active代码未见显式此归一；默认自身recaption+BERTScore/Jaccard+1−滑窗RMSE，与正文BLIP/SPICE/LPIPS不同。QA传qa_type列表，reward却直接与字符串MC比较，进入OE匹配/softJaccard而非逐例MC抽取；论文二值准确率与默认软分有差异。图像rollout用CFG5，但所读logps为条件分支普通logsoftmax；还对已拼接全部image IDs的最后576位置打分，可能较next-token目标晚一位，需作者版本/实际tensor位置复核，未以此推断论文结果无效。Eq6写联合输出概率比，实现为共享优势下两路token ratio各自mask均值相加；§3.3.3文字说reward替代Ai而未说明stageII归一。统计checklist明确No。无最终同权重全任务评测/完整预算控制/视频笔顺证据。 固定Janus基座、unique配对样本、MC/OE子集/epoch/总rollout/GPU秒和评测模板，比较单任务/交替/联合独立优势/联合奖励、实体相关对与随机配对、共享/冻结部分LLM；同一S1与每个S2/合并权重都完整测生成和九理解项，报告双向增量/梯度冲突及Pareto。拆真实图LPIPS、caption评价器、TIM和各归一/λ，CLIP与同预算OCR/关系验证奖励对照，TIM固定裁判与动态自身对照；保留多解多样性。核CFG采样概率和teacherforcing位移，公布修订脚本/实际版本，比较token/sequence归一；多seed与误差区间。用跨字符/字体/字系和同终态异书写过程切分测有序OCR、事件顺序/接触与RGB可见性；静态图像AR不能替代视频实验。未运行。",
+          "evidence": "v3全部核心、正式24页关键8页/8表/Eq1–6及A1/A2，固定联合RL源码与HF数据；最终分支和公开实现差异已记，非口试/独立复现"
+        }
+      ],
+      "boundary": "arxiv2505.17534v3 HTML Abstract/§1–6核心全文、完整T1–8/Eq1–6与Fig1–5图注、AppA1/A2；正式24页PDF2078913bytes，实际p3/4/5/6/7/8/10/24共8页交叉核pilot柱图/架构/公式/全主表与消融/训练数据表，未逐图p9所有QA细字、逐篇参考文献和全checklist指南；统计No与资源声明选读。官方2页早期supplement A1/A2研究文字和训练表已读，引用列表不独立算精读。GH0c92629f完整2828项树/2798blob及README全文；统一启动全文、入口参数/数据映射、trainer冻结/采样/奖励汇总/优势/两token损失与logps、cycle活跃函数/默认模型/metric、TIM函数/切片、QA/format/registry；Janus联合forward与CFG采样/VQ构造、eval生成和混合评测接口选段。HF4数据卡全文和元数据/实际声明行数，未下载全部parquet；JanusPro1B960ab331配置/元数据；官方collection4数据未见模型权重条目不等于全网无权重。额外TTRL README、两个启动参数/奖励选段：投票答案只用GT作命中日志、图像自选高分参考；未读完整TTRL trainer/复现，不计独立论文完成。无权重下载、训练/推理执行或独立复现。"
     }
   ]
 }

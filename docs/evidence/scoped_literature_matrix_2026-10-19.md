@@ -503,3 +503,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百三十九批（2026-10-22）：VLM文字CoT→静态图像/编辑；CLIP反馈训练文字策略，无连续视频/笔画事件实测。见[审查](mindomni_rgpo_data_variants_and_feature_kl_audit_2026-10-22.md)、[L128](../reviews/L128.md)。
+
+
+第一百四十批（2026-10-22）：共享AR静态生成/QA联合优势、S2任务分支；未验证同最终权重全任务或连续笔顺视频。见[审查](corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[L129](../reviews/L129.md)。

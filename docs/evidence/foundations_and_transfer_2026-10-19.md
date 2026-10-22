@@ -339,3 +339,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百三十九批（2026-10-22）：组内std/variance、反向KL、特征分布代理与准确图像概率、文字policy gradient和可微冻结生成器。见[审查](mindomni_rgpo_data_variants_and_feature_kl_audit_2026-10-22.md)、[L128](../reviews/L128.md)。
+
+
+第一百四十批（2026-10-22）：双向max-cos的集合不变性与上下文位置、联合sequence和token surrogate、CFG采样与概率匹配。见[审查](corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[L129](../reviews/L129.md)。

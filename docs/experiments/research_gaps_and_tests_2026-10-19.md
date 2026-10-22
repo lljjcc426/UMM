@@ -532,3 +532,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百三十九批（2026-10-22）：同数据/预算CoT、外部rewrite、RL奖励/KL方向、跨seed忠实性与有序文字/笔画验证；未执行。见[审查](../evidence/mindomni_rgpo_data_variants_and_feature_kl_audit_2026-10-22.md)、[L128](../reviews/L128.md)。
+
+
+第一百四十批（2026-10-22）：同预算配对打乱/奖励信用分配、S1与所有S2完整双任务矩阵、固定裁判/多解和跨文字笔画实验；未运行。见[审查](../evidence/corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[L129](../reviews/L129.md)。

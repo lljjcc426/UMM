@@ -413,3 +413,6 @@ python scripts/validate_catalog.py
 
 
 第一百三十九批（2026-10-22）完成L128 MindOmni正式NeurIPS2025核心9表/Eq1–7、9实际PDF页及固定代码/模型配置审查。区分原版WISE.60与追加HQ版.71，记录RGPO仅文字policy ratio、特征KL方向/优势归一化/启动任务名差异和CoT不单调。357目录，248核心/251书面；未确认核心82论文／研究+27资源。见[审查](docs/evidence/mindomni_rgpo_data_variants_and_feature_kl_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_thirty_ninth_changes_2026-10-22.md)。无删除或模型执行。
+
+
+第一百四十批（2026-10-22）完成L129 CoRL核心三遍、正式8表/Eq1–6及固定联合RL/数据卡审查。明确S1双任务提升与S2任务分支/合并边界、7%/23%相对均值、WISE排名、监督数据和公开reward默认/QA类型/概率位置待核差异。357目录，249核心/252书面；未确认核心81论文／研究+27资源。见[审查](docs/evidence/corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_fortieth_changes_2026-10-22.md)。无删除或模型执行。

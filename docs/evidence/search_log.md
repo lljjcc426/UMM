@@ -592,3 +592,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百三十九批（2026-10-22）：NeurIPS正式25页核心9表/Eq1–7/9实际PDF页、指定附录与固定GH171项树/137blob、HF25项文件/组合配置。见[审查](mindomni_rgpo_data_variants_and_feature_kl_audit_2026-10-22.md)、[L128](../reviews/L128.md)。
+
+
+第一百四十批（2026-10-22）：v3核心全文、正式24页关键8页/8表/Eq1–6、AppA1/A2和固定2828项源码树、4 HF数据卡/元数据。见[审查](corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[L129](../reviews/L129.md)。

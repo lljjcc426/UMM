@@ -544,3 +544,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百三十九批（2026-10-22）：正式原版/HQ数据、Eq4/6与代码、公开task_type入口、参考VAE通路和完整训练日志差异。见[审查](mindomni_rgpo_data_variants_and_feature_kl_audit_2026-10-22.md)、[L128](../reviews/L128.md)。
+
+
+第一百四十批（2026-10-22）：SPICE/LPIPS对默认BERT/Jaccard/RMSE、QA类型列表、图像teacher forcing位移、stageII/合并日志待核。见[审查](corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[L129](../reviews/L129.md)。
