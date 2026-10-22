@@ -428,3 +428,6 @@ python scripts/validate_catalog.py
 
 
 第一百四十四批（2026-10-22）完成L133 GvU正式CVPR11页全文/6表/Eq1–8、7实际PDF页、固定奖励/PEFT上下文/策略loss及评测协议。纠正表号、计数和理解负结果、曲线幅度；记录活动教师与论文clip差异及写实评测边界。357目录，253核心/256书面；未确认核心77论文／研究+27资源。见[审查](docs/evidence/gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_forty_fourth_changes_2026-10-22.md)。无删除或模型执行。
+
+
+第一百四十五批（2026-10-22）完成L134 LVRPO完整17页核心/全部附录、7表/Eq1–16/Algo1、12实际PDF页。记录Eq16归一缺口、MI/梯度/W2论证边界、F3/F5与主表配置差异及公开制品待核。357目录，254核心/257书面；未确认核心76论文／研究+27资源。见[审查](docs/evidence/lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_forty_fifth_changes_2026-10-22.md)。无删除或模型执行。

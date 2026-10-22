@@ -518,3 +518,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百四十四批（2026-10-22）：GvU为静态X-Omni内生每图标量，计数下降/五项理解下降；评测写实门槛不覆盖素描与书写过程。见[审查](gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。
+
+
+第一百四十五批（2026-10-22）：外部SigLIP2/规则/知识VQA奖励的静态生成编辑理解；T5匹配BAGEL均涨，但F3/F5配置未映射，不推普遍协同。见[审查](lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[L134](../reviews/L134.md)。

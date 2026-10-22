@@ -607,3 +607,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百四十四批（2026-10-22）：正式CVPR11页全文/6表/Eq1–8、7实际页，固定47项树、奖励/模型/训练选段、完整评测及280行分组；PEFT锁定上下文核查。见[审查](gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。
+
+
+第一百四十五批（2026-10-22）：arxivv1完整17页/7表/Eq1–16/Algo1、12实际页，全部研究附录；ICML/PMLR及GH/HF名称检索未核官方制品。见[审查](lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[L134](../reviews/L134.md)。

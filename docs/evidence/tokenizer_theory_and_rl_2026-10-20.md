@@ -150,3 +150,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百四十四批（2026-10-22）：每图聚合文本概率的AR图码RL；FLUX还接原文本，公开scorefunction+KL未用oldpolicyclip，no_grad不等跨步固定教师。见[审查](gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。
+
+
+第一百四十五批（2026-10-22）：组相对baseline/除std、KL梯度与下界、dense max复用patch、缺归一flow重加权和稀疏路由非正交保证。见[审查](lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[L134](../reviews/L134.md)。

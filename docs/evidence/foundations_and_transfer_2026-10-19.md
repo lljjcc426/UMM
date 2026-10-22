@@ -354,3 +354,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百四十四批（2026-10-22）：固定提示的文本先验常数不能反转组内排序；几何长度归一保排序但非线性改变优势，检验视觉敏感性与活动教师漂移。见[审查](gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。
+
+
+第一百四十五批（2026-10-22）：Eq16缺partition常数，常数奖励平移即反例；条件均值速度不等终态均图，MI降条件熵需边缘和下界条件。见[审查](lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[L134](../reviews/L134.md)。

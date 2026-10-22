@@ -547,3 +547,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百四十四批（2026-10-22）：固定候选的错图/空图和等长度错属性，冻结/活动教师×共享模块，等预算基座差距干预、全部理解和书写事件真值；未执行。见[审查](../evidence/gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。
+
+
+第一百四十五批（2026-10-22）：等GPUh的G/BestN、dense/规则/知识析因，分模块梯度与共享attention干预、常数平移/合成多模态W2验证；未运行。见[审查](../evidence/lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[L134](../reviews/L134.md)。

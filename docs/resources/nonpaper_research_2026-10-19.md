@@ -548,3 +548,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百四十四批（2026-10-22）：GvU8203768有280评测prompt、训练/生成占位脚本，无完整50K/GvU模型卡链接；GPT4.1写实协议和API失败计分入库。见[审查](../evidence/gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。
+
+
+第一百四十五批（2026-10-22）：LVRPO正文声称open-source，但本轮出链与有限GH/HF名称检索未核官方代码/模型/500K制品，维持证据边界。见[审查](../evidence/lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[L134](../reviews/L134.md)。

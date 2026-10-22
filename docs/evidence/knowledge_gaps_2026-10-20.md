@@ -559,3 +559,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百四十四批（2026-10-22）：完整50K/正式日志未发布，不能核去重；裸contextmanager未禁用LoRA，正式是否用同版本待核，F7平滑约.06不能写.09。见[审查](gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。
+
+
+第一百四十五批（2026-10-22）：BAGEL与Llama3/top2八专家构型关系、500K划分、正文clipvsAlgo1及F3/F5分数映射未解决。见[审查](lvrpo_theory_reward_and_protocol_audit_2026-10-22.md)、[L134](../reviews/L134.md)。
