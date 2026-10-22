@@ -351,3 +351,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百四十三批（2026-10-22）：把性能取舍与梯度/容量根因区分；同组固定Vold减均值后消掉，不因公开存Vnew误判reward错误。见[审查](r3_tree_rl_understanding_scope_and_prompt_overlap_audit_2026-10-22.md)、[L132](../reviews/L132.md)。
+
+
+第一百四十四批（2026-10-22）：固定提示的文本先验常数不能反转组内排序；几何长度归一保排序但非线性改变优势，检验视觉敏感性与活动教师漂移。见[审查](gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。

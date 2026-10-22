@@ -9615,22 +9615,25 @@
       "https://arxiv.org/html/2603.06043v1",
       "https://matrix0721.github.io/gvu.github.io/",
       "https://github.com/matrix0721/GvU/tree/8203768feb55c3160caf745c8d4f96cb2cb8b461",
-      "https://github.com/huggingface/peft/blob/v0.17.1/src/peft/peft_model.py"
+      "https://github.com/huggingface/peft/blob/v0.17.1/src/peft/peft_model.py",
+      "https://openaccess.thecvf.com/content/CVPR2026/html/Pan_Learning_to_Generate_via_Understanding_Understanding-Driven_Intrinsic_Rewarding_for_Unified_CVPR_2026_paper.html",
+      "https://openaccess.thecvf.com/content/CVPR2026/papers/Pan_Learning_to_Generate_via_Understanding_Understanding-Driven_Intrinsic_Rewarding_for_Unified_CVPR_2026_paper.pdf",
+      "https://arxiv.org/abs/2603.06043v1"
     ],
-    "method": "X-Omni自生成图后teacherforce原prompt，token概率几何均值作为R，GRPO+LoRA后训；不需额外训练图/外部rewardmodel，仍需50K文本prompt及原预训练模型。 X-Omni SigLIPVQ+Qwen2.5+FLUX；R=exp(mean_j logp(Tj|I,T<j))，这是聚合序列分数，不能据token-level命名推成每字空间定位奖励。length几何归一不能去掉语言先验/顺序概率偏差。",
-    "conclusion": "GenEval不改写.68→.81（相对19.1%），改写最终.84；DPG85.68；GenEval++.282→.404。MMT49.76→49.92仅+.16；POPE86.1→86.3，但GQA61.9→61.7/MMB73.9→73.5/SEED74.5→73.9/Doc89.1→88.4/OCR712→709下降。",
-    "gap": "caption概率混语言先验，几何均值虽控制长度仍非校准真值；自reward会漂移或共谋。代码gvu_score用torch.no_grad()和逐token概率乘积后开L次根，阻断reward反传不等于冻结后续更新。环境锁PEFT0.17.1；其disable_adapter有@contextmanager，trainer482裸调用仅创建上下文对象，不执行禁用主体，433参考分支才用with。按该标准PEFT路径reward仍带当前LoRA，不能记录为冻结base评估器；未运行该训练。Eq4HTMLsoftmax括号/词法与直观定义不清，未看PDF不判公式bug。公开trainer采用scorefunctionratioexp(logp−stopgrad(logp))，与正文旧策略clippedratio不同，须绑定采样/update次数解读。",
-    "problem": "能否用UMM理解分支对原prompt的条件概率作为内生reward，改善自己生成？",
+    "method": "Generate via Understanding：X-Omni生成离散语义图码、经FLUX还原RGB，再对该RGB重新编码并teacher-force原文本，取所有目标文本token概率的几何均值作为每图一个标量奖励；同提示候选组归一优势，用LoRA后训练AR图码策略。奖励由token概率构成但最终聚合为序列分数；没有逐字符框、逐图码不同奖励或逐笔画时序损失。无需新增训练图或外部奖励模型，仍依赖50K文本及预训练X-Omni/编码器/FLUX。 沿用X-Omni的Qwen2.5语言/多模态AR骨干、SigLIP-VQ离散图像编码器及FLUX像素解码器，无新基础网络。固定configuration继承Qwen2Config，image_vocab_size16384/mm_vocab_size16448，默认4层mm_adap与4层mm_head；最终维度仍依基座配置，不能从默认值推未公开完整模型规模。默认576²/downsample16对应36²=1296图码；这些是公开入口参数。detokenize_image还把文本送入FLUX，不应描述成仅凭图码无文本的解码。RL对象为AR语义码采样，不能混写为FlowGRPO直接优化FLUX去噪轨迹。",
+    "conclusion": "正式T1原提示GenEval .68→.81，+13pp/相对19.1%；改写对齐为.74→.84，+10pp，不能用.68→.84归于同训练条件。最终.84与BLIP3o/GPT4o表中同分，计数.80低于GPT4o.85、位置.68低于JanusPro.79、属性绑定.65低于OmniGen2.76。T2 DPG84.08→85.68(+1.60pp/相对1.9%)，整体列最高但Global85.28<DALLE90.97/Attribute90.25<BAGEL91.29/Other85.20<OmniGen93.56。T3 GenEval++.282→.404(+12.2pp/相对43.3%)，计数.500→.400下降，其余六项提高；color.300<OmniGen2.550等，不能称全面最优。新增T4 Aesthetic6.31→6.38/HPS.31→.31/Pick22.98→23.03/ImageReward1.05→1.24；只支持这些选定点估计未降，无显著性/分布多样性结论。T5 POPE86.1→86.3，其余GQA61.9→61.7/MMB73.9→73.5/SEED74.5→73.9/DocVQA89.1→88.4/OCRB712→709；T6 MMT49.76→49.92(+.16pp)。五个所选子域增1.37/5.06/2.5/5/3.85pp，不能概括全部理解均增强。",
+    "gap": "作者§5仅强调理解收益仍有限；需补充六项常规理解五降、MMT总增.16、计数退步、无多seed/CI、仅X-Omni与训练集发布不足。冻结教师状态是代码关键：trainer奖励分支裸调用disable_adapter()；锁定PEFT0.17.1源码@contextmanager只有with进入才执行禁用，当前标准PEFT路径奖励仍用活动LoRA。KL参考分支则正确用with，两者不可混同；torch.no_grad阻止本次反传不使教师跨训练步固定。正文Eq8有old-policy clip，公开loss用exp(logp−logp.detach())乘优势并加KL，没有保存oldlogp/clip；其score-function梯度有效，不能误说比率前向1就无梯度，亦不能直接当复现Eq8。实际采样minp.03与rawlogp目标关系需说明。自概率偏好不等真值校准，活动自评可能漂移；正式实际实现是否同当前代码缺日志。",
+    "problem": "统一多模态模型能理解某些计数、颜色和位置约束，却未必能生成满足相同约束的图；能否把自身图像条件文字概率变成生成训练的内生反馈。任务为文本→静态图，训练同时保留原有理解接口；未训练文字视频、逐字空间监督或严格笔画事件。",
     "claim": "研究目标：能否用UMM理解分支对原prompt的条件概率作为内生reward，改善自己生成？",
-    "version": "GvU；arXiv2603.06043v1，2026-03-06；正式会场未核",
+    "version": "Learning to Generate via Understanding: Understanding-Driven Intrinsic Rewarding for Unified Multimodal Models (GvU)；CVPR2026正式开放论文集22174–22184，11页完整1719417bytes；arxiv2603.06043v1/2026-03-06对照。正式版新增图像质量T4，理解/MMT分别改为T5/T6，不能沿用初稿表号。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 5. 后训练：对齐、强化学习与自改进",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-22",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-22",
     "id": "L133",
     "canonical_key": "paper:arxiv:2603.06043",
     "evidence_history": [
@@ -9662,17 +9665,22 @@
         "conclusion": "减少对外部监督依赖；同模型盲点和奖励偏差仍需外部评价",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-22",
+        "batch": 144,
+        "scope": "正式CVPR2026完整11页PDF，Abstract/§1–6全文、Eq1–8、T1–6/F1–8及说明，9–11页参考文献定位追引，未逐篇独立精读；无附录。实际PDFp2/3/4/5/6/7/8共7页核看，覆盖方法F2/全部主表/新增图像质量/全部实验曲线。arxivv1核心全文与原5表交叉，正式表号优先。固定8203768完整47项树/README/项目页/启动/grpo.py/rewards GvU201–230/模型配置/生成入口/完整Geneval++评测脚本；trainer初始化LoRA与视觉/生成/参考KL/奖励/优势/loss等选段，modeling_xomni初始化视觉/mmdecode/detokenize/forward选段；280评测JSONL全解析计数/唯一prompt与分组，未逐题语义核注。锁定PEFTv0.17.1 disable_adapter上下文源码核查。未通读全部FLUX/ViT/外部奖励工具、核正式训练50K、取得完整模型卡/权重、执行推理训练或独立复现。"
       }
     ],
-    "sections_read": "v1§3全、4.1/4.2/4.3–4.5Tables4/5、5/6；官方project、8203768 README/run_grpo.sh、entry注册和gvu_score201–230、trainer430–505的reward/advantage/policyloss段。全部图/完整模型卡/实际运行及模型卡未核，未复现",
+    "sections_read": "正式CVPR2026完整11页PDF，Abstract/§1–6全文、Eq1–8、T1–6/F1–8及说明，9–11页参考文献定位追引，未逐篇独立精读；无附录。实际PDFp2/3/4/5/6/7/8共7页核看，覆盖方法F2/全部主表/新增图像质量/全部实验曲线。arxivv1核心全文与原5表交叉，正式表号优先。固定8203768完整47项树/README/项目页/启动/grpo.py/rewards GvU201–230/模型配置/生成入口/完整Geneval++评测脚本；trainer初始化LoRA与视觉/生成/参考KL/奖励/优势/loss等选段，modeling_xomni初始化视觉/mmdecode/detokenize/forward选段；280评测JSONL全解析计数/唯一prompt与分组，未逐题语义核注。锁定PEFTv0.17.1 disable_adapter上下文源码核查。未通读全部FLUX/ViT/外部奖励工具、核正式训练50K、取得完整模型卡/权重、执行推理训练或独立复现。",
     "review_path": "docs/reviews/L133.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "50K空间/数量/细节文本，来源/去重本次未核齐；自生成图；weakbase更弱生成而略强MMT用于差距消融。仅一个家族regular/weak不是跨架构验证。",
-    "framework": "X-Omni自生成图后teacherforce原prompt，token概率几何均值作为R，GRPO+LoRA后训；不需额外训练图/外部rewardmodel，仍需50K文本prompt及原预训练模型。",
-    "architecture": "X-Omni SigLIPVQ+Qwen2.5+FLUX；R=exp(mean_j logp(Tj|I,T<j))，这是聚合序列分数，不能据token-level命名推成每字空间定位奖励。length几何归一不能去掉语言先验/顺序概率偏差。",
-    "metrics": "GenEval/DPG/GenEval++、POPE/GQA/MMB/SEED/DocVQA/OCRBench、MMTfinegrained；GenEval++GPT4.1；区分promptrewrite。",
-    "baselines": "XOmni regular/weak、自身pre/post、去count/color/region词reward敏感性；外部T2I/UMM。缺对等PMI/CLIP/externaljudge等充分reward对照和随机/静态评估器析因。",
-    "experimental_conditions": "论文写TRL+LoRA/regular可训12Ksteps，但完整硬件/rank/学习率正文未给齐。官方8203768 run_grpo.sh为8进程b1accum1 group2 lr1e-6 β.03 BF16 ZeRO1 epoch4 LoRA8α32，排embedding/mmhead；dataset_name占位。配置存在不等价论文实际运行日志，不能按8进程推定硬件。"
+    "dataset": "正文50,000条仅文本提示，含位置/数量/细节；完整来源、训练清单、清洗去重、组合OOD和正式模型制品本轮未核到。固定47项源码树有Geneval++评测280条、七tag各40且280不同prompt；没有完整50K训练文件，故无法核训练测试交集。入口GenevalPromptDataset要求train_metadata.jsonl/test_metadata.jsonl，TextPromptDataset train.txt分支被注释，启动dataset_name占位。weak与regular均X-Omni家族，弱基座MMT50.69略高于regular49.76、GenEval.21低于.68；不是跨家族推广实验。",
+    "framework": "Generate via Understanding：X-Omni生成离散语义图码、经FLUX还原RGB，再对该RGB重新编码并teacher-force原文本，取所有目标文本token概率的几何均值作为每图一个标量奖励；同提示候选组归一优势，用LoRA后训练AR图码策略。奖励由token概率构成但最终聚合为序列分数；没有逐字符框、逐图码不同奖励或逐笔画时序损失。无需新增训练图或外部奖励模型，仍依赖50K文本及预训练X-Omni/编码器/FLUX。",
+    "architecture": "沿用X-Omni的Qwen2.5语言/多模态AR骨干、SigLIP-VQ离散图像编码器及FLUX像素解码器，无新基础网络。固定configuration继承Qwen2Config，image_vocab_size16384/mm_vocab_size16448，默认4层mm_adap与4层mm_head；最终维度仍依基座配置，不能从默认值推未公开完整模型规模。默认576²/downsample16对应36²=1296图码；这些是公开入口参数。detokenize_image还把文本送入FLUX，不应描述成仅凭图码无文本的解码。RL对象为AR语义码采样，不能混写为FlowGRPO直接优化FLUX去噪轨迹。",
+    "metrics": "正式T1GenEval检测器组合正确率，T2DPG整体与Global/Entity/Attribute/Relation/Other，T3GenEval++七tag全约束正确率；公开脚本GPT4.1-2025-04-14/temp0/max200tokens、JPEG图、自然写实单场景门槛且明确不接受素描/卡通/动漫/拼图。各tag均分为总体；缺图0、六次API失败-1仍进入分母并计错误，不能误记成删失败样本。T4 Aesthetic/HPSv2.1/PickScore/ImageReward；T5 POPE/GQA/MMB/SEED/DocVQA/OCRB，T6 MMT总分和五个选择子域。无视频一致性、CER/字符序列、笔画事件或机器人执行指标；写实门槛限制直接迁移绘画研究的解释。",
+    "baselines": "T1 SD系列/IF/DALLE/FLUX、Showo/Janus/Emu3/UniWorld/BLIP3o/OmniGen2/BAGEL/GPT4o和X-Omni，明确区分带†提示改写与不改写。T2/3各自比较集合不同。主要因果对照为同基座前后、weak/regular、删数量/颜色/区域词敏感性；未给同预算CLIP/外部裁判/PMI校正/随机奖励/无图奖励/冻结与活动教师完整析因。不同参数量、预训、解码和提示条件的横表名次不独立证明机制优越；SUDER已存在于L138，应关联而非重复计数。",
+    "experimental_conditions": "正文仅TRL、LoRA、50K提示与训练曲线regular至12K/weak至4.2K，未齐GPU型号/训练GPUh/lr/rank/正式seed与各评测采样数。固定8203768启动8进程/b1/accum1/G2/lr1e-6/beta.03/BF16/ZeRO1/4epochs/LoRA r8 alpha32，排embedding/mm_head等名称；maxprompt1024，图1296码、CFG1/temp1/minp.03/topp1。生成脚本seed1234/576²/本地基座+FLUX+GvU_ckpts/ckpt.pt占位。环境peft.17.1/transformers4.51.3/trl.18.0；这些是公开配置，缺日志不能等同正式实验实际设置。无完整50K或GvU权重链接/模型卡；README和项目页主要指向论文/源码/基座。"
   },
   {
     "title": "LVRPO: Language-Visual Alignment with GRPO for Multimodal Understanding and Generation",

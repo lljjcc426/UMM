@@ -1,0 +1,78 @@
+{
+  "id": "L133",
+  "date": "2026-10-22",
+  "formal_venue": "CVPR2026",
+  "formal_pages": "22174–22184",
+  "formal_pdf_complete": true,
+  "formal_pdf_bytes": 1719417,
+  "formal_pdf_pages": 11,
+  "actual_pdf_pages_viewed": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "numbered_equations_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "github_revision": "8203768feb55c3160caf745c8d4f96cb2cb8b461",
+  "github_tree_entries": 47,
+  "github_commit_date": "2026-03-31T12:19:02Z",
+  "released_eval_data": {
+    "rows": 280,
+    "unique_prompts": 280,
+    "tags": 7,
+    "rows_per_tag": 40
+  },
+  "findings": [
+    "FormalCVPRaddsimagequalityT4; understandingnowT5/MMTT6",
+    "Rewardisonescalarperimagefromgeometricmeantexttokenprobabilitiesnotcharacterorstroketemporalreward",
+    "ARimagecoderpolicyRLnotdiffusiontrajectoryRL; FLUXalsooriginaltextconditioned",
+    "GenEval.68to.81raw; .74to.84rewritten, donotmixrewriteconditions",
+    "GenEval++.282to.404butcount.5to.4declines",
+    "Fiveofsixgeneralunderstandingmetricsdecline/MMTonly+.16pp",
+    "Formalimagequality6.31to6.38/.31to.31/22.98to23.03/1.05to1.24notdiversityorstatisticalproof",
+    "F4DPGandGenEval++nonmonotonic",
+    "F7regularsmoothedlineapproximately.045to.060not.09; weak.018to.038/differentbudgets",
+    "Weakvsregularrelativegainsconfoundedbydenominatorinitializationandbudget",
+    "F8worddeletionchangeslengthandlanguagepredictability; notcontrolledvisualsemanticcounterfactual",
+    "PEFTv0.17.1contextmanagerbarecallinrewarddoesnotdisableLoRA; KLreferenceuseswith",
+    "Rewardno_gradisnotfixedteacheracrosstrainingsteps",
+    "Publicpolicyexp(logp-stopgradlogp)scorefunctionwithKLbutnooldpolicyclipfromformalEq8",
+    "GeomnormalizationdoesnotchangefixedpromptcandidateorderbutnonlinearitychangesGRPOadvantages",
+    "SameprompttextpriorpTconstant; testvisualsensitivityratherthanclaimconstantpriorreversesranking",
+    "Public280eval7x40; GPT4.1fixedjudge/photo-onlyexcludessketchanime; failureskeptdenominator",
+    "No50KtrainingpromptfileortrainedGvUmodelcard/weightslinkintree; cannotchecktrain-testoverlap",
+    "Script8proc/G2/lr1e-6/LoRAr8alpha32beta.03notformalrunproof",
+    "SUDER2506.07963alreadyL138notnewpaper"
+  ],
+  "sources": [
+    "https://openaccess.thecvf.com/content/CVPR2026/html/Pan_Learning_to_Generate_via_Understanding_Understanding-Driven_Intrinsic_Rewarding_for_Unified_CVPR_2026_paper.html",
+    "https://openaccess.thecvf.com/content/CVPR2026/papers/Pan_Learning_to_Generate_via_Understanding_Understanding-Driven_Intrinsic_Rewarding_for_Unified_CVPR_2026_paper.pdf",
+    "https://arxiv.org/abs/2603.06043v1",
+    "https://matrix0721.github.io/gvu.github.io/",
+    "https://github.com/matrix0721/GvU/tree/8203768feb55c3160caf745c8d4f96cb2cb8b461",
+    "https://github.com/huggingface/peft/blob/v0.17.1/src/peft/peft_model.py"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}

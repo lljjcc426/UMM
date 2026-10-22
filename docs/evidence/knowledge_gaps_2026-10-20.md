@@ -556,3 +556,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百四十三批（2026-10-22）：公开GenEval370/553字面重合需正式训练版本归因；ITA/VQA金标/总预算和状态课程分布未完整发布。见[审查](r3_tree_rl_understanding_scope_and_prompt_overlap_audit_2026-10-22.md)、[L132](../reviews/L132.md)。
+
+
+第一百四十四批（2026-10-22）：完整50K/正式日志未发布，不能核去重；裸contextmanager未禁用LoRA，正式是否用同版本待核，F7平滑约.06不能写.09。见[审查](gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。

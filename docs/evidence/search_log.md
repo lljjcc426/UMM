@@ -604,3 +604,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百四十三批（2026-10-22）：ICLR正式24页/9表/Eq1–3及附录、12实际页，固定72项树、训练选段和七JSONL全解析，未运行模型。见[审查](r3_tree_rl_understanding_scope_and_prompt_overlap_audit_2026-10-22.md)、[L132](../reviews/L132.md)。
+
+
+第一百四十四批（2026-10-22）：正式CVPR11页全文/6表/Eq1–8、7实际页，固定47项树、奖励/模型/训练选段、完整评测及280行分组；PEFT锁定上下文核查。见[审查](gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。

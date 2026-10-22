@@ -544,3 +544,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百四十三批（2026-10-22）：等NFE/时延BestN和外部反思、语义打乱/无图/冻结分支、无重合组合OOD、停错校准和多seed；未执行。见[审查](../evidence/r3_tree_rl_understanding_scope_and_prompt_overlap_audit_2026-10-22.md)、[L132](../reviews/L132.md)。
+
+
+第一百四十四批（2026-10-22）：固定候选的错图/空图和等长度错属性，冻结/活动教师×共享模块，等预算基座差距干预、全部理解和书写事件真值；未执行。见[审查](../evidence/gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。

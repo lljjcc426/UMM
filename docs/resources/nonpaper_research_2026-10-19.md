@@ -545,3 +545,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百四十三批（2026-10-22）：R3固定761b0b07含七训练/测试JSONL，GenEval12359train与553test交370；README权重指向BAGEL基座，独立R3/ITA未核到。见[审查](../evidence/r3_tree_rl_understanding_scope_and_prompt_overlap_audit_2026-10-22.md)、[L132](../reviews/L132.md)。
+
+
+第一百四十四批（2026-10-22）：GvU8203768有280评测prompt、训练/生成占位脚本，无完整50K/GvU模型卡链接；GPT4.1写实协议和API失败计分入库。见[审查](../evidence/gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。

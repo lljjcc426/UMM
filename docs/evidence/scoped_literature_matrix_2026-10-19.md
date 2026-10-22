@@ -515,3 +515,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百四十三批（2026-10-22）：R3为静态多轮反思编辑，ITA/VQA仅任务相关固定合成图；TIIF单独训练，跨类别有下降，迷宫仅定性。见[审查](r3_tree_rl_understanding_scope_and_prompt_overlap_audit_2026-10-22.md)、[L132](../reviews/L132.md)。
+
+
+第一百四十四批（2026-10-22）：GvU为静态X-Omni内生每图标量，计数下降/五项理解下降；评测写实门槛不覆盖素描与书写过程。见[审查](gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。

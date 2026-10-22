@@ -554,3 +554,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百四十三批（2026-10-22）完成L132 R3正式ICLR24页核心/指定附录、9表/Eq1–3及附录公式、12实际PDF页、固定Tree训练与七JSONL协议。发现发布GenEval训练与553测试有370字面提示重合，正式训练版本仍待核；记录理解范围、非单调轮数与代码配置边界。357目录，252核心/255书面；未确认核心78论文／研究+27资源。见[审查](r3_tree_rl_understanding_scope_and_prompt_overlap_audit_2026-10-22.md)、[逐文件说明](one_hundred_forty_third_changes_2026-10-22.md)。无删除或模型执行。
+
+
+第一百四十四批（2026-10-22）完成L133 GvU正式CVPR11页全文/6表/Eq1–8、7实际PDF页、固定奖励/PEFT上下文/策略loss及评测协议。纠正表号、计数和理解负结果、曲线幅度；记录活动教师与论文clip差异及写实评测边界。357目录，253核心/256书面；未确认核心77论文／研究+27资源。见[审查](gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_forty_fourth_changes_2026-10-22.md)。无删除或模型执行。

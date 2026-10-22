@@ -147,3 +147,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百四十三批（2026-10-22）：Tree阶段课程、组中心化无std/格式门控、行为clip、图像几何概率比及KL因子；时间网格16/21为15/20更新。见[审查](r3_tree_rl_understanding_scope_and_prompt_overlap_audit_2026-10-22.md)、[L132](../reviews/L132.md)。
+
+
+第一百四十四批（2026-10-22）：每图聚合文本概率的AR图码RL；FLUX还接原文本，公开scorefunction+KL未用oldpolicyclip，no_grad不等跨步固定教师。见[审查](gvu_intrinsic_probability_reward_and_release_audit_2026-10-22.md)、[L133](../reviews/L133.md)。
