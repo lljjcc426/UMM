@@ -8445,6 +8445,40 @@
         }
       ],
       "boundary": "arxivv3完整17页PDF（17560429bytes，首次超时后续传完整），Abstract/§1–6全部研究文字、§2.1–2.3/§3.1.1–4/§4.1–4.4/§5.1–5.3.1、T1全表、F1–8图注、RoPE/专家偏好KL表达；§7仅角色与参考文献选择追引，无独立附录。实际p4/6/7/9/11/12六页核F2–8与T1、GSB四格。GH6e9113a完整77项树，README新闻/开放计划/介绍/安装/三版用法与默认/模型表/评测，config主要默认；model构造1730–1806/图像嵌入1806–1854/forward接口与输出/路由1092–1165/2DRoPE403–484/attention2859–2885/prepareinputs开头/CoTgenerate3237–3305/采样调用3195–3214选段；pipeline时间表258–299/Euler351–439/采样829–876、imageproc464–512/545–584、PE外部API53–113。三HF固定revision API、config/generation全字段与权重index元数据、卡用法/评测/许可元数据选段；根LICENSE关键授权范围，不做法律适用判断。未读全仓/全部模型卡重复展示、VAE全部源码、权重/训练日志/原评分输出；未执行模型/外部API/独立复现。"
+    },
+    {
+      "id": "L121",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "在较小VLM+DiT预算统一静态文本生图、图像编辑、知识推理生图/编辑和文字渲染，改善轻量条件接口的信息损失与长RL训练能力漂移。五种生成任务不等于独立验证了理解任务、中文规范笔顺或生成视频；输入参考图/输出RGB，未建模真实笔画时间和动作。 仅取VLM单层或固定query可能压缩层级语义/细节，轻量模型依赖已有强VLM/生成器仍需对齐；单一偏好奖励与持续RL可能偏离原SFT能力。作者以多层通道融合、128学习token、分阶段数据和多奖励带监督锚点缓解。总成绩同时受预训练初始化、专门数据和训练预算影响，无法从参数标签较小推出各模块单独因果或总训练成本优势。",
+          "evidence": "v2全部核心/11表/十三实际PDF页与指定固定代码/模型/数据卡及提示交集，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "文字/可选参考图→Qwen2.5VL embedding并在序列末尾加入128学习嵌入→一次VLM forward取六层整个上下文（包含query）→通道cat→projector_1→Transformer connector→均值池化头与序列头→SD3.5M Kontext DiT；参考图另经冻结VAE提供latent，目标高斯噪声多步速度更新→VAE解码静态RGB。输入编码、query表示、去噪步、真实视频时刻分别定义。实际p4/6–14/19–21共13页核框架、11表、RL曲线和公式。 3B Qwen2.5VL +2B SD3.5Medium（从Skywork UniPic2-SD3.5M-Kontext-2B初始化），5B是骨干近似标签，未独立列连接器预算。公开HF VLM36L/hidden2048/16Q2KV/FFN11008；选择hidden indices35,29,23,17,11,5，非仅最终query/最后一层。连接器hidden2048/6L/32heads/FFN11946，输入12288→2048单Linear，另输出pooled2048与sequence4096。论文Eq1写前置两层MLP，实际源码及HF连接器是单Linear前置加两个输出头，差异保留。DiT24L/24heads×64/16latent通道/patch2、joint4096/pooled2048。论文SigLIP表述不代表实际加载预训练SigLIP连接器，构造为随机初始化ConnectorEncoder。VAE始终冻结；SFT VLM基座冻结加LoRA r64/alpha128/drop.05，不能按正文unfreeze entire model解释全参VLM训练。",
+          "evidence": "v2全部核心/11表/十三实际PDF页与指定固定代码/模型/数据卡及提示交集，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "SCB从六个VLM hidden层沿通道拼接，含128可学习think tokens，接投影和6层Transformer连接器作DiT条件。PT只训连接器/query；SFT训DiT/连接器和VLM LoRA；RL以MR-GRPO组合组内两两偏好胜率、OCR、CLIP，逐奖励组归一化→加权→批归一化，并结合CPS随机采样、参考速度约束与持续flow-matching SFT。CPS与解耦归一化为采用的同期方法，不能全归该文原创；think tokens无显式可读CoT链。 若较小冻结/LoRA VLM不同层含互补的细节与知识，多层全序列条件在充分对齐数据下可改善长提示、编辑和知识生成；强OCR奖励可优先改善静态英语词正确性；奖励归一化在不同尺度时使权重较可解释，SFT锚点可能缓解RL分布漂移。优势以初始化、训练池、提示分布、奖励裁判和预算为条件；与纯query接口的成本/容量应控制，现有消融不保证所有任务单调提高或真实视频动作可执行。",
+          "evidence": "v2全部核心/11表/十三实际PDF页与指定固定代码/模型/数据卡及提示交集，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "SFT→RL：GenEval .86→.87、DPG87.05→87.90、UniGen74.18→75.74、ImgEdit4.09→4.14、GEdit7.12→7.17、WISE.72→.73、CoRE45.7→46.5。代价：WISE Space.82→.70，RISE13.3→10.8（四子类均降），UniREdit77.5→75.7；不能写全面无退化。WISE较Hunyuan.57的28%为相对提升，UniREdit较Qwen56.5的37%取SFT77.5，不能归RL75.7。CoRE LongCat52.2更高；DPG Qwen88.32、闭源Seed88.25更高。CVTG词准确.6605→.7533/NED.8426→.8936/CLIP.8227→.8278，CLIP表内最高，但词准确低于Hunyuan.765/Qwen.8288/LongCat.8658/GLM.9116等。F5/F6训练曲线有波动，不能称每一步稳定提高；F6起点约74.7、无SFT末约74.55与T7该行74.33不完全对应，保留原图表未强配。 T6去SCB DPG87.05→85.55/GEdit7.12→6.75/WISE.72→.70/RISE13.3→12.6，但GenEval仍.86；去think WISE.68/RISE11.7下降，GenEval.87反高于完整.86。去VLM激活各任务小降；无多种等参数连接器、层数和token长度控制，不能证明latent推理机制。T7全部1000步：完整DPG87.75/GEdit7.05/Text35.06/Overall75.69；去SFT87.40/6.99/33.33/74.33，去速度约束87.32/7.02/32.47/75.07，去逐奖励归一化87.73/7.02/32.18/75.27。支持所选配置的局部贡献，无多种子CI，且完整1000步GEdit7.05低于T1 SFT7.12；不将1000步表与1500步主结果混合。 T9 PT200K迭代/lr1e-4/batch512、SFT400K/lr5e-5/b768，均64H200、512、AdamW/.05wd/clip1/cosine/warm ratio.01，SFT动态长宽。正文两阶段各20K warmup，与T9/源码比例推算2K/4K不符；公开PT累积4、每进程batch4且推荐64进程推算1024，异于表512，需运行日志确认，SFT累积3推算768。TRAIN.md的betas32/warmup1.0等表格错位不作事实。T10 RL G8/512²/50步/CPSη1/时间步比例.6/1500更新/lr2e-6/b256/beta5e-7/clip1e-4/SFTλ1e-4/每步/ZeRO2/bf16，消融仅1000更新。公开train.sh epochs10且max_steps默认-1，不能据此称完整复现1500步。原生及diffusers推理50steps/CFG4/seed42，GenEval每提示4张。未测端到端延迟/显存或复现。",
+          "evidence": "v2全部核心/11表/十三实际PDF页与指定固定代码/模型/数据卡及提示交集，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "公开RL general7139行/ocr2861行，与官方UniGen600测试提示经strip/空白折叠/casefold比较，有3条完全相同（test201/203/204对应general行6869/6932/6938），OCR集0条；可确认发布文件交集，最终运行是否采样这些行/对分数贡献需日志，不能把整个结果判为泄漏或宣称独立性已证。CoRE/Geneval及banana_UniGenBench原清单未齐，语义近重复未测。Eq3最大化式接Eq5最小化loss的符号不清，源码策略负号及正速度约束澄清；CPS logp省掉1/(2σ²)改变时间权重，该项在新旧残差差里不作为加性常数抵消，属代理。Eq4裸速度MSE与默认源码除2std²+1e-7的v-based约束不完全一致，不能泛称精确轨迹KL。PT批/暖启动/投影描述差异、数据未全开/私有先验、无理解保留主表/长时视频/严格笔顺评价、无等FLOPs与统计显著性限制结论。 固定相同初始化/训练曝光、数据与预算，比较单层、六层等参数projector、whole-context/query-only、随机/学习128token、显式CoT并分别报告参数/FLOPs/输入长度和生成理解双指标；多种子配对CI。RL交叉奖励权重、SFT比例、KL形式与真实高斯/残差代理，在同时间采样/预算下测所有生成编辑子类和独立OCR/人工；对RISE与Space退化画Pareto曲线。先去除确认3条交集，并取得CoRE/Geneval/banana原提示，对train/test做精确和语义去重、组合/知识族独立切分和未见基准，重新训练比较，记录测试用于选模频次。数据量按unique/重复曝光/上游预训分列。中文视频先做oracleVAE细笔重建与静态OCR，再同终态多过程输入，规则SVG/VideoSketcher/强视频基线测笔画事件、可见性/持续性/顺序与执行；上述为设计，未运行。",
+          "evidence": "v2全部核心/11表/十三实际PDF页与指定固定代码/模型/数据卡及提示交集，非口试/独立复现"
+        }
+      ],
+      "boundary": "v2完整21页5602480bytes；Abstract/§1–6全部核心与Appendix A/B全文（T8–11），T1–11所有单元/公式1–7，主框架及图注；实际p4/6/7/8/9/10/11/12/13/14/19/20/21十三页核框架/所有表/曲线/公式。GH fbaaaf4完整92项树、README介绍/新闻/配方及TRAIN/DATA/EVAL/INFERENCE、SCB/PT/SFT/数据配置；model构造/prepareinputs/llm2dit/text2image/image2image/diff_loss、GenEval/CVTG/UniGen指定推理段。独立RL c4d5dc2完整378项树，README/训练参数与YAML、训练入口默认/脚本、SFT数据配置及trainer CPS335–481/GDPO2080–2140/优化和KL3716–4042指定段、奖励evaluator来源入口；未读整310KB trainer。原生与diffusers两HF固定metadata/card/config，后者连接器/DiT/VLM/scheduler及pipeline构造/SCB/推理默认选段；数据HF仅三文件metadata/card。公开RL两提示表和UniGen官方600行测试做精确规范化交集，未做语义近重复/CoRE全交集。参考文献按需追引，未读全仓/全部附加奖励服务/原运行日志/数据/权重或独立复现。"
     }
   ]
 }

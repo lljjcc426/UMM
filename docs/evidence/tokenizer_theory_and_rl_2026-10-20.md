@@ -120,3 +120,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百三十四批（2026-10-22）：16倍32通道VAE与双表示、MixGRPO/SRPO/ReDA/MeanFlow说明的实证边界，80B蒸馏与20B剪枝分开。见[审查](hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[L120](../reviews/L120.md)。
+
+
+第一百三十五批（2026-10-22）：CPS残差代理logp、带方差速度约束、MR-GRPO/GDPO/持续SFT、静态生成与真实笔画时间区分。见[审查](deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[L121](../reviews/L121.md)。

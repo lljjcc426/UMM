@@ -1,0 +1,110 @@
+{
+  "id": "L121",
+  "date": "2026-10-22",
+  "version": "arxiv2602.12205v2 complete21pages",
+  "actual_visual_pages": [
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    19,
+    20,
+    21
+  ],
+  "tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "equations_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "github_revision": "fbaaaf4ae1c79450d6a34b30beb4f59840568c69",
+  "rl_revision": "c4d5dc27d699870ddac4bcb8ceda2e240773957b",
+  "hf_native": "b746f077c0b1b3128cd075cfa886edc4ea222827",
+  "hf_diffusers": "85c2ed257b9406d8531965c68e140dc7fdb81382",
+  "hf_data": "f3d5e6879dbca83f901042f388fac241d96bc170",
+  "prompt_overlap": {
+    "test_rows": 600,
+    "train_unique": {
+      "general": 7139,
+      "ocr": 2861
+    },
+    "normalization": "strip; collapse whitespace; casefold",
+    "matches": {
+      "general": [
+        "201",
+        "203",
+        "204"
+      ],
+      "ocr": []
+    },
+    "test_revision": "64e57abc52bf24bfe901cd9beb7de5f00fc0a286",
+    "matched_lines": {
+      "general": [
+        {
+          "test_index": "201",
+          "train_line": 6869
+        },
+        {
+          "test_index": "203",
+          "train_line": 6932
+        },
+        {
+          "test_index": "204",
+          "train_line": 6938
+        }
+      ],
+      "ocr": []
+    }
+  },
+  "findings": [
+    "SCB entire context+128learnabletokens, oneVLMforward notexplicitARCoT",
+    "Singlelinear before6Lconnector differs paper2layerMLP",
+    "SFT VLM LoRA, frozenVAE; initialized pretrainedgenerator",
+    "~50M distinctpoolapprox not totalexposure or upstreamdata",
+    "HFdata onlycard/figure/gitattributes atcheckedrevision",
+    "RL staticEnglishOCR up while RISE/UniREdit/WISSpace regress",
+    "3/600 literalnormalizedpublicUniGen test/trainprompt intersections; actualfinalrunuse unknown",
+    "SFT includesGeneval/bananaUniGen paths; missing completepromptlists",
+    "CPS residuallogp is surrogate with omitted time-dependentvariance factor",
+    "Policynegative sign incode resolves papermaximize/minimizemixing",
+    "Velocityconstraintcode divides2stdsquare+eps; paperbareMSE",
+    "1000stepablation not1500stepfinal; curves notmonotone",
+    "PTbatch/warmup documentation inconsistencies",
+    "No strokeevent/video/understandingretention evaluation"
+  ],
+  "sources": [
+    "https://arxiv.org/abs/2602.12205v2",
+    "https://arxiv.org/pdf/2602.12205v2",
+    "https://github.com/deepgenteam/deepgen/tree/fbaaaf4ae1c79450d6a34b30beb4f59840568c69",
+    "https://github.com/deepgenteam/deepgen_rl/tree/c4d5dc27d699870ddac4bcb8ceda2e240773957b",
+    "https://huggingface.co/deepgenteam/DeepGen-1.0/tree/b746f077c0b1b3128cd075cfa886edc4ea222827",
+    "https://huggingface.co/deepgenteam/DeepGen-1.0-diffusers/tree/85c2ed257b9406d8531965c68e140dc7fdb81382",
+    "https://huggingface.co/datasets/deepgenteam/DeepGen-1.0/tree/f3d5e6879dbca83f901042f388fac241d96bc170",
+    "https://github.com/CodeGoat24/UniGenBench/blob/64e57abc52bf24bfe901cd9beb7de5f00fc0a286/data/test_prompts_en.csv"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}

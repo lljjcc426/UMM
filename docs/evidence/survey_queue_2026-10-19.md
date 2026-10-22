@@ -519,3 +519,8 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 第一百三十四批（2026-10-22）完成L120 HunyuanImage3.0 v3全部核心/训练表和六实际PDF页，核固定GH及三HF模型配置/采样/权重索引。记录GSB绝对四格与净差、SSAE宏微平均、无受控消融、MoE观察及Base/Instruct/Distil/TMP边界。357目录，243核心/246书面；未确认核心87论文／研究+27资源。见[审查](hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_thirty_fourth_changes_2026-10-22.md)。无删除或模型执行。
 
 继续L121 DeepGen1；追引MixGRPO2507.21802/SRPO2509.06942/TMP/ReDA，MeanFlow已有E01/E02去重关联。参考文献与报告概述不计各原工作精读，未公开制品/原评测保留缺口。
+
+
+第一百三十五批（2026-10-22）完成L121 DeepGen1 v2全部核心/附录11表与13实际PDF页，核主仓、独立RL和三类HF制品。记录SCB全上下文、投影/超参差异、RL任务退化、概率代理及公开UniGen训练提示与600测试提示的3条精确交集，未推定最终运行使用。357目录，244核心/247书面；未确认核心86论文／研究+27资源。见[审查](deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[逐文件说明](one_hundred_thirty_fifth_changes_2026-10-22.md)。无删除或模型执行。
+
+继续L123 InternVLU；追引CPS2509.05952/GDPO2601.05242/PrefGRPO、UniReason/CVTG。相关引用与制品读取不计各原工作独立精读。保留3条公开提示交集的实际训练使用及近重复边界。

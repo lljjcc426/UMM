@@ -398,3 +398,6 @@ python scripts/validate_catalog.py
 
 
 第一百三十四批（2026-10-22）完成L120 HunyuanImage3.0 v3全部核心/训练表和六实际PDF页，核固定GH及三HF模型配置/采样/权重索引。记录GSB绝对四格与净差、SSAE宏微平均、无受控消融、MoE观察及Base/Instruct/Distil/TMP边界。357目录，243核心/246书面；未确认核心87论文／研究+27资源。见[审查](docs/evidence/hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_thirty_fourth_changes_2026-10-22.md)。无删除或模型执行。
+
+
+第一百三十五批（2026-10-22）完成L121 DeepGen1 v2全部核心/附录11表与13实际PDF页，核主仓、独立RL和三类HF制品。记录SCB全上下文、投影/超参差异、RL任务退化、概率代理及公开UniGen训练提示与600测试提示的3条精确交集，未推定最终运行使用。357目录，244核心/247书面；未确认核心86论文／研究+27资源。见[审查](docs/evidence/deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_thirty_fifth_changes_2026-10-22.md)。无删除或模型执行。

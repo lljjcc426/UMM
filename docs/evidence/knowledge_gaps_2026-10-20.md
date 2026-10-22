@@ -529,3 +529,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百三十四批（2026-10-22）：SSAE裁判/原分、GSB盲法/分配/CI、奖励/训练配方、TMP20B固定制品与4090协议待核。见[审查](hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[L120](../reviews/L120.md)。
+
+
+第一百三十五批（2026-10-22）：公开测试/训练提示3条交集、原运行日志/语义近重复/CoRE与GenEval清单、PT批大小/暖启动/投影与图表差异待解决。见[审查](deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[L121](../reviews/L121.md)。

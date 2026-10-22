@@ -324,3 +324,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百三十四批（2026-10-22）：共享MoE路由观察与人工分叉区分，Euler速度推理与未公开训练目标区分，SSAE宏微平均和GSB净差。见[审查](hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[L120](../reviews/L120.md)。
+
+
+第一百三十五批（2026-10-22）：六层全上下文特征、一次前向学习query与显式CoT区分，概率比中加性常数与方差系数，组标准化的作用条件。见[审查](deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[L121](../reviews/L121.md)。

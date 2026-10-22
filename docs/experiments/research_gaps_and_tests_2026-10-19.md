@@ -517,3 +517,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百三十四批（2026-10-22）：等数据/预算MoE与双encoder/CoT/各RL控制、独立裁判校准与人评配对CI、四制品端到端成本；未执行。见[审查](../evidence/hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[L120](../reviews/L120.md)。
+
+
+第一百三十五批（2026-10-22）：等容量SCB、query-only/全上下文、奖励与SFT权衡、严格独立提示/多种子、OCR/事件和真实成本实验；未执行。见[审查](../evidence/deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[L121](../reviews/L121.md)。

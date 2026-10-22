@@ -518,3 +518,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百三十四批（2026-10-22）：三HF checkpoint配置/索引与8步蒸馏、外部PE和原生思考区别、T2I/编辑版本时间线及社区许可；未运行。见[审查](../evidence/hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[L120](../reviews/L120.md)。
+
+
+第一百三十五批（2026-10-22）：原生18文件/diffusers24文件/HF数据仅3文件的发布边界，固定配置和RL默认与论文协议差异，未下载权重。见[审查](../evidence/deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[L121](../reviews/L121.md)。

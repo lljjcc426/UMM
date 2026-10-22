@@ -577,3 +577,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百三十四批（2026-10-22）：v3完整17页/一训练表/六实际PDF页，GH6e9113a完整77项树指定段，三HF固定配置/采样/index元数据；GenEval原工作纠偏。见[审查](hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[L120](../reviews/L120.md)。
+
+
+第一百三十五批（2026-10-22）：v2完整21页/11表/13实际PDF页、固定主仓92项与RL378项树的指定源码、三HF制品元数据，以及固定UniGen600提示对公开RL两提示文件交集。见[审查](deepgen_scb_multireward_and_benchmark_exposure_audit_2026-10-22.md)、[L121](../reviews/L121.md)。
