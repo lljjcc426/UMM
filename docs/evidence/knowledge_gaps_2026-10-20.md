@@ -574,3 +574,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百四十九批（2026-10-23）：ViHT写者/试卷split、CASIA随机writer清单、T1/T2聚合、K1024IAM12.46对10.20、正式参考映射和动态配权/CFG差异待核。见[审查](constant_multilingual_style_quantization_and_evaluation_audit_2026-10-23.md)、[L183](../reviews/L183.md)。
+
+
+第一百五十批（2026-10-23）：QA原始split、PickNano/Pico映射、400对池、冻结分组、K/judge全成本、T9与最终RL阶段身份待核。见[审查](stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[L137](../reviews/L137.md)。

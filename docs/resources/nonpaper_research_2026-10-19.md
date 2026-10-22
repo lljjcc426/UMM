@@ -563,3 +563,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百四十九批（2026-10-23）：cf31559固定代码/三语言配置，Drive称权重数据但内部未核；默认selfref可覆盖，eval入口/全局HWD/距离接口静态问题与文档不齐。见[审查](../evidence/constant_multilingual_style_quantization_and_evaluation_audit_2026-10-23.md)、[L183](../reviews/L183.md)。
+
+
+第一百五十批（2026-10-23）：论文和有限检索未核官方STBridge代码/权重/数据；PickNano派生、teacher35B/judge122B及Gemini评价精确版本和成本需单独记录。见[审查](../evidence/stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[L137](../reviews/L137.md)。

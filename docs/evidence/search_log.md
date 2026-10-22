@@ -622,3 +622,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百四十九批（2026-10-23）：CONSTANT正式10页+8页supp完整研究文本、12表/8式/20图、15实际页；固定92项官方树及22份配置/源码/文档定向读，Drive未读内部。见[审查](constant_multilingual_style_quantization_and_evaluation_audit_2026-10-23.md)、[L183](../reviews/L183.md)。
+
+
+第一百五十批（2026-10-23）：STBridge完整28页PDF研究正文p1–24、9表/10式/16图/20实际页，abs/HTML与参考追引；title+GitHub/HF有限检索未确认官方发布。见[审查](stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[L137](../reviews/L137.md)。

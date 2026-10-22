@@ -562,3 +562,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百四十九批（2026-10-23）：离散/连续/SCE/PCE等预算析因和风格干预，直接内容OCR与生成→真实迁移分列、按writer区间、跨script和同终图不同笔顺，未执行。见[审查](../evidence/constant_multilingual_style_quantization_and_evaluation_audit_2026-10-23.md)、[L183](../reviews/L183.md)。
+
+
+第一百五十批（2026-10-23）：同监督/算力配对与image-only控制、三阶段析因和正逆序、独立/预测/GTcaption三调用、正确×一致矩阵及反事实OCR编辑，未执行。见[审查](../evidence/stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[L137](../reviews/L137.md)。

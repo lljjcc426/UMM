@@ -369,3 +369,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百四十九批（2026-10-23）：VQ+连续旁路不证明风格因子可识别，InfoNCE同坐标负样本/重复部件假设；生成噪声预测代数恢复z0供PCE。见[审查](constant_multilingual_style_quantization_and_evaluation_audit_2026-10-23.md)、[L183](../reviews/L183.md)。
+
+
+第一百五十批（2026-10-23）：一致与正确分离，独立路径与caption条件链分离；软乘积门控允许edit0奖励.44，全2分.275，不能推硬保证。见[审查](stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[L137](../reviews/L137.md)。

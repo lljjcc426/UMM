@@ -443,3 +443,6 @@ python scripts/validate_catalog.py
 
 
 第一百四十九批（2026-10-23）完成L183 CONSTANT正式10页正文+8页supp全部研究内容/12表/8式/20图、15实际PDF页及固定代码审查。补齐WER迁移协议/写者分类/越文切分，记录IV-U HWD、SCE FID局部退化、K/CFG/配权及公开评测差别。357目录，258核心/261书面；未确认核心72论文／研究+27资源。见[审查](docs/evidence/constant_multilingual_style_quantization_and_evaluation_audit_2026-10-23.md)、[逐文件说明](docs/evidence/one_hundred_forty_ninth_changes_2026-10-23.md)。无删除或模型执行。
+
+
+第一百五十批（2026-10-23）完成L137 STBridge v1全部研究正文/10式9表16图、20实际PDF页及有限官方发布检索。明确独立双路径一致评价与训练caption条件链、softgate代数边界及局部能力回退。357目录，259核心/262书面；未确认核心71论文／研究+27资源。见[审查](docs/evidence/stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[逐文件说明](docs/evidence/one_hundred_fiftieth_changes_2026-10-23.md)。无删除或模型执行。

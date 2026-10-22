@@ -165,3 +165,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百四十九批（2026-10-23）：风格VQ混连续条件，SCE/PCE与噪声MSE监督；当前梯度标准差配权不等正式固定α，无策略RL/统一理解生成。见[审查](constant_multilingual_style_quantization_and_evaluation_audit_2026-10-23.md)、[L183](../reviews/L183.md)。
+
+
+第一百五十批（2026-10-23）：CE+FM SFT后captionGRPO和图像MixGRPO，caption阶段不rollout图像且使用离线GT差分；共享冻结与reward细节需实现核对。见[审查](stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[L137](../reviews/L137.md)。
