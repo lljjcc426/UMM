@@ -126,3 +126,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百三十六批（2026-10-22）：AR显式CoT与连续latent flow分工、16通道与2×2 patch64维、VAE细笔和文字无序计数局限；本工作不作为新RL算法归类。见[审查](internvlu_retention_cot_and_textedit_metric_audit_2026-10-22.md)、[L123](../reviews/L123.md)。
+
+
+第一百三十七批（2026-10-22）：4×16×16视频VAE细文字代价、AR条件与非视觉AR、DMD/NFT复合奖励及评价独立性。见[审查](mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[L124](../reviews/L124.md)。

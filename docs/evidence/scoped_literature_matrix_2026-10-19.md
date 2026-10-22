@@ -494,3 +494,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百三十六批（2026-10-22）：4B静态理解/生图/编辑和TextEdit基准的真实任务范围，理解保留/CoT子类负例与文字顺序边界。见[审查](internvlu_retention_cot_and_textedit_metric_audit_2026-10-22.md)、[L123](../reviews/L123.md)。
+
+
+第一百三十七批（2026-10-22）：视频生成/编辑与字幕编辑确属本研究，严格笔顺/执行和音视频联合未验；分开生成/Edit/Distill版本。见[审查](mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[L124](../reviews/L124.md)。

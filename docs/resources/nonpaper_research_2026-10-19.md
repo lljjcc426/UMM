@@ -524,3 +524,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百三十六批（2026-10-22）：固定模型组件配置、TextEdit数据与评分实现、GenEditEvalKit集成wrapper，发布推理和原训练/评分日志的边界。见[审查](../evidence/internvlu_retention_cot_and_textedit_metric_audit_2026-10-22.md)、[L123](../reviews/L123.md)。
+
+
+第一百三十七批（2026-10-22）：mamoda25固定推理制品/ByT5引号条件/权重ComingSoon和工程核发布边界，未下载权重或运行。见[审查](../evidence/mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[L124](../reviews/L124.md)。

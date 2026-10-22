@@ -330,3 +330,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百三十六批（2026-10-22）：两层上下文通道融合、双流联合注意、RMSNorm二阶矩、3CFG成本及分类均值凸组合一致性。见[审查](internvlu_retention_cot_and_textedit_metric_audit_2026-10-22.md)、[L123](../reviews/L123.md)。
+
+
+第一百三十七批（2026-10-22）：MoE活跃与驻留、注意二次成本、dense窄专家upcycling、ByT5字节预算、收敛步数与耗时区分。见[审查](mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[L124](../reviews/L124.md)。

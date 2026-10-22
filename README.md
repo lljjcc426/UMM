@@ -404,3 +404,6 @@ python scripts/validate_catalog.py
 
 
 第一百三十六批（2026-10-22）完成L123 InternVL-U v1全部核心/附录、24表、17实际PDF页与固定模型/代码/TextEdit/EvalKit指定实现。记录理解5/7退化、CoT子类权衡及CFG混杂、RISE原表聚合疑问、TextEdit报告与发布指标差异、LongText无序召回边界。357目录，245核心/248书面；未确认核心85论文／研究+27资源。见[审查](docs/evidence/internvlu_retention_cot_and_textedit_metric_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_thirty_sixth_changes_2026-10-22.md)。无删除或模型执行。
+
+
+第一百三十七批（2026-10-22）完成L124 Mamoda2.5 v1全部核心/附录13表、11实际PDF页与固定八文件推理制品指定源码。补核视频/字幕真实任务、25B/A3B口径、DiT计时95.9倍与实测7.5倍、Reco/理解负例、曲线标注与发布48Top5对报告128Top8差异。357目录，246核心/249书面；未确认核心84论文／研究+27资源。见[审查](docs/evidence/mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_thirty_seventh_changes_2026-10-22.md)。无删除或模型执行。

@@ -583,3 +583,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百三十六批（2026-10-22）：v1完整61页全部核心/附录24表、17实际PDF页，固定GH32项/HF23项、TextEdit50blob与EvalKit3640blob树及指定指标代码；仅元数据不算数据逐例读取。见[审查](internvlu_retention_cot_and_textedit_metric_audit_2026-10-22.md)、[L123](../reviews/L123.md)。
+
+
+第一百三十七批（2026-10-22）：v1完整38页、13表/三公式/11实际PDF页、固定66项树与八文件推理目录的指定代码，权重ComingSoon；未全读上代其他目录。见[审查](mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[L124](../reviews/L124.md)。

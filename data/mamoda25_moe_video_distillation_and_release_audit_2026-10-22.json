@@ -1,0 +1,64 @@
+{
+  "id": "L124",
+  "date": "2026-10-22",
+  "version": "arxiv2605.02641v1 complete38pages",
+  "actual_visual_pages": [
+    5,
+    6,
+    11,
+    14,
+    15,
+    19,
+    21,
+    22,
+    23,
+    25,
+    34
+  ],
+  "tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "equations_read": [
+    1,
+    2,
+    3
+  ],
+  "github_revision": "ba41c0b90a2a0b626a21a4f36139275e9700e0c3",
+  "findings": [
+    "25B/A3B DiT excludesQwen3VL8B andothercomponents",
+    "Paper128top8 vs code48top5 or32top4; weightsComingSoon",
+    "No explicitMetaQueries/genexperts verifiedinreleasedpromptencoding",
+    "T2onlyDiTtime excludesVAE/textencoder",
+    "Measuredteacher/student69/9.2=7.5vsforwardcountestimate15",
+    "95.9times is882/9.2vs40stepVInO notendtoend",
+    "T2V tableMamoda50steps notconclusion30",
+    "ProRecoStyle9.44<VInO9.52; FlashAdd8.80<8.85 andStyle8.99<9.10",
+    "Understanding3of7 lowerthanbase",
+    "F13max80Ktext vs100Kaxis; convergence2.2isstepcount",
+    "F14lowestorangeDropcurve vs proseclaimnoDrop unresolvedlegend",
+    "DMD/NFT jointrewardcurve notindependentfourstepbenchmark",
+    "No strictstrokeevent/action/audioevaluation"
+  ],
+  "sources": [
+    "https://arxiv.org/abs/2605.02641v1",
+    "https://arxiv.org/pdf/2605.02641v1",
+    "https://github.com/bytedance/mammothmoda/tree/ba41c0b90a2a0b626a21a4f36139275e9700e0c3/mamoda25",
+    "https://github.com/bytedance/mammothmoda/blob/ba41c0b90a2a0b626a21a4f36139275e9700e0c3/mamoda25/src/transformer_mammothmoda.py",
+    "https://github.com/bytedance/mammothmoda/blob/ba41c0b90a2a0b626a21a4f36139275e9700e0c3/mamoda25/src/pipeline_mammothmoda.py"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}
