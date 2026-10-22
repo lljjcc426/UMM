@@ -333,3 +333,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百三十七批（2026-10-22）：MoE活跃与驻留、注意二次成本、dense窄专家upcycling、ByT5字节预算、收敛步数与耗时区分。见[审查](mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[L124](../reviews/L124.md)。
+
+
+第一百三十八批（2026-10-22）：near-lossless经验与可逆性区别、sigma平方根的二阶矩、活跃/驻留参数、CFG前向次数与端到端耗时。见[审查](sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[L125](../reviews/L125.md)。

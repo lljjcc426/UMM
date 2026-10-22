@@ -497,3 +497,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百三十七批（2026-10-22）：视频生成/编辑与字幕编辑确属本研究，严格笔顺/执行和音视频联合未验；分开生成/Edit/Distill版本。见[审查](mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[L124](../reviews/L124.md)。
+
+
+第一百三十八批（2026-10-22）：原生像素理解/生成/交错图文、稀疏视频动作解释与图像状态预测；无严格笔顺/连续视频生成实测。见[审查](sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[L125](../reviews/L125.md)。

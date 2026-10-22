@@ -534,3 +534,8 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 第一百三十七批（2026-10-22）完成L124 Mamoda2.5 v1全部核心/附录13表、11实际PDF页与固定八文件推理制品指定源码。补核视频/字幕真实任务、25B/A3B口径、DiT计时95.9倍与实测7.5倍、Reco/理解负例、曲线标注与发布48Top5对报告128Top8差异。357目录，246核心/249书面；未确认核心84论文／研究+27资源。见[审查](mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_thirty_seventh_changes_2026-10-22.md)。无删除或模型执行。
 
 继续L125 SenseNova-U1；追引DiTMoE/RaceDiT/DiffMoE、DMD/NFT/ExpertBias、OpenVE/FiVE/Reco/VInO/OmniVideo2及视频数据合成。相关引用不计原文独立精读；完整视频消融、发布权重与曲线标注疑问保留。
+
+
+第一百三十八批（2026-10-22）完成L125 SenseNova-U1全部核心23表/Eq1–7与固定发布配置/指定源码。明确像素MoT真实任务、17.55B/38.74B索引参数、噪声能量解释、LongText计数召回、理解/OneIG退步、协同对照缺口及U1.5版本边界。357目录，247核心/250书面；未确认核心83论文／研究+27资源。见[审查](sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_thirty_eighth_changes_2026-10-22.md)。无删除或模型执行。
+
+继续L128 MindOmni；NEO-unify博客/U1.5报告/LoRA/Infographic/Interleaved/GGUF/Training-Sample逐版本追引。FlowGRPO/DMD2/PhasedDMD及LightLLM/LightX2V、CVTG/LongText/RealUnify另审，不能由引用计完成。

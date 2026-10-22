@@ -527,3 +527,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百三十七批（2026-10-22）：mamoda25固定推理制品/ByT5引号条件/权重ComingSoon和工程核发布边界，未下载权重或运行。见[审查](../evidence/mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[L124](../reviews/L124.md)。
+
+
+第一百三十八批（2026-10-22）：固定训练入口/680MB格式样例/两HF配置索引、原U1少步LoRA局限及后续U1.5/Infographic/Interleaved版本队列。见[审查](../evidence/sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[L125](../reviews/L125.md)。

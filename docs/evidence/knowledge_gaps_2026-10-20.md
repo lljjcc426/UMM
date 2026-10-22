@@ -538,3 +538,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百三十七批（2026-10-22）：48Top5对128Top8、MetaQueries发布入口、F13步数/F14图例差异、四步独立结果及裁判版本问题。见[审查](mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[L124](../reviews/L124.md)。
+
+
+第一百三十八批（2026-10-22）：常噪声能量句、A3B RoPE、评测yaml/正文、内部数据与RL/DMD完整发布、模型内协同增量待核。见[审查](sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[L125](../reviews/L125.md)。

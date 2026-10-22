@@ -526,3 +526,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百三十七批（2026-10-22）：同码率/总参数/实测FLOPs的MoE、共享早期轨迹因子、联合DMD/NFT与独立视频/文字事件验证；未执行。见[审查](../evidence/mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[L124](../reviews/L124.md)。
+
+
+第一百三十八批（2026-10-22）：同先验/预算接口×分支×噪声因子、原生2K信息预算、有序/跨文字评价及关闭视觉辅助实验；未执行。见[审查](../evidence/sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[L125](../reviews/L125.md)。

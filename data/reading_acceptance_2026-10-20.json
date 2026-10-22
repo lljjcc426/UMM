@@ -8547,6 +8547,40 @@
         }
       ],
       "boundary": "v1完整38页PDF29710835bytes与HTML核心；Abstract/§1–9全部研究文字（含系统优化）、AppA1/A2全部文字与F1–24图注，T1–13全部单元和图14表、Eq1–3/NTP+flow作用；实际p5/6/11/14/15/19/21/22/23/25/34共11页核框架、路由、训练、速度/主要表、收敛/上采样/奖励曲线和Flash附表。未逐看全部定性视频帧/参考文献，HTML非标准span表另解析并对关键PDF表核看。GH ba41c0b完整66项树/55blob，mamoda25八文件清单、README全文、config全文、infer128–181/220–312/默认片段，MoE1–242主要前向/路由，transformer135–216/285–367/382–616/627–664，pipeline构造/引号提取/ByT5/文字编码/CFG调用指定段，refiner构造和层片段；根Apache2标识已核，未声称全文逐条法律解读。未全读repo的Mamoda2其他目录/实际权重、完整底层核、trainer/原日志/所有标注与模型执行；无独立复现。"
+    },
+    {
+      "id": "L125",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "使理解、文字及图像生成/编辑、交错图文推理在原生像素接口与MoT内联合训练，缓解预训视觉encoder/VAE割裂、细文字损失和理解/生成目标冲突。视频用作理解与交错图像数据，机器人展示为稀疏视频动作解释和图像状态预测；未量化连续视频生成、机器人闭环执行或规范汉字笔顺。 语义视觉编码压缩细粒像素，VAE增加独立表征与迁移接口；理解AR偏因果、生成flow需双向图像上下文，直接共享全部参数可能干扰。用浅层像素patch接口、分支独立参数/共同attention、分阶段联合与OCR/风格RL分别处理。没有预训VE/VAE仍继承NEO/LLM先验和大规模数据，不能归零基础训练。",
+          "evidence": "v1全部核心23表/Eq1–7及指定实际PDF页，固定源码/配置/索引；模型内协同与全奖励消融缺失明确记录，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "输入文字/参考RGB图或稀疏视频帧→理解分支原生patch+文字token，AR可输出文字/显式CoT/图像起始符；生成分支将同分辨率高斯噪声RGB重新patchify并加t与噪声尺度embedding，共享attention读缓存cleanKV→MLP预测clean RGB patch xhat→v=(xhat−z)/(1−t)数值积分→重组图像；生成图与文字可继续入前缀形成交错序列。参考/噪声视觉输入均非固定外部VAE latent；图像推理多步与文字AR代价分别统计。 T1 8B-MoT理解/生成各8.2B，42L/hidden4096/Q32KV8/head128按T64H32W32，PreBuffer有；A3B理解30.0B/128专家、生成8.2B/32专家各Top8，48L/hidden2048/Q32KV4/无PreBuffer。分开QKVO/LN/FFN但attention联合，非所有权重共用。HF索引total_parameters分别17552340992/38737986560，total_size35104681984/77475973120bytes，是发布元数据非实测显存/活跃算量。pixel16卷积3→1024/GELU、2×2卷积→LLM维/等效32patch；发布代码在第一层embed用2D RoPE，末头hidden→4096→3072，use_pixel_head=false。A3B2048<3072且GELU，不保证一般RGB的可逆无损；T23支持有限分布经验重建。HF A3B rope_theta10000000与正文时间轴5000000不同，最终评测配置待核。",
+          "evidence": "v1全部核心23表/Eq1–7及指定实际PDF页，固定源码/配置/索引；模型内协同与全奖励消融缺失明确记录，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "RGB两层卷积patchify和MLP像素输出替代独立深VE/VAE；NEO原生分时空RoPE与MoT双分支，理解clean不能看noise而生成可看clean前缀与图像双向token；先理解warmup/生成PT，再联合mid/SFT，FlowGRPO交替文字-风格与美学奖励，DMD2/PhasedDMD后蒸至8NFE；LightLLM与LightX2V分离推理。FlowGRPO/DMD等是采用机制，原生接口和训练整合的增益须相应受控实验。 在相同上游先验、训练token和可驻留成本下，当细文字/布局需要像素空间保真、理解上下文能提供近充分语义而分支独立容量足以缓解优化冲突，原生32patch+MoT可能较语义压缩接口改善OCR和复杂指令；短规划CoT可能有利WISE/逻辑编辑，少步蒸馏适合延迟约束但须质量Pareto。高分辨率细笔、非中英/超长/新字体、同图异过程、实际笔触接触及长视频不自动获益；DMD/奖励上升不保证这些分布泛化。",
+          "evidence": "v1全部核心23表/Eq1–7及指定实际PDF页，固定源码/配置/索引；模型内协同与全奖励消融缺失明确记录，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T3相对Qwen3VL8B推理与多数空间项提升，但InfoVQA86→82.46/OCRBench-v2 61.55→61.30；A3B InfoVQA86→83.04、VSI56.9低于8B62.66，非各项单调保留。GenEval两型.91；DPG8B87.78/A3B88.14低于Qwen88.32；OneIG-EN8B.549低于Emu.564，Text.969<.994；ZH8B.535/A3B.540低于Qwen.548。TIIF短89.74/长89.17为表中8B整体最佳但子项非全胜。CVTG8B.940/A3B.881、LongText8B.979/.962；IGen问题.51但图级全正确仅.04；BizGen8B hard39.7/easy61.7，知识3.5/17.9仍弱。ImgEdit8B3.90/A3B3.91低于QwenEdit2511的4.51；GEdit7.47/7.32低于7.88。SFT CoT使WISE8B.69→.78/A3B.74→.81，RISE23.9→26.9/25.3→30.0，但A3B temporal25.9→24.7退。OpenING9.07/9.16；VBVR-Image Preview68.8/68.9仅此子集。GaU35.0/32.6，Sliding8B0、几何24.2低于BAGEL32.8；RealUnify52.4/50.5：GEU为单次交错流程、UEG为T2I推理，仍只是跨模型比较，缺各自无生成/无理解条件，不能据此算双向协同增量。 T23用先前NEO-unify2B、90K重建MSCOCO2017，512下PSNR31.56与FLUX VAE相同但SSIM.85<.93，其他256设置不完全可比；不是U1全模型像素可逆证明。2B冻结理解/60K公开混合数据ImgEdit3.32，支持指定条件保留信息。F12为MT前后柱状图，MM平均72.1→73.2、文本77.7→77.8、DPG84.7→86.5、GEdit69.1→69.9（归一化0–100）；无同预算仅生成/仅理解的对应对照，不能隔离架构内在无冲突。F13横轴Train Tokens至约2.5T，DPG512其余1024；DPG约1.1→1.4T、GEdit约1.3→1.9T、RISE约1.9→2.2T有回落，无误差带/其他架构同预算曲线，不能写严格单调或由此证明更高样本效率。CoT有同SFT两配置比较但输出长度/额外计算也改变；RL三reward描述与冻结策略缺完整独立因子/多seed；DMD定性少步对照不等全部基准相同质量。 T2 warm120K lr2e-5/.75T；生成PT120K2e-4/.25T/256–512→60K1e-4/.25T/512–2048→120Kcos1e-4至2e-5/.88T；joint84K2e-5/1.19T与SFT9Kcos2e-5至0/.13T。AdamW(.9,.95,1e-8)/wd0/clip1，genEMA.9999/joint.999；joint理解/生图/编辑/交错.33/.37/.24/.06、CE:FM=.1:1，context32768。z_t=t x+(1−t)sigma eps；sigma=sqrt(N/64)上限8；代码v分母clamp t_eps=.05。FlowGRPO每轮48提示×16图=768/10步/CFG4/噪声.7/lr1e-5/KL.01，文字600轮/分辨率warm200；交替奖励8B1600轮/A3B200，冻结under和最后3生成层/头。DMD fake:G更新5:1/G2e-6/F4e-7，AdamW(0,.999)/wd.01，8NFE无CFG对基准50步CFG(100NFE)。正文评测temp.6/top_p.95/top_k20/reppen1/max40960/timeout600；当前yaml却1.05/32768/300，需原日志。VSI32帧而Qwen128；生成2K后缩1K不使原生输入/推理成本相同。部署每步5090.415s/L40S.443s使用TP2+CFG2，不是单卡/端到端耗时。",
+          "evidence": "v1全部核心23表/Eq1–7及指定实际PDF页，固定源码/配置/索引；模型内协同与全奖励消融缺失明确记录，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "没有严格笔画事件/同终态异轨迹/视频字幕时序生成或闭环动作执行评价；VLA仅四帧动作描述，worldmodel仅图像+指令→结果的定性示例。无VE/VAE不保证无压缩损失或无先验；A3B2048瓶颈、重建SSIM差异、细字与网格错误要量化。§3.1正文称近似常数per-token噪声能量，但独立单位高斯且固定patch维d时E||sigma eps||²=d sigma²随N增长；该式独立不能证明这句，需额外SNR/归一化定义。OCR奖励为文本Counter多重集合IoU，顺序失明；LongText又是不罚额外文字的召回，清洗还屏蔽其他字系。InfoVQA等退步、榜单参数口径/2K预算、代码评测默认差异和有限重建/协同对照必须保留。RISE引用InternVLU 1.8/overall9.4的不一致沿用原表，136批已记未解决，不当正常数据背书。原始数据/RL蒸馏全流程未核到公开完整实现。 固定LLM/上游训练/unique数据/总tokens与实测GPU秒，像素接口对VE/VAE、共享/双分支、RoPE/PreBuffer、sigma固定/平方根且含/不含embedding全因子或有针对性消融；按驻留参数/活跃FLOPs/attention与通信单列。原生1K/2K与2K缩1K作信息和计算双对齐，报告端到端含CoT/KV/OCR/解码及误差。联合/仅理解/仅生成同预算与关闭生成辅助/关闭CoT，测双向增量及梯度冲突，RealUnify/GaU榜单不能替代。OCR IoU/有序CER/空间region对齐/错误增字、换行重排、细笔和多字系留出测试；RL奖励组与冻结末层因子、DMD8/50步同种子全基准盲评。用规则SVG、VideoSketcher和强视频模型在同终态异过程/跨字符字体作者切分，测笔画事件顺序、可见性/持续性/接触和真实执行。上述实验未运行。",
+          "evidence": "v1全部核心23表/Eq1–7及指定实际PDF页，固定源码/配置/索引；模型内协同与全奖励消融缺失明确记录，非口试/独立复现"
+        }
+      ],
+      "boundary": "arxiv v1 HTML全部研究正文Abstract/§1–6（含完整Method/data/deployment/23表与消融、VLA/worldmodel解释）、贡献列表和F1–15图注、Eq1–7作用；参考条目不逐篇计精读。完整43页PDF26140491bytes，实际p6/7/8/10/16/20/22/23/27/29/30/31/32/33共14页核框架、结构/训练/理解/文字/推理表、重建、MT柱状/TrainTokens曲线及机器人状态图；其余定性页未逐图。固定GH c35c83b完整735项树/603blob；README新闻/原U1发布与局限相关段，当前U1.5其他图文未全读；NEOChat构造170–251、v输出599–640、编辑1550–1687、生图1780–1857，VisionEmbeddings/NEOVisionModel全逻辑，MoE路由构造/双分支说明，trainingREADME169–245及两型配置选段/8B启动全文，evaluation说明与under yaml全文/生图文档全文、LongText清洗/计数/汇总核心、distill用法与issues。HF两型元数据/完整配置/权重索引；卡片未全文、无权重下载/运行/独立复现；未把后续U1.5与Infographic新版本计此论文三遍。"
     }
   ]
 }

@@ -129,3 +129,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百三十七批（2026-10-22）：4×16×16视频VAE细文字代价、AR条件与非视觉AR、DMD/NFT复合奖励及评价独立性。见[审查](mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[L124](../reviews/L124.md)。
+
+
+第一百三十八批（2026-10-22）：像素2048/3072瓶颈、x预测v损失夹分母、多重集合IoU对召回差异、FlowGRPO与后蒸馏机制。见[审查](sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[L125](../reviews/L125.md)。

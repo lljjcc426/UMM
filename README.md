@@ -407,3 +407,6 @@ python scripts/validate_catalog.py
 
 
 第一百三十七批（2026-10-22）完成L124 Mamoda2.5 v1全部核心/附录13表、11实际PDF页与固定八文件推理制品指定源码。补核视频/字幕真实任务、25B/A3B口径、DiT计时95.9倍与实测7.5倍、Reco/理解负例、曲线标注与发布48Top5对报告128Top8差异。357目录，246核心/249书面；未确认核心84论文／研究+27资源。见[审查](docs/evidence/mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_thirty_seventh_changes_2026-10-22.md)。无删除或模型执行。
+
+
+第一百三十八批（2026-10-22）完成L125 SenseNova-U1全部核心23表/Eq1–7与固定发布配置/指定源码。明确像素MoT真实任务、17.55B/38.74B索引参数、噪声能量解释、LongText计数召回、理解/OneIG退步、协同对照缺口及U1.5版本边界。357目录，247核心/250书面；未确认核心83论文／研究+27资源。见[审查](docs/evidence/sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_thirty_eighth_changes_2026-10-22.md)。无删除或模型执行。

@@ -586,3 +586,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百三十七批（2026-10-22）：v1完整38页、13表/三公式/11实际PDF页、固定66项树与八文件推理目录的指定代码，权重ComingSoon；未全读上代其他目录。见[审查](mamoda25_moe_video_distillation_and_release_audit_2026-10-22.md)、[L124](../reviews/L124.md)。
+
+
+第一百三十八批（2026-10-22）：v1全核心23表/Eq1–7、实际PDF页及固定GH735项树/603blob、两HF配置/权重索引、指定推理/训练/评价源码。见[审查](sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[L125](../reviews/L125.md)。
