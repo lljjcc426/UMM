@@ -595,3 +595,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百四十批（2026-10-22）：v3核心全文、正式24页关键8页/8表/Eq1–6、AppA1/A2和固定2828项源码树、4 HF数据卡/元数据。见[审查](corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[L129](../reviews/L129.md)。
+
+
+第一百四十一批（2026-10-22）：v3完整HTML核心/附录、10表/Eq1–4、7实际原图，固定187项树及训练/reward；PDF部分下载不算全文。见[审查](pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。

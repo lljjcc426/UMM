@@ -138,3 +138,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百四十批（2026-10-22）：共享优势两路token ratio、固定视觉头/LLM更新、TIM裁判与CFG/teacherforcing位置核查。见[审查](corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[L129](../reviews/L129.md)。
+
+
+第一百四十一批（2026-10-22）：独立task优势std后sqrt、无oldpolicyclip的scorefunction、模态token总分母和CFG概率边界。见[审查](pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。

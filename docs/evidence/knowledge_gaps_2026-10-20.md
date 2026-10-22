@@ -547,3 +547,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百四十批（2026-10-22）：SPICE/LPIPS对默认BERT/Jaccard/RMSE、QA类型列表、图像teacher forcing位移、stageII/合并日志待核。见[审查](corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[L129](../reviews/L129.md)。
+
+
+第一百四十一批（2026-10-22）：阈值.6与低分直方图、原QA/自验证缺失模板、GenEval1787溯源、46.4/46.1、PPOclip实现差异待核。见[审查](pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。

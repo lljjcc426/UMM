@@ -545,3 +545,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百四十批（2026-10-22）完成L129 CoRL核心三遍、正式8表/Eq1–6及固定联合RL/数据卡审查。明确S1双任务提升与S2任务分支/合并边界、7%/23%相对均值、WISE排名、监督数据和公开reward默认/QA类型/概率位置待核差异。357目录，249核心/252书面；未确认核心81论文／研究+27资源。见[审查](corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_fortieth_changes_2026-10-22.md)。无删除或模型执行。
+
+
+第一百四十一批（2026-10-22）完成L130 PairUni完整HTML核心与附录、10表/Eq1–4和7实际原始图，核独立优势/std后权重、平方根与梯度解释、模板和阈值矛盾、主表退步与公开损失差异。更正旧会场断言及Lumina编辑表述。357目录，250核心/253书面；未确认核心80论文／研究+27资源。见[审查](pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_forty_first_changes_2026-10-22.md)。无删除或模型执行。

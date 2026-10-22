@@ -342,3 +342,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百四十批（2026-10-22）：双向max-cos的集合不变性与上下文位置、联合sequence和token surrogate、CFG采样与概率匹配。见[审查](corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[L129](../reviews/L129.md)。
+
+
+第一百四十一批（2026-10-22）：平方根压缩高分差距、同正标量保持pair梯度夹角，std前后权重不等效。见[审查](pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。

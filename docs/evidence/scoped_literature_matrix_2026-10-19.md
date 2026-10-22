@@ -506,3 +506,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百四十批（2026-10-22）：共享AR静态生成/QA联合优势、S2任务分支；未验证同最终权重全任务或连续笔顺视频。见[审查](corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[L129](../reviews/L129.md)。
+
+
+第一百四十一批（2026-10-22）：静态图文独立优势加权，BAGEL仅数据SFT迁移，连续书写视频无证据；主表计数/颜色/两对象下降。见[审查](pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。

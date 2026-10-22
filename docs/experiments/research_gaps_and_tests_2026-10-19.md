@@ -535,3 +535,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百四十批（2026-10-22）：同预算配对打乱/奖励信用分配、S1与所有S2完整双任务矩阵、固定裁判/多解和跨文字笔画实验；未运行。见[审查](../evidence/corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[L129](../reviews/L129.md)。
+
+
+第一百四十一批（2026-10-22）：固定数据量/类分布/总rollout，独立与配对/加权/梯度操作全因子、多seed和完整单检查点评价；未执行。见[审查](../evidence/pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。

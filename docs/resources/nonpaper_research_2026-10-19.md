@@ -536,3 +536,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百四十批（2026-10-22）：CoRL四HF数据实际声明量/字段，启动默认差异与额外TTRL投票/自选参考协议；完整TTRL trainer尚未精读。见[审查](../evidence/corl_joint_advantage_branch_and_reward_release_audit_2026-10-22.md)、[L129](../reviews/L129.md)。
+
+
+第一百四十一批（2026-10-22）：PairUni固定源码0097f419/HFcomingsoon/占位引用，HPSv2.1/软文本reward与示例8000steps非正文1200。见[审查](../evidence/pairuni_pair_weighting_gradient_and_release_audit_2026-10-22.md)、[L130](../reviews/L130.md)。

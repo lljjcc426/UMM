@@ -9392,22 +9392,24 @@
     "source_urls": [
       "https://arxiv.org/abs/2510.25682",
       "https://arxiv.org/html/2510.25682v3",
-      "https://haochen-wang409.github.io/"
+      "https://haochen-wang409.github.io/",
+      "https://arxiv.org/abs/2510.25682v3",
+      "https://github.com/Haochen-Wang409/PairUni/tree/0097f4197c7c4b564ffefacb8cbf09b03b61e735"
     ],
-    "method": "GPT-o3/4o补齐图captionQA，kmeans选中心样本，再ResNet图特征检索近邻配对；PairGRPO按同prompt分任务归一advantage，再同pair权重缩放。 架构沿JanusPro1/7B，理解/生成各自多个rollout；aligned权重1，retrieved sqrt(cosSim)，阈值.6；平方根在[.6,1]压缩绝对/相对差异，正文“amplifyrelative differences”不符数学，不能照抄。正权重不能保证梯度不冲突。",
-    "conclusion": "Janus1B GenEval.73→.79 WISE.23→.38；7B.79→.85 WISE.35→.45。LuminaMMMU58.6→61.3/GenEval.88→.89但各ImgEdit子类并非相对原始都提高；BAGEL结果属于配对SFT，不能证明PairGRPO。",
-    "gap": "保留高相似样本可能排OCR/表格/长尾困难类别；语义图相似未必共享目标事件。sqrt削弱权重差异，未从数学保证减少冲突；梯度cos相关不证明唯一机制。数据去重/日期/阈值/GenEval来源、正式版本和代码仍待核。",
-    "problem": "语义对齐的理解—生成数据配对和相似度加权能否改善统一后训？",
+    "method": "PairUG-16k构造：理解Orsta约47K用GPT-o3补生成caption，生成BLIP3o约60K用GPT-4o补QA；联合ResNet50归一特征MiniBatchKMeans选离中心最近实际样本形成同图aligned，剩余跨源图greedy top-n余弦检索/阈值δ=.6配对，每图仅用一次。PairGRPO对每任务各自prompt的G个reward先std归一，再乘共享pair权重aligned=1/retrieved=sqrt(similarity)；理解Acc、生成HPSv2。两路独立优势通过共享LLM联合更新，并非CoRL将图像/QA reward合成同一优势。 主Janus-Pro-1B/7B，理解SigLIP与生成VQ分支解耦、共享AR语言骨干；1B基座语言配置可参L129已核HF960ab331的24L/2048/16QKV、16384码本及384²/576codes。固定PairUni代码冻结vision/genVQ、两路aligner和gen_head/gen_embed，仅更新language_model，主入口peft_config=None；不能说整个系统全参更新。根configs/config.json为LLaVA-OneVision/Qwen2-7B遗留配置，主入口通过Janus路径加载，不据该文件把模型误定为LLaVA。Lumina离散diffusion与BAGEL流匹配+AR为迁移，后者未验证PairGRPO。",
+    "conclusion": "T1 Janus1B MMMU36.3/MME1444/POPE86.2→40.4/MMStar46.4/MME1483.2/POPE86.4，7B41.1/46.5/1567.1/87.4→47/49.5/1597.7/88；MMStar主表46.4对消融46.1未解释。T2 WISE 1B.23→.38、7B.35→.45；1B Janus/JanusPro标签与CoRL基座.26不完全一致，不能强行同协议。T3 GenEval1B.73→.79，但count.48→.44、color.90→.75、single.99→.98；7B.79→.85但two-object.88→.75，JanusProR1.86更高。T4当前v3 Lumina基座58.6/52.4/.88/编辑3.82/3.83/2.76/4.18→61.3/52.6/.89/3.84/3.94/2.78/4.22，所有所列编辑项均升；纠正旧笔记不是全部高于原基座的过时表述。BAGEL配对SFT MMMU54/POPE89.21/GenS84.6/GenL87.2/Img3.51高于作者复现52.8/87.37/77.9/86.1/3.38，但MMMU<原报告55.3、GenL<88；仅数据配对SFT迁移证据。",
+    "gap": "平方根对s∈[.6,1]满足sqrt(s)≥s但导数≤.646，两高分绝对差/比值差压缩；论文放大相对差异解释错误。单对两梯度乘同一正权重保持夹角不变，不能单靠标量宣称消除该对冲突；跨样本加权可改变总梯度，需另测。图8retrieved直方图实际含.2–.6而正文δ.6，尚未解释统计阶段/score定义；正文严格语义绑定/自验证未有质量量化，实际F11/F12只显示给图(和类)同时生成QA+caption，没有显式既有QA或caption输入和自验证指令，且§11路径图号与标题错位，不能代替所声称pipeline的完整证据。公开reward为SequenceMatcher字符串软相似、数字相对误差，而非通用二值Acc；HPSv2.1权重与正文v2名称须辨。实际损失exp(logp−detach(logp))*A、无oldpolicy保存/PPOclip；前向ratio=1仍有score-function梯度，并非无训练信号。两路所有completion tokens共分母导致576图像tokens与答案长度隐式权重；图像采样CFG和conditional logps不同。图像teacherforcing本实现已正确前移、补零返回后切片，不沿用CoRL待核位移问题。没有显式Limitations章节、公开全数据/最终权重或直接视频笔顺证据。",
+    "problem": "在共享统一图文模型的理解和生成后训练中，数据语义不相关会否加剧性能取舍，能否用同图补全与跨图检索构造配对数据，并在独立任务GRPO优势之后以配对相似度加权，改善双任务结果。任务是静态图像QA/文生图及迁移静态编辑，不含视频或严格笔顺。",
     "claim": "研究目标：语义对齐的理解—生成数据配对和相似度加权能否改善统一后训？",
-    "version": "PairUni；arXiv2510.25682v3元数据2026-02-08，页内日期August24另有冲突；作者主页标ICLR2026，正式录用页未对读",
+    "version": "PairUni: Pairwise Training for Unified Multimodal Language Models；arxiv2510.25682v3，元数据2026-02-08、HTML内部August24/2026存在日期冲突。当前作者主页列Paper但未标ICLR2026，旧记录的主页录用断言撤回；OpenReview9bvp6R7D6n验证挑战/API403，正式会场未独立核实。完整HTML核心及附录、10表/Eq1–4、实际7张原始图；36.24MB PDF仅取得3.06MB，不宣称PDF全文阅读。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 5. 后训练：对齐、强化学习与自改进",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-22",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-22",
     "id": "L130",
     "canonical_key": "paper:arxiv:2510.25682",
     "evidence_history": [
@@ -9439,17 +9441,22 @@
         "conclusion": "7B MMMU 41.1→47.0；数据配对贡献明确，去掉相似度加权时 GenEval 不变，不应把所有增益归于新优化式",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-22",
+        "batch": 141,
+        "scope": "完整arxiv2510.25682v3 HTML Abstract/§1Introduction/§2Method/§3Experiments/§4Conclusion、App5Related/6Data/7Ablations/8Gradient/9Generalization/10Cases说明/11Prompts说明，10表与Eq1–4全部读；全部12图图注(含伪代码)，实际原始F1data_pipeline/F3GRPO/F4reward_curve/F8data_analysis/F9intro/F11generate_prompt/F12understand_prompt共7图核看，未逐图读其他定性例图细字或独立读全引用。PDF3,061,431/36,237,881byte部分下载无完整可读PDF，未声称22页PDF阅读。GH0097f419完整187项树/166blob与README全文，train.sh/入口grpo.py/dataset.py/两reward/utils/config全文，trainer冻结、文本图像输入/采样、teacherforcing、reward组内归一和std后相似度、合并token损失/β默认选段；未逐文件全库、完整第三方HPS或Lumina/BAGEL训练。HF链接comingsoon、树无数据/权重文件；未下载完整PairUG、权重、模型执行或独立复现。作者当前主页/正式场地检索仅能撤回旧未经证实会场断言，不能推断录用或拒稿。"
       }
     ],
-    "sections_read": "v3§1/2全方法、§3设置/关键结果/3.2Tables5/6、App6/7Tables7–10/8/9；大表指定模型/编辑行，全部图/正式版本与源码未核，未复现",
+    "sections_read": "完整arxiv2510.25682v3 HTML Abstract/§1Introduction/§2Method/§3Experiments/§4Conclusion、App5Related/6Data/7Ablations/8Gradient/9Generalization/10Cases说明/11Prompts说明，10表与Eq1–4全部读；全部12图图注(含伪代码)，实际原始F1data_pipeline/F3GRPO/F4reward_curve/F8data_analysis/F9intro/F11generate_prompt/F12understand_prompt共7图核看，未逐图读其他定性例图细字或独立读全引用。PDF3,061,431/36,237,881byte部分下载无完整可读PDF，未声称22页PDF阅读。GH0097f419完整187项树/166blob与README全文，train.sh/入口grpo.py/dataset.py/两reward/utils/config全文，trainer冻结、文本图像输入/采样、teacherforcing、reward组内归一和std后相似度、合并token损失/β默认选段；未逐文件全库、完整第三方HPS或Lumina/BAGEL训练。HF链接comingsoon、树无数据/权重文件；未下载完整PairUG、权重、模型执行或独立复现。作者当前主页/正式场地检索仅能撤回旧未经证实会场断言，不能推断录用或拒稿。",
     "review_path": "docs/reviews/L130.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "Orsta47Kunder（排检测/grounding）+BLIP3o60Kgen；PairUG16320=4971aligned+11349retrieved。App6 retrieved标GenEval1787须核是否仅模板/训练扩展或含testprompt，现未证实泄漏；图示多数.55–.75和阈值.6口径也待核。",
-    "framework": "GPT-o3/4o补齐图captionQA，kmeans选中心样本，再ResNet图特征检索近邻配对；PairGRPO按同prompt分任务归一advantage，再同pair权重缩放。",
-    "architecture": "架构沿JanusPro1/7B，理解/生成各自多个rollout；aligned权重1，retrieved sqrt(cosSim)，阈值.6；平方根在[.6,1]压缩绝对/相对差异，正文“amplifyrelative differences”不符数学，不能照抄。正权重不能保证梯度不冲突。",
-    "metrics": "MMEP/POPE/MMStar/MMMU、GenEval/WISE、ImgEditAdd/Replace/Remove/Style；gradientmediancos与结果相关；GenEval是组合任务不等价一般保真。",
-    "baselines": "JanusPro/ULMR1/DSR、random/unpair/单源、aligned/retrieval、无/线性/sqrt权重、阈值.5/.6/.7、中心/随机、PE/DINOv3/ResNet。ULMR1为作者复现而非原官方分数。",
-    "experimental_conditions": "8H100，7B每模态rollout4 b16最多1200steps lr1e-6 T1 CFG5 β0；1B group8。BAGEL512SFTunder:gen1:1/default其余；Lumina rollout2，text2steps image35steps，训练似然估计实现尚未核。"
+    "dataset": "Orsta47K排除原检测/grounding QA，BLIP3o60K；PairUG实际16320=4971aligned(3043生成源+1928理解源)+11349retrieved。Aligned17类、Math646/gesture602/puzzle402/count65，retrievedJourneyDB2476/GenEval1787/gesture1387/object1 1232/text2 1193/text1 992等；分布长尾。GenEval1787训练类需要来源/原始提示及与553测试模板/语义实体去重核查，未证明已泄漏。README示例towel+zebra不在本地553官方测试提示中，仅一个示例不证明全体清洁。预训无重叠为作者未独立验证声明。当前固定代码无JSONL/parquet/模型权重文件、HF数据/模型链接comingsoon，未取得完整PairUG或合成日志。",
+    "framework": "PairUG-16k构造：理解Orsta约47K用GPT-o3补生成caption，生成BLIP3o约60K用GPT-4o补QA；联合ResNet50归一特征MiniBatchKMeans选离中心最近实际样本形成同图aligned，剩余跨源图greedy top-n余弦检索/阈值δ=.6配对，每图仅用一次。PairGRPO对每任务各自prompt的G个reward先std归一，再乘共享pair权重aligned=1/retrieved=sqrt(similarity)；理解Acc、生成HPSv2。两路独立优势通过共享LLM联合更新，并非CoRL将图像/QA reward合成同一优势。",
+    "architecture": "主Janus-Pro-1B/7B，理解SigLIP与生成VQ分支解耦、共享AR语言骨干；1B基座语言配置可参L129已核HF960ab331的24L/2048/16QKV、16384码本及384²/576codes。固定PairUni代码冻结vision/genVQ、两路aligner和gen_head/gen_embed，仅更新language_model，主入口peft_config=None；不能说整个系统全参更新。根configs/config.json为LLaVA-OneVision/Qwen2-7B遗留配置，主入口通过Janus路径加载，不据该文件把模型误定为LLaVA。Lumina离散diffusion与BAGEL流匹配+AR为迁移，后者未验证PairGRPO。",
+    "metrics": "理解MMMU/MMStar/MME Perception/POPE，生成GenEval六类和均分、WISE六知识类；迁移Lumina含ImgEdit add/replace/remove/style，BAGEL另GenEval S/L与编辑综合。GenEval主要测组合指令遵循，不应笼统只称视觉保真；HPS偏好不是逐字OCR/笔顺指标。梯度余弦中位数、前200step reward曲线为机制相关证据，未给跨seed区间/完整梯度分布或因果中介识别。",
+    "baselines": "主理解比较Janus系列/CoRL ULM-R1 S1†、专用Qwen2.5VL/InternVL/MiniCPM等；生成含SD3/DALLE3/SDXL/JanusProR1/Harmon/TokenFlow/Showo/Emu3等。主表ULM-R1 40.3为S1，CoRL最终分支42.3不同协议，不能说PairUni在同最终模型条件胜出。WISE所列局部组不能外推当代SOTA，MindOmni原版.60/HQ.71等不在该表。原始基座预训、数据规模、分辨率、RL算量/检查点不同；同基座随机配对/无配对和相似度消融优先于跨系统排行榜。",
+    "experimental_conditions": "8×H100；7B Gtext=Gimage=4/max1200steps/perdevice2/global16/lr1e-6/CFG5/β0/temperature1；1B G8其余按正文。默认ResNet50无分类头、L2特征、MiniBatchKMeans，δ.6，K与top-n完整数值及合成API预算未核到。公开train.sh为Janus1B/G8/perdevice1/accum2/max8000/maxprompt512/图像576，节点/rank变量需外部配置，与正文7B配方不同。文字实际采样512token/temperature1并EOS mask；图像CFG5采样但logps只算条件softmax。Lumina G2/文字2步图35步；BAGEL SFT 1:1与512²/default其余配置，不代表RL。未给完整端到端GPU时/多seed误差或最终检查点；未执行训练推理。"
   },
   {
     "title": "UniCorn: Towards Self-Improving Unified Multimodal Models through Self-Generated Supervision",
