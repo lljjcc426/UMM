@@ -132,3 +132,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百三十八批（2026-10-22）：像素2048/3072瓶颈、x预测v损失夹分母、多重集合IoU对召回差异、FlowGRPO与后蒸馏机制。见[审查](sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[L125](../reviews/L125.md)。
+
+
+第一百三十九批（2026-10-22）：RGPO文字token ratio、图像CLIP及随机latent层特征正则；公式和代码KL方向/std分母不一致。见[审查](mindomni_rgpo_data_variants_and_feature_kl_audit_2026-10-22.md)、[L128](../reviews/L128.md)。

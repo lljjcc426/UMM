@@ -589,3 +589,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百三十八批（2026-10-22）：v1全核心23表/Eq1–7、实际PDF页及固定GH735项树/603blob、两HF配置/权重索引、指定推理/训练/评价源码。见[审查](sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[L125](../reviews/L125.md)。
+
+
+第一百三十九批（2026-10-22）：NeurIPS正式25页核心9表/Eq1–7/9实际PDF页、指定附录与固定GH171项树/137blob、HF25项文件/组合配置。见[审查](mindomni_rgpo_data_variants_and_feature_kl_audit_2026-10-22.md)、[L128](../reviews/L128.md)。

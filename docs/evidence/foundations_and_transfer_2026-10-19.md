@@ -336,3 +336,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百三十八批（2026-10-22）：near-lossless经验与可逆性区别、sigma平方根的二阶矩、活跃/驻留参数、CFG前向次数与端到端耗时。见[审查](sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[L125](../reviews/L125.md)。
+
+
+第一百三十九批（2026-10-22）：组内std/variance、反向KL、特征分布代理与准确图像概率、文字policy gradient和可微冻结生成器。见[审查](mindomni_rgpo_data_variants_and_feature_kl_audit_2026-10-22.md)、[L128](../reviews/L128.md)。

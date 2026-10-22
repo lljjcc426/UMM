@@ -9240,22 +9240,27 @@
     "source_urls": [
       "https://arxiv.org/abs/2505.13031",
       "https://arxiv.org/html/2505.13031v2",
-      "https://github.com/TencentARC/MindOmni"
+      "https://github.com/TencentARC/MindOmni",
+      "https://papers.nips.cc/paper_files/paper/2025/hash/802e90325f4c8546e13e5763b2ecab88-Abstract-Conference.html",
+      "https://papers.nips.cc/paper_files/paper/2025/file/802e90325f4c8546e13e5763b2ecab88-Paper-Conference.pdf",
+      "https://arxiv.org/abs/2505.13031v2",
+      "https://github.com/TencentARC/MindOmni/tree/a4c943667d0dbc06fa61577d8a4b585a66972e14",
+      "https://huggingface.co/EasonXiao-888/MindOmni/tree/9329cf54d0b66c4f499fd8f4c1575c81b6edde86"
     ],
-    "method": "Qwen2.5VL接两层decoder connector和OmniGen，预对齐/CoT-SFT/RGPO三阶段；格式+CLIP一致性奖励，文本/图像双KL。 理解ViT+Qwen2.5VL；specialtoken后hidden经2层connector，time/noise和条件拼接OmniGen去噪；编辑额外VAE条件。表中7B只语言骨干，OmniGen约3.8B与connector/视觉成本另计。阶段1只connector，2connector+decoder。",
-    "conclusion": "基础版GenEval.81/DPG83.0/WISE.60；*版.83/82.5/.71，额外数据提高GenEval/WISE却DPG下降。无thinking WISE.43，OmniGen.44。理解均值近原VLM不等于各项无下降；具体主表理解行尚待逐项摘录。",
-    "gap": "Eq4 Var分母与std不同，会给低reward方差prompt更强尺度；需核代码是否照做，未判训练失败。文本/图像KL feature映射概率归一定义需进一步读实现。训练数据和thinking改变混杂；CLIP盲点、未必忠实CoT、额外采样/推理成本。",
-    "problem": "如何把VLM世界知识及文本推理转成可控的图像生成/编辑条件，并保留理解？",
+    "method": "三阶段：冻结预训VLM/OmniGen训练decoder connector并用RF/教师特征蒸馏对齐；CoT指令SFT训练生成接口和decoder LoRA；RGPO采样多条文字CoT并生成图像，用格式+CLIP组相对优势更新VLM LoRA，加文字和视觉特征KL。公开实现的policy ratio在文字token上，生成器提供奖励及可微辅助特征；不等于对扩散轨迹执行图像policy gradient。 VLM Qwen2.5-VL-7B、独立OmniGen约3.8B/Phi3-32层3072维decoder、connector及VAE组合。HF mllm配置28L/hidden3584/Q28KV4/FF18944；ViT32L/1280/16heads/patch14/merge2；image_decoder32L/3072/32heads/FF8192；VAE4通道latent/空间8倍/scaling.13025。connector线性3584→3072后2层Phi3DecoderLayer。表中7B明确仅LLM backbone，不能作为整个系统驻留参数。AR文字CoT和RF连续图像两套机制共用语义条件；无视频时序/笔画事件头。",
+    "conclusion": "T2原MindOmni GenEval.81/DPG83.0，星号HQ版.83/82.5：Gen总体升但DPG降，双对象.97→.94/计数.77→.71/位置.59→.71有取舍。OmniGen.70/81.2；Sana1.5 DPG84.5高于两版。T3原模型无CoT.43、CoT.60，星号CoT.71；BAGEL.70，星号文化.75<.76/物理.72<.75/化学.52<.58，不能称各类最佳。T4 Qwen2.5VL基线51.1/83.4/68.9→51.6/83.2/68.1，MMBench−.2/RealWorldQA−.8，三项均值−.167分；正文约.1%说法不等同严格不退。正文较MetaMorph MMB+9.8与表75.2→83.2的+8.0pp不一致。正式A2 GEdit SC6.55/PQ6.92/overall5.95，未给完整编辑对照和方差。",
+    "gap": "Eq4印刷优势分母为组内平方偏差平均即variance，代码用torch.std+1e-4；Eq6视觉KL正文写current||reference，代码F.kl_div(logcurrent,reference)为reference||current。pretrain teacherKL也具体采用层特征标准化+温度3的softmax，非RGB分布KL。RL gen_kl用新高斯latent/随机t、同一冻结decoder/connector的逐层特征；output_images仅取尺寸，不是生成轨迹完整分布KL。公开TASK_TYPE=mindomni经自定义reward selector仅接受rec/ust，所读分支将落Unsupported；还依赖内部初始化/权重路径，未执行不能宣称可直接复现。CLIP比较输入含user+assistant CoT，可能偏好冗长相关描述；fixed seed不检验多噪声泛化。附录Fig9 answer写two large elephants，图示为一象一兔，与CoT/指令不完全一致，单例不估总体率。A4承认纯文字CoT，多模态CoT/扩展模态为未来。无完整训练数据、配对多seed统计和视频笔顺验证。",
+    "problem": "把已有VLM的知识、算术和图像条件理解传给图像生成器，使复杂提示经过显式文字推理后生成符合隐含语义的图像，并用实际图像反馈优化推理策略。任务为图文理解/图像生成及图像编辑，不提供连续视频、中文字笔顺或真实执行验证。",
     "claim": "研究目标：如何把VLM世界知识及文本推理转成可控的图像生成/编辑条件，并保留理解？",
-    "version": "MindOmni；arXiv2505.13031v2，2025-06-11；作者repo标NeurIPS2025，正式PDF未对读",
+    "version": "NeurIPS2025 Main Conference，正式卷38/DOI10.52202/085713-2969；正式25页PDF优先于arxiv2505.13031v2和README。官方补充ZIP含4页旧RG-VLM稿的补充段，版本不混计。固定GH a4c9436/HF9329cf5。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 5. 后训练：对齐、强化学习与自改进",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-22",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-22",
     "id": "L128",
     "canonical_key": "paper:arxiv:2505.13031",
     "evidence_history": [
@@ -9287,17 +9292,22 @@
         "conclusion": "将推理策略与生成结果相联系；需分辨推理数据与 RL 各自贡献",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-22",
+        "batch": 139,
+        "scope": "NeurIPS2025正式25页PDF完整下载17065999bytes，Abstract/Intro/Related/Method§3.1–3.4/Experiments§4.1–4.4/Conclusion、T1–9与Eq1–7核心原文；A1训练全文、A2 GEdit、A3详细response选读、A4限制/A5图注及checklist统计/资源相关声明；非逐篇参考文献/全checklist泛用指南。实际p4/5/6/7/8/9/10/16/18共9页核框架、公式、主表/消融、曲线与CoT样例；其他定性页未逐图。arxiv v2 HTML全部核心及A1–4，正式新增星号/编辑优先正式版；官方ZIP中4页旧RG-VLM补充仅读A1与部分详细CoT，不独立算新研究。固定GH a4c9436完整171项树/137blob，README发布/数据/结果段，pretrain model构造/connector、loss核心、两启动全文、train冻结/LoRA优化器段；RL stage3启动全文/主入口/奖励选择、trainer冻结和policy损失、qwen奖励与gen_kl活跃函数；src mindomni图文/CoT隐藏/生成入口、image_pipeline采样/两CFG段。HF9329cf5元数据25文件/卡片全文与mllm/image_decoder/VAE配置全文。无权重下载、运行训练推理或独立复现。"
       }
     ],
-    "sections_read": "§3.1–3.4、4.1/4.2关键段、Tables2/3本作行/5–9、AppA1/A3；PDFp7公式及WISE视觉核。正式版本/全框架图/代码与全部理解行未核齐，未复现",
+    "sections_read": "NeurIPS2025正式25页PDF完整下载17065999bytes，Abstract/Intro/Related/Method§3.1–3.4/Experiments§4.1–4.4/Conclusion、T1–9与Eq1–7核心原文；A1训练全文、A2 GEdit、A3详细response选读、A4限制/A5图注及checklist统计/资源相关声明；非逐篇参考文献/全checklist泛用指南。实际p4/5/6/7/8/9/10/16/18共9页核框架、公式、主表/消融、曲线与CoT样例；其他定性页未逐图。arxiv v2 HTML全部核心及A1–4，正式新增星号/编辑优先正式版；官方ZIP中4页旧RG-VLM补充仅读A1与部分详细CoT，不独立算新研究。固定GH a4c9436完整171项树/137blob，README发布/数据/结果段，pretrain model构造/connector、loss核心、两启动全文、train冻结/LoRA优化器段；RL stage3启动全文/主入口/奖励选择、trainer冻结和policy损失、qwen奖励与gen_kl活跃函数；src mindomni图文/CoT隐藏/生成入口、image_pipeline采样/两CFG段。HF9329cf5元数据25文件/卡片全文与mllm/image_decoder/VAE配置全文。无权重下载、运行训练推理或独立复现。",
     "review_path": "docs/reviews/L128.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "LAION-COCO/JourneyDB/X2I+internal；Sana/FLUX合成高质图；Qwen2.5VL构细/粗caption CoT，Qwen3造RL逻辑文本。MindOmni*加MetaQuery/BLIP3o高质数据，不与基础版等数据。",
-    "framework": "Qwen2.5VL接两层decoder connector和OmniGen，预对齐/CoT-SFT/RGPO三阶段；格式+CLIP一致性奖励，文本/图像双KL。",
-    "architecture": "理解ViT+Qwen2.5VL；specialtoken后hidden经2层connector，time/noise和条件拼接OmniGen去噪；编辑额外VAE条件。表中7B只语言骨干，OmniGen约3.8B与connector/视觉成本另计。阶段1只connector，2connector+decoder。",
-    "metrics": "GenEval/DPG、WISE文化/时空/自然科学、MMMU/MMBench/RealWorldQA；CLIP是reward，不能将上升直接当独立质量证明。",
-    "baselines": "OmniGen、MetaQuery、BLIP3o/BAGEL/Janus；MLPvs1/2层decoder connector；阶段、group、双KL、reward消融。",
-    "experimental_conditions": "I分辨率256/b1024/lr1e-4constant/wd.05；II512/lr5e-5；RLcos group4 βimage.06 βtext.01；WISEthinking1024。硬件、阶段步数/最终有效batch和RL可训模块本次未核齐。PDFp7 Eq4确用方差归一而非常规标准差，零方差/小方差实际处理需代码。"
+    "dataset": "A1 stage1 LAION-COCO/JourneyDB图文、OmniGen X2I多任务/上下文/主体数据，Sana与FLUX按已有prompt合成；stage2 Qwen2.5-VL生成CoT指令，stage3 Qwen3合成逻辑推理文字。正式表2/3星号版另加高质量数据，相关引用GPT-4o生成及BLIP3o，当前README明确使用BLIP3o公开数据；与原阶段消融版本区分。未公开完整逐阶段unique样本量/切分、去重/去污染、所有合成筛选和完整内部路径数据；教师上游先验与数据成本不能忽略。",
+    "framework": "三阶段：冻结预训VLM/OmniGen训练decoder connector并用RF/教师特征蒸馏对齐；CoT指令SFT训练生成接口和decoder LoRA；RGPO采样多条文字CoT并生成图像，用格式+CLIP组相对优势更新VLM LoRA，加文字和视觉特征KL。公开实现的policy ratio在文字token上，生成器提供奖励及可微辅助特征；不等于对扩散轨迹执行图像policy gradient。",
+    "architecture": "VLM Qwen2.5-VL-7B、独立OmniGen约3.8B/Phi3-32层3072维decoder、connector及VAE组合。HF mllm配置28L/hidden3584/Q28KV4/FF18944；ViT32L/1280/16heads/patch14/merge2；image_decoder32L/3072/32heads/FF8192；VAE4通道latent/空间8倍/scaling.13025。connector线性3584→3072后2层Phi3DecoderLayer。表中7B明确仅LLM backbone，不能作为整个系统驻留参数。AR文字CoT和RF连续图像两套机制共用语义条件；无视频时序/笔画事件头。",
+    "metrics": "GenEval对象/计数/颜色/位置/属性；DPG-Bench多维提示遵循；WISE文化/时间/空间/生物/物理/化学及overall；理解MMMU/MMBench/RealWorldQA；正式A2新增GEdit SC/PQ/overall。训练奖励为格式regex和CLIP图文一致性，不能当这些测试指标的等价物；无有序OCR/CER、文字空间绑定、笔画时序或视频指标。WISE分数在T3用0–1而T7–9用0–100，分别记录。",
+    "baselines": "T2专用生成Sana1.5/FLUX/SD3.5/PixArt-alpha/HunyuanDiT与统一OmniGen/Showo/Janus-Pro/BLIP3o/BAGEL等；T3同类及闭源GPT-4o/Gemini2.5，T4 Qwen2.5-VL/Janus-Pro/MetaMorph/LLaVA-NeXT/Emu等。部分†分数使用prompt rewriting，不是完全相同提示协议；参数列仅LLM backbone，预训数据、额外HQ数据和采样预算不统一。T3 FLUX2.7B与T2 12B列存在口径差异待原始来源核；不以榜单作受控架构优越性证明。",
+    "experimental_conditions": "正式A1 stage1恒定lr1e-4/wd.05/batch1024/256²，stage2 lr5e-5/512²，stage3 cosine/G4/βT.01/βI.06；WISE thinking1024²。公开stage1启动为1进程×batch16/lr2e-5/wd.0001，stage2 batch1/decoderLoRA16/lr5e-5/wd.0001，冻结VLM；这些示例不是正式全训练配置。RL脚本8进程×perdevice4/accum1/G4/maxcompletion2048/lr1e-5/LoRA64alpha128drop.05/冻结vision/100epochs/存验50步；内部checkpoint与数据路径，未取得原始运行日志或硬件时长。RL图像反馈512²/CFG3/seed42固定，推理pipeline默认50步/两CFG分支/1024²，50步约100分支前向且还需VLM/VAE成本；没有端到端速度测量。"
   },
   {
     "title": "Co-Reinforcement Learning for Unified Multimodal Understanding and Generation",

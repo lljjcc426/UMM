@@ -500,3 +500,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百三十八批（2026-10-22）：原生像素理解/生成/交错图文、稀疏视频动作解释与图像状态预测；无严格笔顺/连续视频生成实测。见[审查](sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[L125](../reviews/L125.md)。
+
+
+第一百三十九批（2026-10-22）：VLM文字CoT→静态图像/编辑；CLIP反馈训练文字策略，无连续视频/笔画事件实测。见[审查](mindomni_rgpo_data_variants_and_feature_kl_audit_2026-10-22.md)、[L128](../reviews/L128.md)。

@@ -529,3 +529,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百三十八批（2026-10-22）：同先验/预算接口×分支×噪声因子、原生2K信息预算、有序/跨文字评价及关闭视觉辅助实验；未执行。见[审查](../evidence/sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[L125](../reviews/L125.md)。
+
+
+第一百三十九批（2026-10-22）：同数据/预算CoT、外部rewrite、RL奖励/KL方向、跨seed忠实性与有序文字/笔画验证；未执行。见[审查](../evidence/mindomni_rgpo_data_variants_and_feature_kl_audit_2026-10-22.md)、[L128](../reviews/L128.md)。

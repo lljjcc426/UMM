@@ -410,3 +410,6 @@ python scripts/validate_catalog.py
 
 
 第一百三十八批（2026-10-22）完成L125 SenseNova-U1全部核心23表/Eq1–7与固定发布配置/指定源码。明确像素MoT真实任务、17.55B/38.74B索引参数、噪声能量解释、LongText计数召回、理解/OneIG退步、协同对照缺口及U1.5版本边界。357目录，247核心/250书面；未确认核心83论文／研究+27资源。见[审查](docs/evidence/sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_thirty_eighth_changes_2026-10-22.md)。无删除或模型执行。
+
+
+第一百三十九批（2026-10-22）完成L128 MindOmni正式NeurIPS2025核心9表/Eq1–7、9实际PDF页及固定代码/模型配置审查。区分原版WISE.60与追加HQ版.71，记录RGPO仅文字policy ratio、特征KL方向/优势归一化/启动任务名差异和CoT不单调。357目录，248核心/251书面；未确认核心82论文／研究+27资源。见[审查](docs/evidence/mindomni_rgpo_data_variants_and_feature_kl_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_thirty_ninth_changes_2026-10-22.md)。无删除或模型执行。

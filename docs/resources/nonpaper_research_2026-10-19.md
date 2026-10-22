@@ -530,3 +530,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百三十八批（2026-10-22）：固定训练入口/680MB格式样例/两HF配置索引、原U1少步LoRA局限及后续U1.5/Infographic/Interleaved版本队列。见[审查](../evidence/sensenova_pixel_mot_synergy_and_release_audit_2026-10-22.md)、[L125](../reviews/L125.md)。
+
+
+第一百三十九批（2026-10-22）：MindOmni固定HF组合配置、stage1/2/RL脚本、unsupported任务名与内部数据依赖、cascade推理边界。见[审查](../evidence/mindomni_rgpo_data_variants_and_feature_kl_audit_2026-10-22.md)、[L128](../reviews/L128.md)。

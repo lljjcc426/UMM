@@ -8581,6 +8581,40 @@
         }
       ],
       "boundary": "arxiv v1 HTML全部研究正文Abstract/§1–6（含完整Method/data/deployment/23表与消融、VLA/worldmodel解释）、贡献列表和F1–15图注、Eq1–7作用；参考条目不逐篇计精读。完整43页PDF26140491bytes，实际p6/7/8/10/16/20/22/23/27/29/30/31/32/33共14页核框架、结构/训练/理解/文字/推理表、重建、MT柱状/TrainTokens曲线及机器人状态图；其余定性页未逐图。固定GH c35c83b完整735项树/603blob；README新闻/原U1发布与局限相关段，当前U1.5其他图文未全读；NEOChat构造170–251、v输出599–640、编辑1550–1687、生图1780–1857，VisionEmbeddings/NEOVisionModel全逻辑，MoE路由构造/双分支说明，trainingREADME169–245及两型配置选段/8B启动全文，evaluation说明与under yaml全文/生图文档全文、LongText清洗/计数/汇总核心、distill用法与issues。HF两型元数据/完整配置/权重索引；卡片未全文、无权重下载/运行/独立复现；未把后续U1.5与Infographic新版本计此论文三遍。"
+    },
+    {
+      "id": "L128",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "把已有VLM的知识、算术和图像条件理解传给图像生成器，使复杂提示经过显式文字推理后生成符合隐含语义的图像，并用实际图像反馈优化推理策略。任务为图文理解/图像生成及图像编辑，不提供连续视频、中文字笔顺或真实执行验证。 传统T2I直接编码提示，隐含数学/文化/时间空间信息可能未被解出；外置LLM重写和生成器接口易损失上下文，纯文字RL奖励也不能直接反映图像结果。用VLM隐藏状态接入扩散器、CoT SFT建立格式与语义规划，再用格式及CLIP图文反馈更新文字策略，双模态正则约束偏离。该反馈仍可能忽略精确计数/顺序/字形与物理正确性。",
+          "evidence": "正式25页核心/9表/Eq1–7、9实际PDF页和指定附录及固定训练推理制品；KL/优势/启动差异已记录，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "文字/可选参考图→Qwen2.5-VL图文编码与AR文字CoT/answer/IMG→隐藏序列经3584到3072投影与2层Phi3 decoder connector→OmniGen噪声latent/t与语义条件→RF迭代→VAE解码RGB图像；理解路径输出文字。正文提出编辑时额外VAE参考图条件保纹理布局；当前src/mindomni.py的公开generate_image接口实际将参考图传VLM，gen_pipe调用仅传正负context等，未见这里显式传参考VAE latent，不能据此认定所有实现路径都提供正文设计。cascade_thinking选项再做一次文字推理，不是中间图像反馈循环。 VLM Qwen2.5-VL-7B、独立OmniGen约3.8B/Phi3-32层3072维decoder、connector及VAE组合。HF mllm配置28L/hidden3584/Q28KV4/FF18944；ViT32L/1280/16heads/patch14/merge2；image_decoder32L/3072/32heads/FF8192；VAE4通道latent/空间8倍/scaling.13025。connector线性3584→3072后2层Phi3DecoderLayer。表中7B明确仅LLM backbone，不能作为整个系统驻留参数。AR文字CoT和RF连续图像两套机制共用语义条件；无视频时序/笔画事件头。",
+          "evidence": "正式25页核心/9表/Eq1–7、9实际PDF页和指定附录及固定训练推理制品；KL/优势/启动差异已记录，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "三阶段：冻结预训VLM/OmniGen训练decoder connector并用RF/教师特征蒸馏对齐；CoT指令SFT训练生成接口和decoder LoRA；RGPO采样多条文字CoT并生成图像，用格式+CLIP组相对优势更新VLM LoRA，加文字和视觉特征KL。公开实现的policy ratio在文字token上，生成器提供奖励及可微辅助特征；不等于对扩散轨迹执行图像policy gradient。 在需要从知识/算术/图像理解解出隐含条件、VLM答案可信且CLIP足以区分候选图语义的分布上，CoT接口+图像反馈可能比无推理条件提高WISE；KL在不完全破坏原生成器分布时可能减轻遗忘。精确字符顺序/笔画、复杂空间关系、超长或跨文字识别、CLIP语义捷径、错误推理及参考图细纹理未必受益。长CoT或额外HQ样本带来的收益须与推理和数据成本对齐；不推出共享UMM一定胜独立rewrite+generator。",
+          "evidence": "正式25页核心/9表/Eq1–7、9实际PDF页和指定附录及固定训练推理制品；KL/优势/启动差异已记录，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2原MindOmni GenEval.81/DPG83.0，星号HQ版.83/82.5：Gen总体升但DPG降，双对象.97→.94/计数.77→.71/位置.59→.71有取舍。OmniGen.70/81.2；Sana1.5 DPG84.5高于两版。T3原模型无CoT.43、CoT.60，星号CoT.71；BAGEL.70，星号文化.75<.76/物理.72<.75/化学.52<.58，不能称各类最佳。T4 Qwen2.5VL基线51.1/83.4/68.9→51.6/83.2/68.1，MMBench−.2/RealWorldQA−.8，三项均值−.167分；正文约.1%说法不等同严格不退。正文较MetaMorph MMB+9.8与表75.2→83.2的+8.0pp不一致。正式A2 GEdit SC6.55/PQ6.92/overall5.95，未给完整编辑对照和方差。 T5 stage1 .73/.42→+stage2 .81/.54→+stage3 .81/.60；跳SFT只RL .72/.49，支持此配置下SFT打底且RGPO增加WISE6pp，Gen不再升；不能把星号.71的全部收益归RGPO。T6 MLP1层.1%/2G/.63，decoder1层1.5%/31G/.68、2层3%/60G/.73，结构/参数/FLOPs同时改变，不是等容量机制隔离。T7 βT0/βI.01为.79/58.8，.01/.06为.81/59.8，.004/.01为.80/58.9，.01/0为.78/58.2；部分比较同时改两系数。T8 G2/4/6为.79/59.2、.81/59.8、.79/59.3，预算不等。T9格式56.1、CLIP59.4、二者59.8，+.4无CI。F4奖励约.30→.312/format趋1/长度增；F5长度100约59.2、300约59.8、600约57.8，未呈单调test-time scaling。 正式A1 stage1恒定lr1e-4/wd.05/batch1024/256²，stage2 lr5e-5/512²，stage3 cosine/G4/βT.01/βI.06；WISE thinking1024²。公开stage1启动为1进程×batch16/lr2e-5/wd.0001，stage2 batch1/decoderLoRA16/lr5e-5/wd.0001，冻结VLM；这些示例不是正式全训练配置。RL脚本8进程×perdevice4/accum1/G4/maxcompletion2048/lr1e-5/LoRA64alpha128drop.05/冻结vision/100epochs/存验50步；内部checkpoint与数据路径，未取得原始运行日志或硬件时长。RL图像反馈512²/CFG3/seed42固定，推理pipeline默认50步/两CFG分支/1024²，50步约100分支前向且还需VLM/VAE成本；没有端到端速度测量。",
+          "evidence": "正式25页核心/9表/Eq1–7、9实际PDF页和指定附录及固定训练推理制品；KL/优势/启动差异已记录，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "Eq4印刷优势分母为组内平方偏差平均即variance，代码用torch.std+1e-4；Eq6视觉KL正文写current||reference，代码F.kl_div(logcurrent,reference)为reference||current。pretrain teacherKL也具体采用层特征标准化+温度3的softmax，非RGB分布KL。RL gen_kl用新高斯latent/随机t、同一冻结decoder/connector的逐层特征；output_images仅取尺寸，不是生成轨迹完整分布KL。公开TASK_TYPE=mindomni经自定义reward selector仅接受rec/ust，所读分支将落Unsupported；还依赖内部初始化/权重路径，未执行不能宣称可直接复现。CLIP比较输入含user+assistant CoT，可能偏好冗长相关描述；fixed seed不检验多噪声泛化。附录Fig9 answer写two large elephants，图示为一象一兔，与CoT/指令不完全一致，单例不估总体率。A4承认纯文字CoT，多模态CoT/扩展模态为未来。无完整训练数据、配对多seed统计和视频笔顺验证。 固定VLM/OmniGen、原始及HQ数据量、unique提示族和总训练GPU秒，比较无CoT/SFT、answer-only、完整CoT、打乱或错误CoT、外置同VLM重写同生成器；拆CoT内容与额外tokens。RL格式/CLIP/可验证算术或关系奖励逐因子，固定βI测βT并比较variance/std与两KL方向；G2/4/6匹配总rollout和解码预算。独立多seed生成、评测裁判/CLIP版本固定，报告置信区间、计数/关系/CoT正确-图正确四格、错误CoT传播。对文字任务测区域对齐、有序CER/重复增字和跨字体字系，对严格笔顺用规则SVG/VideoSketcher/强视频模型同终态异轨迹对照和事件接触/持续性指标；图像推理结果不能替代视频因果检验。实验均未运行。",
+          "evidence": "正式25页核心/9表/Eq1–7、9实际PDF页和指定附录及固定训练推理制品；KL/优势/启动差异已记录，非口试/独立复现"
+        }
+      ],
+      "boundary": "NeurIPS2025正式25页PDF完整下载17065999bytes，Abstract/Intro/Related/Method§3.1–3.4/Experiments§4.1–4.4/Conclusion、T1–9与Eq1–7核心原文；A1训练全文、A2 GEdit、A3详细response选读、A4限制/A5图注及checklist统计/资源相关声明；非逐篇参考文献/全checklist泛用指南。实际p4/5/6/7/8/9/10/16/18共9页核框架、公式、主表/消融、曲线与CoT样例；其他定性页未逐图。arxiv v2 HTML全部核心及A1–4，正式新增星号/编辑优先正式版；官方ZIP中4页旧RG-VLM补充仅读A1与部分详细CoT，不独立算新研究。固定GH a4c9436完整171项树/137blob，README发布/数据/结果段，pretrain model构造/connector、loss核心、两启动全文、train冻结/LoRA优化器段；RL stage3启动全文/主入口/奖励选择、trainer冻结和policy损失、qwen奖励与gen_kl活跃函数；src mindomni图文/CoT隐藏/生成入口、image_pipeline采样/两CFG段。HF9329cf5元数据25文件/卡片全文与mllm/image_decoder/VAE配置全文。无权重下载、运行训练推理或独立复现。"
     }
   ]
 }

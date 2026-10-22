@@ -1,0 +1,67 @@
+{
+  "id": "L128",
+  "date": "2026-10-22",
+  "venue": "NeurIPS2025 mainconference",
+  "formal_pdf_pages": 25,
+  "formal_pdf_bytes": 17065999,
+  "actual_pdf_pages_viewed": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    16,
+    18
+  ],
+  "tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "equations_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "github_revision": "a4c943667d0dbc06fa61577d8a4b585a66972e14",
+  "hf_revision": "9329cf54d0b66c4f499fd8f4c1575c81b6edde86",
+  "findings": [
+    "Formal original .81/83.0/.60 vs additionalHQ .83/82.5/.71; data variant separate",
+    "Backbone7B excludes3.8Bdecoder/connector/VAE",
+    "RL ratio over texttokens; diffusion frozen and provides CLIP/featureKL",
+    "Eq4variance vs implementationstd; Eq6current-reference vs implementationreverse KL",
+    "VisualKL freshnoise randomt layerfeatures; not actualimage trajectoryKL",
+    "T5 RGPOafterSFT WISE.54to.60 andGenEval unchanged.81",
+    "T6 unequalconnectorcapacity; T7 jointlychangedcoefficients; T8 unequalrolloutbudget",
+    "T9 formataddCLIP only+.4 noCI; F5 longCoT nonmonotonic",
+    "UnderstandingMMB83.4to83.2/RW68.9to68.1",
+    "Text MMBMetaMorph+9.8 vs table+8.0pp unresolved",
+    "PublishedTASK_TYPEmindomni unsupported by selected rewardrec/ust",
+    "README paperlink2406.02395 wrong; correct officialidentity verified",
+    "Currentgenerate_image noexplicit referenceVAEarg; formaleditingdesign separate",
+    "Fig9 texttwoelephants vs imageone elephant one rabbit; noaggregatefaithfulnessclaim",
+    "Internaldata/checkpointpaths and scriptformalhyperdifferences; nofullreproduction"
+  ],
+  "sources": [
+    "https://papers.nips.cc/paper_files/paper/2025/hash/802e90325f4c8546e13e5763b2ecab88-Abstract-Conference.html",
+    "https://papers.nips.cc/paper_files/paper/2025/file/802e90325f4c8546e13e5763b2ecab88-Paper-Conference.pdf",
+    "https://arxiv.org/abs/2505.13031v2",
+    "https://github.com/TencentARC/MindOmni/tree/a4c943667d0dbc06fa61577d8a4b585a66972e14",
+    "https://huggingface.co/EasonXiao-888/MindOmni/tree/9329cf54d0b66c4f499fd8f4c1575c81b6edde86"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}
