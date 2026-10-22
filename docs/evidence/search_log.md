@@ -571,3 +571,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百三十二批（2026-10-22）：v3完整13页/六表/五实际PDF页，GHd1703fc完整123项树和指定方法/训练/评测，HF42f2472与五数据API元数据。见[审查](openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[L118](../reviews/L118.md)。
+
+
+第一百三十三批（2026-10-22）：v1完整15页/五表/八实际PDF页，GH2c5b757完整111项树及指定源码；Qwen配置/指定HF查询，OR挑战版未读。见[审查](unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[L119](../reviews/L119.md)。

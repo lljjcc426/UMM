@@ -8377,6 +8377,40 @@
         }
       ],
       "boundary": "arxivv3完整13页，Abstract/§1–5全部研究文字、全部T1–6/F1–3图注；无方法公式或独立附录，参考文献只选定追引。实际PDFp1/3/4/5/6五页，含参数散点与六表，定性F2/3未逐图核。GHd1703fc完整123项树，README/LICENSE/INFERENCE/EVALUATION/DATASETS/TRAIN全文，三模型配置及B预训/B与L1024FT指定超参、B PT/SFTdataset/processor；主模型33–136/184–216/249–300/344–438、connector414–511、CaptionDataset112–172及BLIPdataset全文，三评测主要采样/保存与CLI选段。五数据指南仅来源/下载/配置关键段，未全读提取脚本；HF42f2472七文件元数据和五数据API元数据，未下载pth/tar/parquet、逐检所有训练源或执行模型/评分/复现。"
+    },
+    {
+      "id": "L119",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "研究单一自回归next-token体系中图像理解与静态图像生成的任务干扰，检验共享前层、分离后层是否比完全共享更合适。没有文字视频、规范笔顺或绘画过程任务，视频/音频/3D及交错长序列明确列Future Work。 作者在GenEval和MJHQ各500条提示上比较逐层图像/文本特征邻域一致性：生成专家大体先升后降，理解专家总体上升；Emu3-base两任务曲线相近，任务专用微调后分离。该观察提出晚层表示需求不同的假说，尚未证明所有模型存在不可避免的根本冲突，也没有直接测梯度冲突或高频重建。",
+          "evidence": "v1全部核心/五表/八实际PDF页、固定GH指定源码与配置，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "理解：图像→VILA-U tokenizer特征→1024到896的两层GELU connector并插BOI/EOI→共享12层→原LLM后12层→文本head/回答。生成：提示与BOI→共享12层→复制后12层→RQ imagehead依次预测每位置4个离散code→累加code嵌入作为下一位置输入→RQ decoder得到RGB。主实验384²为24²=576空间位置，消融256²为16²=256；空间扫描次序和残差量化深度均不表示真实落笔事件。实际PDFp3/4/5/6/7/8/9/11八页核F2/3/4/5/8、公式和全部T1–5。 Qwen2.5-.5B公开底座配置24层/hidden896/14Qheads/2KVheads/FFN4864；源码num_shared_layers=24//2，理解走完整原24层，生成走前12+gen_fork12，独立norm_gen，初始化复制后半权重。单一VILA-U256 tokenizer，词表16384/空间16倍压缩/RQ深度4。论文称总backbone1.21B、理解活跃.5B/生成.76B，消融生成.57B含.07Bhead；预算口径未提供参数清单。发布RQ配置head6层/attention3584/32heads/输入输出896，代码每层先896→3584做完整Q/K/V/out再→896，FFN896→3584→896；仅六层四个注意力矩阵即6×4×3584²=308281344参数，尚未计其余head/主干，与“生成较.5B仅增约.26B”不能直接对应。保留版本/计数疑问，不把源码配置当已复现的.76B。F8层号超过30，而底座24层，特征是否含imagehead/其他层未说明，不据此确认分叉点。",
+          "evidence": "v1全部核心/五表/八实际PDF页、固定GH指定源码与配置，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "VILA-U残差VQ图像表示配Qwen2.5-.5B，前半Transformer层共享，后半复制为理解/生成分支；理解用文本head，生成用逐空间位置再逐RQ深度的AR imagehead。先冻结LLM做视觉对齐，再联合PT/SFT，最后冻结共享参数独立微调任务分支。核心是对齐观察驱动的结构与训练折中，非新扩散/flow或笔画时序理论。 若任务的低层跨模态语义可共享、晚层输出表示与梯度方向更不相容，且共享训练有足够互补数据，前共享后分叉有望相对完全共享取得更好理解/生成Pareto；它以更多总参数换较接近单任务的活跃路径，优势应在固定预算和多分布测得。mutual-kNN下降也可能反映空间/词汇细节而非有害冲突，对齐最大化不天然最优。静态字形重建上限、严格事件和真实执行尚未测，不能由此推导规范笔顺优势或UMM双任务必然互促。",
+          "evidence": "v1全部核心/五表/八实际PDF页、固定GH指定源码与配置，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T3主模型理解MMEP1208/POPE85.8/SEED55.2/VQA70/GQA55.1；相对ShowO1097.2/80约+10.1%/+7.25%，非绝对百分点；GQA仍低于ShowO58/DDiT59.2等。T4主模型GenEval六项.95/.50/.22/.73/.19/.17，平均.46；LWM Overall.47高于.46，不能说总体超越LWM。消融行.83/.24/.16/.62/.06/.62原PDF确如此，六项算术均值约.4217却列Overall.33，错误所在未确认，保留整行和矛盾。按报告Overall .33→.46为+.13/约39.4%相对；FID16.3→10.6约−35%。模型/分辨率/数据规模同时变，不能将全部增益归因活跃参数.57→.76。T5主10.6优于表内ShowO15.18/VILA-U12.81/LWM17.77，但没有等预算同期全面比较。 T2完整：GenExpert GenEval.36/FID15.1；UndExpert MME1177/VQA69.7/SEED56.6；FullyShared1203/69.6/53.9/.28/17.2；UniFork1229/69.9/55.1/.33/16.3。Y型在这五项均优完全共享，支持该配置结构折中；仍弱于生成专家.36/15.1，SEED55.1低于理解专家56.6。作者“可比或更好”必须按指标限定，不能说冲突消除或全面优专家。未扫分叉层比例、未等驻留/FLOPs、没有去StageIII/固定数据量等消融；T2只用I/II子集，主实验三阶段收益不能单独定位。F2/5/8相关曲线支持动机而非独立因果验证，500条MJHQ平均32.9词对GenEval7.3词仅扩一个提示分布。 论文T1：16A100/bf16/context1350/AdamW/wd0；StageI lr1e-4/125K/global384，StageII PT5e-5/170K/384，SFT5e-5/23K/384，StageIII gen3e-5/17K/384与und2e-5/15K/256；除und cosine外constant。T1把warmup.03标steps，脚本表明为ratio；发布gen脚本.02而表为0。全部公开脚本2节点×8GPU、perdevice24/accum1得到global384，und与表256不符；epochs1而无maxsteps，ImageNet4epochs，未给原日志不能认定等于T1。生成短边384中心裁剪，理解长边384/127RGB pad；训练10%空prompt，推理CFG4。发布GenEval默认4图/prompt/seed666，576位置×4RQ深度，温度1/top-p.96/top-k900硬编码于RQ采样；CLI温度未传入该实现。发布forward_gen训练label切片硬编码256位置，推理576，384训练是否另有修改未解决。",
+          "evidence": "v1全部核心/五表/八实际PDF页、固定GH指定源码与配置，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "§5承认tokenizer质量/小模型/训练数据限制，VILA-U256训练却384输入可能空间错配，最优共享比例未探索，交错及视频未来。额外审查：k/特征层与文本参照不清，理解公式仍T而 prose说eachlayer；F8层号、T4聚合、参数总额与源码、warmup/globalbatch/256标签存在未解差异。没有公开独立checkpoint链接（本次tliby+UniFork HF API搜空仅限该查询），完整111项树未见对齐指标脚本或根LICENSE；部分继承文件Apache头部不能替全项目或外部权重授权。源码/基础模型可获取不等原始全数据和原日志可复现。本批未下载权重、执行模型或独立计分。 固定tokenizer/底座/数据比例与总曝光，比较共享0/6/12/18/24层，并分别等总参数、等每任务活跃和等训练FLOPs；加入参数相等adapter/完全分离专家及冻结/不冻结StageIII。每组联合测理解/生成/训练多seed、时延/显存和Pareto，报告gen优und退等负迁移。固定同一真实/生成图与caption，在同层/末层文本两协议下扫k/距离/归一化/池化和prompt长度，保存hooks；直接测共享层梯度cosine并对晚层对齐或去冲突进行干预，检验曲线改变是否预测任务收益。锁定256/384与imagehead容量、同数据规模核T4原始逐prompt计分。文字迁移先oracle tokenizer细字拓扑/OCR重建，再给定同终态不同真实笔顺过程，加入规则SVG/逐笔绘画强基线检验事件、时间和执行；均为未执行设计。",
+          "evidence": "v1全部核心/五表/八实际PDF页、固定GH指定源码与配置，非口试/独立复现"
+        }
+      ],
+      "boundary": "arxivv1完整15页，Abstract/§1–5全部研究文字，mutual-kNN两式与Eq1、T1–5全表、F1–8图注和Limitations/FutureWork；参考文献仅选追引，无独立附录。实际PDFp3/4/5/6/7/8/9/11八页核曲线、框架、训练与五表，定性F1/6/7未逐图审。GH2c5b757完整111项树、README全文；configs/config、六训练脚本主要超参、train.py数据组合345–410/初始化/冻结526–558，projector全文，modeling_qwen2构造/生成共享分支1250–1358/理解后段/生成CE1640–1695，llava_llama88–194、RQTransformer77–178与attention15–172、GenEval采样17–55/99–177/CLI及infer_t2i主要采样/CLI选段。Qwen公开config与tliby HF查询元数据；未读全仓库、基础tokenizer全源码、OR挑战版、权重或实际训练日志，未运行/复现。"
     }
   ]
 }

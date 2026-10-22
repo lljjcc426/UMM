@@ -392,3 +392,6 @@ python scripts/validate_catalog.py
 
 
 第一百三十二批（2026-10-22）完成L118 OpenUni v3全部核心/六表与五实际PDF页，核固定GH训练/模型/评测和HF模型/数据元数据。记录轻连接器、GenEval模板分布、生成器解冻混杂、L512型号矛盾及公开/许可边界。357目录，241核心/244书面；未确认核心89论文／研究+27资源。见[审查](docs/evidence/openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_thirty_second_changes_2026-10-22.md)。无删除或执行模型。
+
+
+第一百三十三批（2026-10-22）完成L119 UniFork v1全部核心/五表与八实际PDF页，核固定GH分支、冻结、RQ头和训练/采样。记录mutual-kNN观察的因果边界、T4聚合矛盾、专家残余差距及参数/分辨率/发布脚本差异。357目录，242核心/245书面；未确认核心88论文／研究+27资源。见[审查](docs/evidence/unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_thirty_third_changes_2026-10-22.md)。无删除或模型执行。

@@ -114,3 +114,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百三十二批（2026-10-22）：256query条件不等256AR输出，DC-AE32倍压缩的细笔上限及GenEval蒸馏/RL/rewrite区别。见[审查](openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[L118](../reviews/L118.md)。
+
+
+第一百三十三批（2026-10-22）：VILA-U RQ四深度与逐空间生成、CFG/top-p/top-k、256原生与384错配；不等规范笔顺。见[审查](unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[L119](../reviews/L119.md)。

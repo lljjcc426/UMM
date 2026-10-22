@@ -512,3 +512,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百三十二批（2026-10-22）：六pth与外部底座、URL重caption、离线DC-AE latent、非商业许可及i2i开发状态。见[审查](../evidence/openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[L118](../reviews/L118.md)。
+
+
+第一百三十三批（2026-10-22）：分支冻结/RQhead/采样/六训练脚本，私有与占位数据、独立权重链接及根许可缺失的限定范围。见[审查](../evidence/unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[L119](../reviews/L119.md)。

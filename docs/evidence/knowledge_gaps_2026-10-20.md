@@ -523,3 +523,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百三十二批（2026-10-22）：模板泛化/精确泄漏需独立核，原训练日志/各数据教师、L512型号矛盾保留。见[审查](openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[L118](../reviews/L118.md)。
+
+
+第一百三十三批（2026-10-22）：k/距离/hooks、F8层号、T4聚合、RQhead参数与论文、256/576训练及原日志待解。见[审查](unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[L119](../reviews/L119.md)。

@@ -318,3 +318,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百三十二批（2026-10-22）：确定query连接器与随机CLIPflow区别、latentflow目标和冻结反传成本。见[审查](openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[L118](../reviews/L118.md)。
+
+
+第一百三十三批（2026-10-22）：mutual-kNN跨样本几何一致性不等梯度冲突；总体曲线非严格单调，CE均值归一化与任务曝光需核。见[审查](unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[L119](../reviews/L119.md)。
