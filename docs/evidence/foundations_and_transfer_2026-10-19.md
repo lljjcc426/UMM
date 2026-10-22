@@ -348,3 +348,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百四十二批（2026-10-22）：正式Eq7–8补条件期望/MC，MI/Bayes恒等式不保证有限容量CE+MSE正迁移；Best轨迹与无偏MC区分。见[审查](unicorn_selfplay_joint_objective_and_unicycle_protocol_audit_2026-10-22.md)、[L131](../reviews/L131.md)。
+
+
+第一百四十三批（2026-10-22）：把性能取舍与梯度/容量根因区分；同组固定Vold减均值后消掉，不因公开存Vnew误判reward错误。见[审查](r3_tree_rl_understanding_scope_and_prompt_overlap_audit_2026-10-22.md)、[L132](../reviews/L132.md)。

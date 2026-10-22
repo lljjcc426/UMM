@@ -9538,22 +9538,28 @@
     "title": "Understanding vs. Generation: Navigating Optimization Dilemma in Multimodal Models",
     "source_urls": [
       "https://arxiv.org/abs/2602.15772",
-      "https://arxiv.org/html/2602.15772v2"
+      "https://arxiv.org/html/2602.15772v2",
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/2aadf45de754077d823b3d5d275bebf2-Abstract-Conference.html",
+      "https://proceedings.iclr.cc/paper_files/paper/2026/file/2aadf45de754077d823b3d5d275bebf2-Paper-Conference.pdf",
+      "https://arxiv.org/abs/2602.15772v2",
+      "https://github.com/sen-ye/R3/tree/761b0b0713352a52128cbd39a004dc383bd082bd",
+      "https://github.com/sen-ye/R3/blob/761b0b0713352a52128cbd39a004dc383bd082bd/data/rl_train/train_geneval.jsonl",
+      "https://github.com/sen-ye/R3/blob/761b0b0713352a52128cbd39a004dc383bd082bd/data/rl_test/test_geneval_553.jsonl"
     ],
-    "method": "Reason文字计划+图→Reflect判断/编辑指令→Refine图；treeRL分阶段采样缓冲，按初始质量或编辑增量给文本GRPO/图FlowGRPO奖励。 BAGEL骨干、共享AR文字/flow图；文本格式reward，图VLMscore V；编辑C=Vnew−Vold，Vold=1时奖励正确停止句。训练Reason+1RR，推理最多4RR可自停。",
-    "conclusion": "GenEval++总.371→reason.593→full.689；ITA60.60→61.76→73.37；GenEval定向训练.962，TIIF另一训练配置，不能当单checkpoint同时分数。跨topic理解增益主要限训练类别。",
-    "gap": "ITA近裁判偏好不等一般理解，未直接优化理解QA也可能通过图域与格式适应影响；reward=1停止规则依赖VLM校准。跨域下降/多seed与等总算力替代还未足够检验；treeRL采样改分布需合理importance处理，源码未审不判错。",
-    "problem": "将理解反思作为生成中间任务，能否减少单独优化的退化并提高最终图？",
+    "method": "R3分Reason(文字CoT计划+初图)、Reflect(图+原目标→错误分析/一句编辑指令或停止)、Refine(图+编辑指令→新图)，迭代自停。Tree-RL将完整链拆阶段，上一阶段图/分数缓冲，按完美/不完美状态重采后各阶段单独分组rollout与优化。文字GRPO、连续图MixGRPO(部分SDE其余ODE)，主训练Reason+1RR、默认推理Reason+最多4RR。无新tokenizer或新的基础MoT骨干。 沿用BAGEL-7B-MoT：文字AR语言路径，SigLIP语义图输入经投影供理解，FLUX-VAE连续latent及t条件供flow生成/编辑，理解和生成专家通过统一attention交互；该7B名称不能自动作为全MoT总参数。公开构建从llm/vit配置载入、指定Qwen2MoTDecoderLayer；当前启动freeze_vit=True/freeze_vae=True/freeze_llm=False/freeze_und=False，语言/理解侧并非全冻结，VAE/ViT冻结；未给新的网络层/额外学习式反思模型。",
+    "conclusion": "正式T1 GenEval++ BAGEL.371→Reason.593→R3.689，相对Reason+9.6pp、相对BAGEL+31.8pp；高于Echo4o.679但低于GPT4o.739。R3 color/count.575及pos/size.575低于Reason两项.600；非全部子项改善。T2ITA60.60→61.76→73.37(+12.77pp)，T3VQA86.48→86.72→89.63(+3.15pp)，全R3对基座七子项均提高；只Reason的count79.30→76.12下降。T6TIIF70.97→82.02、text40.72→72.40，但整体低于GPT4o84.19、text低于92.76，attribute+relation76.96低于selfCoT77.65。T8另GenEval模型总体表.96、F6/正文.962，position.98低于FlowGRPO.99。三个不同数据/步数的训练配置不能拼成单checkpoint全面成绩；TIIF重新训练不能直接证明GenEval++训练模型的跨数据零样本泛化。",
+    "gap": "正文无独立Limitations节，但§3.2承认理解收益依训练领域，AppA5成本与实际F11拼写错误后误停是明确限制。未核到多训练seed/CI、一般理解保持矩阵、完整ITA/VQA标注及正式checkpoint/训练清单。公开GenEval370测试prompt重合与论文不一致，需要解决版本归因；不能以当前文件直接判正式结果无效。缓冲按奖励重采是状态课程，未给对完整轨迹原分布的状态importance权重；可优化条件课程目标，不应无依据称RL无效。公开优势无std、格式门控、15%完美、默认globalbatch/steps/KL与论文差异；图像log概率按维度平均、KL是等方差真KL的2倍均值尺度。文字保存raw概率、训练也读raw，但实际采样temperature.9/top-p.9，基础policy目标与探索分布需说明。静态多轮编辑/迷宫状态序列不保证持续视频一致/笔顺正确。",
+    "problem": "统一模型单独后训练生成或理解时，另一任务可能退步；把理解作为生成中的反思与编辑条件，能否在同一BAGEL上改善静态组合图像生成及与生成内容相关的理解。任务是文本→计划+初图→多轮图像问答式自评/编辑指令+修图，不是连续书写视频、笔顺预测或普适理解基准。",
     "claim": "研究目标：将理解反思作为生成中间任务，能否减少单独优化的退化并提高最终图？",
-    "version": "Understanding vs. Generation/R3；arXiv2602.15772v2，2026-03-31；正式会场未核",
+    "version": "Understanding vs. Generation: Navigating Optimization Dilemma in Multimodal Models；ICLR2026 Conference正式论文集已核，24页完整2328370bytes；arxiv2602.15772v2/2026-03-31交叉读。论文PDF末作者Han Hu，论文集元数据Winston Hu，按各原始来源保留。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 5. 后训练：对齐、强化学习与自改进",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-22",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-22",
     "id": "L132",
     "canonical_key": "paper:arxiv:2602.15772",
     "evidence_history": [
@@ -9585,17 +9591,22 @@
         "conclusion": "研究通过理解结果改善再生成；改进可能来自额外推理计算，需等预算对照",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-22",
+        "batch": 143,
+        "scope": "正式ICLR24页完整PDF、Abstract/§1–5、全部T1–9/Eq1–3、AppA1/A2.1–2所有GRPO/flow/SDE/MixGRPO公式与A3.1–3/A4/A5/A7全文，A6全部图注及选择性图；arxivv2完整HTML研究文字交叉。实际PDFp2/3/4/5/6/7/8/9/16/17/20/24共12页核看，覆盖F1–7、全部9表、F10/11及mazeF16；其他定性图未逐图核、参考文献未逐篇独立精读。固定GH761b0b0713352a52128cbd39a004dc383bd082bd完整72项树/README/tutorial全文、启动全文、train/data_utils及reward_func全部任务提示和分数、sde_sampler全文；online_rl缓冲/采样/奖励/优势/文本与图概率/KL/冻结/数据/评估选段、train_utils优势实现、rollout格式/终止/图CFG/pack与BAGEL MixSDE/文字采样选段；七JSONL全文解析计数与字面prompt交叉、metadata样例，未逐条语义审注。未独立读全模型/训练源码、部署外部rewardserver、下载权重、执行训练/推理或复现；未核正式实验实际训练清单。"
       }
     ],
-    "sections_read": "§2.1–2.4、3.1/3.2Tables1–5及TIIF自身行、§5、AppA3条件/ITA/VQA/Table7、A5成本；未核全部图坐标、完整理论/源码/maze实验，未复现",
+    "sections_read": "正式ICLR24页完整PDF、Abstract/§1–5、全部T1–9/Eq1–3、AppA1/A2.1–2所有GRPO/flow/SDE/MixGRPO公式与A3.1–3/A4/A5/A7全文，A6全部图注及选择性图；arxivv2完整HTML研究文字交叉。实际PDFp2/3/4/5/6/7/8/9/16/17/20/24共12页核看，覆盖F1–7、全部9表、F10/11及mazeF16；其他定性图未逐图核、参考文献未逐篇独立精读。固定GH761b0b0713352a52128cbd39a004dc383bd082bd完整72项树/README/tutorial全文、启动全文、train/data_utils及reward_func全部任务提示和分数、sde_sampler全文；online_rl缓冲/采样/奖励/优势/文本与图概率/KL/冻结/数据/评估选段、train_utils优势实现、rollout格式/终止/图CFG/pack与BAGEL MixSDE/文字采样选段；七JSONL全文解析计数与字面prompt交叉、metadata样例，未逐条语义审注。未独立读全模型/训练源码、部署外部rewardserver、下载权重、执行训练/推理或复现；未核正式实验实际训练清单。",
     "review_path": "docs/reviews/L132.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "GenEval/++模板随机组合排exacttestprompt，TIIF官方train；VQA/ITA用基线BAGEL生成test图，Gemini2.5Flash标注+人工核。理解数据测试图固定，ITA是与裁判一致率；同模板不同字符串不等于组合OOD。",
-    "framework": "Reason文字计划+图→Reflect判断/编辑指令→Refine图；treeRL分阶段采样缓冲，按初始质量或编辑增量给文本GRPO/图FlowGRPO奖励。",
-    "architecture": "BAGEL骨干、共享AR文字/flow图；文本格式reward，图VLMscore V；编辑C=Vnew−Vold，Vold=1时奖励正确停止句。训练Reason+1RR，推理最多4RR可自停。",
-    "metrics": "GenEval/++、TIIFshorttestmini，VQA/ITA及count等子域；GenEval++评GPT4.1/rewardQwen2.5VL72B，GenEvalrewardFlowGRPOsoft。多轮延迟/NFE另计。",
-    "baselines": "BAGEL、reasononly、自CoT、FlowGRPO/GoTR1等；TreevsFulltrajectory、训练1/2RR、推理多轮、cross-topic。没有等延迟bestofN/外部judgepipeline等全部强对照。",
-    "experimental_conditions": "lr5e-6 b16group16温.9；GenEval/++/TIIF400/300/200steps，CE:MSE1:2、reasonNFE10/15/15、edit20、textCFG4/image1.5、KLtext.0005/image.005。reasonSDEa.7/edit1；256候选取16且20%perfect。单H20/b1/512推理20–25s初图，每RR25–35s；训练GPU数未核。"
+    "dataset": "论文GenEval与GenEval++随机重组官方模板并声称排除测试prompt；TIIF用官方train、测short testmini。正式理解集固定使用基线BAGEL根据GenEval++测试prompt生成图，结构metadata生成yes/no题，Gemini2.5Flash给VQA/ITA标签并人工一致性检查，未报告该检查抽样量/标注误差/完整理解集制品。固定发布七JSONL全部解析：train GenEval12359、GenEval++18134、TIIF2261(2260不同short)；test GenEval2212(553prompt各重复4次)、test_geneval_553为553、GenEval++280、TIIF277。GenEval发布训练与两测试文件均有370不同prompt完全重合，按553测试tag为single80/two99/count80/colors92/position18/color_attr1；与正文严格排除测试提示声明不一致。该May6公开版本不自动证明正式训练使用相同样本，缺原实验清单/日志；GenEval++及TIIF对应发布文件字面交集均0，同模板仍不等于组合OOD。",
+    "framework": "R3分Reason(文字CoT计划+初图)、Reflect(图+原目标→错误分析/一句编辑指令或停止)、Refine(图+编辑指令→新图)，迭代自停。Tree-RL将完整链拆阶段，上一阶段图/分数缓冲，按完美/不完美状态重采后各阶段单独分组rollout与优化。文字GRPO、连续图MixGRPO(部分SDE其余ODE)，主训练Reason+1RR、默认推理Reason+最多4RR。无新tokenizer或新的基础MoT骨干。",
+    "architecture": "沿用BAGEL-7B-MoT：文字AR语言路径，SigLIP语义图输入经投影供理解，FLUX-VAE连续latent及t条件供flow生成/编辑，理解和生成专家通过统一attention交互；该7B名称不能自动作为全MoT总参数。公开构建从llm/vit配置载入、指定Qwen2MoTDecoderLayer；当前启动freeze_vit=True/freeze_vae=True/freeze_llm=False/freeze_und=False，语言/理解侧并非全冻结，VAE/ViT冻结；未给新的网络层/额外学习式反思模型。",
+    "metrics": "生成GenEval检测器组合正确率、GenEval++ GPT4.1评估全约束正确率、TIIFshort testmini Qwen2.5VL72B逐题率/分组均分；文字渲染仅TIIF text和例图，没有CER/字符序/笔画时序指标。理解VQA为与Gemini标签yes/no一致率，ITA为整图对提示的判断一致率，都是固定BAGEL生成图上的任务分布，不等一般MME/MMMU理解或真值无误人评。F4训练reward不是生成测试分，F7左为Qwen reward、右为VQA；T4GenEval++为validation reward，不能和T1 GPT4.1测试分直接比较。推理报告最大轮数、自停轮数分布与单H20时延，无端到端训练/评测总GPUh。",
+    "baselines": "T1 GPT4o/FLUXKontext/FLUXdev/JanusPro/T2IR1/Echo4o/BAGEL与只Reason；T6另FLUXPro/BAGELselfCoT；T8QwenImageRL/FlowGRPO。模型大小/预训/监督数据/教师/推理轮数与算量未全匹配。核心对照有同R3推理下未RL BAGEL、Reason-only、1/2RR训练、不同最大轮推理、Tree与fulltrajectory训练reward、单类别→其他类别理解。缺同总NFE/延迟Best-of-N、固定外部反思编辑器、反思打乱/空图/冻结理解模块及参数容量对照，不能只因缺对照否定已观测收益。",
+    "experimental_conditions": "正式T7 lr5e-6/batch16/group16；GenEval/GenEval++/TIIF分别400/300/200steps，CE:MSE权重1:2，文字temperature.9、CFGtext4/image1.5、KLtext.0005/image.005，初图10/15/15更新、编辑20。Reason SDE a.7、edit1，256候选取16且约20%完美；主训练一Reason+一RR。推理H20单卡/b1/512²，初图20–25s、每RR25–35s(反思5–10/修图20–25)，45%零RR/26%一/14%二/15%三以上，零RR仍需判停反思的具体计时需说明。当前公开启动默认8进程/PG4=2promptgroups×16=32候选，不是正文16×16；1000steps/KLtext=image.001/warm10/AdamW.9,.95 eps1e-8/wd0/clip1，未等同正式配置。脚本num_timesteps16/21为网格点，实际减一得到15/20更新，与GenEval++正文一致，不能误标步数冲突。"
   },
   {
     "title": "Learning to Generate via Understanding: Understanding-Driven Intrinsic Rewarding for Unified Multimodal Models",

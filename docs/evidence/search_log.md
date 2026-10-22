@@ -601,3 +601,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百四十二批（2026-10-22）：正式ACL32页完整、17表/Eq1–9、13实际PDF页和6旧版原图；固定主代码/基准/HF、两JSONL全解析，未运行模型。见[审查](unicorn_selfplay_joint_objective_and_unicycle_protocol_audit_2026-10-22.md)、[L131](../reviews/L131.md)。
+
+
+第一百四十三批（2026-10-22）：ICLR正式24页/9表/Eq1–3及附录、12实际页，固定72项树、训练选段和七JSONL全解析，未运行模型。见[审查](r3_tree_rl_understanding_scope_and_prompt_overlap_audit_2026-10-22.md)、[L132](../reviews/L132.md)。

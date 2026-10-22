@@ -8717,6 +8717,40 @@
         }
       ],
       "boundary": "arxiv2601.03193v2完整HTML Abstract/§1–5/Limitations及AppA–E研究文字，全部17表(对应HTML25个含公式块)/旧Eq1–7；正式ACL32页完整27340213bytes、§1–5/Limitations、AppA目录/B实验/C相关/D1–4理论/E1–3基准/F1–3结果和全部T1–17/Eq1–9交叉阅读，实际PDFp3/5/7/8/20/21/24/25/26/27/28/31/32共13页核看。实际旧版原始F1/F4/F5/F7/F10/F13共6张核看，其他图注读、未逐图所有定性图片/全参考文献；正式F6规模图与旧F7号区别已记。主GH e3b4518d完整209项树/README全文，启动/yaml/registry/getmax/selfjudge/selfreflect全文、caption模板/转换、proposer规则/seed/persona/采样、imagegeneration/reward输入输出、trainer冻结/配置/CE-MSE和模型flow forward选段；HF5e8d1df7 README/配置/文件树/index/参数元数据，未下载权重。UniCycle GHaa1cf81f完整25项树/README全文、两JSONL全部解析计数/结构与样例、metrics全文、judge全部有效提示/参数/循环、runner入口和BAGEL输入/默认/新context、Janus采样选段；未独立逐题审注、全trainer/全部后端源码或运行API/模型。实际训练集/seedCSV/persona文件未取得，未独立复现。"
+    },
+    {
+      "id": "L132",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "统一模型单独后训练生成或理解时，另一任务可能退步；把理解作为生成中的反思与编辑条件，能否在同一BAGEL上改善静态组合图像生成及与生成内容相关的理解。任务是文本→计划+初图→多轮图像问答式自评/编辑指令+修图，不是连续书写视频、笔顺预测或普适理解基准。 F1计数子集：初始Gen47.5/Und80.4，单Gen57.5/79.8，单Und32.5/82.4，朴素混合50/80.7，R3 80/85.9，说明该配置存在取舍并支持研究任务耦合；未测梯度夹角/容量饱和、优化多seed或普遍不可兼得定理，不能由性能变化唯一识别根因是参数竞争。F1数值不同于T1/T3的计数行，不能混为同一配置。作者假设反思理解对生成有功能用途能改善协同。",
+          "evidence": "正式24页核心/全部9表/Eq1–3及附录、12实际PDF页，固定训练与七JSONL发布提示交集；正式训练清单未核，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "c→AR文字t1→flow初图I1；(c,Ii)→AR反思ti+1与编辑ei+1，若停止保留原图，否则(Ii,ei+1)→flow新图。Eq1为交错序列分布，Reason联合概率可按链式法则分解；Markov假设仅保留当前图/指令/目标，不能当有任意长历史保证。训练外部Qwen或GenEval检测器判分，反思文本不直接监督VQA正确答案，通过后续图奖励与格式奖励学。Maze扩展先随机轨迹SFT学图像状态转移再RL生成行动/图状态，只有定性12×10迷宫示例，无成功率表。 沿用BAGEL-7B-MoT：文字AR语言路径，SigLIP语义图输入经投影供理解，FLUX-VAE连续latent及t条件供flow生成/编辑，理解和生成专家通过统一attention交互；该7B名称不能自动作为全MoT总参数。公开构建从llm/vit配置载入、指定Qwen2MoTDecoderLayer；当前启动freeze_vit=True/freeze_vae=True/freeze_llm=False/freeze_und=False，语言/理解侧并非全冻结，VAE/ViT冻结；未给新的网络层/额外学习式反思模型。",
+          "evidence": "正式24页核心/全部9表/Eq1–3及附录、12实际PDF页，固定训练与七JSONL发布提示交集；正式训练清单未核，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "R3分Reason(文字CoT计划+初图)、Reflect(图+原目标→错误分析/一句编辑指令或停止)、Refine(图+编辑指令→新图)，迭代自停。Tree-RL将完整链拆阶段，上一阶段图/分数缓冲，按完美/不完美状态重采后各阶段单独分组rollout与优化。文字GRPO、连续图MixGRPO(部分SDE其余ODE)，主训练Reason+1RR、默认推理Reason+最多4RR。无新tokenizer或新的基础MoT骨干。 推断：基座已会定位错误并能条件编辑、外部reward能可靠区分局部修正、提示包含计数/颜色/空间等可验证约束且允许额外推理预算时，分阶段组内相对奖励有望降低长链信用分配难度、提高对应内容判断。训练1RR而推理多轮可复用编辑策略；这不构成所有任务理解与生成梯度必同向的理论保证。若裁判错、图不可编辑、错误在细笔画/字符顺序/执行物理约束上不可见，可能早停或反复修错。领域外理解、文本长串/多语种、长视频需新证据。",
+          "evidence": "正式24页核心/全部9表/Eq1–3及附录、12实际PDF页，固定训练与七JSONL发布提示交集；正式训练清单未核，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "正式T1 GenEval++ BAGEL.371→Reason.593→R3.689，相对Reason+9.6pp、相对BAGEL+31.8pp；高于Echo4o.679但低于GPT4o.739。R3 color/count.575及pos/size.575低于Reason两项.600；非全部子项改善。T2ITA60.60→61.76→73.37(+12.77pp)，T3VQA86.48→86.72→89.63(+3.15pp)，全R3对基座七子项均提高；只Reason的count79.30→76.12下降。T6TIIF70.97→82.02、text40.72→72.40，但整体低于GPT4o84.19、text低于92.76，attribute+relation76.96低于selfCoT77.65。T8另GenEval模型总体表.96、F6/正文.962，position.98低于FlowGRPO.99。三个不同数据/步数的训练配置不能拼成单checkpoint全面成绩；TIIF重新训练不能直接证明GenEval++训练模型的跨数据零样本泛化。 正式T4训练Reason/1RR/2RR：GenEval++ validation reward .654/.729/.732，ITA62.83/74.49/74.76，后一RR边际小，未等训练FLOPs。T5单类计数/颜色/位置大小的对角ITA提高，位置训练计数62.71→60、颜色60.63→60，颜色训练计数62.71→62.50，跨类不普遍保持。T9同推理BAGELvsR3：Reason.399/.593，1RR.432/.675，2RR.436/.689，3RR.439/.682，4RR.439/.689；有对未RL多轮基座控制，收益不能全部归为额外轮数。实际F6 GenEval.944/.956/.955/.956/.962，GenEval++.593/.675/.689/.682/.689，TIIF75.9/81.2/81.9/82.6/82.0，均非单调。F7 VQA约75–100step已明显上升，不支持正文前150步几乎不变、150后才启动的严格时间描述；关联曲线不能证明理解提升因果推动生成。F4Tree reward更高，有未说明统计定义的阴影，未给梯度方差实测或等walltime曲线。 正式T7 lr5e-6/batch16/group16；GenEval/GenEval++/TIIF分别400/300/200steps，CE:MSE权重1:2，文字temperature.9、CFGtext4/image1.5、KLtext.0005/image.005，初图10/15/15更新、编辑20。Reason SDE a.7、edit1，256候选取16且约20%完美；主训练一Reason+一RR。推理H20单卡/b1/512²，初图20–25s、每RR25–35s(反思5–10/修图20–25)，45%零RR/26%一/14%二/15%三以上，零RR仍需判停反思的具体计时需说明。当前公开启动默认8进程/PG4=2promptgroups×16=32候选，不是正文16×16；1000steps/KLtext=image.001/warm10/AdamW.9,.95 eps1e-8/wd0/clip1，未等同正式配置。脚本num_timesteps16/21为网格点，实际减一得到15/20更新，与GenEval++正文一致，不能误标步数冲突。",
+          "evidence": "正式24页核心/全部9表/Eq1–3及附录、12实际PDF页，固定训练与七JSONL发布提示交集；正式训练清单未核，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "正文无独立Limitations节，但§3.2承认理解收益依训练领域，AppA5成本与实际F11拼写错误后误停是明确限制。未核到多训练seed/CI、一般理解保持矩阵、完整ITA/VQA标注及正式checkpoint/训练清单。公开GenEval370测试prompt重合与论文不一致，需要解决版本归因；不能以当前文件直接判正式结果无效。缓冲按奖励重采是状态课程，未给对完整轨迹原分布的状态importance权重；可优化条件课程目标，不应无依据称RL无效。公开优势无std、格式门控、15%完美、默认globalbatch/steps/KL与论文差异；图像log概率按维度平均、KL是等方差真KL的2倍均值尺度。文字保存raw概率、训练也读raw，但实际采样temperature.9/top-p.9，基础policy目标与探索分布需说明。静态多轮编辑/迷宫状态序列不保证持续视频一致/笔顺正确。 先固定正式train/testID和checkpoint，去除已核370提示及近模板泄漏，分别报告熟悉模板/新实体组合/跨类别/跨图像域，多训练seed与人评。同基座同数据/更新/总生成NFE/裁判调用/总GPUh比较Reason、Fulltrajectory、Tree、BestN与独立外部反思器；RL有无×反思有无×结构化格式有无×语义反思打乱/无图/冻结理解分支。验证状态采样完美比0/.15/.2/自然分布与按原状态分布加权；组内中心化/标准化及KL尺度、格式加和/门控分开消融。固定同批真实与合成图问答、均衡yes/no、防语言先验，测独立标注一致率及MME/MMMU等保持。绘制真实gradient余弦/方差/训练时间和每实例改好/改坏、停止精确率/召回率/校准、成本质量Pareto。书写另测有序OCR、笔画事件与RGB可观察性；均未执行。",
+          "evidence": "正式24页核心/全部9表/Eq1–3及附录、12实际PDF页，固定训练与七JSONL发布提示交集；正式训练清单未核，非口试/独立复现"
+        }
+      ],
+      "boundary": "正式ICLR24页完整PDF、Abstract/§1–5、全部T1–9/Eq1–3、AppA1/A2.1–2所有GRPO/flow/SDE/MixGRPO公式与A3.1–3/A4/A5/A7全文，A6全部图注及选择性图；arxivv2完整HTML研究文字交叉。实际PDFp2/3/4/5/6/7/8/9/16/17/20/24共12页核看，覆盖F1–7、全部9表、F10/11及mazeF16；其他定性图未逐图核、参考文献未逐篇独立精读。固定GH761b0b0713352a52128cbd39a004dc383bd082bd完整72项树/README/tutorial全文、启动全文、train/data_utils及reward_func全部任务提示和分数、sde_sampler全文；online_rl缓冲/采样/奖励/优势/文本与图概率/KL/冻结/数据/评估选段、train_utils优势实现、rollout格式/终止/图CFG/pack与BAGEL MixSDE/文字采样选段；七JSONL全文解析计数与字面prompt交叉、metadata样例，未逐条语义审注。未独立读全模型/训练源码、部署外部rewardserver、下载权重、执行训练/推理或复现；未核正式实验实际训练清单。"
     }
   ]
 }

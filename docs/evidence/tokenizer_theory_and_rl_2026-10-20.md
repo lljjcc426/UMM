@@ -144,3 +144,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百四十二批（2026-10-22）：UniCorn离线选优CE+flowMSE，未用在线GRPO；固定数据MI与学习交叉熵不可混同，拒绝采样代价纳入。见[审查](unicorn_selfplay_joint_objective_and_unicycle_protocol_audit_2026-10-22.md)、[L131](../reviews/L131.md)。
+
+
+第一百四十三批（2026-10-22）：Tree阶段课程、组中心化无std/格式门控、行为clip、图像几何概率比及KL因子；时间网格16/21为15/20更新。见[审查](r3_tree_rl_understanding_scope_and_prompt_overlap_audit_2026-10-22.md)、[L132](../reviews/L132.md)。

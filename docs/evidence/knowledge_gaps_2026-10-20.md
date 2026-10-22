@@ -553,3 +553,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百四十二批（2026-10-22）：论文1401与发布2338提示映射、Qwen3/自裁判/gpt4omini、yes/no对数字词数、全失败分母及seed/PersonaHub待核。见[审查](unicorn_selfplay_joint_objective_and_unicycle_protocol_audit_2026-10-22.md)、[L131](../reviews/L131.md)。
+
+
+第一百四十三批（2026-10-22）：公开GenEval370/553字面重合需正式训练版本归因；ITA/VQA金标/总预算和状态课程分布未完整发布。见[审查](r3_tree_rl_understanding_scope_and_prompt_overlap_audit_2026-10-22.md)、[L132](../reviews/L132.md)。
