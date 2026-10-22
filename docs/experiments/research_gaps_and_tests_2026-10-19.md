@@ -508,3 +508,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百三十一批（2026-10-22）：等参数/FLOPs的flow控制、oracleCLIP字形上限、同数据joint/seq及AI/real、人评聚类；未执行。见[审查](../evidence/blip3o_semantic_flow_open_artifact_and_version_audit_2026-10-22.md)、[L117](../reviews/L117.md)。
+
+
+第一百三十二批（2026-10-22）：等FLOPs与query/深度控制、60K真实/AI/跨模板、同SANA分辨率、DC-AE字形上限，未执行。见[审查](../evidence/openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[L118](../reviews/L118.md)。

@@ -504,3 +504,8 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 第一百三十一批（2026-10-22）完成L117 BLIP3-o v1完整核心/两主表/AppA与七实际PDF页，核原GH与HF模型/数据卡。分开公开8B与私有论文8B、原版与NEXT，记录语义flow公式勘误、64query单次前向和缺少joint/AI数据因果对照。357目录，240核心/243书面；未确认核心90论文／研究+27资源。见[审查](blip3o_semantic_flow_open_artifact_and_version_audit_2026-10-22.md)、[逐文件说明](one_hundred_thirty_first_changes_2026-10-22.md)。无删除或执行模型。
 
 继续L118 OpenUni及后续统一模型；BLIP3o-NEXT2510.15857按原ID去重、原OpenReview9aI6XUDYLX后版全文/录用未核、公开检查点完整训练日志和数据去重留队列。
+
+
+第一百三十二批（2026-10-22）完成L118 OpenUni v3全部核心/六表与五实际PDF页，核固定GH训练/模型/评测和HF模型/数据元数据。记录轻连接器、GenEval模板分布、生成器解冻混杂、L512型号矛盾及公开/许可边界。357目录，241核心/244书面；未确认核心89论文／研究+27资源。见[审查](openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_thirty_second_changes_2026-10-22.md)。无删除或执行模型。
+
+继续L119 UniFork及后续模型；追引FlowGRPO（先核原ID）、SANA/DC-AE正式版与重caption资源，按题名/原ID去重。OpenUni资源元数据与架构接口核查不等这些工作精读完成。

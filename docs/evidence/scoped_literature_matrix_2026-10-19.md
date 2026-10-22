@@ -479,3 +479,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百三十一批（2026-10-22）：静态理解/图像生成，原文编辑/交错/重建未来，未评书写视频。见[审查](blip3o_semantic_flow_open_artifact_and_version_audit_2026-10-22.md)、[L117](../reviews/L117.md)。
+
+
+第一百三十二批（2026-10-22）：静态T2I与继承理解，原文文字渲染困难、i2i未来，不推视频/笔顺。见[审查](openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[L118](../reviews/L118.md)。

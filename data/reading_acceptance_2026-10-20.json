@@ -8343,6 +8343,40 @@
         }
       ],
       "boundary": "v1完整17页文件，Abstract/§1–8全部核心研究/两主表/F1–6图注/AppA全部prompt，Refs只选定追引；实际PDFp3/5/7/8/9/10/12七页，含F1/F3–6/T1–2与两处公式，未逐图看p1/2/4定性图。GH418fc44完整2042项树，原README/run/sft/slurm/inference/qwen训练forward/生成/encoderbuilder/NextDiTCrossAttn全文或关键路径，arch15–41/74–139、train36–78/900–924/969等选段；未全读vendored eval、训练数据loader、Lumina底层/全仓。默认NEXT README前100行只辨版本。HF4/8及四数据API元数据完整，网页模型卡与数据卡正文及预览元信息，main8B config和decoder92–166/182–254；固定revision config/trainer/decoder请求未获实际内容，trainer_state未读。未下载tar/权重、执行模型/训练或独立复现；OpenReview后版全文受阻未算已读。"
+    },
+    {
+      "id": "L118",
+      "checked_on": "2026-10-22",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "以最小连接模块把既有MLLM和预训练扩散生成器组合，保留图像理解并获得文字到静态图像生成，提供公开工程强基线。未提出视频、笔顺或绘画过程任务；§5明确生成文字仍困难、图像重建/编辑留未来。 从零统一训练成本高且任务可能冲突，冻结成熟模块再学连接可降低新增优化参数和工程复杂度。其“轻量”主要指连接器54M/225M和冻结策略，MLLM、SANA、DC-AE的预训练、运行与冻结模块内部梯度传播仍有成本，不能由新增参数少直接推出全系统等质量更快/更省总计算。",
+          "evidence": "arxivv3完整核心/六表/五实际PDF页、固定GH指定源码配置与HF元数据，非口试/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "T2I：caption模板+imgstart→词嵌入追加256query→冻结LLM最后256hidden→六层双向connector→线性projection到SANA条件通道→随机DC-AE latent的flow/diffusion积分→DC-AE decoder RGB512²或1024²。256query一次主干前向，非256次逐token生成；connector是确定条件变换，与BLIP3-o随机CLIP特征flow不同。理解走冻结InternVL3原生图文回答，生成路径不经过其视觉encoder。论文没有整体架构图，本批依据§3与所读源码重建数据流；实际p1/3/4/5/6五页核F1和全部T1–6。 B512用InternVL3-1B+SANA.6B，connector6层/hidden896/14heads/FFN3072，T1约54M；L512/1024用InternVL3-2B，connector6层/1536/24heads/FFN8960，约225M，SANA1.6B512或SANA1.5-1.6B1024。§3正文把L512写.6B，T1/README/实际模型配置均1.6B，应保留文内矛盾并按有交叉证据配置记录。Connector借SigLIP encoder结构，源码随机初始化全连接/attention，并未load预训SigLIP视觉权重；两层preLN残差/selfattn+MLP，全query双向。DC-AE为f32c32，512→16²/1024→32²空间latent，不能把256query与像素latent数混同。摘要activated1.1/3.1B与F1横轴LLM参数、T1connector参数的分母不同，不用单一数字代表全系统驻留/活跃/可训预算。",
+          "evidence": "arxivv3完整核心/六表/五实际PDF页、固定GH指定源码配置与HF元数据，非口试/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "明确承接MetaQuery设计：256learnablequeries追加到prompt，经冻结InternVL3语言主干一次前向取hidden，六层Transformer connector和线性投影给SANA crossattention。第一阶段仅query/connector/projection训练，第二阶段解冻SANA transformer而MLLM/DC-AE仍冻结。主贡献是较小连接器、训练配方/制品与透明对照基线，没有提出新的flow理论，也未证明两任务互促。 预训练MLLM已理解prompt、SANA的crossattention条件可被少量query桥接且目标图分布接近其先验时，小connector可用有限新增训练保持理解能力并取得较好静态对齐。冻结参数降低优化状态和参数更新成本；但query梯度仍需穿过冻结LLM操作，推理含LLM/CFG/SANA/DC-AE，节省比例要实测。固定模板组合可能受益于相似蒸馏分布，跨模板/语言与细字未有同等保证。",
+          "evidence": "arxivv3完整核心/六表/五实际PDF页、固定GH指定源码配置与HF元数据，非口试/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T3 B512 GenEval.84、L512.85、L1024.86；BAGEL无rewrite.82但rewrite.88，FlowGRPO.95为不同协议，不称所有方法最优。L1024计数.76低于L512.77/BAGEL.81，非各类全优。T4 DPG80.29/81.54/83.08；L1024低于JanusPro7B84.19与SD3M84.08/DALLE3 83.50，超过表中MetaQueryXL82.05/论文BLIP8B81.60。T5 WISE B.43/L两版.52，L等于公开BLIP8B/BAGEL.52但低于MetaQueryL/XL.55、私有BLIP.62。T6 B/L MMVet59.5/62.2、MMEP1491.22/1626.88、MMMU43.4/48.6、TextVQA74.1/77.0、POPE90.7/89.6；L非全部高于B，SEED64.6弱于多基线，继承能力不等协同证明。 主要可解释对照为B有无60K：GenEval.62→.84（+.22绝对/22百分制点），DPG79.04→80.29（+1.25）。GenEval位置.25→.77、属性.42→.73，但DPGGlobal88.21→85.87/Relation87.01→86.91下降，不能写全维提升。该对照同时改变数据分布/额外训练和生成器解冻，无法独立证明蒸馏质量、模板重合或轻连接器的因果作用。作者指出约10K训练样本同GenEval提示模板，这与已见BLIP3o卡的“test不重叠”可同时成立：模板重合不等具体测试项泄漏；没有独立泄漏审计。没有query数、连接器深度、初始化、冻结/联合、等计算或完整scaling消融；B/L更换多个模块，L512→1024也换SANA1.5，非纯分辨率控制。 T2 PT100K/b512/lr1e-4/warm1000，SFT10K/b256/lr1e-5/warm100；AdamW betas.9,.95/wd.05/clip1/cosine。GH B配方CustomAdamW/Amp bf16、accum1、seedNone/非deterministic，单进程batch32；TRAIN示例PT2节点×8/SFT1×8与表globalbatch一致，L1024示例PT4×8/SFT2×8，但未读全部datasetbatch，不能据此确认原硬件/FLOPs。PT离线DC-AE latents可减少重复encoder计算；完整预提取成本仍计。SFT默认maxinput128并在模板后截断，0.1无条件。原文未列采样步数/CFG；GH eval默认20步/CFG4.5/seed42，GenEval每prompt4张、DPG4张拼2×2，WISE每prompt1张；官方bench另算最终分。默认不等原论文完整生成命令，训练seedNone也不是多seed报告。",
+          "evidence": "arxivv3完整核心/六表/五实际PDF页、固定GH指定源码配置与HF元数据，非口试/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "§5直接承认渲染文字困难和i2i未来；公开TRAIN称i2i开发中不保证，不能把函数/配置存在写成已获编辑能力。理解以冻结InternVL3保留，缺共享对生成/理解互促的实验；强基础模型与SANA/DC-AE先验使小连接器贡献难独立归因。原文23M全开放措辞需结合URL发布/原图获取和S-Lab非商业许可限定。T1BLIP8B30M/50M与自家后表*额外30M、已核BLIP v1 25M公开+30M私有不一致，不能沿抄50M为精确总数。SFT描述把DALLE/Midjourney当合成器，而BLIP原文为GPT4o生成、JDB/DALLE来源prompt，应分别保留作者说法与原始核查，不混成同一教师。无统计不确定性/OOD结构文字测试、完整运行日志或端到端成本。 先固定同InternVL/SANA/DC-AE/数据/样本曝光，控制query64/128/256、connector2/6/12层、线性vs双向Transformer、同预算decoder解冻；分等参数与等FLOPs报告完整生成和理解变化。60K有无采用四组：原PT继续同步数、真实匹配prompt、AI匹配prompt、AI跨模板，固定生成器解冻和候选预算；按对象组合/模板/语言分离ID/OOD并核近重复，避免把模板泛化与泄漏等同。L512/1024保持同SANA版本只改尺寸再与换SANA1.5分开，测细字oracle DC-AE重建/预测端OCR及形近字拓扑。计全系统含预提latents、冻结LLM反传、CFG与decode时延/显存/训练GPU时，多seed和bootstrapprompt CI。书写视频另需过程监督、真实笔画事件/时长与SVG/绘画强基线，全部为未执行设计。",
+          "evidence": "arxivv3完整核心/六表/五实际PDF页、固定GH指定源码配置与HF元数据，非口试/独立复现"
+        }
+      ],
+      "boundary": "arxivv3完整13页，Abstract/§1–5全部研究文字、全部T1–6/F1–3图注；无方法公式或独立附录，参考文献只选定追引。实际PDFp1/3/4/5/6五页，含参数散点与六表，定性F2/3未逐图核。GHd1703fc完整123项树，README/LICENSE/INFERENCE/EVALUATION/DATASETS/TRAIN全文，三模型配置及B预训/B与L1024FT指定超参、B PT/SFTdataset/processor；主模型33–136/184–216/249–300/344–438、connector414–511、CaptionDataset112–172及BLIPdataset全文，三评测主要采样/保存与CLI选段。五数据指南仅来源/下载/配置关键段，未全读提取脚本；HF42f2472七文件元数据和五数据API元数据，未下载pth/tar/parquet、逐检所有训练源或执行模型/评分/复现。"
     }
   ]
 }

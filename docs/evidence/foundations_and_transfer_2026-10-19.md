@@ -315,3 +315,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百三十一批（2026-10-22）：条件均值回归与随机latentflow、双扩散噪声、端点下标勘误及时间换元。见[审查](blip3o_semantic_flow_open_artifact_and_version_audit_2026-10-22.md)、[L117](../reviews/L117.md)。
+
+
+第一百三十二批（2026-10-22）：确定query连接器与随机CLIPflow区别、latentflow目标和冻结反传成本。见[审查](openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[L118](../reviews/L118.md)。

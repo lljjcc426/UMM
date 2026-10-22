@@ -509,3 +509,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百三十一批（2026-10-22）：4/8B实际卡、三PT库/60K tar与文本viewer区别、当前main配置、NEXT制品分开记录。见[审查](../evidence/blip3o_semantic_flow_open_artifact_and_version_audit_2026-10-22.md)、[L117](../reviews/L117.md)。
+
+
+第一百三十二批（2026-10-22）：六pth与外部底座、URL重caption、离线DC-AE latent、非商业许可及i2i开发状态。见[审查](../evidence/openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[L118](../reviews/L118.md)。

@@ -520,3 +520,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百三十一批（2026-10-22）：原训练日志与公开脚本对应、private/public、OR后版和数据去重未知。见[审查](blip3o_semantic_flow_open_artifact_and_version_audit_2026-10-22.md)、[L117](../reviews/L117.md)。
+
+
+第一百三十二批（2026-10-22）：模板泛化/精确泄漏需独立核，原训练日志/各数据教师、L512型号矛盾保留。见[审查](openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[L118](../reviews/L118.md)。

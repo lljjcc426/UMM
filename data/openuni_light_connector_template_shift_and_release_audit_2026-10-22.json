@@ -1,0 +1,60 @@
+{
+  "id": "L118",
+  "date": "2026-10-22",
+  "version": "arxiv2505.23661v3 complete13pages",
+  "actual_visual_pages": [
+    1,
+    3,
+    4,
+    5,
+    6
+  ],
+  "tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "github_revision": "d1703fc87669a573de2d0685e0c1a979639853b3",
+  "github_tree_entries": 123,
+  "hf_revision": "42f24723a270a722b96a5b7b5f289017032a3036",
+  "hf_files": 7,
+  "hf_dataset_revisions": {
+    "laion6m_recap": "c6498ae847e763bb487a88664364db5d6021e1f9",
+    "redcaps5m_recap": "fca1b1080a3893d4beb0b2df97ad47937b95c1fd",
+    "megalith-10m": "d8f098b5c93e3acd4752f4f4699af4d0cb9d0f70",
+    "text-to-image-2M": "5367521e105e7004315ffe98e87e221f82563e39",
+    "BLIP3o-60k": "64db95525e6291d55d2b4228c36341ef530a76a4"
+  },
+  "findings": [
+    "Engineeringbaseline inheritsMetaQuery notnewflowtheory",
+    "Oneforward256queries ->randominit6layerconnector ->pretrainedSANA/DC-AE",
+    "NativeInternVLunderstandingfrozen; no demonstratedmutualsynergy",
+    "L512maintext.6B vsT1/README/config1.6B",
+    "No60k BGenEval.62->.84/DPG79.04->80.29, GlobalandRelationdecline",
+    "Templateoverlapnotverifiedexacttestleakage; no causaltemplateablation",
+    "Stage2unlockSANA andextradatasteps confoundAIeffect",
+    "L1024GenEval.86 butDPG83.08<JanusPro84.19; WISE.52<MetaQuery.55/privateBLIP.62",
+    "Activatedparams/F1LLMparams/connectorparams distinctbudgetdenominators",
+    "GHnoncommercialSLablicense andURLonlyLAION/RedCaps limitfullyopenclaim",
+    "Maincorecodeflow targetnoise-x withtime-sigma, notCLIPfeatureflow",
+    "I2Iunderdevelopment andtext renderingfailureexplicit; novideo/strokeeval"
+  ],
+  "sources": [
+    "https://arxiv.org/abs/2505.23661v3",
+    "https://arxiv.org/pdf/2505.23661v3",
+    "https://arxiv.org/html/2505.23661v3",
+    "https://github.com/wusize/OpenUni/tree/d1703fc87669a573de2d0685e0c1a979639853b3",
+    "https://huggingface.co/wusize/openuni/tree/42f24723a270a722b96a5b7b5f289017032a3036",
+    "https://huggingface.co/datasets/wusize/laion6m_recap",
+    "https://huggingface.co/datasets/wusize/redcaps5m_recap",
+    "https://huggingface.co/datasets/wusize/megalith-10m",
+    "https://huggingface.co/datasets/wusize/text-to-image-2M",
+    "https://huggingface.co/datasets/wusize/BLIP3o-60k"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}

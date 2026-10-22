@@ -568,3 +568,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百三十一批（2026-10-22）：v1完整17页/两表/七实际PDF页，固定原GH2042项树与指定源码、HF模型/数据元数据与卡；fixedrevision认证错误和ORchallenge明确未读。见[审查](blip3o_semantic_flow_open_artifact_and_version_audit_2026-10-22.md)、[L117](../reviews/L117.md)。
+
+
+第一百三十二批（2026-10-22）：v3完整13页/六表/五实际PDF页，GHd1703fc完整123项树和指定方法/训练/评测，HF42f2472与五数据API元数据。见[审查](openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[L118](../reviews/L118.md)。

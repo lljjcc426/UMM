@@ -111,3 +111,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百三十一批（2026-10-22）：64×1792语义码可能丢细笔；native Qwen与EVA编码分支不同，NEXT GRPO不回填原版。见[审查](blip3o_semantic_flow_open_artifact_and_version_audit_2026-10-22.md)、[L117](../reviews/L117.md)。
+
+
+第一百三十二批（2026-10-22）：256query条件不等256AR输出，DC-AE32倍压缩的细笔上限及GenEval蒸馏/RL/rewrite区别。见[审查](openuni_light_connector_template_shift_and_release_audit_2026-10-22.md)、[L118](../reviews/L118.md)。
