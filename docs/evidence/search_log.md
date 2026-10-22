@@ -619,3 +619,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百四十八批（2026-10-23）：STRIVE正式10页全部研究正文、2表/4式/10图与8实际PDF页；固定五文件完整385行，Drive工具不可读、未观看补充视频。见[审查](strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[L182](../reviews/L182.md)。
+
+
+第一百四十九批（2026-10-23）：CONSTANT正式10页+8页supp完整研究文本、12表/8式/20图、15实际页；固定92项官方树及22份配置/源码/文档定向读，Drive未读内部。见[审查](constant_multilingual_style_quantization_and_evaluation_audit_2026-10-23.md)、[L183](../reviews/L183.md)。

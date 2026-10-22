@@ -530,3 +530,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百四十八批（2026-10-23）：已有视频+目标mask的局部换字，STTN正面/SRNet参考/LCM+BPN传播；持续文字编辑与笔画生成任务区分。见[审查](strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[L182](../reviews/L182.md)。
+
+
+第一百四十九批（2026-10-23）：单参考静态手写图，英/中/越分别训练，SAQ连续/离散融合与SCE/PCE；OCR迁移指标及OOV词不等未知script/笔顺。见[审查](constant_multilingual_style_quantization_and_evaluation_audit_2026-10-23.md)、[L183](../reviews/L183.md)。

@@ -336,7 +336,7 @@
 | G032 | Towards Accurate Generative Models of Video: A New Metric & Challenges | primary_sections_read | [结构化分析](../reviews/G032.md) | 核心三遍与五项检查完成 |
 | H001 | CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品 | primary_sections_read | [结构化分析](../reviews/H001.md) | 五项检查已记录；三遍待确认 |
 | L182 | STRIVE: Scene Text Replacement In Videos | primary_sections_read | [结构化分析](../reviews/L182.md) | 核心三遍与五项检查完成 |
-| L183 | CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization | primary_sections_read | [结构化分析](../reviews/L183.md) | 未完成 |
+| L183 | CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization | primary_sections_read | [结构化分析](../reviews/L183.md) | 核心三遍与五项检查完成 |
 | L184 | Stroke-Seg: A deep learning-based framework for chinese stroke segmentation | primary_sections_read | [结构化分析](../reviews/L184.md) | 五项检查已记录；三遍待确认 |
 | L185 | Training Diffusion Models with Reinforcement Learning（DDPO） | primary_sections_read | [结构化分析](../reviews/L185.md) | 核心三遍与五项检查完成 |
 | L186 | Towards Human-Like Robot Handwriting via Contour-Aware Generation | primary_sections_read | [结构化分析](../reviews/L186.md) | 核心三遍与五项检查完成 |

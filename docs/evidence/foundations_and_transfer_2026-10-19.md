@@ -366,3 +366,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百四十八批（2026-10-23）：Eq2负w高斯模糊/正w反遮罩锐化与文字相反；同族算子模拟不等真实核泛化，角度不可辨和时间平滑不等正确运动。见[审查](strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[L182](../reviews/L182.md)。
+
+
+第一百四十九批（2026-10-23）：VQ+连续旁路不证明风格因子可识别，InfoNCE同坐标负样本/重复部件假设；生成噪声预测代数恢复z0供PCE。见[审查](constant_multilingual_style_quantization_and_evaluation_audit_2026-10-23.md)、[L183](../reviews/L183.md)。

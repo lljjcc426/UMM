@@ -1,0 +1,118 @@
+{
+  "id": "L183",
+  "date": "2026-10-23",
+  "formal_venue": "WACV2026 pp4295–4304",
+  "pdf_complete": true,
+  "pdf_pages": 10,
+  "pdf_bytes": 2236432,
+  "supplement_pages": 8,
+  "supplement_bytes": 3256687,
+  "actual_pdf_pages_viewed": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "actual_supp_pages_viewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "main_tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "supp_tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "main_equations_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "supp_equations_read": [
+    1
+  ],
+  "main_figures_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "supp_figures_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "github_revision": "cf31559c036b6f8d5ec64b20bff59809a66c8bfe",
+  "github_tree_entries": 92,
+  "findings": [
+    "One reference at inference, multiwriter supervised pairs at training, static images only",
+    "VQ continuous hybrid style plus dual contrastives and latent diffusion, no semantic disentanglement proof",
+    "WER means generated-data-trained OCR to realtest transfer, not generated-image error",
+    "Writer classifier trained on real IAMtest80percent, evaluate generated counterpart",
+    "IV-U HWD1.61 worse than DiffusionPen1.52 contrary prose all-unseen-best",
+    "SCE increasesFID12.47to12.55 whileHWD improves.85to.84",
+    "PCE14.01vsLPIPS14.05 no variance or significance",
+    "ChineseFID22.97to22.74/HWD.48to.37, no Chinese content metric",
+    "ViHT223writers/4644words/42Ktrain8Kplus test, writer-disjointness unspecified",
+    "CASIAcomp_test_data random unseeded writer80/20, not official split",
+    "Supp codebookIAMbest1024 butFID12.46not main10.20 mapping unknown",
+    "Supp gainOCR81.76to82.96 with200K, no matched alternatives",
+    "Supp124M/1.25s vs185M/1.85s at50steps sameV100, total training time unknown",
+    "Preference40.6percent plurality; plausibility53.8prose vs53.63matrix not statistical equivalence",
+    "Currentcfg6rescaled.7 vsformal7.5, dynamicgradient balance vsfixedEq1",
+    "SCEcurrenttemperature1/crossbatch CE and PCEscale1/9 vsprinted1/6",
+    "CodebookNCHWnormalize width before channel-vector lookup",
+    "Defaulttestself-reference withCLIoverride possible, formal mapping unknown",
+    "Evalargs.log_name missing/globalHWDignored/HWDverbose signature mismatch static only",
+    "Drive internal data/checkpoint not accessed, no modelrun or reproduction"
+  ],
+  "sources": [
+    "https://openaccess.thecvf.com/content/WACV2026/papers/Le_CONSTANT_Towards_High-Quality_One-Shot_Handwriting_Generation_with_Patch_Contrastive_Enhancement_WACV_2026_paper.pdf",
+    "https://openaccess.thecvf.com/content/WACV2026/supplemental/Le_CONSTANT_Towards_High-Quality_WACV_2026_supplemental.pdf",
+    "https://arxiv.org/abs/2603.07543",
+    "https://github.com/duylebkHCM/CONSTANT/tree/cf31559c036b6f8d5ec64b20bff59809a66c8bfe",
+    "https://github.com/duylebkHCM/CONSTANT/blob/cf31559c036b6f8d5ec64b20bff59809a66c8bfe/src/model/pipeline.py",
+    "https://github.com/duylebkHCM/CONSTANT/blob/cf31559c036b6f8d5ec64b20bff59809a66c8bfe/src/modules/codebook.py",
+    "https://github.com/duylebkHCM/CONSTANT/blob/cf31559c036b6f8d5ec64b20bff59809a66c8bfe/tools/eval.py",
+    "https://github.com/duylebkHCM/CONSTANT/blob/cf31559c036b6f8d5ec64b20bff59809a66c8bfe/tools/converter/CASIA_HWDB/preprocess.py"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}

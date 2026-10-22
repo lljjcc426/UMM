@@ -560,3 +560,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百四十八批（2026-10-23）：固定8c675f9仅README+三裁图+AWS，无模型训练/权重/正式评测；Unity与AWS框来源、parser转换和存储占位需补。见[审查](../evidence/strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[L182](../reviews/L182.md)。
+
+
+第一百四十九批（2026-10-23）：cf31559固定代码/三语言配置，Drive称权重数据但内部未核；默认selfref可覆盖，eval入口/全局HWD/距离接口静态问题与文档不齐。见[审查](../evidence/constant_multilingual_style_quantization_and_evaluation_audit_2026-10-23.md)、[L183](../reviews/L183.md)。

@@ -569,3 +569,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百四十八批（2026-10-23）完成L182 STRIVE正式研究正文/2表/4式/10图、8实际PDF页和固定五文件发布审查；区分已有视频编辑、时序proxy与书写过程，核到Eq2符号/OCR口径和多副本速度条件。357目录，257核心/260书面；未确认核心73论文／研究+27资源。见[审查](strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[逐文件说明](one_hundred_forty_eighth_changes_2026-10-23.md)。无删除或模型执行。
+
+
+第一百四十九批（2026-10-23）完成L183 CONSTANT正式10页正文+8页supp全部研究内容/12表/8式/20图、15实际PDF页及固定代码审查。补齐WER迁移协议/写者分类/越文切分，记录IV-U HWD、SCE FID局部退化、K/CFG/配权及公开评测差别。357目录，258核心/261书面；未确认核心72论文／研究+27资源。见[审查](constant_multilingual_style_quantization_and_evaluation_audit_2026-10-23.md)、[逐文件说明](one_hundred_forty_ninth_changes_2026-10-23.md)。无删除或模型执行。

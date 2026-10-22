@@ -162,3 +162,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百四十八批（2026-10-23）：STTN为SpatialTransformer几何，不属自注意力UMM；BPN合成参数监督再真实重构自监督，无策略强化学习或笔画事件token。见[审查](strive_video_text_replacement_and_propagation_protocol_audit_2026-10-23.md)、[L182](../reviews/L182.md)。
+
+
+第一百四十九批（2026-10-23）：风格VQ混连续条件，SCE/PCE与噪声MSE监督；当前梯度标准差配权不等正式固定α，无策略RL/统一理解生成。见[审查](constant_multilingual_style_quantization_and_evaluation_audit_2026-10-23.md)、[L183](../reviews/L183.md)。
