@@ -505,3 +505,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百三十批（2026-10-22）：等FLOPs/codec、块长与decoder、mixed数据顺序控制、ODE/SDE和长前缀误差设计；未执行。见[审查](../evidence/multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.md)、[L116](../reviews/L116.md)。
+
+
+第一百三十一批（2026-10-22）：等参数/FLOPs的flow控制、oracleCLIP字形上限、同数据joint/seq及AI/real、人评聚类；未执行。见[审查](../evidence/blip3o_semantic_flow_open_artifact_and_version_audit_2026-10-22.md)、[L117](../reviews/L117.md)。

@@ -108,3 +108,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百三十批（2026-10-22）：连续语义码仍可丢信息；主干FM与独立CE decoder、512/1152维权重及T6取舍。见[审查](multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.md)、[L116](../reviews/L116.md)。
+
+
+第一百三十一批（2026-10-22）：64×1792语义码可能丢细笔；native Qwen与EVA编码分支不同，NEXT GRPO不回填原版。见[审查](blip3o_semantic_flow_open_artifact_and_version_audit_2026-10-22.md)、[L117](../reviews/L117.md)。

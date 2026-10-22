@@ -312,3 +312,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百三十批（2026-10-22）：chunk因果分解、端点FM时间权重、SDE backstep方差与前缀分布偏差。见[审查](multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.md)、[L116](../reviews/L116.md)。
+
+
+第一百三十一批（2026-10-22）：条件均值回归与随机latentflow、双扩散噪声、端点下标勘误及时间换元。见[审查](blip3o_semantic_flow_open_artifact_and_version_audit_2026-10-22.md)、[L117](../reviews/L117.md)。

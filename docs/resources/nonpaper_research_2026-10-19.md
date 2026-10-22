@@ -506,3 +506,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百三十批（2026-10-22）：HF预训/SFT/文本decoder与统计、外部RAE、公开Muon配方和GH/HF许可分别记录。见[审查](../evidence/multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.md)、[L116](../reviews/L116.md)。
+
+
+第一百三十一批（2026-10-22）：4/8B实际卡、三PT库/60K tar与文本viewer区别、当前main配置、NEXT制品分开记录。见[审查](../evidence/blip3o_semantic_flow_open_artifact_and_version_audit_2026-10-22.md)、[L117](../reviews/L117.md)。

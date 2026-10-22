@@ -517,3 +517,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百三十批（2026-10-22）：原150B超参/数据流、standardnoise与scale2、sum/mean损失及HF采样协议对齐。见[审查](multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.md)、[L116](../reviews/L116.md)。
+
+
+第一百三十一批（2026-10-22）：原训练日志与公开脚本对应、private/public、OR后版和数据去重未知。见[审查](blip3o_semantic_flow_open_artifact_and_version_audit_2026-10-22.md)、[L117](../reviews/L117.md)。

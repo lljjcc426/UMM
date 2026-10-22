@@ -222,7 +222,7 @@
 | L114 | LLaDA2.0-Uni: Unifying Multimodal Understanding and Generation with Diffusion Large Language Model | primary_sections_read | [结构化分析](../reviews/L114.md) | 核心三遍与五项检查完成 |
 | L115 | FullFlow: Upgrading Text-to-Image Flow Matching Models for Bidirectional Vision--Language Generation | primary_sections_read | [结构化分析](../reviews/L115.md) | 核心三遍与五项检查完成 |
 | L116 | Multimodal Flow: Unified Flow Modeling of Language and Vision in Embedding Spaces | primary_sections_read | [结构化分析](../reviews/L116.md) | 核心三遍与五项检查完成 |
-| L117 | BLIP3-o: A Family of Fully Open Unified Multimodal Models-Architecture, Training and Dataset | primary_sections_read | [结构化分析](../reviews/L117.md) | 未完成 |
+| L117 | BLIP3-o: A Family of Fully Open Unified Multimodal Models-Architecture, Training and Dataset | primary_sections_read | [结构化分析](../reviews/L117.md) | 核心三遍与五项检查完成 |
 | L118 | OpenUni: A Simple Baseline for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L118.md) | 未完成 |
 | L119 | UniFork: Exploring Modality Alignment for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L119.md) | 未完成 |
 | L120 | HunyuanImage 3.0 Technical Report | primary_sections_read | [结构化分析](../reviews/L120.md) | 未完成 |
