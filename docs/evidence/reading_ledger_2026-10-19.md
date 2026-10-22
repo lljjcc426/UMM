@@ -225,7 +225,7 @@
 | L117 | BLIP3-o: A Family of Fully Open Unified Multimodal Models-Architecture, Training and Dataset | primary_sections_read | [结构化分析](../reviews/L117.md) | 核心三遍与五项检查完成 |
 | L118 | OpenUni: A Simple Baseline for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L118.md) | 核心三遍与五项检查完成 |
 | L119 | UniFork: Exploring Modality Alignment for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L119.md) | 核心三遍与五项检查完成 |
-| L120 | HunyuanImage 3.0 Technical Report | primary_sections_read | [结构化分析](../reviews/L120.md) | 未完成 |
+| L120 | HunyuanImage 3.0 Technical Report | primary_sections_read | [结构化分析](../reviews/L120.md) | 核心三遍与五项检查完成 |
 | L121 | DeepGen 1.0: A Lightweight Unified Multimodal Model for Advancing Image Generation and Editing | primary_sections_read | [结构化分析](../reviews/L121.md) | 未完成 |
 | L122 | Mobile-O: Unified Multimodal Understanding and Generation on Mobile Device | primary_sections_read | [结构化分析](../reviews/L122.md) | 核心三遍与五项检查完成 |
 | L123 | InternVL-U: Democratizing Unified Multimodal Models for Understanding, Reasoning, Generation and Editing | primary_sections_read | [结构化分析](../reviews/L123.md) | 未完成 |

@@ -514,3 +514,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百三十三批（2026-10-22）：分叉比例×等总参数/活跃/FLOPs、固定图文对齐干预、梯度cosine、分辨率/数据/StageIII控制；未执行。见[审查](../evidence/unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[L119](../reviews/L119.md)。
+
+
+第一百三十四批（2026-10-22）：等数据/预算MoE与双encoder/CoT/各RL控制、独立裁判校准与人评配对CI、四制品端到端成本；未执行。见[审查](../evidence/hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[L120](../reviews/L120.md)。

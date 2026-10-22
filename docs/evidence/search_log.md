@@ -574,3 +574,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百三十三批（2026-10-22）：v1完整15页/五表/八实际PDF页，GH2c5b757完整111项树及指定源码；Qwen配置/指定HF查询，OR挑战版未读。见[审查](unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[L119](../reviews/L119.md)。
+
+
+第一百三十四批（2026-10-22）：v3完整17页/一训练表/六实际PDF页，GH6e9113a完整77项树指定段，三HF固定配置/采样/index元数据；GenEval原工作纠偏。见[审查](hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[L120](../reviews/L120.md)。

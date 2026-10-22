@@ -485,3 +485,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百三十三批（2026-10-22）：静态图理解/生成，RQ空间与深度AR非落笔时间，video/交错为未来。见[审查](unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[L119](../reviews/L119.md)。
+
+
+第一百三十四批（2026-10-22）：静态生成/编辑与原生推理；抽帧、Conv3D及video token不等视频生成/规范笔顺证据。见[审查](hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[L120](../reviews/L120.md)。

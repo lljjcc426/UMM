@@ -514,3 +514,8 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 第一百三十三批（2026-10-22）完成L119 UniFork v1全部核心/五表与八实际PDF页，核固定GH分支、冻结、RQ头和训练/采样。记录mutual-kNN观察的因果边界、T4聚合矛盾、专家残余差距及参数/分辨率/发布脚本差异。357目录，242核心/245书面；未确认核心88论文／研究+27资源。见[审查](unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[逐文件说明](one_hundred_thirty_third_changes_2026-10-22.md)。无删除或模型执行。
 
 继续L120 HunyuanImage3.0与后续模型；追引Huh等mutual-kNN原文和任务梯度/参数分叉工作，按原ID/题名去重。UniFork OR挑战访问、原checkpoint/配方矛盾留待有新证据再解，不重复失败抓取。
+
+
+第一百三十四批（2026-10-22）完成L120 HunyuanImage3.0 v3全部核心/训练表和六实际PDF页，核固定GH及三HF模型配置/采样/权重索引。记录GSB绝对四格与净差、SSAE宏微平均、无受控消融、MoE观察及Base/Instruct/Distil/TMP边界。357目录，243核心/246书面；未确认核心87论文／研究+27资源。见[审查](hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[逐文件说明](one_hundred_thirty_fourth_changes_2026-10-22.md)。无删除或模型执行。
+
+继续L121 DeepGen1；追引MixGRPO2507.21802/SRPO2509.06942/TMP/ReDA，MeanFlow已有E01/E02去重关联。参考文献与报告概述不计各原工作精读，未公开制品/原评测保留缺口。

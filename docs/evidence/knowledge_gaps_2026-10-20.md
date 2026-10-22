@@ -526,3 +526,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百三十三批（2026-10-22）：k/距离/hooks、F8层号、T4聚合、RQhead参数与论文、256/576训练及原日志待解。见[审查](unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[L119](../reviews/L119.md)。
+
+
+第一百三十四批（2026-10-22）：SSAE裁判/原分、GSB盲法/分配/CI、奖励/训练配方、TMP20B固定制品与4090协议待核。见[审查](hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[L120](../reviews/L120.md)。

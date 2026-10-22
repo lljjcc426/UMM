@@ -515,3 +515,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百三十三批（2026-10-22）：分支冻结/RQhead/采样/六训练脚本，私有与占位数据、独立权重链接及根许可缺失的限定范围。见[审查](../evidence/unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[L119](../reviews/L119.md)。
+
+
+第一百三十四批（2026-10-22）：三HF checkpoint配置/索引与8步蒸馏、外部PE和原生思考区别、T2I/编辑版本时间线及社区许可；未运行。见[审查](../evidence/hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[L120](../reviews/L120.md)。

@@ -321,3 +321,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百三十三批（2026-10-22）：mutual-kNN跨样本几何一致性不等梯度冲突；总体曲线非严格单调，CE均值归一化与任务曝光需核。见[审查](unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[L119](../reviews/L119.md)。
+
+
+第一百三十四批（2026-10-22）：共享MoE路由观察与人工分叉区分，Euler速度推理与未公开训练目标区分，SSAE宏微平均和GSB净差。见[审查](hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[L120](../reviews/L120.md)。

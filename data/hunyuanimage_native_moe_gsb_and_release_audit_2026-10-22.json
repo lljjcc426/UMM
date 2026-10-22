@@ -1,0 +1,88 @@
+{
+  "id": "L120",
+  "date": "2026-10-22",
+  "version": "arxiv2509.23951v3 complete17pages",
+  "actual_visual_pages": [
+    4,
+    6,
+    7,
+    9,
+    11,
+    12
+  ],
+  "tables_read": [
+    1
+  ],
+  "figures_visually_read": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "github_revision": "6e9113a692a27a0751d82aba3b2015a876646c03",
+  "github_tree_entries": 77,
+  "hf_revisions": {
+    "HunyuanImage-3.0": "36f21fe74b65614451cc50ffd8a35a5f662dac70",
+    "HunyuanImage-3.0-Instruct": "2ec2c78bee7d4b94157341fba86c4c2c7b1858b2",
+    "HunyuanImage-3.0-Instruct-Distil": "c8ffd07206f1b843697606968196e8f59f8ff38c"
+  },
+  "hf_query_results": [
+    "tencent/HunyuanImage-3.0",
+    "tencent/HunyuanImage-3.0-Instruct",
+    "tencent/HunyuanImage-3.0-Instruct-Distil"
+  ],
+  "gsb": {
+    "NanoBanana": {
+      "win": 23.0,
+      "lose": 20.36,
+      "equally_good": 40.81,
+      "equally_poor": 15.83,
+      "net": 2.64
+    },
+    "Seedream4": {
+      "win": 20.01,
+      "lose": 18.84,
+      "equally_good": 39.3,
+      "equally_poor": 21.85,
+      "net": 1.17
+    },
+    "GPTImage": {
+      "net": 5.0
+    },
+    "Hunyuan2.1": {
+      "net": 14.1
+    }
+  },
+  "findings": [
+    "SharedMoE textAR +continuousimagevelocity not all-discreteAR",
+    "DualconditionalVAE+ViT tokens not singletokenizer",
+    "GSB net W-L not absolutewinrate; noCI/significanceproof",
+    "SSAE500prompts3500points macrovs microdistinct; no exactradarvalues fabricated",
+    "No controlledablationtable or understandingmainresults",
+    "ExpertKL deeperoverall notstrictmonotonic; correlation not causation",
+    "GenEval usesdetector+localCLIPcolor, notholisticCLIPscore",
+    "BaseexternalDeepSeekPE differs nativeInstructCoT",
+    "HFdistil8steps/CFGdistilled/MeanFlow remains80Bclass notTMP20B",
+    "ThreeHFindices32shards roughly168.5GBmetadata, not13Bresident",
+    "TMP20B4090 claim has no checkedindependentofficialartifact",
+    "Videoextraction/Conv3D/tokens notvideogenerationevaluation",
+    "No fulltrainer/reward/data/evalrelease found within77tree"
+  ],
+  "sources": [
+    "https://arxiv.org/abs/2509.23951v3",
+    "https://arxiv.org/pdf/2509.23951v3",
+    "https://arxiv.org/html/2509.23951v3",
+    "https://github.com/Tencent-Hunyuan/HunyuanImage-3.0/tree/6e9113a692a27a0751d82aba3b2015a876646c03",
+    "https://huggingface.co/tencent/HunyuanImage-3.0/tree/36f21fe74b65614451cc50ffd8a35a5f662dac70",
+    "https://huggingface.co/tencent/HunyuanImage-3.0-Instruct/tree/2ec2c78bee7d4b94157341fba86c4c2c7b1858b2",
+    "https://huggingface.co/tencent/HunyuanImage-3.0-Instruct-Distil/tree/c8ffd07206f1b843697606968196e8f59f8ff38c",
+    "https://proceedings.nips.cc/paper_files/paper/2023/hash/a3bf71c7c63f0c3bcb7ff67c67b1e7b1-Abstract-Datasets_and_Benchmarks.html",
+    "https://github.com/djghosh13/geneval"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}

@@ -117,3 +117,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百三十三批（2026-10-22）：VILA-U RQ四深度与逐空间生成、CFG/top-p/top-k、256原生与384错配；不等规范笔顺。见[审查](unifork_alignment_neighborhood_and_fork_capacity_audit_2026-10-22.md)、[L119](../reviews/L119.md)。
+
+
+第一百三十四批（2026-10-22）：16倍32通道VAE与双表示、MixGRPO/SRPO/ReDA/MeanFlow说明的实证边界，80B蒸馏与20B剪枝分开。见[审查](hunyuanimage_native_moe_gsb_and_release_audit_2026-10-22.md)、[L120](../reviews/L120.md)。
