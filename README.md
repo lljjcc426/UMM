@@ -383,3 +383,6 @@ python scripts/validate_catalog.py
 
 
 第一百二十九批（2026-10-22）完成L115 FullFlow完整核心、十表与十五实际PDF页，核双时间RF/插入、输出梯度理论、先验保留评价及网页制品树。保留T4/T9数值、T8反例、T5/T6预算与算术冲突。357目录，238核心/241书面；未确认核心92论文／研究+27资源（资源另审）。见[审查](docs/evidence/fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_twenty_ninth_changes_2026-10-22.md)。无删除或执行模型。
+
+
+第一百三十批（2026-10-22）完成L116 Multimodal Flow完整核心/附录研究、十表/Eq1–12及九实际PDF页，核固定GH/HF连续codec、块因果、预算和采样。记录oneobjective范围、等参数与等计算区别、数据/默认配置差异及生成-理解取舍。357目录，239核心/242书面；未确认核心91论文／研究+27资源。见[审查](docs/evidence/multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.md)、[逐文件说明](docs/evidence/one_hundred_thirtieth_changes_2026-10-22.md)。无删除或执行模型。

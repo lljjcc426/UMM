@@ -1,0 +1,59 @@
+{
+  "id": "L116",
+  "date": "2026-10-22",
+  "version": "arxiv2609.40362v1/18pages",
+  "all_tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "actual_visual_pages": [
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    16,
+    17,
+    18
+  ],
+  "github_revision": "c84caf50fc3da57e30d5984a4d99dee81f8b0c43",
+  "github_tree_entries": 182,
+  "hf_revision": "13818c6b12c6ac1876a84ecf59f1d6779acc18e2",
+  "hf_files": 9,
+  "paper_backbone_trainable_parameters": 1634591168,
+  "findings": [
+    "Continuousflowbackbone, frozenexternalcodecs; separateCEtextdecoderstage",
+    "8texttokens perchunk and256visualtokens; causalorderisnophysicalstroketime",
+    "T1-3 150B+5B; T4 50B+5B; T6/F5 .6B50B noFT",
+    "T5same155Bexposure butdifferentdatadistribution/order; notinitialization-onlycausaltest",
+    "T4parameteranddatamatched notFLOPmatched, Chameleonchangesvisualcodec",
+    "T2DPG83.44 belowSD3M84.08; tableonlyunifiedsubset",
+    "T6sharedFFNraisesGenEval .226to.237 undersharedattention whileothermetricsdrop",
+    "PaperstandardnoisevsHFtextscale2; Eq10channel-sum vscodechannel-mean",
+    "Clampedvelocitytarget differsfromx-eps neart1; notexecutionverified",
+    "HF SFTcfg2/SDE vspaperVQAcfg3/T2Icfg5ODE; CLIinheritsHFdefaults",
+    "SDEbackstepindependentnoisemixingdoesnotgenerallypreservelinearpathmarginalwithoutadditionalargument",
+    "PublicpretrainGPICcaption vs paperOneVisionunderstanding; originalrecipealignmentunresolved",
+    "GHApache2 vsHFcardMIT separateassetlicenses",
+    "Video/longinterleaved futurework; no modelrun/weights/reproduction"
+  ],
+  "sources": [
+    "https://arxiv.org/abs/2609.40362v1",
+    "https://arxiv.org/pdf/2609.40362v1",
+    "https://arxiv.org/html/2609.40362v1",
+    "https://github.com/hustvl/Multimodal-Flow/tree/c84caf50fc3da57e30d5984a4d99dee81f8b0c43",
+    "https://huggingface.co/hustvl/Multimodal-Flow/tree/13818c6b12c6ac1876a84ecf59f1d6779acc18e2"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}

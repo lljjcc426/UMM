@@ -514,3 +514,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百二十九批（2026-10-22）：T4/T9 checkpoint、T5/B4优化组、非零Poisson采样、GPU预算与表6算术待澄清。见[审查](fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[L115](../reviews/L115.md)。
+
+
+第一百三十批（2026-10-22）：原150B超参/数据流、standardnoise与scale2、sum/mean损失及HF采样协议对齐。见[审查](multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.md)、[L116](../reviews/L116.md)。

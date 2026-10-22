@@ -473,3 +473,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百二十九批（2026-10-22）：连续图像RF与变长离散文本插入联合；未验证视频、严格笔顺或跨文字书写。见[审查](fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[L115](../reviews/L115.md)。
+
+
+第一百三十批（2026-10-22）：连续图文块/静态生成已评，长交错和视频明确未来，未评书写事件。见[审查](multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.md)、[L116](../reviews/L116.md)。

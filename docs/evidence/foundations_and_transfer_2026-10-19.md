@@ -309,3 +309,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百二十九批（2026-10-22）：MSE/CE输出梯度界到共享参数须Jacobian条件；二维时间路径不保证路径无关质量。见[审查](fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[L115](../reviews/L115.md)。
+
+
+第一百三十批（2026-10-22）：chunk因果分解、端点FM时间权重、SDE backstep方差与前缀分布偏差。见[审查](multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.md)、[L116](../reviews/L116.md)。

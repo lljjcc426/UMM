@@ -494,3 +494,8 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 第一百二十九批（2026-10-22）完成L115 FullFlow完整核心、十表与十五实际PDF页，核双时间RF/插入、输出梯度理论、先验保留评价及网页制品树。保留T4/T9数值、T8反例、T5/T6预算与算术冲突。357目录，238核心/241书面；未确认核心92论文／研究+27资源（资源另审）。见[审查](fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[逐文件说明](one_hundred_twenty_ninth_changes_2026-10-22.md)。无删除或执行模型。
 
 继续L116 MultimodalFlow及L117后统一模型；FullFlow追引OneFlow/EditFlows/DualDiffusion及关联硕士论文需按原ID去重。网页仓库不构成原训练代码覆盖。
+
+
+第一百三十批（2026-10-22）完成L116 Multimodal Flow完整核心/附录研究、十表/Eq1–12及九实际PDF页，核固定GH/HF连续codec、块因果、预算和采样。记录oneobjective范围、等参数与等计算区别、数据/默认配置差异及生成-理解取舍。357目录，239核心/242书面；未确认核心91论文／研究+27资源。见[审查](multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.md)、[逐文件说明](one_hundred_thirtieth_changes_2026-10-22.md)。无删除或执行模型。
+
+继续L117 BLIP3o及后续统一模型；新增追引ELF2605.10938、ScaleRAE2601.16208、GPIC2605.30341和minit2i/RAE制品，按原ID去重。本篇引用与接口核查不等独立精读完成。

@@ -502,3 +502,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百二十九批（2026-10-22）：因子拆解删除/encoder/teacher/schedule，同GPUh与同steps分别测、实图与base参考FID分列，多seed和真实书写事件；未执行。见[审查](../evidence/fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[L115](../reviews/L115.md)。
+
+
+第一百三十批（2026-10-22）：等FLOPs/codec、块长与decoder、mixed数据顺序控制、ODE/SDE和长前缀误差设计；未执行。见[审查](../evidence/multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.md)、[L116](../reviews/L116.md)。

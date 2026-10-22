@@ -503,3 +503,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百二十九批（2026-10-22）：同名GH为gh-pages网页：192项静态资源/模板README，不将Code soon或网页许可视为模型发布。见[审查](../evidence/fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[L115](../reviews/L115.md)。
+
+
+第一百三十批（2026-10-22）：HF预训/SFT/文本decoder与统计、外部RAE、公开Muon配方和GH/HF许可分别记录。见[审查](../evidence/multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.md)、[L116](../reviews/L116.md)。

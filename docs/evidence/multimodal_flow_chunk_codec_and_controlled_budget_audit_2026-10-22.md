@@ -1,0 +1,86 @@
+# Multimodal Flow：连续表示、块因果与受控预算审查
+
+第一百三十批完成[L116](../reviews/L116.md)明确范围核心三遍与五项书面记录。[结构化证据](../../data/multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.json)。357目录（330论文／研究、27资源），239核心/242书面含未通过项；未确认核心91论文／研究+27资源，资源另审。没有新增目录、删除文件、下载权重、执行模型或独立复现。
+
+来源：[arXiv v1](https://arxiv.org/abs/2609.40362v1)、[完整18页PDF](https://arxiv.org/pdf/2609.40362v1)、[HTML](https://arxiv.org/html/2609.40362v1)、[GH固定c84caf5](https://github.com/hustvl/Multimodal-Flow/tree/c84caf50fc3da57e30d5984a4d99dee81f8b0c43)、[HF固定13818c6](https://huggingface.co/hustvl/Multimodal-Flow/tree/13818c6b12c6ac1876a84ecf59f1d6779acc18e2)。本版未核明正式会议。
+
+## 问题与动机
+
+让文本和图像的连续表示在一个chunk-causal flow骨干中，采用共同的连续预测目标进行混合预训练、图文理解与静态生成，兼顾文本顺序和图像空间结构。长交错、视频及其他结构化模态由Conclusion明确列未来；未验证书写视频、笔顺或多语言文字渲染。
+
+视觉VQ可能丢细节，AR文字+连续图像需协调不同目标/采样，直接拼嵌入仍缺生成单位、因果顺序和模态统计适配。作者以8-token局部文字块、整图空间块和共享attention/专用FFN处理。连续表示避免额外VQ不等无信息损失：SigLIP2语义编码、224分辨率和冻结图像decoder仍可能丢细笔，文字另有128维bottleneck和离散词解码误差。
+
+## 方法、数据流和模型结构
+
+冻结T5-small与SigLIP2，文字各8token独立编码、图像16×16空间表示构成有序hyperchunks；块间因果/块内联合、训练每目标块独立时间并行，推理按块顺序积分+KV缓存。modality-specific投影/FFN与共享QKVO交互，flow主干统一velocity MSE/CFG，支持纯文字、纯图、双向图文及SFT。文本decoder单独用CE训练后冻结，图像另用预训练ScaleRAE，故oneobjective/fullycontinuous需限定主干生成过程，不能称全系统仅一个损失从零联合训练。
+
+离散文字→按8token切块的冻结T5→512维/除.2，图像→224²冻结SigLIP2patch14→256×1152/位置通道均值方差归一→模态投影到1600共同hidden+MRoPE/模态和时间嵌入→32层块因果主干预测各模态clean endpoint→反归一/冻结六层文字decoder并行输出8词，或ScaleRAE RGB。clean过去可见，目标只见自身noisy块，不可见对应clean/future；packing跨sample隔离。完成目标块加入上下文，文字是块间顺序生成，不是整段文本一次无顺序生成。实际PDFp3/4/5/7/8/9/16/17/18九页已看全部十表与主要框架/公式。
+
+1.6B主干32层/hidden1600/25heads×64/FFN4224/RMSNorm，共享attention投影、模态专用FFN，文字输入128bottleneck，MRoPE section8/12/12。C1精确可训预算1,634,591,168，受控模型调FFN差<=25,536，冻结codecs未计；随机初始化限flow骨干，T5/SigLIP2/ScaleRAE及文字decoder先验成本另算。T5-small每8token独立编码防止clean前块特征含后块信息；图像保持16²格，文本保token位序但无物理时间意义。文字decoder六层/512/8heads/vocab32128/128瓶颈，输入经GELU投影和unembed；在8词块内双向预测，最终仍输出离散token。
+
+## 数据与完整实验协议
+
+论文PT150B+jointFT5B，同checkpoint用于T1–3；PT为UltraFineWebL3、GPIC文生图/去caption纯图、LLaVAOneVision1.5图像理解，任务mix70%text/20%understanding/9%T2I/1%image-only，比例分母与独立样本去重细节未齐。FT BLIP3o60K、DALLE3Discord、ShareGPT4oImage及LLaVA1.5Instruct。视觉统计由50176GPIC图估计，非全部训练样本数；文字mean0/std.2、pad排除/EOS同普通token。公开DATA/pretrain配方却以GPIC同时供caption理解/生成，未列OneVision源，text子mix .70/.25/.05是UltraFineWeb两子集+GPICcaption；应视公开配方与论文数据描述差异，未证明等价。
+
+GenEval组合六类、DPGBench长prompt五类/overall，COCOKarpathy test CIDEr与CLIPScore，理解POPE/MMBench/SEEDB/VQAv2/GQA/OKVQA；GPT2-large给生成文本算PPL，是外部流畅性非flow精确likelihood/困惑度。82.8为把GenEval.821换成82.1后与DPG83.44平均，75.3=(POPE86.1+MMB67.2+VQA72.6)/3，均是选定指标均值不等全能力。未报OCR/静态文字渲染、连续视频/事件顺序指标，亦无独立端到端延迟/显存/能耗、多训练seed或CI，不能凭8词块并行推断实际比AR快。
+
+T1–3用各自文献配置的SDXL/HunyuanDiT/SD3、LWM/ShowO/Emu3/Muddit/UniDisc/Transfusion/Janus/JanusFlow/DDiT、JanusPro/ShowO2及专用VLM；仅表内子集，未包含仓库已核BAGEL/MMaDA/LLaDAo等，最强统一表述不可扩成全领域SOTA。原ShowO .53为旧结果，U06后版.68/.69不能拼同版本；不据此判他复现失败。T4受控MF/Transfusion-style/Chameleon-style为自建近似设计，非原模型权重复现；都1.6B/32层/1600宽/相同data/optimizer/50BPT+5BFT，Transfusion同SigLIP2而文字换AR/FFN4062，Chameleon改JanusVQ16的576ID/16384codes/FFN4000。等可训参数和监督token不保证等FLOPs/总codec成本，Chameleon又换视觉信息。
+
+主T1–3 1.6B150BPT+5BFT；T4 1.6B50B+5B，T5mixed150B+5B对random直接下游155B；T6/F5 .6B50B无FT，各组不能串数。paper未给齐原GPU型号/数量、optimizer/lr/batch/总步数/EMA衰减与耗时。公开pretrain为4进程/globalbatch4、8192pack、100K步、BF16、Muon矩阵/NesterovAdamW回退、peak1e-3/min2e-4/wd0/cosine/warm4K/clip5/EMA.9999，SFT20K步/GC开且30%T2I70%VQA；这些局部默认不自动等论文150B/5B原配方，paper max32768pack与默认8192另记。shift-logit-normal z~N(0,1), q=αsigmoid(z)/(1+(α−1)sigmoid(z)), t=1−q，imageα8/text6；每块独立，denommax(1−t,.05)。T10 VQA每8词块16步SDEγ1/CFG3，T2I64步ODE/CFG5。HF预训cfg3/SFTcfg2、两者默认SDE与16/64步，CLI未自动改图像为CFG5/ODE，不能默认命令宣称复现T10。
+
+## 十表与消融支持到什么程度
+
+T1 GenEval.82优表内统一基线，全六类对所列较强，准确版T5.821；T2DPG83.44优表内统一，但低SD3M84.08，entity89.03<91.01，relation89.73<Emu90.22/JanusFlow89.79。T3从零flow对Muddit/DDiT有优势，VQA72.6/POPE86.1/GQA58.3/OK39.1均高其对应表值；但MMB67.2<JanusPro75.5/JanusFlow74.9/ShowO2 67.4，Seed62.4<68.3/70.5/65.6，VQA72.6<Janus77.3/JanusFlow79.8，GQA58.3<60.3/60.0。较少flow训练token不等少全系统预训计算；T3沿LLM链token统计没有包括全部视觉/textcodec预训。
+
+T4 MF对Transfusion-style GenEval.7134>.6693/GQA55.60>52.81/VQA69.03>68.49/MMB46.74>33.68/Seed51.85>31.31；对Chameleon五项也高。仅支持此等预算构造，VQA+.54无CI不称显著。T5mixed对random .821>.527/DPG83.44>57.81/Seed62.4>31.6/MMB67.2>36/OK39.1>22.9；两组都155B曝光但训练数据/顺序/下游重复率同时变，支持混合预训练配方收益，不唯一证明初始化/模态协同。T6共享attention专用FFN PPL27.43/DPG71.04较优，GenEval.226<全专用.255，也<全共享.237；CIDEr47.91<全专用48.14，不能说所选结构每指标最优或共享FFN必降生成。F5DINO GenEval.255/DPG71.01最好，SigLIP CIDEr52.44/CLIP.843最好，为取舍；CFG图像5处GenEval.354/DPG74.70、文字3处CIDEr51.44/CLIP.832较优，非越大越好。F4总体随规模/训练改善，局部PPL和GenEval非严格单调、无多seed统计，不从三条曲线推普适scaling law。
+
+## 源码、理论和发布边界
+
+Eq7标准N(0,I)，GH/HF实际text_noise_scale2/image1；论文Eq10对每token维度求和，losses.velocity_mse_values却mean(dim=-1)，对512/1152维相当不同相对模态缩放。physical flow路径对prediction/target都用denomclamp.05，target不直接等x−eps于t>.95；这是明确数值/目标定义差异，未运行或判原表错误。公开SDE backstep α=1−γΔt，混αx+(1−α)η再Euler，独立Gaussian下噪声方差α²(1−t)²+(1−α)²与目标(1−αt)²一般不同；若要声称精确保同forward边缘须另证，现仅视有实测配方的stochastic sampler。GH182项树含训练/推理但本批只读指定源码；HF9文件/预训及SFT BF16推理权重、无optimizer状态/原数据，外部RAE另需。GH Apache2、HF卡MIT各限对应制品，不能合并覆盖第三方。
+
+## 优势条件、可证伪设计与写作学习
+
+连续语义表示对任务信息充分、局部T5块可逆性足够、flow在高维语义流形上易学时，可共同改善图文条件分布；专用FFN适配模态统计，共享attention传递上下文，块因果则可cache过去并训练并行。给定原token分布，欧氏latent误差并不保证离散词或中文细笔正确；冻结decoder和128瓶颈可能引入恢复/离域误差。训练clean前缀与推理生成latent前缀存在分布偏差，code sampler直接cache生成latent而非词后重编码，长序列误差可能累积；8词块并行还需16步/CFG两路前向，优势依任务长度/质量预算实测。
+
+先固定原始codec与预训成本，受控MF/Transfusion换文字目标、块长1/8/16/32、decoder瓶颈与重建CE质量；同数据顺序、监督字节/图数、目标tokens及总FLOPs分别报告，保留同参数协议。拆混合数据/顺序：mixed→FT、相同全集重排、从头joint、重复155B下游，多训练seed并测OOD，隔离初始化与数据收益。loss按sum/mean/channel白化、textnoise1/2、clamp/标准target、ODE与现SDE/同边缘校正采样分别受控，报全部十表协议及端到端含codecs/CFG的时延与显存。长文用clean/generated/词后重编码三类prefix测累积误差、EOS/块边界和事实性；文字图像增中文形近字、非拉丁script、OCR/拓扑评测。若转绘画视频需真实事件/连续帧数据与时长/顺序、同终图不同过程的可辨识实验，不能由因果token顺序代替。全部设计未执行。
+
+Intro先分表示、生成单位/因果、共享计算三问题，Method沿codec→chunk factorization→并行训练→顺序推理→PT/FT组织，T4/T8/T9明确受控范围优于只列排行榜，值得学习。Claim须限定主干oneflow与表内基线，T5数据分布不恒定、T6/F5存在Pareto而非全优；82.8/75.3要写明平均来源。Conclusion主动把长交错/video列未来是清楚边界，但缺独立Limitations、codec损失、原超参、seed/CI和实际速度；仓库默认与论文的noise/loss/CFG差异也应给版本对应，而不能只说全部统一。
+
+## 实际阅读范围
+
+arxivv1完整18页，Abstract/§1–4全部核心、Eq1–12/T1–10/F1–5及AppA1/A2/B1–3/C1–3全部研究文字，实际p3/4/5/7/8/9/16/17/18九页；Refs只追选定来源，未逐篇读。GH c84caf5完整182项树，README/三文档DATA/TRAINING/INFERENCE、pretrain/sft/quickstart1.6配置、latents flow/time/decoder_noise、training losses、T5codec、backbone及CLIinfer全文；text_decoder235–349/block156–248、metrics484–574/947–1008、trainer475–511/675–723/965–977、sampling355–446/510–565/1350–1446、pipeline245–280/431–465/protocol关键配置选段。HF13818c6元数据/9文件名、README和两config全文；未全读其余源码/所有attention与布局内核或外部RAE、下载权重/数据、执行模型、独立复现。
+
+## 核心公式与因果条件
+
+Eq6按任务给定chunk顺序分解p(C)=∏p(c_k|c_<k)。文字8token为一块，图像完整16²空间格为一块；块间因果使过去hidden不依赖未来，从而能缓存。训练目标块仅见clean过去与自身noisy状态，多个目标各采时间并行，避免从当前clean副本直接复制。T5各块独立编码也防止过去clean块在encoder阶段读入未来文字；本批未逐行核全部packing与attention内核，不能把论文的设计约束等同所有实现路径已经验证。
+
+Eq7线性路径z_t=t x+(1−t)ε，0噪声/1数据。主干预测clean端点，Eq9用(hatx−z_t)/(1−t)转velocity，MSE对x−ε监督；数学上等价于以1/(1−t)^2重权的端点平方误差，因此噪声时间分布、归一化和近终点截断会改变有效学习权重。AppB clamp.05与公开函数对target也clamp须分别说明，不能仅写“标准FM”而省去其实际定义。
+
+Eq11 CFG是unconditional+γ(conditional−unconditional)，可在两种输出模态共用形式；文字与图像选不同强度和SDE/ODE，仍属实际任务配置差异。文字最终由冻结六层decoder输出离散词，单CE训练在主干flow预训练之前独立完成。统一目标的范围应写清，未包含全部codecs的历史训练。
+
+公开代码先在当前连续块完成积分，再将生成latent直接缓存。decoder的argmax词用于EOS/输出，不会在所读采样段重新经T5纠正全部latent；这一点提示长序列中生成前缀偏离clean训练前缀的可检验问题。它不直接证明长文必失败，也没有本批运行的误差数字。
+
+## 协议对照
+
+| 项目 | 论文 | 所核公开配置／源码 | 含义 |
+| --- | --- | --- | --- |
+| 模态噪声 | Eq7标准Gaussian | image scale1/text scale2 | 需对齐训练版本和归一化 |
+| 每token MSE | Eq10 latent维度求平方和 | losses取mean(dim=-1) | 512/1152维使相对模态权重不同 |
+| 近clean target | 正文x−ε，App写预测分母clamp | physical target也由clamped转换得出 | t>.95目标尺度需核 |
+| 数据理解源 | OneVision1.5 | DATA/pretrain用GPICcaption | 公开配方不能直接替代原数据流 |
+| 训练pack | 最多32768 | pretrain默认8192、HFpretrain8192/SFT32768bucket | 默认与原实验分开记，bucket也不等原单样本长度 |
+| T2I采样 | 64ODE/CFG5 | HFpretrain SDE/CFG3、SFT SDE/CFG2 | CLI无任务专属覆盖，API可显式改配方 |
+| 可训预算 | 1,634,591,168；差<=25,536 | codec冻结另计 | 同参数不等同总资源/FLOPs |
+| 模型许可 | GH代码Apache2 | HF卡MIT | 分别记，不覆盖外部codecs和数据 |
+
+所读SDE backstep令a=1−γΔt，将x_t变为a x_t+(1−a)η、时间变a t，再做端点Euler。若x_t处于理想线性Gaussian路径且η为独立同尺度Gaussian，条件噪声方差为a²(1−t)²+(1−a)²，与该新时间的(1−at)²一般不同。此为符号分析，说明精确保边缘需要额外论证；它不推翻论文所报采样结果，也不构成本批独立实测。
+
+## 对现有结论和研究问题的影响
+
+T4是值得学习的受控范式比较：同层数/宽度/数据与可训参数，保留各自native目标。其结果支持此组具体配方中的连续块模型优势；Chameleon同时换视觉codec、各目标计算和信息量不同，仍需等FLOPs和独立decoder先验对照。T5匹配155B总tokens减少曝光量混淆，但mixed150B+FT5B与下游重复155B的数据/顺序均变，不能唯一归因于初始化。
+
+T6专用FFN对caption/PPL有益，但在共享attention组GenEval .226低于共享FFN .237，所选配置也低于全专用 .255。F5 SigLIP更适合caption、DINO在生成组合指标更好。应以多任务取舍表达设计动机，避免只摘最优分数。
+
+本篇提供跨模态连续表示和任务序列的研究路径，未提供OCR/中文字渲染、稀有script、笔画事件或连续RGB视频实验。文本token顺序、图像空间位置信息与实际书写动作时间必须分开。若以此作为书写基础模型，需要新增真实过程监督及强绘画/规则渲染基线，再验证共享主干的协同收益。
+
+追引清单：ELF/Embedded Language Flows（arxiv2605.10938）、Scaling text-to-image diffusion transformers with representation autoencoders（2601.16208）、GPIC（2605.30341），以及所用minit2i/RAE/nyu-visionx模型制品。主目录题名检索本批未见相应条目；需按原ID继续去重及精读，未把本篇引用当成这些工作的完整调查。

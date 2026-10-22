@@ -105,3 +105,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百二十九批（2026-10-22）：T5删除子词可decode/re-tokenize冻结CLIP但不保证语法；两阶段调度反例及Poisson非零门协议。见[审查](fullflow_native_text_flow_and_retention_protocol_audit_2026-10-22.md)、[L115](../reviews/L115.md)。
+
+
+第一百三十批（2026-10-22）：连续语义码仍可丢信息；主干FM与独立CE decoder、512/1152维权重及T6取舍。见[审查](multimodal_flow_chunk_codec_and_controlled_budget_audit_2026-10-22.md)、[L116](../reviews/L116.md)。
