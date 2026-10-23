@@ -390,3 +390,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百五十六批（2026-10-23）：强制中间图流程不推出逻辑必需；step宏平均/整题exact、感知距离/准确率及κ边际需区分，同预算干预才能定位协同。见[审查](unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。
+
+
+第一百五十七批（2026-10-23）：固定激活参数补偿恒等式的条件不等于全网学习/RC优化保证；构造线性loss只作代数表达，不能单凭attention大小推出梯度有效性。见[审查](genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[L145](../reviews/L145.md)。

@@ -593,3 +593,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百五十六批（2026-10-23）：完成L144 ACL2026正式17页全部研究正文/AppA–C及4表10图、12实际PDF页；核固定评价代码、八文件制品与HF卡，区分指标升降、已知k和原生/外部编排。357目录，265核心/268书面；未确认核心65论文／研究+27资源。见[审查](unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[逐文件说明](one_hundred_fifty_sixth_changes_2026-10-23.md)。无删除或模型执行。
+
+
+第一百五十七批（2026-10-23）：L145完整23页/全部附录、3表12图37式及17实际PDF页；全部评测源码、510标注和五viewer静态核，区分裁判重复/生成重复、AQ下降、理论恒等式和实际性能保证。357目录，266核心/269书面；未确认核心64论文／研究+27资源。见[审查](genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[逐文件说明](one_hundred_fifty_seventh_changes_2026-10-23.md)。无删除或模型执行。

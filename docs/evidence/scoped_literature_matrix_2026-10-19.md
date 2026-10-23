@@ -554,3 +554,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百五十六批（2026-10-23）：Uni-MMMU885例八任务、两向静态图文推理，无连续视频或规范笔顺；GPT4.1+GPTimage为代理组合，不能以其榜首推出共享UMM优势。见[审查](unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。
+
+
+第一百五十七批（2026-10-23）：GENIUS为510静态图像即时规则benchmark+Bagel免训练干预，无视频/笔顺；12基线+Ours不与GH后续14模型混计。见[审查](genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[L145](../reviews/L145.md)。

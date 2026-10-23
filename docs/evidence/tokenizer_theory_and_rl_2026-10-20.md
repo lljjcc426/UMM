@@ -186,3 +186,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百五十六批（2026-10-23）：状态表征可作外部记忆，拓扑真错与解析阈值失败分开；GT中间态改善提供空间不证明自身图因果，未知长度和预算需一致。见[审查](unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。
+
+
+第一百五十七批（2026-10-23）：GENIUS两定理限固定向量和冻结系数；Eq5–8补偿方向/归一与Eq28/33不一致。有限logit偏置不保证噪声贡献为0，需任务损失与因果消融。见[审查](genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[L145](../reviews/L145.md)。

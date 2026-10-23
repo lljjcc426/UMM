@@ -595,3 +595,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百五十六批（2026-10-23）：公开迷宫/滑块示例先取GT长度k后循环，适配函数缺失；几何scored分母/已存在目录覆盖、SVG多图择优及主表Avg聚合需正式日志对应。见[审查](unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。
+
+
+第一百五十七批（2026-10-23）：GENIUS缺干预实现/超参数；固定HF089缺4_7_1.png，论文Ours总分未由当前有效数和计分式还原，待逐样本分/版本覆盖。见[审查](genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[L145](../reviews/L145.md)。

@@ -583,3 +583,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百五十六批（2026-10-23）：Uni-MMMU拟同预算正确/错误/无关/无图和等信息文字干预，分别未知停止/已知k；BFS/SVG渲染强基线与颜色解析人标校准，未执行。见[审查](../evidence/unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。
+
+
+第一百五十七批（2026-10-23）：GENIUS拟固定预算/seed/格式比较仅关键词/随机/错/GT区域及模块消融，报告RC/VC/AQ Pareto、权重敏感性和全510覆盖；未执行。见[审查](../evidence/genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[L145](../reviews/L145.md)。

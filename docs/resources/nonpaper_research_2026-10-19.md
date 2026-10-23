@@ -584,3 +584,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百五十六批（2026-10-23）：固定Uni-MMMU31成员目录/8选择性源码、完整HF卡；1026549760B归档未取，卡sft/grpo声明与外部文件树区分，A100建议非正式A800预算。见[审查](../evidence/unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。
+
+
+第一百五十七批（2026-10-23）：GENIUS固定GH10成员/5全文本、HF762成员/五JSON五viewer，510例但VC可启用270；复制检测为VLM判断，最长边1024/JPEG80影响细线。见[审查](../evidence/genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[L145](../reviews/L145.md)。

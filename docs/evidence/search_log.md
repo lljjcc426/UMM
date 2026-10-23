@@ -643,3 +643,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百五十六批（2026-10-23）：Uni-MMMU正式ACL2026 Main pp908–924，全部研究正文/AppA–C、4表10图/12实际PDF页；固定计分与示例定向核，HF仅卡/元数据未解1GBtar。见[审查](unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。
+
+
+第一百五十七批（2026-10-23）：GENIUS arXiv2602.11144v1完整23页/全部研究附录、3表12图37式，17实际PDF页；5文本源码/510标注/五viewer核，会议尚无一手确认。见[审查](genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[L145](../reviews/L145.md)。

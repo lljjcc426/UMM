@@ -250,7 +250,7 @@
 | L142 | MME-Unify: A Comprehensive Benchmark for Unified Multimodal Understanding and Generation Models | primary_sections_read | [结构化分析](../reviews/L142.md) | 未完成 |
 | L143 | UniEval: Unified Holistic Evaluation for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L143.md) | 核心三遍与五项检查完成 |
 | L144 | Uni-MMMU: A Massive Multi-discipline Multimodal Unified Benchmark | primary_sections_read | [结构化分析](../reviews/L144.md) | 核心三遍与五项检查完成 |
-| L145 | GENIUS: Generative Fluid Intelligence Evaluation Suite | primary_sections_read | [结构化分析](../reviews/L145.md) | 未完成 |
+| L145 | GENIUS: Generative Fluid Intelligence Evaluation Suite | primary_sections_read | [结构化分析](../reviews/L145.md) | 核心三遍与五项检查完成 |
 | L146 | A Model-Internal Protocol for Assessing Multimodal Models as Integrated Systems | primary_sections_read | [结构化分析](../reviews/L146.md) | 核心三遍与五项检查完成 |
 | L147 | WISE: A World Knowledge-Informed Semantic Evaluation for Text-to-Image Generation | primary_sections_read | [结构化分析](../reviews/L147.md) | 未完成 |
 | L148 | ImgEdit: A Unified Image Editing Dataset and Benchmark | primary_sections_read | [结构化分析](../reviews/L148.md) | 未完成 |
