@@ -583,3 +583,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百五十二批（2026-10-23）：可靠性relX/relS、聚类功效、signed与absolute相关差CI、实际CAGrad更新及release声明矛盾待源码/数据核查。见[审查](gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[L139](../reviews/L139.md)。
+
+
+第一百五十三批（2026-10-23）：PAM缺训练语料、W到LoRA投影、6.29/15.73M与12.6/31.5M参数差；ANOVA F/eta/df、选桶索引和F10图例需原始制品。见[审查](position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。

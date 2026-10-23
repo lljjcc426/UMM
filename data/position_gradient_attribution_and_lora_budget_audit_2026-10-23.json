@@ -1,0 +1,65 @@
+{
+  "id": "L140",
+  "date": "2026-10-23",
+  "pdf_complete": true,
+  "pdf_pages": 20,
+  "pdf_bytes": 512334,
+  "actual_pdf_pages_viewed": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    18,
+    19,
+    20
+  ],
+  "tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "equations_read": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "figures_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "source_archive_bytes": 160910,
+  "source_archive_members": 22,
+  "source_archive_has_py": false,
+  "findings": [
+    "T1 Show-o eta_layer/pos/int=.353/.312/.085，F1040.1/1389.9/9.8；Janus .299/.150/.068、F808.5/678.8/9。按AppC dferr45696/57120与eta=Fdf/(Fdf+dferr)计算，Show-o layer .343621/int .068892，未等于表.353/.085，超打印舍入；需原始ANOVA重核。T3按MME/POPE/GenEval/FID：joint1339/84.9/.550/6.84；layer1397/86.4/.603/6.05；PAM1418/86.6/.627/5.97；random1364/85.3/.574/6.50；组合1424/86.7/.632/5.94；单U1431/87.6，单G.641/5.79。PAM−layer +21 CI[9,34]、+.2[−.4,.8]、+2.4pp[1.1,3.7]、−.08[−.19,.04]；只前两主能力指标中MME/GenEval增益明确，POPE/FID未确证差。关闭剩余单任务差约62%/63%，不称理论上界。T5 Janus joint1372/87.9/.662/5.63，layer1379/88.1/.670/5.48，PAM1387/88.3/.681/5.44，random1381/88.2/.674/5.57，组合1390/88.3/.684/5.42。PAM−layer MME+8[2,14]、POPE+.2[−.3,.7]、GenEval+1.1pp[.3,1.9]、FID−.04[−.12,.04]。",
+    "F1 Show-o quartercos−.18/−.09/−.05/−.02，Janus−.11/−.05/−.03/−.01；最强−.42(layer19,b3)/−.37(layer25,b1)，深浅更强，中层较弱，F7分层段显示相同趋势。T2 norm下降2.63×/1.92×，归一后eta_pos .312→.249/.150→.114，保留79.7%/75.8%；这是归一稳健性，两个partial eta比值不等正交可加的“80%因果来自方向”。F3 conflict对DINO R² rho.64，对HF残差−.58，96cell有模型/层/桶依赖。F6 m2/4/6/8/12相对joint GenEval+4.6/+6.8/+7.7/+7.2/+6.1pp，K8/16/32为+6.9/+7.7/+7.5；downweight+6.2(.612)低于投影.627。random回收Show-o MME31.6%/GenEval31.2%，Janus60%/63.2%。T4 LF/MF/HF/overall：joint2.41/3.11/2.87/6.84，layer2.02/2.76/2.66/6.05，PAM2.00/2.75/2.77/5.97，random2.23/2.94/2.83/6.50；HF+4.14%/LF−.99%。组合优于单方法，但按Show-o四臂均值MME交互1424−1397−1418+1339=−52、GenEval−.048，不能将“combine additively”解释成增益简单相加或机制独立。F10a按现有图例将两模型eta柱对调（Show-o蓝对应Janus表值），以T1主表和正文为准并保留图示冲突。",
+    "作者列一阶小probe、分辨率/tokenizer依赖、28H200h重测、无人类纹理评价、未全参微调。独立核查：(1) Show-o AR假设与官方masked生成不符，需模型变体和mask设置；raster早晚更不等全局/纹理或笔画时间。(2) Eq2为调用归因，跨位置loss梯度另有非零项，“bruteforce self-test”若只遮activation可成立但不能证明loss归因，未取得脚本。(3) Eq3不同shape拼接、LoRA A/B空间与冻结W空间投影如何对应均未交代；训练参数约2倍歧义。(4) 正文zero-index S={1,2,3,4,6,7}，AppB却同数字one-index；F4c实际高分0–3/5/6支持后者，不能当同一索引集合。(5) ANOVA将同batch/seed/module相关cell当平衡残差，F与eta/自由度还有数值不对应；需混合效应/聚类重测。(6) 缓存EMA正交保证只对选桶与旧方向，未保证全部生成梯度、当前理解梯度或AdamW实际更新无冲突。(7) DINO相关与两异构架构对比未隔离语义/位置/数据/体量；预声明和“released”均按作者声明，未核事前注册/补充制品。",
+    "全臂LoRA r16/α32/drop.05/qkvo，20K步batch128/lr1e−4 AdamW/warm500/cosine，1:1、3seed但ID未列；betas/wd/精度/分辨率、生成CFG/NFE/mask、训练语料等未齐。论文称12.6M/31.5M可训参数，按4个d×d投影单套LoRA应8Ldr=6,291,456/15,728,640，约一半；若双套/额外模块须源码说明，不能自行补。probe backward开销1.21×/1.17×、PAM训练+.3%为不同口径；图前置map每模型28H200h、全文总200h。AppE分12环境+28map+8norm+10semantic+78训练+30跨架构+34评价，78仅称four-arm而表有5主臂/单任务/消融，逐run分配未齐。v1源码包160910bytes/22成员全列，无.py/experiments或canonical数据；Repro称supplementary有position_probe.py，abs称acceptance后公开，有限title+GitHub/HF未核官方发布。未运行。"
+  ],
+  "sources": [
+    "https://arxiv.org/abs/2609.38485",
+    "https://arxiv.org/pdf/2609.38485v1",
+    "https://arxiv.org/html/2609.38485v1",
+    "https://arxiv.org/src/2609.38485v1",
+    "https://arxiv.org/abs/2408.12528",
+    "https://github.com/showlab/Show-o/blob/45a5a2de01d1ebd10cd5864d29310a76476cdf23/models/modeling_showo.py"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}

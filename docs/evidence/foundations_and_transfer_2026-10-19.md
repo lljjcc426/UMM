@@ -378,3 +378,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百五十二批（2026-10-23）：诊断效度区分预测/并发/因果；统一冲突严重度方向后cos/rate/energy符号不矛盾，CAGrad对称正交分量可抵消。见[审查](gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[L139](../reviews/L139.md)。
+
+
+第一百五十三批（2026-10-23）：调用位置梯度精确分解不等loss项梯度；归一后eta保留率不等因果方差分解，组合增益不等简单相加。见[审查](position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。

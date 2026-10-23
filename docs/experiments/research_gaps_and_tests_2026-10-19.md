@@ -571,3 +571,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百五十二批（2026-10-23）：真实事件oracle、run级预测、等效界/功效、原算法/变体分列，范数与学习率匹配的冲突专用投影/sham，未执行。见[审查](../evidence/gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[L139](../reviews/L139.md)。
+
+
+第一百五十三批（2026-10-23）：真实Show-o masked和AR改造分别测；排列/空间/语义控制、调用与loss归因、run聚类、缓存方向及实际优化步、事件oracle/细笔HF评估，未执行。见[审查](../evidence/position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。

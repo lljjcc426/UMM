@@ -581,3 +581,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百五十二批（2026-10-23）：完成L139全部研究正文/AppA–E、5表2编号式10图及11实际PDF页；逐项审查CAGrad、代理指标方向、置信区间估计对象与投影混淆。357目录，261核心/264书面；未确认核心69论文／研究+27资源。见[审查](gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[逐文件说明](one_hundred_fifty_second_changes_2026-10-23.md)。无删除或模型执行。
+
+
+第一百五十三批（2026-10-23）：完成L140全部研究正文/AppA–F、6表4式10图/10实际PDF页及源码包目录；核Show-o masked生成、调用/损失归因、参数数与选桶索引等差异。357目录，262核心/265书面；未确认核心68论文／研究+27资源。见[审查](position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[逐文件说明](one_hundred_fifty_third_changes_2026-10-23.md)。无删除或模型执行。

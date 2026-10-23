@@ -542,3 +542,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百五十二批（2026-10-23）：GridUMM为3.2/6.7M离散网格诊断，93runs/372checkpoint，不能当自然图或书写视频实证；CAGrad等按本文变体列。见[审查](gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[L139](../reviews/L139.md)。
+
+
+第一百五十三批（2026-10-23）：共享骨干模块调用位置梯度调节，非笔画时间；Show-o原图像离散扩散与PAM AR文字设定待核，不能跨范式泛化。见[审查](position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。

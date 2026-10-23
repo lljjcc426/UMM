@@ -174,3 +174,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百五十二批（2026-10-23）：全部共享小decoder的任务梯度诊断不等真实信息转移；全平行投影改梯度模长和任务比，论文CAGrad文字与原约束对偶不同。见[审查](gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[L139](../reviews/L139.md)。
+
+
+第一百五十三批（2026-10-23）：raster索引是空间顺序，原Show-o mask迭代非左到右AR；PAM只对选桶与缓存EMA去负分量，不保证当前总梯度或AdamW更新无冲突。见[审查](position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。

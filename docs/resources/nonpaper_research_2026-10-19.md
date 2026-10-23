@@ -572,3 +572,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百五十二批（2026-10-23）：L139 abs称upon acceptance、Repro称released artifact，全文和有限检索未核官方config/CSV/manifest地址，保留声明与可获取性差别。见[审查](../evidence/gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[L139](../reviews/L139.md)。
+
+
+第一百五十三批（2026-10-23）：PAM abs称待公开、Repro称supplementary position_probe.py；arXiv源码包22成员无该脚本/数据，有限检索未核官方代码；原Show-o脚本只定向阅读。见[审查](../evidence/position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。

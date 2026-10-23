@@ -631,3 +631,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百五十二批（2026-10-23）：L139 v1完整23页/全部研究正文附录、10图与11实际PDF页；原CAGrad NeurIPS2021 §3.1/Algorithm1定向主源对照，有限发布检索未获官方制品。见[审查](gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[L139](../reviews/L139.md)。
+
+
+第一百五十三批（2026-10-23）：PAM v1完整20页、全部研究附录6表4式10图/10实际PDF页，源码包22成员无.py；有限发布检索及原Show-o官方forward/t2i_generate定向核对。见[审查](position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。
