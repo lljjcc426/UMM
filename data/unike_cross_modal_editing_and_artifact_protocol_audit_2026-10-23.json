@@ -1,0 +1,166 @@
+{
+  "id": "L141",
+  "date": "2026-10-23",
+  "pdf_complete": true,
+  "pdf_pages": 24,
+  "pdf_bytes": 2816417,
+  "actual_pdf_pages_viewed": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    15,
+    16,
+    17
+  ],
+  "tables_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "equations_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "figures_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "github_commit": "f8331cbc43199e1fc7aec0d3b1db553d46739abd",
+  "github_tree_members": 221,
+  "selected_files_downloaded": 35,
+  "hf_commit": "2345d5d4d000640d22ca3f180aae06bbaf3c0fd3",
+  "raw_records": 2971,
+  "unique_subject_strings": 2768,
+  "source_category_counts": {
+    "attribute/material": 212,
+    "relation/occupation": 531,
+    "relation/location": 845,
+    "attribute/color": 287,
+    "attribute/shape": 198,
+    "relation/creator": 328,
+    "attribute/pattern": 58,
+    "relation/affiliation": 303,
+    "attribute/size": 209
+  },
+  "stage_counts": {
+    "attribute/stage_1": 959,
+    "attribute/stage_2": 874,
+    "attribute/stage_3": 858,
+    "attribute/stage_4": 837,
+    "relation/stage_1": 2007
+  },
+  "missing_primary_stage": [
+    {
+      "raw_index": 210,
+      "subject": "Red Blood Cell",
+      "stages": [
+        4
+      ]
+    },
+    {
+      "raw_index": 521,
+      "subject": "Teardrop",
+      "stages": [
+        4
+      ]
+    },
+    {
+      "raw_index": 2276,
+      "subject": "Bridge",
+      "stages": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "raw_index": 2929,
+      "subject": "Pear",
+      "stages": [
+        4
+      ]
+    },
+    {
+      "raw_index": 2938,
+      "subject": "Santa Suit",
+      "stages": [
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "exact_prompt_target_collisions": [
+    {
+      "prompt": "iOS 8 was developed by",
+      "rows": [
+        {
+          "raw_index": 170,
+          "target": "Sega"
+        },
+        {
+          "raw_index": 2492,
+          "target": "Microsoft"
+        }
+      ]
+    },
+    {
+      "prompt": "Triple H is employed by",
+      "rows": [
+        {
+          "raw_index": 295,
+          "target": "Valve Corporation"
+        },
+        {
+          "raw_index": 1800,
+          "target": "BBC"
+        }
+      ]
+    }
+  ],
+  "loader_retained_records": 2966,
+  "findings": [
+    "T3各模型/编辑器总体Eff；VQA Direct→ReasonAug；Reason：Ovis MEMIT59.84；8.70→24.41；43.59，PMET72.18；9.71→28.32；53.57，Alpha64.73；7.42→20.67；44.47。BLIP MEMIT68.88；15.17→16.32；45.52，PMET76.30；18.51→19.29；53.20，Alpha*77.88；16.12→17.33；61.67。Omni MEMIT58.29；8.73→12.17；44.64，PMET76.20；11.43→16.01；51.96，Alpha*76.37；11.50→17.90；58.93。OvisPMET总体增18.61pp符合摘要18.6；约92%是OmniAlpha关系Eff91.93%，非总体。每组合总体VQA提高，但BLIPPMET关系20.98→20.78下降.20pp，不能声称全部子域提高。OvisPMET主表可由959属性/2007关系重构：Eff529/959、1612/2007、总2141/2966=72.18%；VQA83/959、205/2007、总288/2966=9.71%，仅为整数一致性分析，不替代正式原始run证据。",
+    "T4 PMET100例按语言cos漂移/语言相对Frob/Direct条件/Reason条件：Ovis.003/.078/.018/.154，BLIP.139/.527/.031/.064，Omni.038/.262/.018/.092；条件漂移放大8.56/2.06/5.11倍，prompt内容/长度不同，不能当语义因果。T6投影1536×4096，k1/10/100/500/1000/1536保留.01/.18/1.99/10.62/21.60/34.82%，各向同性参照.02/.24/2.44/12.21/24.41/37.50%。T7 Alpha/MEMIT/PMET的原δ范数2810.5/4134.8/2930.6、投影范数585.0/973.3/669.6、子空间ρ34.2/31.9/34.8%；ρ是行空间投影比例，非含Σ的实际Wδ能量比例。代码原δ用全序列Frob、投影用均值δ，范数不可直接相比。T8 Alpha100例t=.5：txt-in7273/1.000，block0–4 7243/.996、7238/.995、7187/.988、7225/.993、7398/1.017；relative实际以7273为分母，列名RelativeBlock0需核。五块范数近常数不能证明整个生成器线性或唯一瓶颈；传播脚本存在捕获块异常后pass/保留原状态的路径，需成功forward日志，不能据此断言正式表运行失败。F5分stage归一不同可用子集；F6所标Stage2孔雀花园对应当前HF row12 stage3，需版本映射。",
+    "作者归因生成条件接口、有限架构/编辑器/可视知识，未覆盖视频/笔顺。独立审查：(1) 2971记录与编辑2966分母、5无S1样本后续生成是否仍参与、两组矛盾prompt须给run级名单/冲突规则；原JSON审计有证据，但其对整体结果影响未量化。(2) 首token/字符串及目标已知VQA不能代替完整知识、实体绑定、细字/标志准确；stage不齐、错误排除和边际分数妨碍因果解释。(3) ReasonAug原prompt保留方式在正文、生图与诊断代码不一致；BLIPUNet与DiT描述不一致，温度亦不同。(4) SVD34%依赖实际δ方向，不是维度必然上限；行空间能量与真实W范数区别、全序列/均值δ统计单位需统一。(5) 五块norm保持不证明线性，异常吞掉可伪造稳定性，原始日志未得；诊断raw-token conditioning与真实chat/blank-image生成路径尚未同一化，工具limit取前100非随机抽样。(6) 无主表多seed CI、条件成功联合表、完整locality/未编辑保留及多编辑冲突分析；软化约束提高编辑能力的代价待测。未执行模型，代码风险不能写成正式实验已发生错误。",
+    "九份JSON已读：共同value梯度25步/lr.1/weightdecay.001/KL.0625/clamp4/mom2权重15000，Wikipedia100K float32二阶矩；Ovis v_loss_layer27、另两者35。Alpha L2=10/null阈.02，Ovisα1/ε0，BLIPα.7/ε.01/max更新Frob比.5，Omniα.6/ε.015/比.4；代码比值基准INITIAL_WEIGHT_NORMS，论文文字似当前W，需对齐。run_edit默认100条每块，evaluate.py累积更新并只在最终全编辑模型上评价；不是每块重置。代码生图默认seed42/1024²/50步：OvisCFG5，Omni文本CFG4/图CFG2，BLIPUNet硬编码CFG3/50步；Reason vLLM greedy/temp0/top_p1/top_k−1/maxnew512/seed42/maxlen4096。README≥48GB是运行要求，非已确认实验硬件；torch2.4/Py3.10及bf16等工程设置不补成正式训练日志。正式完整硬件/耗时/多seed和逐run manifest未提供。官方GH固定f8331cbc43199e1fc7aec0d3b1db553d46739abd目录221成员，下载35选择性源码/配置文件，阅读本文涉及函数；HF固定2345d5d4d000640d22ca3f180aae06bbaf3c0fd3全文JSON/卡。未下载权重/缓存矩阵，未执行作者脚本或复现。"
+  ],
+  "sources": [
+    "https://proceedings.mlr.press/v306/gao26ag.html",
+    "https://raw.githubusercontent.com/mlresearch/v306/main/assets/gao26ag/gao26ag.pdf",
+    "https://arxiv.org/abs/2606.00477",
+    "https://arxiv.org/html/2606.00477v1",
+    "https://github.com/gxx27/UniKE/tree/f8331cbc43199e1fc7aec0d3b1db553d46739abd",
+    "https://huggingface.co/datasets/gxx27/UniKE/tree/2345d5d4d000640d22ca3f180aae06bbaf3c0fd3"
+  ],
+  "executed": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}

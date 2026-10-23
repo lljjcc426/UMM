@@ -381,3 +381,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百五十三批（2026-10-23）：调用位置梯度精确分解不等loss项梯度；归一后eta保留率不等因果方差分解，组合增益不等简单相加。见[审查](position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。
+
+
+第一百五十四批（2026-10-23）：SVD行空间保留比例不等实际Wδ能量，维度比需各向同性；条件漂移和五块范数保持不足证明唯一瓶颈或线性，边际分数比不等条件成功率。见[审查](unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。

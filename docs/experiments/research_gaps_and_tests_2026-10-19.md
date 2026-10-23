@@ -574,3 +574,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百五十三批（2026-10-23）：真实Show-o masked和AR改造分别测；排列/空间/语义控制、调用与loss归因、run聚类、缓存方向及实际优化步、事件oracle/细笔HF评估，未执行。见[审查](../evidence/position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。
+
+
+第一百五十四批（2026-10-23）：UniKE需完整事实与Eff×VQA联合表、同seed等长正确/错误/oracle回忆、stage配对、人标/OCR、真实条件路径和forward成功日志；软Alpha同预算测locality，未执行。见[审查](../evidence/unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。

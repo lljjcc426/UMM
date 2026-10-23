@@ -634,3 +634,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百五十三批（2026-10-23）：PAM v1完整20页、全部研究附录6表4式10图/10实际PDF页，源码包22成员无.py；有限发布检索及原Show-o官方forward/t2i_generate定向核对。见[审查](position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。
+
+
+第一百五十四批（2026-10-23）：UniKE正式24页全部研究正文/AppA–F、16式8表6图/10实际PDF页；固定GH221成员目录/35选择性文件、HF2971行全量静态审计，无模型运行。见[审查](unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。

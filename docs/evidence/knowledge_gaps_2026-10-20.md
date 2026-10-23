@@ -586,3 +586,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百五十三批（2026-10-23）：PAM缺训练语料、W到LoRA投影、6.29/15.73M与12.6/31.5M参数差；ANOVA F/eta/df、选桶索引和F10图例需原始制品。见[审查](position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。
+
+
+第一百五十四批（2026-10-23）：UniKE5条无S1导致加载2966/公开2971口径，两组相同prompt异目标；正式run名单、冲突规则、错误分母、Reason拼接/BLIPUNet与DiT/温度映射待核。见[审查](unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。

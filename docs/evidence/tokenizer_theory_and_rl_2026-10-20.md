@@ -177,3 +177,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百五十三批（2026-10-23）：raster索引是空间顺序，原Show-o mask迭代非左到右AR；PAM只对选桶与缓存EMA去负分量，不保证当前总梯度或AdamW更新无冲突。见[审查](position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。
+
+
+第一百五十四批（2026-10-23）：语言知识编辑→条件表示→视觉实现是不同测量环节；Reason提示拼接在正文/生成/诊断脚本不同，需固定路径，行空间软化须同时检查知识保持代价。见[审查](unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。

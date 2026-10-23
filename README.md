@@ -455,3 +455,6 @@ python scripts/validate_catalog.py
 
 
 第一百五十三批（2026-10-23）：完成L140全部研究正文/AppA–F、6表4式10图/10实际PDF页及源码包目录；核Show-o masked生成、调用/损失归因、参数数与选桶索引等差异。357目录，262核心/265书面；未确认核心68论文／研究+27资源。见[审查](docs/evidence/position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[逐文件说明](docs/evidence/one_hundred_fifty_third_changes_2026-10-23.md)。无删除或模型执行。
+
+
+第一百五十四批（2026-10-23）：完成L141正式全部研究正文/AppA–F、16式8表6图/10实际PDF页，核固定代码与2971条HF数据；记录缺stage、矛盾请求、推理拼接与条件机制边界。357目录，263核心/266书面；未确认核心67论文／研究+27资源。见[审查](docs/evidence/unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[逐文件说明](docs/evidence/one_hundred_fifty_fourth_changes_2026-10-23.md)。无删除或模型执行。

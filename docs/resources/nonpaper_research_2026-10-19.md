@@ -575,3 +575,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百五十三批（2026-10-23）：PAM abs称待公开、Repro称supplementary position_probe.py；arXiv源码包22成员无该脚本/数据，有限检索未核官方代码；原Show-o脚本只定向阅读。见[审查](../evidence/position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。
+
+
+第一百五十四批（2026-10-23）：官方UniKE固定代码/九配置/HF全JSON已定向核；README最低48GB不当正式硬件，未下载权重/矩阵，下载35文件不等全库逐行读。见[审查](../evidence/unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。

@@ -545,3 +545,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百五十三批（2026-10-23）：共享骨干模块调用位置梯度调节，非笔画时间；Show-o原图像离散扩散与PAM AR文字设定待核，不能跨范式泛化。见[审查](position_gradient_attribution_and_lora_budget_audit_2026-10-23.md)、[L140](../reviews/L140.md)。
+
+
+第一百五十四批（2026-10-23）：UniKE是静态跨模态知识编辑benchmark/协议，三编辑器与推理增强；首token、事实回忆和视觉符合分别评价，无书写视频能力结论。见[审查](unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。
