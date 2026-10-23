@@ -637,3 +637,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百五十四批（2026-10-23）：UniKE正式24页全部研究正文/AppA–F、16式8表6图/10实际PDF页；固定GH221成员目录/35选择性文件、HF2971行全量静态审计，无模型运行。见[审查](unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。
+
+
+第一百五十五批（2026-10-23）：UniEval35页全部研究内容/AppA–J、1式7表28图/29实际PDF页；固定核心/模型包装、1234提示4231题静态计分审计，未执行模型。见[审查](unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。

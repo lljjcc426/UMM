@@ -587,3 +587,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百五十四批（2026-10-23）：完成L141正式全部研究正文/AppA–F、16式8表6图/10实际PDF页，核固定代码与2971条HF数据；记录缺stage、矛盾请求、推理拼接与条件机制边界。357目录，263核心/266书面；未确认核心67论文／研究+27资源。见[审查](unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[逐文件说明](one_hundred_fifty_fourth_changes_2026-10-23.md)。无删除或模型执行。
+
+
+第一百五十五批（2026-10-23）：完成L143全部研究正文/AppA–J及1式7表28图，29实际PDF页；核1234提示/4231题和固定核心代码，得到恒A层级基线.351及自评混淆边界。357目录，264核心/267书面；未确认核心66论文／研究+27资源。见[审查](unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[逐文件说明](one_hundred_fifty_fifth_changes_2026-10-23.md)。无删除或模型执行。

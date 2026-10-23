@@ -577,3 +577,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百五十四批（2026-10-23）：UniKE需完整事实与Eff×VQA联合表、同seed等长正确/错误/oracle回忆、stage配对、人标/OCR、真实条件路径和forward成功日志；软Alpha同预算测locality，未执行。见[审查](../evidence/unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。
+
+
+第一百五十五批（2026-10-23）：增加恒A/空图/图像置乱/选项置换、真实E和独立图真值，G×U全交叉、独立seed/失败占位/簇bootstrap；文字OCR和RGB笔画事件另设评价，均未执行。见[审查](../evidence/unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。

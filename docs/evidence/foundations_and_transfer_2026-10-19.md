@@ -384,3 +384,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百五十四批（2026-10-23）：SVD行空间保留比例不等实际Wδ能量，维度比需各向同性；条件漂移和五块范数保持不足证明唯一瓶颈或线性，边际分数比不等条件成功率。见[审查](unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。
+
+
+第一百五十五批（2026-10-23）：S=g a+(1−g)b同时含生成真符合、真阳性和误答目标，Δ自评−外裁不能识别绝对理解；层级macro与池化micro、选项偏差、簇相关需区分。见[审查](unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。

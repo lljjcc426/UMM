@@ -589,3 +589,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百五十四批（2026-10-23）：UniKE5条无S1导致加载2966/公开2971口径，两组相同prompt异目标；正式run名单、冲突规则、错误分母、Reason拼接/BLIPUNet与DiT/温度映射待核。见[审查](unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。
+
+
+第一百五十五批（2026-10-23）：UniBench无E目标、恒A层级.351261对Showo.367；人评排除率/原始标签、版本和完整运行manifest待核；图17筛选条件及案例图表不一致分别记录。见[审查](unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。

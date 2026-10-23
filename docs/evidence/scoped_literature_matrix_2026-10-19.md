@@ -548,3 +548,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百五十四批（2026-10-23）：UniKE是静态跨模态知识编辑benchmark/协议，三编辑器与推理增强；首token、事实回忆和视觉符合分别评价，无书写视频能力结论。见[审查](unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。
+
+
+第一百五十五批（2026-10-23）：UniEval是静态生成—理解闭环评价与UniBench，10UMM/10图模型；Text67题非逐字符串OCR，无视频/规范笔顺。见[审查](unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。

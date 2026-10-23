@@ -180,3 +180,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百五十四批（2026-10-23）：语言知识编辑→条件表示→视觉实现是不同测量环节；Reason提示拼接在正文/生成/诊断脚本不同，需固定路径，行空间软化须同时检查知识保持代价。见[审查](unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。
+
+
+第一百五十五批（2026-10-23）：自评奖励可能提高猜目标b而非看图a，需独立校准与负例；生成/理解/答题格式分开，低分/大CV不能单独证明更有效基准。见[审查](unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。

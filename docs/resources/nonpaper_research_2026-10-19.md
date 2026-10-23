@@ -578,3 +578,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百五十四批（2026-10-23）：官方UniKE固定代码/九配置/HF全JSON已定向核；README最低48GB不当正式硬件，未下载权重/矩阵，下载35文件不等全库逐行读。见[审查](../evidence/unike_cross_modal_editing_and_artifact_protocol_audit_2026-10-23.md)、[L141](../reviews/L141.md)。
+
+
+第一百五十五批（2026-10-23）：固定UniEval核心与Janus/Showo/UniToken/Qwen/FLUX/DALLE包装定向核、UniBench全JSON；FLUXdev四次均seed0，资源建议不当正式硬件，元数据审查不计推理。见[审查](../evidence/unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。
