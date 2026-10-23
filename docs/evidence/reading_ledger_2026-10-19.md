@@ -244,7 +244,7 @@
 | L136 | Pareto LoRA: Mitigating Modality Imbalance in Unified Multimodal Models via Pareto-Optimal Gradient Integration | primary_sections_read | [结构化分析](../reviews/L136.md) | 核心三遍与五项检查完成 |
 | L137 | STBridge: Shared-Target Alignment for Bridging Understanding and Generation in UMMs | primary_sections_read | [结构化分析](../reviews/L137.md) | 核心三遍与五项检查完成 |
 | L138 | Mutually Adversarial Self-Training with Evolving Data for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L138.md) | 核心三遍与五项检查完成 |
-| L139 | Does Gradient Conflict Predict the Understanding--Generation Trade-off? A Controlled Audit of Conflict-Metric Validity in Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L139.md) | 未完成 |
+| L139 | Does Gradient Conflict Predict the Understanding--Generation Trade-off? A Controlled Audit of Conflict-Metric Validity in Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L139.md) | 核心三遍与五项检查完成 |
 | L140 | Beyond Layers: Position-Resolved Gradient Conflict and Position-Aware Modulation for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/L140.md) | 未完成 |
 | L141 | Do Text Edits Generalize to Visual Generation? Benchmarking Cross-Modal Knowledge Editing in UMMs | primary_sections_read | [结构化分析](../reviews/L141.md) | 未完成 |
 | L142 | MME-Unify: A Comprehensive Benchmark for Unified Multimodal Understanding and Generation Models | primary_sections_read | [结构化分析](../reviews/L142.md) | 未完成 |

@@ -568,3 +568,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百五十一批（2026-10-23）：等全预算随机/困难/合作/全候选、独立估难和多seed、同底座共享/分离、原始池锚定与严格事件信息保持，未执行。见[审查](../evidence/mate_adversarial_pool_evolution_and_budget_audit_2026-10-23.md)、[L138](../reviews/L138.md)。
+
+
+第一百五十二批（2026-10-23）：真实事件oracle、run级预测、等效界/功效、原算法/变体分列，范数与学习率匹配的冲突专用投影/sham，未执行。见[审查](../evidence/gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[L139](../reviews/L139.md)。

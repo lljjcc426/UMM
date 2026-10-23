@@ -569,3 +569,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百五十一批（2026-10-23）：MATE脚本/config/候选记录声明以后发布，有限检索未核官方制品；UnifiedReward/AlignAnything/SigLIP精确版本需分别审查。见[审查](../evidence/mate_adversarial_pool_evolution_and_budget_audit_2026-10-23.md)、[L138](../reviews/L138.md)。
+
+
+第一百五十二批（2026-10-23）：L139 abs称upon acceptance、Repro称released artifact，全文和有限检索未核官方config/CSV/manifest地址，保留声明与可获取性差别。见[审查](../evidence/gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[L139](../reviews/L139.md)。

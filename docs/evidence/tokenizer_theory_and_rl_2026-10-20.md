@@ -171,3 +171,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百五十一批（2026-10-23）：GRPO同组标准化、σfloor丢组但保留到下池、fallback可能低于τ；固定外部reward与共享更新的间接影响。见[审查](mate_adversarial_pool_evolution_and_budget_audit_2026-10-23.md)、[L138](../reviews/L138.md)。
+
+
+第一百五十二批（2026-10-23）：全部共享小decoder的任务梯度诊断不等真实信息转移；全平行投影改梯度模长和任务比，论文CAGrad文字与原约束对偶不同。见[审查](gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[L139](../reviews/L139.md)。

@@ -539,3 +539,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百五十一批（2026-10-23）：JanusPro静态图文hard mining/池演化，LM1.5B与alltrainable2.1B区分；MATE与SUDER2506.07963分条。见[审查](mate_adversarial_pool_evolution_and_budget_audit_2026-10-23.md)、[L138](../reviews/L138.md)。
+
+
+第一百五十二批（2026-10-23）：GridUMM为3.2/6.7M离散网格诊断，93runs/372checkpoint，不能当自然图或书写视频实证；CAGrad等按本文变体列。见[审查](gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[L139](../reviews/L139.md)。

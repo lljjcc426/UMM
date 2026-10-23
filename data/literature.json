@@ -18051,22 +18051,24 @@
     "title": "Does Gradient Conflict Predict the Understanding--Generation Trade-off? A Controlled Audit of Conflict-Metric Validity in Unified Multimodal Models",
     "source_urls": [
       "https://arxiv.org/abs/2609.38465",
-      "https://proceedings.neurips.cc/paper/2021/file/9d27fdf2477ffbff837d73ef7ae23db9-Paper.pdf"
+      "https://proceedings.neurips.cc/paper/2021/file/9d27fdf2477ffbff837d73ef7ae23db9-Paper.pdf",
+      "https://arxiv.org/pdf/2609.38465v1",
+      "https://arxiv.org/html/2609.38465v1"
     ],
-    "method": "GridUMM可控任务、7类更新/数据比/种子扫描、早期预测/并发关联与投影剂量实验。 全共享decoder-only 256宽6层4head/FFN512约3.2M；大版320宽8层约6.7M；两次backward各任务并组合，probe固定32+32。",
-    "conclusion": "Table1Naive理解.630/生成.998，PCGrad .641/.999，MGDA .389/1.000，SOAP-style .543/.000。早期conflict magnitude预测最终score rho−.198 CI[−.463,.079]；摘要“最强.145”与正文该例不一致，不能混成单一数值。",
-    "gap": "外部效度仅小合成任务，生成多已饱和；3seed/剂量检验无显著效应不足证明严格零效应；checkpoint相关性虽clusterbootstrap，功效不能简单当252独立。reliability ceiling需诊断指标及目标自身可靠性，文中仅sqrt(relU*relG)不足一般推出该相关上界。AppendixC“CAGrad”按正交分量截幅，与原NeurIPS2021 Algorithm1的单纯形对偶优化不同；不能当标准CAGrad已受忠实检验。",
-    "problem": "检验梯度方向冲突指标能否预测理解/生成最终表现，并干预冲突观察结果。",
+    "method": "构造可控离散网格世界，共享decoder理解/生成，在7种梯度组合、3数据比与种子上测多级冲突和功能指标；E1配置扫描、E2损失有效性、E3投影剂量、E4功能竞争、E5规模检查。贡献是诊断审计框架及有限反例证据，无新大规模UMM或证明所有梯度方法无效。 GridUMM全部共享embedding/decoder/head，基础d256/6blocks/4heads/FFN512约3.2M，较大d320/8blocks/FFN640约6.7M；按embedding、6block、head测8组。无外置视觉encoder/图像codec。功能指标用末层mean-pool表示：答案线性probe、top8 SVD子空间主角重叠、协方差participation-ratio有效秩，以及模型生成网格后自己回答的self-consistency。probe使用答案标签，两折CV，其测量对象与理解准确率存在直接联系；不据此指训练泄漏。",
+    "conclusion": "Table1七方法按U/G/S/cos/rate/normratio：Naive .630/.998/.814/.001/.417/.025；token .622/.607/.614/.000/.542/.339；GradNorm .633/.996/.815/.002/.514/.112；PCGrad .641/.999/.820/.000/.639/.027；CAGrad .636/.999/.818/−.003/.708/.029；MGDA .389/1/.694/.123/.208/.004；SOAP-style .543/.000/.271/.002/.389/.476。T1 caption称mean±SD(n9)，实际只列均值，不能补SD。T5早期→final N63：cos−.146 CI[−.411,.147]、rate .022[−.210,.260]、magnitude−.198[−.463,.079]、norm−.006[−.264,.246]、energy .052[−.185,.287]；摘要最强|rho|.145/讨论.14与magnitude .198不一致。final并发cos−.321[−.523,−.097]、rate+.338[.131,.537]、energy+.366[.159,.559]，三者按冲突严重度统一为−cos/rate/energy后同向，不能凭原始符号相反判互相矛盾。E2 final loss rho−.926、Uloss−.921/Gloss−.835、earlyloss−.424，仍90/1953 lower-loss配对被Pareto支配，master子集74/1081，相关强不等所有配对可靠。",
+    "gap": "作者明示小合成分布、生成饱和、规模与真实UMM外推限制。新增审查：(1) 按AppC文字，两个梯度对均值g0的正交分量互为相反数且等范数，相同半径截幅后仍抵消，所述CAGrad更新退化g0；原NeurIPS2021求max_d min_i gi·d s.t. ||d−g0||≤c||g0||，通常不等g0。需源码确认描述遗漏，不能断言未见代码必按此实现。(2) E3同时改正向分量、梯度模长和相对任务权重，未隔离“仅冲突”；若原cos=c，c′=(1−α)c/sqrt(1−α(2−α)c²)，并非一般简单乘1−α。(3) sqrt(relU relG)=.991只用任务可靠性，不能一般推出conflict与复合S的相关上界，需relX与relS/测量误差假设。(4) N63 MDE .362高于预设有效|rho|.3，宽CI与不显著不能排除.3；N252功效不能忽略run聚类。(5) AppD“exact p-values”又称normal approximation，近似p值不等精确检验，打印.000不当真零。(6) cosine与冲突率方向相反，正负符号需先统一；绝对相关差和有符号相关差的CI需重算。以上不否定已报告有限测试，但削弱强机制、忠实基线及普遍无效结论。",
+    "problem": "在统一理解/生成模型中，梯度方向冲突能否从早期预测最终任务折中、在同一时点反映功能损害、以及通过干预改变最终表现？本文是合成GridUMM诊断有效性审计，无自然RGB、扩散或书写视频生成。",
     "claim": "作者研究目标：检验梯度方向冲突指标能否预测理解/生成最终表现，并干预冲突观察结果。",
-    "version": "Gradient Conflict Audit，2026",
+    "version": "arXiv:2609.38465v1，2026-09-29预印本；未确认会议录用",
     "scope": "umm",
     "category": "UMM及相邻机制 / 6. 机制诊断：统一之后知识是否真的能流动",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-23",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-23",
     "id": "L139",
     "canonical_key": "paper:arxiv:2609.38465",
     "evidence_history": [
@@ -18098,17 +18100,23 @@
         "conclusion": "常用方向冲突指标未可靠预测最终权衡；结论针对受控小世界，不等于真实大模型梯度方法无用",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "checked_on": "2026-10-23",
+        "batch": "one_hundred_fifty_second",
+        "sections_read": "v1完整23页967844bytes，Abstract/§1–6全部研究正文、p11 AIUse/Repro/Ethics、AppA–E全部研究内容，编号Eq1–2及未编号更新/干预式、T1–5/F1–10及全部图注；实际看p4/6/7/8/17/18/19/20/21/22/23共11页，覆盖10图和主表/条件。参考目录仅定位，不计逐篇精读；原CAGrad NeurIPS2021 §3.1/约束式、对偶及Algorithm1定向对照，未计独立完整三遍。arXiv版本/HTML和有限title+GitHub/HF检索，无官方源码/CSV/manifest核验，无权重下载、模型执行或独立复现。",
+        "verification": "primary_sections_read"
       }
     ],
-    "sections_read": "§3–6全文、Tables1–3、AppendicesB/C/D及E部分结果；原CAGrad正式PDF§3/Algorithm1对照；未运行作者实现或核全图",
+    "sections_read": "v1完整23页967844bytes，Abstract/§1–6全部研究正文、p11 AIUse/Repro/Ethics、AppA–E全部研究内容，编号Eq1–2及未编号更新/干预式、T1–5/F1–10及全部图注；实际看p4/6/7/8/17/18/19/20/21/22/23共11页，覆盖10图和主表/条件。参考目录仅定位，不计逐篇精读；原CAGrad NeurIPS2021 §3.1/约束式、对偶及Algorithm1定向对照，未计独立完整三遍。arXiv版本/HTML和有限title+GitHub/HF检索，无官方源码/CSV/manifest核验，无权重下载、模型执行或独立复现。",
     "review_path": "docs/reviews/L139.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "5×5网格、8颜色、6–8矩形；理解cell/count/adjacency，生成25颜色+EOS，512问/256描述固定测试。63基准+12干预+18大版=93runs/372checkpoints。",
-    "framework": "GridUMM可控任务、7类更新/数据比/种子扫描、早期预测/并发关联与投影剂量实验。",
-    "architecture": "全共享decoder-only 256宽6层4head/FFN512约3.2M；大版320宽8层约6.7M；两次backward各任务并组合，probe固定32+32。",
-    "metrics": "global/per-layer cosine/conflict rate/magnitude/removed energy/normratio；understanding accuracy与generation object-cell accuracy均值称Pareto score；Spearman/clusterbootstrap。均值是标量折中分，不是理论全局Pareto最优。",
-    "baselines": "Naive、token-normalized、GradNorm-style、PCGrad-style、CAGrad、MGDA、SOAP-style。AppendixC实际变体有重大限制，见局限。",
-    "experimental_conditions": "单M4Max MPS FP32共18.8 aggregate run-hours；AdamW1e-3 beta.9/.999 wd.01 warm100/cos，batch64/900步，大版1080；数据比1:2/1:1/2:1；studentforcing200后至.4 cap16。"
+    "dataset": "5×5、8颜色、6–8不重叠矩形组成合成分布；测试固定512问题/256生成描述、seed777。5次独立测试重抽样seed5101–5105作可靠性评估。E1 7方法×3比×3seed=63runs/252checkpoint；E3新增4剂量×3seed=12runs，α0复用E1；E5 3方法×3比×2seed=18runs。总93runs/372checkpoint，不能把372当独立配置数。未取得实际数据、run CSV或manifests。",
+    "framework": "构造可控离散网格世界，共享decoder理解/生成，在7种梯度组合、3数据比与种子上测多级冲突和功能指标；E1配置扫描、E2损失有效性、E3投影剂量、E4功能竞争、E5规模检查。贡献是诊断审计框架及有限反例证据，无新大规模UMM或证明所有梯度方法无效。",
+    "architecture": "GridUMM全部共享embedding/decoder/head，基础d256/6blocks/4heads/FFN512约3.2M，较大d320/8blocks/FFN640约6.7M；按embedding、6block、head测8组。无外置视觉encoder/图像codec。功能指标用末层mean-pool表示：答案线性probe、top8 SVD子空间主角重叠、协方差participation-ratio有效秩，以及模型生成网格后自己回答的self-consistency。probe使用答案标签，两折CV，其测量对象与理解准确率存在直接联系；不据此指训练泄漏。",
+    "metrics": "Uacc与greedy自由生成object-cell准确率Gacc；S=(Uacc+Gacc)/2，论文称Pareto score，属标量均值，不等于理论Pareto最优。Fig10是63有限运行中的3点经验前沿（PCGrad2/CAGrad1）。Eq1全局/每组cos、||gg||/||gu||，Eq2负cos组占比和mean max(0,−cos)；另removed-energy及后表Logged energy statistic，源码未取得不替两者补推精确口径。Spearman及5000次percentile bootstrap，checkpoint以run成簇重采样，partial rank控制step。四个功能指标属于并发关联，未做前瞻外测或因果验证。",
+    "baselines": "Naive gu+gg；token-normalized权重∝Tt^(−1/2)且和为2；GradNorm-style参考梯度/100步初始损失比及权重夹[.1,10]；PCGrad-style双向负内积投影无范数恢复；CAGrad描述为正交分量对称截幅；MGDA两任务最小范数组合后恢复到平均梯度范数；SOAP-style特征基预调、每50步刷新、β.9/.98并RMS归一，略去momentum坐标平移。均按本文变体记录，特别CAGrad与NeurIPS2021单纯形对偶算法不一致，SOAP塌缩不证明标准SOAP无效。",
+    "experimental_conditions": "Apple M4Max/MPS/FP32，最多6并行训练，总18.8 aggregate run-hours，不能等同用户等待wall time。AdamW lr1e−3 β.9/.999 wd.01，warm100/cosine至.1×，mixedbatch64，U:G 1:2/1:1/2:1；基础900步在225/450/675/900评价，大版1080步在270/540/810/1080评价；base seeds0/1/2、large0/1。200步前teacher forcing，至500步线性升student比例.4、最多16生成行，temp1/固定位置标记、目标真色不变。probe seed1234且每50步，所谓25%早期评价与probe200步有时间偏差。p11称released artifact、abs称upon acceptance公开，全文和有限title+GitHub/HF检索无经核官方代码/CSV/manifest地址，两声明需核；AIUse披露AI辅助实现/执行/作图/写作，不能据作者自述称独立验证已做。"
   },
   {
     "title": "Beyond Layers: Position-Resolved Gradient Conflict and Position-Aware Modulation for Unified Multimodal Models",

@@ -628,3 +628,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百五十一批（2026-10-23）：MATE v1完整20页全文与AppA–C、5表5式3算法8图、11实际PDF页，有限title+GitHub/HF检索；发布声明为以后提供源码/记录。见[审查](mate_adversarial_pool_evolution_and_budget_audit_2026-10-23.md)、[L138](../reviews/L138.md)。
+
+
+第一百五十二批（2026-10-23）：L139 v1完整23页/全部研究正文附录、10图与11实际PDF页；原CAGrad NeurIPS2021 §3.1/Algorithm1定向主源对照，有限发布检索未获官方制品。见[审查](gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[L139](../reviews/L139.md)。

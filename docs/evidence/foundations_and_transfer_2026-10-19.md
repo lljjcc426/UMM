@@ -375,3 +375,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百五十一批（2026-10-23）：有限样本最低均值可能吸收负噪声，低reward不等可学缺口；caption循环非双射，一致不保证原信息保存。见[审查](mate_adversarial_pool_evolution_and_budget_audit_2026-10-23.md)、[L138](../reviews/L138.md)。
+
+
+第一百五十二批（2026-10-23）：诊断效度区分预测/并发/因果；统一冲突严重度方向后cos/rate/energy符号不矛盾，CAGrad对称正交分量可抵消。见[审查](gradient_conflict_metric_validity_and_causal_audit_2026-10-23.md)、[L139](../reviews/L139.md)。
