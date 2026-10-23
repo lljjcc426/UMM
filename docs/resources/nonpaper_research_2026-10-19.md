@@ -581,3 +581,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百五十五批（2026-10-23）：固定UniEval核心与Janus/Showo/UniToken/Qwen/FLUX/DALLE包装定向核、UniBench全JSON；FLUXdev四次均seed0，资源建议不当正式硬件，元数据审查不计推理。见[审查](../evidence/unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。
+
+
+第一百五十六批（2026-10-23）：固定Uni-MMMU31成员目录/8选择性源码、完整HF卡；1026549760B归档未取，卡sft/grpo声明与外部文件树区分，A100建议非正式A800预算。见[审查](../evidence/unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。

@@ -640,3 +640,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百五十五批（2026-10-23）：UniEval35页全部研究内容/AppA–J、1式7表28图/29实际PDF页；固定核心/模型包装、1234提示4231题静态计分审计，未执行模型。见[审查](unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。
+
+
+第一百五十六批（2026-10-23）：Uni-MMMU正式ACL2026 Main pp908–924，全部研究正文/AppA–C、4表10图/12实际PDF页；固定计分与示例定向核，HF仅卡/元数据未解1GBtar。见[审查](unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。

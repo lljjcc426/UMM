@@ -592,3 +592,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百五十五批（2026-10-23）：UniBench无E目标、恒A层级.351261对Showo.367；人评排除率/原始标签、版本和完整运行manifest待核；图17筛选条件及案例图表不一致分别记录。见[审查](unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。
+
+
+第一百五十六批（2026-10-23）：公开迷宫/滑块示例先取GT长度k后循环，适配函数缺失；几何scored分母/已存在目录覆盖、SVG多图择优及主表Avg聚合需正式日志对应。见[审查](unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。

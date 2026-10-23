@@ -551,3 +551,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百五十五批（2026-10-23）：UniEval是静态生成—理解闭环评价与UniBench，10UMM/10图模型；Text67题非逐字符串OCR，无视频/规范笔顺。见[审查](unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。
+
+
+第一百五十六批（2026-10-23）：Uni-MMMU885例八任务、两向静态图文推理，无连续视频或规范笔顺；GPT4.1+GPTimage为代理组合，不能以其榜首推出共享UMM优势。见[审查](unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。

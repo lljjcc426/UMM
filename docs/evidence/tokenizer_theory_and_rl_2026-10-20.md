@@ -183,3 +183,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百五十五批（2026-10-23）：自评奖励可能提高猜目标b而非看图a，需独立校准与负例；生成/理解/答题格式分开，低分/大CV不能单独证明更有效基准。见[审查](unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。
+
+
+第一百五十六批（2026-10-23）：状态表征可作外部记忆，拓扑真错与解析阈值失败分开；GT中间态改善提供空间不证明自身图因果，未知长度和预算需一致。见[审查](unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。

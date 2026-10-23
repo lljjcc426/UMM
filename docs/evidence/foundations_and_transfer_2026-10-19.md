@@ -387,3 +387,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百五十五批（2026-10-23）：S=g a+(1−g)b同时含生成真符合、真阳性和误答目标，Δ自评−外裁不能识别绝对理解；层级macro与池化micro、选项偏差、簇相关需区分。见[审查](unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。
+
+
+第一百五十六批（2026-10-23）：强制中间图流程不推出逻辑必需；step宏平均/整题exact、感知距离/准确率及κ边际需区分，同预算干预才能定位协同。见[审查](unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。

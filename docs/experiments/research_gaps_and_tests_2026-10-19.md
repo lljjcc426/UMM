@@ -580,3 +580,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百五十五批（2026-10-23）：增加恒A/空图/图像置乱/选项置换、真实E和独立图真值，G×U全交叉、独立seed/失败占位/簇bootstrap；文字OCR和RGB笔画事件另设评价，均未执行。见[审查](../evidence/unieval_self_evaluation_identifiability_and_answer_bias_audit_2026-10-23.md)、[L143](../reviews/L143.md)。
+
+
+第一百五十六批（2026-10-23）：Uni-MMMU拟同预算正确/错误/无关/无图和等信息文字干预，分别未知停止/已知k；BFS/SVG渲染强基线与颜色解析人标校准，未执行。见[审查](../evidence/unimmmu_state_parsing_oracle_length_and_synergy_audit_2026-10-23.md)、[L144](../reviews/L144.md)。
