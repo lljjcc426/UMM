@@ -393,3 +393,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百五十七批（2026-10-23）：固定激活参数补偿恒等式的条件不等于全网学习/RC优化保证；构造线性loss只作代数表达，不能单凭attention大小推出梯度有效性。见[审查](genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[L145](../reviews/L145.md)。
+
+
+第一百五十八批（2026-10-23）：金标准答案重写同时改变知识信息和任务难度；三项总分不是事实准确率，原一致0仍可得.3，Verified二值重定义量尺不能直接比进步。见[审查](wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[L147](../reviews/L147.md)。

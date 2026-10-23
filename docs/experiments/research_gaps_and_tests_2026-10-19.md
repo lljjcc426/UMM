@@ -586,3 +586,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百五十七批（2026-10-23）：GENIUS拟固定预算/seed/格式比较仅关键词/随机/错/GT区域及模块消融，报告RC/VC/AQ Pareto、权重敏感性和全510覆盖；未执行。见[审查](../evidence/genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[L145](../reviews/L145.md)。
+
+
+第一百五十八批（2026-10-23）：WISE拟知识问答/显式渲染/端到端分解，金标准/无答案释义/错答案/检索对照，四因素协议交叉及科学前提专家核；均未执行。见[审查](../evidence/wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[L147](../reviews/L147.md)。

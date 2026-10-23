@@ -1,0 +1,792 @@
+{
+  "id": "L147",
+  "checked_on": "2026-10-23",
+  "formal_venue": "ICML2026 PMLR306:93570-93590",
+  "pdf_pages": 21,
+  "pdf_bytes": 3689224,
+  "actual_viewed_pages": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    17,
+    18,
+    21
+  ],
+  "equations": 1,
+  "figures": 7,
+  "tables": 11,
+  "github_commit": "09b5539d64681bf11102fc5c87e63a387beaf71d",
+  "github_tree_members": 30,
+  "downloaded_text_data_files": 18,
+  "full_scripts_read": [
+    "WISE_legacy/Calculate.py",
+    "WISE_legacy/gpt_eval.py",
+    "calculate_verified.py",
+    "vllm_eval.py",
+    "eval_qwen.sh"
+  ],
+  "static_data_audit": {
+    "old_n": 1000,
+    "new_n": 1000,
+    "old_unique_ids": 1000,
+    "new_unique_ids": 1000,
+    "old_categories": {
+      "Cultural knowledge": 400,
+      "time": 167,
+      "Space": 133,
+      "Biology": 100,
+      "Physical Knowledge": 100,
+      "Chemistry": 100
+    },
+    "new_categories": {
+      "Cultural knowledge": 400,
+      "time": 120,
+      "Space": 120,
+      "Biology": 120,
+      "Physical Knowledge": 120,
+      "Chemistry": 120
+    },
+    "old_subcategories": {
+      "Festival": 22,
+      "Sports": 17,
+      "Religion": 22,
+      "Craft": 14,
+      "Construction": 33,
+      "Plant": 71,
+      "Animal": 72,
+      "Art": 37,
+      "Celebrity": 64,
+      "Life": 48,
+      "Horizontal time": 67,
+      "Longitudinal time": 100,
+      "geographical location": 35,
+      "Attribute inference": 23,
+      "perspective scaling": 34,
+      "different view": 20,
+      "Occlusion": 21,
+      "State": 52,
+      "Behavior": 48,
+      "Mechanics": 35,
+      "Thermodynamics": 33,
+      "Optics": 16,
+      "Physical Properties": 16,
+      "Combustion": 26,
+      "Metal Corrosion": 9,
+      "Solution Chemical Reaction": 49,
+      "Chemical Properties": 16
+    },
+    "new_subcategories": {
+      "Festival": 22,
+      "Sports": 17,
+      "Religion": 22,
+      "Craft": 14,
+      "Construction": 33,
+      "Plant": 71,
+      "Animal": 72,
+      "Art": 37,
+      "Celebrity": 64,
+      "Life": 48,
+      "Horizontal time": 60,
+      "Longitudinal time": 60,
+      "Geographical Location": 40,
+      "Relative Position": 40,
+      "Viewpoint and Scale": 40,
+      "State": 60,
+      "Behavior": 60,
+      "Mechanics": 30,
+      "Thermodynamics": 31,
+      "Optics": 29,
+      "Physical Properties": 29,
+      "Electromagnetism": 1,
+      "Combustion": 20,
+      "Metal Corrosion": 20,
+      "Solution Chemical Reaction": 50,
+      "Chemical Properties": 30
+    },
+    "same_exact_prompt_across_versions": 513,
+    "same_id_prompt_equal": 332,
+    "new_merge_matches_parts": false,
+    "old_rewrite_unique_ids": 1000,
+    "timezone_examples": [
+      {
+        "SanFrancisco": "2025-01-15T08:00:00-08:00",
+        "Sydney": "2025-01-16T03:00:00+11:00"
+      },
+      {
+        "SanFrancisco": "2025-07-15T08:00:00-07:00",
+        "Sydney": "2025-07-16T01:00:00+10:00"
+      }
+    ],
+    "new_merge_id_map_matches_parts": true,
+    "new_merge_different_ids": []
+  },
+  "published_table_columns": [
+    "Cultural",
+    "Time",
+    "Space",
+    "Biology",
+    "Physics",
+    "Chemistry",
+    "Overall"
+  ],
+  "published_table1": [
+    {
+      "label": "FLUX.1-dev",
+      "values": [
+        0.48,
+        0.58,
+        0.62,
+        0.42,
+        0.51,
+        0.35,
+        0.5
+      ]
+    },
+    {
+      "label": "FLUX.1-schnell",
+      "values": [
+        0.39,
+        0.44,
+        0.5,
+        0.31,
+        0.44,
+        0.26,
+        0.4
+      ]
+    },
+    {
+      "label": "PixArt-Alpha",
+      "values": [
+        0.45,
+        0.5,
+        0.48,
+        0.49,
+        0.56,
+        0.34,
+        0.47
+      ]
+    },
+    {
+      "label": "playground-v2.5",
+      "values": [
+        0.49,
+        0.58,
+        0.55,
+        0.43,
+        0.48,
+        0.33,
+        0.49
+      ]
+    },
+    {
+      "label": "SD-v1-5",
+      "values": [
+        0.34,
+        0.35,
+        0.32,
+        0.28,
+        0.29,
+        0.21,
+        0.32
+      ]
+    },
+    {
+      "label": "SD-2-1",
+      "values": [
+        0.3,
+        0.38,
+        0.35,
+        0.33,
+        0.34,
+        0.21,
+        0.32
+      ]
+    },
+    {
+      "label": "SD-XL-base-0.9",
+      "values": [
+        0.43,
+        0.48,
+        0.47,
+        0.44,
+        0.45,
+        0.27,
+        0.43
+      ]
+    },
+    {
+      "label": "SD-3-medium",
+      "values": [
+        0.42,
+        0.44,
+        0.48,
+        0.39,
+        0.47,
+        0.29,
+        0.42
+      ]
+    },
+    {
+      "label": "SD-3.5-medium",
+      "values": [
+        0.43,
+        0.5,
+        0.52,
+        0.41,
+        0.53,
+        0.33,
+        0.45
+      ]
+    },
+    {
+      "label": "SD-3.5-large",
+      "values": [
+        0.44,
+        0.5,
+        0.58,
+        0.44,
+        0.52,
+        0.31,
+        0.46
+      ]
+    },
+    {
+      "label": "BAGEL",
+      "values": [
+        0.44,
+        0.55,
+        0.68,
+        0.44,
+        0.6,
+        0.39,
+        0.52
+      ]
+    },
+    {
+      "label": "BAGEL+CoT",
+      "values": [
+        0.76,
+        0.69,
+        0.75,
+        0.65,
+        0.75,
+        0.58,
+        0.7
+      ]
+    },
+    {
+      "label": "Qwen-Image",
+      "values": [
+        0.62,
+        0.63,
+        0.77,
+        0.57,
+        0.75,
+        0.4,
+        0.62
+      ]
+    },
+    {
+      "label": "UniWorld-V1",
+      "values": [
+        0.53,
+        0.55,
+        0.73,
+        0.45,
+        0.59,
+        0.41,
+        0.55
+      ]
+    },
+    {
+      "label": "MetaQuery-XL",
+      "values": [
+        0.56,
+        0.55,
+        0.62,
+        0.49,
+        0.63,
+        0.41,
+        0.55
+      ]
+    },
+    {
+      "label": "BLIP3o-8B",
+      "values": [
+        0.49,
+        0.51,
+        0.63,
+        0.54,
+        0.63,
+        0.37,
+        0.52
+      ]
+    },
+    {
+      "label": "Emu3",
+      "values": [
+        0.34,
+        0.45,
+        0.48,
+        0.41,
+        0.45,
+        0.27,
+        0.39
+      ]
+    },
+    {
+      "label": "Janus-Pro-7B",
+      "values": [
+        0.3,
+        0.37,
+        0.49,
+        0.36,
+        0.42,
+        0.26,
+        0.35
+      ]
+    },
+    {
+      "label": "Janus-Pro-1B",
+      "values": [
+        0.2,
+        0.28,
+        0.45,
+        0.24,
+        0.32,
+        0.16,
+        0.26
+      ]
+    },
+    {
+      "label": "Janus-1.3B",
+      "values": [
+        0.16,
+        0.26,
+        0.35,
+        0.28,
+        0.3,
+        0.14,
+        0.23
+      ]
+    },
+    {
+      "label": "vila-u-7b-256",
+      "values": [
+        0.26,
+        0.33,
+        0.37,
+        0.35,
+        0.39,
+        0.23,
+        0.31
+      ]
+    }
+  ],
+  "published_table2_rewrite_scores_and_deltas": [
+    {
+      "label": "FLUX.1-dev",
+      "values": [
+        0.75,
+        0.27,
+        0.7,
+        0.12,
+        0.76,
+        0.14,
+        0.69,
+        0.27,
+        0.71,
+        0.2,
+        0.68,
+        0.33,
+        0.73,
+        0.23
+      ]
+    },
+    {
+      "label": "FLUX.1-schnell",
+      "values": [
+        0.63,
+        0.24,
+        0.58,
+        0.14,
+        0.67,
+        0.17,
+        0.58,
+        0.27,
+        0.58,
+        0.14,
+        0.44,
+        0.18,
+        0.6,
+        0.2
+      ]
+    },
+    {
+      "label": "PixArt-Alpha",
+      "values": [
+        0.66,
+        0.21,
+        0.64,
+        0.14,
+        0.55,
+        0.07,
+        0.58,
+        0.09,
+        0.64,
+        0.08,
+        0.62,
+        0.28,
+        0.63,
+        0.16
+      ]
+    },
+    {
+      "label": "playground-v2.5",
+      "values": [
+        0.78,
+        0.29,
+        0.72,
+        0.14,
+        0.63,
+        0.08,
+        0.69,
+        0.26,
+        0.67,
+        0.19,
+        0.6,
+        0.27,
+        0.71,
+        0.22
+      ]
+    },
+    {
+      "label": "SD-v1-5",
+      "values": [
+        0.59,
+        0.25,
+        0.5,
+        0.15,
+        0.41,
+        0.09,
+        0.47,
+        0.19,
+        0.44,
+        0.15,
+        0.36,
+        0.15,
+        0.5,
+        0.18
+      ]
+    },
+    {
+      "label": "SD-2-1",
+      "values": [
+        0.63,
+        0.33,
+        0.61,
+        0.23,
+        0.44,
+        0.09,
+        0.5,
+        0.17,
+        0.49,
+        0.15,
+        0.41,
+        0.2,
+        0.55,
+        0.23
+      ]
+    },
+    {
+      "label": "SD-XL-base-0.9",
+      "values": [
+        0.68,
+        0.25,
+        0.71,
+        0.23,
+        0.59,
+        0.12,
+        0.61,
+        0.17,
+        0.67,
+        0.22,
+        0.55,
+        0.28,
+        0.65,
+        0.22
+      ]
+    },
+    {
+      "label": "SD-3-medium",
+      "values": [
+        0.76,
+        0.34,
+        0.65,
+        0.21,
+        0.68,
+        0.2,
+        0.59,
+        0.2,
+        0.67,
+        0.2,
+        0.59,
+        0.3,
+        0.69,
+        0.27
+      ]
+    },
+    {
+      "label": "SD-3.5-medium",
+      "values": [
+        0.73,
+        0.3,
+        0.69,
+        0.19,
+        0.67,
+        0.15,
+        0.68,
+        0.27,
+        0.67,
+        0.14,
+        0.6,
+        0.27,
+        0.69,
+        0.24
+      ]
+    },
+    {
+      "label": "SD-3.5-large",
+      "values": [
+        0.78,
+        0.34,
+        0.69,
+        0.19,
+        0.68,
+        0.1,
+        0.64,
+        0.2,
+        0.7,
+        0.18,
+        0.64,
+        0.33,
+        0.72,
+        0.26
+      ]
+    },
+    {
+      "label": "BAGEL",
+      "values": [
+        0.68,
+        0.24,
+        0.75,
+        0.2,
+        0.75,
+        0.07,
+        0.71,
+        0.27,
+        0.81,
+        0.21,
+        0.81,
+        0.42,
+        0.73,
+        0.21
+      ]
+    },
+    {
+      "label": "Qwen-Image",
+      "values": [
+        0.91,
+        0.29,
+        0.82,
+        0.19,
+        0.92,
+        0.15,
+        0.88,
+        0.31,
+        0.91,
+        0.16,
+        0.8,
+        0.4,
+        0.88,
+        0.26
+      ]
+    },
+    {
+      "label": "UniWorld-V1",
+      "values": [
+        0.81,
+        0.28,
+        0.75,
+        0.2,
+        0.84,
+        0.11,
+        0.71,
+        0.26,
+        0.76,
+        0.17,
+        0.69,
+        0.28,
+        0.78,
+        0.23
+      ]
+    },
+    {
+      "label": "MetaQuery-XL",
+      "values": [
+        0.81,
+        0.25,
+        0.73,
+        0.18,
+        0.69,
+        0.07,
+        0.67,
+        0.18,
+        0.59,
+        -0.04,
+        0.58,
+        0.17,
+        0.72,
+        0.17
+      ]
+    },
+    {
+      "label": "BLIP3o-8B",
+      "values": [
+        0.8,
+        0.31,
+        0.7,
+        0.19,
+        0.75,
+        0.12,
+        0.8,
+        0.26,
+        0.76,
+        0.13,
+        0.73,
+        0.36,
+        0.76,
+        0.24
+      ]
+    },
+    {
+      "label": "Emu3",
+      "values": [
+        0.7,
+        0.36,
+        0.62,
+        0.17,
+        0.6,
+        0.12,
+        0.59,
+        0.18,
+        0.56,
+        0.11,
+        0.52,
+        0.25,
+        0.63,
+        0.24
+      ]
+    },
+    {
+      "label": "Janus-Pro-7B",
+      "values": [
+        0.75,
+        0.45,
+        0.66,
+        0.29,
+        0.7,
+        0.21,
+        0.71,
+        0.35,
+        0.73,
+        0.31,
+        0.59,
+        0.33,
+        0.71,
+        0.36
+      ]
+    },
+    {
+      "label": "Janus-Pro-1B",
+      "values": [
+        0.6,
+        0.4,
+        0.59,
+        0.31,
+        0.59,
+        0.14,
+        0.66,
+        0.42,
+        0.63,
+        0.31,
+        0.58,
+        0.42,
+        0.6,
+        0.34
+      ]
+    },
+    {
+      "label": "Janus-1.3B",
+      "values": [
+        0.4,
+        0.24,
+        0.48,
+        0.22,
+        0.49,
+        0.14,
+        0.54,
+        0.26,
+        0.53,
+        0.23,
+        0.44,
+        0.3,
+        0.46,
+        0.23
+      ]
+    },
+    {
+      "label": "vila-u-7b-256",
+      "values": [
+        0.54,
+        0.28,
+        0.51,
+        0.18,
+        0.49,
+        0.12,
+        0.57,
+        0.22,
+        0.56,
+        0.17,
+        0.58,
+        0.35,
+        0.54,
+        0.23
+      ]
+    }
+  ],
+  "verified_leaderboard_text": "# Qwen3.5-35B WISE Verified Batch Results\n\n- Judge model: `Qwen3.5-35B-A3B`\n- Result directory per model: `Results-qwen35/`\n\n## Overall Ranking\n\n| Rank | Model | Overall | CULTURE | TIME | SPACE | BIOLOGY | PHYSICS | CHEMISTRY | Samples | Complete |\n| ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |\n| 1 | Qwen-Image-Agent | 0.9020 | 0.9200 | 0.9167 | 0.9333 | 0.8333 | 0.8667 | 0.9000 | 1000 | yes |\n| 2 | NanoBanana-Pro | 0.8760 | 0.8975 | 0.8167 | 0.9333 | 0.8167 | 0.8667 | 0.8750 | 1000 | yes |\n| 3 | SenseNova-U1-A3B-MoT (w/ CoT) | 0.8340 | 0.8325 | 0.7750 | 0.9167 | 0.8417 | 0.8000 | 0.8417 | 1000 | yes |\n| 4 | GPT-Image-1.5 | 0.8250 | 0.8900 | 0.6917 | 0.8833 | 0.8000 | 0.7583 | 0.7750 | 1000 | yes |\n| 5 | Qwen-Image-2.0 | 0.7954 | 0.8219 | 0.6500 | 0.8992 | 0.7917 | 0.8000 | 0.7479 | 1000 | yes |\n| 6 | SenseNova-U1-8B-MoT (w/ CoT) | 0.7910 | 0.7975 | 0.7417 | 0.8583 | 0.7583 | 0.7750 | 0.8000 | 1000 | yes |\n| 7 | SenseNova-U1-A3B-MoT | 0.7180 | 0.7500 | 0.6250 | 0.7417 | 0.6750 | 0.7667 | 0.6750 | 1000 | yes |\n| 8 | SenseNova-U1-8B-MoT | 0.6820 | 0.6900 | 0.6000 | 0.7417 | 0.6333 | 0.7167 | 0.6917 | 1000 | yes |\n| 9 | BAGEL (w/ CoT) | 0.6280 | 0.7800 | 0.6333 | 0.5667 | 0.3750 | 0.5500 | 0.5083 | 1000 | yes |\n| 10 | DeepGen 1.0 | 0.5700 | 0.6500 | 0.4100 | 0.7200 | 0.3900 | 0.5900 | 0.4500 | 1000 | yes |\n| 11 | FLUX.2-dev | 0.5650 | 0.6650 | 0.5667 | 0.6583 | 0.3667 | 0.5250 | 0.3750 | 1000 | yes |\n| 12 | Qwen-Image | 0.5100 | 0.6275 | 0.5250 | 0.5583 | 0.3417 | 0.4833 | 0.2500 | 1000 | yes |\n| 13 | Qwen-Image-2512 | 0.4990 | 0.5950 | 0.4750 | 0.6000 | 0.3500 | 0.4917 | 0.2583 | 1000 | yes |\n| 14 | Z-Image | 0.4530 | 0.5475 | 0.4667 | 0.5083 | 0.3250 | 0.4750 | 0.1750 | 1000 | yes |\n| 15 | FLUX.2-klein-9B | 0.4400 | 0.4900 | 0.3917 | 0.5500 | 0.3833 | 0.4833 | 0.2250 | 1000 | yes |\n| 16 | HunyuanImage-3.0 | 0.4350 | 0.5250 | 0.3917 | 0.4833 | 0.3083 | 0.4500 | 0.2417 | 1000 | yes |\n| 17 | Uniworld_V1 | 0.4260 | 0.5150 | 0.4917 | 0.5500 | 0.2250 | 0.4000 | 0.1667 | 1000 | yes |\n| 18 | FLUX.1-dev | 0.4160 | 0.5225 | 0.4000 | 0.5333 | 0.1750 | 0.3750 | 0.2417 | 1000 | yes |\n| 19 | SD-3.5-large | 0.4040 | 0.4900 | 0.4083 | 0.4417 | 0.3000 | 0.3750 | 0.2083 | 1000 | yes |\n| 20 | FLUX.2-klein-4B | 0.4010 | 0.4400 | 0.3667 | 0.4667 | 0.3167 | 0.3917 | 0.3333 | 1000 | yes |\n| 21 | SD-3-medium | 0.3850 | 0.4700 | 0.4083 | 0.4000 | 0.2000 | 0.3750 | 0.2583 | 1000 | yes |\n| 22 | SD-3.5-medium | 0.3760 | 0.4825 | 0.3750 | 0.3750 | 0.1833 | 0.3917 | 0.2000 | 1000 | yes |\n| 23 | FLUX.1-schnell | 0.3640 | 0.4650 | 0.3250 | 0.4667 | 0.2083 | 0.3833 | 0.1000 | 1000 | yes |\n| 24 | SD-XL-0.9 | 0.3640 | 0.4925 | 0.3667 | 0.2417 | 0.2667 | 0.3333 | 0.1833 | 1000 | yes |\n| 25 | Bagel | 0.3520 | 0.4125 | 0.3500 | 0.3083 | 0.2000 | 0.4417 | 0.2583 | 1000 | yes |\n| 26 | Janus-Pro-7B | 0.3340 | 0.3700 | 0.3500 | 0.2833 | 0.2833 | 0.4000 | 0.2333 | 1000 | yes |\n| 27 | SD-1.5 | 0.3090 | 0.4450 | 0.3083 | 0.2083 | 0.2083 | 0.2167 | 0.1500 | 1000 | yes |\n| 28 | Janus-1.3B | 0.2730 | 0.3175 | 0.2833 | 0.1833 | 0.2250 | 0.3417 | 0.1833 | 1000 | yes |\n| 29 | Janus-Pro-1B | 0.2650 | 0.3050 | 0.2333 | 0.2333 | 0.2167 | 0.3083 | 0.2000 | 1000 | yes |\n\n_Overall = 0.40 * CULTURE + 0.12 * TIME + 0.12 * SPACE + 0.12 * BIOLOGY + 0.12 * PHYSICS + 0.12 * CHEMISTRY._\n_Scores are averaged from the binary `score` field produced by `vllm_eval.py`, using the same category boundaries and weights as `calculate_verified.py`._\n",
+  "verified_protocol_is_formal_paper_protocol": false,
+  "all_1000_questions_fact_checked": false,
+  "timezone_examples_are_model_results": false,
+  "findings": {
+    "metrics": "原WiScore=(.7C+.2R+.1A)/2；六类总体权重.4/.167/.133/.1/.1/.1，与原分布一致。即使C=0，R/A都2仍有.3分，不能把总分等同知识事实准确率。Verified只判知识/关系正确且视觉可用，明确不因非写实风格或普通美观程度本身拒绝，六类权重.4/.12/.12/.12/.12/.12；完整每ID单一二值时等于1000例准确比例。两版缺图/三次解析失败跳过，但计分通常要求1000ID齐；present_ids却先于有效score校验记录，覆盖还需核有效分数数。T5权重Spearman、T6跨judge、T9五生成seed、T10Krippendorffalpha均为各自有限范围。",
+    "limitations": "原标注401把旧金山08点对应悉尼写为傍晚；本地zoneinfo对2025-01-15/07-15换算为次日03/01点，反例表明原解释有误，不能将全部人工Explanation视为无误。新版改成伦敦午夜对应悉尼白天，保留来源区分。蜡烛in-space需明确暴露真空/供氧；季节叶色需树种/品种和环境，避免唯一答案超出prompt。AppA把蒸发限定于沸点、将尘埃激光例放色散等有科学概念混淆，文本需核，不能照抄作理论。当前Verified QwenImage2.0列1000complete/二值单次，却总.7954且文化.8219，超出相应.001/.0025网格；缺原始score尚未解释，可能有效数/重复/聚合或表值，未断定原实验错误。有限文化/知识采样、合成/人工解释偏差、裁判共盲点、相邻分数无配对CI和生成成本不齐均限制结论。",
+    "experimental_conditions": "正式§1–5/AppA–L全、1式11表7图，实际PDF p1/2/3/5/6/17/18/21共8页；全部主表行/附录模板及限制已读，v4定向对照。固定18源码/数据下载，完整核README、vllm_eval.py/calculate_verified.py/eval_qwen.sh、Legacy gpt_eval.py/Calculate.py，旧README读研究说明/用法1–121行及相关定位，未宣称所有旧HTML榜单逐行。Legacy judge温度0/max2000，Verified温度0/max500、不启thinking，eval_qwen96并发为部署示例；TP2/A80GB建议非正式实验硬件。生成主实验官方默认/固定seed未列全部数值；T9代表模型42–46五seed另用Gemini3.1FlashLitePreview，T6开放judge为Qwen3.5-122B-A10B，与Verified35B不同。无权重下载/API推理/独立复现。",
+    "ablation": "T5十三模型更换权重(.7,.2,.1)→(.5,.3,.2)/(.4,.4,.2)，与原权重Spearman均.993；保留近邻交换/并列。T6QwenImage原.62/Gemini.50/Qwen122B.57，绝对分不同，Janus1.3B与Pro1B等有反序。T7原难例重写有效39.9%/仍难60.1%，物理有效14.9%；阈值.6/.7/.8分区/排名补充未提供完整操作代码和逐样本统计，分母要区分。T9 QwenImage五seed均.5029±.0046/95%CI[.4972,.5086]、FLUXschnell.3388±.0231/[.3102,.3675]，不是全模型同方差。T10人评QwenImage/UniWorld各180图，文化80/其他各20，每图5独立人，可搜索事实；C/R/A alpha=.82/.78/.67。F4六类别均分曲线未给图级相关和误差/CI，视觉接近不能充作高精度逐图可靠性。K统一512部分模型近邻SD3.5 medium/large交换.01，限该集合。"
+  },
+  "sources": [
+    "https://proceedings.mlr.press/v306/niu26c.html",
+    "https://raw.githubusercontent.com/mlresearch/v306/main/assets/niu26c/niu26c.pdf",
+    "https://arxiv.org/html/2503.07265v4",
+    "https://github.com/PKU-YuanGroup/WISE/tree/09b5539d64681bf11102fc5c87e63a387beaf71d",
+    "https://github.com/PKU-YuanGroup/WISE/blob/09b5539d64681bf11102fc5c87e63a387beaf71d/data_verified/spatio-temporal_reasoning_verified.json",
+    "https://www.iana.org/time-zones",
+    "https://openstax.org/books/college-physics-2e/pages/13-6-humidity-evaporation-and-boiling"
+  ],
+  "reproduced": false,
+  "executed_model": false,
+  "downloaded_weights": false
+}

@@ -598,3 +598,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百五十七批（2026-10-23）：GENIUS缺干预实现/超参数；固定HF089缺4_7_1.png，论文Ours总分未由当前有效数和计分式还原，待逐样本分/版本覆盖。见[审查](genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[L145](../reviews/L145.md)。
+
+
+第一百五十八批（2026-10-23）：旧WISE401时区解释被两具体日期zoneinfo反例否定；Verified新题已换，QwenImage2.0二值1000总分网格不符待逐样本分说明，未断言原实验错误。见[审查](wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[L147](../reviews/L147.md)。

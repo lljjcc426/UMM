@@ -467,3 +467,6 @@ python scripts/validate_catalog.py
 
 
 第一百五十七批（2026-10-23）：L145完整23页/全部附录、3表12图37式及17实际PDF页；全部评测源码、510标注和五viewer静态核，区分裁判重复/生成重复、AQ下降、理论恒等式和实际性能保证。357目录，266核心/269书面；未确认核心64论文／研究+27资源。见[审查](docs/evidence/genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[逐文件说明](docs/evidence/one_hundred_fifty_seventh_changes_2026-10-23.md)。无删除或模型执行。
+
+
+第一百五十八批（2026-10-23）：L147正式21页全部研究正文/AppA–L、1式11表7图及8实际PDF页；固定源码及两版1000题结构/定向事实核，分清金标准重写、三项旧分与维护版二值分，未删文件。357目录，267核心/270书面；未确认核心63论文／研究+27资源。见[审查](docs/evidence/wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[逐文件说明](docs/evidence/one_hundred_fifty_eighth_changes_2026-10-23.md)。无删除或模型执行。

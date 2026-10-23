@@ -646,3 +646,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百五十七批（2026-10-23）：GENIUS arXiv2602.11144v1完整23页/全部研究附录、3表12图37式，17实际PDF页；5文本源码/510标注/五viewer核，会议尚无一手确认。见[审查](genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[L145](../reviews/L145.md)。
+
+
+第一百五十八批（2026-10-23）：WISE正式ICML2026 PMLR306:93570–93590全部研究正文/AppA–L、1式11表7图/8实际PDF页；固定18源码数据文件，纠正正式题名、识别Verified维护版。见[审查](wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[L147](../reviews/L147.md)。

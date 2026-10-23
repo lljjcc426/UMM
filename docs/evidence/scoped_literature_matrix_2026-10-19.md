@@ -557,3 +557,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百五十七批（2026-10-23）：GENIUS为510静态图像即时规则benchmark+Bagel免训练干预，无视频/笔顺；12基线+Ours不与GH后续14模型混计。见[审查](genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[L145](../reviews/L145.md)。
+
+
+第一百五十八批（2026-10-23）：WISE测隐式世界知识静态成图；GPT重写读取金标准Explanation，原20模型/21配置与Verified29模型/二值新协议不可混榜，无视频/笔顺能力。见[审查](wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[L147](../reviews/L147.md)。

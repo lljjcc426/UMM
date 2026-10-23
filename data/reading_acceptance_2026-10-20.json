@@ -9227,6 +9227,40 @@
         }
       ],
       "boundary": "完整arXivv1 23页；Abstract/§1–5/Impact/AppA–G全，3表全部行、12图图注及37编号公式/两定理证明，17实际PDF页p2/3/5/6/7/8/12/13/14/16/17/18/19/20/21/22/23。固定GH全部5文本源码，HF卡/762成员tree、五canonical JSON及五viewer JSONL静态全量核；仅论文及定向样本人工解读，未浏览全部HF图像。未独立精读其全部参考文献，未下载权重/调用模型/重现主表。"
+    },
+    {
+      "id": "L147",
+      "checked_on": "2026-10-23",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "静态T2I能否从未直接命名答案的知识线索推断目标实体/关系/状态，并把知识落实为可见正确内容？WISE是1000题评价基准与外部裁判协议；时空类包含单图时刻/视角知识，无连续视频、规范笔顺、动作轨迹或新生成模型训练。 显式列出对象的组合prompt和全图相似度难以诊断知识检索及细粒度科学状态。作者构造隐式知识问题，再由人工解释辅助裁判；但终图失败还混合知识、推理、渲染和裁判因素，低分不能直接定位内部缺知识或深度共享架构的因果优势。",
+          "evidence": "正式全部研究正文/AppA–L、1式11表7图/8实际PDF页；固定原版/维护版计分源码及10JSON结构/定向事实审查；未把代码下载或结构审计算全题事实核实/独立复现"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "主任务隐含线索文字→一张图；GPT4o裁判输入原Prompt+人工Explanation+图→Consistency/Realism/Aesthetic三分。重写器也获得Explanation，再将答案/状态写成显式图像指令，属于额外真值信息条件；BAGEL自身CoT是另一条件。Verified输入刷新后的Prompt→图，开放权重裁判同样看Explanation→单一0/1；可用于世界知识图像评价，不能当书写时序评价。 基准无新训练骨干。专T2I包括SD/SDXL/SD3/3.5、FLUX、PixArt和Playground；统一模型覆盖视觉token AR、语言条件扩散和深融合Bagel，QwenImage等“AR+Diffusion”在本文指条件语言骨干，不代表AR生成视觉token。Legacy用openai.ChatCompletion接口GPT4o2024-05-13；Verified用vLLM OpenAI兼容接口Qwen3.5-35B-A3B，temperature0/max_tokens500/enable_thinkingFalse，三次仅解析失败重试。该维护版没有重新训练judge或生成网络的公开过程。",
+          "evidence": "正式全部研究正文/AppA–L、1式11表7图/8实际PDF页；固定原版/维护版计分源码及10JSON结构/定向事实审查；未把代码下载或结构审计算全题事实核实/独立复现"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "三域25概念子域/1000原始提示和Explanation；WiScore以一致/真实/美观三项0–2按.7/.2/.1加权再除2。20主模型及BAGEL-CoT、GPT基于Prompt+金标准Explanation的显式重写、权重/裁判/seed/分辨率/人评和新增架构分析。另独立记录官方无单独论文的维护版WISE_Verified：新提示分布、Qwen3.5-35B-A3B裁判和二值协议，不能与正式论文同名WiScore直接比数值。 当知识线索有单一可见答案、Explanation事实/前提正确、裁判能识别细粒度证据且对照预算一致时，WISE比粗语义相似更能揭示特定世界知识落实失败。Verified二值可减少知识错误被画质补偿，并允许非写实画风；它也丢失部分完成程度，需单独报告。严格书写可借鉴专家规则/解释辅助裁判，但必须另加字形、笔画事件和时序执行可观测指标。",
+          "evidence": "正式全部研究正文/AppA–L、1式11表7图/8实际PDF页；固定原版/维护版计分源码及10JSON结构/定向事实审查；未把代码下载或结构审计算全题事实核实/独立复现"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "正式T1：BAGEL.52/CoT.70、QwenImage.62、UniWorld/MetaQuery.55、BLIP3o.52、FLUXdev.50、JanusPro7B.35。T2GPT拿Explanation重写后FLUX.50→.73、Qwen.62→.88、JanusPro7B.35→.71，但MetaQuery物理.63→.59下降.04，不能称所有子类提高。T11 LongCatNext.57/Infinity.47/Emu3.5.57/NextFlow.62、LongCatImage.65/HunyuanImage3.0.57/DeepGen1.0.73；新AR也有强结果，跨模型不能因果证明架构。Verified榜29行另外报告QwenAgent.902/NanoPro.876/BagelCoT.628/Bagel.352；是维护版新数据新裁判成绩。 T5十三模型更换权重(.7,.2,.1)→(.5,.3,.2)/(.4,.4,.2)，与原权重Spearman均.993；保留近邻交换/并列。T6QwenImage原.62/Gemini.50/Qwen122B.57，绝对分不同，Janus1.3B与Pro1B等有反序。T7原难例重写有效39.9%/仍难60.1%，物理有效14.9%；阈值.6/.7/.8分区/排名补充未提供完整操作代码和逐样本统计，分母要区分。T9 QwenImage五seed均.5029±.0046/95%CI[.4972,.5086]、FLUXschnell.3388±.0231/[.3102,.3675]，不是全模型同方差。T10人评QwenImage/UniWorld各180图，文化80/其他各20，每图5独立人，可搜索事实；C/R/A alpha=.82/.78/.67。F4六类别均分曲线未给图级相关和误差/CI，视觉接近不能充作高精度逐图可靠性。K统一512部分模型近邻SD3.5 medium/large交换.01，限该集合。 正式§1–5/AppA–L全、1式11表7图，实际PDF p1/2/3/5/6/17/18/21共8页；全部主表行/附录模板及限制已读，v4定向对照。固定18源码/数据下载，完整核README、vllm_eval.py/calculate_verified.py/eval_qwen.sh、Legacy gpt_eval.py/Calculate.py，旧README读研究说明/用法1–121行及相关定位，未宣称所有旧HTML榜单逐行。Legacy judge温度0/max2000，Verified温度0/max500、不启thinking，eval_qwen96并发为部署示例；TP2/A80GB建议非正式实验硬件。生成主实验官方默认/固定seed未列全部数值；T9代表模型42–46五seed另用Gemini3.1FlashLitePreview，T6开放judge为Qwen3.5-122B-A10B，与Verified35B不同。无权重下载/API推理/独立复现。",
+          "evidence": "正式全部研究正文/AppA–L、1式11表7图/8实际PDF页；固定原版/维护版计分源码及10JSON结构/定向事实审查；未把代码下载或结构审计算全题事实核实/独立复现"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "原标注401把旧金山08点对应悉尼写为傍晚；本地zoneinfo对2025-01-15/07-15换算为次日03/01点，反例表明原解释有误，不能将全部人工Explanation视为无误。新版改成伦敦午夜对应悉尼白天，保留来源区分。蜡烛in-space需明确暴露真空/供氧；季节叶色需树种/品种和环境，避免唯一答案超出prompt。AppA把蒸发限定于沸点、将尘埃激光例放色散等有科学概念混淆，文本需核，不能照抄作理论。当前Verified QwenImage2.0列1000complete/二值单次，却总.7954且文化.8219，超出相应.001/.0025网格；缺原始score尚未解释，可能有效数/重复/聚合或表值，未断定原实验错误。有限文化/知识采样、合成/人工解释偏差、裁判共盲点、相邻分数无配对CI和生成成本不齐均限制结论。 拆文字问答正确率、显式答案给定渲染和原任务端到端三阶段，oracle/无答案等长释义/错答案/外检索同预算比较；CoT固定底座和计算额度，再对推理内容扰动。Legacy/Verified的prompt集合×judge×rubric×权重做交叉实验，各自固定版本与完整1000有效分；新题只用新图，不能按相同ID复用旧图。专家核科学/时区/文化多解，补日期/位置/压力/氧气等前提；人评按图配对而非仅6类均分、分层bootstrap并独立验证裁判错图。文字视频需新增时序真值、动作合法性和反向/置乱对照。均未执行。",
+          "evidence": "正式全部研究正文/AppA–L、1式11表7图/8实际PDF页；固定原版/维护版计分源码及10JSON结构/定向事实审查；未把代码下载或结构审计算全题事实核实/独立复现"
+        }
+      ],
+      "boundary": "ICML2026正式21页3689224B，Abstract/§1–5/AppA–L全部研究内容，1编号公式、Tables1–11全行、Figures1–7及图注，实际PDF p1/2/3/5/6/17/18/21。v4定向对照，固定GH30成员/18文本数据取回，五评测/计分/部署脚本全文、当前README/榜单全文及旧README所列部分；Legacy/重写/Verified/merge共10JSON完整结构静态核，未逐题事实复核。仅两日期时区计算，无模型运行/复现。"
     }
   ]
 }

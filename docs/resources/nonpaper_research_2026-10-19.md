@@ -587,3 +587,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百五十七批（2026-10-23）：GENIUS固定GH10成员/5全文本、HF762成员/五JSON五viewer，510例但VC可启用270；复制检测为VLM判断，最长边1024/JPEG80影响细线。见[审查](../evidence/genius_contextual_rules_attention_theory_and_metric_tradeoffs_audit_2026-10-23.md)、[L145](../reviews/L145.md)。
+
+
+第一百五十八批（2026-10-23）：新增深审WISE_Verified无独立论文维护制品：固定脚本/二值评分/120类配比，Prompt与ID变化、merge按ID一致；API部署示例非正式硬件成本。见[审查](../evidence/wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[L147](../reviews/L147.md)。
