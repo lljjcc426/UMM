@@ -577,3 +577,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百五十批（2026-10-23）：QA原始split、PickNano/Pico映射、400对池、冻结分组、K/judge全成本、T9与最终RL阶段身份待核。见[审查](stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[L137](../reviews/L137.md)。
+
+
+第一百五十一批（2026-10-23）：同M选择/训练偏差、缺完整困难×演化析因、Fig8未显示λC、采样预算和stage刷新及split清单待核。见[审查](mate_adversarial_pool_evolution_and_budget_audit_2026-10-23.md)、[L138](../reviews/L138.md)。

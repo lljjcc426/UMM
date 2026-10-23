@@ -9971,20 +9971,20 @@
       "https://arxiv.org/html/2609.36224v1",
       "https://arxiv.org/pdf/2609.36224v1"
     ],
-    "method": "一支提出N候选，冻结reward先验有效性筛选，另一支每个M次答，按最低平均reward选困难挑战，复用其M次GRPO；选出的图/文字进入对向下轮池。无单独训练对手网络。 JanusPro1B，语言骨干1.5B、全部可训2.1B口径分明；UnifiedReward-qwen7b(Qwen2.5VL7B)冻结给image-text1–5及text-image0–100后缩放[0,1]；SigLIP图/文相似为consistency。若无候选过τ则保留最高分，不能保证所有训练候选都达有效阈值。",
-    "conclusion": "GenEval74.4→76.8、DPG82.1→83.8；理解56.9→57.6，POPE84.3→84.2下降其余8升。8轮图cos.779→.824、文.686→.783，训练评测编码同族限制独立性。",
-    "gap": "单小模型/5K/单seed限制外推；原文主动承认候选选择及额外开销。困难估计和训练复用同批M样本可能选中负噪声极值，需独立holdout判断；hard越难未必越有学习价值。冻结裁判共盲点/池漂移/原始信息丢失，roundtrip一致可能来自信息简化。",
-    "problem": "生成与理解互相产生有效困难样本，并跨epoch演化输入池，能否改善小规模UMM后训？",
+    "method": "保持标准GRPO后训目标和优化器，把输入来源改为对向分支输出、在源一致候选中按solver平均reward最低选择，并将选中图/文本变成下一epoch对向输入池。创新在困难输入选择/跨模态池演化组合，不是新GRPO、从零无数据训练或GAN独立判别器。共享骨干潜在协同是待检假设。 Janus-Pro-1B自回归图文骨干，LM参数1.5B、全部可训2.1B，Tables1/2列UMM的LM数、generation-only总数，参数列口径不统一，不能据1.5B称所有训练参数。两路径共享θ、无额外可训perturber；solver更新共享θ也可间接改变challenger。冻结UnifiedReward-qwen-7b基于Qwen2.5-VL-7B-Instruct，RG图对文原量表1–5、RU文对图0–100，各rescale[0,1]，固定released pointwise prompt/greedy。SigLIP作CG/CU一致性；reward网络未参与官方benchmark裁判，但roundtrip编码同族。",
+    "conclusion": "T1 Janus/UniRL/SUDER/MATE GenEval74.4/75.2/74.3/76.8，DPG82.1/82.1/82.0/83.8；MATE对base+2.4/+1.7pp。GenEval六类base→MATE single98.4→99.1、two84.1→87.9、count53.1→53.8、colors91.2→90.7(−.5)、position63.8→65.5、colorattr56→64。MATE非每类最好：single低SUDER99.4，colors低UniRL92，position低UniRL66.5。其DPG83.8低于外部SD3Medium84.1/Sana1.6B84.8/Lumina2 87.2。T2base→MATE POPE84.3→84.2、MMEC263.6→281.4、MMB74.5→74.7、SEED66.9→67、MMStar43.5→43.7、V*40.8→42.9、CV2D59.8→60.5、CV3D58.9→59.2、SEED2+50.9→51.2；avg56.9→57.6，UniRL55.7/SUDER56.3。提升8/9，但JanusFlow59.3平均更高，不能泛称所有UMM SOTA。",
+    "gap": "作者明示1B规模/5K数据/有限候选近似/额外开销，单seed.4差和SigLIP依赖也在主文承认。审查补充：无人过τ时fallback最高score可仍≤τ，准入不保证全部有效；最低均值可能选中负采样噪声，且同M组同时估难度和训练，需独立估计；低均分全错/零方差组会被跳过仍进入下池，难度不保证可学性或信息保存。共享参数收益和跨大模型/视频泛化未由当前分网对照隔离。F8号称main run pair4/epoch2完整轮，上半RU列均值(七个.95+一个.90)/8=.94375显示.944、四个.95四个.90=.925；未展示Eq3的λCU/CG，rbar图值和总奖励对应需原始记录核查，不能据图断言主训练去掉一致项。长期池无锚/弱judge可能收缩分布，32例同族embedding高相似不直接证明小字/计数/身份/时间顺序保存。",
+    "problem": "在同一静态图UMM中，生成与描述分支能否互相提供有效困难输入，并让这些输入跨epoch演化，从有限初始数据改善生成和理解？文字→图像/图像→caption循环及数据选择问题，无新视频生成或汉字笔顺/动作模型。",
     "claim": "研究目标：生成与理解互相产生有效困难样本，并跨epoch演化输入池，能否改善小规模UMM后训？",
-    "version": "MATE/Mutually Adversarial Self-Training with Evolving Data；arXiv2609.36224v1，2026-09-28；正式会场未核",
+    "version": "Mutually Adversarial Self-Training with Evolving Data for Unified Multimodal Models(MATE)；arXiv2609.36224v1/2026-09-28，完整20页17894933bytes；未核正式会场。MATE与参考中的SUDER2506.07963为不同工作，不能混名。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 5. 后训练：对齐、强化学习与自改进",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-23",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-23",
     "id": "L138",
     "canonical_key": "paper:arxiv:2609.36224",
     "evidence_history": [
@@ -10016,17 +10016,22 @@
         "conclusion": "Janus-Pro-1B 上 GenEval +2.4 点、理解平均 +0.7 点；已有正向但有限的效果",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "date": "2026-10-23",
+        "batch": 151,
+        "scope": "v1完整20页17894933bytes，Abstract/§1–5全部正文、AIUse/Reproducibility、AppA/B/C全部研究内容，Eq1–5/T1–5/Algorithms1–3/F1–8及图注；实际查看p3/4/5/7/8/9/16/17/18/19/20共11页，覆盖所有图/表/算法。p10–15参考定位含SUDER/UniGame/SRUM/EVA等追引，未逐篇精读引用；abs版本、HTML及有限title+GitHub/HF检索，不曾取得作者待发布scripts/config/records/模型权重，未运行或独立复现。"
       }
     ],
-    "sections_read": "v1§3全、§4.1/4.2本法和基线行/4.3、结论局限、AppB算法1–3及C配置/额外消融/roundtrip；全部图片/外部大表行/发布代码尚未全核，未复现",
+    "sections_read": "v1完整20页17894933bytes，Abstract/§1–5全部正文、AIUse/Reproducibility、AppA/B/C全部研究内容，Eq1–5/T1–5/Algorithms1–3/F1–8及图注；实际查看p3/4/5/7/8/9/16/17/18/19/20共11页，覆盖所有图/表/算法。p10–15参考定位含SUDER/UniGame/SRUM/EVA等追引，未逐篇精读引用；abs版本、HTML及有限title+GitHub/HF检索，不曾取得作者待发布scripts/config/records/模型权重，未运行或独立复现。",
     "review_path": "docs/reviews/L138.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "AlignAnythingT2I split5K图文初始化，训练不用原配对；作者称原texts不出现于generationtestprompts，图/语义/模板去重需另核。32个heldout测试pair作roundtrip。",
-    "framework": "一支提出N候选，冻结reward先验有效性筛选，另一支每个M次答，按最低平均reward选困难挑战，复用其M次GRPO；选出的图/文字进入对向下轮池。无单独训练对手网络。",
-    "architecture": "JanusPro1B，语言骨干1.5B、全部可训2.1B口径分明；UnifiedReward-qwen7b(Qwen2.5VL7B)冻结给image-text1–5及text-image0–100后缩放[0,1]；SigLIP图/文相似为consistency。若无候选过τ则保留最高分，不能保证所有训练候选都达有效阈值。",
-    "metrics": "GenEval六类均值/DPG各prompt4图；VLMEvalKit九理解列均值，MMEC以800缩放到100；roundtripSigLIP与训练consistency同家族，不完全独立。",
-    "baselines": "Janus、同骨干重实现UniRL/SUDER，固定池/合作选优/无admission、无consistency、所有admitted更新、两分离网络；外部模型只论文或OpenVLM公开分。",
-    "experimental_conditions": "6NVIDIAB200约29h/5epochs/effectiveb48=24inputs每step、N4/M8/τ.5/λ.1/eps1e-6，GRPO全2.1Blr1e-6/clip.2/KL.01。eval384px/CFG5/T1/4图、文字greedy；每结果单次训练。先采样组std<floor跳过更新，但challenge仍入下一池。"
+    "dataset": "Align-Anything text-to-image split5000图文初始化两池，训练不使用原配对；作者称原texts未出现在生成benchmark prompts，未提供所选ID/图像语义与模板去重，不能扩大为全部数据无重叠保证。两个池每轮由已选输出替换，无原始语料锚定或旧checkpoint对手档案；多样性和稀有知识可能丢失。Roundtrip用Align-Anything test前32对图像，属于固定小子集。没有视频或笔画标注。未取得实际池/候选分数文件。",
+    "framework": "保持标准GRPO后训目标和优化器，把输入来源改为对向分支输出、在源一致候选中按solver平均reward最低选择，并将选中图/文本变成下一epoch对向输入池。创新在困难输入选择/跨模态池演化组合，不是新GRPO、从零无数据训练或GAN独立判别器。共享骨干潜在协同是待检假设。",
+    "architecture": "Janus-Pro-1B自回归图文骨干，LM参数1.5B、全部可训2.1B，Tables1/2列UMM的LM数、generation-only总数，参数列口径不统一，不能据1.5B称所有训练参数。两路径共享θ、无额外可训perturber；solver更新共享θ也可间接改变challenger。冻结UnifiedReward-qwen-7b基于Qwen2.5-VL-7B-Instruct，RG图对文原量表1–5、RU文对图0–100，各rescale[0,1]，固定released pointwise prompt/greedy。SigLIP作CG/CU一致性；reward网络未参与官方benchmark裁判，但roundtrip编码同族。",
+    "metrics": "GenEval六类准确率均值、DPG-Bench整体，四图/prompt；生成均值为这两整体分未四舍五入前平均。理解VLMEvalKit九列：POPE overallF1、MME cognition(最高800后缩放100)、MMBench English dev accuracy、SEED image、MMStar、V*Bench、CV2D/CV3D、SEED2+，再等列均值；不同题量权重不等每题平均。Roundtrip k1/2/4/8图像cos(I0,Ik)，文本从k2比p1/pk(不比原始p0)；SigLIP-L16-384均值576patch再L2，长文分64token窗口平均embedding，描述greedy最多256token，误差棒为32样本标准误，不是多seed训练区间。主奖励UnifiedReward不参与这些benchmark，但SigLIP一致性分非完全独立。",
+    "baselines": "同JanusPro1B重实现UniRL/SUDER并共享optimizer/scorer/corpus/batch；其他生成模型SD3Medium/LlamaGen/Sana.6/1.6/Lumina2，其他UMM Janus/JanusFlow/Showo，理解LLaVAv1.5/DeepSeekVL1.3/LLaVAOV.5。外部生成分引用论文且无prompt重写，理解优先OpenVLM同toolkit可用分，缺项自行测，MMBenchENdev对所有模型测；不宜把异来源所有行当同预算实验。机制基线固定池、固定池+最高分合作、无准入、无一致、全部准入候选组；分网使用Qwen2VL2B+SimpleAR.5，底座与总参数亦变化。",
+    "experimental_conditions": "§4.1/T4：N4/M8/τ.5/λ.1/σfloor1e−6，5epoch，effectivebatch48(24inputs/step)，all2.1B参数lr1e−6/clip.2/lowvarianceKL.01，6×NVIDIAB200约29小时。每源提4个候选、每准入候选8个solver样本，最多32rollouts，其他候选只估难度；同epoch/batch不等同完整候选/裁判/算力预算。主实验与消融各singletrainingrun，作者明确对小于1点谨慎。GenEval/DPG官方ELLA代码，384px/CFG5/temp1/4图每prompt；理解JanusProchattemplate+greedy。训练采样温度、optimizer具体betas/wd、max文本/策略更新次数、precision、裁判资源分配/全部基线时长/种子ID未齐。§10 reproducibility只承诺以后发scripts/config/eval/记录，全文出链与有限title+GitHub/HF检索未确认官方制品；不宣称全球不存在，未执行。"
   },
   {
     "title": "Does Gradient Conflict Predict the Understanding--Generation Trade-off? A Controlled Audit of Conflict-Metric Validity in Unified Multimodal Models",

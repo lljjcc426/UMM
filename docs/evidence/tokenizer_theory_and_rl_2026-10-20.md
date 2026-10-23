@@ -168,3 +168,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百五十批（2026-10-23）：CE+FM SFT后captionGRPO和图像MixGRPO，caption阶段不rollout图像且使用离线GT差分；共享冻结与reward细节需实现核对。见[审查](stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[L137](../reviews/L137.md)。
+
+
+第一百五十一批（2026-10-23）：GRPO同组标准化、σfloor丢组但保留到下池、fallback可能低于τ；固定外部reward与共享更新的间接影响。见[审查](mate_adversarial_pool_evolution_and_budget_audit_2026-10-23.md)、[L138](../reviews/L138.md)。

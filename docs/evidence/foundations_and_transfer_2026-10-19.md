@@ -372,3 +372,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百五十批（2026-10-23）：一致与正确分离，独立路径与caption条件链分离；软乘积门控允许edit0奖励.44，全2分.275，不能推硬保证。见[审查](stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[L137](../reviews/L137.md)。
+
+
+第一百五十一批（2026-10-23）：有限样本最低均值可能吸收负噪声，低reward不等可学缺口；caption循环非双射，一致不保证原信息保存。见[审查](mate_adversarial_pool_evolution_and_budget_audit_2026-10-23.md)、[L138](../reviews/L138.md)。

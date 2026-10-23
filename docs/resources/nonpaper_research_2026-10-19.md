@@ -566,3 +566,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百五十批（2026-10-23）：论文和有限检索未核官方STBridge代码/权重/数据；PickNano派生、teacher35B/judge122B及Gemini评价精确版本和成本需单独记录。见[审查](../evidence/stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[L137](../reviews/L137.md)。
+
+
+第一百五十一批（2026-10-23）：MATE脚本/config/候选记录声明以后发布，有限检索未核官方制品；UnifiedReward/AlignAnything/SigLIP精确版本需分别审查。见[审查](../evidence/mate_adversarial_pool_evolution_and_budget_audit_2026-10-23.md)、[L138](../reviews/L138.md)。

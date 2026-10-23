@@ -575,3 +575,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百五十批（2026-10-23）完成L137 STBridge v1全部研究正文/10式9表16图、20实际PDF页及有限官方发布检索。明确独立双路径一致评价与训练caption条件链、softgate代数边界及局部能力回退。357目录，259核心/262书面；未确认核心71论文／研究+27资源。见[审查](stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[逐文件说明](one_hundred_fiftieth_changes_2026-10-23.md)。无删除或模型执行。
+
+
+第一百五十一批（2026-10-23）完成L138 MATE全部正文/附录研究内容、5表5式3算法8图及11实际PDF页。补齐B200预算、零方差/准入fallback、全候选/分网消融及Fig8分项对应边界。357目录，260核心/263书面；未确认核心70论文／研究+27资源。见[审查](mate_adversarial_pool_evolution_and_budget_audit_2026-10-23.md)、[逐文件说明](one_hundred_fifty_first_changes_2026-10-23.md)。无删除或模型执行。

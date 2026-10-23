@@ -565,3 +565,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百五十批（2026-10-23）：同监督/算力配对与image-only控制、三阶段析因和正逆序、独立/预测/GTcaption三调用、正确×一致矩阵及反事实OCR编辑，未执行。见[审查](../evidence/stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[L137](../reviews/L137.md)。
+
+
+第一百五十一批（2026-10-23）：等全预算随机/困难/合作/全候选、独立估难和多seed、同底座共享/分离、原始池锚定与严格事件信息保持，未执行。见[审查](../evidence/mate_adversarial_pool_evolution_and_budget_audit_2026-10-23.md)、[L138](../reviews/L138.md)。

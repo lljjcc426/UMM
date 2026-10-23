@@ -536,3 +536,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百五十批（2026-10-23）：BAGEL静态目标caption/图编辑三阶段后训，非视频笔顺；RISE Temporal静态未来状态，不据名称混入视频。见[审查](stbridge_shared_target_alignment_and_causal_controls_audit_2026-10-23.md)、[L137](../reviews/L137.md)。
+
+
+第一百五十一批（2026-10-23）：JanusPro静态图文hard mining/池演化，LM1.5B与alltrainable2.1B区分；MATE与SUDER2506.07963分条。见[审查](mate_adversarial_pool_evolution_and_budget_audit_2026-10-23.md)、[L138](../reviews/L138.md)。
