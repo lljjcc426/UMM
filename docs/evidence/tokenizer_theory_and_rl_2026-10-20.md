@@ -192,3 +192,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百五十八批（2026-10-23）：WISE架构组不是受控结构消融，QwenImage等语言条件扩散不意味着AR视觉token；需固定底座/预算再检验CoT知识到生成的因果接口。见[审查](wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[L147](../reviews/L147.md)。
+
+
+第一百五十九批（2026-10-23）：ImgEdit将Qwen语义与SigLIP视觉投影为FLUX文字支条件；训练50K/10Kstep/Prodigy batch128，不提供共享UMM协同因果或RL效果。见[审查](imgedit_dataset_versions_score_gating_and_pipeline_reproducibility_audit_2026-10-23.md)、[L148](../reviews/L148.md)。

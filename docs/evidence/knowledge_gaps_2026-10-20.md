@@ -601,3 +601,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百五十八批（2026-10-23）：旧WISE401时区解释被两具体日期zoneinfo反例否定；Verified新题已换，QwenImage2.0二值1000总分网格不符待逐样本分说明，未断言原实验错误。见[审查](wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[L147](../reviews/L147.md)。
+
+
+第一百五十九批（2026-10-23）：ImgEdit正式T1 1.3M/正文1M/T5合1161483；公开basic737/171图与正式734不同，E3先120后60；保留明确未齐字段和代码复现缺口。见[审查](imgedit_dataset_versions_score_gating_and_pipeline_reproducibility_audit_2026-10-23.md)、[L148](../reviews/L148.md)。

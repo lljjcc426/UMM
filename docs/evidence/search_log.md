@@ -649,3 +649,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百五十八批（2026-10-23）：WISE正式ICML2026 PMLR306:93570–93590全部研究正文/AppA–L、1式11表7图/8实际PDF页；固定18源码数据文件，纠正正式题名、识别Verified维护版。见[审查](wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[L147](../reviews/L147.md)。
+
+
+第一百五十九批（2026-10-23）：ImgEdit正式31页全部研究正文/AppA–G、7表11图/16实际页；固定GH83文件及HFJudge配置，正式五次与v1三次、样本统计和人评60/120分别记录。见[审查](imgedit_dataset_versions_score_gating_and_pipeline_reproducibility_audit_2026-10-23.md)、[L148](../reviews/L148.md)。

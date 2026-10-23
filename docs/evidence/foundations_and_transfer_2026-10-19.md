@@ -396,3 +396,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百五十八批（2026-10-23）：金标准答案重写同时改变知识信息和任务难度；三项总分不是事实准确率，原一致0仍可得.3，Verified二值重定义量尺不能直接比进步。见[审查](wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[L147](../reviews/L147.md)。
+
+
+第一百五十九批（2026-10-23）：ImgEdit三维评分受第一分封顶，脚本未强制；固定E1换数据支持整体数据作用，任务频率/过滤质量混杂，不能据跨模型排行榜因果归结构。见[审查](imgedit_dataset_versions_score_gating_and_pipeline_reproducibility_audit_2026-10-23.md)、[L148](../reviews/L148.md)。

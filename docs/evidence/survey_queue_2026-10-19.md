@@ -599,3 +599,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百五十八批（2026-10-23）：L147正式21页全部研究正文/AppA–L、1式11表7图及8实际PDF页；固定源码及两版1000题结构/定向事实核，分清金标准重写、三项旧分与维护版二值分，未删文件。357目录，267核心/270书面；未确认核心63论文／研究+27资源。见[审查](wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[逐文件说明](one_hundred_fifty_eighth_changes_2026-10-23.md)。无删除或模型执行。
+
+
+第一百五十九批（2026-10-23）：L148正式31页全部研究正文/AppA–G、7表11图/16实际PDF页，纠正正式五次/早期三次，核737basic/47UGE和Judge独立制品；训练对与未完整tar未冒充全量核，未删文件。357目录，268核心/271书面；未确认核心62论文／研究+27资源。见[审查](imgedit_dataset_versions_score_gating_and_pipeline_reproducibility_audit_2026-10-23.md)、[逐文件说明](one_hundred_fifty_ninth_changes_2026-10-23.md)。无删除或模型执行。

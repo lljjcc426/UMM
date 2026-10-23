@@ -1,0 +1,679 @@
+{
+  "id": "L148",
+  "checked_on": "2026-10-23",
+  "formal_venue": "NeurIPS2025 Datasets and Benchmarks",
+  "pdf_pages": 31,
+  "pdf_bytes": 12416801,
+  "actual_viewed_pages": [
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    21,
+    22,
+    23,
+    24,
+    25,
+    27,
+    28,
+    29,
+    30
+  ],
+  "tables": 7,
+  "figures": 11,
+  "numbered_equations": 0,
+  "github_commit": "b79848168744c8db8389086d01fe3def1758aa45",
+  "github_tree_members": 133,
+  "downloaded_text_config_files": 83,
+  "static_audit": {
+    "github_commit": "b79848168744c8db8389086d01fe3def1758aa45",
+    "basic_n": 737,
+    "basic_types": {
+      "adjust": 94,
+      "style": 100,
+      "background": 94,
+      "extract": 117,
+      "remove": 86,
+      "replace": 92,
+      "add": 95,
+      "compose": 23,
+      "action": 36
+    },
+    "basic_distinct_images": 171,
+    "basic_distinct_prompts": 615,
+    "uge_n": 47,
+    "uge_distinct_images": 47,
+    "missing_rubric_types": [],
+    "hf_tree_files": 355,
+    "hf_total_bytes_in_tree": 5872310620268,
+    "hf_data_pairs_independently_counted": false,
+    "models_executed": false,
+    "partial_benchmark_tar": {
+      "expected_bytes": 50319360,
+      "downloaded_bytes": 3435094,
+      "complete": false,
+      "complete_metadata_recovered": {
+        "version_backtrace": {
+          "n": 10,
+          "turn_counts": {
+            "2": 0,
+            "3": 10
+          },
+          "read_all_records": true
+        },
+        "content_memory": {
+          "n": 10,
+          "turn_counts": {
+            "2": 2,
+            "3": 8
+          },
+          "read_all_records": true
+        }
+      },
+      "all_images_or_all_three_multi_tasks_read": false
+    },
+    "formal_table5": {
+      "per_type": [
+        175467,
+        160646,
+        159395,
+        135509,
+        59450,
+        44099,
+        28590,
+        59450,
+        64846,
+        159008,
+        30861,
+        42139,
+        42023
+      ],
+      "total": 1161483,
+      "single": 1046460,
+      "multi": 115023
+    },
+    "formal_table6_overall": {
+      "MagicBrush": 1.83,
+      "Instruct-P2P": 1.88,
+      "AnyEdit": 2.45,
+      "UltraEdit": 2.7,
+      "ICEdit": 3.05,
+      "Step1X": 3.06,
+      "UniWorldV1": 3.26,
+      "BAGEL": 3.42,
+      "OmniGen2": 3.44,
+      "KontextDev": 3.71,
+      "OvisU1": 3.97,
+      "GPT4oImage": 4.2,
+      "UniWorldV2": 4.49
+    }
+  },
+  "public_workflow_parameters": {
+    "sdxl_inpaint.json": [
+      {
+        "node": "8",
+        "class": "KSampler",
+        "settings": {
+          "seed": 424091138882050,
+          "steps": 21,
+          "cfg": 3.0,
+          "sampler_name": "dpmpp_2m",
+          "scheduler": "karras",
+          "denoise": 1
+        }
+      },
+      {
+        "node": "11",
+        "class": "CheckpointLoaderSimple",
+        "settings": {
+          "ckpt_name": "dreamshape_xl_2.1_turbo.safetensors"
+        }
+      }
+    ],
+    "extract_ref.json": [
+      {
+        "node": "9",
+        "class": "UNETLoader",
+        "settings": {
+          "unet_name": "flux1-dev.safetensors",
+          "weight_dtype": "default"
+        }
+      },
+      {
+        "node": "10",
+        "class": "SamplerCustom",
+        "settings": {
+          "add_noise": true,
+          "noise_seed": 966797208878258,
+          "cfg": 0.99
+        }
+      },
+      {
+        "node": "14",
+        "class": "DualCLIPLoader",
+        "settings": {
+          "clip_name1": "comfyanonymous/flux_text_encoders/t5xxl_fp16.safetensors",
+          "clip_name2": "comfyanonymous/flux_text_encoders/clip_l.safetensors",
+          "type": "flux",
+          "device": "default"
+        }
+      },
+      {
+        "node": "16",
+        "class": "BasicScheduler",
+        "settings": {
+          "scheduler": "sgm_uniform",
+          "steps": 10,
+          "denoise": 1
+        }
+      },
+      {
+        "node": "18",
+        "class": "KSamplerSelect",
+        "settings": {
+          "sampler_name": "dpmpp_2m"
+        }
+      },
+      {
+        "node": "20",
+        "class": "VAELoader",
+        "settings": {
+          "vae_name": "ae_flux.safetensors"
+        }
+      },
+      {
+        "node": "22",
+        "class": "FluxGuidance",
+        "settings": {
+          "guidance": 2.5
+        }
+      },
+      {
+        "node": "40",
+        "class": "FluxGuidance",
+        "settings": {
+          "guidance": 40
+        }
+      },
+      {
+        "node": "41",
+        "class": "KSamplerSelect",
+        "settings": {
+          "sampler_name": "dpmpp_2m"
+        }
+      },
+      {
+        "node": "42",
+        "class": "SamplerCustom",
+        "settings": {
+          "add_noise": true,
+          "noise_seed": 628740194050866,
+          "cfg": 1
+        }
+      },
+      {
+        "node": "43",
+        "class": "BasicScheduler",
+        "settings": {
+          "scheduler": "sgm_uniform",
+          "steps": 15,
+          "denoise": 1
+        }
+      },
+      {
+        "node": "49",
+        "class": "StyleModelLoader",
+        "settings": {
+          "style_model_name": "flux1-redux-dev.safetensors"
+        }
+      },
+      {
+        "node": "51",
+        "class": "CLIPVisionLoader",
+        "settings": {
+          "clip_name": "Comfy-Org/sigclip_vision_384/sigclip_vision_patch14_384.safetensors"
+        }
+      },
+      {
+        "node": "52",
+        "class": "UNETLoader",
+        "settings": {
+          "unet_name": "flux1-fill-dev.safetensors",
+          "weight_dtype": "default"
+        }
+      }
+    ],
+    "flux_inpaint.json": [
+      {
+        "node": "28",
+        "class": "FluxGuidance",
+        "settings": {
+          "guidance": 30
+        }
+      },
+      {
+        "node": "30",
+        "class": "FluxGuidance",
+        "settings": {
+          "guidance": 30
+        }
+      },
+      {
+        "node": "32",
+        "class": "DualCLIPLoader",
+        "settings": {
+          "clip_name1": "comfyanonymous/flux_text_encoders/t5xxl_fp16.safetensors",
+          "clip_name2": "comfyanonymous/flux_text_encoders/clip_l.safetensors",
+          "type": "flux",
+          "device": "default"
+        }
+      },
+      {
+        "node": "33",
+        "class": "UNETLoader",
+        "settings": {
+          "unet_name": "flux1-fill-dev.safetensors",
+          "weight_dtype": "fp8_e4m3fn"
+        }
+      },
+      {
+        "node": "36",
+        "class": "VAELoader",
+        "settings": {
+          "vae_name": "ae_flux.safetensors"
+        }
+      },
+      {
+        "node": "37",
+        "class": "SamplerCustom",
+        "settings": {
+          "add_noise": true,
+          "noise_seed": 68183773728423,
+          "cfg": 1
+        }
+      },
+      {
+        "node": "38",
+        "class": "KSamplerSelect",
+        "settings": {
+          "sampler_name": "dpmpp_2m"
+        }
+      },
+      {
+        "node": "39",
+        "class": "BasicScheduler",
+        "settings": {
+          "scheduler": "sgm_uniform",
+          "steps": 12,
+          "denoise": 1
+        }
+      }
+    ],
+    "sdxl_style_transfer.json": [
+      {
+        "node": "8",
+        "class": "KSampler",
+        "settings": {
+          "seed": 647144093351942,
+          "steps": 21,
+          "cfg": 5,
+          "sampler_name": "dpmpp_2m",
+          "scheduler": "karras",
+          "denoise": 1
+        }
+      },
+      {
+        "node": "11",
+        "class": "CheckpointLoaderSimple",
+        "settings": {
+          "ckpt_name": "dreamshape_xl_2.1_turbo.safetensors"
+        }
+      },
+      {
+        "node": "30",
+        "class": "ControlNetLoader",
+        "settings": {
+          "control_net_name": "controlnet-canny-sdxl-1.0/diffusion_pytorch_model.safetensors"
+        }
+      },
+      {
+        "node": "38",
+        "class": "IPAdapterModelLoader",
+        "settings": {
+          "ipadapter_file": "ip-adapter_sdxl.safetensors"
+        }
+      },
+      {
+        "node": "40",
+        "class": "CLIPVisionLoader",
+        "settings": {
+          "clip_name": "CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors"
+        }
+      }
+    ],
+    "sdxl_style_transfer_ghibli.json": [
+      {
+        "node": "8",
+        "class": "KSampler",
+        "settings": {
+          "seed": 1120260036658410,
+          "steps": 21,
+          "cfg": 5,
+          "sampler_name": "dpmpp_2m",
+          "scheduler": "karras",
+          "denoise": 1
+        }
+      },
+      {
+        "node": "11",
+        "class": "CheckpointLoaderSimple",
+        "settings": {
+          "ckpt_name": "dreamshape_xl_2.1_turbo.safetensors"
+        }
+      },
+      {
+        "node": "30",
+        "class": "ControlNetLoader",
+        "settings": {
+          "control_net_name": "controlnet-canny-sdxl-1.0/diffusion_pytorch_model.safetensors"
+        }
+      },
+      {
+        "node": "38",
+        "class": "IPAdapterModelLoader",
+        "settings": {
+          "ipadapter_file": "ip-adapter_sdxl.safetensors"
+        }
+      },
+      {
+        "node": "40",
+        "class": "CLIPVisionLoader",
+        "settings": {
+          "clip_name": "CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors"
+        }
+      },
+      {
+        "node": "44",
+        "class": "LoraLoader",
+        "settings": {
+          "lora_name": "ghibli_sdxlv2.safetensors",
+          "strength_model": 1.0000000000000002,
+          "strength_clip": 1.0000000000000002
+        }
+      },
+      {
+        "node": "46",
+        "class": "FluxGuidance",
+        "settings": {
+          "guidance": 3.5
+        }
+      },
+      {
+        "node": "47",
+        "class": "BasicScheduler",
+        "settings": {
+          "scheduler": "simple",
+          "steps": 10,
+          "denoise": 0.45000000000000007
+        }
+      },
+      {
+        "node": "48",
+        "class": "UNETLoader",
+        "settings": {
+          "unet_name": "flux1-dev.safetensors",
+          "weight_dtype": "default"
+        }
+      },
+      {
+        "node": "49",
+        "class": "VAELoader",
+        "settings": {
+          "vae_name": "ae_flux.safetensors"
+        }
+      },
+      {
+        "node": "51",
+        "class": "SamplerCustomAdvanced",
+        "settings": {}
+      },
+      {
+        "node": "53",
+        "class": "KSamplerSelect",
+        "settings": {
+          "sampler_name": "euler"
+        }
+      },
+      {
+        "node": "54",
+        "class": "BasicGuider",
+        "settings": {}
+      },
+      {
+        "node": "56",
+        "class": "LoraLoader",
+        "settings": {
+          "lora_name": "Ghibili-Cartoon-Art.safetensors",
+          "strength_model": 1,
+          "strength_clip": 1
+        }
+      },
+      {
+        "node": "58",
+        "class": "DualCLIPLoader",
+        "settings": {
+          "clip_name1": "comfyanonymous/flux_text_encoders/t5xxl_fp16.safetensors",
+          "clip_name2": "comfyanonymous/flux_text_encoders/clip_l.safetensors",
+          "type": "flux",
+          "device": "default"
+        }
+      }
+    ],
+    "style_transfer_canny.json": [
+      {
+        "node": "1",
+        "class": "UNETLoader",
+        "settings": {
+          "unet_name": "flux1-dev.safetensors",
+          "weight_dtype": "default"
+        }
+      },
+      {
+        "node": "3",
+        "class": "DualCLIPLoader",
+        "settings": {
+          "clip_name1": "comfyanonymous/flux_text_encoders/t5xxl_fp16.safetensors",
+          "clip_name2": "comfyanonymous/flux_text_encoders/clip_l.safetensors",
+          "type": "flux",
+          "device": "default"
+        }
+      },
+      {
+        "node": "32",
+        "class": "FluxGuidance",
+        "settings": {
+          "guidance": 30
+        }
+      },
+      {
+        "node": "37",
+        "class": "BasicGuider",
+        "settings": {}
+      },
+      {
+        "node": "38",
+        "class": "SamplerCustomAdvanced",
+        "settings": {}
+      },
+      {
+        "node": "39",
+        "class": "BasicScheduler",
+        "settings": {
+          "scheduler": "simple",
+          "steps": 15,
+          "denoise": 1
+        }
+      },
+      {
+        "node": "41",
+        "class": "KSamplerSelect",
+        "settings": {
+          "sampler_name": "euler"
+        }
+      },
+      {
+        "node": "44",
+        "class": "VAELoader",
+        "settings": {
+          "vae_name": "ae_flux.safetensors"
+        }
+      },
+      {
+        "node": "46",
+        "class": "LoraLoader",
+        "settings": {
+          "lora_name": "black-forest-labs/FLUX.1-Canny-dev-lora/flux1-canny-dev-lora.safetensors",
+          "strength_model": 0.7800000000000002,
+          "strength_clip": 1.0000000000000002
+        }
+      }
+    ],
+    "adjust_canny.json": [
+      {
+        "node": "28",
+        "class": "FluxGuidance",
+        "settings": {
+          "guidance": 3.5
+        }
+      },
+      {
+        "node": "30",
+        "class": "FluxGuidance",
+        "settings": {
+          "guidance": 3.5
+        }
+      },
+      {
+        "node": "32",
+        "class": "DualCLIPLoader",
+        "settings": {
+          "clip_name1": "comfyanonymous/flux_text_encoders/t5xxl_fp16.safetensors",
+          "clip_name2": "comfyanonymous/flux_text_encoders/clip_l.safetensors",
+          "type": "flux",
+          "device": "default"
+        }
+      },
+      {
+        "node": "33",
+        "class": "UNETLoader",
+        "settings": {
+          "unet_name": "flux1-dev.safetensors",
+          "weight_dtype": "fp8_e4m3fn"
+        }
+      },
+      {
+        "node": "36",
+        "class": "VAELoader",
+        "settings": {
+          "vae_name": "ae_flux.safetensors"
+        }
+      },
+      {
+        "node": "37",
+        "class": "SamplerCustom",
+        "settings": {
+          "add_noise": true,
+          "noise_seed": 251241599243865,
+          "cfg": 1
+        }
+      },
+      {
+        "node": "38",
+        "class": "KSamplerSelect",
+        "settings": {
+          "sampler_name": "dpmpp_2m"
+        }
+      },
+      {
+        "node": "39",
+        "class": "BasicScheduler",
+        "settings": {
+          "scheduler": "sgm_uniform",
+          "steps": 15,
+          "denoise": 1
+        }
+      },
+      {
+        "node": "60",
+        "class": "ControlNetLoader",
+        "settings": {
+          "control_net_name": "alimama-creative/FLUX.1-dev-Controlnet-Inpainting-Beta/diffusion_pytorch_model.safetensors"
+        }
+      },
+      {
+        "node": "62",
+        "class": "LoraLoader",
+        "settings": {
+          "lora_name": "black-forest-labs/FLUX.1-Canny-dev-lora/flux1-canny-dev-lora.safetensors",
+          "strength_model": 1.0000000000000002,
+          "strength_clip": 1
+        }
+      }
+    ],
+    "sdxl_adjust.json": [
+      {
+        "node": "8",
+        "class": "KSampler",
+        "settings": {
+          "seed": 840424542202370,
+          "steps": 21,
+          "cfg": 3,
+          "sampler_name": "dpmpp_2m",
+          "scheduler": "karras",
+          "denoise": 1
+        }
+      },
+      {
+        "node": "11",
+        "class": "CheckpointLoaderSimple",
+        "settings": {
+          "ckpt_name": "dreamshape_xl_2.1_turbo.safetensors"
+        }
+      },
+      {
+        "node": "30",
+        "class": "ControlNetLoader",
+        "settings": {
+          "control_net_name": "controlnet-canny-sdxl-1.0/diffusion_pytorch_model.safetensors"
+        }
+      }
+    ]
+  },
+  "workflow_parameters_are_E1_inference_parameters": false,
+  "formal_repeat_count": 5,
+  "arxiv_v1_repeat_count": 3,
+  "judge_human_sample_count_discrepancy": [
+    60,
+    120
+  ],
+  "findings": {
+    "metrics": "任务专属三维1–5：指令遵从、编辑质量、细节保持，各例均分后任务均分；正式T6 Overall为九任务宏平均，不能按737微平均。后两维按rubric受第一维封顶，构念统计关联是设计的一部分，计分脚本未再次强制裁剪。UGE代码单综合分/非编辑区变化时不超3；模板仅明确要求Brief reasoning而解析器需独立数字行，有格式缺口。FakeShield fake-positive召回是检测器结果，不能当人眼真实性/背景改变定位证明。人评Top2选择比与Judge±1一致率是不同实验。",
+    "experimental_conditions": "正式§1–7/AppA–G及checklist已读，7表11图、无编号理论公式；实际PDF16页2/4/5/6/7/8/9/21/22/23/24/25/27/28/29/30全图表覆盖。正式§5.1每模型五次均值，v1三次；上一轮三次记录已纠正。512 UltraEdit/AnySD，其他原生1024；未报告各生成seed/成本配齐和配对CI。主文GPT4o、Table6换GPT4.1；源码gpt4o未固定快照/温度/max_tokens。F1后处理混GPT4o2024-11-20/08-06与GPT4.1mini2025-04-14，约1/5单分其余三分。Judge硬件原文1xNvidia 8A100 80G一天，措辞保留不擅定单卡；E1硬件/具体采样步数未齐。HF Judge像素1016064–1354752、generation do_sampleTrue/temperature1e-6，READMEmax_new_tokens2048；配置字段不等于所有论文API设置。未下载权重/运行模型/复现分数。",
+    "ablation": "B1固定E1架构和所述超参数换训练集支持整体数据作用，但作者也承认提取/混合任务的相对频率更高，不能把差异全归过滤质量或已证明结构无用。A6未做详细结构/训练消融，与B1补充数据消融分别记录。Judge人评主文60图，E3先说扩120，随后仍写每分12/总60，未给可匹配manifest；不要把单个数字认定最终样本量。±1内相同不等精确评分正确，十人中至少两人同分筛选减少分歧但改变测试分布。多轮仅案例+人工yes/no，缺完整分项数表和置信区间。",
+    "limitations": "统计版本/人评60与120/重复三与五不统一；教师GPT生成/过滤/评测可能共盲点。Fake分无法单独推出全局像素漂移；文本生成、跨语种和严格时序未验证。固定mask替换形状不匹配导致系统性失败，过滤会改变保留任务分布。源码basic README传--basic_edit而脚本实际--edit_json；UGE示例带句号/括号的数字不满足纯isdigit解析，失败记录可能非字符串/跳过使分母变化。后处理process_folder传4参数给3形参call_gpt，当前入口需修正；未据这些公开代码问题反推正式实验造假或所有分数失效。GH/配套HF未见单独E1训练入口/权重，Judge权重与继承的UniWorld需区分。G1数据CCBY4与HF主卡Apache/预处理卡MIT的范围未齐，仅记录元数据不作授权结论。"
+  },
+  "sources": [
+    "https://proceedings.neurips.cc/paper_files/paper/2025/hash/bec783f119b969772c35243b1c801090-Abstract-Datasets_and_Benchmarks_Track.html",
+    "https://proceedings.neurips.cc/paper_files/paper/2025/file/bec783f119b969772c35243b1c801090-Paper-Datasets_and_Benchmarks_Track.pdf",
+    "https://arxiv.org/html/2505.20275v1",
+    "https://github.com/PKU-YuanGroup/ImgEdit/tree/b79848168744c8db8389086d01fe3def1758aa45",
+    "https://huggingface.co/datasets/sysuyy/ImgEdit/tree/f8de753484a2b6bd37f135fd20d308b66b09a523",
+    "https://huggingface.co/datasets/sysuyy/ImgEdit_recap_mask/tree/6218117caf0bb4f57b215896ac3cd7fe2fa5be0e"
+  ],
+  "executed_model": false,
+  "reproduced": false,
+  "downloaded_weights": false
+}

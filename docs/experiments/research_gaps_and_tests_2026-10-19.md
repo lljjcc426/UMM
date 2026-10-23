@@ -589,3 +589,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百五十八批（2026-10-23）：WISE拟知识问答/显式渲染/端到端分解，金标准/无答案释义/错答案/检索对照，四因素协议交叉及科学前提专家核；均未执行。见[审查](../evidence/wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[L147](../reviews/L147.md)。
+
+
+第一百五十九批（2026-10-23）：ImgEdit拟等量等任务频率数据三因素与编码结构消融，逐图三分/裁判版本/源图聚类CI；回退外部版本缓存强基线和笔画事件时序对照，未执行。见[审查](../evidence/imgedit_dataset_versions_score_gating_and_pipeline_reproducibility_audit_2026-10-23.md)、[L148](../reviews/L148.md)。

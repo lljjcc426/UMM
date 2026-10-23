@@ -590,3 +590,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百五十八批（2026-10-23）：新增深审WISE_Verified无独立论文维护制品：固定脚本/二值评分/120类配比，Prompt与ID变化、merge按ID一致；API部署示例非正式硬件成本。见[审查](../evidence/wise_gold_explanation_verified_protocol_and_knowledge_validity_audit_2026-10-23.md)、[L147](../reviews/L147.md)。
+
+
+第一百五十九批（2026-10-23）：深核ImgEdit HFJudge卡/配置、37parquet清单及八ComfyUI模板；后处理入口参数数目/UGE输出解析不齐，裁判权重不可当E1权重，未下权重。见[审查](../evidence/imgedit_dataset_versions_score_gating_and_pipeline_reproducibility_audit_2026-10-23.md)、[L148](../reviews/L148.md)。
