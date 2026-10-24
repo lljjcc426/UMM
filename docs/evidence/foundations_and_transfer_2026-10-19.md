@@ -516,3 +516,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百九十九批（2026-10-25）：注意力Eq6为组内每key均值，不能直接当总质量；同Rp移除/替换trace支撑上下文影响，词级热图仍非特定token因果。见[审查](ureason_v3_full_context_intervention_and_release_audit_2026-10-25.md)、[L032](../reviews/L032.md)。
+
+
+第二百批（2026-10-25）：程序record验证与reader选择练什么分工；未证明像素真值全覆盖、无限递归稳定性或统一模型必要性。见[审查](recursive_self_improvement_full_rules_and_native_error_audit_2026-10-25.md)、[L033](../reviews/L033.md)。

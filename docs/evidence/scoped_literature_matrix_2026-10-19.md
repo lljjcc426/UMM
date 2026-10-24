@@ -683,3 +683,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百九十九批（2026-10-25）：8模型三条件完整核查；BAGEL主表6.6/17.8/62.6与固定Rp消融62.6/21/16.4分开，各子任务有reasoning退步。见[审查](ureason_v3_full_context_intervention_and_release_audit_2026-10-25.md)、[L032](../reviews/L032.md)。
+
+
+第二百批（2026-10-25）：RSI四轮L0 45.7→60.2，targeting对fixed+3.5pp；edited.changed55.6→87.4与native78.5→82.4分开，nativefalseaccept仍34.1%。见[审查](recursive_self_improvement_full_rules_and_native_error_audit_2026-10-25.md)、[L033](../reviews/L033.md)。

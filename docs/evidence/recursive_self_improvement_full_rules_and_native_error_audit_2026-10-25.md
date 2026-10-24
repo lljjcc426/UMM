@@ -1,0 +1,75 @@
+# 递归自改进：完整规则、真实错误和制品边界审查
+
+第二百批完成[L033](../reviews/L033.md)明确范围核心三遍及五项书面验收。[结构化证据](../../data/recursive_self_improvement_full_rules_and_native_error_audit_2026-10-25.json)。358目录（331论文／研究、27资源），305核心/310书面含未通过项；待完成核心深审26篇论文／研究；27项资源按制品协议另审。无目录新增、文件删除或模型执行。
+
+来源：[主源1](https://arxiv.org/abs/2610.03002v1)、[主源2](https://arxiv.org/html/2610.03002v1)、[主源3](https://arxiv.org/pdf/2610.03002v1)、[主源4](https://www.isi.edu/results/publications/page/2/)。
+
+## 研究问题
+
+统一模型能否通过自己生成图像、读取失败、编写经执行核验的程序、用正确渲染和标签分别训练生成/理解/代码，再递归改善？评估早期开放模型的单panel图表生成和错误诊断。
+
+## 现有不足
+
+视觉自评可选择较好生成图，但不能自动提供正确训练目标，且错判可能反馈到下一轮。程序执行record提供外部监督；reader主要选择练什么，executor决定哪些构造满足spec。该分工依赖程序记录和检查器覆盖，并无无条件“不会积累错误”的证明。
+
+## 贡献
+
+RSI三能力跨轮互供数据：native失败诊断→规则采样→模型写程序→执行验证→正确render训G、修改render及record标签/正确代码训U/C→参数合并；BasicChartBench476图14440atomic问；4轮、固定数据/诊断/reader等消融、外部judge/OCR、人审真实生成及途中规则变更披露。
+
+## 输入、模块、输出与公式
+
+Eq1(I,z)=E(Ct(s))，z执行记录比对spec；Eq2 reader Ut对原生图回答atomic问，将met/violated/unresolved与spec比较；正确参考render的阅读错误率加回同项生成准确率校准。Eq3按πt采spec，两个程序候选保留首个verified，按charttype×dimension补额不跨cell借份额。Eq4两个Learn均从Mt出发：G更新仅生成expert、U更新仅理解expert；Merge取G侧生成参数及U侧其他参数。推理阶段直接生成图，程序只在构造训练数据时使用。
+
+## 模型结构
+
+BAGEL-7B-MoT separate understanding/generation experts，reader与codewriter共享理解参数。M0先ChartNet程序训练、基础图表/大规模程序图表生成第二阶段14000updates、atomic理解训练，再按独立专家合并。此预训练课程贡献未被等从原始BAGEL开始的消融隔离，不能把最终结果全部归于4轮RSI；未比较单expert共享、外部专用reader/writer同预算方案。
+
+## 数据分布与划分
+
+7类单panel：vertical/horizontalbar、line、scatter、area、pie、ring。diagnosis336题9636atomic问；每轮约35000–43000spec，首轮额外约30000补缺spec不计T6。BasicChartBench L0 336图10140问，初始12topics词汇、未见措辞、半数6–8categories超出训练3–5；L1 140图4300问，14rare topics、标题2–3词、1–4series及未开放小数/百分比。按contentfingerprint与训练隔离，bench不用于采样。edited families10%留出；人工native池M0–M3各49图、每类7、每图2问=196图392问，179notshown，无unreadable；这是同池跨reader比较，非不同输入难度。
+
+## 指标与评价协议
+
+主分为冻结U0对atomic要求的满足率，非整图全正确；text/binding/structure另列。外部Qwen3.6-35B-A3B禁think、逐问同确定性规则；与本模型无权重共享，作者称训练数据不共享但未给数据交集证据，不能独立确认后项。PaddleOCR旋转阅读、每请求字串最近substring字符相似=1−editdistance/字符串长度，非OCR exact-match或笔顺正确。Native人审盲于生成模型/轮次/reader答案并随机顺序，人数/标注者间一致性未给。Falseaccept为179人判notshown中的误接受率，非全392问比例；U0有6不可解析，分母386，U1–3为392。native+3.9pp的95%image-resamplingCI[0,7.9]，不能视为稳定显著大幅改善。
+
+## 对比方法
+
+等步原M0数据继续训练；每题M0出两图U0取优的self-filter；相同verified数量/同writer与U更新、均匀cell固定首课程分布；仅M0首次诊断；冻结U0每轮诊断；writer正确代码均匀vs弱值加权；reader用固定分布render；外部StructT2IBench/BizGenEval及GenEval/MME/MMBench/MMMU保留能力。对照等G步不自动等数据构造/reader训练总成本。
+
+## 实验条件和发布边界
+
+每轮G/U各64GPU（型号、逐轮总GPUhours/显存未给），G400steps globalb192，25600unique×3，AdamWβ(.9,.95)、lr2e−5warm100、EMA.995；60%verified/20%起始replay/15%general/5%edit，第2轮起verified的10%replay旧轮。U704stepsb128，30000×3，lr2e−5→2e−6warm3%，75%atomic/5%errorreport/15%code/5%general，代码半自产/半起始。每spec greedy+temp.6两候选max6144；writer159→18GPUhours是代码构造子项，无全管线成本。部分单轮G换seed变动≤.4pp，非全4轮多seedCI。公开PDF/HTML及机构论文页未定位本文执行器、BasicChartBench数据或权重下载；因此实现级验证覆盖、fingerprint和真实像素一致性未独立核实。未执行任何模型/程序实验。
+
+## 主结果
+
+T1 L0 Start45.7：continued R1–4 46.5/46.5/46.3/46.3；fixed51.5/53.8/55.3/56.7；single54.3/56.9/58.9/59；frozen54.3/56.4/59.1/60；RSI54.3/57.9/58.9/60.2。L1 Start45.1：continued46/46.7/47.8/46.1；fixed47.6/47.9/50.3/50.7；single49.3/50.1/50.9/52.5；frozen49.3/50/51.7/55.2；RSI49.3/52/54/56.2。pooled45.5→52.8→56.1→57.4→59；text56→88.2，binding13.6→27.3，OCR47.8→80.6。外judgeL0 37.4→57.9/L1 37.5→50；结构走势judge/U0分歧，AppC L1外judge终值正文93.3与F7标94.6不一致，保留来源差异不选作确定值。T3Struct11→11.9（继续11.7），BizGen约4且全图全对0；GenEval82.9→84.5、MME2339→2314、MMBench82.7→80.1、MMMU52.1→49.1，通用理解有代价。
+
+## 消融及进一步实验
+
+self-filter同15320题/400步L0仅+.5pp、verified+8.6；L1+1.2/+4.2。targeting相对fixed最终+3.5ppL0/+5.5L1，frozenreader差仅.2/1pp，single差1.2/3.7，不能把全部收益归为reader更新。T5correctrenders87.1→99.3、edited全部88.1→98.9、编辑改变项55.6→87.4；native78.5→82.4，误接受U0/U3同34.1%，误拒10.6→3.8，主要改善原先误拒、未改善真实错误漏报。Profileρ.82→.86/.91/.89可帮助排弱项，但无大样本人审校准CI。writer candidateexecuted70.5→98.4→98.8→99.1；spec至少一verified48.9→95.2→95.3→96.4，两个分母不同；水平bar11.8→98.4、scatter23.4→90.9，verticalbarR3 98.2→R4 92也非全类单调。writer均匀/弱值加权在同5376spec均90.8，readerfixed86.3 vs86.5，无可测收益。T4全部阈值和AppF变更另存结构化。
+
+## 局限与疑问
+
+A4称阈值全在第一轮前固定，但AppF明确研究期间改规则：首轮训练前把格式概率改成按频率纠偏（原92%集中一种）、mixed40–60%，修linechecker并重验存trace；R3新词替全旧词导致72→60，R4新增50%旧词回放；R4后加每已开放词表诊断/旧词门槛仅影响未报告后轮。故四轮结果包含人工规则/工具修订，不能宣称完全无人工干预且所有规则全程不变。执行record核验有价值，但验证器未开放，无法证明像素可读性/遮挡/record真实性全部无错；四轮收益不证明递归无限持续、跨任务通用或同UMM必需。原生错检改善小，外部复杂图表绝对成绩低、通用理解下降；初始课程/规则/数据成本和单seed限制因果范围。
+
+## 预期优势条件
+
+有可执行spec、程序渲染能覆盖目标空间的结构图任务，可用粗略但排序可靠的reader选训练需求，再用外部executor产生可控正确目标；verified构造与targeting协同有证据。迁移到手写需执行器包含时序/笔画标签与规范约束，最终字形程序render不能自动提供真实书写风格或规范顺序。
+
+## 可证伪实验
+
+Q1收益来自什么：冻结同M0与总GPU预算，独立交叉verified/targeting/reader更新/程序writer来源，预注册且锁定checker与规则；公开各轮spec/候选/拒绝原因/补额开销及种子，heldoutnative盲多人审，分错误漏报/误拒和pixel-checker不一致。Q2笔顺能否闭环：执行器逐事件检查起止、stroke order/方向/接触/遮挡并记录规范来源，使用最终字形相同的违规顺序hard negatives；matched原生视频、人类轨迹、程序render三域，按writer/字符/风格留出；比较只选好图与verified轨迹监督、静态分数与时序正确率、通用能力回退。均拟议，未运行。
+
+## 论文组织与Claim学习
+
+主线按问题→外部真值→闭环→哪个环节有收益→失败展开，报告大edited改善时并列native小幅改善、误接受未降和外部低绝对分。T6先定义candidate/spec分母，3.5写pp；规则固定的主张须与AppF时间线一致，研究中修改及未报告后轮分开；同UMM协作收益未由外部专模对照证明，避免把有限4轮描述成自动无限自进化。
+
+## 实际阅读范围
+
+v1全16页§1–6、AI声明、AppA–F及参考清单，Eq1–4、T1–6所有单元、F1–7原PDF实际视觉；T4逐阈值、F全部分布修订时间线与T6分母、AppD盲人审完整核对。原文无本文公开执行器链接，检索/机构发布页未定位制品，源码不宣称已读。核心三遍及五书面完成，未训练/生成/OCR/judge或独立复现。
+
+## 规则变更时间线
+
+首轮训练前：修采样格式集中、约束mixed比例、修line-chart内容checker并重验保存trace。第三轮后：发现旧词72→60，第四轮新增一半旧词回放。第四轮后：每已开放词表诊断和旧词floor只适用于未报告轮次。
+
+A4“全部第一轮前固定”的表述须据此收窄。四轮报告含人工对规则/工具的修订，不能从论文推成全程无人介入。完整6表含全部逐图表类型、全部阈值，保存于结构化证据。

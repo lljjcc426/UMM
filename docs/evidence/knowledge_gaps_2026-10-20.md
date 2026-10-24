@@ -724,3 +724,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百九十九批（2026-10-25）：完整2000未在固定仓库发布；Rp正则无匹配会保留整段thought；judge默认8B/temp0与论文235B/temp.1不同，缺原输出/解析计数。见[审查](ureason_v3_full_context_intervention_and_release_audit_2026-10-25.md)、[L032](../reviews/L032.md)。
+
+
+第二百批（2026-10-25）：A4全预定措辞与AppF中途修改有冲突；R4前新增旧词50%回放影响报告结果，R4后词表gate仅影响未报告后轮。见[审查](recursive_self_improvement_full_rules_and_native_error_audit_2026-10-25.md)、[L033](../reviews/L033.md)。

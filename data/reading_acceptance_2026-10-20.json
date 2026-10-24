@@ -10587,6 +10587,40 @@
         }
       ],
       "boundary": "v3全部41页§1–7/Limitations/AppA–O、参考清单相关条目，Eq1–6、T1–16全部单元（含HTML漏抽的T13手工补录）、F1–26全部原PDF页实际视觉。官方项目及固定commit 216f9d0dc7533efceb7c41d9953336f8e88df0a0完整树、README，BAGEL生成/上下文/计划提取和两judge脚本、3shell和配置静态阅读；10数据文件1000行结构审及各类内容样本。核心三遍与五项书面完成；未运行生成、训练、OCR、judge或API，未独立复现，所有发布/因果限制保留。"
+    },
+    {
+      "id": "L033",
+      "checked_on": "2026-10-25",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "统一模型能否通过自己生成图像、读取失败、编写经执行核验的程序、用正确渲染和标签分别训练生成/理解/代码，再递归改善？评估早期开放模型的单panel图表生成和错误诊断。 视觉自评可选择较好生成图，但不能自动提供正确训练目标，且错判可能反馈到下一轮。程序执行record提供外部监督；reader主要选择练什么，executor决定哪些构造满足spec。该分工依赖程序记录和检查器覆盖，并无无条件“不会积累错误”的证明。",
+          "evidence": "16页7图6表4式全审；规则变更与A4冲突、native falseaccept未降、候选/spec双分母、外部低分/遗忘与验证器发布边界明确。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "Eq1(I,z)=E(Ct(s))，z执行记录比对spec；Eq2 reader Ut对原生图回答atomic问，将met/violated/unresolved与spec比较；正确参考render的阅读错误率加回同项生成准确率校准。Eq3按πt采spec，两个程序候选保留首个verified，按charttype×dimension补额不跨cell借份额。Eq4两个Learn均从Mt出发：G更新仅生成expert、U更新仅理解expert；Merge取G侧生成参数及U侧其他参数。推理阶段直接生成图，程序只在构造训练数据时使用。 BAGEL-7B-MoT separate understanding/generation experts，reader与codewriter共享理解参数。M0先ChartNet程序训练、基础图表/大规模程序图表生成第二阶段14000updates、atomic理解训练，再按独立专家合并。此预训练课程贡献未被等从原始BAGEL开始的消融隔离，不能把最终结果全部归于4轮RSI；未比较单expert共享、外部专用reader/writer同预算方案。",
+          "evidence": "16页7图6表4式全审；规则变更与A4冲突、native falseaccept未降、候选/spec双分母、外部低分/遗忘与验证器发布边界明确。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "RSI三能力跨轮互供数据：native失败诊断→规则采样→模型写程序→执行验证→正确render训G、修改render及record标签/正确代码训U/C→参数合并；BasicChartBench476图14440atomic问；4轮、固定数据/诊断/reader等消融、外部judge/OCR、人审真实生成及途中规则变更披露。 有可执行spec、程序渲染能覆盖目标空间的结构图任务，可用粗略但排序可靠的reader选训练需求，再用外部executor产生可控正确目标；verified构造与targeting协同有证据。迁移到手写需执行器包含时序/笔画标签与规范约束，最终字形程序render不能自动提供真实书写风格或规范顺序。",
+          "evidence": "16页7图6表4式全审；规则变更与A4冲突、native falseaccept未降、候选/spec双分母、外部低分/遗忘与验证器发布边界明确。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1 L0 Start45.7：continued R1–4 46.5/46.5/46.3/46.3；fixed51.5/53.8/55.3/56.7；single54.3/56.9/58.9/59；frozen54.3/56.4/59.1/60；RSI54.3/57.9/58.9/60.2。L1 Start45.1：continued46/46.7/47.8/46.1；fixed47.6/47.9/50.3/50.7；single49.3/50.1/50.9/52.5；frozen49.3/50/51.7/55.2；RSI49.3/52/54/56.2。pooled45.5→52.8→56.1→57.4→59；text56→88.2，binding13.6→27.3，OCR47.8→80.6。外judgeL0 37.4→57.9/L1 37.5→50；结构走势judge/U0分歧，AppC L1外judge终值正文93.3与F7标94.6不一致，保留来源差异不选作确定值。T3Struct11→11.9（继续11.7），BizGen约4且全图全对0；GenEval82.9→84.5、MME2339→2314、MMBench82.7→80.1、MMMU52.1→49.1，通用理解有代价。 self-filter同15320题/400步L0仅+.5pp、verified+8.6；L1+1.2/+4.2。targeting相对fixed最终+3.5ppL0/+5.5L1，frozenreader差仅.2/1pp，single差1.2/3.7，不能把全部收益归为reader更新。T5correctrenders87.1→99.3、edited全部88.1→98.9、编辑改变项55.6→87.4；native78.5→82.4，误接受U0/U3同34.1%，误拒10.6→3.8，主要改善原先误拒、未改善真实错误漏报。Profileρ.82→.86/.91/.89可帮助排弱项，但无大样本人审校准CI。writer candidateexecuted70.5→98.4→98.8→99.1；spec至少一verified48.9→95.2→95.3→96.4，两个分母不同；水平bar11.8→98.4、scatter23.4→90.9，verticalbarR3 98.2→R4 92也非全类单调。writer均匀/弱值加权在同5376spec均90.8，readerfixed86.3 vs86.5，无可测收益。T4全部阈值和AppF变更另存结构化。 每轮G/U各64GPU（型号、逐轮总GPUhours/显存未给），G400steps globalb192，25600unique×3，AdamWβ(.9,.95)、lr2e−5warm100、EMA.995；60%verified/20%起始replay/15%general/5%edit，第2轮起verified的10%replay旧轮。U704stepsb128，30000×3，lr2e−5→2e−6warm3%，75%atomic/5%errorreport/15%code/5%general，代码半自产/半起始。每spec greedy+temp.6两候选max6144；writer159→18GPUhours是代码构造子项，无全管线成本。部分单轮G换seed变动≤.4pp，非全4轮多seedCI。公开PDF/HTML及机构论文页未定位本文执行器、BasicChartBench数据或权重下载；因此实现级验证覆盖、fingerprint和真实像素一致性未独立核实。未执行任何模型/程序实验。",
+          "evidence": "16页7图6表4式全审；规则变更与A4冲突、native falseaccept未降、候选/spec双分母、外部低分/遗忘与验证器发布边界明确。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "A4称阈值全在第一轮前固定，但AppF明确研究期间改规则：首轮训练前把格式概率改成按频率纠偏（原92%集中一种）、mixed40–60%，修linechecker并重验存trace；R3新词替全旧词导致72→60，R4新增50%旧词回放；R4后加每已开放词表诊断/旧词门槛仅影响未报告后轮。故四轮结果包含人工规则/工具修订，不能宣称完全无人工干预且所有规则全程不变。执行record核验有价值，但验证器未开放，无法证明像素可读性/遮挡/record真实性全部无错；四轮收益不证明递归无限持续、跨任务通用或同UMM必需。原生错检改善小，外部复杂图表绝对成绩低、通用理解下降；初始课程/规则/数据成本和单seed限制因果范围。 Q1收益来自什么：冻结同M0与总GPU预算，独立交叉verified/targeting/reader更新/程序writer来源，预注册且锁定checker与规则；公开各轮spec/候选/拒绝原因/补额开销及种子，heldoutnative盲多人审，分错误漏报/误拒和pixel-checker不一致。Q2笔顺能否闭环：执行器逐事件检查起止、stroke order/方向/接触/遮挡并记录规范来源，使用最终字形相同的违规顺序hard negatives；matched原生视频、人类轨迹、程序render三域，按writer/字符/风格留出；比较只选好图与verified轨迹监督、静态分数与时序正确率、通用能力回退。均拟议，未运行。",
+          "evidence": "16页7图6表4式全审；规则变更与A4冲突、native falseaccept未降、候选/spec双分母、外部低分/遗忘与验证器发布边界明确。"
+        }
+      ],
+      "boundary": "v1全16页§1–6、AI声明、AppA–F及参考清单，Eq1–4、T1–6所有单元、F1–7原PDF实际视觉；T4逐阈值、F全部分布修订时间线与T6分母、AppD盲人审完整核对。原文无本文公开执行器链接，检索/机构发布页未定位制品，源码不宣称已读。核心三遍及五书面完成，未训练/生成/OCR/judge或独立复现。"
     }
   ]
 }

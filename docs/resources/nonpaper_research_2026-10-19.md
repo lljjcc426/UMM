@@ -680,3 +680,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百九十九批（2026-10-25）：UReason外层MIT、BAGEL源码Apache2；仅BAGEL执行管线，原文8模型其他脚本未发布。实存500题不能写已开放完整2000。见[审查](../evidence/ureason_v3_full_context_intervention_and_release_audit_2026-10-25.md)、[L032](../reviews/L032.md)。
+
+
+第二百批（2026-10-25）：T6执行率按candidate、verified按spec至少一成功，首轮额外30K补缺不计表内；无本文公开checker不能独立确认覆盖。见[审查](../evidence/recursive_self_improvement_full_rules_and_native_error_audit_2026-10-25.md)、[L033](../reviews/L033.md)。

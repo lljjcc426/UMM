@@ -10611,22 +10611,26 @@
   {
     "title": "Recursive Self-Improvement in Unified Multimodal Models，2026",
     "source_urls": [
-      "https://arxiv.org/abs/2610.03002"
+      "https://arxiv.org/abs/2610.03002",
+      "https://arxiv.org/abs/2610.03002v1",
+      "https://arxiv.org/html/2610.03002v1",
+      "https://arxiv.org/pdf/2610.03002v1",
+      "https://www.isi.edu/results/publications/page/2/"
     ],
-    "method": "诊断native生成→能力维度分配→两次候选程序执行核验→正确render训生成、标注render/编辑错误/代码训理解→合并专家，四轮递归。 BAGEL7BMoT，reader和codewriter共理解专家，generator独立专家；每轮两个更新从同Mt出发分别冻结另侧再Merge。程序执行record与spec核对数据/文字/颜色/坐标/布局/可读性。诊断20%均匀+80%按错率权重cap3×，80/60%升降级，70/20/10当前/更难/易。",
-    "conclusion": "L0 45.7→60.2，L1 45.1→56.2；pooled45.5→59.0。等步继续L046.3，固定verified56.7，targeting增3.5pp。程序spec至少一通过48.9→95.2%，不是所有候选通过率。editedchanged55.6→约87.4；native人评78.5→82.4远小，95%CI增幅[0,7.9]。外部StructT2I11.0→11.9、继续11.7，BizGen约4%，不能泛化为复杂图表已解决。",
-    "gap": "native196图392问盲审，U0六项不可解析(386作分母)，U3全392，native错误误接受仍34.1%，未改善，edited分数不能替代真实错误检测。通用MMB−2.6/MMMU−3pp，结构judge间有分歧，换词遗忘72→60需replay。验证依赖可执行spec覆盖，错判未测pixel层；无单一共享专家vs外部专模同预算因果比较。",
-    "problem": "UMM能否用生成错误指导自己编程构造经执行核验的数据，循环改善生成、理解和代码？",
+    "method": "RSI三能力跨轮互供数据：native失败诊断→规则采样→模型写程序→执行验证→正确render训G、修改render及record标签/正确代码训U/C→参数合并；BasicChartBench476图14440atomic问；4轮、固定数据/诊断/reader等消融、外部judge/OCR、人审真实生成及途中规则变更披露。 BAGEL-7B-MoT separate understanding/generation experts，reader与codewriter共享理解参数。M0先ChartNet程序训练、基础图表/大规模程序图表生成第二阶段14000updates、atomic理解训练，再按独立专家合并。此预训练课程贡献未被等从原始BAGEL开始的消融隔离，不能把最终结果全部归于4轮RSI；未比较单expert共享、外部专用reader/writer同预算方案。",
+    "conclusion": "T1 L0 Start45.7：continued R1–4 46.5/46.5/46.3/46.3；fixed51.5/53.8/55.3/56.7；single54.3/56.9/58.9/59；frozen54.3/56.4/59.1/60；RSI54.3/57.9/58.9/60.2。L1 Start45.1：continued46/46.7/47.8/46.1；fixed47.6/47.9/50.3/50.7；single49.3/50.1/50.9/52.5；frozen49.3/50/51.7/55.2；RSI49.3/52/54/56.2。pooled45.5→52.8→56.1→57.4→59；text56→88.2，binding13.6→27.3，OCR47.8→80.6。外judgeL0 37.4→57.9/L1 37.5→50；结构走势judge/U0分歧，AppC L1外judge终值正文93.3与F7标94.6不一致，保留来源差异不选作确定值。T3Struct11→11.9（继续11.7），BizGen约4且全图全对0；GenEval82.9→84.5、MME2339→2314、MMBench82.7→80.1、MMMU52.1→49.1，通用理解有代价。",
+    "gap": "A4称阈值全在第一轮前固定，但AppF明确研究期间改规则：首轮训练前把格式概率改成按频率纠偏（原92%集中一种）、mixed40–60%，修linechecker并重验存trace；R3新词替全旧词导致72→60，R4新增50%旧词回放；R4后加每已开放词表诊断/旧词门槛仅影响未报告后轮。故四轮结果包含人工规则/工具修订，不能宣称完全无人工干预且所有规则全程不变。执行record核验有价值，但验证器未开放，无法证明像素可读性/遮挡/record真实性全部无错；四轮收益不证明递归无限持续、跨任务通用或同UMM必需。原生错检改善小，外部复杂图表绝对成绩低、通用理解下降；初始课程/规则/数据成本和单seed限制因果范围。",
+    "problem": "统一模型能否通过自己生成图像、读取失败、编写经执行核验的程序、用正确渲染和标签分别训练生成/理解/代码，再递归改善？评估早期开放模型的单panel图表生成和错误诊断。",
     "claim": "作者研究目标：UMM能否用生成错误指导自己编程构造经执行核验的数据，循环改善生成、理解和代码？",
-    "version": "版本见原始来源及历史记录",
+    "version": "Recursive Self-Improvement in Unified Multimodal Models；Huijuan Wang/Chufan Shi/Cheng Yang等6人，USC/UCSD/CMU；arXiv2610.03002v1，2026-10-02，16页，Preprint。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-25",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-25",
     "previous_evidence": "既有调查 A，前轮资料",
     "id": "L033",
     "canonical_key": "paper:arxiv:2610.03002",
@@ -10676,17 +10680,23 @@
         "conclusion": "可借程序可检验奖励；自评不等于规范事件真值",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "checked_on": "2026-10-25",
+        "batch": "two_hundredth",
+        "sections_read": "v1全16页§1–6、AI声明、AppA–F及参考清单，Eq1–4、T1–6所有单元、F1–7原PDF实际视觉；T4逐阈值、F全部分布修订时间线与T6分母、AppD盲人审完整核对。原文无本文公开执行器链接，检索/机构发布页未定位制品，源码不宣称已读。核心三遍及五书面完成，未训练/生成/OCR/judge或独立复现。",
+        "verification": "primary_sections_read"
       }
     ],
-    "sections_read": "§1–4完整主要机制/结果/失败、Tables1–3、AppA–D(含盲审)、Table5/6说明；决策Table4逐项/全量F分布表/可执行验证源码未全核",
+    "sections_read": "v1全16页§1–6、AI声明、AppA–F及参考清单，Eq1–4、T1–6所有单元、F1–7原PDF实际视觉；T4逐阈值、F全部分布修订时间线与T6分母、AppD盲人审完整核对。原文无本文公开执行器链接，检索/机构发布页未定位制品，源码不宣称已读。核心三遍及五书面完成，未训练/生成/OCR/judge或独立复现。",
     "review_path": "docs/reviews/L033.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "起点M0先ChartNet程序、基础/大规模程序图表生成(14Kupdates)、atomic理解训练。每轮约35–43Kspec；诊断336/9636问。BasicChartBench476图/14440问：L0336/10140、L1140/4300；7类单panel图，L0未见措辞、L1稀有话题/数字格式/更宽系列，contentfingerprint与训练不交。",
-    "framework": "诊断native生成→能力维度分配→两次候选程序执行核验→正确render训生成、标注render/编辑错误/代码训理解→合并专家，四轮递归。",
-    "architecture": "BAGEL7BMoT，reader和codewriter共理解专家，generator独立专家；每轮两个更新从同Mt出发分别冻结另侧再Merge。程序执行record与spec核对数据/文字/颜色/坐标/布局/可读性。诊断20%均匀+80%按错率权重cap3×，80/60%升降级，70/20/10当前/更难/易。",
-    "metrics": "主分冻结U0逐atomic满足率，非整图全对率；外部Qwen3.6-35BA3B禁think复查，PaddleOCR最近substring字符相似；reader在edited与native分开测。未核独立执行record与最终真实像素完全一致的保证。",
-    "baselines": "等步继续原数据、自评分两图取优、同数量固定均匀verified数据、只首次诊断、冻结reader；额外code均匀抽样、reader数据固定分布对照。通用GenEval/MME/MMB/MMMU，外部StructT2I/BizGen。",
-    "experimental_conditions": "每更新64GPU(型号未在所读附录明示)。G400步/b192/25600unique见3遍/AdamWβ.9,.95/lr2e-5warm100/EMA.995；60%verified、20%初始replay/15%通用/5%编辑，第2轮起部分verified旧轮replay。U704步/b128/30K见3遍/lr2e-5→2e-6warm3%，75%atomic/5%errorreport/15%code/5%通用。writer每spec greedy+temp.6最多6144tokens，首轮不足pair额外约30Kspec，不可只比最终训练步忽略数据构建成本。"
+    "dataset": "7类单panel：vertical/horizontalbar、line、scatter、area、pie、ring。diagnosis336题9636atomic问；每轮约35000–43000spec，首轮额外约30000补缺spec不计T6。BasicChartBench L0 336图10140问，初始12topics词汇、未见措辞、半数6–8categories超出训练3–5；L1 140图4300问，14rare topics、标题2–3词、1–4series及未开放小数/百分比。按contentfingerprint与训练隔离，bench不用于采样。edited families10%留出；人工native池M0–M3各49图、每类7、每图2问=196图392问，179notshown，无unreadable；这是同池跨reader比较，非不同输入难度。",
+    "framework": "RSI三能力跨轮互供数据：native失败诊断→规则采样→模型写程序→执行验证→正确render训G、修改render及record标签/正确代码训U/C→参数合并；BasicChartBench476图14440atomic问；4轮、固定数据/诊断/reader等消融、外部judge/OCR、人审真实生成及途中规则变更披露。",
+    "architecture": "BAGEL-7B-MoT separate understanding/generation experts，reader与codewriter共享理解参数。M0先ChartNet程序训练、基础图表/大规模程序图表生成第二阶段14000updates、atomic理解训练，再按独立专家合并。此预训练课程贡献未被等从原始BAGEL开始的消融隔离，不能把最终结果全部归于4轮RSI；未比较单expert共享、外部专用reader/writer同预算方案。",
+    "metrics": "主分为冻结U0对atomic要求的满足率，非整图全正确；text/binding/structure另列。外部Qwen3.6-35B-A3B禁think、逐问同确定性规则；与本模型无权重共享，作者称训练数据不共享但未给数据交集证据，不能独立确认后项。PaddleOCR旋转阅读、每请求字串最近substring字符相似=1−editdistance/字符串长度，非OCR exact-match或笔顺正确。Native人审盲于生成模型/轮次/reader答案并随机顺序，人数/标注者间一致性未给。Falseaccept为179人判notshown中的误接受率，非全392问比例；U0有6不可解析，分母386，U1–3为392。native+3.9pp的95%image-resamplingCI[0,7.9]，不能视为稳定显著大幅改善。",
+    "baselines": "等步原M0数据继续训练；每题M0出两图U0取优的self-filter；相同verified数量/同writer与U更新、均匀cell固定首课程分布；仅M0首次诊断；冻结U0每轮诊断；writer正确代码均匀vs弱值加权；reader用固定分布render；外部StructT2IBench/BizGenEval及GenEval/MME/MMBench/MMMU保留能力。对照等G步不自动等数据构造/reader训练总成本。",
+    "experimental_conditions": "每轮G/U各64GPU（型号、逐轮总GPUhours/显存未给），G400steps globalb192，25600unique×3，AdamWβ(.9,.95)、lr2e−5warm100、EMA.995；60%verified/20%起始replay/15%general/5%edit，第2轮起verified的10%replay旧轮。U704stepsb128，30000×3，lr2e−5→2e−6warm3%，75%atomic/5%errorreport/15%code/5%general，代码半自产/半起始。每spec greedy+temp.6两候选max6144；writer159→18GPUhours是代码构造子项，无全管线成本。部分单轮G换seed变动≤.4pp，非全4轮多seedCI。公开PDF/HTML及机构论文页未定位本文执行器、BasicChartBench数据或权重下载；因此实现级验证覆盖、fingerprint和真实像素一致性未独立核实。未执行任何模型/程序实验。"
   },
   {
     "title": "Tora，CVPR 2025",

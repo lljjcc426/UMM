@@ -264,3 +264,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百九十九批（2026-10-25）：文本推理93.4与图像执行17.8测不同变量；清空缓存Rp执行无需训练，未证明视频/结构化动作执行迁移。见[审查](ureason_v3_full_context_intervention_and_release_audit_2026-10-25.md)、[L032](../reviews/L032.md)。
+
+
+第二百批（2026-10-25）：U/C共理解expert、G独立expert，两更新从同Mt独立合并；先期14000生成updates与模型课程成本不能隐去。见[审查](recursive_self_improvement_full_rules_and_native_error_audit_2026-10-25.md)、[L033](../reviews/L033.md)。
