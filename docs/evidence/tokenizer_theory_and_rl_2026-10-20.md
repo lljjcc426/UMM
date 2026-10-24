@@ -213,3 +213,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百八十二批（2026-10-24）：本文无新训练/扩散公式；Showo移除autoencoder概述及BAGEL综述引文不宜沿用覆盖既有准确架构。见[审查](vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[U16](../reviews/U16.md)。
+
+
+第一百八十三批（2026-10-24）：无预训练视觉encoder/VAE，32patch+16prebuffer/文本AR图flow；两支路共享attention，路由与重建需因子化而非全归模块。见[审查](native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[U17](../reviews/U17.md)。

@@ -465,3 +465,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百八十二批（2026-10-24）：弱相关不排除地板/非线性与渲染瓶颈，七UMM已知答案Render语义分也低；正文非因果与结论归因需统一。见[审查](vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[U16](../reviews/U16.md)。
+
+
+第一百八十三批（2026-10-24）：训练干预比跨模型相关更直接；同源几何TextualDesc有效但只Gen→Und；SVG/3D双向，知识共享机制缺负对照。见[审查](native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[U17](../reviews/U17.md)。

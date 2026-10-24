@@ -89,7 +89,7 @@
 | U14 | UniG2U-Bench: Do Unified Models Advance Multimodal Understanding? | primary_sections_read | [结构化分析](../reviews/U14.md) | 核心三遍与五项检查完成 |
 | U15 | RealUnify: Do Unified Models Truly Benefit from Unification? A Comprehensive Benchmark | primary_sections_read | [结构化分析](../reviews/U15.md) | 核心三遍与五项检查完成 |
 | U16 | Can Unified Generation and Understanding Models Maintain Semantic Equivalence Across Different Output Modalities? (VGUBench) | primary_sections_read | [结构化分析](../reviews/U16.md) | 核心三遍与五项检查完成 |
-| U17 | Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System | primary_sections_read | [结构化分析](../reviews/U17.md) | 未完成 |
+| U17 | Uncovering Understanding-Generation Synergy in Native Unified Multimodal Models: From Representation, Task to System | primary_sections_read | [结构化分析](../reviews/U17.md) | 核心三遍与五项检查完成 |
 | U18 | Transferability Between Understanding and Generation in Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/U18.md) | 未完成 |
 | U19 | Generation Enhances Understanding in Unified Multimodal Models via Multi-Representation Generation (UniMRG) | primary_sections_read | [结构化分析](../reviews/U19.md) | 未完成 |
 | U20 | Semantic Generative Tuning for Unified Multimodal Models (SGT) | primary_sections_read | [结构化分析](../reviews/U20.md) | 核心三遍与五项检查完成 |

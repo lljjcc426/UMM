@@ -10009,6 +10009,40 @@
         }
       ],
       "boundary": "完整v1研究§1–5/Impact及AppA–D全部末级小节，Eq1–8、T1–2全部27组有值任务的三维结果/11行相关、F1–6全部实际图、AppB20个推理prompt和AppC三组system/user完整评分rubric。PDF18页已获取，Eq5及两r/p冲突补PDF交核。未定位可确认官方代码/数据release，未称制品全审；基本表均值和Eq7大样本数值核算，不是原始相关/模型复现。核心三遍和五项书面完成，无独立口试。"
+    },
+    {
+      "id": "U17",
+      "checked_on": "2026-10-24",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "在不引入预训练视觉encoder/VAE先验、但保留预训练语言模型的pixel-in/pixel-out UMM中，理解与生成何时出现互助、干扰或仅共存？分别以表示层路由、几何/SVG/3D任务及推理编辑系统实验检验；无笔顺/手绘过程模型。 同一接口能做两任务不等于共同训练产生收益；既有研究常混入视觉预训练、额外模块和数据变化。本文以同Qwen3初始化、单任务与联合训练、冻结probe及同源数据目标变换提高可解释性，但路线、重建数据和预算仍需进一步拆分。",
+          "evidence": "完整研究正文附录及全部10表10图；拆分受控训练结论和路由/重建/预算、筛选与系统瓶颈未识别部分，明确未执行模型。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "两卷积把像素转32×32 patch tokens，随机16层pre-buffer连接Qwen3-1.7B；文本AR，生成图像连续flow matching；整体多模态序列因果，同一图内部双向，MRoPE-I位置编码。t/noise scale由MLP嵌入加入视觉输入，无外部图tokenizer/VAE，无编号目标/采样公式。图像理解→文字或SVG代码；文本/SVG/上下文图+噪声→像素图。SVG的image→code属于论文Und，code→pixel属于Gen；生成代码并渲染与直接像素生成的输出通道需区分。 Dense：Text、Und-V、Gen-V全用同LLM层。Modality-decoupled MoT：Text留预训练语言支路，全部视觉token入随机视觉支路，跨支路global attention。Task-decoupled MoT：Text和干净理解/条件图token入语言支路，噪声生成token入专用生成支路；共同文本及editing跨图注意力维系语义联系。另加掩去条件图50%视觉token的重建任务，主文称训练mixture额外20%，AppA.1称在3:6:1上additional two parts，归一分母/替换关系未充分说明。它是路由+辅助重建联合设计，不能把全收益归给路由。原生专指视觉接口，语言参数有预训练。",
+          "evidence": "完整研究正文附录及全部10表10图；拆分受控训练结论和路由/重建/预算、筛选与系统瓶颈未识别部分，明确未执行模型。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "三级干预框架：dense和modality-decoupled MoT表现相反的任务取舍；提出task-decoupled MoT，保留理解图像与语言共享、生成图像专化及shared attention，并加入重建；三类领域任务与同源Textual-Desc几何参照；同源推理编辑数据比较端到端和planner→executor。提供比跨模型相关更直接的训练证据，机制解释仍有混杂。几何只报告Gen→Und，双向验证来自SVG和3D。 对于文字/笔顺/艺术字/素描视频，可把矢量程序或轨迹→像素与图像→程序联合，分离干净条件和噪声输出路径，保留共享语言/约束注意力。优势预期在双向任务共享真实几何/笔画因果结构且有配对监督时更明显；SVG路径序列不保证合法书写笔序，插帧提升也不能外推因果落笔。若强调非汉文字，需加入非English条件和文字渲染数据，此论文特意降权此类样本。",
+          "evidence": "完整研究正文附录及全部10表10图；拆分受控训练结论和路由/重建/预算、筛选与系统瓶颈未识别部分，明确未执行模型。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1 Dense三个理解均值67.82/71.96/60.72→68.69/72.12/61.77（+.87/+.16/+1.05）；生成51.16/79.11/7.05/5.12→51.03/78.12/5.92/4.94四项降，GenEval2仅−.13不泛称全部大幅。ModMoT理解64.20/66.84/59.54→61.58/62.11/57.49三项降，生成57.55/82.06/7.72/5.37→63.47/83.09/7.97/5.48四项升。TaskMoT69.02/72.09/62.38、63.96/82.31/7.90/5.50；非所有列最优：OCR略低denseJoint72.12，DPG/HPS低modJoint83.09/7.97。T2Und→TextualDesc→Joint：Geometry3K59.90/63.56/65.39，PGPS9K72.40/73.90/73.40，MathVerse60.13/59.11/63.15，MathVista71.80/73.60/74.30；Joint比Und全升但PGPS低TextualDesc.5。T3SVG80.64→81.70、80.21→86.52。T4 3DUnd均57.15→59.01，8升1降ViewSpatial58.75→58.07。T5VE.4062→.3766、FE.6564→.6297；VSC16.76→19.15、.6365→.6674、.3828→.3078。T6RISEoverall16.66→18.88，KRIS66.48→68.33；RISElogical11.76→9.41，七个非overall子项6升1降。全10表原展示数据保留结构化audit。 T8–10完整逐bench/skill结果显示类均值掩盖任务冲突：dense理解19项并非全升；modGenEvalverb13.75→9.28而Overall升，DPGentity89.82→88.12。F3冻结probe早中层joint多较好但后层小差，未列raw/CI；F4四组PCA可视化只作精选例，sharedPCA无拟合split/方差详单。F5所有画出层jointCKA更高，但CKA增高和生成提高并列不足证明中介因果。F6BlindVQA Gen49.41/Und52.18/Joint58.54，基于UniSVGtest用作者记作GPT5.6luna的annotator造3000再筛base答错1370；无全3000对照、独立人审、选项频率/shortcut或跨base筛选。F6右六例一步clean预测形状较清晰，非一步最终采样分数。F8三SVG代码问齿数/箭头组合/购物车把手；F9–10各两例四任务只示输入目标，非逐模型失败率。 T7表示训练AdamWβ.9/.95 ε1e−8、LR1e−4 constant/warmup2000、210Ksteps、WD0/clip1/EMA.9999、CE:MSE=.1:1、16Kcontext、Und256²–2048²/Gen512²–1024²，logitnormal μ−.8 σ.8、noise scale sqrt(N/64)。等步数及对应流batch不等总计算预算；未给各架构total/active params、FLOPs/GPU时、task/system微调步数/比例及完整运行seed。论文未给本研究独立代码/权重/datarelease URL；定向检索和HFpaper API未定位确认制品（linkedModels/Datasets/Spaces皆空），SenseNova模型不能替代本研究各实验checkpoint。未模型训练/推理/judge或独立复现。",
+          "evidence": "完整研究正文附录及全部10表10图；拆分受控训练结论和路由/重建/预算、筛选与系统瓶颈未识别部分，明确未执行模型。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "路由设计与额外重建共同改变，缺taskMoT单任务/无重建因子对照，跨dense/MoT容量和总计算未对齐；等流曝光减少数据量混杂但联合训练消耗更多任务。结构原生仍含Qwen预训练知识，不能称无任何先验。知识共享是三个正向case归纳，无不相关域负对照或梯度干预证明必要条件；TextualDesc监督信息量和算力未严格等值。SVG1370选择于base错误，限制外推全体分布；可通过符号解析/统计图形实现解题，缺此baseline不能断言必须内部像素模拟。3D自建VSC为给1/2/4/5补3的双侧插帧，含未来帧，不证明纯自回归未来预测/物理动力学；split隔离和test大小缺，静态布局/多视生成未量化。系统同源samebase是实质控制，但无GT显式指令oracle、共享权重不同接口、等训练/推理预算和连续hidden→纯文字handoff拆分；两overall提升不支持普遍优于模块系统。无多seed/CI/显著性。 Q1任务路由是否独立有效：在等架构total/active参数、FLOPs和每流曝光下交叉路由dense/modality/task×重建0/20%，补taskMoTUnd/Gen，固定初始化多seed，报告19理解项与四生成项Pareto及CI；随机配对/不相关域辅助目标和无跨支路attention作负对照；若只加重建已解释收益，收缩路由归因。Q2系统/共享知识是否解释收益：同源例、同目标信息、等训练token/总算力与推理预算比较共享checkpoint单/双call、纯文字handoff、hiddenhandoff、GT显式指令executor；分开planning正确与execution保真。SVG按未见path组合/变换程序分split，保留完整3000+错题1370，符号SVGparser baseline与盲人审；3D按scene/object/trajectory隔离，自建VSC区分插帧和只见过去的预测。文字轨迹用可执行渲染核验顺序/拓扑/时间，未执行这些模型实验。",
+          "evidence": "完整研究正文附录及全部10表10图；拆分受控训练结论和路由/重建/预算、筛选与系统瓶颈未识别部分，明确未执行模型。"
+        }
+      ],
+      "boundary": "完整23页v1研究正文§1–8及AppA.1–A.5/B.1–B.2、T1–10全部主/分项结果与T7训练配置、F1–10全部（13图资产；PDF交核布局/图例/三SVG和四3D格式），无编号公式，全部内联噪声/训练配置已核。结构化表与证据边界记录；官方独立代码/模型/data未定位，未提升为制品全审或独立复现。核心三遍和五项书面完成，无独立口试。"
     }
   ]
 }

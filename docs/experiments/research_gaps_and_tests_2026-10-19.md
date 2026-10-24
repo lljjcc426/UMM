@@ -658,3 +658,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百八十二批（2026-10-24）：TGU预测→生成器/确定性渲染与GT答案控制，等长度格式judge；按唯一Render聚类及ties/非线性/分层统计，未执行。见[审查](../evidence/vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[U16](../reviews/U16.md)。
+
+
+第一百八十三批（2026-10-24）：路由×重建等预算因子对照、负域/错配及SVGparser；samebase同源编辑需oracle指令和handoff消融，3D插帧/未来预测分开。见[审查](../evidence/native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[U17](../reviews/U17.md)。

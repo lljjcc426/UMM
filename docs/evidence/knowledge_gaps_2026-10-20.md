@@ -673,3 +673,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百八十二批（2026-10-24）：Eq5缺1/N、0–5ties下Spearman简式需修正；PDF确认JanusFlowr/p及Showoρ/p不齐，未改作者表值。见[审查](vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[U16](../reviews/U16.md)。
+
+
+第一百八十三批（2026-10-24）：等步/对应流batch未控制总FLOPs；无taskMoT单任务/去重建参照，CKA和probe不证明中介机制，1370错题筛选限制泛化。见[审查](native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[U17](../reviews/U17.md)。

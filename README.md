@@ -542,3 +542,6 @@ python scripts/validate_catalog.py
 
 
 第一百八十二批（2026-10-24）：U16完成v1完整18页研究正文/附录、两表六图八式和全部20推理/三组judgeprompt；核Eq5缺平均项、文本图像额外内容规则差异、Render地板/复用与两处r/p冲突。358目录，287核心/292书面；待完成核心深审44篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_eighty_second_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百八十三批（2026-10-24）：U17完成23页v1、10表10图；核任务解耦额外重建与预算混杂、几何单向/SVG和3D双向边界，以及同源端到端编辑对照。358目录，288核心/293书面；待完成核心深审43篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_eighty_third_changes_2026-10-24.md)。无删除或模型执行。

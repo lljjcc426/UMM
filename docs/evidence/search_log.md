@@ -721,3 +721,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百八十二批（2026-10-24）：VGUBench v1完整§1–5/Impact/AppA–D、T1–2/F1–6/Eq1–8与全部prompt；未定位可确认官方release，HF定向API空列表。见[审查](vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[U16](../reviews/U16.md)。
+
+
+第一百八十三批（2026-10-24）：原生协同2609.01607v1完整§1–8/AppA–B和T1–10/F1–10；论文无独立release，定向检索与HFpaper linked制品为空。见[审查](native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[U17](../reviews/U17.md)。

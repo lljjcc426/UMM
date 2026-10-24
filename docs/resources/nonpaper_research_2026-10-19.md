@@ -629,3 +629,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百八十二批（2026-10-24）：论文无官方代码数据链接，定向检索未取得确认制品；不虚构SHA/数据清单或把公式核算当相关复现。见[审查](../evidence/vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[U16](../reviews/U16.md)。
+
+
+第一百八十三批（2026-10-24）：论文独立code/checkpoint/数据制品未定位；SenseNova可用性不替代该研究全部对照权重。未执行训练/推理或追溯虚构SHA。见[审查](../evidence/native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[U17](../reviews/U17.md)。

@@ -1,0 +1,701 @@
+{
+  "id": "U17",
+  "checked_on": "2026-10-24",
+  "arxiv_version": "2609.01607v1",
+  "pdf_pages": 23,
+  "core_three_pass_completed": true,
+  "numbered_tables_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "figures_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "numbered_equations_reviewed": [],
+  "html_tables": [
+    [
+      [
+        "Model",
+        "Model",
+        "Understanding",
+        "Generation"
+      ],
+      [
+        "Architecture",
+        "Training",
+        "General",
+        "OCR",
+        "V-Centric & SI",
+        "GenEval2",
+        "DPG",
+        "HPSv3",
+        "Aesthetic"
+      ],
+      [
+        "1",
+        "Dense",
+        "Und/Gen",
+        "67.82",
+        "71.96",
+        "60.72",
+        "51.16",
+        "79.11",
+        "7.05",
+        "5.12"
+      ],
+      [
+        "2",
+        "Und+Gen",
+        "68.69",
+        "72.12",
+        "61.77",
+        "51.03",
+        "78.12",
+        "5.92",
+        "4.94"
+      ],
+      [
+        "3",
+        "Modality-dec. MoT",
+        "Und/Gen",
+        "64.20",
+        "66.84",
+        "59.54",
+        "57.55",
+        "82.06",
+        "7.72",
+        "5.37"
+      ],
+      [
+        "4",
+        "Und+Gen",
+        "61.58",
+        "62.11",
+        "57.49",
+        "63.47",
+        "83.09",
+        "7.97",
+        "5.48"
+      ],
+      [
+        "5",
+        "Task-dec. MoT",
+        "Und+Gen",
+        "69.02",
+        "72.09",
+        "62.38",
+        "63.96",
+        "82.31",
+        "7.90",
+        "5.50"
+      ]
+    ],
+    [
+      [
+        "Training",
+        "Geometry",
+        "General Math"
+      ],
+      [
+        "Geometry3K",
+        "PGPS9K",
+        "MathVersetestmini{}_{\\text{testmini}}",
+        "MathVistatestmini{}_{\\text{testmini}}"
+      ],
+      [
+        "Und",
+        "59.90",
+        "72.40",
+        "60.13",
+        "71.80"
+      ],
+      [
+        "Und + Textual-Desc",
+        "63.56",
+        "73.90",
+        "59.11",
+        "73.60"
+      ],
+      [
+        "Und+Gen",
+        "65.39",
+        "73.40",
+        "63.15",
+        "74.30"
+      ]
+    ],
+    [
+      [
+        "Training",
+        "Image→\\rightarrowSVG",
+        "SVG→\\rightarrowImage"
+      ],
+      [
+        "Und/Gen",
+        "80.64",
+        "80.21"
+      ],
+      [
+        "Und+Gen",
+        "81.70",
+        "86.52"
+      ]
+    ],
+    [
+      [
+        "Model",
+        "VSI-Bench",
+        "SPAR-Bench",
+        "CV-Bench",
+        "DA-2K",
+        "MindCube-tiny",
+        "ViewSpatial",
+        "3DSRBench",
+        "MMSI",
+        "ALL-Angles",
+        "Average"
+      ],
+      [
+        "Und only",
+        "53.98",
+        "38.80",
+        "77.67",
+        "70.69",
+        "75.71",
+        "58.75",
+        "59.84",
+        "36.40",
+        "42.50",
+        "57.15"
+      ],
+      [
+        "Und+Gen",
+        "55.49",
+        "41.13",
+        "78.77",
+        "73.89",
+        "77.90",
+        "58.07",
+        "60.51",
+        "39.20",
+        "46.11",
+        "59.01"
+      ]
+    ],
+    [
+      [
+        "Model",
+        "Spatial-Edit",
+        "View Sequence Completion"
+      ],
+      [
+        "VE ↓\\downarrow",
+        "FE ↓\\downarrow",
+        "PSNR ↑\\uparrow",
+        "SSIM ↑\\uparrow",
+        "LPIPS ↓\\downarrow"
+      ],
+      [
+        "Gen only",
+        "0.4062",
+        "0.6564",
+        "16.76",
+        "0.6365",
+        "0.3828"
+      ],
+      [
+        "Und+Gen",
+        "0.3766",
+        "0.6297",
+        "19.15",
+        "0.6674",
+        "0.3078"
+      ]
+    ],
+    [
+      [
+        "System",
+        "RISEBench",
+        "KRIS-Bench"
+      ],
+      [
+        "Temporal",
+        "Causal",
+        "Spatial",
+        "Logical",
+        "Overall",
+        "Factual",
+        "Conceptual",
+        "Procedural",
+        "Overall"
+      ],
+      [
+        "Planner →\\rightarrow Executor",
+        "18.82",
+        "22.22",
+        "14.00",
+        "11.76",
+        "16.66",
+        "61.40",
+        "71.17",
+        "64.58",
+        "66.48"
+      ],
+      [
+        "End-to-end UMM",
+        "22.35",
+        "27.77",
+        "16.00",
+        "9.41",
+        "18.88",
+        "64.73",
+        "72.32",
+        "66.16",
+        "68.33"
+      ]
+    ],
+    [
+      [
+        "Item",
+        "Value"
+      ],
+      [
+        "Peak learning rate",
+        "1×10−41\\times 10^{-4}"
+      ],
+      [
+        "Learning-rate scheduler",
+        "Constant"
+      ],
+      [
+        "Optimizer",
+        "AdamW (β1\\beta_{1} = 0.9, β2\\beta_{2} = 0.95, ϵ\\epsilon = 10−810^{-8})"
+      ],
+      [
+        "Weight decay",
+        "0.0"
+      ],
+      [
+        "Gradient-norm clipping",
+        "1.0"
+      ],
+      [
+        "EMA ratio",
+        "0.9999"
+      ],
+      [
+        "Training steps",
+        "210K"
+      ],
+      [
+        "Warmup steps",
+        "2000"
+      ],
+      [
+        "Loss weight (CE : MSE)",
+        "0.1:1"
+      ],
+      [
+        "Understanding resolution",
+        "[2562,20482][256^{2},2048^{2}]"
+      ],
+      [
+        "Generation resolution",
+        "[5122,10242][512^{2},1024^{2}]"
+      ],
+      [
+        "Sequence length",
+        "16K"
+      ],
+      [
+        "Timestep shift",
+        "μ=−0.8,σ=0.8\\mu=-0.8,\\sigma=0.8 in the logit-normal t-sampler"
+      ],
+      [
+        "Noise scale",
+        "N/64\\sqrt{N/64}, where NN is # of tokens"
+      ]
+    ],
+    [
+      [
+        "Group",
+        "Benchmark",
+        "Dense-U",
+        "Dense-U+G",
+        "Mod.-dec. MoT U",
+        "Mod.-dec. MoT U+G",
+        "Task-dec. MoT U+G"
+      ],
+      [
+        "General",
+        "MME",
+        "1930.46",
+        "1967.90",
+        "1773.31",
+        "1666.54",
+        "1992.06"
+      ],
+      [
+        "MMBench",
+        "71.39",
+        "69.58",
+        "64.43",
+        "66.66",
+        "69.84"
+      ],
+      [
+        "MMStar",
+        "52.20",
+        "55.82",
+        "50.72",
+        "47.69",
+        "56.51"
+      ],
+      [
+        "SEED Bench-I",
+        "76.56",
+        "76.91",
+        "74.33",
+        "71.91",
+        "76.42"
+      ],
+      [
+        "MMMU",
+        "42.44",
+        "42.77",
+        "42.89",
+        "38.33",
+        "42.77"
+      ],
+      [
+        "OCR",
+        "DocVQA",
+        "94.37",
+        "93.13",
+        "90.05",
+        "85.29",
+        "94.63"
+      ],
+      [
+        "ChartQA",
+        "45.40",
+        "46.84",
+        "44.68",
+        "40.20",
+        "45.24"
+      ],
+      [
+        "InfoVQA",
+        "68.75",
+        "67.52",
+        "52.65",
+        "44.59",
+        "68.30"
+      ],
+      [
+        "OCRBench",
+        "67.50",
+        "68.90",
+        "63.90",
+        "59.90",
+        "67.80"
+      ],
+      [
+        "AI2D",
+        "83.80",
+        "84.20",
+        "82.90",
+        "80.60",
+        "84.50"
+      ],
+      [
+        "V-Centric & SI",
+        "PerceptionBenchmcq{}_{\\textrm{mcq}}",
+        "31.30",
+        "32.59",
+        "29.66",
+        "29.66",
+        "34.02"
+      ],
+      [
+        "P2GB",
+        "72.63",
+        "73.94",
+        "66.40",
+        "63.40",
+        "72.07"
+      ],
+      [
+        "MME-RealWorld",
+        "48.93",
+        "49.81",
+        "46.63",
+        "41.01",
+        "50.39"
+      ],
+      [
+        "BLINK",
+        "63.92",
+        "64.09",
+        "60.07",
+        "59.02",
+        "63.48"
+      ],
+      [
+        "DA-2K",
+        "74.85",
+        "74.85",
+        "77.22",
+        "72.24",
+        "77.46"
+      ],
+      [
+        "CV-Bench",
+        "81.88",
+        "81.27",
+        "79.15",
+        "79.90",
+        "82.44"
+      ],
+      [
+        "MindCube",
+        "58.57",
+        "61.81",
+        "62.67",
+        "58.19",
+        "64.85"
+      ],
+      [
+        "3DSR",
+        "59.01",
+        "61.78",
+        "59.78",
+        "59.14",
+        "61.02"
+      ],
+      [
+        "ViewSpatial",
+        "55.41",
+        "55.86",
+        "54.32",
+        "54.90",
+        "55.75"
+      ]
+    ],
+    [
+      [
+        "Model",
+        "Object",
+        "Attribute",
+        "Count",
+        "Position",
+        "Verb",
+        "Overall"
+      ],
+      [
+        "Dense-G",
+        "67.91",
+        "56.08",
+        "34.34",
+        "33.35",
+        "9.02",
+        "51.16"
+      ],
+      [
+        "Dense-U+G",
+        "67.08",
+        "53.97",
+        "34.61",
+        "33.67",
+        "7.45",
+        "51.03"
+      ],
+      [
+        "Mod.-dec. MoT-G",
+        "77.65",
+        "58.69",
+        "39.76",
+        "42.81",
+        "13.75",
+        "57.55"
+      ],
+      [
+        "Mod.-dec. MoT-U+G",
+        "84.60",
+        "63.26",
+        "43.95",
+        "53.05",
+        "9.28",
+        "63.47"
+      ],
+      [
+        "Task-dec. MoT-U+G",
+        "82.97",
+        "64.45",
+        "45.6",
+        "56.11",
+        "15.77",
+        "63.96"
+      ]
+    ],
+    [
+      [
+        "Model",
+        "Global",
+        "Entity",
+        "Attribute",
+        "Relation",
+        "Other",
+        "Overall"
+      ],
+      [
+        "Dense-G",
+        "91.95",
+        "85.55",
+        "88.83",
+        "87.52",
+        "79.49",
+        "79.11"
+      ],
+      [
+        "Dense-U+G",
+        "83.58",
+        "85.77",
+        "87.25",
+        "89.45",
+        "84.63",
+        "78.12"
+      ],
+      [
+        "Mod.-dec. MoT-G",
+        "88.02",
+        "89.82",
+        "88.58",
+        "90.42",
+        "89.20",
+        "82.06"
+      ],
+      [
+        "Mod.-dec. MoT-U+G",
+        "92.14",
+        "88.12",
+        "90.39",
+        "92.03",
+        "90.77",
+        "83.09"
+      ],
+      [
+        "Task-dec. MoT-U+G",
+        "87.30",
+        "90.50",
+        "89.09",
+        "90.65",
+        "91.17",
+        "82.31"
+      ]
+    ]
+  ],
+  "figure_assets": [
+    [
+      "S1.F1.g1",
+      "2609.01607v1/overview.png"
+    ],
+    [
+      "S2.F2.g1",
+      "2609.01607v1/architecture.svg"
+    ],
+    [
+      "S3.F3.g1",
+      "2609.01607v1/probing_results.svg"
+    ],
+    [
+      "S3.F4.g1",
+      "2609.01607v1/PCA.png"
+    ],
+    [
+      "S3.F5.g1",
+      "2609.01607v1/feature_structural_alignment.svg"
+    ],
+    [
+      "S4.F6.g1",
+      "2609.01607v1/svg_vqa_accuracy.svg"
+    ],
+    [
+      "S4.F6.g2",
+      "2609.01607v1/svg_1_step.png"
+    ],
+    [
+      "A1.F7.g1",
+      "2609.01607v1/images/category_distribution.png"
+    ],
+    [
+      "A2.F8.g1",
+      "2609.01607v1/svg_blind_vqa_example.png"
+    ],
+    [
+      "A2.F9.g1",
+      "2609.01607v1/gen_3d_egomovement_example.png"
+    ],
+    [
+      "A2.F9.g2",
+      "2609.01607v1/gen_3d_viewrec_example.png"
+    ],
+    [
+      "A2.F10.g1",
+      "2609.01607v1/gen_3d_vsc_example.png"
+    ],
+    [
+      "A2.F10.g2",
+      "2609.01607v1/gen_3d_layout2i_example.png"
+    ]
+  ],
+  "blind_vqa": {
+    "annotated": 3000,
+    "base_wrong_selected": 1370,
+    "generation_only": 49.41,
+    "understanding_only": 52.18,
+    "joint": 58.54
+  },
+  "release": {
+    "official_study_release_identified": false,
+    "hf_links": {
+      "linkedModels": [],
+      "linkedDatasets": [],
+      "linkedSpaces": []
+    },
+    "scope": "paper links, targeted search and HF paper metadata; not universal absence"
+  },
+  "controls_missing": [
+    "routing versus reconstruction factorial",
+    "task MoT single-task",
+    "total and active params and training FLOPs",
+    "all downstream hyperparameters and seeds",
+    "oracle instruction executor and handoff controls",
+    "unfiltered SVG diagnostic and scene-split VSC manifest"
+  ],
+  "learned_model_execution": false,
+  "reading_scope": "完整23页v1研究正文§1–8及AppA.1–A.5/B.1–B.2、T1–10全部主/分项结果与T7训练配置、F1–10全部（13图资产；PDF交核布局/图例/三SVG和四3D格式），无编号公式，全部内联噪声/训练配置已核。结构化表与证据边界记录；官方独立代码/模型/data未定位，未提升为制品全审或独立复现。核心三遍和五项书面完成，无独立口试。",
+  "source_urls": [
+    "https://arxiv.org/abs/2609.01607v1",
+    "https://arxiv.org/html/2609.01607v1",
+    "https://arxiv.org/pdf/2609.01607v1",
+    "https://huggingface.co/papers/2609.01607"
+  ]
+}

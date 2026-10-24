@@ -632,3 +632,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百八十二批（2026-10-24）：2164同题文字/字图对照，Render按GT字符串去重再Dmap恢复，去重数未公开；限定typographic回答与512²模板。见[审查](vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[U16](../reviews/U16.md)。
+
+
+第一百八十三批（2026-10-24）：pixel-in/out、Qwen3语言先验与task路由+20%重建，English生成且降文字渲染；SVG程序双向/3D四任务，不能直接外推笔序。见[审查](native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[U17](../reviews/U17.md)。
