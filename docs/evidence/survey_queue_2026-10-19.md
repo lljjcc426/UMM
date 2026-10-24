@@ -668,3 +668,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百八十一批（2026-10-24）：U15补齐v2完整19页研究正文附录、13表12图和公开两评分器；确认CVPR2026接收，区分UEG重写增益/GEU图替换，核2000行配对元数据及MT字段、坏核对项、当前聚合阻断。358目录，286核心/291书面；待完成核心深审45篇论文／研究；27项资源按制品协议另审。见[审查](realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[逐文件说明](one_hundred_eighty_first_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百八十二批（2026-10-24）：U16完成v1完整18页研究正文/附录、两表六图八式和全部20推理/三组judgeprompt；核Eq5缺平均项、文本图像额外内容规则差异、Render地板/复用与两处r/p冲突。358目录，287核心/292书面；待完成核心深审44篇论文／研究；27项资源按制品协议另审。见[审查](vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[逐文件说明](one_hundred_eighty_second_changes_2026-10-24.md)。无删除或模型执行。

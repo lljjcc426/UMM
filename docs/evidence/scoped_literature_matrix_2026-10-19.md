@@ -629,3 +629,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百八十一批（2026-10-24）：1000题600UEG/400GEU，每类100；四文件2000行是双协议重复，GEU385个不同图路径，不能视400独立场景。见[审查](realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[U15](../reviews/U15.md)。
+
+
+第一百八十二批（2026-10-24）：2164同题文字/字图对照，Render按GT字符串去重再Dmap恢复，去重数未公开；限定typographic回答与512²模板。见[审查](vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[U16](../reviews/U16.md)。

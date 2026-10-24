@@ -1930,25 +1930,29 @@
     "id": "U16",
     "category": "U UMM基础与协同补全",
     "title": "Can Unified Generation and Understanding Models Maintain Semantic Equivalence Across Different Output Modalities? (VGUBench)",
-    "version": "Can Unified Generation and Understanding Models Maintain Semantic Equivalence Across Different Output Modalities?（VGUBench）；arXiv2602.23711v1，2026-02-27；未核实正式接收",
+    "version": "Can Unified Generation and Understanding Models Maintain Semantic Equivalence Across Different Output Modalities?（VGUBench）；完整arXiv2602.23711v1，2026-02-27，18页。页面ICML关键词/模板不能作为接收证据，未核实正式接收。",
     "source_urls": [
       "https://arxiv.org/abs/2602.23711",
-      "https://arxiv.org/pdf/2602.23711v1"
+      "https://arxiv.org/pdf/2602.23711v1",
+      "https://arxiv.org/abs/2602.23711v1",
+      "https://arxiv.org/html/2602.23711v1",
+      "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html",
+      "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html"
     ],
     "previous_evidence": null,
     "claim": "研究目标：同一文字问题用文字回答与用图片写出答案，是否保留可读性、完整性与正确性？只给已知答案渲染能否诊断瓶颈？",
-    "method": "TGU文字回答/VGU图像回答/Render给GT答案文本再绘图三任务，样本映射与多维VLM评分及关联分析。研究视觉答案文字，不是视频/规范笔顺生成。 7开放UMM+3生成系统，Qwen2.5VL72B直接评图/文本，1–5分三维归一百分数；Render去重后借mapping恢复与VGU的样本对齐。复用Render样本对应多题意味着关联样本非全独立。",
-    "problem": "同一文字问题用文字回答与用图片写出答案，是否保留可读性、完整性与正确性？只给已知答案渲染能否诊断瓶颈？",
-    "conclusion": "Table1 BAGEL TGUAvg84.76/VGU20.80/Render27.85，VGUcorrect.17；UniLIP89.59/22.85/31.01；QwenImage VGU30.16/Render61.66。图中求解渲染差距明显，但Avg包含可读性，不能全写成答案准确率。",
-    "gap": "Render复用/地板效应/ties影响相关和p；Render高不保证未知答案能生成，低相关不证明渲染与求解机制独立或因果无关。风格严格模板和长字图比一般画图分布更窄，VLMjudge字形偏差未充分量化。代码/统计实现未全审。",
+    "method": "VGUBench九源2164 QA；TGU/VGU同题、Render答案去重后Dmap恢复配对；Qwen2.5VL72B评legibility/completeness/correctness三维，10模型主表与逐样本相关、4例完整性诊断和分箱图。贡献是测量/诊断框架，无新训练骨干或已验证协同优化。主要结果支持字图回答的严重失败；渲染与跨侧知识对齐的相对因果贡献尚未隔离。 7UMM：BAGEL7BMoT、Emu3、BLIP3oNEXTSFT3B、JanusPro7B、JanusFlow1.3B、UniLIP3B、Showo；3生成参照LongCatImage/QwenImage/VGT只VGU/Render，无TGU。它们保留原架构，本文没有训练loss。§2称Showo移除autoencoder，与其MAGVITv2图token/decoder机制不齐；将SigLIP一概列VQ离散编码也不精确。BAGEL引文Zhang2025b实际指UMM综述2505.02567，非其原始2505.14683，不据此覆盖既有准确结构笔记。LongCat这里为Image，勿与目录LongCatFlashOmni混同。",
+    "problem": "同一纯文字问题以文字回答（TGU）或以图片中的可读文字回答（VGU），是否都能表达正确答案？直接给GT答案再生成字图（Render）能否诊断求解与渲染差异？研究SEDOM及字图交付，输入不要求原始视觉推理，无笔画动作/视频。",
+    "conclusion": "T1 BAGEL VGU/TGU/Render Avg20.80/84.76/27.85，VGU完整.43/正确.17，Render完整11.91/正确11.31；UniLIP22.85/89.59/31.01，VGU.25/.27，Render4.15/3.97。其余UMM Avg三路：Emu12.14/63.31/16.07，BLIP16.87/88.88/23.16，JanusPro12.53/70.96/13.02，JanusFlow13.63/65.70/12.86，Showo16.98/28.91/15.77。文字路并非全部强，Showo正确10.88；视觉路并非所有低于24，生成参照LongCat26.19、Qwen30.16、VGT21.80。QwenRenderAvg61.66/完整56.80/正确48.43高于七UMM，VGU正确6.52；LongCatRender28.30/正确1.89。所有七UMM Render完整/正确最高也仅11.91/11.31，摘要称strongvisualrendering不足以由这些语义指标支持，需区分字形可读与内容正确。",
+    "gap": "Eq8的1−6Σd²/[n(n²−1)]无ties简式不直接适用0–5离散大量同分，实际实现未公开，应平均秩再Pearson或明确tie修正。相关计算本身无需正态；经典t显著性有独立/分布前提。Render去重后复用、不同源/答案长度混合、地板效应与测量噪声会影响相关及有效样本数；All池化还含模型间差异。低Pearson/Spearman不排除非线性或因果作用，F6也有非单调趋势，p=0应为舍入阈值而非概率真零，22次检验缺多重比较控制。§3.4明确不证明因果，摘要/结论却据弱相关排除生成质量并归因语义对齐，证据范围应收缩。F1用绘画/照片例提示动机，但严格VGU要求字图，格式失败不必等于图画完全无答案语义；必须限定到本文的文字外化。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-24",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "§3.1指定定义/§3.2数据/§3.3评分指定段、§3.4统计、§4.1指定协议、Tables1/2；完整prompt附录/源码/其余分析未全审，未复现",
-    "last_updated": "2026-10-20",
+    "sections_read": "完整v1研究§1–5/Impact及AppA–D全部末级小节，Eq1–8、T1–2全部27组有值任务的三维结果/11行相关、F1–6全部实际图、AppB20个推理prompt和AppC三组system/user完整评分rubric。PDF18页已获取，Eq5及两r/p冲突补PDF交核。未定位可确认官方代码/数据release，未称制品全审；基本表均值和Eq7大样本数值核算，不是原始相关/模型复现。核心三遍和五项书面完成，无独立口试。",
+    "last_updated": "2026-10-24",
     "canonical_key": "paper:arxiv:2602.23711",
     "evidence_history": [
       {
@@ -2012,16 +2016,22 @@
         "conclusion": "定位理解结果向视觉执行转化的断点。",
         "gap": "【边界/推断】不等同笔顺序列评测；可借鉴答案形式的控制实验。",
         "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      },
+      {
+        "checked_on": "2026-10-24",
+        "batch": "one_hundred_eighty_second",
+        "sections_read": "完整v1研究§1–5/Impact及AppA–D全部末级小节，Eq1–8、T1–2全部27组有值任务的三维结果/11行相关、F1–6全部实际图、AppB20个推理prompt和AppC三组system/user完整评分rubric。PDF18页已获取，Eq5及两r/p冲突补PDF交核。未定位可确认官方代码/数据release，未称制品全审；基本表均值和Eq7大样本数值核算，不是原始相关/模型复现。核心三遍和五项书面完成，无独立口试。",
+        "verification": "primary_sections_read"
       }
     ],
     "review_path": "docs/reviews/U16.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "MMLU/ARCChallenge/OpenBookQA/CSQA/HellaSwag/BoolQ/GPQA/MATH/HumanEval九源，各随机≤250，总2164问题。答案图参考由脚本生成，Render去重；数学/代码长答案会受512²文字密度影响。未独立确认每源元数据标注。",
-    "framework": "TGU文字回答/VGU图像回答/Render给GT答案文本再绘图三任务，样本映射与多维VLM评分及关联分析。研究视觉答案文字，不是视频/规范笔顺生成。",
-    "architecture": "7开放UMM+3生成系统，Qwen2.5VL72B直接评图/文本，1–5分三维归一百分数；Render去重后借mapping恢复与VGU的样本对齐。复用Render样本对应多题意味着关联样本非全独立。",
-    "metrics": "legibility/completeness/correctness及三维均分，Pearson/Spearman与p值。低分离散有ties，论文无tie修正Spearman简式不能无条件适用；相关系数计算不要求正态，经典小样本t检验才有分布条件。无训练实验。",
-    "baselines": "BAGEL/Emu3/BLIP3o/JanusPro/JanusFlow/Showo/UniLIP；LongCat/QwenImage/VGT只有VGU/Render，没有TGU列。closed模型未测；此LongCat是图像生成系统，勿与L162LongCatFlashOmni混同。",
-    "experimental_conditions": "黑底白字、多prompt随机选，三任务同judge维度；图像采样配置/NFE/seed/resize等未核齐。Appendix judge规则惩罚额外/臆测，直接视觉判分不用OCR先转录；需额外独立OCR/人验证。"
+    "dataset": "MMLU、ARCChallenge（正文写ARChallenge）、OpenBookQA、CSQA、HellaSwag、BoolQ、GPQA、MATH、HumanEval九源各随机≤250，总2164。论文未给抽样seed/逐题ID/各源split、真实变体和完整分布；部分引文链接为后续知识增强ARC、MCSQA/MATHBeyond，实际取哪版本需清单核。给定总量可由8×250+HumanEval164解释，但只是算术一致，未独立确认分源行数。Render字符串去重后用于评测，再按Dmap展开：同一Render图可服务多题，独立观察数不能简单等于2164。数学/代码长字符串在512²自适应小字有密度与judge读取难度。",
+    "framework": "VGUBench九源2164 QA；TGU/VGU同题、Render答案去重后Dmap恢复配对；Qwen2.5VL72B评legibility/completeness/correctness三维，10模型主表与逐样本相关、4例完整性诊断和分箱图。贡献是测量/诊断框架，无新训练骨干或已验证协同优化。主要结果支持字图回答的严重失败；渲染与跨侧知识对齐的相对因果贡献尚未隔离。",
+    "architecture": "7UMM：BAGEL7BMoT、Emu3、BLIP3oNEXTSFT3B、JanusPro7B、JanusFlow1.3B、UniLIP3B、Showo；3生成参照LongCatImage/QwenImage/VGT只VGU/Render，无TGU。它们保留原架构，本文没有训练loss。§2称Showo移除autoencoder，与其MAGVITv2图token/decoder机制不齐；将SigLIP一概列VQ离散编码也不精确。BAGEL引文Zhang2025b实际指UMM综述2505.02567，非其原始2505.14683，不据此覆盖既有准确结构笔记。LongCat这里为Image，勿与目录LongCatFlashOmni混同。",
+    "metrics": "三维离散0–5，再归一0–100及三维Avg；Avg包含可读性，不能当答案准确率。Eq5印sum_i(s_i)/5×100缺样本平均1/N，且说三维平均却i定义为样本；PDF同式。T1展示在0–100且三维均值基本一致（展示值最大差.0067可由舍入造成），未据印刷式推断实际程序按sum实现。AppC TGU允许额外解释且正确答案明确应高分；VGU/Render额外文字会将correctness封顶3，完整性要求参考图全部文字，评分约束不完全相同。Qwen72B直接评图，作者拒OCR先转录以免误读，pilot人观察未给人数/样本量/混淆或一致性；仍需独立OCR/盲人转录验证字图judge误差。",
+    "baselines": "完整T1十模型各任务/三维/Avg行，TGU只有七模型，3生成参照不填零或称完整统一。无闭源系统，理由是架构不可见，但开放结构本身不能使此次观察成为机制定位。不同训练/规模/推理接口和字图专用预训练无受控匹配；QwenImage文本生成专长是工程参照，不能单独证明统一目标造成损失。",
+    "experimental_conditions": "VGU/Render各10prompt，每题随机选，未给随机seed、模型间是否同选、TGU完整模板和解码预算、分辨率/CFG/NFE/权重版本/图resize。VGU1要求白底黑字，其余主要黑底白字；6–10写分析/编辑给定图并在底部加字幕，主文却定义纯文字输入Tq，实际额外图输入和适用模型分配未说明，不能自行断言泄露GT或全部跑错。所有三路同名judge但AppC规则有差，需等信息/格式控制。文内无官方代码/数据URL，唯一github链接是arXiv反馈系统；定向搜索未定位可确认官方release，HFdatasets API search=VGUBench返回空列表。故未虚构SHA/下载清单、未声称源码/数据审完成；未调用judge/模型/训练或独立复现。"
   },
   {
     "id": "U17",

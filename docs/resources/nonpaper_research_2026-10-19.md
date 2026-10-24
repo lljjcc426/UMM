@@ -626,3 +626,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百八十一批（2026-10-24）：公开judge TODO与合法任务计数未初始化阻断当前评分；code2两坏核对项、eraser/bird差异和400绝对路径须处理，不等历史主表已证伪。见[审查](../evidence/realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[U15](../reviews/U15.md)。
+
+
+第一百八十二批（2026-10-24）：论文无官方代码数据链接，定向检索未取得确认制品；不虚构SHA/数据清单或把公式核算当相关复现。见[审查](../evidence/vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[U16](../reviews/U16.md)。

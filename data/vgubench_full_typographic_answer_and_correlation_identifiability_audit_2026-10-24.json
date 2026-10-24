@@ -1,0 +1,748 @@
+{
+  "id": "U16",
+  "checked_on": "2026-10-24",
+  "arxiv_version": "2602.23711v1",
+  "pdf_pages": 18,
+  "core_three_pass_completed": true,
+  "numbered_tables_reviewed": [
+    1,
+    2
+  ],
+  "figures_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "numbered_equations_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "inference_prompts_reviewed": 20,
+  "judge_system_user_pairs_reviewed": 3,
+  "html_tables": [
+    [
+      [
+        "",
+        "Tpred=InferU(Tq),Ipred=InferG(Tq).\\displaystyle T_{\\text{pred}}=\\text{InferU}(T_{q}),I_{\\text{pred}}=\\text{InferG}(T_{q}).",
+        "",
+        "(1)"
+      ]
+    ],
+    [
+      [
+        "",
+        "analysisV=Judge​(Tq,Ilabel,Ipred),\\displaystyle\\text{analysisV}=\\text{Judge}(T_{q},I_{\\text{label}},I_{\\text{pred}}),",
+        "",
+        "(2)"
+      ],
+      [
+        "",
+        "analysisU=Judge​(Tq,Tlabel,Tpred),\\displaystyle\\text{analysisU}=\\text{Judge}(T_{q},T_{\\text{label}},T_{\\text{pred}}),",
+        ""
+      ]
+    ],
+    [
+      [
+        "",
+        "IpredR=InferG​(TlabelR),\\displaystyle I^{R}_{\\text{pred}}=\\text{InferG}(T_{\\text{label}}^{R}),",
+        "",
+        "(3)"
+      ]
+    ],
+    [
+      [
+        "",
+        "analysisR=Judge​(Tlabel,IlabelR,IpredR).\\displaystyle\\text{analysisR}=\\text{Judge}(T_{\\text{label}},I_{\\text{label}}^{R},I_{\\text{pred}}^{R}).",
+        "",
+        "(4)"
+      ]
+    ],
+    [
+      [
+        "",
+        "score=∑i=1Nsi5×100%,\\displaystyle\\text{score}=\\frac{\\sum_{i=1}^{N}s_{i}}{5}\\times 100\\%,",
+        "",
+        "(5)"
+      ]
+    ],
+    [
+      [
+        "",
+        "r=∑i=1n(siV−sV¯)​(siR−sR¯)∑i=1n(siV−sV¯)2​∑i=1n(siR−sR¯)2,\\displaystyle r=\\frac{\\sum_{i=1}^{n}(s^{V}_{i}-\\overline{s^{V}})(s^{R}_{i}-\\overline{s^{R}})}{\\sqrt{\\sum_{i=1}^{n}(s^{V}_{i}-\\overline{s^{V}})^{2}}\\sqrt{\\sum_{i=1}^{n}(s^{R}_{i}-\\overline{s^{R}})^{2}}},",
+        "",
+        "(6)"
+      ]
+    ],
+    [
+      [
+        "",
+        "t=r×n−21−r2,df=n−2,\\displaystyle t=r\\times\\sqrt{\\frac{n-2}{1-r^{2}}},df=n-2,",
+        "",
+        "(7)"
+      ]
+    ],
+    [
+      [
+        "",
+        "ρ=1−6​∑i=1ndi2n⁡(n2−1),\\displaystyle\\rho=1-\\frac{6\\sum_{i=1}^{n}d_{i}^{2}}{n(n^{2}-1)},",
+        "",
+        "(8)"
+      ]
+    ],
+    [
+      [
+        "Method",
+        "Legibility",
+        "Completeness",
+        "Correctness",
+        "Avg"
+      ],
+      [
+        "VGU",
+        "TGU",
+        "Render",
+        "VGU",
+        "TGU",
+        "Render",
+        "VGU",
+        "TGU",
+        "Render",
+        "VGU",
+        "TGU",
+        "Render"
+      ],
+      [
+        "Bagel",
+        "61.81",
+        "99.70",
+        "60.33",
+        "0.43",
+        "77.61",
+        "11.91",
+        "0.17",
+        "76.99",
+        "11.31",
+        "20.80",
+        "84.76",
+        "27.85"
+      ],
+      [
+        "Emu3",
+        "35.82",
+        "96.04",
+        "42.59",
+        "0.17",
+        "47.53",
+        "2.83",
+        "0.43",
+        "46.37",
+        "2.80",
+        "12.14",
+        "63.31",
+        "16.07"
+      ],
+      [
+        "BLIP3o",
+        "48.19",
+        "99.32",
+        "69.17",
+        "1.21",
+        "83.94",
+        "0.15",
+        "1.22",
+        "83.39",
+        "0.15",
+        "16.87",
+        "88.88",
+        "23.16"
+      ],
+      [
+        "Janus-Pro",
+        "37.18",
+        "99.39",
+        "38.95",
+        "0.20",
+        "57.49",
+        "0.06",
+        "0.20",
+        "56.00",
+        "0.06",
+        "12.53",
+        "70.96",
+        "13.02"
+      ],
+      [
+        "JanusFlow",
+        "40.22",
+        "97.13",
+        "38.59",
+        "0.33",
+        "50.58",
+        "0.00",
+        "0.33",
+        "49.38",
+        "0.00",
+        "13.63",
+        "65.70",
+        "12.86"
+      ],
+      [
+        "Show-o",
+        "50.42",
+        "64.99",
+        "47.19",
+        "0.26",
+        "10.87",
+        "0.06",
+        "0.26",
+        "10.88",
+        "0.06",
+        "16.98",
+        "28.91",
+        "15.77"
+      ],
+      [
+        "UniLIP",
+        "68.03",
+        "99.85",
+        "84.90",
+        "0.25",
+        "84.86",
+        "4.15",
+        "0.27",
+        "84.07",
+        "3.97",
+        "22.85",
+        "89.59",
+        "31.01"
+      ],
+      [
+        "LongCat",
+        "64.71",
+        "-",
+        "81.11",
+        "7.00",
+        "-",
+        "1.89",
+        "6.85",
+        "-",
+        "1.89",
+        "26.19",
+        "-",
+        "28.30"
+      ],
+      [
+        "Qwen-Image",
+        "78.44",
+        "-",
+        "79.73",
+        "5.52",
+        "-",
+        "56.80",
+        "6.52",
+        "-",
+        "48.43",
+        "30.16",
+        "-",
+        "61.66"
+      ],
+      [
+        "VGT",
+        "65.10",
+        "-",
+        "53.05",
+        "0.15",
+        "-",
+        "0.06",
+        "0.15",
+        "-",
+        "0.06",
+        "21.80",
+        "-",
+        "17.72"
+      ]
+    ],
+    [
+      [
+        "Method",
+        "Pearson",
+        "Spearmanr"
+      ],
+      [
+        "rr",
+        "ppp_{p}",
+        "ρ\\rho",
+        "psp_{s}"
+      ],
+      [
+        "Bagel",
+        "0.0347",
+        "0.1063",
+        "0.0368",
+        "0.0873"
+      ],
+      [
+        "Emu3",
+        "0.0714",
+        "0.0009",
+        "-0.0686",
+        "0.0014"
+      ],
+      [
+        "BLIP3o",
+        "-0.0137",
+        "0.5238",
+        "0.0156",
+        "0.4685"
+      ],
+      [
+        "Janus-Pro",
+        "-0.0116",
+        "0.59",
+        "-0.0016",
+        "0.9394"
+      ],
+      [
+        "JanusFlow",
+        "-0.018",
+        "0.9319",
+        "0.0112",
+        "0.6035"
+      ],
+      [
+        "Show-o",
+        "0.1249",
+        "0",
+        "0.01168",
+        "0"
+      ],
+      [
+        "UniLIP",
+        "-0.0636",
+        "0.0031",
+        "-0.05",
+        "0.02"
+      ],
+      [
+        "LongCat",
+        "-0.0033",
+        "0.8763",
+        "-0.0221",
+        "0.3033"
+      ],
+      [
+        "Qwen-Image",
+        "-0.0897",
+        "0",
+        "-0.0701",
+        "0.0011"
+      ],
+      [
+        "VGT",
+        "0.1090",
+        "0",
+        "0.1093",
+        "0"
+      ],
+      [
+        "All",
+        "0.2596",
+        "0",
+        "0.2948",
+        "0"
+      ]
+    ]
+  ],
+  "numerical_checks": {
+    "table1_means": [
+      {
+        "model": "Bagel",
+        "task": "VGU",
+        "calculated_three_dimension_mean": 20.803333333333335,
+        "reported_mean": 20.8
+      },
+      {
+        "model": "Bagel",
+        "task": "TGU",
+        "calculated_three_dimension_mean": 84.76666666666667,
+        "reported_mean": 84.76
+      },
+      {
+        "model": "Bagel",
+        "task": "Render",
+        "calculated_three_dimension_mean": 27.849999999999998,
+        "reported_mean": 27.85
+      },
+      {
+        "model": "Emu3",
+        "task": "VGU",
+        "calculated_three_dimension_mean": 12.14,
+        "reported_mean": 12.14
+      },
+      {
+        "model": "Emu3",
+        "task": "TGU",
+        "calculated_three_dimension_mean": 63.31333333333333,
+        "reported_mean": 63.31
+      },
+      {
+        "model": "Emu3",
+        "task": "Render",
+        "calculated_three_dimension_mean": 16.073333333333334,
+        "reported_mean": 16.07
+      },
+      {
+        "model": "BLIP3o",
+        "task": "VGU",
+        "calculated_three_dimension_mean": 16.87333333333333,
+        "reported_mean": 16.87
+      },
+      {
+        "model": "BLIP3o",
+        "task": "TGU",
+        "calculated_three_dimension_mean": 88.88333333333333,
+        "reported_mean": 88.88
+      },
+      {
+        "model": "BLIP3o",
+        "task": "Render",
+        "calculated_three_dimension_mean": 23.156666666666666,
+        "reported_mean": 23.16
+      },
+      {
+        "model": "Janus-Pro",
+        "task": "VGU",
+        "calculated_three_dimension_mean": 12.526666666666666,
+        "reported_mean": 12.53
+      },
+      {
+        "model": "Janus-Pro",
+        "task": "TGU",
+        "calculated_three_dimension_mean": 70.96,
+        "reported_mean": 70.96
+      },
+      {
+        "model": "Janus-Pro",
+        "task": "Render",
+        "calculated_three_dimension_mean": 13.023333333333333,
+        "reported_mean": 13.02
+      },
+      {
+        "model": "JanusFlow",
+        "task": "VGU",
+        "calculated_three_dimension_mean": 13.626666666666665,
+        "reported_mean": 13.63
+      },
+      {
+        "model": "JanusFlow",
+        "task": "TGU",
+        "calculated_three_dimension_mean": 65.69666666666667,
+        "reported_mean": 65.7
+      },
+      {
+        "model": "JanusFlow",
+        "task": "Render",
+        "calculated_three_dimension_mean": 12.863333333333335,
+        "reported_mean": 12.86
+      },
+      {
+        "model": "Show-o",
+        "task": "VGU",
+        "calculated_three_dimension_mean": 16.98,
+        "reported_mean": 16.98
+      },
+      {
+        "model": "Show-o",
+        "task": "TGU",
+        "calculated_three_dimension_mean": 28.91333333333333,
+        "reported_mean": 28.91
+      },
+      {
+        "model": "Show-o",
+        "task": "Render",
+        "calculated_three_dimension_mean": 15.769999999999998,
+        "reported_mean": 15.77
+      },
+      {
+        "model": "UniLIP",
+        "task": "VGU",
+        "calculated_three_dimension_mean": 22.849999999999998,
+        "reported_mean": 22.85
+      },
+      {
+        "model": "UniLIP",
+        "task": "TGU",
+        "calculated_three_dimension_mean": 89.59333333333332,
+        "reported_mean": 89.59
+      },
+      {
+        "model": "UniLIP",
+        "task": "Render",
+        "calculated_three_dimension_mean": 31.00666666666667,
+        "reported_mean": 31.01
+      },
+      {
+        "model": "LongCat",
+        "task": "VGU",
+        "calculated_three_dimension_mean": 26.186666666666664,
+        "reported_mean": 26.19
+      },
+      {
+        "model": "LongCat",
+        "task": "Render",
+        "calculated_three_dimension_mean": 28.296666666666667,
+        "reported_mean": 28.3
+      },
+      {
+        "model": "Qwen-Image",
+        "task": "VGU",
+        "calculated_three_dimension_mean": 30.159999999999997,
+        "reported_mean": 30.16
+      },
+      {
+        "model": "Qwen-Image",
+        "task": "Render",
+        "calculated_three_dimension_mean": 61.653333333333336,
+        "reported_mean": 61.66
+      },
+      {
+        "model": "VGT",
+        "task": "VGU",
+        "calculated_three_dimension_mean": 21.799999999999997,
+        "reported_mean": 21.8
+      },
+      {
+        "model": "VGT",
+        "task": "Render",
+        "calculated_three_dimension_mean": 17.723333333333333,
+        "reported_mean": 17.72
+      }
+    ],
+    "table2_printed_coefficient_p_checks": [
+      {
+        "model": "Bagel",
+        "type": "Pearson",
+        "r_printed": 0.0347,
+        "p_printed": 0.1063,
+        "n_assumed": 2164,
+        "t_under_equation7": 1.6144289693803437,
+        "large_n_normal_two_sided_p_approx": 0.10643441228868279
+      },
+      {
+        "model": "Bagel",
+        "type": "Spearman",
+        "r_printed": 0.0368,
+        "p_printed": 0.0873,
+        "n_assumed": 2164,
+        "t_under_equation7": 1.7122608712849265,
+        "large_n_normal_two_sided_p_approx": 0.08684860412375454
+      },
+      {
+        "model": "Emu3",
+        "type": "Pearson",
+        "r_printed": 0.0714,
+        "p_printed": 0.0009,
+        "n_assumed": 2164,
+        "t_under_equation7": 3.3284029319377177,
+        "large_n_normal_two_sided_p_approx": 0.0008734543706187625
+      },
+      {
+        "model": "Emu3",
+        "type": "Spearman",
+        "r_printed": -0.0686,
+        "p_printed": 0.0014,
+        "n_assumed": 2164,
+        "t_under_equation7": -3.1972475172217174,
+        "large_n_normal_two_sided_p_approx": 0.0013874581518130938
+      },
+      {
+        "model": "BLIP3o",
+        "type": "Pearson",
+        "r_printed": -0.0137,
+        "p_printed": 0.5238,
+        "n_assumed": 2164,
+        "t_under_equation7": -0.6370729598959329,
+        "large_n_normal_two_sided_p_approx": 0.524077320739416
+      },
+      {
+        "model": "BLIP3o",
+        "type": "Spearman",
+        "r_printed": 0.0156,
+        "p_printed": 0.4685,
+        "n_assumed": 2164,
+        "t_under_equation7": 0.7254463409858227,
+        "large_n_normal_two_sided_p_approx": 0.4681782524355155
+      },
+      {
+        "model": "Janus-Pro",
+        "type": "Pearson",
+        "r_printed": -0.0116,
+        "p_printed": 0.59,
+        "n_assumed": 2164,
+        "t_under_equation7": -0.5394051086995385,
+        "large_n_normal_two_sided_p_approx": 0.5896073567688273
+      },
+      {
+        "model": "Janus-Pro",
+        "type": "Spearman",
+        "r_printed": -0.0016,
+        "p_printed": 0.9394,
+        "n_assumed": 2164,
+        "t_under_equation7": -0.0743957940270784,
+        "large_n_normal_two_sided_p_approx": 0.9406954554110638
+      },
+      {
+        "model": "JanusFlow",
+        "type": "Pearson",
+        "r_printed": -0.018,
+        "p_printed": 0.9319,
+        "n_assumed": 2164,
+        "t_under_equation7": -0.8370872306219115,
+        "large_n_normal_two_sided_p_approx": 0.4025435375129678
+      },
+      {
+        "model": "JanusFlow",
+        "type": "Spearman",
+        "r_printed": 0.0112,
+        "p_printed": 0.6035,
+        "n_assumed": 2164,
+        "t_under_equation7": 0.5208025573636359,
+        "large_n_normal_two_sided_p_approx": 0.6025043213941434
+      },
+      {
+        "model": "Show-o",
+        "type": "Pearson",
+        "r_printed": 0.1249,
+        "p_printed": 0.0,
+        "n_assumed": 2164,
+        "t_under_equation7": 5.853349857445226,
+        "large_n_normal_two_sided_p_approx": 4.817691836952719e-09
+      },
+      {
+        "model": "Show-o",
+        "type": "Spearman",
+        "r_printed": 0.01168,
+        "p_printed": 0.0,
+        "n_assumed": 2164,
+        "t_under_equation7": 0.5431256497588538,
+        "large_n_normal_two_sided_p_approx": 0.5870432934400938
+      },
+      {
+        "model": "UniLIP",
+        "type": "Pearson",
+        "r_printed": -0.0636,
+        "p_printed": 0.0031,
+        "n_assumed": 2164,
+        "t_under_equation7": -2.9632281697446783,
+        "large_n_normal_two_sided_p_approx": 0.0030443081502734212
+      },
+      {
+        "model": "UniLIP",
+        "type": "Spearman",
+        "r_printed": -0.05,
+        "p_printed": 0.02,
+        "n_assumed": 2164,
+        "t_under_equation7": -2.327777129777416,
+        "large_n_normal_two_sided_p_approx": 0.019923941087604976
+      },
+      {
+        "model": "LongCat",
+        "type": "Pearson",
+        "r_printed": -0.0033,
+        "p_printed": 0.8763,
+        "n_assumed": 2164,
+        "t_under_equation7": -0.15344196426959733,
+        "large_n_normal_two_sided_p_approx": 0.878049753991063
+      },
+      {
+        "model": "LongCat",
+        "type": "Spearman",
+        "r_printed": -0.0221,
+        "p_printed": 0.3033,
+        "n_assumed": 2164,
+        "t_under_equation7": -1.0278416244001372,
+        "large_n_normal_two_sided_p_approx": 0.30402433278273855
+      },
+      {
+        "model": "Qwen-Image",
+        "type": "Pearson",
+        "r_printed": -0.0897,
+        "p_printed": 0.0,
+        "n_assumed": 2164,
+        "t_under_equation7": -4.187690155619178,
+        "large_n_normal_two_sided_p_approx": 2.818078831965599e-05
+      },
+      {
+        "model": "Qwen-Image",
+        "type": "Spearman",
+        "r_printed": -0.0701,
+        "p_printed": 0.0011,
+        "n_assumed": 2164,
+        "t_under_equation7": -3.2674997038512217,
+        "large_n_normal_two_sided_p_approx": 0.0010850197995516376
+      },
+      {
+        "model": "VGT",
+        "type": "Pearson",
+        "r_printed": 0.109,
+        "p_printed": 0.0,
+        "n_assumed": 2164,
+        "t_under_equation7": 5.098585630515984,
+        "large_n_normal_two_sided_p_approx": 3.422007242285923e-07
+      },
+      {
+        "model": "VGT",
+        "type": "Spearman",
+        "r_printed": 0.1093,
+        "p_printed": 0.0,
+        "n_assumed": 2164,
+        "t_under_equation7": 5.112787869062575,
+        "large_n_normal_two_sided_p_approx": 3.174387079648756e-07
+      },
+      {
+        "model": "All",
+        "type": "Pearson",
+        "r_printed": 0.2596,
+        "p_printed": 0.0,
+        "n_assumed": 21640,
+        "t_under_equation7": 39.54246285518015,
+        "large_n_normal_two_sided_p_approx": 0.0
+      },
+      {
+        "model": "All",
+        "type": "Spearman",
+        "r_printed": 0.2948,
+        "p_printed": 0.0,
+        "n_assumed": 21640,
+        "t_under_equation7": 45.38146798956754,
+        "large_n_normal_two_sided_p_approx": 0.0
+      }
+    ],
+    "scope": "Arithmetic and large-n normal approximation to Eq7 only, no raw sample correlation recalculation"
+  },
+  "release": {
+    "official_code_or_dataset_identified": false,
+    "hf_dataset_name_search_results": [],
+    "scope": "paper URLs, targeted web search, Hugging Face dataset name search; not universal absence"
+  },
+  "learned_model_execution": false,
+  "judge_execution": false,
+  "raw_score_correlation_execution": false,
+  "reading_scope": "完整v1研究§1–5/Impact及AppA–D全部末级小节，Eq1–8、T1–2全部27组有值任务的三维结果/11行相关、F1–6全部实际图、AppB20个推理prompt和AppC三组system/user完整评分rubric。PDF18页已获取，Eq5及两r/p冲突补PDF交核。未定位可确认官方代码/数据release，未称制品全审；基本表均值和Eq7大样本数值核算，不是原始相关/模型复现。核心三遍和五项书面完成，无独立口试。",
+  "source_urls": [
+    "https://arxiv.org/abs/2602.23711v1",
+    "https://arxiv.org/html/2602.23711v1",
+    "https://arxiv.org/pdf/2602.23711v1",
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.spearmanr.html",
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html"
+  ]
+}

@@ -462,3 +462,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百八十一批（2026-10-24）：11开源UEGstep均提升、8可测GEUstep均下降；额外预算和辅助图替换混杂，不能据此唯一识别共享表征协同。见[审查](realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[U15](../reviews/U15.md)。
+
+
+第一百八十二批（2026-10-24）：弱相关不排除地板/非线性与渲染瓶颈，七UMM已知答案Render语义分也低；正文非因果与结论归因需统一。见[审查](vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[U16](../reviews/U16.md)。

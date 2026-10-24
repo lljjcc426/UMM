@@ -718,3 +718,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百八十一批（2026-10-24）：RealUnify v2完整19页§1–5/AppA–C、T1–13/F1–12和全部prompt；arXiv已明确CVPR2026接收，固定GH/HF。见[审查](realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[U15](../reviews/U15.md)。
+
+
+第一百八十二批（2026-10-24）：VGUBench v1完整§1–5/Impact/AppA–D、T1–2/F1–6/Eq1–8与全部prompt；未定位可确认官方release，HF定向API空列表。见[审查](vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[U16](../reviews/U16.md)。

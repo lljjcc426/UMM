@@ -670,3 +670,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百八十一批（2026-10-24）：全核对项AND、变长核对数与yes标签偏置；MT缩短question与旧evaluation_prompt并存，实际历史用法待运行日志。见[审查](realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[U15](../reviews/U15.md)。
+
+
+第一百八十二批（2026-10-24）：Eq5缺1/N、0–5ties下Spearman简式需修正；PDF确认JanusFlowr/p及Showoρ/p不齐，未改作者表值。见[审查](vgubench_full_typographic_answer_and_correlation_identifiability_audit_2026-10-24.md)、[U16](../reviews/U16.md)。
