@@ -1,0 +1,186 @@
+{
+  "checked_on": "2026-10-24",
+  "id": "L150",
+  "github_commit": "cf1475253a13f5e5666826c10d8967e38917468a",
+  "huggingface_revision": "5ce4a1ff5294d34b1f33cb69e6d888950903ac5b",
+  "annotation_total": 1267,
+  "categories": [
+    {
+      "category": "abstract_reasoning",
+      "count": 75,
+      "nonempty_explain_en": 75
+    },
+    {
+      "category": "anomaly_correction",
+      "count": 75,
+      "nonempty_explain_en": 74
+    },
+    {
+      "category": "biology",
+      "count": 68,
+      "nonempty_explain_en": 68
+    },
+    {
+      "category": "chemistry",
+      "count": 75,
+      "nonempty_explain_en": 75
+    },
+    {
+      "category": "color_change",
+      "count": 50,
+      "nonempty_explain_en": 0
+    },
+    {
+      "category": "count_change",
+      "count": 50,
+      "nonempty_explain_en": 0
+    },
+    {
+      "category": "geography",
+      "count": 75,
+      "nonempty_explain_en": 75
+    },
+    {
+      "category": "humanities",
+      "count": 75,
+      "nonempty_explain_en": 75
+    },
+    {
+      "category": "mathematics",
+      "count": 50,
+      "nonempty_explain_en": 50
+    },
+    {
+      "category": "medicine",
+      "count": 50,
+      "nonempty_explain_en": 50
+    },
+    {
+      "category": "multi-element_composition",
+      "count": 75,
+      "nonempty_explain_en": 0
+    },
+    {
+      "category": "multi-instruction_execution",
+      "count": 75,
+      "nonempty_explain_en": 0
+    },
+    {
+      "category": "part_completion",
+      "count": 50,
+      "nonempty_explain_en": 0
+    },
+    {
+      "category": "physics",
+      "count": 75,
+      "nonempty_explain_en": 75
+    },
+    {
+      "category": "position_movement",
+      "count": 50,
+      "nonempty_explain_en": 0
+    },
+    {
+      "category": "practical_knowledge",
+      "count": 50,
+      "nonempty_explain_en": 50
+    },
+    {
+      "category": "rule-based_reasoning",
+      "count": 75,
+      "nonempty_explain_en": 0
+    },
+    {
+      "category": "size_adjustment",
+      "count": 50,
+      "nonempty_explain_en": 0
+    },
+    {
+      "category": "temporal_prediction",
+      "count": 74,
+      "nonempty_explain_en": 0
+    },
+    {
+      "category": "viewpoint_change",
+      "count": 50,
+      "nonempty_explain_en": 0
+    }
+  ],
+  "shared_field_differences": [
+    {
+      "category": "chemistry",
+      "id": "5",
+      "field": "ins_en",
+      "github": "Color change of red cabbage pH indicator when dropped into the cup.",
+      "huggingface": "Color change of red cabbage pH indicator when dropped into the cup"
+    },
+    {
+      "category": "chemistry",
+      "id": "6",
+      "field": "ins_en",
+      "github": "Color Change of Red Cabbage pH Indicator After Being Dropped into the cup",
+      "huggingface": "Color Change of Red Cabbage pH Indicator After Being Dropped into the Cup"
+    }
+  ],
+  "missing_github_tree_references": [],
+  "hf_additional_fields": [
+    "ins_cn",
+    "explain_cn"
+  ],
+  "figure5": {
+    "order": [
+      "VC",
+      "VQ",
+      "IF",
+      "KP"
+    ],
+    "knowledge_r": [
+      0.59,
+      0.75,
+      0.75,
+      0.94
+    ],
+    "simple_r": [
+      0.36,
+      0.66,
+      0.81,
+      0.76
+    ],
+    "knowledge_mae": [
+      0.52,
+      0.23,
+      0.56,
+      0.57
+    ],
+    "simple_mae": [
+      0.61,
+      0.25,
+      0.52,
+      1.62
+    ]
+  },
+  "code_findings": [
+    {
+      "file": "metrics_common.py",
+      "lines": "219-222",
+      "finding": "anomaly_correction目录与abnormality_correction分支名称不匹配"
+    },
+    {
+      "file": "utils/prompts.py",
+      "lines": "214-220",
+      "finding": "IF低于等于2时KP被提示置1；解析器未再次强制"
+    },
+    {
+      "file": "metrics_temporal_prediction.py",
+      "lines": "64-217",
+      "finding": "三参考帧加一预测帧并按帧号排序；静态状态预测"
+    },
+    {
+      "file": "metrics_knowledge.py",
+      "lines": "160-227",
+      "finding": "JSON评分转int与正则fallback；无最终汇总归一入口"
+    }
+  ],
+  "reading_scope": "本轮重读NeurIPS正式47页中§1–5、AppA–F全部研究正文/任务说明/提示文字，T1–3、F1–36图注；p2/5/7/9/19/20原图页及p21–31定性页以原图或接触图核看，F5另单页放大。其余框架/雷达/提示以正文和固定公开提示交叉核，未逐格判全部定性图、未逐篇精读参考文献；p41–47会议检查表按研究相关条目查阅。五评价入口的输入构造/评分/解析及utils/prompts全文核，执行/缓存尾部指定选读；GH1722成员完整树、20标注与HF对应20标注结构/共有字段核，不将结构核当1267题语义正确性验收。无模型执行、口试或独立复现。",
+  "model_execution": false
+}

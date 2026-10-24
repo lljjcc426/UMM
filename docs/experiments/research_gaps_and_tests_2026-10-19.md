@@ -592,3 +592,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百五十九批（2026-10-23）：ImgEdit拟等量等任务频率数据三因素与编码结构消融，逐图三分/裁判版本/源图聚类CI；回退外部版本缓存强基线和笔画事件时序对照，未执行。见[审查](../evidence/imgedit_dataset_versions_score_gating_and_pipeline_reproducibility_audit_2026-10-23.md)、[L148](../reviews/L148.md)。
+
+
+第一百六十批（2026-10-24）：KRIS拟固定生成图与模板，配对正确/错误/无hint、门控/无门控、共同支持集及等token Think，对书写另测过程，未执行。见[审查](../evidence/kris_knowledge_hint_calibration_and_released_protocol_audit_2026-10-24.md)、[L150](../reviews/L150.md)。

@@ -563,3 +563,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百五十九批（2026-10-23）：ImgEdit是静态编辑数据/专E1/Bench/独立Judge四制品；motion帧对和多轮静态文字修改均不等于连续笔画视频，UniWorld另作继承工作。见[审查](imgedit_dataset_versions_score_gating_and_pipeline_reproducibility_audit_2026-10-23.md)、[L148](../reviews/L148.md)。
+
+
+第一百六十批（2026-10-24）：KRIS是单轮静态知识编辑诊断；Temporal只补一张状态，Procedural不提供连续执行的真值。见[审查](kris_knowledge_hint_calibration_and_released_protocol_audit_2026-10-24.md)、[L150](../reviews/L150.md)。

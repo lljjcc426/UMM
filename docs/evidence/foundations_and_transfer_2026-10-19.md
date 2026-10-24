@@ -399,3 +399,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百五十九批（2026-10-23）：ImgEdit三维评分受第一分封顶，脚本未强制；固定E1换数据支持整体数据作用，任务频率/过滤质量混杂，不能据跨模型排行榜因果归结构。见[审查](imgedit_dataset_versions_score_gating_and_pipeline_reproducibility_audit_2026-10-23.md)、[L148](../reviews/L148.md)。
+
+
+第一百六十批（2026-10-24）：KP与IF有显式门控，不可据相关/差分直接识别知识机制；相同模板知识反事实才可分离hint内容效应。见[审查](kris_knowledge_hint_calibration_and_released_protocol_audit_2026-10-24.md)、[L150](../reviews/L150.md)。

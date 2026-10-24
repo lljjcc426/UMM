@@ -593,3 +593,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百五十九批（2026-10-23）：深核ImgEdit HFJudge卡/配置、37parquet清单及八ComfyUI模板；后处理入口参数数目/UGE输出解析不齐，裁判权重不可当E1权重，未下权重。见[审查](../evidence/imgedit_dataset_versions_score_gating_and_pipeline_reproducibility_audit_2026-10-23.md)、[L148](../reviews/L148.md)。
+
+
+第一百六十批（2026-10-24）：KRIS GH/HF标注共有字段只两处标点/大小写差异；HF另有中文字段。发布评价脚本用浮动gpt-4o，解析/专用分支与正式协议分开记录。见[审查](../evidence/kris_knowledge_hint_calibration_and_released_protocol_audit_2026-10-24.md)、[L150](../reviews/L150.md)。

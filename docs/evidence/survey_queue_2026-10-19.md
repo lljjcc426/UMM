@@ -602,3 +602,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百五十九批（2026-10-23）：L148正式31页全部研究正文/AppA–G、7表11图/16实际PDF页，纠正正式五次/早期三次，核737basic/47UGE和Judge独立制品；训练对与未完整tar未冒充全量核，未删文件。357目录，268核心/271书面；未确认核心62论文／研究+27资源。见[审查](imgedit_dataset_versions_score_gating_and_pipeline_reproducibility_audit_2026-10-23.md)、[逐文件说明](one_hundred_fifty_ninth_changes_2026-10-23.md)。无删除或模型执行。
+
+
+第一百六十批（2026-10-24）：L150正式研究正文/AppA–F、3表36图图注及17实际图页/接触图，核固定五评价入口和GH/HF各1267标注。纠正hint对IF的负项，记录异常模板分支和空知识提示边界。357目录，269核心/272书面；未确认核心61论文／研究+27资源。见[审查](kris_knowledge_hint_calibration_and_released_protocol_audit_2026-10-24.md)、[逐文件说明](one_hundred_sixtieth_changes_2026-10-24.md)。无删除或模型执行。
