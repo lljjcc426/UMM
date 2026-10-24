@@ -689,3 +689,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百零一批（2026-10-25）：ORVOSB61.3对READ51.5，交互仅40；ReVOS54.3低于VRS59.1，online与offline信息预算分开。见[审查](orvos_full_causal_protocol_and_bounded_memory_audit_2026-10-25.md)、[L055](../reviews/L055.md)。
+
+
+第二百零二批（2026-10-25）：ReasonVOS GPT65.5/Gemma50.7/online52；onlineMeViS45.9低于SAMWISE49.5，动态referent设置只有定性展示。见[审查](cot_rvs_v4_full_online_and_release_audit_2026-10-25.md)、[L056](../reviews/L056.md)。

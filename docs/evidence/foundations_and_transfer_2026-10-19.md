@@ -522,3 +522,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百零一批（2026-10-25）：causality在此是prefix可见性，无干预因果证明；shift边界/语义有效区间比最终图像指标接近事件评价。见[审查](orvos_full_causal_protocol_and_bounded_memory_audit_2026-10-25.md)、[L055](../reviews/L055.md)。
+
+
+第二百零二批（2026-10-25）：online selector只看q与当前frame，No保留旧key并跟踪，不能保证语义不再有效时清mask；手写需事件状态。见[审查](cot_rvs_v4_full_online_and_release_audit_2026-10-25.md)、[L056](../reviews/L056.md)。

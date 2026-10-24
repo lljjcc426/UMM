@@ -686,3 +686,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百零一批（2026-10-25）：ORVOSB候选repo size0、无license/README/数据，不能把第三方code标记当可下载研究制品。见[审查](../evidence/orvos_full_causal_protocol_and_bounded_memory_audit_2026-10-25.md)、[L055](../reviews/L055.md)。
+
+
+第二百零二批（2026-10-25）：代码Apache2，T-ReasonVOS非商业研究；metadata核180独立文本，is_sent非默认过滤标志。见[审查](../evidence/cot_rvs_v4_full_online_and_release_audit_2026-10-25.md)、[L056](../reviews/L056.md)。

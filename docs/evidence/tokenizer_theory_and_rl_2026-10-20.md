@@ -270,3 +270,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百零一批（2026-10-25）：Algo1N32在n33集合仅25位置，n34又需要先前未留的旧索引；若存全B可抽样但总存储不bounded，需实现澄清。见[审查](orvos_full_causal_protocol_and_bounded_memory_audit_2026-10-25.md)、[L055](../reviews/L055.md)。
+
+
+第二百零二批（2026-10-25）：4/8/16帧66.2/65.5/60与grid像素混杂；无CoT代码system仍要求chain-of-thought，机制消融范围有限。见[审查](cot_rvs_v4_full_online_and_release_audit_2026-10-25.md)、[L056](../reviews/L056.md)。

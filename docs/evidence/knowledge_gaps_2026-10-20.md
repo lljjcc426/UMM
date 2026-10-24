@@ -730,3 +730,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百零一批（2026-10-25）：训练源与ORVOSB视频源有重合，缺id级交集审计；空mask/边界一致性/长流延迟和显存未给。CoT-RVS已有online扩展。见[审查](orvos_full_causal_protocol_and_bounded_memory_audit_2026-10-25.md)、[L055](../reviews/L055.md)。
+
+
+第二百零二批（2026-10-25）：A4格式有效率低且失败分母未公开；online预载全clip并保存所有输出，实时输入与固定总存储尚未验证。见[审查](cot_rvs_v4_full_online_and_release_audit_2026-10-25.md)、[L056](../reviews/L056.md)。

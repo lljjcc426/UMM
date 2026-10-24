@@ -1,0 +1,869 @@
+{
+  "id": "L056",
+  "checked_on": "2026-10-25",
+  "arxiv_version": "2505.18561v4",
+  "pages": 24,
+  "figures_visually_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7"
+  ],
+  "equations_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "numbered_table_count": 11,
+  "table_containers": [
+    {
+      "id": "S4.T2",
+      "rows": [
+        [
+          "Methods",
+          "Online",
+          "\\mathcal{J\\&F}",
+          "\\mathcal{J}",
+          "\\mathcal{F}"
+        ],
+        [
+          "Traditional methods without reasoning ability"
+        ],
+        [
+          "URVOS ( Seo et al., 2020 )",
+          "✓",
+          "27.8",
+          "25.7",
+          "29.9"
+        ],
+        [
+          "LBDT ( Ding et al., 2022 )",
+          "✓",
+          "29.3",
+          "27.8",
+          "30.8"
+        ],
+        [
+          "MTTR ( Botach et al., 2022b )",
+          "✗",
+          "30.0",
+          "28.8",
+          "31.2"
+        ],
+        [
+          "ReferFormer ( Wu et al., 2022c )",
+          "✗",
+          "31.0",
+          "29.8",
+          "32.2"
+        ],
+        [
+          "VLT+TC ( Ding et al., 2021 )",
+          "✗",
+          "35.5",
+          "33.6",
+          "37.3"
+        ],
+        [
+          "LMPM ( Ding et al., 2023a )",
+          "✗",
+          "37.2",
+          "34.2",
+          "40.2"
+        ],
+        [
+          "LLM-based methods with reasoning ability"
+        ],
+        [
+          "LISA-7B ( Lai et al., 2023 )",
+          "✓",
+          "37.2",
+          "35.1",
+          "39.4"
+        ],
+        [
+          "LISA-13B ( Lai et al., 2023 )",
+          "✓",
+          "37.9",
+          "35.8",
+          "40.0"
+        ],
+        [
+          "TrackGPT-7B ( Zhu et al., 2023 )",
+          "✓",
+          "40.1",
+          "37.6",
+          "42.6"
+        ],
+        [
+          "TrackGPT-13B ( Zhu et al., 2023 )",
+          "✓",
+          "41.2",
+          "39.2",
+          "43.1"
+        ],
+        [
+          "VideoLISA (OTSA)* ( Bai et al., 2024 )",
+          "✗",
+          "42.3",
+          "39.4",
+          "45.2"
+        ],
+        [
+          "VideoLISA (Po)* ( Bai et al., 2024 )",
+          "✗",
+          "44.4",
+          "41.3",
+          "47.6"
+        ],
+        [
+          "VISA-7B ( Yan et al., 2024 )",
+          "✗",
+          "43.5",
+          "40.7",
+          "46.3"
+        ],
+        [
+          "VISA-13B ( Yan et al., 2024 )",
+          "✗",
+          "44.5",
+          "41.8",
+          "47.1"
+        ],
+        [
+          "SAMWISE ( Cuttano et al., 2024 )",
+          "✓",
+          "49.5",
+          "46.6",
+          "52.4"
+        ],
+        [
+          "GLUS ( Lin et al., 2025 )",
+          "✗",
+          "51.3",
+          "48.5",
+          "54.2"
+        ],
+        [
+          "CoT-RVS-LLaVA1.5-7B",
+          "✓",
+          "45.9",
+          "42.7",
+          "49.1"
+        ],
+        [
+          "CoT-RVS-Gemma3-12B",
+          "✗",
+          "44.2",
+          "40.3",
+          "48.1"
+        ],
+        [
+          "CoT-RVS-GPT-4o",
+          "✗",
+          "52.2",
+          "48.7",
+          "55.7"
+        ],
+        [
+          "* OTSA: One-Token-Seg-All; Po: post-optimization."
+        ],
+        [
+          "Methods",
+          "Online",
+          "\\mathcal{J\\&F}",
+          "\\mathcal{J}",
+          "\\mathcal{F}"
+        ],
+        [
+          "Traditional methods without reasoning ability"
+        ],
+        [
+          "URVOS ( Seo et al., 2020 )",
+          "✓",
+          "51.6",
+          "47.2",
+          "55.9"
+        ],
+        [
+          "YOFO ( Li et al., 2022 )",
+          "✓",
+          "53.3",
+          "48.8",
+          "57.8"
+        ],
+        [
+          "MLSA ( Wu et al., 2022a )",
+          "✗",
+          "57.9",
+          "53.8",
+          "62.0"
+        ],
+        [
+          "ReferFormer ( Wu et al., 2022c )",
+          "✗",
+          "61.1",
+          "58.1",
+          "64.1"
+        ],
+        [
+          "SgMg ( Miao et al., 2023b )",
+          "✗",
+          "63.3",
+          "60.6",
+          "66.0"
+        ],
+        [
+          "OnlineRefer ( Wu et al., 2023b )",
+          "✓",
+          "64.8",
+          "61.6",
+          "67.7"
+        ],
+        [
+          "LLM-based methods with reasoning ability"
+        ],
+        [
+          "LISA-7B ( Lai et al., 2023 )",
+          "✓",
+          "64.8",
+          "62.2",
+          "67.3"
+        ],
+        [
+          "LISA-13B ( Lai et al., 2023 )",
+          "✓",
+          "66.0",
+          "63.2",
+          "68.8"
+        ],
+        [
+          "TrackGPT-7B ( Zhu et al., 2023 )",
+          "✓",
+          "63.2",
+          "59.4",
+          "67.0"
+        ],
+        [
+          "TrackGPT-13B ( Zhu et al., 2023 )",
+          "✓",
+          "66.5",
+          "62.7",
+          "70.4"
+        ],
+        [
+          "VideoLISA (OTSA)* ( Bai et al., 2024 )",
+          "✗",
+          "67.7",
+          "63.8",
+          "71.5"
+        ],
+        [
+          "VideoLISA (Po)* ( Bai et al., 2024 )",
+          "✗",
+          "68.8",
+          "64.9",
+          "72.7"
+        ],
+        [
+          "VISA-7B ( Yan et al., 2024 )",
+          "✗",
+          "69.4",
+          "66.3",
+          "72.5"
+        ],
+        [
+          "VISA-13B ( Yan et al., 2024 )",
+          "✗",
+          "70.4",
+          "67.0",
+          "73.8"
+        ],
+        [
+          "SAMWISE ( Cuttano et al., 2024 )",
+          "✓",
+          "70.6",
+          "67.4",
+          "74.5"
+        ],
+        [
+          "HyperSeg ( Wei et al., 2024 )",
+          "✗",
+          "71.2",
+          "-",
+          "-"
+        ],
+        [
+          "CoT-RVS-LLaVA1.5-7B",
+          "✓",
+          "73.9",
+          "70.4",
+          "77.5"
+        ],
+        [
+          "CoT-RVS-Gemma3-12B",
+          "✗",
+          "74.6",
+          "70.9",
+          "78.3"
+        ],
+        [
+          "CoT-RVS-GPT-4o",
+          "✗",
+          "79.1",
+          "75.3",
+          "82.9"
+        ],
+        [
+          "* OTSA: One-Token-Seg-All; Po: post-optimization."
+        ]
+      ]
+    },
+    {
+      "id": "S4.T4",
+      "rows": [
+        [
+          "Methods",
+          "Online",
+          "\\mathcal{J\\&F}",
+          "\\mathcal{J}",
+          "\\mathcal{F}"
+        ],
+        [
+          "Traditional methods without reasoning ability"
+        ],
+        [
+          "MTTR ( Botach et al., 2022b )",
+          "✗",
+          "31.1",
+          "29.1",
+          "33.1"
+        ],
+        [
+          "ReferFormer ( Wu et al., 2022c )",
+          "✗",
+          "32.9",
+          "30.2",
+          "35.6"
+        ],
+        [
+          "SOC ( Luo et al., 2023 )",
+          "✗",
+          "35.9",
+          "33.3",
+          "38.5"
+        ],
+        [
+          "SgMg ( Miao et al., 2023b )",
+          "✗",
+          "36.2",
+          "33.7",
+          "38.7"
+        ],
+        [
+          "OnlineRefer ( Wu et al., 2023b )",
+          "✓",
+          "38.7",
+          "34.6",
+          "42.9"
+        ],
+        [
+          "LLM-based methods with reasoning ability"
+        ],
+        [
+          "LISA ( Lai et al., 2023 )",
+          "✓",
+          "31.1",
+          "29.1",
+          "33.1"
+        ],
+        [
+          "VideoLISA (OTSA)* ( Bai et al., 2024 )",
+          "✗",
+          "45.1",
+          "43.1",
+          "47.1"
+        ],
+        [
+          "VideoLISA (Po)* ( Bai et al., 2024 )",
+          "✗",
+          "47.5",
+          "45.1",
+          "49.9"
+        ],
+        [
+          "GLUS ( Lin et al., 2025 )",
+          "✗",
+          "49.9",
+          "47.5",
+          "52.4"
+        ],
+        [
+          "CoT-RVS-LLaVA1.5-7B",
+          "✓",
+          "52.0",
+          "49.5",
+          "54.5"
+        ],
+        [
+          "CoT-RVS-Gemma3-12B",
+          "✗",
+          "50.7",
+          "47.5",
+          "54.0"
+        ],
+        [
+          "CoT-RVS-GPT-4o",
+          "✗",
+          "65.5",
+          "62.4",
+          "68.7"
+        ],
+        [
+          "* OTSA: One-Token-Seg-All; Po: post-optimization."
+        ],
+        [
+          "Methods",
+          "Online",
+          "\\mathcal{J\\&F}",
+          "\\mathcal{J}",
+          "\\mathcal{F}"
+        ],
+        [
+          "Traditional methods without reasoning ability"
+        ],
+        [
+          "MTTR ( Botach et al., 2022b )",
+          "✗",
+          "25.5",
+          "25.1",
+          "25.9"
+        ],
+        [
+          "LMPM ( Ding et al., 2023a )",
+          "✗",
+          "26.4",
+          "21.2",
+          "31.7"
+        ],
+        [
+          "ReferFormer ( Wu et al., 2022c )",
+          "✗",
+          "28.1",
+          "26.2",
+          "29.9"
+        ],
+        [
+          "LLaMA-VID ( Li et al., 2023c ) +LMPM",
+          "✗",
+          "26.1",
+          "20.9",
+          "31.4"
+        ],
+        [
+          "LLM-based methods with reasoning ability"
+        ],
+        [
+          "LISA-13B ( Lai et al., 2023 )",
+          "✓",
+          "41.6",
+          "39.8",
+          "43.5"
+        ],
+        [
+          "TrackGPT-7B (IT)* ( Zhu et al., 2023 )",
+          "✓",
+          "43.6",
+          "41.8",
+          "45.5"
+        ],
+        [
+          "TrackGPT-13B (IT)* ( Zhu et al., 2023 )",
+          "✓",
+          "45.0",
+          "43.2",
+          "46.8"
+        ],
+        [
+          "VISA ( Yan et al., 2024 )",
+          "✗",
+          "47.5",
+          "45.3",
+          "49.7"
+        ],
+        [
+          "VISA (IT)* ( Yan et al., 2024 )",
+          "✗",
+          "50.9",
+          "48.8",
+          "52.9"
+        ],
+        [
+          "GLUS ( Lin et al., 2025 )",
+          "✗",
+          "54.9",
+          "52.4",
+          "57.3"
+        ],
+        [
+          "HyperSeg ( Wei et al., 2024 )",
+          "✗",
+          "55.7",
+          "53.1",
+          "58.4"
+        ],
+        [
+          "CoT-RVS-LLaVA1.5-7B",
+          "✓",
+          "46.2",
+          "43.5",
+          "48.8"
+        ],
+        [
+          "CoT-RVS-Gemma3-12B",
+          "✗",
+          "47.1",
+          "43.4",
+          "50.9"
+        ],
+        [
+          "CoT-RVS-GPT-4o",
+          "✗",
+          "55.9",
+          "52.8",
+          "59.0"
+        ],
+        [
+          "* (IT): instruction tuning with the ReVOS training set."
+        ]
+      ]
+    },
+    {
+      "id": "S4.T6",
+      "rows": [
+        [
+          "Experiments",
+          "\\mathcal{J\\&F}",
+          "\\mathcal{J}",
+          "\\mathcal{F}"
+        ],
+        [
+          "LISA",
+          "31.0",
+          "28.6",
+          "33.3"
+        ],
+        [
+          "ThinkFirst+SAM2",
+          "33.6",
+          "31.1",
+          "36.1"
+        ],
+        [
+          "VideoLISA (OTSA)",
+          "37.4",
+          "35.1",
+          "39.6"
+        ],
+        [
+          "CoT-RVS-Gemma3-12B",
+          "50.2",
+          "46.8",
+          "53.6"
+        ],
+        [
+          "CoT-RVS-GPT-4o",
+          "55.5",
+          "51.2",
+          "59.9"
+        ],
+        [
+          "Experiments",
+          "\\mathcal{J\\&F}",
+          "\\mathcal{J}",
+          "\\mathcal{F}"
+        ],
+        [
+          "\\xi=\\lfloor\\frac{T-1}{4}\\rfloor+1",
+          "66.2",
+          "63.1",
+          "69.4"
+        ],
+        [
+          "\\xi=\\lfloor\\frac{T-1}{8}\\rfloor+1",
+          "65.5",
+          "62.4",
+          "68.7"
+        ],
+        [
+          "\\xi=\\lfloor\\frac{T-1}{16}\\rfloor+1",
+          "60.0",
+          "57.1",
+          "62.9"
+        ]
+      ]
+    },
+    {
+      "id": "A6.T3",
+      "rows": [
+        [
+          "Module",
+          "Latency(s)",
+          "Local Memory footprint (GB)",
+          "API cost (US$)"
+        ],
+        [
+          "LLaVA1.5-7B",
+          "1.71",
+          "15.6",
+          "-"
+        ],
+        [
+          "Gemma3-12B",
+          "63.95",
+          "24.8",
+          "-"
+        ],
+        [
+          "GPT-4o",
+          "12.01",
+          "-",
+          "0.012"
+        ],
+        [
+          "Seg-Zero",
+          "4.57",
+          "18.1",
+          "-"
+        ],
+        [
+          "SAM2",
+          "0.04 †",
+          "2.6",
+          "-"
+        ],
+        [
+          "† Average per-frame tracking latency."
+        ],
+        [
+          "Method",
+          "Latency(s)",
+          "Local Memory footprint (GB)",
+          "API cost (US$)"
+        ],
+        [
+          "VideoLISA (OTSA)",
+          "3.46",
+          "11.7",
+          "-"
+        ],
+        [
+          "CoT-RVS-Gemma3-12B",
+          "69.79",
+          "24.8",
+          "-"
+        ],
+        [
+          "CoT-RVS-GPT-4o",
+          "17.85",
+          "18.1",
+          "0.012"
+        ],
+        [
+          "Model",
+          "\\mathcal{J\\&F}",
+          "Avg. Time (sec.)"
+        ],
+        [
+          "Qwen-2.5-VL-3B Bai et al. (2025)",
+          "72.5",
+          "0.18 †"
+        ],
+        [
+          "LLaVA1.5-7B Liu et al. (2023a)",
+          "73.9",
+          "0.24 †"
+        ],
+        [
+          "GPT-4o Hurst et al. (2024)",
+          "73.2",
+          "0.27*"
+        ]
+      ]
+    },
+    {
+      "id": "A7.T4",
+      "rows": [
+        [
+          "Dataset",
+          "MLLM",
+          "#Valid outputs/#Expressions",
+          "Percentage",
+          "\\mathcal{J\\&F}",
+          "\\mathcal{J}",
+          "\\mathcal{F}"
+        ],
+        [
+          "MeViS (val_u)",
+          "LLaVA1.5-7B",
+          "0/785",
+          "0% ‡",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Qwen2.5-VL-3B",
+          "0/785",
+          "0% ‡",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Gemma3-12B",
+          "715/785",
+          "91.1%",
+          "52.6",
+          "48.2",
+          "57.0"
+        ],
+        [
+          "GPT-4o",
+          "761/785",
+          "96.8%",
+          "60.1",
+          "56.0",
+          "64.2"
+        ],
+        [
+          "ReasonVOS",
+          "LLaVA1.5-7B",
+          "0/785",
+          "0% ‡",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Qwen2.5-VL-3B",
+          "0/785",
+          "0% ‡",
+          "-",
+          "-",
+          "-"
+        ],
+        [
+          "Gemma3-12B",
+          "273/458",
+          "59.6%",
+          "50.7",
+          "47.5",
+          "54.0"
+        ],
+        [
+          "GPT-4o",
+          "444/458",
+          "96.9%",
+          "65.5",
+          "62.4",
+          "68.7"
+        ],
+        [
+          "‡ Incorrect output format."
+        ]
+      ]
+    },
+    {
+      "id": "A8.T5",
+      "rows": [
+        [
+          "F_{seg}",
+          "F_{vid}",
+          "\\mathcal{J\\&F}",
+          "\\mathcal{J}",
+          "\\mathcal{F}"
+        ],
+        [
+          "LISA-13B-Llama2",
+          "Cutie",
+          "68.8",
+          "65.0",
+          "72.5"
+        ],
+        [
+          "LISA-13B-Llama2",
+          "SAM2",
+          "71.1",
+          "67.3",
+          "75.0"
+        ],
+        [
+          "Seg-Zero-7B",
+          "Cutie",
+          "72.1",
+          "68.5",
+          "75.7"
+        ],
+        [
+          "Seg-Zero-7B",
+          "SAM2",
+          "74.6",
+          "70.9",
+          "78.3"
+        ]
+      ]
+    }
+  ],
+  "repository_commit": "91b39c3a199e6badb06ff2f355530f3748506c98",
+  "release_metadata": {
+    "videos": 45,
+    "expressions": 180,
+    "video_sources": {
+      "mevis": 8,
+      "mose": 18,
+      "vipseg": 3,
+      "burst": 16
+    },
+    "query_sources": {
+      "mevis": 49,
+      "mose": 83,
+      "vipseg": 8,
+      "burst": 40
+    },
+    "is_sent": {
+      "False": 105,
+      "True": 75
+    }
+  },
+  "core_three_pass_completed": true,
+  "learned_model_executed": false,
+  "sources": [
+    "https://arxiv.org/abs/2505.18561v4",
+    "https://arxiv.org/html/2505.18561v4",
+    "https://arxiv.org/pdf/2505.18561v4",
+    "https://danielshkao.github.io/cot-rvs.html",
+    "https://github.com/DanielSHKao/CoT-RVS/tree/91b39c3a199e6badb06ff2f355530f3748506c98",
+    "https://github.com/DanielSHKao/CoT-RVS/blob/91b39c3a199e6badb06ff2f355530f3748506c98/T-ReasonVOS/meta_expressions_temp.json"
+  ]
+}

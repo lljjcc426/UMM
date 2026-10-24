@@ -715,3 +715,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百零一批（2026-10-25）：prefix未来置换、增量记忆空间曲线与事件switchdelay；手写用同轮廓不同事件顺序视频，分别测状态/规范/分割。见[审查](../evidence/orvos_full_causal_protocol_and_bounded_memory_audit_2026-10-25.md)、[L055](../reviews/L055.md)。
+
+
+第二百零二批（2026-10-25）：同预算去除所有CoT提示并失败计0；锁依赖做future置换/prefix、目标停用和switchdelay评价。见[审查](../evidence/cot_rvs_v4_full_online_and_release_audit_2026-10-25.md)、[L056](../reviews/L056.md)。
