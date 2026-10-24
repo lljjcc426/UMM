@@ -531,3 +531,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百零四批（2026-10-25）：任一OCR框命中不等于整图转写正确，静态glyph控制不提供落笔规范。见[审查](glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[S003](../reviews/S003.md)。
+
+
+第二百零五批（2026-10-25）：CLIP线性分配提高句覆盖34%vs22%，平均相似24vs24.5；语义位置无法推出绘画/网页原顺序。见[审查](mmc4_full_corpus_release_and_alignment_audit_2026-10-25.md)、[L170](../reviews/L170.md)。

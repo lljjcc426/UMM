@@ -10757,6 +10757,40 @@
         }
       ],
       "boundary": "NeurIPS正式17页§1–6、AppA–D全部、T1–4含4a/4b所有单元、F1–12实际视觉（F10原页放大核趋势）、37条references清单/关键引文；无新编号式/算法。固定commit9个核心源码/配置/说明全文及test_on_benchmark计分调用/参数选读，非全依赖代码审计；未运行模型/OCR/API/训练或下载数据权重。核心三遍和五书面完成。"
+    },
+    {
+      "id": "L170",
+      "checked_on": "2026-10-25",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "公开构建大规模多图文档，使视觉语言模型可利用交错上下文做少样本图像描述；同时检验图句匹配、过滤及质量。本文下游实测为COCO描述，VQA为相关背景，不能混作本实验结果。 单图caption缺跨图上下文；Flamingo类训练数据不可获得。C4虽有文字和网页来源，已丢完整DOM位置，不能直接恢复原网页图文排列。",
+          "evidence": "全17页8图8表；T2并非全指标最优、F5统计/rho文字问题、F7不等曝光及当前仅ff/coreff恢复逐项区分。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "C4文字/原页面图片URL→交错图文文档；用于图输入的文字生成/问答，不是直接生成图片或视频。 C4已去DOM，回溯CommonCrawl页面提取图片URL；CLIP ViT-L/14对页内全部图句余弦匹配，linear assignment最大总相似度、至多一图一句，图多于句的未分配图回退各自argmax。固定公开compute_assignments/linear_assignment源码一致，负相似度最小化+dummy padding；不运行求解器或模型。匹配句前后随机放图属于下游序列构造，不能恢复网页原位置。OpenFlamingo3B用OPT1.3B+CLIP和跨注意力生成文字，不生成图像/视频。无新编号公式/算法。",
+          "evidence": "全17页8图8表；T2并非全指标最优、F5统计/rho文字问题、F7不等曝光及当前仅ff/coreff恢复逐项区分。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "从C4网页下载图片、过滤并用CLIP匹配图片与句子，形成MMC4及core/fewer-faces变体；以OpenFlamingo早期训练验证上下文学习价值。 公开多图文字上下文能改善以示例条件化的描述；若要证明结构带来的跨图推理收益，必须控制图文/token曝光并让答案依赖多图关系。按CLIP语义构造的交错资料可以支持场景主题组织，无法单独提供实际绘画时序。",
+          "evidence": "全17页8图8表；T2并非全指标最优、F5统计/rho文字问题、F7不等曝光及当前仅ff/coreff恢复逐项区分。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T3主题相关87.7%/句相关80.4%，脸28.3/水印1.6/标志3.9/广告3.2/重复.7%。3700样本未发现NSFW不是全库零风险。T2 CLIP各AUC/p@1：COCO99.4/95.7、DII92.8/93.9、SIS79.1/73.3、DIIStress98.7/93、RQA80.7/70.7、DIY74/57.6；COCO p@1低于Li97.6，不能说全指标最优。F7混入序列普遍提高COCO，正文概括20–30CIDEr；实际8shot有差距超过30的柱，柱无精确数标，保留视觉趋势/近似范围，不造逐柱精确值。作者结论主动追问是否学会跨图推理还是分别描述的上下文学习。 F4 linear assignment平均相似24低于简单max24.5，但不同句覆盖34%高于22%，说明覆盖与局部最大相似权衡。F5图轴统计图数mean5.7/median2、句数mean24.3/median13，正文却把计数类别/meanmedian错写；印出的Spearman rho10.3超[-1,1]，可能省略尺度但无依据直接补成.103。F6/附录T4以22K文档LDA30类、GPT4据top20词命名，最大Personal7.96%，属于文本主题概览，非人口/所有语料无偏检验。F8/9及T7/8定性文档和context-dependent广告判定全核，不能据图句相关宣称真实事件顺序。 下载png/jpg/jpeg，URL排logo/button/icon/plugin/widget，最大边800/最小边150，aspect .5–2；图句CLIP≥.15。下游早期corev1，公开v1.1有bugfix；256token连续子序列、≤5图、CLIP20过滤、丢无图并随机丢单图，固定4/8shot评COCO。本文未给完整学习率/GPU/优化器/精确训练步，不能从通用OpenFlamingo配方补成已核实验。静态代码/README固定5304ddd7a608c88d8f4ee1a6b3a4356104215517(2025-03-19)，HF元数据公开无gate；不下载语料/权重或运行模型。",
+          "evidence": "全17页8图8表；T2并非全指标最优、F5统计/rho文字问题、F7不等曝光及当前仅ff/coreff恢复逐项区分。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "17页全研究内容与8图8表完成。C4丢DOM、CLIP重排、随机句前后不能作笔顺/事件时序监督；英语网页、集中域、识别器伪标签与去重残差，亦未独立证明跨图推理。发布README说明原AI2副本2025-02误删，当前仅恢复ff/coreff，完整MMC4/core和图像CLIPfeatures仍缺；HFff有5zip、coreff1zip可见，未实际下载验证其内容。14个长期缺shard已在原论文统计/实验排除，不与2025事故混作新增缺失；could_have_url_duplicate约3%，严格去重需另按flag处理。原始图仅URL需重下，失效和内容变更会改变实际可用集。MIT代码与DATA_LICENSE ODC-BY数据库/新增对齐权利分开，不能覆盖各原始网页/图版权；AppA外链DATASET_CARD.md在当前树缺失。 同一图/文/token和训练步，caption-only、CLIP匹配、可恢复DOM顺序、随机图句/随机页顺序、人工真实步骤对照；设计单图不可解的跨图关系题与互换图干预，分测相关匹配、事实依赖、动作顺序及少样本描述。另记录版本/成功重下比例、长期缺shard/可能URL重复flag分母，完整与ff版本分开。以上仅实验设计，未执行。",
+          "evidence": "全17页8图8表；T2并非全指标最优、F5统计/rho文字问题、F7不等曝光及当前仅ff/coreff恢复逐项区分。"
+        }
+      ],
+      "boundary": "v3正式17页§1–6与AppA–D全部研究内容；实际F1/2/4/5/6/7/8/9共8图(无F3)、T1–8全部含30topic/两套各50域名及文档示例，17页contact全看并放大F5/F7及示例页；无新编号公式/算法。37条references清单/关键引文，不宣称37原文全部读。固定repoREADME、两个assignment脚本全文、DATA_LICENSE重点条款/CODE_LICENSE、当前tree与两HF版本元数据/ff卡；AppA独立外链卡缺失，未全依赖/训练code审计，未运行模型/下载数据。核心三遍与五书面完成。"
     }
   ]
 }

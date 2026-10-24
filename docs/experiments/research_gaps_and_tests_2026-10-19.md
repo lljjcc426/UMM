@@ -724,3 +724,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百零四批（2026-10-25）：空OCR计入LD、完整转写/多余字/人评；同曝光glyph控制与freeze×TextCaps双因子。见[审查](../evidence/glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[S003](../reviews/S003.md)。
+
+
+第二百零五批（2026-10-25）：匹配图文/token曝光后测单图不可解的多图依赖，互换图/乱序干预；重下率/重复flag和版本列入分母。见[审查](../evidence/mmc4_full_corpus_release_and_alignment_audit_2026-10-25.md)、[L170](../reviews/L170.md)。

@@ -739,3 +739,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百零四批（2026-10-25）：LD空OCR跳过分母，训练loader取空data[ocr_info]，静态路径可核但未运行训练；主张范围需区分。见[审查](glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[S003](../reviews/S003.md)。
+
+
+第二百零五批（2026-10-25）：F5正文图/句均值中位数写反；rho10.3尺度未说明，不能擅自解释为.103。当前完整/core仍未恢复。见[审查](mmc4_full_corpus_release_and_alignment_audit_2026-10-25.md)、[L170](../reviews/L170.md)。

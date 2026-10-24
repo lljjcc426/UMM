@@ -279,3 +279,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百零四批（2026-10-25）：小字控制受字高/数据过滤/latent重建等共同影响，未有VAE单因子消融；F2随机初始化与正文copy说明有出入。见[审查](glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[S003](../reviews/S003.md)。
+
+
+第二百零五批（2026-10-25）：OpenFlamingo文字next-token与图像输入；交错预训练不直接赋予图像/视频输出，论文主动保留跨图推理疑问。见[审查](mmc4_full_corpus_release_and_alignment_audit_2026-10-25.md)、[L170](../reviews/L170.md)。

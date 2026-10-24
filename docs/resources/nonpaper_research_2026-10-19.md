@@ -695,3 +695,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百零四批（2026-10-25）：公开训练模板与checkpoint论文协议不完全一致；先核loader字段和OCR嵌套接口，尚未执行模型。见[审查](../evidence/glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[S003](../reviews/S003.md)。
+
+
+第二百零五批（2026-10-25）：2025-02原副本误删，ff/coreff恢复；URL重下、14长期缺shard和约3%可能重复分开，ODC-BY不覆盖原图个体版权。见[审查](../evidence/mmc4_full_corpus_release_and_alignment_audit_2026-10-25.md)、[L170](../reviews/L170.md)。

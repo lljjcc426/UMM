@@ -698,3 +698,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百零四批（2026-10-25）：T4a冻结48/39到解冻61/43；README71/41为另一10M起点，不能并表混用。见[审查](glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[S003](../reviews/S003.md)。
+
+
+第二百零五批（2026-10-25）：F7仅COCO描述，caption+sequence曝光增加；T2 COCO p@1 95.7低于Li97.6，非全指标最优。见[审查](mmc4_full_corpus_release_and_alignment_audit_2026-10-25.md)、[L170](../reviews/L170.md)。
