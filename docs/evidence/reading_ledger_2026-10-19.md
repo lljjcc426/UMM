@@ -81,7 +81,7 @@
 | U06 | Show-o: One Single Transformer to Unify Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/U06.md) | 核心三遍与五项检查完成 |
 | U07 | Unified Multimodal Discrete Diffusion (UniDisc) | primary_sections_read | [结构化分析](../reviews/U07.md) | 核心三遍与五项检查完成 |
 | U08 | Zebra-CoT: A Dataset for Interleaved Vision Language Reasoning | primary_sections_read | [结构化分析](../reviews/U08.md) | 核心三遍与五项检查完成 |
-| U09 | ThinkMorph: Emergent Properties in Multimodal Interleaved Chain-of-Thought Reasoning | primary_sections_read | [结构化分析](../reviews/U09.md) | 未完成 |
+| U09 | ThinkMorph: Emergent Properties in Multimodal Interleaved Chain-of-Thought Reasoning | primary_sections_read | [结构化分析](../reviews/U09.md) | 核心三遍与五项检查完成 |
 | U10 | Monet: Reasoning in Latent Visual Space Beyond Images and Language | primary_sections_read | [结构化分析](../reviews/U10.md) | 核心三遍与五项检查完成 |
 | U11 | Omni-R1: Towards the Unified Generative Paradigm for Multimodal Reasoning | primary_sections_read | [结构化分析](../reviews/U11.md) | 未完成 |
 | U12 | WEAVE: Unleashing and Benchmarking the In-Context Interleaved Comprehension and Generation | primary_sections_read | [结构化分析](../reviews/U12.md) | 未完成 |

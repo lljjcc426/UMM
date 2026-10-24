@@ -652,3 +652,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百七十五批（2026-10-24）：纠正L184此前所有源码固定六类：FCN示例十类、UNet可配，DeepLab内部decoder六类；FCN/UNet的prior_feat未用但不能外推任何外部x皆无先验。其它图版、完整训练与匹配仍缺，保留未核心。见[审查](stroke_seg_author_figure_checkbox_and_sample_code_recheck_2026-10-24.md)、[L184](../reviews/L184.md)。
+
+
+第一百七十六批（2026-10-24）：T6成本4269>2879却称更少；F8正文hybrid与图注只交错不齐；最终脚本drop0/0与表8 .1/.3、评测T.3与论文单次T0不齐。图13最终路径与可见网格/当前validator不符，人工转写且原ID未得，不泛化整表错误。见[审查](thinkmorph_full_reasoning_modes_cost_protocol_and_release_audit_2026-10-24.md)、[U09](../reviews/U09.md)。

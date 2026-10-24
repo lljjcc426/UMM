@@ -521,3 +521,6 @@ python scripts/validate_catalog.py
 
 
 第一百七十五批（2026-10-24）：L184补核作者原图F2/F8、正式T2全部勾选行，纠正公开代码全固定六类的过宽说法；其余图版缺口保留未通过，不增加核心三遍数。358目录，280核心/285书面；待完成核心深审51篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/stroke_seg_author_figure_checkbox_and_sample_code_recheck_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_seventy_fifth_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百七十六批（2026-10-24）：U09完成v3研究全文/全部附录prompts、8表24图，核成本比较矛盾、单任务/最终/hybrid配置与非单调采样；固定训练/评测/HF发布，保留图像因果及保真证据边界。358目录，281核心/286书面；待完成核心深审50篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/thinkmorph_full_reasoning_modes_cost_protocol_and_release_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_seventy_sixth_changes_2026-10-24.md)。无删除或模型执行。

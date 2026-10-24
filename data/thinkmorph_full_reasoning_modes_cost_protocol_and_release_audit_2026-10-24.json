@@ -1,0 +1,736 @@
+{
+  "id": "U09",
+  "checked_on": "2026-10-24",
+  "version": "2510.27492v3",
+  "venue": "ICLR2026",
+  "pdf_pages": 42,
+  "core_three_pass_completed": true,
+  "numeric_tables": {
+    "1": [
+      [
+        "Task",
+        "Data Source",
+        "Count",
+        "Visual Manipulation",
+        "Curation Steps"
+      ],
+      [
+        "Jigsaw Assembly",
+        "SAT (Ray et al., 2024), ADE20K (Zhou et al., 2017), Omni3D (Brazil et al., 2023)",
+        "6,000",
+        "Visualizing re-arranged pieces",
+        "Newly generated questions from a customized pipeline"
+      ],
+      [
+        "Spatial Navigation",
+        "N/A",
+        "6,000",
+        "Overlaying mazes with paths highlighted with red lines and arrows",
+        "Newly generated questions from a customized pipeline"
+      ],
+      [
+        "Visual Search",
+        "Visual CoT (Shao et al., 2024), GQA (Hudson and Manning, 2019), VSR (Liu et al., 2023)",
+        "6,990",
+        "Highlighting Regions with Red Bounding Boxes",
+        "Filtering for valid (question, answer) with MLLMs + other criteria"
+      ],
+      [
+        "Chart Refocus",
+        "ChartQA (Masry et al., 2022), Refocus (Fu et al., 2025)",
+        "6,000",
+        "Highlighting Regions with Red Bounding Boxes or Overlays",
+        "Filtering for valid (question, answer) with MLLMs + other criteria"
+      ]
+    ],
+    "2": [
+      [
+        "",
+        "",
+        "Spatial Navigation",
+        "Visual Search",
+        "Jigsaw Assembly",
+        "Chart Refocus"
+      ],
+      [
+        "",
+        "VSP",
+        "VStar ★",
+        "VisPuzzle",
+        "BLINK-J ★",
+        "ChartQA",
+        "MMVP ★"
+      ],
+      [
+        "Bagel-7B",
+        "",
+        "0.83*",
+        "55.49",
+        "35.00*",
+        "67.33",
+        "62.05",
+        "70.33"
+      ],
+      [
+        "Text Reasoning",
+        "",
+        "49.17",
+        "56.02",
+        "63.50",
+        "68.67",
+        "81.66",
+        "76.33"
+      ],
+      [
+        "Visual Reasoning",
+        "",
+        "85.50",
+        "58.63",
+        "61.25",
+        "47.33",
+        "73.08",
+        "73.00"
+      ],
+      [
+        "Interleaved Reasoning",
+        "",
+        "86.67",
+        "63.87",
+        "73.75",
+        "73.33",
+        "79.78",
+        "82.66"
+      ]
+    ],
+    "3": [
+      [
+        "",
+        "Size",
+        "",
+        "VSP",
+        "VisPuzzle",
+        "ChartQA",
+        "VStar ★",
+        "BLINK-J ★",
+        "MMVP ★",
+        "SAT ★",
+        "BLINK ★",
+        "CV-Bench ★"
+      ],
+      [
+        "Visual Understanding-only VLM"
+      ],
+      [
+        "GPT-4o",
+        "-",
+        "",
+        "33.50",
+        "43.75",
+        "76.34",
+        "61.78",
+        "72.67",
+        "84.67",
+        "28.00",
+        "60.28",
+        "75.61"
+      ],
+      [
+        "GPT-5",
+        "-",
+        "",
+        "57.33",
+        "78.00",
+        "80.85",
+        "71.73",
+        "77.33",
+        "86.33",
+        "73.30",
+        "69.86",
+        "85.46"
+      ],
+      [
+        "Gemini 2.5 Flash",
+        "-",
+        "",
+        "59.33",
+        "47.00",
+        "83.79",
+        "70.68",
+        "66.00",
+        "80.33",
+        "56.00",
+        "67.49",
+        "85.07"
+      ],
+      [
+        "InternVL3.5",
+        "8B",
+        "",
+        "8.17",
+        "34.75",
+        "76.26",
+        "68.59",
+        "71.33",
+        "76.33",
+        "45.33",
+        "59.60",
+        "81.99"
+      ],
+      [
+        "38B",
+        "",
+        "20.16",
+        "36.50",
+        "80.44",
+        "76.96",
+        "80.67",
+        "80.33",
+        "49.33",
+        "62.65",
+        "85.96"
+      ],
+      [
+        "Qwen2.5-VL",
+        "7B",
+        "",
+        "2.16",
+        "34.75",
+        "78.12",
+        "76.44",
+        "59.33",
+        "77.33",
+        "51.33",
+        "55.92",
+        "75.20"
+      ],
+      [
+        "72B",
+        "",
+        "41.83",
+        "40.00",
+        "82.03",
+        "85.86",
+        "61.33",
+        "82.00",
+        "64.67",
+        "61.91",
+        "82.54"
+      ],
+      [
+        "Unified Models"
+      ],
+      [
+        "Janus-pro",
+        "7B",
+        "",
+        "00.00",
+        "33.50",
+        "43.08",
+        "38.22",
+        "50.67",
+        "63.33",
+        "22.00",
+        "38.51",
+        "67.83"
+      ],
+      [
+        "Chameleon",
+        "7B",
+        "",
+        "00.83",
+        "30.50",
+        "5.74",
+        "28.27",
+        "00.67",
+        "47.67",
+        "10.67",
+        "16.52",
+        "36.52"
+      ],
+      [
+        "Bagel",
+        "7B",
+        "",
+        "00.83*",
+        "35.00*",
+        "61.82",
+        "55.49",
+        "67.33",
+        "70.33",
+        "44.67",
+        "47.66",
+        "76.03*"
+      ],
+      [
+        "ThinkMorph",
+        "7B",
+        "",
+        "75.83",
+        "79.00",
+        "78.10",
+        "67.02",
+        "72.00",
+        "80.33",
+        "52.67",
+        "60.07",
+        "80.82"
+      ],
+      [
+        "𝚫\\bm{\\Delta} (vs Bagel)",
+        "",
+        "",
+        "+75.00",
+        "+44.00",
+        "+16.28",
+        "+11.53",
+        "+4.67",
+        "+10.00",
+        "+8.00",
+        "+12.41",
+        "+4.79"
+      ]
+    ],
+    "4": [
+      [
+        "",
+        "N = 1",
+        "N = 2",
+        "N = 4",
+        "N = 8"
+      ],
+      [
+        "VSP"
+      ],
+      [
+        "Text Reasoning",
+        "48.67",
+        "48.33",
+        "51.33",
+        "56.83"
+      ],
+      [
+        "Visual Reasoning",
+        "83.83",
+        "83.83",
+        "88.50",
+        "91.33"
+      ],
+      [
+        "ThinkMorph-Spatial Navigation",
+        "87.17",
+        "87.33",
+        "90.67",
+        "92.33"
+      ],
+      [
+        "VStar ★"
+      ],
+      [
+        "Text Reasoning",
+        "61.26",
+        "60.73",
+        "63.87",
+        "63.35"
+      ],
+      [
+        "Visual Reasoning",
+        "56.02",
+        "56.54",
+        "58.64",
+        "61.26"
+      ],
+      [
+        "ThinkMorph-Visual Search",
+        "65.97",
+        "67.02",
+        "67.54",
+        "67.02"
+      ],
+      [
+        "BLINK-J ★"
+      ],
+      [
+        "Text Reasoning",
+        "65.33",
+        "64.67",
+        "67.33",
+        "68.00"
+      ],
+      [
+        "Visual Reasoning",
+        "51.33",
+        "51.33",
+        "52.00",
+        "49.33"
+      ],
+      [
+        "ThinkMorph-Jigsaw Assembly",
+        "65.33",
+        "64.00",
+        "70.00",
+        "73.33"
+      ],
+      [
+        "MMVP ★"
+      ],
+      [
+        "Text Reasoning",
+        "74.67",
+        "75.33",
+        "78.67",
+        "80.33"
+      ],
+      [
+        "Visual Reasoning",
+        "74.33",
+        "73.00",
+        "74.00",
+        "75.00"
+      ],
+      [
+        "ThinkMorph-Chart Refocus",
+        "81.33",
+        "78.67",
+        "82.00",
+        "82.00"
+      ]
+    ],
+    "5": [
+      [
+        "",
+        "N = 1",
+        "N = 2",
+        "N = 4",
+        "N = 8"
+      ],
+      [
+        "MMVP ★",
+        "81.67",
+        "80.00",
+        "80.33",
+        "82.67"
+      ],
+      [
+        "VStar ★",
+        "62.30",
+        "62.30",
+        "64.40",
+        "65.97"
+      ],
+      [
+        "BLINK-J ★",
+        "68.67",
+        "66.67",
+        "66.67",
+        "69.33"
+      ],
+      [
+        "CVBench ★",
+        "81.31",
+        "81.65",
+        "82.60",
+        "83.25"
+      ]
+    ],
+    "6": [
+      [
+        "Mode",
+        "N=1N{=}1",
+        "N=2N{=}2",
+        "N=4N{=}4",
+        "N=8N{=}8"
+      ],
+      [
+        "Text",
+        "354",
+        "697",
+        "1,424",
+        "2,879"
+      ],
+      [
+        "Visual",
+        "473",
+        "945",
+        "1,890",
+        "3,778"
+      ],
+      [
+        "Interleaved",
+        "1,073",
+        "2,145",
+        "4,269",
+        "8,517"
+      ]
+    ],
+    "7": [
+      [
+        "Benchmark",
+        "Mode",
+        "Entropy ↑\\uparrow",
+        "Unique Vocab ↑\\uparrow"
+      ],
+      [
+        "VStar",
+        "Interleaved",
+        "7.665",
+        "3,186 (+11.4%)"
+      ],
+      [
+        "Text-only",
+        "7.499",
+        "2,860"
+      ],
+      [
+        "Jigsaw",
+        "Interleaved",
+        "7.615",
+        "3,795 (+24.1%)"
+      ],
+      [
+        "Text-only",
+        "7.353",
+        "3,057"
+      ]
+    ],
+    "8": [
+      [
+        "Hyperparameter",
+        "Text",
+        "Visual",
+        "Interleaved",
+        "ThinkMorph"
+      ],
+      [
+        "Reasoning",
+        "Reasoning",
+        "Reasoning"
+      ],
+      [
+        "Optimizer & Scheduler",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Learning Rate (LR)",
+        "1×10−51\\times 10^{-5}",
+        "1×10−51\\times 10^{-5}",
+        "1×10−51\\times 10^{-5}",
+        "1×10−51\\times 10^{-5}"
+      ],
+      [
+        "LR Scheduler",
+        "Cosine Decay",
+        "Cosine Decay",
+        "Cosine Decay",
+        "Cosine Decay"
+      ],
+      [
+        "Total Training Steps",
+        "3,000",
+        "3,000",
+        "3,000",
+        "8,000"
+      ],
+      [
+        "Model & Loss",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "CE Loss Weight",
+        "1.0 (Implicit)",
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      [
+        "MSE Loss Weight",
+        "N/A",
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      [
+        "Frozen Components",
+        "Generation Expert",
+        "None",
+        "None",
+        "None"
+      ],
+      [
+        "Batching & Tokenization",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Max Tokens per Batch",
+        "10240",
+        "32768",
+        "32768",
+        "32768"
+      ],
+      [
+        "Regularization (Dropout)",
+        "",
+        "",
+        "",
+        ""
+      ],
+      [
+        "Text Condition Dropout",
+        "N/A",
+        "0",
+        "0",
+        "0.1"
+      ],
+      [
+        "ViT Condition Dropout",
+        "N/A",
+        "0",
+        "0",
+        "0.3"
+      ],
+      [
+        "VAE Condition Dropout",
+        "N/A",
+        "0.3",
+        "0.3",
+        "0.3"
+      ]
+    ]
+  },
+  "figures_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "table2_selected_four_benchmarks_mean_gain_pp": 34.7425,
+  "table3_nine_benchmarks_mean_gain_pp": 20.74222222222222,
+  "cost_comparison": {
+    "interleaved_N4_tokens": 4269,
+    "text_N8_tokens": 2879,
+    "ratio": 1.4828065300451545,
+    "interleaved_accuracy": 70,
+    "text_accuracy": 68,
+    "paper_fewer_tokens_claim_not_supported": true
+  },
+  "mode_switching_hybrid": {
+    "MMVP": {
+      "pure_text_responses": 153,
+      "total_responses": 2400
+    },
+    "VStar": {
+      "pure_text_responses": 132,
+      "total_responses": 1528
+    },
+    "BLINK_J": {
+      "pure_text_responses": 15,
+      "total_responses": 1200
+    }
+  },
+  "case13": {
+    "figure": 13,
+    "map_source": "Manual transcription of the displayed seven by seven image; original sample ID and metadata not available here",
+    "transcribed_maze": [
+      "FFFFFFF",
+      "HFFFFFF",
+      "FFFFFFF",
+      "FFFFHHF",
+      "FFFFFHF",
+      "FHFHFGF",
+      "SFFFFFF"
+    ],
+    "boxed_sequence": "R,R,R,R,R,U,R",
+    "narrated_sequence": "R,R,R,R,U,R",
+    "published_helper_success": false,
+    "narrated_path_success": true,
+    "helper_processes_all_moves_before_goal_check": true,
+    "learned_model_executed": false
+  },
+  "release": {
+    "github_sha": "c1a48adfa212259c8ad79dfd9d05d87c27340cef",
+    "tree_entries": 72,
+    "blobs": 60,
+    "evaluation_sha": "cddb6a38ac5dfaf64020d6aa3964506e26006568",
+    "evaluation_tree_entries": 835,
+    "huggingface_sha": "ad1a4abccca4df166f2c9d2178eb33ed61ae367e",
+    "hf_files": 12,
+    "datasets": [
+      {
+        "id": "ThinkMorph/Chart_Refocus",
+        "sha": "f088c9c5b1084e1287fd4f969e6e3bcbcfd0d0e6"
+      },
+      {
+        "id": "ThinkMorph/Jigsaw_Assembly",
+        "sha": "9f437eb85a7b62cc65dadd930f6c0a665f0ea6b4"
+      },
+      {
+        "id": "ThinkMorph/Spatial_Navigation",
+        "sha": "b7567d9f2fcd096f5bf225cc4e64fc5c2b360897"
+      },
+      {
+        "id": "ThinkMorph/Visual_Search",
+        "sha": "f4e1839ca893a151355b7c843b737bf907cf0a05"
+      },
+      {
+        "id": "ThinkMorph/VisPuzzle",
+        "sha": "1b59a90f99c99f35cf127ac17dc18da460726591"
+      }
+    ],
+    "paper_final_text_vit_dropout": [
+      0.1,
+      0.3
+    ],
+    "published_final_script_text_vit_dropout": [
+      0,
+      0
+    ],
+    "paper_single_inference_temperature": 0,
+    "published_evaluation_default_temperature": 0.3,
+    "image_sampling_timesteps": 50,
+    "image_sampling_updates": 49
+  },
+  "learned_model_execution": false,
+  "reading_scope": "本次v3完整研究§1–7、附录A/B1–B7/C1–C3/D全部文字和prompts、8表全部行、24实际图均读；21位图逐图查看，F6/7/8为完整42页PDF第8/9/10页原生图，p16成本原页另核。参考文献只按机制/数据/相关工作范围追引，未称42页逐页视觉审查。GH72树/60blob与上述指定文件/段落，评测仓835树及相关封装/默认/完整VSP类与helper、HF12文件清单及配置/卡片、五数据卡片schema/count核；未读全仓、全部parquet或权重，未执行学习模型/训练/基准复现。图13仅人工转写网格并调用静态确定性validator，局限已注明。明确研究核心三遍与五项书面验收完成，未独立口试。",
+  "source_urls": [
+    "https://arxiv.org/abs/2510.27492v3",
+    "https://arxiv.org/html/2510.27492v3",
+    "https://arxiv.org/pdf/2510.27492v3",
+    "https://proceedings.iclr.cc/paper_files/paper/2026/hash/e5095602ad1c6a835e2b643ec4ed97d0-Abstract-Conference.html",
+    "https://github.com/ThinkMorph/ThinkMorph/tree/c1a48adfa212259c8ad79dfd9d05d87c27340cef",
+    "https://github.com/hychaochao/VLMEvalKit_Thinkmorph/tree/cddb6a38ac5dfaf64020d6aa3964506e26006568",
+    "https://huggingface.co/ThinkMorph/ThinkMorph-7B/tree/ad1a4abccca4df166f2c9d2178eb33ed61ae367e",
+    "https://huggingface.co/datasets/ThinkMorph/Chart_Refocus/tree/f088c9c5b1084e1287fd4f969e6e3bcbcfd0d0e6",
+    "https://huggingface.co/datasets/ThinkMorph/Jigsaw_Assembly/tree/9f437eb85a7b62cc65dadd930f6c0a665f0ea6b4",
+    "https://huggingface.co/datasets/ThinkMorph/Spatial_Navigation/tree/b7567d9f2fcd096f5bf225cc4e64fc5c2b360897",
+    "https://huggingface.co/datasets/ThinkMorph/Visual_Search/tree/f4e1839ca893a151355b7c843b737bf907cf0a05",
+    "https://huggingface.co/datasets/ThinkMorph/VisPuzzle/tree/1b59a90f99c99f35cf127ac17dc18da460726591"
+  ]
+}

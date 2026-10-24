@@ -611,3 +611,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百七十五批（2026-10-24）：F2确认11维先验→一个空间通道，与灰度拼两通道→十类mask；同类笔画仍共通道，无实例时序。F8为外部静态结果。见[审查](stroke_seg_author_figure_checkbox_and_sample_code_recheck_2026-10-24.md)、[L184](../reviews/L184.md)。
+
+
+第一百七十六批（2026-10-24）：交错生成整幅辅助静态图后重新编码，F17新生成红椒图不能当忠实原图裁剪；无在线笔画或视频监督。24990训练与VisPuzzle400测试由卡片对应。见[审查](thinkmorph_full_reasoning_modes_cost_protocol_and_release_audit_2026-10-24.md)、[U09](../reviews/U09.md)。

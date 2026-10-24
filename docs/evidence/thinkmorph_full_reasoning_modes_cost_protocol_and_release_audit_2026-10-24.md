@@ -1,0 +1,77 @@
+# ThinkMorph：完整交错推理、成本口径、模式选择与发布协议
+
+第一百七十六批完成[U09](../reviews/U09.md)明确范围核心三遍及五项书面验收。[结构化证据](../../data/thinkmorph_full_reasoning_modes_cost_protocol_and_release_audit_2026-10-24.json)。358目录（331论文／研究、27资源），281核心/286书面含未通过项；待完成核心深审50篇论文／研究；27项资源按制品协议另审。无目录新增、文件删除或模型执行。
+
+来源：[主源1](https://arxiv.org/abs/2510.27492v3)、[主源2](https://arxiv.org/html/2510.27492v3)、[主源3](https://arxiv.org/pdf/2510.27492v3)、[主源4](https://proceedings.iclr.cc/paper_files/paper/2026/hash/e5095602ad1c6a835e2b643ec4ed97d0-Abstract-Conference.html)、[主源5](https://github.com/ThinkMorph/ThinkMorph/tree/c1a48adfa212259c8ad79dfd9d05d87c27340cef)、[主源6](https://github.com/hychaochao/VLMEvalKit_Thinkmorph/tree/cddb6a38ac5dfaf64020d6aa3964506e26006568)、[主源7](https://huggingface.co/ThinkMorph/ThinkMorph-7B/tree/ad1a4abccca4df166f2c9d2178eb33ed61ae367e)、[主源8](https://huggingface.co/datasets/ThinkMorph/Chart_Refocus/tree/f088c9c5b1084e1287fd4f969e6e3bcbcfd0d0e6)、[主源9](https://huggingface.co/datasets/ThinkMorph/Jigsaw_Assembly/tree/9f437eb85a7b62cc65dadd930f6c0a665f0ea6b4)、[主源10](https://huggingface.co/datasets/ThinkMorph/Spatial_Navigation/tree/b7567d9f2fcd096f5bf225cc4e64fc5c2b360897)、[主源11](https://huggingface.co/datasets/ThinkMorph/Visual_Search/tree/f4e1839ca893a151355b7c843b737bf907cf0a05)、[主源12](https://huggingface.co/datasets/ThinkMorph/VisPuzzle/tree/1b59a90f99c99f35cf127ac17dc18da460726591)。
+
+## 研究问题
+
+什么时候显式生成的中间图与文字推理互补，交错推理能否跨问题/视觉操作迁移，并通过多轨迹采样与自适应模式选择提升准确率及计算效率？输出辅助静态图和答案，尚无在线笔顺或RGB视频生成目标。
+
+## 现有不足
+
+文字难高效表达重排、路径与小目标局部信息，已有交错轨迹又常将图像简化为动作标签的重复；需要可具体检查、前后推进的文字—操作图—文字监督，同时区分任务内收益、分布外泛化、基础模型已有编辑能力与后训练激活。
+
+## 贡献
+
+四任务24,990条互补轨迹及VisPuzzle评测；在BAGEL上SFT，文字CE加图像flow速度MSE、特殊token驱动跨模态切换；比较text/visual/interleaved、跨任务主表和N=1/2/4/8扩展；分析未在本次SFT显式教的操作、自主停止生成图、混合模式模型与输出词汇多样性。主要新意为数据/后训练与实验观察，继承BAGEL视觉双路径/专家/flow结构，不将原底座大规模预训练归为24K从零学习。
+
+## 输入、模块、输出与公式
+
+问题文字+原图→BAGEL视觉语义SigLIP/MLP与VAE连续latent→文字AR分析→image_start触发整幅latent flow去噪并解码→将实际生成图重新经VAE和ViT编码入上下文→继续文字分析及answer。训练图由规则重排、A*路径、GT框/Refocus高亮构造，GPT4.1用答案/已编辑图生成前后文字；教师轨迹是有答案引导的事后解释，双方text基线也用GT引导，不能将该做法直接定性为测试泄漏。图像有助验证的假设仍需干预实验。
+
+## 模型结构
+
+继承BAGEL-7B-MoT，发布llm配置28层h3584/28Qheads/4KVheads/FFN18944、RoPE1M、最大位置32768；加载器指定Qwen2MoTDecoderLayer，不将7B标签当已重数整模型总参数。ViT配置h1152/16heads/27层/patch14，加载时num_hidden_layers减1；VAE latentpatch2、图stride16，双视觉路径按token类型路由到理解/生成专家。文字跨片段因果，图块内部双向，噪声图块不泄漏到后续片段；干净图再编码用于后继文字。代码x_t=(1-t)x+tε、目标ε-x，生成t从1降0更新x←x-vΔt；MSE为flow速度误差，不是像素重建MSE。训练CE按有效texttoken、MSE按latenttoken及通道归一后各权1；VAE默认冻结且encode无梯度，表8的None不能外推整条VAE也更新。
+
+## 数据分布与划分
+
+T1四项6000/6000/6990/6000，共24990；五份HF卡片训练行数一致，VisPuzzle另test400。拼图2–4片，五布局1×2/2×1/1×3/3×1/2×2各1200，SAT3300/ADE20K1900/Omni3D800图；2片二选、3/4片四选含正确排列。导航FrozenLake3×3至6×6各1500、A*绘GT路径。视觉搜索144K池来自GQA/VSR/OpenImages，目标面积1–30%，人工发现问题后由Gemini2.5Pro与GPT5任一否决过滤到6990；T1另以VCoT标来源，来源层次分别记录。图表仅横/竖bar且一次高亮/框，8400经GPT5滤8100再平衡抽6000。所有教师GPT4.1按附录D造文字/交错，图像操作由流水线给定。训练SAT与OOD SAT同源，不等于同图泄漏，但缺实体/原图级隔离清单；操作OOD与源域OOD要区分。
+
+## 指标与评价协议
+
+九任务准确率；VSP按完整移动序列模拟终点/洞/边界，非与某一最短GT路径逐字相等，SAT用circular。ChartQA先GPT5抽答案再按官方pipeline匹配，正文称accurately match，没有自行假设额外容差。T4/5称Best-of-N，但论文/所读发布入口未明确候选选择器、是否oracle/投票与其成本，不能直接当部署可实现的pass@1收益。T6每题所有候选token成本，图token与文字token单位并非等FLOPs，另有49步图采样、CFG、ViT/VAE重编码/判分开销。T7仅统计答对输出的text熵与uniquevocab，样本数/长度/分词控制未充分给，不能据此证明内在表示维数或因果机制。
+
+## 对比方法
+
+同题text由GPT4.1生成、visual删除交错文字但保相同图、interleaved补互补文字；text训练冻生成expert且10240token/batch，visual/interleaved32768且更新不同组件，内容/参数/训练FLOPs未完全匹配。B3已做4×文字样本近似算力对照，不能写完全没有预算对照，但未报实测训练FLOPs或同分布文本构造控制。原BAGEL部分think无法作答则no-think；主表另JanusPro/Chameleon，七个VLM配置含GPT4o/GPT5/Gemini2.5Flash、Qwen2.5VL7/72B、InternVL3.5 8/38B。API精确快照、视觉分辨率与预算仍需统一，型号规模无法替代同资源公平比较。
+
+## 实验条件和发布边界
+
+论文两节点16×A10080G，LR1e-5/cosine；T2三模式3000step，T3混合四任务最终模型8000step，CE/MSE权1。text冻generationexpert/10240token，visual/interleaved32768；三模式text/ViTdrop0，VAEdrop.3；最终text/ViT/VAEdrop.1/.3/.3。论文单次T0/max4096，多候选T.7/N1/2/4/8。固定GHc1a48adfa212259c8ad79dfd9d05d87c27340cef 72树项/60blob；README全文、inferencer全文、notebook代码cell、3训练脚本/两个yaml、datasetinfo、editparser全文与base_add_image/attentionmask、BAGEL前向/flow和trainer目标/冻结段选读。最终脚本8000但text/ViTdrop仍0/0，与论文.1/.3不同；yaml和dataset_info为示例路径，须转换数据/改路径和混合配置，不能称下载即复现主表。HFad1a4abccca4df166f2c9d2178eb33ed61ae367e 12文件、根/LLM/ViT/generation配置与卡片核；配置文件本身不能替代实际inferencer默认。固定评测仓cddb6a38ac5dfaf64020d6aa3964506e26006568 835树项，README/入口脚本、ThinkMorph封装主要输入/调用/配置段、VSP完整类与frozenlakehelper全文已读；config默认T.3/do_sampleTrue、4096、batch8，和论文单次T0不同。根notebook也T.3；生成参数50时间点实际49更新/CFG4&2/最多3图轮，每轮text上限4096，不直接当全轨迹4096。未下载权重或跑模型。
+
+## 主结果
+
+8表全部行保留。T2交错对原底座VSP.83→86.67(+85.84pp)、VisPuzzle35→73.75(+38.75)、VStar55.49→63.87(+8.38)、BLINKJ67.33→73.33(+6)，这四benchmark分属三task，平均34.7425pp；不是所有九项相对百分比。T2对各列最强单模态平均5.33pp（只选前述四列），MMVP82.66>text76.33，但Chart79.78<text81.66。T3最终75.83/79.00/78.10/67.02/72.00/80.33/52.67/60.07/80.82九项均高BAGEL，平均20.7422pp；不要把T2 MMVP82.66当最终80.33。比GPT5仅VSP/VisPuzzle两项高，另七项低；SAT52.67>Intern38B49.33但<Gemini56/GPT573.30，CV80.82<Intern38B85.96，不能总体等同大模型。T4交错N1→8：VSP87.17→92.33、VStar65.97→67.02、BLINKJ65.33→73.33、MMVP81.33→82；BLINKJ N2降64、MMVP N2降78.67，非逐N单调；VStar N4 67.54→N8 67.02也降。BLINKJN8交错73.33-visual49.33=24pp，正文10点可对应两者扩展增益8-(-2)，不能作最终准确率差。T5另一最终模型采样：MMVP81.67/80/80.33/82.67，VStar62.30/62.30/64.40/65.97，BLINKJ68.67/66.67/66.67/69.33，CV81.31/81.65/82.60/83.25；F7标相对N1增幅5.89%/2.39%/1.22%/.96%，此处是相对比例，和主表pp分开。正文BLINKJ从N2到N4降2.91%写错区间，原表二者均66.67，2.91%为N1到N2相对降幅。
+
+## 消融及进一步实验
+
+T6 BLINKJ各Ntext354/697/1424/2879，visual473/945/1890/3778，交错1073/2145/4269/8517；交错N4 70%比textN8 68%高2pp，但4269>2879、多48.28%token，PDFp16称更少不成立；同N8约2.958倍，MMVP没有独立token表，不能用BLINKJ成本直接证明MMVP更便宜。B3四倍文字样本VStar55.50/VSP47.17仍低交错63.87/86.67，但并不足锁定模态搜索空间唯一因果。T7 VStar熵7.665>7.499/词3186>2860，拼图7.615>7.353/3795>3057，是答对样本条件描述。F5单任务interleaved训练有ChartRefocus模型MMVP5.3%切text、81.25对强制交错73.96；拼图模型仅.3%样本100对82.30，极小子集不可稳健概括。§5.2/F8另专训hybrid：导航visual、图表text、搜索/拼图interleaved，纯文response比例MMVP6.38/VStar8.64/BLINKJ1.25%；按图的题数分布加权分别153/2400、132/1528、15/1200与百分比一致。图注称仅交错训练与该段hybrid配置不一致。混合输出题内text准确比interleaved+9.75/+1.84/-2.98pp，有选择/难度混杂，不是随机分配的模式因果收益。无固定文字前缀移除/换图、视觉faithfulness、按操作类型全量成功率和同FLOPs完整因子消融。
+
+## 局限与疑问
+
+作者已明确未见操作来自BAGEL预训练能力再激活，不能包装为24K创造全新底层编辑能力；所谓八种未见操作/部分benchmark至10%缺全量分母、标注一致性和预训练暴露隔离。图/文字/答案协变，F9/10/11在图生成前已判断答案，生成图可为确认；F17把篮中蔬果变为一幅满是红椒的新图，不能将它当忠实原图裁剪或测得视角几何变换，答对不保证视觉证据保真。F24已展示切text的失败案例，不能说作者从未讨论失败。F13展示路径图/自然语言与最终boxed串不一致：按可见7×7网格人工转写，boxed R,R,R,R,R,U,R到G后又右移，发布validator检查完整串后终点、判false；叙述四右上右判true。此为显示样例与当前协议的具体疑问，原sampleID/maze_map与实验时commit未得，不外推整表准确率有误。VSP自家customprompt与基线officialprompt不齐；训练预算/冻结/内容不同、选择器与judge成本未定、无CI，单例与熵统计不足证明通用推理或因果互利。成本比较算术与脚本dropout/T配置差异需先澄清。
+
+## 预期优势条件
+
+需全局重排/规划和局部视觉锚点、且生成图能忠实保留对象身份时，外化状态可能降低文字序列负担，支持迭代检查；图表前置文字已读出关键数值时附加图收益小。对汉字/素描视频可借鉴笔画状态图、局部修正及自选中间表征，但需加入笔画ID、方向、落抬笔/遮挡顺序与帧连续性，不能从静态高亮或迷宫路线直接推定合法笔顺。
+
+## 可证伪实验
+
+Q1视觉thought是否是有效因果中介：同BAGEL初始化/训练FLOPs/可更新参数/题与教师信息，固定第一段文字，随机保留生成图、移除、跨题打乱、GT规则图、同信息裁剪oracle，重新生成答案；测准确率变化、图内对象/笔画身份与坐标保真、图—答案矛盾及自我纠错，按先图前已得答案/需图后得答案分层。若乱图无影响或GT图无改善，收缩互补性解释。Q2模式和多样性是否改善部署效率：固定候选抽样集和公开可部署selector，和oracle/pass@N分报，包含NFE/CFG/ViT/VAE/评判秒数与FLOPs，等GPU预算画准确率曲线与配对CI；切换题做随机强制text/interleaved的同题对照、难度分层，词汇分析等正确样本/长度/分词。源图级划分SAT及实体/操作留出；书写测试同一字多笔顺/同终图不同轨迹，加入规则渲染状态与纯文规划基线。均为拟议实验；本批只做表值计算和已说明人工转写的确定性路径检查。
+
+## 论文组织与Claim学习
+
+以何时有效→机制观察→跨域泛化→附录成本/构造/prompt组织清晰，ChartQA负例与F24失败应保留。主表增益用pp，F7相对增幅用%，任务平均范围明确；不要把独立单任务checkpoint、混合最终checkpoint、hybrid及不同采样温度数据拼为一模型。图的命名要由实际操作/保真证据支撑，关联词、词汇熵与挑选案例不能替代因果干预；成本句逐项验算，发布脚本/完整prompt/选择器和纸面配置对应清楚。
+
+## 实际阅读范围
+
+本次v3完整研究§1–7、附录A/B1–B7/C1–C3/D全部文字和prompts、8表全部行、24实际图均读；21位图逐图查看，F6/7/8为完整42页PDF第8/9/10页原生图，p16成本原页另核。参考文献只按机制/数据/相关工作范围追引，未称42页逐页视觉审查。GH72树/60blob与上述指定文件/段落，评测仓835树及相关封装/默认/完整VSP类与helper、HF12文件清单及配置/卡片、五数据卡片schema/count核；未读全仓、全部parquet或权重，未执行学习模型/训练/基准复现。图13仅人工转写网格并调用静态确定性validator，局限已注明。明确研究核心三遍与五项书面验收完成，未独立口试。
+
+## 数值与实现边界
+
+T2所选四benchmark平均34.7425个百分点；T3九项平均20.7422个百分点。F7另用相对N1增幅。T4、T5、T2、T3及hybrid均保留各自配置。成本比较与图13路径检查只覆盖明确原数/人工转写样例，不代表模型独立复现。
+
+## 追引
+
+BAGEL、MVoT、ReFocus、Zebra-CoT、MetaMorph、EMMA、VSP、SAT、BLINK、VisualCoT及Isobench按现有目录与来源交叉追引；未把全部引文自动登记全文完成。

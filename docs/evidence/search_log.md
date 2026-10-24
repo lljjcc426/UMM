@@ -700,3 +700,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百七十五批（2026-10-24）：Stroke-Seg从作者实验室取回F2/F8实际原图；正式HTML表2勾选列齐全，出版方PDF图版访问受限，未把网页引用字符串当实际图像。见[审查](stroke_seg_author_figure_checkbox_and_sample_code_recheck_2026-10-24.md)、[L184](../reviews/L184.md)。
+
+
+第一百七十六批（2026-10-24）：ThinkMorph ICLR2026正式目录与最新arXivv3核；42页PDF、研究正文/全附录prompts、8表24实际图完成，固定GHc1a48ad/评测cddb6a3/HFad1a4ab及五数据卡片。见[审查](thinkmorph_full_reasoning_modes_cost_protocol_and_release_audit_2026-10-24.md)、[U09](../reviews/U09.md)。

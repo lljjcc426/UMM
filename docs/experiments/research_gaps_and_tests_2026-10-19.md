@@ -637,3 +637,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百七十五批（2026-10-24）：沿用ID重编号、计数/识别误差、类别重组/多标签/损失全因子和含识别器总成本方案；未执行。见[审查](../evidence/stroke_seg_author_figure_checkbox_and_sample_code_recheck_2026-10-24.md)、[L184](../reviews/L184.md)。
+
+
+第一百七十六批（2026-10-24）：固定文字前缀的保留/移除/换图/GT规则图干预、同信息同FLOPs/可更新参数对照；公布候选选择器、按秒/NFE算效率及模式随机化同题比较，均未执行。见[审查](../evidence/thinkmorph_full_reasoning_modes_cost_protocol_and_release_audit_2026-10-24.md)、[U09](../reviews/U09.md)。
