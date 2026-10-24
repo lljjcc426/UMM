@@ -1,0 +1,665 @@
+{
+  "id": "U21",
+  "checked_on": "2026-10-24",
+  "arxiv_version": "2607.10004v1",
+  "pdf_pages": 17,
+  "core_three_pass_completed": true,
+  "numbered_tables_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "figures_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "numbered_equations_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "algorithms_reviewed": [
+    1
+  ],
+  "html_tables": [
+    [
+      [
+        "",
+        "S=(s1,s2,s3,…,sN),S\\;=\\;(s_{1},\\,s_{2},\\,s_{3},\\,\\ldots,\\,s_{N}),",
+        "",
+        "(1)"
+      ]
+    ],
+    [
+      [
+        "",
+        "τi+1={E,τi=Igen(text),Igen,τi=E,ai=⟨img_start⟩(image),E,τi=E,ai≠⟨img_start⟩(text),\\tau_{i+1}\\;=\\;\\begin{cases}E,&\\tau_{i}=I^{\\mathrm{gen}}\\quad\\text{(text)},\\\\ I^{\\mathrm{gen}},&\\tau_{i}=E,\\ a_{i}=\\langle\\texttt{img\\_start}\\rangle\\quad\\text{(image)},\\\\ E,&\\tau_{i}=E,\\ a_{i}\\neq\\langle\\texttt{img\\_start}\\rangle\\quad\\text{(text)},\\end{cases}",
+        "",
+        "(2)"
+      ]
+    ],
+    [
+      [
+        "",
+        "mt​(𝒬,𝒦)=1|𝒬|​∑q∈𝒬∑k∈𝒦αt​(q,k).m_{t}(\\mathcal{Q},\\mathcal{K})=\\frac{1}{|\\mathcal{Q}|}\\sum_{q\\in\\mathcal{Q}}\\sum_{k\\in\\mathcal{K}}\\alpha_{t}(q,k)\\,.",
+        "",
+        "(3)"
+      ]
+    ],
+    [
+      [
+        "",
+        "ℐ=mt⋆​(𝒬vae,𝒮text)mt⋆​(𝒬vae,𝒮text)+mt⋆​(𝒬vae,𝒮in).\\mathcal{I}=\\frac{m_{t^{\\star}}(\\mathcal{Q}_{\\mathrm{vae}},\\mathcal{S}_{\\mathrm{text}})}{m_{t^{\\star}}(\\mathcal{Q}_{\\mathrm{vae}},\\mathcal{S}_{\\mathrm{text}})+m_{t^{\\star}}(\\mathcal{Q}_{\\mathrm{vae}},\\mathcal{S}^{\\mathrm{in}})}.",
+        "",
+        "(4)"
+      ]
+    ],
+    [
+      [
+        "",
+        "ℱ=mt⋆​(𝒬vae,𝒮vitin).\\mathcal{F}=m_{t^{\\star}}\\!\\left(\\mathcal{Q}_{\\mathrm{vae}},\\mathcal{S}^{\\mathrm{in}}_{\\mathrm{vit}}\\right).",
+        "",
+        "(5)"
+      ]
+    ],
+    [
+      [
+        "",
+        "g⁡(ℐ,ℱ)={abort,ℐ<τℐ∧ℱ<τℱ,continue,otherwise.g(\\mathcal{I},\\mathcal{F})=\\begin{cases}\\textsc{abort},&\\mathcal{I}<\\tau_{\\mathcal{I}}\\;\\wedge\\;\\mathcal{F}<\\tau_{\\mathcal{F}},\\\\ \\textsc{continue},&\\text{otherwise}.\\end{cases}",
+        "",
+        "(6)"
+      ]
+    ],
+    [
+      [
+        "Method",
+        "",
+        "DynaMath",
+        "WeMath",
+        "MathVerse",
+        "MathVista",
+        "Olympiad",
+        "Avg."
+      ],
+      [
+        "General MLLMs"
+      ],
+      [
+        "GPT-4o",
+        "",
+        "56.3",
+        "45.8",
+        "50.8",
+        "60.0",
+        "33.0",
+        "49.2"
+      ],
+      [
+        "Gemini-2.5-Pro",
+        "",
+        "66.8",
+        "78.0",
+        "76.9",
+        "80.9",
+        "42.1",
+        "68.9"
+      ],
+      [
+        "Qwen2.5-VL-7B",
+        "",
+        "49.8",
+        "35.3",
+        "45.7",
+        "72.6",
+        "22.0",
+        "45.1"
+      ],
+      [
+        "InternVL3-8B",
+        "",
+        "37.1",
+        "34.8",
+        "39.8",
+        "70.8",
+        "21.5",
+        "40.8"
+      ],
+      [
+        "UMMs"
+      ],
+      [
+        "Emu3-Chat-8B",
+        "",
+        "24.6",
+        "20.5",
+        "15.5",
+        "47.6",
+        "10.2",
+        "23.7"
+      ],
+      [
+        "Janus-Pro-7B",
+        "",
+        "20.3",
+        "16.3",
+        "15.9",
+        "42.8",
+        "9.7",
+        "21.0"
+      ],
+      [
+        "MUSE-VL-7B",
+        "",
+        "30.8",
+        "30.2",
+        "39.1",
+        "51.3",
+        "15.0",
+        "33.3"
+      ],
+      [
+        "Bagel-7B",
+        "",
+        "38.2",
+        "36.2",
+        "42.6",
+        "68.8",
+        "22.7",
+        "41.7"
+      ],
+      [
+        "UMMs w/ CoT"
+      ],
+      [
+        "Bagel-7B w/ CoT",
+        "",
+        "38.6",
+        "37.1",
+        "43.0",
+        "68.8",
+        "23.0",
+        "42.1"
+      ],
+      [
+        "Bagel-7B w/ ICoT",
+        "",
+        "39.5",
+        "37.0",
+        "45.8",
+        "70.0",
+        "22.7",
+        "43.0"
+      ],
+      [
+        "Bagel-Zebra-CoT",
+        "",
+        "39.0",
+        "34.5",
+        "48.2",
+        "81.0",
+        "16.7",
+        "43.9"
+      ],
+      [
+        "w/ AdaViG (Ours)",
+        "Acc. ↑\\uparrow FLOPs ↓\\downarrow",
+        "43.5 (+4.5) -45%",
+        "38.1 (+3.6) -91%",
+        "51.3 (+3.1) -75%",
+        "83.4 (+2.4) -34%",
+        "18.9 (+2.2) -40%",
+        "47.0 (+3.1) -57%"
+      ],
+      [
+        "Bagel-Canvas",
+        "",
+        "42.3",
+        "35.3",
+        "55.8",
+        "77.9",
+        "24.0",
+        "47.1"
+      ],
+      [
+        "w/ AdaViG (Ours)",
+        "Acc. ↑\\uparrow FLOPs ↓\\downarrow",
+        "48.0 (+5.7) -75%",
+        "38.8 (+3.5) -27%",
+        "58.4 (+2.6) -25%",
+        "81.3 (+3.4) -26%",
+        "26.2 (+2.2) -37%",
+        "50.5 (+3.4) -32%"
+      ]
+    ],
+    [
+      [
+        "Method",
+        "DynaMath",
+        "WeMath",
+        "MathVerse",
+        "MathVista",
+        "Olympiad"
+      ],
+      [
+        "Bagel-Zebra-CoT",
+        "37.4",
+        "41.6",
+        "53.2",
+        "52.7",
+        "24.9"
+      ],
+      [
+        "w/ AdaViG (Ours)",
+        "25.7 (-31.3%)",
+        "22.6 (-45.6%)",
+        "31.7 (-40.0%)",
+        "39.8 (-24.5%)",
+        "17.6 (-29.3%)"
+      ],
+      [
+        "Bagel-Canvas",
+        "13.2",
+        "13.1",
+        "11.5",
+        "10.4",
+        "5.72"
+      ],
+      [
+        "w/ AdaViG (Ours)",
+        "9.4 (-28.9%)",
+        "10.8 (-17.6%)",
+        "9.7 (-15.7%)",
+        "8.8 (-15.4%)",
+        "3.96 (-30.8%)"
+      ]
+    ],
+    [
+      [
+        "Method",
+        "Avg. Drop",
+        "Performance"
+      ],
+      [
+        "MathVista",
+        "WeMath",
+        "DynaMath"
+      ],
+      [
+        "Bagel-Canvas",
+        "–",
+        "77.9",
+        "35.3",
+        "42.3"
+      ],
+      [
+        "w/ ℐ\\mathcal{I} only",
+        "55%",
+        "78.8",
+        "36.2",
+        "46.1"
+      ],
+      [
+        "w/ ℱ\\mathcal{F} only",
+        "31%",
+        "79.4",
+        "36.5",
+        "45.4"
+      ],
+      [
+        "w/ ℐ∨ℱ\\mathcal{I}\\vee\\mathcal{F}",
+        "61%",
+        "75.1",
+        "32.7",
+        "41.2"
+      ],
+      [
+        "w/ AdaViG",
+        "43%",
+        "81.3",
+        "38.8",
+        "48.0"
+      ]
+    ],
+    [
+      [
+        "Method",
+        "Drop Rate",
+        "Performance"
+      ],
+      [
+        "MathVista",
+        "WeMath",
+        "DynaMath"
+      ],
+      [
+        "AdaViG",
+        "43%",
+        "81.3",
+        "38.8",
+        "48.0"
+      ],
+      [
+        "Random",
+        "25%",
+        "78.2",
+        "34.6",
+        "44.1"
+      ],
+      [
+        "50%",
+        "77.4",
+        "35.6",
+        "42.9"
+      ],
+      [
+        "Text-only",
+        "100%",
+        "76.9",
+        "34.1",
+        "42.7"
+      ],
+      [
+        "DAP-ICoT (Liu et al., 2026)",
+        "12%",
+        "78.4",
+        "35.4",
+        "44.3"
+      ]
+    ],
+    [
+      [
+        "",
+        "ΔFLOPs=r⁡(1−t⋆T).\\Delta_{\\mathrm{FLOPs}}=r\\left(1-\\frac{t^{\\star}}{T}\\right).",
+        "",
+        "(7)"
+      ]
+    ],
+    [
+      [
+        "Method",
+        "Avg. Drop",
+        "Performance"
+      ],
+      [
+        "MathVista",
+        "WeMath",
+        "DynaMath"
+      ],
+      [
+        "Bagel-Zebra-CoT",
+        "–",
+        "81.0",
+        "34.5",
+        "39.0"
+      ],
+      [
+        "w/ ℐ\\mathcal{I} only",
+        "64%",
+        "82.2",
+        "35.9",
+        "41.1"
+      ],
+      [
+        "w/ ℱ\\mathcal{F} only",
+        "61%",
+        "81.9",
+        "36.1",
+        "41.6"
+      ],
+      [
+        "w/ ℐ∨ℱ\\mathcal{I}\\vee\\mathcal{F}",
+        "76%",
+        "78.2",
+        "31.5",
+        "38.4"
+      ],
+      [
+        "w/ AdaViG",
+        "57%",
+        "83.4",
+        "38.1",
+        "43.5"
+      ]
+    ],
+    [
+      [
+        "Method",
+        "Drop Rate",
+        "Performance"
+      ],
+      [
+        "MathVista",
+        "WeMath",
+        "DynaMath"
+      ],
+      [
+        "AdaViG",
+        "57%",
+        "83.4",
+        "38.1",
+        "43.5"
+      ],
+      [
+        "Random",
+        "25%",
+        "78.2",
+        "34.3",
+        "38.9"
+      ],
+      [
+        "50%",
+        "80.4",
+        "34.3",
+        "37.7"
+      ],
+      [
+        "Text-only",
+        "100%",
+        "77.1",
+        "32.5",
+        "37.5"
+      ],
+      [
+        "DAP-ICoT [20]",
+        "16%",
+        "81.0",
+        "34.5",
+        "39.3"
+      ]
+    ],
+    [
+      [
+        "Model",
+        "τℐ=0.5\\tau_{\\mathcal{I}}{=}0.5",
+        "τℐ=0.6\\tau_{\\mathcal{I}}{=}0.6",
+        "τℐ=0.7\\tau_{\\mathcal{I}}{=}0.7"
+      ],
+      [
+        "Bagel-Canvas",
+        "80.6",
+        "81.2",
+        "81.0"
+      ],
+      [
+        "Bagel-Zebra-CoT",
+        "83.2",
+        "82.3",
+        "82.1"
+      ]
+    ],
+    [
+      [
+        "Model",
+        "τℱ=0.01\\tau_{\\mathcal{F}}{=}0.01",
+        "τℱ=0.02\\tau_{\\mathcal{F}}{=}0.02",
+        "τℱ=0.04\\tau_{\\mathcal{F}}{=}0.04"
+      ],
+      [
+        "Bagel-Canvas",
+        "81.1",
+        "80.7",
+        "80.3"
+      ],
+      [
+        "Bagel-Zebra-CoT",
+        "82.4",
+        "82.7",
+        "83.1"
+      ]
+    ]
+  ],
+  "figure_assets": [
+    {
+      "id": "S1.F1.g1",
+      "path": "Ada186-asset-intro2.png",
+      "bytes": 347607,
+      "source": "2607.10004v1/intro2.png"
+    },
+    {
+      "id": "S1.F2.g1",
+      "path": "Ada186-asset-fig_performance2.svg",
+      "bytes": 210076,
+      "source": "2607.10004v1/fig_performance2.svg"
+    },
+    {
+      "id": "S2.F3.g1",
+      "path": "Ada186-asset-m2_2.png",
+      "bytes": 521607,
+      "source": "2607.10004v1/m2_2.png"
+    },
+    {
+      "id": "S4.F4.g1",
+      "path": "Ada186-asset-fig_utility_chainlabel4.png",
+      "bytes": 228361,
+      "source": "2607.10004v1/fig_utility_chainlabel4.png"
+    },
+    {
+      "id": "S4.F5.g1",
+      "path": "Ada186-asset-fig_failure_latency_compact2.png",
+      "bytes": 33758,
+      "source": "2607.10004v1/fig_failure_latency_compact2.png"
+    },
+    {
+      "id": "S5.F6.g1",
+      "path": "Ada186-asset-method1.png",
+      "bytes": 354821,
+      "source": "2607.10004v1/method1.png"
+    },
+    {
+      "id": "S6.F8.g1",
+      "path": "Ada186-asset-fig_cost_real5.svg",
+      "bytes": 128099,
+      "source": "2607.10004v1/fig_cost_real5.svg"
+    },
+    {
+      "id": "S6.F8.g2",
+      "path": "Ada186-asset-fig_avg_img_pair6.svg",
+      "bytes": 116313,
+      "source": "2607.10004v1/fig_avg_img_pair6.svg"
+    },
+    {
+      "id": "S6.F10.g1",
+      "path": "Ada186-asset-fig_step_pareto_wemath_dynamath2.png",
+      "bytes": 52579,
+      "source": "2607.10004v1/fig_step_pareto_wemath_dynamath2.png"
+    },
+    {
+      "id": "S6.F10.g2",
+      "path": "Ada186-asset-fig_token_pareto_wemath_dynamath.png",
+      "bytes": 52645,
+      "source": "2607.10004v1/fig_token_pareto_wemath_dynamath.png"
+    },
+    {
+      "id": "A1.F11.g1",
+      "path": "Ada186-asset-fig_appendix_harmful_benchmark_signatures_mpl.svg",
+      "bytes": 166329,
+      "source": "2607.10004v1/fig_appendix_harmful_benchmark_signatures_mpl.svg"
+    },
+    {
+      "id": "A1.F12.g1",
+      "path": "Ada186-asset-attnvisual_2.png",
+      "bytes": 757969,
+      "source": "2607.10004v1/attnvisual_2.png"
+    },
+    {
+      "id": "A1.F13.g1",
+      "path": "Ada186-asset-fig_case_study4.png",
+      "bytes": 87696,
+      "source": "2607.10004v1/fig_case_study4.png"
+    },
+    {
+      "id": "A1.F14.g1",
+      "path": "Ada186-asset-fig_case_study1.png",
+      "bytes": 237299,
+      "source": "2607.10004v1/fig_case_study1.png"
+    },
+    {
+      "id": "A1.F15.g1",
+      "path": "Ada186-asset-fig_case_study3.png",
+      "bytes": 120149,
+      "source": "2607.10004v1/fig_case_study3.png"
+    }
+  ],
+  "release": {
+    "official_implementation_located": false,
+    "github_query": "AdaViG",
+    "search_results": [
+      "uinb/adavigator",
+      "xtechvn/fe-adavigo",
+      "xtechvn/Adavigo-checkout-orders",
+      "xtechvn/html_adavigo_Hulotoy",
+      "luongthiminhtam/adavigo-api-core-travel",
+      "xtechvn/html_adavigo_inside_travel",
+      "xtechvn/html_adavigo_inside_usexpress",
+      "xtechvn/xtechvn-html_adavigo_frontend_xtech",
+      "xtechvn/html_adavigo_b2b",
+      "xtechvn/B2B-CMS-Adavigo",
+      "xtechvn/html_adavigo_inside_phu_quoc",
+      "xtechvn/html_adavigo_b2c",
+      "xtechvn/html_adavigo_front_end_usexpress"
+    ],
+    "hf_paper_api_status": 404,
+    "scope": "paper/arXiv links and finite named-repository search; no universal absence claim"
+  },
+  "cost_protocol": {
+    "decision_step": 5,
+    "full_steps": 50,
+    "equation_7_maximum_fixed_candidate_saving": 0.9,
+    "reported_zebra_wemath_saving": 0.91,
+    "implied_ratio_under_equation_7": 1.011111111111111,
+    "canvas_five_benchmark_arithmetic_average_saving": 0.38,
+    "reported_canvas_average_saving": 0.32,
+    "averaging_weights": "not specified"
+  },
+  "learned_model_execution": false,
+  "raw_score_reanalysis": false,
+  "reading_scope": "完整v1 17页正文§1–7、AppA.1–A.8，T1–8所有行、F1–15全部视觉（15assets，F7/8与F9/10各合并排版）、Eq1–7及算法1；PDF核四象限legend、主表/阈值重叠、FLOPs公式与case重复。论文及arXiv未提供官方repo，GitHub有限检索无相关独立实现、HFpaperAPI404；未独立检查BAGEL原repo为AdaViG实现。核心三遍/五项书面完成，未运行模型或独立复现。",
+  "source_urls": [
+    "https://arxiv.org/abs/2607.10004v1",
+    "https://arxiv.org/html/2607.10004v1",
+    "https://arxiv.org/pdf/2607.10004v1",
+    "https://api.github.com/search/repositories?q=AdaViG"
+  ]
+}

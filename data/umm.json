@@ -2387,25 +2387,28 @@
     "id": "U21",
     "category": "U UMM基础与协同补全",
     "title": "Model Guides You How to Draw: Adaptive Visual Gating for Unified Multimodal Reasoning (AdaViG)",
-    "version": "Model Guides You How to Draw: Adaptive Visual Gating for Unified Multimodal Reasoning（AdaViG）；arXiv2607.10004v1，2026-07-10；未核实正式接收",
+    "version": "Model Guides You How to Draw: Adaptive Visual Gating for Unified Multimodal Reasoning（AdaViG）；arXiv2607.10004v1，2026-07-10，完整17页，Preprint，未核正式接收。",
     "source_urls": [
       "https://arxiv.org/abs/2607.10004",
-      "https://arxiv.org/pdf/2607.10004v1"
+      "https://arxiv.org/pdf/2607.10004v1",
+      "https://arxiv.org/abs/2607.10004v1",
+      "https://arxiv.org/html/2607.10004v1",
+      "https://api.github.com/search/repositories?q=AdaViG"
     ],
     "previous_evidence": null,
     "claim": "研究目标：当交错推理触发生成辅助图时，能否早期判断图会有害并中止，兼顾准确率和成本？",
-    "method": "冻结模型，取早期扩散对文字/输入图attention统计，GenerationIntent I与VisualFidelity F双弱才abort；丢部分latent并回文字节点。不是新生成训练/笔顺机制。 BAGEL-ZebraCoT/BagelCanvas两模型；I=VAEquery对前文字attention/(文字+原图attention)，F=对原ViT图tokenattention；若I<τI且F<τF abort。attention聚合与token段长度/层头有关，不能直接当真实语义意图或因果解释。",
-    "problem": "当交错推理触发生成辅助图时，能否早期判断图会有害并中止，兼顾准确率和成本？",
-    "conclusion": "Table1 Zebra平均43.9→47.0（3.1pp）/图FLOPs−57%；Canvas47.1→50.5（3.4pp）/−32%。Table2 Canvas五集13.2→9.4、13.1→10.8、11.5→9.7、10.4→8.8、5.72→3.96s，真实延迟幅度另计。",
-    "gap": "只在两个BAGEL交错数学变体，attention阈值迁移未定；触发图少时收益有限，gate不修复图本身。图质量与真实信息量不能由单个attention总量完全确定，需反事实检验，完整代码/融合实现未审。",
+    "method": "冻结模型的双attention统计与AND中止规则，t*=5/50步做早期决策；在两个同BAGEL骨干CoT变体、五数学benchmark报告准确率/实测延迟提升，另有单信号/OR、随机中止、文本only、DAPICoT、步数/tokenbudget/阈值对照。无新训练目标/tokenizer/视频架构，attention作为SFT筛选或RL奖励仅未来建议，本文未做训练验证。 BAGEL7B MoT理解/生成expert共享attention，文字causal、图像bidirectional；BAGELZebraCoT与MathCanvas的BAGELCanvas两种后训练检查点。每图既有ViT也有VAE表示，取正在去噪的VAEquery对之前text/原图key的注意力。只明确headaverage，未明确哪层/跨层聚合、CFG分支、prompt段/已有生成图token归属和实际attentionkernel；segmentmass未按key数归一化，受文字长度/图token数/softmax竞争影响。I高不能直接证明存在正确plan、F高不能保证几何faithful，必须独立校准。",
+    "problem": "BAGEL式交错数学推理触发图像后，能否在扩散早期根据内部信号中止可能有害的图，提升最终答案并节约推理成本？门控控制是否继续一次已触发生成，不重新训练生成器，也不生成书写轨迹。",
+    "conclusion": "T1按Dyna/We/MathVerse/MathVistaGPS/Olympiad顺序，Zebra39/34.5/48.2/81/16.7→43.5/38.1/51.3/83.4/18.9，Avg43.9→47，图FLOPs称−45/91/75/34/40%、Avg57%；Canvas42.3/35.3/55.8/77.9/24→48/38.8/58.4/81.3/26.2，Avg47.1→50.5，称−75/27/25/26/37%、Avg32%。5.7是Dyna准确率百分点，非相对5.7%。T2Zebra37.4/41.6/53.2/52.7/24.9s→25.7/22.6/31.7/39.8/17.6s，−24.5%至45.6%；Canvas13.2/13.1/11.5/10.4/5.72→9.4/10.8/9.7/8.8/3.96，−15.4%至30.8%。系统延迟改善有单独报告，不把图FLOPs节省直接当整机加速。",
+    "gap": "FLOPs记账需澄清：Eq7固定候选数且r≤1时最多省90%，T1ZebraWeMath91%无法由该式直接给出；F8完整生成图数降幅和T1数值一致，可能混计完整图数或门控改变未来触发，需每链attempt/abort/complete及已执行步数核。若完成图C/触发A/base图B，等每步成本近似savings=1−[50C+5(A−C)]/(50B)，仅完整图减少比例会漏5步。Canvas五逐集比例算术均值38%，表Avg32%可能加权但权重未给，准确率Avg和成本Avg分母需分开。F4三类标签与F3Bothwrong处理未齐，tracelevel不等每图因果效用；输入级方法能否预测风险未被90.1%随机trace异质性排除。Attentionmass可预测不等因果中介，F11全样本平均生成图注意力更高，也可能recency/段长度效应，缺helpful/harmful分层和attention干预。F12两图色标不同（约1e−3与1e−4），不能只比颜色。两个模型同BAGEL族、只有数学任务，阈值跨架构/书写迁移未证；会丢必要但低attention图，也不修复保留图的质量。F13与F15同一题同I/F非三独立成功例。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-24",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "§5.1–5.3 Eq4–6、§6.1配置/Tables1–4、AppA6限制/A7部分表；完整§3/§4控制诊断与App阈值/代码未全读，未复现",
-    "last_updated": "2026-10-20",
+    "sections_read": "完整v1 17页正文§1–7、AppA.1–A.8，T1–8所有行、F1–15全部视觉（15assets，F7/8与F9/10各合并排版）、Eq1–7及算法1；PDF核四象限legend、主表/阈值重叠、FLOPs公式与case重复。论文及arXiv未提供官方repo，GitHub有限检索无相关独立实现、HFpaperAPI404；未独立检查BAGEL原repo为AdaViG实现。核心三遍/五项书面完成，未运行模型或独立复现。",
+    "last_updated": "2026-10-24",
     "canonical_key": "paper:arxiv:2607.10004",
     "evidence_history": [
       {
@@ -2436,16 +2439,22 @@
         "conclusion": "自适应视觉步骤控制已有前作。",
         "gap": "【边界/推断】“加一个何时画图开关”不足；任务关键小笔画的门控需要新证据。",
         "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      },
+      {
+        "checked_on": "2026-10-24",
+        "batch": "one_hundred_eighty_sixth",
+        "sections_read": "完整v1 17页正文§1–7、AppA.1–A.8，T1–8所有行、F1–15全部视觉（15assets，F7/8与F9/10各合并排版）、Eq1–7及算法1；PDF核四象限legend、主表/阈值重叠、FLOPs公式与case重复。论文及arXiv未提供官方repo，GitHub有限检索无相关独立实现、HFpaperAPI404；未独立检查BAGEL原repo为AdaViG实现。核心三遍/五项书面完成，未运行模型或独立复现。",
+        "verification": "primary_sections_read"
       }
     ],
     "review_path": "docs/reviews/U21.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "DynaMath/WeMath/MathVerse/MathVista/Olympiad五数学评测；MathVision testmini304调阈值。不是全程无任何验证数据；主表未把该调参集当单独泛化证据。",
-    "framework": "冻结模型，取早期扩散对文字/输入图attention统计，GenerationIntent I与VisualFidelity F双弱才abort；丢部分latent并回文字节点。不是新生成训练/笔顺机制。",
-    "architecture": "BAGEL-ZebraCoT/BagelCanvas两模型；I=VAEquery对前文字attention/(文字+原图attention)，F=对原ViT图tokenattention；若I<τI且F<τF abort。attention聚合与token段长度/层头有关，不能直接当真实语义意图或因果解释。",
-    "metrics": "最终准确率/平均，图像生成FLOPs降幅、整链延迟、KVcache/图数量。图FLOPs减少不等同整个系统同比加速；Table2单GPU端到端另报。",
-    "baselines": "原骨干/纯文本CoT/ICoT、Zebra/Canvas，randomabort、textonly、DAPICoT；I-only/F-only/任一弱与双弱gate。异构强VLM作参考，不作为等compute因果对照。",
-    "experimental_conditions": "H200141G，t*=5；Zebra阈值(.5,.04)，Canvas(.6,.01)，都在304题调。无训练更新，仍需attention可访问及部分扩散执行；完整采样T/聚合层头/阈值扫选择和推理seed未核齐。"
+    "dataset": "诊断与阈值调参MathVisiontestmini304题，不是全程零数据选择；16独立采样trace/题分析标签变化。主测试五集DynaMath、WeMath、MathVersetestmini、MathVistatestmini的GPS类、OlympiadBenchMath子集，未充分给每集实际题清单/语言与过滤数；MathVision未列入主表五集，因此不能据调参直接称主表测试泄漏。未新增训练数据或更新模型。",
+    "framework": "冻结模型的双attention统计与AND中止规则，t*=5/50步做早期决策；在两个同BAGEL骨干CoT变体、五数学benchmark报告准确率/实测延迟提升，另有单信号/OR、随机中止、文本only、DAPICoT、步数/tokenbudget/阈值对照。无新训练目标/tokenizer/视频架构，attention作为SFT筛选或RL奖励仅未来建议，本文未做训练验证。",
+    "architecture": "BAGEL7B MoT理解/生成expert共享attention，文字causal、图像bidirectional；BAGELZebraCoT与MathCanvas的BAGELCanvas两种后训练检查点。每图既有ViT也有VAE表示，取正在去噪的VAEquery对之前text/原图key的注意力。只明确headaverage，未明确哪层/跨层聚合、CFG分支、prompt段/已有生成图token归属和实际attentionkernel；segmentmass未按key数归一化，受文字长度/图token数/softmax竞争影响。I高不能直接证明存在正确plan、F高不能保证几何faithful，必须独立校准。",
+    "metrics": "主指标最终答案准确率%、五任务Avg；imagegenerationFLOPs为扩散步数近似，非系统总FLOPs；单H200每题端到端实测秒，另图像数和KVcache。F4helpful=有图对/文字错、harmful=有图错/文字对、neutral正文仅定义两者都对；F3实际图例另列Bothwrong，但F4三类pie合计100%未交代bothwrong如何计或分母，不能把26.3%直接当全体单次生成有害率。全链有图vs所有节点强制文字的counterfactual同时改变多个决策和后续随机轨迹，未隔离单个视觉步骤的平均因果效应。",
+    "baselines": "一般MLLM GPT4o/Gemini2.5Pro/Qwen2.5VL7B/InternVL3-8B与UMMEmu3/JanusPro/MUSE/BAGEL为外部能力参考；受控方法比较同ZebraCoT/Canvas加gate、Ionly/Fonly/OR、random25/50%、textonly100%、适配DAPICoT。原BAGELCoT与ICoT不等于Zebra/Canvas只关闭门控；跨不同后训练权重不能将到Canvas的分数差归给专门数学训练单因子。random未匹配AdaViG43/57%中止率，需同预算随机和learnedqueryonly/长度等简单信号基线。",
+    "experimental_conditions": "无参数更新，H200141GB；t*=5，总T50。Zebra阈值(.5,.04)、Canvas(.6,.01)，MathVision304选。单H200报告walltime，但maxcontext/采样温度/topP/seed/重复次数、主表答题parser/judge版本、实际checkpointrevision与cache/attention实现未齐。F10约.8–4.5Ktokenbudget；F9比较t*=1/3/5/7/9，5步折中、7/9准确率更高但成本更高。正文/附录和arXiv未给官方code/project链接；GitHubAPI AdaViG检索13repo均无此论文相关项，HFpaperAPI404，有限范围内未定位官方独立实现/权重/原始逐题日志，不笼统断言不存在。未执行推理/速度测试。"
   },
   {
     "id": "U22",

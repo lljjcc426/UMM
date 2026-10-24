@@ -222,3 +222,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百八十五批（2026-10-24）：Show-o图像maskedprediction；4096codebook瓶颈缺容量干预。Harmon四loss权重1并有条件梯度scale.1，冻结按实际布尔值。见[审查](unimrg_full_teacher_targets_training_schedule_and_release_audit_2026-10-24.md)、[U19](../reviews/U19.md)。
+
+
+第一百八十六批（2026-10-24）：I文本/原图相对mass、F原图ViTabs、双弱AND；无训练更新、RLreward仅展望，层/CFG/attentionkernel聚合待释。见[审查](adavig_full_counterfactual_denominators_and_early_abort_cost_audit_2026-10-24.md)、[U21](../reviews/U21.md)。

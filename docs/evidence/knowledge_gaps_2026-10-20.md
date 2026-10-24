@@ -682,3 +682,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百八十五批（2026-10-24）：论文Harmon384²/4K与公开512²/10K计步待对齐；OpenUni额外pixelonly3K需公平控制，1−MAE测teacheragreement，缺多seed/CI。见[审查](unimrg_full_teacher_targets_training_schedule_and_release_audit_2026-10-24.md)、[U19](../reviews/U19.md)。
+
+
+第一百八十六批（2026-10-24）：5/50步且r≤1的Eq7上界90%，主表91%及图数降幅同值需attempt/abort/complete日志；阈值两表同点分数差缺seed/CI。见[审查](adavig_full_counterfactual_denominators_and_early_abort_cost_audit_2026-10-24.md)、[U21](../reviews/U21.md)。

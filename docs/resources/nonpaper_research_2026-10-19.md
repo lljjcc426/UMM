@@ -638,3 +638,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百八十五批（2026-10-24）：官方代码已发布Harmon训练/采样/VLMEval适配和SAM边缘脚本，不能沿用旧comingsoon。ModelScope约134.7GB数据仓已确认，finetuned权重与其他两骨干实现未核发布。见[审查](../evidence/unimrg_full_teacher_targets_training_schedule_and_release_audit_2026-10-24.md)、[U19](../reviews/U19.md)。
+
+
+第一百八十六批（2026-10-24）：论文/arXiv未列官方AdaViGrepo，GitHub检索仅不相关名字，HFpaper404；只记录有限发布核查，无运行速度复现。见[审查](../evidence/adavig_full_counterfactual_denominators_and_early_abort_cost_audit_2026-10-24.md)、[U21](../reviews/U21.md)。

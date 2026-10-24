@@ -641,3 +641,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百八十五批（2026-10-24）：四目标posttraining：Und/RGB/depth/边界图；相对深度和无类别边缘不可直接外推笔序/语义分割/素描视频。见[审查](unimrg_full_teacher_targets_training_schedule_and_release_audit_2026-10-24.md)、[U19](../reviews/U19.md)。
+
+
+第一百八十六批（2026-10-24）：早期丢latent并回文字，适用已触发图像的交错数学推理；书写/视频已执行prefix无法据此撤销。见[审查](adavig_full_counterfactual_denominators_and_early_abort_cost_audit_2026-10-24.md)、[U21](../reviews/U21.md)。

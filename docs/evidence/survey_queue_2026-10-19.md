@@ -680,3 +680,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百八十五批（2026-10-24）：U19完成ICML2026 v3完整16页4表7图20式；核三骨干对Base七指标全升及对RecA例外、Harmon公开512²/10K配置、四任务微batch/梯度scale、无类别边界与teacheragreement。358目录，290核心/295书面；待完成核心深审41篇论文／研究；27项资源按制品协议另审。见[审查](unimrg_full_teacher_targets_training_schedule_and_release_audit_2026-10-24.md)、[逐文件说明](one_hundred_eighty_fifth_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百八十六批（2026-10-24）：U21完成v1完整17页8表15图7式算法1；核trace四象限/两同源骨干、AND对照、阈值重叠差别、91%图FLOPs与Eq7口径，保留实测延迟证据。358目录，291核心/296书面；待完成核心深审40篇论文／研究；27项资源按制品协议另审。见[审查](adavig_full_counterfactual_denominators_and_early_abort_cost_audit_2026-10-24.md)、[逐文件说明](one_hundred_eighty_sixth_changes_2026-10-24.md)。无删除或模型执行。

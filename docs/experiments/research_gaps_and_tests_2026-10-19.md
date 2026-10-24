@@ -667,3 +667,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百八十五批（2026-10-24）：等教师/数据/计算的生成头、直接预测头与特征回归对照，四目标全因子、真实深度/edgeGT和常数图基线，同Show-o容量干预。见[审查](../evidence/unimrg_full_teacher_targets_training_schedule_and_release_audit_2026-10-24.md)、[U19](../reviews/U19.md)。
+
+
+第一百八十六批（2026-10-24）：同prefix/seed的单步keep/abort四象限，等drop随机/长度与query基线，按实执行NFE和整链walltime对齐预算并跨域冻结阈值。见[审查](../evidence/adavig_full_counterfactual_denominators_and_early_abort_cost_audit_2026-10-24.md)、[U21](../reviews/U21.md)。
