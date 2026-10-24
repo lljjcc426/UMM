@@ -519,3 +519,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百批（2026-10-25）：程序record验证与reader选择练什么分工；未证明像素真值全覆盖、无限递归稳定性或统一模型必要性。见[审查](recursive_self_improvement_full_rules_and_native_error_audit_2026-10-25.md)、[L033](../reviews/L033.md)。
+
+
+第二百零一批（2026-10-25）：causality在此是prefix可见性，无干预因果证明；shift边界/语义有效区间比最终图像指标接近事件评价。见[审查](orvos_full_causal_protocol_and_bounded_memory_audit_2026-10-25.md)、[L055](../reviews/L055.md)。

@@ -12240,22 +12240,28 @@
   {
     "title": "Online Reasoning Video Object Segmentation；公开预印本版本",
     "source_urls": [
-      "https://arxiv.org/abs/2604.11411v1"
+      "https://arxiv.org/abs/2604.11411v1",
+      "https://arxiv.org/html/2604.11411v1",
+      "https://arxiv.org/pdf/2604.11411v1",
+      "https://github.com/KN1GHT9/ORVOSB",
+      "https://api.github.com/repos/KN1GHT9/ORVOSB",
+      "https://arxiv.org/abs/2505.18561v4",
+      "https://danielshkao.github.io/cot-rvs.html"
     ],
-    "method": "ORVOS任务/ORVOSB事件边界与referent-shift标注；每帧更新语义prompt，亲和融合短历史与近密远疏token记忆。 Chat-UniVi7Bv1.5冻结+LoRA8；<TGT>/<SEG>token cosine-softmax历史融合λ.1→MLP→SAM2maskdecoder；32历史token，32learnablequeries经2层8头Transformer；CE+2BCE+.5Dice。dense-to-sparse用φ(u)=1−(1−u)²映射索引；不将注意力亲和解释成显式事件状态机。",
-    "conclusion": "ORVOSB61.3=J58.3/F64.2 vsREAD51.5/VideoLISA50.3，为+9.8/+11.0百分点；Action52.4/Interaction40.0明显较弱。ReVOS54.3低于VRS-HQ59.1/GLUS54.8，条件为自身在线、对方离线，不能宣称该方法所有数据最优。",
-    "gap": "benchmark是否混入训练视频身份需核；语义何时充分可知有歧义，辅助标注无一致性统计；平均J&F难区分边界/事件错误。公式将历史B写成所有旧token，但又称固定内存，如何丢弃后重新按全历史采样需代码说明；索引floor可能重复，不自动认定恰32个独立token。无吞吐/长流压力结果。",
-    "problem": "在仅能看到视频前缀时，按同一语义query逐帧分割当前满足条件的对象，并允许目标身份随事件变化。",
+    "method": "ORVOS任务和ORVOSB512query/210video/12907frames、五种推理类别、frame-level语义边界；CUSP每帧<TGT>与历史<SEG>亲和融合，TR查询聚合长期token，近期密集/久远稀疏采样；三张表对在线/离线与组件比较。构建分割/理解系统，不做视频或轨迹生成。 Chat-UniVi-7B-v1.5冻结本体+LoRA r8；SAM2 maskdecoder、promptMLP、tokenreservoir可训练。K4过去帧加当前，L32learnedqueries，经2层8头Transformer，最多抽32historytoken；视觉token化细节/分辨率、完整prompt、tokenGT、跨步梯度detach/截断未充分披露。亲和历史融合无显式事件状态机或规范规则证明。binarymask例含movingvehicles复数，但多目标并集/空目标详细评分约定未给。",
+    "conclusion": "T1ORVOSB J&F% VISA33.3/VRS-HQ43.4/GLUS45.2/LISA46.6/VideoLISA50.3/READ51.5/Ours61.3（J58.3/F64.2），对READ+9.8pp。五类Ours63.8/64.9/52.4/40/62 vsREAD56.2/52.4/50.7/38.6/48.9，交互仍40且优势仅1.4pp，强交互事件远未解决。T3ReVOSoverall LISA40.9/Track43.6/VISA46.9/GLUS54.8/VRS59.1/Ours54.3；本文referring57.8、reasoning50.8，不能称全benchmarkSOTA。F4选定movingvehicles切换与panda爬seesaw样例显示mask修正，少量定性成功图不证明所有切换稳定。全部3表原单元保存。",
+    "gap": "核心任务定义有价值，但strictprefix不等于已用代码证明无未来泄漏；训练/benchmark原视频身份交集、标注一致性和空目标规则待数据。有限最多342帧、无延迟/显存曲线，不足支持无界流固定总内存；Eq6/9全存储与Algo1全历史索引不自然等价于boundedmemory，去重也破坏N32声明。T1在线适配细节、同预算/数据、公平CoT-RVS对照不足。平均J&F未区分mask几何、语义切换、状态持久或事件因果，交互40%仍低；仅有成功选图，缺逐型失败/长遮挡/概念消失数值。当前候选仓库为空，不能声称已独立确认实际实现。",
+    "problem": "固定隐式自然语言query下，逐帧只看历史和当前、禁止改写先前预测，输出当前符合语义条件对象的mask；事件发生后才能确认目标，目标身份可随时间切换/消失再出现。此处causality指信息可见性约束，不是干预因果识别。",
     "claim": "作者研究目标：在仅能看到视频前缀时，按同一语义query逐帧分割当前满足条件的对象，并允许目标身份随事件变化。",
-    "version": "版本见原始来源及历史记录",
+    "version": "Online Reasoning Video Object Segmentation；Jinyuan Liu/Yang Wang/Zeyu Zhao/Weixin Li/Song Wang/Ruize Han；arXiv2604.11411v1，2026-04-13，19页。第三方标ECCV2026，当前主源无会议证明，保留预印本。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-25",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-25",
     "previous_evidence": "本轮 A：公开 v1 方法与实验相关章节",
     "id": "L055",
     "canonical_key": "paper:arxiv:2604.11411",
@@ -12288,17 +12294,23 @@
         "conclusion": "ORVOSB：210 视频、512 查询、12,907 帧，J&F=61.3。Table 2：基线 52.4→CUSP 无 AGAF 55.1→完整 CUSP 58.1→均匀历史 60.9→近密远疏 61.3；ReVOS=54.3。",
         "gap": "【边界】正文把 CUSP 数值写成 55.1，与完整组件表不一致；近密远疏相对均匀历史的增益为 0.4 pp。固定 32 历史输入不直接证明底层全历史存储恒定。CoT-RVS/ThinkVideo 已有在线推理分割先例；不能概括为从未有人研究。",
         "note_path": "docs/evidence/public_preprint_reviews.md"
+      },
+      {
+        "checked_on": "2026-10-25",
+        "batch": "two_hundred_first",
+        "sections_read": "v1全19页§1–6及参考清单，Eq1–11、Algorithm1逐行、T1–3全部单元、F1–4原PDF实际视觉（数据与定性页放大核）；无附录。GitHub候选仓库原页/API核为空，无可读实现/数据。对Algo1做确定性索引核算，核心三遍及五书面完成；未执行学习模型/视频分割/OCR/judge，未独立复现。",
+        "verification": "primary_sections_read"
       }
     ],
-    "sections_read": "§3–6完整任务/方法/数据/主表1–3和消融；§1–2关键背景；所有示例图/来源视频与代码未逐一核，未复现",
+    "sections_read": "v1全19页§1–6及参考清单，Eq1–11、Algorithm1逐行、T1–3全部单元、F1–4原PDF实际视觉（数据与定性页放大核）；无附录。GitHub候选仓库原页/API核为空，无可读实现/数据。对Algo1做确定性索引核算，核心三遍及五书面完成；未执行学习模型/视频分割/OCR/judge，未独立复现。",
     "review_path": "docs/reviews/L055.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "ORVOSB从MOSE/OVIS/YouTubeVIS2022/DAVIS17/MeViS筛选210视频12907帧512queries；12–342帧/平均61.46，5类query/平均3.66次切换，55.86%不连续激活。QwenVL描述→GPT5.2筛选→人核+SAM3辅助mask+人工起止。训练LLaVA150K/VideoChatGPTQA、ADE20K/COCOStuff/PACO/PASCALPart/refCOCO/ReasonSeg与RefYouTube/RefDAVIS/MeViS/ReVOS；原视频数据来源重叠，具体训练测试身份切分需清单核查。",
-    "framework": "ORVOS任务/ORVOSB事件边界与referent-shift标注；每帧更新语义prompt，亲和融合短历史与近密远疏token记忆。",
-    "architecture": "Chat-UniVi7Bv1.5冻结+LoRA8；<TGT>/<SEG>token cosine-softmax历史融合λ.1→MLP→SAM2maskdecoder；32历史token，32learnablequeries经2层8头Transformer；CE+2BCE+.5Dice。dense-to-sparse用φ(u)=1−(1−u)²映射索引；不将注意力亲和解释成显式事件状态机。",
-    "metrics": "J=IoU/F=边界F及其均值；主要整体/5类汇总，未单列激活延迟、提前分割率、切换恢复时长或置信区间。",
-    "baselines": "VISA/VRS-HQ/GLUS/VideoLISA与逐帧LISA/READ；作者讨论离线方法缺陷，表1各baseline是否严格裁前缀并重跑/训练预算匹配需实现确认。ReVOS表3离线对比明确条件不同。",
-    "experimental_conditions": "AdamW3e-4/9000iterations/8RTX4090/b1每卡/acc16有效128；K4窗口、32记忆。训练反传跨全部帧/截断及实际帧率/显存未在正文披露。ORVOSB是评价集，不推测也用于训练。"
+    "dataset": "原视频源MOSE/OVIS/YouTubeVIS2022/DAVIS17/MeViS；MLLM如QwenVL先逐帧JSON描述、LLM如GPT5.2筛动态变化、人工审核/写query，SAM3点/文字prompt初始mask、少量人工修正和标start/end shiftlist，脚本检查缺帧。512query/210video/12907annotatedframes，长度12–342、均61.46；平均每query3.66shifts，55.86%断续grounding。属性/空间/动作状态/交互/外部知识五类，未给逐类样本数和多人边界一致性。训练LLaVA150K/VideoChatGPT、ADE20K/COCOStuff/PACOLVIS/PASCALPart/refCOCO系列/ReasonSeg、RefYouTubeVOS/RefDAVIS/MeViS/ReVOS；其中数据源与ORVOSB原视频集重叠，未提供视频id级去交集证据，不直接判定泄漏。",
+    "framework": "ORVOS任务和ORVOSB512query/210video/12907frames、五种推理类别、frame-level语义边界；CUSP每帧<TGT>与历史<SEG>亲和融合，TR查询聚合长期token，近期密集/久远稀疏采样；三张表对在线/离线与组件比较。构建分割/理解系统，不做视频或轨迹生成。",
+    "architecture": "Chat-UniVi-7B-v1.5冻结本体+LoRA r8；SAM2 maskdecoder、promptMLP、tokenreservoir可训练。K4过去帧加当前，L32learnedqueries，经2层8头Transformer，最多抽32historytoken；视觉token化细节/分辨率、完整prompt、tokenGT、跨步梯度detach/截断未充分披露。亲和历史融合无显式事件状态机或规范规则证明。binarymask例含movingvehicles复数，但多目标并集/空目标详细评分约定未给。",
+    "metrics": "J=meanIoU、F=boundaryF，J&F均值，报告类及总体；不是对象切换准确率、事件检测F1或笔顺正确率。未给语义尚不可判定/空mask、union多目标、不同视频/query权重的完整评分细节；总体平均可能掩盖切换前后延迟和错误回溯。未报confidence/unknown输出、边界标注噪声、多seedCI、FPS/每帧延迟或长流显存增长。",
+    "baselines": "ORVOSB比较VISA/VRS-HQ/GLUS/VideoLISA视频法与LISA/READ图像法；ReVOS另TrackGPT。T2同窗口baseline只用当前gt，CUSP无亲和、CUSP亲和、再加uniformTR或D2STR。T3离线baseline可用全视频而本文严格prefix，信息预算不等；T1每个既有模型如何改为严格causal/同训练数据与预算未完整描述。先前CoT-RVSonline未纳入T1。",
+    "experimental_conditions": "AdamWlr3e−4，9000iterations，8×RTX4090，perGPUb1×gradacc16=effective128，LoRA8、λfusion.1、K4、queries/history32、Agg2layer8head。训练时间、seed、全部分辨率和推理prompt/超参未给。检索入口指向KN1GHT9/ORVOSB，GitHub原页明确empty、API size0/licenseNull，尚无README/作者关联/数据/训练推理代码可审；不因第三方代码标签就当已发布。静态数学核算Algo1，不运行MLLM/SAM/OCR/训练/APIjudge。"
   },
   {
     "title": "CoT-RVS / ThinkVideo",

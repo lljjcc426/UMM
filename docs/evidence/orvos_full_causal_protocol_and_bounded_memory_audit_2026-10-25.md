@@ -1,0 +1,75 @@
+# ORVOS：完整在线协议与固定内存主张审查
+
+第二百零一批完成[L055](../reviews/L055.md)明确范围核心三遍及五项书面验收。[结构化证据](../../data/orvos_full_causal_protocol_and_bounded_memory_audit_2026-10-25.json)。358目录（331论文／研究、27资源），306核心/311书面含未通过项；待完成核心深审25篇论文／研究；27项资源按制品协议另审。无目录新增、文件删除或模型执行。
+
+来源：[主源1](https://arxiv.org/abs/2604.11411v1)、[主源2](https://arxiv.org/html/2604.11411v1)、[主源3](https://arxiv.org/pdf/2604.11411v1)、[主源4](https://github.com/KN1GHT9/ORVOSB)、[主源5](https://api.github.com/repos/KN1GHT9/ORVOSB)、[主源6](https://arxiv.org/abs/2505.18561v4)、[主源7](https://danielshkao.github.io/cot-rvs.html)。
+
+## 研究问题
+
+固定隐式自然语言query下，逐帧只看历史和当前、禁止改写先前预测，输出当前符合语义条件对象的mask；事件发生后才能确认目标，目标身份可随时间切换/消失再出现。此处causality指信息可见性约束，不是干预因果识别。
+
+## 现有不足
+
+离线全视频可用未来事件回溯指认过去目标，固定referent的mask不能测事件驱动切换。ORVOSB增加逐帧语义有效区间和shiftlist；模型短窗口可能忘记早期证据，需要更新prompt/记忆。不过此前CoT-RVS已公开online扩展，本文“既有方法全offline/首个online”范围需收窄，新增shift标注与量化协议较具体。
+
+## 贡献
+
+ORVOS任务和ORVOSB512query/210video/12907frames、五种推理类别、frame-level语义边界；CUSP每帧<TGT>与历史<SEG>亲和融合，TR查询聚合长期token，近期密集/久远稀疏采样；三张表对在线/离线与组件比较。构建分割/理解系统，不做视频或轨迹生成。
+
+## 输入、模块、输出与公式
+
+Eq1 Mt=fθ(V≤t,q)，固定q、binarymask，未来frame不可见、旧预测不修订。Eq2–3 instruction/query/current+Khistory visual/TR tokens进MLLM，固定placeholder位置读当前gt和历史st−i；Eq4 cosine→softmax α，Eq5 gtilde=gt+λΣαst−i。Eq6 B定义全部历史gtilde，Eq7抽H，Algo1用u=k/(Nmax−1)、φ=1−(1−u)²、tk=floor(φ(n−1))+1入集合。Eq8拼learnedQ与H+sinpos进Agg取前Lquery，t1只有Q；Eq9再向B并入当前。Eq10MLP投影gtilde后与当前SAM视觉特征maskdecode。Eq11 tokenCE+2BCE+.5Dice。短窗口历史SEG在本轮输入内计算，不宜描述成仅复用上轮seg缓存。
+
+## 模型结构
+
+Chat-UniVi-7B-v1.5冻结本体+LoRA r8；SAM2 maskdecoder、promptMLP、tokenreservoir可训练。K4过去帧加当前，L32learnedqueries，经2层8头Transformer，最多抽32historytoken；视觉token化细节/分辨率、完整prompt、tokenGT、跨步梯度detach/截断未充分披露。亲和历史融合无显式事件状态机或规范规则证明。binarymask例含movingvehicles复数，但多目标并集/空目标详细评分约定未给。
+
+## 数据分布与划分
+
+原视频源MOSE/OVIS/YouTubeVIS2022/DAVIS17/MeViS；MLLM如QwenVL先逐帧JSON描述、LLM如GPT5.2筛动态变化、人工审核/写query，SAM3点/文字prompt初始mask、少量人工修正和标start/end shiftlist，脚本检查缺帧。512query/210video/12907annotatedframes，长度12–342、均61.46；平均每query3.66shifts，55.86%断续grounding。属性/空间/动作状态/交互/外部知识五类，未给逐类样本数和多人边界一致性。训练LLaVA150K/VideoChatGPT、ADE20K/COCOStuff/PACOLVIS/PASCALPart/refCOCO系列/ReasonSeg、RefYouTubeVOS/RefDAVIS/MeViS/ReVOS；其中数据源与ORVOSB原视频集重叠，未提供视频id级去交集证据，不直接判定泄漏。
+
+## 指标与评价协议
+
+J=meanIoU、F=boundaryF，J&F均值，报告类及总体；不是对象切换准确率、事件检测F1或笔顺正确率。未给语义尚不可判定/空mask、union多目标、不同视频/query权重的完整评分细节；总体平均可能掩盖切换前后延迟和错误回溯。未报confidence/unknown输出、边界标注噪声、多seedCI、FPS/每帧延迟或长流显存增长。
+
+## 对比方法
+
+ORVOSB比较VISA/VRS-HQ/GLUS/VideoLISA视频法与LISA/READ图像法；ReVOS另TrackGPT。T2同窗口baseline只用当前gt，CUSP无亲和、CUSP亲和、再加uniformTR或D2STR。T3离线baseline可用全视频而本文严格prefix，信息预算不等；T1每个既有模型如何改为严格causal/同训练数据与预算未完整描述。先前CoT-RVSonline未纳入T1。
+
+## 实验条件和发布边界
+
+AdamWlr3e−4，9000iterations，8×RTX4090，perGPUb1×gradacc16=effective128，LoRA8、λfusion.1、K4、queries/history32、Agg2layer8head。训练时间、seed、全部分辨率和推理prompt/超参未给。检索入口指向KN1GHT9/ORVOSB，GitHub原页明确empty、API size0/licenseNull，尚无README/作者关联/数据/训练推理代码可审；不因第三方代码标签就当已发布。静态数学核算Algo1，不运行MLLM/SAM/OCR/训练/APIjudge。
+
+## 主结果
+
+T1ORVOSB J&F% VISA33.3/VRS-HQ43.4/GLUS45.2/LISA46.6/VideoLISA50.3/READ51.5/Ours61.3（J58.3/F64.2），对READ+9.8pp。五类Ours63.8/64.9/52.4/40/62 vsREAD56.2/52.4/50.7/38.6/48.9，交互仍40且优势仅1.4pp，强交互事件远未解决。T3ReVOSoverall LISA40.9/Track43.6/VISA46.9/GLUS54.8/VRS59.1/Ours54.3；本文referring57.8、reasoning50.8，不能称全benchmarkSOTA。F4选定movingvehicles切换与panda爬seesaw样例显示mask修正，少量定性成功图不证明所有切换稳定。全部3表原单元保存。
+
+## 消融及进一步实验
+
+T2 ReVOS/ORVOSB J&F：baseline52/52.4；CUSPwithoutAGAF53/55.1；CUSP53.7/58.1；+TRuniform54.1/60.9；+TRD2S54.3/61.3。原文§5.3把无AGAF数字称CUSP，采用表内明确定义；D2S相对uniform仅+.2/+.4pp，未有误差条/多seed，不能据此夸大精细采样贡献。数学审（非模型复现）：Algo1Nmax32按集合语义，n33只有25唯一indices、n64有29、n342有32，因此Eq7固定N32与伪代码去重不一致；若允许重复则是32项但非32独立历史。n34会请求5/7/14/17/21，而n33保留集合无这些旧位置；严格丢弃其余旧token无法原样重采样。B若按Eq6/9保留全历史，可实现抽样但总存储随T增；若真bounded需增量替代或另有archive，原文未说明、空仓库无法核实。
+
+## 局限与疑问
+
+核心任务定义有价值，但strictprefix不等于已用代码证明无未来泄漏；训练/benchmark原视频身份交集、标注一致性和空目标规则待数据。有限最多342帧、无延迟/显存曲线，不足支持无界流固定总内存；Eq6/9全存储与Algo1全历史索引不自然等价于boundedmemory，去重也破坏N32声明。T1在线适配细节、同预算/数据、公平CoT-RVS对照不足。平均J&F未区分mask几何、语义切换、状态持久或事件因果，交互40%仍低；仅有成功选图，缺逐型失败/长遮挡/概念消失数值。当前候选仓库为空，不能声称已独立确认实际实现。
+
+## 预期优势条件
+
+目标语义随新观测改变、旧证据有用时，逐帧更新语义prompt配合历史摘要可能比固定keyframe后仅传播mask更适合动态grounding；T2较大收益来自亲和prompt/TR，精细D2S增益较小。对手写可借鉴只看prefix的事件判定与状态切换标注，仍须接触/笔画边界和规范规则，不应由maskJ&F推断规范笔顺理解。
+
+## 可证伪实验
+
+Q1boundedmemory/causality是否成立：公开可复现增量保留算法，明确去重/重复与全量archive，画随T的总CPU/GPU存储/延迟；同prefix截断、futureframe置换保证当前预测不变，逐视频id剔训练交集，eventboundary分层报告switchdelay/早判/重激活/空mask和J&F。Q2笔顺迁移：同字最终轮廓、不同合法/非法落笔事件视频，prefix逐刻判当前笔画身份和规范状态，配静态帧/打乱帧/无历史/CoT-RVS同预算，按writer/字/遮挡留出；区分历史知觉、顺序规则和mask几何。仅方案，未模型执行。
+
+## 论文组织与Claim学习
+
+把causal定义成prefix可见性和禁止追改，先明确未满足语义时空输出；时间状态数据与原视频来源/切分可审。主文固定内存claim要与B的数学定义和伪代码集合基数一致，抽取32项与储存总量分开。尊重CoT-RVS已有在线工作，贡献收窄到shift标注/因果量化基准；大总体提升同时写交互低分、D2S小幅增益和离线信息预算差。
+
+## 实际阅读范围
+
+v1全19页§1–6及参考清单，Eq1–11、Algorithm1逐行、T1–3全部单元、F1–4原PDF实际视觉（数据与定性页放大核）；无附录。GitHub候选仓库原页/API核为空，无可读实现/数据。对Algo1做确定性索引核算，核心三遍及五书面完成；未执行学习模型/视频分割/OCR/judge，未独立复现。
+
+## 固定内存的数学边界
+
+按原伪代码的集合语义，Nmax=32、n=33时只产生25个独立索引。n=34的采样又需要5、7、14、17、21，均未在前一保留集合内。故仅保留前一采样集合、无其他历史archive的增量实现，无法逐时刻执行相同全局索引公式。
+
+这说明公式和固定总存储主张需要补充实现。保留全历史B可以进行抽样；此时受控的是MLLM每步输入量，历史总存储仍随时间增长。上述为伪代码核算，未对未公开实现下结论。

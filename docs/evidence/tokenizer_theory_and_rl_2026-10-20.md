@@ -267,3 +267,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百批（2026-10-25）：U/C共理解expert、G独立expert，两更新从同Mt独立合并；先期14000生成updates与模型课程成本不能隐去。见[审查](recursive_self_improvement_full_rules_and_native_error_audit_2026-10-25.md)、[L033](../reviews/L033.md)。
+
+
+第二百零一批（2026-10-25）：Algo1N32在n33集合仅25位置，n34又需要先前未留的旧索引；若存全B可抽样但总存储不bounded，需实现澄清。见[审查](orvos_full_causal_protocol_and_bounded_memory_audit_2026-10-25.md)、[L055](../reviews/L055.md)。

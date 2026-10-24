@@ -727,3 +727,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百批（2026-10-25）：A4全预定措辞与AppF中途修改有冲突；R4前新增旧词50%回放影响报告结果，R4后词表gate仅影响未报告后轮。见[审查](recursive_self_improvement_full_rules_and_native_error_audit_2026-10-25.md)、[L033](../reviews/L033.md)。
+
+
+第二百零一批（2026-10-25）：训练源与ORVOSB视频源有重合，缺id级交集审计；空mask/边界一致性/长流延迟和显存未给。CoT-RVS已有online扩展。见[审查](orvos_full_causal_protocol_and_bounded_memory_audit_2026-10-25.md)、[L055](../reviews/L055.md)。

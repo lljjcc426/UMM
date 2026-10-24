@@ -686,3 +686,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百批（2026-10-25）：RSI四轮L0 45.7→60.2，targeting对fixed+3.5pp；edited.changed55.6→87.4与native78.5→82.4分开，nativefalseaccept仍34.1%。见[审查](recursive_self_improvement_full_rules_and_native_error_audit_2026-10-25.md)、[L033](../reviews/L033.md)。
+
+
+第二百零一批（2026-10-25）：ORVOSB61.3对READ51.5，交互仅40；ReVOS54.3低于VRS59.1，online与offline信息预算分开。见[审查](orvos_full_causal_protocol_and_bounded_memory_audit_2026-10-25.md)、[L055](../reviews/L055.md)。

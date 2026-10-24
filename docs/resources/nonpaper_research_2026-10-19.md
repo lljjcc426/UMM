@@ -683,3 +683,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百批（2026-10-25）：T6执行率按candidate、verified按spec至少一成功，首轮额外30K补缺不计表内；无本文公开checker不能独立确认覆盖。见[审查](../evidence/recursive_self_improvement_full_rules_and_native_error_audit_2026-10-25.md)、[L033](../reviews/L033.md)。
+
+
+第二百零一批（2026-10-25）：ORVOSB候选repo size0、无license/README/数据，不能把第三方code标记当可下载研究制品。见[审查](../evidence/orvos_full_causal_protocol_and_bounded_memory_audit_2026-10-25.md)、[L055](../reviews/L055.md)。

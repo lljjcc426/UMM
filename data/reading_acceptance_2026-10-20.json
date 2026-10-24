@@ -10621,6 +10621,40 @@
         }
       ],
       "boundary": "v1全16页§1–6、AI声明、AppA–F及参考清单，Eq1–4、T1–6所有单元、F1–7原PDF实际视觉；T4逐阈值、F全部分布修订时间线与T6分母、AppD盲人审完整核对。原文无本文公开执行器链接，检索/机构发布页未定位制品，源码不宣称已读。核心三遍及五书面完成，未训练/生成/OCR/judge或独立复现。"
+    },
+    {
+      "id": "L055",
+      "checked_on": "2026-10-25",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "固定隐式自然语言query下，逐帧只看历史和当前、禁止改写先前预测，输出当前符合语义条件对象的mask；事件发生后才能确认目标，目标身份可随时间切换/消失再出现。此处causality指信息可见性约束，不是干预因果识别。 离线全视频可用未来事件回溯指认过去目标，固定referent的mask不能测事件驱动切换。ORVOSB增加逐帧语义有效区间和shiftlist；模型短窗口可能忘记早期证据，需要更新prompt/记忆。不过此前CoT-RVS已公开online扩展，本文“既有方法全offline/首个online”范围需收窄，新增shift标注与量化协议较具体。",
+          "evidence": "19页4图3表11式+Algo1完整；实算集合基数/增量丢弃冲突、空仓库发布状态、先前CoT-RVSonline、全部分项/消融及split边界。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "Eq1 Mt=fθ(V≤t,q)，固定q、binarymask，未来frame不可见、旧预测不修订。Eq2–3 instruction/query/current+Khistory visual/TR tokens进MLLM，固定placeholder位置读当前gt和历史st−i；Eq4 cosine→softmax α，Eq5 gtilde=gt+λΣαst−i。Eq6 B定义全部历史gtilde，Eq7抽H，Algo1用u=k/(Nmax−1)、φ=1−(1−u)²、tk=floor(φ(n−1))+1入集合。Eq8拼learnedQ与H+sinpos进Agg取前Lquery，t1只有Q；Eq9再向B并入当前。Eq10MLP投影gtilde后与当前SAM视觉特征maskdecode。Eq11 tokenCE+2BCE+.5Dice。短窗口历史SEG在本轮输入内计算，不宜描述成仅复用上轮seg缓存。 Chat-UniVi-7B-v1.5冻结本体+LoRA r8；SAM2 maskdecoder、promptMLP、tokenreservoir可训练。K4过去帧加当前，L32learnedqueries，经2层8头Transformer，最多抽32historytoken；视觉token化细节/分辨率、完整prompt、tokenGT、跨步梯度detach/截断未充分披露。亲和历史融合无显式事件状态机或规范规则证明。binarymask例含movingvehicles复数，但多目标并集/空目标详细评分约定未给。",
+          "evidence": "19页4图3表11式+Algo1完整；实算集合基数/增量丢弃冲突、空仓库发布状态、先前CoT-RVSonline、全部分项/消融及split边界。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "ORVOS任务和ORVOSB512query/210video/12907frames、五种推理类别、frame-level语义边界；CUSP每帧<TGT>与历史<SEG>亲和融合，TR查询聚合长期token，近期密集/久远稀疏采样；三张表对在线/离线与组件比较。构建分割/理解系统，不做视频或轨迹生成。 目标语义随新观测改变、旧证据有用时，逐帧更新语义prompt配合历史摘要可能比固定keyframe后仅传播mask更适合动态grounding；T2较大收益来自亲和prompt/TR，精细D2S增益较小。对手写可借鉴只看prefix的事件判定与状态切换标注，仍须接触/笔画边界和规范规则，不应由maskJ&F推断规范笔顺理解。",
+          "evidence": "19页4图3表11式+Algo1完整；实算集合基数/增量丢弃冲突、空仓库发布状态、先前CoT-RVSonline、全部分项/消融及split边界。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1ORVOSB J&F% VISA33.3/VRS-HQ43.4/GLUS45.2/LISA46.6/VideoLISA50.3/READ51.5/Ours61.3（J58.3/F64.2），对READ+9.8pp。五类Ours63.8/64.9/52.4/40/62 vsREAD56.2/52.4/50.7/38.6/48.9，交互仍40且优势仅1.4pp，强交互事件远未解决。T3ReVOSoverall LISA40.9/Track43.6/VISA46.9/GLUS54.8/VRS59.1/Ours54.3；本文referring57.8、reasoning50.8，不能称全benchmarkSOTA。F4选定movingvehicles切换与panda爬seesaw样例显示mask修正，少量定性成功图不证明所有切换稳定。全部3表原单元保存。 T2 ReVOS/ORVOSB J&F：baseline52/52.4；CUSPwithoutAGAF53/55.1；CUSP53.7/58.1；+TRuniform54.1/60.9；+TRD2S54.3/61.3。原文§5.3把无AGAF数字称CUSP，采用表内明确定义；D2S相对uniform仅+.2/+.4pp，未有误差条/多seed，不能据此夸大精细采样贡献。数学审（非模型复现）：Algo1Nmax32按集合语义，n33只有25唯一indices、n64有29、n342有32，因此Eq7固定N32与伪代码去重不一致；若允许重复则是32项但非32独立历史。n34会请求5/7/14/17/21，而n33保留集合无这些旧位置；严格丢弃其余旧token无法原样重采样。B若按Eq6/9保留全历史，可实现抽样但总存储随T增；若真bounded需增量替代或另有archive，原文未说明、空仓库无法核实。 AdamWlr3e−4，9000iterations，8×RTX4090，perGPUb1×gradacc16=effective128，LoRA8、λfusion.1、K4、queries/history32、Agg2layer8head。训练时间、seed、全部分辨率和推理prompt/超参未给。检索入口指向KN1GHT9/ORVOSB，GitHub原页明确empty、API size0/licenseNull，尚无README/作者关联/数据/训练推理代码可审；不因第三方代码标签就当已发布。静态数学核算Algo1，不运行MLLM/SAM/OCR/训练/APIjudge。",
+          "evidence": "19页4图3表11式+Algo1完整；实算集合基数/增量丢弃冲突、空仓库发布状态、先前CoT-RVSonline、全部分项/消融及split边界。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "核心任务定义有价值，但strictprefix不等于已用代码证明无未来泄漏；训练/benchmark原视频身份交集、标注一致性和空目标规则待数据。有限最多342帧、无延迟/显存曲线，不足支持无界流固定总内存；Eq6/9全存储与Algo1全历史索引不自然等价于boundedmemory，去重也破坏N32声明。T1在线适配细节、同预算/数据、公平CoT-RVS对照不足。平均J&F未区分mask几何、语义切换、状态持久或事件因果，交互40%仍低；仅有成功选图，缺逐型失败/长遮挡/概念消失数值。当前候选仓库为空，不能声称已独立确认实际实现。 Q1boundedmemory/causality是否成立：公开可复现增量保留算法，明确去重/重复与全量archive，画随T的总CPU/GPU存储/延迟；同prefix截断、futureframe置换保证当前预测不变，逐视频id剔训练交集，eventboundary分层报告switchdelay/早判/重激活/空mask和J&F。Q2笔顺迁移：同字最终轮廓、不同合法/非法落笔事件视频，prefix逐刻判当前笔画身份和规范状态，配静态帧/打乱帧/无历史/CoT-RVS同预算，按writer/字/遮挡留出；区分历史知觉、顺序规则和mask几何。仅方案，未模型执行。",
+          "evidence": "19页4图3表11式+Algo1完整；实算集合基数/增量丢弃冲突、空仓库发布状态、先前CoT-RVSonline、全部分项/消融及split边界。"
+        }
+      ],
+      "boundary": "v1全19页§1–6及参考清单，Eq1–11、Algorithm1逐行、T1–3全部单元、F1–4原PDF实际视觉（数据与定性页放大核）；无附录。GitHub候选仓库原页/API核为空，无可读实现/数据。对Algo1做确定性索引核算，核心三遍及五书面完成；未执行学习模型/视频分割/OCR/judge，未独立复现。"
     }
   ]
 }
