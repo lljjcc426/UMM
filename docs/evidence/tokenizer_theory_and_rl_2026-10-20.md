@@ -228,3 +228,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百八十七批（2026-10-25）：无新tokenizer或训练loss；参考生成/模型草拟rubric与同源judge需校准，不能将单模型人评直接升级为通用RLreward证据。见[审查](ueval_full_rubric_aggregation_and_release_protocol_audit_2026-10-25.md)、[U22](../reviews/U22.md)。
+
+
+第一百八十八批（2026-10-25）：SCO无训练loss/tokenizer/RL，投影是测试时采样控制；四分支同latent，planner与promptrewrite质量为前提，不能当语义因果分解保证。见[审查](sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[U23](../reviews/U23.md)。

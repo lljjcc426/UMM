@@ -673,3 +673,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百八十七批（2026-10-25）：分层盲审标准必要性及合法多解、裁判混淆矩阵/排名；trace对等长事实/caption/wrongtrace并计planner与全部失败预算。见[审查](../evidence/ueval_full_rubric_aggregation_and_release_protocol_audit_2026-10-25.md)、[U22](../reviews/U22.md)。
+
+
+第一百八十八批（2026-10-25）：同NFE/延迟比较joint/顺序/线性四分支，记录μ/G/slack并锁rewrite；视频测接触/穿透/目标到达，书写测细笔/prefix/合法笔序。见[审查](../evidence/sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[U23](../reviews/U23.md)。

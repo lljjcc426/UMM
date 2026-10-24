@@ -644,3 +644,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百八十七批（2026-10-25）：官方生成入口旧dataset与task_type域过滤和输出字段需显式适配；Gemini至多100attempt图文同时成功才保留，非按评分择优。见[审查](../evidence/ueval_full_rubric_aggregation_and_release_protocol_audit_2026-10-25.md)、[U22](../reviews/U22.md)。
+
+
+第一百八十八批（2026-10-25）：论文无SCO官方repo链接，GitHub组合检索0/HFpaper404；2H100明确但总NFE/walltime和planner/rewriteAPI成本未披。见[审查](../evidence/sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[U23](../reviews/U23.md)。

@@ -647,3 +647,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百八十七批（2026-10-25）：八任务图文静态回答/视觉教程，无笔轨迹或连续视频；四模型双调用图文与nativejoint的上下文/预算不同。见[审查](ueval_full_rubric_aggregation_and_release_protocol_audit_2026-10-25.md)、[U22](../reviews/U22.md)。
+
+
+第一百八十八批（2026-10-25）：冻结采样器四条件差分与二维修正；视频依赖GPTplanner/事件分帧，LanguageTable仅附录定性，不并入主表量化。见[审查](sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[U23](../reviews/U23.md)。

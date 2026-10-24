@@ -736,3 +736,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百八十七批（2026-10-25）：UEval完整PDF22页5表14图与AppA–D；HTML仅标题，官方repo固定3a5b5e与HF1000条元数据核10417标准/4605参考图指针。见[审查](ueval_full_rubric_aggregation_and_release_protocol_audit_2026-10-25.md)、[U22](../reviews/U22.md)。
+
+
+第一百八十八批（2026-10-25）：SCO完整v1HTML/5表10原始图18式；PDF下载未完整，有限官方实现检索未定位，未冒称本地PDF全文或源码全审。见[审查](sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[U23](../reviews/U23.md)。

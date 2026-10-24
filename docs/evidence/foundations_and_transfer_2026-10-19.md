@@ -480,3 +480,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百八十七批（2026-10-25）：评分需拆criterion、questionmacro、taskmacro和modalitymean，756题两侧标准数不等；纸面分母与代码仅输出两模态questionmean需对齐。见[审查](ueval_full_rubric_aggregation_and_release_protocol_audit_2026-10-25.md)、[U22](../reviews/U22.md)。
+
+
+第一百八十八批（2026-10-25）：Eq13对应boxdual .5μᵀGμ−dᵀμ；框内对偶允许残差，与硬半空间再加系数上限需区分。输出尺度/方向范数影响阈值迁移。见[审查](sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[U23](../reviews/U23.md)。

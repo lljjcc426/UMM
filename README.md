@@ -557,3 +557,6 @@ python scripts/validate_catalog.py
 
 
 第一百八十七批（2026-10-25）：U22完成22页5表14图、固定官方评估/生成入口及1000条元数据核查；区分标准与题/任务/模态汇总，记录单模型人评/裁判与单例trace的证据边界。358目录，292核心/297书面；待完成核心深审39篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/ueval_full_rubric_aggregation_and_release_protocol_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_eighty_seventh_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第一百八十八批（2026-10-25）：U23完成完整HTML正文/附录、5表10图18式；核二维框对偶与软硬约束、四分支成本、rewrite/视频物理残余失败及完整反例。358目录，293核心/298书面；待完成核心深审38篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_eighty_eighth_changes_2026-10-25.md)。无删除或模型执行。
