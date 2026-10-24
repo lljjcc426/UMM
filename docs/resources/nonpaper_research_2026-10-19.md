@@ -599,3 +599,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百六十一批（2026-10-24）：固定MMIG GH/HF版本与zip索引；官网正确数据入口与GH旧MMGen README链接分开记录，发布宣传不作制品存在证据。见[审查](../evidence/mmig_ams_estimand_and_public_release_audit_2026-10-24.md)、[L149](../reviews/L149.md)。
+
+
+第一百六十二批（2026-10-24）：MMIG正式主表覆盖与公开项目页/代码README不一致，应逐版本核。新增模型表值没有对应公开方面QA/评分制品。见[审查](../evidence/mmig_formal_version_delta_2026-10-24.md)、[L149](../reviews/L149.md)。

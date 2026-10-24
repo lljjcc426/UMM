@@ -658,3 +658,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百六十一批（2026-10-24）：MMIG按arXiv v2§1–6/AppA.1–A.8、4表/Eq1/F1–16及公开zip索引核读；正式PDF截断，版本同步保留未决。见[审查](mmig_ams_estimand_and_public_release_audit_2026-10-24.md)、[L149](../reviews/L149.md)。
+
+
+第一百六十二批（2026-10-24）：MMIG正式38页已完整取得并完成全部研究核心、T1–4/Eq1/AppA核读；p7/24/25实际图核，替代第161批的正式制品待取得状态。见[审查](mmig_formal_version_delta_2026-10-24.md)、[L149](../reviews/L149.md)。
