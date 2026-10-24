@@ -7694,25 +7694,27 @@
     "id": "U27",
     "category": "U UMM基础与协同补全",
     "title": "UniModel: A Visual-Only Framework for Unified Multimodal Understanding and Generation",
-    "version": "UniModel: A Visual-Only Framework for Unified Multimodal Understanding and Generation；arXiv2511.16917v1；未核实正式接收",
+    "version": "UniModel: A Visual-Only Framework for Unified Multimodal Understanding and Generation，arXiv2511.16917v1，2025-11-21，13页PDF/HTML；按Preprint记录，未找到官方主会/期刊接收凭据。",
     "source_urls": [
       "https://arxiv.org/abs/2511.16917",
-      "https://arxiv.org/pdf/2511.16917v1"
+      "https://arxiv.org/pdf/2511.16917v1",
+      "https://arxiv.org/abs/2511.16917v1",
+      "https://arxiv.org/html/2511.16917v1"
     ],
     "previous_evidence": null,
     "claim": "研究目标：将文本也画成图后，能否用同一视觉扩散框架实现双向图文任务？",
-    "method": "将caption渲染为固定画布，以共享视觉encoder/VAE和单个MMDiT做RGB↔文字图的双向rectifiedflow。 继承QwenImage式MMDiT/AdaLN，共享视觉encoder接条件、预训练VAE编码目标，另两个可学习任务embedding指明方向。均匀随机交换配对方向，FM目标预测z1−z0；仍有encoder和VAE。",
-    "problem": "将文本也画成图后，能否用同一视觉扩散框架实现双向图文任务？",
-    "conclusion": "论文展示可读caption和语义相关图、图→caption图→图循环；结果只能支持所展示样例可行，无法推出普遍准确或强于token模型。",
-    "gap": "caption长度/字体分辨率导致瓶颈；文字拼写与数学/长文能力未量化。统一输入形式不保证模态gap被消除；同VAE也不保证相同语义几何。",
+    "method": "将caption/prompt渲染为512²文字图，图像与文字图用共享视觉encoder/VAE和一个MMDiT双向条件生成；以两个任务embedding指明方向、同一rectified-flow损失训练。展示两个方向及image→文字图→image循环，属于接口/任务统一的可行性探索，无数值受控结果支持强度或效率优越。 继承Qwen-Image使用的MMDiT block/attention/AdaLN设计；明确有共享视觉encoder和预训练VAE、在latent做flow。文中摘要/多处“pixel space/directly pixels”指统一RGB接口，不能当成取消VAE的原始像素扩散；未给具体encoder/VAE型号或checkpoint，继承block设计也不等完整Qwen-Image训练recipe已披露。两个任务embedding连接条件特征，未详细给token布局、attention mask、参数量/层数或哪些模块冻结。F2只画统一黑箱/token，不足重建全部实现；左侧实际为文字图条件→自然图，却标(a)Image-to-text，右侧反向标(b)Text-to-image，与§3.2/图注方向冲突，依文字流程记录并指出图中标签倒置。F1流程方向与文字一致。",
+    "problem": "把文本也渲染为RGB后，能否只用一种视觉输入/输出接口和一个双向diffusion模型实现图像caption与文字条件图像生成？本文实验聚焦image↔painted-caption；VQA等为任务可表达的举例，未见独立VQA测试集或成绩。",
+    "conclusion": "F3十组自然图与文字图语义大体对应，含风景、建筑、道路/铁路和室内；无任意字体/布局扰动的成组对照，§4.2所称字体/格式robust未量化。F4十组文字图较可读，但可见误拼词和局部字形失真，含道路说明、建筑、风景/人物等；没有GT逐字符匹配，不能称均准确。F5五组循环第一行保留长卷发/浅上衣等大意，脸部身份/胡须等明显改变；花/湖/道路/树叶行也只保大类语义，视角/几何/布局变化，末行文字后段有明显字形错误。F6作者框出文字错误，明确承认incorrect characters/misspelled words。结果支持这些示例的双向可行性；不支持相同instance精确重建、所有模态gap消除、competitive ranking或长文本可靠。",
+    "gap": "共享RGB维数、同VAE和同loss形式并不推出语义分布相等、梯度冲突消失或双向互逆。I→caption本身丢失身份/纹理/精确布局，即使文字完全正确也无法唯一确定原图；在固定参数且重建只读caption时，生成无法从未保留的instance信息恢复它，F5与此相容。这是本仓库对条件信息瓶颈的解释，论文未给该信息论证明。文字截断丢prompt约束、VAE文字细线/字形保真与输出拼写错误，限制长文本/细粒度任务；没有汉字/手写/多语或实际时序实验。标题/摘要“fully/strong”及结论general-purpose范围超过示例能验收的部分；缺recipe/数据/量化构成复现与结论范围缺口，不能把未知数补成负成绩。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-25",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "§3.1–3.3、§4.1–4.5指定方法和实验/限制；未逐图核全部样例，未审代码或获得缺失训练配置，未复现",
-    "last_updated": "2026-10-20",
+    "sections_read": "完整2511.16917v1 PDF13页/HTML正文§1–5含§4.1–4.5，参考追引PIXEL/CLIPPO/UNIT/GlyphDiffusion/DeepSeekOCR/QwenImage/DiT/RF/LDM/GlyphControl等；无附录、无表或算法/定理框。三条未编号数学展示式、F1–6全部视觉（F3十组、F4十组、F5五组、F6一失败）；独立核F2方向标签冲突和F5语义/身份边界。精确标题/作者/制品检索未定位确认官方repo。核心三遍及五项书面记录完成；主表/消融缺失明确为无可验收实验，未伪造其结果，未独立模型复现。",
+    "last_updated": "2026-10-25",
     "canonical_key": "paper:arxiv:2511.16917",
     "evidence_history": [
       {
@@ -7743,16 +7745,22 @@
         "conclusion": "视觉原生统一是可探索的模型范式。",
         "gap": "【边界/推断】绘制文字能被识别不保证笔顺；不存在标准token不等于没有信息瓶颈。",
         "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      },
+      {
+        "checked_on": "2026-10-25",
+        "batch": "one_hundred_ninety_first",
+        "sections_read": "完整2511.16917v1 PDF13页/HTML正文§1–5含§4.1–4.5，参考追引PIXEL/CLIPPO/UNIT/GlyphDiffusion/DeepSeekOCR/QwenImage/DiT/RF/LDM/GlyphControl等；无附录、无表或算法/定理框。三条未编号数学展示式、F1–6全部视觉（F3十组、F4十组、F5五组、F6一失败）；独立核F2方向标签冲突和F5语义/身份边界。精确标题/作者/制品检索未定位确认官方repo。核心三遍及五项书面记录完成；主表/消融缺失明确为无可验收实验，未伪造其结果，未独立模型复现。",
+        "verification": "primary_sections_read"
       }
     ],
     "review_path": "docs/reviews/U27.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "配对图/caption转换文字图；已读Implementation没有足够明确的数据名/规模/切分和完整训练recipe，不能用别的Qwen数据集补填。",
-    "framework": "将caption渲染为固定画布，以共享视觉encoder/VAE和单个MMDiT做RGB↔文字图的双向rectifiedflow。",
-    "architecture": "继承QwenImage式MMDiT/AdaLN，共享视觉encoder接条件、预训练VAE编码目标，另两个可学习任务embedding指明方向。均匀随机交换配对方向，FM目标预测z1−z0；仍有encoder和VAE。",
-    "metrics": "§4.2明确只给定性展示、未做标准T2I量化比较；没有可引用的FID/OCR/VQA主分数。",
-    "baselines": "无受控数值基线。文字接口不同使直接比较需要适配，但可以设计相同图文内容的OCR/语义/画布预算评测，缺定量仍是限制。",
-    "experimental_conditions": "512²固定字体/行距、等概率两方向；训练GPU、batch、步数、lr、参数冻结与具体encoder型号未在已读实现段说明。可学习任务embedding并不代表所有语义均由像素重学。"
+    "dataset": "全文未明确训练数据集名、配对数、采集/许可、caption来源、train/val/test切分或去重；只有图/caption转换成文字图的构造与等概率双向训练。固定512²画布/字体/行距，具体font name/size/行宽和截断比例缺失。F3–5选例多旅游风景/建筑、少量室内/人物，不能用少量画廊估计真实训练分布，也不能把Qwen-Image原报告的数据当本文已用数据。",
+    "framework": "将caption/prompt渲染为512²文字图，图像与文字图用共享视觉encoder/VAE和一个MMDiT双向条件生成；以两个任务embedding指明方向、同一rectified-flow损失训练。展示两个方向及image→文字图→image循环，属于接口/任务统一的可行性探索，无数值受控结果支持强度或效率优越。",
+    "architecture": "继承Qwen-Image使用的MMDiT block/attention/AdaLN设计；明确有共享视觉encoder和预训练VAE、在latent做flow。文中摘要/多处“pixel space/directly pixels”指统一RGB接口，不能当成取消VAE的原始像素扩散；未给具体encoder/VAE型号或checkpoint，继承block设计也不等完整Qwen-Image训练recipe已披露。两个任务embedding连接条件特征，未详细给token布局、attention mask、参数量/层数或哪些模块冻结。F2只画统一黑箱/token，不足重建全部实现；左侧实际为文字图条件→自然图，却标(a)Image-to-text，右侧反向标(b)Text-to-image，与§3.2/图注方向冲突，依文字流程记录并指出图中标签倒置。F1流程方向与文字一致。",
+    "metrics": "无定量表、无FID/GenEval/OCR CER/WER/caption指标/VQA accuracy/人评协议、无抽样分母/误差条。Fig3十组T2I、Fig4十组图→文字图、Fig5五组循环、Fig6一个失败例；这些是论文选例计数，不能当随机测试集或成功率。Fig1概览与Fig2黑箱框架另计。本文未测推理语言能力、多语/长文、文字图真伪识别或笔顺；可读性/语义大致相关与逐字符/instance一致性分开。",
+    "baselines": "没有定量或同seed受控基线。§4.2称其他模型不能接受视觉化文本，故难直接同接口比较；该理由限制原生接口匹配，不阻止按同一caption内容比较token模型，或固定backbone做文字token/文字图适配对照。字体/画布/参数/预训练与OCR成本均应纳入比较，不因接口不同豁免量化。",
+    "experimental_conditions": "实现段§4.1只有继承MMDiT/AdaLN，全文无batch、GPU/训练时长、steps/lr/optimizer、precision、初始化checkpoint、是否冻结、CFG/采样器/NFE/随机seed、选例采样规则。已知文字图512²与双方向各50%，不可补写未知配置。全文/摘要无作者发布代码、模型/数据链接；本次精确标题与作者检索未定位可确认官方制品，有限检索不能证明永远未开源，未以聚合站的缺项代替作者声明。未模型推理/训练/OCR/API或独立结果复现。"
   },
   {
     "id": "U28",

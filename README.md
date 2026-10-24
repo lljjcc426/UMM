@@ -566,3 +566,6 @@ python scripts/validate_catalog.py
 
 
 第一百九十批（2026-10-25）：U26完整35页、23表5图10式与五阶段训练；核文字计数指标的顺序盲区、外部PE和UniMMMU下降，固定公开训练范围/最终HF配置。358目录，295核心/300书面；待完成核心深审36篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_ninetieth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第一百九十一批（2026-10-25）：U27完整13页6图及三式，核latent扩散/共享视觉encoder、F2标签倒置与F5身份变化；无量化主表/消融/完整recipe，Claim限双向示例可行性。358目录，296核心/301书面；待完成核心深审35篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_ninety_first_changes_2026-10-25.md)。无删除或模型执行。

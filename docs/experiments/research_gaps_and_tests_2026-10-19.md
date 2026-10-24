@@ -682,3 +682,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百九十批（2026-10-25）：固定数据/分辨率/预算拆空间头与NSEmb，按域对照OPD及同U1.5无图条件；PE计外部LLM/搜索/长度成本，书写另测细线/区域绑定/增墨和笔序。见[审查](../evidence/sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[U26](../reviews/U26.md)。
+
+
+第一百九十一批（2026-10-25）：同内容/预算比较token和文字图、单双向/embedding消融；GT/修正/打乱文字图循环，分语义/identity/geometry与OCR，扫字体长文汉字。见[审查](../evidence/unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。

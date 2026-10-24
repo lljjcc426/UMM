@@ -656,3 +656,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百九十批（2026-10-25）：U1.5生成编辑广泛改善但多理解分项下降、UniMMMU35→29.6；RealUnify47.5→56.3，缺同U1.5禁用图生成对照，不能泛化全部GaU收益。见[审查](sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[U26](../reviews/U26.md)。
+
+
+第一百九十一批（2026-10-25）：文字也渲染为512²图，统一双向RGB接口；RF实际在VAE latent，不能误写encoder/VAE-free，只有caption/T2I画廊。见[审查](unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。

@@ -1,0 +1,57 @@
+{
+  "id": "U27",
+  "checked_on": "2026-10-25",
+  "arxiv_version": "2511.16917v1",
+  "full_pdf_pages": 13,
+  "core_three_pass_completed": true,
+  "figures_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "tables_present": 0,
+  "appendix_present": false,
+  "math_displays": [
+    "latent linear path",
+    "target velocity",
+    "conditional flow MSE"
+  ],
+  "quantitative_benchmark_scores_reported": false,
+  "component_ablation_reported": false,
+  "model_parameter_count_reported": false,
+  "training_dataset_name_size_split_reported": false,
+  "complete_training_recipe_reported": false,
+  "raw_pixel_diffusion": false,
+  "shared_visual_encoder": true,
+  "pretrained_VAE": true,
+  "text_canvas": [
+    512,
+    512,
+    3
+  ],
+  "long_text_truncated": true,
+  "bidirectional_task_probability": [
+    0.5,
+    0.5
+  ],
+  "explicit_cycle_loss": false,
+  "figure_2_label_issue": "left text-conditioned RGB target labeled image-to-text; right RGB-conditioned text target labeled text-to-image; follow section 3.2 and captions",
+  "gallery_counts": {
+    "T2I_figure3": 10,
+    "I2T_figure4": 10,
+    "cycle_figure5": 5,
+    "failure_figure6": 1
+  },
+  "gallery_count_note": "selected examples, not random evaluation denominator",
+  "cycle_scope": "semantic re-synthesis with identity/geometry changes, not lossless inversion",
+  "official_artifact": "no confirmed official repository located in finite exact-title/author and paper-link search",
+  "inference_or_training_run": false,
+  "sources": [
+    "https://arxiv.org/abs/2511.16917v1",
+    "https://arxiv.org/html/2511.16917v1",
+    "https://arxiv.org/pdf/2511.16917v1"
+  ]
+}

@@ -653,3 +653,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百九十批（2026-10-25）：官方公开训练限U1+U1.5Preview生成PT，当前树无完整RL/DPO/MOPD；最终checkpoint/8步LoRA与四专家蒸馏区分。PE为额外API planner，未执行。见[审查](../evidence/sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[U26](../reviews/U26.md)。
+
+
+第一百九十一批（2026-10-25）：论文未提供官方制品链接，当前有限检索未定位确认repo，未知完整recipe保持未知；未补入QwenImage的训练/数据参数。见[审查](../evidence/unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。

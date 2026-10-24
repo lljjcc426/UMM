@@ -745,3 +745,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百九十批（2026-10-25）：U26完整v1正文/23表5图10式，固定repo735tree603blob选27文件并重点审评分/解码/配置/PE；HF最终与LoRA版本及config，无模型调用。见[审查](sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[U26](../reviews/U26.md)。
+
+
+第一百九十一批（2026-10-25）：UniModel完整13页/6图/三式，无附录和数值表；精确检索未定位确认官方代码/权重，不以聚合站缺项证明未开源。见[审查](unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。

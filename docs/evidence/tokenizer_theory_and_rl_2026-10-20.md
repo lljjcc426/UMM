@@ -237,3 +237,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百九十批（2026-10-25）：Encoder/VAE-free仍有学习patch投影和空间ConvDecoder；42层8.2B双分支，最终config确认pixel head/noise embedding/max16，8B不等全参数总量。见[审查](sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[U26](../reviews/U26.md)。
+
+
+第一百九十一批（2026-10-25）：z(t)=(1−t)z0+t z1、target z1−z0符号一致；两taskembedding/等概率双向，同一MSE仍有任务梯度/尺度差异，无实测冲突消除。见[审查](unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。

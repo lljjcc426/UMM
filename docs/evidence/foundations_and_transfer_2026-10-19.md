@@ -489,3 +489,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百九十批（2026-10-25）：Flow的x-prediction速度MSE=(1−t)^−2端点MSE；MOPD同student stop-gradient状态查询域teacher，无整轨迹反传或无损能力聚合保证。见[审查](sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[U26](../reviews/U26.md)。
+
+
+第一百九十一批（2026-10-25）：相同RGB/VAE不保证语义分布同一或条件双向互逆；caption丢instance信息，F5脸部/场景变化与语义瓶颈相容。见[审查](unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。

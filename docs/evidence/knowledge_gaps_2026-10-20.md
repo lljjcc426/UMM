@@ -697,3 +697,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百九十批（2026-10-25）：CVTG按GT词加权且重复词可复用匹配；LongText Counter交集召回，忽略顺序与多写；RL Jaccard也忽略排列，不能当序列/笔顺准确率。见[审查](sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[U26](../reviews/U26.md)。
+
+
+第一百九十一批（2026-10-25）：无FID/OCR/VQA分数、消融和完整训练配置；F2输入输出方向与标签倒置，F6文字错误明确，循环串联不等cycleloss或无损重建。见[审查](unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。
