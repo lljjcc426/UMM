@@ -710,3 +710,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百零九批（2026-10-25）：HF数据JSON45717+46539=92256，旧92K分项疑问更新；只有路径/分辨率无来源标签，tar/权重未取。数据卡Apache2/modelcard MIT并指缺失LICENSE，不混同来源权利。见[审查](../evidence/sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。
+
+
+第二百一十批（2026-10-25）：HFadapter config与18057/19chunks记录可核；底座卡确认Muharaf但Kitab/IAM仍不完全对齐；未取权重/隐藏GT。见[审查](../evidence/ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[S001](../reviews/S001.md)。

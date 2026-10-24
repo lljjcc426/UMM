@@ -754,3 +754,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百零九批（2026-10-25）：论文128batch与README算得64不同；脚本末未train(args)，配置路径复数拼写不符；来源占比和teacher快照未给。见[审查](sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。
+
+
+第二百一十批（2026-10-25）：weight_configs明确CODABENCH_CER取blind提交；18/21/29实际同权，测试选配置与AppD验证超参分阶段保留。见[审查](ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[S001](../reviews/S001.md)。

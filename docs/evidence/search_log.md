@@ -802,3 +802,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百零九批（2026-10-25）：v1全19页8图5表AppA–E，GitHub固定19ac7d7及HF数据/模型固定版本；只读源码/清单无模型执行。见[审查](sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。
+
+
+第二百一十批（2026-10-25）：正式11页§1–7/AppA–H全核，4图10表5式；固定repo/HF与底座卡来源补查。见[审查](ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[S001](../reviews/S001.md)。

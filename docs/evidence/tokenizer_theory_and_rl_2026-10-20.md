@@ -294,3 +294,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百零九批（2026-10-25）：目标图AR CE/继承双编码；代码10%全promptdrop与50%整源VQblockdrop，CFG三条件，无RL实验。见[审查](sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。
+
+
+第二百一十批（2026-10-25）：NF4+LoRA/DoRA/RSLoRA同时改变，rank最优缺数值消融；底座卡DynamicEquilibriumTheorem无本次可核正式证明。见[审查](ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[S001](../reviews/S001.md)。

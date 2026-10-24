@@ -752,3 +752,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第二百零九批（2026-10-25）：L174 v1全19页补齐，公开两JSON精确92256条；核真实图来源矛盾、整块mask、batch口径与训练入口缺调用。358目录，314核心/319书面；待完成核心深审17篇论文／研究；27项资源按制品协议另审。见[审查](sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[逐文件说明](two_hundred_ninth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百一十批（2026-10-25）：S001正式11页完整；公开源码确认CodaBench提交分数定权与30命名配置重复，补同底座适配收益/排行榜聚合/伪GT限制。358目录，315核心/320书面；待完成核心深审16篇论文／研究；27项资源按制品协议另审。见[审查](ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[逐文件说明](two_hundred_tenth_changes_2026-10-25.md)。无删除或模型执行。

@@ -546,3 +546,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百零九批（2026-10-25）：MotionChange静态单图编辑和storyboard类别不证明视频或规范笔顺；图码输入可控保真需事件监督另验。见[审查](sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。
+
+
+第二百一十批（2026-10-25）：识别适配缺动态书写监督，不能当规范笔顺奖励；ensemble只选择已有候选，不能保证同向错误修复。见[审查](ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[S001](../reviews/S001.md)。

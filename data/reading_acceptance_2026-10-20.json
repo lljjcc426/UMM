@@ -10927,6 +10927,40 @@
         }
       ],
       "boundary": "arXiv2506.18095v1全部19页§1–5、references清单及关键引文、AppA–E全部，包括C1–3完整meta prompts/D全文/E未偏差过滤；F1–8实际视觉/T1–5逐表、所有无编号CE/CFG/混合/指数公式；7张contact全看F5p7原页放大。固定repo19ac7d7 README全文/全部3研究代码文件train449行+config28行+demo356行，modelcard正文对照；HF固定两JSON全量结构/条目数量解析，metadata/cards读取，未视觉审查92256图或取20图tar/模型权重，raw config为LFS pointer未冒称完整配置读过。未运行推理/teacherAPI/训练；核心三遍/五书面完成。"
+    },
+    {
+      "id": "S001",
+      "checked_on": "2026-10-25",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "在低显存与有限标注下，如何把已有Arabic-English HRT视觉语言识别模型适配1951–1965 Al-Saleh历史Ruqah/Naskh手稿行，同时保持字形、正字和附标转录？ 历史连笔/变体/褪色/噪声与现代文字预训练分布有差，通用VLM易现代化改写或循环。作者选择专业预训HRT底座再PEFT；同底座对照支持适配收益，但无单独证明每个模块或更强泛化/抗噪机制。",
+          "evidence": "正式11页4图10表5式AppA–H全核；CODABENCH_CER源与30配置重复权重、PseudoGT自参照、同底座56.5%适配收益与86%跨基线分开。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "已切行RGB稿图→Unicode文字，保正字/附标；生成式decoder用于识别转录。无图生成、规范笔顺、笔尖时序或视频接口，若作手写生成评判器须独立验域外字形/时序偏差。 sherif1313/Arabic-English-handwritten-OCR-v3源自Qwen2.5VL3B，论文含视觉总约4.07B；冻结NF4 base，attentionq/k/v/o+MLPgate/up/down加r32α64/drop.05，DoRA/RSLoRA均开。Eq1 Wprime=W+BA省略缩放/DoRA范数细节，不能据此当完整实现。输入prompt标签mask为−100，assistant转录CE。图1额外写CLIP/SigLIP视觉初始化但未给具体checkpoint，不据图自行更换底座定义。融合Eq2/5 wi=norm(1−CER+.5I(CER<.15))。",
+          "evidence": "正式11页4图10表5式AppA–H全核；CODABENCH_CER源与30配置重复权重、PseudoGT自参照、同底座56.5%适配收益与86%跨基线分开。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "专用预训HRT上的NF4 QLoRA+DoRA/RSLoRA适配，六模型Linear+Boost/规范化分组/3gram/共识选择。正式OCR领域系统论文；低秩与量化是既有方法，线性加阈值boost为启发式融合，未给普适最优/原创性证明。 存在相关专业HRT预训练、目标稿域偏移且显存受限时，PEFT可降低转录误差；多模型候选互补且校准独立时文本共识可能再收益。公开融合最终总返回已有某候选原文，规范化只分组，不会一律去附标，也不会凭空拼出新完整转录；错误同向时无法保证修复。",
+          "evidence": "正式11页4图10表5式AppA–H全核；CODABENCH_CER源与30配置重复权重、PseudoGT自参照、同底座56.5%适配收益与86%跨基线分开。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1blind单适配CER.0884/WER.2699→ensemble.0819/.2588，分别相对约7.35%/4.11%；未适配同HRT.2032→.0884相对56.5%(.2032→.0819约59.7%)，不能等同对organizer的约86%。T2官方corpus .0938/.2996 CER第3，Misraj.079/.244第1；T3perline .0819 CER第1但WER.2588>Misraj.2516。T6developmenttest通用Qwen7B.6808/.9198与3B.6213/.8628，README把这两行放BlindCER表，论文明确无对应blind结果，须按论文保留test标签。T4 mergedLoRA.1834/.4644弱于非merged适配.0884，二者优化/合并设置不同，不能解释为LoRA无效。 AppE30命名配置config18 .0819胜inverse .0884/exp .0856/rank .0871；weight_configs.py明确CODABENCH_CER来自blind提交六值.09/.11/.18/.20/.26/.32，已消除旧笔记“权重何split未知”的一部分疑问：不是完全独立dev定权。AppE还按blind选最佳，与AppD validation选超参分阶段记录；未知提交次数与独立终测。30配置并非30独特权重，18/21/29因阈.15/.12/.13均只boost前两项相同，23/28同boost1。rank<16underfit/32最优只定性描述，未给逐rank数值曲线；无DoRA/RSLoRA/量化/全参单变量等预算消融。 RGB长边≤1024/Lanczos后各边向上32倍数，无额外增强/文本规范化；maxseq2048。AdamW fused2e-5/cosine/warm200/wd.01/clip1/b1acc4有效4/1epoch，seed42/eval-save500/NF4doublequant/bf16，配置与adapter元信息一致。公开trainer按eval_loss选best而AppD泛称CERmin超参选择，两阶段须分开。公开infer默认greedy/max512/repetitionpenalty1.1，README例未列此penalty，非全部论文run同设置证明。约8GBvs40GB为作者主张，未实测peak/总时/六模型总成本。",
+          "evidence": "正式11页4图10表5式AppA–H全核；CODABENCH_CER源与30配置重复权重、PseudoGT自参照、同底座56.5%适配收益与86%跨基线分开。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "全部11页4图10表5式/AppA–H完成。F2两短词/F3长行只提供挑选质例；F4绿线近0与总体CER.0819不宜直接等同全库，未给样本选择/原始点/CI。F2/3解释噪声鲁棒/长程能力仍是样例，F4把QARI退化归recurrent/attention饱和没有机制证据。T6/T8同名Qwen/QARI数值/标签大幅差异，T8未注明足够split/预处理口径；CER>1可合法，不因此否定T8。H PseudoGT来自ensemble自身，只证明模型间分歧/循环可见，不能独立证实全部修正或用总体<10%保证每例可靠。T9/10原稿实际视觉看过，阿文乱码抽取未逐字采信；未独立历史正字校勘。 底座卡声称47,842训练样本及商业OCR优57%/DynamicEquilibriumTheorem，但未在本次获得独立测试manifest、正式定理假设/证明；这些不作为Ketaba可验证理论或分布外性能证据。 独立dev定底座/超参/权重，冻结后blind一次；按page/writer/年代隔离，匹配数据/预算做LoRA/DoRA/RSLoRA/NF4/fullfine单因子，比较单模型等成本采样与六模型。报告micro/macro/连接协议、各行长度/噪声分层和正确字形/词界/附标；专家独立转录争议行替代PseudoGT循环证实。对循环/截断给真实GT错误率，图4公布原始点/筛选。若用于video奖励，加入可识别但笔顺错误/缺笔反例。未执行。",
+          "evidence": "正式11页4图10表5式AppA–H全核；CODABENCH_CER源与30配置重复权重、PseudoGT自参照、同底座56.5%适配收益与86%跨基线分开。"
+        }
+      ],
+      "boundary": "ACL正式11页pp160–170全部§1–7/Ethics/致谢/17条references清单及关键引文/AppA–H全含F1–3/H1–2；F1–4全部实际视觉、T1–10逐表含阿文样例页面、Eq1–5逐式；4contact全看并框架/长度图/伪真值页放大。固定repof1aefa8 README全文/YAML/adapter/training_info全文，train_model/preprocess/load/apply及ensemble完整advanced/weight_configs源码；inference指定参数，非全仓审计。固定HF7f55602 card与repo正文对照，底座a404b5b卡元数据/来源/结果/理论主张段审。未取数据/权重、未模型或OCR/训练/外部API执行；核心三遍和五书面完成，非隐藏GT复现或阿文史料校勘。"
     }
   ]
 }

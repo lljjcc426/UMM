@@ -713,3 +713,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百零九批（2026-10-25）：GenEval.76→.80但color下降/DPGattribute下降；ImgEdit本表3.26领先且多类别仍输，不当最新全领域排名。见[审查](sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。
+
+
+第二百一十批（2026-10-25）：同HRT CER.2032→.0884相对56.5%，ensemble.0819；corpus第3/perlineCER第1但WER不第1。见[审查](ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[S001](../reviews/S001.md)。

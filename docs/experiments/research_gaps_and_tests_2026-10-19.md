@@ -739,3 +739,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百零九批（2026-10-25）：拆教师/真实来源与两个视觉输入、mask和sprime，控制预算与统一底座并测理解保留/多人人评。见[审查](../evidence/sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。
+
+
+第二百一十批（2026-10-25）：独立dev冻结定权+blind一次，按page/writer切分/同预算PEFT因子与等成本集成；争议样本专家GT替代自输出伪GT。见[审查](../evidence/ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[S001](../reviews/S001.md)。
