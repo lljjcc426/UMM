@@ -1,0 +1,365 @@
+{
+  "id": "L184",
+  "checked_on": "2026-10-24",
+  "doi": "10.1049/ipr2.13255",
+  "core_three_pass_completed": false,
+  "figures_actually_viewed_this_batch": [
+    2,
+    8
+  ],
+  "figures_still_caption_only": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9
+  ],
+  "table2": [
+    {
+      "backbone": "TransDeepLab",
+      "loss": "BCE",
+      "prior": false,
+      "TSR": 0.711,
+      "FSR": 0.289
+    },
+    {
+      "backbone": "TransDeepLab",
+      "loss": "BCE",
+      "prior": true,
+      "TSR": 0.735,
+      "FSR": 0.268
+    },
+    {
+      "backbone": "TransDeepLab",
+      "loss": "Dice",
+      "prior": false,
+      "TSR": 0.605,
+      "FSR": 0.278
+    },
+    {
+      "backbone": "TransDeepLab",
+      "loss": "Dice",
+      "prior": true,
+      "TSR": 0.682,
+      "FSR": 0.255
+    },
+    {
+      "backbone": "TransDeepLab",
+      "loss": "BDLoss",
+      "prior": false,
+      "TSR": 0.878,
+      "FSR": 0.132
+    },
+    {
+      "backbone": "TransDeepLab",
+      "loss": "BDLoss",
+      "prior": true,
+      "TSR": 0.892,
+      "FSR": 0.125
+    },
+    {
+      "backbone": "U-Net",
+      "loss": "BCE",
+      "prior": false,
+      "TSR": 0.915,
+      "FSR": 0.128
+    },
+    {
+      "backbone": "U-Net",
+      "loss": "BCE",
+      "prior": true,
+      "TSR": 0.938,
+      "FSR": 0.095
+    },
+    {
+      "backbone": "U-Net",
+      "loss": "Dice",
+      "prior": false,
+      "TSR": 0.681,
+      "FSR": 0.217
+    },
+    {
+      "backbone": "U-Net",
+      "loss": "Dice",
+      "prior": true,
+      "TSR": 0.88,
+      "FSR": 0.092
+    },
+    {
+      "backbone": "U-Net",
+      "loss": "BDLoss",
+      "prior": false,
+      "TSR": 0.942,
+      "FSR": 0.058
+    },
+    {
+      "backbone": "U-Net",
+      "loss": "BDLoss",
+      "prior": true,
+      "TSR": 0.955,
+      "FSR": 0.052
+    },
+    {
+      "backbone": "DeepLabv3+",
+      "loss": "BCE",
+      "prior": false,
+      "TSR": 0.928,
+      "FSR": 0.072
+    },
+    {
+      "backbone": "DeepLabv3+",
+      "loss": "BCE",
+      "prior": true,
+      "TSR": 0.952,
+      "FSR": 0.055
+    },
+    {
+      "backbone": "DeepLabv3+",
+      "loss": "Dice",
+      "prior": false,
+      "TSR": null,
+      "FSR": null
+    },
+    {
+      "backbone": "DeepLabv3+",
+      "loss": "Dice",
+      "prior": true,
+      "TSR": 0.755,
+      "FSR": 0.135
+    },
+    {
+      "backbone": "DeepLabv3+",
+      "loss": "BDLoss",
+      "prior": false,
+      "TSR": 0.932,
+      "FSR": 0.062
+    },
+    {
+      "backbone": "DeepLabv3+",
+      "loss": "BDLoss",
+      "prior": true,
+      "TSR": 0.958,
+      "FSR": 0.042
+    },
+    {
+      "backbone": "FCN",
+      "loss": "BCE",
+      "prior": false,
+      "TSR": 0.852,
+      "FSR": 0.135
+    },
+    {
+      "backbone": "FCN",
+      "loss": "BCE",
+      "prior": true,
+      "TSR": 0.912,
+      "FSR": 0.088
+    },
+    {
+      "backbone": "FCN",
+      "loss": "Dice",
+      "prior": false,
+      "TSR": 0.678,
+      "FSR": 0.312
+    },
+    {
+      "backbone": "FCN",
+      "loss": "Dice",
+      "prior": true,
+      "TSR": 0.685,
+      "FSR": 0.215
+    },
+    {
+      "backbone": "FCN",
+      "loss": "BDLoss",
+      "prior": false,
+      "TSR": 0.932,
+      "FSR": 0.061
+    },
+    {
+      "backbone": "FCN",
+      "loss": "BDLoss",
+      "prior": true,
+      "TSR": 0.961,
+      "FSR": 0.045
+    },
+    {
+      "backbone": "OneFormer",
+      "loss": "BCE",
+      "prior": false,
+      "TSR": 0.885,
+      "FSR": 0.108
+    },
+    {
+      "backbone": "OneFormer",
+      "loss": "BCE",
+      "prior": true,
+      "TSR": 0.922,
+      "FSR": 0.078
+    },
+    {
+      "backbone": "OneFormer",
+      "loss": "Dice",
+      "prior": false,
+      "TSR": 0.788,
+      "FSR": 0.202
+    },
+    {
+      "backbone": "OneFormer",
+      "loss": "Dice",
+      "prior": true,
+      "TSR": 0.875,
+      "FSR": 0.118
+    },
+    {
+      "backbone": "OneFormer",
+      "loss": "BDLoss",
+      "prior": false,
+      "TSR": 0.938,
+      "FSR": 0.062
+    },
+    {
+      "backbone": "OneFormer",
+      "loss": "BDLoss",
+      "prior": true,
+      "TSR": 0.965,
+      "FSR": 0.035
+    },
+    {
+      "backbone": "Mask2Former",
+      "loss": "BCE",
+      "prior": false,
+      "TSR": 0.898,
+      "FSR": 0.098
+    },
+    {
+      "backbone": "Mask2Former",
+      "loss": "BCE",
+      "prior": true,
+      "TSR": 0.925,
+      "FSR": 0.075
+    },
+    {
+      "backbone": "Mask2Former",
+      "loss": "Dice",
+      "prior": false,
+      "TSR": 0.742,
+      "FSR": 0.248
+    },
+    {
+      "backbone": "Mask2Former",
+      "loss": "Dice",
+      "prior": true,
+      "TSR": 0.858,
+      "FSR": 0.135
+    },
+    {
+      "backbone": "Mask2Former",
+      "loss": "BDLoss",
+      "prior": false,
+      "TSR": 0.945,
+      "FSR": 0.052
+    },
+    {
+      "backbone": "Mask2Former",
+      "loss": "BDLoss",
+      "prior": true,
+      "TSR": 0.973,
+      "FSR": 0.029
+    },
+    {
+      "backbone": "TransUNet",
+      "loss": "BCE",
+      "prior": false,
+      "TSR": 0.888,
+      "FSR": 0.085
+    },
+    {
+      "backbone": "TransUNet",
+      "loss": "BCE",
+      "prior": true,
+      "TSR": 0.932,
+      "FSR": 0.062
+    },
+    {
+      "backbone": "TransUNet",
+      "loss": "Dice",
+      "prior": false,
+      "TSR": null,
+      "FSR": null
+    },
+    {
+      "backbone": "TransUNet",
+      "loss": "Dice",
+      "prior": true,
+      "TSR": 0.942,
+      "FSR": 0.068
+    },
+    {
+      "backbone": "TransUNet",
+      "loss": "BDLoss",
+      "prior": false,
+      "TSR": 0.935,
+      "FSR": 0.072
+    },
+    {
+      "backbone": "TransUNet",
+      "loss": "BDLoss",
+      "prior": true,
+      "TSR": 0.982,
+      "FSR": 0.018
+    }
+  ],
+  "table4": {
+    "known": {
+      "n": 150,
+      "TSR": 0.962,
+      "FSR": 0.065
+    },
+    "unknown": {
+      "n": 150,
+      "TSR": 0.831,
+      "FSR": 0.14
+    },
+    "all": {
+      "n": 300,
+      "TSR": 0.897,
+      "FSR": 0.103
+    }
+  },
+  "dataset_total_images": 1322,
+  "dataset_summed_strokes": 14766,
+  "release": {
+    "github_sha": "2451eb756ff4adb5a6e00e8b3d5cdd8fd8400621",
+    "tree_entries": 128,
+    "blobs": 122,
+    "python_files": 18,
+    "FCN": {
+      "configurable_classes": true,
+      "example_n_class": 10,
+      "example_in_channels": 3,
+      "prior_feat_unused": true
+    },
+    "UNet": {
+      "configurable_classes": true,
+      "prior_feat_unused": true
+    },
+    "DeepLab": {
+      "constructor_default_classes": 16,
+      "actual_decoder_classes": 6
+    },
+    "full_training_or_evaluation_reproduction": false
+  },
+  "source_urls": [
+    "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/ipr2.13255",
+    "https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/ipr2.13255",
+    "https://airl.csu.edu.cn/news/shufa.html",
+    "https://airl.csu.edu.cn/img/shufa1.jpg",
+    "https://airl.csu.edu.cn/img/shufa2.jpg",
+    "https://github.com/Rvosuke/BCSS/tree/2451eb756ff4adb5a6e00e8b3d5cdd8fd8400621"
+  ],
+  "reading_scope": "此前正式Wiley 15页核心文本Abstract/§1–6、Eq1–8、T1–4数值/图注、§5.3外部300、§5.4错误/§5.5限制与数据可用性已读。本次重新核正式HTML T2全部42行及勾选列、T1/T3/T4，实际查看作者实验室原图F2框架/F8外部结果；并未本次从头重读所有旧全文。其余F1/3/4/5/6/7/9缺实际图版，保留partial。固定GH树128项/122blob/18py；README全文及FCN/DeepLab/UNet模型文件主实现已读，非全仓逐行；缺训练/权重/全部标注与评价匹配实现，未执行模型或独立复现。五项书面更新，核心三遍仍未通过。",
+  "model_execution": false
+}

@@ -649,3 +649,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百七十四批（2026-10-24）：T12比纯文11升7降、T13三项指令皆退；T9对Qwen3一胜九负；脚注GPT4o指chat.chatbot.app，保留服务身份未决，OmniBench内部修正和README/PDF版本差异待齐。见[审查](longcat_flash_omni_stage_tradeoffs_latency_and_service_identity_audit_2026-10-24.md)、[L162](../reviews/L162.md)。
+
+
+第一百七十五批（2026-10-24）：纠正L184此前所有源码固定六类：FCN示例十类、UNet可配，DeepLab内部decoder六类；FCN/UNet的prior_feat未用但不能外推任何外部x皆无先验。其它图版、完整训练与匹配仍缺，保留未核心。见[审查](stroke_seg_author_figure_checkbox_and_sample_code_recheck_2026-10-24.md)、[L184](../reviews/L184.md)。

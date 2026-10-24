@@ -441,3 +441,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百七十四批（2026-10-24）：多头DPO显示公式αLtext+βΣ四Laudio缺1/N，α:β1:1不能推总声文五五分；PT/SFT冻结关系、零expert identity路由及同LLM步内逐声头条件明示。见[审查](longcat_flash_omni_stage_tradeoffs_latency_and_service_identity_audit_2026-10-24.md)、[L162](../reviews/L162.md)。
+
+
+第一百七十五批（2026-10-24）：表2的19.9pp是U-Net Dice加先验相对Dice；完整BDLoss加先验为27.4pp。TSR/FSR均按GT笔数归一且按图平均，不要求互补。见[审查](stroke_seg_author_figure_checkbox_and_sample_code_recheck_2026-10-24.md)、[L184](../reviews/L184.md)。

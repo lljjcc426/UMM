@@ -634,3 +634,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百七十四批（2026-10-24）：等token课程/文本续训和DPO按头归一对照；停说/VAD/发包/播放四时钟、抢话率和回滚成本，按会话/评分员聚类统计，未执行。见[审查](../evidence/longcat_flash_omni_stage_tradeoffs_latency_and_service_identity_audit_2026-10-24.md)、[L162](../reviews/L162.md)。
+
+
+第一百七十五批（2026-10-24）：沿用ID重编号、计数/识别误差、类别重组/多标签/损失全因子和含识别器总成本方案；未执行。见[审查](../evidence/stroke_seg_author_figure_checkbox_and_sample_code_recheck_2026-10-24.md)、[L184](../reviews/L184.md)。

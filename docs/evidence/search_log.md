@@ -697,3 +697,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百七十四批（2026-10-24）：LongCat完整研究/16表12实际图两式，固定GHf6f1f0f/HFf65b903/外部SGLang06a2f9b；源码指定范围和PDF40页实际核读边界已记。见[审查](longcat_flash_omni_stage_tradeoffs_latency_and_service_identity_audit_2026-10-24.md)、[L162](../reviews/L162.md)。
+
+
+第一百七十五批（2026-10-24）：Stroke-Seg从作者实验室取回F2/F8实际原图；正式HTML表2勾选列齐全，出版方PDF图版访问受限，未把网页引用字符串当实际图像。见[审查](stroke_seg_author_figure_checkbox_and_sample_code_recheck_2026-10-24.md)、[L184](../reviews/L184.md)。

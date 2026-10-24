@@ -608,3 +608,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百七十四批（2026-10-24）：LongCat字声输出、视觉输入；RefCOCO为bbox定位，非maskIoU；128K支持与32K视频实验、2FPS与token压缩及快速笔画观测条件区分。见[审查](longcat_flash_omni_stage_tradeoffs_latency_and_service_identity_audit_2026-10-24.md)、[L162](../reviews/L162.md)。
+
+
+第一百七十五批（2026-10-24）：F2确认11维先验→一个空间通道，与灰度拼两通道→十类mask；同类笔画仍共通道，无实例时序。F8为外部静态结果。见[审查](stroke_seg_author_figure_checkbox_and_sample_code_recheck_2026-10-24.md)、[L184](../reviews/L184.md)。
