@@ -1,0 +1,499 @@
+{
+  "id": "L156",
+  "checked_on": "2026-10-24",
+  "version": "2610.17080v1",
+  "complete_reading_source": "HTML plus all 11 original figure assets; PDF downloads partial",
+  "core_three_pass_completed": true,
+  "tables": {
+    "table1": [
+      [
+        "Method",
+        "Character Identity ↑\\uparrow",
+        "Scene Memory",
+        "Visual Fidelity ↑\\uparrow",
+        "Visual Memory ↑\\uparrow",
+        "Aesthetic Quality ↑\\uparrow",
+        "Text Rendering ↑\\uparrow"
+      ],
+      [
+        "Scene ↑\\uparrow",
+        "Gap-S ↑\\uparrow",
+        "Gap-D ↑\\uparrow"
+      ],
+      [
+        "Agent-Planned"
+      ],
+      [
+        "StoryDiffusion",
+        "1.61",
+        "1.61",
+        "0.0615",
+        "0.1196",
+        "2.92",
+        "1.55",
+        "2.31",
+        "1.17"
+      ],
+      [
+        "Qwen-Image",
+        "3.16",
+        "3.05",
+        "0.0694",
+        "0.2127",
+        "3.83",
+        "3.14",
+        "3.73",
+        "2.22"
+      ],
+      [
+        "UniSpace",
+        "2.41",
+        "2.33",
+        "0.0346",
+        "0.1321",
+        "2.48",
+        "2.03",
+        "2.57",
+        "1.53"
+      ],
+      [
+        "HiDream",
+        "3.35",
+        "2.58",
+        "0.0576",
+        "0.1620",
+        "3.19",
+        "2.76",
+        "2.71",
+        "2.78"
+      ],
+      [
+        "Lance-3B",
+        "2.72",
+        "2.13",
+        "0.0480",
+        "0.1141",
+        "2.98",
+        "1.94",
+        "2.85",
+        "2.17"
+      ],
+      [
+        "Show-o2-7B",
+        "2.72",
+        "2.90",
+        "0.0783",
+        "0.1966",
+        "2.89",
+        "2.37",
+        "2.83",
+        "1.00"
+      ],
+      [
+        "Interleaved"
+      ],
+      [
+        "BAGEL-7B",
+        "3.38",
+        "1.44",
+        "-0.0099",
+        "-0.0191",
+        "2.84",
+        "1.70",
+        "2.52",
+        "1.35"
+      ],
+      [
+        "SenseNova-U1.5",
+        "3.72",
+        "3.10",
+        "0.0062",
+        "0.0280",
+        "3.63",
+        "3.49",
+        "3.30",
+        "3.13"
+      ],
+      [
+        "ILLUME-X",
+        "2.80",
+        "1.43",
+        "-0.0098",
+        "-0.0173",
+        "2.29",
+        "1.96",
+        "2.13",
+        "1.28"
+      ],
+      [
+        "Emu3.5",
+        "3.51",
+        "2.97",
+        "0.0350",
+        "0.1077",
+        "3.73",
+        "3.24",
+        "3.69",
+        "2.15"
+      ],
+      [
+        "SEED-Story",
+        "1.37",
+        "1.14",
+        "-0.0209",
+        "-0.0421",
+        "2.91",
+        "2.93",
+        "1.70",
+        "2.43"
+      ],
+      [
+        "UniLongGen∗",
+        "3.46",
+        "2.61",
+        "-0.0081",
+        "-0.0135",
+        "3.05",
+        "2.60",
+        "2.97",
+        "2.28"
+      ],
+      [
+        "Ours",
+        "3.62",
+        "3.35",
+        "0.0930",
+        "0.2499",
+        "3.75",
+        "3.77",
+        "3.75",
+        "3.50"
+      ]
+    ],
+    "table2": [
+      [
+        "Variant",
+        "Setting",
+        "Identity ↑\\uparrow",
+        "Scene ↑\\uparrow",
+        "Gap-D ↑\\uparrow",
+        "LR Scene ↑\\uparrow",
+        "LR Gap-D ↑\\uparrow",
+        "Visual Fidelity ↑\\uparrow"
+      ],
+      [
+        "Scene-aware retrieval"
+      ],
+      [
+        "Predicted Routing",
+        "Predicted Scene",
+        "3.36",
+        "3.26",
+        "0.164",
+        "3.10",
+        "0.119",
+        "3.15"
+      ],
+      [
+        "GT Scene",
+        "Annotated Scene",
+        "3.21",
+        "3.32",
+        "0.173",
+        "3.15",
+        "0.121",
+        "3.03"
+      ],
+      [
+        "Noisy Scene",
+        "30% Corrupted",
+        "3.30",
+        "2.81",
+        "0.145",
+        "2.76",
+        "0.099",
+        "3.14"
+      ],
+      [
+        "Recent-4",
+        "Scene-Agnostic",
+        "3.15",
+        "2.85",
+        "0.147",
+        "2.79",
+        "0.092",
+        "2.97"
+      ],
+      [
+        "Recent-2",
+        "Scene-Agnostic",
+        "3.05",
+        "2.58",
+        "0.114",
+        "2.47",
+        "0.071",
+        "2.89"
+      ],
+      [
+        "Persistent visual references"
+      ],
+      [
+        "With Reference",
+        "Persistent Reference",
+        "3.36",
+        "3.26",
+        "0.164",
+        "3.10",
+        "0.119",
+        "3.15"
+      ],
+      [
+        "w/o Reference",
+        "No Reference",
+        "3.18",
+        "2.77",
+        "0.048",
+        "2.03",
+        "0.005",
+        "3.13"
+      ],
+      [
+        "Self-rollout adaptation"
+      ],
+      [
+        "Base",
+        "No Additional FT",
+        "2.89",
+        "2.57",
+        "0.193",
+        "2.51",
+        "0.157",
+        "2.57"
+      ],
+      [
+        "GT-FT",
+        "GT History",
+        "3.23",
+        "2.71",
+        "0.191",
+        "2.52",
+        "0.161",
+        "3.35"
+      ],
+      [
+        "Self-Rollout",
+        "Generated History",
+        "3.59",
+        "3.25",
+        "0.194",
+        "3.12",
+        "0.174",
+        "3.38"
+      ]
+    ],
+    "table3": [
+      [
+        "Data type",
+        "Fraction"
+      ],
+      [
+        "Multi-shot storyboards",
+        "45.3%"
+      ],
+      [
+        "Illustrated books with visual references",
+        "18.5%"
+      ],
+      [
+        "Illustrated books without visual references",
+        "7.9%"
+      ],
+      [
+        "Social-media comics",
+        "14.5%"
+      ],
+      [
+        "Long comics with background continuity",
+        "9.1%"
+      ],
+      [
+        "Brand and design sequences",
+        "4.7%"
+      ]
+    ],
+    "table4": [
+      [
+        "",
+        "T2MI",
+        "I2MI"
+      ],
+      [
+        "Stories",
+        "50",
+        "50"
+      ],
+      [
+        "Specified shots",
+        "462",
+        "460"
+      ],
+      [
+        "Avg. shots / story",
+        "9.2"
+      ],
+      [
+        "Min. revisited shots / story",
+        "≥4\\geq 4"
+      ],
+      [
+        "Avg. revisited shots",
+        "6.16",
+        "6.04"
+      ],
+      [
+        "Distinct styles",
+        "50",
+        "50"
+      ],
+      [
+        "User reference image",
+        "No",
+        "Yes"
+      ]
+    ],
+    "table5": [
+      [
+        "",
+        "Sec./Image ↓\\downarrow",
+        "Last Prefill (s) ↓\\downarrow"
+      ],
+      [
+        "Horizon",
+        "Full History",
+        "Ours",
+        "Full History",
+        "Ours"
+      ],
+      [
+        "8",
+        "27.8",
+        "26.4",
+        "6.8",
+        "4.9"
+      ],
+      [
+        "16",
+        "49.3",
+        "37.6",
+        "20.7",
+        "9.8"
+      ],
+      [
+        "24",
+        "73.8",
+        "46.5",
+        "41.4",
+        "14.0"
+      ],
+      [
+        "32",
+        "102.9",
+        "54.9",
+        "69.0",
+        "19.4"
+      ]
+    ]
+  },
+  "lr_counterexample": {
+    "sequence": [
+      "A",
+      "B",
+      "C",
+      "A",
+      "B",
+      "C",
+      "A",
+      "B",
+      "C",
+      "A",
+      "B",
+      "C",
+      "A",
+      "B",
+      "C",
+      "A",
+      "B",
+      "C",
+      "A",
+      "B",
+      "C",
+      "A",
+      "B",
+      "C"
+    ],
+    "current_slot": 10,
+    "scene": "A",
+    "first_seen": 1,
+    "last_seen": 7,
+    "distance_since_first": 9,
+    "distance_since_last": 3,
+    "eligible_under_equation14": true,
+    "available_in_recent4": true,
+    "unit": "Synthetic scene labels only; no model/benchmark execution"
+  },
+  "efficiency": {
+    "horizon32": {
+      "mean_seconds_per_image": {
+        "full_history": 102.9,
+        "routed": 54.9,
+        "speedup": 1.8743169398907105
+      },
+      "last_ar_prefill_seconds": {
+        "full_history": 69,
+        "routed": 19.4,
+        "speedup": 3.5567010309278353
+      }
+    },
+    "trace": {
+      "tokens_per_additional_image": {
+        "full_history": 5028,
+        "routed": 1546
+      },
+      "context_at32_K": {
+        "full_history": 164.6,
+        "routed": 71.9
+      },
+      "full_history_256K_at51": "linear extrapolation"
+    }
+  },
+  "corpus": {
+    "stories": 21162,
+    "images": 197653,
+    "anchors": 53499,
+    "panels": 144154,
+    "mean_panels_per_story": 6.811927039032228,
+    "rollout_stage_counts": [
+      5721,
+      7522
+    ],
+    "unique_rollout_count_verified": false
+  },
+  "judge": {
+    "name_reported": "GPT-6",
+    "exact_snapshot_obtained": false,
+    "human_calibration_obtained": false,
+    "text_rendering_zero_for_no_qualifying_text": true,
+    "text_match_separate_field": true,
+    "table_text_field_aggregation_fully_specified": false
+  },
+  "same_weights_unilonggen_statement": "Appendix E.4: retains underlying model weights",
+  "code_weights_data_obtained": false,
+  "model_execution": false,
+  "reading_scope": "arXiv2610.17080v1完整HTML：§1–5、AppA.1–3/B.1–5/C.1–5/D.1–2全部三judgeprompt/E.1–4/F.1–2/G.1–3；Eq1–15、T1–5每行和F1–11所有实际原图/图注已核。F4标1–52/1–48的稀疏选帧、F6/7完整作者展示烹饪序列、F9规划/生成轨迹、F10规格、F11SVG实线/虚线分别看；不声称独立逐帧人标/OCR、重构所有曲线点或生成复现。PDF下载截断，完整阅读依据HTML与11个独立作者图资产；参考文献追引相关条目，未逐篇精读全部参考。三遍定位/方法全图表/书面批判，无独立口试或模型执行。",
+  "source_urls": [
+    "https://arxiv.org/abs/2610.17080",
+    "https://arxiv.org/html/2610.17080v1",
+    "https://arxiv.org/pdf/2610.17080v1",
+    "https://arxiv.org/html/2610.17080v1/horizon_scaling.svg"
+  ]
+}

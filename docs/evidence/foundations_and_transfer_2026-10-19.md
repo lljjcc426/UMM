@@ -417,3 +417,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百六十六批（2026-10-24）：ChatUMM历史clean VAE只指无噪声；语义错误仍可能累积。共享注意力/分FFN、模态intenttoken和CE/FM配合不证明理解对生成的机制因果。见[审查](chatumm_context_tracking_and_claim_boundary_audit_2026-10-24.md)、[L154](../reviews/L154.md)。
+
+
+第一百六十七批（2026-10-24）：L156 Eq14从场景first_seen计LR，ABC第10步first-gap9/last-gap3可被Recent4读到，不能单据此识别超窗口记忆。完整语义历史仍增长。见[审查](long_horizon_memory_revisit_definition_and_scaling_audit_2026-10-24.md)、[L156](../reviews/L156.md)。

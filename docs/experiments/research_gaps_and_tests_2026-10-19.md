@@ -610,3 +610,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百六十六批（2026-10-24）：ChatUMM需要same-query交换早图/删历史/相似干扰，配caption-only/last-image/oracle/retrieval基线及等预算数据消融；真实rollout按depth测target-ID、编辑成功、错误恢复和成本。见[审查](../evidence/chatumm_context_tracking_and_claim_boundary_audit_2026-10-24.md)、[L154](../reviews/L154.md)。
+
+
+第一百六十七批（2026-10-24）：L156后续按first/last距离双轴和last_seen>Kr子集测试；等预算anchors×rollout2×2，错scene/anchor干预、对象状态与覆盖率；效率分前缀均值/prefill/单轨迹外推。见[审查](../evidence/long_horizon_memory_revisit_definition_and_scaling_audit_2026-10-24.md)、[L156](../reviews/L156.md)。

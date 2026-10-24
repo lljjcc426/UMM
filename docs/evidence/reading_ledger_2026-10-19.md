@@ -261,7 +261,7 @@
 | L153 | GenExam: A Multidisciplinary Text-to-Image Exam | primary_sections_read | [结构化分析](../reviews/L153.md) | 核心三遍与五项检查完成 |
 | L154 | ChatUMM: Robust Context Tracking for Conversational Interleaved Generation | primary_sections_read | [结构化分析](../reviews/L154.md) | 核心三遍与五项检查完成 |
 | L155 | How Long Can Unified Multimodal Models Generate Images Reliably? Taming Long-Horizon Interleaved Image Generation via Context Curation | primary_sections_read | [结构化分析](../reviews/L155.md) | 核心三遍与五项检查完成 |
-| L156 | Scaling Unified Multimodal Models to Long-Horizon Interleaved Generation | primary_sections_read | [结构化分析](../reviews/L156.md) | 未完成 |
+| L156 | Scaling Unified Multimodal Models to Long-Horizon Interleaved Generation | primary_sections_read | [结构化分析](../reviews/L156.md) | 核心三遍与五项检查完成 |
 | L157 | MIO: A Foundation Model on Multimodal Tokens | primary_sections_read | [结构化分析](../reviews/L157.md) | 未完成 |
 | L158 | OmniFlow: Any-to-Any Generation with Multi-Modal Rectified Flows | primary_sections_read | [结构化分析](../reviews/L158.md) | 未完成 |
 | L159 | M2-omni: Advancing Omni-MLLM for Comprehensive Modality Support with Competitive Performance | primary_sections_read | [结构化分析](../reviews/L159.md) | 未完成 |

@@ -625,3 +625,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百六十六批（2026-10-24）：ChatUMM完整supp仍无依赖距离成功率和组件消融；rewrite补外观描述、caption派生Q/A及约40B额外tokens形成待控制因素。当前项目页未给可核代码/数据/权重入口。见[审查](chatumm_context_tracking_and_claim_boundary_audit_2026-10-24.md)、[L154](../reviews/L154.md)。
+
+
+第一百六十七批（2026-10-24）：L156缺Kr/N/M、训练超参、scene解析/回退和独立数据制品；文字无帧0与rendering/match字段汇总不详。AppE.4明确UniLongGen*同权重，已修正历史含糊表述。见[审查](long_horizon_memory_revisit_definition_and_scaling_audit_2026-10-24.md)、[L156](../reviews/L156.md)。

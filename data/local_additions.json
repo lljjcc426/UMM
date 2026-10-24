@@ -11274,22 +11274,23 @@
     "source_urls": [
       "https://arxiv.org/abs/2610.17080",
       "https://arxiv.org/html/2610.17080v1",
-      "https://arxiv.org/pdf/2610.17080v1"
+      "https://arxiv.org/pdf/2610.17080v1",
+      "https://arxiv.org/html/2610.17080v1/horizon_scaling.svg"
     ],
-    "method": "语义全历史与稠密生成记忆分离；原生生成持久视觉anchor、预测sceneID定向取回首/近期同场景和最近全局状态；selfrollout history适配；LongMIG-Bench/Long+Ext。 大规模MoT理解/生成分支稀疏激活，256Kcontext，公开段落未给可唯一对应的层数/总参数。全部历史语义representation继续可见；图生成仅读持久A、recentKr、同scene最早N及近期M的VAE状态。sceneID训练监督、推理自预测；anchor由模型生成，不是给GT答案。rollout替换部分历史，下一图目标仍为原GT，非RL。",
-    "conclusion": "Table1 samebackbone UniLongGen*→Ours Scene2.61→3.35/VisualMemory2.60→3.77/Fidelity3.05→3.75，GapD−.0135→.2499；身份3.62低于SenseNova3.72，Fidelity3.75低于Qwen3.83。Table5 32图均102.9→54.9s/图，lastprefill69→19.4s。",
-    "gap": "语义历史仍增长，图合成context图11斜率1546token/img而非0；51图满窗是外推。自预测scene失误、实体多/场景细粒度变化可能漏记忆；anchor增成本。全文未给充分复现超参，judge依赖和同底座改训/策略因素须拆开；未测真实动作/连续笔画。",
-    "problem": "如何原生生成长图文轨迹，并在跨场景后恢复自生成的身份、场景和局部视觉决策？",
+    "method": "持久视觉anchor、预测sceneID后检索同场景早期/近期稠密状态，以及离线self-rollout历史适配；完整语义历史继续可见。提出LongMIG100故事和Long+Ext38×24图压力测试。没有给骨干独立名称/可唯一对应总参数，不将其写作已公开Hunyuan型号；交错图像是故事/过程状态图片，无连续笔画视频输出。 大规模MoT，理解/生成分支稀疏专家，256K多模态context；层数、总/激活参数、完整初始化未披露。Eq6 M_k=A∪R_k∪F_k∪L_k：所有持久anchor+全局最近Kr+同scene最早N和最近M；Eq7只筛生成侧历史，语义图文全留。固定anchor数/窗口下稠密历史槽数至多|A|+Kr+N+M（本仓库集合上界，不是总context常数）。Eq8–11将部分历史clean条件换为模型图，当前FM/noised target仍GT；离线生成写回，不在优化步内采样、不用自身错误作监督目标，亦非RL。",
+    "conclusion": "T1同权重UniLongGen*→Ours：Identity3.46→3.62、Scene2.61→3.35、GapS−.0081→.0930、GapD−.0135→.2499、Fidelity3.05→3.75、VisualMemory2.60→3.77、Aesthetic2.97→3.75、Text2.28→3.50；Ours六/八列最高，Identity低于SenseNova3.72、Fidelity低于Qwen3.83。Table5 32图前缀平均102.9→54.9s/图，最后图ARprefill69→19.4s，分别约1.87×/3.56×，后者不能当端到端倍数。Fig11每图context边际5028→1546tokens，32图164.6K→71.9K；51图full-history满256K是线性外推，50+图仅选例，不是50+图平均成功率。原表所有行与五张表已结构化，图例做定性核查，无模型重算。",
+    "gap": "问题1：LR定义从首次出现算，包含近期又出现的场景；本仓库ABC循环第10步距首次A9、距最近A3，满足Eq14而Recent4仍看得到，不能只凭该分层确认超窗口记忆。完整场景表未公开核，真实受影响比例未知。问题2：文字0分/无文字覆盖和glyph-only rendering/text_match聚合未细化；整轨迹judge自动对齐、不给帧数奖惩，仍需独立剧情覆盖/遗漏评价。API快照/校准/原始judge理由缺，SceneGap可受主体/风格相似混入。问题3：语义history仍线性长，anchor多实体时也增长；scene文本格式无效或错分影响检索；作者AppG承认小物件、多人、文字与早错累积，没解决逐实例状态绑定。无rollout标注/权重，无法检验clean-anchor是否过强。",
+    "problem": "怎样让原生图文交错模型在多次场景切换后恢复历史实例细节，同时控制稠密视觉历史成本并减轻自生成误差累积？",
     "claim": "研究目标：如何原生生成长图文轨迹，并在跨场景后恢复自生成的身份、场景和局部视觉决策？",
-    "version": "Scaling Unified Multimodal Models to Long-Horizon Interleaved Generation；arXiv2610.17080v1，2026-10-12，29页；未核实正式接收",
+    "version": "Scaling Unified Multimodal Models to Long-Horizon Interleaved Generation；arXiv2610.17080v1，2026-10-12，元数据29页/11图；完整HTML正文/附录A–G及原图，未核实正式接收",
     "scope": "umm",
     "category": "UMM及相邻机制 / 8. 交错生成与长历史：上下文不是越长越好",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-24",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-24",
     "id": "L156",
     "canonical_key": "paper:arxiv:2610.17080",
     "evidence_history": [
@@ -11321,17 +11322,23 @@
         "conclusion": "24 图压力测试中检索、参考和 rollout 各有消融；同骨干对照支持记忆管理价值",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "checked_on": "2026-10-24",
+        "batch": "one_hundred_sixty_seventh",
+        "sections_read": "arXiv2610.17080v1完整HTML：§1–5、AppA.1–3/B.1–5/C.1–5/D.1–2全部三judgeprompt/E.1–4/F.1–2/G.1–3；Eq1–15、T1–5每行和F1–11所有实际原图/图注已核。F4标1–52/1–48的稀疏选帧、F6/7完整作者展示烹饪序列、F9规划/生成轨迹、F10规格、F11SVG实线/虚线分别看；不声称独立逐帧人标/OCR、重构所有曲线点或生成复现。PDF下载截断，完整阅读依据HTML与11个独立作者图资产；参考文献追引相关条目，未逐篇精读全部参考。三遍定位/方法全图表/书面批判，无独立口试或模型执行。",
+        "verification": "primary_sections_read"
       }
     ],
-    "sections_read": "§3方法全、§4设置/Table1/4.4Table2、AppB/C.1–2/C.4–5/D指定指标/E/F.1与Table5/图11图注。部分图、完整评价prompt/训练代码/全部附录未全核，未复现",
+    "sections_read": "arXiv2610.17080v1完整HTML：§1–5、AppA.1–3/B.1–5/C.1–5/D.1–2全部三judgeprompt/E.1–4/F.1–2/G.1–3；Eq1–15、T1–5每行和F1–11所有实际原图/图注已核。F4标1–52/1–48的稀疏选帧、F6/7完整作者展示烹饪序列、F9规划/生成轨迹、F10规格、F11SVG实线/虚线分别看；不声称独立逐帧人标/OCR、重构所有曲线点或生成复现。PDF下载截断，完整阅读依据HTML与11个独立作者图资产；参考文献追引相关条目，未逐篇精读全部参考。三遍定位/方法全图表/书面批判，无独立口试或模型执行。",
     "review_path": "docs/reviews/L156.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "AppB初始候选约1e8、PT约1e6/SFT约1e5的量级；长程21162故事/197653图=53499anchor+144154panel，2–24panel/1–10anchor。LongMIG100故事T2MI/I2MI各50、462/460shots、均9.2/故事，各50style/7aspect、双语言。Long+Ext38故事×24slots、2角色3场景，LRgap≥8。",
-    "framework": "语义全历史与稠密生成记忆分离；原生生成持久视觉anchor、预测sceneID定向取回首/近期同场景和最近全局状态；selfrollout history适配；LongMIG-Bench/Long+Ext。",
-    "architecture": "大规模MoT理解/生成分支稀疏激活，256Kcontext，公开段落未给可唯一对应的层数/总参数。全部历史语义representation继续可见；图生成仅读持久A、recentKr、同scene最早N及近期M的VAE状态。sceneID训练监督、推理自预测；anchor由模型生成，不是给GT答案。rollout替换部分历史，下一图目标仍为原GT，非RL。",
-    "metrics": "GPT6判Character/Scene/VisualFidelity/VisualMemory/Aesthetic/TextRendering，1–5；SigLIP2/DINOv3同场景减跨场景SceneGap。复制同背景Scene封顶2/复制同帧VisualMemory最低为rubric，需人工校准；文字渲染评分未替代CER或笔画时序。GPT6确切快照/人评相关未核。",
-    "baselines": "Agentplanned GPT6统一逐shot分解后独立生成StoryDiffusion/QwenImage/UniSpace/HiDream/Lance/Showo2；native BAGEL/SenseNovaU1.5/ILLUMEX/Emu3.5/SEEDStory；同主干UniLongGen重实现。两协议历史可见性和参考图支持不同，外部planner成本需计入。",
-    "experimental_conditions": "完整训练lr/steps/globalbatch/GPU小时及Kr/N/M具体数未在已读段给齐。效率用8故事扩32shots，两节点AR TP8+图生成TP8、每图30去噪步，同权重比较fullhistory/routed；辅助anchor排除最终panel指标，但仍消耗生成预算。>50图主要展示，基准均9.2图且24图stress须区分。"
+    "dataset": "候选约1e8，PT约1e6/SFT约1e5为量级；专用长程21162故事/197653图=53499anchor+144154panel，每故事2–24panel/1–10anchor、anchor众数2，平均panel约6.81（本仓库算术）。T3来源占比storyboard45.3%、有/无参考绘本18.5/7.9%、社媒漫画14.5%、长漫画9.1%、品牌设计4.7%，未给源ID/许可及训练测试去重清单。rollout两阶段5721/7522合13243轨迹计次，不能当已核独立unique；anchor及最初两张非reference故事图不替换。LongMIG T2MI/I2MI各50故事、462/460shots，均9.2，各50style、七aspect、双语，回访均6.16/6.04。Long+Ext38故事、每个24固定slots/2角色/3场景。独立全数据下载未得。",
+    "framework": "持久视觉anchor、预测sceneID后检索同场景早期/近期稠密状态，以及离线self-rollout历史适配；完整语义历史继续可见。提出LongMIG100故事和Long+Ext38×24图压力测试。没有给骨干独立名称/可唯一对应总参数，不将其写作已公开Hunyuan型号；交错图像是故事/过程状态图片，无连续笔画视频输出。",
+    "architecture": "大规模MoT，理解/生成分支稀疏专家，256K多模态context；层数、总/激活参数、完整初始化未披露。Eq6 M_k=A∪R_k∪F_k∪L_k：所有持久anchor+全局最近Kr+同scene最早N和最近M；Eq7只筛生成侧历史，语义图文全留。固定anchor数/窗口下稠密历史槽数至多|A|+Kr+N+M（本仓库集合上界，不是总context常数）。Eq8–11将部分历史clean条件换为模型图，当前FM/noised target仍GT；离线生成写回，不在优化步内采样、不用自身错误作监督目标，亦非RL。",
+    "metrics": "六项GPT6整轨迹1–5分：Identity/Scene/VisualFidelity/VisualMemory/Aesthetic/TextRendering；SceneGap=同场景平均相似−跨场景平均相似，用SigLIP2/DINOv3（Eq15），不是逐对象或时序正确率。D.2三套完整prompt：主judge识别回访并解释，全部同背景Scene≤2；visual-memory复制同图记1、用户参考身份本身不算memory。文字judge无合格文字帧时设rendering=match=0；有文字时rendering只评字形，text_match另评文字内容，主表未细化二字段合成/0的汇总。关键Eq14 LR用k−首次场景位置e_s≥8，不保证距最近同场景位置≥8；应另报last_seen间隔才能检验近期窗口之外回忆。",
+    "baselines": "T1共13行：六agent-planned StoryDiffusion/QwenImage/UniSpace/HiDream/Lance3B/Showo2与native BAGEL/SenseNovaU1.5/ILLUMEX/Emu3.5/SEEDStory/UniLongGen*及Ours。agent共用GPT6分解后独立生成，I2MI按支持能力给参考；native按自身接口共享轨迹，跨协议不构成等信息/预算架构因果对照。AppE.4明确UniLongGen*保留本文模型权重，仅替换training-free上下文选择，因此是同权重策略对照，修正原笔记仅称同主干的含糊表述；不再把未知改训差异当成已证混杂。",
+    "experimental_conditions": "完整HTML及AppA–G均核完。未披露可复现optimizer/lr/steps/batch/GPU训练h、Kr/N/M具体值、完整scene解析/回退、CFG/分辨率/seed/采样重试或judge精确快照和人评相关。Table5八故事扩32图，同权重/decoding/hardware两节点AR TP8+图生成TP8，每图30去噪；未给GPU型号，不用秒数外推单卡。F11另为固定长轨迹trace，和八故事均值分开。去reference消融重建同故事、删除所有anchor调用，panel顺序保留，但训练tokens/预算不相等是否补齐未知；GTFT/selfrollout同追加数据是原文声明，未给步数预算。原文完整HTML/11图已取得，PDF两次下载均截断，未据此宣称完整PDF；本批未获可核官方模型/代码/数据，不执行模型。"
   },
   {
     "title": "MIO: A Foundation Model on Multimodal Tokens",

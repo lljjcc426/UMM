@@ -584,3 +584,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百六十六批（2026-10-24）：ChatUMM以BAGEL图文多轮编辑为目标，无笔画事件/连续视频；历史回指数据可启发prefix任务，不能替代过程正确性证据。见[审查](chatumm_context_tracking_and_claim_boundary_audit_2026-10-24.md)、[L154](../reviews/L154.md)。
+
+
+第一百六十七批（2026-10-24）：L156为长故事/静态过程状态交错；100故事均9.2图、24图消融、32图效率、50+选例须分开。未生成笔画连续视频。见[审查](long_horizon_memory_revisit_definition_and_scaling_audit_2026-10-24.md)、[L156](../reviews/L156.md)。

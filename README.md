@@ -494,3 +494,6 @@ python scripts/validate_catalog.py
 
 
 第一百六十六批（2026-10-24）：L154完成正式主文与独立补充全部研究文字/表图核心三遍和五项书面。核静态编辑提升及理解/T2I取舍；长程能力仅有选例，未见距离分层成功率或组件消融。357目录，272核心/277书面；未确认核心58论文／研究+27资源。见[审查](docs/evidence/chatumm_context_tracking_and_claim_boundary_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_sixty_sixth_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百六十七批（2026-10-24）：L156补齐完整HTML/附录A–G、全部15公式/五表/11原图核心三遍与五项书面；给出LR首次距离不足保证越过近期窗口的反例，明确UniLongGen*同权重和文字0分/字段汇总边界。357目录，273核心/278书面；未确认核心57论文／研究+27资源。见[审查](docs/evidence/long_horizon_memory_revisit_definition_and_scaling_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_sixty_seventh_changes_2026-10-24.md)。无删除或模型执行。
