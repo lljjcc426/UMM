@@ -781,3 +781,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百零二批（2026-10-25）：CoT-RVS v4已包含online扩展；固定91b39c3源码，T-ReasonVOS45video180query与论文一致。见[审查](cot_rvs_v4_full_online_and_release_audit_2026-10-25.md)、[L056](../reviews/L056.md)。
+
+
+第二百零三批（2026-10-25）：综述v6完整，未宣称读完403被引原文；官方abs仍workinprogress，无正式SCI接收证据。见[审查](umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[L057](../reviews/L057.md)。

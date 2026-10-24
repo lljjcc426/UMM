@@ -273,3 +273,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百零二批（2026-10-25）：4/8/16帧66.2/65.5/60与grid像素混杂；无CoT代码system仍要求chain-of-thought，机制消融范围有限。见[审查](cot_rvs_v4_full_online_and_release_audit_2026-10-25.md)、[L056](../reviews/L056.md)。
+
+
+第二百零三批（2026-10-25）：5背景式不能统摄离散flow；semantic可兼重建，query为接口结构，统一tokenizer仍需事件/规则监督。见[审查](umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[L057](../reviews/L057.md)。

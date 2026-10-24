@@ -10689,6 +10689,40 @@
         }
       ],
       "boundary": "v4全24页§1–5、AppA–K、Eq1–12、T1–6+A1–A5所有单元，F1–8+A1–A7共15图及全页实际视觉；references页清单/关键引文核，未声称逐篇读引文。固定commit15个源码/说明/metadata文本核读，JSON确定性计数；未下载/检查全部原视频或运行模型/API，未独立复现。核心三遍与五书面完成。"
+    },
+    {
+      "id": "L057",
+      "checked_on": "2026-10-25",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "组织统一理解/生成模型的架构、tokenizer、任务接口、数据和评测；输入研究文献，输出分类与研究导航。无新增训练模型，新增实验的训练条件/对照/消融不适用。 理解常用AR、生成常用diffusion，统一名称不足区分哪些权重/表征/损失共享；需要可追到encoder/backbone/decoder/mask的比较。导言AR落后扩散的整体判断缺统一重跑，不能当普遍架构定理。",
+          "evidence": "34页5图4表5式完整正文；参考清单与分类轴/数据单位/GenEval553/M2omni视频方向边界均核。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "§2.1 encoder→connector→LLM，projection/query/fusion三种connector；§2.2 Eq1–3 GaussianDDPM正反转移、Eq4AR联合分解、Eq5NLL；正文未编号simpleepsilonMSE被笼统称VLB，严格VLB通常有权重/其他项，勿当任意扩散的完整目标。§3.1包含离散mask/flow，Gaussian定义不能统摄UniDisc/FUDOKI。AR预测连续embedding再由diffusionMLP/SD/FLUX解码也在AR类，故分类按主干组织，不是所有组件都纯AR。 pixel指重建目标编码，含连续latents；semantic包含CLIP和兼重建UNIT/UniTok等，并非完全互斥。learnablequery指汇聚/输出接口，叠加于semanticencoder，可与其他轴重合。pseudo选择不同任务分支，joint并联/特征融合；是否贡献跨任务知识仍要核梯度与干预。F5 c类是主干图文损失共建，与b类外挂diffusion需按每篇训练路径再查。因存在decoder/expert，统一模型不必所有模态同一tokenizer/参数。",
+          "evidence": "34页5图4表5式完整正文；参考清单与分类轴/数据单位/GenEval553/M2omni视频方向边界均核。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "全篇以diffusion/AR/AR+diffusion三类；AR再分pixel/semantic/learnablequery/hybrid，hybrid分任务择支pseudo与同时融特征joint；融合类分pixel/hybrid。T1结构矩阵、T2超越图文接口、T3训练数据五类、T4理解/生成/交错及其他评测；F1时间轴、F2理解组件、F3扩散、F4AR单元、F5八种结构示意。无新的模型效果或统一重跑。 对跨领域发现候选、按encoder/主干/decoder/mask建立共享边界有用；做手写时需再加像素/轨迹/接触/事件/规则轴和可观察监督。统一表示可能促进迁移，需匹配训练预算和跨任务干预证据，不能由分类名或终态生成分数判断笔顺理解。",
+          "evidence": "34页5图4表5式完整正文；参考清单与分类轴/数据单位/GenEval553/M2omni视频方向边界均核。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "研究结果为分类/资源地图；T1–4无本综述新增模型数值实验。§5.4的1000例10类32任务UEG/GEU来源RealUnify，诊断分步有用但“精确定位瓶颈”仍依赖各阶段oracle/评分有效性。§3.4把M2omni笼统描述为处理/生成video，T2实际只列SD3图像decoder与CosyVoice音频decoder；既有L159原文审查视频为输入、图像caption接SD3，不能增加视频生成能力。 无新模型受控消融；各类别后优缺点是作者归纳和假说，不能从一个冻结encoder推定所有query法一定弱，或从一个VAE压缩推出所有手写细节必丢。§6强调token效率/attention/data/eval/CoT/RL/公平性/个性化，文中已有MMaDAUniGRPO、UniPic双任务RL与交错编辑资源，因此末段“largelyunexplored”须限定具体任务/版本和受控缺口。 固定v6包含截至2025末部分工作，2026-01-26更新，非2026-10全景。§2基础5式仅介绍背景，无新定理/训练。未执行任何被引模型/生成/训练/benchmark/APIjudge，没下载全部被引数据。本次对GenEval公开metadata只计行及类别，不进行模型评分。",
+          "evidence": "34页5图4表5式完整正文；参考清单与分类轴/数据单位/GenEval553/M2omni视频方向边界均核。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "34页研究正文§1–7、5图4表5编号式全读；参考清单[1]–[403]核目录及关键引用，不等于403篇原作逐篇读。分类轴粒度不齐、外挂decoder与共享骨干同称统一；anytoany标签不保证任意模态组合或视频生成。未声明系统纳入流程，时间截止和遗漏限制显著；表内GenEval规模错误，数据单位/训练测试混写，会议/日期引文仍须原站核。 Q1分类是否稳健：固定同一模型版本，双人独立按输入/输出、tokenizer目标、共享层/梯度、loss、最后decoder标注，报告混淆与分歧，检验AR外挂diffusion/semantic重建等交叉例。Q2所谓缺口是否仍存在：预声明关键词/日期/原站搜索，对§6个性化、编辑、交错、RL逐项查同任务先行工作，再用同预算双任务对单任务/adapter和表示干预测增益；手写分别比较最终静态字形、轨迹复原及规范顺序，防止泛化claim偷换。仅方案未执行学习实验。",
+          "evidence": "34页5图4表5式完整正文；参考清单与分类轴/数据单位/GenEval553/M2omni视频方向边界均核。"
+        }
+      ],
+      "boundary": "v6全34页§1–7全部研究文字、Eq1–5、F1–5实际视觉、T1–4全部行及表注；末[1]–[403]参考目录/关键引文查证，未逐篇读403原文。GenEval官方metadata553行确定性核、RenderedText官方卡核合成静态外观/行字框；无模型/训练/OCR/API执行。综述核心三遍和五书面完成。"
     }
   ]
 }

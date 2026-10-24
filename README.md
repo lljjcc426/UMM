@@ -602,3 +602,6 @@ python scripts/validate_catalog.py
 
 
 第二百零二批（2026-10-25）：L056全24页15图11表12式完成；核在线当前帧策略、预载/存储范围、180条真实metadata与代码默认配置，纠正图8为纯定性图。358目录，307核心/312书面；待完成核心深审24篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/cot_rvs_v4_full_online_and_release_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_second_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百零三批（2026-10-25）：L057全34页研究正文5图4表5式完成；补分类轴重叠、方法纳入规则缺失、数据单位和GenEval规模错误，区分任意模态标签与具体生成接口。358目录，308核心/313书面；待完成核心深审23篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_third_changes_2026-10-25.md)。无删除或模型执行。

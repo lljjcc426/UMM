@@ -3415,22 +3415,26 @@
     "source_urls": [
       "https://arxiv.org/abs/2505.02567",
       "https://arxiv.org/html/2505.02567v6",
-      "https://arxiv.org/pdf/2505.02567v6"
+      "https://arxiv.org/pdf/2505.02567v6",
+      "https://arxiv.org/abs/2505.02567v6",
+      "https://github.com/AIDC-AI/Awesome-Unified-Multimodal-Models",
+      "https://raw.githubusercontent.com/djghosh13/geneval/main/prompts/evaluation_metadata.jsonl",
+      "https://huggingface.co/datasets/wendlerc/RenderedText"
     ],
-    "method": "以diffusion-based、AR-based、AR+diffusion组织体系，讨论视觉tokenizer、数据、训练和评价，以及长序列、个性化和推理等方向；本篇为综述，分类不构成新增生成算法。 扩散分支包括连续/离散机制，不能全部套成Gaussian DDPM；AR系统可预测语义图码再接外部扩散解码；混合系统共享注意力或专家的程度不同。Table2中的输入/输出能力标签不能代替具体生成接口。",
-    "conclusion": "研究价值在分类和检索导航；没有独立新模型效果可作为统计结论。Table2及正文对M2-omni含video的笼统表述容易扩大为视频生成，本仓库L159原文核查显示其视频主要为输入理解，图像经caption接SD3。",
-    "gap": "选读而非34页全部精读。部分任务标签过宽；模型名、版本、后接解码器和训练梯度路径应逐一展开。关于编辑/交错/主体保持尚少的展望受版本截止限制，已有后续工作须先排重。SCI分区身份未核。",
-    "problem": "如何按生成范式、视觉表示、训练阶段和任务接口，组织统一多模态理解/生成模型的进展？",
+    "method": "全篇以diffusion/AR/AR+diffusion三类；AR再分pixel/semantic/learnablequery/hybrid，hybrid分任务择支pseudo与同时融特征joint；融合类分pixel/hybrid。T1结构矩阵、T2超越图文接口、T3训练数据五类、T4理解/生成/交错及其他评测；F1时间轴、F2理解组件、F3扩散、F4AR单元、F5八种结构示意。无新的模型效果或统一重跑。 pixel指重建目标编码，含连续latents；semantic包含CLIP和兼重建UNIT/UniTok等，并非完全互斥。learnablequery指汇聚/输出接口，叠加于semanticencoder，可与其他轴重合。pseudo选择不同任务分支，joint并联/特征融合；是否贡献跨任务知识仍要核梯度与干预。F5 c类是主干图文损失共建，与b类外挂diffusion需按每篇训练路径再查。因存在decoder/expert，统一模型不必所有模态同一tokenizer/参数。",
+    "conclusion": "研究结果为分类/资源地图；T1–4无本综述新增模型数值实验。§5.4的1000例10类32任务UEG/GEU来源RealUnify，诊断分步有用但“精确定位瓶颈”仍依赖各阶段oracle/评分有效性。§3.4把M2omni笼统描述为处理/生成video，T2实际只列SD3图像decoder与CosyVoice音频decoder；既有L159原文审查视频为输入、图像caption接SD3，不能增加视频生成能力。",
+    "gap": "34页研究正文§1–7、5图4表5编号式全读；参考清单[1]–[403]核目录及关键引用，不等于403篇原作逐篇读。分类轴粒度不齐、外挂decoder与共享骨干同称统一；anytoany标签不保证任意模态组合或视频生成。未声明系统纳入流程，时间截止和遗漏限制显著；表内GenEval规模错误，数据单位/训练测试混写，会议/日期引文仍须原站核。",
+    "problem": "组织统一理解/生成模型的架构、tokenizer、任务接口、数据和评测；输入研究文献，输出分类与研究导航。无新增训练模型，新增实验的训练条件/对照/消融不适用。",
     "claim": "研究目标：如何按生成范式、视觉表示、训练阶段和任务接口，组织统一多模态理解/生成模型的进展？",
-    "version": "Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities；arXiv2505.02567v6，2026-01-26；期刊/正式接收本次未核实，IEEE排版不能作为SCI录用证据",
+    "version": "Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities；Shanshan Zhao/Xinjie Zhang/Jintao Guo等12作者；arXiv2505.02567v6，2026-01-26，34页。官方abs仍workinprogress，未证明正式期刊录用或SCI分区。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 核心脉络",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-25",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-25",
     "id": "L057",
     "canonical_key": "paper:arxiv:2505.02567",
     "evidence_history": [
@@ -3462,17 +3466,23 @@
         "conclusion": "适合作为入口；综述归纳不能代替原论文实验",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/文献矩阵.md"
+      },
+      {
+        "checked_on": "2026-10-25",
+        "batch": "two_hundred_third",
+        "sections_read": "v6全34页§1–7全部研究文字、Eq1–5、F1–5实际视觉、T1–4全部行及表注；末[1]–[403]参考目录/关键引文查证，未逐篇读403原文。GenEval官方metadata553行确定性核、RenderedText官方卡核合成静态外观/行字框；无模型/训练/OCR/API执行。综述核心三遍和五书面完成。",
+        "verification": "primary_sections_read"
       }
     ],
-    "sections_read": "v6摘要、§3分类及指定段落、Tables1/2选定行、§5.4、§6/7指定讨论；34页全文/全部引用/代码未全读，未复现",
+    "sections_read": "v6全34页§1–7全部研究文字、Eq1–5、F1–5实际视觉、T1–4全部行及表注；末[1]–[403]参考目录/关键引文查证，未逐篇读403原文。GenEval官方metadata553行确定性核、RenderedText官方卡核合成静态外观/行字框；无模型/训练/OCR/API执行。综述核心三遍和五书面完成。",
     "review_path": "docs/reviews/L057.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "汇总各模型的数据来源和规模；没有新增训练数据集。§5.4借RealUnify讨论UEG/GEU与32子任务，属于被引评测，不能记为本综述新建实验或本次独立验证。",
-    "framework": "以diffusion-based、AR-based、AR+diffusion组织体系，讨论视觉tokenizer、数据、训练和评价，以及长序列、个性化和推理等方向；本篇为综述，分类不构成新增生成算法。",
-    "architecture": "扩散分支包括连续/离散机制，不能全部套成Gaussian DDPM；AR系统可预测语义图码再接外部扩散解码；混合系统共享注意力或专家的程度不同。Table2中的输入/输出能力标签不能代替具体生成接口。",
-    "metrics": "整理理解、图像生成/编辑及交错评价；不同论文GenEval/FID/VQA等结果来自各自协议，没有统一重跑的对照。新增模型实验的指标、消融和训练条件均不适用。",
-    "baselines": "综述比较对象来自所列论文；本次未独立核尽参考文献。作者列表或同表位置不意味着同任务、同数据和同预算。",
-    "experimental_conditions": "固定v6为2026-01-26版本；无新的优化器/GPU/训练步骤。截止日前后的工作必须另外检索；正文展望不能当2026-10研究缺口的直接证据。"
+    "dataset": "T3与§4.1–4.5全读：理解图文对、T2I、编辑triplet、交错documents、subject/control条件数据；额外image/video合成管线。数据规模单位混合图像/文档/token/编辑条，不能横向直接求和。MMC4约101Mdocuments571Mimages，OBELICS141Mdocuments353Mimages115Btokens，OmniCorpus正文2.2Bdocuments8.6Bimages1696Btokens而表只写8B样本，须带单位。RenderedText官方卡确写手写外观，但实际为Blender+约8000字体的静态1024图/行字框，无落笔时序/接触/规范顺序，不可当真实在线手写轨迹。",
+    "framework": "全篇以diffusion/AR/AR+diffusion三类；AR再分pixel/semantic/learnablequery/hybrid，hybrid分任务择支pseudo与同时融特征joint；融合类分pixel/hybrid。T1结构矩阵、T2超越图文接口、T3训练数据五类、T4理解/生成/交错及其他评测；F1时间轴、F2理解组件、F3扩散、F4AR单元、F5八种结构示意。无新的模型效果或统一重跑。",
+    "architecture": "pixel指重建目标编码，含连续latents；semantic包含CLIP和兼重建UNIT/UniTok等，并非完全互斥。learnablequery指汇聚/输出接口，叠加于semanticencoder，可与其他轴重合。pseudo选择不同任务分支，joint并联/特征融合；是否贡献跨任务知识仍要核梯度与干预。F5 c类是主干图文损失共建，与b类外挂diffusion需按每篇训练路径再查。因存在decoder/expert，统一模型不必所有模态同一tokenizer/参数。",
+    "metrics": "§5全读理解perception/reasoning、T2I对齐/关系/知识、编辑改动和保持、交错coherence/consistency、unificationUEG/GEU。FID分布拟合、CLIP语义、OCR/检测/VQA/人评各有偏差，指标不同不能聚成架构优劣因果。T4GenEval写1000prompts；本次官方evaluation_metadata.jsonl确定性计553，记录该表错误。T4HQEdit约200K等训练总量不等同固定测试规模，引用前核任务split。",
+    "baselines": "T1–2逐行比较架构与release标签，T3–4逐行数据/评测资源清单，均为引文汇总而非控制数据/计算的baseline表。无系统检索库、搜索式、纳入排除、双人筛选或质量评估流程，不能据未列出工作推出不存在。已读具体模型有优先原文解释权。",
+    "experimental_conditions": "固定v6包含截至2025末部分工作，2026-01-26更新，非2026-10全景。§2基础5式仅介绍背景，无新定理/训练。未执行任何被引模型/生成/训练/benchmark/APIjudge，没下载全部被引数据。本次对GenEval公开metadata只计行及类别，不进行模型评分。"
   },
   {
     "title": "Unified-IO 2: Scaling Autoregressive Multimodal Models with Vision, Language, Audio, and Action",

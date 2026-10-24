@@ -525,3 +525,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百零二批（2026-10-25）：online selector只看q与当前frame，No保留旧key并跟踪，不能保证语义不再有效时清mask；手写需事件状态。见[审查](cot_rvs_v4_full_online_and_release_audit_2026-10-25.md)、[L056](../reviews/L056.md)。
+
+
+第二百零三批（2026-10-25）：pixel/semantic/query/hybrid非互斥轴，连续embedding+扩散head也归AR；按loss与训练路径补矩阵。见[审查](umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[L057](../reviews/L057.md)。

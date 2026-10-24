@@ -1,0 +1,1828 @@
+{
+  "id": "L057",
+  "arxiv_version": "2505.02567v6",
+  "pages": 34,
+  "numbered_figures_visually_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "equations_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "tables": [
+    {
+      "id": "S2.T1",
+      "rows": [
+        [
+          "Model",
+          "Type",
+          "Architecture",
+          "Date"
+        ],
+        [
+          "Backbone",
+          "Und. Enc.",
+          "Gen. Enc.",
+          "Gen. Dec.",
+          "Mask"
+        ],
+        [
+          "Diffusion Model"
+        ],
+        [
+          "Dual Diffusion [ 127 ]",
+          "a",
+          "D-DiT",
+          "SD-VAE",
+          "SD-VAE",
+          "Bidirect.",
+          "2024-12"
+        ],
+        [
+          "UniDisc [ 128 ]",
+          "a",
+          "DiT",
+          "MAGVIT-v2",
+          "MAGVIT-v2",
+          "Bidirect.",
+          "2025-03"
+        ],
+        [
+          "MMaDA [ 129 ]",
+          "a",
+          "LLaDA",
+          "MAGVIT-v2",
+          "MAGVIT-v2",
+          "Bidirect.",
+          "2025-05"
+        ],
+        [
+          "FUDOKI [ 130 ]",
+          "a",
+          "DeepSeek-LLM",
+          "SigLIP",
+          "VQGAN",
+          "VQGAN",
+          "Bidirect.",
+          "2025-05"
+        ],
+        [
+          "Muddit [ 131 ]",
+          "a",
+          "Meissonic (MM-DiT)",
+          "VQGAN",
+          "VQGAN",
+          "Bidirect.",
+          "2025-05"
+        ],
+        [
+          "Lavida-O [ 132 ]",
+          "a",
+          "LaViDa",
+          "SigLIP",
+          "VQ-Encoder",
+          "VQ-Encoder",
+          "Bidirect.",
+          "2025-09"
+        ],
+        [
+          "UniModel [ 133 ]",
+          "a",
+          "MMDiT in Qwen-Image",
+          "Wan-2.1-VAE",
+          "Wan-2.1-VAE",
+          "Bidirect.",
+          "2025-11"
+        ],
+        [
+          "Autoregressive Model"
+        ],
+        [
+          "LWM [ 29 ]",
+          "b-1",
+          "LLaMa-2",
+          "VQGAN",
+          "VQGAN",
+          "Causal",
+          "2024-02"
+        ],
+        [
+          "Chameleon [ 30 ]",
+          "b-1",
+          "LLaMa-2",
+          "VQ-IMG",
+          "VQ-IMG",
+          "Causal",
+          "2024-05"
+        ],
+        [
+          "ANOLE [ 134 ]",
+          "b-1",
+          "LLaMa-2",
+          "VQ-IMG",
+          "VQ-IMG",
+          "Causal",
+          "2024-07"
+        ],
+        [
+          "Emu3 [ 135 ]",
+          "b-1",
+          "LLaMA-2",
+          "SBER-MoVQGAN",
+          "SBER-MoVQGAN",
+          "Causal",
+          "2024-09"
+        ],
+        [
+          "MMAR [ 136 ]",
+          "b-1",
+          "Qwen2",
+          "SD-VAE + EmbeddingViT",
+          "Diffusion MLP",
+          "Bidirect.",
+          "2024-10"
+        ],
+        [
+          "Orthus [ 137 ]",
+          "b-1",
+          "Chameleon",
+          "VQ-IMG+Vision embed.",
+          "Diffusion MLP",
+          "Causal",
+          "2024-11"
+        ],
+        [
+          "SynerGen-VL [ 138 ]",
+          "b-1",
+          "InterLM2",
+          "SBER-MoVQGAN",
+          "SBER-MoVQGAN",
+          "Causal",
+          "2024-12"
+        ],
+        [
+          "Liquid [ 139 ]",
+          "b-1",
+          "GEMMA",
+          "VQGAN",
+          "VQGAN",
+          "Causal",
+          "2024-12"
+        ],
+        [
+          "UGen [ 140 ]",
+          "b-1",
+          "TinyLlama",
+          "SBER-MoVQGAN",
+          "SBER-MoVQGAN",
+          "Causal",
+          "2025-03"
+        ],
+        [
+          "Harmon [ 141 ]",
+          "b-1",
+          "Qwen2.5",
+          "MAR",
+          "MAR",
+          "Bidirect.",
+          "2025-03"
+        ],
+        [
+          "TokLIP [ 142 ]",
+          "b-1",
+          "Qwen2.5",
+          "VQGAN+SigLIP",
+          "VQGAN",
+          "Causal",
+          "2025-05"
+        ],
+        [
+          "Selftok [ 143 ]",
+          "b-1",
+          "LLaMA3.1",
+          "SD3-VAE+MMDiT",
+          "SD3",
+          "Causal",
+          "2025-05"
+        ],
+        [
+          "OneCat [ 144 ]",
+          "b-1",
+          "Qwen2.5",
+          "Convolution + MLP",
+          "VAE in Infinity",
+          "VAE in Infinity",
+          "Causal",
+          "2025-09"
+        ],
+        [
+          "Emu3.5 [ 135 ]",
+          "b-1",
+          "Modified Qwen3",
+          "SBER-MoVQGAN",
+          "SBER-MoVQGAN",
+          "Causal",
+          "2025-10"
+        ],
+        [
+          "Emu [ 145 ]",
+          "b-2",
+          "LLaMA",
+          "EVA-CLIP",
+          "SD",
+          "Causal",
+          "2023-07"
+        ],
+        [
+          "LaVIT [ 146 ]",
+          "b-2",
+          "LLaMA",
+          "EVA-CLIP",
+          "SD-1.5",
+          "Causal",
+          "2023-09"
+        ],
+        [
+          "DreamLLM [ 34 ]",
+          "b-2",
+          "LLaMA",
+          "OpenAI-CLIP",
+          "SD-2.1",
+          "Causal",
+          "2023-09"
+        ],
+        [
+          "Emu2 [ 33 ]",
+          "b-2",
+          "LLaMA",
+          "EVA-CLIP",
+          "SDXL",
+          "Causal",
+          "2023-12"
+        ],
+        [
+          "VL-GPT [ 35 ]",
+          "b-2",
+          "LLaMA",
+          "OpenAI-CLIP",
+          "IP-Adapter",
+          "Causal",
+          "2023-12"
+        ],
+        [
+          "MM-Interleaved [ 147 ]",
+          "b-2",
+          "Vicuna",
+          "OpenAI-CLIP",
+          "SD-v2.1",
+          "Causal",
+          "2024-01"
+        ],
+        [
+          "Mini-Gemini [ 148 ]",
+          "b-2",
+          "Gemma&Vicuna",
+          "OpenAI-CLIP+ConvNext",
+          "SDXL",
+          "Causal",
+          "2024-03"
+        ],
+        [
+          "VILA-U [ 149 ]",
+          "b-2",
+          "LLaMA-2",
+          "SigLIP+RQ",
+          "RQ-VAE",
+          "Causal",
+          "2024-09"
+        ],
+        [
+          "PUMA [ 150 ]",
+          "b-2",
+          "LLaMA-3",
+          "OpenAI-CLIP",
+          "SDXL",
+          "Bidirect.",
+          "2024-10"
+        ],
+        [
+          "MetaMorph [ 151 ]",
+          "b-2",
+          "LLaMA",
+          "SigLIP",
+          "SD-1.5",
+          "Causal",
+          "2024-12"
+        ],
+        [
+          "ILLUME [ 152 ]",
+          "b-2",
+          "Vicuna",
+          "UNIT",
+          "SDXL",
+          "Causal",
+          "2024-12"
+        ],
+        [
+          "UniTok [ 153 ]",
+          "b-2",
+          "LLaMa-2",
+          "ViTamin",
+          "ViTamin",
+          "Causal",
+          "2025-02"
+        ],
+        [
+          "QLIP [ 154 ]",
+          "b-2",
+          "LlaMa-3",
+          "QLIP-ViT+BSQ",
+          "BSQ-AE",
+          "Causal",
+          "2025-02"
+        ],
+        [
+          "DualToken [ 155 ]",
+          "b-2",
+          "Qwen2.5",
+          "SigLIP",
+          "RQVAE",
+          "Causal",
+          "2025-03"
+        ],
+        [
+          "UniFork [ 156 ]",
+          "b-2",
+          "Qwen2.5",
+          "SigLIP+RQ",
+          "RQ-VAE",
+          "Causal",
+          "2025-06"
+        ],
+        [
+          "UniCode 2 [ 157 ]",
+          "b-2",
+          "Qwen2.5",
+          "SigLIP+RQ",
+          "FLUX.1-dev / SD-1.5",
+          "Causal",
+          "2025-06"
+        ],
+        [
+          "UniWorld [ 158 ]",
+          "b-2",
+          "Qwen2.5-VL",
+          "SigLIP2",
+          "DiT",
+          "Bidrect.",
+          "2025-06"
+        ],
+        [
+          "Pisces [ 159 ]",
+          "b-2",
+          "LLaMA-3.1",
+          "SigLIP",
+          "EVA-CLIP",
+          "Diffusion",
+          "Causal",
+          "2025-06"
+        ],
+        [
+          "Tar [ 160 ]",
+          "b-2",
+          "Qwen2.5",
+          "SigLIP2+VQ",
+          "VQGAN / SANA",
+          "Causal",
+          "2025-06"
+        ],
+        [
+          "OmniGen2 [ 161 ]",
+          "b-2",
+          "Qwen2.5-VL",
+          "SigLIP",
+          "OmniGen",
+          "Causal",
+          "2025-06"
+        ],
+        [
+          "Ovis-U1 [ 162 ]",
+          "b-2",
+          "Ovis",
+          "AimV2",
+          "MMDiT",
+          "Causal",
+          "2025-06"
+        ],
+        [
+          "X-Omni [ 163 ]",
+          "b-2",
+          "Qwen2.5-VL",
+          "QwenViT",
+          "Siglip",
+          "FLUX",
+          "Causal",
+          "2025-07"
+        ],
+        [
+          "Qwen-Image [ 164 ]",
+          "b-2",
+          "Qwen2.5-VL",
+          "QwenViT",
+          "MMDiT",
+          "Causal",
+          "2025-08"
+        ],
+        [
+          "Bifrost-1 [ 165 ]",
+          "b-2",
+          "Qwen2.5-VL",
+          "QwenViT",
+          "ViT",
+          "FLUX",
+          "Causal",
+          "2025-08"
+        ],
+        [
+          "Ming-UniVision [ 166 ]",
+          "b-2",
+          "Ming-UniVision",
+          "MingTok",
+          "MingTok",
+          "Causal",
+          "2025-10"
+        ],
+        [
+          "MammothModa2 [ 167 ]",
+          "b-2",
+          "Qwen3-VL-8B",
+          "QwenViT",
+          "MammothTok",
+          "Single-stream DiT",
+          "Causal",
+          "2025-11"
+        ],
+        [
+          "SEED [ 168 ]",
+          "b-3",
+          "OPT",
+          "SEED Tokenizer",
+          "Learnable Query",
+          "SD",
+          "Causal",
+          "2023-07"
+        ],
+        [
+          "SEED-LLaMA [ 169 ]",
+          "b-3",
+          "LLaMa-2 &Vicuna",
+          "SEED Tokenizer",
+          "Learnable Query",
+          "unCLIP-SD",
+          "Causal",
+          "2023-10"
+        ],
+        [
+          "SEED-X [ 170 ]",
+          "b-3",
+          "LLaMa-2",
+          "SEED Tokenizer",
+          "Learnable Query",
+          "SDXL",
+          "Causal",
+          "2024-04"
+        ],
+        [
+          "MetaQueries [ 171 ]",
+          "b-3",
+          "LLaVA&Qwen2.5-VL",
+          "SigLIP",
+          "Learnable Query",
+          "Sana",
+          "Causal",
+          "2025-04"
+        ],
+        [
+          "Nexus-Gen [ 172 ]",
+          "b-3",
+          "Qwen2.5-VL",
+          "QwenViT",
+          "Learnable Query",
+          "FLUX",
+          "Causal",
+          "2025-04"
+        ],
+        [
+          "Ming-Lite-Uni [ 173 ]",
+          "b-3",
+          "M2-omni",
+          "NaViT",
+          "Learnable Query",
+          "Sana",
+          "Causal",
+          "2025-05"
+        ],
+        [
+          "BLIP3-o [ 174 ]",
+          "b-3",
+          "Qwen2.5-VL",
+          "OpenAI-CLIP",
+          "Learnable Query",
+          "Lumina-Next",
+          "Causal",
+          "2025-05"
+        ],
+        [
+          "OpenUni [ 175 ]",
+          "b-3",
+          "InternVL3",
+          "InternViT",
+          "Learnable Query",
+          "Sana",
+          "Causal",
+          "2025-05"
+        ],
+        [
+          "UniLIP [ 176 ]",
+          "b-3",
+          "InternVL3",
+          "InternViT",
+          "Learnable Query",
+          "Sana",
+          "Causal",
+          "2025-07"
+        ],
+        [
+          "TBAC-UniImage [ 177 ]",
+          "b-3",
+          "Qwen2.5-VL",
+          "QwenViT",
+          "Learnable Query",
+          "Sana",
+          "Causal",
+          "2025-08"
+        ],
+        [
+          "UniPic 2.0 [ 178 ]",
+          "b-3",
+          "Qwen2.5-VL",
+          "QwenViT",
+          "Learnable Query",
+          "SD3.5-Medium",
+          "Causal",
+          "2025-09"
+        ],
+        [
+          "Janus [ 179 ]",
+          "b-4",
+          "DeepSeek-LLM",
+          "SigLIP",
+          "VQGAN",
+          "VQGAN",
+          "Casual",
+          "2024-10"
+        ],
+        [
+          "Janus-Pro [ 180 ]",
+          "b-4",
+          "DeepSeek-LLM",
+          "SigLIP",
+          "VQGAN",
+          "VQGAN",
+          "Casual",
+          "2025-01"
+        ],
+        [
+          "OmniMamba [ 181 ]",
+          "b-4",
+          "Mamba-2",
+          "DINO-v2+SigLIP",
+          "VQGAN",
+          "VQGAN",
+          "Causal",
+          "2025-03"
+        ],
+        [
+          "Unifluid [ 182 ]",
+          "b-4",
+          "Gemma-2",
+          "SigLIP",
+          "SD-VAE",
+          "Diffusion MLP",
+          "Causal",
+          "2025-03"
+        ],
+        [
+          "MindOmni [ 183 ]",
+          "b-4",
+          "Qwen2.5-VL",
+          "QwenViT",
+          "VAE",
+          "OmniGen",
+          "Causal",
+          "2025-06"
+        ],
+        [
+          "Skywork UniPic [ 184 ]",
+          "b-4",
+          "Qwen2.5",
+          "SigLIP2",
+          "SDXL-VAE",
+          "SDXL-VAE",
+          "Causal",
+          "2025-08"
+        ],
+        [
+          "MUSE-VL [ 185 ]",
+          "b-5",
+          "Qwen-2.5&Yi-1.5",
+          "SigLIP",
+          "VQGAN",
+          "VQGAN",
+          "Causal",
+          "2024-11"
+        ],
+        [
+          "Tokenflow [ 186 ]",
+          "b-5",
+          "Vicuna&Qwen-2.5",
+          "OpenAI-CLIP",
+          "MSVQ",
+          "MSVQ",
+          "Causal",
+          "2024-12"
+        ],
+        [
+          "VARGPT [ 187 ]",
+          "b-5",
+          "Vicuna-1.5",
+          "OpenAI-CLIP",
+          "MSVQ",
+          "VAR-d30",
+          "Causal",
+          "2025-01"
+        ],
+        [
+          "SemHiTok [ 188 ]",
+          "b-5",
+          "Qwen2.5",
+          "SigLIP",
+          "ViT",
+          "ViT",
+          "Causal",
+          "2025-03"
+        ],
+        [
+          "VARGPT-1.1 [ 189 ]",
+          "b-5",
+          "Qwen2",
+          "SigLIP",
+          "MSVQ",
+          "Infinity",
+          "Causal",
+          "2025-04"
+        ],
+        [
+          "ILLUME+ [ 190 ]",
+          "b-5",
+          "Qwen2.5",
+          "QwenViT",
+          "MoVQGAN",
+          "SDXL",
+          "Causal",
+          "2025-04"
+        ],
+        [
+          "UniToken [ 191 ]",
+          "b-5",
+          "Chameleon",
+          "SigLIP",
+          "VQ-IMG",
+          "VQGAN",
+          "Causal",
+          "2025-04"
+        ],
+        [
+          "Show-o2 [ 192 ]",
+          "b-5",
+          "Qwen2.5",
+          "Wan-3DVAE + SigLIP",
+          "Wan-3DVAE",
+          "Wan-3DVAE",
+          "Causal",
+          "2025-06"
+        ],
+        [
+          "Fused Autoregressive and Diffusion Model"
+        ],
+        [
+          "Transfusion [ 38 ]",
+          "c-1",
+          "LLaMA-2",
+          "SD-VAE",
+          "SD-VAE",
+          "Bidirect.",
+          "2024-08"
+        ],
+        [
+          "Show-o [ 39 ]",
+          "c-1",
+          "LLaVA-v1.5-Phi",
+          "MAGVIT-v2",
+          "MAGVIT-v2",
+          "Bidirect.",
+          "2024-08"
+        ],
+        [
+          "MonoFormer [ 37 ]",
+          "c-1",
+          "TinyLLaMA",
+          "SD-VAE",
+          "SD-VAE",
+          "Bidirect.",
+          "2024-09"
+        ],
+        [
+          "LMFusion [ 193 ]",
+          "c-1",
+          "LLaMA",
+          "SD-VAE+UNet down.",
+          "SD-VAE+UNet up.",
+          "Bidirect.",
+          "2024-12"
+        ],
+        [
+          "TUNA [ 194 ]",
+          "c-1",
+          "Qwen-2.5",
+          "VAE+Siglip2",
+          "VAE",
+          "Bidirect.",
+          "2025-12"
+        ],
+        [
+          "Janus-flow [ 195 ]",
+          "c-2",
+          "DeepSeek-LLM",
+          "SigLIP",
+          "SDXL-VAE",
+          "SDXL-VAE",
+          "Causal",
+          "2024-11"
+        ],
+        [
+          "Mogao [ 196 ]",
+          "c-2",
+          "Qwen2.5",
+          "SigLIP+SDXL-VAE",
+          "SDXL-VAE",
+          "SDXL-VAE",
+          "Bidirect.",
+          "2025-05"
+        ],
+        [
+          "BAGEL [ 197 ]",
+          "c-2",
+          "Qwen2.5",
+          "SigLIP",
+          "FLUX-VAE",
+          "FLUX-VAE",
+          "Bidirect.",
+          "2025-05"
+        ],
+        [
+          "LightFusion [ 198 ]",
+          "c-2",
+          "QWen2.5-VL +Wan2.2-TI2V",
+          "QWen2.5-VL",
+          "Wan2.2-TI2V",
+          "DCAE",
+          "Bidirect.",
+          "2025-11"
+        ],
+        [
+          "HBridge [ 199 ]",
+          "c-2",
+          "QWen + OmniGen2",
+          "QwenViT",
+          "SigLip",
+          "OmniGen",
+          "Bidirect.",
+          "2025-11"
+        ],
+        [
+          "EMMA [ 200 ]",
+          "c-2",
+          "Qwen3-34B",
+          "SigLIP",
+          "DCAE",
+          "DCAE",
+          "Bidirect.",
+          "2025-12"
+        ]
+      ]
+    },
+    {
+      "id": "S2.T2",
+      "rows": [
+        [
+          "Model",
+          "Architecture",
+          "Date"
+        ],
+        [
+          "Backbone",
+          "Modality Enc.",
+          "Modality Dec.",
+          "Mask"
+        ],
+        [
+          "Next-GPT [ 201 ]",
+          "Vicuna",
+          "ImageBind",
+          "AudioLDM+SD-1.5+Zeroscope-v2",
+          "Causal",
+          "2023-09"
+        ],
+        [
+          "Unified-IO 2 [ 202 ]",
+          "T5",
+          "Audio Spectrogram Transformer+Vision ViT",
+          "Audio ViT-VQGAN + Vision VQGAN",
+          "Causal",
+          "2023-12"
+        ],
+        [
+          "Video-LaVIT [ 203 ]",
+          "LLaVA-1.5",
+          "LaVIT+Motion VQ-VAE",
+          "SVD img2vid-xt",
+          "Causal",
+          "2024-02"
+        ],
+        [
+          "AnyGPT [ 204 ]",
+          "LLaMA-2",
+          "Encodec+SEED Tokenizer+SpeechTokenizer",
+          "Encodec+SD+SoundStorm",
+          "Causal",
+          "2024-02"
+        ],
+        [
+          "X-VILA [ 205 ]",
+          "Vicuna",
+          "ImageBind",
+          "AudioLDM+SD-1.5+Zeroscope-v2",
+          "Causal",
+          "2024-05"
+        ],
+        [
+          "MIO [ 206 ]",
+          "Yi-Base",
+          "SpeechTokenizer+SEED-Tokenizer",
+          "SpeechTokenizer+SEED Tokenizer",
+          "Causal",
+          "2024-09"
+        ],
+        [
+          "Spider [ 207 ]",
+          "LLaMA-2",
+          "ImageBind",
+          "AudioLDM+SD-1.5+Zeroscope-v2",
+          "Causal",
+          "2024-11"
+        ],
+        [
+          "+Grounding DINO+SAM"
+        ],
+        [
+          "OmniFlow [ 208 ]",
+          "MMDiT",
+          "HiFiGen+SD-VAE+Flan-T5",
+          "HiFiGen+SD-VAE+TinyLlama",
+          "Bidirect.",
+          "2024-12"
+        ],
+        [
+          "M2-omni [ 209 ]",
+          "LLaMA-3",
+          "paraformer-zh+NaViT",
+          "CosyVoice-vocoder+SD-3",
+          "Casual",
+          "2025-02"
+        ]
+      ]
+    },
+    {
+      "id": "S4.T3",
+      "rows": [
+        [
+          "Dataset",
+          "Samples",
+          "Date"
+        ],
+        [
+          "Multimodal Understanding"
+        ],
+        [
+          "RedCaps [ 261 ]",
+          "12M",
+          "2021-11"
+        ],
+        [
+          "Wukong [ 262 ]",
+          "100M",
+          "2022-02"
+        ],
+        [
+          "LAION [ 263 ]",
+          "5.9B",
+          "2022-03"
+        ],
+        [
+          "COYO [ 264 ]",
+          "747M",
+          "2022-08"
+        ],
+        [
+          "Laion-COCO [ 265 ]",
+          "600M",
+          "2022-09"
+        ],
+        [
+          "DataComp [ 266 ]",
+          "1.4B",
+          "2023-04"
+        ],
+        [
+          "GRIT [ 267 ]",
+          "20M",
+          "2023-06"
+        ],
+        [
+          "CapsFusion-120M [ 268 ]",
+          "120M",
+          "2023-10"
+        ],
+        [
+          "ShareGPT4V [ 269 ]",
+          "100K",
+          "2023-11"
+        ],
+        [
+          "ALLaVA-4V [ 227 ]",
+          "1.4M",
+          "2024-02"
+        ],
+        [
+          "Cambrian-10M(7M) [ 270 ]",
+          "10M",
+          "2024-06"
+        ],
+        [
+          "LLaVA-OneVision [ 271 ]",
+          "4.8M",
+          "2024-08"
+        ],
+        [
+          "Infinity-MM [ 272 ]",
+          "40M",
+          "2024-10"
+        ],
+        [
+          "Honey-Data-15M [ 273 ]",
+          "15M",
+          "2025-10"
+        ],
+        [
+          "Text-to-Image"
+        ],
+        [
+          "CC-12M [ 274 ]",
+          "12M",
+          "2021-02"
+        ],
+        [
+          "LAION-Aesthetics [ 263 ]",
+          "120M",
+          "2022-08"
+        ],
+        [
+          "SAM [ 275 ]",
+          "11M",
+          "2023-04"
+        ],
+        [
+          "Mario-10M [ 276 ]",
+          "10M",
+          "2023-05"
+        ],
+        [
+          "RenderedText [ 277 ]",
+          "12M",
+          "2023-06"
+        ],
+        [
+          "JourneyDB [ 278 ]",
+          "4M",
+          "2023-07"
+        ],
+        [
+          "AnyWord-3M [ 279 ]",
+          "3M",
+          "2023-11"
+        ],
+        [
+          "CosmicMan-HQ 1.0 [ 280 ]",
+          "6M",
+          "2024-04"
+        ],
+        [
+          "DOCCI [ 281 ]",
+          "15K",
+          "2024-04"
+        ],
+        [
+          "PixelProse [ 282 ]",
+          "16M",
+          "2024-06"
+        ],
+        [
+          "DenseFusion [ 283 ]",
+          "1M",
+          "2024-07"
+        ],
+        [
+          "Megalith [ 284 ]",
+          "10M",
+          "2024-07"
+        ],
+        [
+          "text-to-image-2M [ 285 ]",
+          "2M",
+          "2024-09"
+        ],
+        [
+          "PD12M [ 286 ]",
+          "12M",
+          "2024-10"
+        ],
+        [
+          "SFHQ-T2I [ 287 ]",
+          "122K",
+          "2024-10"
+        ],
+        [
+          "EliGen TrainSet [ 288 ]",
+          "500k",
+          "2025-01"
+        ],
+        [
+          "TextAtlas5M [ 289 ]",
+          "5M",
+          "2025-02"
+        ],
+        [
+          "BLIP-3o 60k [ 174 ]",
+          "60K",
+          "2025-05"
+        ],
+        [
+          "ShareGPT-4o-Image [ 290 ]",
+          "45K",
+          "2025-06"
+        ],
+        [
+          "Poster100K [ 291 ]",
+          "100K",
+          "2025-06"
+        ],
+        [
+          "Text-Render-2M [ 291 ]",
+          "2M",
+          "2025-06"
+        ],
+        [
+          "Echo-4o-Image [ 292 ]",
+          "106K",
+          "2025-08"
+        ],
+        [
+          "FLUX-Reason-6M [ 293 ]",
+          "6M",
+          "2025-09"
+        ],
+        [
+          "Image Editing"
+        ],
+        [
+          "InstructP2P [ 294 ]",
+          "313K",
+          "2022-11"
+        ],
+        [
+          "Magicbrush [ 295 ]",
+          "10K",
+          "2023-06"
+        ],
+        [
+          "HIVE [ 296 ]",
+          "1.1M",
+          "2023-07"
+        ],
+        [
+          "HQ-Edit [ 297 ]",
+          "197K",
+          "2024-04"
+        ],
+        [
+          "SEED-Data-Edit [ 170 ]",
+          "3.7M",
+          "2024-05"
+        ],
+        [
+          "EditWorld [ 298 ]",
+          "8.6K",
+          "2024-06"
+        ],
+        [
+          "UltraEdit [ 299 ]",
+          "4M",
+          "2024-07"
+        ],
+        [
+          "PromptFix [ 300 ]",
+          "1M",
+          "2024-09"
+        ],
+        [
+          "OmniEdit [ 301 ]",
+          "1.2M",
+          "2024-11"
+        ],
+        [
+          "AnyEdit [ 302 ]",
+          "2.5M",
+          "2024-11"
+        ],
+        [
+          "RefEdit [ 303 ]",
+          "18K",
+          "2025-04"
+        ],
+        [
+          "Imgedit [ 304 ]",
+          "1.2M",
+          "2025-05"
+        ],
+        [
+          "ByteMorph-6M [ 305 ]",
+          "6.4M",
+          "2025-05"
+        ],
+        [
+          "ShareGPT-4o-Image [ 290 ]",
+          "46K",
+          "2025-06"
+        ],
+        [
+          "GPT-Image-Edit-1.5M [ 306 ]",
+          "1.5M",
+          "2025-07"
+        ],
+        [
+          "X2Edit [ 307 ]",
+          "3.7M",
+          "2025-08"
+        ],
+        [
+          "Pico-Banana-400K [ 308 ]",
+          "400K",
+          "2025-10"
+        ],
+        [
+          "Interleaved Image-Text"
+        ],
+        [
+          "Multimodal C4 [ 309 ]",
+          "101.2M",
+          "2023-04"
+        ],
+        [
+          "OBELICS [ 310 ]",
+          "141M",
+          "2023-06"
+        ],
+        [
+          "CoMM [ 311 ]",
+          "227K",
+          "2024-06"
+        ],
+        [
+          "OmniCorpus [ 312 ]",
+          "8B",
+          "2024-10"
+        ],
+        [
+          "Other Text+Image-to-Image"
+        ],
+        [
+          "LAION-Face [ 313 ]",
+          "50M",
+          "2021-12"
+        ],
+        [
+          "MultiGen-20M [ 314 ]",
+          "20M",
+          "2023-05"
+        ],
+        [
+          "Subjects200K [ 315 ]",
+          "200K",
+          "2024-11"
+        ],
+        [
+          "X2I-subject-driven [ 84 ]",
+          "2.5M",
+          "2024-12"
+        ],
+        [
+          "SynCD [ 316 ]",
+          "95K",
+          "2025-02"
+        ],
+        [
+          "Graph200K [ 317 ]",
+          "200K",
+          "2025-03"
+        ],
+        [
+          "MetaQuery_Instruct_2.4M [ 171 ]",
+          "2.4M",
+          "2025-06"
+        ],
+        [
+          "Echo-4o-Image [ 292 ]",
+          "73K",
+          "2025-08"
+        ]
+      ]
+    },
+    {
+      "id": "S4.T4",
+      "rows": [
+        [
+          "Benchmark",
+          "Size",
+          "Description",
+          "In.out Type",
+          "Venue"
+        ],
+        [
+          "Understanding"
+        ],
+        [
+          "VQA [ 329 ]",
+          "10M QAs",
+          "Open-domain Visual QA",
+          "Image + Question \\rightarrow Answer",
+          "ICCV2015"
+        ],
+        [
+          "VQAv2 [ 330 ]",
+          "1M QAs",
+          "Open-domain Visual QA",
+          "Image + Question \\rightarrow Answer",
+          "CVPR2017"
+        ],
+        [
+          "CLEVR [ 331 ]",
+          "853K QAs",
+          "Compositional Visual QA",
+          "Image + Question \\rightarrow Answer",
+          "CVPR2017"
+        ],
+        [
+          "GQA [ 332 ]",
+          "22M QAs",
+          "Compositional Visual QA",
+          "Image + Question \\rightarrow Answer",
+          "CVPR2019"
+        ],
+        [
+          "OK-VQA [ 333 ]",
+          "14K QAs",
+          "Knowledge-based VQA",
+          "Image + Question \\rightarrow Answer",
+          "CVPR2019"
+        ],
+        [
+          "VCR [ 334 ]",
+          "290K QAs",
+          "Commonsense Visual QA",
+          "Img. + Q. \\rightarrow Answer + Rationale",
+          "CVPR2019"
+        ],
+        [
+          "VisDial [ 335 ]",
+          "1.2M Dialogs",
+          "Multi-turn Visual Dialog",
+          "Image + Dialog \\rightarrow Answer",
+          "CVPR2019"
+        ],
+        [
+          "ChartQA [ 336 ]",
+          "32.7K QAs",
+          "Data Visualization QA",
+          "Image + Question \\rightarrow Answer",
+          "ACL2020"
+        ],
+        [
+          "TextVQA [ 337 ]",
+          "45K QAs",
+          "Scene Text Visual QA",
+          "Image + Question \\rightarrow Answer",
+          "CVPR2020"
+        ],
+        [
+          "A-OKVQA [ 338 ]",
+          "25K QAs",
+          "Expanded Commonsense VQA",
+          "Image + Question \\rightarrow Answer",
+          "ECCV2022"
+        ],
+        [
+          "HaluEval [ 339 ]",
+          "35K Samples",
+          "Hallucination Detection",
+          "Model output \\rightarrow Yes / No",
+          "EMNLP2023"
+        ],
+        [
+          "VSR [ 8 ]",
+          "3K QAs",
+          "Spatial Reasoning",
+          "Image + Question \\rightarrow True / False",
+          "TACL2023"
+        ],
+        [
+          "LAMM [ 340 ]",
+          "62K QAs",
+          "Instruction Benchmarking",
+          "Features + Instruction \\rightarrow Output",
+          "NeurIPS2023"
+        ],
+        [
+          "LLaVa-Bench [ 341 ]",
+          "150 QAs",
+          "Instruction Benchmarking",
+          "Image + Question \\rightarrow Answer",
+          "NeurIPS2023"
+        ],
+        [
+          "OwlEval [ 342 ]",
+          "82 Qs",
+          "Visual-related Eval",
+          "Image + Instruction \\rightarrow Answer",
+          "Arxiv2023"
+        ],
+        [
+          "MMBench [ 343 ]",
+          "3K QAs",
+          "Fine-grained Multi-modal Eval",
+          "Image + Question \\rightarrow Answer",
+          "ECCV2024"
+        ],
+        [
+          "MMMU [ 344 ]",
+          "11.5K QAs",
+          "Expert-level Understanding",
+          "Image + Question \\rightarrow Answer",
+          "CVPR2024"
+        ],
+        [
+          "MM-Vet [ 345 ]",
+          "218 Samples",
+          "VL Capability Eval",
+          "Image + Question \\rightarrow Answer",
+          "ICML2024"
+        ],
+        [
+          "MM-Vet v2 [ 346 ]",
+          "218+ Samples",
+          "VL Sequence Understanding",
+          "Image + Sequences \\rightarrow Answer",
+          "Arxiv2024"
+        ],
+        [
+          "MMStar [ 347 ]",
+          "1.5K QAs",
+          "Vision Indispensable Eval",
+          "Image + Question \\rightarrow Answer",
+          "NeurIPS2024"
+        ],
+        [
+          "SEED-Bench [ 348 ]",
+          "19K QAs",
+          "Comprehensive Evaluation",
+          "Image/Video + MCQ \\rightarrow Answer",
+          "CVPR2024"
+        ],
+        [
+          "Open-VQA [ 349 ]",
+          "Varied",
+          "VQA Evaluation",
+          "Image + Q/A \\rightarrow QA Chain",
+          "ICLR2024"
+        ],
+        [
+          "MathVista [ 350 ]",
+          "6K QAs",
+          "Math Reasoning",
+          "Image + Text \\rightarrow Math Output",
+          "ICLR2024"
+        ],
+        [
+          "General-Bench [ 351 ]",
+          "> 700 tasks",
+          "Ultra Large-scale Eval",
+          "Varied by Task",
+          "Arxiv2025"
+        ],
+        [
+          "Image Generation"
+        ],
+        [
+          "DrawBench [ 72 ]",
+          "200 Prompts",
+          "Comprehensive Eval",
+          "Text Prompt \\rightarrow Image",
+          "NeurIPS2022"
+        ],
+        [
+          "PartiPrompts [ 352 ]",
+          "1600 Prompts",
+          "Comprehensive Eval",
+          "Text Prompt \\rightarrow Image",
+          "TMLR2022"
+        ],
+        [
+          "PaintSkills [ 353 ]",
+          "\\sim 7K Scenes",
+          "Compositional Eval",
+          "Text Prompt \\rightarrow Image",
+          "ICCV2023"
+        ],
+        [
+          "HRS-Bench [ 354 ]",
+          "960 Prompts",
+          "Multi-skill Eval",
+          "Text Prompt \\rightarrow Image",
+          "ICCV2023"
+        ],
+        [
+          "TIFA [ 355 ]",
+          "4081 Prompts",
+          "QA-based Eval",
+          "Text Prompt \\rightarrow Image",
+          "ICCV2023"
+        ],
+        [
+          "GenEval [ 356 ]",
+          "1000 Prompts",
+          "Object-focused Eval",
+          "Text Prompt \\rightarrow Image",
+          "NeurIPS2023"
+        ],
+        [
+          "T2I-CompBench [ 357 ]",
+          "6000 Prompts",
+          "Compositional Eval",
+          "Text Prompt \\rightarrow Image",
+          "NeurIPS2023"
+        ],
+        [
+          "HEIM [ 358 ]",
+          "\\sim 1620 Prompts",
+          "Comprehensive Eval",
+          "Text Prompt \\rightarrow Image",
+          "NeurIPS2023"
+        ],
+        [
+          "Commonsense-T2I [ 359 ]",
+          "500 Prompts",
+          "Commonsense-driven Eval",
+          "Text Prompt \\rightarrow Image",
+          "COLM2024"
+        ],
+        [
+          "DSG-1k [ 360 ]",
+          "1060 Prompts",
+          "Compositional Eval",
+          "Text Prompt \\rightarrow Image",
+          "ICLR2024"
+        ],
+        [
+          "GenAI-Bench [ 361 ]",
+          "1600 Prompts",
+          "Compositional Eval",
+          "Text Prompt \\rightarrow Image",
+          "CVPR2024"
+        ],
+        [
+          "ConceptMix [ 362 ]",
+          "2100 Prompts",
+          "Compositional Eval",
+          "Text Prompt \\rightarrow Image",
+          "NeurIPS2024"
+        ],
+        [
+          "DPG-Bench [ 363 ]",
+          "1065 prompts",
+          "Attribute Eval",
+          "Text Prompt \\rightarrow Image",
+          "Arxiv2024"
+        ],
+        [
+          "T2I-CompBench++ [ 364 ]",
+          "6000+ Prompts",
+          "Compositional Eval",
+          "Text Prompt \\rightarrow Image",
+          "TPAMI2025"
+        ],
+        [
+          "MMIG-Bench [ 365 ]",
+          "4850 Prompts",
+          "Comprehensive Eval",
+          "Text Prompt \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "OneIG-Bench [ 366 ]",
+          "\\sim 2k Prompts",
+          "Comprehensive Eval",
+          "Text Prompt \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "WISE [ 367 ]",
+          "1k Prompts",
+          "World Knowledge Eval",
+          "Text Prompt \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "CVTG-2K [ 368 ]",
+          "2k Prompts",
+          "Multi-region Visual Text Eval",
+          "Text Prompt \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "WorldGenBench [ 369 ]",
+          "1072 Prompts",
+          "World Knowledge Eval",
+          "Text Prompt \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "EditBench [ 370 ]",
+          "240 Edits",
+          "Mask-guided Editing",
+          "Img. + Ins. + [Mask] \\rightarrow Image",
+          "CVPR2023"
+        ],
+        [
+          "MagicBrush [ 295 ]",
+          "1053 Edits",
+          "Real‑image Editing",
+          "Image + Instruction \\rightarrow Image",
+          "NeurIPS2023"
+        ],
+        [
+          "EditVal [ 371 ]",
+          "648 Edits",
+          "Attribute‑focused Eval",
+          "Image + Instruction \\rightarrow Image",
+          "Arxiv2023"
+        ],
+        [
+          "Emu-Edit [ 372 ]",
+          "3055 Edits",
+          "Multi‑task Editing",
+          "Image + Instruction \\rightarrow Image",
+          "CVPR2024"
+        ],
+        [
+          "Reason-Edit [ 373 ]",
+          "219 Edits",
+          "Complex Instruction Editing",
+          "Image + Instruction \\rightarrow Image",
+          "CVPR2024"
+        ],
+        [
+          "I2EBench [ 374 ]",
+          "2240 Edits",
+          "Multi‑dimensional Eval",
+          "Image + Instruction \\rightarrow Image",
+          "NeurIPS2024"
+        ],
+        [
+          "HumanEdit [ 375 ]",
+          "5.7K Edits",
+          "Human‑rewarded Editing",
+          "Img. + Ins. + [Mask] \\rightarrow Image",
+          "Arxiv2024"
+        ],
+        [
+          "HQ-Edit [ 297 ]",
+          "\\sim 200K Edits",
+          "High‑resolution Editing",
+          "Image + Instruction \\rightarrow Image",
+          "ICLR2025"
+        ],
+        [
+          "AnyEdit [ 302 ]",
+          "1250 Edits",
+          "Comprehensive Eval",
+          "Image + Instruction \\rightarrow Image",
+          "CVPR2025"
+        ],
+        [
+          "IE-Bench [ 376 ]",
+          "301 Edits",
+          "Human-aligned Perceptual Eval",
+          "Image + Instruction \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "GEdit-Bench [ 377 ]",
+          "606 Edits",
+          "Real-world-grounded Editing",
+          "Image + Instruction \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "CompBench [ 378 ]",
+          "3K Edits",
+          "Complex Instruction Editing",
+          "Image + Instruction \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "GIE-Bench [ 379 ]",
+          "1080 Edits",
+          "Content-preserving Eval",
+          "Image + Instruction \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "EditInspector [ 380 ]",
+          "783 Edits",
+          "Comprehensive Eval",
+          "Image + Instruction \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "ComplexBench-Edit [ 381 ]",
+          "< 1K List of Edits",
+          "Chain-dependent Editing Eval",
+          "Image + Instruction \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "ByteMorph-Bench [ 305 ]",
+          "613 Edits",
+          "Non-rigid Editing Eval",
+          "Image + Instruction \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "RefEdit-Bench [ 303 ]",
+          "200 Edits",
+          "Expression-driven Editing Eval",
+          "Image + Instruction \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "ImgEdit-Bench [ 304 ]",
+          "200 Edits",
+          "Expression-driven Editing Eval",
+          "Image + Instruction \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "KRIS-Bench [ 382 ]",
+          "1267 Edits",
+          "Cognitive Reasoning Eval",
+          "Image + Instruction \\rightarrow Image",
+          "Arxiv2025"
+        ],
+        [
+          "Interleaved / Compositional Generation"
+        ],
+        [
+          "InterleavedBench [ 383 ]",
+          "815 Samples",
+          "Human-curated Interleaving",
+          "Text + Images \\rightarrow Text + Images",
+          "EMNLP2024"
+        ],
+        [
+          "OpenLEAF [ 384 ]",
+          "30 Queries",
+          "Open-domain Interleaving",
+          "Query \\rightarrow Text + Images",
+          "MM2024"
+        ],
+        [
+          "ISG [ 385 ]",
+          "1150 Samples",
+          "Scene‑driven Interleaving",
+          "Graph + Text → Text + Images",
+          "ICLR2025"
+        ],
+        [
+          "MMIE [ 386 ]",
+          "20K Queries",
+          "Knowledge‑intensive Interleaving",
+          "History + Query \\rightarrow Response",
+          "ICLR2025"
+        ],
+        [
+          "OpenING [ 387 ]",
+          "5.4K Samples",
+          "Open‑domain Interleaving",
+          "Query → Text + Images",
+          "CVPR2025"
+        ],
+        [
+          "UniBench [ 388 ]",
+          "81 fine-grained tags",
+          "Unified Compositional Eval",
+          "Prompt → Images + Answer",
+          "Arxiv2025"
+        ],
+        [
+          "Other Types"
+        ],
+        [
+          "MultiGen-20M [ 314 ]",
+          "Varied",
+          "Controllable Generation",
+          "Featues + Instruction \\rightarrow Image",
+          "NeurIPS2023"
+        ],
+        [
+          "Dreambench [ 389 ]",
+          "30 objects",
+          "Subject-Driven Generation",
+          "Ref Img. + Instruction \\rightarrow Image",
+          "CVPR2023"
+        ],
+        [
+          "Dreambench++ [ 390 ]",
+          "150 imgs",
+          "Personalized Generation",
+          "Ref Img. + Instruction \\rightarrow Image",
+          "ICLR2025"
+        ],
+        [
+          "VTBench [ 391 ]",
+          "Varied",
+          "Visual Tokenizer Eval",
+          "Image \\rightarrow Reconstructed Image",
+          "Arxiv2025"
+        ]
+      ]
+    }
+  ],
+  "geneval_official_prompt_count": 553,
+  "geneval_category_counts": {
+    "single_object": 80,
+    "two_object": 99,
+    "counting": 80,
+    "colors": 94,
+    "position": 100,
+    "color_attr": 100
+  },
+  "reference_list_last_number": 403,
+  "all_cited_papers_read": false,
+  "core_three_pass_completed": true,
+  "learned_model_executed": false,
+  "sources": [
+    "https://arxiv.org/abs/2505.02567v6",
+    "https://arxiv.org/html/2505.02567v6",
+    "https://arxiv.org/pdf/2505.02567v6",
+    "https://github.com/AIDC-AI/Awesome-Unified-Multimodal-Models",
+    "https://raw.githubusercontent.com/djghosh13/geneval/main/prompts/evaluation_metadata.jsonl",
+    "https://huggingface.co/datasets/wendlerc/RenderedText"
+  ]
+}

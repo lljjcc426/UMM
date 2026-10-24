@@ -692,3 +692,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百零二批（2026-10-25）：ReasonVOS GPT65.5/Gemma50.7/online52；onlineMeViS45.9低于SAMWISE49.5，动态referent设置只有定性展示。见[审查](cot_rvs_v4_full_online_and_release_audit_2026-10-25.md)、[L056](../reviews/L056.md)。
+
+
+第二百零三批（2026-10-25）：T1–4是架构/资源汇总，无统一重跑；M2omni视频输入不能扩成视频生成。见[审查](umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[L057](../reviews/L057.md)。

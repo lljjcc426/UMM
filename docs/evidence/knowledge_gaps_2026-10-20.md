@@ -733,3 +733,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百零二批（2026-10-25）：A4格式有效率低且失败分母未公开；online预载全clip并保存所有输出，实时输入与固定总存储尚未验证。见[审查](cot_rvs_v4_full_online_and_release_audit_2026-10-25.md)、[L056](../reviews/L056.md)。
+
+
+第二百零三批（2026-10-25）：表4GenEval1000与官方553不符，单位/训练测试规模需核；§6展望已有正文先行例，不能直接当现行空白。见[审查](umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[L057](../reviews/L057.md)。

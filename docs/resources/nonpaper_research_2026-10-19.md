@@ -689,3 +689,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百零二批（2026-10-25）：代码Apache2，T-ReasonVOS非商业研究；metadata核180独立文本，is_sent非默认过滤标志。见[审查](../evidence/cot_rvs_v4_full_online_and_release_audit_2026-10-25.md)、[L056](../reviews/L056.md)。
+
+
+第二百零三批（2026-10-25）：RenderedText为Blender字体渲染静态图并行/字框，手写外观不提供落笔轨迹、接触或规范笔顺。见[审查](../evidence/umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[L057](../reviews/L057.md)。
