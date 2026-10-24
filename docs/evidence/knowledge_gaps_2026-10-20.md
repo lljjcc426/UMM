@@ -637,3 +637,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百七十批（2026-10-24）：更正M2-omni T7为50段/0–5三维、T10近300/1–5四维且GPT4o评；T6三升三降。T12第2epoch严格5胜+1并列；PT2表图解冻范围、音频pool与发布拼接不齐，S3b虎误认考拉。见[审查](m2omni_dynamic_weight_formula_and_release_scope_audit_2026-10-24.md)、[L159](../reviews/L159.md)。
+
+
+第一百七十一批（2026-10-24）：更正Ming视频32→128帧，SANM默认分支与Whisper显式分支均在；T12context中英WER均退、T9richness退；图F8羊指令配火车图需编辑核实，不自动当模型失败。配套Ming-Lite-Uni2505.02471需补录全文。见[审查](mingomni_multiscale_bridge_and_context_tradeoff_audit_2026-10-24.md)、[L160](../reviews/L160.md)。

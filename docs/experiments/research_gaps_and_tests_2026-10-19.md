@@ -622,3 +622,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百七十批（2026-10-24）：M2-omni在等模态token/更新/FLOPs下对比采样与权重，公开H/f/验证间隔和loss→斜率→权重轨迹，检验负斜率非单调；独立盲评两套对话，先补生成入口再测字形/身份/时序。见[审查](../evidence/m2omni_dynamic_weight_formula_and_release_scope_audit_2026-10-24.md)、[L159](../reviews/L159.md)。
+
+
+第一百七十一批（2026-10-24）：Ming固定Ling/Sana/数据预算对caption/等token单尺度/多尺度/MSE/冻结策略正交消融；低尺度query扰动检验注意力作用；context报WER与上下文忠实、BPE报端到端延迟，配套前作先追引。见[审查](../evidence/mingomni_multiscale_bridge_and_context_tradeoff_audit_2026-10-24.md)、[L160](../reviews/L160.md)。

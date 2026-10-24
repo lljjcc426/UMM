@@ -9635,6 +9635,40 @@
         }
       ],
       "boundary": "arXiv2502.18778v3完整50页研究文字§1–6/AppA/B、Algorithm1/Eq1–11、T1–12与S1–S11全部行，F1–8和S1–S5全部子图（14张PNG加PDFF3模板/F6四图），参考文献仅相关追引。三遍核心与五项书面；无口试/独立模型复现。GH固定M2_omni树20条目/18blobs，12个Python源码及requirements共13文件已下载，README/config全文、模型构造/位置编码说明/forwardloss/音频压缩及processor相关段阅读，未称所有源码全文阅读。ModelScope16file清单含revision，config/preprocessor与1342key权重index核，无权重下载、神经推理或训练。一次公式算术反例不算模型实验；公告停止维护转Ming，版本不混用。"
+    },
+    {
+      "id": "L160",
+      "checked_on": "2026-10-24",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "怎样以稀疏MoE统一图/文/音/视频感知，并通过可训练的图像、语音桥接输出，同时保留感知底座能力并控制激活计算？ 模态token数量/表示/收敛不同，单一router可能偏置；生成和理解粒度不同、联合更新可能干扰。纯caption→生成器接口会压缩细节，但直接共享像素token也有优化折中。应区分路由选择、共享专家和生成器适配，检验理解是否真正帮助生成，不能只凭接口存在下协同结论。",
+          "evidence": "完整28页研究范围、15表八图；核T12context比较退化、128帧、原发布三router共享expert及图生成仅最后scale采样，五项书面明确未复现和配套追引边界。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "输入T/I/V/A，经视觉/音编码投影并concat后入Ling；输出文字，或另经talker→音码BPE逆变换→flow/vocoder得语音，或query隐藏状态→connector→SanaDiT/VAE得静态图。视频仅输入理解，无视频/笔画事件输出。图生成先追加4²+8²+16²=336query及六边界token，一次骨干forward；公开generate仅处理16²隐藏状态并最终采一张图，低尺度query仍可经注意力影响16²，不能说完全未使用低尺度。不描述成必有三个低到高分辨率图像采样过程。 Qwen2.5VL视觉约675M、Whisper音频；发布config及执行分支同时保留SANM，默认use_whisper_encoder=False走SANM，ASR示例显式True走Whisper，SpeechQA示例False；纠正旧“残留字段”未决项。Ling28层h2048/16heads/4KV，64路由专家每token取6+2共享，multi_gate=true；文本/image/audio各router选择同一expertpool，并非三套完全隔离专家。maxpos32768为配置。HFconnector为36层Qwen2 h2048，talker24层h896，Sana20层head70×32；2.8B是主体激活口径，不能替代包含connector/解码器的端到端总参数、显存与延迟。",
+          "evidence": "完整28页研究范围、15表八图；核T12context比较退化、128帧、原发布三router共享expert及图生成仅最后scale采样，五项书面明确未复现和配套追引边界。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "Ling共享注意力+模态专用router；继承M2-omni平衡策略，感知PT/IT/AT之后冻结MLLM，图生成训练多尺度query/connector/DiT，语音训练独立ARdecoder+BPE/流匹配声码器。图桥接由文字描述扩展到隐藏表示，可静态生成/编辑/风格迁移。多模态支持与单任务成绩分别核，不把后继FlashOmni/2.0成绩移给Lite。Ming-Lite-Uni(2505.02471)为本报告明确指向的图生成配套前作，新增追引缺口，不把本报告三遍覆盖冒当配套全文已读。 已有强感知MoE、希望追加生成且控制对旧底座参数扰动时，冻结query桥接有适配优势；多尺度prefix可能提供层次条件、独立router让不同模态选择不同共享专家。对精细字形、多个实体引用、空间关系和过程时序，336query/只输出16²条件的表征保留能力仍需验证；终态风格转sketch不提供画笔路径。",
+          "evidence": "完整28页研究范围、15表八图；核T12context比较退化、128帧、原发布三router共享expert及图生成仅最后scale采样，五项书面明确未复现和配套追引边界。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1视觉八项均值约71.4对QwenVL71.5，Math71.6>68.1/OCR88.4>87.8，其余六项低；T2ground87.3<QwenOmni87.7；T3GUI82.1/84.1/66.6好于对应基线79.5/81.4/57.6。T4 InfoSeek27.7/30.4/25.4>QwenVL32B19.4/20.6/18.3，训练不同不独立归因结构数据。T5 GenEval.64>SDXL.55/JanusFlow.63，<JanusPro.80/SD3medium.74；DPG81.72<JanusPro84.19；FID4.85为该表最小，缺协议不足外推。T6对QwenVL Chart85.1<87.2/Doc93<95.6/Text82.8<85.1/OCRv253.3/52.0<56.3/57.2，OmniDoc34.0/34.4对30.8/39.8有升降。T7百科52.03>46.83，Vehicle41.91<42.29，原README多General类均值58.54是另一口径。T8视频59.4对59.2，Long56.6>54.7但VideoMME67.0<67.3/MMMU46.3<47.4，无CI不称显著。T9均值4.296>4.274但Richness3.498<3.828。T10中文均3.89/英文4.08/内部5.45，分别优QwenOmni4.05/5.04/14.79；内部方言五项强、Health/Knowledge/Local三领域非best。T11仅Alpaca4.63表内最高，MMSU47.53<61.32/OpenBook61.98<81.10，不能泛化全语音QA胜。全部数值表结构化。 T12提供context-aware triplet训练版对标准版：中文WER1.69→1.98、英文4.31→5.10均退，说话人sim .68/.51各保持；不能以“加入上下文提升所有语音指标”概括，亦不证明上下文没价值，表缺上下文遵从/情绪匹配指标与等训练量说明。英文标准WER4.31也劣QwenOmni2.72/F5 1.83，sim .51<.63/.65。全文未给router/多尺度/MSE冻结策略的匹配消融，BPE35%/36%(50→约32Hz)为序列压缩报告，无量化端到端时延或独立BPE质量消融；可逆重编码保持既定码串，不保证有限模型生成分布/质量不变。音数据2%方言平台只有文字描述、未给曲线/数值。 v1完整28p研究§1–5、贡献§6和数据§7–9、T1–15/F1–8全部；无编号算法/公式，MSE/多尺度符号在正文。视频T8表注和§4.3/PDF均为统一128帧，修正旧32帧。感知训练继承M2三子阶段，生成冻MLLM、只训connector/query/DiT或audio decoder，具体LR/batch/steps/NFE/冻结精度/seed未齐。原发布README H80080GB/CUDA12.2、bf16约40890MB是作者demo报告非本项目实测；demoCFG6/20steps、T2I480×544/编辑512²、输入451584pixels；generate默认CFG3.5/30steps/seed0/512²，不冒当主表协议。GH固定75fb7ec73bbc8d4c5391251e2ec90e99971d7cd9125entries/109blobs，审README/config和11相关源码段。HF ecd74fdae16ecb5a97429f943f262f7715ca2ee6168files，五子配置核，16主权重分片/connector3分片与生成配套可见，未下载/运行。当前main已更换Flash系列，未混版本。",
+          "evidence": "完整28页研究范围、15表八图；核T12context比较退化、128帧、原发布三router共享expert及图生成仅最后scale采样，五项书面明确未复现和配套追引边界。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "冻结感知参数避免生成loss直接改写旧权重，但不能证明生成采用底座知识，亦不能产生经这些冻结参数更新的双向迁移。公开图生成generate分支382–464无audio_feats读取，音输入在此未编码；有video_embeds时assert拒绝，默认入口的跨模态任意组合生成范围有限，未GPU运行、不否定论文其他能力。SANALoss有repa_loss标志/MLP但审阅文件未找到实际MSE计算或完整训练器，无法核论文对齐loss。三router共享专家池仍有共享参数干扰，缺路由分布/冲突量化。F8羊戴墨镜的文字配火车前后图，属展示配对不一致，未将其自动计模型指令失败。内部评测训练来源相似，但无证据认定泄漏；需独立实体/说话人划分、逐例分数与CI。 固定Ling/Sana/数据与可训参数/FLOPs，比caption、等token单尺度、多尺度随机/学习prefix、有无MSE、冻结/LoRA/全训，分别报理解和生成Pareto；shuffle或替换低尺度query检查其是否通过注意力作用于最终条件，公开各层表示与独立16²直接条件对照。三router对单router和独立expertpool匹配总/激活参数，测路由负载与梯度干扰。T12标准/context按等数据与预算，并报WER/sim及上下文忠实度、情绪保留、独立人评、首包/整句延迟；BPE对原码等音秒预算，不把token率降低当速度同比提升。补音/视频→图可达入口与先转文字/隐藏态对照；严格汉字/数字/空间布局/身份保留，再接真实逐笔序列和逆序/shuffle诊断。先精读配套Ming-Lite-Uni，避免将它已做的组件实验列为原创缺口。",
+          "evidence": "完整28页研究范围、15表八图；核T12context比较退化、128帧、原发布三router共享expert及图生成仅最后scale采样，五项书面明确未复现和配套追引边界。"
+        }
+      ],
+      "boundary": "完整arXiv2506.09344v1 PDF28页研究§1–5/数据附录§7–9，贡献§6看范围，参考仅相关追引；T1–15每行、F1–8全部实际图片含八张原图及PDF音频三表视觉核；纠正32→128帧。三遍核心与五项书面，未独立口述/模型复现。原GH75fb7e固定125entries/109blobs，README与config全文、11相关源码下载并读router/模型构造/Whisper与SANM分支/query追加/generate/生成模块加载/SANALoss与BPE实现相关段，不称全部源码精读。HF ecd74fd元数据168files及connector/talker/transformer/scheduler/mlp配置核，未下载权重或执行模型。Ming-Lite-Uni配套全文另排追引，未借邻篇补本报告消融。"
     }
   ]
 }

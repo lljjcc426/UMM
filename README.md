@@ -506,3 +506,6 @@ python scripts/validate_catalog.py
 
 
 第一百七十批（2026-10-24）：L159完成v3完整50页、11公式23表及全部图，给出动态权重非单调反例，修正两套对话评测与消融并列口径，核官方推理包/9B配置及缺失训练与生成接线。357目录，276核心/281书面；未确认核心54论文／研究+27资源。见[审查](docs/evidence/m2omni_dynamic_weight_formula_and_release_scope_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_seventieth_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百七十一批（2026-10-24）：L160完成v1完整28页/15表八图，修正128帧与SANM执行分支，保留上下文语音WER退化，核三router共用专家池及仅最终尺度采样；配套Ming-Lite-Uni另排追引。357目录，277核心/282书面；未确认核心53论文／研究+27资源。见[审查](docs/evidence/mingomni_multiscale_bridge_and_context_tradeoff_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_seventy_first_changes_2026-10-24.md)。无删除或模型执行。

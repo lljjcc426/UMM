@@ -429,3 +429,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百七十批（2026-10-24）：M2-omni Eq9的−a exp(a)在−1达峰，归一斜率−2获权重低于−.9反例说明陡坡优先非全域；Eq8普通正loss近L/max，不能误写窗口minmax。实际trainer未发布。见[审查](m2omni_dynamic_weight_formula_and_release_scope_audit_2026-10-24.md)、[L159](../reviews/L159.md)。
+
+
+第一百七十一批（2026-10-24）：Ming三router选择同一专家池，冻结参数保证无生成梯度更新该底座，不能替代知识迁移因果证据；BPE码串可逆不能证明有限生成器质量不变。见[审查](mingomni_multiscale_bridge_and_context_tradeoff_audit_2026-10-24.md)、[L160](../reviews/L160.md)。

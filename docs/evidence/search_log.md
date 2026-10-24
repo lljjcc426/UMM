@@ -685,3 +685,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百七十批（2026-10-24）：M2-omni arXivv3完整50p与HTML、全部主表/数据附表和图核，GH dc4115a固定，ModelScope文件revision/config/index核，未下载权重。见[审查](m2omni_dynamic_weight_formula_and_release_scope_audit_2026-10-24.md)、[L159](../reviews/L159.md)。
+
+
+第一百七十一批（2026-10-24）：Ming-Omni完整v1实际28p、15表八图，固定原GH75fb7e与HFecd74fd，读router/生成入口/声学两分支；纠正128帧，未执行模型。见[审查](mingomni_multiscale_bridge_and_context_tradeoff_audit_2026-10-24.md)、[L160](../reviews/L160.md)。
