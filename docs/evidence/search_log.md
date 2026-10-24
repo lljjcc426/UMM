@@ -682,3 +682,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百六十九批（2026-10-24）：L158正式main11p+supp11p完整研究内容/九表14图核完，GH b17e2a8与HF v0.5/v0.9/数据revision固定；静态审任务门控/速度target/时间shift。见[审查](omniflow_guidance_formula_and_released_task_coverage_audit_2026-10-24.md)、[L158](../reviews/L158.md)。
+
+
+第一百七十批（2026-10-24）：M2-omni arXivv3完整50p与HTML、全部主表/数据附表和图核，GH dc4115a固定，ModelScope文件revision/config/index核，未下载权重。见[审查](m2omni_dynamic_weight_formula_and_release_scope_audit_2026-10-24.md)、[L159](../reviews/L159.md)。

@@ -634,3 +634,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百六十九批（2026-10-24）：OmniFlow作者B2已讨论三元组必要性，修正仅把其列作未回应质疑的旧记录；当前发布ai2t/at2i分支被入口assert阻断，mm_cfgs未使用；T9含车型实体改变。见[审查](omniflow_guidance_formula_and_released_task_coverage_audit_2026-10-24.md)、[L158](../reviews/L158.md)。
+
+
+第一百七十批（2026-10-24）：更正M2-omni T7为50段/0–5三维、T10近300/1–5四维且GPT4o评；T6三升三降。T12第2epoch严格5胜+1并列；PT2表图解冻范围、音频pool与发布拼接不齐，S3b虎误认考拉。见[审查](m2omni_dynamic_weight_formula_and_release_scope_audit_2026-10-24.md)、[L159](../reviews/L159.md)。

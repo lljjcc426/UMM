@@ -619,3 +619,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百六十九批（2026-10-24）：OmniFlow后续统一采样符号/路径并公开可达多输入CFG，测试r独立缩放、条件冲突和联合满足；严格TextVAE实体/数字/CER重建，等数据/更新预算triplet与任务消融。见[审查](../evidence/omniflow_guidance_formula_and_released_task_coverage_audit_2026-10-24.md)、[L158](../reviews/L158.md)。
+
+
+第一百七十批（2026-10-24）：M2-omni在等模态token/更新/FLOPs下对比采样与权重，公开H/f/验证间隔和loss→斜率→权重轨迹，检验负斜率非单调；独立盲评两套对话，先补生成入口再测字形/身份/时序。见[审查](../evidence/m2omni_dynamic_weight_formula_and_release_scope_audit_2026-10-24.md)、[L159](../reviews/L159.md)。

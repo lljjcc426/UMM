@@ -593,3 +593,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百六十九批（2026-10-24）：OmniFlow覆盖静态T/I/A潜空间；论文多输入/联合主张与当前发布六种单输入单输出task门控分列，无视频输出模块。见[审查](omniflow_guidance_formula_and_released_task_coverage_audit_2026-10-24.md)、[L158](../reviews/L158.md)。
+
+
+第一百七十批（2026-10-24）：M2-omni输入T/I/V/A，输出T/I/语音；caption→独立SD3、语音码→CosyVoice。公开理解推理与论文全生成支持分列，无视频输出/笔画解码。见[审查](m2omni_dynamic_weight_formula_and_release_scope_audit_2026-10-24.md)、[L159](../reviews/L159.md)。

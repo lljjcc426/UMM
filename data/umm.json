@@ -10621,22 +10621,26 @@
     "source_urls": [
       "https://arxiv.org/abs/2502.18778",
       "https://arxiv.org/html/2502.18778v3",
-      "https://arxiv.org/pdf/2502.18778v3"
+      "https://arxiv.org/pdf/2502.18778v3",
+      "https://arxiv.org/abs/2502.18778v3",
+      "https://github.com/alipay/Ant-Multi-Modal-Framework/tree/dc4115a68ef43b4c4403829388cc2a7fa69c80ca/prj/M2_omni",
+      "https://www.modelscope.cn/models/M2Cognition/M2-omni",
+      "https://www.modelscope.cn/api/v1/models/M2Cognition/M2-omni/repo/files?Revision=master&Recursive=true"
     ],
-    "method": "多阶段模态对齐与理解/生成解耦；stepbalance结合跨模态梯度累积及收敛loss倒数归一，SFT按验证loss历史斜率动态调整/EMA权重；DPO+SFT对齐。 9B/72B配置为8.8B/71.8B主体，Llama3.1-8B/3.3-70B，ViT600M NaViT+2×2合并MLP，SANM/paraformerzh声编码+1×3pool；MRoPE替1DRoPE。<gen_image>caption</gen_image>路由独立SD3medium，speech ARtoken+CosyVoice。",
-    "conclusion": "Table4 9B VideoMME60.4无字幕/65.0有字幕、MV66.3，均低于Qwen2VL7B63.3/69.0/67.0；Interleave59.8/87.8更高。Table7内部近300对话relevance4.60/fluency4.80/info3.80，TextBind3.85/4.30/3.25，仅该主观集。不能沿用摘要泛称同尺度全面领先。",
-    "gap": "loss尺度归一不等价梯度冲突消除；验证斜率会受噪声/拟合窗口和不可约误差影响，Table11权重和与正文alpha10的实现比例待核。累积与轮转更新次数/有效batch/总计算须匹配。文字caption瓶颈丢像素细节，独立SD质量不能归为共享生成协同；内部数据/评价限制复现。",
-    "problem": "如何同时支持图/视频/声音理解和图/语音生成，并缓解多任务数据量、损失尺度和收敛速度失衡？",
+    "method": "模态编码器+M-RoPE的Llama骨干，文字caption桥接独立SD3静态图生成、离散语音码接CosyVoice流匹配/声码器；PT3用逐模态batch梯度累积和逆收敛loss权重，IT3用验证loss窗口斜率动态调权，AT用DPO+.3SFT/LoRA。多阶段数据工程与综合评测是主要实证。无视频生成、笔画事件或字形专门解码器；发布推理包与完整训练方案的可复现性分列。 表1 9B/72B主体标8.8B/71.8B，ViT600M、Paraformer-zh SAN-M、Llama3.1-8B/3.3-70B与SD3medium；不能当全部外部生成器的实测总参数。视觉2×2合并/MLP，1D位置改M-RoPE。正文音频写1×3平均池化+padding；公开encode_audio_post_processing实际将相邻3帧沿特征拼接再线性投影，截/补到256，保留版本实现差。ModelScope9B config为LLM32层hidden4096/32heads/8KVheads/vocab132385/maxctx16384，视觉32层patch14/merge2、SANM50blocks；配置支持长度不当成实测长上下文保证。",
+    "conclusion": "T3 9B OpenCompass69.7，低于Ola72.6/Qwen2.5VL70.4/MiniCPMo70.2；72B75.1高于GPT4o20241120的72.0，但MMMU57.6<70.7且低于InternVL78BMPO77.0，不能称全项胜。T4 9BVideoMME60.4/65.0、MV66.3，低于Qwen2VL7B63.3/69.0/67.0；Interleave59.8/87.8高，不能外推时间精度。72B65.2/67.7/69.6，作者承认视频规模化受数据限制。T5 ASR MLS7.19/other5.29/clean2.07/Aishell1.99、AudioCaps49.2；Whisper前两项6.83/5.16更好，MiniCPMo clean1.7/Aishell1.6更好，UIO2XXL48.9仅差.3无CI。T6六语言任务三升三降，avg58.6→59.2，ARC83.4→78.7，无法据平均证明无遗忘。T7三维4.60/4.80/3.80高于TextBind3.85/4.30/3.25。T8语音CER6.36/SS.604胜MiniCPMo8.03/.474，劣于CosyVoice3.63/.723及多专用TTS。T10 9B体验3.726→4.598(+23.4%)，72B4.351→4.598(+5.7%)，OpenCompass分别−.3/−.2；GPT4o体验4.64。全部数字表结构化，不作跨协议显著性断言。",
+    "gap": "Eq8扣min(windowmin,1e-6)，普通正loss时近L/windowmax，并非扣窗口最小值。Eq9分数s=softmax(a_tilde)*(−a_tilde)，对负斜率g(a)=−a exp(a)在−1达峰，非全域陡坡越大权重越高：原斜率[−.2,−.09,−.01]归一[−2,−.9,−.1]，s≈[.1871,.2529,.06254]；Eq10 f1时w≈[1.0166,1.0858,.8976]，较陡−2获权重反而低。只确认公式性质，项目无trainer，无法核实际是否同算。公开推理包README只演示理解→文字；18blobs无SD3/CosyVoice生成接线/训练脚本，ModelScope四分片index1342keys只含vision/audioencoder/LLM/projections，无独立SD/CosyVoice权重；specialtoken存在不等完整生成可复现。其9B音频3帧拼接与论文平均池化、PT2表图可训练范围也不一致。附图S3b输入第三张为老虎，回答称考拉，展示案例亦含实体误认；不外推发生率。近300体验评价缺确切N/原始逐例分数/独立盲评，GPT4o同时造参考和评判的偏好影响待测。",
+    "problem": "怎样以一个LLM接受文字、图像、视频和音频，输出文字、静态图与语音，并处理不同模态的数据量、loss尺度及收敛速度差异，同时尽量保留语言能力？",
     "claim": "研究目标：如何同时支持图/视频/声音理解和图/语音生成，并缓解多任务数据量、损失尺度和收敛速度失衡？",
-    "version": "M2-omni；arXiv2502.18778v3，2025-04-07，50页；正式接收未本次核实",
+    "version": "M2-omni: Advancing Omni-MLLM for Comprehensive Modality Support with Competitive Performance；arXiv2502.18778v3，2025-04-07，完整50页；未核实正式会议接收，不沿用其他版本页数",
     "scope": "umm",
     "category": "UMM及相邻机制 / 9. 音频、视频、动作与 any-to-any：边界要分清",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-24",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-24",
     "id": "L159",
     "canonical_key": "paper:arxiv:2502.18778",
     "evidence_history": [
@@ -10668,17 +10672,23 @@
         "conclusion": "研究模态不均衡而非仅增加接口；“支持模态全面”不代表所有子任务领先",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "checked_on": "2026-10-24",
+        "batch": "one_hundred_seventieth",
+        "sections_read": "arXiv2502.18778v3完整50页研究文字§1–6/AppA/B、Algorithm1/Eq1–11、T1–12与S1–S11全部行，F1–8和S1–S5全部子图（14张PNG加PDFF3模板/F6四图），参考文献仅相关追引。三遍核心与五项书面；无口试/独立模型复现。GH固定M2_omni树20条目/18blobs，12个Python源码及requirements共13文件已下载，README/config全文、模型构造/位置编码说明/forwardloss/音频压缩及processor相关段阅读，未称所有源码全文阅读。ModelScope16file清单含revision，config/preprocessor与1342key权重index核，无权重下载、神经推理或训练。一次公式算术反例不算模型实验；公告停止维护转Ming，版本不混用。",
+        "verification": "primary_sections_read"
       }
     ],
-    "sections_read": "v3§2.1/2.2Table2/AT、§3.1/3.2/3.3、§4.1开头、§5.1指定部分/Table4/7、§5.3 Tables11/12。全部50页/细数据/公式代码/全部图未全核，未复现",
+    "sections_read": "arXiv2502.18778v3完整50页研究文字§1–6/AppA/B、Algorithm1/Eq1–11、T1–12与S1–S11全部行，F1–8和S1–S5全部子图（14张PNG加PDFF3模板/F6四图），参考文献仅相关追引。三遍核心与五项书面；无口试/独立模型复现。GH固定M2_omni树20条目/18blobs，12个Python源码及requirements共13文件已下载，README/config全文、模型构造/位置编码说明/forwardloss/音频压缩及processor相关段阅读，未称所有源码全文阅读。ModelScope16file清单含revision，config/preprocessor与1342key权重index核，无权重下载、神经推理或训练。一次公式算术反例不算模型实验；公告停止维护转Ming，版本不混用。",
     "review_path": "docs/reviews/L159.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "约2Bimage-text/30Maudio-text，中文内部OCR/英文OCR，视频/交错/纯文分阶段；公开+内部混合，数据构成详列但本次未全读来源/数量表。动态权重验证子集从训练剔除，需任务/主体层划分才能防相似样本泄漏。",
-    "framework": "多阶段模态对齐与理解/生成解耦；stepbalance结合跨模态梯度累积及收敛loss倒数归一，SFT按验证loss历史斜率动态调整/EMA权重；DPO+SFT对齐。",
-    "architecture": "9B/72B配置为8.8B/71.8B主体，Llama3.1-8B/3.3-70B，ViT600M NaViT+2×2合并MLP，SANM/paraformerzh声编码+1×3pool；MRoPE替1DRoPE。<gen_image>caption</gen_image>路由独立SD3medium，speech ARtoken+CosyVoice。",
-    "metrics": "OpenCompass8项含OCRBench、VideoMME/MVBench/LLaVAInterleave、ASR WER/音caption、MMLU、TTS CER/SS、内部对话人评。CER此处主要语音转录字符错误率，不能当生成图中文字或笔顺指标。没有已核到的图像生成标准定量主表。",
-    "baselines": "Qwen2VL/InternVL/VideoLLaMA/MiniCPM/VITA/Baichuan；TextBind交错对话；step random/roundrobin/accumulation、手调/倒数权重；独立单模态/混训无与有MMbalance。基线模型和数据/训练量不同。",
-    "experimental_conditions": "Table2 PT对齐连接器→视觉+连接→全模态，再IT、DPOAT；LR2e-5/1e-5/2e-5→2e-5/2e-5/1e-5→5e-6，wd.05、max帧至128。AT LoRA更新约5%骨干，DPO+.3SFT。纯文约25%。动态H窗口验证归一loss线性拟斜率，两层softmax/scale和EMA.9；H/f/全部GPU/步数未本次核齐。"
+    "dataset": "F6 PT3名义图文.33B/OCR.14B/纯文.15B/音25.4M/视频27.3M/交错36.9M；PT1约2.17B，另正文音文30M，与后期25.4M不混成同一去重规模。IT1图文26.2M/文12.7M；IT2图文17.2M/文3.7M/视频2.2M/交错.9M；IT3再音25.4M和audioQA7.5M。S1–S11逐行读完：公共Laion/COYO/Zero/OCR/MMC4/Pile/WuDao/ASR与视觉QA等，另内部中文OCR/HD视频/纯文；音频QA由视觉问题经TTS合成，不等同真实自然音视频交互。S7/S8/S9的Ratio(%)出现1/2/4等，若干缺size，不能默认已归一抽样概率；训练采样代码缺，未据表计算完整混合unique数。",
+    "framework": "模态编码器+M-RoPE的Llama骨干，文字caption桥接独立SD3静态图生成、离散语音码接CosyVoice流匹配/声码器；PT3用逐模态batch梯度累积和逆收敛loss权重，IT3用验证loss窗口斜率动态调权，AT用DPO+.3SFT/LoRA。多阶段数据工程与综合评测是主要实证。无视频生成、笔画事件或字形专门解码器；发布推理包与完整训练方案的可复现性分列。",
+    "architecture": "表1 9B/72B主体标8.8B/71.8B，ViT600M、Paraformer-zh SAN-M、Llama3.1-8B/3.3-70B与SD3medium；不能当全部外部生成器的实测总参数。视觉2×2合并/MLP，1D位置改M-RoPE。正文音频写1×3平均池化+padding；公开encode_audio_post_processing实际将相邻3帧沿特征拼接再线性投影，截/补到256，保留版本实现差。ModelScope9B config为LLM32层hidden4096/32heads/8KVheads/vocab132385/maxctx16384，视觉32层patch14/merge2、SANM50blocks；配置支持长度不当成实测长上下文保证。",
+    "metrics": "OpenCompass八项平均需OCRBench除10，同类understanding平均不等全部能力；VideoMME有无字幕/MVBench/Interleave各域分列；ASR表标WER↓、AudioCapsCIDEr↑、TTS为SEEDtestzh语音CER↓/说话人相似度↑，语音CER不当成图像汉字正确率。T7为50段TextBind来源对话、GPT4o评分0–5的相关/流畅/信息三维；T10为近300用户问题、GPT4o参考经人工修订，再GPT4o按1–5四维评分，少量人工验证，不能写成全量人工评分或与T7同协议。无独立图像生成FID/GenEval或笔顺时序量化。",
+    "baselines": "视觉与GPT4o不同日期/InternVL/Qwen/Ola/MiniCPM/OneVision比较，模型容量、数据与闭源协议不同；视频Qwen2VL/VideoLLaMA/Interleave，部分星号为作者复算。ASR Whisper/Paraformer/MiniCPMo，AudioCaps UIO2；语音CosyVoice/SeedTTS/MaskGCT等专用模型，不因胜MiniCPMo就称TTS领先。语言用初始化Llama3.1-8B，只有AGIEval/HellaSwag星号复算，其余引用值须保留协议差异。表8 CosyVoice2-S重复一行，按来源保留，未当两次独立实验。",
+    "experimental_conditions": "完整v3PDF50页与HTML研究部分§1–6/AppA/B全读，Algorithm1/Eq1–11、T1–12/S1–S11、F1–8/S1–S5含所有子图核。T2七阶段LR2e-5/1e-5/2e-5/2e-5/2e-5/1e-5/5e-6，wd.05；IT1/2/3 epochs1/2/1，AT2；max图tokens320PT→1280IT1→2560，视频8PT3/16IT2/128IT3AT。PT2可训练范围表2写VisionEncoder+Connector，图4却也标LLM火焰，保留冲突；AT用5%LLM的LoRA、DPO+.3SFT，具体batch/总steps/GPUhours/H/验证间隔/f和种子不完整。T12从PT模型直接小规模IT三epoch，作者明确区别于真实完整pipeline。GH固定dc4115a68ef43b4c4403829388cc2a7fa69c80ca，M2_omni20条目/18blobs含12个Python源码及requirements共13文件，读README全文和建模/配置相关段；ModelScope16files/四权重分片仅元数据、config和index，不下载权重/运行模型。"
   },
   {
     "title": "Ming-Omni: A Unified Multimodal Model for Perception and Generation",

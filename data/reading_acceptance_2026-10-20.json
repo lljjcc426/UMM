@@ -9601,6 +9601,40 @@
         }
       ],
       "boundary": "CVPR2025正式main11p（pp13178–13188）与官方supp11p全部研究内容：§1–8、AppA1–8/B1–2/C/D/E1–4/F/G1/H/I，Algorithm1、Eq1–12、T1–9每行/F1–14所有实际PDF图（含F13失败/F14十六样例）；F4仅视觉趋势未数字化曲线。arXivv2HTML交叉抽数值T1–7，原版PDF逐表核。GH固定README/training.md/configdata和scriptsconfig全文；pipeline load_pretrained/__call__参数/任务门控/条件预处理/采样循环与输出、train噪声/缺模态/compute_loss、scheduler构造/step、TextVAE encode/connect/mean相关段，未称全文读完2500行train或全部代码。HF v0.5/v0.9/数据集元数据pin；未下载权重/大包，未执行模型。三遍核心阅读及五项书面，无独立口试/复现。"
+    },
+    {
+      "id": "L159",
+      "checked_on": "2026-10-24",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "怎样以一个LLM接受文字、图像、视频和音频，输出文字、静态图与语音，并处理不同模态的数据量、loss尺度及收敛速度差异，同时尽量保留语言能力？ 模态样本量悬殊，按原始数据量抽样会压低少数模态训练机会；等步数仍可能受loss量级和收敛阶段影响。视觉理解和生成所需粒度不同；图像生成改用caption作为接口有工程便利，也带来精确空间/文字/身份信息瓶颈。纯文字混合、训练采样与动态加权的效果需分别检验。",
+          "evidence": "50页完整v3研究部分/11公式23张表与全部图核；动态公式一次算术反例、固定GH推理包与ModelScope配置/index审查；修正50段T7与近300条T10混淆。无模型执行。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "T/I/V/A可组合输入，T/I/语音可交错输出；视频通过视觉编码器理解，不是生成输出。Eq1仅离散输出token作AR监督；图像输出先生成<gen_image>caption，再交外部SD3medium，不能归为LLM直接像素生成。语音码交预训练CosyVoice解码。Eq3随机按体量采样、Eq4轮转逐batch更新、Eq5/7每模态各一batch合并一次更新；比较需说明batch/token/样本/更新/FLOPs预算。Eq6 wi=α(1/L*i)/Σj(1/L*j)，α10，L*i来自小子集各自训练至收敛。 表1 9B/72B主体标8.8B/71.8B，ViT600M、Paraformer-zh SAN-M、Llama3.1-8B/3.3-70B与SD3medium；不能当全部外部生成器的实测总参数。视觉2×2合并/MLP，1D位置改M-RoPE。正文音频写1×3平均池化+padding；公开encode_audio_post_processing实际将相邻3帧沿特征拼接再线性投影，截/补到256，保留版本实现差。ModelScope9B config为LLM32层hidden4096/32heads/8KVheads/vocab132385/maxctx16384，视觉32层patch14/merge2、SANM50blocks；配置支持长度不当成实测长上下文保证。",
+          "evidence": "50页完整v3研究部分/11公式23张表与全部图核；动态公式一次算术反例、固定GH推理包与ModelScope配置/index审查；修正50段T7与近300条T10混淆。无模型执行。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "模态编码器+M-RoPE的Llama骨干，文字caption桥接独立SD3静态图生成、离散语音码接CosyVoice流匹配/声码器；PT3用逐模态batch梯度累积和逆收敛loss权重，IT3用验证loss窗口斜率动态调权，AT用DPO+.3SFT/LoRA。多阶段数据工程与综合评测是主要实证。无视频生成、笔画事件或字形专门解码器；发布推理包与完整训练方案的可复现性分列。 当目标是语义级跨模态对话、可接受外部图像/语音生成器且稀缺模态需稳定训练机会时，模态batch累积与caption接口有应用价值。动态权重只在斜率定义/归一和实际权重规律适当、验证集代表目标且预算控制下有望改善多任务折中；目前不支持“所有模态、所有任务均优于单模态”。汉字严格字形、身份保真、笔顺轨迹、手绘时序需要额外目标与测量。",
+          "evidence": "50页完整v3研究部分/11公式23张表与全部图核；动态公式一次算术反例、固定GH推理包与ModelScope配置/index审查；修正50段T7与近300条T10混淆。无模型执行。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T3 9B OpenCompass69.7，低于Ola72.6/Qwen2.5VL70.4/MiniCPMo70.2；72B75.1高于GPT4o20241120的72.0，但MMMU57.6<70.7且低于InternVL78BMPO77.0，不能称全项胜。T4 9BVideoMME60.4/65.0、MV66.3，低于Qwen2VL7B63.3/69.0/67.0；Interleave59.8/87.8高，不能外推时间精度。72B65.2/67.7/69.6，作者承认视频规模化受数据限制。T5 ASR MLS7.19/other5.29/clean2.07/Aishell1.99、AudioCaps49.2；Whisper前两项6.83/5.16更好，MiniCPMo clean1.7/Aishell1.6更好，UIO2XXL48.9仅差.3无CI。T6六语言任务三升三降，avg58.6→59.2，ARC83.4→78.7，无法据平均证明无遗忘。T7三维4.60/4.80/3.80高于TextBind3.85/4.30/3.25。T8语音CER6.36/SS.604胜MiniCPMo8.03/.474，劣于CosyVoice3.63/.723及多专用TTS。T10 9B体验3.726→4.598(+23.4%)，72B4.351→4.598(+5.7%)，OpenCompass分别−.3/−.2；GPT4o体验4.64。全部数字表结构化，不作跨协议显著性断言。 T11 random/RR/accum等权OKVQA40.5/41.6/41.7，VQA54.3/54.4/54.6，Flickr87.0/88.1/88.2；手调[.2,1,.03]39.7/52.5/87.1，逆loss[.45,.36,1.09]42.1/55.4/88.2。逆权重总和1.90，Eq6所述α10，是否额外rescale/不同实验α未交代；不把它直接判训练错误。等权accum对RR收益很小且预算未清，不能断言梯度更稳定已被直接测量。T12三组×三epoch×九指标全核：balanced跨epoch最优≥single为7/9含MMBench并列，GQA60.7<60.8/MSVD74.8<76.5；balanced第2epoch严格胜single最优5项、并列1项，正文称surpassed6/9含并列；第3epoch严格胜5项。不能将挑epoch指标拼成同一checkpoint全胜。AT是DPO+SFT+LoRA整体对照，未独立归因各组件。 完整v3PDF50页与HTML研究部分§1–6/AppA/B全读，Algorithm1/Eq1–11、T1–12/S1–S11、F1–8/S1–S5含所有子图核。T2七阶段LR2e-5/1e-5/2e-5/2e-5/2e-5/1e-5/5e-6，wd.05；IT1/2/3 epochs1/2/1，AT2；max图tokens320PT→1280IT1→2560，视频8PT3/16IT2/128IT3AT。PT2可训练范围表2写VisionEncoder+Connector，图4却也标LLM火焰，保留冲突；AT用5%LLM的LoRA、DPO+.3SFT，具体batch/总steps/GPUhours/H/验证间隔/f和种子不完整。T12从PT模型直接小规模IT三epoch，作者明确区别于真实完整pipeline。GH固定dc4115a68ef43b4c4403829388cc2a7fa69c80ca，M2_omni20条目/18blobs含12个Python源码及requirements共13文件，读README全文和建模/配置相关段；ModelScope16files/四权重分片仅元数据、config和index，不下载权重/运行模型。",
+          "evidence": "50页完整v3研究部分/11公式23张表与全部图核；动态公式一次算术反例、固定GH推理包与ModelScope配置/index审查；修正50段T7与近300条T10混淆。无模型执行。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "Eq8扣min(windowmin,1e-6)，普通正loss时近L/windowmax，并非扣窗口最小值。Eq9分数s=softmax(a_tilde)*(−a_tilde)，对负斜率g(a)=−a exp(a)在−1达峰，非全域陡坡越大权重越高：原斜率[−.2,−.09,−.01]归一[−2,−.9,−.1]，s≈[.1871,.2529,.06254]；Eq10 f1时w≈[1.0166,1.0858,.8976]，较陡−2获权重反而低。只确认公式性质，项目无trainer，无法核实际是否同算。公开推理包README只演示理解→文字；18blobs无SD3/CosyVoice生成接线/训练脚本，ModelScope四分片index1342keys只含vision/audioencoder/LLM/projections，无独立SD/CosyVoice权重；specialtoken存在不等完整生成可复现。其9B音频3帧拼接与论文平均池化、PT2表图可训练范围也不一致。附图S3b输入第三张为老虎，回答称考拉，展示案例亦含实体误认；不外推发生率。近300体验评价缺确切N/原始逐例分数/独立盲评，GPT4o同时造参考和评判的偏好影响待测。 相同骨干/数据固定每模态token数、optimizerupdates和FLOPs，比较random/RR/accum、等权/逆loss/动态斜率，额外报梯度尺度/各模态学习曲线及多seedCI，不把不同更新/采样预算归因到算法。先公开H/验证间隔/f和源码/每段Lval/a/s/w，复算−2vs−.9反例；若意在陡坡单调优先，用简单单调权重作预算匹配对照，测正迁移/过拟合/落后模态恢复，验证集与最终测试分离。纯文混合比例和动态权重做正交消融，逐语言任务报遗忘。对caption→SD3测文字/数字/身份/空间约束保留及输入图引用，先提供完整语音/图生成入口，再测端到端时延与图文一致性；独立人工盲评复查T7/T10和S3b实体误认。笔顺须采真实帧序与stroke事件，检验shuffle/逆序和跨字体迁移。",
+          "evidence": "50页完整v3研究部分/11公式23张表与全部图核；动态公式一次算术反例、固定GH推理包与ModelScope配置/index审查；修正50段T7与近300条T10混淆。无模型执行。"
+        }
+      ],
+      "boundary": "arXiv2502.18778v3完整50页研究文字§1–6/AppA/B、Algorithm1/Eq1–11、T1–12与S1–S11全部行，F1–8和S1–S5全部子图（14张PNG加PDFF3模板/F6四图），参考文献仅相关追引。三遍核心与五项书面；无口试/独立模型复现。GH固定M2_omni树20条目/18blobs，12个Python源码及requirements共13文件已下载，README/config全文、模型构造/位置编码说明/forwardloss/音频压缩及processor相关段阅读，未称所有源码全文阅读。ModelScope16file清单含revision，config/preprocessor与1342key权重index核，无权重下载、神经推理或训练。一次公式算术反例不算模型实验；公告停止维护转Ming，版本不混用。"
     }
   ]
 }

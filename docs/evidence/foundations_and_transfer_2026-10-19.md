@@ -426,3 +426,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百六十九批（2026-10-24）：OmniFlow Eq9有联合基底，交互残差r系数1；不应写成全模型只线性叠加条件。正式Eq11分母1+(1−γ)t与代码1+(γ−1)t不同，γ3/t.5反例可定位文稿符号。见[审查](omniflow_guidance_formula_and_released_task_coverage_audit_2026-10-24.md)、[L158](../reviews/L158.md)。
+
+
+第一百七十批（2026-10-24）：M2-omni Eq9的−a exp(a)在−1达峰，归一斜率−2获权重低于−.9反例说明陡坡优先非全域；Eq8普通正loss近L/max，不能误写窗口minmax。实际trainer未发布。见[审查](m2omni_dynamic_weight_formula_and_release_scope_audit_2026-10-24.md)、[L159](../reviews/L159.md)。
