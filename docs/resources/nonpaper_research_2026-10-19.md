@@ -692,3 +692,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百零三批（2026-10-25）：RenderedText为Blender字体渲染静态图并行/字框，手写外观不提供落笔轨迹、接触或规范笔顺。见[审查](../evidence/umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[L057](../reviews/L057.md)。
+
+
+第二百零四批（2026-10-25）：公开训练模板与checkpoint论文协议不完全一致；先核loader字段和OCR嵌套接口，尚未执行模型。见[审查](../evidence/glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[S003](../reviews/S003.md)。

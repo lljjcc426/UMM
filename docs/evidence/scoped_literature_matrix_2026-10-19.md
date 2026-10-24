@@ -695,3 +695,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百零三批（2026-10-25）：T1–4是架构/资源汇总，无统一重跑；M2omni视频输入不能扩成视频生成。见[审查](umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[L057](../reviews/L057.md)。
+
+
+第二百零四批（2026-10-25）：T4a冻结48/39到解冻61/43；README71/41为另一10M起点，不能并表混用。见[审查](glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[S003](../reviews/S003.md)。

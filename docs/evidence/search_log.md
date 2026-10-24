@@ -784,3 +784,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百零三批（2026-10-25）：综述v6完整，未宣称读完403被引原文；官方abs仍workinprogress，无正式SCI接收证据。见[审查](umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[L057](../reviews/L057.md)。
+
+
+第二百零四批（2026-10-25）：GlyphControl正式AppA–D全读，固定5891d9b源码；TextCaps公开起点10M与论文100K区别保留。见[审查](glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[S003](../reviews/S003.md)。

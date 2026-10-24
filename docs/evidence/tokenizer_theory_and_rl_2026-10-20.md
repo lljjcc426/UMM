@@ -276,3 +276,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百零三批（2026-10-25）：5背景式不能统摄离散flow；semantic可兼重建，query为接口结构，统一tokenizer仍需事件/规则监督。见[审查](umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[L057](../reviews/L057.md)。
+
+
+第二百零四批（2026-10-25）：小字控制受字高/数据过滤/latent重建等共同影响，未有VAE单因子消融；F2随机初始化与正文copy说明有出入。见[审查](glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[S003](../reviews/S003.md)。

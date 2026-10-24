@@ -290,7 +290,7 @@
 | N14 | SteerVTE: Seamless Video Text Editing with Style and Glyph Control | primary_sections_read | [结构化分析](../reviews/N14.md) | 未完成 |
 | S001 | Ketaba-OCR at AR-MS NakbaNLP 2026 | primary_sections_read | [结构化分析](../reviews/S001.md) | 未完成 |
 | S002 | TextDiffuser: Diffusion Models as Text Painters | primary_sections_read | [结构化分析](../reviews/S002.md) | 核心三遍与五项检查完成 |
-| S003 | GlyphControl: Glyph Conditional Control for Visual Text Generation | primary_sections_read | [结构化分析](../reviews/S003.md) | 未完成 |
+| S003 | GlyphControl: Glyph Conditional Control for Visual Text Generation | primary_sections_read | [结构化分析](../reviews/S003.md) | 核心三遍与五项检查完成 |
 | S004 | VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control | primary_sections_read | [结构化分析](../reviews/S004.md) | 核心三遍与五项检查完成 |
 | S007 | Brush Calligraphy Stroke Segmentation Dataset (BCSS) | primary_sections_read | [结构化分析](../reviews/S007.md) | 未完成 |
 | S008 | Wuji Writing VAM TI2V-5B 30L 0522 0819 | primary_sections_read | [结构化分析](../reviews/S008.md) | 未完成 |

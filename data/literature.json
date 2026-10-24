@@ -21526,27 +21526,29 @@
     "id": "S003",
     "category": "S 首轮补录整合",
     "title": "GlyphControl: Glyph Conditional Control for Visual Text Generation",
-    "version": "GlyphControl: Glyph Conditional Control for Visual Text Generation；NeurIPS2023正式会议PDF",
+    "version": "GlyphControl: Glyph Conditional Control for Visual Text Generation；Yukang Yang/Dongnan Gui/Yuhui Yuan/Weicong Liang/Haisong Ding/Han Hu/Kai Chen；NeurIPS2023正式17页，含AppA–D。",
     "source_urls": [
       "https://proceedings.neurips.cc/paper_files/paper/2023/hash/8951bbdcf234132bcce680825e7cb354-Abstract-Conference.html",
       "https://proceedings.neurips.cc/paper_files/paper/2023/file/8951bbdcf234132bcce680825e7cb354-Paper-Conference.pdf",
       "https://github.com/AIGText/GlyphControl-release/tree/5891d9b245ac9209c22e3d6d5e933b95d428a230",
-      "https://github.com/AIGText/GlyphControl-release/blob/5891d9b245ac9209c22e3d6d5e933b95d428a230/configs/train_configs/laion_glyph_glyphcontrol_train.yaml"
+      "https://github.com/AIGText/GlyphControl-release/blob/5891d9b245ac9209c22e3d6d5e933b95d428a230/configs/train_configs/laion_glyph_glyphcontrol_train.yaml",
+      "https://github.com/AIGText/GlyphControl-release/blob/5891d9b245ac9209c22e3d6d5e933b95d428a230/ocr_acc.py",
+      "https://github.com/AIGText/GlyphControl-release/blob/5891d9b245ac9209c22e3d6d5e933b95d428a230/ldm/data/laion_glyph_control.py"
     ],
     "previous_evidence": "publisher_abstract",
     "claim": "研究目标：给词、位置、旋转和字框，能否以字形空间条件控制扩散生成可读场景文字？",
-    "method": "在SD2.0base加入渲染字形ControlNet，Pillow glyph instructions；筛LAIONGlyph10M，并用词频分层两基准。继承ControlNet/扩散骨架，未提出书写时间模型。 冻结SD2.0 VAE/CLIP和原UNet，复制可训ControlNet+ZeroConv接收3通道glyph。主训练UNet frozen；后续TextCaps版本解除原decoder冻结，须分checkpoint。总约1.3B不含CLIP354M，勿按全部参数同口径比较。",
+    "method": "在SD2.0base加入渲染字形ControlNet，Pillow glyph instructions；筛LAIONGlyph10M，并用词频分层两基准。继承ControlNet/扩散骨架，未提出书写时间模型。 SD2.0base，冻结VAE/OpenCLIP/原UNet，trainableControlNet+ZeroConv注入glyph，噪声latent与caption同时进两支。F2图注写ControlNet随机初始化，§4.1明确两支copySD2base；主文与图注不一致，按§4.1/README初始checkpoint说明记录，未读weights验证。训练OpenCLIPYAML和T1CLIP354M亦比泛称OpenAICLIP具体。TextCaps开放原UNetdecoder为独立checkpoint；总1.3B不含文本encoder354M，也非1.3B全部可训练。无新编号公式/算法。",
     "problem": "给词、位置、旋转和字框，能否以字形空间条件控制扩散生成可读场景文字？",
-    "conclusion": "Table1 10M Acc42/28%、忽略大小写48/34%、LD1.43/2.40；IFXL Acc.6/1%，忽略大小写33/21%。Table2 FID100K22.04、1M22.19、10M22.22，数据变大OCR好但FID未单调提高。CLIP10M33.9/36.2。",
-    "gap": "过滤>5框偏向短文本，长段小字失败；VAE重建限制/字体颜色不可直接控制，caption可能遗漏OCR内容。README说明TextCaps版本牺牲创造性/多样性。没有中文规范笔顺/动态过程证据，官方代码部分未全审。",
+    "conclusion": "T1Acc%10M42/28、caseinsensitive48/34、LD1.43/2.40；IFXL.6/1、33/21、1.63/3.09；SDXL.3/.5、13/8、6.26/6.30。10M对IFXL大小写忽略提升15/13pp，输入额外glyph且专业数据，非纯架构因果。T2CLIP10M33.9/36.2，对IFXL33.5/35.2；FID SD34.03/SDXL44.77/IFM23.37/IFL30.97/IFXL26.58/Glyph100K22.04/1M22.19/10M22.22，扩大数据未降低FID。定性F1/4/6/7/8有selected成功，F9/11明确长小字、重叠、漏/错/重/多字、过旋转等失败，不能说SD从不生成任何可读字。",
+    "gap": "完成正式17页全部研究内容。额外glyph相对纯prompt信息更强，训练数据/曝光、IF超分1024与本512/参数排除encoder不匹配；无多seedCI/全词行转写/长文本人工可读性。公开LD排除OCR空结果且只取最相似检测，不能替代全图CER/额外字惩罚。公开训练loader __getitem__先data={}，行129从data[ocr_info]读取而非ori_data，按静态路径会KeyError；render_text_image_laionglyph又按三项解包，与dataREADME嵌套二项不同，发布训练路径需修正并确认版本。未执行该训练或断言全部checkpoint结果无效。公开READMETextCaps起点与论文不同，测试默认需对齐。过滤>5框/面积限制和VAE压缩只解释部分小字失败，无时间/接触/规范顺序监督。",
     "provenance": "2026-10-19第一轮来源补录整合",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-25",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "正式§3.2–4.2、§4.5 Table3和§5指定段、Tables1/2；固定README与主训练YAML。完整AppendixD/全部源码/框架视觉图未核，未复现",
-    "last_updated": "2026-10-20",
+    "sections_read": "NeurIPS正式17页§1–6、AppA–D全部、T1–4含4a/4b所有单元、F1–12实际视觉（F10原页放大核趋势）、37条references清单/关键引文；无新编号式/算法。固定commit9个核心源码/配置/说明全文及test_on_benchmark计分调用/参数选读，非全依赖代码审计；未运行模型/OCR/API/训练或下载数据权重。核心三遍和五书面完成。",
+    "last_updated": "2026-10-25",
     "canonical_key": "paper:https://proceedings.neurips.cc/paper_files/paper/2023/hash/8951bbdcf234132bcce680825e7cb354-Abstract-Conference.html",
     "aliases": [
       "X2026-003"
@@ -21557,10 +21559,10 @@
     "output": "text-bearing image",
     "dataset": "LAION2B-en美学≥4.5，PP-OCRv3，丢边缘字/文字总面积<5%/框>5，BLIP2重caption得10M；子集100K/1M/10M。SimpleBench单词标牌与CreativeBench场景模板，各四词频桶100词×4采样，模型主要英语。FID独立10K图。",
     "framework": "在SD2.0base加入渲染字形ControlNet，Pillow glyph instructions；筛LAIONGlyph10M，并用词频分层两基准。继承ControlNet/扩散骨架，未提出书写时间模型。",
-    "architecture": "冻结SD2.0 VAE/CLIP和原UNet，复制可训ControlNet+ZeroConv接收3通道glyph。主训练UNet frozen；后续TextCaps版本解除原decoder冻结，须分checkpoint。总约1.3B不含CLIP354M，勿按全部参数同口径比较。",
-    "metrics": "大小写敏感Acc、忽略大小写Acc-hat、平均每词Levenshtein距离LD、CLIPscore、FID。原文把exactmatch称1−WER，严格定义需注意：含插入/删除的一般WER可大于1，不能无条件互换。表斜线为Simple/Creative，不是两种OCR输入。",
+    "architecture": "SD2.0base，冻结VAE/OpenCLIP/原UNet，trainableControlNet+ZeroConv注入glyph，噪声latent与caption同时进两支。F2图注写ControlNet随机初始化，§4.1明确两支copySD2base；主文与图注不一致，按§4.1/README初始checkpoint说明记录，未读weights验证。训练OpenCLIPYAML和T1CLIP354M亦比泛称OpenAICLIP具体。TextCaps开放原UNetdecoder为独立checkpoint；总1.3B不含文本encoder354M，也非1.3B全部可训练。无新编号公式/算法。",
+    "metrics": "训练OCR为PP-OCRv3，公开评分使用EasyOCR英文。Acc代码是目标字符串是否等于任一OCR检测文本，忽略大小写版本同理，额外无关文字不罚；并非整幅图转写完全一致。LD取所有OCR文本对目标的最小Levenshtein；ocr_acc.py行89仅非空OCR时update，未检测到文字的图从LD分母跳过，而Acc记0；test_on_benchmark.py确调用这些counter。因此LD并非无条件每生成图均值，跨模型漏检率不同会偏。1−WER的泛称也不适用于一般含插入删除WER。T1斜线Simple/Creative，另有CLIP/FID10K，不测规范笔顺或人类可读性一致率。",
     "baselines": "SD2/SDXL/DeepFloyd IF各规模；参数表排除文本encoder，IF有额外超分模型/1024²输出。提供glyph的模型输入信息更强，条件/算力并非严格全匹配。",
-    "experimental_conditions": "100K60epoch/1M20epoch/10M6epoch，512²，ControlNet/ZeroConv lr1e-4；SD/Controlcaptiondrop.1/.5。固定YAMLsd_locked=true、base1e-4、EMA，warmup1备注resume/从头10000，不能直接作所有实验启动配置。训练GPU总时/seed/主batch未核齐。",
+    "experimental_conditions": "100K60epoch/1M20epoch/10M6epoch，即约6M/20M/60M样本曝光，数据规模与总曝光混杂；512²，ControlNet/ZeroConv baseLR1e−4，两支captiondrop.1/.5；DDIM20，CFG9，benchmark无附加prompt且空negative，README全局seed0。普通inference.py默认附加质量和negative词，不等同benchmark设置。YAML主batch16×accum2但GPU数/实际logs未给，TextCapsbatch4×accum1、sd_lockedFalse/decoderLR1e−4；warmup1注释resume，fromscratch10000，勿把模板认成精确训练日志。固定commit5891d9b245ac9209c22e3d6d5e933b95d428a230读README、9核心源码/配置说明，test_on_benchmark相关调用/参数选读；未权重/模型/OCR/API执行。",
     "supplement_id": "X2026-003",
     "review_history": [
       {
@@ -21570,6 +21572,12 @@
         "conclusion": "当前核查范围内：OCR, CLIP, FID; numbers not extracted",
         "gap": "待核：read method figure/ablation tables",
         "note_path": "docs/handwriting/papers/static_text_neurips_baselines.md"
+      },
+      {
+        "checked_on": "2026-10-25",
+        "batch": "two_hundred_fourth",
+        "sections_read": "NeurIPS正式17页§1–6、AppA–D全部、T1–4含4a/4b所有单元、F1–12实际视觉（F10原页放大核趋势）、37条references清单/关键引文；无新编号式/算法。固定commit9个核心源码/配置/说明全文及test_on_benchmark计分调用/参数选读，非全依赖代码审计；未运行模型/OCR/API/训练或下载数据权重。核心三遍和五书面完成。",
+        "verification": "primary_sections_read"
       }
     ],
     "review_path": "docs/reviews/S003.md",

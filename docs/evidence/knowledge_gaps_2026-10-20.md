@@ -736,3 +736,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百零三批（2026-10-25）：表4GenEval1000与官方553不符，单位/训练测试规模需核；§6展望已有正文先行例，不能直接当现行空白。见[审查](umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[L057](../reviews/L057.md)。
+
+
+第二百零四批（2026-10-25）：LD空OCR跳过分母，训练loader取空data[ocr_info]，静态路径可核但未运行训练；主张范围需区分。见[审查](glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[S003](../reviews/S003.md)。

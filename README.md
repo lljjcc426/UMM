@@ -605,3 +605,6 @@ python scripts/validate_catalog.py
 
 
 第二百零三批（2026-10-25）：L057全34页研究正文5图4表5式完成；补分类轴重叠、方法纳入规则缺失、数据单位和GenEval规模错误，区分任意模态标签与具体生成接口。358目录，308核心/313书面；待完成核心深审23篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_third_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百零四批（2026-10-25）：S003全17页12图4表完成；补TextCaps起点/冻结和场景融合权衡，查明LD排除无OCR结果、目标任一框命中及公开训练loader问题。358目录，309核心/314书面；待完成核心深审22篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_fourth_changes_2026-10-25.md)。无删除或模型执行。

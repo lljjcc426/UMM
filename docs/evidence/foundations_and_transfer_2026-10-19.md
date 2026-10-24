@@ -528,3 +528,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百零三批（2026-10-25）：pixel/semantic/query/hybrid非互斥轴，连续embedding+扩散head也归AR；按loss与训练路径补矩阵。见[审查](umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[L057](../reviews/L057.md)。
+
+
+第二百零四批（2026-10-25）：任一OCR框命中不等于整图转写正确，静态glyph控制不提供落笔规范。见[审查](glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[S003](../reviews/S003.md)。

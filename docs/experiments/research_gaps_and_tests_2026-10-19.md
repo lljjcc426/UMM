@@ -721,3 +721,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百零三批（2026-10-25）：分类双人标注+能力方向/梯度矩阵，版本限定检索与同预算跨任务干预，静态字形/轨迹/规范顺序分测。见[审查](../evidence/umm_survey_v6_full_taxonomy_and_scope_audit_2026-10-25.md)、[L057](../reviews/L057.md)。
+
+
+第二百零四批（2026-10-25）：空OCR计入LD、完整转写/多余字/人评；同曝光glyph控制与freeze×TextCaps双因子。见[审查](../evidence/glyphcontrol_full_appendix_and_ocr_denominator_audit_2026-10-25.md)、[S003](../reviews/S003.md)。

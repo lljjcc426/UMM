@@ -1,0 +1,48 @@
+{
+  "id": "S003",
+  "formal_paper_pages": 17,
+  "figures_visually_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "tables_reviewed": [
+    "1",
+    "2",
+    "3",
+    "4a",
+    "4b"
+  ],
+  "repository_commit": "5891d9b245ac9209c22e3d6d5e933b95d428a230",
+  "ocr_implementation": {
+    "engine": "EasyOCR en",
+    "accuracy": "target equals any OCR detection text",
+    "levenshtein": "minimum distance among detections; empty detections omitted from LD denominator",
+    "benchmark_imports_same_counters": true
+  },
+  "paper_textcaps_start": "LAION-Glyph100K",
+  "readme_textcaps_start": "LAION-Glyph10M",
+  "training_loader_static_issue": {
+    "file": "ldm/data/laion_glyph_control.py",
+    "initializes_empty_data_line": 104,
+    "reads_unpopulated_data_ocr_info_line": 129
+  },
+  "core_three_pass_completed": true,
+  "learned_model_executed": false,
+  "sources": [
+    "https://proceedings.neurips.cc/paper_files/paper/2023/hash/8951bbdcf234132bcce680825e7cb354-Abstract-Conference.html",
+    "https://proceedings.neurips.cc/paper_files/paper/2023/file/8951bbdcf234132bcce680825e7cb354-Paper-Conference.pdf",
+    "https://github.com/AIGText/GlyphControl-release/tree/5891d9b245ac9209c22e3d6d5e933b95d428a230",
+    "https://github.com/AIGText/GlyphControl-release/blob/5891d9b245ac9209c22e3d6d5e933b95d428a230/ocr_acc.py",
+    "https://github.com/AIGText/GlyphControl-release/blob/5891d9b245ac9209c22e3d6d5e933b95d428a230/ldm/data/laion_glyph_control.py"
+  ]
+}
