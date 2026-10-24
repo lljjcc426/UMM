@@ -724,3 +724,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百八十三批（2026-10-24）：原生协同2609.01607v1完整§1–8/AppA–B和T1–10/F1–10；论文无独立release，定向检索与HFpaper linked制品为空。见[审查](native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[U17](../reviews/U17.md)。
+
+
+第一百八十四批（2026-10-24）：U18完整2607.04423v2与项目页核ECCV2026；13表13图/100空间prompt，官方HEAD d5be8ea递归tree仅README且全文核。见[审查](transferability_full_parser_coverage_and_distribution_shift_audit_2026-10-24.md)、[U18](../reviews/U18.md)。

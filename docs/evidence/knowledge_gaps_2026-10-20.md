@@ -676,3 +676,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百八十三批（2026-10-24）：等步/对应流batch未控制总FLOPs；无taskMoT单任务/去重建参照，CKA和probe不证明中介机制，1370错题筛选限制泛化。见[审查](native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[U17](../reviews/U17.md)。
+
+
+第一百八十四批（2026-10-24）：计数解析失败查GT全文、空间漏检排除，需固定总分母/coverage；FID参照baseline只测漂移，direct作为上界被140%ratio反例限制。见[审查](transferability_full_parser_coverage_and_distribution_shift_audit_2026-10-24.md)、[U18](../reviews/U18.md)。

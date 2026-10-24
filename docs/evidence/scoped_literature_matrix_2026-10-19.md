@@ -635,3 +635,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百八十三批（2026-10-24）：pixel-in/out、Qwen3语言先验与task路由+20%重建，English生成且降文字渲染；SVG程序双向/3D四任务，不能直接外推笔序。见[审查](native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[U17](../reviews/U17.md)。
+
+
+第一百八十四批（2026-10-24）：单侧理解/生成同能力迁移；English120字符单H1字图，Und四CSS/Gen单CSS；静态字图不足外推笔顺和手绘视频。见[审查](transferability_full_parser_coverage_and_distribution_shift_audit_2026-10-24.md)、[U18](../reviews/U18.md)。

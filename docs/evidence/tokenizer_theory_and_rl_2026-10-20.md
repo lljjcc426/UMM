@@ -216,3 +216,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百八十三批（2026-10-24）：无预训练视觉encoder/VAE，32patch+16prebuffer/文本AR图flow；两支路共享attention，路由与重建需因子化而非全归模块。见[审查](native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[U17](../reviews/U17.md)。
+
+
+第一百八十四批（2026-10-24）：LoRA只调QKV/MLP、encoder/head冻结；离散diffusion/AR/连续路差异未控，F10attention不同阶段且Janusmask索引需澄清。见[审查](transferability_full_parser_coverage_and_distribution_shift_audit_2026-10-24.md)、[U18](../reviews/U18.md)。

@@ -661,3 +661,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百八十三批（2026-10-24）：路由×重建等预算因子对照、负域/错配及SVGparser；samebase同源编辑需oracle指令和handoff消融，3D插帧/未来预测分开。见[审查](../evidence/native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[U17](../reviews/U17.md)。
+
+
+第一百八十四批（2026-10-24）：盲GT唯一数值解析、固定400空间含失败和人工检测核；OCR等CSS/大小写/多OCR；等架构预算与共享路径/无关监督对照。见[审查](../evidence/transferability_full_parser_coverage_and_distribution_shift_audit_2026-10-24.md)、[U18](../reviews/U18.md)。

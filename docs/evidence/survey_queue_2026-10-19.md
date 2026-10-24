@@ -674,3 +674,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百八十三批（2026-10-24）：U17完成23页v1、10表10图；核任务解耦额外重建与预算混杂、几何单向/SVG和3D双向边界，以及同源端到端编辑对照。358目录，288核心/293书面；待完成核心深审43篇论文／研究；27项资源按制品协议另审。见[审查](native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[逐文件说明](one_hundred_eighty_third_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百八十四批（2026-10-24）：U18完成ECCV2026 v2完整42页、13表13图及100空间prompt；核计数GTfallback、空间检出排除、文字样式差异与FID语义，官方HEAD仅README。358目录，289核心/294书面；待完成核心深审42篇论文／研究；27项资源按制品协议另审。见[审查](transferability_full_parser_coverage_and_distribution_shift_audit_2026-10-24.md)、[逐文件说明](one_hundred_eighty_fourth_changes_2026-10-24.md)。无删除或模型执行。

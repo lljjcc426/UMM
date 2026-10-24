@@ -468,3 +468,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百八十三批（2026-10-24）：训练干预比跨模型相关更直接；同源几何TextualDesc有效但只Gen→Und；SVG/3D双向，知识共享机制缺负对照。见[审查](native_synergy_full_routing_reconstruction_and_system_controls_audit_2026-10-24.md)、[U17](../reviews/U17.md)。
+
+
+第一百八十四批（2026-10-24）：每模型内有训练干预，跨架构仍混预训练/目标/超参；BLIP/BAGEL亦正向增益，不能概括全部解耦无迁移。见[审查](transferability_full_parser_coverage_and_distribution_shift_audit_2026-10-24.md)、[U18](../reviews/U18.md)。
