@@ -640,3 +640,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百七十六批（2026-10-24）：固定文字前缀的保留/移除/换图/GT规则图干预、同信息同FLOPs/可更新参数对照；公布候选选择器、按秒/NFE算效率及模式随机化同题比较，均未执行。见[审查](../evidence/thinkmorph_full_reasoning_modes_cost_protocol_and_release_audit_2026-10-24.md)、[U09](../reviews/U09.md)。
+
+
+第一百七十七批（2026-10-24）：同预算TV/语义拓扑/GT操作图奖励因子，固定图前文字随机移除/换图/常量图，Zero同题text/原生/工具/noSFT对照与源图隔离、固定judge/全成本；均未执行。见[审查](../evidence/omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[U11](../reviews/U11.md)。

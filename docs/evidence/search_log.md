@@ -703,3 +703,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百七十六批（2026-10-24）：ThinkMorph ICLR2026正式目录与最新arXivv3核；42页PDF、研究正文/全附录prompts、8表24实际图完成，固定GHc1a48ad/评测cddb6a3/HFad1a4ab及五数据卡片。见[审查](thinkmorph_full_reasoning_modes_cost_protocol_and_release_audit_2026-10-24.md)、[U09](../reviews/U09.md)。
+
+
+第一百七十七批（2026-10-24）：OmniR1正式FindingsACL2026 18页与arXivv2核，7表9实际图/22式；同名论文分开。GH5170树项仅指定训练/奖励/推理及vendor段核，HF两checkpoint/数据卡固定。见[审查](omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[U11](../reviews/U11.md)。

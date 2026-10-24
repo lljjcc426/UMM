@@ -195,3 +195,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百五十九批（2026-10-23）：ImgEdit将Qwen语义与SigLIP视觉投影为FLUX文字支条件；训练50K/10Kstep/Prodigy batch128，不提供共享UMM协同因果或RL效果。见[审查](imgedit_dataset_versions_score_gating_and_pipeline_reproducibility_audit_2026-10-23.md)、[L148](../reviews/L148.md)。
+
+
+第一百七十七批（2026-10-24）：组std>0只要求复合reward有差，不保证同组答案有对有错；Eq16单样本logratio不等同非负KL估计，完整RL未发布。代码min与论文mean、MSE/2D/1D分支和fallback需明确主表配置。见[审查](omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[U11](../reviews/U11.md)。

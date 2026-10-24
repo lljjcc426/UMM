@@ -447,3 +447,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百七十六批（2026-10-24）：图MSE是ε-x流速度目标；CE/MSE按各自token归一，VAE冻结；图块双向/跨片段因果与噪声屏蔽，GT图在训练再编码用于后继文字，区别推理生成图分布。见[审查](thinkmorph_full_reasoning_modes_cost_protocol_and_release_audit_2026-10-24.md)、[U09](../reviews/U09.md)。
+
+
+第一百七十七批（2026-10-24）：TV在冻结码本32×32网格相邻L2平方均值，不约束语义/拓扑；常量码E0奖励1是公式性质。PeSFT同位置隐藏态对齐与CE下一token目标不同，独立投影入optimizer缺接线。见[审查](omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[U11](../reviews/U11.md)。

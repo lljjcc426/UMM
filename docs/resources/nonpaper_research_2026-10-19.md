@@ -611,3 +611,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百六十五批（2026-10-24）：OneIG固定GH两CSV与HF两JSON逐category/id核2440提示无字符串差异；7 Q/D共1590提示25053问题。生成黑图补位与评分过滤须报名义/有效分母。见[审查](../evidence/oneig_text_metric_ranking_and_public_protocol_audit_2026-10-24.md)、[L152](../reviews/L152.md)。
+
+
+第一百七十七批（2026-10-24）：ModalityDanceOmniR1 GH a10fbb3及两HF卡/配置、OmniBench数据卡清单已核；README端到端PeRPO和Zero合成待发布，yaml占位/筛选关闭，vllm只存预测无judge链。见[审查](../evidence/omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[U11](../reviews/U11.md)。

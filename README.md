@@ -524,3 +524,6 @@ python scripts/validate_catalog.py
 
 
 第一百七十六批（2026-10-24）：U09完成v3研究全文/全部附录prompts、8表24图，核成本比较矛盾、单任务/最终/hybrid配置与非单调采样；固定训练/评测/HF发布，保留图像因果及保真证据边界。358目录，281核心/286书面；待完成核心深审50篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/thinkmorph_full_reasoning_modes_cost_protocol_and_release_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_seventy_sixth_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百七十七批（2026-10-24）：U11完成arXivv2正文/全部附录、7表9图及FindingsACL2026正式版补核；区分Zero791条SFT、800样本加权、TV平滑与功能正确性，记录默认min/多分支及输入图接线等发布缺口。358目录，282核心/287书面；待完成核心深审49篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_seventy_seventh_changes_2026-10-24.md)。无删除或模型执行。

@@ -614,3 +614,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百七十六批（2026-10-24）：交错生成整幅辅助静态图后重新编码，F17新生成红椒图不能当忠实原图裁剪；无在线笔画或视频监督。24990训练与VisPuzzle400测试由卡片对应。见[审查](thinkmorph_full_reasoning_modes_cost_protocol_and_release_audit_2026-10-24.md)、[U09](../reviews/U09.md)。
+
+
+第一百七十七批（2026-10-24）：800样本四slice按100/200/200/300加权；Zero791种子仍经SFT；静态功能图没有书写时序监督，附录deterministicrenderer与原生生成实现映射未明。见[审查](omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[U11](../reviews/U11.md)。

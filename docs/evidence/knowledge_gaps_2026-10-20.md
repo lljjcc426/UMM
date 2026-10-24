@@ -655,3 +655,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百七十六批（2026-10-24）：T6成本4269>2879却称更少；F8正文hybrid与图注只交错不齐；最终脚本drop0/0与表8 .1/.3、评测T.3与论文单次T0不齐。图13最终路径与可见网格/当前validator不符，人工转写且原ID未得，不泛化整表错误。见[审查](thinkmorph_full_reasoning_modes_cost_protocol_and_release_audit_2026-10-24.md)、[U09](../reviews/U09.md)。
+
+
+第一百七十七批（2026-10-24）：输入脚本算image_tokens未替换、generate不传pixelvalues，HF另有替换；独立lossnet投影不在父Trainer的model参数组。均限定当前发布路径，不外推历史实验。F8轨迹邻接矛盾与tSNE关联局限。见[审查](omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[U11](../reviews/U11.md)。
