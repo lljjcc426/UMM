@@ -655,3 +655,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百六十批（2026-10-24）：KRIS-Bench正式47页核心及全部研究附录，F5精确读数、T2/T3负项、固定源码与GH/HF各20标注核；未调用模型。见[审查](kris_knowledge_hint_calibration_and_released_protocol_audit_2026-10-24.md)、[L150](../reviews/L150.md)。
+
+
+第一百六十一批（2026-10-24）：MMIG按arXiv v2§1–6/AppA.1–A.8、4表/Eq1/F1–16及公开zip索引核读；正式PDF截断，版本同步保留未决。见[审查](mmig_ams_estimand_and_public_release_audit_2026-10-24.md)、[L149](../reviews/L149.md)。

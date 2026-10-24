@@ -1,0 +1,115 @@
+{
+  "id": "L149",
+  "checked_on": "2026-10-24",
+  "reading_version": "arXiv2505.19415v2",
+  "formal_full_pdf_read": false,
+  "github_commit": "e9deb90b0aba3e67e18ba141c2aa7b6aa2c2ff3f",
+  "huggingface_revision": "5d4890fd2c93b65a1813d3ecf41b2a8601d403e0",
+  "public_zip_counts": {
+    "central_entries": 3400,
+    "non_metadata_files": 1694,
+    "jpg_files": 1692,
+    "t2i_prompt_count": 2100,
+    "custom_prompt_count": 1692,
+    "custom_unique_prompt_texts": 534
+  },
+  "public_missing": [
+    "方面QA与答案/标签",
+    "评价脚本",
+    "逐图/逐worker人评及原始指标"
+  ],
+  "table3": {
+    "human": [
+      72.29,
+      69.49,
+      73.18,
+      74.89,
+      76.65,
+      76.44,
+      77.04,
+      83.18,
+      75.69,
+      80.36,
+      81.98,
+      81.02
+    ],
+    "metric_rows": {
+      "AMS": [
+        79.08,
+        77.12,
+        84.11,
+        83.61,
+        83.18,
+        84.44,
+        85.33,
+        89.65,
+        70.25,
+        85.35,
+        85.4,
+        82.57
+      ],
+      "DSG": [
+        87.63,
+        86.26,
+        90.12,
+        89.77,
+        89.69,
+        83.33,
+        91.41,
+        92.43,
+        85.43,
+        92.15,
+        92.93,
+        89.99
+      ],
+      "VQ2": [
+        69.07,
+        66.84,
+        72.51,
+        73.13,
+        71.51,
+        71.41,
+        73.28,
+        75.09,
+        57.24,
+        67.41,
+        72.01,
+        70.34
+      ],
+      "BLIPVQA": [
+        0.433,
+        0.44,
+        0.517,
+        0.513,
+        0.521,
+        0.511,
+        0.525,
+        0.572,
+        0.39,
+        0.53,
+        0.495,
+        0.497
+      ]
+    },
+    "recomputed_spearman": {
+      "AMS": 0.7062937062937062,
+      "DSG": 0.6923076923076923,
+      "VQ2": 0.3986013986013986,
+      "BLIPVQA": 0.5104895104895105
+    },
+    "paper_reported": {
+      "AMS": 0.699,
+      "DSG": 0.692,
+      "VQ2": 0.399,
+      "BLIPVQA": 0.147
+    },
+    "boundary": "Only displayed 12 model rows; paper correlation unit and raw data unavailable; does not establish a numerical error"
+  },
+  "aspect_qa_percent": {
+    "t2i_counting": 2.4,
+    "custom_counting": 0.1
+  },
+  "human_rating_count": 32400,
+  "model_execution": false,
+  "reading_scope": "以arXiv2505.19415v2完整HTML读§1–6与AppA.1–A.8全部研究文字/八生成模板/解析及QA模板、Eq1、T1–4完整行、F1–16图注；已核所有研究图的原图或接触图（F7两个雷达及五个人评界面），定性图按列/代表行核看，未逐格计错或逐篇精读参考文献。NeurIPS正式38页PDF多次下载截断且抽取缺页，未算正式全文完成；须取得完整制品后版本对照。固定GH完整树、HF元数据、zip完整中央目录及两JSON已静态核；未下载全部图片、未重新注释、人评、口试或模型复现。"
+}

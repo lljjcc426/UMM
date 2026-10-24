@@ -607,3 +607,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百六十批（2026-10-24）：KRIS需逐样本运行记录、精确裁判快照/重复与归一入口；rule-based类75例explain_en为空，异常类专用模板分支名称不齐。见[审查](kris_knowledge_hint_calibration_and_released_protocol_audit_2026-10-24.md)、[L150](../reviews/L150.md)。
+
+
+第一百六十一批（2026-10-24）：MMIG公开GH无评分代码，HF包只有2100 T2I提示/1692定制键及1692图，缺完整QA/原始评分；1690/1692与380/386口径未决。见[审查](mmig_ams_estimand_and_public_release_audit_2026-10-24.md)、[L149](../reviews/L149.md)。

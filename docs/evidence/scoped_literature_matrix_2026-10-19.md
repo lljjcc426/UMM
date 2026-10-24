@@ -566,3 +566,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百六十批（2026-10-24）：KRIS是单轮静态知识编辑诊断；Temporal只补一张状态，Procedural不提供连续执行的真值。见[审查](kris_knowledge_hint_calibration_and_released_protocol_audit_2026-10-24.md)、[L150](../reviews/L150.md)。
+
+
+第一百六十一批（2026-10-24）：MMIG统一静态T2I和定制评价；没有UMM新生成架构或连续书写真值。身份与语义需并列。见[审查](mmig_ams_estimand_and_public_release_audit_2026-10-24.md)、[L149](../reviews/L149.md)。

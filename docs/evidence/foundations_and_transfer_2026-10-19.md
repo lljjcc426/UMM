@@ -402,3 +402,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百六十批（2026-10-24）：KP与IF有显式门控，不可据相关/差分直接识别知识机制；相同模板知识反事实才可分离hint内容效应。见[审查](kris_knowledge_hint_calibration_and_released_protocol_audit_2026-10-24.md)、[L150](../reviews/L150.md)。
+
+
+第一百六十一批（2026-10-24）：AMS原子QA均值不等于全约束成功；模型层与逐图相关估计不同，T3复算不直接判论文错误。见[审查](mmig_ams_estimand_and_public_release_audit_2026-10-24.md)、[L149](../reviews/L149.md)。
