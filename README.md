@@ -578,3 +578,6 @@ python scripts/validate_catalog.py
 
 
 第一百九十四批（2026-10-25）：L009完整8页11图2表/EF算法，核1251实例8117笔画、490笔画错误及top1/5 88.41/96.16%；末帧回溯恢复与规范笔顺判断分开记录。358目录，299核心/304书面；待完成核心深审32篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_ninety_fourth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第一百九十五批（2026-10-25）：L007正式17页19图5表10式完成；区分静态footprint与序列，核mm/px、deg/rad及回归比例疑点，静态CSIM/SSIM和重校准两笔结果限条件解释。358目录，300核心/305书面；待完成核心深审31篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_ninety_fifth_changes_2026-10-25.md)。无删除或模型执行。

@@ -757,3 +757,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百九十四批（2026-10-25）：TCSVT2005作者正式8页全文、11图2表、全部公式/EF算法视觉核对，无算法运行。见[审查](video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[L009](../reviews/L009.md)。
+
+
+第一百九十五批（2026-10-25）：BBSMG正式17页PDF已可获取，全19图5表10式核完，替代旧部分阅读范围。见[审查](bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[L007](../reviews/L007.md)。

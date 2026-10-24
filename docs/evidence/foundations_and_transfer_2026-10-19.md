@@ -501,3 +501,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百九十四批（2026-10-25）：末帧骨架约束+局部POL时间，静态几何补噪声；重复覆盖/完全遮挡可产生不可辨识动作，first-emergence不保全部接触。见[审查](video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[L009](../reviews/L009.md)。
+
+
+第一百九十五批（2026-10-25）：固定合成教师监督网络不要求教师可微；对物理输入反演才需相应链式梯度。静态对称印迹非完整接触动力学。见[审查](bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[L007](../reviews/L007.md)。

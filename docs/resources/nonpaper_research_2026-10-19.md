@@ -665,3 +665,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百九十四批（2026-10-25）：作者归档正式PDF可读，原论文未给数据/代码链接；完整视频与末帧前提限制即时prefix使用。见[审查](../evidence/video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[L009](../reviews/L009.md)。
+
+
+第一百九十五批（2026-10-25）：数据available upon request，未发现原文公开代码/权重链接；两笔适配重采样调参非zero-shot跨域，无额外模型执行。见[审查](../evidence/bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[L007](../reviews/L007.md)。

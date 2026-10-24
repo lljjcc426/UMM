@@ -112,7 +112,7 @@
 | L004 | Layout Stroke Imitation，2025 | primary_sections_read | [结构化分析](../reviews/L004.md) | 核心三遍与五项检查完成 |
 | L005 | StrokeBank: Automating Personalized Chinese Handwriting Generation | primary_sections_read | [结构化分析](../reviews/L005.md) | 核心三遍与五项检查完成 |
 | L006 | Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement，2026 | primary_abstract_read | [结构化分析](../reviews/L006.md) | 未完成 |
-| L007 | B-BSMG，2024 | primary_sections_read | [结构化分析](../reviews/L007.md) | 未完成 |
+| L007 | B-BSMG，2024 | primary_sections_read | [结构化分析](../reviews/L007.md) | 核心三遍与五项检查完成 |
 | L008 | Three-Dimensional Trajectory Planning for Robotic Chinese Calligraphy，2026 | primary_sections_read | [结构化分析](../reviews/L008.md) | 未完成 |
 | L009 | Video-Based Handwritten Chinese Character Recognition，2005 | primary_sections_read | [结构化分析](../reviews/L009.md) | 核心三遍与五项检查完成 |
 | L010 | VideoSketcher: Video Models Prior Enable Versatile Sequential Sketch Generation | primary_sections_read | [结构化分析](../reviews/L010.md) | 核心三遍与五项检查完成 |

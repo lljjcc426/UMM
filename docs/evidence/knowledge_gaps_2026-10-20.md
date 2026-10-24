@@ -709,3 +709,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百九十四批（2026-10-25）：T1分母8117笔画、T2分母1251实例，约94%恢复非整字规范率；无fps、heldout协议、组件消融或规范GT。见[审查](video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[L009](../reviews/L009.md)。
+
+
+第一百九十五批（2026-10-25）：pix2len .05与1px20mm冲突，rad/degree输入单位未固定，Eq2常比与T1独立系数关系需说明；缺CSIM定义/数据split/完整recipe。见[审查](bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[L007](../reviews/L007.md)。

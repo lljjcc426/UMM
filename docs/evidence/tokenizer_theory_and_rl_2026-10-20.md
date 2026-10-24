@@ -249,3 +249,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百九十四批（2026-10-25）：传统二值骨架/EF/ARG无学习型tokenizer或RL；3×3逆查和POL窗口不同，T0=k0w/T1=(T0+w²)/2保具体假设。见[审查](video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[L009](../reviews/L009.md)。
+
+
+第一百九十五批（2026-10-25）：图2RealFake/Agent不能当实际GAN/RL证据；正文仅MSE/Adam代理监督，低维控制参数与笔序token分开。见[审查](bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[L007](../reviews/L007.md)。

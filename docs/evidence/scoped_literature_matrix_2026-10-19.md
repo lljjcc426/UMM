@@ -668,3 +668,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百九十四批（2026-10-25）：真实纸笔视频+清洁终帧恢复实际笔向/次序→ARG识别；不提供video生成或规范笔顺GT。见[审查](video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[L009](../reviews/L009.md)。
+
+
+第一百九十五批（2026-10-25）：h/α/β校准双cubicBézier footprint合成标签→MLP/CNN128²代理→沿轨迹叠加，不含规范笔顺训练。见[审查](bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[L007](../reviews/L007.md)。

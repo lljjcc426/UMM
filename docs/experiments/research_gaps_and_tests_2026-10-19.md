@@ -694,3 +694,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百九十四批（2026-10-25）：同步tablet GT拆终态/switchline/POL/几何/拟合/oracle，测EF、笔画/整字顺序及字符topk；扫遮挡/fps/重复覆盖。见[审查](../evidence/video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[L009](../reviews/L009.md)。
+
+
+第一百九十五批（2026-10-25）：同真实heldout拆解析几何/标定/神经代理，测梯度和轮廓；动态力/速度、墨/纸/笔跨域及同终态异笔序另测。见[审查](../evidence/bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[L007](../reviews/L007.md)。
