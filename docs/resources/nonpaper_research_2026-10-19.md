@@ -608,3 +608,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百六十四批（2026-10-24）：固定CompBench GH六文件、HF卡train2905+multi_turn576行；存图640²/评分512²分列。全幅mask评分、union框和无权宏平均需明确；未下载3.8GB全图数据。见[审查](../evidence/compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[L151](../reviews/L151.md)。
+
+
+第一百六十五批（2026-10-24）：OneIG固定GH两CSV与HF两JSON逐category/id核2440提示无字符串差异；7 Q/D共1590提示25053问题。生成黑图补位与评分过滤须报名义/有效分母。见[审查](../evidence/oneig_text_metric_ranking_and_public_protocol_audit_2026-10-24.md)、[L152](../reviews/L152.md)。

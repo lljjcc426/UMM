@@ -488,3 +488,6 @@ python scripts/validate_catalog.py
 
 
 第一百六十四批（2026-10-24）：L151补读正式研究正文、四表六图、公开评分及数据卡；核37表列/BAGEL18项最佳、16配置第二轮背景指标下降、全幅掩码PSNR面积偏置。独立补充未取得，五项书面保留未通过，核心数不增。357目录，270核心/275书面；未确认核心60论文／研究+27资源。见[审查](docs/evidence/compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_sixty_fourth_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百六十五批（2026-10-24）：L152完成正式36页研究正文/附录核心三遍与五项书面，核全主表及固定评分和2440提示。记录词序错误仍满分的公式反例、430/421人评计数、RC缺项、黑图分母和表内汇总差异。357目录，271核心/276书面；未确认核心59论文／研究+27资源。见[审查](docs/evidence/oneig_text_metric_ranking_and_public_protocol_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_sixty_fifth_changes_2026-10-24.md)。无删除或模型执行。

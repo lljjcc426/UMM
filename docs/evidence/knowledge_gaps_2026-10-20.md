@@ -619,3 +619,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百六十四批（2026-10-24）：CompBench独立supp、人评协议/VLM提示及总分公式未取得；公开自动指标代码未覆盖动作/位置/视角评分，需实际版本与逐题有效集。见[审查](compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[L151](../reviews/L151.md)。
+
+
+第一百六十五批（2026-10-24）：OneIG人评写430但列项421，RC原始排名/实现及幻觉清洗分母未齐；T2与T5按公开学科数重算有差，缺原始有效集无法归因。comic类别论文/代码不同。见[审查](oneig_text_metric_ranking_and_public_protocol_audit_2026-10-24.md)、[L152](../reviews/L152.md)。

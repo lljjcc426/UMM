@@ -411,3 +411,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百六十四批（2026-10-24）：CompBench全幅前景置零评分对二值mask满足PSNR_full=PSNR_BG−10log10(b)。同图偏置对各模型相同；面积改变分数刻度，不能据此直接否定排序。见[审查](compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[L151](../reviews/L151.md)。
+
+
+第一百六十五批（2026-10-24）：OneIG Stext乘积在WAC=1时必为1；词/字符频袋忽略顺序并不惩罚额外词。一般并列可用Kendall tau-b，全部并列的退化组需另定义。见[审查](oneig_text_metric_ranking_and_public_protocol_audit_2026-10-24.md)、[L152](../reviews/L152.md)。

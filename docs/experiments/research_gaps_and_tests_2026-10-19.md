@@ -604,3 +604,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百六十四批（2026-10-24）：CompBench拟比较identity/oracle mask/逐对象绑定，按面积/遮挡分层、真实与GT多轮历史对照及同后端等预算共享/分离规划；未运行。见[审查](../evidence/compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[L151](../reviews/L151.md)。
+
+
+第一百六十五批（2026-10-24）：OneIG以cat dog→dog cat等纯字符串工具反例证词序错误可满分；后续需原/clean OCR、人标和顺序指标、固定有效集及条件多样性。无模型运行。见[审查](../evidence/oneig_text_metric_ranking_and_public_protocol_audit_2026-10-24.md)、[L152](../reviews/L152.md)。

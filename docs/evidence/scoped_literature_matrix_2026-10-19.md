@@ -578,3 +578,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百六十四批（2026-10-24）：CompBench动作/视角编辑输出静态图，MOSE视频来源不等于过程生成；15模型/16配置，3481发布行不等同轨迹数。见[审查](compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[L151](../reviews/L151.md)。
+
+
+第一百六十五批（2026-10-24）：OneIG五指标只测静态图；Counter文字与嵌入知识/风格不足验证严格文字或笔顺过程。正式版全表/附录与v3分别编号。见[审查](oneig_text_metric_ranking_and_public_protocol_audit_2026-10-24.md)、[L152](../reviews/L152.md)。

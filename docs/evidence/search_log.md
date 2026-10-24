@@ -667,3 +667,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百六十四批（2026-10-24）：CompBench正式11页研究正文/四表六图及固定评分主要路径已核；arXivv4同为11页，已核官方入口缺独立supp，关键协议未读齐保留partial。见[审查](compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[L151](../reviews/L151.md)。
+
+
+第一百六十五批（2026-10-24）：OneIG正式36页完整取得；§1–5/AppA1–7、四公式/Algo1、全表/六维总览与13图核。固定GH五评分主脚本及HF/GH2440提示内容一致，未运行模型。见[审查](oneig_text_metric_ranking_and_public_protocol_audit_2026-10-24.md)、[L152](../reviews/L152.md)。
