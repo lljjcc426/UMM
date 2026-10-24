@@ -733,3 +733,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百零七批（2026-10-25）：同骨干/同SFT控制与评分维度因子，OCRtokens/示例抽样协议各自报；密集/六帧/乱序测事件。见[审查](../evidence/omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[L172](../reviews/L172.md)。
+
+
+第二百零八批（2026-10-25）：按来源/过滤/预算控制与长度分层；IRS遮图与逐步配对指标，DPO合法多序负例审查；均为设计未执行。见[审查](../evidence/comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[L173](../reviews/L173.md)。

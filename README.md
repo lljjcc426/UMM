@@ -617,3 +617,6 @@ python scripts/validate_catalog.py
 
 
 第二百零七批（2026-10-25）：L172最新预印本39页完整核；补OCR/RICES协议差、语言能力先降后升、最快成本模型与实际次序、时间戳释放格式和表内规模矛盾。358目录，312核心/317书面；待完成核心深审19篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_seventh_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百零八批（2026-10-25）：L173正式10+13页全部；补DPO图像退化、人机评分局部反序、全配对PSNR/SSIM与Task2 IRS见图，区分可证数学/源码问题和未复现结论。358目录，313核心/318书面；待完成核心深审18篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_eighth_changes_2026-10-25.md)。无删除或模型执行。

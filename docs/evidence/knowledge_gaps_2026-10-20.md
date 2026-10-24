@@ -748,3 +748,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百零七批（2026-10-25）：T1 CW/总token均值和D4 CC域均值口径冲突；过滤44条可核，零FPR不等于零全库误杀。见[审查](omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[L172](../reviews/L172.md)。
+
+
+第二百零八批（2026-10-25）：Eq1全对均值系数与文字不符，额外缩放未披露；Task2IRS实现仍见图，Task4输出图确实移除；源码非执行。见[审查](comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[L173](../reviews/L173.md)。

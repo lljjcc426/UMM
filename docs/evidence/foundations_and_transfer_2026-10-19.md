@@ -540,3 +540,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百零七批（2026-10-25）：YT公开ID+帧时间戳+转录，需重取媒体；训练只六帧，弱时间线索与细笔画事件分开。见[审查](omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[L172](../reviews/L172.md)。
+
+
+第二百零八批（2026-10-25）：CoMM是静态教程/故事步骤，SSIM/PSNR参考×生成全对对乱序不敏感；迁移笔顺应加规范事件偏序。见[审查](comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[L173](../reviews/L173.md)。

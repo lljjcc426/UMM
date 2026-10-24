@@ -704,3 +704,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百零七批（2026-10-25）：CC/YT元数据无gate、210M auto gate/raw卡401；数据CCBY4与代码Apache按当前发布分开，预印本datasheet有冲突。见[审查](../evidence/omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[L172](../reviews/L172.md)。
+
+
+第二百零八批（2026-10-25）：CoMM HF无gate，可见train/val/test.pth及val_and_test_images.zip；训练图另下载，CCBY4不覆盖原来源权利。见[审查](../evidence/comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[L173](../reviews/L173.md)。

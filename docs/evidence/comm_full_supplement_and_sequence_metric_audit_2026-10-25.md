@@ -1,0 +1,81 @@
+# CoMM：完整补充、顺序指标与IRS实现审查
+
+第二百零八批完成[L173](../reviews/L173.md)明确范围核心三遍及五项书面验收。[结构化证据](../../data/comm_full_supplement_and_sequence_metric_audit_2026-10-25.json)。358目录（331论文／研究、27资源），313核心/318书面含未通过项；待完成核心深审18篇论文／研究；27项资源按制品协议另审。无目录新增、文件删除或模型执行。
+
+来源：[主源1](https://arxiv.org/abs/2406.10462v3)、[主源2](https://arxiv.org/pdf/2406.10462v3)、[主源3](https://openaccess.thecvf.com/content/CVPR2025/papers/Chen_CoMM_A_Coherent_Interleaved_Image-Text_Dataset_for_Multimodal_Understanding_and_CVPR_2025_paper.pdf)、[主源4](https://openaccess.thecvf.com/content/CVPR2025/supplemental/Chen_CoMM_A_Coherent_CVPR_2025_supplemental.pdf)、[主源5](https://github.com/HKUST-LongGroup/CoMM/tree/0da05d494a25af3ca03a512b9a2c74c9b0dc9421)、[主源6](https://github.com/HKUST-LongGroup/CoMM/blob/0da05d494a25af3ca03a512b9a2c74c9b0dc9421/eval/tot_metric/gpt4o_eval.py)、[主源7](https://github.com/HKUST-LongGroup/CoMM/blob/0da05d494a25af3ca03a512b9a2c74c9b0dc9421/eval/tot_metric/SSIM.py)、[主源8](https://huggingface.co/datasets/weisuxi/CoMM/tree/029065b01f747578e9ef3acd47b14cc7c08d65bb)。
+
+## 研究问题
+
+如何构建多步叙事/实体/风格连贯的交错图文数据，同时支持理解、图到文序列、文到图序列、续写和题目驱动交错生成？静态教程步骤与真实动作时间/规范笔顺需分开验证。
+
+## 现有不足
+
+MMC4/OBELICS图文网页关联不必具有任务闭环，图较少且风格/实体跨步漂移；先选择教程/故事来源，再过滤文本、图序和对齐。此动机有样例/下游对照支持，不能将全部失败归到数据质量或把少图网页等同无用。
+
+## 贡献
+
+数据与四任务/评测协议贡献：收集教程/故事，CLIP+文本LLM/CogVLM描述或GPT4o筛分；按文字/图/两者独立/整步四种shuffle生成偏好对，在SEED-Llama上DPO。生成系统沿用MiniGPT5、SEED、Emu2，未提出新统一生成骨干。
+
+## 输入、模块、输出与公式
+
+任务1图序→每步文字，2文字序→图片序，3前k步图文→剩余图文，4题目→全部图文(Eq2–5)。产出静态图片和文本序列，没有视频帧率/笔尖轨迹/落笔抬笔或实际书写时钟。
+
+## 模型结构
+
+文本序用Llama3判断development/coherence；图用CLIP视觉邻接相似减全对相似(Eq1)；对齐先CLIP≥.1再上下文LLM打分≥4。Llama3不见图，先CogVLM生成图描述；GPT4o直接见图，未给全构建阶段各模型比例。NSFW为CLIPViTL14特征+4层MLP，> .1弃；97.4%为原分类器外部测试非本库人工安全率。MiniGPT5生成vokens接SD、SEED图离散VQ/AR+解码器、Emu2连续embedding/AR+图解码器，各自LoRA。
+
+## 数据分布与划分
+
+227K文档/2.28M图/139Mtoken；随机500文档val/500test其余train，未给按教程/作者/近重复组隔离。T5 WikiHow57.78%文档/30.02%图/Instructables35.18/62.89，合92.96%文档；其余eHow3.31、Storybird1.54、StoryGen2.19，StoryGen保留原图、Llama3重写文本。F2图mean10.1/median4、句mean33.2/median24；正文一处把M说most common，但图注明median，保留中位数。F5 topics图近似均衡不证明人口或全领域代表性。
+
+## 指标与评价协议
+
+T2 COCO/Flickr CIDEr、VQA四任务accuracy、HatefulMemesROC-AUC不可都叫accuracy；random incontext/OpenEnded/五shot。任务1METEOR/ROUGE_L分步与全文，2FID/IS/SSIM/PSNR/IRS，3/4 GPT4o style/entity/trend/completeness/quality/IRS。IRS两阶段从文字预测所需图描述再图文评分。固定代码图最长边512/JPEG，gpt-4o未固定日期/temperature1。SSIM和PSNR256²双重循环参考×生成所有组合后平均，生成顺序置换不变；PSNR不验证逐步配对重建，SSIM也非纯风格。FID是图分布比较，real/false传参反转不改变其对称理论量，不据此虚报致命错误。
+
+## 对比方法
+
+OpenFlamingo9B预训基线加MMC4/OBELICS/CoMM比较；论文未齐各run训练token/图片/计算、完整优化器/批量/随机种子与误差条。MiniGPT5 7B/SEED8/14B/Emu2 33B底座不同、T3为各模型CoMM微调后比较。T13同SEED14B训练不同数据：MMC4/OBELICS题目由LLM生成伪标题，CoMM天然教程题目，额外任务匹配差异需控制。
+
+## 实验条件和发布边界
+
+AppE MiniGPT5 LoRA rank32+mapper，8A10080G/5epoch、LR5e-5与5e-4；SEED LoRA16/8卡/LR1e-5/10000步；Emu2 LoRA32+输入输出线性层16卡/LR5e-5/5epoch。DPO LR5e-7/batch16/β.05，未提供完整DPO配置/混合比例。ITA阈4、ImgS1；图序式与分数量纲待明。源码judge默认max10图，Task3输入已≥10图即跳过，未将此自行当成论文全部结果的已证设置。HF public无gate，版本029065b... 2026-04-24可见train/val/test.pth和val_and_test_images.zip；训练图由下载脚本获取，未读pth/下载zip或执行模型。
+
+## 主结果
+
+T1 CoMM GPT4o DLP7.64/CPL7.07/ITA8.91、ImgS4.27相对另两库较高，但筛选和评估模型复用且ImgS量纲未解释。T2 32shotCoMM COCO111.9/Flickr70.7/VQA54/OK46.6/Text34.9/Viz45.7/Hate57.3；Hate57.3低于自身16shot59.9。0shotVQA52.6<原基线52.7、Viz23.6<27.5；4shotOK42.9<OB43且Hate55.2<55.7；16shotVQA54.2<原基线54.3，因此“所有任务/shot一致最好”不成立。T3 MiniGPTFID56.51最佳，SEED14 IS11.06/PSNR8.12/IRS6.24，但SSIM20.83<Emu20.96，正文把SEEDSSIM也列最好有误。EmuTask3/4多数质量分较高但IRS2.42/2.02落后。
+
+## 消融及进一步实验
+
+T4 DPO改进Task1 SEED14分步METEOR3.16→4.62、IRS8.13→8.18；AppT6 Task2两模型FID57.96→63.05/66.23→72.60均恶化，IS8.40→8.28/11.06→9.98和IRS5.27→4.69/6.24→5.75下降；Task3多数全降，Task4风格/IRS小升而trend/完整/质量降。T7 ITA2/3/4/5 COCO103.1/107.1/109.3/109.1，T8 ImgS.5/1/1.5/2 COCO108.5/109.3/108.7/109.2，非阈越严越好。T10 0/30/60/100% CoCO98.8/105.3/106.9/109.3仅两caption任务，无重复/预算控制，不能称普适scaling law。T12来源未过滤105.7/67.4/31.5，相比原98.8/62.8/27.3已大增，合ITA+ImgS109.3/71.5/35.8；来源选择与筛分贡献分开。T13同SEED14 Task3IRS3.23vsMMC1.32/OB.96，任务匹配/伪题目混杂保留。
+
+## 局限与疑问
+
+正式10+13页全核、F1–10/T1–13/Eq1–5、AppA–F完成。Eq1全对和有N(N−1)/2项，印刷系数2/[(N−1)(N−2)]不等于全对均值；全sim1时F=−2/(N−2)，N2未定义，表ImgS4.27未标额外缩放，实现筛分代码未定位，故不擅自判定实际筛分算错。T9人评19人×30=570反馈，不等同570独立文档；T11另一32人评Task4，未给样本总数/一致性系数/CI。T11人评Emu质量6.03低于SEED14 6.33、trend5.47低于Mini5.84；GPT4o相应Emu7.59最高/trend7.63最高，因此“人机相同排序”只部分成立。Claude没参与过滤减少一种循环偏差，不能据此宣称完全无偏。 固定gpt4o_eval_task2计算model_text_output后仍openai_api(content)，未移除待评图；Task4确实移除输出图但保留输入图。20线程共用可变system_prompt且多阶段切换无锁，存在请求交错串提示风险；解析失败continue的样本计数未报告。Task1按min长度截齐预测与真值，额外/缺失尾步不计传统指标；这些为静态源码证据，不冒充实际复现失败。
+
+## 预期优势条件
+
+教程/故事来源选择与多视角筛选提高特定CoMM式静态多步图文任务/长上下文，而shuffle DPO优先帮助文字结构；图片DPO弱甚至有退化。稀疏步骤可作绘画/手写语义计划条件，需另接规范笔画事件监督与时间指标。
+
+## 可证伪实验
+
+固定底座/来源/图token/计算/评估图数，源选择×ITA×ImgS做因子并按长度/领域分层；公开Eq1实际实现和归一/阈值，检查相同图复制/反转及乱序得分响应。用一对一步重建/顺序编辑距离/事件偏序替代全对PSNR，IRS严格隐藏待评图且锁judge快照，随机打乱双盲人评含置信区间。DPO分四种负样本，允许多种正确顺序并设人工验证负例，分报文本与图片收益；未实际执行。
+
+## 论文组织与Claim学习
+
+把主要改进限定在具体任务与shot，正文“均最佳”必须逐格核；表外补充DPO负结果不可略。全对集合相似不支撑顺序正确，IRS隐藏图片的动机需与代码一致；人机趋势只报真实一致项。公开来源与split规则、训练预算及缩放细节，避免把两点/四点上升画成普适规模定律。
+
+## 实际阅读范围
+
+CVPR正式10页§1–6/致谢/45条references清单与关键引文、补13页A–F全部，包括D1完整提示/D2两阶段全部提示/E训练/F全部样例；F1–10实际视觉、T1–13逐表、Eq1–5逐式，arXivv3实际23页8张contact全部看并p4/p14放大。固定官方树0da05d4 README全文，eval_metric/cal_gpt4o_score/utils/ImageSequence/SSIM/PSNR/gpt4o_eval及下载shell全文；未声称全仓/训练代码/筛选实现已审。HF版本metadata/card完整，未加载数据/权重、无judge/OCR/推理/训练。核心三遍及五书面完成。
+
+## 全文范围
+
+CVPR2025正文10页和补充13页全部完成；arXiv v3页眉虽称22页，实际PDF23页均审。补充DPO结果显示文字收益伴随图片FID/IS/IRS退化。
+
+## 指标与实现
+
+Eq1印刷全对项归一系数与“所有图对平均”文字不符；实际过滤实现未找到，不能据公式推断实际数据一定算错。PSNR/SSIM的公开实现计算所有参考图与生成图的配对平均，无法鉴别生成图的顺序；传统文本指标截齐到最短步数，尾部遗漏/多余没有直接罚分。Task2的IRS第一阶段仍输入生成图，与论文遮图动机不同，Task4则确实移除输出图。
+
+## 人机评估边界
+
+T9的数据质量人评19人570条反馈，与T11生成任务32人是两项研究；后者图像质量和trend的模型排序与GPT4o不全一致，无完整标注一致性/区间。不得以笼统“人机一致”替代逐项核对。

@@ -288,3 +288,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百零七批（2026-10-25）：Alg1人为反馈设计过滤函数，不是RLHF。交错预训MMLU下降后SFT恢复，不能写始终保持。见[审查](omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[L172](../reviews/L172.md)。
+
+
+第二百零八批（2026-10-25）：shuffle四种偏好对+DPO改善文字，Task2FID两尺寸恶化/Task3多数降；不可以文字收益代表统一图文收益。见[审查](comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[L173](../reviews/L173.md)。

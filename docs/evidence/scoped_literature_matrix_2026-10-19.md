@@ -707,3 +707,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百零七批（2026-10-25）：B1消融RICES+OCRtokens，T5 random无OCR/0*文字priming；跨表不能合并比较。见[审查](omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[L172](../reviews/L172.md)。
+
+
+第二百零八批（2026-10-25）：T2非全任务全shot胜，16shotVQA54.2<原54.3；SEED14SSIM20.83<Emu20.96；T11人机排序部分反向。见[审查](comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[L173](../reviews/L173.md)。
