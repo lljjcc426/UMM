@@ -584,3 +584,6 @@ python scripts/validate_catalog.py
 
 
 第一百九十六批（2026-10-25）：L008完成正式21页17图5表10式2算法，核局部时间/OLS单调性/恒速图与公式边界；Zenodo公开49图及规划脚本，三维函数默认三次样条，完整数据仍须申请。358目录，301核心/306书面；待完成核心深审30篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_ninety_sixth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第一百九十七批（2026-10-25）：L030完成27页10图18表4式及关键代码/结果JSON；区分有限候选评分与单组自由命名，限定激活/权重峰值和跨架构必要性结论，核anchor-only仍执行零加权flow前向。358目录，302核心/307书面；待完成核心深审29篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/entry_point_umm_full_causal_interface_and_compute_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_ninety_seventh_changes_2026-10-25.md)。无删除或模型执行。

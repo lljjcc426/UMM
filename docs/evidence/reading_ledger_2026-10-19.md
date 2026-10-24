@@ -135,7 +135,7 @@
 | L027 | UniVid，2025 | primary_sections_read | [结构化分析](../reviews/L027.md) | 核心三遍与五项检查完成 |
 | L028 | Lance: Unified Multimodal Modeling by Multi-Task Synergy | primary_sections_read | [结构化分析](../reviews/L028.md) | 核心三遍与五项检查完成 |
 | L029 | Think in Strokes, Not Pixels: Process-Driven Image Generation via Interleaved Reasoning | primary_sections_read | [结构化分析](../reviews/L029.md) | 核心三遍与五项检查完成 |
-| L030 | Where a New Concept Must Enter，2026 | primary_sections_read | [结构化分析](../reviews/L030.md) | 未完成 |
+| L030 | Where a New Concept Must Enter，2026 | primary_sections_read | [结构化分析](../reviews/L030.md) | 核心三遍与五项检查完成 |
 | L031 | Do Unified Multimodal Models Think in One Space?，2026 | primary_sections_read | [结构化分析](../reviews/L031.md) | 未完成 |
 | L032 | UReason，2026 | primary_sections_read | [结构化分析](../reviews/L032.md) | 未完成 |
 | L033 | Recursive Self-Improvement in Unified Multimodal Models，2026 | primary_sections_read | [结构化分析](../reviews/L033.md) | 未完成 |

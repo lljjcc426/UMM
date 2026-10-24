@@ -1,0 +1,1257 @@
+{
+  "id": "L030",
+  "checked_on": "2026-10-25",
+  "arxiv_version": "2608.17564v1",
+  "pages": 27,
+  "figures_visually_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "numbered_equations_reviewed": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "tables": [
+    {
+      "id": "S4.T1",
+      "rows": [
+        [
+          "condition",
+          "und. name matching \\uparrow",
+          "gen. identity \\uparrow"
+        ],
+        [
+          "base model",
+          "0.243 [0.19, 0.31] \\pm 0.058",
+          "0.039 [0.02, 0.06] \\pm 0.032"
+        ],
+        [
+          "G-inject (flow matching), shared+private",
+          "0.520 [0.44, 0.60] \\pm 0.121",
+          "0.653 [0.56, 0.75] \\pm 0.125"
+        ],
+        [
+          "G-inject, shared MLP only",
+          "0.620 [0.53, 0.70] \\pm 0.119",
+          "0.717 [0.62, 0.81] \\pm 0.122"
+        ],
+        [
+          "U-inject (LM CE), shared+private",
+          "0.989 [0.98, 1.00] \\pm 0.014",
+          "0.360 [0.27, 0.46] \\pm 0.105"
+        ],
+        [
+          "U-inject, shared attention only",
+          "0.984 [0.97, 0.99] \\pm 0.013",
+          "0.078 [0.04, 0.13] \\pm 0.069"
+        ],
+        [
+          "U-inject, shared MLP only",
+          "0.991 [0.98, 1.00] \\pm 0.013",
+          "0.339 [0.25, 0.44] \\pm 0.165"
+        ],
+        [
+          "anchoring @ layer 14, alone",
+          "0.898 [0.84, 0.94] \\pm 0.024",
+          "0.808 [0.72, 0.89] \\pm 0.105"
+        ],
+        [
+          "anchoring @ final norm, alone",
+          "0.332 [0.26, 0.41] \\pm 0.055",
+          "0.103 [0.06, 0.16] \\pm 0.056"
+        ],
+        [
+          "G-inject + anchoring @ layer 14",
+          "0.946 [0.90, 0.98] \\pm 0.051",
+          "0.907 [0.85, 0.96] \\pm 0.042"
+        ]
+      ]
+    },
+    {
+      "id": "S4.T2",
+      "rows": [
+        [
+          "condition",
+          "LM-CE",
+          "4-way",
+          "reverse 4-way",
+          "context-free",
+          "first sub-word"
+        ],
+        [
+          "U-inject (LM cross-entropy)",
+          "✓",
+          "1.000",
+          "1.000",
+          "0.938",
+          "0.922"
+        ],
+        [
+          "U-inject, shared attention only",
+          "✓",
+          "1.000",
+          "0.900",
+          "0.297",
+          "0.688"
+        ],
+        [
+          "base model",
+          "✗",
+          "0.254",
+          "0.242",
+          "0.141",
+          "0.125"
+        ],
+        [
+          "G-inject (flow matching)",
+          "✗",
+          "0.600",
+          "0.650",
+          "0.141",
+          "0.125"
+        ],
+        [
+          "anchoring @ layer 14, alone",
+          "✗",
+          "0.887",
+          "1.000",
+          "0.125",
+          "0.094"
+        ],
+        [
+          "activation patch @ layer 3",
+          "✗",
+          "0.887",
+          "1.000",
+          "0.234",
+          "0.125"
+        ],
+        [
+          "activation patch @ layer 7",
+          "✗",
+          "0.900",
+          "1.000",
+          "0.266",
+          "0.125"
+        ]
+      ]
+    },
+    {
+      "id": "S5.T3",
+      "rows": [
+        [
+          "entry point",
+          "shared computation after it",
+          "exports",
+          "§"
+        ],
+        [
+          "input embeddings",
+          "all 28 blocks, but nothing to route yet",
+          "✗",
+          "5.2"
+        ],
+        [
+          "activation edit, layer 3",
+          "25 blocks",
+          "partial (0.53)",
+          "5.2"
+        ],
+        [
+          "activation edit, layer 7",
+          "21 blocks",
+          "✓ (0.58)",
+          "5.2"
+        ],
+        [
+          "activation edit, layer 14",
+          "14 blocks",
+          "✗ (0.04, at base)",
+          "5.2"
+        ],
+        [
+          "weight edit, layer 3",
+          "25 blocks",
+          "partial (0.60)",
+          "5.2"
+        ],
+        [
+          "weight edit, layers 10–14",
+          "14–18 blocks",
+          "✓ (0.80)",
+          "5.2"
+        ],
+        [
+          "weight edit, layers 21–26",
+          "2–7 blocks",
+          "fading (0.35 \\to 0.20)",
+          "5.2"
+        ],
+        [
+          "weight edit, final norm",
+          "none",
+          "✗",
+          "5.2"
+        ],
+        [
+          "adapter, shared attention only",
+          "all, but satisfiable by a shortcut",
+          "✗ (0.078)",
+          "4.2"
+        ],
+        [
+          "adapter, shared MLP only",
+          "all",
+          "✓ (0.339)",
+          "4.2"
+        ],
+        [
+          "adapter, private generation expert",
+          "none the other pass executes",
+          "✗",
+          "4.2"
+        ]
+      ]
+    },
+    {
+      "id": "S5.T4",
+      "rows": [
+        [
+          "",
+          "activations, anchor only (0 gradient steps)",
+          "weights, anchor only (480 steps)"
+        ],
+        [
+          "entry point",
+          "identity (DINOv2)",
+          "(CLIP)",
+          "sd",
+          "vs. norm",
+          "identity",
+          "vs. norm"
+        ],
+        [
+          "layer 0",
+          "0.323 [0.22, 0.42]",
+          "0.269",
+          "0.145",
+          "+0.283 7/7",
+          "—",
+          "—"
+        ],
+        [
+          "layer 3",
+          "0.528 [0.33, 0.72]",
+          "0.433",
+          "0.297",
+          "+0.489 6/7",
+          "0.602 [0.47, 0.75]",
+          "+0.499 7/7"
+        ],
+        [
+          "layer 7",
+          "0.584 [0.46, 0.72]",
+          "0.512",
+          "0.196",
+          "+0.545 7/7",
+          "0.769 [0.69, 0.84]",
+          "+0.666 7/7"
+        ],
+        [
+          "layer 10",
+          "0.366 [0.28, 0.45]",
+          "0.281",
+          "0.127",
+          "+0.327 7/7",
+          "0.800 [0.70, 0.89]",
+          "+0.698 7/7"
+        ],
+        [
+          "layer 14",
+          "0.040 [0.02, 0.07]",
+          "0.054",
+          "0.036",
+          "+0.001 3/7",
+          "0.808 [0.73, 0.88]",
+          "+0.705 7/7"
+        ],
+        [
+          "layer 17",
+          "0.047 [0.02, 0.08]",
+          "0.051",
+          "0.040",
+          "+0.008 5/7",
+          "—",
+          "—"
+        ],
+        [
+          "layer 21",
+          "0.033 [0.01, 0.06]",
+          "0.048",
+          "0.032",
+          "-0.006 2/7",
+          "0.352 [0.25, 0.47]",
+          "+0.249 7/7"
+        ],
+        [
+          "layer 24",
+          "0.038 [0.02, 0.06]",
+          "0.056",
+          "0.029",
+          "-0.001 2/7",
+          "0.271 [0.19, 0.36]",
+          "+0.169 6/7"
+        ],
+        [
+          "layer 25",
+          "0.040 [0.02, 0.06]",
+          "0.051",
+          "0.030",
+          "+0.001 2/7",
+          "—",
+          "—"
+        ],
+        [
+          "layer 26",
+          "0.037 [0.02, 0.06]",
+          "0.056",
+          "0.031",
+          "-0.002 1/7",
+          "0.202 [0.15, 0.26]",
+          "+0.099 6/7"
+        ],
+        [
+          "layer 27",
+          "0.039 [0.02, 0.07]",
+          "0.051",
+          "0.035",
+          "+0.000 0/7",
+          "0.115 [0.05, 0.18]",
+          "+0.012 3/7"
+        ],
+        [
+          "after the norm",
+          "0.039 [0.02, 0.07]",
+          "0.051",
+          "0.035",
+          "—",
+          "0.103 [0.06, 0.14]",
+          "—"
+        ]
+      ]
+    },
+    {
+      "id": "S6.T5",
+      "rows": [
+        [
+          "model",
+          "understanding representation",
+          "base",
+          "visual peak",
+          "word",
+          "verdict"
+        ],
+        [
+          "BAGEL-7B-MoT",
+          "ViT, semantic",
+          "0.036",
+          "0.584",
+          "—",
+          "window"
+        ],
+        [
+          "Janus-Pro-1B",
+          "SigLIP, semantic",
+          "0.052",
+          "0.583",
+          "0.625",
+          "window"
+        ],
+        [
+          "Lumina-DiMOO-8B",
+          "VQ codebook",
+          "0.104",
+          "0.167",
+          "0.656",
+          "null, instr. works"
+        ],
+        [
+          "Omni-Diffusion-7B",
+          "MagViT-v2 VQ",
+          "0.250",
+          "0.250",
+          "0.500",
+          "null, instr. works"
+        ]
+      ]
+    },
+    {
+      "id": "S7.T6",
+      "rows": [
+        [
+          "condition",
+          "steps",
+          "flow steps",
+          "overall",
+          "\\Delta",
+          "rel.",
+          "identity"
+        ],
+        [
+          "base (unmodified)",
+          "—",
+          "—",
+          "0.681",
+          "—",
+          "—",
+          "0.036"
+        ],
+        [
+          "activation patch @ layer 3",
+          "0",
+          "0",
+          "0.681",
+          "0.000",
+          "0.0\\%",
+          "0.930"
+        ],
+        [
+          "anchoring @ layer 14, alone",
+          "480",
+          "0",
+          "0.680",
+          "-0.001",
+          "0.1\\%",
+          "0.930"
+        ],
+        [
+          "U-side, shared MLP only",
+          "1600",
+          "0",
+          "0.680",
+          "-0.001",
+          "0.1\\%",
+          "0.445"
+        ],
+        [
+          "U-side then a generation phase",
+          "1760",
+          "160",
+          "0.680",
+          "-0.001",
+          "0.1\\%",
+          "0.891"
+        ],
+        [
+          "anchoring @ layer 14 + flow matching",
+          "480",
+          "480",
+          "0.638",
+          "-0.042",
+          "6.2\\%",
+          "0.953"
+        ],
+        [
+          "joint gen + und",
+          "640",
+          "640",
+          "0.692",
+          "+0.011",
+          "-1.6\\%",
+          "0.820"
+        ],
+        [
+          "generative default",
+          "960",
+          "960",
+          "0.401",
+          "-0.279",
+          "41.0\\%",
+          "0.922"
+        ]
+      ]
+    },
+    {
+      "id": "A1.T7",
+      "rows": [
+        [
+          "paired contrast",
+          "discovery (g0)",
+          "confirmation (g1–g6)",
+          "pooled",
+          "ratio"
+        ],
+        [
+          "alignment @14 vs @ readout, identity",
+          "+0.906",
+          "+0.672 [+0.59, +0.74] 6/6",
+          "+0.705",
+          "1.35\\times"
+        ],
+        [
+          "alignment @14 vs @ readout, matching",
+          "+0.637",
+          "+0.554 [+0.50, +0.60] 6/6",
+          "+0.566",
+          "1.15\\times"
+        ],
+        [
+          "alignment alone vs G-inject, matching",
+          "+0.362",
+          "+0.381 [+0.27, +0.49] 6/6",
+          "+0.379",
+          "0.95\\times"
+        ],
+        [
+          "shared MLP vs shared attention, export",
+          "+0.516",
+          "+0.219 [+0.14, +0.31] 6/6",
+          "+0.261",
+          "2.36\\times"
+        ],
+        [
+          "alignment alone vs G-inject, identity",
+          "+0.273",
+          "+0.135 [-0.04, +0.29] 5/6",
+          "+0.155",
+          "2.02\\times"
+        ],
+        [
+          "G-inject into shared MLP vs default",
+          "+0.148",
+          "+0.049 [-0.06, +0.17] 2/6",
+          "+0.064",
+          "3.00\\times"
+        ]
+      ]
+    },
+    {
+      "id": "A1.T8",
+      "rows": [
+        [
+          "configuration family",
+          "n",
+          "\\rho within",
+          "\\rho without",
+          "MAE predicting it"
+        ],
+        [
+          "capacity allocation",
+          "16",
+          "+0.46",
+          "+0.78",
+          "0.200"
+        ],
+        [
+          "placement / main",
+          "10",
+          "+0.60",
+          "+0.59",
+          "0.137"
+        ],
+        [
+          "recipe",
+          "6",
+          "+0.71",
+          "+0.67",
+          "0.194"
+        ],
+        [
+          "substrate",
+          "4",
+          "+0.80",
+          "+0.66",
+          "0.122"
+        ],
+        [
+          "pooled",
+          "36",
+          "\\bm{+0.68} , family-clustered bootstrap [+0.37,+0.88]"
+        ]
+      ]
+    },
+    {
+      "id": "A3.T9",
+      "rows": [
+        [
+          "",
+          "generation identity",
+          "name matching"
+        ],
+        [
+          "entry point",
+          "activations",
+          "weights",
+          "weights",
+          "activations",
+          "weights",
+          "weights"
+        ],
+        [
+          "",
+          "anchor only",
+          "anchor only",
+          "+ flow",
+          "anchor only",
+          "anchor only",
+          "+ flow"
+        ],
+        [
+          "layer 3",
+          "0.930",
+          "0.945",
+          "0.949",
+          "0.887",
+          "0.900",
+          "0.900"
+        ],
+        [
+          "layer 7",
+          "0.828",
+          "0.914",
+          "0.984",
+          "0.900",
+          "0.925",
+          "0.950"
+        ],
+        [
+          "layer 10",
+          "0.469",
+          "0.938",
+          "—",
+          "0.862",
+          "0.962",
+          "—"
+        ],
+        [
+          "layer 14",
+          "0.016",
+          "0.930",
+          "0.984",
+          "0.500",
+          "0.887",
+          "0.921"
+        ],
+        [
+          "layer 21",
+          "0.023",
+          "0.633",
+          "0.988",
+          "0.113",
+          "0.787",
+          "0.894"
+        ],
+        [
+          "layer 24",
+          "0.023",
+          "0.406",
+          "0.965",
+          "0.138",
+          "0.775",
+          "0.919"
+        ],
+        [
+          "layer 26",
+          "0.023",
+          "0.203",
+          "0.977",
+          "0.138",
+          "0.663",
+          "0.856"
+        ],
+        [
+          "layer 27",
+          "0.016",
+          "0.055",
+          "0.625",
+          "0.138",
+          "0.350",
+          "0.662"
+        ],
+        [
+          "after the norm",
+          "0.016",
+          "0.023",
+          "—",
+          "0.138",
+          "0.250",
+          "—"
+        ]
+      ]
+    },
+    {
+      "id": "A4.T10",
+      "rows": [
+        [
+          "direction",
+          "r_{\\text{und}}",
+          "r_{\\text{gen}}",
+          "private share",
+          "direct",
+          "cross",
+          "export eff."
+        ],
+        [
+          "G-inject",
+          "32",
+          "0",
+          "0.00",
+          "0.773",
+          "0.575",
+          "0.58"
+        ],
+        [
+          "G-inject",
+          "24",
+          "8",
+          "0.25",
+          "0.883",
+          "0.700",
+          "0.65"
+        ],
+        [
+          "G-inject",
+          "16",
+          "16",
+          "0.50",
+          "0.781",
+          "0.525",
+          "0.51"
+        ],
+        [
+          "G-inject",
+          "8",
+          "24",
+          "0.75",
+          "0.531",
+          "0.412",
+          "0.53"
+        ],
+        [
+          "G-inject",
+          "0",
+          "32",
+          "1.00",
+          "0.102",
+          "0.138",
+          "—"
+        ],
+        [
+          "U-inject",
+          "32",
+          "0",
+          "0.00",
+          "1.000",
+          "0.531",
+          "0.60"
+        ],
+        [
+          "U-inject",
+          "24",
+          "8",
+          "0.25",
+          "1.000",
+          "0.445",
+          "0.50"
+        ],
+        [
+          "U-inject",
+          "16",
+          "16",
+          "0.50",
+          "1.000",
+          "0.398",
+          "0.44"
+        ],
+        [
+          "U-inject",
+          "8",
+          "24",
+          "0.75",
+          "1.000",
+          "0.242",
+          "0.26"
+        ],
+        [
+          "U-inject",
+          "0",
+          "32",
+          "1.00",
+          "0.138",
+          "0.016",
+          "—"
+        ]
+      ]
+    },
+    {
+      "id": "A5.T11",
+      "rows": [
+        [
+          "blocks deleted",
+          "where",
+          "which blocks",
+          "concept identity",
+          "\\Delta CLIP-T (general ability)"
+        ],
+        [
+          "0",
+          "—",
+          "—",
+          "0.828 [0.66, 0.97]",
+          "\\pm 0.0000"
+        ],
+        [
+          "2",
+          "after the site",
+          "8, 9",
+          "0.742 [0.56, 0.91]",
+          "-0.0065"
+        ],
+        [
+          "4",
+          "after the site",
+          "8–11",
+          "0.102 [0.02, 0.20]",
+          "-0.0832"
+        ],
+        [
+          "6",
+          "after the site",
+          "8–13",
+          "0.016 [0.00, 0.05]",
+          "-0.1084"
+        ],
+        [
+          "2",
+          "before the site",
+          "5, 6",
+          "0.000 [0.00, 0.00]",
+          "-0.1018"
+        ],
+        [
+          "4",
+          "before the site",
+          "3–6",
+          "0.000 [0.00, 0.00]",
+          "-0.0909"
+        ],
+        [
+          "6",
+          "before the site",
+          "1–6",
+          "0.000 [0.00, 0.00]",
+          "-0.0879"
+        ]
+      ]
+    },
+    {
+      "id": "A6.T12",
+      "rows": [
+        [
+          "",
+          "",
+          "backbone sharing by estimator",
+          ""
+        ],
+        [
+          "architecture",
+          "params",
+          "hook only",
+          "grad only",
+          "intersection",
+          "whole model"
+        ],
+        [
+          "BAGEL-7B-MoT ( Deng et al., 2025 )",
+          "14.1B",
+          "0.500",
+          "0.961",
+          "0.500",
+          "0.484"
+        ],
+        [
+          "Janus-Pro-1B ( Chen et al., 2025 )",
+          "1.5B",
+          "0.873",
+          "0.873",
+          "0.873",
+          "0.720"
+        ]
+      ]
+    },
+    {
+      "id": "A7.T13",
+      "rows": [
+        [
+          "model",
+          "backbone",
+          "understanding pathway",
+          "generation pathway",
+          "blocks"
+        ],
+        [
+          "BAGEL-7B-MoT",
+          "Qwen2.5-7B (MoT)",
+          "ViT, semantic",
+          "rectified flow, VAE latent",
+          "28"
+        ],
+        [
+          "Janus-Pro-1B",
+          "Llama, 1.5B",
+          "SigLIP, semantic",
+          "LlamaGen VQ",
+          "24"
+        ],
+        [
+          "Omni-Diffusion-7B",
+          "Dream-7B (Qwen2.5-7B)",
+          "MagViT-v2 VQ",
+          "masked discrete diffusion",
+          "28"
+        ],
+        [
+          "Lumina-DiMOO-8B",
+          "LLaDA-8B",
+          "VQ codebook",
+          "discrete diffusion",
+          "32"
+        ]
+      ]
+    },
+    {
+      "id": "A7.T14",
+      "rows": [
+        [
+          "site",
+          "relative depth",
+          "Janus-Pro-1B",
+          "BAGEL at the nearest relative depth"
+        ],
+        [
+          "input embeddings",
+          "0.00",
+          "0.240",
+          "0.023 (embeddings, 1 group)"
+        ],
+        [
+          "layer 0",
+          "0.04",
+          "0.344",
+          "0.323 (layer 0)"
+        ],
+        [
+          "layer 2",
+          "0.12",
+          "0.583",
+          "0.528 (layer 3, rel. 0.14)"
+        ],
+        [
+          "layer 3",
+          "0.17",
+          "0.427",
+          "0.528 (layer 3)"
+        ],
+        [
+          "layer 5",
+          "0.25",
+          "0.281",
+          "0.584 (layer 7, rel. 0.29)"
+        ],
+        [
+          "layer 8",
+          "0.38",
+          "0.146",
+          "0.366 (layer 10)"
+        ],
+        [
+          "layer 12",
+          "0.54",
+          "0.135",
+          "0.040 (layer 14)"
+        ],
+        [
+          "layer 16",
+          "0.71",
+          "0.094",
+          "0.047 (layer 17)"
+        ],
+        [
+          "layer 20",
+          "0.88",
+          "0.062",
+          "0.038 (layer 24)"
+        ],
+        [
+          "last block",
+          "1.00",
+          "0.073",
+          "0.039 (last block)"
+        ],
+        [
+          "layer 3, deranged addresses",
+          "0.17",
+          "0.052",
+          "0.000"
+        ],
+        [
+          "layer 5, deranged addresses",
+          "0.25",
+          "0.115",
+          "—"
+        ],
+        [
+          "base model",
+          "—",
+          "0.052",
+          "0.036"
+        ],
+        [
+          "LoRA trained on generation",
+          "—",
+          "0.625",
+          "0.724"
+        ]
+      ]
+    },
+    {
+      "id": "A7.T15",
+      "rows": [
+        [
+          "model",
+          "site",
+          "visual address",
+          "real-word target",
+          "floor",
+          "trained ceiling"
+        ],
+        [
+          "BAGEL-7B-MoT",
+          "layer 7",
+          "0.584 (80%)",
+          "—",
+          "0.036",
+          "0.724"
+        ],
+        [
+          "Janus-Pro-1B",
+          "layer 2",
+          "0.583 (93%)",
+          "0.625 (100%)",
+          "0.052",
+          "0.625"
+        ],
+        [
+          "Lumina-DiMOO-8B",
+          "layer 4",
+          "0.010 ( < floor)",
+          "0.656 (6.3 \\times floor)",
+          "0.104",
+          "—"
+        ],
+        [
+          "Omni-Diffusion-7B",
+          "layer 3",
+          "0.000 ( < floor)",
+          "0.500 (2.0 \\times floor)",
+          "0.250",
+          "—"
+        ]
+      ]
+    },
+    {
+      "id": "A8.T16",
+      "rows": [
+        [
+          "",
+          "generation identity",
+          "understanding"
+        ],
+        [
+          "condition",
+          "coarse",
+          "fine",
+          "paired drop",
+          "vs sibling",
+          "matching"
+        ],
+        [
+          "base model",
+          "0.047",
+          "0.031",
+          "+0.016 [-0.01, +0.04]",
+          "0.484",
+          "0.529"
+        ],
+        [
+          "G-inject (flow matching)",
+          "0.906",
+          "0.724",
+          "+0.182 [+0.09, +0.29]",
+          "0.758",
+          "0.688"
+        ],
+        [
+          "U-inject (LM CE)",
+          "0.424",
+          "0.344",
+          "+0.081 [+0.02, +0.16]",
+          "0.706",
+          "0.925"
+        ],
+        [
+          "anchor @14 + flow matching",
+          "0.966",
+          "0.888",
+          "+0.078 [+0.00, +0.18]",
+          "0.914",
+          "0.854"
+        ],
+        [
+          "anchor @14 alone",
+          "0.802",
+          "0.747",
+          "+0.055 [-0.01, +0.13]",
+          "0.878",
+          "0.721"
+        ],
+        [
+          "closed-form patch @ L7",
+          "0.323",
+          "0.307",
+          "+0.016 [-0.01, +0.04]",
+          "0.690",
+          "0.667"
+        ]
+      ]
+    },
+    {
+      "id": "A9.T17",
+      "rows": [
+        [
+          "control",
+          "und. matching",
+          "gen. identity",
+          "evaluation role"
+        ],
+        [
+          "layer 3, real addresses",
+          "0.887",
+          "0.930",
+          "reference condition"
+        ],
+        [
+          "layer 3, deranged addresses",
+          "0.138",
+          "0.000",
+          "address-order control"
+        ],
+        [
+          "layer 7, quarter magnitude",
+          "0.613",
+          "0.086",
+          "shallow-site magnitude control"
+        ],
+        [
+          "layer 24, quarter magnitude",
+          "0.138",
+          "0.031",
+          "deep-site magnitude control"
+        ],
+        [
+          "base model",
+          "0.254",
+          "0.036",
+          "unmodified reference"
+        ]
+      ]
+    },
+    {
+      "id": "A9.T18",
+      "rows": [
+        [
+          "condition",
+          "identity",
+          "matching",
+          "open naming",
+          "real-category"
+        ],
+        [
+          "base model",
+          "0.036",
+          "0.254",
+          "0.000",
+          "0.931"
+        ],
+        [
+          "G-inject",
+          "0.758",
+          "0.600",
+          "0.000",
+          "0.931"
+        ],
+        [
+          "U-inject",
+          "0.562",
+          "1.000",
+          "1.000",
+          "0.924"
+        ],
+        [
+          "name shuffling, G-inject",
+          "0.016",
+          "0.000",
+          "0.000",
+          "—"
+        ],
+        [
+          "text-only injection",
+          "0.055",
+          "0.238",
+          "0.000",
+          "—"
+        ],
+        [
+          "embedding-only, generation side",
+          "0.172",
+          "0.238",
+          "0.000",
+          "—"
+        ],
+        [
+          "embedding-only, understanding side",
+          "0.055",
+          "0.975",
+          "0.000",
+          "—"
+        ]
+      ]
+    }
+  ],
+  "official_code_commit": "8a0a9893d8f307cdc457b093c0d3ffaa31e32a7f",
+  "repository_blob_count": 1159,
+  "core_three_pass_completed": true,
+  "production_main_is_candidate_pmi_ranking": true,
+  "separate_single_group_free_naming_exists": true,
+  "closed_form_full_infonce_global_minimum": false,
+  "task_weight_zero_still_executes_generation_forward": true,
+  "universal_semantic_encoder_necessity_established": false,
+  "source_code_executed": false,
+  "learned_model_executed": false,
+  "sources": [
+    "https://arxiv.org/abs/2608.17564v1",
+    "https://arxiv.org/html/2608.17564v1",
+    "https://arxiv.org/pdf/2608.17564v1",
+    "https://github.com/Zane-ZYQiu/entry-point-umm/tree/8a0a9893d8f307cdc457b093c0d3ffaa31e32a7f"
+  ]
+}

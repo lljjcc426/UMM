@@ -763,3 +763,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百九十六批（2026-10-25）：三维轨迹正式21页全文图表/算法完成；Zenodo公开RAR已下载静态阅读55文件，补齐旧未下载边界。见[审查](calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[L008](../reviews/L008.md)。
+
+
+第一百九十七批（2026-10-25）：L030 v1全27页/10图/18表/4式与附录完成，固定官方commit静态审查和公开JSON核对。见[审查](entry_point_umm_full_causal_interface_and_compute_audit_2026-10-25.md)、[L030](../reviews/L030.md)。

@@ -671,3 +671,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百九十六批（2026-10-25）：Zenodo140149bytes公开55文件，49图分辨率混合、3MATLAB/1Python及申请协议，非全部>2500样本/完整复现。完整数据需签署回邮，未外发或重分发源包。见[审查](../evidence/calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[L008](../reviews/L008.md)。
+
+
+第一百九十七批（2026-10-25）：官方entry-point-umm固定8a0a9893，公开1159文件含脚本与结果；静态核锚定、hidden hook、候选PMI、自由回答与GenEval，未启动模型。见[审查](../evidence/entry_point_umm_full_causal_interface_and_compute_audit_2026-10-25.md)、[L030](../reviews/L030.md)。

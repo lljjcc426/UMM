@@ -715,3 +715,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百九十六批（2026-10-25）：Eq6需局部时间，T1高阶训练RMSE升高需澄清；F7恒速平台需分段定义。公开generalCurvePlanning默认cubic spline与正文quintic描述有差异。见[审查](calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[L008](../reviews/L008.md)。
+
+
+第一百九十七批（2026-10-25）：跨架构semantic encoder必要性仅观察；T6 joint含flow仍提升GenEval，flow损伤非普遍。当前anchor-only task_weight0仍做gen前向，短序列总成本描述待实测。见[审查](entry_point_umm_full_causal_interface_and_compute_audit_2026-10-25.md)、[L030](../reviews/L030.md)。

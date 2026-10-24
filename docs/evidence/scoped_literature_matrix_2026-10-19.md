@@ -674,3 +674,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百九十六批（2026-10-25）：骨架OLS→CCD-BSM压深→逐轴时域规划+五次标量状态，规则H/姿态方向接口，不含规范笔顺学习。见[审查](calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[L008](../reviews/L008.md)。
+
+
+第一百九十七批（2026-10-25）：单向新实体伪词绑定研究跨任务可用性；主production=8名字PMI排序，另T18单组自由命名，均非事件时序验证。见[审查](entry_point_umm_full_causal_interface_and_compute_audit_2026-10-25.md)、[L030](../reviews/L030.md)。

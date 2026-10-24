@@ -507,3 +507,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百九十六批（2026-10-25）：同样本嵌套无约束OLS的最优训练SSE非增；五次时间状态与三维曲率链式导数分开，端点平滑非动力学约束保证。见[审查](calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[L008](../reviews/L008.md)。
+
+
+第一百九十七批（2026-10-25）：闭式δ最大化旧中心下对角cosine，重中心/负项使它不等于完整InfoNCE全局最优；SAR与可用性及因果干预分开。见[审查](entry_point_umm_full_causal_interface_and_compute_audit_2026-10-25.md)、[L030](../reviews/L030.md)。

@@ -255,3 +255,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百九十六批（2026-10-25）：本文为解析/规则规划，GAN/RL是比较对象；空间/时间/压深动作接口可迁移，缺笔顺监督和closed-loop证据。见[审查](calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[L008](../reviews/L008.md)。
+
+
+第一百九十七批（2026-10-25）：伪词1–3subword，首token评分因果mask控制patch捷径；MLP和共享rank对照、激活/权重编辑的计算位置与优化机制分开。见[审查](entry_point_umm_full_causal_interface_and_compute_audit_2026-10-25.md)、[L030](../reviews/L030.md)。
