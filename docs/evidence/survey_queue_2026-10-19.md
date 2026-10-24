@@ -662,3 +662,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百七十九批（2026-10-24）：U13完成v2全部研究正文/附录、13表10图16式；核622发布题与646差异、两侧答案信息不对称、联合成功越界及图judge改按错误文本的一致性。公开锚定已补，修正旧实现待核结论；fit统计单位/λ仍与论文不同。358目录，284核心/289书面；待完成核心深审47篇论文／研究；27项资源按制品协议另审。见[审查](gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[逐文件说明](one_hundred_seventy_ninth_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百八十批（2026-10-24）：U14完成v1全部研究正文/附录、14表24图及公式prompts；区分GtA相对Base和Direct、复算MIO25项差值、核动作词匹配与完整成功差别，以及当前limit1/多图wrapper入口边界。358目录，285核心/290书面；待完成核心深审46篇论文／研究；27项资源按制品协议另审。见[审查](unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[逐文件说明](one_hundred_eightieth_changes_2026-10-24.md)。无删除或模型执行。

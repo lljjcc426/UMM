@@ -204,3 +204,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百七十九批（2026-10-24）：Gapfit论文按模型i/代码每模型四任务行，totalcount1000、λ2.7/1.05 vs2/2；共现修正在logit事后而非MAPloss；BAGEL混标准数据的干预不可称纯单侧。见[审查](gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[U13](../reviews/U13.md)。
+
+
+第一百八十批（2026-10-24）：Emu3/MIO分类与原始token机制不齐；统一接口/共享参数分层，纠正错误引文ID；GtA额外NFE图数与文本token缺compute匹配。见[审查](unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[U14](../reviews/U14.md)。

@@ -1729,26 +1729,32 @@
     "id": "U14",
     "category": "U UMM基础与协同补全",
     "title": "UniG2U-Bench: Do Unified Models Advance Multimodal Understanding?",
-    "version": "UniG2U-Bench: Do Unified Models Advance Multimodal Understanding?；arXiv2603.03241v1；未核实正式接收",
+    "version": "UniG2U-Bench: Do Unified Models Advance Multimodal Understanding?；arXiv2603.03241v1，2026-03-03，56页；当前仅见v1，未核实正式接收。",
     "source_urls": [
       "https://arxiv.org/abs/2603.03241",
       "https://nssmd.github.io/unig2u.github.io/",
-      "https://arxiv.org/pdf/2603.03241v1"
+      "https://arxiv.org/pdf/2603.03241v1",
+      "https://arxiv.org/abs/2603.03241v1",
+      "https://arxiv.org/html/2603.03241v1",
+      "https://github.com/nssmd/UniG2U/tree/50206c3fde33a4d9e89804303f08afd6e0627321",
+      "https://huggingface.co/datasets/kkv233/unig2u_dataset/tree/2ccc2b0df3acf9b924e4902fd062d715b2856795",
+      "https://arxiv.org/abs/2409.18869",
+      "https://arxiv.org/abs/2409.17692"
     ],
     "previous_evidence": null,
     "claim": "研究目标：相对对应基础VLM，生成—回答和直接回答是否改善理解，哪些任务可从中间图受益？",
-    "method": "3000题/7类30子任务、Direct与Generate-then-Answer两协议、对基础VLM的Δ、中间图RA与答案AL诊断；分类原生/解耦/agentic系统。没有提出新生成骨干。 35系统：11baseVLM/21nativeUMM/3agentic；对应base难取得时用最相近架构/数据VLM替代。RA=.4指令+.3图质+.3相关，AL=.5视觉答案+.3题答+.2逻辑，GPT4o打1–5分。",
-    "problem": "相对对应基础VLM，生成—回答和直接回答是否改善理解，哪些任务可从中间图受益？",
-    "conclusion": "Table4 BAGEL direct35.84(+2.49pp)/GtA36.10(+2.75pp)，本组base33.35；Showo2 direct31.59/GtA26.59，均低base33.35；OvisU1 direct32.15/GtA24.19。生成非普遍益处，不把有利空间子任务概括全部。",
-    "gap": "近似base、预训/后训变化、cap与真实计算差异；自动judge一致性不等机制解释。统计平均受category权重；最大化one-shot/agentic的性能定义若使用测试挑选有选择偏差，需预注册。",
+    "method": "提出3000计分实例、7大类30子任务的UniG2U，定义E2E/Decoupled/Agentic统一接口、Direct/GtA协议、基础模型相对变化及中间图RA/AL，比较35个基线/统一/agentic系统并分析任务与模型相关。主要证据支持总体收益小且任务依赖，部分结构推理获得提升；尚不足以严格识别统一训练的因果效应、必要条件或基础表征主导机制。 E2E共享并联合训练，Decoupled将生成与冻结理解模块组合，Agentic以外部planner调用图生成器；后者是系统接口层面的统一，非同一参数骨干。§3.2将UniPic2列E2E/OneCAT列Decoupled，T3却分别列Decoupled/E2E，分类未完全一致。T3将Emu3列LLaMA2/图音频/diffusion，与F2的AR分类及Emu3原始从零图文视频next-token训练不齐；MIO的AR语义token骨干与外部图像diffusion decoder需要分层描述。论文Emu3引用链接2409.15920实际为另一篇逻辑论文，正确2409.18869；MIO正确2409.17692，未据错误引文扩展新记录。",
+    "problem": "统一模型的生成训练是否改善理解？显式先生成辅助图再回答（GtA）何时有益？需要区分统一训练收益、推理时视觉工具收益和额外计算收益。本工作是理解侧诊断benchmark，无新生成骨干、笔顺训练或轨迹时序数据。",
+    "conclusion": "全部T1–14（含完整T11–14的30细项）、Eq1–8/AppI三rubric式及F1–24已核。T4 BAGELbase33.35→Direct35.84→GtA36.10，即+2.49/+2.75对base与GtA对Direct+.26pp；其余可配对GtA对Direct：Showo31.59→26.59、Ovis32.15→24.19、Omni31.99→31.87、OneCAT31.15→28.80、MIO20.70→19、Illume29.54→27.13，7组1升6降。T5选定五子项BAGELbase17.4/Direct20.6/GtA20.8，Showobase17.4/Direct22.4/GtA18.4，不可把相对base提升当生成图本身提升。T6三子项×七模型21对为13升/6降/2平，BAGELmaze2.1→28.1/sliding.9→19.5均是动作词匹配。T7 BAGELoverallRA2.86/AL3.61，geometryRA3.05/AL4.52、chartRA1.96/AL4.66，高AL并不保证正确辅助图；GPTimagegeometryRA4.69高于perception4.26，不支持所有模型perception最高的概括。T8四冻结模型Direct33.68/32.79/33.50/33.93均低于Qwen7B34.45。T9 OOD：UAE30.94→28.61、XOmni30.86→19.87、TokenFlow29.15→24.50。XOmni/TokenFlow的Direct与主表31.63/30.72不一致，条件/版本需说明。",
+    "gap": "maze/sliding主汇总采用sum(p==g for zip(pred,GT))/len(GT)，没有执行棋盘动作检查撞墙/目标；正确前缀追加动作不罚，另一条合法路线可能被罚。exactseq另有记录却未用于主汇总，不能将28.1解释成28.1%完整解谜成功。项目页OneCATsliding.131与论文.031相冲突，能改变改善方向，保留版本差异。F15第二panel标题为physics实际maze图；F16–17所谓puretextknowledgeQA实际为ChartQA柱/饼图，依赖图中数据，不能用这些图支持纯文字无需视觉的归因。F23–24按红色空格/彩色tile移动方向，图示六步应left,down,down,left,up,up，AppE.3文字却down,right,up,left,down,right；只证实演示文本/图不齐，未证实发布数据同错。RAAL缺图/选择最佳GtA/多图丢弃及历史运行配置使当前实现的复现边界需澄清；对当前入口发现不自动外推历史全主表。",
     "provenance": "2026-10-15原始来源核查",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-24",
     "record_type": "paper",
     "scope": "umm",
     "privacy": "public_source_note",
-    "sections_read": "§3.1–3.2核心定义、§4.1指定段/Table2、§4.2–4.4协议/metrics、Table4及Table6标题；其余长附录/全部主表分域/源码未全读，未复现",
-    "last_updated": "2026-10-20",
+    "sections_read": "完整v1研究§1–6及AppA–I，Eq1–8及AppI三rubric公式、编号T1–14全部行、F1–24实际图（53原asset）与全部任务/RAAL prompts；PDF56页已获取，正文/主表与HTML交核，未宣称每PDF页重新逐行第二遍。固定GH2390项树、指定脚本/汇总/BAGELwrapper与评测关键分支审；HF37文件/30Parquet元数据及指定小表审，不等全像素数据/权重审。核心三遍与五项书面完成，无独立口试/模型/judge/训练复现。",
+    "last_updated": "2026-10-24",
     "canonical_key": "paper:arxiv:2603.03241",
     "evidence_history": [
       {
@@ -1812,16 +1818,22 @@
         "conclusion": "报告收益不普遍，依赖任务与模型。",
         "gap": "【边界/推断】不能写成所有视觉生成都伤害理解；需要任务级因果对照。",
         "note_path": "archive/imports/web_2026-10-15_data_literature.json"
+      },
+      {
+        "checked_on": "2026-10-24",
+        "batch": "one_hundred_eightieth",
+        "sections_read": "完整v1研究§1–6及AppA–I，Eq1–8及AppI三rubric公式、编号T1–14全部行、F1–24实际图（53原asset）与全部任务/RAAL prompts；PDF56页已获取，正文/主表与HTML交核，未宣称每PDF页重新逐行第二遍。固定GH2390项树、指定脚本/汇总/BAGELwrapper与评测关键分支审；HF37文件/30Parquet元数据及指定小表审，不等全像素数据/权重审。核心三遍与五项书面完成，无独立口试/模型/judge/训练复现。",
+        "verification": "primary_sections_read"
       }
     ],
     "review_path": "docs/reviews/U14.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "3000跨Geometry3K/PhyX/UniMMMU/RealUnify/ChartQA/MMSIBench/IllusionBench/BabyVision等30subtasks；七类几何/物理/游戏/图表/空间/感知/现实应用。已有公开测试复用，需查训练污染，类别样本不均。",
-    "framework": "3000题/7类30子任务、Direct与Generate-then-Answer两协议、对基础VLM的Δ、中间图RA与答案AL诊断；分类原生/解耦/agentic系统。没有提出新生成骨干。",
-    "architecture": "35系统：11baseVLM/21nativeUMM/3agentic；对应base难取得时用最相近架构/数据VLM替代。RA=.4指令+.3图质+.3相关，AL=.5视觉答案+.3题答+.2逻辑，GPT4o打1–5分。",
-    "metrics": "答案准确/regex或GPT4o判分，ΔDirect/ΔGtA各减本组base；RA/AL均分。base差同时含额外训练和结构变化，不能称已经严格隔离“生成”的因果效应。",
-    "baselines": "按base分组UMM，另GPT4o/Gemini与生成API组合。找不到原始base用closestVLM，配对质量不等；本文将agentic也归广义unified，引用时不能全写共享UMM。",
-    "experimental_conditions": "尽量lmms-eval，兼容失败native栈；文字greedy T0/topp1、cap输出token、图用各模型default，OOM降图分辨率。各图NFE/latency不同，cap文字长度不构成同FLOPs/同观测分辨率预算。具体cap和每题fallback日志尚未全核。"
+    "dataset": "T2共3000计分实例：Real-world200（attention100、VSP两类各50）、Geometry200（Geometry3K训练前100、AuxSolidMath测试easy前100）、Physics200（mechanics/optics各100）、Puzzles537（reconstruction100、tracking100、visualtracking83、maze100、jigsaw100、sliding54）、Chart100、Spatial500（MMSI五类各100）、Perception1263（illusion六scene/shape计分子项共600、VisualPuzzles五类500、BabyVision163）。Perception占42.1%，同一illusion图有scene/shape两问，3000并非3000独立视觉场景；CI应按图或来源分组。T2列Perception11项但漏fine-grained discrimination，完整列表12项后总30。first100及训练集题与公开基准混合，需检查训练重叠和选样偏差；generation-friendly任务筛选本身不代表全部理解分布。固定HF37文件/30Parquet，README仅空yaml；本次只核元数据与指定小数据表，不下载全像素。 本次HTTPRange读取30/30个Parquet footer，原始行总数3046；逐文件行数/字段保留结构化证据。原始行与多问计分实例不可直接等同。",
+    "framework": "提出3000计分实例、7大类30子任务的UniG2U，定义E2E/Decoupled/Agentic统一接口、Direct/GtA协议、基础模型相对变化及中间图RA/AL，比较35个基线/统一/agentic系统并分析任务与模型相关。主要证据支持总体收益小且任务依赖，部分结构推理获得提升；尚不足以严格识别统一训练的因果效应、必要条件或基础表征主导机制。",
+    "architecture": "E2E共享并联合训练，Decoupled将生成与冻结理解模块组合，Agentic以外部planner调用图生成器；后者是系统接口层面的统一，非同一参数骨干。§3.2将UniPic2列E2E/OneCAT列Decoupled，T3却分别列Decoupled/E2E，分类未完全一致。T3将Emu3列LLaMA2/图音频/diffusion，与F2的AR分类及Emu3原始从零图文视频next-token训练不齐；MIO的AR语义token骨干与外部图像diffusion decoder需要分层描述。论文Emu3引用链接2409.15920实际为另一篇逻辑论文，正确2409.18869；MIO正确2409.17692，未据错误引文扩展新记录。",
+    "metrics": "主表是跨30细项按预定样本量加权的混合得分；有accuracy/recall/动作序列逐位置匹配，不宜统称完整任务成功率。按7类样本数加权Qwen7B得34.45149，宏平均38.82857；T8称各类average容易误读。RA=指令.4/视觉质量.3/相关.3，AL=图答一致.5/问答一致.3/逻辑.2，GPT4o按rubric直接给1–5总分；代码未存三个子分后机械加权。judge不见GT，AL一致性可以同时图错答错，不能证明使用了中间图或正确性。按类别附加rubric又混入correctness；缺humanagreement、置信区间、缺图覆盖率与完整raw。",
+    "baselines": "实际主表35系统：11基础/参考（9星号base加GPT4o和Ovis2.5）、21有结果的native模型、3agentic。T3列22native，LuminaDiMOO没有T4/T11–14结果；覆盖不能写成22全部完成。真实base不可得时用closest architecture/data proxy：BAGEL/Showo/XOmni/TokenFlow等对LLaVAOneVision，不是同checkpoint继续训练控制组；JanusPro对DeepSeekV2、MIO对Yi6BVL等也需精确关系。纯理解/统一/外部API系统训练资源、图数与推理成本不同，35系统榜不能单独归因为共享参数的好坏。",
+    "experimental_conditions": "固定GH 50206c3fde33a4d9e89804303f08afd6e0627321，2390树项/2122blob，主要含vendor lmms-eval；核README/脚本、aggregate配置及汇总、BAGELvisualCoT全文、maze/sliding评分重点函数与yaml、RAAL judge和prompt映射等，未称全仓源码已读。兼容模型用lmms-eval，不兼容native；论文文字greedy T0/top-p1但未给统一具体cap，图按模型default/OOM可降分辨率，无FLOPs/NFE/实测latency匹配。当前推荐eval_all_cot.sh带--limit 1，evaluator_utils明确1是一题而非100%；aggregate仍固定100/83/54/163权重及overall_samples3000，此入口不能直接复现全量统计，未据此断言历史论文只测一题。BAGELwrapper仅original_visuals[0]且Stage2仅generated_images[0]，多轮NotImplemented；当前该wrapper不覆盖论文多图拼图/多轮协议。stage1默认50NFE/CFG4/shift3/1024²/seed0，stage2默认16384token T0，未使用task传入gen_kwargs，与yaml4096不同；可CLI覆盖，未推及历史全部运行。无图时直接用stage1文字作为答案且跳过中间metadata，RAAL需另报这部分覆盖。未执行模型、judge、训练或独立复现。"
   },
   {
     "id": "U15",

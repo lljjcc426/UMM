@@ -623,3 +623,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百七十九批（2026-10-24）：646题双向诊断，发布622唯一题（世界147/数量93/IF94/推理288）与正文不齐；data329/330生成提示含预期答案，理解题仍要求推断。见[审查](gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[U13](../reviews/U13.md)。
+
+
+第一百八十批（2026-10-24）：3000计分实例/7类30细项，感知占42.1%；微加权与类别宏平均不同，illusion同图双问非独立场景。见[审查](unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[U14](../reviews/U14.md)。

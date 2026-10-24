@@ -664,3 +664,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百七十九批（2026-10-24）：UniPic2推理共成功7.86>Gen3.93，需澄清配对或勘误；当前MMLU/puzzle图分按错误文本判一致性、论文示例错贴和F5正文/图例冲突分别记录，不断言已影响历史主表。见[审查](gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[U13](../reviews/U13.md)。
+
+
+第一百八十批（2026-10-24）：MIOGtA25差值参考错误、两模型30项完全相同待原始输出澄清；图题/滑块动作与状态不齐，不外推历史全主表。见[审查](unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[U14](../reviews/U14.md)。

@@ -712,3 +712,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百七十九批（2026-10-24）：GapEval v2完整24页研究§1–5/AppA–G、13表10图16式，PDF核主表与F5–6；固定GH006dd75/HF67abd3f/622prompt元数据。见[审查](gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[U13](../reviews/U13.md)。
+
+
+第一百八十批（2026-10-24）：UniG2U v1完整§1–6/AppA–I、14表24图、全部任务与judgeprompt；固定GH50206c3/HF2ccc2b0。见[审查](unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[U14](../reviews/U14.md)。

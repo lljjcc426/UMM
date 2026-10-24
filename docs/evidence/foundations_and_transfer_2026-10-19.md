@@ -456,3 +456,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百七十九批（2026-10-24）：MIRT仅两个全局β且输入边际计数，未逐题难度；当前anchor正则已核，须修正实现锚定未核状态。聚合识别与因果知识隔离分开。见[审查](gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[U13](../reviews/U13.md)。
+
+
+第一百八十批（2026-10-24）：严格因果配对实际混真实base与proxy；共享减去base可制造Δ相关，需rawscore/难度与置换控制。见[审查](unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[U14](../reviews/U14.md)。

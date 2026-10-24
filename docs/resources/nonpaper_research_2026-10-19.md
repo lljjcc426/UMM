@@ -620,3 +620,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百七十九批（2026-10-24）：GapEval GH46树41blob/32yaml，指定三文件全文与judge重点分支/五yaml；HF622prompt全解析含nested897，未跑模型/fit或下载全像素。缺完整训练及历史raw联合计数。见[审查](../evidence/gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[U13](../reviews/U13.md)。
+
+
+第一百八十批（2026-10-24）：当前CoT入口limit1、BAGELwrapper只首原图/首生成图且无多轮；汇总仍固定样本量。发布协议与历史运行分开核，不称已复现。见[审查](../evidence/unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[U14](../reviews/U14.md)。
