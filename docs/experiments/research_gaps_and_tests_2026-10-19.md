@@ -601,3 +601,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百六十三批（2026-10-24）：MME拟在明确终止协议后做规则状态渲染上界与有效步数重算，原/逆/置乱帧对照时序评价；未运行模型或指标。见[审查](../evidence/mme_unify_temporal_metric_and_terminal_step_audit_2026-10-24.md)、[L142](../reviews/L142.md)。
+
+
+第一百六十四批（2026-10-24）：CompBench拟比较identity/oracle mask/逐对象绑定，按面积/遮挡分层、真实与GT多轮历史对照及同后端等预算共享/分离规划；未运行。见[审查](../evidence/compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[L151](../reviews/L151.md)。

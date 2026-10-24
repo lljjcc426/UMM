@@ -605,3 +605,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百六十三批（2026-10-24）：MME CSQ404扩展名/8主体名与AL260目录需显式映射，映射后均有HF候选，不误报缺664图；未下载全图核内容。见[审查](../evidence/mme_unify_temporal_metric_and_terminal_step_audit_2026-10-24.md)、[L142](../reviews/L142.md)。
+
+
+第一百六十四批（2026-10-24）：固定CompBench GH六文件、HF卡train2905+multi_turn576行；存图640²/评分512²分列。全幅mask评分、union框和无权宏平均需明确；未下载3.8GB全图数据。见[审查](../evidence/compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[L151](../reviews/L151.md)。

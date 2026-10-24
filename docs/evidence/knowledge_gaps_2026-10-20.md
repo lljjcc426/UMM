@@ -616,3 +616,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百六十三批（2026-10-24）：MME需正式完整44页及真实运行commit/逐题结果；公开90例终止图缺失、405实际步/720代码分母需对照论文协议。发布4101和表4104/4100分列。见[审查](mme_unify_temporal_metric_and_terminal_step_audit_2026-10-24.md)、[L142](../reviews/L142.md)。
+
+
+第一百六十四批（2026-10-24）：CompBench独立supp、人评协议/VLM提示及总分公式未取得；公开自动指标代码未覆盖动作/位置/视角评分，需实际版本与逐题有效集。见[审查](compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[L151](../reviews/L151.md)。

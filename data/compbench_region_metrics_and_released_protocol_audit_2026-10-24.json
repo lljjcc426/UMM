@@ -1,0 +1,1553 @@
+{
+  "id": "L151",
+  "checked_on": "2026-10-24",
+  "core_three_pass_completed": false,
+  "github_commit": "ca0ec0dea6ce2ced7d42e26afdedd712034e6b56",
+  "github_files": [
+    "LICENSE",
+    "README.md",
+    "download_from_hf.py",
+    "eval_all.py",
+    "eval_all.sh",
+    "update_hf_dataset.py"
+  ],
+  "huggingface_revision": "a4c5a4d1854056d24aad43a494772dc90588d426",
+  "data_card_rows": {
+    "train": 2905,
+    "multi_turn": 576,
+    "total": 3481,
+    "unit": "Published rows from card, not verified episodes"
+  },
+  "full_dataset_downloaded": false,
+  "table1_compbench_complexity": {
+    "avg_objects": 13.58,
+    "avg_categories": 5.87,
+    "images_with_occlusion_percent": 98.47,
+    "images_with_out_of_frame_objects_percent": 86.38
+  },
+  "tables": {
+    "table2": {
+      "groups": [
+        "local",
+        "multi_object",
+        "implicit"
+      ],
+      "metrics": [
+        "LC-T",
+        "LC-I",
+        "PSNR",
+        "SSIM",
+        "LPIPS"
+      ],
+      "rows": [
+        {
+          "model": "InstructPix2pix",
+          "values": {
+            "local": {
+              "LC-T": 19.269,
+              "LC-I": 0.778,
+              "PSNR": 21.828,
+              "SSIM": 0.706,
+              "LPIPS": 0.124
+            },
+            "multi_object": {
+              "LC-T": 20.05,
+              "LC-I": 0.804,
+              "PSNR": 20.534,
+              "SSIM": 0.671,
+              "LPIPS": 0.152
+            },
+            "implicit": {
+              "LC-T": 18.981,
+              "LC-I": 0.794,
+              "PSNR": 21.813,
+              "SSIM": 0.683,
+              "LPIPS": 0.125
+            }
+          }
+        },
+        {
+          "model": "MagicBrush",
+          "values": {
+            "local": {
+              "LC-T": 20.051,
+              "LC-I": 0.798,
+              "PSNR": 23.429,
+              "SSIM": 0.741,
+              "LPIPS": 0.09
+            },
+            "multi_object": {
+              "LC-T": 20.004,
+              "LC-I": 0.821,
+              "PSNR": 24.176,
+              "SSIM": 0.738,
+              "LPIPS": 0.081
+            },
+            "implicit": {
+              "LC-T": 19.498,
+              "LC-I": 0.826,
+              "PSNR": 22.143,
+              "SSIM": 0.714,
+              "LPIPS": 0.106
+            }
+          }
+        },
+        {
+          "model": "HIVE-w",
+          "values": {
+            "local": {
+              "LC-T": 19.804,
+              "LC-I": 0.771,
+              "PSNR": 19.903,
+              "SSIM": 0.641,
+              "LPIPS": 0.198
+            },
+            "multi_object": {
+              "LC-T": 19.949,
+              "LC-I": 0.782,
+              "PSNR": 19.896,
+              "SSIM": 0.624,
+              "LPIPS": 0.21
+            },
+            "implicit": {
+              "LC-T": 18.59,
+              "LC-I": 0.777,
+              "PSNR": 20.261,
+              "SSIM": 0.602,
+              "LPIPS": 0.219
+            }
+          }
+        },
+        {
+          "model": "HIVE-c",
+          "values": {
+            "local": {
+              "LC-T": 19.226,
+              "LC-I": 0.773,
+              "PSNR": 21.732,
+              "SSIM": 0.689,
+              "LPIPS": 0.147
+            },
+            "multi_object": {
+              "LC-T": 19.904,
+              "LC-I": 0.798,
+              "PSNR": 21.854,
+              "SSIM": 0.676,
+              "LPIPS": 0.144
+            },
+            "implicit": {
+              "LC-T": 18.888,
+              "LC-I": 0.787,
+              "PSNR": 22.167,
+              "SSIM": 0.666,
+              "LPIPS": 0.144
+            }
+          }
+        },
+        {
+          "model": "Smart-edit-7B",
+          "values": {
+            "local": {
+              "LC-T": 19.999,
+              "LC-I": 0.799,
+              "PSNR": 24.389,
+              "SSIM": 0.761,
+              "LPIPS": 0.074
+            },
+            "multi_object": {
+              "LC-T": 20.186,
+              "LC-I": 0.825,
+              "PSNR": 24.886,
+              "SSIM": 0.745,
+              "LPIPS": 0.076
+            },
+            "implicit": {
+              "LC-T": 19.74,
+              "LC-I": 0.831,
+              "PSNR": 23.06,
+              "SSIM": 0.732,
+              "LPIPS": 0.096
+            }
+          }
+        },
+        {
+          "model": "MGIE",
+          "values": {
+            "local": {
+              "LC-T": 18.773,
+              "LC-I": 0.764,
+              "PSNR": 18.204,
+              "SSIM": 0.639,
+              "LPIPS": 0.257
+            },
+            "multi_object": {
+              "LC-T": 20.102,
+              "LC-I": 0.742,
+              "PSNR": 15.38,
+              "SSIM": 0.5,
+              "LPIPS": 0.354
+            },
+            "implicit": {
+              "LC-T": 18.304,
+              "LC-I": 0.795,
+              "PSNR": 22.144,
+              "SSIM": 0.719,
+              "LPIPS": 0.151
+            }
+          }
+        },
+        {
+          "model": "CosXL-Edit",
+          "values": {
+            "local": {
+              "LC-T": 19.068,
+              "LC-I": 0.778,
+              "PSNR": 20.809,
+              "SSIM": 0.712,
+              "LPIPS": 0.148
+            },
+            "multi_object": {
+              "LC-T": 19.606,
+              "LC-I": 0.807,
+              "PSNR": 21.068,
+              "SSIM": 0.698,
+              "LPIPS": 0.153
+            },
+            "implicit": {
+              "LC-T": 18.003,
+              "LC-I": 0.8,
+              "PSNR": 21.19,
+              "SSIM": 0.683,
+              "LPIPS": 0.156
+            }
+          }
+        },
+        {
+          "model": "HQ-Edit",
+          "values": {
+            "local": {
+              "LC-T": 18.888,
+              "LC-I": 0.734,
+              "PSNR": 11.768,
+              "SSIM": 0.411,
+              "LPIPS": 0.428
+            },
+            "multi_object": {
+              "LC-T": 19.401,
+              "LC-I": 0.708,
+              "PSNR": 13.032,
+              "SSIM": 0.432,
+              "LPIPS": 0.4
+            },
+            "implicit": {
+              "LC-T": 18.688,
+              "LC-I": 0.766,
+              "PSNR": 11.877,
+              "SSIM": 0.387,
+              "LPIPS": 0.459
+            }
+          }
+        },
+        {
+          "model": "UltraEdit",
+          "values": {
+            "local": {
+              "LC-T": 19.69,
+              "LC-I": 0.787,
+              "PSNR": 22.932,
+              "SSIM": 0.741,
+              "LPIPS": 0.143
+            },
+            "multi_object": {
+              "LC-T": 20.081,
+              "LC-I": 0.81,
+              "PSNR": 22.725,
+              "SSIM": 0.732,
+              "LPIPS": 0.152
+            },
+            "implicit": {
+              "LC-T": 18.289,
+              "LC-I": 0.786,
+              "PSNR": 23.362,
+              "SSIM": 0.717,
+              "LPIPS": 0.142
+            }
+          }
+        },
+        {
+          "model": "AnyEdit",
+          "values": {
+            "local": {
+              "LC-T": 19.994,
+              "LC-I": 0.797,
+              "PSNR": 22.812,
+              "SSIM": 0.716,
+              "LPIPS": 0.124
+            },
+            "multi_object": {
+              "LC-T": 20.257,
+              "LC-I": 0.81,
+              "PSNR": 23.493,
+              "SSIM": 0.71,
+              "LPIPS": 0.116
+            },
+            "implicit": {
+              "LC-T": 19.572,
+              "LC-I": 0.816,
+              "PSNR": 20.276,
+              "SSIM": 0.639,
+              "LPIPS": 0.191
+            }
+          }
+        },
+        {
+          "model": "SEED-X",
+          "values": {
+            "local": {
+              "LC-T": 17.9,
+              "LC-I": 0.78,
+              "PSNR": 21.456,
+              "SSIM": 0.805,
+              "LPIPS": 0.139
+            },
+            "multi_object": {
+              "LC-T": 19.418,
+              "LC-I": 0.835,
+              "PSNR": 21.166,
+              "SSIM": 0.798,
+              "LPIPS": 0.148
+            },
+            "implicit": {
+              "LC-T": 17.437,
+              "LC-I": 0.782,
+              "PSNR": 21.438,
+              "SSIM": 0.79,
+              "LPIPS": 0.134
+            }
+          }
+        },
+        {
+          "model": "GoT",
+          "values": {
+            "local": {
+              "LC-T": 20.268,
+              "LC-I": 0.807,
+              "PSNR": 24.675,
+              "SSIM": 0.889,
+              "LPIPS": 0.067
+            },
+            "multi_object": {
+              "LC-T": 20.225,
+              "LC-I": 0.827,
+              "PSNR": 22.486,
+              "SSIM": 0.842,
+              "LPIPS": 0.108
+            },
+            "implicit": {
+              "LC-T": 19.246,
+              "LC-I": 0.821,
+              "PSNR": 24.889,
+              "SSIM": 0.86,
+              "LPIPS": 0.088
+            }
+          }
+        },
+        {
+          "model": "Step1X-Edit",
+          "values": {
+            "local": {
+              "LC-T": 20.495,
+              "LC-I": 0.817,
+              "PSNR": 23.372,
+              "SSIM": 0.882,
+              "LPIPS": 0.078
+            },
+            "multi_object": {
+              "LC-T": 20.459,
+              "LC-I": 0.861,
+              "PSNR": 23.782,
+              "SSIM": 0.886,
+              "LPIPS": 0.078
+            },
+            "implicit": {
+              "LC-T": 19.175,
+              "LC-I": 0.847,
+              "PSNR": 23.408,
+              "SSIM": 0.869,
+              "LPIPS": 0.083
+            }
+          }
+        },
+        {
+          "model": "Bagel",
+          "values": {
+            "local": {
+              "LC-T": 21.059,
+              "LC-I": 0.838,
+              "PSNR": 27.692,
+              "SSIM": 0.935,
+              "LPIPS": 0.045
+            },
+            "multi_object": {
+              "LC-T": 20.856,
+              "LC-I": 0.883,
+              "PSNR": 26.849,
+              "SSIM": 0.932,
+              "LPIPS": 0.051
+            },
+            "implicit": {
+              "LC-T": 19.719,
+              "LC-I": 0.874,
+              "PSNR": 28.891,
+              "SSIM": 0.919,
+              "LPIPS": 0.052
+            }
+          }
+        },
+        {
+          "model": "FLUX.1 Kontext",
+          "values": {
+            "local": {
+              "LC-T": 21.328,
+              "LC-I": 0.821,
+              "PSNR": 25.613,
+              "SSIM": 0.941,
+              "LPIPS": 0.05
+            },
+            "multi_object": {
+              "LC-T": 21.02,
+              "LC-I": 0.868,
+              "PSNR": 26.278,
+              "SSIM": 0.952,
+              "LPIPS": 0.048
+            },
+            "implicit": {
+              "LC-T": 19.596,
+              "LC-I": 0.867,
+              "PSNR": 25.401,
+              "SSIM": 0.932,
+              "LPIPS": 0.061
+            }
+          }
+        },
+        {
+          "model": "Qwen-Image-Edit",
+          "values": {
+            "local": {
+              "LC-T": 21.522,
+              "LC-I": 0.828,
+              "PSNR": 24.968,
+              "SSIM": 0.892,
+              "LPIPS": 0.072
+            },
+            "multi_object": {
+              "LC-T": 20.722,
+              "LC-I": 0.864,
+              "PSNR": 23.492,
+              "SSIM": 0.826,
+              "LPIPS": 0.103
+            },
+            "implicit": {
+              "LC-T": 20.046,
+              "LC-I": 0.859,
+              "PSNR": 22.815,
+              "SSIM": 0.775,
+              "LPIPS": 0.124
+            }
+          }
+        }
+      ],
+      "origin": "Formal CVPR2026 main PDF; author-reported values, no model execution"
+    },
+    "table3": {
+      "groups": [
+        "turn1",
+        "turn2"
+      ],
+      "metrics": [
+        "LC-T",
+        "LC-I",
+        "PSNR",
+        "SSIM",
+        "LPIPS"
+      ],
+      "rows": [
+        {
+          "model": "InstructPix2pix",
+          "values": {
+            "turn1": {
+              "LC-T": 19.617,
+              "LC-I": 0.786,
+              "PSNR": 21.361,
+              "SSIM": 0.682,
+              "LPIPS": 0.134
+            },
+            "turn2": {
+              "LC-T": 19.856,
+              "LC-I": 0.777,
+              "PSNR": 17.764,
+              "SSIM": 0.573,
+              "LPIPS": 0.233
+            }
+          }
+        },
+        {
+          "model": "MagicBrush",
+          "values": {
+            "turn1": {
+              "LC-T": 19.564,
+              "LC-I": 0.811,
+              "PSNR": 24.099,
+              "SSIM": 0.731,
+              "LPIPS": 0.089
+            },
+            "turn2": {
+              "LC-T": 19.694,
+              "LC-I": 0.809,
+              "PSNR": 21.294,
+              "SSIM": 0.683,
+              "LPIPS": 0.133
+            }
+          }
+        },
+        {
+          "model": "HIVE-w",
+          "values": {
+            "turn1": {
+              "LC-T": 20.012,
+              "LC-I": 0.781,
+              "PSNR": 20.065,
+              "SSIM": 0.622,
+              "LPIPS": 0.195
+            },
+            "turn2": {
+              "LC-T": 20.389,
+              "LC-I": 0.773,
+              "PSNR": 17.315,
+              "SSIM": 0.533,
+              "LPIPS": 0.27
+            }
+          }
+        },
+        {
+          "model": "HIVE-c",
+          "values": {
+            "turn1": {
+              "LC-T": 19.922,
+              "LC-I": 0.789,
+              "PSNR": 21.331,
+              "SSIM": 0.66,
+              "LPIPS": 0.154
+            },
+            "turn2": {
+              "LC-T": 19.964,
+              "LC-I": 0.779,
+              "PSNR": 18.35,
+              "SSIM": 0.59,
+              "LPIPS": 0.217
+            }
+          }
+        },
+        {
+          "model": "Smart-edit-7B",
+          "values": {
+            "turn1": {
+              "LC-T": 19.595,
+              "LC-I": 0.813,
+              "PSNR": 24.653,
+              "SSIM": 0.74,
+              "LPIPS": 0.08
+            },
+            "turn2": {
+              "LC-T": 19.571,
+              "LC-I": 0.808,
+              "PSNR": 23.383,
+              "SSIM": 0.723,
+              "LPIPS": 0.104
+            }
+          }
+        },
+        {
+          "model": "MGIE",
+          "values": {
+            "turn1": {
+              "LC-T": 19.194,
+              "LC-I": 0.814,
+              "PSNR": 18.473,
+              "SSIM": 0.602,
+              "LPIPS": 0.246
+            },
+            "turn2": {
+              "LC-T": 19.328,
+              "LC-I": 0.803,
+              "PSNR": 14.82,
+              "SSIM": 0.493,
+              "LPIPS": 0.366
+            }
+          }
+        },
+        {
+          "model": "HQ-Edit",
+          "values": {
+            "turn1": {
+              "LC-T": 19.364,
+              "LC-I": 0.758,
+              "PSNR": 12.384,
+              "SSIM": 0.391,
+              "LPIPS": 0.41
+            },
+            "turn2": {
+              "LC-T": 19.228,
+              "LC-I": 0.753,
+              "PSNR": 11.608,
+              "SSIM": 0.351,
+              "LPIPS": 0.478
+            }
+          }
+        },
+        {
+          "model": "CosXL-Edit",
+          "values": {
+            "turn1": {
+              "LC-T": 19.67,
+              "LC-I": 0.79,
+              "PSNR": 20.292,
+              "SSIM": 0.681,
+              "LPIPS": 0.167
+            },
+            "turn2": {
+              "LC-T": 19.43,
+              "LC-I": 0.769,
+              "PSNR": 16.39,
+              "SSIM": 0.566,
+              "LPIPS": 0.312
+            }
+          }
+        },
+        {
+          "model": "UltraEdit",
+          "values": {
+            "turn1": {
+              "LC-T": 19.816,
+              "LC-I": 0.793,
+              "PSNR": 23.065,
+              "SSIM": 0.737,
+              "LPIPS": 0.151
+            },
+            "turn2": {
+              "LC-T": 20.015,
+              "LC-I": 0.793,
+              "PSNR": 19.927,
+              "SSIM": 0.666,
+              "LPIPS": 0.208
+            }
+          }
+        },
+        {
+          "model": "AnyEdit",
+          "values": {
+            "turn1": {
+              "LC-T": 19.858,
+              "LC-I": 0.812,
+              "PSNR": 23.398,
+              "SSIM": 0.711,
+              "LPIPS": 0.113
+            },
+            "turn2": {
+              "LC-T": 20.061,
+              "LC-I": 0.806,
+              "PSNR": 20.001,
+              "SSIM": 0.633,
+              "LPIPS": 0.189
+            }
+          }
+        },
+        {
+          "model": "SEED-X",
+          "values": {
+            "turn1": {
+              "LC-T": 19.576,
+              "LC-I": 0.796,
+              "PSNR": 21.049,
+              "SSIM": 0.792,
+              "LPIPS": 0.153
+            },
+            "turn2": {
+              "LC-T": 19.188,
+              "LC-I": 0.769,
+              "PSNR": 17.708,
+              "SSIM": 0.629,
+              "LPIPS": 0.28
+            }
+          }
+        },
+        {
+          "model": "GoT",
+          "values": {
+            "turn1": {
+              "LC-T": 19.833,
+              "LC-I": 0.815,
+              "PSNR": 24.84,
+              "SSIM": 0.891,
+              "LPIPS": 0.067
+            },
+            "turn2": {
+              "LC-T": 19.832,
+              "LC-I": 0.809,
+              "PSNR": 23.487,
+              "SSIM": 0.855,
+              "LPIPS": 0.107
+            }
+          }
+        },
+        {
+          "model": "Step1X-Edit",
+          "values": {
+            "turn1": {
+              "LC-T": 19.873,
+              "LC-I": 0.833,
+              "PSNR": 23.802,
+              "SSIM": 0.888,
+              "LPIPS": 0.078
+            },
+            "turn2": {
+              "LC-T": 19.754,
+              "LC-I": 0.834,
+              "PSNR": 21.016,
+              "SSIM": 0.832,
+              "LPIPS": 0.125
+            }
+          }
+        },
+        {
+          "model": "Bagel",
+          "values": {
+            "turn1": {
+              "LC-T": 20.06,
+              "LC-I": 0.852,
+              "PSNR": 28.959,
+              "SSIM": 0.949,
+              "LPIPS": 0.036
+            },
+            "turn2": {
+              "LC-T": 20.007,
+              "LC-I": 0.85,
+              "PSNR": 23.941,
+              "SSIM": 0.897,
+              "LPIPS": 0.085
+            }
+          }
+        },
+        {
+          "model": "FLUX.1 Kontext",
+          "values": {
+            "turn1": {
+              "LC-T": 20.634,
+              "LC-I": 0.845,
+              "PSNR": 26.193,
+              "SSIM": 0.954,
+              "LPIPS": 0.046
+            },
+            "turn2": {
+              "LC-T": 20.62,
+              "LC-I": 0.84,
+              "PSNR": 22.417,
+              "SSIM": 0.907,
+              "LPIPS": 0.094
+            }
+          }
+        },
+        {
+          "model": "Qwen-Image-Edit",
+          "values": {
+            "turn1": {
+              "LC-T": 20.468,
+              "LC-I": 0.845,
+              "PSNR": 24.863,
+              "SSIM": 0.846,
+              "LPIPS": 0.088
+            },
+            "turn2": {
+              "LC-T": 20.584,
+              "LC-I": 0.838,
+              "PSNR": 20.814,
+              "SSIM": 0.783,
+              "LPIPS": 0.151
+            }
+          }
+        }
+      ],
+      "origin": "Formal CVPR2026 main PDF; author-reported values, no model execution"
+    },
+    "table4": {
+      "groups": [
+        "action",
+        "location",
+        "viewpoint"
+      ],
+      "metrics": [
+        "GPT4o",
+        "Qwen2.5VL72B",
+        "Human",
+        "Avg"
+      ],
+      "rows": [
+        {
+          "model": "InstructPix2pix",
+          "values": {
+            "action": {
+              "GPT4o": 3.047,
+              "Qwen2.5VL72B": 1.124,
+              "Human": 3.101,
+              "Avg": 2.424
+            },
+            "location": {
+              "GPT4o": 3.425,
+              "Qwen2.5VL72B": 2.167,
+              "Human": 2.859,
+              "Avg": 2.817
+            },
+            "viewpoint": {
+              "GPT4o": 0.699,
+              "Qwen2.5VL72B": 0.482,
+              "Human": 0.036,
+              "Avg": 0.406
+            }
+          }
+        },
+        {
+          "model": "MagicBrush",
+          "values": {
+            "action": {
+              "GPT4o": 3.511,
+              "Qwen2.5VL72B": 1.449,
+              "Human": 3.584,
+              "Avg": 2.848
+            },
+            "location": {
+              "GPT4o": 4.603,
+              "Qwen2.5VL72B": 2.26,
+              "Human": 3.717,
+              "Avg": 3.527
+            },
+            "viewpoint": {
+              "GPT4o": 0.892,
+              "Qwen2.5VL72B": 0.41,
+              "Human": 0.108,
+              "Avg": 0.47
+            }
+          }
+        },
+        {
+          "model": "HIVE-w",
+          "values": {
+            "action": {
+              "GPT4o": 3.151,
+              "Qwen2.5VL72B": 1.764,
+              "Human": 3.067,
+              "Avg": 2.661
+            },
+            "location": {
+              "GPT4o": 4.11,
+              "Qwen2.5VL72B": 2.192,
+              "Human": 3.421,
+              "Avg": 3.241
+            },
+            "viewpoint": {
+              "GPT4o": 1.494,
+              "Qwen2.5VL72B": 0.283,
+              "Human": 0.036,
+              "Avg": 0.604
+            }
+          }
+        },
+        {
+          "model": "HIVE-c",
+          "values": {
+            "action": {
+              "GPT4o": 3.977,
+              "Qwen2.5VL72B": 1.596,
+              "Human": 3.797,
+              "Avg": 3.123
+            },
+            "location": {
+              "GPT4o": 4.192,
+              "Qwen2.5VL72B": 2.47,
+              "Human": 3.558,
+              "Avg": 3.407
+            },
+            "viewpoint": {
+              "GPT4o": 2.193,
+              "Qwen2.5VL72B": 0.675,
+              "Human": 0.145,
+              "Avg": 1.004
+            }
+          }
+        },
+        {
+          "model": "Smart-edit-7B",
+          "values": {
+            "action": {
+              "GPT4o": 4.233,
+              "Qwen2.5VL72B": 1.607,
+              "Human": 4.348,
+              "Avg": 3.396
+            },
+            "location": {
+              "GPT4o": 3.89,
+              "Qwen2.5VL72B": 2.875,
+              "Human": 3.505,
+              "Avg": 3.423
+            },
+            "viewpoint": {
+              "GPT4o": 2.169,
+              "Qwen2.5VL72B": 0.59,
+              "Human": 0.41,
+              "Avg": 1.056
+            }
+          }
+        },
+        {
+          "model": "MGIE",
+          "values": {
+            "action": {
+              "GPT4o": 1.921,
+              "Qwen2.5VL72B": 1.213,
+              "Human": 1.797,
+              "Avg": 1.644
+            },
+            "location": {
+              "GPT4o": 1.726,
+              "Qwen2.5VL72B": 1.795,
+              "Human": 1.728,
+              "Avg": 1.75
+            },
+            "viewpoint": {
+              "GPT4o": 0.205,
+              "Qwen2.5VL72B": 0.193,
+              "Human": 0.0,
+              "Avg": 0.133
+            }
+          }
+        },
+        {
+          "model": "CosXL-Edit",
+          "values": {
+            "action": {
+              "GPT4o": 4.27,
+              "Qwen2.5VL72B": 2.375,
+              "Human": 3.966,
+              "Avg": 3.537
+            },
+            "location": {
+              "GPT4o": 5.479,
+              "Qwen2.5VL72B": 2.493,
+              "Human": 4.517,
+              "Avg": 4.163
+            },
+            "viewpoint": {
+              "GPT4o": 1.916,
+              "Qwen2.5VL72B": 0.988,
+              "Human": 0.301,
+              "Avg": 1.068
+            }
+          }
+        },
+        {
+          "model": "HQ-Edit",
+          "values": {
+            "action": {
+              "GPT4o": 1.449,
+              "Qwen2.5VL72B": 0.528,
+              "Human": 1.033,
+              "Avg": 1.003
+            },
+            "location": {
+              "GPT4o": 1.425,
+              "Qwen2.5VL72B": 0.726,
+              "Human": 1.079,
+              "Avg": 1.077
+            },
+            "viewpoint": {
+              "GPT4o": 0.47,
+              "Qwen2.5VL72B": 0.289,
+              "Human": 0.0,
+              "Avg": 0.253
+            }
+          }
+        },
+        {
+          "model": "UltraEdit",
+          "values": {
+            "action": {
+              "GPT4o": 4.449,
+              "Qwen2.5VL72B": 1.807,
+              "Human": 4.235,
+              "Avg": 3.497
+            },
+            "location": {
+              "GPT4o": 4.014,
+              "Qwen2.5VL72B": 2.055,
+              "Human": 3.41,
+              "Avg": 3.16
+            },
+            "viewpoint": {
+              "GPT4o": 0.494,
+              "Qwen2.5VL72B": 0.706,
+              "Human": 0.0,
+              "Avg": 0.4
+            }
+          }
+        },
+        {
+          "model": "AnyEdit",
+          "values": {
+            "action": {
+              "GPT4o": 3.75,
+              "Qwen2.5VL72B": 0.978,
+              "Human": 3.168,
+              "Avg": 2.632
+            },
+            "location": {
+              "GPT4o": 5.068,
+              "Qwen2.5VL72B": 2.479,
+              "Human": 4.178,
+              "Avg": 3.908
+            },
+            "viewpoint": {
+              "GPT4o": 1.687,
+              "Qwen2.5VL72B": 0.783,
+              "Human": 0.072,
+              "Avg": 0.847
+            }
+          }
+        },
+        {
+          "model": "SEED-X",
+          "values": {
+            "action": {
+              "GPT4o": 2.27,
+              "Qwen2.5VL72B": 1.494,
+              "Human": 1.685,
+              "Avg": 1.816
+            },
+            "location": {
+              "GPT4o": 3.028,
+              "Qwen2.5VL72B": 3.247,
+              "Human": 2.771,
+              "Avg": 3.015
+            },
+            "viewpoint": {
+              "GPT4o": 2.241,
+              "Qwen2.5VL72B": 1.169,
+              "Human": 0.0,
+              "Avg": 1.137
+            }
+          }
+        },
+        {
+          "model": "GoT",
+          "values": {
+            "action": {
+              "GPT4o": 3.337,
+              "Qwen2.5VL72B": 1.989,
+              "Human": 3.134,
+              "Avg": 2.82
+            },
+            "location": {
+              "GPT4o": 3.625,
+              "Qwen2.5VL72B": 3.192,
+              "Human": 3.164,
+              "Avg": 3.327
+            },
+            "viewpoint": {
+              "GPT4o": 0.916,
+              "Qwen2.5VL72B": 0.675,
+              "Human": 0.446,
+              "Avg": 0.679
+            }
+          }
+        },
+        {
+          "model": "Step1X-Edit",
+          "values": {
+            "action": {
+              "GPT4o": 6.27,
+              "Qwen2.5VL72B": 3.944,
+              "Human": 5.348,
+              "Avg": 5.187
+            },
+            "location": {
+              "GPT4o": 5.041,
+              "Qwen2.5VL72B": 4.479,
+              "Human": 4.786,
+              "Avg": 4.769
+            },
+            "viewpoint": {
+              "GPT4o": 2.47,
+              "Qwen2.5VL72B": 1.205,
+              "Human": 0.663,
+              "Avg": 1.446
+            }
+          }
+        },
+        {
+          "model": "Bagel",
+          "values": {
+            "action": {
+              "GPT4o": 6.899,
+              "Qwen2.5VL72B": 5.056,
+              "Human": 6.629,
+              "Avg": 6.195
+            },
+            "location": {
+              "GPT4o": 7.137,
+              "Qwen2.5VL72B": 6.233,
+              "Human": 6.219,
+              "Avg": 6.53
+            },
+            "viewpoint": {
+              "GPT4o": 5.193,
+              "Qwen2.5VL72B": 3.892,
+              "Human": 4.663,
+              "Avg": 4.583
+            }
+          }
+        },
+        {
+          "model": "FLUX.1 Kontext",
+          "values": {
+            "action": {
+              "GPT4o": 5.169,
+              "Qwen2.5VL72B": 3.202,
+              "Human": 4.517,
+              "Avg": 4.296
+            },
+            "location": {
+              "GPT4o": 3.0,
+              "Qwen2.5VL72B": 3.11,
+              "Human": 3.836,
+              "Avg": 3.315
+            },
+            "viewpoint": {
+              "GPT4o": 3.471,
+              "Qwen2.5VL72B": 2.373,
+              "Human": 3.108,
+              "Avg": 2.984
+            }
+          }
+        },
+        {
+          "model": "Qwen-Image-Edit",
+          "values": {
+            "action": {
+              "GPT4o": 6.91,
+              "Qwen2.5VL72B": 5.382,
+              "Human": 6.764,
+              "Avg": 6.352
+            },
+            "location": {
+              "GPT4o": 7.055,
+              "Qwen2.5VL72B": 5.096,
+              "Human": 4.658,
+              "Avg": 5.603
+            },
+            "viewpoint": {
+              "GPT4o": 6.193,
+              "Qwen2.5VL72B": 4.47,
+              "Human": 6.181,
+              "Avg": 5.615
+            }
+          }
+        }
+      ],
+      "origin": "Formal CVPR2026 main PDF; author-reported values, no model execution"
+    }
+  },
+  "column_winners": [
+    {
+      "table": "table2",
+      "group": "local",
+      "metric": "LC-T",
+      "value": 21.522,
+      "models": [
+        "Qwen-Image-Edit"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "local",
+      "metric": "LC-I",
+      "value": 0.838,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "local",
+      "metric": "PSNR",
+      "value": 27.692,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "local",
+      "metric": "SSIM",
+      "value": 0.941,
+      "models": [
+        "FLUX.1 Kontext"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "local",
+      "metric": "LPIPS",
+      "value": 0.045,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "multi_object",
+      "metric": "LC-T",
+      "value": 21.02,
+      "models": [
+        "FLUX.1 Kontext"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "multi_object",
+      "metric": "LC-I",
+      "value": 0.883,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "multi_object",
+      "metric": "PSNR",
+      "value": 26.849,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "multi_object",
+      "metric": "SSIM",
+      "value": 0.952,
+      "models": [
+        "FLUX.1 Kontext"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "multi_object",
+      "metric": "LPIPS",
+      "value": 0.048,
+      "models": [
+        "FLUX.1 Kontext"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "implicit",
+      "metric": "LC-T",
+      "value": 20.046,
+      "models": [
+        "Qwen-Image-Edit"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "implicit",
+      "metric": "LC-I",
+      "value": 0.874,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "implicit",
+      "metric": "PSNR",
+      "value": 28.891,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "implicit",
+      "metric": "SSIM",
+      "value": 0.932,
+      "models": [
+        "FLUX.1 Kontext"
+      ]
+    },
+    {
+      "table": "table2",
+      "group": "implicit",
+      "metric": "LPIPS",
+      "value": 0.052,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table3",
+      "group": "turn1",
+      "metric": "LC-T",
+      "value": 20.634,
+      "models": [
+        "FLUX.1 Kontext"
+      ]
+    },
+    {
+      "table": "table3",
+      "group": "turn1",
+      "metric": "LC-I",
+      "value": 0.852,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table3",
+      "group": "turn1",
+      "metric": "PSNR",
+      "value": 28.959,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table3",
+      "group": "turn1",
+      "metric": "SSIM",
+      "value": 0.954,
+      "models": [
+        "FLUX.1 Kontext"
+      ]
+    },
+    {
+      "table": "table3",
+      "group": "turn1",
+      "metric": "LPIPS",
+      "value": 0.036,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table3",
+      "group": "turn2",
+      "metric": "LC-T",
+      "value": 20.62,
+      "models": [
+        "FLUX.1 Kontext"
+      ]
+    },
+    {
+      "table": "table3",
+      "group": "turn2",
+      "metric": "LC-I",
+      "value": 0.85,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table3",
+      "group": "turn2",
+      "metric": "PSNR",
+      "value": 23.941,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table3",
+      "group": "turn2",
+      "metric": "SSIM",
+      "value": 0.907,
+      "models": [
+        "FLUX.1 Kontext"
+      ]
+    },
+    {
+      "table": "table3",
+      "group": "turn2",
+      "metric": "LPIPS",
+      "value": 0.085,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table4",
+      "group": "action",
+      "metric": "GPT4o",
+      "value": 6.91,
+      "models": [
+        "Qwen-Image-Edit"
+      ]
+    },
+    {
+      "table": "table4",
+      "group": "action",
+      "metric": "Qwen2.5VL72B",
+      "value": 5.382,
+      "models": [
+        "Qwen-Image-Edit"
+      ]
+    },
+    {
+      "table": "table4",
+      "group": "action",
+      "metric": "Human",
+      "value": 6.764,
+      "models": [
+        "Qwen-Image-Edit"
+      ]
+    },
+    {
+      "table": "table4",
+      "group": "action",
+      "metric": "Avg",
+      "value": 6.352,
+      "models": [
+        "Qwen-Image-Edit"
+      ]
+    },
+    {
+      "table": "table4",
+      "group": "location",
+      "metric": "GPT4o",
+      "value": 7.137,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table4",
+      "group": "location",
+      "metric": "Qwen2.5VL72B",
+      "value": 6.233,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table4",
+      "group": "location",
+      "metric": "Human",
+      "value": 6.219,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table4",
+      "group": "location",
+      "metric": "Avg",
+      "value": 6.53,
+      "models": [
+        "Bagel"
+      ]
+    },
+    {
+      "table": "table4",
+      "group": "viewpoint",
+      "metric": "GPT4o",
+      "value": 6.193,
+      "models": [
+        "Qwen-Image-Edit"
+      ]
+    },
+    {
+      "table": "table4",
+      "group": "viewpoint",
+      "metric": "Qwen2.5VL72B",
+      "value": 4.47,
+      "models": [
+        "Qwen-Image-Edit"
+      ]
+    },
+    {
+      "table": "table4",
+      "group": "viewpoint",
+      "metric": "Human",
+      "value": 6.181,
+      "models": [
+        "Qwen-Image-Edit"
+      ]
+    },
+    {
+      "table": "table4",
+      "group": "viewpoint",
+      "metric": "Avg",
+      "value": 5.615,
+      "models": [
+        "Qwen-Image-Edit"
+      ]
+    }
+  ],
+  "bagel_best_columns": 18,
+  "reported_columns": 37,
+  "all_background_metrics_degraded_on_turn2": [
+    "InstructPix2pix",
+    "MagicBrush",
+    "HIVE-w",
+    "HIVE-c",
+    "Smart-edit-7B",
+    "MGIE",
+    "HQ-Edit",
+    "CosXL-Edit",
+    "UltraEdit",
+    "AnyEdit",
+    "SEED-X",
+    "GoT",
+    "Step1X-Edit",
+    "Bagel",
+    "FLUX.1 Kontext",
+    "Qwen-Image-Edit"
+  ],
+  "psnr_analysis": {
+    "mask": "Binary; same fixed mask for both compared images",
+    "formula": "MSE_full=b*MSE_BG; PSNR_full=PSNR_BG-10*log10(b)",
+    "examples_db": {
+      "background_fraction_0_5": 3.010299956639812,
+      "background_fraction_0_1": 10.0
+    },
+    "same_mask_offset_equal_across_models": true,
+    "scope": "Mathematical analysis of public evaluator; no model run"
+  },
+  "code_scope": {
+    "eval_all.py": [
+      "44-70:resize and union bbox",
+      "72-133:region metrics",
+      "134-195:task coverage",
+      "196-454:processing and macro aggregation"
+    ],
+    "download_from_hf.py": [
+      "347-427:multi_turn_add grouping and row/turn distinction"
+    ]
+  },
+  "supplement_obtained": false,
+  "supplement_missing_conditions": [
+    "complexity and six-capability calculation detail",
+    "construction and editing-engine details",
+    "VLM judging prompts",
+    "human annotation guidelines, count and agreement",
+    "Fig6 normalization and weighting"
+  ],
+  "reading_scope": "正式11页§1–6全部研究正文（参考文献仅追引相关条目）、T1–4全部行与F1–6实际图/图注；第一遍任务定位、第二遍框架/指标/数据/全表、第三遍代码对照与批判书面整理已覆盖正文，但独立supp未取得，故完整核心三遍保留未通过。固定GH完整六文件列表及README、eval_all.py主要输入/计算/聚合路径、download_from_hf.py多轮分组核读；未宣称逐行审完全部发布脚本。HF数据卡/siblings核3481行元数据，未逐行/全图审数据，未运行模型、人评、口试或复现。",
+  "model_execution": false
+}

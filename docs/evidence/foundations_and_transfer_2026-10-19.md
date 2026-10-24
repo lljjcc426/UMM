@@ -408,3 +408,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百六十三批（2026-10-24）：均值特征在固定帧集合上对置换不变；逐视频对L2与跨视频分布Fréchet距离估计对象不同。迷宫有效步数分母需明确。见[审查](mme_unify_temporal_metric_and_terminal_step_audit_2026-10-24.md)、[L142](../reviews/L142.md)。
+
+
+第一百六十四批（2026-10-24）：CompBench全幅前景置零评分对二值mask满足PSNR_full=PSNR_BG−10log10(b)。同图偏置对各模型相同；面积改变分数刻度，不能据此直接否定排序。见[审查](compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[L151](../reviews/L151.md)。

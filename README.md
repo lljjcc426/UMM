@@ -485,3 +485,6 @@ python scripts/validate_catalog.py
 
 
 第一百六十三批（2026-10-24）：L142核7JSON共4101条、固定视频/迷宫等评分函数和HF路径。记录时间均值特征的顺序盲点、90迷宫终止图缺项与405/720步数分母；正式全文仍缺，五项书面保留未通过，核心数不增。357目录，270核心/274书面；未确认核心60论文／研究+27资源。见[审查](docs/evidence/mme_unify_temporal_metric_and_terminal_step_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_sixty_third_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百六十四批（2026-10-24）：L151补读正式研究正文、四表六图、公开评分及数据卡；核37表列/BAGEL18项最佳、16配置第二轮背景指标下降、全幅掩码PSNR面积偏置。独立补充未取得，五项书面保留未通过，核心数不增。357目录，270核心/275书面；未确认核心60论文／研究+27资源。见[审查](docs/evidence/compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_sixty_fourth_changes_2026-10-24.md)。无删除或模型执行。

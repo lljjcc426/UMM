@@ -664,3 +664,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百六十三批（2026-10-24）：MME正式PDF截断未计全文；核旧v2研究文字/公式及固定评价核心函数、7标注和HF7522路径，保留完整三遍未通过。见[审查](mme_unify_temporal_metric_and_terminal_step_audit_2026-10-24.md)、[L142](../reviews/L142.md)。
+
+
+第一百六十四批（2026-10-24）：CompBench正式11页研究正文/四表六图及固定评分主要路径已核；arXivv4同为11页，已核官方入口缺独立supp，关键协议未读齐保留partial。见[审查](compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[L151](../reviews/L151.md)。

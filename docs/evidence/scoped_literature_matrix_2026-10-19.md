@@ -575,3 +575,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百六十三批（2026-10-24）：MME公开视频分数用逐帧ResNet均值及单对距离，不能依名当标准时序FVD；静态图状态也非实际笔顺真值。见[审查](mme_unify_temporal_metric_and_terminal_step_audit_2026-10-24.md)、[L142](../reviews/L142.md)。
+
+
+第一百六十四批（2026-10-24）：CompBench动作/视角编辑输出静态图，MOSE视频来源不等于过程生成；15模型/16配置，3481发布行不等同轨迹数。见[审查](compbench_region_metrics_and_released_protocol_audit_2026-10-24.md)、[L151](../reviews/L151.md)。
