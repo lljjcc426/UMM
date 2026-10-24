@@ -674,3 +674,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百九十七批（2026-10-25）：官方entry-point-umm固定8a0a9893，公开1159文件含脚本与结果；静态核锚定、hidden hook、候选PMI、自由回答与GenEval，未启动模型。见[审查](../evidence/entry_point_umm_full_causal_interface_and_compute_audit_2026-10-25.md)、[L030](../reviews/L030.md)。
+
+
+第一百九十八批（2026-10-25）：UMMSteer原文承诺release但作者主页未给本文代码/样本下载，当前仅协议可审；未把底座模型开源等同该实验已完整开源。见[审查](../evidence/one_space_full_directional_steering_and_architecture_claim_audit_2026-10-25.md)、[L031](../reviews/L031.md)。

@@ -677,3 +677,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百九十七批（2026-10-25）：单向新实体伪词绑定研究跨任务可用性；主production=8名字PMI排序，另T18单组自由命名，均非事件时序验证。见[审查](entry_point_umm_full_causal_interface_and_compute_audit_2026-10-25.md)、[L030](../reviews/L030.md)。
+
+
+第一百九十八批（2026-10-25）：纯文本QA已有属性差向量→全层全VAE干预，逆向测反事实QA输出；与新概念学习/视觉理解增益分开。见[审查](one_space_full_directional_steering_and_architecture_claim_audit_2026-10-25.md)、[L031](../reviews/L031.md)。

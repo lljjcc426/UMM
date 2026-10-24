@@ -510,3 +510,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百九十七批（2026-10-25）：闭式δ最大化旧中心下对角cosine，重中心/负项使它不等于完整InfoNCE全局最优；SAR与可用性及因果干预分开。见[审查](entry_point_umm_full_causal_interface_and_compute_audit_2026-10-25.md)、[L030](../reviews/L030.md)。
+
+
+第一百九十八批（2026-10-25）：PSP=20维PCA投影能量比，未证明迁移必要充分性；G同分支对象控制也失败，逆向null受提取器与载体差异混杂。见[审查](one_space_full_directional_steering_and_architecture_claim_audit_2026-10-25.md)、[L031](../reviews/L031.md)。

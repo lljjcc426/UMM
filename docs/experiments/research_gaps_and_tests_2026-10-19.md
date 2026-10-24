@@ -703,3 +703,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百九十七批（2026-10-25）：同骨干控制encoder与损伤的窗口因果实验；新笔顺规则单向注入，以自由说明/事件执行/时序合法率检验，另用跳过flow前向loop核完整成本。见[审查](../evidence/entry_point_umm_full_causal_interface_and_compute_audit_2026-10-25.md)、[L030](../reviews/L030.md)。
+
+
+第一百九十八批（2026-10-25）：先完成G语义向量同分支阳性，再匹配层/幅度/时间/接口查逆向null；笔顺用同最终轮廓的合法/非法事件对与时序执行，静态SSR另报。见[审查](../evidence/one_space_full_directional_steering_and_architecture_claim_audit_2026-10-25.md)、[L031](../reviews/L031.md)。

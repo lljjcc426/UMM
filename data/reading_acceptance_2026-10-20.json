@@ -10519,6 +10519,40 @@
         }
       ],
       "boundary": "arXivv1全部27页§1–9、AppA–J及引用、全部4编号公式和SAR/闭式推导、F1–10原页实际视觉、T1–18全部单元；官方固定commit README/REPRODUCIBILITY、anchor.py/hidden_ti.py、ctxfree naming/understanding/generation/open-naming probe完整静态阅读，trainer训练/闭式初始化、matrix scale/entry/recipe、GenEval及容量统计的相关入口/条件阅读；3份开放命名JSON逐协议与示例、5份GenEval聚合JSON核对。未声称逐行读全1159文件、未加载模型/执行训练推理或独立复现。核心三遍及五项书面验收完成。"
+    },
+    {
+      "id": "L031",
+      "checked_on": "2026-10-25",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "冻结UMM从理解文本QA或生成VAE hidden提取已知概念差向量，注入另一分支能否控制颜色/数量/关系/文字等；是否存在方向性可迁移表示。目标是诊断已有概念的线性干预兼容性，不直接检验新概念学习或真实理解能力增益。 共享backbone不保证不同token/任务目标的表示可直接交换；任务分数和纯相似度难观察跨分支可用性。将同一目标向量施加另一分支可验证特定干预的效果，但成功不证明全局只有一个语义空间，失败也未排除非线性/位置特异/重参数化后的共享结构。",
+          "evidence": "31页/18图/8表/13式完整；核默认全层/单层、51对与47图标签、跨架构AppB.4限制、逆向任务与G同分支阳性、PSP非因果及全部结果/失败。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "Definition1对比上下文/答案只变目标属性。U输入纯文本场景QA+答案，在答案token取h+/h−，并非从图像感知任务直接提取；G对比生成prompt，在各层VAE token全局均值。Eq4 pooled h=mean_t∈Tvae h_t，未完整说明跨denoise timestep采集/平均方式及同noise配对实现。Eq6 CAA=mean(h+−h−)；Eq7 RepE=差向量首PC，方向符号定向/是否中心化细节不全；Eq8 ITI线性分类超平面法向并按该轴std归一，classifier正则/求解器未细化。U→G缓存文本prefixKV后，在默认全部层/去噪过程中把αv(l)加到所有VAE token（Eq1）；G→U加所有text hidden（Eq5），另测concept-input与answer-prediction位。Eq2–3 mLD=logitpositive−logitnegative，Δ为steered−base；多subword答案聚合规则未给。Eq9/10 SSR/GenScore皆对象存在AND属性成立，区别在target由干预向量还是原prompt给定。Eq11–13对比差做PCA取k20、U正交基，PSP=||Uᵀs||²/||s||²∈[0,1]为能量比例。 主BAGEL共享MoT文本/理解与生成expert、AR文本+连续VAE rectified-flow；跨架构Show-o2 hybrid、Janus-Pro和UniPic-1纯AR。本文不训练backbone，学习的是统计差向量/PC/线性分类方向。具体checkpoint大小/revision、AR生成token干预细节及每模型等效α/幅度校准未全给；不能把所有模型当相同continuous-VAE接口。PSP是选定对比数据/20维的线性子空间诊断，未给PCA heldout和k敏感性及投影替换后的因果救援对照，不足推成可迁移必要充分条件。",
+          "evidence": "31页/18图/8表/13式完整；核默认全层/单层、51对与47图标签、跨架构AppB.4限制、逆向任务与G同分支阳性、PSP非因果及全部结果/失败。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "UMMSteer七语义族、51名义二元概念对；CAA/RepE/ITI三个提取器，双向steering、同分支对照及PSP层级投影；多架构、norm-matched随机/无关方向、object/attention pooling、逆向token位置、强度和层消融；双阶段VQA judge与350图人工一致性；关系生成纠错和ConceptMix模板外测试。 对于BAGEL/Show-o2已有且可视觉验证的单属性，纯文本QA差向量在连续图像hidden中可能以较少参数提供属性控制和关系纠错；理论优势来自可访问干预接口与基础模型能力，不保证复杂组合、抽象persona/长拼写或跨所有架构。",
+          "evidence": "31页/18图/8表/13式完整；核默认全层/单层、51对与47图标签、跨架构AppB.4限制、逆向任务与G同分支阳性、PSP非因果及全部结果/失败。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1依color/text/count/position/style/appearance/persona SSR%：CAA96.20±1.46/43.46±28.79/68.75±23.96/78.60±16.57/82.71±24.57/79.88±21.06/24.37±31.25；RepE52.95±40.63/21.13±22.50/6.87±7.79/59.83±21.74/29.29±26.61/44.25±23.95/34.00±33.94；ITI96.48±1.66/43.09±29.06/34.90±28.35/78.96±17.32/80.75±21.70/78.86±21.80/29.38±30.58。T3text98/κ.658、position98/.790、style100/1、persona90/.800、appearance90/.786、count98/.929、color94/.540、overall95.4/.894。T4 color/count/position/style：BAGEL96.20/68.75/78.60/82.71，Show-o2 87.13/43.07/32.20/64.20，Janus48.75/20.57/8.67/47.80，UniPic2.30/13.07/13.40/37.80；AR结果较低但并非各项全0。T7 ConceptMix k2/3/4 color46.25/21.43/20.45、count42.22/33.33/17.28，复杂组合明显下降。F6关系GenScore% inside/outside28→92、left/right45→78、above/below55→67、behind/front80→95，图无CI不擅称统计显著。全部8表单元另存结构化专题。 T5 random与unrelated四族全0，目标CAA对应96.20/68.75/78.60/82.71，说明当前任务下不由幅度或任意语义向量解释。T6 G→U三种pool在color/count/style/appearance均0；C.7三token位置×三pool同为0并声称幅度scan仍0，尚缺独立已验证G语义向量阳性对照。F5 G→G主要改变背景/全局色而对象仍红，说明当前提取器未稳定给出可操控对象颜色的向量，不能反推整个G表示不含对象语义。F16 black→red单层2–5有效，深层衰减；不能以此替默认全层结果。T8α从.1到.4：CAA100/96.25/91.25/81.25/48.75/23.75/10；RepE1.25/16.25/20/12.5/7.5/3.75/1.25；ITI7.5/96.5/97.5/97.5/97.5/96.25/93.75，因此原文“各法随α一致下降”不成立，全段明显非单调。F11–13短text/计数/抽象persona差异大；F18误目标、全局过度应用、拼写错和text/visual混淆；图注重复写保持identity与失败内容不一致，以实际图/正文为准。 多用2×A10080GB；官方预训练checkpoint无重训练；BAGEL 1024分辨率、50generation/50diffusion timesteps按原文、text/image CFG各1、interval[.4,1]、renormmin0、shift3、seed42。默认所有层，单层F16另设；默认CAAα.1，RepE/ITIα.2。α扫.1/.15/.2/.25/.3/.35/.4，逆向声称dense/broad scan但具体网格及每配置原始N未全列。无统一成本或seed稳健统计；公开论文及作者主页本项只有Paper链接，未定位可下载UMMSteer/本文执行代码，不能把“will be released/使用开源实现”当已公开该数据与完整配置。未运行模型或judge。",
+          "evidence": "31页/18图/8表/13式完整；核默认全层/单层、51对与47图标签、跨架构AppB.4限制、逆向任务与G同分支阳性、PSP非因果及全部结果/失败。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "§6/F5较强架构解释被AppB.4主动收窄：连续VAE干预更兼容当前protocol，不证明hybrid天然更统一；报告时采用此限制。生成与理解提取的载体不对称（答案词含直接词汇监督vs图像token pool），G→G阳性都未稳定成功，G→U null不能单独识别为语义空间不可共享。纯文本QA逆向目标故意冲突已描述事实，测的是可控偏置而非真实视觉理解/新知识迁移。PSP高低为相关诊断，未进行匹配PCA数据/维度/重参数化和投影救援，不能推出只要/只有落共享空间即可迁移。T1统计与47图标签/51名义对覆盖边界、生成时间采集、分词打分、跨模型接口、样本原始清单和配置未全开放；单seed/模板数据限制泛化。SSR对象存在gate不能保证原实例/布局保持，部分展示背景/对象也改变；不据静态文字改色扩展到规范笔顺。 Q1逆向失败来自提取/接口还是语义不可用：冻结同骨干，匹配层/模长/denoise时刻，先证明G向量能完成同分支对象级阳性控制，再比全局/局部/时间条件/非线性映射及注入name/answer/VAE位；heldout PCA、k扫描、随机子空间及投影后行为救援分开报告。Q2对笔顺是否有用：在相同字最终轮廓下设合法/非法顺序对、只变指定事件，匹配静态识别与自由解释、动作序列/视频事件执行、实例/布局保持；比较U已知语义steering与L030新伪词地址patch，控制单层/全层、全VAE/name位置与强度，跨seed和OOD长度字体。先公开51对清单与缺失4对原始结果，盲多人审并报逐类CI和总成本。均为建议，未执行模型。",
+          "evidence": "31页/18图/8表/13式完整；核默认全层/单层、51对与47图标签、跨架构AppB.4限制、逆向任务与G同分支阳性、PSP非因果及全部结果/失败。"
+        }
+      ],
+      "boundary": "v1全部31页§1–7、AppA–F及参考清单、Definition1、Eq1–13、T1–8全部单元、F1–18原PDF页实际视觉，含F11–13全部标签与失败图；作者官方主页本项Paper入口核查，无可定位本文代码/数据下载链接。未运行预训练模型/生成/QA/judge，未独立复现。核心三遍及五项书面检查完成，原文/资源未充分披露项仍保留。"
     }
   ]
 }

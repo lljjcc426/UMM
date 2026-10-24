@@ -718,3 +718,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百九十七批（2026-10-25）：跨架构semantic encoder必要性仅观察；T6 joint含flow仍提升GenEval，flow损伤非普遍。当前anchor-only task_weight0仍做gen前向，短序列总成本描述待实测。见[审查](entry_point_umm_full_causal_interface_and_compute_audit_2026-10-25.md)、[L030](../reviews/L030.md)。
+
+
+第一百九十八批（2026-10-25）：名义51对而F11–13仅47标签；denoise采样/多subword评分/原始配置待公开。AppB.4承认VAE接口兼容，不能证明hybrid天然语义更统一。见[审查](one_space_full_directional_steering_and_architecture_claim_audit_2026-10-25.md)、[L031](../reviews/L031.md)。

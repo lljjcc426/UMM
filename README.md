@@ -587,3 +587,6 @@ python scripts/validate_catalog.py
 
 
 第一百九十七批（2026-10-25）：L030完成27页10图18表4式及关键代码/结果JSON；区分有限候选评分与单组自由命名，限定激活/权重峰值和跨架构必要性结论，核anchor-only仍执行零加权flow前向。358目录，302核心/307书面；待完成核心深审29篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/entry_point_umm_full_causal_interface_and_compute_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_ninety_seventh_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第一百九十八批（2026-10-25）：L031完成31页18图8表13式；核51名义概念与逐项图47标签、逆向QA干预的含义和非单调强度曲线，采用AppB.4对架构归因的明确限制。358目录，303核心/308书面；待完成核心深审28篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/one_space_full_directional_steering_and_architecture_claim_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_ninety_eighth_changes_2026-10-25.md)。无删除或模型执行。

@@ -1,0 +1,398 @@
+{
+  "id": "L031",
+  "checked_on": "2026-10-25",
+  "arxiv_version": "2607.26411v1",
+  "pages": 31,
+  "figures_visually_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "equations_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "tables": [
+    {
+      "id": "S4.T1",
+      "rows": [
+        [
+          "",
+          "Object-level",
+          "Relational",
+          "Scene-level"
+        ],
+        [
+          "Method",
+          "Color",
+          "Text",
+          "Counting",
+          "Position",
+          "Style",
+          "Appearance",
+          "Persona"
+        ],
+        [
+          "CAA [ 23 ]",
+          "96.20 ±1.46",
+          "43.46 ±28.79",
+          "68.75 ±23.96",
+          "78.60 ±16.57",
+          "82.71 ±24.57",
+          "79.88 ±21.06",
+          "24.37 ±31.25"
+        ],
+        [
+          "RepE [ 24 ]",
+          "52.95 ±40.63",
+          "21.13 ±22.50",
+          "6.87 ±7.79",
+          "59.83 ±21.74",
+          "29.29 ±26.61",
+          "44.25 ±23.95",
+          "34.00 ±33.94"
+        ],
+        [
+          "ITI [ 25 ]",
+          "96.48 ±1.66",
+          "43.09 ±29.06",
+          "34.90 ±28.35",
+          "78.96 ±17.32",
+          "80.75 ±21.70",
+          "78.86 ±21.80",
+          "29.38 ±30.58"
+        ]
+      ]
+    },
+    {
+      "id": "A1.T2",
+      "rows": [
+        [
+          "Category",
+          "Family",
+          "Example Binary / Contrastive Concepts"
+        ],
+        [
+          "",
+          "Color",
+          "black \\leftrightarrow red, black \\leftrightarrow white, blue \\leftrightarrow green, pink \\leftrightarrow red; red \\leftrightarrow blue, red \\leftrightarrow green, yellow \\leftrightarrow blue, yellow \\leftrightarrow green"
+        ],
+        [
+          "Object-level",
+          "Text",
+          "apple \\leftrightarrow orange, banana \\leftrightarrow lemon, car \\leftrightarrow bus, red \\leftrightarrow blue, red \\leftrightarrow green, sherry \\leftrightarrow monica, three \\leftrightarrow ten, twenty-three \\leftrightarrow ten"
+        ],
+        [
+          "Counting",
+          "one \\leftrightarrow two, one \\leftrightarrow three, one \\leftrightarrow four, one \\leftrightarrow five; two \\leftrightarrow three, two \\leftrightarrow four, two \\leftrightarrow five, three \\leftrightarrow four, three \\leftrightarrow five, four \\leftrightarrow five"
+        ],
+        [
+          "Relational\"",
+          "Position",
+          "left \\leftrightarrow right, above \\leftrightarrow below, above \\leftrightarrow under, inside \\leftrightarrow outside, front \\leftrightarrow behind, near \\leftrightarrow far, clustered \\leftrightarrow scattered"
+        ],
+        [
+          "Appearance",
+          "clean \\leftrightarrow dirty, full \\leftrightarrow empty, intact \\leftrightarrow broken, new \\leftrightarrow worn, round \\leftrightarrow square, smooth \\leftrightarrow rough, tall \\leftrightarrow short, wooden \\leftrightarrow metal"
+        ],
+        [
+          "Scene-level",
+          "Style & Tone",
+          "colorful \\leftrightarrow monochrome, vivid \\leftrightarrow dull, warm \\leftrightarrow cool, realistic \\leftrightarrow cartoon, sketch \\leftrightarrow oil painting, happy \\leftrightarrow unhappy, peaceful \\leftrightarrow chaotic, romantic \\leftrightarrow gloomy"
+        ],
+        [
+          "Persona",
+          "extraversion \\leftrightarrow introversion, neuroticism \\leftrightarrow calmness"
+        ],
+        [
+          "",
+          "",
+          ""
+        ]
+      ]
+    },
+    {
+      "id": "A2.T3",
+      "rows": [
+        [
+          "Semantic type",
+          "Agreement (%)",
+          "Cohen’s \\kappa"
+        ],
+        [
+          "Text",
+          "98.0",
+          "0.658"
+        ],
+        [
+          "Position",
+          "98.0",
+          "0.790"
+        ],
+        [
+          "Style",
+          "100.0",
+          "1.000"
+        ],
+        [
+          "Persona",
+          "90.0",
+          "0.800"
+        ],
+        [
+          "Appearance",
+          "90.0",
+          "0.786"
+        ],
+        [
+          "Counting",
+          "98.0",
+          "0.929"
+        ],
+        [
+          "Color",
+          "94.0",
+          "0.540"
+        ],
+        [
+          "Overall",
+          "95.4",
+          "0.894"
+        ]
+      ]
+    },
+    {
+      "id": "A2.T4",
+      "rows": [
+        [
+          "Model",
+          "Architecture",
+          "Color",
+          "Counting",
+          "Position",
+          "Style"
+        ],
+        [
+          "BAGEL",
+          "Hybrid AR+diffusion",
+          "96.20",
+          "68.75",
+          "78.60",
+          "82.71"
+        ],
+        [
+          "Show-o2",
+          "Hybrid AR+diffusion",
+          "87.13",
+          "43.07",
+          "32.20",
+          "64.20"
+        ],
+        [
+          "Janus-Pro",
+          "Pure AR",
+          "48.75",
+          "20.57",
+          "8.67",
+          "47.80"
+        ],
+        [
+          "UniPic-1",
+          "Pure AR",
+          "2.30",
+          "13.07",
+          "13.40",
+          "37.80"
+        ]
+      ]
+    },
+    {
+      "id": "A3.T5",
+      "rows": [
+        [
+          "Method",
+          "Color",
+          "Counting",
+          "Position",
+          "Style"
+        ],
+        [
+          "CAA vector",
+          "96.20",
+          "68.75",
+          "78.60",
+          "82.71"
+        ],
+        [
+          "Random direction",
+          "0.00",
+          "0.00",
+          "0.00",
+          "0.00"
+        ],
+        [
+          "Unrelated direction",
+          "0.00",
+          "0.00",
+          "0.00",
+          "0.00"
+        ]
+      ]
+    },
+    {
+      "id": "A3.T6",
+      "rows": [
+        [
+          "Generation-Branch Extraction",
+          "Color",
+          "Counting",
+          "Style",
+          "Appearance"
+        ],
+        [
+          "Object-aware pooling",
+          "0.0",
+          "0.0",
+          "0.0",
+          "0.0"
+        ],
+        [
+          "Attention-weighted pooling",
+          "0.0",
+          "0.0",
+          "0.0",
+          "0.0"
+        ],
+        [
+          "Global mean pooling",
+          "0.0",
+          "0.0",
+          "0.0",
+          "0.0"
+        ]
+      ]
+    },
+    {
+      "id": "A3.T7",
+      "rows": [
+        [
+          "Semantic Concept",
+          "\\bm{k=2}",
+          "\\bm{k=3}",
+          "\\bm{k=4}"
+        ],
+        [
+          "Color",
+          "46.25",
+          "21.43",
+          "20.45"
+        ],
+        [
+          "Counting",
+          "42.22",
+          "33.33",
+          "17.28"
+        ]
+      ]
+    },
+    {
+      "id": "A3.T8",
+      "rows": [
+        [
+          "\\alpha",
+          "0.1",
+          "0.15",
+          "0.2",
+          "0.25",
+          "0.3",
+          "0.35",
+          "0.4"
+        ],
+        [
+          "CAA [ 23 ]",
+          "100.0",
+          "96.25",
+          "91.25",
+          "81.25",
+          "48.75",
+          "23.75",
+          "10.0"
+        ],
+        [
+          "RepE [ 24 ]",
+          "1.25",
+          "16.25",
+          "20.00",
+          "12.5",
+          "7.5",
+          "3.75",
+          "1.25"
+        ],
+        [
+          "ITI [ 25 ]",
+          "7.5",
+          "96.5",
+          "97.5",
+          "97.5",
+          "97.5",
+          "96.25",
+          "93.75"
+        ]
+      ]
+    }
+  ],
+  "nominal_concept_pairs": 51,
+  "per_concept_figure_label_counts": {
+    "color": 8,
+    "text": 8,
+    "counting": 8,
+    "position": 6,
+    "appearance": 8,
+    "style": 7,
+    "persona": 2
+  },
+  "not_drawn_in_claimed_full_figures": [
+    "one<->five",
+    "two<->five",
+    "above<->under",
+    "happy<->unhappy"
+  ],
+  "default_all_layers": true,
+  "reverse_probe_is_counterfactual_answer_bias": true,
+  "architecture_necessity_established": false,
+  "official_experiment_code_or_dataset_link_located": false,
+  "core_three_pass_completed": true,
+  "learned_model_executed": false,
+  "sources": [
+    "https://arxiv.org/abs/2607.26411v1",
+    "https://arxiv.org/html/2607.26411v1",
+    "https://arxiv.org/pdf/2607.26411v1",
+    "https://rain305f.github.io/"
+  ]
+}
