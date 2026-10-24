@@ -667,3 +667,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百八十批（2026-10-24）：MIOGtA25差值参考错误、两模型30项完全相同待原始输出澄清；图题/滑块动作与状态不齐，不外推历史全主表。见[审查](unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[U14](../reviews/U14.md)。
+
+
+第一百八十一批（2026-10-24）：全核对项AND、变长核对数与yes标签偏置；MT缩短question与旧evaluation_prompt并存，实际历史用法待运行日志。见[审查](realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[U15](../reviews/U15.md)。

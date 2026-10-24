@@ -623,3 +623,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百八十批（2026-10-24）：当前CoT入口limit1、BAGELwrapper只首原图/首生成图且无多轮；汇总仍固定样本量。发布协议与历史运行分开核，不称已复现。见[审查](../evidence/unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[U14](../reviews/U14.md)。
+
+
+第一百八十一批（2026-10-24）：公开judge TODO与合法任务计数未初始化阻断当前评分；code2两坏核对项、eraser/bird差异和400绝对路径须处理，不等历史主表已证伪。见[审查](../evidence/realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[U15](../reviews/U15.md)。

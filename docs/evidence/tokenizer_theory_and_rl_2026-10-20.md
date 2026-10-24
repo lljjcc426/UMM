@@ -207,3 +207,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百八十批（2026-10-24）：Emu3/MIO分类与原始token机制不齐；统一接口/共享参数分层，纠正错误引文ID；GtA额外NFE图数与文本token缺compute匹配。见[审查](unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[U14](../reviews/U14.md)。
+
+
+第一百八十一批（2026-10-24）：无新训练/tokenizer/扩散方程；外部Gemini/GPTImage组合72.7是工程参照，非同compute理论oracle。见[审查](realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[U15](../reviews/U15.md)。

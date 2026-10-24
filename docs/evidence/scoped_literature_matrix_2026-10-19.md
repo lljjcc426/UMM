@@ -626,3 +626,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百八十批（2026-10-24）：3000计分实例/7类30细项，感知占42.1%；微加权与类别宏平均不同，illusion同图双问非独立场景。见[审查](unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[U14](../reviews/U14.md)。
+
+
+第一百八十一批（2026-10-24）：1000题600UEG/400GEU，每类100；四文件2000行是双协议重复，GEU385个不同图路径，不能视400独立场景。见[审查](realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[U15](../reviews/U15.md)。

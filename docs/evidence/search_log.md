@@ -715,3 +715,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百八十批（2026-10-24）：UniG2U v1完整§1–6/AppA–I、14表24图、全部任务与judgeprompt；固定GH50206c3/HF2ccc2b0。见[审查](unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[U14](../reviews/U14.md)。
+
+
+第一百八十一批（2026-10-24）：RealUnify v2完整19页§1–5/AppA–C、T1–13/F1–12和全部prompt；arXiv已明确CVPR2026接收，固定GH/HF。见[审查](realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[U15](../reviews/U15.md)。

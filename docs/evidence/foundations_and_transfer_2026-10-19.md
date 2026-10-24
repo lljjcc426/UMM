@@ -459,3 +459,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百八十批（2026-10-24）：严格因果配对实际混真实base与proxy；共享减去base可制造Δ相关，需rawscore/难度与置换控制。见[审查](unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[U14](../reviews/U14.md)。
+
+
+第一百八十一批（2026-10-24）：11开源UEGstep均提升、8可测GEUstep均下降；额外预算和辅助图替换混杂，不能据此唯一识别共享表征协同。见[审查](realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[U15](../reviews/U15.md)。

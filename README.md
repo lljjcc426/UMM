@@ -536,3 +536,6 @@ python scripts/validate_catalog.py
 
 
 第一百八十批（2026-10-24）：U14完成v1全部研究正文/附录、14表24图及公式prompts；区分GtA相对Base和Direct、复算MIO25项差值、核动作词匹配与完整成功差别，以及当前limit1/多图wrapper入口边界。358目录，285核心/290书面；待完成核心深审46篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_eightieth_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百八十一批（2026-10-24）：U15补齐v2完整19页研究正文附录、13表12图和公开两评分器；确认CVPR2026接收，区分UEG重写增益/GEU图替换，核2000行配对元数据及MT字段、坏核对项、当前聚合阻断。358目录，286核心/291书面；待完成核心深审45篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_eighty_first_changes_2026-10-24.md)。无删除或模型执行。

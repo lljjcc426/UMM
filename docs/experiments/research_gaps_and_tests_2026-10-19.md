@@ -652,3 +652,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百八十批（2026-10-24）：同base/数据/训练预算隔离G2U，GtA对Direct与等预算文字/GT图对照；动作执行成功/覆盖率与RAAL因果替换，未执行。见[审查](../evidence/unig2u_full_generation_to_understanding_budget_and_scoring_audit_2026-10-24.md)、[U14](../reviews/U14.md)。
+
+
+第一百八十一批（2026-10-24）：等预算重写/文字CoT/GT辅助图与原图保留，按原图分组配对；修字段后复核all-check与partialcredit及judge混淆，均未执行。见[审查](../evidence/realunify_full_bidirectional_stepwise_and_conjunctive_judging_audit_2026-10-24.md)、[U15](../reviews/U15.md)。
