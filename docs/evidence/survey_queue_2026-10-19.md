@@ -704,3 +704,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百九十三批（2026-10-25）：U31完整18页10表7图13式并核PMLR正式版；确认ICML2026，保留Showo GenEval两套数、Liquid及编辑负项，核有限工具代码与MI/stopgrad实现边界。358目录，298核心/303书面；待完成核心深审33篇论文／研究；27项资源按制品协议另审。见[审查](diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[逐文件说明](one_hundred_ninety_third_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第一百九十四批（2026-10-25）：L009完整8页11图2表/EF算法，核1251实例8117笔画、490笔画错误及top1/5 88.41/96.16%；末帧回溯恢复与规范笔顺判断分开记录。358目录，299核心/304书面；待完成核心深审32篇论文／研究；27项资源按制品协议另审。见[审查](video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[逐文件说明](one_hundred_ninety_fourth_changes_2026-10-25.md)。无删除或模型执行。

@@ -114,7 +114,7 @@
 | L006 | Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement，2026 | primary_abstract_read | [结构化分析](../reviews/L006.md) | 未完成 |
 | L007 | B-BSMG，2024 | primary_sections_read | [结构化分析](../reviews/L007.md) | 未完成 |
 | L008 | Three-Dimensional Trajectory Planning for Robotic Chinese Calligraphy，2026 | primary_sections_read | [结构化分析](../reviews/L008.md) | 未完成 |
-| L009 | Video-Based Handwritten Chinese Character Recognition，2005 | primary_sections_read | [结构化分析](../reviews/L009.md) | 未完成 |
+| L009 | Video-Based Handwritten Chinese Character Recognition，2005 | primary_sections_read | [结构化分析](../reviews/L009.md) | 核心三遍与五项检查完成 |
 | L010 | VideoSketcher: Video Models Prior Enable Versatile Sequential Sketch Generation | primary_sections_read | [结构化分析](../reviews/L010.md) | 核心三遍与五项检查完成 |
 | L011 | Draw This First | primary_sections_read | [结构化分析](../reviews/L011.md) | 核心三遍与五项检查完成 |
 | L012 | SketchAgent，2024/2025 | primary_sections_read | [结构化分析](../reviews/L012.md) | 核心三遍与五项检查完成 |

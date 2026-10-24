@@ -665,3 +665,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百九十三批（2026-10-25）：caption/inpainting同锚双flow、两stage shared/unique MI后训练，实际三base图像任务；video/interleaving为未来。见[审查](diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[U31](../reviews/U31.md)。
+
+
+第一百九十四批（2026-10-25）：真实纸笔视频+清洁终帧恢复实际笔向/次序→ARG识别；不提供video生成或规范笔顺GT。见[审查](video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[L009](../reviews/L009.md)。

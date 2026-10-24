@@ -498,3 +498,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百九十三批（2026-10-25）：Eq4信息因子为假设，未证明PID完整或可识别；低MI/正交不保证独有task信息保留，频谱诊断缺FFT定义与因果干预。见[审查](diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[U31](../reviews/U31.md)。
+
+
+第一百九十四批（2026-10-25）：末帧骨架约束+局部POL时间，静态几何补噪声；重复覆盖/完全遮挡可产生不可辨识动作，first-emergence不保全部接触。见[审查](video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[L009](../reviews/L009.md)。

@@ -8758,22 +8758,23 @@
   {
     "title": "Video-Based Handwritten Chinese Character Recognition，2005",
     "source_urls": [
-      "https://mmlab.ie.cuhk.edu.hk/archive/2005/01377375.pdf"
+      "https://mmlab.ie.cuhk.edu.hk/archive/2005/01377375.pdf",
+      "https://doi.org/10.1109/TCSVT.2004.839975"
     ],
-    "method": "末帧干净字形mask与像素占据曲线POL检测emergenceframe，再利用静态骨架纠错并ARG识别。 传统算法：二值化、细化、窗口黑像素计数及局部极值；静态段时空拟合纠正阴影/交叉，连接关系图+attributedrelationalgraph模板匹配。",
-    "conclusion": "1251中top5认对1203，top1 88.41%、top5 96.16%；30错误源于tracking、18源于ARG。94%是笔画tracing结果，非严格整字笔顺通过率。",
-    "gap": "细短笔方向不稳；要求清洁末帧与适当二值化；交叉重复覆盖不可观测；实验真实写字顺序也不等同规范笔顺。",
-    "problem": "从真实纸上写字视频恢复笔画时间并识别汉字。",
+    "method": "最终清洁字图细化、逐骨架像素POL时序估计、静态笔段连接和线性时序纠错，输出接ARG在线字识别。新点是阴影条件下EF恢复与骨架叉点bug修复/双向图连接；比较偏工程方法，没有学习型tokenizer、神经生成器或预训练UMM。 F1四框capture/binarization/masking/difference为简单流程，§II随后已用switchline/§III用POL替代直接差分，不能只据F1认定最终算法是相邻帧差分。§IV Rutoviz Nc(p)=1/2 Σi=1..8 |xi+1−xi|（x9=x1），1端点/2连接/>2叉点；修2×2交叉bug及>2个4邻居点，扫描删除时重查连接。maximum circle合并同叉区，圈外局部骨架估方向，笔段图每节点连最接近180°且>135°的另一节点，仅互为指向的边连接。它是局部几何配对，非全局轨迹最优/物理动作模型；时序线性拟合近似恒定每像素速度，不保真实逐帧速度波动。",
+    "conclusion": "T1约94%笔画时间属性恢复，绝大多数错误为direction346/490，作者说明短笔像素少估方向不稳，有时识别器视点画而忽略方向；这解释识别容忍性，不能放宽规范笔向评测。T2 top1 88.41%、top5 96.16%，1203/1251在前五；剩余48中tracing30/ARG18。F2终态mask减少背景但重叠阴影仍残留，F3/F5解释误检来源，F6十点POL展示EF与先后，F7四类错误/F8两笔段拟合展示修正，F9叉点/F10方向与F11六段图解释结构修补。图像为机制示例，无随机抽样分母或独立曲线GT。",
+    "gap": "依赖清洁末帧和完整视频，无法仅从prefix完成同等处理；骨架结构错误不能都靠时序修复。局部窗口对照明、纸面移动/透视/墨迹粗细和手影几何敏感，未给相应定量界。线性EF拟合用多数正确像素假设会平滑真实加减速；连笔尖角/短笔不一定符合最近180°几何。若重复描写已黑区域或动作全程被遮且两历史产生相同观测，单一首次出现时间无法识别所有重复接触，这是观测不可辨识推论，论文没有实证穷尽该情况。恢复写作者实际次序和判断某教材规范次序需分任务；无规范GT或label对照，不能把94%称规范笔顺准确率。",
+    "problem": "普通纸笔视频可否恢复可供在线识别器使用的笔画方向/次序，抵抗手、笔阴影和细化交叉噪声，免用数位板？输出为观测书写的近似时序与字符候选，任务包含真实视频观测，不含视频生成或规范笔顺判断。",
     "claim": "作者研究目标：从真实纸上写字视频恢复笔画时间并识别汉字。",
-    "version": "版本见原始来源及历史记录",
+    "version": "Video-Based Handwritten Chinese Character Recognition；Xiaoou Tang/Feng Lin/Jianzhuang Liu，IEEE TCSVT15(1):167–174，Jan2005，DOI10.1109/TCSVT.2004.839975，作者机构归档正式8页PDF。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-25",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-25",
     "previous_evidence": "既有调查 B",
     "id": "L009",
     "canonical_key": "paper:https://mmlab.ie.cuhk.edu.hk/archive/2005/01377375.pdf",
@@ -8807,17 +8808,23 @@
         "conclusion": "视频→书写过程不是空白；可作为评价器研究的历史入口",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "checked_on": "2026-10-25",
+        "batch": "one_hundred_ninety_fourth",
+        "sections_read": "作者归档IEEE正式8页(167–174)全部§I–VI/参考文献，F1–11全部视觉、T1/2全部单元，全部未编号式(T0/T1、EF步骤、差分、crossing number)、3步算法与135°连接规则；追引ARG1996、ICIP2000前版、pen-video/Kalman、Bezier/maximum-circle、骨架/笔段分割相关[2,15–28]，未把追引当全部外部论文全文完成。无附录/训练或组件消融表；五项书面检查如实记录缺失。核心三遍完成，未独立模型/算法运行。",
+        "verification": "primary_sections_read"
       }
     ],
-    "sections_read": "作者8页PDF §II–V方法/纠错/实验及Conclusion；TableI细分数字与图像逐项视觉尚待核",
+    "sections_read": "作者归档IEEE正式8页(167–174)全部§I–VI/参考文献，F1–11全部视觉、T1/2全部单元，全部未编号式(T0/T1、EF步骤、差分、crossing number)、3步算法与135°连接规则；追引ARG1996、ICIP2000前版、pen-video/Kalman、Bezier/maximum-circle、骨架/笔段分割相关[2,15–28]，未把追引当全部外部论文全文完成。无附录/训练或组件消融表；五项书面检查如实记录缺失。核心三遍完成，未独立模型/算法运行。",
     "review_path": "docs/reviews/L009.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "10学生1251字符、8117笔画，自采集；作者实验未给公共train/test划分和相机帧率完整条件。",
-    "framework": "末帧干净字形mask与像素占据曲线POL检测emergenceframe，再利用静态骨架纠错并ARG识别。",
-    "architecture": "传统算法：二值化、细化、窗口黑像素计数及局部极值；静态段时空拟合纠正阴影/交叉，连接关系图+attributedrelationalgraph模板匹配。",
-    "metrics": "stroke时序tracing约94%；区分方向/顺序/骨架结构错误；字符top1/top5准确率。",
-    "baselines": "简单像素tracing为方法动机，ARG为后端；German城市201词76%仅背景引用，作者自己说明不可跨语言直接比较。",
-    "experimental_conditions": "依赖写完后手笔移开的参考字形；离线利用全视频，不能当严格在线实时笔尖追踪；窗口阈值公式PDF提取不全未擅填。"
+    "dataset": "10名学生共1251个汉字书写实例/8117笔画，实时摄像；不明确1251是否互异字符类别，不能写1251classes，更不能用引言>5000类别当实测类别数。未披露逐writer/类别频率、训练/验证/测试划分、ARG模板来源与同writer独立性、相机fps/分辨率/曝光/纸面视角/书写速度分布、清洁末帧分割规则和完整视频/标注发布。无神经网络训练recipe适用，但模板/阈值调参来源仍影响泛化。",
+    "framework": "最终清洁字图细化、逐骨架像素POL时序估计、静态笔段连接和线性时序纠错，输出接ARG在线字识别。新点是阴影条件下EF恢复与骨架叉点bug修复/双向图连接；比较偏工程方法，没有学习型tokenizer、神经生成器或预训练UMM。",
+    "architecture": "F1四框capture/binarization/masking/difference为简单流程，§II随后已用switchline/§III用POL替代直接差分，不能只据F1认定最终算法是相邻帧差分。§IV Rutoviz Nc(p)=1/2 Σi=1..8 |xi+1−xi|（x9=x1），1端点/2连接/>2叉点；修2×2交叉bug及>2个4邻居点，扫描删除时重查连接。maximum circle合并同叉区，圈外局部骨架估方向，笔段图每节点连最接近180°且>135°的另一节点，仅互为指向的边连接。它是局部几何配对，非全局轨迹最优/物理动作模型；时序线性拟合近似恒定每像素速度，不保真实逐帧速度波动。",
+    "metrics": "T1笔画级direction/order/structure errors，structure指骨架误连/断裂等；分母8117笔画，direction346、order91、structure53、total490，表列4.26%/1.12%/.65%/6.03%，约94%恢复。此非像素级时间误差、整字全笔顺正确率或规范笔顺通过率。T2字符级top1–5累计命中，分母1251；1106/1166/1181/1193/1203，对应88.41/93.21/94.40/95.36/96.16%。top5未识别48=tracing30(2.40%)+ARG18(1.44%)；该归因分母与T1笔画错误不同，不能把490和30相减。无EF帧误差分布、交叉/短笔分层CI和独立annotator agreement。",
+    "baselines": "使用既有ARG matcher[2]接恢复笔画；没有同一测试视频的无时序离线识别、数位板GT轨迹识别、简单switchline/POL/纠错分项数表对照。引用Fink等约76%为201德国城市名，作者明确语言和数据不同不直接比较，不能用96.16−76声称提升20.16pp。笔尖/Kalman方法、Bezier曲线连接、polygon规则等为相关方法讨论，无同集速度/准确率排名。",
+    "experimental_conditions": "10students/1251实例/8117笔画；3×3只明确用于简单switchline，POL实际window宽/笔宽估计、binarization阈值、最长单调段规则/拟合残差容忍、相机/算力/latency和ARG完整模板协议未给。连接阈值Td135°。图4受控光照较好，图7说未仔细控制光照/写字过程，未形成照明强度/遮挡长度扫参。无学习器训练，所以optimizer/参数量无适用项；实际未执行OCR、追踪或生成。论文未给代码/数据下载，未由论文无链接断言世上不存在制品。"
   },
   {
     "title": "VideoSketcher: Video Models Prior Enable Versatile Sequential Sketch Generation",

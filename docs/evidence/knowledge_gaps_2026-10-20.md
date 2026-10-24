@@ -706,3 +706,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百九十三批（2026-10-25）：正式版仍有Showo.57→.64和.69→.75两套GenEval、Showo8B/1.5B冲突、Liquid.81/.82与Time退化；制品缺完整trainer/eval/checkpoint。见[审查](diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[U31](../reviews/U31.md)。
+
+
+第一百九十四批（2026-10-25）：T1分母8117笔画、T2分母1251实例，约94%恢复非整字规范率；无fps、heldout协议、组件消融或规范GT。见[审查](video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[L009](../reviews/L009.md)。

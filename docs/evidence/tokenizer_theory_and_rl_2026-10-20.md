@@ -246,3 +246,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百九十三批（2026-10-25）：双向stopgrad InfoNCE与unique NCECLUB依critic条件；公开工具GaussianCLUB/无内部detach，完整调用方未发布，不能认定历史实现。见[审查](diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[U31](../reviews/U31.md)。
+
+
+第一百九十四批（2026-10-25）：传统二值骨架/EF/ARG无学习型tokenizer或RL；3×3逆查和POL窗口不同，T0=k0w/T1=(T0+w²)/2保具体假设。见[审查](video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[L009](../reviews/L009.md)。

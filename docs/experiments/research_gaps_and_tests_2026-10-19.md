@@ -691,3 +691,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百九十三批（2026-10-25）：同双flow FLOPs/训练步数拆shared/unique/预热与随机encoder，测task信息/variance；定义频带后低高通与patch重排干预，补独立seed CI。见[审查](../evidence/diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[U31](../reviews/U31.md)。
+
+
+第一百九十四批（2026-10-25）：同步tablet GT拆终态/switchline/POL/几何/拟合/oracle，测EF、笔画/整字顺序及字符topk；扫遮挡/fps/重复覆盖。见[审查](../evidence/video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[L009](../reviews/L009.md)。

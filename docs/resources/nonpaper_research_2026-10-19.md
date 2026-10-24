@@ -662,3 +662,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百九十三批（2026-10-25）：DIVA官方README声明showcase/recipe训练评测权重计划发布；现有diva_utils与paper门控/CLUB/SG/rank默认差异按缺调用方保留。见[审查](../evidence/diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[U31](../reviews/U31.md)。
+
+
+第一百九十四批（2026-10-25）：作者归档正式PDF可读，原论文未给数据/代码链接；完整视频与末帧前提限制即时prefix使用。见[审查](../evidence/video_based_chinese_recognition_2005_full_temporal_recovery_audit_2026-10-25.md)、[L009](../reviews/L009.md)。
