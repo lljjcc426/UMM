@@ -679,3 +679,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百八十九批（2026-10-25）：同信息GT状态用文字/图编码、对齐token/NFE/teacher预算，同checkpoint统一fidelity评分；按maze身份分probe并做状态干预，书写检验prefix/细笔/笔序。见[审查](../evidence/visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[U25](../reviews/U25.md)。
+
+
+第一百九十批（2026-10-25）：固定数据/分辨率/预算拆空间头与NSEmb，按域对照OPD及同U1.5无图条件；PE计外部LLM/搜索/长度成本，书写另测细线/区域绑定/增墨和笔序。见[审查](../evidence/sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[U26](../reviews/U26.md)。

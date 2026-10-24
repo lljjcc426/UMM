@@ -650,3 +650,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百八十九批（2026-10-25）：官方repo评测入口固定ballgame且API注册TODO，未发布训练/RL/probe/checkpoint；HF522实际六MMSI类型，与AppB1两类型描述有差异，内部加权复算相符。见[审查](../evidence/visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[U25](../reviews/U25.md)。
+
+
+第一百九十批（2026-10-25）：官方公开训练限U1+U1.5Preview生成PT，当前树无完整RL/DPO/MOPD；最终checkpoint/8步LoRA与四专家蒸馏区分。PE为额外API planner，未执行。见[审查](../evidence/sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[U26](../reviews/U26.md)。

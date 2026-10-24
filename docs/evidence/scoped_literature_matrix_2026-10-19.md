@@ -653,3 +653,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百八十九批（2026-10-25）：同BAGEL三CoT任务后训练有条件收益；maze视觉低implicit6.4pp、MMSI六类四降；主图两成功子类不代表所有空间关系。见[审查](visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[U25](../reviews/U25.md)。
+
+
+第一百九十批（2026-10-25）：U1.5生成编辑广泛改善但多理解分项下降、UniMMMU35→29.6；RealUnify47.5→56.3，缺同U1.5禁用图生成对照，不能泛化全部GaU收益。见[审查](sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[U26](../reviews/U26.md)。

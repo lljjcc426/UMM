@@ -486,3 +486,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百八十九批（2026-10-25）：KL链式上界/CMI非负不证明视觉普遍优越；Thm5球内Lipschitz用于球外Q最优端点，需扩展假设，Thm6继承bias前提。见[审查](visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[U25](../reviews/U25.md)。
+
+
+第一百九十批（2026-10-25）：Flow的x-prediction速度MSE=(1−t)^−2端点MSE；MOPD同student stop-gradient状态查询域teacher，无整轨迹反传或无损能力聚合保证。见[审查](sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[U26](../reviews/U26.md)。

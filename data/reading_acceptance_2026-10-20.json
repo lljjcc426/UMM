@@ -10247,6 +10247,40 @@
         }
       ],
       "boundary": "完整2601.19834v1 PDF34页/HTML正文§1–6、AppA1/A2全部证明与B1–3/C1–2（HTML§7–9），Eq1–15、6个Theorem编号（3/4为1/2重述）、3Lemma/2Assumption/1Corollary，T1–5全部行、F1–17全部视觉。固定repo10tree/8blob，审7textblob含5个evalpy；HFschema/七split3946计数与7首条文字、MMSI全522条metadata子类分布，未读全部图片或全部3946题语义。项目页/README核发布及聚合；OpenReview页面验证/API403未核接收。核心三遍/五项书面验收完成，未模型推理、judgeAPI、训练、probe或历史原始分数复现。"
+    },
+    {
+      "id": "U26",
+      "checked_on": "2026-10-25",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "在原生理解/生成统一模型中，如何同时提高细节、双语长文字、复杂布局、多参考编辑和交错视觉推理，并维持理解能力？研究对象是最终图像与交错图文输出，无在线手写轨迹、笔顺或书写视频任务。 外接视觉encoder/VAE存在表示接口与重建瓶颈；原有逐patch MLP头欠缺相邻patch空间交互，高分辨率噪声尺度与训练分布也需适配。多个RL目标可能互相干扰，因此先分专家优化再聚合。以上是设计动机；报告同时改变数据/计算/解码器/后训练，未把每个因素的独立因果贡献分离。",
+          "evidence": "完整35页、23表5图10编号式及未编号蒸馏公式；独立解释速度MSE加权、pixel head形状、OCR计数不变性、micro分母及下降项；固定repo/HF配置交叉核。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "输入文字token及清晰/含噪图像，输出文字AR或图像flow。每32×32RGB patch经两级卷积投影（16再2）+GELU成为4096维token，带2D位置与原生时空RoPE，<img>边界/PreBuffer；是学习投影并有空间压缩，未证明可逆/近无损，4096维大于RGB3072维也不能据维数直接断言必丢信息。Eq1文字CE；Eq2 z_t=t·x+(1−t)σ_Rε；Eq3 x-prediction转换v=(xhat−z_t)/(1−t)，GT同式，在线性路径下为x−σ_Rε；Eq4速度MSE等于endpoint MSE/(1−t)^2（t<1），高t有不同权重；Eq5 LPIPS，Eq6加权CE+FM+感知损失。Eq7–10及未编号式给OCR/编辑奖励与专家蒸馏；四专家在同一student当前状态/时间/条件给velocity目标，student状态stop-gradient，损失未穿过整段生成轨迹。Beta(2+3n/N,5−3n/N)查询时间随训练从早期高噪声偏向后期低噪声，30步ODE仅跑到查询点、无suffix。 42层MoT，Q/KV heads32/8，head T/H/W64/32/32，hidden4096；表1理解/生成各8.2B，模态分支有不同QKVO/norm/FFN、共享attention交互，8B命名不等整个模型只有8B参数。官方参数文档17.552B例子属于U1，未把其精确总量直接移植U1.5。clean上下文不可见未来noisy图，noisy块内双向并读过去clean，文字因果。F3 PixelShuffle2→3×3 conv1024→1024/GELU→PixelShuffle2→conv256→192→PixelShuffle8→RGB，跨patch做空间重建。固定repo中ConvDecoder对应此结构，modeling_neo_chat以use_pixel_head替换FM头；HF最终config use_pixel_head=true、resolution noise、noise_scale=1、base64token、max16、NSEmb=true、4K面积上限，42/4096/32/8与论文相符。σ_R随图token数平方根缩放并clip16，noise embedding除σmax。移除独立VE/VAE不等移除所有可学习视觉模块。",
+          "evidence": "完整35页、23表5图10编号式及未编号蒸馏公式；独立解释速度MSE加权、pixel head形状、OCR计数不变性、micro分母及下降项；固定repo/HF配置交叉核。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "在NEO-unify的encoder-free/VAE-free像素接口上加入空间卷积PixelShuffle解码头、分辨率噪声条件，扩展至4K数据和结构化任务；五阶段训练依次为生成预训练、统一mid-training、统一SFT、四专家RL/DPO、multi-expert on-policy distillation。主要证据是完整系统在多类生成编辑基准的改善及部分退化；原生统一促进能力交互仍需匹配消融，不能由架构命名直接证明。 可学习pixel接口与空间重建可能在高分辨率细笔、密集双语文字、跨patch连续结构上有帮助；分专家优化可能缓和reward冲突，OPD在student访问状态追随对应teacher可减少teacher轨迹分布偏移。但需要数据/算力匹配、结构与过程指标验证。迁移中文艺术字过程时可研究局部墨迹连续性/细线保持和中间图回读；原模型仅静态/交错图，无笔接触/增墨约束/规范笔序标签，不宜直接当笔顺解决方案。",
+          "evidence": "完整35页、23表5图10编号式及未编号蒸馏公式；独立解释速度MSE加权、pixel head形状、OCR计数不变性、micro分母及下降项；固定repo/HF配置交叉核。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "全部23表逐行已核，结构化保留原值。T3理解有下降：MMMU74.78→73.86、MMMUPro67.69→66.47、MathVision75.82→73.55、MMStar78.27→77.53、OCRv2 61.30→59.07、MMLURedux87.61→86.33、SuperGPQA49.67→49.55；MathVista84.2→85.85、CEval84.4→90.41等改善。T4/5 QwenImageBench EN48.28→52.82→PE60.22，ZH45.99→52.43→PE60.13；T7GenEval2 .43→.55→PE.71，GPTImage2 .81。T8/9 OneIG EN.549→.552、ZH.535→.536，分别仍低Emu.564/Qwen.548且多样性.166→.159/.176→.165。T10DPG87.78→88.11仍低Qwen88.32，global/attr/other分项下降。T11CVTG avg.940→.948、NED.972→.977、CLIP.825→.819，2/3区文字accuracy下降，4/5区上升；avg不可用四个区域均值复算。T12LongTextEN.979→.988、ZH.962→.989，按上述召回协议解释。T13IGen Q/I .51/.04→.62/.08→PE.76/.17，距Nano.90/.49仍大；T14BizGen hard/easy39.7/61.7→51.4/70.2→PE72.2/88.4，其中Knowledge4.8/23.4→PE72.0/87.9提示外部规划贡献。T15WISE.69→.70、CoT.78→.81，化学CoT.77→.76。T16ImgEdit3.90→4.59；T17GEdit EN/CN7.47/7.70→8.26/8.24，闭源仍更强。T18WeEdit均值7.46中translation IA/TC/BP2.19/4.16/8.11、reason1.84/4.17/7.94，保留背景高分未能保证正确执行。T19OmniRef wPE objective.68/MLLM8.15低Nano.70/8.50。T20RISE33.6→CoT38.6，但spatial49→42、VP95.2→94.8；T21OpenING9.07→9.18，completeness9.14→9.13。T22VBVR总体68.2/ID67.6/OOD68.9，但OOD abstract69.8低Nano75.1，knowledge/perception也非全最优。T23UniMMMU35.0→29.6：jigsaw87.3→86、maze28.6→17.3、sliding0→0、geometry24.2→15；RealUnify47.5→56.3、MR36→38/MT63→84/AF51不变/CN40→52。 PE和CoT开关有同模型结果，说明额外规划/中间生成在部分任务有效，但也有RISE空间下降；PE不是单一内部架构改动。未提供U1.5同数据/步数/预算的MLP vs PixelShuffle、4K/noise embedding/LPIPS、四expert前后与MOPD前后逐项对照，也无同U1.5禁用生成的UniMMMU/RealUnify比较。T3理解退化与T23GaU退化必须保留，不能用RealUnify提升声称所有理解均维持。F1/2选例展示图像细节/多参考编辑，F3解码头、F4五阶段、F5数据饼图；示例无抽样分母和独立人评，静态例不证明书写过程或所有分布可靠。前代/闭源排名与整体配方比较不替代模块消融。 表2 Stage1三期180K/100K/185Ksteps，lr2e−4/1e−4/1e−4→2e−5，seq8196/20480/20480，256²–1024²→512²–4096²，前两期T2I，三期T2I/edit/interleave=.6/.3/.1；冻结理解分支。Stage2双分支80K lr2e−5 seq32768 mix.3/.4/.2/.1；Stage3 10.5K lr2e−5→0 seq32768，表中mix.3/.4/.3/.1合计1.1，原样记录、未擅自归一。两统一stage CE:FM:Perc=.1:1:.1，AdamWβ.9/.95 eps1e−8。美学/OCR专家16候选、30steps、CFG4、shift3，从最初10步采连续5步；美学epoch分别route HPSv3++/PaddleOCR，CPSη.7 lr2e−5 KL.01；OCR Preciseη1.5+GRPOGuard KL.02，两者冻结最后gen block/head/outnorm。编辑lr4e−5 KL.01、24步、η.7及EMA，论文称避开SDE但未完整给替代logpolicy推导；5维VLM归一min聚合，execution未改时0，文字项按任务启用。info先额外midtraining→OCRGRPO→120K对DPO(lr5e−6 β10、查询1–20某一步)→路由GRPO，额外资源不同。MOPD硬domain路由四teacher，800steps×globalbatch128=102400exposures，与每域25600一致；AdamW2e−5 β.9/.999 wd1e−4 gradclip1 BF16，冻理解/末3gen层/head；T2I CFG4、编辑CFG1，5种area1K²–4K²/9种比例对齐32，编辑跟源尺寸。",
+          "evidence": "完整35页、23表5图10编号式及未编号蒸馏公式；独立解释速度MSE加权、pixel head形状、OCR计数不变性、micro分母及下降项；固定repo/HF配置交叉核。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "完整系统多因素共同变化，近无损/能力交互/四专家无损聚合缺直接隔离证据。OCRRL multiset Jaccard对词/字符排列不变，长期文字eval甚至只测召回，无法约束句序、拓扑、版式绑定或笔画时序；高NED/CLIP也不等笔顺。PE可由外部LLM产生约1100–1500token RenderJSON，当前helper默认gpt-5.6-terra并可选web_search、编辑PE默认gpt-5.5，外部知识和成本须记入系统；这些当前默认不证明历史实验所用版本。U1.5知识类PE涨幅不能全归原生模型记忆。未给跨表完整同budget/seed/CI、全量eval rawoutputs/去重。发布固定repo735tree603blob中未见RL/DPO/MOPD训练实现路径，训练README仅U1+U1.5Preview生成PT，示例launcher200K/8192/≤1024²与报告多stage不等；样本数据/路径占位需自备，不能声称完整训练已复现。HF最终checkpoint与8步LoRA存在不等四专家训练流程已发布。报告/README已指出编辑过改、指令遗漏、多图长上下文和强CFG细节/色彩不稳，经验建议不替代系统统计。 Q1空间头与4K数据谁贡献细笔/文字收益：固定底座、训练图/分辨率/steps、LPIPS/noise/推理NFE/CFG，做MLP/ConvDecoder×数据分辨率、NSEmb开关的必要因子对照，测独立OCR+顺序CER/WER、区域绑定、细线断连/拓扑、人评/CI与吞吐，不只bag词召回；若对齐后无增益，收窄空间头主张。Q2四专家聚合是否保留能力并促进推理：同学生/总训练exposures比混合reward、四专家、无OPD和OPD，逐domain报Pareto/回归、teacher routing、hard样本与未训练任务，并在U1.5同预算比较无图/交错图/GT图/错误或随机图回读。PE固定外部planner/知识访问/长度/总时间，保留裸prompt；对生成文字做交换词序/增加幻字/改布局的指标一致性审查。书写另报prefix只增墨、笔序/方向/接触/速度和终态字形，同终态换序对照。均为提案，无模型执行。",
+          "evidence": "完整35页、23表5图10编号式及未编号蒸馏公式；独立解释速度MSE加权、pixel head形状、OCR计数不变性、micro分母及下降项；固定repo/HF配置交叉核。"
+        }
+      ],
+      "boundary": "完整2609.11929v1 PDF35页/HTML正文§1–6、§7contributors与参考追引，无附录；10编号式及未编号OPD/Beta表达、T1–23全部行、F1–5全部视觉及首页总览。固定repo735tree603blob结构，下载27个选定text文件；人工重点审README/训练NOTICE及说明、launcher/配置、ConvDecoder及模型选择/噪声片段、生成/交错评测说明、CVTG/LongText/RealUnify/UniMMMU/OpenING评分段、PE脚本与参数文档。未宣称完整逐行审603blob或27文件；HF最终/LoRA API文件清单、最终config已核，无权重下载/模型推理/训练/judgeAPI/基准重跑。核心三遍与五项书面检查完成，独立模型复现仍false。"
     }
   ]
 }

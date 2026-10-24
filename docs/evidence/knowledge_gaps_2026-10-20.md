@@ -694,3 +694,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百八十九批（2026-10-25）：F6b文字pattern/视觉Gemini评分与SFTfidelity/RLaccuracy阶段错位；probe坐标均值机会20%，可解码未证因果；同成本/同oracle监督缺口。见[审查](visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[U25](../reviews/U25.md)。
+
+
+第一百九十批（2026-10-25）：CVTG按GT词加权且重复词可复用匹配；LongText Counter交集召回，忽略顺序与多写；RL Jaccard也忽略排列，不能当序列/笔顺准确率。见[审查](sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[U26](../reviews/U26.md)。

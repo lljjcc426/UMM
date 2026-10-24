@@ -563,3 +563,6 @@ python scripts/validate_catalog.py
 
 
 第一百八十九批（2026-10-25）：U25完整34页/5表17图15式与所有证明；核局部Lipschitz证明范围、MMSI全522条六关系、评分/模型阶段差异及固定revision评测骨架。358目录，294核心/299书面；待完成核心深审37篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_eighty_ninth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第一百九十批（2026-10-25）：U26完整35页、23表5图10式与五阶段训练；核文字计数指标的顺序盲区、外部PE和UniMMMU下降，固定公开训练范围/最终HF配置。358目录，295核心/300书面；待完成核心深审36篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_ninetieth_changes_2026-10-25.md)。无删除或模型执行。

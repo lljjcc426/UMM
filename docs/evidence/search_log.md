@@ -742,3 +742,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百八十九批（2026-10-25）：VisWorld-Eval完整v1 PDF34页与HTML全部附录，5表17图15式/全部证明；repo固定10tree8blob审7text；HF3946计数及MMSI522metadata，未人工全读3946图题。见[审查](visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[U25](../reviews/U25.md)。
+
+
+第一百九十批（2026-10-25）：U26完整v1正文/23表5图10式，固定repo735tree603blob选27文件并重点审评分/解码/配置/PE；HF最终与LoRA版本及config，无模型调用。见[审查](sensenova_u1_5_full_native_pixel_metrics_and_expert_distillation_audit_2026-10-25.md)、[U26](../reviews/U26.md)。
