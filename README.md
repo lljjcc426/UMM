@@ -548,3 +548,6 @@ python scripts/validate_catalog.py
 
 
 第一百八十四批（2026-10-24）：U18完成ECCV2026 v2完整42页、13表13图及100空间prompt；核计数GTfallback、空间检出排除、文字样式差异与FID语义，官方HEAD仅README。358目录，289核心/294书面；待完成核心深审42篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/transferability_full_parser_coverage_and_distribution_shift_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_eighty_fourth_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百八十五批（2026-10-24）：U19完成ICML2026 v3完整16页4表7图20式；核三骨干对Base七指标全升及对RecA例外、Harmon公开512²/10K配置、四任务微batch/梯度scale、无类别边界与teacheragreement。358目录，290核心/295书面；待完成核心深审41篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/unimrg_full_teacher_targets_training_schedule_and_release_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_eighty_fifth_changes_2026-10-24.md)。无删除或模型执行。

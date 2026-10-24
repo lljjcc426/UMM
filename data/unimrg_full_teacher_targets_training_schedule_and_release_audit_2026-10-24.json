@@ -1,0 +1,1384 @@
+{
+  "id": "U19",
+  "checked_on": "2026-10-24",
+  "arxiv_version": "2601.21406v3",
+  "venue": "ICML 2026; official conference Downloads and author project",
+  "pdf_pages": 16,
+  "core_three_pass_completed": true,
+  "numbered_tables_reviewed": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "figures_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "numbered_equations_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "html_tables": [
+    [
+      [
+        "",
+        "ℒund=ℒ⁡(f⁡(h,tquestion),tanswer)\\mathcal{L}_{\\text{und}}=\\mathcal{L}(f(h,t_{\\text{question}}),t_{\\text{answer}})",
+        "",
+        "(1)"
+      ]
+    ],
+    [
+      [
+        "",
+        "ℒpixel=ℒ⁡(f⁡(h,tpixel),Ipixel)\\mathcal{L}_{\\text{pixel}}=\\mathcal{L}(f(h,t_{\\text{pixel}}),I_{\\text{pixel}})",
+        "",
+        "(2)"
+      ]
+    ],
+    [
+      [
+        "",
+        "ℒdepth=ℒ⁡(f⁡(h,tdepth),Idepth)\\mathcal{L}_{\\text{depth}}=\\mathcal{L}(f(h,t_{\\text{depth}}),I_{\\text{depth}})",
+        "",
+        "(3)"
+      ]
+    ],
+    [
+      [
+        "",
+        "ℒseg=ℒ⁡(f⁡(h,tseg),Iseg)\\mathcal{L}_{\\text{seg}}=\\mathcal{L}(f(h,t_{\\text{seg}}),I_{\\text{seg}})",
+        "",
+        "(4)"
+      ]
+    ],
+    [
+      [
+        "",
+        "ℒtotal=λpixel​ℒpixel+λdepth​ℒdepth+λseg​ℒseg+λund​ℒund\\begin{split}\\mathcal{L}_{\\text{total}}=\\;&\\lambda_{\\text{pixel}}\\mathcal{L}_{\\text{pixel}}+\\lambda_{\\text{depth}}\\mathcal{L}_{\\text{depth}}+\\lambda_{\\text{seg}}\\mathcal{L}_{\\text{seg}}\\\\ &+\\lambda_{\\text{und}}\\mathcal{L}_{\\text{und}}\\end{split}",
+        "",
+        "(5)"
+      ]
+    ],
+    [
+      [
+        "Method",
+        "General",
+        "Fine-Grained",
+        "Hallucination",
+        "Spatial Understanding",
+        "Generation"
+      ],
+      [
+        "MMBench",
+        "MMVP",
+        "Hallusion",
+        "RWQA",
+        "VSR",
+        "GenEval",
+        "DPG"
+      ],
+      [
+        "Harmon-1.5B"
+      ],
+      [
+        "Base",
+        "50.43",
+        "60.00",
+        "46.69",
+        "46.67",
+        "60.88",
+        "71.37",
+        "80.52"
+      ],
+      [
+        "SFT",
+        "50.43",
+        "60.00",
+        "47.95",
+        "50.20",
+        "60.88",
+        "0.30",
+        "2.85"
+      ],
+      [
+        "RecA",
+        "49.50",
+        "61.00",
+        "47.11",
+        "49.54",
+        "59.00",
+        "83.86",
+        "86.61"
+      ],
+      [
+        "UniMRG",
+        "52.23",
+        "62.67",
+        "49.32",
+        "51.90",
+        "61.21",
+        "85.26",
+        "85.27"
+      ],
+      [
+        "Gain (↑)(\\uparrow)",
+        "+1.80",
+        "+2.67",
+        "+2.63",
+        "+5.23",
+        "+0.33",
+        "+13.89",
+        "+4.75"
+      ],
+      [
+        "OpenUni-3.6B"
+      ],
+      [
+        "Base",
+        "81.19",
+        "71.67",
+        "60.88",
+        "65.23",
+        "66.69",
+        "61.13",
+        "79.41"
+      ],
+      [
+        "SFT",
+        "79.81",
+        "73.33",
+        "64.25",
+        "63.14",
+        "72.18",
+        "46.03",
+        "70.24"
+      ],
+      [
+        "RecA",
+        "81.19",
+        "71.67",
+        "60.88",
+        "65.23",
+        "66.69",
+        "70.07",
+        "81.54"
+      ],
+      [
+        "UniMRG",
+        "81.44",
+        "74.67",
+        "64.56",
+        "66.01",
+        "73.90",
+        "68.00",
+        "81.78"
+      ],
+      [
+        "Gain (↑)(\\uparrow)",
+        "+0.25",
+        "+3.00",
+        "+3.68",
+        "+0.78",
+        "+7.21",
+        "+6.87",
+        "+2.37"
+      ],
+      [
+        "Show-o-1.3B"
+      ],
+      [
+        "Base",
+        "47.85",
+        "50.00",
+        "46.06",
+        "38.17",
+        "54.26",
+        "67.32",
+        "81.94"
+      ],
+      [
+        "SFT",
+        "48.02",
+        "50.67",
+        "45.85",
+        "37.65",
+        "51.55",
+        "67.09",
+        "81.98"
+      ],
+      [
+        "RecA",
+        "47.42",
+        "47.33",
+        "46.69",
+        "36.21",
+        "52.70",
+        "71.52",
+        "84.44"
+      ],
+      [
+        "UniMRG",
+        "48.11",
+        "51.33",
+        "47.00",
+        "39.87",
+        "54.42",
+        "71.40",
+        "84.55"
+      ],
+      [
+        "Gain (↑)(\\uparrow)",
+        "+0.26",
+        "+1.33",
+        "+0.94",
+        "+1.70",
+        "+0.16",
+        "+4.08",
+        "+2.61"
+      ]
+    ],
+    [
+      [
+        "Type",
+        "Model",
+        "# LLM Params",
+        "General",
+        "Fine-Grained",
+        "Hallucination",
+        "Spatial Understanding"
+      ],
+      [
+        "",
+        "MMBench",
+        "MMVP",
+        "Hallusion",
+        "RWQA",
+        "VSR"
+      ],
+      [
+        "Und. Only",
+        "LLaVA-OV (Li et al., 2024a)",
+        "0.5B",
+        "55.15",
+        "53.67",
+        "51.95",
+        "46.41",
+        "51.47"
+      ],
+      [
+        "",
+        "InternVL3 (Zhu et al., 2025)",
+        "2B",
+        "81.19",
+        "71.67",
+        "60.88",
+        "65.23",
+        "66.69"
+      ],
+      [
+        "",
+        "Qwen2.5-VL (Bai et al., 2025b)",
+        "3B",
+        "78.26",
+        "64.67",
+        "–",
+        "–",
+        "–"
+      ],
+      [
+        "",
+        "Qwen3-VL (Bai et al., 2025a)",
+        "2B",
+        "77.32",
+        "72.00",
+        "–",
+        "–",
+        "–"
+      ],
+      [
+        "",
+        "Emu3-Chat (Wang et al., 2024c)",
+        "8B",
+        "64.35",
+        "67.00",
+        "52.16",
+        "56.99",
+        "71.93"
+      ],
+      [
+        "Unified",
+        "Chameleon (Team, 2024)",
+        "7B",
+        "35.70",
+        "0.00",
+        "–",
+        "–",
+        "–"
+      ],
+      [
+        "",
+        "Janus (Wu et al., 2025a)",
+        "1.3B",
+        "53.52",
+        "56.67",
+        "50.16",
+        "43.66",
+        "61.37"
+      ],
+      [
+        "",
+        "Janus-Pro (Chen et al., 2025b)",
+        "7B",
+        "66.67",
+        "63.00",
+        "60.15",
+        "41.83",
+        "71.03"
+      ],
+      [
+        "",
+        "Harmon (Wu et al., 2025c)",
+        "1.5B",
+        "50.43",
+        "60.00",
+        "46.69",
+        "46.67",
+        "60.88"
+      ],
+      [
+        "",
+        "Show-o (Xie et al., 2025b)",
+        "1.3B",
+        "47.85",
+        "50.00",
+        "46.06",
+        "38.17",
+        "54.26"
+      ],
+      [
+        "",
+        "BAGEL (Deng et al., 2025)",
+        "3B",
+        "79.20",
+        "54.70",
+        "–",
+        "–",
+        "–"
+      ],
+      [
+        "",
+        "UniLIP (Tang et al., 2025)",
+        "2B",
+        "80.70",
+        "73.00",
+        "60.57",
+        "64.18",
+        "65.55"
+      ],
+      [
+        "",
+        "OpenUni (Wu et al., 2025b)",
+        "2B",
+        "81.19",
+        "71.67",
+        "60.88",
+        "65.23",
+        "66.69"
+      ],
+      [
+        "",
+        "UniMRG (Ours)",
+        "2B",
+        "81.44",
+        "74.67",
+        "64.56",
+        "66.01",
+        "73.90"
+      ]
+    ],
+    [
+      [
+        "Method",
+        "General",
+        "Fine-Grained",
+        "Hallucination",
+        "Spatial Understanding",
+        "Generation"
+      ],
+      [
+        "MMBench",
+        "MMVP",
+        "Hallusion",
+        "RWQA",
+        "VSR",
+        "GenEval",
+        "DPG"
+      ],
+      [
+        "Harmon-1.5B",
+        "50.43",
+        "60.00",
+        "46.69",
+        "46.67",
+        "60.88",
+        "71.37",
+        "80.52"
+      ],
+      [
+        "+ Visual Understanding",
+        "50.43",
+        "60.00",
+        "47.95",
+        "50.20",
+        "60.88",
+        "0.30",
+        "2.85"
+      ],
+      [
+        "+ Pixel Generation",
+        "49.50",
+        "61.00",
+        "47.11",
+        "49.54",
+        "59.00",
+        "83.86",
+        "86.61"
+      ],
+      [
+        "+ Depth Generation",
+        "50.60",
+        "62.00",
+        "48.26",
+        "50.46",
+        "60.39",
+        "85.15",
+        "84.96"
+      ],
+      [
+        "+ Segmentation Generation",
+        "52.23",
+        "62.67",
+        "49.32",
+        "51.90",
+        "61.21",
+        "85.26",
+        "85.27"
+      ]
+    ],
+    [
+      [
+        "",
+        "log⁡pθ​(𝒙)=∑t=1Tlog⁡pθ​(xt∣x<t),\\log p_{\\theta}(\\bm{x})=\\sum_{t=1}^{T}\\log p_{\\theta}(x_{t}\\mid x_{<t}),",
+        "",
+        "(6)"
+      ]
+    ],
+    [
+      [
+        "",
+        "ℒCausal​(θ)=−𝔼𝒙∼pd​a​t​a​[∑t=1Tlog⁡pθ​(xt∣x<t)].\\mathcal{L}_{\\text{Causal}}(\\theta)=-\\mathbb{E}_{\\bm{x}\\sim p_{data}}\\left[\\sum_{t=1}^{T}\\log p_{\\theta}(x_{t}\\mid x_{<t})\\right].",
+        "",
+        "(7)"
+      ]
+    ],
+    [
+      [
+        "",
+        "ℒMaskGit​(θ)=−𝔼𝒙,𝒎​[∑i∈𝒎¯log⁡pθ​(xi∣𝒙𝒎)].\\mathcal{L}_{\\text{MaskGit}}(\\theta)=-\\mathbb{E}_{\\bm{x},\\bm{m}}\\left[\\sum_{i\\in\\bar{\\bm{m}}}\\log p_{\\theta}(x_{i}\\mid\\bm{x}_{\\bm{m}})\\right].",
+        "",
+        "(8)"
+      ]
+    ],
+    [
+      [
+        "",
+        "q⁡(𝒙t∣𝒙t−1)=𝒩⁡(𝒙t,1−βt​𝒙t−1,βt​𝐈),q(\\bm{x}_{t}\\mid\\bm{x}_{t-1})=\\mathcal{N}(\\bm{x}_{t};\\sqrt{1-\\beta_{t}}\\bm{x}_{t-1},\\beta_{t}\\mathbf{I}),",
+        "",
+        "(9)"
+      ]
+    ],
+    [
+      [
+        "",
+        "q⁡(𝒙t∣𝒙0)=𝒩⁡(𝒙t,α¯t​𝒙0,(1−α¯t)​𝐈).q(\\bm{x}_{t}\\mid\\bm{x}_{0})=\\mathcal{N}(\\bm{x}_{t};\\sqrt{\\bar{\\alpha}_{t}}\\bm{x}_{0},(1-\\bar{\\alpha}_{t})\\mathbf{I}).",
+        "",
+        "(10)"
+      ]
+    ],
+    [
+      [
+        "",
+        "pθ​(𝒙t−1∣𝒙t)=𝒩⁡(𝒙t−1,𝝁θ​(𝒙t,t),β~t​𝐈).p_{\\theta}(\\bm{x}_{t-1}\\mid\\bm{x}_{t})=\\mathcal{N}(\\bm{x}_{t-1};\\bm{\\mu}_{\\theta}(\\bm{x}_{t},t),\\tilde{\\beta}_{t}\\mathbf{I}).",
+        "",
+        "(11)"
+      ]
+    ],
+    [
+      [
+        "",
+        "𝝁θ​(𝒙t,t)=1αt​(𝒙t−βt1−α¯t​ϵθ​(𝒙t,t)).\\bm{\\mu}_{\\theta}(\\bm{x}_{t},t)=\\frac{1}{\\sqrt{\\alpha_{t}}}\\left(\\bm{x}_{t}-\\frac{\\beta_{t}}{\\sqrt{1-\\bar{\\alpha}_{t}}}\\bm{\\epsilon}_{\\theta}(\\bm{x}_{t},t)\\right).",
+        "",
+        "(12)"
+      ]
+    ],
+    [
+      [
+        "",
+        "ℒDDPM​(θ)=𝔼𝒙0,t,ϵ​[‖ϵ−ϵθ​(𝒙t,t)‖2].\\mathcal{L}_{\\text{DDPM}}(\\theta)=\\mathbb{E}_{\\bm{x}_{0},t,\\bm{\\epsilon}}\\left[\\|\\bm{\\epsilon}-\\bm{\\epsilon}_{\\theta}(\\bm{x}_{t},t)\\|^{2}\\right].",
+        "",
+        "(13)"
+      ]
+    ],
+    [
+      [
+        "",
+        "d​𝒙d​t=𝒗t​(𝒙),𝒙⁡(0)∼p0,\\frac{d\\bm{x}}{dt}=\\bm{v}_{t}(\\bm{x}),\\quad\\bm{x}(0)\\sim p_{0},",
+        "",
+        "(14)"
+      ]
+    ],
+    [
+      [
+        "",
+        "ψt​(𝒙0,𝒙1)=(1−t)​𝒙0+t​𝒙1,t∈[0,1].\\psi_{t}(\\bm{x}_{0},\\bm{x}_{1})=(1-t)\\bm{x}_{0}+t\\bm{x}_{1},\\quad t\\in[0,1].",
+        "",
+        "(15)"
+      ]
+    ],
+    [
+      [
+        "",
+        "𝒖t​(ψt​(𝒙0,𝒙1)∣𝒙0,𝒙1)=dd​t​ψt​(𝒙0,𝒙1)=𝒙1−𝒙0.\\bm{u}_{t}\\!\\left(\\psi_{t}(\\bm{x}_{0},\\bm{x}_{1})\\mid\\bm{x}_{0},\\bm{x}_{1}\\right)=\\frac{d}{dt}\\psi_{t}(\\bm{x}_{0},\\bm{x}_{1})=\\bm{x}_{1}-\\bm{x}_{0}.",
+        "",
+        "(16)"
+      ]
+    ],
+    [
+      [
+        "",
+        "ℒFM​(θ)=𝔼t∼𝒰⁡[0,1],𝒙0∼p0,𝒙1∼pdata​[‖𝒗θ​(ψt​(𝒙0,𝒙1),t)−(𝒙1−𝒙0)‖2].\\mathcal{L}_{\\text{FM}}(\\theta)=\\mathbb{E}_{t\\sim\\mathcal{U}[0,1],\\,\\bm{x}_{0}\\sim p_{0},\\,\\bm{x}_{1}\\sim p_{\\text{data}}}\\left[\\|\\bm{v}_{\\theta}(\\psi_{t}(\\bm{x}_{0},\\bm{x}_{1}),t)-(\\bm{x}_{1}-\\bm{x}_{0})\\|^{2}\\right].",
+        "",
+        "(17)"
+      ]
+    ],
+    [
+      [
+        "",
+        "pθ​(𝒛)=∏i=1Tpθ​(𝒛i∣𝒛<i).p_{\\theta}(\\bm{z})=\\prod_{i=1}^{T}p_{\\theta}(\\bm{z}_{i}\\mid\\bm{z}_{<i}).",
+        "",
+        "(18)"
+      ]
+    ],
+    [
+      [
+        "",
+        "ℒMAR​(θ)=𝔼𝒛,i,k,ϵ​[‖ϵ−ϵθ​(𝒛i(k),k,cond=𝒛<i)‖2].\\mathcal{L}_{\\text{MAR}}(\\theta)=\\mathbb{E}_{\\bm{z},i,k,\\bm{\\epsilon}}\\left[\\|\\bm{\\epsilon}-\\bm{\\epsilon}_{\\theta}(\\bm{z}_{i}^{(k)},k,\\text{cond}=\\bm{z}_{<i})\\|^{2}\\right].",
+        "",
+        "(19)"
+      ]
+    ],
+    [
+      [
+        "",
+        "Dnorm=D−DminDmax−Dmin×255D_{\\text{norm}}=\\frac{D-D_{\\min}}{D_{\\max}-D_{\\min}}\\times 255",
+        "",
+        "(20)"
+      ]
+    ],
+    [
+      [
+        "Method",
+        "GenEval",
+        "DPGBench"
+      ],
+      [
+        "Single Obj.",
+        "Two Obj.",
+        "Counting",
+        "Colors",
+        "Position",
+        "Color Attri.",
+        "Overall"
+      ],
+      [
+        "Harmon-1.5B"
+      ],
+      [
+        "Base",
+        "99.38",
+        "86.11",
+        "66.98",
+        "83.87",
+        "45.00",
+        "46.92",
+        "71.37",
+        "80.52"
+      ],
+      [
+        "SFT",
+        "1.77",
+        "0.00",
+        "0.00",
+        "0.00",
+        "0.00",
+        "0.00",
+        "0.30",
+        "2.85"
+      ],
+      [
+        "RecA",
+        "100.00",
+        "97.98",
+        "69.58",
+        "92.82",
+        "74.17",
+        "68.58",
+        "83.86",
+        "86.61"
+      ],
+      [
+        "Ours",
+        "99.90",
+        "97.39",
+        "72.71",
+        "89.63",
+        "80.42",
+        "71.50",
+        "85.26",
+        "85.27"
+      ],
+      [
+        "OpenUni-3.6B"
+      ],
+      [
+        "Base",
+        "98.65",
+        "73.82",
+        "52.50",
+        "79.88",
+        "21.92",
+        "40.00",
+        "61.13",
+        "79.41"
+      ],
+      [
+        "SFT",
+        "96.46",
+        "49.41",
+        "21.56",
+        "73.85",
+        "13.08",
+        "21.83",
+        "46.03",
+        "70.24"
+      ],
+      [
+        "RecA",
+        "99.17",
+        "87.46",
+        "55.00",
+        "84.13",
+        "36.08",
+        "58.58",
+        "70.07",
+        "81.54"
+      ],
+      [
+        "Ours",
+        "98.96",
+        "84.01",
+        "55.94",
+        "84.04",
+        "29.42",
+        "55.67",
+        "68.00",
+        "81.78"
+      ],
+      [
+        "Show-o-1.3B"
+      ],
+      [
+        "Base",
+        "97.40",
+        "82.91",
+        "67.92",
+        "80.59",
+        "27.08",
+        "48.00",
+        "67.32",
+        "81.94"
+      ],
+      [
+        "SFT",
+        "97.81",
+        "83.50",
+        "65.73",
+        "79.52",
+        "27.58",
+        "48.42",
+        "67.09",
+        "81.98"
+      ],
+      [
+        "RecA",
+        "98.44",
+        "90.82",
+        "67.81",
+        "80.23",
+        "36.75",
+        "55.08",
+        "71.52",
+        "84.44"
+      ],
+      [
+        "Ours",
+        "98.85",
+        "90.07",
+        "67.92",
+        "80.67",
+        "38.92",
+        "52.00",
+        "71.40",
+        "84.55"
+      ]
+    ]
+  ],
+  "release": {
+    "repository": "Zihan-Su/UniMRG",
+    "commit": "0493c6dd3661d6d8bc1fde143fef91238eef2777",
+    "tree": [
+      {
+        "path": "Benchmark",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "c7d7087dd6c846cb28bc9074ff65da7a4f2b9e24",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/c7d7087dd6c846cb28bc9074ff65da7a4f2b9e24"
+      },
+      {
+        "path": "Benchmark/dpgbench",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "6e08c8f3e059a8292fb27f8c2eeb864fefa73cae",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/6e08c8f3e059a8292fb27f8c2eeb864fefa73cae"
+      },
+      {
+        "path": "Benchmark/dpgbench/prompts.json",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "2cd74a4c7a6d809b9d124fce6662a703e55cde0f",
+        "size": 462868,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/2cd74a4c7a6d809b9d124fce6662a703e55cde0f"
+      },
+      {
+        "path": "Benchmark/geneval",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "2f946d9a53a3f47df72d8d285bdfc40a713acdee",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/2f946d9a53a3f47df72d8d285bdfc40a713acdee"
+      },
+      {
+        "path": "Benchmark/geneval/evaluation_metadata.jsonl",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "efc21c7e639cd45554a1e44fac87157211f16d51",
+        "size": 85209,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/efc21c7e639cd45554a1e44fac87157211f16d51"
+      },
+      {
+        "path": "Harmon",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "a2e9b867ae52bb97ee54b899c60cc42f40c6ae59",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/a2e9b867ae52bb97ee54b899c60cc42f40c6ae59"
+      },
+      {
+        "path": "Harmon/assets",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "3b4d2ab97167d0feaea1b8d81b132b3cd482e9e4",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/3b4d2ab97167d0feaea1b8d81b132b3cd482e9e4"
+      },
+      {
+        "path": "Harmon/assets/image.jpg",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "ad054d21c8a29e505efe738f3f88060f0f3dc37a",
+        "size": 139452,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/ad054d21c8a29e505efe738f3f88060f0f3dc37a"
+      },
+      {
+        "path": "Harmon/configs",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "f01ad08a5310003dd7898eb918806b5c4076b596",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/f01ad08a5310003dd7898eb918806b5c4076b596"
+      },
+      {
+        "path": "Harmon/configs/datasets",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "d141ee1ef81b020e6847358636b6e48be68f8a21",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/d141ee1ef81b020e6847358636b6e48be68f8a21"
+      },
+      {
+        "path": "Harmon/configs/datasets/qwen2_5_1_5b",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "6ff6b98815e11660a82c9d6b29bbb03bd4d6aa36",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/6ff6b98815e11660a82c9d6b29bbb03bd4d6aa36"
+      },
+      {
+        "path": "Harmon/configs/datasets/qwen2_5_1_5b/UniMRG.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "1f48f269c0b65c75454154b479096fa17ad187b1",
+        "size": 3774,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/1f48f269c0b65c75454154b479096fa17ad187b1"
+      },
+      {
+        "path": "Harmon/configs/datasets/qwen2_5_1_5b/processors.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "a53c6e27f18013b3f909b088ea31365730b1f065",
+        "size": 617,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/a53c6e27f18013b3f909b088ea31365730b1f065"
+      },
+      {
+        "path": "Harmon/configs/examples",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "bfcb16436bf82a306cd9e4275ec69bf4b325eb61",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/bfcb16436bf82a306cd9e4275ec69bf4b325eb61"
+      },
+      {
+        "path": "Harmon/configs/examples/UniMRG.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "8fb65079c79f99bb9095d2c89fde6e169415dc0c",
+        "size": 4672,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/8fb65079c79f99bb9095d2c89fde6e169415dc0c"
+      },
+      {
+        "path": "Harmon/configs/models",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "32bcf4220234772e6850597af404df5b83720fae",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/32bcf4220234772e6850597af404df5b83720fae"
+      },
+      {
+        "path": "Harmon/configs/models/qwen2_5_1_5b_kl16_mar_h.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "0c06b158b0939d65034776b4436cd3c799b165dc",
+        "size": 1853,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/0c06b158b0939d65034776b4436cd3c799b165dc"
+      },
+      {
+        "path": "Harmon/requirements.txt",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "2176e513aa4dd056329ce669b1be995ec2fd57f2",
+        "size": 107,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/2176e513aa4dd056329ce669b1be995ec2fd57f2"
+      },
+      {
+        "path": "Harmon/scripts",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "3b1b712a19b637155e81f919f8f6f4e0c43cd466",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/3b1b712a19b637155e81f919f8f6f4e0c43cd466"
+      },
+      {
+        "path": "Harmon/scripts/dpgbench.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "627dfdc53fe7ffccb4a56d9f417d485088e4e015",
+        "size": 6266,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/627dfdc53fe7ffccb4a56d9f417d485088e4e015"
+      },
+      {
+        "path": "Harmon/scripts/geneval.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "6c31e7b5189a389a1584b0c4cc59029c6f3cbb9e",
+        "size": 6970,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/6c31e7b5189a389a1584b0c4cc59029c6f3cbb9e"
+      },
+      {
+        "path": "Harmon/scripts/parallel_geneval.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "58487ac56be62e66de11dc74463694c9c0abb79a",
+        "size": 20987,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/58487ac56be62e66de11dc74463694c9c0abb79a"
+      },
+      {
+        "path": "Harmon/scripts/train.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "30957395625ef5054522ebc0cec479cc3ff10fcd",
+        "size": 15351,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/30957395625ef5054522ebc0cec479cc3ff10fcd"
+      },
+      {
+        "path": "Harmon/scripts/visualization.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "93a0c5b8a548c5516e18c09e390c96bd672f1c76",
+        "size": 3169,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/93a0c5b8a548c5516e18c09e390c96bd672f1c76"
+      },
+      {
+        "path": "Harmon/src",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "84cf5eb5dfed3516a421ec585cee44ba34e0d4a2",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/84cf5eb5dfed3516a421ec585cee44ba34e0d4a2"
+      },
+      {
+        "path": "Harmon/src/builder.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "59486c96bc571511519215bb056ce4276e12eb8a",
+        "size": 92,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/59486c96bc571511519215bb056ce4276e12eb8a"
+      },
+      {
+        "path": "Harmon/src/datasets",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "b88585991181d1423c58ca3b501f3da0193d9e02",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/b88585991181d1423c58ca3b501f3da0193d9e02"
+      },
+      {
+        "path": "Harmon/src/datasets/__init__.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "26efc3dfc10ab267d3d7f81bccb7958336be5845",
+        "size": 99,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/26efc3dfc10ab267d3d7f81bccb7958336be5845"
+      },
+      {
+        "path": "Harmon/src/datasets/collate_functions.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "79d015ac3ac02794c5a3d961854180aa21052fb4",
+        "size": 7104,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/79d015ac3ac02794c5a3d961854180aa21052fb4"
+      },
+      {
+        "path": "Harmon/src/datasets/samplers",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "e641661f7ed8bee97d4dd32cb9aae37c21e29ad0",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/e641661f7ed8bee97d4dd32cb9aae37c21e29ad0"
+      },
+      {
+        "path": "Harmon/src/datasets/samplers/multi_source_sampler.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "244eba6457ebd86d09bb868726a929f3cc2b4095",
+        "size": 3269,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/244eba6457ebd86d09bb868726a929f3cc2b4095"
+      },
+      {
+        "path": "Harmon/src/datasets/text2image",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "ecc8e5cbb608c69d8a51ea52d3f68c6fd48fe218",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/ecc8e5cbb608c69d8a51ea52d3f68c6fd48fe218"
+      },
+      {
+        "path": "Harmon/src/datasets/text2image/consts.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "226f37f5ffcc68e4e0d38d96a1294f46dd5bc241",
+        "size": 47520,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/226f37f5ffcc68e4e0d38d96a1294f46dd5bc241"
+      },
+      {
+        "path": "Harmon/src/datasets/text2image/text2image.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "e20ee37495a60734a5e86d4b431451dad7ad3e7f",
+        "size": 54139,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/e20ee37495a60734a5e86d4b431451dad7ad3e7f"
+      },
+      {
+        "path": "Harmon/src/datasets/understanding",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "e9d5182073713db882dcf3779accf8328565df36",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/e9d5182073713db882dcf3779accf8328565df36"
+      },
+      {
+        "path": "Harmon/src/datasets/understanding/__init__.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "28b1b678db41de26795ab26cff6ab85b8e9dc722",
+        "size": 69,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/28b1b678db41de26795ab26cff6ab85b8e9dc722"
+      },
+      {
+        "path": "Harmon/src/datasets/understanding/llava_datasets.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "7ff53eddd43a414424f07e31fc28cd1d584833b5",
+        "size": 6726,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/7ff53eddd43a414424f07e31fc28cd1d584833b5"
+      },
+      {
+        "path": "Harmon/src/datasets/utils.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "b145c7d30ae0e99ada356d0e87059f59b42b06f7",
+        "size": 5724,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/b145c7d30ae0e99ada356d0e87059f59b42b06f7"
+      },
+      {
+        "path": "Harmon/src/models",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "71df2dc7b5b7a3f04b653888716b118fe80cbc5a",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/71df2dc7b5b7a3f04b653888716b118fe80cbc5a"
+      },
+      {
+        "path": "Harmon/src/models/harmon.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "287b8d15202d23456c4980cf8739ba241a2ccf04",
+        "size": 13497,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/287b8d15202d23456c4980cf8739ba241a2ccf04"
+      },
+      {
+        "path": "Harmon/src/models/harmon_dev.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "5cec13bd43236e9460bbc0912e5444471d5461d9",
+        "size": 27344,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/5cec13bd43236e9460bbc0912e5444471d5461d9"
+      },
+      {
+        "path": "Harmon/src/models/mar",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "e8a672135fd94cabb8bbc8dd9377340d4362822e",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/e8a672135fd94cabb8bbc8dd9377340d4362822e"
+      },
+      {
+        "path": "Harmon/src/models/mar/diffloss.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "0b8ab72e7bc468011dc76b4a523a860fbc07bfe7",
+        "size": 9186,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/0b8ab72e7bc468011dc76b4a523a860fbc07bfe7"
+      },
+      {
+        "path": "Harmon/src/models/mar/diffusion",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "071e326c6c4da93bbfc80ebdabf292bf1ee61332",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/071e326c6c4da93bbfc80ebdabf292bf1ee61332"
+      },
+      {
+        "path": "Harmon/src/models/mar/diffusion/__init__.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "d08491cd1effb66958d13f0141f6db0f7af2e1d8",
+        "size": 1710,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/d08491cd1effb66958d13f0141f6db0f7af2e1d8"
+      },
+      {
+        "path": "Harmon/src/models/mar/diffusion/diffusion_utils.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "86ef6a9ed81767302fbe36900013dfe1abaf25f4",
+        "size": 2628,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/86ef6a9ed81767302fbe36900013dfe1abaf25f4"
+      },
+      {
+        "path": "Harmon/src/models/mar/diffusion/gaussian_diffusion.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "45f08ca1478ad25a3e0ee9ca26254574d9b96d98",
+        "size": 34484,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/45f08ca1478ad25a3e0ee9ca26254574d9b96d98"
+      },
+      {
+        "path": "Harmon/src/models/mar/diffusion/respace.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "0a2cc0435d1ace54466585db9043b284973d454e",
+        "size": 5485,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/0a2cc0435d1ace54466585db9043b284973d454e"
+      },
+      {
+        "path": "Harmon/src/models/mar/mar.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "efa2d111a03b9caaee49030904c83b63a503e719",
+        "size": 19255,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/efa2d111a03b9caaee49030904c83b63a503e719"
+      },
+      {
+        "path": "Harmon/src/models/mar/vae.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "86b1489a1530309300bcdde3171d7e9023947678",
+        "size": 16367,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/86b1489a1530309300bcdde3171d7e9023947678"
+      },
+      {
+        "path": "Harmon/src/optimisers",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "d6ea8ef5acfa6f0af90993aeb14725a95f1bc5d5",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/d6ea8ef5acfa6f0af90993aeb14725a95f1bc5d5"
+      },
+      {
+        "path": "Harmon/src/optimisers/constructor.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "b316116a97afde7b34038851bdd213d309efb2ed",
+        "size": 2945,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/b316116a97afde7b34038851bdd213d309efb2ed"
+      },
+      {
+        "path": "Harmon/src/runners",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "cc03205d136c5d8a71bc472bd0faf20f521c10af",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/cc03205d136c5d8a71bc472bd0faf20f521c10af"
+      },
+      {
+        "path": "Harmon/src/runners/custom_runner.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "0e79ade305bb20500b3e0cbb8f00aca4ccd45a91",
+        "size": 6792,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/0e79ade305bb20500b3e0cbb8f00aca4ccd45a91"
+      },
+      {
+        "path": "Harmon/train.sh",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "31009ec6269c19ab5bdc530943942c12b467cfdd",
+        "size": 536,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/31009ec6269c19ab5bdc530943942c12b467cfdd"
+      },
+      {
+        "path": "README.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "03b8d25813f16dde8deefbb332070e1a2ded442d",
+        "size": 7732,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/03b8d25813f16dde8deefbb332070e1a2ded442d"
+      },
+      {
+        "path": "VLMEvalKit",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "a11e6801514cc84e26ac9057093af29fc496879b",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/a11e6801514cc84e26ac9057093af29fc496879b"
+      },
+      {
+        "path": "VLMEvalKit/vlmeval",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "57b814f77e12ae60c95294dd85b3395a25306b9d",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/57b814f77e12ae60c95294dd85b3395a25306b9d"
+      },
+      {
+        "path": "VLMEvalKit/vlmeval/config.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "72451d826942457e352ef231f67b7dbbe8b6c118",
+        "size": 66415,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/72451d826942457e352ef231f67b7dbbe8b6c118"
+      },
+      {
+        "path": "VLMEvalKit/vlmeval/vlm",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "bf95a6586effe982b883c1984a366538695d171e",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/bf95a6586effe982b883c1984a366538695d171e"
+      },
+      {
+        "path": "VLMEvalKit/vlmeval/vlm/__init__.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "da411cf851a416b95cf64570f64085ae0b97b8ec",
+        "size": 3514,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/da411cf851a416b95cf64570f64085ae0b97b8ec"
+      },
+      {
+        "path": "VLMEvalKit/vlmeval/vlm/harmon.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "75d31dbdab6a0ddd4a8fe4ac203312c54c562de1",
+        "size": 7953,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/75d31dbdab6a0ddd4a8fe4ac203312c54c562de1"
+      },
+      {
+        "path": "fig",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "2b8263910319cb38154416d241214fef2bad5b13",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/2b8263910319cb38154416d241214fef2bad5b13"
+      },
+      {
+        "path": "fig/pipeline.png",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "f878252ff438882906848a69655d2fd70f4f1a66",
+        "size": 1530835,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/f878252ff438882906848a69655d2fd70f4f1a66"
+      },
+      {
+        "path": "segment-anything",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "93c2f3dfd5b399ab0584eecbd4c470ce3fa9f840",
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/trees/93c2f3dfd5b399ab0584eecbd4c470ce3fa9f840"
+      },
+      {
+        "path": "segment-anything/run_mask.py",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "a55c22d7689b6b336d14e881c467c4bea31461a1",
+        "size": 5388,
+        "url": "https://api.github.com/repos/Zihan-Su/UniMRG/git/blobs/a55c22d7689b6b336d14e881c467c4bea31461a1"
+      }
+    ],
+    "recursive_tree_truncated": false,
+    "downloaded_text_files": 37,
+    "training_implementation": "Harmon; no matching OpenUni/Show-o implementation in this tree",
+    "public_training_configuration": {
+      "image_size": 512,
+      "max_loader_iterations": 10000,
+      "batch_per_microstep_per_gpu": 16,
+      "task_repeat": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "accumulation": 4,
+      "loss_weights": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "condition_gradient_scale": 0.1
+    },
+    "paper_harmon_configuration": {
+      "image_size": 384,
+      "steps": 4000
+    },
+    "public_generation_defaults": {
+      "geneval_images_per_prompt": 12,
+      "dpg_images_per_prompt": 4,
+      "mar_iterations": 64,
+      "cfg": 3,
+      "temperature": 1,
+      "image_size": 512
+    },
+    "preprocessed_dataset_metadata": {
+      "RequestId": "01c23bd5-4622-4979-916e-169c42ef7487",
+      "Code": 200,
+      "Message": "success",
+      "Data": {
+        "isTop": null,
+        "relatedPaperId": null,
+        "nexa": "{}",
+        "Id": 176970,
+        "Namespace": "Sugewud",
+        "Name": "LLaVA-Instruct-150K-UniMRG",
+        "CreatedBy": "Sugewud",
+        "ChineseName": null,
+        "License": "Apache License 2.0",
+        "Description": null,
+        "Visibility": 5,
+        "Type": 4,
+        "Owner": "Sugewud",
+        "UserDefineTags": "",
+        "Likes": 0,
+        "Downloads": 210,
+        "Size": null,
+        "ReadmeContent": "# LLaVA-Instruct-150K-UniMRG\n\nFiles:\n- llava_v1_5_mix665k.json\n- tuning_data/\n- tuning_data_depth/\n- tuning_data_mask/\n",
+        "AlreadyStar": false,
+        "GmtCreate": 1772027841,
+        "GmtModified": 1789977187,
+        "Tags": null,
+        "Status": 1,
+        "FullName": null,
+        "Organization": null,
+        "UsedFor": null,
+        "CertificationMark": 0,
+        "LastUpdatedTime": 1779678063,
+        "FromSite": "maas",
+        "SourcePlatform": null,
+        "topIndex": null,
+        "IsFlex": 0,
+        "StorageSize": 134700683635,
+        "RelateArxivId": null,
+        "Avatar": null,
+        "ProtectedMode": 2,
+        "ApprovalMode": 1,
+        "ApplyMeta": null,
+        "NEXA": {
+          "Source": null,
+          "DatasetCover": null,
+          "ScientificField": null,
+          "SubScientificField": null,
+          "Catalogues": []
+        }
+      },
+      "PageNumber": null,
+      "PageSize": null,
+      "TotalCount": null
+    },
+    "hf_paper_associated_artifacts": {
+      "linkedModels": [],
+      "linkedDatasets": [],
+      "linkedSpaces": []
+    }
+  },
+  "learned_model_execution": false,
+  "raw_score_reanalysis": false,
+  "reading_scope": "完整v3研究正文§1–5、Impact、AppA.1–A.3/B.1–B.4/C共16页；T1–4所有行/分项、F1–7全部视觉、Eq1–20及任务/预处理/提示模板已读。固定官方HEAD66tree/40blob，37文本文件下载，完整README及Harmon训练config/model/HarmonDev默认loss、sampler/collator、LLaVA任务数据、SAM边缘生成、visualization和VLMEvalKitHarmon适配，训练入口/parallelGenEval关键路径审读；未称所有vendoreddiffusion文件完整审计。ModelScope元数据/README和HFpaper关联API已核，未下载134.7GB数据/运行训练或评分。核心三遍与五项书面完成，非口试/独立复现。",
+  "source_urls": [
+    "https://arxiv.org/abs/2601.21406v3",
+    "https://arxiv.org/html/2601.21406v3",
+    "https://arxiv.org/pdf/2601.21406v3",
+    "https://zihan-su.github.io/UniMRG-Project/",
+    "https://icml.cc/Downloads/2026",
+    "https://github.com/Zihan-Su/UniMRG/tree/0493c6dd3661d6d8bc1fde143fef91238eef2777",
+    "https://modelscope.cn/datasets/Sugewud/LLaVA-Instruct-150K-UniMRG"
+  ]
+}

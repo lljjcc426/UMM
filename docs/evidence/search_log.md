@@ -727,3 +727,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百八十四批（2026-10-24）：U18完整2607.04423v2与项目页核ECCV2026；13表13图/100空间prompt，官方HEAD d5be8ea递归tree仅README且全文核。见[审查](transferability_full_parser_coverage_and_distribution_shift_audit_2026-10-24.md)、[U18](../reviews/U18.md)。
+
+
+第一百八十五批（2026-10-24）：U19核v3正文附录4表7图20式；会方Downloads和项目页确认ICML2026，固定官方HEAD0493c6d，ModelScope公开预处理数据元数据。见[审查](unimrg_full_teacher_targets_training_schedule_and_release_audit_2026-10-24.md)、[U19](../reviews/U19.md)。

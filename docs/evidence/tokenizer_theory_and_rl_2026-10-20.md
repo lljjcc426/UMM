@@ -219,3 +219,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百八十四批（2026-10-24）：LoRA只调QKV/MLP、encoder/head冻结；离散diffusion/AR/连续路差异未控，F10attention不同阶段且Janusmask索引需澄清。见[审查](transferability_full_parser_coverage_and_distribution_shift_audit_2026-10-24.md)、[U18](../reviews/U18.md)。
+
+
+第一百八十五批（2026-10-24）：Show-o图像maskedprediction；4096codebook瓶颈缺容量干预。Harmon四loss权重1并有条件梯度scale.1，冻结按实际布尔值。见[审查](unimrg_full_teacher_targets_training_schedule_and_release_audit_2026-10-24.md)、[U19](../reviews/U19.md)。

@@ -638,3 +638,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百八十四批（2026-10-24）：单侧理解/生成同能力迁移；English120字符单H1字图，Und四CSS/Gen单CSS；静态字图不足外推笔顺和手绘视频。见[审查](transferability_full_parser_coverage_and_distribution_shift_audit_2026-10-24.md)、[U18](../reviews/U18.md)。
+
+
+第一百八十五批（2026-10-24）：四目标posttraining：Und/RGB/depth/边界图；相对深度和无类别边缘不可直接外推笔序/语义分割/素描视频。见[审查](unimrg_full_teacher_targets_training_schedule_and_release_audit_2026-10-24.md)、[U19](../reviews/U19.md)。

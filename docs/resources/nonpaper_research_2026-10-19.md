@@ -635,3 +635,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百八十四批（2026-10-24）：官方Code链接当前HEAD仅1README，无训练/eval/数据/LoRA/raw实现；已审README，不把项目页等同可复现制品。见[审查](../evidence/transferability_full_parser_coverage_and_distribution_shift_audit_2026-10-24.md)、[U18](../reviews/U18.md)。
+
+
+第一百八十五批（2026-10-24）：官方代码已发布Harmon训练/采样/VLMEval适配和SAM边缘脚本，不能沿用旧comingsoon。ModelScope约134.7GB数据仓已确认，finetuned权重与其他两骨干实现未核发布。见[审查](../evidence/unimrg_full_teacher_targets_training_schedule_and_release_audit_2026-10-24.md)、[U19](../reviews/U19.md)。
