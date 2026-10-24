@@ -631,3 +631,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百七十三批（2026-10-24）：Flash单/双流、分割、RL、ByT5和冻结策略需同预算对照，ContextASR分指标/错上下文、T11按视频bootstrap/盲序人评；公开单尺度与负提示行为需映射论文checkpoint，文字报抽取与glyph两阶段。见[审查](../evidence/ming_flash_omni_frozen_synergy_context_metric_and_release_audit_2026-10-24.md)、[L161](../reviews/L161.md)。
+
+
+第一百七十四批（2026-10-24）：等token课程/文本续训和DPO按头归一对照；停说/VAD/发包/播放四时钟、抢话率和回滚成本，按会话/评分员聚类统计，未执行。见[审查](../evidence/longcat_flash_omni_stage_tradeoffs_latency_and_service_identity_audit_2026-10-24.md)、[L162](../reviews/L162.md)。

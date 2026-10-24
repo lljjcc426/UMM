@@ -605,3 +605,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百七十三批（2026-10-24）：Flash感知后冻结、另训图生成器，连续声学44.1kHz波形/12.5Hz VAE；当前公开图配置仅16²query，默认图分支未读音/视频特征，输出无视频/笔画轨迹。见[审查](ming_flash_omni_frozen_synergy_context_metric_and_release_audit_2026-10-24.md)、[L161](../reviews/L161.md)。
+
+
+第一百七十四批（2026-10-24）：LongCat字声输出、视觉输入；RefCOCO为bbox定位，非maskIoU；128K支持与32K视频实验、2FPS与token压缩及快速笔画观测条件区分。见[审查](longcat_flash_omni_stage_tradeoffs_latency_and_service_identity_audit_2026-10-24.md)、[L162](../reviews/L162.md)。

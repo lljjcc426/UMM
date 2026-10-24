@@ -646,3 +646,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百七十三批（2026-10-24）：T8 Avg3.30与十二指标macro吻合，四WERmacro2.3275差于Qwen1.9825、NE-FNR四项全差；T11完整性65.07<Gemini69.07但正文说超过。修复UniAudio私人submit引用为公开2511.05516，全文另排追引。见[审查](ming_flash_omni_frozen_synergy_context_metric_and_release_audit_2026-10-24.md)、[L161](../reviews/L161.md)。
+
+
+第一百七十四批（2026-10-24）：T12比纯文11升7降、T13三项指令皆退；T9对Qwen3一胜九负；脚注GPT4o指chat.chatbot.app，保留服务身份未决，OmniBench内部修正和README/PDF版本差异待齐。见[审查](longcat_flash_omni_stage_tradeoffs_latency_and_service_identity_audit_2026-10-24.md)、[L162](../reviews/L162.md)。

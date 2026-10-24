@@ -694,3 +694,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百七十三批（2026-10-24）：Ming-Flash-Omni v3完整研究/附录及11表五实际图，固定GH2a0c02a/HFc1ed556，AST负条件/引导参数读取与T8表算术，未模型执行。见[审查](ming_flash_omni_frozen_synergy_context_metric_and_release_audit_2026-10-24.md)、[L161](../reviews/L161.md)。
+
+
+第一百七十四批（2026-10-24）：LongCat完整研究/16表12实际图两式，固定GHf6f1f0f/HFf65b903/外部SGLang06a2f9b；源码指定范围和PDF40页实际核读边界已记。见[审查](longcat_flash_omni_stage_tradeoffs_latency_and_service_identity_audit_2026-10-24.md)、[L162](../reviews/L162.md)。

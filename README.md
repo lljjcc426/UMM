@@ -515,3 +515,6 @@ python scripts/validate_catalog.py
 
 
 第一百七十三批（2026-10-24）：L161完成v3全部研究正文/附录、11表五图；核T8混合macro与WER折中、T11完整性退化及正文冲突，固定Flash2.0实际单尺度和负条件参数未用，保留声/图指标退步。358目录，279核心/284书面；待完成核心深审52篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/ming_flash_omni_frozen_synergy_context_metric_and_release_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_seventy_third_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百七十四批（2026-10-24）：L162完成v2研究全文/16表12图两式；核文本18项11升7降及指令三项全退、ASR对Qwen1胜9负、100ms在VAD后和GPT4o第三方脚注，区分demo与服务链。358目录，280核心/285书面；待完成核心深审51篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/longcat_flash_omni_stage_tradeoffs_latency_and_service_identity_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_seventy_fourth_changes_2026-10-24.md)。无删除或模型执行。
