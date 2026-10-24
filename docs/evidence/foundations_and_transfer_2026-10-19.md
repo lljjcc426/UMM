@@ -435,3 +435,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百七十二批（2026-10-24）：多尺度表示对齐已有Ming-Lite-Uni前作文字收益，不能重复算后作首创；冻结参数避免直接梯度改写，不证明双向迁移或query层次解耦。见[审查](ming_lite_uni_companion_multiscale_and_release_alignment_audit_2026-10-24.md)、[L191](../reviews/L191.md)。
+
+
+第一百七十三批（2026-10-24）：生成式分割可监督生成器的边界/语义，但不能把梯度更新归给冻结感知底座；256共享expert的三router与6.1B语言激活量不能替代端到端成本，ByT5正条件有效。见[审查](ming_flash_omni_frozen_synergy_context_metric_and_release_audit_2026-10-24.md)、[L161](../reviews/L161.md)。

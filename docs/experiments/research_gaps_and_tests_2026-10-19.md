@@ -628,3 +628,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百七十二批（2026-10-24）：已读Ming-Lite-Uni，已有MSE/query收益的文字声明须作为先验；再做等token/FLOPs和固定底座的正交消融，并计完整三次与末尺度采样时延，公开模型身份与原始样本。见[审查](../evidence/ming_lite_uni_companion_multiscale_and_release_alignment_audit_2026-10-24.md)、[L191](../reviews/L191.md)。
+
+
+第一百七十三批（2026-10-24）：Flash单/双流、分割、RL、ByT5和冻结策略需同预算对照，ContextASR分指标/错上下文、T11按视频bootstrap/盲序人评；公开单尺度与负提示行为需映射论文checkpoint，文字报抽取与glyph两阶段。见[审查](../evidence/ming_flash_omni_frozen_synergy_context_metric_and_release_audit_2026-10-24.md)、[L161](../reviews/L161.md)。

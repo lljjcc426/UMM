@@ -10775,22 +10775,29 @@
       "https://arxiv.org/html/2510.24821v3",
       "https://arxiv.org/pdf/2510.24821v3",
       "https://github.com/inclusionAI/Ming/tree/2a0c02ae3130190160c215f89fce7de3005db483",
-      "https://huggingface.co/inclusionAI/Ming-flash-omni-2.0/blob/c1ed5565e64e85a76826255c000b66a20d4634c3/README.md"
+      "https://huggingface.co/inclusionAI/Ming-flash-omni-2.0/blob/c1ed5565e64e85a76826255c000b66a20d4634c3/README.md",
+      "https://arxiv.org/abs/2510.24821v3",
+      "https://github.com/inclusionAI/Ming/blob/2a0c02ae3130190160c215f89fce7de3005db483/modeling_bailingmm2.py",
+      "https://github.com/inclusionAI/Ming/blob/2a0c02ae3130190160c215f89fce7de3005db483/diffusion/zimage_loss.py",
+      "https://huggingface.co/inclusionAI/Ming-flash-omni-2.0/tree/c1ed5565e64e85a76826255c000b66a20d4634c3",
+      "https://huggingface.co/inclusionAI/Ming-flash-omni-2.0/blob/c1ed5565e64e85a76826255c000b66a20d4634c3/mlp/config.json",
+      "https://arxiv.org/abs/2511.05516",
+      "https://arxiv.org/abs/2509.16117"
     ],
-    "method": "Ling-Flash2.0稀疏骨干、时间交错VideoRoPE；单流图像扩散、分割转编辑、Glyph-byT5与多奖励RL；连续声学latent配合AR条件及flow头。 100B总/6.1B激活语言MoE；图生成阶段感知MLLM冻结，多尺度query/connector接单流DiT，参考VAE拼接noisy latent。Glyph-byT5输入待渲染字符串需先提取；音频Qwen2.5 .5B头预测条件，VAE12.5Hz/44.1kHz音频+flow头。模块共享不证明生成梯度反哺冻结感知模型。",
-    "conclusion": "v3 Table2 GenEval.94/Position.96，DPG86.98低于QwenImage88.32；Table3 GEditEN7.64/CN7.62。Table4 RefCOCO72.1/Ref+65.2/Refg65.4，落后PolyFormer74.8/67.6/67.8等专用模型，API对照只500图采样。中文TTS WER.87但SIM.72低于SeedTTS.80；非全面最优。",
-    "gap": "冻结感知与“统一优化/互利”强说法需区分训练阶段；文本提取与OCR教师会引入错误。分割生成边界/调色板解码需严评，多轮自建benchmark样本与评审独立性有限。视频理解、静态文字及连续书写各有不同目标。",
-    "problem": "如何在稀疏多模态感知骨干上提高可控图像编辑/文字渲染、生成式分割和连续音频生成？",
+    "method": "100B总/6.1B每token激活稀疏MoE；VideoRoPE时间戳交错、上下文/多轮理解GRPO；连续声学VAE与AR+flow生成替代离散码；单流DiT把文字/query、参考VAE/noise/glyph条件放统一token空间，彩色分割作为编辑预训，再按生图→编辑顺序多奖励RL并以离线数据正则替KL；Glyph-byT5文字条件与身份/运动样本平衡。属于Ming/L159–160/L191系列扩展，需按版本分离。 发布HF：Ling32层h4096/32heads4KV，首层dense，余层256routed选8+1shared，3模态router共享expertpool；Sigmoid路由+分组topk、bias只影响选路不直接加混合权，语言配置maxpos32768/VideoRoPE时间戳交错，不能单凭该字段断言推理硬上限，论文IT2写64K。视觉Qwen3MoEVision27层h1152/patch16/merge2/deepstack[8,16,24]，Whisper32层h1280。connector Qwen2配置28层h1536；DiT为ZImage30层h3840/30heads+2refiner/in16/cap2560。实际mlp/config明确img_gen_scales=[16]，启用256query，不能沿用源码fallback[4,8,16]写发布版336query。声VAE输入882sample/patch4、latent64：44100/(882×4)=12.5Hz，与encode_latent分两次ceil一致；talker另每patch4帧聚合一次AR条件，语音flow/aggregator各8层h1024，默认10flowsteps，不能把采样率/latent帧率/条件更新率混为一项。",
+    "conclusion": "T1Hall66.1/MMVet85.6/OCR891/Ref88.5/MV77.5等有优势；MMMU77.1<Gemini80.9、Muir61.4<GLM77.1、VideoMME73.4<Gemini84.3/LongCat76.2，LongVideo65.4<69.3。T2 .99/.98/.92/.94/.96/.89→.94最高overall，但single<ZImage1、count<QwenRL.93，DPG86.98<QwenImage88.32/ZImage88.14。T3 EN8.11/7.87/7.64、CN8.02/7.95/7.62，overall领先，CN语义8.02<ZImage8.03。T4 72.1/65.2/65.4<PolyFormer74.8/67.6/67.8；API500图的差距不当公平全val推断。T5中WER.87优、SIM.72<Seed.80/Cosy.78，英WER2.19<QwenOmni2.72但>Qwen3 1.39/F5 1.83/Cosy2.02，SIM.61低于表中其余有值baseline。T6easy2.25/.695/82.08、hard3.18/.717/84.42，CER/ACC好，SIM未最优，ACC均值83.25为两subset宏平均。T7 CER2.12/UTMOS2.25最好、cpSIM.457<Zip.553/SoulX.599。T8综合Avg3.30见指标折中。T9中3.39>Qwen3 3.19，英3.64<3.69；15方言中13项优于Qwen3，东北/陕西更差；六域仅Knowledge优于Qwen3，其余五域更差，内部总macro7.40<13.02不代表所有子域领先。T10Mean82.95<Qwen3Flash85.40，本作Alpaca95.58/MMSU72.09较强。T11Avg75.92>Gemini74.99，但完整性65.07<69.07；正文称该维也超过Gemini与表冲突，其余四维高于Gemini、全部五维高于旧Lite。",
+    "gap": "公开图生成配置仅16²query与论文多尺度训练叙述的checkpoint映射未明。默认image_gen分支158–317不读取audio_feats/pixel_values_videos，实际从输入图/字取条件；顶层四模态输入支持不能扩展为所有任意组合到图可达。ZImageLoss.sample190–211未读取negative_encoder_hidden_states/image_cfg/cfg_mode，正ByT5通过condition拼接仍有效；不能误写ByT5完全没用。完整训练/RL/分割mask解码和benchmark原始预测未在固定树定位。仅色块编辑IoU不足衡量boundary/调色板/未编辑区副作用；作者引用的双流“独立selfattention”解释还需具体jointattention实现和单/双流对照，参数分流不自动等于完全无跨模态注意力。图中文字有提取前置依赖与OCR教师选择偏差风险待独立人工/字形集评价；冻结权重不提供生成→感知训练迁移，连续latent减量化误差不保证整体codec无重建损失。声/乐生成缺音效/音乐定量表，3.30混合macro与T11正文退化需如实说明。",
+    "problem": "在稀疏Ling-Flash-2.0上联合多模态理解、图像生图/编辑/彩色分割以及连续语音/声音/音乐生成，改善图像控制与身份保留、上下文/方言ASR和流式跨模态对话。需区分生成器内部语义/像素联合建模、冻结感知底座的迁移、任务兼容和真正双向训练互利。",
     "claim": "研究目标：如何在稀疏多模态感知骨干上提高可控图像编辑/文字渲染、生成式分割和连续音频生成？",
-    "version": "Ming-Flash-Omni: A Sparse, Unified Architecture for Multimodal Perception and Generation；arXiv2510.24821v3，2026-03-26；首版2025-10-28；未核实正式接收",
+    "version": "Ming-Flash-Omni: A Sparse, Unified Architecture for Multimodal Perception and Generation，arXiv2510.24821v3，2026-03-26，首版2025-10-28；本次按修订v3与Flash2.0发布物核，未将2025预览和2026修订结果混用；未核正式会场。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 9. 音频、视频、动作与 any-to-any：边界要分清",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-24",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-24",
     "id": "L161",
     "canonical_key": "paper:arxiv:2510.24821",
     "evidence_history": [
@@ -10822,17 +10829,23 @@
         "conclusion": "支持稀疏扩展研究；总量不能与其他模型激活量直接比较",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "checked_on": "2026-10-24",
+        "batch": "one_hundred_seventy_third",
+        "sections_read": "arXiv2510.24821v3完整HTML§1–5及研究附录A/B（HTML§7–8）全部文字、11张主表全部行、五张实际原图F1–5视觉核；贡献名单只核范围，参考相关追引。完整30页PDF已下载，另视觉交叉核第6/15/17/27页训练阶段、表号、T8/T11及附录范围；全文研究内容以完整HTML及表格/原图阅读为基础，不称PDF逐页视觉检查。核心三遍与五项书面完成，未独立口述/复现。GH固定2a0c02a全部205树/181blobs，README与主generate/condition/moduleloader、MoErouter、ZImageLoss全文、ZImagepipeline相关去噪/CFG、图测试脚本、Video工具相关段、audioVAE全文和talker生成/参考打包相关段；不称所有源码逐行。HF99文件及八组配置/ByT5核，未权重下载或模型执行；notebook下载未完整，未列已读。T8仅表格算术及AST参数读取审查。",
+        "verification": "primary_sections_read"
       }
     ],
-    "sections_read": "v3§2/§3指定数据、§4.1–4.3、Tables2–5指定行；官方README/当前HF模型卡及模态表核。全部附录/所有主表、模型执行代码未全审，未复现",
+    "sections_read": "arXiv2510.24821v3完整HTML§1–5及研究附录A/B（HTML§7–8）全部文字、11张主表全部行、五张实际原图F1–5视觉核；贡献名单只核范围，参考相关追引。完整30页PDF已下载，另视觉交叉核第6/15/17/27页训练阶段、表号、T8/T11及附录范围；全文研究内容以完整HTML及表格/原图阅读为基础，不称PDF逐页视觉检查。核心三遍与五项书面完成，未独立口述/复现。GH固定2a0c02a全部205树/181blobs，README与主generate/condition/moduleloader、MoErouter、ZImageLoss全文、ZImagepipeline相关去噪/CFG、图测试脚本、Video工具相关段、audioVAE全文和talker生成/参考打包相关段；不称所有源码逐行。HF99文件及八组配置/ByT5核，未权重下载或模型执行；notebook下载未完整，未列已读。T8仅表格算术及AST参数读取审查。",
     "review_path": "docs/reviews/L161.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "Ming旧数据加1.6M长CoT、百万级OCR、3M ContextASR、中英文字合成/图内渲染/OCR过滤教师图；RefCOCO/+/g及COCO-Panoptic转彩色编辑。200K生活—证件照、20K地标人物+1000背景；全库量/划分/完整公开manifest未核齐。",
-    "framework": "Ling-Flash2.0稀疏骨干、时间交错VideoRoPE；单流图像扩散、分割转编辑、Glyph-byT5与多奖励RL；连续声学latent配合AR条件及flow头。",
-    "architecture": "100B总/6.1B激活语言MoE；图生成阶段感知MLLM冻结，多尺度query/connector接单流DiT，参考VAE拼接noisy latent。Glyph-byT5输入待渲染字符串需先提取；音频Qwen2.5 .5B头预测条件，VAE12.5Hz/44.1kHz音频+flow头。模块共享不证明生成梯度反哺冻结感知模型。",
-    "metrics": "GenEval/DPG、GPT4.1 GEdit语义/感知/整体、RefCOCO IoU、OCRBench理解、WER/说话人SIM等；高保真图中文字主张未由已读主表提供独立CER/严格字符全对率，更无笔顺视频指标。",
-    "baselines": "SD/Janus/BAGEL/OmniGen/QwenImage/ZImage及编辑、专用分割模型，Gemini/Qwen等理解/音频。闭源API、不同pretrain与版本非同算力对照。",
-    "experimental_conditions": "感知8K→24K预训、10K/64K指令、GRPO；之后冻结感知并训图生成FM→参考图编辑→多奖励RL，以offline正则替KL。已读未给完整图生成lr/步数/GPU小时/全部推理CFG。官方Ming2.0模型卡固定c1ed5565e64e85a76826255c000b66a20d4634c3，代码2a0c02ae3130190160c215f89fce7de3005db483；避免与2025Preview/早期Lite参数混用。"
+    "dataset": "主要继承Ming-Omni并增实体百科（动物/植物/名人/动漫/地标/菜肴/古物/书画）、检索CLIP/VLM/人工筛、共识三元组QA；1.6M最长8K多模态CoT与百万级OCR/ChartQA-PoT；安全语料扩约30倍、GRPO多任务分层但总量未齐。图分割RefCOCO/+/g训练与COCO-Panoptic涂色，ID照200K对、225地标20K人像/1000背景，经SAM2合成；三难度中英数字文字渲染/图内平滑区域/Felzenszwalb和Qwen-Image/NanoBanana教师+OCR过滤。ContextASR3M中英<音/字/上下文/实体>，明确去无关keyword与负样本；TTS检索/VAD/迭代标签，未给总小时。视频最长30min/256K-token合成对话属于数据pipeline描述，不能直接当64K IT的实际单段训练长度。文本继承Ling/M2/Ming。内部百科数量/训练实体隔离未给；Streaming380视频/2200QA、10人工改/复核；方言15地区51986、领域10397=Noisy8145+Chat443+Gov462+Health450+Knowledge421+Local476，不能当所有子集等样本。",
+    "framework": "100B总/6.1B每token激活稀疏MoE；VideoRoPE时间戳交错、上下文/多轮理解GRPO；连续声学VAE与AR+flow生成替代离散码；单流DiT把文字/query、参考VAE/noise/glyph条件放统一token空间，彩色分割作为编辑预训，再按生图→编辑顺序多奖励RL并以离线数据正则替KL；Glyph-byT5文字条件与身份/运动样本平衡。属于Ming/L159–160/L191系列扩展，需按版本分离。",
+    "architecture": "发布HF：Ling32层h4096/32heads4KV，首层dense，余层256routed选8+1shared，3模态router共享expertpool；Sigmoid路由+分组topk、bias只影响选路不直接加混合权，语言配置maxpos32768/VideoRoPE时间戳交错，不能单凭该字段断言推理硬上限，论文IT2写64K。视觉Qwen3MoEVision27层h1152/patch16/merge2/deepstack[8,16,24]，Whisper32层h1280。connector Qwen2配置28层h1536；DiT为ZImage30层h3840/30heads+2refiner/in16/cap2560。实际mlp/config明确img_gen_scales=[16]，启用256query，不能沿用源码fallback[4,8,16]写发布版336query。声VAE输入882sample/patch4、latent64：44100/(882×4)=12.5Hz，与encode_latent分两次ceil一致；talker另每patch4帧聚合一次AR条件，语音flow/aggregator各8层h1024，默认10flowsteps，不能把采样率/latent帧率/条件更新率混为一项。",
+    "metrics": "T1视觉/视频各公共任务与内部百科；T2GenEval六子项/DPG；T3GPT4.1评GEdit full EN/CN语义/感知/整体；T4Ref三集val IoU，对API方法只各500图，与本作全val范围不一致。T5SeedTTS WER/SIM；T6四川CER/SIM/ACC；T7ZipVoiceDia CER/cpSIM/UTMOS；T8ContextASR每英speech/dialogue/中speech/dialogue WER、NE-WER、NE-FNR。T8Ming十二数单元平权平均3.2967≈Avg3.30，Qwen3Omni4.3408≈4.34，数值吻合这种混合macro；四项WER本身的macro2.3275>Qwen1.9825，四项NE-FNR全更差，不能将3.30标成总体WER或全面更强上下文利用。作者已承认部分单项Qwen更强。T9普通ASR/内部macro，T10VoiceBench任务分数，T11闭源裁判如GPT4o按人工修订答案五维1–5后线性百分化，非全量人评。无字形生成CER/逐字全对或笔顺时序指标。",
+    "baselines": "T1Qwen3Omni30B-A3B、LongCat560B-A27B、Gemini2.5Pro、GLM4.6V106B-A12B，*为作者按官方prompt自评，其他引用；不混同等预算。T2专门SD2.1/Emu3Gen/SDXL/DALLE3/SD3与统一SEEDX/Showo/TokenFlow/Janus/JanusFlow/JanusPro/UniWorld/OmniGen2/BAGEL/ZImage/QwenImage/RL；作者也把某些生成模型列Uni，任务分组不自动证明同权重理解。T3 IP2P/AnyEdit/MagicBrush/Step1X/QwenImageEdit/ZImageEdit和统一组；T4视觉VLT/CRIS/LAVT/PolyFormer、SAM系LISA/PixelLM/OMG，以及NanoBanana/QwenImageEdit API。T5–10与Qwen、Seed、F5、CosyVoice、ZipVoice/SoulX等，多数数据/规模/采样协议不匹配。所有十一表全行保存。",
+    "experimental_conditions": "§2.4感知PT8K/8K/24K，IT1原文“10K sequences”未显式区分长度/样本数、IT2明确context64K，随后GRPO规则/模型/checklist奖励和多轮切换优化；“10K sequences”保留单位歧义，未认定10000训练样本。图预训FM→参考编辑/ByT5→生图及编辑RL，全程冻结感知MLLM，声生成器沿用预训；优化器、LR、步数、batch、各loss权重、GPU与匹配消融预算未齐。基础设施作者报告LP并行布置58.1–69.7%加速、kernel至80%带宽/较TE最多25.3%减延迟/较PyTorch5×、MFU28%/较Megatron>4×，未附足以复现的硬件配置与独立表格。固定GH2a0c02ae3130190160c215f89fce7de3005db483树205entries/181blobs，README及九相关Python文件实际选读；HFc1ed5565e64e85a76826255c000b66a20d4634c3清单99files（42主模型shards、5DiT、2connector及声/VAE/ByT5）与根/connector/MLP/DiT/声head/VAE/ByT5配置核，未下载权重。图generate默认30steps/CFG2/1024、seed可设；T2/3实际采样N/改写/seed/步数未齐。ZImage正条件可拼ByT5，但负条件被wrapper替零；CFG代码pos+g(pos−neg)，与常见neg+w(pos−neg)约定对应w=g+1（有CFG分支时），不直接比较数值CFG。"
   },
   {
     "title": "LongCat-Flash-Omni Technical Report",
@@ -11818,7 +11831,7 @@
       {
         "checked_on": "2026-10-24",
         "batch": "one_hundred_seventy_second",
-        "sections_read": "arXiv2505.02471v3完整HTML研究§1–4、Eq1–4、T1–3全部行、七张实际原图F1–7全部视觉阅读；贡献仅名单范围/参考相关追引；v1/v3研究文字差异核，未把完整PDF阅读作为凭据。核心三遍与五项书面完成，未独立口述/模型复现。固定GH预览分支117树/101blobs、相关Ming-unify19blob路径清单及六份源码/README实际阅读；HF69文件元数据与11个文本配置/关键代码核。未下载权重、未模型执行，未称所有源码逐行。",
+        "sections_read": "arXiv2505.02471v3完整HTML研究§1–4、Eq1–4、T1–3全部行、七张实际原图F1–7全部视觉阅读；贡献仅名单范围/参考相关追引；v1/v3研究文字差异核，未把完整PDF阅读作为凭据。核心三遍与五项书面完成，未独立口述/模型复现。固定GH预览分支117树/101blobs、相关Ming-unify18blob路径清单及六份源码/README实际阅读；HF66文件元数据与11个文本配置/关键代码核。未下载权重、未模型执行，未称所有源码逐行。",
         "verification": "primary_sections_read"
       }
     ],

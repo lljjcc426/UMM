@@ -602,3 +602,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百七十二批（2026-10-24）：Ming-Lite-Uni冻结MLLM接query/connector/SANA，图像理解/生图/编辑；发布为Qwen2.5，论文写M2/Llama，版本对应仍未决，无视频/笔顺输出。见[审查](ming_lite_uni_companion_multiscale_and_release_alignment_audit_2026-10-24.md)、[L191](../reviews/L191.md)。
+
+
+第一百七十三批（2026-10-24）：Flash感知后冻结、另训图生成器，连续声学44.1kHz波形/12.5Hz VAE；当前公开图配置仅16²query，默认图分支未读音/视频特征，输出无视频/笔画轨迹。见[审查](ming_flash_omni_frozen_synergy_context_metric_and_release_audit_2026-10-24.md)、[L161](../reviews/L161.md)。

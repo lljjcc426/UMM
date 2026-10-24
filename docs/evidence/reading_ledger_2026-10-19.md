@@ -266,7 +266,7 @@
 | L158 | OmniFlow: Any-to-Any Generation with Multi-Modal Rectified Flows | primary_sections_read | [结构化分析](../reviews/L158.md) | 核心三遍与五项检查完成 |
 | L159 | M2-omni: Advancing Omni-MLLM for Comprehensive Modality Support with Competitive Performance | primary_sections_read | [结构化分析](../reviews/L159.md) | 核心三遍与五项检查完成 |
 | L160 | Ming-Omni: A Unified Multimodal Model for Perception and Generation | primary_sections_read | [结构化分析](../reviews/L160.md) | 核心三遍与五项检查完成 |
-| L161 | Ming-Flash-Omni: A Sparse, Unified Architecture for Multimodal Perception and Generation | primary_sections_read | [结构化分析](../reviews/L161.md) | 未完成 |
+| L161 | Ming-Flash-Omni: A Sparse, Unified Architecture for Multimodal Perception and Generation | primary_sections_read | [结构化分析](../reviews/L161.md) | 核心三遍与五项检查完成 |
 | L162 | LongCat-Flash-Omni Technical Report | primary_sections_read | [结构化分析](../reviews/L162.md) | 未完成 |
 | L163 | ERNIE 5.0 Technical Report | primary_sections_read | [结构化分析](../reviews/L163.md) | 未完成 |
 | L164 | MUNI: Multimodal Unified Latent Diffusion for Coherent Any-to-Any Generation | primary_sections_read | [结构化分析](../reviews/L164.md) | 未完成 |

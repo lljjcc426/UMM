@@ -9703,6 +9703,40 @@
         }
       ],
       "boundary": "arXiv2505.02471v3完整HTML研究§1–4、Eq1–4、T1–3全部行、七张实际原图F1–7全部视觉阅读；贡献仅名单范围/参考相关追引；v1/v3研究文字差异核，未把完整PDF阅读作为凭据。核心三遍与五项书面完成，未独立口述/模型复现。固定GH预览分支117树/101blobs、相关Ming-unify18blob路径清单及六份源码/README实际阅读；HF66文件元数据与11个文本配置/关键代码核。未下载权重、未模型执行，未称所有源码逐行。"
+    },
+    {
+      "id": "L161",
+      "checked_on": "2026-10-24",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "在稀疏Ling-Flash-2.0上联合多模态理解、图像生图/编辑/彩色分割以及连续语音/声音/音乐生成，改善图像控制与身份保留、上下文/方言ASR和流式跨模态对话。需区分生成器内部语义/像素联合建模、冻结感知底座的迁移、任务兼容和真正双向训练互利。 模态表示/训练量失衡、长序列声学AR误差、细粒度空间控制及参考图“拼贴感”限制统一模型。作者明确承认旧版冻结语言路径会形成理解—生成目标错配，提出单流DiT/生成式分割/多奖励RL；完整§2.4仍明确感知训练完冻结，仅优化图生成器。因此这些机制可能改善生成器感知条件，未提供生成梯度提升冻结感知底座的证据。",
+          "evidence": "完整30页PDF及完整HTML核心/研究附录、11表五实际图；重建T8十二指标混合macro和WER折中、PDF第17页表11完整性与正文冲突，排除HTML表号转换错误；固定发布单尺度与未使用负条件等AST证据，不将静态审查当模型复现。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "T/I/A/V输入经视觉/Whisper编码及投影进入Ling，按T/V/A路由选共享专家池并输出text。图生成冻结MLLM的query隐藏态→非因果connector→DiT条件，同时参考图VAE latent与noise token、ByT5 glyph可加入；分割用“把目标涂紫”等编辑输出彩色区域，再需调色板/差分解码成mask，未见本文完整解码阈值/IoU协议。声生成采用固定预训练Qwen2.5-0.5B audiohead接LLM文字与历史连续latent，AR预测flow条件→连续声学latent→VAE波形44.1kHz；输出图/字/声，无视频输出或真实笔画轨迹。本报告没有编号目标公式/算法，loss、奖励合成/离线正则系数/步采样细节仍未完整。 发布HF：Ling32层h4096/32heads4KV，首层dense，余层256routed选8+1shared，3模态router共享expertpool；Sigmoid路由+分组topk、bias只影响选路不直接加混合权，语言配置maxpos32768/VideoRoPE时间戳交错，不能单凭该字段断言推理硬上限，论文IT2写64K。视觉Qwen3MoEVision27层h1152/patch16/merge2/deepstack[8,16,24]，Whisper32层h1280。connector Qwen2配置28层h1536；DiT为ZImage30层h3840/30heads+2refiner/in16/cap2560。实际mlp/config明确img_gen_scales=[16]，启用256query，不能沿用源码fallback[4,8,16]写发布版336query。声VAE输入882sample/patch4、latent64：44100/(882×4)=12.5Hz，与encode_latent分两次ceil一致；talker另每patch4帧聚合一次AR条件，语音flow/aggregator各8层h1024，默认10flowsteps，不能把采样率/latent帧率/条件更新率混为一项。",
+          "evidence": "完整30页PDF及完整HTML核心/研究附录、11表五实际图；重建T8十二指标混合macro和WER折中、PDF第17页表11完整性与正文冲突，排除HTML表号转换错误；固定发布单尺度与未使用负条件等AST证据，不将静态审查当模型复现。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "100B总/6.1B每token激活稀疏MoE；VideoRoPE时间戳交错、上下文/多轮理解GRPO；连续声学VAE与AR+flow生成替代离散码；单流DiT把文字/query、参考VAE/noise/glyph条件放统一token空间，彩色分割作为编辑预训，再按生图→编辑顺序多奖励RL并以离线数据正则替KL；Glyph-byT5文字条件与身份/运动样本平衡。属于Ming/L159–160/L191系列扩展，需按版本分离。 在强MoE感知底座已定、需要同接口追加精细编辑/中英文字和连续音频控制时，参考latent+语义query、生成分割训练和ByT5可减少caption信息损失，稀疏激活有计算潜力。100B总权重仍有存储/分发成本，6.1B仅语言active不含视觉/connector/DiT/声模块，不能直接宣称等6B端到端开销。书画知识识别、终态艺术字与真实逐笔轨迹需要分开验证。",
+          "evidence": "完整30页PDF及完整HTML核心/研究附录、11表五实际图；重建T8十二指标混合macro和WER折中、PDF第17页表11完整性与正文冲突，排除HTML表号转换错误；固定发布单尺度与未使用负条件等AST证据，不将静态审查当模型复现。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1Hall66.1/MMVet85.6/OCR891/Ref88.5/MV77.5等有优势；MMMU77.1<Gemini80.9、Muir61.4<GLM77.1、VideoMME73.4<Gemini84.3/LongCat76.2，LongVideo65.4<69.3。T2 .99/.98/.92/.94/.96/.89→.94最高overall，但single<ZImage1、count<QwenRL.93，DPG86.98<QwenImage88.32/ZImage88.14。T3 EN8.11/7.87/7.64、CN8.02/7.95/7.62，overall领先，CN语义8.02<ZImage8.03。T4 72.1/65.2/65.4<PolyFormer74.8/67.6/67.8；API500图的差距不当公平全val推断。T5中WER.87优、SIM.72<Seed.80/Cosy.78，英WER2.19<QwenOmni2.72但>Qwen3 1.39/F5 1.83/Cosy2.02，SIM.61低于表中其余有值baseline。T6easy2.25/.695/82.08、hard3.18/.717/84.42，CER/ACC好，SIM未最优，ACC均值83.25为两subset宏平均。T7 CER2.12/UTMOS2.25最好、cpSIM.457<Zip.553/SoulX.599。T8综合Avg3.30见指标折中。T9中3.39>Qwen3 3.19，英3.64<3.69；15方言中13项优于Qwen3，东北/陕西更差；六域仅Knowledge优于Qwen3，其余五域更差，内部总macro7.40<13.02不代表所有子域领先。T10Mean82.95<Qwen3Flash85.40，本作Alpaca95.58/MMSU72.09较强。T11Avg75.92>Gemini74.99，但完整性65.07<69.07；正文称该维也超过Gemini与表冲突，其余四维高于Gemini、全部五维高于旧Lite。 完整研究范围没有受控组件消融表/曲线。单流对双流、分割pretrain对无分割、RL对无RL/单奖励/不同离线正则、ByT5对无ByT5、单/多尺度、路由/VideoRoPE、连续/离散声码与两段声线解耦均无匹配预算数字。§2.1与§2.3重复冻路径瓶颈，§2.4仍冻感知；T1与旧版跨数据/底座结果不能隔离生成反哺。T1–11全为任务对比，内部集与精选可视化也不替代因果消融。 §2.4感知PT8K/8K/24K，IT1原文“10K sequences”未显式区分长度/样本数、IT2明确context64K，随后GRPO规则/模型/checklist奖励和多轮切换优化；“10K sequences”保留单位歧义，未认定10000训练样本。图预训FM→参考编辑/ByT5→生图及编辑RL，全程冻结感知MLLM，声生成器沿用预训；优化器、LR、步数、batch、各loss权重、GPU与匹配消融预算未齐。基础设施作者报告LP并行布置58.1–69.7%加速、kernel至80%带宽/较TE最多25.3%减延迟/较PyTorch5×、MFU28%/较Megatron>4×，未附足以复现的硬件配置与独立表格。固定GH2a0c02ae3130190160c215f89fce7de3005db483树205entries/181blobs，README及九相关Python文件实际选读；HFc1ed5565e64e85a76826255c000b66a20d4634c3清单99files（42主模型shards、5DiT、2connector及声/VAE/ByT5）与根/connector/MLP/DiT/声head/VAE/ByT5配置核，未下载权重。图generate默认30steps/CFG2/1024、seed可设；T2/3实际采样N/改写/seed/步数未齐。ZImage正条件可拼ByT5，但负条件被wrapper替零；CFG代码pos+g(pos−neg)，与常见neg+w(pos−neg)约定对应w=g+1（有CFG分支时），不直接比较数值CFG。",
+          "evidence": "完整30页PDF及完整HTML核心/研究附录、11表五实际图；重建T8十二指标混合macro和WER折中、PDF第17页表11完整性与正文冲突，排除HTML表号转换错误；固定发布单尺度与未使用负条件等AST证据，不将静态审查当模型复现。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "公开图生成配置仅16²query与论文多尺度训练叙述的checkpoint映射未明。默认image_gen分支158–317不读取audio_feats/pixel_values_videos，实际从输入图/字取条件；顶层四模态输入支持不能扩展为所有任意组合到图可达。ZImageLoss.sample190–211未读取negative_encoder_hidden_states/image_cfg/cfg_mode，正ByT5通过condition拼接仍有效；不能误写ByT5完全没用。完整训练/RL/分割mask解码和benchmark原始预测未在固定树定位。仅色块编辑IoU不足衡量boundary/调色板/未编辑区副作用；作者引用的双流“独立selfattention”解释还需具体jointattention实现和单/双流对照，参数分流不自动等于完全无跨模态注意力。图中文字有提取前置依赖与OCR教师选择偏差风险待独立人工/字形集评价；冻结权重不提供生成→感知训练迁移，连续latent减量化误差不保证整体codec无重建损失。声/乐生成缺音效/音乐定量表，3.30混合macro与T11正文退化需如实说明。 同Ling/生成器/data/FLOPs做单/双流、分割任务、ByT5、RL/奖励/正则全因子或逐步匹配，报告任务Pareto及冻结/LoRA/全训对感知的变化。发布16²对paper多尺度做等token/算力消融，公开checkpoint映射；检查负提示/图引导参数实际可达并按CFG约定重评，音/视频→图补入口和文字转述对照。分割公开颜色到mask映射、palette/seed敏感性、boundaryF/IoU、未编辑区保留，API与本作同500图/同预算。ContextASR单报WER/NE-WER/NE-FNR、按样本数汇总及正确/错误/缺上下文，承认作者已有负样本构建；T11逐video bootstrap/裁判盲序/独立人工复核完整性退化。文字渲染oracle提取与真实抽取分开，按汉字/非Latin/数字/OOV/长串CER和全对率；真实作画需轨迹/顺序shuffle指标，声控制需timbre/style交叉条件和未见说话人、声效/音乐专门评价。先追Ming-UniAudio正式2511.05516及DiffusionNFT2509.16117，避免把前作已解决机制当新缺口。",
+          "evidence": "完整30页PDF及完整HTML核心/研究附录、11表五实际图；重建T8十二指标混合macro和WER折中、PDF第17页表11完整性与正文冲突，排除HTML表号转换错误；固定发布单尺度与未使用负条件等AST证据，不将静态审查当模型复现。"
+        }
+      ],
+      "boundary": "arXiv2510.24821v3完整HTML§1–5及研究附录A/B（HTML§7–8）全部文字、11张主表全部行、五张实际原图F1–5视觉核；贡献名单只核范围，参考相关追引。完整30页PDF已下载，另视觉交叉核第6/15/17/27页训练阶段、表号、T8/T11及附录范围；全文研究内容以完整HTML及表格/原图阅读为基础，不称PDF逐页视觉检查。核心三遍与五项书面完成，未独立口述/复现。GH固定2a0c02a全部205树/181blobs，README与主generate/condition/moduleloader、MoErouter、ZImageLoss全文、ZImagepipeline相关去噪/CFG、图测试脚本、Video工具相关段、audioVAE全文和talker生成/参考打包相关段；不称所有源码逐行。HF99文件及八组配置/ByT5核，未权重下载或模型执行；notebook下载未完整，未列已读。T8仅表格算术及AST参数读取审查。"
     }
   ]
 }

@@ -691,3 +691,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百七十二批（2026-10-24）：由L160追引补录2505.02471v3为L191，HTML§1–4/三表七图/四式全核；固定GH预览69f28cd/HFf081007，无权重下载或模型运行。见[审查](ming_lite_uni_companion_multiscale_and_release_alignment_audit_2026-10-24.md)、[L191](../reviews/L191.md)。
+
+
+第一百七十三批（2026-10-24）：Ming-Flash-Omni v3完整研究/附录及11表五实际图，固定GH2a0c02a/HFc1ed556，AST负条件/引导参数读取与T8表算术，未模型执行。见[审查](ming_flash_omni_frozen_synergy_context_metric_and_release_audit_2026-10-24.md)、[L161](../reviews/L161.md)。

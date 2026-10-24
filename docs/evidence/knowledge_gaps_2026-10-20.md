@@ -643,3 +643,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百七十二批（2026-10-24）：关闭“配套论文尚未读取”队列，保留受控MSE消融/损失定义缺口；L191T3正文.62超过DALLE3.67与表冲突，发布三次同分辨率采样丢前两图，<1s时延口径未齐。见[审查](ming_lite_uni_companion_multiscale_and_release_alignment_audit_2026-10-24.md)、[L191](../reviews/L191.md)。
+
+
+第一百七十三批（2026-10-24）：T8 Avg3.30与十二指标macro吻合，四WERmacro2.3275差于Qwen1.9825、NE-FNR四项全差；T11完整性65.07<Gemini69.07但正文说超过。修复UniAudio私人submit引用为公开2511.05516，全文另排追引。见[审查](ming_flash_omni_frozen_synergy_context_metric_and_release_audit_2026-10-24.md)、[L161](../reviews/L161.md)。

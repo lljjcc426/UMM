@@ -512,3 +512,6 @@ python scripts/validate_catalog.py
 
 
 第一百七十二批（2026-10-24）：补录L191配套前作，完成v3研究全文/三表七实际图/四式；承认MSE文字收益但保留受控消融缺项，纠正文称.62超过.67，核M2论文与Qwen发布物、三次采样只返末图。358目录，278核心/283书面；未确认核心53论文／研究+27资源。见[审查](docs/evidence/ming_lite_uni_companion_multiscale_and_release_alignment_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_seventy_second_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百七十三批（2026-10-24）：L161完成v3全部研究正文/附录、11表五图；核T8混合macro与WER折中、T11完整性退化及正文冲突，固定Flash2.0实际单尺度和负条件参数未用，保留声/图指标退步。358目录，279核心/284书面；待完成核心深审52篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/ming_flash_omni_frozen_synergy_context_metric_and_release_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_seventy_third_changes_2026-10-24.md)。无删除或模型执行。
