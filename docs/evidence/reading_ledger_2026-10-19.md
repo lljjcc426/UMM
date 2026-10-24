@@ -100,7 +100,7 @@
 | U25 | Visual Generation Unlocks Human-Like Reasoning through Multimodal World Models (VisWorld-Eval) | primary_sections_read | [结构化分析](../reviews/U25.md) | 核心三遍与五项检查完成 |
 | U26 | SenseNova-U1.5: Towards Native Unified Visual Intelligence | primary_sections_read | [结构化分析](../reviews/U26.md) | 核心三遍与五项检查完成 |
 | U27 | UniModel: A Visual-Only Framework for Unified Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/U27.md) | 核心三遍与五项检查完成 |
-| U28 | LatentUMM: Dual Latent Alignment for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/U28.md) | 未完成 |
+| U28 | LatentUMM: Dual Latent Alignment for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/U28.md) | 核心三遍与五项检查完成 |
 | U29 | Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification (MIRROR) | primary_sections_read | [结构化分析](../reviews/U29.md) | 核心三遍与五项检查完成 |
 | U30 | LatentUM: Unleashing the Potential of Interleaved Cross-Modal Reasoning via a Latent-Space Unified Model | primary_sections_read | [结构化分析](../reviews/U30.md) | 核心三遍与五项检查完成 |
 | U31 | DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement | primary_sections_read | [结构化分析](../reviews/U31.md) | 未完成 |

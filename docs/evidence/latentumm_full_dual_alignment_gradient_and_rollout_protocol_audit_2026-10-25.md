@@ -1,0 +1,75 @@
+# LatentUMM：双对齐梯度、循环代理与评测协议完整审查
+
+第一百九十二批完成[U28](../reviews/U28.md)明确范围核心三遍及五项书面验收。[结构化证据](../../data/latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.json)。358目录（331论文／研究、27资源），297核心/302书面含未通过项；待完成核心深审34篇论文／研究；27项资源按制品协议另审。无目录新增、文件删除或模型执行。
+
+来源：[主源1](https://arxiv.org/abs/2605.17766v1)、[主源2](https://arxiv.org/html/2605.17766v1)、[主源3](https://github.com/AIFrontierLab/TorchUMM)、[主源4](https://ai.google.dev/gemini-api/docs/embeddings)、[主源5](https://arxiv.org/abs/2503.07891)。
+
+## 研究问题
+
+共享backbone的UMM仍可能在文字→图像→文字等转换中漂移；通过外部共享embedding对齐输入模态、约束任务循环并采样latent偏好，能否同时改善理解、生成和跨任务一致性？研究的是图文UMM后训练，未做笔顺或真实视频过程评测。
+
+## 现有不足
+
+现有统一模型主要共享参数或输入空间，作者认为仍缺跨模态语义和任务转换一致性；F3 PCA及T7循环误差用于诊断。共享维数不保证共享语义坐标；诊断与后训练收益支持研究动机，但不单独证明所有UMM失败均由该因素造成。
+
+## 贡献
+
+提出外部语义embedding驱动的modality/task双对齐，以及对扰动latent循环的最好/最差cosine分数施加偏好损失；作为BAGEL/JanusPro/Harmon后训练模块，T1–6报告多个基准提升，T7–10补循环、成本及一致性/多样性。需区分论文抽象循环、公开Stage1 embedding代理、BAGEL辅助loss与另设RIR图像rollout。
+
+## 输入、模块、输出与公式
+
+固定外部E*给φ(x)，文字/图像编码zt/zi，融合z=F(zt,zi)，G输出后再嵌入。Eq1 Lmodal=||φ(xt)−φ(xi)||²；若输入和E*固定，按所写公式它与UMM参数无关，不能直接给UMM梯度，代码通过可训练映射实现另一目标。Eq2 Ltask=||z−φ(G(z))||²需要坐标对齐和可微路径，API离散重嵌入的梯度/替代实现需说明。Eq3扰动z+ε，ε~N(0,σ²I)，采K循环按cos(z,zhat)评分。Eq4 Lpref=−log sigmoid(sbest−sworst)，Eq5加权modal/task/pref；该式没有固定偏好标签、reference policy或标准DPO log-ratio。令Δ=sbest−sworst，∂L/∂sworst=sigmoid(−Δ)>0，梯度可通过降低最差分数减损，故不能推出所有轨迹或平均一致性改善；K=1分差恒0，无排序信号。Eq6–8循环及1−cos漂移：范围[0,2]，大于1合法；零误差仅保证正共线，除非另行归一化，不能称向量严格相同。
+
+## 模型结构
+
+BAGEL14B MoT为主，LoRA适配q/v、gate/up/down及生成分支。§3.1称不加可学习projection以隔离外部监督，但公开Stage1有text/image projection、两token两层Transformer融合、单模态latent映射及生成embedding的MLP；无RGB decoder或真实Gemini调用。BAGEL代码以文字hidden和VAE/ViT image token均值，经可训练hidden_to_embed/embed_to_hidden双MLP作modal对齐、GT embedding锚定、hidden重建与局部噪声偏好。单纯相同d不能保证坐标/度量一致。独立stage2_rollout脚本仍是embedding代理；实际CLI stage2配置走BAGEL pretrain脚本。后者还有默认关闭的rir_enable实际模型图像rollout分支，不能把整个文件概括为从不生成图像，也不能把该分支默认算入LatentUMM辅助loss。
+
+## 数据分布与划分
+
+各后训练比较声明使用TextToImage2M（追引RecA），完整/子集实际样本数、清洗和train/eval去重不充分。AppA 1000诊断样本也来自同数据源，未明确与训练排斥。公开selected代码消费预计算text/image embedding JSON，未由这些文件确定历史Gemini modelID、图像预处理、embedding版本与生成过程。论文所引2025 Gemini Embedding报告2503.07891讲文本/多语/代码；当前官方文档gemini-embedding-2可多模态，而001仅文本，故需要具体checkpoint，不能断言所有Gemini均支持图片或均不支持。
+
+## 指标与评价协议
+
+理解MME/MMMU/MMVet/MMBench/MathVista(MC/FF/Overall)，生成DPG/UEval/WISE，编辑T3 Overall与Intersection下SC/PQ/O；设置文字称ImgEdit并引2505.20275，表列又类似GEdit，公开树两套均有，确切测试集/judge/subset需澄清。不能由O不等两个列均值几何均值就认定错误，可能逐图聚合。UnifiedBench四种image embedding均值；RealUnify GEU四类MC/CN/AF/MR宏平均。诊断1−cos、PCA二维gap；投影gap下降不自动推出全维语义改善，PCA同基/解释方差/尺度未全披露。无多seed CI、显著性与独立judge鲁棒性分析。
+
+## 对比方法
+
+T1完整包括BAGEL/JanusPro/Janus/JanusFlow/ShowO2(7B/1.5B)/ShowO/Emu3/Emu3.5/OmniGen2/MMaDA及BAGEL+SFT/RecA/UniGame/UniCoT；T2/B5与SFT、UniCoT等比较，T6迁移三种backbone。不同预训练模型行不能视同预算因果对照；后训练方法虽称共享数据，需进一步匹配优化步数/额外embedding与采样成本。本文“DPO”式实际为无reference的最好最差分差损失，按具体公式分析，不自动继承标准DPO理论。
+
+## 实验条件和发布边界
+
+AppC：冻结base+LoRA r16/alpha32，两个stage各2000steps，b32，lr分别1e−4/1e−5，AdamW beta(.9,.95)/wd.01/warmup.03/clip1，H100；σ.05、每10步rollout、λtask.09/λpref.06、C5默认K2。T4c又将5/10/20叫rollout step并混用frequency/K，T4d默认σ.1，与C3.05冲突。T4e主行对应self-consistency解码，C6称推理与base相同/无额外成本；实际解码候选数/主表策略需交代。固定公开commit425efa19cb2a18d43278d4d222ed238b5e244546：stage2 YAML为4process、r64/alpha128、modal/task/target .01、pref .001、K2/σ.05、source=text/shared teacher .001，未enable RIR。默认配置差异不证明历史实验实际用了哪套。完整树3160项/2783blob，下载17个相关文件并定点阅读；未执行模型训练/推理/embedding/API。
+
+## 主结果
+
+T1 BAGEL→ours：MME1691.4→1696.1，MMMU51.9→53.2，MMVet65.9→67.2，MMBench80.94→81.04，Math MC80.19→80.37/FF61.52→65.65/overall71.3→73.6；UniCoT MC80.56仍较高。RecA MC79.81/FF64.57却overall51.6：若这两类穷尽同一测试集合，overall应在二者间；当前公开MathVista scorer同一DataFrame按question_type切分，原表需原始prediction/分母澄清，保留原数不擅改。T2 DPG84.1/83.78/85.62（base/SFT/ours），UEval30.9/31.1/31.8，其中text ours55.38低于SFT55.56；WISE.399/.407/.418。T3六列均有提升，但仅PQ7.004→7.009很小，无CI。T5 UnifiedBench.8346→.8396，DINOv2.7877→.7874下降；RealUnify.3875→.3975，MC .30→.31低于SFT/UniCoT .32，CN .39持平。T6 JanusPro DPG83.73→85.1/Math42.8→43.9，Harmon DPG81.19→85.74/Math35.2→36.8；BAGEL DPG在T6写85.5，T2为85.62，记录差异，不统一。全部10表逐行数值另存结构化证据。
+
+## 消融及进一步实验
+
+T4a added shared latent总体更好但MC80.62→80.37下降；T4b Gemini多数较好，但MC低于SigLIP80.56。T4c默认10与5/20各有胜负。T4d .2的MMMU54.1/MMVet67.3/MMBench82.90均高于默认.1的53.2/67.2/81.04，不能泛称噪声.2所有结构任务恶化。T4e single/ensemble/self Math72.9/73.4/73.6，主表增益含推理策略条件待定。T7四轮base漂移.89/1.15/1.46/1.82，ours.79/.93/1.08/1.25，但一致性评分本身可被常量输出改善。T8每5/10/20步总rollout2000/1000/500，72s每次推得40/20/10h，只是rollout成本；4H100约6h墙钟不代表6GPUh。T9 σ.1一致性+1.2%/DPG+1.3%，.3为−5.8%/−3.6%；附近4–5%增益/up19%损失文字与表不符，不采用。T10 λ.1/.5/1一致性0/+5.8/+8.6%、多样性0/−6.9/−7.7%，未给充分绝对分母/metric/CI。
+
+## 局限与疑问
+
+文字公式与实现目标、可微梯度路径、Gemini版本、投影定义、rank loss方向、K/频率、noise与推理解码协议均有待作者补全。Stage1 CLI默认GT anchor权重0时仅自对齐/重建存在常量塌缩解；shell额外设target .1，BAGEL YAML target .01，不能把无锚默认缺口推断为所有实跑都塌缩。辅助pref每个有效embedding batch计算，未见每10步门控；与独立RIR触发条件不同。teacher需embedding/text/image/latent/studenthidden维相等；若默认3072输入embedding而BAGELhidden4096则跳过teacher，具体数据维数未证实。AppB O(Bd)忽略可训练dense h×d的代价以及外部embedding/完整backbone预算。F3二维PCA与自评分漂移不排除塌缩；F4静态时序选例无真实过程/因果控制；F5–8失败/多样性示例不能估计随机失败率。E2科学QA有领域标签和题图/选项异常，不能把全部ours A当已独立验证正确。
+
+## 预期优势条件
+
+外部embedding能编码任务关键信息、映射有可靠GT锚定、循环路径与实际生成一致、轻度噪声不破坏语义时，双对齐可能降低后训练漂移；T1/2及三backbone支持有限条件下的经验改善。对汉字书写可借鉴序列/渲染双向约束，但终态embedding可能抹去笔序；需显式前缀动作和有时间信息的独立指标，不能从静态语义循环推断过程合法。
+
+## 可证伪实验
+
+Q1梯度与机制：固定训练数据/原CEFM/LoRA步数和总预算，比较无aux、只有GT锚、modal/task/pref各单项和组合、冻结/可训projection；报告各项到backbone梯度、常量输出/打乱pair对照，分全维几何、独立理解生成准确率和多样性。Q2循环/偏好因果：匹配K和总生成次数，比embedding代理、真实RGB→独立encoder循环、只提升最好与现max−min；同时追best/worst/mean分数与独立GT，检验降低worst取巧。固定训练checkpoint，以single/ensemble/self同预算解码，分离训练与测试时算力。补确切E*、数据切分、judge、MC/FF分母、成本、seed与CI；书写另加同终态不同笔序与墨迹前缀干预。这些均为建议，未运行。
+
+## 论文组织与Claim学习
+
+gap诊断→双对齐→扰动偏好→多任务/迁移→漂移与成本/失败的组织可参考。公式须含真正可训练变量和梯度路径，方法图的RGB循环必须对应实施；主表、附录默认值与发布YAML需逐项对应。默认noise/K/LoRA/解码冲突与表内可疑聚合应原样标明待澄清；不能只引用平均提升忽略MC、DINO和多样性退化。作者披露过强约束/噪声负效应有价值，但数表与附近叙述也需一致。
+
+## 实际阅读范围
+
+2605.17766v1完整27页/HTML正文§1–5，AppA/B/C1–7/D1–2/E1–2/F/G，10张表全部行列、F1–9全部视觉、E2六个未编号科学QA图、8条编号公式及成本/配置未编号式；追引BAGEL/JanusPro/Harmon、RecA/UniGame/UniCoT、UEval/UnifiedBench/RealUnify、CLIP/SigLIP/Gemini Embedding/DPO。固定公开commit的17个下载文件中，重点逐段核Stage1 model/train、stage2代理、BAGEL aux/pretrain、两stageYAML/README/script与MathVista scorer；其余仅相关位置，不声称全2783文件完整阅读。五项书面记录与核心三遍完成；全部结果为论文/代码审查，未独立运行模型。
+
+## 数值及视觉补充
+
+结构化证据逐行保留全部10表。F3 PCA mean gap .5676→.4944、median .5633→.4918仅是投影诊断；未给足共享PCA基与全维尺度。F4四个静态sequence推理选例，不提供真实过程的受控测试。F5预期三茄子、F6仍三件但形态/材质变化，该具体例不能声称计数变了；F7菜园与F8平滑绿球形输出也不足证明语义完全保留。F9六组Harmon生成画廊只作选例。E2有公共健康误标Music、energy baseline给D但题目仅A–C、Geography查询与尺寸钩形工程图不符，记录呈现缺口，不独立判定所有ours回答正确。
+
+成本T8只核其72秒×rollout数的算术，未据此认定总后训练开销可忽略；方法与实现差异按具体路径和默认配置描述，不能推断作者历史实跑必然使用某一份当前YAML。

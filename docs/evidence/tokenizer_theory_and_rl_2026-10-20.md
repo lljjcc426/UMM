@@ -240,3 +240,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百九十一批（2026-10-25）：z(t)=(1−t)z0+t z1、target z1−z0符号一致；两taskembedding/等概率双向，同一MSE仍有任务梯度/尺度差异，无实测冲突消除。见[审查](unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。
+
+
+第一百九十二批（2026-10-25）：−logsigmoid(best−worst)可通过降低worst减损，无reference ratio，不能继承DPO或平均鲁棒性保证；K1无排序梯度。见[审查](latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。

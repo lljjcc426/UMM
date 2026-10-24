@@ -1,0 +1,823 @@
+{
+  "id": "U28",
+  "checked_on": "2026-10-25",
+  "version": "2605.17766v1",
+  "full_pdf_pages": 27,
+  "core_three_pass_completed": true,
+  "table_rows": [
+    {
+      "id": "S4.T1",
+      "rows": [
+        [
+          "Model",
+          "Params",
+          "MME",
+          "MMMU",
+          "MMVet",
+          "MMBench",
+          "MathVista"
+        ],
+        [
+          "Multi-Choice",
+          "Free-Form",
+          "Overall"
+        ],
+        [
+          "Bagel",
+          "14B",
+          "1691.4",
+          "51.9",
+          "65.9",
+          "80.94",
+          "80.19",
+          "61.52",
+          "71.3"
+        ],
+        [
+          "Janus Pro",
+          "7B",
+          "1547.9",
+          "40.7",
+          "49.3",
+          "64.94",
+          "51.3",
+          "32.83",
+          "42.8"
+        ],
+        [
+          "Janus",
+          "1.3B",
+          "1221.4",
+          "27.3",
+          "27",
+          "37.19",
+          "35.37",
+          "16.3",
+          "26.6"
+        ],
+        [
+          "Janus Flow",
+          "1.3B",
+          "1305.6",
+          "29",
+          "31.8",
+          "60.31",
+          "39.07",
+          "29.78",
+          "34.8"
+        ],
+        [
+          "Show-O2",
+          "7B",
+          "1619.8",
+          "47.9",
+          "47.1",
+          "76.68",
+          "63.52",
+          "37.39",
+          "51.5"
+        ],
+        [
+          "Show-O2",
+          "1.5B",
+          "1413.3",
+          "37.1",
+          "46.1",
+          "61.04",
+          "53.33",
+          "19.78",
+          "37.9"
+        ],
+        [
+          "Show-O",
+          "1.3B",
+          "1188.5",
+          "26.1",
+          "23.3",
+          "11.1",
+          "44.07",
+          "11.3",
+          "29"
+        ],
+        [
+          "Emu3",
+          "8B",
+          "1176",
+          "31.4",
+          "30",
+          "45.66",
+          "57.59",
+          "30",
+          "44.9"
+        ],
+        [
+          "Emu3.5",
+          "34B",
+          "832.2",
+          "29.2",
+          "28",
+          "18.13",
+          "41.67",
+          "17.61",
+          "41.7"
+        ],
+        [
+          "Omnigen2",
+          "7B",
+          "1584.4",
+          "46",
+          "62.7",
+          "75.43",
+          "71.67",
+          "53.91",
+          "63.5"
+        ],
+        [
+          "MMaDA",
+          "8B",
+          "939",
+          "28.9",
+          "11.4",
+          "20.57",
+          "38.7",
+          "8.7",
+          "24.9"
+        ],
+        [
+          "Bagel+SFT",
+          "–",
+          "1690.1",
+          "51.9",
+          "65.8",
+          "80.83",
+          "79.63",
+          "65.43",
+          "73.1"
+        ],
+        [
+          "Bagel+RecA",
+          "–",
+          "1689.1",
+          "52.3",
+          "66.1",
+          "80.94",
+          "79.81",
+          "64.57",
+          "51.6"
+        ],
+        [
+          "Bagel+UniGame",
+          "–",
+          "1692.1",
+          "52.4",
+          "60.7",
+          "80.94",
+          "79.6",
+          "63.48",
+          "72.7"
+        ],
+        [
+          "Bagel+UniCot",
+          "–",
+          "1690.5",
+          "53.1",
+          "64.5",
+          "80.99",
+          "80.56",
+          "64.13",
+          "73"
+        ],
+        [
+          "Bagel+LatentUMM",
+          "–",
+          "1696.1",
+          "53.2",
+          "67.2",
+          "81.04",
+          "80.37",
+          "65.65",
+          "73.6"
+        ]
+      ]
+    },
+    {
+      "id": "S4.T2",
+      "rows": [
+        [
+          "",
+          "DPG-Bench",
+          "UEval",
+          "WISE"
+        ],
+        [
+          "",
+          "Global",
+          "Entity",
+          "Attribute",
+          "Relation",
+          "Other",
+          "Overall",
+          "Text",
+          "Image",
+          "Overall"
+        ],
+        [
+          "Bagel",
+          "82.07",
+          "90.22",
+          "87.82",
+          "93.26",
+          "82.26",
+          "84.1",
+          "54.97",
+          "6.84",
+          "30.9",
+          "0.399"
+        ],
+        [
+          "+SFT",
+          "81.25",
+          "89.56",
+          "87.48",
+          "93.57",
+          "82.40",
+          "83.78",
+          "55.56",
+          "6.65",
+          "31.1",
+          "0.407"
+        ],
+        [
+          "+LatentUMM",
+          "82.37",
+          "91.34",
+          "88.88",
+          "93.58",
+          "88.8",
+          "85.62",
+          "55.38",
+          "8.23",
+          "31.8",
+          "0.418"
+        ]
+      ]
+    },
+    {
+      "id": "S4.T3",
+      "rows": [
+        [
+          "Model",
+          "Overall",
+          "Intersection"
+        ],
+        [
+          "SC",
+          "PQ",
+          "O",
+          "SC",
+          "PQ",
+          "O"
+        ],
+        [
+          "Bagel",
+          "6.679",
+          "7.004",
+          "6.348",
+          "6.726",
+          "7.027",
+          "6.384"
+        ],
+        [
+          "+LatentUMM",
+          "6.853",
+          "7.009",
+          "6.518",
+          "6.987",
+          "7.037",
+          "6.634"
+        ]
+      ]
+    },
+    {
+      "id": "S4.T4",
+      "rows": [
+        [
+          "Model",
+          "MME",
+          "MMMU",
+          "MMVet",
+          "MMBench",
+          "MathVista"
+        ],
+        [
+          "Multi-Choice",
+          "Free-Form",
+          "Overall"
+        ],
+        [
+          "(a) Effect of Shared Latent Space"
+        ],
+        [
+          "Alignment within Existing Shared Latent Space",
+          "1691.5",
+          "52.3",
+          "66.4",
+          "80.52",
+          "80.62",
+          "62.72",
+          "71.7"
+        ],
+        [
+          "Alignment through Added Shared Latent Space",
+          "1696.1",
+          "53.2",
+          "67.2",
+          "81.04",
+          "80.37",
+          "65.65",
+          "73.6"
+        ],
+        [
+          "(b) Embedding Model"
+        ],
+        [
+          "Bagel",
+          "1691.4",
+          "51.9",
+          "65.9",
+          "80.94",
+          "80.19",
+          "61.52",
+          "71.3"
+        ],
+        [
+          "CLIP",
+          "1691.4",
+          "52.1",
+          "67.2",
+          "80.52",
+          "80.37",
+          "54.78",
+          "73.2"
+        ],
+        [
+          "SigLIP",
+          "1692.1",
+          "52.0",
+          "66.7",
+          "80.52",
+          "80.56",
+          "65.00",
+          "73.4"
+        ],
+        [
+          "Gemini Embedding Model (Ours)",
+          "1696.1",
+          "53.2",
+          "67.2",
+          "81.04",
+          "80.37",
+          "65.65",
+          "73.6"
+        ],
+        [
+          "(c) Rollout Strategy (based on Gemini embeddings)"
+        ],
+        [
+          "Rollout step = 5",
+          "1697.3",
+          "52.8",
+          "66.1",
+          "80.82",
+          "80.22",
+          "65.10",
+          "73.2"
+        ],
+        [
+          "Rollout step = 10 (default)",
+          "1696.1",
+          "53.2",
+          "67.2",
+          "81.04",
+          "80.37",
+          "65.65",
+          "73.6"
+        ],
+        [
+          "Rollout step = 20",
+          "1693.1",
+          "52.3",
+          "66.7",
+          "80.98",
+          "80.31",
+          "65.72",
+          "73.5"
+        ],
+        [
+          "(d) Noise Scale (in latent sampling)"
+        ],
+        [
+          "Noise = 0.0 (deterministic)",
+          "1689.7",
+          "52.0",
+          "65.9",
+          "80.65",
+          "80.05",
+          "64.80",
+          "72.9"
+        ],
+        [
+          "Noise = 0.1 (default)",
+          "1696.1",
+          "53.2",
+          "67.2",
+          "81.04",
+          "80.37",
+          "65.65",
+          "73.6"
+        ],
+        [
+          "Noise = 0.2",
+          "1692.6",
+          "54.1",
+          "67.3",
+          "82.90",
+          "80.25",
+          "65.40",
+          "73.3"
+        ],
+        [
+          "(e) Inference (Decoding) Strategies"
+        ],
+        [
+          "Single-pass decoding",
+          "1688.9",
+          "51.9",
+          "65.8",
+          "80.60",
+          "79.98",
+          "64.90",
+          "72.9"
+        ],
+        [
+          "Simple ensembling",
+          "1692.7",
+          "52.3",
+          "66.3",
+          "80.95",
+          "80.30",
+          "65.50",
+          "73.4"
+        ],
+        [
+          "Self-consistency decoding",
+          "1696.1",
+          "53.2",
+          "67.2",
+          "81.04",
+          "80.37",
+          "65.65",
+          "73.6"
+        ]
+      ]
+    },
+    {
+      "id": "S4.T5",
+      "rows": [
+        [
+          "Model",
+          "Unified-Bench",
+          "RealUnify (GEU)"
+        ],
+        [
+          "Clip",
+          "Dinov2",
+          "Dinov3",
+          "Longclip",
+          "Overall",
+          "MC",
+          "CN",
+          "AF",
+          "MR",
+          "Total"
+        ],
+        [
+          "Bagel",
+          "0.8947",
+          "0.7877",
+          "0.724",
+          "0.9321",
+          "0.8346",
+          "0.3",
+          "0.39",
+          "0.52",
+          "0.34",
+          "0.3875"
+        ],
+        [
+          "+SFT",
+          "0.8922",
+          "0.7809",
+          "0.7203",
+          "0.9351",
+          "0.8321",
+          "0.32",
+          "0.32",
+          "0.47",
+          "0.34",
+          "0.3625"
+        ],
+        [
+          "+Unicot",
+          "0.9026",
+          "0.7774",
+          "0.7128",
+          "0.9392",
+          "0.833",
+          "0.32",
+          "0.4",
+          "0.5",
+          "0.35",
+          "0.3925"
+        ],
+        [
+          "+LatentUMM",
+          "0.8995",
+          "0.7874",
+          "0.7315",
+          "0.9399",
+          "0.8396",
+          "0.31",
+          "0.39",
+          "0.53",
+          "0.36",
+          "0.3975"
+        ]
+      ]
+    },
+    {
+      "id": "S4.T6",
+      "rows": [
+        [
+          "Model",
+          "Generation",
+          "Understanding"
+        ],
+        [
+          "DPG",
+          "WISE",
+          "UEval",
+          "MME",
+          "MMMU",
+          "MMVet",
+          "MathVista"
+        ],
+        [
+          "Bagel",
+          "84.1",
+          "0.399",
+          "30.9",
+          "1691.4",
+          "51.9",
+          "65.9",
+          "71.3"
+        ],
+        [
+          "+LatentUMM",
+          "85.5 (+1.4)",
+          "0.418 (+0.019)",
+          "31.8 (+0.9)",
+          "1696.1 (+4.7)",
+          "53.2 (+1.3)",
+          "67.2 (+1.3)",
+          "73.6 (+2.3)"
+        ],
+        [
+          "Janus-Pro",
+          "83.73",
+          "0.381",
+          "20.6",
+          "1547.9",
+          "40.7",
+          "49.3",
+          "42.8"
+        ],
+        [
+          "+LatentUMM",
+          "85.1 (+1.37)",
+          "0.403 (+0.022)",
+          "21.1 (+0.5)",
+          "1551.3 (+3.4)",
+          "41.2 (+0.5)",
+          "50.5 (+1.2)",
+          "43.9 (+1.1)"
+        ],
+        [
+          "Harmon",
+          "81.19",
+          "0.379",
+          "27.9",
+          "1224.9",
+          "35.0",
+          "26.2",
+          "35.2"
+        ],
+        [
+          "+LatentUMM",
+          "85.74 (+4.55)",
+          "0.392 (+0.013)",
+          "29.8 (+1.9)",
+          "1251.4 (+26.5)",
+          "37.6 (+2.6)",
+          "27.1 (+0.9)",
+          "36.8 (+1.6)"
+        ]
+      ]
+    },
+    {
+      "id": "A1.T7",
+      "rows": [
+        [
+          "Steps ( T )",
+          "Baseline UMM \\downarrow",
+          "+ LatentUMM \\downarrow"
+        ],
+        [
+          "1",
+          "0.89",
+          "0.79"
+        ],
+        [
+          "2",
+          "1.15",
+          "0.93"
+        ],
+        [
+          "3",
+          "1.46",
+          "1.08"
+        ],
+        [
+          "4",
+          "1.82",
+          "1.25"
+        ]
+      ]
+    },
+    {
+      "id": "A2.T8",
+      "rows": [
+        [
+          "Trigger Interval ( r )",
+          "# Rollouts",
+          "Total Time (hours, approx.)",
+          "Interpretation"
+        ],
+        [
+          "Every 5 steps",
+          "2000",
+          "\\sim 40 GPU hours",
+          "heavy rollout regime"
+        ],
+        [
+          "Every 10 steps",
+          "1000",
+          "\\sim 20 GPU hours",
+          "default setting"
+        ],
+        [
+          "Every 20 steps",
+          "500",
+          "\\sim 10 GPU hours",
+          "sparse rollout"
+        ]
+      ]
+    },
+    {
+      "id": "A4.T9",
+      "rows": [
+        [
+          "\\sigma",
+          "Consistency (% change)",
+          "DPG-Bench (% change)"
+        ],
+        [
+          "0.0",
+          "0.0%",
+          "0.0%"
+        ],
+        [
+          "0.1",
+          "+1.2%",
+          "+1.3%"
+        ],
+        [
+          "0.2",
+          "-1.5%",
+          "-0.8%"
+        ],
+        [
+          "0.3",
+          "-5.8%",
+          "-3.6%"
+        ]
+      ]
+    },
+    {
+      "id": "A4.T10",
+      "rows": [
+        [
+          "\\lambda_{\\text{1}}",
+          "Consistency (% change)",
+          "Diversity (% change)"
+        ],
+        [
+          "0.1",
+          "0.0%",
+          "0.0%"
+        ],
+        [
+          "0.5",
+          "+5.8%",
+          "-6.9%"
+        ],
+        [
+          "1.0",
+          "+8.6%",
+          "-7.7%"
+        ]
+      ]
+    }
+  ],
+  "figures_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "additional_qualitative_QA_panels": 6,
+  "numbered_equations_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "github_commit": "425efa19cb2a18d43278d4d222ed238b5e244546",
+  "github_tree_entries": 3160,
+  "github_blobs": 2783,
+  "selected_downloaded_files": 17,
+  "code_scope": "targeted Stage1 embedding proxy, standalone stage2 proxy, BAGEL aux and optional RIR branch, CLI YAML and MathVista scorer; not all repository files",
+  "equation_1_fixed_input_gradient_to_UMM": false,
+  "preference_loss_can_lower_worst": true,
+  "cosine_error_range": [
+    0,
+    2
+  ],
+  "paper_lora": [
+    16,
+    32
+  ],
+  "public_stage2_lora": [
+    64,
+    128
+  ],
+  "paper_noise_inconsistency": [
+    0.05,
+    0.1
+  ],
+  "paper_rollout_K_frequency_ambiguity": true,
+  "public_latentumm_aux_is_real_RGB_cycle": false,
+  "separate_RIR_branch_present": true,
+  "separate_RIR_enabled_in_stage2_yaml": false,
+  "main_row_inference_strategy_needs_clarification": true,
+  "gemini_model_id_not_pinned": true,
+  "raw_table_discrepancies": [
+    "RecA MathVista overall51.6 below both MC79.81 FF64.57 if same partition",
+    "BAGEL DPG85.62 Table2 vs85.5 Table6",
+    "Table9 differs from nearby percentage-change prose"
+  ],
+  "negative_results": [
+    "UniCoT Math MC higher",
+    "UEval text below SFT",
+    "DINOv2 below base",
+    "RealUnify MC below SFT and UniCoT",
+    "stronger consistency reduces diversity"
+  ],
+  "independent_model_execution": false,
+  "sources": [
+    "https://arxiv.org/abs/2605.17766v1",
+    "https://arxiv.org/html/2605.17766v1",
+    "https://github.com/AIFrontierLab/TorchUMM",
+    "https://ai.google.dev/gemini-api/docs/embeddings",
+    "https://arxiv.org/abs/2503.07891"
+  ]
+}

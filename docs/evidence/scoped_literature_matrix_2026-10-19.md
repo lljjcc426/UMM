@@ -659,3 +659,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百九十一批（2026-10-25）：文字也渲染为512²图，统一双向RGB接口；RF实际在VAE latent，不能误写encoder/VAE-free，只有caption/T2I画廊。见[审查](unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。
+
+
+第一百九十二批（2026-10-25）：双模态/任务latent后训练，BAGEL/JanusPro/Harmon多任务有增益；非时序生成/笔顺证据。见[审查](latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。

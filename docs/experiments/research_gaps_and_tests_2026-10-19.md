@@ -685,3 +685,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百九十一批（2026-10-25）：同内容/预算比较token和文字图、单双向/embedding消融；GT/修正/打乱文字图循环，分语义/identity/geometry与OCR，扫字体长文汉字。见[审查](../evidence/unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。
+
+
+第一百九十二批（2026-10-25）：同预算拆GT锚/modal/task/pref、投影和真实/代理循环，测best/worst/mean、独立准确率/多样性；单次/ensemble/self解码分离训练收益。见[审查](../evidence/latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。

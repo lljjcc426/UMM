@@ -748,3 +748,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百九十一批（2026-10-25）：UniModel完整13页/6图/三式，无附录和数值表；精确检索未定位确认官方代码/权重，不以聚合站缺项证明未开源。见[审查](unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。
+
+
+第一百九十二批（2026-10-25）：LatentUMM完整27页10表9图6QA/8式；固定公开commit、17文件定点阅读及Gemini官方版本核查，未模型执行。见[审查](latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。

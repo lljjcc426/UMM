@@ -492,3 +492,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百九十一批（2026-10-25）：相同RGB/VAE不保证语义分布同一或条件双向互逆；caption丢instance信息，F5脸部/场景变化与语义瓶颈相容。见[审查](unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。
+
+
+第一百九十二批（2026-10-25）：Eq1固定φ输入无UMM梯度；相同维数不等同语义坐标；1−cos范围[0,2]且零值只保共线，需独立正确性指标排除塌缩。见[审查](latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。

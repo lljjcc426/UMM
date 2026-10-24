@@ -700,3 +700,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百九十一批（2026-10-25）：无FID/OCR/VQA分数、消融和完整训练配置；F2输入输出方向与标签倒置，F6文字错误明确，循环串联不等cycleloss或无损重建。见[审查](unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。
+
+
+第一百九十二批（2026-10-25）：Gemini版本、Eq1映射/梯度、K/频率、noise、r16vs64及self-consistency推理成本未闭合；RecA Math聚合与T9文字/数字待澄清。见[审查](latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。

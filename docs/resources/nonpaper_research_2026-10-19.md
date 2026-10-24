@@ -656,3 +656,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百九十一批（2026-10-25）：论文未提供官方制品链接，当前有限检索未定位确认repo，未知完整recipe保持未知；未补入QwenImage的训练/数据参数。见[审查](../evidence/unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[U27](../reviews/U27.md)。
+
+
+第一百九十二批（2026-10-25）：固定commit的CLI/YAML与BAGELaux为主要制品证据；预计算embedding不自证Gemini具体版本，RIR默认关闭不可自动算作LatentUMM循环。见[审查](../evidence/latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。

@@ -569,3 +569,6 @@ python scripts/validate_catalog.py
 
 
 第一百九十一批（2026-10-25）：U27完整13页6图及三式，核latent扩散/共享视觉encoder、F2标签倒置与F5身份变化；无量化主表/消融/完整recipe，Claim限双向示例可行性。358目录，296核心/301书面；待完成核心深审35篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/unimodel_full_visual_only_cycle_and_evidence_scope_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_ninety_first_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第一百九十二批（2026-10-25）：U28完整27页10表9图/6QA及8式，核固定输入modal式无UMM梯度、max−min偏好可降低worst、代理/真实循环和公开配置差异，保留各类增益与负结果。358目录，297核心/302书面；待完成核心深审34篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_ninety_second_changes_2026-10-25.md)。无删除或模型执行。
