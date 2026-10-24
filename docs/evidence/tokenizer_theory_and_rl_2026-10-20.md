@@ -201,3 +201,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百七十八批（2026-10-24）：BAGEL继承MoT/AR+flow，公开每轮独立inferencer，多图取回不等持久KV记忆；单轮重编图号与长程内状态归因需干预。见[审查](weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[U12](../reviews/U12.md)。
+
+
+第一百七十九批（2026-10-24）：Gapfit论文按模型i/代码每模型四任务行，totalcount1000、λ2.7/1.05 vs2/2；共现修正在logit事后而非MAPloss；BAGEL混标准数据的干预不可称纯单侧。见[审查](gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[U13](../reviews/U13.md)。

@@ -85,7 +85,7 @@
 | U10 | Monet: Reasoning in Latent Visual Space Beyond Images and Language | primary_sections_read | [结构化分析](../reviews/U10.md) | 核心三遍与五项检查完成 |
 | U11 | Omni-R1: Towards the Unified Generative Paradigm for Multimodal Reasoning | primary_sections_read | [结构化分析](../reviews/U11.md) | 核心三遍与五项检查完成 |
 | U12 | WEAVE: Unleashing and Benchmarking the In-Context Interleaved Comprehension and Generation | primary_sections_read | [结构化分析](../reviews/U12.md) | 核心三遍与五项检查完成 |
-| U13 | Quantifying the Gap between Understanding and Generation within Unified Multimodal Models (GapEval) | primary_sections_read | [结构化分析](../reviews/U13.md) | 未完成 |
+| U13 | Quantifying the Gap between Understanding and Generation within Unified Multimodal Models (GapEval) | primary_sections_read | [结构化分析](../reviews/U13.md) | 核心三遍与五项检查完成 |
 | U14 | UniG2U-Bench: Do Unified Models Advance Multimodal Understanding? | primary_sections_read | [结构化分析](../reviews/U14.md) | 未完成 |
 | U15 | RealUnify: Do Unified Models Truly Benefit from Unification? A Comprehensive Benchmark | primary_sections_read | [结构化分析](../reviews/U15.md) | 未完成 |
 | U16 | Can Unified Generation and Understanding Models Maintain Semantic Equivalence Across Different Output Modalities? (VGUBench) | primary_sections_read | [结构化分析](../reviews/U16.md) | 未完成 |

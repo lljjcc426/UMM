@@ -659,3 +659,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百七十八批（2026-10-24）：U12完成arXivv1全部研究正文/附录、10表39图和公开评测/推理源码；核ACC缺失切公式、Zebra分母、同生成公式Logic下降及数学/迷宫等现行标注错误，区分论文图示与发布版本。358目录，283核心/288书面；待完成核心深审48篇论文／研究；27项资源按制品协议另审。见[审查](weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[逐文件说明](one_hundred_seventy_eighth_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百七十九批（2026-10-24）：U13完成v2全部研究正文/附录、13表10图16式；核622发布题与646差异、两侧答案信息不对称、联合成功越界及图judge改按错误文本的一致性。公开锚定已补，修正旧实现待核结论；fit统计单位/λ仍与论文不同。358目录，284核心/289书面；待完成核心深审47篇论文／研究；27项资源按制品协议另审。见[审查](gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[逐文件说明](one_hundred_seventy_ninth_changes_2026-10-24.md)。无删除或模型执行。

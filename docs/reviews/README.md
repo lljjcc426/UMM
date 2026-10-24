@@ -270,7 +270,7 @@
 | L003 | [Write Like You，2021](L003.md) | 作者公开正式PDF §2.3–5核心表示/公式/实现、Tables1–7及结论指定段；PDFp3 Fig2已视觉核；固定代码model.py默认/均值cycle与README/train部分。补充材料/完整源码及全部附图未读；未复现 |
 | S002 | [TextDiffuser: Diffusion Models as Text Painters](S002.md) | 正式§3.1–3.2/§4.2/§5.1–5.2 Tables1–4、AppA/B/H指定段；PDFp4 Fig2已视觉核。固定README训练配置已读；完整数据过滤/附录/训练源码未全审；未复现 |
 | S003 | [GlyphControl: Glyph Conditional Control for Visual Text Generation](S003.md) | 正式§3.2–4.2、§4.5 Table3和§5指定段、Tables1/2；固定README与主训练YAML。完整AppendixD/全部源码/框架视觉图未核，未复现 |
-| U13 | [Quantifying the Gap between Understanding and Generation within Unified Multimodal Models (GapEval)](U13.md) | §2.1–2.4/§3.1–3.2 Table2、§4.1指定段、AppB1–B4/C/E部分/F2.2/F3；全文其余图表和实现未全审，无模型执行 |
+| U13 | [Quantifying the Gap between Understanding and Generation within Unified Multimodal Models (GapEval)](U13.md) | 本次arXivv2完整24页，研究§1–5及AppA–G全部研究正文/末级小节、Eq1–16、编号T1–13全部行含10个完整judgeprompt、F1–10全部实际图；F1/主表/F5–6补PDF核，F7SVG转图。固定GH README/evaluate/port全文、主judge重点分支及五关键yaml，非全部仓库源码；HF1479文件清单和622prompt.json全量解析并核data329/330，无所有图像像素审、权重下载、神经推理/MAPfit或训练复现。核心三遍/五项书面完成，未独立口试。 |
 | U14 | [UniG2U-Bench: Do Unified Models Advance Multimodal Understanding?](U14.md) | §3.1–3.2核心定义、§4.1指定段/Table2、§4.2–4.4协议/metrics、Table4及Table6标题；其余长附录/全部主表分域/源码未全读，未复现 |
 | U15 | [RealUnify: Do Unified Models Truly Benefit from Unification? A Comprehensive Benchmark](U15.md) | §3.1指定段/§3.3数据和协议、§4.1指定主文、Tables3–5与Table2部分、AppA3/B2指定段。完整Table2底行、所有细分/配置/源码未读，未复现 |
 | U16 | [Can Unified Generation and Understanding Models Maintain Semantic Equivalence Across Different Output Modalities? (VGUBench)](U16.md) | §3.1指定定义/§3.2数据/§3.3评分指定段、§3.4统计、§4.1指定协议、Tables1/2；完整prompt附录/源码/其余分析未全审，未复现 |

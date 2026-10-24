@@ -620,3 +620,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百七十八批（2026-10-24）：WEAVE100k fusion占75.43%并非大类平衡；训练随机单轮多图、推理外部历史检索；发布测试100例479图路径而论文480。无笔顺/视频监督。见[审查](weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[U12](../reviews/U12.md)。
+
+
+第一百七十九批（2026-10-24）：646题双向诊断，发布622唯一题（世界147/数量93/IF94/推理288）与正文不齐；data329/330生成提示含预期答案，理解题仍要求推断。见[审查](gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[U13](../reviews/U13.md)。

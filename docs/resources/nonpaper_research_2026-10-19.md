@@ -617,3 +617,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百七十八批（2026-10-24）：GH dfc17dd10py/README、HF模型54dad66/数据b7d16e7清单配置和test.json已核；缺训练recipe，评测配置接线/示例语法与未标GT回填需补。见[审查](../evidence/weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[U12](../reviews/U12.md)。
+
+
+第一百七十九批（2026-10-24）：GapEval GH46树41blob/32yaml，指定三文件全文与judge重点分支/五yaml；HF622prompt全解析含nested897，未跑模型/fit或下载全像素。缺完整训练及历史raw联合计数。见[审查](../evidence/gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[U13](../reviews/U13.md)。

@@ -709,3 +709,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百七十八批（2026-10-24）：WEAVE arXivv1完整51页/10表39图、四SVGprompt补全，正式PDF本次403/截断限度保留；固定GH/HF model/dataset和100例test.json元数据。见[审查](weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[U12](../reviews/U12.md)。
+
+
+第一百七十九批（2026-10-24）：GapEval v2完整24页研究§1–5/AppA–G、13表10图16式，PDF核主表与F5–6；固定GH006dd75/HF67abd3f/622prompt元数据。见[审查](gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[U13](../reviews/U13.md)。

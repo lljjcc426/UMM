@@ -646,3 +646,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百七十八批（2026-10-24）：同325图/42文、同目标/覆盖率/复标/固定judge重评；四数据路线与单轮多图/完整对话/持久缓存等预算消融、历史换图/去未来GT干预，均未执行。见[审查](../evidence/weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[U12](../reviews/U12.md)。
+
+
+第一百七十九批（2026-10-24）：冻结题目和配对、等信息/等judge预算/独立GT判分/锚点与λ敏感性；同更新范围compute的head/共享层与单/双侧训练，排除输出瓶颈替代解释，均未执行。见[审查](../evidence/gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[U13](../reviews/U13.md)。

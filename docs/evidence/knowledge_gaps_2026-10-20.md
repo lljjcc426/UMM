@@ -661,3 +661,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百七十八批（2026-10-24）：公开idx67/68数学、idx35迷宫、idx3棋方、idx90GT引用有具体问题；F23重复A仅展示，发布jigsaw已分选项。loader full负索引引入末GT图与fallbackGT局限。见[审查](weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[U12](../reviews/U12.md)。
+
+
+第一百七十九批（2026-10-24）：UniPic2推理共成功7.86>Gen3.93，需澄清配对或勘误；当前MMLU/puzzle图分按错误文本判一致性、论文示例错贴和F5正文/图例冲突分别记录，不断言已影响历史主表。见[审查](gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[U13](../reviews/U13.md)。

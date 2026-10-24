@@ -453,3 +453,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百七十八批（2026-10-24）：Eq1生成与Eq2统一目标不同；WEAVE四域无ACC但base有，按同生成公式Logic .5819→.5670，无法用不同目标总分证明统一能力协同。见[审查](weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[U12](../reviews/U12.md)。
+
+
+第一百七十九批（2026-10-24）：MIRT仅两个全局β且输入边际计数，未逐题难度；当前anchor正则已核，须修正实现锚定未核状态。聚合识别与因果知识隔离分开。见[审查](gapeval_full_bidirectional_information_scoring_and_release_audit_2026-10-24.md)、[U13](../reviews/U13.md)。
