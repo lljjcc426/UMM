@@ -643,3 +643,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百七十七批（2026-10-24）：同预算TV/语义拓扑/GT操作图奖励因子，固定图前文字随机移除/换图/常量图，Zero同题text/原生/工具/noSFT对照与源图隔离、固定judge/全成本；均未执行。见[审查](../evidence/omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[U11](../reviews/U11.md)。
+
+
+第一百七十八批（2026-10-24）：同325图/42文、同目标/覆盖率/复标/固定judge重评；四数据路线与单轮多图/完整对话/持久缓存等预算消融、历史换图/去未来GT干预，均未执行。见[审查](../evidence/weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[U12](../reviews/U12.md)。

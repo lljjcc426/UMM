@@ -658,3 +658,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百七十七批（2026-10-24）：输入脚本算image_tokens未替换、generate不传pixelvalues，HF另有替换；独立lossnet投影不在父Trainer的model参数组。均限定当前发布路径，不外推历史实验。F8轨迹邻接矛盾与tSNE关联局限。见[审查](omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[U11](../reviews/U11.md)。
+
+
+第一百七十八批（2026-10-24）：公开idx67/68数学、idx35迷宫、idx3棋方、idx90GT引用有具体问题；F23重复A仅展示，发布jigsaw已分选项。loader full负索引引入末GT图与fallbackGT局限。见[审查](weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[U12](../reviews/U12.md)。

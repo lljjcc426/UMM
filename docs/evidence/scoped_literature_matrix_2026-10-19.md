@@ -617,3 +617,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百七十七批（2026-10-24）：800样本四slice按100/200/200/300加权；Zero791种子仍经SFT；静态功能图没有书写时序监督，附录deterministicrenderer与原生生成实现映射未明。见[审查](omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[U11](../reviews/U11.md)。
+
+
+第一百七十八批（2026-10-24）：WEAVE100k fusion占75.43%并非大类平衡；训练随机单轮多图、推理外部历史检索；发布测试100例479图路径而论文480。无笔顺/视频监督。见[审查](weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[U12](../reviews/U12.md)。

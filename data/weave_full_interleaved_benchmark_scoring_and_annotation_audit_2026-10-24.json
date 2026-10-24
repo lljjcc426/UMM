@@ -1,0 +1,2889 @@
+{
+  "id": "U12",
+  "checked_on": "2026-10-24",
+  "arxiv_version": "2511.11434v1",
+  "pdf_pages": 51,
+  "core_three_pass_completed": true,
+  "formal_full_version_refresh_succeeded": false,
+  "figures_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
+  ],
+  "numbered_tables_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "html_tables_with_icons": [
+    [
+      [
+        "Benchmark",
+        "Venue",
+        "Inter.",
+        "Multi-",
+        "Vision",
+        "Multi-",
+        "Hybrid",
+        "# Domain",
+        "# Num",
+        "#Types"
+      ],
+      [
+        "Turn",
+        "Mem.",
+        "Dim.",
+        "Eval"
+      ],
+      [
+        "ReasonPix2Pix [40]",
+        "arXiv’24",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "[ICON:ltx_inline-block fa fa-edit]",
+        "40,21240,212",
+        "11"
+      ],
+      [
+        "ReasonEdit [36]",
+        "CVPR’24",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "[ICON:ltx_inline-block fa fa-edit]",
+        "219219",
+        "11"
+      ],
+      [
+        "Reason50K [30]",
+        "arXiv’25",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "[ICON:ltx_inline-block fa fa-edit]",
+        "51,03951,039",
+        "44"
+      ],
+      [
+        "Zebra-CoT [45]",
+        "arXiv’25",
+        "✓",
+        "✓",
+        "✗",
+        "✗",
+        "✗",
+        "[ICON:ltx_inline-block fa fa-magic] [ICON:ltx_inline-block fa fa-edit]",
+        "182,384182,384",
+        "44"
+      ],
+      [
+        "KRIS-Bench [78]",
+        "NeurIPS’25",
+        "✗",
+        "✗",
+        "✗",
+        "✓",
+        "✓",
+        "[ICON:ltx_inline-block fa fa-magic]",
+        "1,2671,267",
+        "77"
+      ],
+      [
+        "RISEBench [93]",
+        "NeurIPS’25",
+        "✗",
+        "✗",
+        "✗",
+        "✓",
+        "✓",
+        "[ICON:ltx_inline-block fa fa-magic]",
+        "360360",
+        "44"
+      ],
+      [
+        "CoMM [14]",
+        "CVPR’25",
+        "✓",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "[ICON:ltx_inline-block fa fa-image] [ICON:ltx_inline-block fa fa-edit]",
+        "227,000227,000",
+        "11"
+      ],
+      [
+        "IRG-300k [34]",
+        "arXiv’25",
+        "✓",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "11",
+        "11"
+      ],
+      [
+        "Echo-4o [84]",
+        "arXiv’25",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "179,000179,000",
+        "33"
+      ],
+      [
+        "ROVER [46]",
+        "arXiv’25",
+        "✓",
+        "✗",
+        "✗",
+        "✓",
+        "✓",
+        "[ICON:ltx_inline-block fa fa-magic] [ICON:ltx_inline-block fa fa-edit]",
+        "1,3121,312",
+        "2323"
+      ],
+      [
+        "WEAVE",
+        "Ours",
+        "✓",
+        "✓",
+        "✓",
+        "✓",
+        "✓",
+        "[ICON:ltx_inline-block fa fa-image] [ICON:ltx_inline-block fa fa-magic] [ICON:ltx_inline-block fa fa-edit]",
+        "100,100",
+        "1616"
+      ]
+    ],
+    [
+      [
+        "Statistic",
+        "Number"
+      ],
+      [
+        "∙\\bullet Total Chats",
+        "100,750100{,}750"
+      ],
+      [
+        "- ≥4\\geq 4 Images Chats",
+        "100,584100{,}584"
+      ],
+      [
+        "- ≥5\\geq 5 Images Chats",
+        "60,36160{,}361"
+      ],
+      [
+        "- ≥6\\geq 6 Images Chats",
+        "31,57131{,}571"
+      ],
+      [
+        "∙\\bullet Average Chat Turns",
+        "3.793.79"
+      ],
+      [
+        "-Average Question Length",
+        "195.49195.49"
+      ],
+      [
+        "∙\\bullet Total Images",
+        "505,186505{,}186"
+      ],
+      [
+        "- Maximum Image Per Chats",
+        "88"
+      ],
+      [
+        "- Average Image Per Chats",
+        "5.015.01"
+      ]
+    ],
+    [
+      [
+        "",
+        "Size",
+        "In-context",
+        "Modality",
+        "Format",
+        "[ICON:ltx_inline-block fa fa-flask] Science",
+        "[ICON:ltx_inline-block fa fa-paint-brush] Creation",
+        "[ICON:ltx_inline-block fa fa-puzzle-piece] Logic",
+        "[ICON:ltx_inline-block fa fa-gamepad] Game",
+        "Avg"
+      ],
+      [
+        "Intern3.5-VL [70]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.114",
+        "0.500",
+        "0.667",
+        "0.292",
+        "0.231"
+      ],
+      [
+        "Qwen3-VL [7]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.432",
+        "0.000",
+        "0.000",
+        "0.250",
+        "0.298"
+      ],
+      [
+        "GPT-4o [1]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.591",
+        "0.500",
+        "0.167",
+        "0.083",
+        "0.381"
+      ],
+      [
+        "GPT-4.1 [1]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.705",
+        "0.500",
+        "0.167",
+        "0.167",
+        "0.464"
+      ],
+      [
+        "AnyEdit [86]",
+        "1B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.445",
+        "0.514",
+        "0.351",
+        "0.419",
+        "0.472"
+      ],
+      [
+        "UltraEdit(SD3) [91]",
+        "2B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.493",
+        "0.561",
+        "0.491",
+        "0.440",
+        "0.522"
+      ],
+      [
+        "VAREdit-8B [53]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.536",
+        "0.636",
+        "0.584",
+        "0.580",
+        "0.603"
+      ],
+      [
+        "Step1X-Edit v1.1 [48]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.574",
+        "0.714",
+        "0.700",
+        "0.625",
+        "0.669"
+      ],
+      [
+        "Step1X-Edit v1.2 [48]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.560",
+        "0.644",
+        "0.530",
+        "0.562",
+        "0.605"
+      ],
+      [
+        "FLUX.1 Kontext [42]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.589",
+        "0.756",
+        "0.639",
+        "0.610",
+        "0.689"
+      ],
+      [
+        "Qwen-Image-Edit [76]",
+        "20B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.586",
+        "0.715",
+        "0.589",
+        "0.628",
+        "0.665"
+      ],
+      [
+        "OminiGen [80]",
+        "4B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.398",
+        "0.474",
+        "0.401",
+        "0.177",
+        "0.404"
+      ],
+      [
+        "OminiGen2 [77]",
+        "7B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.511",
+        "0.682",
+        "0.551",
+        "0.511",
+        "0.609"
+      ],
+      [
+        "Ovis-U1 [67]",
+        "3B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.402",
+        "0.557",
+        "0.364",
+        "0.357",
+        "0.422"
+      ],
+      [
+        "UniPic [68]",
+        "1.5B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.472",
+        "0.590",
+        "0.463",
+        "0.316",
+        "0.511"
+      ],
+      [
+        "UniPic2-SD3.5M [73]",
+        "2B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.477",
+        "0.625",
+        "0.543",
+        "0.497",
+        "0.568"
+      ],
+      [
+        "UniPic2-Metaquery [73]",
+        "9B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.493",
+        "0.666",
+        "0.507",
+        "0.444",
+        "0.582"
+      ],
+      [
+        "NextStep-1-Large [66]",
+        "15B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.519",
+        "0.620",
+        "0.437",
+        "0.309",
+        "0.534"
+      ],
+      [
+        "Seedream 4.0 [62]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.683",
+        "0.847",
+        "0.679",
+        "0.635",
+        "0.765"
+      ],
+      [
+        "Seedream 4.0 [62]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.667",
+        "0.830",
+        "0.646",
+        "0.599",
+        "0.746"
+      ],
+      [
+        "Nano Banana [20]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.715",
+        "0.823",
+        "0.666",
+        "0.666",
+        "0.764"
+      ],
+      [
+        "Nano Banana [20]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.710",
+        "0.843",
+        "0.730",
+        "0.613",
+        "0.767"
+      ],
+      [
+        "Bagel [22]",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.378",
+        "0.475",
+        "0.406",
+        "0.365",
+        "0.446"
+      ],
+      [
+        "Bagel‑Zebra [45]",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.399",
+        "0.456",
+        "0.393",
+        "0.396",
+        "0.449"
+      ],
+      [
+        "+ WEAVE-100k",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.537",
+        "0.706",
+        "0.567",
+        "0.531",
+        "0.640"
+      ]
+    ],
+    [
+      [
+        "Model",
+        "BG",
+        "Color",
+        "Mat.",
+        "Motion",
+        "Port.",
+        "Style",
+        "Add",
+        "Remove",
+        "Replace",
+        "Text",
+        "Tone",
+        "Avg"
+      ],
+      [
+        "AnyEdit [86]",
+        "4.31",
+        "4.25",
+        "2.64",
+        "0.67",
+        "1.90",
+        "1.95",
+        "3.72",
+        "3.75",
+        "3.23",
+        "0.77",
+        "4.21",
+        "2.85"
+      ],
+      [
+        "MagicBrush [90]",
+        "6.17",
+        "5.41",
+        "4.75",
+        "1.55",
+        "2.90",
+        "4.10",
+        "5.53",
+        "4.13",
+        "5.10",
+        "1.33",
+        "5.07",
+        "4.19"
+      ],
+      [
+        "InstructPix2Pix [9]",
+        "3.94",
+        "5.40",
+        "3.52",
+        "1.27",
+        "2.62",
+        "4.39",
+        "3.07",
+        "1.50",
+        "3.48",
+        "1.13",
+        "5.10",
+        "3.22"
+      ],
+      [
+        "OmniGen [80]",
+        "5.23",
+        "5.93",
+        "5.44",
+        "3.12",
+        "3.17",
+        "4.88",
+        "6.33",
+        "6.35",
+        "5.34",
+        "4.31",
+        "4.96",
+        "5.01"
+      ],
+      [
+        "Step1X-Edit [48]",
+        "7.03",
+        "6.26",
+        "6.46",
+        "3.66",
+        "5.23",
+        "7.24",
+        "7.17",
+        "6.42",
+        "7.39",
+        "7.40",
+        "6.62",
+        "6.44"
+      ],
+      [
+        "OminiGen2 [77]",
+        "6.99",
+        "6.66",
+        "4.88",
+        "2.55",
+        "3.66",
+        "6.08",
+        "7.09",
+        "6.60",
+        "6.65",
+        "4.49",
+        "6.03",
+        "5.57"
+      ],
+      [
+        "UltraEdit (SD3) [91]",
+        "5.83",
+        "5.51",
+        "5.86",
+        "3.55",
+        "5.00",
+        "5.73",
+        "5.06",
+        "3.15",
+        "5.79",
+        "2.24",
+        "5.45",
+        "4.83"
+      ],
+      [
+        "EditMGT [3]",
+        "7.69",
+        "7.71",
+        "5.77",
+        "3.84",
+        "5.13",
+        "6.53",
+        "6.13",
+        "5.24",
+        "5.56",
+        "4.53",
+        "6.42",
+        "5.87"
+      ],
+      [
+        "GoT-6B [23]",
+        "4.11",
+        "5.75",
+        "3.04",
+        "1.71",
+        "2.69",
+        "4.72",
+        "5.77",
+        "4.59",
+        "5.65",
+        "1.16",
+        "4.24",
+        "3.95"
+      ],
+      [
+        "VAREdit-8B [53]",
+        "6.77",
+        "6.64",
+        "5.40",
+        "3.33",
+        "4.20",
+        "6.46",
+        "5.86",
+        "7.29",
+        "6.67",
+        "3.87",
+        "6.54",
+        "5.73"
+      ],
+      [
+        "FluxKontext.dev [42]",
+        "7.06",
+        "7.03",
+        "5.52",
+        "5.62",
+        "4.68",
+        "5.55",
+        "6.95",
+        "6.76",
+        "6.13",
+        "6.10",
+        "7.48",
+        "6.26"
+      ],
+      [
+        "Bagel [22]",
+        "7.44",
+        "6.99",
+        "6.26",
+        "5.09",
+        "4.82",
+        "6.04",
+        "7.94",
+        "7.37",
+        "7.31",
+        "7.16",
+        "6.17",
+        "6.52"
+      ],
+      [
+        "+ WEAVE-100k",
+        "7.45",
+        "7.00",
+        "7.10",
+        "4.97",
+        "4.83",
+        "6.98",
+        "7.88",
+        "7.39",
+        "7.75",
+        "7.06",
+        "6.81",
+        "6.83"
+      ]
+    ],
+    [
+      [
+        "",
+        "Understanding",
+        "GenEval",
+        "RISEBench"
+      ],
+      [
+        "Model",
+        "MMB",
+        "MMMU",
+        "MMVet",
+        "Single Obj.",
+        "Two Obj.",
+        "Count.",
+        "Color",
+        "Position",
+        "Attri.",
+        "Overall",
+        "Tem.",
+        "Cau.",
+        "Spa.",
+        "Log."
+      ],
+      [
+        "Emu33[71]",
+        "58.5",
+        "31.6",
+        "37.2",
+        "0.99",
+        "0.81",
+        "0.42",
+        "0.80",
+        "0.49",
+        "0.45",
+        "0.66",
+        "-",
+        "-",
+        "-",
+        "-"
+      ],
+      [
+        "Show-o [81]",
+        "-",
+        "27.4",
+        "-",
+        "0.98",
+        "0.80",
+        "0.66",
+        "0.84",
+        "0.31",
+        "0.50",
+        "0.68",
+        "-",
+        "-",
+        "-",
+        "-"
+      ],
+      [
+        "Janus-Pro-7B [16]",
+        "75.5",
+        "36.3",
+        "39.8",
+        "0.99",
+        "0.89",
+        "0.59",
+        "0.90",
+        "0.79",
+        "0.66",
+        "0.80",
+        "-",
+        "-",
+        "-",
+        "-"
+      ],
+      [
+        "MetaQuery-XL [56]",
+        "83.5",
+        "58.6",
+        "66.6",
+        "-",
+        "-",
+        "-",
+        "-",
+        "-",
+        "-",
+        "0.80",
+        "-",
+        "-",
+        "-",
+        "-"
+      ],
+      [
+        "Ovis-U1 [67]",
+        "77.8",
+        "51.1",
+        "66.7",
+        "0.98",
+        "0.98",
+        "0.90",
+        "0.92",
+        "0.79",
+        "0.75",
+        "0.89",
+        "1.2",
+        "3.3",
+        "4.0",
+        "2.4"
+      ],
+      [
+        "BLIP3-o [11]",
+        "83.5",
+        "58.6",
+        "66.6",
+        "1.00",
+        "0.92",
+        "0.63",
+        "0.91",
+        "0.86",
+        "0.67",
+        "0.83",
+        "-",
+        "-",
+        "-",
+        "-"
+      ],
+      [
+        "EMU2 [64]",
+        "-",
+        "34.1",
+        "48.5",
+        "-",
+        "-",
+        "-",
+        "-",
+        "-",
+        "-",
+        "-",
+        "1.2",
+        "1.1",
+        "0.0",
+        "0.0"
+      ],
+      [
+        "OmniGen [80]",
+        "",
+        "",
+        "",
+        "0.99",
+        "0.86",
+        "0.64",
+        "0.85",
+        "0.31",
+        "0.55",
+        "0.70",
+        "1.2",
+        "1.0",
+        "0.0",
+        "1.2"
+      ],
+      [
+        "OmniGen2 [77]",
+        "79.1",
+        "53.1",
+        "61.8",
+        "1.00",
+        "0.95",
+        "0.64",
+        "0.88",
+        "0.55",
+        "0.76",
+        "0.80",
+        "-",
+        "-",
+        "-",
+        "-"
+      ],
+      [
+        "BAGEL [22]",
+        "85.0",
+        "55.3",
+        "67.2",
+        "0.99",
+        "0.94",
+        "0.81",
+        "0.88",
+        "0.64",
+        "0.63",
+        "0.82",
+        "2.4",
+        "5.6",
+        "14.0",
+        "1.2"
+      ],
+      [
+        "+ WEAVE-100k",
+        "85.2",
+        "60.7",
+        "67.4",
+        "1.00",
+        "0.94",
+        "0.83",
+        "0.89",
+        "0.65",
+        "0.70",
+        "0.84",
+        "4.7",
+        "6.7",
+        "21.0",
+        "2.4"
+      ]
+    ],
+    [
+      [
+        "Domain Type",
+        "#Chats"
+      ],
+      [
+        "Multi-image Fusion",
+        ""
+      ],
+      [
+        "GPT-Image",
+        "72348"
+      ],
+      [
+        "SeeDream",
+        "3648"
+      ],
+      [
+        "Recall",
+        "1369"
+      ],
+      [
+        "Animals",
+        "91"
+      ],
+      [
+        "Architecture",
+        "74"
+      ],
+      [
+        "Cartoon",
+        "135"
+      ],
+      [
+        "Fashion",
+        "73"
+      ],
+      [
+        "Fantasy",
+        "126"
+      ],
+      [
+        "Food",
+        "116"
+      ],
+      [
+        "Nature Landscapes",
+        "164"
+      ],
+      [
+        "Plants",
+        "54"
+      ],
+      [
+        "Products",
+        "77"
+      ],
+      [
+        "Real Human",
+        "347"
+      ],
+      [
+        "Sports",
+        "49"
+      ],
+      [
+        "Vehicles",
+        "63"
+      ],
+      [
+        "Edit",
+        "19903"
+      ],
+      [
+        "None",
+        "18261"
+      ],
+      [
+        "Animals",
+        "263"
+      ],
+      [
+        "Architecture",
+        "114"
+      ],
+      [
+        "Cartoon",
+        "96"
+      ],
+      [
+        "Fashion",
+        "141"
+      ],
+      [
+        "Fantasy",
+        "98"
+      ],
+      [
+        "Food",
+        "234"
+      ],
+      [
+        "Nature Landscapes",
+        "105"
+      ],
+      [
+        "Plants",
+        "97"
+      ],
+      [
+        "Products",
+        "164"
+      ],
+      [
+        "Real Human",
+        "136"
+      ],
+      [
+        "Sports",
+        "98"
+      ],
+      [
+        "Vehicles",
+        "96"
+      ],
+      [
+        "Visual Jigsaw",
+        "1286"
+      ],
+      [
+        "None",
+        "1286"
+      ],
+      [
+        "Chess Game",
+        "2196"
+      ],
+      [
+        "None",
+        "2196"
+      ],
+      [
+        "Total",
+        "100750"
+      ]
+    ],
+    [
+      [
+        "Category",
+        "Main Content",
+        "Scenarios",
+        "Editable Dimensions"
+      ],
+      [
+        "Food & Drink",
+        "Staples, snacks, desserts, fruits, beverages (hot/cold)",
+        "Dining tables, restaurants, street stalls, picnics, festive banquets",
+        "Ingredient substitution, plating style, scene modification, style adjustment"
+      ],
+      [
+        "Real Humans",
+        "Portraits, full-body, half-body, group photos; Actions: standing, walking, exercising, socializing, working",
+        "Indoor/outdoor, offices, streets, event venues",
+        "Clothing change, pose adjustment, background modification, expression change"
+      ],
+      [
+        "Animals & Pets",
+        "Pets (cats, dogs, rabbits, birds), farm animals (cattle, sheep, horses), wildlife (lions, elephants, bears), marine life (fish, dolphins, whales), insects & reptiles (butterflies, spiders, snakes), mythical creatures (dragons, unicorns, phoenix); Actions: playing, running, sleeping, eating, flying, swimming",
+        "Homes, parks, zoos, natural habitats, aquariums",
+        "Breed change, color variation, accessory addition, scene switching, pose adjustment"
+      ],
+      [
+        "Architecture & Interior",
+        "Exteriors (modern buildings, historical structures, skyscrapers, bridges, churches, castles), interiors (living rooms, bedrooms, kitchens, offices, cafés); Styles: modern, vintage, industrial, Nordic, Japanese, Chinese",
+        "City skylines, countryside, historic districts, campus landscapes",
+        "Style change, furniture replacement, lighting adjustment, seasonal variation, decoration modification"
+      ],
+      [
+        "Nature & Landscapes",
+        "Terrain (mountains, canyons, plains, deserts, glaciers), water bodies (oceans, lakes, rivers, waterfalls), vegetation (forests, grasslands, bamboo groves, rainforests), sky (sunrise, sunset, starry sky, aurora, sea of clouds); Seasons: spring, summer, autumn, winter; Weather: sunny, rainy, foggy, snowy, stormy",
+        "Natural environments",
+        "Weather change, time transition, seasonal switching, color adjustment, natural element addition"
+      ],
+      [
+        "Products & Objects",
+        "Electronics (phones, earbuds, cameras, laptops, tablets), fashion accessories (watches, bags, jewelry, sunglasses), cosmetics (perfume, lipstick, skincare), home goods (lamps, vases, cushions, tableware), books, stationery, toys, sports equipment",
+        "White background, display stands, lifestyle scenes, desktops, outdoor settings",
+        "Color variation, material change, arrangement combination, background switching, lighting adjustment"
+      ],
+      [
+        "Cartoon & Stylized Characters",
+        "Anime characters (Japanese anime, manga), Western cartoons (Disney/Pixar, American comics), 3D characters (game characters, virtual avatars), mascots & avatars (brand mascots, social media avatars), Q-version/Chibi, fantasy hybrids (robots, elves, monsters, hybrid creatures)",
+        "Fantasy worlds, modern cities, space, magic academies",
+        "Clothing change, expression adjustment, color scheme change, scene switching, style transformation"
+      ],
+      [
+        "Flowers & Plants",
+        "Flowers (roses, tulips, cherry blossoms, sunflowers, peonies, orchids), plants (potted plants, succulents, foliage plants, trees, vines)",
+        "Gardens, vases, outdoors, greenhouses, balconies, floral arrangements",
+        "Species change, color variation, layout adjustment, background modification, seasonal change"
+      ],
+      [
+        "Vehicles",
+        "Land (cars, motorcycles, bicycles, buses, trains), air (airplanes, helicopters, hot air balloons), water (yachts, sailboats, ferries, speedboats); Views: side, front, aerial, interior",
+        "City streets, highways, racetracks, parking lots, airports, ports, showrooms",
+        "Color change, model replacement, background modification, modification addition, lighting adjustment"
+      ],
+      [
+        "Fantasy & Sci-Fi",
+        "Sci-fi elements (spaceships, aliens, robots, futuristic cities, cyberpunk streets), fantasy elements (magic scenes, fantasy creatures, magic academies, elf forests, dragon lairs), surreal art (dreamscapes, geometric abstractions, spacetime distortions)",
+        "Space stations, alien planets, magic worlds, parallel universes",
+        "Creature replacement, environment change, effect addition, atmosphere adjustment, style transformation"
+      ],
+      [
+        "Sports & Fitness",
+        "Ball sports (basketball, soccer, tennis, volleyball, golf), fitness activities (yoga, running, weightlifting, swimming, cycling), extreme sports (rock climbing, skiing, surfing, skydiving), equipment (gym machines, sports gear)",
+        "Stadiums, gyms, outdoor fields, pools, competition venues",
+        "Action variation, equipment change, scene switching, sport type change"
+      ],
+      [
+        "Fashion & Clothing",
+        "Apparel (dresses, suits, casual wear, sportswear, formal wear), accessories (shoes, hats, scarves, belts), display methods (hangers, mannequins, flat lay); Styles: streetwear, elegant, athletic, business, vintage",
+        "Runways, street photography, studios, stores, fashion exhibitions",
+        "Color/pattern variation, style adjustment, combination matching, scene switching"
+      ]
+    ],
+    [
+      [
+        "",
+        "Score=0.50⋅KP+0.20⋅VC+0.30⋅IQ\\text{Score}=0.50\\cdot\\text{KP}+0.20\\cdot\\text{VC}+0.30\\cdot\\text{IQ}",
+        "",
+        "(1)"
+      ]
+    ],
+    [
+      [
+        "",
+        "Score=0.40⋅KP+0.10⋅VC+0.20⋅IQ+0.30⋅ACC\\text{Score}=0.40\\cdot\\text{KP}+0.10\\cdot\\text{VC}+0.20\\cdot\\text{IQ}+0.30\\cdot\\text{ACC}",
+        "",
+        "(2)"
+      ]
+    ],
+    [
+      [
+        "",
+        "Size",
+        "In-context",
+        "Modality",
+        "Format",
+        "KP",
+        "VC",
+        "IQ",
+        "ACC",
+        "Avg"
+      ],
+      [
+        "Intern3.5-VL [70]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.114",
+        "0.114"
+      ],
+      [
+        "Qwen3-VL [7]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.432",
+        "0.432"
+      ],
+      [
+        "GPT-4o [1]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.591",
+        "0.591"
+      ],
+      [
+        "GPT-4.1 [1]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.705",
+        "0.705"
+      ],
+      [
+        "AnyEdit [86]",
+        "1B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.376",
+        "0.563",
+        "0.481",
+        "-",
+        "0.445"
+      ],
+      [
+        "UltraEdit(SD3) [91]",
+        "2B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.45",
+        "0.558",
+        "0.528",
+        "-",
+        "0.493"
+      ],
+      [
+        "VAREdit-8B [53]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.437",
+        "0.661",
+        "0.618",
+        "-",
+        "0.536"
+      ],
+      [
+        "Step1X-Edit v1.1 [48]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.442",
+        "0.821",
+        "0.630",
+        "-",
+        "0.574"
+      ],
+      [
+        "Step1X-Edit v1.2 [48]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.497",
+        "0.622",
+        "0.625",
+        "-",
+        "0.560"
+      ],
+      [
+        "FLUX.1 Kontext [42]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.500",
+        "0.755",
+        "0.628",
+        "-",
+        "0.589"
+      ],
+      [
+        "Qwen-Image-Edit [76]",
+        "20B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.510",
+        "0.622",
+        "0.687",
+        "-",
+        "0.586"
+      ],
+      [
+        "OminiGen [80]",
+        "4B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.375",
+        "0.343",
+        "0.473",
+        "-",
+        "0.398"
+      ],
+      [
+        "OminiGen2 [77]",
+        "7B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.455",
+        "0.501",
+        "0.612",
+        "-",
+        "0.511"
+      ],
+      [
+        "Ovis-U1 [67]",
+        "3B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.466",
+        "0.545",
+        "0.569",
+        "0.159",
+        "0.402"
+      ],
+      [
+        "UniPic [68]",
+        "1.5B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.490",
+        "0.455",
+        "0.454",
+        "-",
+        "0.472"
+      ],
+      [
+        "UniPic2-SD3.5M [73]",
+        "2B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.422",
+        "0.558",
+        "0.513",
+        "-",
+        "0.477"
+      ],
+      [
+        "UniPic2-Metaquery [73]",
+        "9B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.442",
+        "0.542",
+        "0.546",
+        "-",
+        "0.493"
+      ],
+      [
+        "NextStep-1-Large [66]",
+        "15B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.515",
+        "0.516",
+        "0.528",
+        "-",
+        "0.519"
+      ],
+      [
+        "Seedream 4.0 [62]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.617",
+        "0.686",
+        "0.791",
+        "-",
+        "0.683"
+      ],
+      [
+        "Seedream 4.0 [62]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.597",
+        "0.678",
+        "0.778",
+        "-",
+        "0.667"
+      ],
+      [
+        "Nano Banana [20]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.631",
+        "0.763",
+        "0.824",
+        "-",
+        "0.715"
+      ],
+      [
+        "Nano Banana [20]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.633",
+        "0.739",
+        "0.818",
+        "-",
+        "0.710"
+      ],
+      [
+        "Bagel [22]",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.446",
+        "0.534",
+        "0.528",
+        "0.136",
+        "0.378"
+      ],
+      [
+        "Bagel‑Zebra [45]",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.463",
+        "0.561",
+        "0.551",
+        "0.159",
+        "0.399"
+      ],
+      [
+        "+ WEAVE-100k",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.500",
+        "0.584",
+        "0.569",
+        "-",
+        "0.537"
+      ]
+    ],
+    [
+      [
+        "",
+        "Size",
+        "In-context",
+        "Modality",
+        "Format",
+        "KP",
+        "VC",
+        "IQ",
+        "ACC",
+        "Avg"
+      ],
+      [
+        "Intern3.5-VL [70]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.500",
+        "0.500"
+      ],
+      [
+        "Qwen3-VL [7]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.000",
+        "0.000"
+      ],
+      [
+        "GPT-4o [1]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.500",
+        "0.500"
+      ],
+      [
+        "GPT-4.1 [1]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.500",
+        "0.500"
+      ],
+      [
+        "AnyEdit [86]",
+        "1B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.460",
+        "0.572",
+        "0.566",
+        "-",
+        "0.514"
+      ],
+      [
+        "UltraEdit(SD3) [91]",
+        "2B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.531",
+        "0.599",
+        "0.587",
+        "-",
+        "0.561"
+      ],
+      [
+        "VAREdit-8B [53]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.645",
+        "0.662",
+        "0.603",
+        "-",
+        "0.636"
+      ],
+      [
+        "Step1X-Edit v1.1 [48]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.646",
+        "0.877",
+        "0.720",
+        "-",
+        "0.714"
+      ],
+      [
+        "Step1X-Edit v1.2 [48]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.643",
+        "0.680",
+        "0.622",
+        "-",
+        "0.644"
+      ],
+      [
+        "FLUX.1 Kontext [42]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.705",
+        "0.879",
+        "0.759",
+        "-",
+        "0.756"
+      ],
+      [
+        "Qwen-Image-Edit [76]",
+        "20B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.706",
+        "0.739",
+        "0.715",
+        "-",
+        "0.715"
+      ],
+      [
+        "OminiGen [80]",
+        "4B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.473",
+        "0.425",
+        "0.507",
+        "-",
+        "0.474"
+      ],
+      [
+        "OminiGen2 [77]",
+        "7B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.644",
+        "0.675",
+        "0.751",
+        "-",
+        "0.682"
+      ],
+      [
+        "Ovis-U1 [67]",
+        "3B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.500",
+        "0.593",
+        "0.590",
+        "0.555",
+        "0.557"
+      ],
+      [
+        "UniPic [68]",
+        "1.5B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.619",
+        "0.584",
+        "0.545",
+        "-",
+        "0.590"
+      ],
+      [
+        "UniPic2-SD3.5M [73]",
+        "2B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.613",
+        "0.638",
+        "0.637",
+        "-",
+        "0.625"
+      ],
+      [
+        "UniPic2-Metaquery [73]",
+        "9B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.664",
+        "0.664",
+        "0.670",
+        "-",
+        "0.666"
+      ],
+      [
+        "NextStep-1-Large [66]",
+        "15B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.652",
+        "0.636",
+        "0.556",
+        "-",
+        "0.620"
+      ],
+      [
+        "Seedream 4.0 [62]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.840",
+        "0.869",
+        "0.843",
+        "-",
+        "0.847"
+      ],
+      [
+        "Seedream 4.0 [62]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.828",
+        "0.842",
+        "0.824",
+        "-",
+        "0.830"
+      ],
+      [
+        "Nano Banana [20]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.819",
+        "0.856",
+        "0.806",
+        "-",
+        "0.823"
+      ],
+      [
+        "Nano Banana [20]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.838",
+        "0.873",
+        "0.832",
+        "-",
+        "0.843"
+      ],
+      [
+        "Bagel [22]",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.683",
+        "0.685",
+        "0.666",
+        "0.000",
+        "0.475"
+      ],
+      [
+        "Bagel‑Zebra [45]",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.667",
+        "0.661",
+        "0.614",
+        "0.000",
+        "0.456"
+      ],
+      [
+        "+ WEAVE-100k",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.734",
+        "0.743",
+        "0.635",
+        "-",
+        "0.706"
+      ]
+    ],
+    [
+      [
+        "",
+        "Size",
+        "In-context",
+        "Modality",
+        "Format",
+        "KP",
+        "VC",
+        "IQ",
+        "ACC",
+        "Avg"
+      ],
+      [
+        "Intern3.5-VL [70]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.667",
+        "0.667"
+      ],
+      [
+        "Qwen3-VL [7]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.000",
+        "0.000"
+      ],
+      [
+        "GPT-4o [1]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.167",
+        "0.167"
+      ],
+      [
+        "GPT-4.1 [1]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.167",
+        "0.167"
+      ],
+      [
+        "AnyEdit [86]",
+        "1B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.352",
+        "0.330",
+        "0.365",
+        "-",
+        "0.351"
+      ],
+      [
+        "UltraEdit(SD3) [91]",
+        "2B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.435",
+        "0.639",
+        "0.487",
+        "-",
+        "0.491"
+      ],
+      [
+        "VAREdit-8B [53]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.630",
+        "0.591",
+        "0.504",
+        "-",
+        "0.584"
+      ],
+      [
+        "Step1X-Edit v1.1 [48]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.661",
+        "0.857",
+        "0.661",
+        "-",
+        "0.700"
+      ],
+      [
+        "Step1X-Edit v1.2 [48]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.543",
+        "0.587",
+        "0.470",
+        "-",
+        "0.530"
+      ],
+      [
+        "FLUX.1 Kontext [42]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.557",
+        "0.861",
+        "0.626",
+        "-",
+        "0.639"
+      ],
+      [
+        "Qwen-Image-Edit [76]",
+        "20B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.587",
+        "0.630",
+        "0.565",
+        "-",
+        "0.589"
+      ],
+      [
+        "OminiGen [80]",
+        "4B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.404",
+        "0.352",
+        "0.430",
+        "-",
+        "0.401"
+      ],
+      [
+        "OminiGen2 [77]",
+        "7B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.552",
+        "0.530",
+        "0.565",
+        "-",
+        "0.551"
+      ],
+      [
+        "Ovis-U1 [67]",
+        "3B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.535",
+        "0.478",
+        "0.509",
+        "0.000",
+        "0.364"
+      ],
+      [
+        "UniPic [68]",
+        "1.5B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.513",
+        "0.448",
+        "0.391",
+        "-",
+        "0.463"
+      ],
+      [
+        "UniPic2-SD3.5M [73]",
+        "2B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.543",
+        "0.557",
+        "0.535",
+        "-",
+        "0.543"
+      ],
+      [
+        "UniPic2-Metaquery [73]",
+        "9B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.561",
+        "0.509",
+        "0.417",
+        "-",
+        "0.507"
+      ],
+      [
+        "NextStep-1-Large [66]",
+        "15B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.483",
+        "0.417",
+        "0.374",
+        "-",
+        "0.437"
+      ],
+      [
+        "Seedream 4.0 [62]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.674",
+        "0.643",
+        "0.713",
+        "-",
+        "0.679"
+      ],
+      [
+        "Seedream 4.0 [62]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.678",
+        "0.578",
+        "0.639",
+        "-",
+        "0.646"
+      ],
+      [
+        "Nano Banana [20]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.648",
+        "0.652",
+        "0.704",
+        "-",
+        "0.666"
+      ],
+      [
+        "Nano Banana [20]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.735",
+        "0.757",
+        "0.704",
+        "-",
+        "0.730"
+      ],
+      [
+        "Bagel [22]",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.583",
+        "0.630",
+        "0.548",
+        "0.000",
+        "0.406"
+      ],
+      [
+        "Bagel‑Zebra [45]",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.574",
+        "0.561",
+        "0.535",
+        "0.000",
+        "0.393"
+      ],
+      [
+        "+ WEAVE-100k",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.582",
+        "0.612",
+        "0.512",
+        "-",
+        "0.567"
+      ]
+    ],
+    [
+      [
+        "",
+        "Size",
+        "In-context",
+        "Modality",
+        "Format",
+        "KP",
+        "VC",
+        "IQ",
+        "ACC",
+        "Avg"
+      ],
+      [
+        "Intern3.5-VL [70]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.292",
+        "0.292"
+      ],
+      [
+        "Qwen3-VL [7]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.250",
+        "0.250"
+      ],
+      [
+        "GPT-4o [1]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.083",
+        "0.083"
+      ],
+      [
+        "GPT-4.1 [1]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-file-text-o]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "-",
+        "-",
+        "-",
+        "0.167",
+        "0.167"
+      ],
+      [
+        "AnyEdit [86]",
+        "1B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.407",
+        "0.548",
+        "0.354",
+        "-",
+        "0.419"
+      ],
+      [
+        "UltraEdit(SD3) [91]",
+        "2B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.398",
+        "0.526",
+        "0.454",
+        "-",
+        "0.440"
+      ],
+      [
+        "VAREdit-8B [53]",
+        "8B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.581",
+        "0.698",
+        "0.498",
+        "-",
+        "0.580"
+      ],
+      [
+        "Step1X-Edit v1.1 [48]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.617",
+        "0.941",
+        "0.426",
+        "-",
+        "0.625"
+      ],
+      [
+        "Step1X-Edit v1.2 [48]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.567",
+        "0.681",
+        "0.476",
+        "-",
+        "0.562"
+      ],
+      [
+        "FLUX.1 Kontext [42]",
+        "12B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.578",
+        "0.907",
+        "0.465",
+        "-",
+        "0.610"
+      ],
+      [
+        "Qwen-Image-Edit [76]",
+        "20B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.667",
+        "0.802",
+        "0.446",
+        "-",
+        "0.628"
+      ],
+      [
+        "OminiGen [80]",
+        "4B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.167",
+        "0.106",
+        "0.241",
+        "-",
+        "0.177"
+      ],
+      [
+        "OminiGen2 [77]",
+        "7B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.502",
+        "0.543",
+        "0.504",
+        "-",
+        "0.511"
+      ],
+      [
+        "Ovis-U1 [67]",
+        "3B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.470",
+        "0.526",
+        "0.393",
+        "0.125",
+        "0.357"
+      ],
+      [
+        "UniPic [68]",
+        "1.5B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.341",
+        "0.296",
+        "0.287",
+        "-",
+        "0.316"
+      ],
+      [
+        "UniPic2-SD3.5M [73]",
+        "2B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.517",
+        "0.583",
+        "0.407",
+        "-",
+        "0.497"
+      ],
+      [
+        "UniPic2-Metaquery [73]",
+        "9B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.456",
+        "0.457",
+        "0.415",
+        "-",
+        "0.444"
+      ],
+      [
+        "NextStep-1-Large [66]",
+        "15B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-object-group]",
+        "0.356",
+        "0.265",
+        "0.259",
+        "-",
+        "0.309"
+      ],
+      [
+        "Seedream 4.0 [62]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.652",
+        "0.689",
+        "0.572",
+        "-",
+        "0.635"
+      ],
+      [
+        "Seedream 4.0 [62]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.609",
+        "0.672",
+        "0.533",
+        "-",
+        "0.599"
+      ],
+      [
+        "Nano Banana [20]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.680",
+        "0.790",
+        "0.560",
+        "-",
+        "0.666"
+      ],
+      [
+        "Nano Banana [20]",
+        "-",
+        "[ICON:ltx_inline-block fa fa-check]",
+        "[ICON:ltx_inline-block fa fa-image]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.604",
+        "0.737",
+        "0.546",
+        "-",
+        "0.613"
+      ],
+      [
+        "Bagel [22]",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.506",
+        "0.635",
+        "0.431",
+        "0.042",
+        "0.365"
+      ],
+      [
+        "Bagel‑Zebra [45]",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.500",
+        "0.624",
+        "0.480",
+        "0.125",
+        "0.396"
+      ],
+      [
+        "+ WEAVE-100k",
+        "14B",
+        "[ICON:ltx_inline-block fa fa-adjust]",
+        "[ICON:ltx_inline-block fa fa-asterisk]",
+        "[ICON:ltx_inline-block fa fa-long-arrow-right]",
+        "0.503",
+        "0.754",
+        "0.430",
+        "-",
+        "0.531"
+      ]
+    ]
+  ],
+  "matched_generation_score_recalculation": {
+    "Science": {
+      "base_generated_only": 0.4882,
+      "weave_generated_only": 0.5375,
+      "relative_percent": 10.098320360507973,
+      "source": "rounded displayed domain metric means only; not raw prediction reevaluation"
+    },
+    "Creation": {
+      "base_generated_only": 0.6783,
+      "weave_generated_only": 0.7061,
+      "relative_percent": 4.098481497862294,
+      "source": "rounded displayed domain metric means only; not raw prediction reevaluation"
+    },
+    "Logic": {
+      "base_generated_only": 0.5819,
+      "weave_generated_only": 0.567,
+      "relative_percent": -2.5605774188004804,
+      "source": "rounded displayed domain metric means only; not raw prediction reevaluation"
+    },
+    "Game": {
+      "base_generated_only": 0.5093,
+      "weave_generated_only": 0.5313,
+      "relative_percent": 4.3196544276457916,
+      "source": "rounded displayed domain metric means only; not raw prediction reevaluation"
+    }
+  },
+  "release": {
+    "github_sha": "dfc17dd997f754f4860e195a412d414d074eb9ae",
+    "hf_model_sha": "54dad66a381dc5a3d9b79ef907a087c7e7a2d4f5",
+    "hf_dataset_sha": "b7d16e77dd2520920e9e2a9ef29cda192a2e2202",
+    "model_files": 15,
+    "dataset_files": 795,
+    "paper_test_images": 480,
+    "metadata_test_items": 100,
+    "metadata_image_paths": 479,
+    "metadata_unique_image_paths": 479,
+    "domains": {
+      "chess_game": 4,
+      "visual_jigsaw": 5,
+      "geography": 6,
+      "edit": 13,
+      "spatial": 5,
+      "recall": 12,
+      "maze": 2,
+      "physics": 5,
+      "chemistry": 7,
+      "minecraft": 5,
+      "biology": 2,
+      "optics": 6,
+      "fusion": 12,
+      "mathematics": 3,
+      "story": 10,
+      "astronomy": 3
+    },
+    "assistant_types": {
+      "image": 325,
+      "text": 42
+    },
+    "selected_annotation_records": [
+      {
+        "domain": "chess_game",
+        "images": [
+          "imgs/chess_2199_0.jpg",
+          "imgs/chess_2199_1.jpg",
+          "imgs/chess_2199_2.jpg",
+          "imgs/chess_2199_3.jpg",
+          "imgs/chess_2199_4.jpg"
+        ],
+        "chats": [
+          {
+            "role": "user",
+            "type": "text",
+            "content": "Edit Image #1 by having Black's rook capture the pawn on d7."
+          },
+          {
+            "role": "assistant",
+            "type": "image",
+            "content": "Image #2",
+            "key_point": {
+              "GT #1": "Compared to <image>, Black's rook moves to d7 (The piece has moved to a new position, and the original piece has been removed.)."
+            }
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "Edit Image #1 by moving Black's queen to c7."
+          },
+          {
+            "role": "assistant",
+            "type": "image",
+            "content": "Image #3",
+            "key_point": {
+              "GT #1": "Compared to <image>, Black's queen moves to c7 (The piece has moved to a new position, and the original piece has been removed.)."
+            }
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "Edit Image #1 by advancing Black's a-pawn to a6."
+          },
+          {
+            "role": "assistant",
+            "type": "image",
+            "content": "Image #4",
+            "key_point": {
+              "GT #1": "Compared to <image>, Black's a-pawn moves to a6 (The piece has moved to a new position, and the original piece has been removed.)."
+            }
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "Edit Image #1 by moving Black's queen to a8."
+          },
+          {
+            "role": "assistant",
+            "type": "image",
+            "content": "Image #5",
+            "key_point": {
+              "GT #1": "Compared to <image>, Black's queen moves to a8 (The piece has moved to a new position, and the original piece has been removed.)."
+            }
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "Compare Image #2, Image #3, Image #4, and Image #5. Which edited position shows the best move for White, and why is it superior to the other options? Consider tactical opportunities, material advantage, and piece positioning in your analysis."
+          },
+          {
+            "role": "assistant",
+            "type": "text",
+            "content": "Among the four edited positions, Image #3 shows the best move. Moving the queen to c7 is the most active and promising option for Black. This move improves Black's piece coordination and prepares potential threats against the white king or central squares, offering counterplay and increasing Black's chances in the position.",
+            "key_point": null
+          }
+        ],
+        "idx": 3
+      },
+      {
+        "domain": "maze",
+        "images": [
+          "imgs/maze_1_1.jpg",
+          "imgs/maze_1_2.png",
+          "imgs/maze_1_3.png",
+          "imgs/maze_1_4.png"
+        ],
+        "chats": [
+          {
+            "role": "user",
+            "type": "text",
+            "content": "Generate the solution path marked in red for the maze shown in Image #1 from the A to the C."
+          },
+          {
+            "role": "assistant",
+            "type": "image",
+            "content": "Image #2",
+            "key_point": {
+              "GT #1": "<image>have line from B to C is drawn in the diagram; it doesn't pass through walls but follows the maze."
+            }
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "Generate the solution path marked in red for the maze shown in Image #1 from the D to the E."
+          },
+          {
+            "role": "assistant",
+            "type": "image",
+            "content": "Image #3",
+            "key_point": {
+              "GT #1": "<image>Have a line from D to E is drawn in the diagram; it doesn't pass through walls but follows the maze."
+            }
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "Compare the red lines in Image #2 and Image #3, and tell me which red line between the two points is longer."
+          },
+          {
+            "role": "assistant",
+            "type": "text",
+            "content": "D to E",
+            "key_point": null
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "In the maze of Image #1, draw the shortest route between the two closest points that are connected, using a red line."
+          },
+          {
+            "role": "assistant",
+            "type": "image",
+            "content": "Image #4",
+            "key_point": {
+              "GT #1": "<image>Have a line from B to E is drawn in the diagram; it doesn't pass through walls but follows the maze."
+            }
+          }
+        ],
+        "idx": 35
+      },
+      {
+        "domain": "mathematics",
+        "images": [
+          "imgs/math_2_1.jpg",
+          "imgs/math_2_2.png",
+          "imgs/math_2_3.png"
+        ],
+        "chats": [
+          {
+            "role": "user",
+            "type": "text",
+            "content": "What is the value of b in Image #1? Please give a brief solution process"
+          },
+          {
+            "role": "assistant",
+            "type": "text",
+            "content": "1.541; Process: ∠C=180∘-37∘-68∘=75∘; b/sinB=a/sinA;sin68∘≈0.9272,sin37∘≈0.6018;b≈0.6018/0.9272≈1.541",
+            "key_point": null
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "Draw a line through point A perpendicular to BC, with the foot of the perpendicular being D, and remove the number 3 from Image #1."
+          },
+          {
+            "role": "assistant",
+            "type": "image",
+            "content": "Image #2",
+            "key_point": {
+              "GT #2": "Similar to <image>, there is a line through point A perpendicular to BC, with the foot of the perpendicular being D."
+            }
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "Based on the length of b calculated in the previous two questions, compute the numerical length of DC in Image #2."
+          },
+          {
+            "role": "assistant",
+            "type": "text",
+            "content": "0.927. Process: sin37∘*1.541",
+            "key_point": null
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "In Image #3, I drew CD=AC, with point C on AB. What should be the measure of angle ACD? "
+          },
+          {
+            "role": "assistant",
+            "type": "text",
+            "content": "37 degrees.",
+            "key_point": null
+          }
+        ],
+        "idx": 67
+      },
+      {
+        "domain": "mathematics",
+        "images": [
+          "imgs/math_3_1.jpg",
+          "imgs/math_3_2.png",
+          "imgs/math_3_3.png"
+        ],
+        "chats": [
+          {
+            "role": "user",
+            "type": "text",
+            "content": "Remove the line between 65 and 70 degrees and change the angle label to 135 degrees in Image #1"
+          },
+          {
+            "role": "assistant",
+            "type": "image",
+            "content": "Image #2",
+            "key_point": {
+              "GT #2": "<image>As shown in the diagram, it is labeled 135 degrees. There are no different labels or lines compared to the diagram."
+            }
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "What is x in Image #2?"
+          },
+          {
+            "role": "assistant",
+            "type": "text",
+            "content": "225 degrees",
+            "key_point": null
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "If there were another 135-degree semicircle in Image #2, what would it be like? Please mark the remaining part as x degrees."
+          },
+          {
+            "role": "assistant",
+            "type": "image",
+            "content": "Image #3",
+            "key_point": {
+              "GT #3": "As shown in the <image>, there is a 90-degree angle labeled 'x', and its position is also consistent with the image."
+            }
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "In Image #3, is x larger, or is x larger in Image #1?"
+          },
+          {
+            "role": "assistant",
+            "type": "text",
+            "content": "37 degrees.",
+            "key_point": null
+          }
+        ],
+        "idx": 68
+      },
+      {
+        "domain": "astronomy",
+        "images": [
+          "imgs/astronomy_1_1.jpeg",
+          "imgs/astronomy_1_2.jpeg",
+          "imgs/astronomy_1_3.jpeg",
+          "imgs/astronomy_1_4.jpeg"
+        ],
+        "chats": [
+          {
+            "role": "user",
+            "type": "text",
+            "content": "We already know that Image #1 is from the third day of the lunar month. What will it look like on the ninth day?"
+          },
+          {
+            "role": "assistant",
+            "type": "image",
+            "content": "Image #2",
+            "key_point": {
+              "GT #2": "As shown in <image>, the entire right half of the moon will be visible."
+            }
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "What will it look like six days after Image #2?"
+          },
+          {
+            "role": "assistant",
+            "type": "image",
+            "content": "Image #3",
+            "key_point": {
+              "GT #3": "As shown in <image>, it's a full moon"
+            }
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "What will it look like six days after Image #3?"
+          },
+          {
+            "role": "assistant",
+            "type": "image",
+            "content": "Image #4",
+            "key_point": {
+              "GT #3": "As shown in <image>, the left half of the moon will be visible."
+            }
+          },
+          {
+            "role": "user",
+            "type": "text",
+            "content": "How many days will it take for the moon phase in Image #4 to return to the moon phase in Image #1? "
+          },
+          {
+            "role": "assistant",
+            "type": "text",
+            "content": "12 days.",
+            "key_point": null
+          }
+        ],
+        "idx": 90
+      }
+    ],
+    "full_history_code_negative_index_includes_last_image": true,
+    "missing_generated_history_code_falls_back_to_gt": true
+  },
+  "mathematical_checks": {
+    "b_from_figure32_BC3_angles37_68": 4.621937732846534,
+    "displayed_ratio": 0.6490509059534081
+  },
+  "learned_model_execution": false,
+  "raw_prediction_reevaluation": false,
+  "reading_scope": "本次arXivv1 51页研究§1–5及附录A–E全部研究正文/末级小节，Eq1/2，编号T1–10全部行（HTML另含F4统计表和prompt表），F1–39全部实际图/统计图与四完整SVGjudgeprompt（上下段补看）；F13–23训练案例/F24–39各测试细域均核。当前正式PDF访问403或截断，只沿用2026-10-20已核正式元数据/主表，不称完整正式版重核。固定GH所述10py+README、HF模型卡配置/数据卡清单、test.json全量结构计数及指定错标样本核；未看全部训练parquet/测试像素、未读完整notebook、未执行学习模型/独立复现。核心三遍与五项书面完成，未独立口试。",
+  "source_urls": [
+    "https://arxiv.org/abs/2511.11434v1",
+    "https://arxiv.org/html/2511.11434v1",
+    "https://arxiv.org/pdf/2511.11434v1",
+    "https://openaccess.thecvf.com/content/CVPR2026/papers/Chow_WEAVE_Unleashing_and_Benchmarking_the_In-context_Interleaved_Comprehension_and_Generation_CVPR_2026_paper.pdf",
+    "https://github.com/weichow23/weave/tree/dfc17dd997f754f4860e195a412d414d074eb9ae",
+    "https://huggingface.co/WeiChow/Bagel-weave/tree/54dad66a381dc5a3d9b79ef907a087c7e7a2d4f5",
+    "https://huggingface.co/datasets/WeiChow/WEAVE/tree/b7d16e77dd2520920e9e2a9ef29cda192a2e2202",
+    "https://huggingface.co/datasets/WeiChow/WEAVE/blob/b7d16e77dd2520920e9e2a9ef29cda192a2e2202/test/test.json"
+  ]
+}

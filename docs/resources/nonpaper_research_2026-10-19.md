@@ -614,3 +614,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百七十七批（2026-10-24）：ModalityDanceOmniR1 GH a10fbb3及两HF卡/配置、OmniBench数据卡清单已核；README端到端PeRPO和Zero合成待发布，yaml占位/筛选关闭，vllm只存预测无judge链。见[审查](../evidence/omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[U11](../reviews/U11.md)。
+
+
+第一百七十八批（2026-10-24）：GH dfc17dd10py/README、HF模型54dad66/数据b7d16e7清单配置和test.json已核；缺训练recipe，评测配置接线/示例语法与未标GT回填需补。见[审查](../evidence/weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[U12](../reviews/U12.md)。

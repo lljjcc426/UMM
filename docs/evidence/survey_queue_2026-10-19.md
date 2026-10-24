@@ -656,3 +656,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百七十七批（2026-10-24）：U11完成arXivv2正文/全部附录、7表9图及FindingsACL2026正式版补核；区分Zero791条SFT、800样本加权、TV平滑与功能正确性，记录默认min/多分支及输入图接线等发布缺口。358目录，282核心/287书面；待完成核心深审49篇论文／研究；27项资源按制品协议另审。见[审查](omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[逐文件说明](one_hundred_seventy_seventh_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百七十八批（2026-10-24）：U12完成arXivv1全部研究正文/附录、10表39图和公开评测/推理源码；核ACC缺失切公式、Zebra分母、同生成公式Logic下降及数学/迷宫等现行标注错误，区分论文图示与发布版本。358目录，283核心/288书面；待完成核心深审48篇论文／研究；27项资源按制品协议另审。见[审查](weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[逐文件说明](one_hundred_seventy_eighth_changes_2026-10-24.md)。无删除或模型执行。

@@ -706,3 +706,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百七十七批（2026-10-24）：OmniR1正式FindingsACL2026 18页与arXivv2核，7表9实际图/22式；同名论文分开。GH5170树项仅指定训练/奖励/推理及vendor段核，HF两checkpoint/数据卡固定。见[审查](omni_r1_full_perception_reward_protocol_and_release_audit_2026-10-24.md)、[U11](../reviews/U11.md)。
+
+
+第一百七十八批（2026-10-24）：WEAVE arXivv1完整51页/10表39图、四SVGprompt补全，正式PDF本次403/截断限度保留；固定GH/HF model/dataset和100例test.json元数据。见[审查](weave_full_interleaved_benchmark_scoring_and_annotation_audit_2026-10-24.md)、[U12](../reviews/U12.md)。
