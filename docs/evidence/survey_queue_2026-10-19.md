@@ -629,3 +629,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百六十八批（2026-10-24）：L157补齐完整v4正文/附录、16表/六图及固定公开推理入口；保留SFT后ASR退步和direct-s2s劣势，纠正Fig3为样例，并分列人评分母、视频关键帧和解码配置边界。357目录，274核心/279书面；未确认核心56论文／研究+27资源。见[审查](mio_tokenization_modality_tradeoffs_and_release_audit_2026-10-24.md)、[逐文件说明](one_hundred_sixty_eighth_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百六十九批（2026-10-24）：L158完成正式正文+补充22页、12公式/九表14图；核实Eq11符号与scheduler不同、多输入入口受六任务断言限制，准确保留作者已讨论的triplet必要性及文本实体重建失真。357目录，275核心/280书面；未确认核心55论文／研究+27资源。见[审查](omniflow_guidance_formula_and_released_task_coverage_audit_2026-10-24.md)、[逐文件说明](one_hundred_sixty_ninth_changes_2026-10-24.md)。无删除或模型执行。

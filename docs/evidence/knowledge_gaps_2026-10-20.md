@@ -631,3 +631,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百六十八批（2026-10-24）：MIO人评all3same/100与82.3%粒度待解释；训练seq2800与15s约3000输出码的切块机制、CLIP过滤>.27方向及T11与demo差异待原始制品。见[审查](mio_tokenization_modality_tradeoffs_and_release_audit_2026-10-24.md)、[L157](../reviews/L157.md)。
+
+
+第一百六十九批（2026-10-24）：OmniFlow作者B2已讨论三元组必要性，修正仅把其列作未回应质疑的旧记录；当前发布ai2t/at2i分支被入口assert阻断，mm_cfgs未使用；T9含车型实体改变。见[审查](omniflow_guidance_formula_and_released_task_coverage_audit_2026-10-24.md)、[L158](../reviews/L158.md)。

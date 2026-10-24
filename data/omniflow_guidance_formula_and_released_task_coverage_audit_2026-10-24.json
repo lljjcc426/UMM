@@ -1,0 +1,545 @@
+{
+  "id": "L158",
+  "checked_on": "2026-10-24",
+  "formal_main_pages": 11,
+  "formal_supplement_pages": 11,
+  "core_three_pass_completed": true,
+  "numeric_tables": {
+    "table1": [
+      [
+        "Model",
+        "Param",
+        "FID↓\\downarrow",
+        "CLIP↑\\uparrow"
+      ],
+      [
+        "UniDiffuser",
+        "0.9B",
+        "9.71",
+        "30.93"
+      ],
+      [
+        "CoDi",
+        "4.3B",
+        "11.26",
+        "30.69"
+      ],
+      [
+        "UIO-2XXL",
+        "6.8B",
+        "13.39",
+        "-"
+      ],
+      [
+        "SDv1.5",
+        "0.9B",
+        "11.12",
+        "30.63"
+      ],
+      [
+        "SDXL*",
+        "2.6B",
+        "16.49",
+        "31.36"
+      ],
+      [
+        "SD3-Medium*",
+        "2B",
+        "20.94",
+        "30.65"
+      ],
+      [
+        "OmniFlow*",
+        "3.4B",
+        "13.40",
+        "31.54"
+      ]
+    ],
+    "table2": [
+      [
+        "Model",
+        "Param",
+        "Images",
+        "Gen.↑\\uparrow"
+      ],
+      [
+        "Text-to-Image Specialist"
+      ],
+      [
+        "SD1.5",
+        "0.9B",
+        "4.0B",
+        ".43"
+      ],
+      [
+        "SDv2.1",
+        "0.9B",
+        "2.3B",
+        ".50"
+      ],
+      [
+        "SDXL",
+        "2.6B",
+        "1.6B",
+        ".55"
+      ],
+      [
+        "DALL-E 2",
+        "4.2B",
+        "2.6B",
+        ".52"
+      ],
+      [
+        "SD3-Medium",
+        "2B",
+        "1B",
+        ".62"
+      ],
+      [
+        "SD3-Large",
+        "8B",
+        "2.0B",
+        ".68"
+      ],
+      [
+        "Generalist"
+      ],
+      [
+        "CoDi",
+        "4.3B",
+        "400M*",
+        ".38"
+      ],
+      [
+        "UniDiff.",
+        "0.9B",
+        "2B",
+        ".43"
+      ],
+      [
+        "OmniFlow",
+        "3.4B",
+        "30M*",
+        ".62"
+      ],
+      [
+        "Chameleon",
+        "7B",
+        "3.5B",
+        ".39"
+      ],
+      [
+        "Transfusion",
+        "7B",
+        "3.5B",
+        ".63"
+      ]
+    ],
+    "table3": [
+      [
+        "Model",
+        "Param",
+        "FAD↓\\downarrow",
+        "CLAP↑\\uparrow"
+      ],
+      [
+        "Text-to-Audio Specialist",
+        ""
+      ],
+      [
+        "AudioGen-L[24]",
+        "1B",
+        "1.82",
+        "-"
+      ],
+      [
+        "Make-an-Audio[19]",
+        "0.4B",
+        "2.66",
+        "-"
+      ],
+      [
+        "AudioLDM-L[32]",
+        "0.7B",
+        "1.96",
+        ".141"
+      ],
+      [
+        "Make-an-Audio 2[18]",
+        "0.9B",
+        "2.05",
+        ".173"
+      ],
+      [
+        "AudioLDM 2-Full-L[33]",
+        "0.7B",
+        "1.86",
+        ".182"
+      ],
+      [
+        "Generalist",
+        ""
+      ],
+      [
+        "CoDi",
+        "3.4B",
+        "1.80",
+        ".053*"
+      ],
+      [
+        "OmniFlow",
+        "3.4B",
+        "1.75",
+        ".183"
+      ],
+      [
+        "UIO-2XXL",
+        "6.7B",
+        "2.64",
+        "-"
+      ]
+    ],
+    "table4": [
+      [
+        "",
+        "Audio Gen.",
+        "Text Gen."
+      ],
+      [
+        "",
+        "FAD↓\\downarrow",
+        "CLAP↑\\uparrow"
+      ],
+      [
+        "Continuous Flow Matching"
+      ],
+      [
+        "eps/linear",
+        "2.08",
+        ".141"
+      ],
+      [
+        "v/cos",
+        "2.01",
+        ".203"
+      ],
+      [
+        "v/linear",
+        "1.86",
+        ".126"
+      ],
+      [
+        "rf/uniform",
+        "1.82",
+        ".227"
+      ],
+      [
+        "rf/lognorm",
+        "1.79",
+        ".254"
+      ],
+      [
+        "Discrete Text Diffusion"
+      ],
+      [
+        "SEDD[35]",
+        "-",
+        ".180"
+      ],
+      [
+        "MDLM[45]",
+        "-",
+        ".163"
+      ]
+    ],
+    "table5": [
+      [
+        "",
+        "Size",
+        "Modality"
+      ],
+      [
+        "LAION-Aesthetics-3M",
+        "2M*",
+        "T,I"
+      ],
+      [
+        "CC12M",
+        "12M",
+        "T,I"
+      ],
+      [
+        "COYO-700M(Subset)",
+        "5M",
+        "T,I"
+      ],
+      [
+        "LAION-COCO",
+        "7M",
+        "T,I"
+      ],
+      [
+        "SoundNet",
+        "2M",
+        "T,A,I†{\\dagger}"
+      ],
+      [
+        "VGGSound",
+        "0.2M",
+        "T,A,I†{\\dagger}"
+      ],
+      [
+        "T2I-2M",
+        "2M",
+        "T,I"
+      ],
+      [
+        "AudioSet",
+        "2M",
+        "T,A"
+      ],
+      [
+        "AudioCaps",
+        "46K",
+        "T,A"
+      ],
+      [
+        "WavCaps",
+        "0.4M",
+        "T,A"
+      ]
+    ],
+    "table6": [
+      [
+        "",
+        "",
+        "",
+        "AudioCaps",
+        "COCO-Karpathy"
+      ],
+      [
+        "",
+        "Images",
+        "Parms.",
+        "CLAP↑\\uparrow",
+        "CIDEr↑\\uparrow",
+        "CLIP↑\\uparrow",
+        "CIDEr↑\\uparrow"
+      ],
+      [
+        "Specialist"
+      ],
+      [
+        "BLIP-2[29]",
+        "129M",
+        "2.7B",
+        "-",
+        "-",
+        "-",
+        "145.8 ‡\\ddagger"
+      ],
+      [
+        "SLAM-AAC[8]",
+        "-",
+        "7B",
+        "-",
+        "84.1‡\\ddagger",
+        "-",
+        "-"
+      ],
+      [
+        "Generalist"
+      ],
+      [
+        "OmniFlow",
+        "30M",
+        "3.4B",
+        "0.254",
+        "48.0",
+        "26.8",
+        "47.3"
+      ],
+      [
+        "CoDi †{\\dagger}",
+        "400M",
+        "4.3B",
+        "0.206",
+        "7.9",
+        "25.9",
+        "17.2"
+      ],
+      [
+        "Unidiffuser †{\\dagger}",
+        "2B",
+        "0.9B",
+        "-",
+        "-",
+        "29.3",
+        "20.5"
+      ],
+      [
+        "UIO2-XXL",
+        "1B*",
+        "6.8B",
+        "-",
+        "48.9",
+        "-",
+        "125.4*"
+      ],
+      [
+        "Transfusion",
+        "3.5B",
+        "7B",
+        "-",
+        "-",
+        "-",
+        "35.2"
+      ]
+    ],
+    "table7": [
+      [
+        "Training Data",
+        "FAD ↓\\downarrow"
+      ],
+      [
+        "OmniFlow",
+        "1.83"
+      ],
+      [
+        "I2A,A2I,T2A,A2T",
+        "1.89"
+      ],
+      [
+        "I2A,A2I",
+        "2.03"
+      ],
+      [
+        "I2A-Only",
+        "2.05"
+      ]
+    ]
+  },
+  "qualitative_tables": {
+    "table8_caption_rows": 12,
+    "table9_reconstruction_rows": 6,
+    "entity_substitution": {
+      "ground_truth": "Acura RLX",
+      "reconstructed": "Audi Rs4"
+    },
+    "entire_text_tables_reprinted": false
+  },
+  "release": {
+    "repo_commit": "b17e2a8a5efc399870807a51122312bb6f872336",
+    "tree_entries": 39,
+    "blobs": 30,
+    "huggingface": {
+      "v05": {
+        "revision": "9898603ea1fd2e862d091cedccb743169c61d76a",
+        "files": [
+          ".gitattributes",
+          "README.md",
+          "scheduler/scheduler_config.json",
+          "text_encoder_2/config.json",
+          "text_encoder_2/model.fp16.safetensors",
+          "text_encoder_2/model.safetensors",
+          "text_vae/config.json",
+          "tokenizer_2/merges.txt",
+          "tokenizer_2/special_tokens_map.json",
+          "tokenizer_2/tokenizer_config.json",
+          "tokenizer_2/vocab.json",
+          "transformer/config.json",
+          "transformer/diffusion_pytorch_model.bin",
+          "transformer/ema_transformer.pt",
+          "vae/config.json",
+          "vae/diffusion_pytorch_model.fp16.safetensors",
+          "vae/diffusion_pytorch_model.safetensors",
+          "vae_tokenizer/tokenizer.json",
+          "vae_tokenizer/tokenizer.model",
+          "vae_tokenizer/tokenizer_config.json"
+        ],
+        "weights_or_media_downloaded": false
+      },
+      "v09": {
+        "revision": "f9f72f38b2e4989bc7b6abc9d46db1e304269ecd",
+        "files": [
+          ".gitattributes",
+          "README.md",
+          "scheduler/scheduler_config.json",
+          "text_encoder_2/config.json",
+          "text_encoder_2/model.fp16.safetensors",
+          "text_encoder_2/model.safetensors",
+          "text_vae/config.json",
+          "tokenizer_2/merges.txt",
+          "tokenizer_2/special_tokens_map.json",
+          "tokenizer_2/tokenizer_config.json",
+          "tokenizer_2/vocab.json",
+          "transformer/config.json",
+          "transformer/diffusion_pytorch_model.bin",
+          "transformer/ema_transformer.pt",
+          "vae/config.json",
+          "vae/diffusion_pytorch_model.fp16.safetensors",
+          "vae/diffusion_pytorch_model.safetensors",
+          "vae_tokenizer/tokenizer.json",
+          "vae_tokenizer/tokenizer.model",
+          "vae_tokenizer/tokenizer_config.json"
+        ],
+        "weights_or_media_downloaded": false
+      },
+      "data": {
+        "revision": "f286ad71186581aea27778db5a0d9cd96a751ed8",
+        "files": [
+          ".gitattributes",
+          "audio_flux_soundnet.tar",
+          "soundnet_img_aud_mp3.csv"
+        ],
+        "weights_or_media_downloaded": false
+      }
+    },
+    "static_task_assertions": [
+      {
+        "line": 1088,
+        "expression": "task in ['t2i', 'a2i', 'i2t', 'a2t', 't2a', 'i2a']"
+      }
+    ],
+    "mm_cfgs_load_references": [],
+    "default_steps": 28,
+    "default_cfg_mode": "old",
+    "readme_explicit_cfg_mode": "new",
+    "default_guidance": 7,
+    "default_guidance_code": "two-chunk scalar CFG"
+  },
+  "formula_audit": {
+    "eq11_paper": "gamma*t/(1+(1-gamma)*t)",
+    "released_scheduler": "gamma*t/(1+(gamma-1)*t)",
+    "counterexample": {
+      "gamma": 3,
+      "t": 0.5,
+      "paper_denominator": 0,
+      "code_value": 0.75
+    },
+    "eq6_forward_derivative": "noise-data",
+    "eq7_prose_target": "data-noise",
+    "released_training_target": "noise-data",
+    "released_euler_delta_sigma": "negative",
+    "does_not_imply_reported_samples_diverged": true
+  },
+  "guidance_decomposition": {
+    "definitions": "d1=v1-v0; d2=v2-v0; r=v12-v1-v2+v0",
+    "equation9": "v0+alpha1*d1+alpha2*d2+r",
+    "interaction_residual_coefficient": 1,
+    "joint_cfg_at_equal_scale": "v0+g*d1+g*d2+g*r",
+    "interpretation": "joint baseline still contains cross-condition interactions"
+  },
+  "triplet_identifiability": "Already discussed by authors in Appendix B.2 and Figure 11; pairwise marginals do not in general identify a three-way joint",
+  "model_execution": false,
+  "reading_scope": "CVPR2025正式main11p（pp13178–13188）与官方supp11p全部研究内容：§1–8、AppA1–8/B1–2/C/D/E1–4/F/G1/H/I，Algorithm1、Eq1–12、T1–9每行/F1–14所有实际PDF图（含F13失败/F14十六样例）；F4仅视觉趋势未数字化曲线。arXivv2HTML交叉抽数值T1–7，原版PDF逐表核。GH固定README/training.md/configdata和scriptsconfig全文；pipeline load_pretrained/__call__参数/任务门控/条件预处理/采样循环与输出、train噪声/缺模态/compute_loss、scheduler构造/step、TextVAE encode/connect/mean相关段，未称全文读完2500行train或全部代码。HF v0.5/v0.9/数据集元数据pin；未下载权重/大包，未执行模型。三遍核心阅读及五项书面，无独立口试/复现。",
+  "source_urls": [
+    "https://openaccess.thecvf.com/content/CVPR2025/papers/Li_OmniFlow_Any-to-Any_Generation_with_Multi-Modal_Rectified_Flows_CVPR_2025_paper.pdf",
+    "https://openaccess.thecvf.com/content/CVPR2025/supplemental/Li_OmniFlow_Any-to-Any_Generation_CVPR_2025_supplemental.pdf",
+    "https://arxiv.org/html/2412.01169v2",
+    "https://github.com/jacklishufan/OmniFlows/tree/b17e2a8a5efc399870807a51122312bb6f872336",
+    "https://huggingface.co/jacklishufan/OmniFlow-v0.5/tree/9898603ea1fd2e862d091cedccb743169c61d76a",
+    "https://huggingface.co/jacklishufan/OmniFlow-v0.9/tree/f9f72f38b2e4989bc7b6abc9d46db1e304269ecd",
+    "https://huggingface.co/datasets/jacklishufan/soundnet-flux-caption/tree/f286ad71186581aea27778db5a0d9cd96a751ed8"
+  ]
+}

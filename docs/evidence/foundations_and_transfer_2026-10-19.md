@@ -423,3 +423,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百六十八批（2026-10-24）：MIO SFT后ASR WER6.3→10.3、TTS12→4.2；统一训练需报模态Pareto。F2跨阶段loss分布改变不证明无遗忘，F3为3Ksteps样例而非收敛曲线。见[审查](mio_tokenization_modality_tradeoffs_and_release_audit_2026-10-24.md)、[L157](../reviews/L157.md)。
+
+
+第一百六十九批（2026-10-24）：OmniFlow Eq9有联合基底，交互残差r系数1；不应写成全模型只线性叠加条件。正式Eq11分母1+(1−γ)t与代码1+(γ−1)t不同，γ3/t.5反例可定位文稿符号。见[审查](omniflow_guidance_formula_and_released_task_coverage_audit_2026-10-24.md)、[L158](../reviews/L158.md)。

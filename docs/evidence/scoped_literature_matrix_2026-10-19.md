@@ -590,3 +590,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百六十八批（2026-10-24）：MIO统一离散CE但图像经外部扩散decoder；视频为关键帧，无法据四模态接口推出连续笔画事件控制。32图语义码与语音整段内容/音色分块的适用条件分开。见[审查](mio_tokenization_modality_tradeoffs_and_release_audit_2026-10-24.md)、[L157](../reviews/L157.md)。
+
+
+第一百六十九批（2026-10-24）：OmniFlow覆盖静态T/I/A潜空间；论文多输入/联合主张与当前发布六种单输入单输出task门控分列，无视频输出模块。见[审查](omniflow_guidance_formula_and_released_task_coverage_audit_2026-10-24.md)、[L158](../reviews/L158.md)。

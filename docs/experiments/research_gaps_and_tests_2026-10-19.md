@@ -616,3 +616,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百六十八批（2026-10-24）：MIO后续同Yi底座控制图码/预训练/decoder，给笔顺反事实与CER；语音顺序×阶段等预算、ASR/TTS/MMLU及首音时延；核逐例人评分母/过滤方向/帧时间轴。见[审查](../evidence/mio_tokenization_modality_tradeoffs_and_release_audit_2026-10-24.md)、[L157](../reviews/L157.md)。
+
+
+第一百六十九批（2026-10-24）：OmniFlow后续统一采样符号/路径并公开可达多输入CFG，测试r独立缩放、条件冲突和联合满足；严格TextVAE实体/数字/CER重建，等数据/更新预算triplet与任务消融。见[审查](../evidence/omniflow_guidance_formula_and_released_task_coverage_audit_2026-10-24.md)、[L158](../reviews/L158.md)。

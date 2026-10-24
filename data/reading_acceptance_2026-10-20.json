@@ -9567,6 +9567,40 @@
         }
       ],
       "boundary": "完整arXiv2409.17692v4 HTML：§1–5、Limitations、AppA/B/C/D/E1–E6，Eq1与T1–16全部单元、F1框架/F2三阶段loss/F3tokenizer两组样例/F4高级能力/F5基础六类/F6多模态CoT/ICL实际原图及图注；不播放/独立转录图中的音频。正式23pPDF仅保留此前§2.1–2.3/§3Tables3–8/3.6/AppB/C/T9/10/E1/E6指定范围，未称正式PDF全文通过。固定GH README、infer.py、tokenization_mio.py、utils.py、SEED配置与seed_llama_tokenizer.py全文；HF两模型固定revision元数据/config。未逐个审182blobs、未读权重/执行模型/独立训练评测；三遍核心理解及五项书面验收，无独立口试。"
+    },
+    {
+      "id": "L158",
+      "checked_on": "2026-10-24",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "怎样在文字、静态图像和声音的潜空间中统一条件/联合生成，复用已有预训练分支，并分别调节多输入条件对输出的影响？ 直接平均条件embedding会丢失输入组合信息，从零训练多模态模型成本高；训练样本常仅含模态子集。需同时说明缺失模态训练、条件/联合采样路径和模块合并。成本比较要计继承SD3/编码器/decoder预训练。",
+          "evidence": "正式正文+补充22页研究部分、12公式/九表14图全部核，七表完整数字、公式符号和固定发布入口联合审查；无模型执行。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "顺序为(image,text,audio)，x_i^t=(1−t_i)data+t_i noise：t=0干净，t=1纯噪声。T→I采样(1,0,1)→(0,0,1)，T+I→A采样(0,0,1)→(0,0,0)，无输入联合为(1,1,1)→(0,0,0)；正文先写data→noise参数路径，生成方向相反。缺失模态置t=1且只对观察模态算loss；不是给缺失模态伪GT。图/声latent解码成像素/波形；textlatent经TinyLlama自回归生成文字，流式latent文本不等于没有ARdecoder。 OmniTransformer24层/hidden1536；三模态独立QKV、FFN、AdaLN，concat全K/V后jointattention是交互点，联合注意力自身无新增参数但仍有序列计算成本。文本FlanT5L(783M)→QFormer32×64，投影32×2048作TinyLlama1.1B前缀；输入可再拼CLIP L/G并zero-pad4096，无cleantext时去CLIP。Audio沿AudioLDM2 VAE/声码器，latent256×16以patch2成1024tokens；LanguageBind音/CLIP图pool仅clean条件可用。3.4B为表中模型参数口径，未当包含全部冻结编码器/decoder的实测总和。",
+          "evidence": "正式正文+补充22页研究部分、12公式/九表14图全部核，七表完整数字、公式符号和固定发布入口联合审查；无模型执行。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "推广rectifiedflow到多模态噪声时间向量；以生成路径指定任务，jointattention交互但模态QKV/FFN参数独立；扩展多输入CFG，先文本-声音预训、与SD3文本/图像分支合并再any-to-any训练。公开训练/推理源码、v0.5/v0.9模型及SoundNet相关制品；不称全部主张都能由当前默认管线复现。无视频输出/笔画序列专用模块。 已有高质量SD3和模态VAE、训练有可靠三元组且任务关注语义对应时，分支复用/jointattention有望节省追加成本、促相关任务迁移。字形、型号、数字和笔画时间信息要求严格保存，语义TextVAE或静态音图对应不足以自动满足；多输入冲突时单模态增量引导不自动保证逻辑合取，但联合基底本身保留高阶交互。",
+          "evidence": "正式正文+补充22页研究部分、12公式/九表14图全部核，七表完整数字、公式符号和固定发布入口联合审查；无模型执行。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1 OmniFID13.40/CLIP31.54：FID优于SD3 20.94，劣于Uni9.71/CoDi11.26/UIO13.39，CLIP表内最高。T2 GenEval.62=SD3medium，低于Transfusion.63/SD3large.68，高于CoDi.38/Uni.43；30M*指微调图，不排除继承预训练。T3 FAD1.75/CLAP.183，相比AudioLDM2 1.86/.182，CLAP+.001，无CI不推显著；CoDiCLAP.053为作者复算。T6 caption：Omni音CLAP.254/CIDEr48.0，图CLIP26.8/CIDEr47.3；Uni图29.3/20.5，说明CIDEr更高但CLIP更低；UIO125.4/BLIP145.8有COCO训练差异。T1–7数值全表结构化，T8十二caption例/T9六重建例全部阅读，未复评音频。 T4 epslinear2.08/.141，vcos2.01/.203，vlinear1.86/.126，RFuniform1.82/.227，RFlognorm1.79/.254（FAD/文字CLAP）；SEDD.180/MDLM.163为替换tokenembedding/logitloss，本预算本实现，不证明离散模型普遍劣。T7 I2A FAD：完整1.83、四任务1.89、I2A/A2I2.03、I2Aonly2.05，支持相关任务帮助但未细给相同I2A样本/总更新预算匹配；AppD另aesthetic+1.22。AudioMAE对KLlatent FAD2.03/1.79。F4可见过强CFG可回退；F5多输入仅单例。F11三模态玩具实验已主动讨论三元组，不能写作者忽略联合可识别性。 正式22页完整研究文字§1–8/AppA1–8/B1–2/C–I、Algorithm1、Eq1–12、T1–9/F1–14已核；参考文献追引相关条目，未逐篇阅读。Model2/3用8A6000、每卡8/global64，100K/150Ksteps，AdamW1e-5/5e-6，warm1000/cosine，EMA每100steps decay.999；merge两textbranch权重均值。TextVAE冻Flan、QFormer/TinyLlama2epochs/lr1e-5/b256。T4仅Model2固定50Ksteps对不同objective，非完整最终模型对照。shift3、音CFG8/字CFG4选自F4；完整基准seed/最终NFE清单缺。GH b17e2a8a5efc399870807a51122312bb6f87233639treeentries/30blobs，读README/training/config和相关pipeline/train/scheduler/textconnector段；HF只pin元数据，不下载权重/运行模型。v0.9作者说明额外视听对应数据，不能当论文v0.5完全相同checkpoint。",
+          "evidence": "正式正文+补充22页研究部分、12公式/九表14图全部核，七表完整数字、公式符号和固定发布入口联合审查；无模型执行。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "公式与发布需精确分开：正式Eq11分母印为1+(1−γ)t，γ3/t.5即为0；公开scheduler分母1+(γ−1)t，此点给.75且端点正常，因此是文字公式与实现不一致，未据此判定作者实际采样发散。Eq6前向导数noise−data，Eq7正文v写data−noise；公开训练target noise−data、Euler Δsigma<0，记符号待统一。默认__call__第1088行assert仅六个单输入/单输出task，ai2t/at2i分支不可达，mm_cfgs无读取、循环使用二分普通CFG，未形成公开可运行的论文多输入Eq9协议；未运行GPU，不声称论文结果不存在。TextVAE六例把Acura RLX变Audi Rs4，含实体身份变化，不能全当同义改写。公开connector默认mean、可选mean+.001Uniform且KL0，需区分论文VAE命名与实际潜空间训练；未审全部上游训练。 同SD3/数据/预算测merge/无jointattention/真实triplet/合成caption，分别报追加与继承训练成本。多输入记v12=joint、v0=uncond、d1=v1−v0、d2=v2−v0、r=v12−v1−v2+v0；Eq9=v0+α1d1+α2d2+r，r系数1，和全联合CFG将r乘g不同；据此测冲突条件、合取、两条件各自满足及联合满足，公开可达task入口/独立α实现、NFE与失败率。文字先量化TextVAE原字符串/实体/数字重建上限，再测生成，保留Acura→Audi这类失真。以独立比特Z=XxorY与Z=1xorXxorY作同两两边缘/不同联合反例支撑作者B2，另用真实三元组比例与caption来源消融；笔顺需增加真实连续帧和事件标签。",
+          "evidence": "正式正文+补充22页研究部分、12公式/九表14图全部核，七表完整数字、公式符号和固定发布入口联合审查；无模型执行。"
+        }
+      ],
+      "boundary": "CVPR2025正式main11p（pp13178–13188）与官方supp11p全部研究内容：§1–8、AppA1–8/B1–2/C/D/E1–4/F/G1/H/I，Algorithm1、Eq1–12、T1–9每行/F1–14所有实际PDF图（含F13失败/F14十六样例）；F4仅视觉趋势未数字化曲线。arXivv2HTML交叉抽数值T1–7，原版PDF逐表核。GH固定README/training.md/configdata和scriptsconfig全文；pipeline load_pretrained/__call__参数/任务门控/条件预处理/采样循环与输出、train噪声/缺模态/compute_loss、scheduler构造/step、TextVAE encode/connect/mean相关段，未称全文读完2500行train或全部代码。HF v0.5/v0.9/数据集元数据pin；未下载权重/大包，未执行模型。三遍核心阅读及五项书面，无独立口试/复现。"
     }
   ]
 }
