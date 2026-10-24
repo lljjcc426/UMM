@@ -282,3 +282,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百零五批（2026-10-25）：OpenFlamingo文字next-token与图像输入；交错预训练不直接赋予图像/视频输出，论文主动保留跨图推理疑问。见[审查](mmc4_full_corpus_release_and_alignment_audit_2026-10-25.md)、[L170](../reviews/L170.md)。
+
+
+第二百零六批（2026-10-25）：NTP+内联zloss；十倍按图aggregate，不是token/GPU统一十倍。主模型73.85%OBtoken并非纯OB。见[审查](obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[L171](../reviews/L171.md)。

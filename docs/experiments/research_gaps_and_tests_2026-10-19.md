@@ -727,3 +727,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百零五批（2026-10-25）：匹配图文/token曝光后测单图不可解的多图依赖，互换图/乱序干预；重下率/重复flag和版本列入分母。见[审查](../evidence/mmc4_full_corpus_release_and_alignment_audit_2026-10-25.md)、[L170](../reviews/L170.md)。
+
+
+第二百零六批（2026-10-25）：同源DOM/CLIP/随机×长短文，prompt预算/原答案与首词并报，Hateful给不给图上文字context。见[审查](../evidence/obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[L171](../reviews/L171.md)。

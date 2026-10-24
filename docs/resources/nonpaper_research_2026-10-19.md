@@ -698,3 +698,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百零五批（2026-10-25）：2025-02原副本误删，ff/coreff恢复；URL重下、14长期缺shard和约3%可能重复分开，ODC-BY不覆盖原图个体版权。见[审查](../evidence/mmc4_full_corpus_release_and_alignment_audit_2026-10-25.md)、[L170](../reviews/L170.md)。
+
+
+第二百零六批（2026-10-25）：原仅去退出图片，2023-07-12整篇退出修正版134648855文档；原版141047697，URL重下与ToU分列。见[审查](../evidence/obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[L171](../reviews/L171.md)。

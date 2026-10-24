@@ -790,3 +790,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百零五批（2026-10-25）：MMC4 v3全研究部分完成，固定5304ddd仓库+两个HF版本；AppA数据卡外链缺失，现有DATA_LICENSE并未缺失。见[审查](mmc4_full_corpus_release_and_alignment_audit_2026-10-25.md)、[L170](../reviews/L170.md)。
+
+
+第二百零六批（2026-10-25）：正式主文20+supp31页/v2合并51页，PDF11图11表完整核；HTML编号偏移按PDF记录。见[审查](obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[L171](../reviews/L171.md)。

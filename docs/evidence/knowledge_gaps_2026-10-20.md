@@ -742,3 +742,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百零五批（2026-10-25）：F5正文图/句均值中位数写反；rho10.3尺度未说明，不能擅自解释为.103。当前完整/core仍未恢复。见[审查](mmc4_full_corpus_release_and_alignment_audit_2026-10-25.md)、[L170](../reviews/L170.md)。
+
+
+第二百零六批（2026-10-25）：零shot含2个无图文字priming，LAIONonly首词截断/不同caption提示；3次重启，逐任务与总体归因需拆开。见[审查](obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[L171](../reviews/L171.md)。

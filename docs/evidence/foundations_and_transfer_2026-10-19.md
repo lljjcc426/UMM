@@ -534,3 +534,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百零五批（2026-10-25）：CLIP线性分配提高句覆盖34%vs22%，平均相似24vs24.5；语义位置无法推出绘画/网页原顺序。见[审查](mmc4_full_corpus_release_and_alignment_audit_2026-10-25.md)、[L170](../reviews/L170.md)。
+
+
+第二百零六批（2026-10-25）：简化DOM有删li/table/date，保留顺序不等于真实时间；OCR/步骤列表需独立真值。见[审查](obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[L171](../reviews/L171.md)。

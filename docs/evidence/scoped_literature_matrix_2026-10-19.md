@@ -701,3 +701,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百零五批（2026-10-25）：F7仅COCO描述，caption+sequence曝光增加；T2 COCO p@1 95.7低于Li97.6，非全指标最优。见[审查](mmc4_full_corpus_release_and_alignment_audit_2026-10-25.md)、[L170](../reviews/L170.md)。
+
+
+第二百零六批（2026-10-25）：80B32shot部分caption/OKVQA/VizWiz改善，VQAv2/TextVQA/Hateful落后且VisDial缺；56.5vs55.8挑各任务最佳shot。见[审查](obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[L171](../reviews/L171.md)。

@@ -276,7 +276,7 @@
 | L168 | Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States | primary_sections_read | [结构化分析](../reviews/L168.md) | 未完成 |
 | L169 | InstructPix2Pix: Learning to Follow Image Editing Instructions | primary_sections_read | [结构化分析](../reviews/L169.md) | 核心三遍与五项检查完成 |
 | L170 | Multimodal C4: An Open, Billion-scale Corpus of Images Interleaved with Text | primary_sections_read | [结构化分析](../reviews/L170.md) | 核心三遍与五项检查完成 |
-| L171 | OBELICS: An Open Web-Scale Filtered Dataset of Interleaved Image-Text Documents | primary_sections_read | [结构化分析](../reviews/L171.md) | 未完成 |
+| L171 | OBELICS: An Open Web-Scale Filtered Dataset of Interleaved Image-Text Documents | primary_sections_read | [结构化分析](../reviews/L171.md) | 核心三遍与五项检查完成 |
 | L172 | OmniCorpus: A Unified Multimodal Corpus of 10 Billion-Level Images Interleaved with Text | primary_sections_read | [结构化分析](../reviews/L172.md) | 未完成 |
 | L173 | CoMM: A Coherent Interleaved Image-Text Dataset for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L173.md) | 未完成 |
 | L174 | ShareGPT-4o-Image: Aligning Multimodal Models with GPT-4o-Level Image Generation | primary_sections_read | [结构化分析](../reviews/L174.md) | 未完成 |

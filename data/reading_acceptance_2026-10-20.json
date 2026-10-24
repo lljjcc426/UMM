@@ -10791,6 +10791,40 @@
         }
       ],
       "boundary": "v3正式17页§1–6与AppA–D全部研究内容；实际F1/2/4/5/6/7/8/9共8图(无F3)、T1–8全部含30topic/两套各50域名及文档示例，17页contact全看并放大F5/F7及示例页；无新编号公式/算法。37条references清单/关键引文，不宣称37原文全部读。固定repoREADME、两个assignment脚本全文、DATA_LICENSE重点条款/CODE_LICENSE、当前tree与两HF版本元数据/ff卡；AppA独立外链卡缺失，未全依赖/训练code审计，未运行模型/下载数据。核心三遍与五书面完成。"
+    },
+    {
+      "id": "L171",
+      "checked_on": "2026-10-25",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "如何保留网页原生多图文字结构，开放构建可训练大规模视觉语言上下文学习模型的数据？ 单图caption缺自然跨图联系，MMC4依CLIP再分配图句；高规模网页仍有广告、重复和低质量内容。",
+          "evidence": "全51页11图11表；补A4.4 prompt/首词截断、A4.5分任务曲线、A3已知残留与HF退出整页修正版，十倍只限定按图aggregate。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "网页HTML→英语交错文档；IDEFICS接图文上下文输出文字。图片为输入，论文没有由IDEFICS生成RGB图或视频。 DOM清理/unwrap/去空嵌套，删除li/table/header及特定div/导航/日期，保留简化后文本图片节点顺序和换行；more-link替为EOS标记。保存的是经过删改的DOM遍历序，未模拟CSS/JS全部视觉渲染、更不等同动作时间。IDEFICS冻结LLaMA7B/65B+OpenCLIPViTH14 630M，6层/64latent/16head×96dim Perceiver126M，每4层加crossattention1.4B/13.9B；新增tokenembedding可训，9B/80B中trainable1.5B/14B。Q/K RMSNorm稳定训练；文字NTP+zloss=1e−3 log²Z，无新编号理论式/算法，无图像/视频输出。",
+          "evidence": "全51页11图11表；补A4.4 prompt/首词截断、A4.5分任务曲线、A3已知残留与HF退出整页修正版，十倍只限定按图aggregate。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "DOM简化提取自然交错顺序，逐节点/段落/文档过滤与去重，开放OBELICS；IDEFICS验证与caption语料的互补。 长文交错与caption混合可改善需要语言上下文的少样本问答，按图数更省源于每图关联文本更丰富等联合因素；若要将收益归到原生顺序，须同源重排消融。保留简化DOM可供多图主题连贯研究，时间/接触/规范顺序仍需真值。",
+          "evidence": "全51页11图11表；补A4.4 prompt/首词截断、A4.5分任务曲线、A3已知残留与HF退出整页修正版，十倍只限定按图aggregate。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2 80B32shotCOCO116.6vsFlamingo113.8/Flickr81.1vs75.4/OKVQA57.8平/VizWiz50vs49.8；VQAv2 65.9<67.6、TextVQA36.7<37.9、Hateful52.5<70，VisDial未报；作者八任务四更好或平不能解释缺失为持平。9B32shotCOCO98vsOpenFlamingo99.5，Hateful49.8vs53.8；9B0shotCOCO46/Flickr27.3偏低，fewshot大改。人工250文档照片80%/图形29%/全部相关90%/字30%/结构文本5%/过滤遗漏7%/脸46%/水印3%/logo2%，零发现NSFW/明显PII不代表全库零，A3明确残留色情/暴力cluster并讨论偏差。 F6交错长文按图量可约少一个数量级达到类似aggregate4shot，按tokens图并无十倍统一优势；混合总体强。F11逐任务VQAv2/OKVQA LAIONonly后期下降，caption-only部分caption较好，不能凭训练loss下降推出VQA提高。作者概括LAION在分类/OCR稍优，但F11 IIIT5K后期LAIONonly约.8而OBELICS约.95，不能称全程/所有OCR胜出；Hateful曲线波动大无多seedCI。A4.4零shot实为2个无图文字priming；prompt由5中间checkpoint的独立validation选；greedy+人工stopwords，LAIONonly VQA额外保首词，caption提示也不同。OCR/Hateful为候选rank；Hateful提示直接提供图上文字context，不是仅测视觉OCR。 T3段/文word4–1000/10–2000；字符重复.1/.1、词重复.1/.2、special.3/.275、stopword≥.3/.35、flagged≤.01、punctuation≥.001/.03、spam≤.12、common≥.8/.9、langscore≥.8、PPL≤1500；图150–20000px、aspect .5–2、jpg/png/webp，文档1–30图。公开过滤YAML同阈值但段级lang/PPL开关False、文档级True，模板不证明完整生产路径关闭这些步骤。T8 seq1024、200Kmax、AdamW正文/表Adam(.9,.999)、wd.1、clip1、warm2K、linearLR80B5e−5→3e−5/9B1e−5→6e−6，bf16ZeRO3；batch3.67M/1.31M tokens。主IDEFICS token混合OB73.85/Wiki6.15/LAION17.18/PMD2.82%，后两高质小集Wiki/PMD各repeat3。80B512A10080G、9B128约14天，三数据对照单源32卡/混合64卡约6天。IDEFICS80B及9B混合各恰3次loss-spike重启，回滚shuffle/可降LR。",
+          "evidence": "全51页11图11表；补A4.4 prompt/首词截断、A4.5分任务曲线、A3已知残留与HF退出整页修正版，十倍只限定按图aggregate。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "正式主20+supp31全部研究内容/11图11表和checklist完成，HF卡/README/两YAML静态核。保留DOM同时去li/table及日期会丢步骤列表/表格和部分时间线索，无动作/笔顺真值；高质量LR“人工写”只是由curated来源代理，低PPL相似Wikipedia不能当科学正确。250文档人审无一致性CI，已披露7%噪声与有害cluster/性别种族关联，过滤覆盖非完美；退出整页的修正版需显式选。HF字段只图URL，图片重下会衰退，未下载数据验证内容；CCBY4.0+训练使用披露ToU不能代替原内容授权。无多seed、强训练重启/同token与同图/同算力均不能同时等价；未隔离结构因果，未独立复现。 固定同源图文、冻结骨干、token/图/计算分别对齐，DOM/CLIP匹配/随机序×长短文×caption比例，单图不可解的多图题及换序干预；OCR/图上结构文本/真实步骤列表分层。各模型同选prompt预算并同时报原答案与首词截断，Hateful给/不给context，0shot标明文字priming。记录3次重启/LR与多seed，按原/退出整页修正版和图片可下载率报告分母；此处未执行。",
+          "evidence": "全51页11图11表；补A4.4 prompt/首词截断、A4.5分任务曲线、A3已知残留与HF退出整页修正版，十倍只限定按图aggregate。"
+        }
+      ],
+      "boundary": "NeurIPS正式20页+31页Supplement与v2合并51页对照；§1–6、Checklist、A1–A5全研究内容，PDFF1–11实际视觉/T1–11全部，T4全100域、T5全20topic、T6全200topic及词列；51页contact全部看、F11原页放大。references清单和关键引文，非全部引文原文。无新编号式/算法，zloss内联读。固定c50923f仓库README/两配置全文与HF08b7dca卡/元数据；未审全代码/依赖、下载语料权重、运行模型/过滤API。核心三遍和五书面完成。"
     }
   ]
 }
