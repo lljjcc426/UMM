@@ -760,3 +760,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百九十五批（2026-10-25）：BBSMG正式17页PDF已可获取，全19图5表10式核完，替代旧部分阅读范围。见[审查](bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[L007](../reviews/L007.md)。
+
+
+第一百九十六批（2026-10-25）：三维轨迹正式21页全文图表/算法完成；Zenodo公开RAR已下载静态阅读55文件，补齐旧未下载边界。见[审查](calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[L008](../reviews/L008.md)。

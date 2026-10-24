@@ -712,3 +712,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百九十五批（2026-10-25）：pix2len .05与1px20mm冲突，rad/degree输入单位未固定，Eq2常比与T1独立系数关系需说明；缺CSIM定义/数据split/完整recipe。见[审查](bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[L007](../reviews/L007.md)。
+
+
+第一百九十六批（2026-10-25）：Eq6需局部时间，T1高阶训练RMSE升高需澄清；F7恒速平台需分段定义。公开generalCurvePlanning默认cubic spline与正文quintic描述有差异。见[审查](calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[L008](../reviews/L008.md)。

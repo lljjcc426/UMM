@@ -504,3 +504,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百九十五批（2026-10-25）：固定合成教师监督网络不要求教师可微；对物理输入反演才需相应链式梯度。静态对称印迹非完整接触动力学。见[审查](bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[L007](../reviews/L007.md)。
+
+
+第一百九十六批（2026-10-25）：同样本嵌套无约束OLS的最优训练SSE非增；五次时间状态与三维曲率链式导数分开，端点平滑非动力学约束保证。见[审查](calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[L008](../reviews/L008.md)。

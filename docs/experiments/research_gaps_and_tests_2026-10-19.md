@@ -697,3 +697,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百九十五批（2026-10-25）：同真实heldout拆解析几何/标定/神经代理，测梯度和轮廓；动态力/速度、墨/纸/笔跨域及同终态异笔序另测。见[审查](../evidence/bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[L007](../reviews/L007.md)。
+
+
+第一百九十六批（2026-10-25）：同点稳定OLS核T1，比较三种时间模型导数和真实三维限幅；同骨架比恒定/标定z及跨字跨笔同步位置力记录，静态/顺序分评。见[审查](../evidence/calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[L008](../reviews/L008.md)。

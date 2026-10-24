@@ -671,3 +671,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百九十五批（2026-10-25）：h/α/β校准双cubicBézier footprint合成标签→MLP/CNN128²代理→沿轨迹叠加，不含规范笔顺训练。见[审查](bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[L007](../reviews/L007.md)。
+
+
+第一百九十六批（2026-10-25）：骨架OLS→CCD-BSM压深→逐轴时域规划+五次标量状态，规则H/姿态方向接口，不含规范笔顺学习。见[审查](calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[L008](../reviews/L008.md)。

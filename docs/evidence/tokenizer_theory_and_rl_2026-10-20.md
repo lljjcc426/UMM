@@ -252,3 +252,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百九十五批（2026-10-25）：图2RealFake/Agent不能当实际GAN/RL证据；正文仅MSE/Adam代理监督，低维控制参数与笔序token分开。见[审查](bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[L007](../reviews/L007.md)。
+
+
+第一百九十六批（2026-10-25）：本文为解析/规则规划，GAN/RL是比较对象；空间/时间/压深动作接口可迁移，缺笔顺监督和closed-loop证据。见[审查](calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[L008](../reviews/L008.md)。

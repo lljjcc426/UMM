@@ -710,3 +710,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百九十五批（2026-10-25）：L007正式17页19图5表10式完成；区分静态footprint与序列，核mm/px、deg/rad及回归比例疑点，静态CSIM/SSIM和重校准两笔结果限条件解释。358目录，300核心/305书面；待完成核心深审31篇论文／研究；27项资源按制品协议另审。见[审查](bbsmg_full_calibrated_neural_brush_renderer_audit_2026-10-25.md)、[逐文件说明](one_hundred_ninety_fifth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第一百九十六批（2026-10-25）：L008完成正式21页17图5表10式2算法，核局部时间/OLS单调性/恒速图与公式边界；Zenodo公开49图及规划脚本，三维函数默认三次样条，完整数据仍须申请。358目录，301核心/306书面；待完成核心深审30篇论文／研究；27项资源按制品协议另审。见[审查](calligraphy_3d_full_quintic_constraints_and_public_release_audit_2026-10-25.md)、[逐文件说明](one_hundred_ninety_sixth_changes_2026-10-25.md)。无删除或模型执行。
