@@ -647,3 +647,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百八十八批（2026-10-25）：论文无SCO官方repo链接，GitHub组合检索0/HFpaper404；2H100明确但总NFE/walltime和planner/rewriteAPI成本未披。见[审查](../evidence/sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[U23](../reviews/U23.md)。
+
+
+第一百八十九批（2026-10-25）：官方repo评测入口固定ballgame且API注册TODO，未发布训练/RL/probe/checkpoint；HF522实际六MMSI类型，与AppB1两类型描述有差异，内部加权复算相符。见[审查](../evidence/visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[U25](../reviews/U25.md)。

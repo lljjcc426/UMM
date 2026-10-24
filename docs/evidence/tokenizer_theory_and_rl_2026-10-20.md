@@ -231,3 +231,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百八十八批（2026-10-25）：SCO无训练loss/tokenizer/RL，投影是测试时采样控制；四分支同latent，planner与promptrewrite质量为前提，不能当语义因果分解保证。见[审查](sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[U23](../reviews/U23.md)。
+
+
+第一百八十九批（2026-10-25）：BAGEL CE+FM、Eq6时间/速度目标符号需实现约定；GRPO只文字policy项，视觉ref为velocityMSE，未直接证明densityKL。见[审查](visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[U25](../reviews/U25.md)。

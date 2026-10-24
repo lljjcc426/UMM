@@ -739,3 +739,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百八十八批（2026-10-25）：SCO完整v1HTML/5表10原始图18式；PDF下载未完整，有限官方实现检索未定位，未冒称本地PDF全文或源码全审。见[审查](sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[U23](../reviews/U23.md)。
+
+
+第一百八十九批（2026-10-25）：VisWorld-Eval完整v1 PDF34页与HTML全部附录，5表17图15式/全部证明；repo固定10tree8blob审7text；HF3946计数及MMSI522metadata，未人工全读3946图题。见[审查](visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[U25](../reviews/U25.md)。

@@ -1,0 +1,589 @@
+{
+  "id": "U25",
+  "checked_on": "2026-10-25",
+  "arxiv_version": "2601.19834v1",
+  "full_pdf_pages": 34,
+  "core_three_pass_completed": true,
+  "numbered_tables_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "figures_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "numbered_equations_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "theorem_numbers_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "lemma_numbers_reviewed": [
+    1,
+    2,
+    3
+  ],
+  "assumption_numbers_reviewed": [
+    1,
+    2
+  ],
+  "corollary_numbers_reviewed": [
+    1
+  ],
+  "tables": [
+    {
+      "number": 1,
+      "rows": [
+        [
+          "Models",
+          "Paper Folding",
+          "Multi-Hop Manip.",
+          "Ball Tracking",
+          "Cube 3-View",
+          "MMSI (Pos. Rel.)",
+          "Maze",
+          "Sokoban",
+          "Overall (5 tasks)",
+          "Overall (7 tasks)"
+        ],
+        [
+          "Proprietary Models"
+        ],
+        [
+          "Gemini 3 Flash",
+          "25.6",
+          "75.4",
+          "55.3",
+          "52.7",
+          "41.3",
+          "73.9",
+          "99.3",
+          "50.0",
+          "60.5"
+        ],
+        [
+          "Gemini 3 Pro",
+          "27.0",
+          "74.5",
+          "44.7",
+          "53.3",
+          "49.6",
+          "33.5",
+          "90.2",
+          "49.8",
+          "53.2"
+        ],
+        [
+          "Seed 1.8",
+          "10.6",
+          "75.2",
+          "24.4",
+          "42.5",
+          "38.8",
+          "83.9",
+          "68.3",
+          "38.3",
+          "49.1"
+        ],
+        [
+          "GPT 5.1",
+          "6.4",
+          "73.9",
+          "34.8",
+          "44.5",
+          "44.8",
+          "0.6",
+          "62.8",
+          "40.8",
+          "38.2"
+        ],
+        [
+          "o3",
+          "13.5",
+          "68.1",
+          "24.7",
+          "37.7",
+          "44.4",
+          "0.0",
+          "36.0",
+          "37.6",
+          "32.0"
+        ],
+        [
+          "Open-Source Models"
+        ],
+        [
+          "Qwen3-VL-8B-Thinking [5]",
+          "11.0",
+          "49.3",
+          "17.8",
+          "21.2",
+          "27.7",
+          "0.0",
+          "5.8",
+          "25.4",
+          "18.9"
+        ],
+        [
+          "BAGEL-7B-MoT [13]",
+          "11.2",
+          "31.6",
+          "19.4",
+          "26.8",
+          "27.2",
+          "0.0",
+          "0.2",
+          "23.2",
+          "16.6"
+        ]
+      ]
+    },
+    {
+      "number": 2,
+      "rows": [
+        [
+          "Task",
+          "Capability",
+          "Domain",
+          "Training Samples",
+          "Test Samples",
+          "Source/Reference"
+        ],
+        [
+          "Paper folding",
+          "Simulation",
+          "Synthetic",
+          "2,357",
+          "480",
+          "SpatialViz [61]"
+        ],
+        [
+          "Multi-hop manipulation",
+          "Simulation",
+          "Synthetic",
+          "2,000",
+          "480",
+          "ZebraCoT [35], CLEVR [30]"
+        ],
+        [
+          "Ball tracking",
+          "Simulation",
+          "Synthetic",
+          "2,254",
+          "1,024",
+          "RBench-V [20]"
+        ],
+        [
+          "Maze",
+          "Simulation",
+          "Synthetic",
+          "8,448",
+          "480",
+          "maze-dataset [29]"
+        ],
+        [
+          "Sokoban",
+          "Simulation",
+          "Synthetic",
+          "7,715",
+          "480",
+          "GameRL [55]"
+        ],
+        [
+          "Cube 3-view projection",
+          "Reconstruction",
+          "Synthetic",
+          "2,500",
+          "480",
+          "SpatialViz [61]"
+        ],
+        [
+          "Real-world spatial reasoning",
+          "Reconstruction",
+          "Real-world",
+          "10,661",
+          "522",
+          "MMSI-Bench [69]"
+        ]
+      ]
+    },
+    {
+      "number": 3,
+      "rows": [
+        [
+          "Hyperparameter",
+          "Value"
+        ],
+        [
+          "Learning rate",
+          "3×10−53\\times 10^{-5}"
+        ],
+        [
+          "LR Schedule",
+          "Constant"
+        ],
+        [
+          "Optimizer",
+          "AdamW"
+        ],
+        [
+          "Loss weight (CE:MSE)",
+          "1:10"
+        ],
+        [
+          "Warm-up steps",
+          "200"
+        ],
+        [
+          "Training steps",
+          "4000"
+        ],
+        [
+          "Gen. resolution",
+          "(256, 1024) for paper folding, cube 3-view"
+        ],
+        [
+          "",
+          "(240, 1024) for multi-hop manipulation"
+        ],
+        [
+          "",
+          "(256, 512) otherwise"
+        ],
+        [
+          "Und. resolution",
+          "(224, 980)"
+        ],
+        [
+          "Sequence length per rank",
+          "32K"
+        ],
+        [
+          "Num. ranks",
+          "8"
+        ]
+      ]
+    },
+    {
+      "number": 4,
+      "rows": [
+        [
+          "Hyperparameter",
+          "Value"
+        ],
+        [
+          "Learning rate",
+          "1×10−51\\times 10^{-5}"
+        ],
+        [
+          "Batch size",
+          "128"
+        ],
+        [
+          "GRPO mini batch size",
+          "32"
+        ],
+        [
+          "Group size",
+          "16"
+        ],
+        [
+          "KL loss coefficient for visual gen.",
+          "0.1"
+        ],
+        [
+          "KL loss coefficient for verbal gen.",
+          "0.0"
+        ]
+      ]
+    },
+    {
+      "number": 5,
+      "rows": [
+        [
+          "",
+          "MMSI-Bench (Positional Relationship)"
+        ],
+        [
+          "Models",
+          "Cam.-Cam.",
+          "Obj.–Obj.",
+          "Reg.–Reg.",
+          "Cam.–Obj.",
+          "Obj.–Reg.",
+          "Cam.–Reg.",
+          "Overall"
+        ],
+        [
+          "Implicit WM",
+          "33.1",
+          "31.2",
+          "31.8",
+          "46.5",
+          "29.1",
+          "37.3",
+          "34.8"
+        ],
+        [
+          "Visual WM",
+          "29.6",
+          "29.5",
+          "31.6",
+          "60.9",
+          "25.8",
+          "54.4",
+          "38.4"
+        ]
+      ]
+    }
+  ],
+  "sft_main_figure_4": {
+    "task_order": [
+      "fold",
+      "multihop",
+      "ball",
+      "cube",
+      "mmsi_cam_obj",
+      "mmsi_cam_reg",
+      "maze",
+      "sokoban"
+    ],
+    "implicit": [
+      21.1,
+      40.0,
+      40.7,
+      63.7,
+      46.5,
+      37.3,
+      77.0,
+      29.6
+    ],
+    "verbal": [
+      27.4,
+      null,
+      null,
+      60.2,
+      null,
+      null,
+      73.1,
+      36.8
+    ],
+    "visual": [
+      39.2,
+      66.6,
+      57.6,
+      76.8,
+      60.9,
+      54.4,
+      70.6,
+      39.3
+    ]
+  },
+  "theory_scope": {
+    "answer_KL": "oracle-chain upper bound, not guaranteed visual-versus-verbal risk ordering",
+    "information": "conditional entropy decrease under oracle conditioning; learned visual fidelity and compute separate",
+    "theorem_5_gap": "Assumption 2 restricts Lipschitz to both points within Theta_r; proof uses theta_Q_star outside Theta_r",
+    "needed_extension": "Lipschitz covering theta_r and theta_Q_star and relevant connecting region",
+    "theorem_6": "conditional ERM plus inherited bias assumption; Rademacher normalization not specified",
+    "equation_6": "interpolation derivative o-epsilon versus printed target epsilon-o; implementation convention unverified",
+    "equation_7": "visual velocity MSE to SFT reference; density KL equivalence not shown"
+  },
+  "release": {
+    "repo": "thuml/Reasoning-Visual-World",
+    "repo_sha": "4ee920ca9b65bdee124bae8c36e336998243cdda",
+    "tree_entry_count": 10,
+    "blob_count": 8,
+    "text_blobs_reviewed": 7,
+    "eval_python_files_reviewed": 5,
+    "training_or_rl_implementation_in_pinned_tree": false,
+    "posttrained_checkpoints_in_pinned_tree": false,
+    "dataset": "thuml/VisWorld-Eval",
+    "dataset_sha": "1ac6c2bd6e045510cc6f06b43831358ee9145063",
+    "dataset_sizes": {
+      "dataset": {
+        "dataset": "thuml/VisWorld-Eval",
+        "num_bytes_original_files": 1399589743,
+        "num_bytes_parquet_files": 1399589743,
+        "num_bytes_memory": 1414836062,
+        "num_rows": 3946,
+        "estimated_num_rows": null
+      },
+      "configs": [
+        {
+          "dataset": "thuml/VisWorld-Eval",
+          "config": "main",
+          "num_bytes_original_files": 1399589743,
+          "num_bytes_parquet_files": 1399589743,
+          "num_bytes_memory": 1414836062,
+          "num_rows": 3946,
+          "num_columns": 6,
+          "estimated_num_rows": null
+        }
+      ],
+      "splits": [
+        {
+          "dataset": "thuml/VisWorld-Eval",
+          "config": "main",
+          "split": "ballgame",
+          "num_bytes_parquet_files": 10667609,
+          "num_bytes_memory": 24017806,
+          "num_rows": 1024,
+          "num_columns": 6,
+          "estimated_num_rows": null
+        },
+        {
+          "dataset": "thuml/VisWorld-Eval",
+          "config": "main",
+          "split": "cube",
+          "num_bytes_parquet_files": 6135498,
+          "num_bytes_memory": 6294174,
+          "num_rows": 480,
+          "num_columns": 6,
+          "estimated_num_rows": null
+        },
+        {
+          "dataset": "thuml/VisWorld-Eval",
+          "config": "main",
+          "split": "maze",
+          "num_bytes_parquet_files": 2166125,
+          "num_bytes_memory": 2904407,
+          "num_rows": 480,
+          "num_columns": 6,
+          "estimated_num_rows": null
+        },
+        {
+          "dataset": "thuml/VisWorld-Eval",
+          "config": "main",
+          "split": "mmsi",
+          "num_bytes_parquet_files": 1243734653,
+          "num_bytes_memory": 1243712422,
+          "num_rows": 522,
+          "num_columns": 6,
+          "estimated_num_rows": null
+        },
+        {
+          "dataset": "thuml/VisWorld-Eval",
+          "config": "main",
+          "split": "multihop",
+          "num_bytes_parquet_files": 32658598,
+          "num_bytes_memory": 32896075,
+          "num_rows": 480,
+          "num_columns": 6,
+          "estimated_num_rows": null
+        },
+        {
+          "dataset": "thuml/VisWorld-Eval",
+          "config": "main",
+          "split": "paperfolding",
+          "num_bytes_parquet_files": 15876916,
+          "num_bytes_memory": 16545357,
+          "num_rows": 480,
+          "num_columns": 6,
+          "estimated_num_rows": null
+        },
+        {
+          "dataset": "thuml/VisWorld-Eval",
+          "config": "main",
+          "split": "sokoban",
+          "num_bytes_parquet_files": 88350344,
+          "num_bytes_memory": 88465821,
+          "num_rows": 480,
+          "num_columns": 6,
+          "estimated_num_rows": null
+        }
+      ]
+    },
+    "dataset_rows_semantically_reviewed": "one representative text row per split; no image bytes",
+    "mmsi_metadata_rows_counted": 522,
+    "mmsi_question_type_counts": {
+      "Positional Relationship (Cam.–Obj.)": 86,
+      "Positional Relationship (Reg.–Reg.)": 81,
+      "Positional Relationship (Cam.–Cam.)": 93,
+      "Positional Relationship (Cam.–Reg.)": 83,
+      "Positional Relationship (Obj.–Reg.)": 85,
+      "Positional Relationship (Obj.–Obj.)": 94
+    },
+    "mmsi_description_difference": "App B1 mentions CamObj/CamReg focus but release includes all six relations",
+    "mmsi_rounded_score_weighted_recalculation": {
+      "implicit": 34.780268199233724,
+      "visual": 38.37356321839081
+    },
+    "hardcoded_eval_dataset": "load_dataset(\"VisWorld-Eval\", split=\"ballgame\")",
+    "API_registration": "GET_CLINET/GET_RESPONSE/AK None; model and endpoint TODO",
+    "explicit_repo_license_file_located": false,
+    "explicit_hf_card_license_field_located": false
+  },
+  "fidelity_comparison": {
+    "answer_checkpoint": "RL",
+    "world_model_checkpoint": "SFT",
+    "verbal_judge": "string pattern matching",
+    "visual_judge": "Gemini 3 Pro",
+    "ignores_color": true
+  },
+  "probe": {
+    "two_layer_MLP_hidden_size": 4096,
+    "split_ratio": [
+      0.8,
+      0.2
+    ],
+    "split_unit_disclosed": "different CoTs; maze identity separation not disclosed",
+    "metric": "average of x and y five-way accuracy",
+    "chance_coordinate_accuracy": 0.2,
+    "causal_intervention": false
+  },
+  "qualitative_caveats": {
+    "figure_15": "visual reasoning still confuses left/right",
+    "figure_16": "correct images can accompany wrong verbal explanations",
+    "figure_17": "shape/color errors, correct final answers can coexist with wrong view; caption paper-folding typo"
+  },
+  "learned_model_execution": false,
+  "judge_api_execution": false,
+  "raw_score_reanalysis": false,
+  "reading_scope": "完整2601.19834v1 PDF34页/HTML正文§1–6、AppA1/A2全部证明与B1–3/C1–2（HTML§7–9），Eq1–15、6个Theorem编号（3/4为1/2重述）、3Lemma/2Assumption/1Corollary，T1–5全部行、F1–17全部视觉。固定repo10tree/8blob，审7textblob含5个evalpy；HFschema/七split3946计数与7首条文字、MMSI全522条metadata子类分布，未读全部图片或全部3946题语义。项目页/README核发布及聚合；OpenReview页面验证/API403未核接收。核心三遍/五项书面验收完成，未模型推理、judgeAPI、训练、probe或历史原始分数复现。",
+  "source_urls": [
+    "https://arxiv.org/abs/2601.19834v1",
+    "https://arxiv.org/html/2601.19834v1",
+    "https://arxiv.org/pdf/2601.19834v1",
+    "https://manchery.github.io/Reasoning-Visual-World/",
+    "https://github.com/thuml/Reasoning-Visual-World/tree/4ee920ca9b65bdee124bae8c36e336998243cdda",
+    "https://huggingface.co/datasets/thuml/VisWorld-Eval/tree/1ac6c2bd6e045510cc6f06b43831358ee9145063",
+    "https://datasets-server.huggingface.co/size?dataset=thuml%2FVisWorld-Eval"
+  ]
+}

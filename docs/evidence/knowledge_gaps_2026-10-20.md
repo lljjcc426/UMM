@@ -691,3 +691,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百八十八批（2026-10-25）：MiniOpenING六项退化、LLaDA两项退化；F7红裙变红上衣、F8newonly文字本身变浅、F6SCO仍标接触/目标偏差，需分离条件与采样贡献。见[审查](sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[U23](../reviews/U23.md)。
+
+
+第一百八十九批（2026-10-25）：F6b文字pattern/视觉Gemini评分与SFTfidelity/RLaccuracy阶段错位；probe坐标均值机会20%，可解码未证因果；同成本/同oracle监督缺口。见[审查](visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[U25](../reviews/U25.md)。

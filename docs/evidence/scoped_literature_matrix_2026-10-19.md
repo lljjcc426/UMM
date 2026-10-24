@@ -650,3 +650,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百八十八批（2026-10-25）：冻结采样器四条件差分与二维修正；视频依赖GPTplanner/事件分帧，LanguageTable仅附录定性，不并入主表量化。见[审查](sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[U23](../reviews/U23.md)。
+
+
+第一百八十九批（2026-10-25）：同BAGEL三CoT任务后训练有条件收益；maze视觉低implicit6.4pp、MMSI六类四降；主图两成功子类不代表所有空间关系。见[审查](visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[U25](../reviews/U25.md)。

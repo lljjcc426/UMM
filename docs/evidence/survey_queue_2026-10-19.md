@@ -689,3 +689,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百八十八批（2026-10-25）：U23完成完整HTML正文/附录、5表10图18式；核二维框对偶与软硬约束、四分支成本、rewrite/视频物理残余失败及完整反例。358目录，293核心/298书面；待完成核心深审38篇论文／研究；27项资源按制品协议另审。见[审查](sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[逐文件说明](one_hundred_eighty_eighth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第一百八十九批（2026-10-25）：U25完整34页/5表17图15式与所有证明；核局部Lipschitz证明范围、MMSI全522条六关系、评分/模型阶段差异及固定revision评测骨架。358目录，294核心/299书面；待完成核心深审37篇论文／研究；27项资源按制品协议另审。见[审查](visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[逐文件说明](one_hundred_eighty_ninth_changes_2026-10-25.md)。无删除或模型执行。

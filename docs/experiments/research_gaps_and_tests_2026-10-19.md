@@ -676,3 +676,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百八十八批（2026-10-25）：同NFE/延迟比较joint/顺序/线性四分支，记录μ/G/slack并锁rewrite；视频测接触/穿透/目标到达，书写测细笔/prefix/合法笔序。见[审查](../evidence/sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[U23](../reviews/U23.md)。
+
+
+第一百八十九批（2026-10-25）：同信息GT状态用文字/图编码、对齐token/NFE/teacher预算，同checkpoint统一fidelity评分；按maze身份分probe并做状态干预，书写检验prefix/细笔/笔序。见[审查](../evidence/visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[U25](../reviews/U25.md)。

@@ -483,3 +483,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百八十八批（2026-10-25）：Eq13对应boxdual .5μᵀGμ−dᵀμ；框内对偶允许残差，与硬半空间再加系数上限需区分。输出尺度/方向范数影响阈值迁移。见[审查](sco_full_soft_constraint_solver_and_video_protocol_audit_2026-10-25.md)、[U23](../reviews/U23.md)。
+
+
+第一百八十九批（2026-10-25）：KL链式上界/CMI非负不证明视觉普遍优越；Thm5球内Lipschitz用于球外Q最优端点，需扩展假设，Thm6继承bias前提。见[审查](visworld_full_theory_comparability_and_release_protocol_audit_2026-10-25.md)、[U25](../reviews/U25.md)。
