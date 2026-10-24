@@ -495,3 +495,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百九十二批（2026-10-25）：Eq1固定φ输入无UMM梯度；相同维数不等同语义坐标；1−cos范围[0,2]且零值只保共线，需独立正确性指标排除塌缩。见[审查](latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。
+
+
+第一百九十三批（2026-10-25）：Eq4信息因子为假设，未证明PID完整或可识别；低MI/正交不保证独有task信息保留，频谱诊断缺FFT定义与因果干预。见[审查](diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[U31](../reviews/U31.md)。

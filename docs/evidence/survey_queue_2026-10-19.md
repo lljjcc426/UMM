@@ -701,3 +701,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第一百九十二批（2026-10-25）：U28完整27页10表9图/6QA及8式，核固定输入modal式无UMM梯度、max−min偏好可降低worst、代理/真实循环和公开配置差异，保留各类增益与负结果。358目录，297核心/302书面；待完成核心深审34篇论文／研究；27项资源按制品协议另审。见[审查](latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[逐文件说明](one_hundred_ninety_second_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第一百九十三批（2026-10-25）：U31完整18页10表7图13式并核PMLR正式版；确认ICML2026，保留Showo GenEval两套数、Liquid及编辑负项，核有限工具代码与MI/stopgrad实现边界。358目录，298核心/303书面；待完成核心深审33篇论文／研究；27项资源按制品协议另审。见[审查](diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[逐文件说明](one_hundred_ninety_third_changes_2026-10-25.md)。无删除或模型执行。

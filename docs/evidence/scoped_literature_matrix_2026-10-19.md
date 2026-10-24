@@ -662,3 +662,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百九十二批（2026-10-25）：双模态/任务latent后训练，BAGEL/JanusPro/Harmon多任务有增益；非时序生成/笔顺证据。见[审查](latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。
+
+
+第一百九十三批（2026-10-25）：caption/inpainting同锚双flow、两stage shared/unique MI后训练，实际三base图像任务；video/interleaving为未来。见[审查](diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[U31](../reviews/U31.md)。

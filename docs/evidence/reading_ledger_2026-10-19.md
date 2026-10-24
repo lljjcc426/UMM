@@ -103,7 +103,7 @@
 | U28 | LatentUMM: Dual Latent Alignment for Unified Multimodal Models | primary_sections_read | [结构化分析](../reviews/U28.md) | 核心三遍与五项检查完成 |
 | U29 | Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification (MIRROR) | primary_sections_read | [结构化分析](../reviews/U29.md) | 核心三遍与五项检查完成 |
 | U30 | LatentUM: Unleashing the Potential of Interleaved Cross-Modal Reasoning via a Latent-Space Unified Model | primary_sections_read | [结构化分析](../reviews/U30.md) | 核心三遍与五项检查完成 |
-| U31 | DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement | primary_sections_read | [结构化分析](../reviews/U31.md) | 未完成 |
+| U31 | DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement | primary_sections_read | [结构化分析](../reviews/U31.md) | 核心三遍与五项检查完成 |
 | R06 | 通用规范汉字笔顺规范 | primary_sections_read | [结构化分析](../reviews/R06.md) | 未完成 |
 | R07 | OpenHandWrite_Toolbox与笔画级数据 | primary_sections_read | [结构化分析](../reviews/R07.md) | 未完成 |
 | L001 | Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026 | primary_sections_read | [结构化分析](../reviews/L001.md) | 核心三遍与五项检查完成 |

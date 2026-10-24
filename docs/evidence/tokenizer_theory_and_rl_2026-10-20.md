@@ -243,3 +243,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百九十二批（2026-10-25）：−logsigmoid(best−worst)可通过降低worst减损，无reference ratio，不能继承DPO或平均鲁棒性保证；K1无排序梯度。见[审查](latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。
+
+
+第一百九十三批（2026-10-25）：双向stopgrad InfoNCE与unique NCECLUB依critic条件；公开工具GaussianCLUB/无内部detach，完整调用方未发布，不能认定历史实现。见[审查](diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[U31](../reviews/U31.md)。

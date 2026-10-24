@@ -659,3 +659,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百九十二批（2026-10-25）：固定commit的CLI/YAML与BAGELaux为主要制品证据；预计算embedding不自证Gemini具体版本，RIR默认关闭不可自动算作LatentUMM循环。见[审查](../evidence/latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。
+
+
+第一百九十三批（2026-10-25）：DIVA官方README声明showcase/recipe训练评测权重计划发布；现有diva_utils与paper门控/CLUB/SG/rank默认差异按缺调用方保留。见[审查](../evidence/diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[U31](../reviews/U31.md)。

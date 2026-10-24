@@ -688,3 +688,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百九十二批（2026-10-25）：同预算拆GT锚/modal/task/pref、投影和真实/代理循环，测best/worst/mean、独立准确率/多样性；单次/ensemble/self解码分离训练收益。见[审查](../evidence/latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。
+
+
+第一百九十三批（2026-10-25）：同双flow FLOPs/训练步数拆shared/unique/预热与随机encoder，测task信息/variance；定义频带后低高通与patch重排干预，补独立seed CI。见[审查](../evidence/diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[U31](../reviews/U31.md)。

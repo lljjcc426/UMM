@@ -703,3 +703,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百九十二批（2026-10-25）：Gemini版本、Eq1映射/梯度、K/频率、noise、r16vs64及self-consistency推理成本未闭合；RecA Math聚合与T9文字/数字待澄清。见[审查](latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。
+
+
+第一百九十三批（2026-10-25）：正式版仍有Showo.57→.64和.69→.75两套GenEval、Showo8B/1.5B冲突、Liquid.81/.82与Time退化；制品缺完整trainer/eval/checkpoint。见[审查](diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[U31](../reviews/U31.md)。

@@ -751,3 +751,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百九十二批（2026-10-25）：LatentUMM完整27页10表9图6QA/8式；固定公开commit、17文件定点阅读及Gemini官方版本核查，未模型执行。见[审查](latentumm_full_dual_alignment_gradient_and_rollout_protocol_audit_2026-10-25.md)、[U28](../reviews/U28.md)。
+
+
+第一百九十三批（2026-10-25）：DIVA arXiv与PMLR正式18页核对，10表7图13式；官方21项树/17blob及6文件定点检查，会议状态已确认。见[审查](diva_full_information_factorization_and_release_protocol_audit_2026-10-25.md)、[U31](../reviews/U31.md)。
