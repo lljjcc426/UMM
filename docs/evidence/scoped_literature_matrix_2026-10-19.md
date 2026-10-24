@@ -587,3 +587,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百六十七批（2026-10-24）：L156为长故事/静态过程状态交错；100故事均9.2图、24图消融、32图效率、50+选例须分开。未生成笔画连续视频。见[审查](long_horizon_memory_revisit_definition_and_scaling_audit_2026-10-24.md)、[L156](../reviews/L156.md)。
+
+
+第一百六十八批（2026-10-24）：MIO统一离散CE但图像经外部扩散decoder；视频为关键帧，无法据四模态接口推出连续笔画事件控制。32图语义码与语音整段内容/音色分块的适用条件分开。见[审查](mio_tokenization_modality_tradeoffs_and_release_audit_2026-10-24.md)、[L157](../reviews/L157.md)。

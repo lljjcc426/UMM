@@ -628,3 +628,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百六十七批（2026-10-24）：L156缺Kr/N/M、训练超参、scene解析/回退和独立数据制品；文字无帧0与rendering/match字段汇总不详。AppE.4明确UniLongGen*同权重，已修正历史含糊表述。见[审查](long_horizon_memory_revisit_definition_and_scaling_audit_2026-10-24.md)、[L156](../reviews/L156.md)。
+
+
+第一百六十八批（2026-10-24）：MIO人评all3same/100与82.3%粒度待解释；训练seq2800与15s约3000输出码的切块机制、CLIP过滤>.27方向及T11与demo差异待原始制品。见[审查](mio_tokenization_modality_tradeoffs_and_release_audit_2026-10-24.md)、[L157](../reviews/L157.md)。

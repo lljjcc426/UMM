@@ -1,0 +1,897 @@
+{
+  "id": "L157",
+  "checked_on": "2026-10-24",
+  "complete_reading_version": "2409.17692v4 HTML plus all six original figures",
+  "formal_pdf_full_read": false,
+  "core_three_pass_completed": true,
+  "tables": {
+    "table1": [
+      [
+        "Models",
+        "Emu2 (Sun et al., 2023a)",
+        "SEED-LLaMA (Ge et al., 2023b)",
+        "AnyGPT (Zhan et al., 2024)",
+        "CM3Leon (Yu et al., 2023), Chameleon (Team, 2024)",
+        "Gemini (Reid et al., 2024)",
+        "Transfusion (Zhou et al., 2024)",
+        "MIO (ours)"
+      ],
+      [
+        "I/O Consistency",
+        "✓",
+        "✓",
+        "✓",
+        "✓",
+        "✗",
+        "✗",
+        "✓"
+      ],
+      [
+        "Uni. Bi. SFT",
+        "✗",
+        "✓",
+        "✓",
+        "✓",
+        "✓",
+        "✗",
+        "✓"
+      ],
+      [
+        "Multi-Task SFT",
+        "✓",
+        "✓",
+        "✗",
+        "✓",
+        "✓",
+        "✗",
+        "✓"
+      ],
+      [
+        "Speech I/O",
+        "✗/✗",
+        "✗/✗",
+        "✓/✓",
+        "✗/✗",
+        "✓/✗",
+        "✗",
+        "✓/✓"
+      ],
+      [
+        "Video I/O",
+        "✓/✓",
+        "✓/✓",
+        "✗/✗",
+        "✗/✗",
+        "✓/✗",
+        "✗",
+        "✓/✓"
+      ],
+      [
+        "Voice Output",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "✓"
+      ],
+      [
+        "MM. Inter. Output",
+        "✗",
+        "✓",
+        "✗",
+        "✗",
+        "✗",
+        "✗",
+        "✓"
+      ],
+      [
+        "Modeling",
+        "CICO",
+        "DIDO",
+        "DIDO",
+        "DIDO",
+        "CIDO",
+        "AR+Diff",
+        "DIDO"
+      ]
+    ],
+    "table2": [
+      [
+        "Model",
+        "Overall",
+        "Understanding",
+        "Generation",
+        "Unify"
+      ],
+      [
+        "Gemini2.0-flash-exp",
+        "45.6",
+        "65.2",
+        "29.8",
+        "40.7"
+      ],
+      [
+        "MIO-Instruct",
+        "37.2",
+        "41.5",
+        "53.5",
+        "16.6"
+      ],
+      [
+        "SEED-LLaMA",
+        "28.5",
+        "39.5",
+        "23.5",
+        "22.3"
+      ],
+      [
+        "Anole",
+        "18.6",
+        "13.6",
+        "20.0",
+        "22.3"
+      ],
+      [
+        "VILA-U",
+        "18.6",
+        "40.0",
+        "15.8",
+        "-"
+      ],
+      [
+        "Janus-Pro",
+        "18.1",
+        "48.4",
+        "5.9",
+        "-"
+      ],
+      [
+        "Janus-Flow",
+        "16.3",
+        "43.4",
+        "5.5",
+        "-"
+      ],
+      [
+        "Emu3",
+        "13.8",
+        "33.2",
+        "8.2",
+        "-"
+      ],
+      [
+        "Show-o",
+        "12.7",
+        "31.0",
+        "7.3",
+        "-"
+      ]
+    ],
+    "table3": [
+      [
+        "Models",
+        "Imagen",
+        "Speech",
+        "COCO(↑\\uparrow)",
+        "VQAv2(↑\\uparrow)",
+        "OKVQA(↑\\uparrow)",
+        "VizWiz(↑\\uparrow)",
+        "SEED Bench(↑\\uparrow)"
+      ],
+      [
+        "Emu-Base (14B)",
+        "✓",
+        "✗",
+        "112.4",
+        "52.0",
+        "38.2",
+        "34.2",
+        "47.3"
+      ],
+      [
+        "Emu-I (14B)",
+        "✗",
+        "✗",
+        "120.4",
+        "57.2",
+        "43.4",
+        "32.2",
+        "58.0"
+      ],
+      [
+        "SEED-LLaMA-I (8B)",
+        "✓",
+        "✗",
+        "124.5",
+        "66.2",
+        "45.9",
+        "55.1",
+        "51.5"
+      ],
+      [
+        "AnyGPT (8B)",
+        "✓",
+        "✓",
+        "107.5",
+        "-",
+        "-",
+        "-",
+        "-"
+      ],
+      [
+        "Flamingo (9B)",
+        "✗",
+        "✗",
+        "79.4",
+        "51.8",
+        "44.7",
+        "28.8",
+        "42.7"
+      ],
+      [
+        "Flamingo (80B)",
+        "✗",
+        "✗",
+        "84.3",
+        "56.3",
+        "31.6",
+        "",
+        "-"
+      ],
+      [
+        "Kosmos-1 (1.6B)",
+        "✗",
+        "✗",
+        "84.7",
+        "51.0",
+        "-",
+        "29.2",
+        "-"
+      ],
+      [
+        "MetaLM (1.7B)",
+        "✗",
+        "✗",
+        "82.2",
+        "41.1",
+        "11.4",
+        "-",
+        "-"
+      ],
+      [
+        "IDEFICS-I (80B)",
+        "✗",
+        "✗",
+        "117.2",
+        "37.4",
+        "36.9",
+        "26.2",
+        "53.2"
+      ],
+      [
+        "CM3Leon (7B)",
+        "✓",
+        "✗",
+        "61.6",
+        "47.6",
+        "23.8",
+        "37.6",
+        "-"
+      ],
+      [
+        "InstructBLIP (8.1B)",
+        "✗",
+        "✗",
+        "-",
+        "-",
+        "-",
+        "34.5",
+        "58.8"
+      ],
+      [
+        "MIO-Instruct (7B)",
+        "✓",
+        "✓",
+        "120.4",
+        "65.5",
+        "39.9",
+        "53.5",
+        "54.4"
+      ]
+    ],
+    "table4": [
+      [
+        "Models",
+        "MS-COCO(↑\\uparrow)",
+        "Flickr30K(↑\\uparrow)"
+      ],
+      [
+        "Emu-Base",
+        "66.46",
+        "64.82"
+      ],
+      [
+        "SEED-LLaMA",
+        "69.07",
+        "65.54"
+      ],
+      [
+        "SEED-LLaMA-I",
+        "70.68",
+        "66.55"
+      ],
+      [
+        "GILL",
+        "67.45",
+        "65.16"
+      ],
+      [
+        "AnyGPT",
+        "65.00",
+        "-"
+      ],
+      [
+        "MIO-Base",
+        "64.15",
+        "62.71"
+      ],
+      [
+        "MIO-Instruct",
+        "67.76",
+        "68.97"
+      ]
+    ],
+    "table5": [
+      [
+        "Models",
+        "ASR",
+        "Models",
+        "TTS"
+      ],
+      [
+        "Wav2vec",
+        "2.7",
+        "VALL-E",
+        "7.9"
+      ],
+      [
+        "Whisper",
+        "2.7",
+        "USLM",
+        "6.5"
+      ],
+      [
+        "AnyGPT",
+        "8.5",
+        "AnyGPT",
+        "8.5"
+      ],
+      [
+        "MIO-Base",
+        "6.3",
+        "MIO-Base",
+        "12.0"
+      ],
+      [
+        "MIO-Instruct",
+        "10.3",
+        "MIO-Instruct",
+        "4.2"
+      ]
+    ],
+    "table6": [
+      [
+        "Models",
+        "MSVDQA",
+        "MSRVTT-QA"
+      ],
+      [
+        "Flamingo (9B)",
+        "30.2",
+        "13.7"
+      ],
+      [
+        "BLIP-2 (4.1B)",
+        "33.7",
+        "16.2"
+      ],
+      [
+        "InstructBLIP (8.1B)",
+        "41.8",
+        "22.1"
+      ],
+      [
+        "Emu-Instruct (14B)",
+        "32.4",
+        "14.0"
+      ],
+      [
+        "SEED-LLaMA-I (8B)",
+        "40.9",
+        "30.8"
+      ],
+      [
+        "MIO-Instruct",
+        "42.6",
+        "35.5"
+      ]
+    ],
+    "table7": [
+      [
+        "Models",
+        "MMLU(↑\\uparrow)"
+      ],
+      [
+        "LLAMA-1-7B-Base",
+        "33.0"
+      ],
+      [
+        "LLAMA-2-7B-Chat",
+        "47.9"
+      ],
+      [
+        "SEED-LLAMA-8B-I",
+        "36.1"
+      ],
+      [
+        "AnyGPT-Base",
+        "26.4"
+      ],
+      [
+        "AnyGPT-Chat",
+        "27.4"
+      ],
+      [
+        "MIO-Instruct",
+        "45.7"
+      ]
+    ],
+    "table8": [
+      [
+        "Models",
+        "OmniBench(↑\\uparrow)"
+      ],
+      [
+        "Gemini-1.5-Pro",
+        "42.67"
+      ],
+      [
+        "Reka-Core-20240501",
+        "31.52"
+      ],
+      [
+        "AnyGPT (8B)",
+        "17.77"
+      ],
+      [
+        "video-SALMONN (13B)",
+        "34.11"
+      ],
+      [
+        "Unified-IO 2 (6.8B)",
+        "34.24"
+      ],
+      [
+        "MIO-Instruct (7B)",
+        "36.96"
+      ]
+    ],
+    "table9": [
+      [
+        "Pre-training Stage",
+        "Stage I",
+        "Stage II",
+        "Stage III"
+      ],
+      [
+        "Objective",
+        "Multimodal Alignment",
+        "Multimodal Interleaving",
+        "Speech Enhancement"
+      ],
+      [
+        "Image-Text Pair",
+        "SBU, CC3M, LAION-COCO, JourneyDB",
+        "SBU, CC3M, LAION-COCO, JourneyDB",
+        "CC3M LAION-COCO"
+      ],
+      [
+        "Language-Only",
+        "RefinedWeb",
+        "RefinedWeb",
+        "RefinedWeb"
+      ],
+      [
+        "Image-Text Inter",
+        "-",
+        "OBELICS, MMC4-core-ff",
+        "MMC4-core-ff"
+      ],
+      [
+        "Video-Text Pair",
+        "-",
+        "WebVid-10M",
+        "WebVid-10M"
+      ],
+      [
+        "Video-Text Inter",
+        "-",
+        "HowTo-100M, YT-Temporal-180M",
+        "HowTo-100M, YT-Temporal-180M"
+      ],
+      [
+        "Speech-Text Pair",
+        "Libriheavy",
+        "Libriheavy",
+        "Libriheavy"
+      ],
+      [
+        "GPUs",
+        "128 A800-80GB",
+        "128 A800-80GB",
+        "8 A800-80GB"
+      ],
+      [
+        "Training Steps",
+        "24,800",
+        "12,800",
+        "32,200"
+      ],
+      [
+        "Batch Size",
+        "12:2:0:2",
+        "2:2:6:6",
+        "2:1:1:12"
+      ]
+    ],
+    "table10": [
+      [
+        "Task",
+        "Dataset"
+      ],
+      [
+        "Language Only",
+        "OpenHermes (Teknium, 2023)"
+      ],
+      [
+        "Multimodal ICL",
+        "MMICL (Zhao et al., 2023)"
+      ],
+      [
+        "Multimodal CoT",
+        "ScienceQA (Lu et al., 2022)"
+      ],
+      [
+        "Chart Understanding",
+        "Geo170K (Gao et al., 2023)"
+      ],
+      [
+        "Instructional Image Generation",
+        "InstructPix2Pix (Brooks et al., 2023), MagicBrush (Zhang et al., 2024)"
+      ],
+      [
+        "ASR",
+        "LibriSpeech (Panayotov et al., 2015), GigaSpeech (Chen et al., 2021), Common Voice (Ardila et al., 2020)"
+      ],
+      [
+        "Video Dialogue",
+        "VideoChat2-IT (Li et al., 2023c)"
+      ],
+      [
+        "Image QA",
+        "Vision-Flan (Xu et al., 2023), VizWiz (Gurari et al., 2018), LAION-GPT4V , LLaVAR (Zhang et al., 2023c), OCR-VQA (Mishra et al., 2019), VQA (Goyal et al., 2016), TextVQA (Singh et al., 2019), OK-VQA (Marino et al., 2019), Mantis-Instruct (Jiang et al., 2024)"
+      ],
+      [
+        "Speech Generation",
+        "SpeechInstruct (Zhang et al., 2023a)"
+      ],
+      [
+        "Speech Understanding",
+        "SpeechInstruct (Zhang et al., 2023a)"
+      ],
+      [
+        "Image Captioning",
+        "Flickr30K (Plummer et al., 2015), MS-COCO (Lin et al., 2014)"
+      ],
+      [
+        "Descriptive Image Generation",
+        "Flickr30K (Plummer et al., 2015), MS-COCO (Lin et al., 2014)"
+      ],
+      [
+        "TTS",
+        "GigaSpeech (Chen et al., 2021), Common Voice (Ardila et al., 2020)"
+      ],
+      [
+        "Video Generation",
+        "MSR-VTT (Xu et al., 2016), MSVD (Chen and Dolan, 2011b)"
+      ],
+      [
+        "Video Understanding",
+        "MSR-VTT (Xu et al., 2016), MSVD (Chen and Dolan, 2011b), MSVD-QA (Chen and Dolan, 2011a), MSRVTT-QA (Xu et al., 2017)"
+      ],
+      [
+        "Visual Storytelling",
+        "VIST (Huang et al., 2016)"
+      ]
+    ],
+    "table11": [
+      [
+        "Output Modality",
+        "Text",
+        "Image",
+        "Speech",
+        "Video"
+      ],
+      [
+        "Beam size",
+        "5",
+        "1",
+        "1",
+        "1"
+      ],
+      [
+        "Do Sampling",
+        "False",
+        "True",
+        "True",
+        "True"
+      ],
+      [
+        "Top-P",
+        "-",
+        "0.7",
+        "0.7",
+        "0.7"
+      ],
+      [
+        "Repetition Penalty",
+        "1.0",
+        "1.0",
+        "1.15",
+        "1.15"
+      ],
+      [
+        "Temperature",
+        "1.0",
+        "1.0",
+        "1.0",
+        "1.0"
+      ],
+      [
+        "Guidance Scale",
+        "1.0",
+        "1.0",
+        "1.0",
+        "1.0"
+      ]
+    ],
+    "table12": [
+      [
+        "Task",
+        "Prompt Template"
+      ],
+      [
+        "Image Captioning",
+        "Provide a one-sentence caption for the provided image. {image}"
+      ],
+      [
+        "Image QA",
+        "(We use the prompt templates in LMMs-Eval (Li* et al., 2024))."
+      ],
+      [
+        "Image Generation",
+        "Please generate an image according to the given description. {description}"
+      ],
+      [
+        "ASR",
+        "Please transcribe this speech.{speech_token}"
+      ],
+      [
+        "TTS",
+        "Please generate a speech according to the given transcription. Start with <spch>. {transcription}"
+      ],
+      [
+        "Text-only",
+        "The following are multiple choice questions (with answers) about {subject} {question}"
+      ],
+      [
+        "Video QA",
+        "The goal is to use the visual information available in the image to provide an accurate answer to the question. This requires careful observation, attention to detail, and sometimes a bit of creative thinking.{video} Question: {question} Answer:"
+      ]
+    ],
+    "table13": [
+      [
+        "Dataset",
+        "MS-COCO",
+        "Flickr30K",
+        "MS-COCO Subset"
+      ],
+      [
+        "Metric",
+        "SSIM (↑\\uparrow)",
+        "Aesthetic (↑\\uparrow)",
+        "SSIM (↑\\uparrow)",
+        "Aesthetic (↑\\uparrow)",
+        "Human Avg. Ranking (↓\\downarrow)"
+      ],
+      [
+        "Emu",
+        "0.1749",
+        "3.733",
+        "0.1451",
+        "3.893",
+        "1.9"
+      ],
+      [
+        "AnyGPT",
+        "0.1960",
+        "3.954",
+        "0.1585",
+        "4.251",
+        "2.9"
+      ],
+      [
+        "MIO",
+        "0.2307",
+        "4.019",
+        "0.1727",
+        "4.326",
+        "1.2"
+      ]
+    ],
+    "table14": [
+      [
+        "Model",
+        "Supported Workflow",
+        "Content Score (1-5 points) (↑\\uparrow)"
+      ],
+      [
+        "MIO",
+        "s2s",
+        "1.4"
+      ],
+      [
+        "LLaMA-Omni (Fang et al., 2024)",
+        "s2t→t2s",
+        "2.4"
+      ],
+      [
+        "AnyGPT",
+        "s2t→t2s",
+        "1.8"
+      ]
+    ],
+    "table15": [
+      [
+        "MIO Win",
+        "54%"
+      ],
+      [
+        "Tie",
+        "25%"
+      ],
+      [
+        "MIO Lose",
+        "21%"
+      ]
+    ],
+    "table16": [
+      [
+        "Model",
+        "GLOBE",
+        "LibriSpeech test-clean"
+      ],
+      [
+        "",
+        "WER (↓\\downarrow)",
+        "Speech Similarity (↑\\uparrow)",
+        "WER (↓\\downarrow)",
+        "Speech Similarity (↑\\uparrow)"
+      ],
+      [
+        "MIO",
+        "9.8",
+        "67.8",
+        "10.3",
+        "75.1"
+      ],
+      [
+        "AnyGPT",
+        "27.9",
+        "67.3",
+        "28.1",
+        "71.3"
+      ]
+    ]
+  },
+  "table_cells": "Author-reported raw cells; blank and dash retained; no benchmark rerun",
+  "release": {
+    "repo_commit": "6c0b5e62dfb5684bc741f34cce062aed15744057",
+    "tree_entries": 206,
+    "blobs": 182,
+    "files_read": [
+      "README.md",
+      "infer.py",
+      "tokenization_mio.py",
+      "utils.py",
+      "image_tokenizer/configs/seed_llama_tokenizer.yaml",
+      "image_tokenizer/models/seed_llama_tokenizer.py"
+    ],
+    "training_evaluation_entrypoints_obtained": false,
+    "models": {
+      "MIO-7B-Base": {
+        "revision": "16cd83760cfcad610da5cfdc8459ca54d24f8ea2",
+        "files": 57,
+        "config": {
+          "architectures": [
+            "LlamaForCausalLM"
+          ],
+          "hidden_size": 4096,
+          "num_hidden_layers": 32,
+          "num_attention_heads": 32,
+          "vocab_size": 76294,
+          "max_position_embeddings": 4096,
+          "rope_scaling": null
+        },
+        "weights_downloaded": false
+      },
+      "MIO-7B-Instruct": {
+        "revision": "b8f5e48ce79fcf3268dba64b1395ac150c1ad99e",
+        "files": 57,
+        "config": {
+          "architectures": [
+            "LlamaForCausalLM"
+          ],
+          "hidden_size": 4096,
+          "num_hidden_layers": 32,
+          "num_attention_heads": 32,
+          "vocab_size": 76294,
+          "max_position_embeddings": 4096,
+          "rope_scaling": null
+        },
+        "weights_downloaded": false
+      }
+    }
+  },
+  "deltas": {
+    "asr_wer_pp": 4.000000000000001,
+    "tts_wer_pp": -7.8,
+    "clip_i_coco": 3.6099999999999994,
+    "clip_i_flickr": 6.259999999999998
+  },
+  "agreement": {
+    "definition": "all-three-identical cases divided by 100",
+    "reported_percent": 82.3,
+    "integer_case_denominator_100_resolution_percent": 1,
+    "unresolved": "Need actual per-case counts or alternate aggregation; no fabrication claim"
+  },
+  "configuration": {
+    "paper_training_seq": 2800,
+    "hf_max_positions": 4096,
+    "demo_max_new_tokens": 512,
+    "demo_active_mode": "text/std; image and speech saving disabled",
+    "paper_image_beams": 1,
+    "paper_image_do_sample": true,
+    "decoder_default_cfg": 10,
+    "decoder_default_steps": 20,
+    "video_frame_return_explicitly_sorted": false
+  },
+  "audio": {
+    "content_tokens_per_second": 50,
+    "output_tokens_per_second": 200,
+    "output_codes_for15_seconds": 3000,
+    "chunking_or_truncation_in_training_verified": false
+  },
+  "model_execution": false,
+  "reading_scope": "完整arXiv2409.17692v4 HTML：§1–5、Limitations、AppA/B/C/D/E1–E6，Eq1与T1–16全部单元、F1框架/F2三阶段loss/F3tokenizer两组样例/F4高级能力/F5基础六类/F6多模态CoT/ICL实际原图及图注；不播放/独立转录图中的音频。正式23pPDF仅保留此前§2.1–2.3/§3Tables3–8/3.6/AppB/C/T9/10/E1/E6指定范围，未称正式PDF全文通过。固定GH README、infer.py、tokenization_mio.py、utils.py、SEED配置与seed_llama_tokenizer.py全文；HF两模型固定revision元数据/config。未逐个审182blobs、未读权重/执行模型/独立训练评测；三遍核心理解及五项书面验收，无独立口试。",
+  "source_urls": [
+    "https://arxiv.org/abs/2409.17692",
+    "https://arxiv.org/html/2409.17692v4",
+    "https://aclanthology.org/2025.emnlp-main.255/",
+    "https://github.com/MIO-Team/MIO/tree/6c0b5e62dfb5684bc741f34cce062aed15744057",
+    "https://huggingface.co/m-a-p/MIO-7B-Base/tree/16cd83760cfcad610da5cfdc8459ca54d24f8ea2",
+    "https://huggingface.co/m-a-p/MIO-7B-Instruct/tree/b8f5e48ce79fcf3268dba64b1395ac150c1ad99e"
+  ]
+}

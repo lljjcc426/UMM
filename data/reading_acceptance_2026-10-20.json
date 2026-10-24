@@ -9533,6 +9533,40 @@
         }
       ],
       "boundary": "arXiv2610.17080v1完整HTML：§1–5、AppA.1–3/B.1–5/C.1–5/D.1–2全部三judgeprompt/E.1–4/F.1–2/G.1–3；Eq1–15、T1–5每行和F1–11所有实际原图/图注已核。F4标1–52/1–48的稀疏选帧、F6/7完整作者展示烹饪序列、F9规划/生成轨迹、F10规格、F11SVG实线/虚线分别看；不声称独立逐帧人标/OCR、重构所有曲线点或生成复现。PDF下载截断，完整阅读依据HTML与11个独立作者图资产；参考文献追引相关条目，未逐篇精读全部参考。三遍定位/方法全图表/书面批判，无独立口试或模型执行。"
+    },
+    {
+      "id": "L157",
+      "checked_on": "2026-10-24",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "如何用一套因果next-token序列理解并生成文字、图像、语音和视频关键帧，同时处理不同模态token数量及内容/音色学习难度不平衡？ 仅图文配对缺上下文交错监督，语音音色码在初始阶段较难学习且数量占优；连续/离散与AR+diffusion路线的输入输出表征不同。文中把噪声/VAE导致理解较弱当动机，但无同预算因果隔离。Transfusion确有训练加噪及理解侧t_cap策略，不能反向误写其输入始终无噪声。",
+          "evidence": "完整v4HTML/全部附录/16表/六原图与固定推理入口交叉核；补齐旧范围缺项，纠正F3图类型；只执行表格/元数据整理，无模型运行。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "输入文本、SEED32图码、SpeechTokenizer内容码或视频关键帧序列，统一因果模型输出文字/图码/语音码/交错序列。图码→SEED codebook embedding/MLP→StableUnCLIP外部条件扩散→像素；语音生成的四块code重新堆叠后交SpeechTokenizer decoder。理解默认只保留RVQ1内容；生成含RVQ1+3音色。voice系统prompt明确限定以<spch>开始并只输出语音，std才允许选择模态，不能把所有输出选择当成无prompt约束。 SEED CausalQFormer每图32离散码、词表8192；SpeechTokenizer原8codebook取前4，每book1024、50Hz，输入内容50tokens/s、输出四块合200tokens/s。新增12292=8192+4096+4边界为论文计数。HF固定配置两模型均LlamaForCausalLM/32层/hidden4096/32heads/vocab76294/max_position_embeddings4096/无rope_scaling；训练seq2800另列。统一LLM的CE不排除像素端扩散；公开SEED decode默认guidance10/20steps，论文T11语言模型Guidance1不能直接当像素解码CFG。图语义码的因果排列没有笔画时间标签。",
+          "evidence": "完整v4HTML/全部附录/16表/六原图与固定推理入口交叉核；补齐旧范围缺项，纠正F3图类型；只执行表格/元数据整理，无模型运行。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "Yi6BBase扩多模态词表，统一CE训练与sample隔离masked packing；语音先完整内容码、再三个完整音色码块；alignment/interleaved/speech增强三阶段，再16任务34公开数据集SFT。公开Base/Instruct权重、tokenization/推理/外部解码器代码。视频能力按有序关键帧建模，README明确不含完整连续帧及音轨；不据接口覆盖推断笔顺视频质量。 语义主导的图文/语音交错对话可复用LLM和离散SFT；把内容置于音色之前及分阶段增语音或可缓解优化失衡。对需要真实笔画先后、精细字形、长语音实时响应的分布，低码率语义图和整段内容再音色可能限制保真/首音时延；需单独测量，不把4模态支持当成已验证的过程控制。",
+          "evidence": "完整v4HTML/全部附录/16表/六原图与固定推理入口交叉核；补齐旧范围缺项，纠正F3图类型；只执行表格/元数据整理，无模型运行。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2 MIO37.2/41.5/53.5/16.6，Overall列次Gemini45.6、Generation列最高，但Unify低于SEED/Anole各22.3。T3 MIO120.4/65.5/39.9/53.5/54.4，前四低于SEED124.5/66.2/45.9/55.1，SEEDBench较高。T4 Base→Instruct COCO64.15→67.76/Flickr62.71→68.97，后者列最高，COCO低于SEED-I70.68。T5 ASR6.3→10.3恶化4.0pp，TTS12→4.2改善7.8pp，WhisperASR2.7。T6视频QA42.6/35.5为表内最高；无单列连续视频生成质量表，MME聚合不隔离视频。T7 MMLU45.7低于Llama2Chat47.9；T8 OmniBench36.96低于Gemini42.67。完整16表结构化，保留空缺/横线原样，无跨协议总排名。 T13 MIO图像SSIM COCO.2307/Flickr.1727、aesthetic4.019/4.326高于Emu/AnyGPT，三人100prompt平均rank1.2优于1.9/2.9；SSIM参考GT并不充分评价多解生成。T14直接s2s内容1.4，低于LlamaOmni转写级联2.4和Any1.8；T15 win54/tie25/lose21%，n/原始判断缺，不能据significantly措辞推显著。T16 MIO/Any跨口音GLOBE WER9.8/27.9、相似67.8/67.3；Libri-clean10.3/28.1、75.1/71.3。F2为三阶段loss曲线，阶段改变数据分布不能用总loss下降证明无遗忘。F3实际是各tokenizer在StageI固定3Ksteps的两组生成样例，非tokenizer收敛曲线；修正旧笔记“Fig3曲线”。SEED/VQGAN1024/8192未控制码长度、预训练、decoder且无最终同预算定量；语音顺序/交替主要prelim观察，三阶段无全组合消融。 完整v4正文§1–5/Limitations、AppA–D/E1–6、Eq1、T1–16每行及F1–6实际原图均核完；正式PDF下载截断，只保留此前指定范围已读。T9 StageI/II各128A80080GB，24800/12800steps；III8A80032200steps；batchmix12:2:0:2→2:2:6:6→2:1:1:12；AdamW3e-5/cosine/warm.03/clip1/seq2800/FlashAttn，SFT同超参但总steps/GPUh缺。声称speech token12.5/37.5/75%恰等batchmix份额，真实pack token占比需日志，不武断当算错。T11 text beam5无采样；image/speech/video beam1/top-p.7采样，speech/video rep1.15；temp1。固定GH 6c0b5e62dfb5684bc741f34cce062aed15744057共206treeentries/182blobs，查README/infer/tokenization/utils/SEED配置与decoder，无完整训练或评测入口。HF仅元数据/config，不下载权重、不运行神经模型。",
+          "evidence": "完整v4HTML/全部附录/16表/六原图与固定推理入口交叉核；补齐旧范围缺项，纠正F3图类型；只执行表格/元数据整理，无模型运行。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "核心证据支持广接口覆盖及部分任务收益，ASR和统一子分下降/劣势需保留。T13 agreement定义all3samecases/100，却报82.3%；该定义下整数case比例应1%粒度，需公开逐例/实际分母或解释不同聚合，未将其直接判为伪造。GPT4o快照/n/人评校准缺；T15样本数缺。GH demo active为text/std、max_new_tokens512、beam5不采样，未启图/语音保存，不代表论文各模态T11配置；切到语音时若不改512预算，上限低于完整15s约3000码（扣文字/边界后更少），不是实测输出时长。utils.extract_frames返回os.listdir未显式排序，需核实际时间顺序，不能据此认定论文输入已错序。32码小字/笔画细节瓶颈是待测假设；README多项Low自评且视频只关键帧，无法证明连续笔画、视听同步或流式低时延。 同Yi底座/数据/decoder控制图码长度与语义预训练，给小字CER/字形拓扑/终态相同但笔顺不同的反事实序列；直接测下一笔、真实连续帧事件顺序和运动。语音顺序×交替×三阶段在等样本/等tokens/等更新预算分别比较ASR/TTS/MMLU及首音/端到端时延Pareto，保存2800截断和实际modalitytoken日志。公开训练split/CLIP过滤方向、全T11与像素decoder参数、评测清单、逐例人评及judge快照；核100prompt agreement整数分母。独立固定视频帧名显式排序，先验证读帧时间轴；demo按模态配置并报失败/截断率，无需对基础边界堆低价值测试。",
+          "evidence": "完整v4HTML/全部附录/16表/六原图与固定推理入口交叉核；补齐旧范围缺项，纠正F3图类型；只执行表格/元数据整理，无模型运行。"
+        }
+      ],
+      "boundary": "完整arXiv2409.17692v4 HTML：§1–5、Limitations、AppA/B/C/D/E1–E6，Eq1与T1–16全部单元、F1框架/F2三阶段loss/F3tokenizer两组样例/F4高级能力/F5基础六类/F6多模态CoT/ICL实际原图及图注；不播放/独立转录图中的音频。正式23pPDF仅保留此前§2.1–2.3/§3Tables3–8/3.6/AppB/C/T9/10/E1/E6指定范围，未称正式PDF全文通过。固定GH README、infer.py、tokenization_mio.py、utils.py、SEED配置与seed_llama_tokenizer.py全文；HF两模型固定revision元数据/config。未逐个审182blobs、未读权重/执行模型/独立训练评测；三遍核心理解及五项书面验收，无独立口试。"
     }
   ]
 }

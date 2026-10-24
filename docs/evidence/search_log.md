@@ -676,3 +676,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百六十七批（2026-10-24）：L156完整arXiv2610.17080v1 HTML及11作者原图已取得并读，附录A–G/三judge完整prompt及五表核齐；PDF截断未冒记完整PDF。见[审查](long_horizon_memory_revisit_definition_and_scaling_audit_2026-10-24.md)、[L156](../reviews/L156.md)。
+
+
+第一百六十八批（2026-10-24）：L157完整2409.17692v4 HTML、16表/六原图核完；GH固定6c0b5e6及HF Base/Instruct revision/config核对。正式PDF下载截断，未扩写正式全文范围。见[审查](mio_tokenization_modality_tradeoffs_and_release_audit_2026-10-24.md)、[L157](../reviews/L157.md)。

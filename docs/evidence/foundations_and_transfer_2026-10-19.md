@@ -420,3 +420,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百六十七批（2026-10-24）：L156 Eq14从场景first_seen计LR，ABC第10步first-gap9/last-gap3可被Recent4读到，不能单据此识别超窗口记忆。完整语义历史仍增长。见[审查](long_horizon_memory_revisit_definition_and_scaling_audit_2026-10-24.md)、[L156](../reviews/L156.md)。
+
+
+第一百六十八批（2026-10-24）：MIO SFT后ASR WER6.3→10.3、TTS12→4.2；统一训练需报模态Pareto。F2跨阶段loss分布改变不证明无遗忘，F3为3Ksteps样例而非收敛曲线。见[审查](mio_tokenization_modality_tradeoffs_and_release_audit_2026-10-24.md)、[L157](../reviews/L157.md)。

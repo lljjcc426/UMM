@@ -497,3 +497,6 @@ python scripts/validate_catalog.py
 
 
 第一百六十七批（2026-10-24）：L156补齐完整HTML/附录A–G、全部15公式/五表/11原图核心三遍与五项书面；给出LR首次距离不足保证越过近期窗口的反例，明确UniLongGen*同权重和文字0分/字段汇总边界。357目录，273核心/278书面；未确认核心57论文／研究+27资源。见[审查](docs/evidence/long_horizon_memory_revisit_definition_and_scaling_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_sixty_seventh_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百六十八批（2026-10-24）：L157补齐完整v4正文/附录、16表/六图及固定公开推理入口；保留SFT后ASR退步和direct-s2s劣势，纠正Fig3为样例，并分列人评分母、视频关键帧和解码配置边界。357目录，274核心/279书面；未确认核心56论文／研究+27资源。见[审查](docs/evidence/mio_tokenization_modality_tradeoffs_and_release_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_sixty_eighth_changes_2026-10-24.md)。无删除或模型执行。

@@ -613,3 +613,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百六十七批（2026-10-24）：L156后续按first/last距离双轴和last_seen>Kr子集测试；等预算anchors×rollout2×2，错scene/anchor干预、对象状态与覆盖率；效率分前缀均值/prefill/单轨迹外推。见[审查](../evidence/long_horizon_memory_revisit_definition_and_scaling_audit_2026-10-24.md)、[L156](../reviews/L156.md)。
+
+
+第一百六十八批（2026-10-24）：MIO后续同Yi底座控制图码/预训练/decoder，给笔顺反事实与CER；语音顺序×阶段等预算、ASR/TTS/MMLU及首音时延；核逐例人评分母/过滤方向/帧时间轴。见[审查](../evidence/mio_tokenization_modality_tradeoffs_and_release_audit_2026-10-24.md)、[L157](../reviews/L157.md)。
