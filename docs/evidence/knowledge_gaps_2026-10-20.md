@@ -622,3 +622,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百六十五批（2026-10-24）：OneIG人评写430但列项421，RC原始排名/实现及幻觉清洗分母未齐；T2与T5按公开学科数重算有差，缺原始有效集无法归因。comic类别论文/代码不同。见[审查](oneig_text_metric_ranking_and_public_protocol_audit_2026-10-24.md)、[L152](../reviews/L152.md)。
+
+
+第一百六十六批（2026-10-24）：ChatUMM完整supp仍无依赖距离成功率和组件消融；rewrite补外观描述、caption派生Q/A及约40B额外tokens形成待控制因素。当前项目页未给可核代码/数据/权重入口。见[审查](chatumm_context_tracking_and_claim_boundary_audit_2026-10-24.md)、[L154](../reviews/L154.md)。

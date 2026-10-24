@@ -607,3 +607,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百六十五批（2026-10-24）：OneIG以cat dog→dog cat等纯字符串工具反例证词序错误可满分；后续需原/clean OCR、人标和顺序指标、固定有效集及条件多样性。无模型运行。见[审查](../evidence/oneig_text_metric_ranking_and_public_protocol_audit_2026-10-24.md)、[L152](../reviews/L152.md)。
+
+
+第一百六十六批（2026-10-24）：ChatUMM需要same-query交换早图/删历史/相似干扰，配caption-only/last-image/oracle/retrieval基线及等预算数据消融；真实rollout按depth测target-ID、编辑成功、错误恢复和成本。见[审查](../evidence/chatumm_context_tracking_and_claim_boundary_audit_2026-10-24.md)、[L154](../reviews/L154.md)。

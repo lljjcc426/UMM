@@ -414,3 +414,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百六十五批（2026-10-24）：OneIG Stext乘积在WAC=1时必为1；词/字符频袋忽略顺序并不惩罚额外词。一般并列可用Kendall tau-b，全部并列的退化组需另定义。见[审查](oneig_text_metric_ranking_and_public_protocol_audit_2026-10-24.md)、[L152](../reviews/L152.md)。
+
+
+第一百六十六批（2026-10-24）：ChatUMM历史clean VAE只指无噪声；语义错误仍可能累积。共享注意力/分FFN、模态intenttoken和CE/FM配合不证明理解对生成的机制因果。见[审查](chatumm_context_tracking_and_claim_boundary_audit_2026-10-24.md)、[L154](../reviews/L154.md)。

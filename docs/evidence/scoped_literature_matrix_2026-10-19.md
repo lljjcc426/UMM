@@ -581,3 +581,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百六十五批（2026-10-24）：OneIG五指标只测静态图；Counter文字与嵌入知识/风格不足验证严格文字或笔顺过程。正式版全表/附录与v3分别编号。见[审查](oneig_text_metric_ranking_and_public_protocol_audit_2026-10-24.md)、[L152](../reviews/L152.md)。
+
+
+第一百六十六批（2026-10-24）：ChatUMM以BAGEL图文多轮编辑为目标，无笔画事件/连续视频；历史回指数据可启发prefix任务，不能替代过程正确性证据。见[审查](chatumm_context_tracking_and_claim_boundary_audit_2026-10-24.md)、[L154](../reviews/L154.md)。
