@@ -677,3 +677,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百九十八批（2026-10-25）：UMMSteer原文承诺release但作者主页未给本文代码/样本下载，当前仅协议可审；未把底座模型开源等同该实验已完整开源。见[审查](../evidence/one_space_full_directional_steering_and_architecture_claim_audit_2026-10-25.md)、[L031](../reviews/L031.md)。
+
+
+第一百九十九批（2026-10-25）：UReason外层MIT、BAGEL源码Apache2；仅BAGEL执行管线，原文8模型其他脚本未发布。实存500题不能写已开放完整2000。见[审查](../evidence/ureason_v3_full_context_intervention_and_release_audit_2026-10-25.md)、[L032](../reviews/L032.md)。

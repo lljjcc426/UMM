@@ -680,3 +680,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百九十八批（2026-10-25）：纯文本QA已有属性差向量→全层全VAE干预，逆向测反事实QA输出；与新概念学习/视觉理解增益分开。见[审查](one_space_full_directional_steering_and_architecture_claim_audit_2026-10-25.md)、[L031](../reviews/L031.md)。
+
+
+第一百九十九批（2026-10-25）：8模型三条件完整核查；BAGEL主表6.6/17.8/62.6与固定Rp消融62.6/21/16.4分开，各子任务有reasoning退步。见[审查](ureason_v3_full_context_intervention_and_release_audit_2026-10-25.md)、[L032](../reviews/L032.md)。

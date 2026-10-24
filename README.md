@@ -590,3 +590,6 @@ python scripts/validate_catalog.py
 
 
 第一百九十八批（2026-10-25）：L031完成31页18图8表13式；核51名义概念与逐项图47标签、逆向QA干预的含义和非单调强度曲线，采用AppB.4对架构归因的明确限制。358目录，303核心/308书面；待完成核心深审28篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/one_space_full_directional_steering_and_architecture_claim_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_ninety_eighth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第一百九十九批（2026-10-25）：L032完成v3全41页26图16表6式及固定代码/数据；分清固定Rp干预与注意力关联，实核仓库500题和论文2000题发布差、计划提取回退与judge默认配置差。358目录，304核心/309书面；待完成核心深审27篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/ureason_v3_full_context_intervention_and_release_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_ninety_ninth_changes_2026-10-25.md)。无删除或模型执行。

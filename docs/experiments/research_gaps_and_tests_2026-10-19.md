@@ -706,3 +706,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百九十八批（2026-10-25）：先完成G语义向量同分支阳性，再匹配层/幅度/时间/接口查逆向null；笔顺用同最终轮廓的合法/非法事件对与时序执行，静态SSR另报。见[审查](../evidence/one_space_full_directional_steering_and_architecture_claim_audit_2026-10-25.md)、[L031](../reviews/L031.md)。
+
+
+第一百九十九批（2026-10-25）：固定Rp、位置/长度/噪声分离否定/过期/无关trace，再做词级干预救援；笔顺测规划、轨迹事件执行和最终字形，按seed lineage与writer字符留出。见[审查](../evidence/ureason_v3_full_context_intervention_and_release_audit_2026-10-25.md)、[L032](../reviews/L032.md)。

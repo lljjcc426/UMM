@@ -2310,22 +2310,27 @@
   {
     "title": "UReason，2026",
     "source_urls": [
-      "https://arxiv.org/abs/2602.08336"
+      "https://arxiv.org/abs/2602.08336",
+      "https://arxiv.org/abs/2602.08336v3",
+      "https://arxiv.org/html/2602.08336v3",
+      "https://arxiv.org/pdf/2602.08336v3",
+      "https://ureason.github.io/",
+      "https://github.com/UReason/UReason/tree/216f9d0dc7533efceb7c41d9953336f8e88df0a0"
     ],
-    "method": "2000项隐式目标任务和同一模型三条件诊断：直接P、P+推理Rt+最终精炼Rp、只保留该次Rp；附加固定Rp/干扰trace干预。 8个公开UMM原权重；不训练新网络。自模型明确输出Rp，避免外部摘要模型混杂；图像binaryjudge Qwen3VL235BA22B，推理Qwen3235BA22B，温度.1。语义相同是设计目标，不表示完整上下文在统计上必然等价。",
-    "conclusion": "Table2 BAGEL6.6→17.8→62.6，即+11.2/+44.8pp，Text9→11→86。8模型均Setting3>2，完整2000项差8.6–44.4pp。Table3BAGEL推理93.4%，不是视觉准确率。图像judge与人共识.924–.931、推理.962–.972；其他judge趋势一致。",
-    "gap": "注意力相关图不能独立证明特定token因果；前缀移除同时改变上下文分布，强对照缩小但未排除所有训练格式差异。最终图像binaryjudge可能漏细笔/局部文字；明确只诊断自由线性CoT，不覆盖搜索/过程验证。闭源未纳入只因内部条件不可控，不能推断它们能力差。",
-    "problem": "UMM自己推理出正确终态后，视觉生成是否真实执行该意图？",
+    "method": "UReason名义2000实例、5任务30子类和逐题可核二元标准；同模型三设置评价工具，8公开UMM；文本推理正确率/图像执行分开，另做同Rp干预、重复长度、格式/空think、oracle计划、外部改写、替换judge、人评、全量验证及跨模型attention分析。不提出新训练网络。 诊断BAGEL、UniCoT、SRUM、ThinkMorph、UniCoT-v2、Bagel-Zebra、T2I-R1、UniMoE2原权重；各自统一骨干/生成接口不同，没有新训练、统一参数量或等计算预算结论。论文将生成头执行和text reasoning拆测，但设置3同时改变prefix/位置/格式/条件分布；协议不代表真实推理架构有绝对断裂。自由线性CoT只产最终静态图，不覆盖树搜索、过程验证、视频、编辑或多轮执行。",
+    "conclusion": "T2 testmini总体%按1→2→3：BAGEL6.6→17.8→62.6；UniCoT8.2→22→48.6；SRUM6.2→16.6→59.8；ThinkMorph5.4→15.4→51.4；UniCoT-v2 4.2→23.4→62；Zebra6.2→14.4→51.8；T2I-R1 4.8→5.2→24.2；UniMoE2 5→6.8→14.4。BAGEL2→3 +44.8pp，非相对44.8%；Text9→11→86（+75pp）。各模型总体2>1，但SRUMtext7→6、ThinkMorphtext10→5、T2I-R1arith6→4/spatial4→2、UniMoE2arith4→3，不能声称每子任务都受益。T11full总体1/2/3：BAGEL8.2/20.2/64.6、UniCoT9.8/25/51.2、SRUM8/19.6/62.2、ThinkMorph7.6/18.6/50、v2 5.4/25.4/61.2、Zebra7.2/16.6/53.6、T2I-R1 5.6/7/26、UniMoE2 6/7.6/16.2；3−2范围8.6–44.4pp。T3推理正确率BAGEL93.4/SRUM91.6/UniCoT86.4/ThinkMorph87.4/Zebra85.8。全部16表原单元保留专题。",
+    "gap": "三设置测当前prompt和context协议，不能单靠attention归因为个别被否定token因果，也不能推出所有UMM/推理方法必然不对齐。移除Rt连同P改变位置/格式/条件分布；固定Rp干预和格式长度对照减轻混杂但仍需匹配长度/位置的词级干预。论文名义2000和“release all”与固定仓库500独立题尚有发布缺口；没有原始模型输出、完整预测和parse统计，full结果无法由现有数据直接复算。文字/计数/空间二元judge粒度有限，人机相符非judge准确率；3人工共识可能掩盖初始分歧。单次生成、seed和成本证据不足，子采样std非独立模型seedCI；变体的seed簇相关性未控制。合成英文/有限计数与字串任务不覆盖自然分布或规范手写笔顺。",
+    "problem": "同一UMM先推理隐式最终视觉目标，再生成图像时，正确的文本终态能否被执行？对比原题直接生成、带原题及整段推理生成、在新上下文中仅输入同一次推理产出的最终计划，诊断reasoning-to-generation alignment。",
     "claim": "作者研究目标：UMM自己推理出正确终态后，视觉生成是否真实执行该意图？",
-    "version": "版本见原始来源及历史记录",
+    "version": "UReason: Benchmarking Reasoning-to-Generation Alignment in Unified Multimodal Models；Cheng Yang/Chufan Shi等10人，UCSD/USC/UIUC/CMU；arXiv2602.08336v3，2026-08-30，41页；未核实会议录用。以v3替换旧版/局部阅读。",
     "scope": "handwriting_or_adjacent",
     "category": "本地调研整合",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-25",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-25",
     "previous_evidence": "既有调查 A，前轮资料",
     "id": "L032",
     "canonical_key": "paper:arxiv:2602.08336",
@@ -2375,17 +2380,23 @@
         "conclusion": "解释正确与生成正确分别测；长 CoT 不天然更好",
         "gap": "研究范围与限制见结论栏。",
         "note_path": "archive/local/2026-10-15-补充整合/文献总表_去重整合.md"
+      },
+      {
+        "checked_on": "2026-10-25",
+        "batch": "one_hundred_ninety_ninth",
+        "sections_read": "v3全部41页§1–7/Limitations/AppA–O、参考清单相关条目，Eq1–6、T1–16全部单元（含HTML漏抽的T13手工补录）、F1–26全部原PDF页实际视觉。官方项目及固定commit 216f9d0dc7533efceb7c41d9953336f8e88df0a0完整树、README，BAGEL生成/上下文/计划提取和两judge脚本、3shell和配置静态阅读；10数据文件1000行结构审及各类内容样本。核心三遍与五项书面完成；未运行生成、训练、OCR、judge或API，未独立复现，所有发布/因果限制保留。",
+        "verification": "primary_sections_read"
       }
     ],
-    "sections_read": "§1–5核心方法、Table2/3、AppC/E、I及K/L；主表BAGEL和全部趋势、指定人评协议；未完整所有子类/主表其余逐行/attention图/源码",
+    "sections_read": "v3全部41页§1–7/Limitations/AppA–O、参考清单相关条目，Eq1–6、T1–16全部单元（含HTML漏抽的T13手工补录）、F1–26全部原PDF页实际视觉。官方项目及固定commit 216f9d0dc7533efceb7c41d9953336f8e88df0a0完整树、README，BAGEL生成/上下文/计划提取和两judge脚本、3shell和配置静态阅读；10数据文件1000行结构审及各类内容样本。核心三遍与五项书面完成；未运行生成、训练、OCR、judge或API，未独立复现，所有发布/因果限制保留。",
     "review_path": "docs/reviews/L032.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "500人工seed→Gemini3Pro每项10候选5000→人工核验2000；5类Code/Arithmetic/Spatial/Attribute/Text共30subclass，Code8语言；主表testmini500，完整test2000确认趋势，testmini是子集不能当独立外测。",
-    "framework": "2000项隐式目标任务和同一模型三条件诊断：直接P、P+推理Rt+最终精炼Rp、只保留该次Rp；附加固定Rp/干扰trace干预。",
-    "architecture": "8个公开UMM原权重；不训练新网络。自模型明确输出Rp，避免外部摘要模型混杂；图像binaryjudge Qwen3VL235BA22B，推理Qwen3235BA22B，温度.1。语义相同是设计目标，不表示完整上下文在统计上必然等价。",
-    "metrics": "满足逐实例GT准则的binaryaccuracy；Δ是百分点差，不能说Bagel相对提高44.8%。Text为按规则推导后渲染指定字符串；无生成视频/笔顺评价。人机一致率是共识标签相符比例，非F1/κ。",
-    "baselines": "BAGEL/SRUM/UniCoT/v2/ThinkMorph/BAGELZebraCoT/UniMoE2/T2IR1；外部Qwen提示改写，GoldRp，重复Rp4/8次、空think、改格式、同Rp换无关trace、换judge。",
-    "experimental_conditions": "同模型三条件生成温度/采样器/步数/CFG相同；指定对照固定seed。论文所读AppK/L给repo标识但未给逐模型完整硬件/NFE数字表，需代码。无模型训练。人评3CS硕士各独立评3模型testmini全部三条件图像和推理，争议讨论共识；非人口随机采样。"
+    "dataset": "论文500人工seed，经Gemini3Pro每seed10候选5000，保留1500变体+500seed=2000；5任务各400，Code8/Arithmetic7/Spatial6/Attribute5/Text4共30子类。5位有相关经验硕士标注，每候选3独立评级，Fleissκ=.78，再讨论一致；这是数据标注协议。testmini500每类100，是full2000子集。Qwen3-8B tokenizer平均prompt118.26±42.97tokens。固定仓库实际只有5×100=500条题及5×100对应direct提示，共1000行但500唯一id（1–500）；同id类别相符，21项expect_en仅多余空格不同、归一空白后相同。发布文件无seed lineage/full2000文件。结构遍历全部行，内容抽读每类首尾样本，未逐条证明GT正确。",
+    "framework": "UReason名义2000实例、5任务30子类和逐题可核二元标准；同模型三设置评价工具，8公开UMM；文本推理正确率/图像执行分开，另做同Rp干预、重复长度、格式/空think、oracle计划、外部改写、替换judge、人评、全量验证及跨模型attention分析。不提出新训练网络。",
+    "architecture": "诊断BAGEL、UniCoT、SRUM、ThinkMorph、UniCoT-v2、Bagel-Zebra、T2I-R1、UniMoE2原权重；各自统一骨干/生成接口不同，没有新训练、统一参数量或等计算预算结论。论文将生成头执行和text reasoning拆测，但设置3同时改变prefix/位置/格式/条件分布；协议不代表真实推理架构有绝对断裂。自由线性CoT只产最终静态图，不覆盖树搜索、过程验证、视频、编辑或多轮执行。",
+    "metrics": "图像Qwen3-VL-235B-A22B judge按GT描述binaryaccuracy；文本Qwen3-235B-A22B按trace是否蕴含GT判定，论文均temperature.1。推理93.4%与生成17.8%测不同对象，不能相减作同指标。T15三CS硕士各评3模型testmini全部三条件图像及设置2推理，讨论后共识与judge的原始相符率：UniCoT image.924/reason.962、BAGEL.929/.968、T2I-R1.931/.972，非κ、F1或真实准确率；展示界面同时给三条件，未证明条件盲审。失败类型比例5.8/10.6/8.2/75.4为失败子集分布，非所有题概率，原始N/归类细节不足。",
+    "baselines": "8UMM三设置完整对比；同Rp前置原始Rt或无关Rt，改方程格式、空think标签；Rp重复1/4/8次；自模型Rp vs Qwen2.5-7B/Qwen3-8B/Qwen3-235B外部计划；Gemini3.1Pro读取GT并人验的oracle Rp*；Qwen/Gemini2.5Pro/Gemini3.1Pro judge；mini与full、分层子采样、训练/测试长度、BAGEL/ThinkMorph/T2I-R1attention。oracle见过GT，不可当公平端到端方法基线。",
+    "experimental_conditions": "论文声称同模型三设置相同sampler/步数/CFG，但未给逐模型完整硬件与成本表。固定commit 216f9d0dc7533efceb7c41d9953336f8e88df0a0源码静态审：仅发布BAGEL执行管线，非另外7模型完整复现；seed42、bfloat16、1024²、maxthink1000、do_sampleFalse、CFGtext4/img1、interval[.4,1]、shift3、50timesteps，不能当原始8模型全配置。每样本interleave_inference新建cache，设置2保留P+gen_text；设置3新进程输入提取Rp。extract_thought按最后一个prompt/refined prompt等正则截取，找不到则保留整个thought并仅删</think>/<image_start>，缺原始trace和解析计数，不能确认每例严格只有Rp。judge源码默认Qwen3-8B/Qwen3-VL-8B、temp0/max512，可CLI替换checkpoint但temp固定0，均与论文235B/temp.1不同；缺图会跳过且均值用有效项，复现须报覆盖N。外层MIT、BAGEL源码Apache2，权重许可另循来源；未执行模型/judge/API。"
   },
   {
     "title": "Recursive Self-Improvement in Unified Multimodal Models，2026",

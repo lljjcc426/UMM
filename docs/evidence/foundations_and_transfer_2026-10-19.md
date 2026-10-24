@@ -513,3 +513,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百九十八批（2026-10-25）：PSP=20维PCA投影能量比，未证明迁移必要充分性；G同分支对象控制也失败，逆向null受提取器与载体差异混杂。见[审查](one_space_full_directional_steering_and_architecture_claim_audit_2026-10-25.md)、[L031](../reviews/L031.md)。
+
+
+第一百九十九批（2026-10-25）：注意力Eq6为组内每key均值，不能直接当总质量；同Rp移除/替换trace支撑上下文影响，词级热图仍非特定token因果。见[审查](ureason_v3_full_context_intervention_and_release_audit_2026-10-25.md)、[L032](../reviews/L032.md)。

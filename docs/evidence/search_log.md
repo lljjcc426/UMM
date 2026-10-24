@@ -769,3 +769,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百九十八批（2026-10-25）：L031全31页18图8表13式完成，官方主页本项只给Paper入口，尚未定位UMMSteer/执行代码公开下载。见[审查](one_space_full_directional_steering_and_architecture_claim_audit_2026-10-25.md)、[L031](../reviews/L031.md)。
+
+
+第一百九十九批（2026-10-25）：L032采用2602.08336v3，41页完整；固定UReason仓库216f9d0，10数据文件只有500唯一题及其direct版本。见[审查](ureason_v3_full_context_intervention_and_release_audit_2026-10-25.md)、[L032](../reviews/L032.md)。

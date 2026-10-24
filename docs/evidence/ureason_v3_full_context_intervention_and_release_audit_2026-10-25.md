@@ -1,0 +1,75 @@
+# UReason v3：完整上下文干预与公开制品审查
+
+第一百九十九批完成[L032](../reviews/L032.md)明确范围核心三遍及五项书面验收。[结构化证据](../../data/ureason_v3_full_context_intervention_and_release_audit_2026-10-25.json)。358目录（331论文／研究、27资源），304核心/309书面含未通过项；待完成核心深审27篇论文／研究；27项资源按制品协议另审。无目录新增、文件删除或模型执行。
+
+来源：[主源1](https://arxiv.org/abs/2602.08336v3)、[主源2](https://arxiv.org/html/2602.08336v3)、[主源3](https://arxiv.org/pdf/2602.08336v3)、[主源4](https://ureason.github.io/)、[主源5](https://github.com/UReason/UReason/tree/216f9d0dc7533efceb7c41d9953336f8e88df0a0)。
+
+## 研究问题
+
+同一UMM先推理隐式最终视觉目标，再生成图像时，正确的文本终态能否被执行？对比原题直接生成、带原题及整段推理生成、在新上下文中仅输入同一次推理产出的最终计划，诊断reasoning-to-generation alignment。
+
+## 现有不足
+
+显式对象属性提示的常规T2I指标混合推理与执行；正确CoT也可能含已否定对象/过时状态，生成器仍受这些词影响。将最终计划固定后变动前序上下文有助区分推理错误与执行干扰；最终图像成功本身不证明过程对齐。
+
+## 贡献
+
+UReason名义2000实例、5任务30子类和逐题可核二元标准；同模型三设置评价工具，8公开UMM；文本推理正确率/图像执行分开，另做同Rp干预、重复长度、格式/空think、oracle计划、外部改写、替换judge、人评、全量验证及跨模型attention分析。不提出新训练网络。
+
+## 输入、模块、输出与公式
+
+Eq1直接I=M(P)；Eq2同上下文[R,I]=M(P)，R=[Rt,Rp]为中间trace与最终精炼提示；Eq3清空上下文I=M(Rp)，Rp来自设置2同次输出，由同模型再次直接生成。无外部LLM摘要参与主对照。Eq4按实例binarycriterion均值，Eq5为准确率百分点差。Eq6在每层/头/图像query及各组key位置平均attention，之后跨样本/扩散步均值；组内按key数归一，是每token平均注意力，组总质量须乘组长度，不能以Rt/Rp均值比替代总注意力比例。
+
+## 模型结构
+
+诊断BAGEL、UniCoT、SRUM、ThinkMorph、UniCoT-v2、Bagel-Zebra、T2I-R1、UniMoE2原权重；各自统一骨干/生成接口不同，没有新训练、统一参数量或等计算预算结论。论文将生成头执行和text reasoning拆测，但设置3同时改变prefix/位置/格式/条件分布；协议不代表真实推理架构有绝对断裂。自由线性CoT只产最终静态图，不覆盖树搜索、过程验证、视频、编辑或多轮执行。
+
+## 数据分布与划分
+
+论文500人工seed，经Gemini3Pro每seed10候选5000，保留1500变体+500seed=2000；5任务各400，Code8/Arithmetic7/Spatial6/Attribute5/Text4共30子类。5位有相关经验硕士标注，每候选3独立评级，Fleissκ=.78，再讨论一致；这是数据标注协议。testmini500每类100，是full2000子集。Qwen3-8B tokenizer平均prompt118.26±42.97tokens。固定仓库实际只有5×100=500条题及5×100对应direct提示，共1000行但500唯一id（1–500）；同id类别相符，21项expect_en仅多余空格不同、归一空白后相同。发布文件无seed lineage/full2000文件。结构遍历全部行，内容抽读每类首尾样本，未逐条证明GT正确。
+
+## 指标与评价协议
+
+图像Qwen3-VL-235B-A22B judge按GT描述binaryaccuracy；文本Qwen3-235B-A22B按trace是否蕴含GT判定，论文均temperature.1。推理93.4%与生成17.8%测不同对象，不能相减作同指标。T15三CS硕士各评3模型testmini全部三条件图像及设置2推理，讨论后共识与judge的原始相符率：UniCoT image.924/reason.962、BAGEL.929/.968、T2I-R1.931/.972，非κ、F1或真实准确率；展示界面同时给三条件，未证明条件盲审。失败类型比例5.8/10.6/8.2/75.4为失败子集分布，非所有题概率，原始N/归类细节不足。
+
+## 对比方法
+
+8UMM三设置完整对比；同Rp前置原始Rt或无关Rt，改方程格式、空think标签；Rp重复1/4/8次；自模型Rp vs Qwen2.5-7B/Qwen3-8B/Qwen3-235B外部计划；Gemini3.1Pro读取GT并人验的oracle Rp*；Qwen/Gemini2.5Pro/Gemini3.1Pro judge；mini与full、分层子采样、训练/测试长度、BAGEL/ThinkMorph/T2I-R1attention。oracle见过GT，不可当公平端到端方法基线。
+
+## 实验条件和发布边界
+
+论文声称同模型三设置相同sampler/步数/CFG，但未给逐模型完整硬件与成本表。固定commit 216f9d0dc7533efceb7c41d9953336f8e88df0a0源码静态审：仅发布BAGEL执行管线，非另外7模型完整复现；seed42、bfloat16、1024²、maxthink1000、do_sampleFalse、CFGtext4/img1、interval[.4,1]、shift3、50timesteps，不能当原始8模型全配置。每样本interleave_inference新建cache，设置2保留P+gen_text；设置3新进程输入提取Rp。extract_thought按最后一个prompt/refined prompt等正则截取，找不到则保留整个thought并仅删</think>/<image_start>，缺原始trace和解析计数，不能确认每例严格只有Rp。judge源码默认Qwen3-8B/Qwen3-VL-8B、temp0/max512，可CLI替换checkpoint但temp固定0，均与论文235B/temp.1不同；缺图会跳过且均值用有效项，复现须报覆盖N。外层MIT、BAGEL源码Apache2，权重许可另循来源；未执行模型/judge/API。
+
+## 主结果
+
+T2 testmini总体%按1→2→3：BAGEL6.6→17.8→62.6；UniCoT8.2→22→48.6；SRUM6.2→16.6→59.8；ThinkMorph5.4→15.4→51.4；UniCoT-v2 4.2→23.4→62；Zebra6.2→14.4→51.8；T2I-R1 4.8→5.2→24.2；UniMoE2 5→6.8→14.4。BAGEL2→3 +44.8pp，非相对44.8%；Text9→11→86（+75pp）。各模型总体2>1，但SRUMtext7→6、ThinkMorphtext10→5、T2I-R1arith6→4/spatial4→2、UniMoE2arith4→3，不能声称每子任务都受益。T11full总体1/2/3：BAGEL8.2/20.2/64.6、UniCoT9.8/25/51.2、SRUM8/19.6/62.2、ThinkMorph7.6/18.6/50、v2 5.4/25.4/61.2、Zebra7.2/16.6/53.6、T2I-R1 5.6/7/26、UniMoE2 6/7.6/16.2；3−2范围8.6–44.4pp。T3推理正确率BAGEL93.4/SRUM91.6/UniCoT86.4/ThinkMorph87.4/Zebra85.8。全部16表原单元保留专题。
+
+## 消融及进一步实验
+
+T10固定Rp及生成格式BAGEL Rp-only62.6、原Rt+Rp21.0、无关Rt+Rp16.4；21.0独立于主表含P条件17.8，不能混为同一结果。这是比attention更直接的上下文干预。T9方程格式BAGEL17.8→17.4/v2 23.4→22.6，空think Rp-only62.6→61/v2 62→59.6；缩小格式解释但未穷尽训练分布。T4Rp重复1/4/8 BAGEL62.6/60.4/56.6、ThinkMorph51.4/49/47、Zebra51.8/48/44.4；“最多降6pp”仅适于BAGEL，Zebra降7.4。重复同语义不等于含矛盾/否定的真实Rt，不能完全隔离长度因果。T6oracle Rp*BAGEL69.6 vs62.6仍有执行余量。F3外部计划有时更强，自模型非全类最优。T5UniCoT judge总体Qwen8.2/22/48.6、Gemini2.5 8/19.4/46.2、Gemini3.1 7.4/19/45.2，排序稳但绝对值变。T12ThinkMorph训练490.8±276.7/eval316.3±154.8、Zebra476.4±474.4/256.7±123.4，均值短不保证全部eval在训练分布支持内。T7BAGEL每key注意力P/Rt/Rp总体1.85/2.56/4.85×1e−4，T13ThinkMorph1.09/2.06/3.26，T14T2I-R1 1.61/2.53/3.65；图cream/Orange/sunglasses相关，未逐词mask/替换因果救援。
+
+## 局限与疑问
+
+三设置测当前prompt和context协议，不能单靠attention归因为个别被否定token因果，也不能推出所有UMM/推理方法必然不对齐。移除Rt连同P改变位置/格式/条件分布；固定Rp干预和格式长度对照减轻混杂但仍需匹配长度/位置的词级干预。论文名义2000和“release all”与固定仓库500独立题尚有发布缺口；没有原始模型输出、完整预测和parse统计，full结果无法由现有数据直接复算。文字/计数/空间二元judge粒度有限，人机相符非judge准确率；3人工共识可能掩盖初始分歧。单次生成、seed和成本证据不足，子采样std非独立模型seedCI；变体的seed簇相关性未控制。合成英文/有限计数与字串任务不覆盖自然分布或规范手写笔顺。
+
+## 预期优势条件
+
+对于多步状态更新含过期对象、明确可写出最终静态规格的任务，将推理产物压成单独执行提示可能显著减少生成端干扰，且无需训练。但效果依赖Rp正确及执行模型原有能力，不能视作免费计算或总能超过专用规划器；适合把规划与执行错误分开诊断。
+
+## 可证伪实验
+
+Q1何种上下文造成执行下降：公开500/full2000与seed lineage、逐例Rt/Rp/图/解析成功率；同Rp、相同prefix长度/位置/噪声，依次用空填充、相关正确trace、仅否定词、过时状态、无关/矛盾trace，做匹配词mask/替换和图像救援，跨seed报配对CI/解析失败与missing覆盖。Q2能否推广到笔顺：同最终字形的合法/非法顺序题，分别测规划事件序列、执行轨迹/视频和最终识别，增加计数/空间可见但顺序错误的hard negative；比较同上下文、独立Rp、结构化事件计划及专用执行器，按writer/字符/长度留出，报各阶段错误和总时间成本。均为拟议实验，未运行模型。
+
+## 论文组织与Claim学习
+
+将claim限定为当前8UMM的线性推理到静态执行对齐，给出同模型同Rp干预支撑；主文说正确推理的同时要分别报文本正确率和图像执行率。把每key attention与组总质量区分，图像热图写关联而非证明token因果；主表17.8与消融21独立。明确pp、mini为full子集、oracle已用GT、子任务反向结果和发布差距，使可复现范围与论文结论一致。
+
+## 实际阅读范围
+
+v3全部41页§1–7/Limitations/AppA–O、参考清单相关条目，Eq1–6、T1–16全部单元（含HTML漏抽的T13手工补录）、F1–26全部原PDF页实际视觉。官方项目及固定commit 216f9d0dc7533efceb7c41d9953336f8e88df0a0完整树、README，BAGEL生成/上下文/计划提取和两judge脚本、3shell和配置静态阅读；10数据文件1000行结构审及各类内容样本。核心三遍与五项书面完成；未运行生成、训练、OCR、judge或API，未独立复现，所有发布/因果限制保留。
+
+## 固定发布版本的可复现边界
+
+论文v3与仓库固定commit分别记录。公开数据的direct/think版本共享500个id，非1000道独立题。21条标准文本仅多余空格不同；评价配置对三设置均指向同一套reasoning数据的expect_en，未发现由这处空白产生实际标准切换。
+
+生成脚本每题清空cache，正则提取失败时保留整个thought；原始输出缺失，无法核验fallback比例。论文完整2000与235B、temperature.1配置需要作者补充数据与运行记录。当前完成源码和制品审查，未执行模型。

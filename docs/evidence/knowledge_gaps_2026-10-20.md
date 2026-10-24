@@ -721,3 +721,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百九十八批（2026-10-25）：名义51对而F11–13仅47标签；denoise采样/多subword评分/原始配置待公开。AppB.4承认VAE接口兼容，不能证明hybrid天然语义更统一。见[审查](one_space_full_directional_steering_and_architecture_claim_audit_2026-10-25.md)、[L031](../reviews/L031.md)。
+
+
+第一百九十九批（2026-10-25）：完整2000未在固定仓库发布；Rp正则无匹配会保留整段thought；judge默认8B/temp0与论文235B/temp.1不同，缺原输出/解析计数。见[审查](ureason_v3_full_context_intervention_and_release_audit_2026-10-25.md)、[L032](../reviews/L032.md)。
