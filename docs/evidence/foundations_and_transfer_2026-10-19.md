@@ -405,3 +405,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百六十一批（2026-10-24）：AMS原子QA均值不等于全约束成功；模型层与逐图相关估计不同，T3复算不直接判论文错误。见[审查](mmig_ams_estimand_and_public_release_audit_2026-10-24.md)、[L149](../reviews/L149.md)。
+
+
+第一百六十三批（2026-10-24）：均值特征在固定帧集合上对置换不变；逐视频对L2与跨视频分布Fréchet距离估计对象不同。迷宫有效步数分母需明确。见[审查](mme_unify_temporal_metric_and_terminal_step_audit_2026-10-24.md)、[L142](../reviews/L142.md)。

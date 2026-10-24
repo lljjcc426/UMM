@@ -661,3 +661,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第一百六十二批（2026-10-24）：MMIG正式38页已完整取得并完成全部研究核心、T1–4/Eq1/AppA核读；p7/24/25实际图核，替代第161批的正式制品待取得状态。见[审查](mmig_formal_version_delta_2026-10-24.md)、[L149](../reviews/L149.md)。
+
+
+第一百六十三批（2026-10-24）：MME正式PDF截断未计全文；核旧v2研究文字/公式及固定评价核心函数、7标注和HF7522路径，保留完整三遍未通过。见[审查](mme_unify_temporal_metric_and_terminal_step_audit_2026-10-24.md)、[L142](../reviews/L142.md)。

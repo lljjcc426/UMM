@@ -598,3 +598,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百六十一批（2026-10-24）：MMIG拟做均衡真假/0-1数量/常数Yes与无图裁判、macro/micro/all-constraints和聚类CI，等预算身份-语义前沿；未执行。见[审查](../evidence/mmig_ams_estimand_and_public_release_audit_2026-10-24.md)、[L149](../reviews/L149.md)。
+
+
+第一百六十三批（2026-10-24）：MME拟在明确终止协议后做规则状态渲染上界与有效步数重算，原/逆/置乱帧对照时序评价；未运行模型或指标。见[审查](../evidence/mme_unify_temporal_metric_and_terminal_step_audit_2026-10-24.md)、[L142](../reviews/L142.md)。

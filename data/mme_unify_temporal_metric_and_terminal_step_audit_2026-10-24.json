@@ -1,0 +1,2759 @@
+{
+  "id": "L142",
+  "checked_on": "2026-10-24",
+  "core_three_pass_completed": false,
+  "github_commit": "095609165e55a230c85c6f77f25f21aa77f51a66",
+  "huggingface_revision": "c1a3ce8cde411209623aef6a87e1ccbcda2a5957",
+  "release_records": 4101,
+  "asset_reference_total": 7944,
+  "dataset_checks": [
+    {
+      "file": "Unify_Dataset/Understanding/Understanding_Unified.json",
+      "records": 1964,
+      "asset_references": 2646,
+      "exact_path_mismatches": 0,
+      "explicit_mappings": [],
+      "unresolved_after_mappings": []
+    },
+    {
+      "file": "Unify_Dataset/Uinfy_capability/SpotDiff/Spot_Diff.json",
+      "records": 100,
+      "asset_references": 600,
+      "exact_path_mismatches": 0,
+      "explicit_mappings": [],
+      "unresolved_after_mappings": []
+    },
+    {
+      "file": "Unify_Dataset/Uinfy_capability/Visual_CoT/Visual_CoT.json",
+      "records": 90,
+      "asset_references": 315,
+      "exact_path_mismatches": 0,
+      "explicit_mappings": [],
+      "unresolved_after_mappings": []
+    },
+    {
+      "file": "Unify_Dataset/Uinfy_capability/Image_Editing_and_Explaning/Unified_Explanation.json",
+      "records": 200,
+      "asset_references": 1000,
+      "exact_path_mismatches": 0,
+      "explicit_mappings": [],
+      "unresolved_after_mappings": []
+    },
+    {
+      "file": "Unify_Dataset/Uinfy_capability/Common_Sense_Question/Common_Sense_Question.json",
+      "records": 101,
+      "asset_references": 404,
+      "exact_path_mismatches": 404,
+      "explicit_mappings": [
+        {
+          "annotation_path": "Common_Sense_Questions/American_Flag.jpg",
+          "hf_candidate": "Common_Sense_Questions/American_Flag.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/American_Flag_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/American_Flag_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/American_Flag_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/American_Flag_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/American_Flag_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/American_Flag_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Eiffel Tower.jpg",
+          "hf_candidate": "Common_Sense_Questions/Eiffel Tower.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Eiffel Tower_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Eiffel Tower_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Eiffel Tower_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Eiffel Tower_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Eiffel Tower_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Eiffel Tower_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Great Wall of China.jpg",
+          "hf_candidate": "Common_Sense_Questions/Great Wall of China.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Great Wall of China_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Great Wall of China_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Great Wall of China_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Great Wall of China_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Great Wall of China_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Great Wall of China_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Pyramids of Giza.jpg",
+          "hf_candidate": "Common_Sense_Questions/Pyramids of Giza.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Pyramids of Giza_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Pyramids of Giza_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Pyramids of Giza_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Pyramids of Giza_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Pyramids of Giza_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Pyramids of Giza_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Statue of Liberty.jpg",
+          "hf_candidate": "Common_Sense_Questions/Statue of Liberty.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Statue of Liberty_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Statue of Liberty_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Statue of Liberty_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Statue of Liberty_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Statue of Liberty_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Statue of Liberty_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mount Everest.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mount Everest.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mount Everest_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mount Everest_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mount Everest_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mount Everest_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mount Everest_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mount Everest_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Big Ben.jpg",
+          "hf_candidate": "Common_Sense_Questions/Big Ben.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Big Ben_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Big Ben_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Big Ben_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Big Ben_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Big Ben_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Big Ben_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Leaning Tower of Pisa.jpg",
+          "hf_candidate": "Common_Sense_Questions/Leaning Tower of Pisa.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Leaning Tower of Pisa_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Leaning Tower of Pisa_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Leaning Tower of Pisa_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Leaning Tower of Pisa_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Leaning Tower of Pisa_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Leaning Tower of Pisa_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Colosseum.jpg",
+          "hf_candidate": "Common_Sense_Questions/Colosseum.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Colosseum_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Colosseum_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Colosseum_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Colosseum_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Colosseum_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Colosseum_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Taj Mahal.jpg",
+          "hf_candidate": "Common_Sense_Questions/Taj Mahal.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Taj Mahal_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Taj Mahal_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Taj Mahal_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Taj Mahal_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Taj Mahal_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Taj Mahal_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/African Elephant.jpg",
+          "hf_candidate": "Common_Sense_Questions/African Elephant.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/African Elephant_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/African Elephant_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/African Elephant_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/African Elephant_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/African Elephant_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/African Elephant_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Giant Panda.jpg",
+          "hf_candidate": "Common_Sense_Questions/Giant Panda.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Giant Panda_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Giant Panda_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Giant Panda_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Giant Panda_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Giant Panda_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Giant Panda_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bengal Tiger.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bengal Tiger.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bengal Tiger_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bengal Tiger_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bengal Tiger_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bengal Tiger_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bengal Tiger_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bengal Tiger_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Blue Whale.jpg",
+          "hf_candidate": "Common_Sense_Questions/Blue Whale.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Blue Whale_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Blue Whale_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Blue Whale_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Blue Whale_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Blue Whale_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Blue Whale_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Emperor Penguin.jpg",
+          "hf_candidate": "Common_Sense_Questions/Emperor Penguin.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Emperor Penguin_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Emperor Penguin_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Emperor Penguin_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Emperor Penguin_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Emperor Penguin_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Emperor Penguin_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bald Eagle.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bald Eagle.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bald Eagle_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bald Eagle_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bald Eagle_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bald Eagle_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bald Eagle_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bald Eagle_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/King Cobra.jpg",
+          "hf_candidate": "Common_Sense_Questions/King Cobra.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/King Cobra_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/King Cobra_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/King Cobra_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/King Cobra_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/King Cobra_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/King Cobra_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/African Lion.jpg",
+          "hf_candidate": "Common_Sense_Questions/African Lion.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/African Lion_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/African Lion_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/African Lion_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/African Lion_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/African Lion_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/African Lion_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Red Kangaroo.jpg",
+          "hf_candidate": "Common_Sense_Questions/Red Kangaroo.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Red Kangaroo_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Red Kangaroo_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Red Kangaroo_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Red Kangaroo_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Red Kangaroo_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Red Kangaroo_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Galápagos Giant Tortoise.jpg",
+          "hf_candidate": "Common_Sense_Questions/Galápagos Giant Tortoise.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Galápagos Giant Tortoise_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Galápagos Giant Tortoise_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Galápagos Giant Tortoise_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Galápagos Giant Tortoise_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Galápagos Giant Tortoise_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Galápagos Giant Tortoise_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Oak Tree.jpg",
+          "hf_candidate": "Common_Sense_Questions/Oak Tree.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Oak Tree_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Oak Tree_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Oak Tree_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Oak Tree_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Oak Tree_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Oak Tree_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Rose.jpg",
+          "hf_candidate": "Common_Sense_Questions/Rose.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Rose_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Rose_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Rose_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Rose_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Rose_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Rose_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bamboo.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bamboo.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bamboo_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bamboo_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bamboo_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bamboo_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bamboo_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bamboo_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Sunflower.jpg",
+          "hf_candidate": "Common_Sense_Questions/Sunflower.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Sunflower_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Sunflower_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Sunflower_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Sunflower_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Sunflower_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Sunflower_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Venus Flytrap.jpg",
+          "hf_candidate": "Common_Sense_Questions/Venus Flytrap.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Venus Flytrap_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Venus Flytrap_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Venus Flytrap_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Venus Flytrap_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Venus Flytrap_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Venus Flytrap_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Saguaro Cactus.jpg",
+          "hf_candidate": "Common_Sense_Questions/Saguaro Cactus.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Saguaro Cactus_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Saguaro Cactus_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Saguaro Cactus_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Saguaro Cactus_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Saguaro Cactus_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Saguaro Cactus_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Tulip.jpg",
+          "hf_candidate": "Common_Sense_Questions/Tulip.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Tulip_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Tulip_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Tulip_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Tulip_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Tulip_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Tulip_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cherry Blossom.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cherry Blossom.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cherry Blossom_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cherry Blossom_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cherry Blossom_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cherry Blossom_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cherry Blossom_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cherry Blossom_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Baobab Tree.jpg",
+          "hf_candidate": "Common_Sense_Questions/Baobab Tree.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Baobab Tree_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Baobab Tree_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Baobab Tree_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Baobab Tree_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Baobab Tree_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Baobab Tree_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Water Lily.jpg",
+          "hf_candidate": "Common_Sense_Questions/Water Lily.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Water Lily_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Water Lily_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Water Lily_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Water Lily_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Water Lily_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Water Lily_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Smartphone.jpg",
+          "hf_candidate": "Common_Sense_Questions/Smartphone.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Smartphone_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Smartphone_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Smartphone_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Smartphone_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Smartphone_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Smartphone_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Laptop.jpg",
+          "hf_candidate": "Common_Sense_Questions/Laptop.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Laptop_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Laptop_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Laptop_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Laptop_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Laptop_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Laptop_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Car.jpg",
+          "hf_candidate": "Common_Sense_Questions/Car.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Car_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Car_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Car_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Car_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Car_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Car_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Clock.jpg",
+          "hf_candidate": "Common_Sense_Questions/Clock.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Clock_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Clock_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Clock_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Clock_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Clock_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Clock_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Airplane.jpg",
+          "hf_candidate": "Common_Sense_Questions/Airplane.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Airplane_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Airplane_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Airplane_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Airplane_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Airplane_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Airplane_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bicycle.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bicycle.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bicycle_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bicycle_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bicycle_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bicycle_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Bicycle_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Bicycle_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Camera.jpg",
+          "hf_candidate": "Common_Sense_Questions/Camera.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Camera_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Camera_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Camera_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Camera_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Camera_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Camera_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Light Bulb.jpg",
+          "hf_candidate": "Common_Sense_Questions/Light Bulb.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Light Bulb_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Light Bulb_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Light Bulb_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Light Bulb_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Light Bulb_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Light Bulb_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Microwave.jpg",
+          "hf_candidate": "Common_Sense_Questions/Microwave.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Microwave_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Microwave_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Microwave_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Microwave_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Microwave_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Microwave_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Guitar.jpg",
+          "hf_candidate": "Common_Sense_Questions/Guitar.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Guitar_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Guitar_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Guitar_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Guitar_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Guitar_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Guitar_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Television.jpg",
+          "hf_candidate": "Common_Sense_Questions/Television.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Television_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Television_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Television_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Television_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Television_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Television_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Refrigerator.jpg",
+          "hf_candidate": "Common_Sense_Questions/Refrigerator.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Refrigerator_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Refrigerator_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Refrigerator_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Refrigerator_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Refrigerator_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Refrigerator_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Washing Machine.jpg",
+          "hf_candidate": "Common_Sense_Questions/Washing Machine.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Washing Machine_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Washing Machine_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Washing Machine_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Washing Machine_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Washing Machine_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Washing Machine_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Vacuum Cleaner.jpg",
+          "hf_candidate": "Common_Sense_Questions/Vacuum Cleaner.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Vacuum Cleaner_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Vacuum Cleaner_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Vacuum Cleaner_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Vacuum Cleaner_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Vacuum Cleaner_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Vacuum Cleaner_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Printer.jpg",
+          "hf_candidate": "Common_Sense_Questions/Printer.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Printer_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Printer_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Printer_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Printer_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Printer_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Printer_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Headphones.jpg",
+          "hf_candidate": "Common_Sense_Questions/Headphones.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Headphones_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Headphones_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Headphones_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Headphones_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Headphones_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Headphones_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Keyboard.jpg",
+          "hf_candidate": "Common_Sense_Questions/Keyboard.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Keyboard_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Keyboard_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Keyboard_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Keyboard_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Keyboard_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Keyboard_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mouse.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mouse.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mouse_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mouse_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mouse_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mouse_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mouse_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mouse_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Book.jpg",
+          "hf_candidate": "Common_Sense_Questions/Book.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Book_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Book_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Book_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Book_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Book_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Book_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Pen.jpg",
+          "hf_candidate": "Common_Sense_Questions/Pen.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Pen_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Pen_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Pen_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Pen_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Pen_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Pen_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Leopard.jpg",
+          "hf_candidate": "Common_Sense_Questions/Leopard.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Leopard_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Leopard_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Leopard_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Leopard_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Leopard_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Leopard_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Ostrich.jpg",
+          "hf_candidate": "Common_Sense_Questions/Ostrich.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Ostrich_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Ostrich_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Ostrich_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Ostrich_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Ostrich_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Ostrich_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Octopus.jpg",
+          "hf_candidate": "Common_Sense_Questions/Octopus.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Octopus_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Octopus_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Octopus_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Octopus_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Octopus_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Octopus_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Oak_tree.jpg",
+          "hf_candidate": "Common_Sense_Questions/Oak_tree.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Oak_tree_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Oak_tree_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Oak_tree_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Oak_tree_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Oak_tree_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Oak_tree_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Honeybee.jpg",
+          "hf_candidate": "Common_Sense_Questions/Honeybee.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Honeybee_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Honeybee_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Honeybee_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Honeybee_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Honeybee_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Honeybee_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Chameleon.jpg",
+          "hf_candidate": "Common_Sense_Questions/Chameleon.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Chameleon_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Chameleon_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Chameleon_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Chameleon_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Chameleon_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Chameleon_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Brown_bear.jpg",
+          "hf_candidate": "Common_Sense_Questions/Brown_bear.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Brown_bear_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Brown_bear_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Brown_bear_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Brown_bear_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Brown_bear_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Brown_bear_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Opossum.jpg",
+          "hf_candidate": "Common_Sense_Questions/Opossum.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Opossum_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Opossum_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Opossum_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Opossum_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Opossum_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Opossum_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cactus.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cactus.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cactus_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cactus_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cactus_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cactus_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cactus_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cactus_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Whale_shark.jpg",
+          "hf_candidate": "Common_Sense_Questions/Whale_shark.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Whale_shark_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Whale_shark_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Whale_shark_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Whale_shark_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Whale_shark_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Whale_shark_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cheetah.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cheetah.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cheetah_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cheetah_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cheetah_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cheetah_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cheetah_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cheetah_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Parrot.jpg",
+          "hf_candidate": "Common_Sense_Questions/Parrot.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Parrot_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Parrot_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Parrot_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Parrot_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Parrot_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Parrot_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Elephant.jpg",
+          "hf_candidate": "Common_Sense_Questions/Elephant.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Elephant_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Elephant_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Elephant_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Elephant_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Elephant_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Elephant_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cocoa.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cocoa.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cocoa_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cocoa_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cocoa_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cocoa_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cocoa_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cocoa_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Redwood.jpg",
+          "hf_candidate": "Common_Sense_Questions/Redwood.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Redwood_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Redwood_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Redwood_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Redwood_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Redwood_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Redwood_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Isaac_Newton.jpg",
+          "hf_candidate": "Common_Sense_Questions/Isaac_Newton.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Isaac_Newton_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Isaac_Newton_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Isaac_Newton_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Isaac_Newton_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Isaac_Newton_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Isaac_Newton_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Japan.jpg",
+          "hf_candidate": "Common_Sense_Questions/Japan.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Japan_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Japan_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Japan_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Japan_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Japan_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Japan_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Paris.jpg",
+          "hf_candidate": "Common_Sense_Questions/Paris.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Paris_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Paris_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Paris_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Paris_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Paris_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Paris_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Oxygen.jpg",
+          "hf_candidate": "Common_Sense_Questions/Oxygen.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Oxygen_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Oxygen_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Oxygen_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Oxygen_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Oxygen_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Oxygen_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mars.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mars.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mars_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mars_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mars_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mars_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mars_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mars_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Skin.jpg",
+          "hf_candidate": "Common_Sense_Questions/Skin.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Skin_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Skin_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Skin_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Skin_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Skin_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Skin_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Pipe_Organ.jpg",
+          "hf_candidate": "Common_Sense_Questions/Pipe_Organ.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Pipe_Organ_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Pipe_Organ_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Pipe_Organ_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Pipe_Organ_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Pipe_Organ_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Pipe_Organ_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Great_Pyramid.jpg",
+          "hf_candidate": "Common_Sense_Questions/Great_Pyramid.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Great_Pyramid_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Great_Pyramid_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Great_Pyramid_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Great_Pyramid_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Great_Pyramid_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Great_Pyramid_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Peregrine_Falcon.jpg",
+          "hf_candidate": "Common_Sense_Questions/Peregrine_Falcon.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Peregrine_Falcon_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Peregrine_Falcon_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Peregrine_Falcon_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Peregrine_Falcon_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Peregrine_Falcon_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Peregrine_Falcon_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Printing_Press.jpg",
+          "hf_candidate": "Common_Sense_Questions/Printing_Press.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Printing_Press_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Printing_Press_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Printing_Press_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Printing_Press_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Printing_Press_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Printing_Press_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Diamond.jpg",
+          "hf_candidate": "Common_Sense_Questions/Diamond.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Diamond_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Diamond_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Diamond_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Diamond_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Diamond_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Diamond_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mount_Everest.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mount Everest.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mount_Everest_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mount Everest_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mount_Everest_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mount Everest_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mount_Everest_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mount Everest_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mona_Lisa.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mona_Lisa.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mona_Lisa_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mona_Lisa_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mona_Lisa_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mona_Lisa_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Mona_Lisa_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Mona_Lisa_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Nile_River.jpg",
+          "hf_candidate": "Common_Sense_Questions/Nile_River.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Nile_River_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Nile_River_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Nile_River_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Nile_River_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Nile_River_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Nile_River_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Australia.jpg",
+          "hf_candidate": "Common_Sense_Questions/Australia.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Australia_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Australia_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Australia_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Australia_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Australia_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Australia_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cherry_Blossom.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cherry_Blossom.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cherry_Blossom_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cherry_Blossom_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cherry_Blossom_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cherry_Blossom_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Cherry_Blossom_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Cherry_Blossom_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Great_Wall.jpg",
+          "hf_candidate": "Common_Sense_Questions/Great Wall of China.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Great_Wall_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Great Wall of China_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Great_Wall_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Great Wall of China_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Great_Wall_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Great Wall of China_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Protractor.jpg",
+          "hf_candidate": "Common_Sense_Questions/Protractor.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Protractor_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Protractor_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Protractor_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Protractor_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Protractor_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Protractor_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Voltmeter.jpg",
+          "hf_candidate": "Common_Sense_Questions/Voltmeter.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Voltmeter_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Voltmeter_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Voltmeter_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Voltmeter_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Voltmeter_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Voltmeter_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Rainbow.jpg",
+          "hf_candidate": "Common_Sense_Questions/Rainbow.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Rainbow_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Rainbow_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Rainbow_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Rainbow_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Rainbow_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Rainbow_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Lemon.jpg",
+          "hf_candidate": "Common_Sense_Questions/Lemon.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Lemon_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Lemon_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Lemon_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Lemon_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Lemon_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Lemon_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Barometer.jpg",
+          "hf_candidate": "Common_Sense_Questions/Barometer.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Barometer_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Barometer_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Barometer_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Barometer_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Barometer_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Barometer_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Volcano.jpg",
+          "hf_candidate": "Common_Sense_Questions/Volcano.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Volcano_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Volcano_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Volcano_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Volcano_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Volcano_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Volcano_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Durian.jpg",
+          "hf_candidate": "Common_Sense_Questions/Durian.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Durian_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Durian_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Durian_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Durian_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Durian_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Durian_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/French_Horn.jpg",
+          "hf_candidate": "Common_Sense_Questions/French_Horn.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/French_Horn_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/French_Horn_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/French_Horn_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/French_Horn_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/French_Horn_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/French_Horn_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Microscope.jpg",
+          "hf_candidate": "Common_Sense_Questions/Microscope.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Microscope_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Microscope_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Microscope_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Microscope_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Microscope_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Microscope_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Tornado.jpg",
+          "hf_candidate": "Common_Sense_Questions/Tornado.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Tornado_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Tornado_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Tornado_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Tornado_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Tornado_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Tornado_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Peach.jpg",
+          "hf_candidate": "Common_Sense_Questions/Peach.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Peach_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Peach_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Peach_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Peach_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Peach_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Peach_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Xylophone.jpg",
+          "hf_candidate": "Common_Sense_Questions/Xylophone.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Xylophone_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Xylophone_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Xylophone_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Xylophone_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Xylophone_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Xylophone_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Northern_Lights.jpg",
+          "hf_candidate": "Common_Sense_Questions/Northern_Lights.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Northern_Lights_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Northern_Lights_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Northern_Lights_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Northern_Lights_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Northern_Lights_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Northern_Lights_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Watermelon.jpg",
+          "hf_candidate": "Common_Sense_Questions/Watermelon.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Watermelon_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Watermelon_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Watermelon_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Watermelon_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Watermelon_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Watermelon_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Saxophone.jpg",
+          "hf_candidate": "Common_Sense_Questions/Saxophone.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Saxophone_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Saxophone_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Saxophone_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Saxophone_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Saxophone_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Saxophone_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Microwave.jpg",
+          "hf_candidate": "Common_Sense_Questions/Microwave.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Microwave_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Microwave_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Microwave_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Microwave_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Microwave_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Microwave_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Colosseum.jpg",
+          "hf_candidate": "Common_Sense_Questions/Colosseum.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Colosseum_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Colosseum_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Colosseum_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Colosseum_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Colosseum_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Colosseum_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Paper_Clip.jpg",
+          "hf_candidate": "Common_Sense_Questions/Paper_Clip.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Paper_Clip_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Paper_Clip_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Paper_Clip_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Paper_Clip_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Paper_Clip_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Paper_Clip_negative3.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Angkor_Wat.jpg",
+          "hf_candidate": "Common_Sense_Questions/Angkor_Wat.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Angkor_Wat_negative1.jpg",
+          "hf_candidate": "Common_Sense_Questions/Angkor_Wat_negative1.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Angkor_Wat_negative2.jpg",
+          "hf_candidate": "Common_Sense_Questions/Angkor_Wat_negative2.png"
+        },
+        {
+          "annotation_path": "Common_Sense_Questions/Angkor_Wat_negative3.jpg",
+          "hf_candidate": "Common_Sense_Questions/Angkor_Wat_negative3.png"
+        }
+      ],
+      "unresolved_after_mappings": []
+    },
+    {
+      "file": "Unify_Dataset/Uinfy_capability/Auxiliary_Lines/Auxiliary_Lines..json",
+      "records": 52,
+      "asset_references": 260,
+      "exact_path_mismatches": 260,
+      "explicit_mappings": [
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/428.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/428.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/428_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/428_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/428_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/428_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/428_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/428_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/428_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/428_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/871.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/871.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/871_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/871_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/871_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/871_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/871_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/871_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/871_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/871_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/421.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/421.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/421_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/421_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/421_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/421_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/421_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/421_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/421_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/421_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/2079.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/2079.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/2079_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/2079_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/2079_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/2079_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/2079_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/2079_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/2079_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/2079_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1624.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1624.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1624_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1624_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1624_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1624_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1624_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1624_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1624_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1624_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1465.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1465.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1465_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1465_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1465_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1465_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1465_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1465_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1465_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1465_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1841.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1841.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1841_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1841_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1841_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1841_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1841_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1841_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1841_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1841_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/362.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/362.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/362_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/362_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/362_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/362_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/362_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/362_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/362_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/362_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/253.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/253.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/253_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/253_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/253_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/253_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/253_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/253_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/253_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/253_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1687.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1687.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1687_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1687_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1687_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1687_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1687_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1687_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1687_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1687_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1757.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1757.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1757_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1757_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1757_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1757_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1757_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1757_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1757_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1757_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/472.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/472.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/472_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/472_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/472_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/472_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/472_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/472_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/472_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/472_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1839.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1839.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1839_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1839_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1839_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1839_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1839_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1839_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1839_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1839_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1855.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1855.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1855_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1855_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1855_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1855_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1855_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1855_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1855_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1855_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/803.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/803.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/803_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/803_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/803_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/803_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/803_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/803_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/803_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/803_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/8.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/8.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/8_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/8_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/8_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/8_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/8_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/8_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/8_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/8_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/708.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/708.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/708_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/708_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/708_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/708_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/708_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/708_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/708_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/708_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1540.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1540.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1540_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1540_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1540_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1540_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1540_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1540_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1540_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1540_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/1_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/1_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/3_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/3_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/3_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/3_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/3_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/3_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/3_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/3_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/4.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/4.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/4_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/4_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/4_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/4_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/4_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/4_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/4_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/4_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/5.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/5.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/5_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/5_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/5_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/5_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/5_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/5_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/5_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/5_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/6.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/6.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/6_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/6_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/6_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/6_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/6_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/6_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/6_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/6_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/9.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/9.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/9_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/9_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/9_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/9_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/9_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/9_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/9_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/9_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/10.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/10.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/10_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/10_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/10_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/10_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/10_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/10_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/10_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/10_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/2_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/2_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/2_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/2_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/2_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/2_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/2_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/2_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/12.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/12.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/12_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/12_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/12_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/12_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/12_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/12_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/12_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/12_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/13.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/13.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/13_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/13_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/13_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/13_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/13_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/13_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/13_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/13_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/31.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/31.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/31_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/31_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/31_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/31_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/31_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/31_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/31_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/31_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/11.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/11.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/11_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/11_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/11_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/11_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/11_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/11_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/11_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/11_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/15.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/15.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/15_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/15_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/15_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/15_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/15_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/15_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/15_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/15_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/16.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/16.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/16_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/16_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/16_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/16_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/16_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/16_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/16_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/16_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/19.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/19.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/19_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/19_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/19_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/19_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/19_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/19_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/19_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/19_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/22.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/22.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/22_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/22_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/22_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/22_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/22_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/22_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/22_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/22_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/23.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/23.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/23_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/23_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/23_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/23_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/23_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/23_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/23_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/23_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/24.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/24.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/24_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/24_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/24_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/24_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/24_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/24_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/24_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/24_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/26.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/26.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/26_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/26_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/26_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/26_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/26_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/26_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/26_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/26_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/27.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/27.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/27_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/27_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/27_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/27_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/27_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/27_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/27_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/27_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/30.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/30.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/30_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/30_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/30_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/30_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/30_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/30_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/30_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/30_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/40.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/40.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/40_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/40_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/40_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/40_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/40_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/40_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/40_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/40_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/41.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/41.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/41_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/41_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/41_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/41_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/41_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/41_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/41_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/41_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/42.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/42.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/42_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/42_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/42_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/42_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/42_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/42_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/42_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/42_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/43.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/43.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/43_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/43_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/43_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/43_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/43_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/43_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/43_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/43_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/45.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/45.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/45_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/45_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/45_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/45_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/45_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/45_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/45_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/45_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/46.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/46.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/46_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/46_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/46_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/46_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/46_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/46_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/46_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/46_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/47.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/47.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/47_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/47_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/47_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/47_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/47_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/47_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/47_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/47_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/48.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/48.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/48_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/48_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/48_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/48_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/48_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/48_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/48_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/48_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/49.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/49.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/49_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/49_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/49_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/49_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/49_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/49_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/49_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/49_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/50.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/50.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/50_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/50_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/50_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/50_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/50_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/50_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/50_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/50_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/51.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/51.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/51_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/51_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/51_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/51_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/51_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/51_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/51_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/51_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/52.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/52.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/52_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/52_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/52_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/52_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/52_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/52_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/52_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/52_Auxiliary_lines_negative3.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/53.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/53.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/53_Auxiliary_lines.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/53_Auxiliary_lines.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/53_Auxiliary_lines_negative1.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/53_Auxiliary_lines_negative1.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/53_Auxiliary_lines_negative2.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/53_Auxiliary_lines_negative2.png"
+        },
+        {
+          "annotation_path": "Math_Reasoning/Auxiliary_Lines/53_Auxiliary_lines_negative3.png",
+          "hf_candidate": "Math_Reasoning/VisualSketchpad/53_Auxiliary_lines_negative3.png"
+        }
+      ],
+      "unresolved_after_mappings": []
+    },
+    {
+      "file": "Unify_Dataset/Generation/Generation_Unified.json",
+      "records": 1594,
+      "asset_references": 2719,
+      "exact_path_mismatches": 0,
+      "explicit_mappings": [],
+      "unresolved_after_mappings": []
+    }
+  ],
+  "maze": {
+    "samples": 90,
+    "action_length_histogram": {
+      "3": 24,
+      "4": 25,
+      "5": 23,
+      "6": 9,
+      "7": 8,
+      "8": 1
+    },
+    "actual_action_steps": 405,
+    "reference_step_images": 315,
+    "all_end_with_finish": true,
+    "all_missing_terminal_image": true,
+    "code_denominator_for_all_released_samples": 720,
+    "conditional_action_accuracy_ceiling": 56.25,
+    "conditional_image_accuracy_ceiling": 43.75,
+    "conditional_mean_accuracy_ceiling": 52.083333333333336,
+    "boundary": "Static arithmetic for public evaluator and all 90 supplied annotations; no model executed; author table version unknown"
+  },
+  "video": {
+    "feature": "ImageNet ResNet50; per-frame 2048 features; temporal mean",
+    "distance": "One-feature-per-video squared L2 mean difference then average per paired video",
+    "fixed_sampled_frame_order_invariant": true,
+    "code_file": "evaluate/Evaluate_Generation_Video.py",
+    "code_lines": [
+      "164-177",
+      "217-244",
+      "331-366",
+      "438-519"
+    ]
+  },
+  "reading_scope": "本轮补读旧arXiv v2§1–4/AppA–C研究文字及B各公式、旧T2/T3/T5；固定GH的README/Prompt全文、8评价脚本核心计算/输入构造/聚合函数指定核读，未声称逐行读完全部CLI/日志/失败处理。7标注JSON结构/总数、90迷宫步长、GH完整树及HF7522路径核查，未逐题语义或全图内容验收。正式版仍限此前§2/§3主表及AppH2/Table13等指定范围，本轮未取得完整44页，全部新增图/附录未读齐，完整三遍保留未通过。没有模型推理、独立人评、口试或复现。",
+  "model_execution": false
+}

@@ -613,3 +613,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百六十二批（2026-10-24）：MMIG正式版全文取得问题已解决；QA/评分代码、1690/1692、380/386、相关估计对象与原始记录仍待补。见[审查](mmig_formal_version_delta_2026-10-24.md)、[L149](../reviews/L149.md)。
+
+
+第一百六十三批（2026-10-24）：MME需正式完整44页及真实运行commit/逐题结果；公开90例终止图缺失、405实际步/720代码分母需对照论文协议。发布4101和表4104/4100分列。见[审查](mme_unify_temporal_metric_and_terminal_step_audit_2026-10-24.md)、[L142](../reviews/L142.md)。

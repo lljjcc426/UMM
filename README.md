@@ -482,3 +482,6 @@ python scripts/validate_catalog.py
 
 
 第一百六十二批（2026-10-24）：完整取得L149正式38页并读全部研究核心/附录、4表与公式；T2较v2新增UNO/RealCustom/OmniGen，表并集20与摘要17/官网18分列。核心条目仍270，未重复计数。357目录，270核心/273书面；未确认核心60论文／研究+27资源。见[审查](docs/evidence/mmig_formal_version_delta_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_sixty_second_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百六十三批（2026-10-24）：L142核7JSON共4101条、固定视频/迷宫等评分函数和HF路径。记录时间均值特征的顺序盲点、90迷宫终止图缺项与405/720步数分母；正式全文仍缺，五项书面保留未通过，核心数不增。357目录，270核心/274书面；未确认核心60论文／研究+27资源。见[审查](docs/evidence/mme_unify_temporal_metric_and_terminal_step_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_sixty_third_changes_2026-10-24.md)。无删除或模型执行。

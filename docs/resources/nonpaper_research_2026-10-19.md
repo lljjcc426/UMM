@@ -602,3 +602,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百六十二批（2026-10-24）：MMIG正式主表覆盖与公开项目页/代码README不一致，应逐版本核。新增模型表值没有对应公开方面QA/评分制品。见[审查](../evidence/mmig_formal_version_delta_2026-10-24.md)、[L149](../reviews/L149.md)。
+
+
+第一百六十三批（2026-10-24）：MME CSQ404扩展名/8主体名与AL260目录需显式映射，映射后均有HF候选，不误报缺664图；未下载全图核内容。见[审查](../evidence/mme_unify_temporal_metric_and_terminal_step_audit_2026-10-24.md)、[L142](../reviews/L142.md)。
