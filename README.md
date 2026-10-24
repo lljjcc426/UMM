@@ -614,3 +614,6 @@ python scripts/validate_catalog.py
 
 
 第二百零六批（2026-10-25）：L171正式20+31页全部完成；十倍限按图量aggregate，补逐任务/提示截断/重启条件及退出整篇文档修正版。358目录，311核心/316书面；待完成核心深审20篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_sixth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百零七批（2026-10-25）：L172最新预印本39页完整核；补OCR/RICES协议差、语言能力先降后升、最快成本模型与实际次序、时间戳释放格式和表内规模矛盾。358目录，312核心/317书面；待完成核心深审19篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_seventh_changes_2026-10-25.md)。无删除或模型执行。

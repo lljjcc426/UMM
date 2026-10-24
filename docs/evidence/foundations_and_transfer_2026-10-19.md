@@ -537,3 +537,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百零六批（2026-10-25）：简化DOM有删li/table/date，保留顺序不等于真实时间；OCR/步骤列表需独立真值。见[审查](obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[L171](../reviews/L171.md)。
+
+
+第二百零七批（2026-10-25）：YT公开ID+帧时间戳+转录，需重取媒体；训练只六帧，弱时间线索与细笔画事件分开。见[审查](omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[L172](../reviews/L172.md)。

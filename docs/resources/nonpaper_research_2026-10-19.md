@@ -701,3 +701,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百零六批（2026-10-25）：原仅去退出图片，2023-07-12整篇退出修正版134648855文档；原版141047697，URL重下与ToU分列。见[审查](../evidence/obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[L171](../reviews/L171.md)。
+
+
+第二百零七批（2026-10-25）：CC/YT元数据无gate、210M auto gate/raw卡401；数据CCBY4与代码Apache按当前发布分开，预印本datasheet有冲突。见[审查](../evidence/omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[L172](../reviews/L172.md)。

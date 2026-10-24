@@ -745,3 +745,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百零六批（2026-10-25）：零shot含2个无图文字priming，LAIONonly首词截断/不同caption提示；3次重启，逐任务与总体归因需拆开。见[审查](obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[L171](../reviews/L171.md)。
+
+
+第二百零七批（2026-10-25）：T1 CW/总token均值和D4 CC域均值口径冲突；过滤44条可核，零FPR不等于零全库误杀。见[审查](omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[L172](../reviews/L172.md)。

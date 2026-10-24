@@ -793,3 +793,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百零六批（2026-10-25）：正式主文20+supp31页/v2合并51页，PDF11图11表完整核；HTML编号偏移按PDF记录。见[审查](obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[L171](../reviews/L171.md)。
+
+
+第二百零七批（2026-10-25）：v3全39页10图17表Alg1完成；arXiv确认最新仍v3，OpenReview403未假称2025正式PDF已读。见[审查](omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[L172](../reviews/L172.md)。

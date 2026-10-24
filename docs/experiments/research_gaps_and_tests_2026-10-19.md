@@ -730,3 +730,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百零六批（2026-10-25）：同源DOM/CLIP/随机×长短文，prompt预算/原答案与首词并报，Hateful给不给图上文字context。见[审查](../evidence/obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[L171](../reviews/L171.md)。
+
+
+第二百零七批（2026-10-25）：同骨干/同SFT控制与评分维度因子，OCRtokens/示例抽样协议各自报；密集/六帧/乱序测事件。见[审查](../evidence/omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[L172](../reviews/L172.md)。

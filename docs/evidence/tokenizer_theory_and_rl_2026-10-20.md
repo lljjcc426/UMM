@@ -285,3 +285,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百零六批（2026-10-25）：NTP+内联zloss；十倍按图aggregate，不是token/GPU统一十倍。主模型73.85%OBtoken并非纯OB。见[审查](obelics_full_supplement_and_data_mixture_audit_2026-10-25.md)、[L171](../reviews/L171.md)。
+
+
+第二百零七批（2026-10-25）：Alg1人为反馈设计过滤函数，不是RLHF。交错预训MMLU下降后SFT恢复，不能写始终保持。见[审查](omnicorpus_v3_full_appendix_and_storyboard_protocol_audit_2026-10-25.md)、[L172](../reviews/L172.md)。
