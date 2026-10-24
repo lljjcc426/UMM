@@ -477,3 +477,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第一百八十六批（2026-10-24）：全链有图vs全程文字给trace效用，F3有Bothwrong但正文F4三类归一分母未明；attentionmass不直接证明plan/faithful因果。见[审查](adavig_full_counterfactual_denominators_and_early_abort_cost_audit_2026-10-24.md)、[U21](../reviews/U21.md)。
+
+
+第一百八十七批（2026-10-25）：评分需拆criterion、questionmacro、taskmacro和modalitymean，756题两侧标准数不等；纸面分母与代码仅输出两模态questionmean需对齐。见[审查](ueval_full_rubric_aggregation_and_release_protocol_audit_2026-10-25.md)、[U22](../reviews/U22.md)。

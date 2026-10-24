@@ -554,3 +554,6 @@ python scripts/validate_catalog.py
 
 
 第一百八十六批（2026-10-24）：U21完成v1完整17页8表15图7式算法1；核trace四象限/两同源骨干、AND对照、阈值重叠差别、91%图FLOPs与Eq7口径，保留实测延迟证据。358目录，291核心/296书面；待完成核心深审40篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/adavig_full_counterfactual_denominators_and_early_abort_cost_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_eighty_sixth_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百八十七批（2026-10-25）：U22完成22页5表14图、固定官方评估/生成入口及1000条元数据核查；区分标准与题/任务/模态汇总，记录单模型人评/裁判与单例trace的证据边界。358目录，292核心/297书面；待完成核心深审39篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/ueval_full_rubric_aggregation_and_release_protocol_audit_2026-10-25.md)、[逐文件说明](docs/evidence/one_hundred_eighty_seventh_changes_2026-10-25.md)。无删除或模型执行。

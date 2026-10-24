@@ -225,3 +225,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第一百八十六批（2026-10-24）：I文本/原图相对mass、F原图ViTabs、双弱AND；无训练更新、RLreward仅展望，层/CFG/attentionkernel聚合待释。见[审查](adavig_full_counterfactual_denominators_and_early_abort_cost_audit_2026-10-24.md)、[U21](../reviews/U21.md)。
+
+
+第一百八十七批（2026-10-25）：无新tokenizer或训练loss；参考生成/模型草拟rubric与同源judge需校准，不能将单模型人评直接升级为通用RLreward证据。见[审查](ueval_full_rubric_aggregation_and_release_protocol_audit_2026-10-25.md)、[U22](../reviews/U22.md)。

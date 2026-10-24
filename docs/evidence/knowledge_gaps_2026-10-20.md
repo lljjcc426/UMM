@@ -685,3 +685,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百八十六批（2026-10-24）：5/50步且r≤1的Eq7上界90%，主表91%及图数降幅同值需attempt/abort/complete日志；阈值两表同点分数差缺seed/CI。见[审查](adavig_full_counterfactual_denominators_and_early_abort_cost_audit_2026-10-24.md)、[U21](../reviews/U21.md)。
+
+
+第一百八十七批（2026-10-25）：ID601外部视角限定、ID701路由器先决流程体现标准效度疑问；T3仅一个被评模型，F9单例补trace事实无法证总体推理迁移。见[审查](ueval_full_rubric_aggregation_and_release_protocol_audit_2026-10-25.md)、[U22](../reviews/U22.md)。

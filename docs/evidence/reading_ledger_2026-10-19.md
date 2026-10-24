@@ -94,7 +94,7 @@
 | U19 | Generation Enhances Understanding in Unified Multimodal Models via Multi-Representation Generation (UniMRG) | primary_sections_read | [结构化分析](../reviews/U19.md) | 核心三遍与五项检查完成 |
 | U20 | Semantic Generative Tuning for Unified Multimodal Models (SGT) | primary_sections_read | [结构化分析](../reviews/U20.md) | 核心三遍与五项检查完成 |
 | U21 | Model Guides You How to Draw: Adaptive Visual Gating for Unified Multimodal Reasoning (AdaViG) | primary_sections_read | [结构化分析](../reviews/U21.md) | 核心三遍与五项检查完成 |
-| U22 | UEval: A Benchmark for Unified Multimodal Generation | primary_sections_read | [结构化分析](../reviews/U22.md) | 未完成 |
+| U22 | UEval: A Benchmark for Unified Multimodal Generation | primary_sections_read | [结构化分析](../reviews/U22.md) | 核心三遍与五项检查完成 |
 | U23 | Self-correction Optimization for Interleaved Multimodal Generation (SCO) | primary_sections_read | [结构化分析](../reviews/U23.md) | 未完成 |
 | U24 | Unified Multimodal Autoregressive Modeling with Shared Context-Visual Tokenizer is Key to Unification (UniAR) | primary_sections_read | [结构化分析](../reviews/U24.md) | 核心三遍与五项检查完成 |
 | U25 | Visual Generation Unlocks Human-Like Reasoning through Multimodal World Models (VisWorld-Eval) | primary_sections_read | [结构化分析](../reviews/U25.md) | 未完成 |

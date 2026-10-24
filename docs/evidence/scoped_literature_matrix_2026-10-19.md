@@ -644,3 +644,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百八十六批（2026-10-24）：早期丢latent并回文字，适用已触发图像的交错数学推理；书写/视频已执行prefix无法据此撤销。见[审查](adavig_full_counterfactual_denominators_and_early_abort_cost_audit_2026-10-24.md)、[U21](../reviews/U21.md)。
+
+
+第一百八十七批（2026-10-25）：八任务图文静态回答/视觉教程，无笔轨迹或连续视频；四模型双调用图文与nativejoint的上下文/预算不同。见[审查](ueval_full_rubric_aggregation_and_release_protocol_audit_2026-10-25.md)、[U22](../reviews/U22.md)。

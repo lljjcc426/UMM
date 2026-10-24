@@ -641,3 +641,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第一百八十六批（2026-10-24）：论文/arXiv未列官方AdaViGrepo，GitHub检索仅不相关名字，HFpaper404；只记录有限发布核查，无运行速度复现。见[审查](../evidence/adavig_full_counterfactual_denominators_and_early_abort_cost_audit_2026-10-24.md)、[U21](../reviews/U21.md)。
+
+
+第一百八十七批（2026-10-25）：官方生成入口旧dataset与task_type域过滤和输出字段需显式适配；Gemini至多100attempt图文同时成功才保留，非按评分择优。见[审查](../evidence/ueval_full_rubric_aggregation_and_release_protocol_audit_2026-10-25.md)、[U22](../reviews/U22.md)。
