@@ -599,3 +599,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第一百七十一批（2026-10-24）：Ming-Omni冻结感知后另训query/connector/Sana与语音解码，输入视频理解且无视频输出；原图生成入口音特征未读取、视频特征被拒。见[审查](mingomni_multiscale_bridge_and_context_tradeoff_audit_2026-10-24.md)、[L160](../reviews/L160.md)。
+
+
+第一百七十二批（2026-10-24）：Ming-Lite-Uni冻结MLLM接query/connector/SANA，图像理解/生图/编辑；发布为Qwen2.5，论文写M2/Llama，版本对应仍未决，无视频/笔顺输出。见[审查](ming_lite_uni_companion_multiscale_and_release_alignment_audit_2026-10-24.md)、[L191](../reviews/L191.md)。

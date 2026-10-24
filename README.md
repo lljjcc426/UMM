@@ -509,3 +509,6 @@ python scripts/validate_catalog.py
 
 
 第一百七十一批（2026-10-24）：L160完成v1完整28页/15表八图，修正128帧与SANM执行分支，保留上下文语音WER退化，核三router共用专家池及仅最终尺度采样；配套Ming-Lite-Uni另排追引。357目录，277核心/282书面；未确认核心53论文／研究+27资源。见[审查](docs/evidence/mingomni_multiscale_bridge_and_context_tradeoff_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_seventy_first_changes_2026-10-24.md)。无删除或模型执行。
+
+
+第一百七十二批（2026-10-24）：补录L191配套前作，完成v3研究全文/三表七实际图/四式；承认MSE文字收益但保留受控消融缺项，纠正文称.62超过.67，核M2论文与Qwen发布物、三次采样只返末图。358目录，278核心/283书面；未确认核心53论文／研究+27资源。见[审查](docs/evidence/ming_lite_uni_companion_multiscale_and_release_alignment_audit_2026-10-24.md)、[逐文件说明](docs/evidence/one_hundred_seventy_second_changes_2026-10-24.md)。无删除或模型执行。

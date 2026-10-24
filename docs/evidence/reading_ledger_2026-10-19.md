@@ -1,6 +1,6 @@
 # 全目录逐条阅读台账
 
-主目录 357 条，本批有 357 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
+主目录 358 条，本批有 358 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。
 
 核心三遍完成需逐条核问题/方法/框架图、主表/消融及有依据的批判分析，并记录五项书面检查。计时口试、完整代码审查和独立复现另列；没有自动把模板填齐计为完成。
 
@@ -363,3 +363,4 @@
 | G042 | Automated Generation of Challenging Multiple-Choice Questions for Vision Language Model Evaluation | primary_sections_read | [结构化分析](../reviews/G042.md) | 核心三遍与五项检查完成 |
 | G043 | How Can Objects Help Video-Language Understanding? | primary_sections_read | [结构化分析](../reviews/G043.md) | 核心三遍与五项检查完成 |
 | G044 | Generative Multimodal Pretraining with Discrete Diffusion Timestep Tokens (DDT-LLaMA) | primary_sections_read | [结构化分析](../reviews/G044.md) | 核心三遍与五项检查完成 |
+| L191 | Ming-Lite-Uni: Advancements in Unified Architecture for Natural Multimodal Interaction | primary_sections_read | [结构化分析](../reviews/L191.md) | 核心三遍与五项检查完成 |

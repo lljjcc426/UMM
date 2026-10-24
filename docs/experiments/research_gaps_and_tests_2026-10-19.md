@@ -625,3 +625,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第一百七十一批（2026-10-24）：Ming固定Ling/Sana/数据预算对caption/等token单尺度/多尺度/MSE/冻结策略正交消融；低尺度query扰动检验注意力作用；context报WER与上下文忠实、BPE报端到端延迟，配套前作先追引。见[审查](../evidence/mingomni_multiscale_bridge_and_context_tradeoff_audit_2026-10-24.md)、[L160](../reviews/L160.md)。
+
+
+第一百七十二批（2026-10-24）：已读Ming-Lite-Uni，已有MSE/query收益的文字声明须作为先验；再做等token/FLOPs和固定底座的正交消融，并计完整三次与末尺度采样时延，公开模型身份与原始样本。见[审查](../evidence/ming_lite_uni_companion_multiscale_and_release_alignment_audit_2026-10-24.md)、[L191](../reviews/L191.md)。

@@ -13394,5 +13394,61 @@
     "gap": "正式版与预印本/当前公开入口的base、阈值、prompt流程和attention实现不同。公开docs明确neural-sketch汇聚/阈值/两pass是实现者选择，5次UNet/step的耗时不等论文15秒。公开onlyonesubject，不能将论文多concept定性当该入口已支持。没有严格时间/笔顺指标，I2V扩展未完整训练/视频表。检测失败无bbox时主文回退不清；若主体形变，规范汉字可读性可能下降。",
     "claim": "研究目标：怎样把字形局部变成语义物体，并在创意、纹理和文字可读性之间控制取舍？",
     "version": "VitaGlyph: Vitalizing Artistic Typography with Flexible Dual-branch Diffusion Models；正式WACV2026 pp8220–8230；arXiv2410.01738v3补充材料另核（2025-07-22）"
+  },
+  {
+    "id": "L191",
+    "title": "Ming-Lite-Uni: Advancements in Unified Architecture for Natural Multimodal Interaction",
+    "canonical_key": "paper:arxiv:2505.02471",
+    "source_urls": [
+      "https://arxiv.org/abs/2505.02471v3",
+      "https://arxiv.org/html/2505.02471v3",
+      "https://arxiv.org/pdf/2505.02471v3",
+      "https://github.com/inclusionAI/Ming/tree/69f28cdb5c3e60d351448ae0f50c583b3f3d359d/Ming-unify",
+      "https://github.com/inclusionAI/Ming/blob/69f28cdb5c3e60d351448ae0f50c583b3f3d359d/Ming-unify/Ming_Uni/MingUniInference.py",
+      "https://huggingface.co/inclusionAI/Ming-Lite-Uni/tree/f08100716d7d488dc71288d090b91161175eb40c",
+      "https://huggingface.co/inclusionAI/Ming-Lite-Uni/blob/f08100716d7d488dc71288d090b91161175eb40c/qwen2_5_llm/config.json"
+    ],
+    "aliases": [
+      "Ming-Lite-Uni",
+      "Ming-unify"
+    ],
+    "scope": "umm",
+    "category": "UMM及相关机制 / 冻结理解底座与扩散桥接：多尺度生成和编辑",
+    "record_type": "paper",
+    "privacy": "public_source_note",
+    "provenance": "2026-10-24 第一百七十二批，L160 Ming-Omni明确配套前作追引补漏",
+    "verification": "primary_sections_read",
+    "review_path": "docs/reviews/L191.md",
+    "note_path": "docs/reviews/L191.md",
+    "review_depth": "critical_sections_reviewed",
+    "version": "Ming-Lite-Uni: Advancements in Unified Architecture for Natural Multimodal Interaction，arXiv2505.02471v3，2025-06-13；首版2025-05-05，alpha技术报告，未据此认定正式会议。Ming-Omni/L160明确引用的配套前作，单独补漏，与L159 M2-omni和MetaQueries桥接谱系关联。",
+    "checked_on": "2026-10-24",
+    "last_updated": "2026-10-24",
+    "sections_read": "arXiv2505.02471v3完整HTML研究§1–4、Eq1–4、T1–3全部行、七张实际原图F1–7全部视觉阅读；贡献仅名单范围/参考相关追引；v1/v3研究文字差异核，未把完整PDF阅读作为凭据。核心三遍与五项书面完成，未独立口述/模型复现。固定GH预览分支117树/101blobs、相关Ming-unify18blob路径清单及六份源码/README实际阅读；HF66文件元数据与11个文本配置/关键代码核。未下载权重、未模型执行，未称所有源码逐行。",
+    "dataset": "§3列LAION1555342102、Zero151766788、COYO61915700；Wukong34826982、Midjourney5421512、others440951902，六项名义和2250224986，不保证去重后的独立训练量或同阶段实际暴露数。过滤aspect≤2.5/watermark≤.5/CLIP≥.45；美学AVA255000/TAD66000/AesMMIT21904/APDD10023。编辑InstructPix2Pix-filtered、SEEDpart2/3、Ultra-edit、SynCD、Subjects200k、HQ-edit、MagicBrush总5008795，未列各源完整采样权重与训练/测试ID。T1多轮MagicBrush2步1151/3步1572，SynCD2步25438，SEEDpart3为472/7453/8783/4669；长度类别计数不当额外独立数据量。WikiArt81444/27styles；StyleBooth80922，另述67styles每类717pairs的乘积48039与总数口径未齐，合成/增广后数量需说明。F5/6为训练样本，不能作为模型测试结果。",
+    "framework": "将MetaQueries式冻结MLLM桥接与M2-omni底座结合；增加4²/8²/16²共336个学习query、边界和位置编码；可训练connector传条件给SANA，配多尺度DiT中间表征与最终语义表征MSE及flow matching。报告GenEval.62和理解69.7，并展示图像编辑。配套Ming-Omni的多尺度机制已有此前说明，不能将同一机制重复算作独立首创。",
+    "architecture": "论文§2.2写NaViT、2×2拼接/MLP、M2-omni基于Llama3.1-8B或Llama3.3-70B、M-RoPE；未指定T2哪一骨干/完整生成训练超参。实际链接发布物是Qwen2.5路线：qwen2_5_llm配置28层h3584、28heads/4KV、vocab152064、maxpos32768、M-RoPE；QwenViT32层h1280、out8192、merge2；connector为Qwen2.5-0.5B配置24层h896/14heads2KV，代码改为非因果attention，3584↔896投影；SANA20层70heads×32、cross2240/caption2304/in32。代码query为4/8/16、learnable_queries_1d=True，对应1×s²布局，不能默认等同论文二维gridPE。公开脚本一次MLLM取三组隐藏态，各组分别connector并采样三次相同height/width，最后只返回16²组图；与Ming-Omni原版只最终尺度采样分开记录。",
+    "metrics": "理解T2七项MMB/MMS/MMMU/MathVista/HallusionBench/AI2D/MM-Vet及作者汇总Avg，沿用OpenCompass而未给逐题预测/汇总权重/CI。GenEval六项single/two/count/color/position/colorattribute及overall；.62为六项宏平均的舍入值。MSE声称>2dB PSNR/+1.5%GenEval，但无重建集、对照分数/误差条、百分比相对或百分点定义；README另称多尺度+3.5%及4090<1s，均缺可核计时配置。编辑只有F1/F7定性，无指令成功/源保留/多轮累积误差或盲评数字；不将静态sketch风格例当绘画过程评价。",
+    "baselines": "T2理解专用LLaVA72B、Qwen2VL72B、Qwen2.5VL7B、Emu3Chat、InternVL2.5 8/38/78B、DeepSeekVL2、GPT4o20241120、Step1o；统一DreamLLM/MetaMorph/Show-o256/512/TokenFlowXL/Chameleon/Janus/JanusPro7B。T3生成专用LlamaGen/LDM/SD1.5/PixArtα/SD2.1/DALLE2/Emu3Gen/SDXL/DALLE3/SD3medium，统一Chameleon/LWM/SEEDX/Show-o/TokenFlowXL/Janus/JanusPro1B/MetaQueries。基线来自不同数据/预训练/规模和采样条件，不当等预算。Emu3Chat和Emu3Gen分别任务版本，不能据此推同权重双用。",
+    "experimental_conditions": "v3完整HTML§1–4、四式三表七图；贡献名单仅核范围、参考仅相关追引。v1→v3研究正文基本相同，主要修订链接/引用，不把MSE声明当本版新增完整消融。GH固定Ming-Lite-Omni-Preview 69f28cdb5c3e60d351448ae0f50c583b3f3d359d，117entries/101blobs；Ming-unify目录18blobs、12py，选读README/inference/主推理/SANALoss/processor全文及pipeline相关段。HF f08100716d7d488dc71288d090b91161175eb40c 66files，核11份readme/code/config与7主shard/connector/MLP/SANA/VAE存在元数据；未下载权重。HF与GH主推理/SANALoss/inference内容一致；HFprocessor把传入路径覆盖为作者服务器本地路径，GH改Qwen官方模型名，环境可移植性不同。训练器/完整MSE优化loop/GenEval原始输出未定位；不能由SANALoss默认repa_loss=False反推作者未训练对齐。发布例512²/30steps/seed42/CFG5；函数默认20steps/CFG7，论文T3实际用哪套不明。README<1s未明确冷/热、batch、步数、完整LLM+三采样时间，未运行验证。",
+    "problem": "将冻结的多模态理解模型接到可训练扩散生成器，在保留既有感知能力的条件下增加文本生图、指令编辑、风格迁移和多轮交互。需要验证多尺度query及表示对齐是否在等预算下提供语义与细节收益；本作不生成视频、真实作画轨迹或规范笔顺。",
+    "method": "将MetaQueries式冻结MLLM桥接与M2-omni底座结合；增加4²/8²/16²共336个学习query、边界和位置编码；可训练connector传条件给SANA，配多尺度DiT中间表征与最终语义表征MSE及flow matching。报告GenEval.62和理解69.7，并展示图像编辑。配套Ming-Omni的多尺度机制已有此前说明，不能将同一机制重复算作独立首创。 论文§2.2写NaViT、2×2拼接/MLP、M2-omni基于Llama3.1-8B或Llama3.3-70B、M-RoPE；未指定T2哪一骨干/完整生成训练超参。实际链接发布物是Qwen2.5路线：qwen2_5_llm配置28层h3584、28heads/4KV、vocab152064、maxpos32768、M-RoPE；QwenViT32层h1280、out8192、merge2；connector为Qwen2.5-0.5B配置24层h896/14heads2KV，代码改为非因果attention，3584↔896投影；SANA20层70heads×32、cross2240/caption2304/in32。代码query为4/8/16、learnable_queries_1d=True，对应1×s²布局，不能默认等同论文二维gridPE。公开脚本一次MLLM取三组隐藏态，各组分别connector并采样三次相同height/width，最后只返回16²组图；与Ming-Omni原版只最终尺度采样分开记录。",
+    "conclusion": "T2本作Avg69.7，7指标80.7/60.5/51.2/68.3/51.8/84.5/72.3；Avg低于GPT4o72.0/Qwen2.5VL7B76.2/Step1o77.7，高于DeepSeek66.4，但对DeepSeek七项四胜、两负、一平；对GPT4o仅Math68.3>59.9，其余六项更低。T2未列Gemini，文字“超过GPT4o/Gemini”缺同表支持；与M2-omni9B同一理解向量重用，不能单当生成带来理解提升证据。T3本作.99/.76/.53/.87/.26/.30，总.62>.61MetaQueries/.61Janus/.55SDXL，但低于DALLE3.67、SD3medium.74、JanusPro1B.73；正文“.62超过所有方法并超过DALLE3.67”与本表冲突。single.99与SD3持平，position/colorbinding仍.26/.30，不可泛化为全任务领先。F1“stop sign”下是餐桌房间图，标为展示指令/图配对不符单例，不能估失败率；F7sketch/对象替换等定性有演示价值，无总体可靠率。三主表每行收录结构化证据。",
+    "gap": "论文Llama/M2描述与所链接Qwen发布物未对齐，T2具体模型身份不明确；主表不支持“全部领先/模态互相增强”。冻结MLLM使生成loss不直接更新其参数，保持相同权重的感知输出较稳定，但额外query/processor/上下文仍需实测，亦无法凭此论证双向训练迁移。Eq3边界PE维度省略；MSE缺完整目标与可执行训练loop。发布推理对三scale独立同尺寸采样并丢两图，与F2单末尺度推理意图/README时延范围需说明，三次调用不能直接推定精确3倍耗时。多轮训练数据不代表长程编辑已验证；精选样例、CLIP筛样、公开测试是否与训练实体重叠、种子/采样改写/N均未齐，不认定泄漏或造假。",
+    "claim": "将冻结的多模态理解模型接到可训练扩散生成器，在保留既有感知能力的条件下增加文本生图、指令编辑、风格迁移和多轮交互。需要验证多尺度query及表示对齐是否在等预算下提供语义与细节收益；本作不生成视频、真实作画轨迹或规范笔顺。",
+    "related_records": [
+      "L159",
+      "L160"
+    ],
+    "work_family": "M2-omni / Ming multimodal bridge",
+    "review_history": [
+      {
+        "checked_on": "2026-10-24",
+        "batch": "one_hundred_seventy_second",
+        "sections_read": "arXiv2505.02471v3完整HTML研究§1–4、Eq1–4、T1–3全部行、七张实际原图F1–7全部视觉阅读；贡献仅名单范围/参考相关追引；v1/v3研究文字差异核，未把完整PDF阅读作为凭据。核心三遍与五项书面完成，未独立口述/模型复现。固定GH预览分支117树/101blobs、相关Ming-unify19blob路径清单及六份源码/README实际阅读；HF69文件元数据与11个文本配置/关键代码核。未下载权重、未模型执行，未称所有源码逐行。",
+        "verification": "primary_sections_read"
+      }
+    ],
+    "evidence_history": []
   }
 ]

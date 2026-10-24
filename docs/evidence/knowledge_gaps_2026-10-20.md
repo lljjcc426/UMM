@@ -640,3 +640,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第一百七十一批（2026-10-24）：更正Ming视频32→128帧，SANM默认分支与Whisper显式分支均在；T12context中英WER均退、T9richness退；图F8羊指令配火车图需编辑核实，不自动当模型失败。配套Ming-Lite-Uni2505.02471需补录全文。见[审查](mingomni_multiscale_bridge_and_context_tradeoff_audit_2026-10-24.md)、[L160](../reviews/L160.md)。
+
+
+第一百七十二批（2026-10-24）：关闭“配套论文尚未读取”队列，保留受控MSE消融/损失定义缺口；L191T3正文.62超过DALLE3.67与表冲突，发布三次同分辨率采样丢前两图，<1s时延口径未齐。见[审查](ming_lite_uni_companion_multiscale_and_release_alignment_audit_2026-10-24.md)、[L191](../reviews/L191.md)。

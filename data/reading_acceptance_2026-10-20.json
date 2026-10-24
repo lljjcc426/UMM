@@ -9669,6 +9669,40 @@
         }
       ],
       "boundary": "完整arXiv2506.09344v1 PDF28页研究§1–5/数据附录§7–9，贡献§6看范围，参考仅相关追引；T1–15每行、F1–8全部实际图片含八张原图及PDF音频三表视觉核；纠正32→128帧。三遍核心与五项书面，未独立口述/模型复现。原GH75fb7e固定125entries/109blobs，README与config全文、11相关源码下载并读router/模型构造/Whisper与SANM分支/query追加/generate/生成模块加载/SANALoss与BPE实现相关段，不称全部源码精读。HF ecd74fd元数据168files及connector/talker/transformer/scheduler/mlp配置核，未下载权重或执行模型。Ming-Lite-Uni配套全文另排追引，未借邻篇补本报告消融。"
+    },
+    {
+      "id": "L191",
+      "checked_on": "2026-10-24",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "将冻结的多模态理解模型接到可训练扩散生成器，在保留既有感知能力的条件下增加文本生图、指令编辑、风格迁移和多轮交互。需要验证多尺度query及表示对齐是否在等预算下提供语义与细节收益；本作不生成视频、真实作画轨迹或规范笔顺。 理解特征侧重语义，像素生成需要细节；仅传caption会丢失源图和隐藏表示，多尺度query试图在冻结底座与DiT间形成连续条件。作者称此前Janus/TokenFlow采用diffusion decoder的归类过宽，Janus生成路径为离散码AR，不能沿用该说法解释全部相邻方法。关于冻结底座无任务折损/双向增强仍需相同底座前后测试与因果消融。",
+          "evidence": "完整HTML研究范围/三表七实际图/四式，核正文与主表.62/.67冲突、论文M2与发布Qwen身份、三次独立采样丢前两张及MSE仅文字收益；五项书面保留未复现边界。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "输入文字与可选源图→视觉encoder/MLP与textembedding→冻结MLLM；文本输出按AR，生成时追加三组query及每组首尾标记，query隐藏态经connector给可训练DiT/AutoencoderDC生成最终图。F2训练三分辨率128/256/512共享DiT，推理画512最终分支；不等同逐轮生成一幅图后再送下一轮。Eq1学习Q_s，Eq2每尺度[START,Q,END]，Eq3拼接后加P，Eq4H=f_theta(Z)。按文字定义Q的token数336、加六boundary后342，但P仍只定义336行，Eq3边界位置编码未写齐，需补约定；此为符号维度缺口，不证明实际张量运算失败。对齐MSE对象/层/归一与权重、各尺度loss和联合训练完整公式未给。 论文§2.2写NaViT、2×2拼接/MLP、M2-omni基于Llama3.1-8B或Llama3.3-70B、M-RoPE；未指定T2哪一骨干/完整生成训练超参。实际链接发布物是Qwen2.5路线：qwen2_5_llm配置28层h3584、28heads/4KV、vocab152064、maxpos32768、M-RoPE；QwenViT32层h1280、out8192、merge2；connector为Qwen2.5-0.5B配置24层h896/14heads2KV，代码改为非因果attention，3584↔896投影；SANA20层70heads×32、cross2240/caption2304/in32。代码query为4/8/16、learnable_queries_1d=True，对应1×s²布局，不能默认等同论文二维gridPE。公开脚本一次MLLM取三组隐藏态，各组分别connector并采样三次相同height/width，最后只返回16²组图；与Ming-Omni原版只最终尺度采样分开记录。",
+          "evidence": "完整HTML研究范围/三表七实际图/四式，核正文与主表.62/.67冲突、论文M2与发布Qwen身份、三次独立采样丢前两张及MSE仅文字收益；五项书面保留未复现边界。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "将MetaQueries式冻结MLLM桥接与M2-omni底座结合；增加4²/8²/16²共336个学习query、边界和位置编码；可训练connector传条件给SANA，配多尺度DiT中间表征与最终语义表征MSE及flow matching。报告GenEval.62和理解69.7，并展示图像编辑。配套Ming-Omni的多尺度机制已有此前说明，不能将同一机制重复算作独立首创。 已有强视觉理解底座且需追加低改动图生成/编辑时，连续query有机会保留caption难表达的身份/细节，多尺度训练可能让同一DiT适应不同语义粒度。此优势依赖源图条件和数据对齐，不能由336query数量本身推出层次解耦或细笔画保留。对于汉字/非Latin组合字形和素描逐笔过程，需单独字形/路径/时序监督与评价。",
+          "evidence": "完整HTML研究范围/三表七实际图/四式，核正文与主表.62/.67冲突、论文M2与发布Qwen身份、三次独立采样丢前两张及MSE仅文字收益；五项书面保留未复现边界。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2本作Avg69.7，7指标80.7/60.5/51.2/68.3/51.8/84.5/72.3；Avg低于GPT4o72.0/Qwen2.5VL7B76.2/Step1o77.7，高于DeepSeek66.4，但对DeepSeek七项四胜、两负、一平；对GPT4o仅Math68.3>59.9，其余六项更低。T2未列Gemini，文字“超过GPT4o/Gemini”缺同表支持；与M2-omni9B同一理解向量重用，不能单当生成带来理解提升证据。T3本作.99/.76/.53/.87/.26/.30，总.62>.61MetaQueries/.61Janus/.55SDXL，但低于DALLE3.67、SD3medium.74、JanusPro1B.73；正文“.62超过所有方法并超过DALLE3.67”与本表冲突。single.99与SD3持平，position/colorbinding仍.26/.30，不可泛化为全任务领先。F1“stop sign”下是餐桌房间图，标为展示指令/图配对不符单例，不能估失败率；F7sketch/对象替换等定性有演示价值，无总体可靠率。三主表每行收录结构化证据。 论文没有受控消融表或消融曲线。承认§2.1报告对齐>2dB/+1.5%，README再述query+3.5%，但缺基线分数、训练匹配、误差、具体实现，不能标记这些组件已完成因果隔离。也没有冻结/全训、单/多尺度、connector大小、caption vshidden条件、querytoken预算、迭代编辑、位置编码1D/2D和端到端速度对照。后续Ming-Omni的.64与本作.62涉及不同底座/数据/发布版本，不能直接归因某一组件。 v3完整HTML§1–4、四式三表七图；贡献名单仅核范围、参考仅相关追引。v1→v3研究正文基本相同，主要修订链接/引用，不把MSE声明当本版新增完整消融。GH固定Ming-Lite-Omni-Preview 69f28cdb5c3e60d351448ae0f50c583b3f3d359d，117entries/101blobs；Ming-unify目录18blobs、12py，选读README/inference/主推理/SANALoss/processor全文及pipeline相关段。HF f08100716d7d488dc71288d090b91161175eb40c 66files，核11份readme/code/config与7主shard/connector/MLP/SANA/VAE存在元数据；未下载权重。HF与GH主推理/SANALoss/inference内容一致；HFprocessor把传入路径覆盖为作者服务器本地路径，GH改Qwen官方模型名，环境可移植性不同。训练器/完整MSE优化loop/GenEval原始输出未定位；不能由SANALoss默认repa_loss=False反推作者未训练对齐。发布例512²/30steps/seed42/CFG5；函数默认20steps/CFG7，论文T3实际用哪套不明。README<1s未明确冷/热、batch、步数、完整LLM+三采样时间，未运行验证。",
+          "evidence": "完整HTML研究范围/三表七实际图/四式，核正文与主表.62/.67冲突、论文M2与发布Qwen身份、三次独立采样丢前两张及MSE仅文字收益；五项书面保留未复现边界。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "论文Llama/M2描述与所链接Qwen发布物未对齐，T2具体模型身份不明确；主表不支持“全部领先/模态互相增强”。冻结MLLM使生成loss不直接更新其参数，保持相同权重的感知输出较稳定，但额外query/processor/上下文仍需实测，亦无法凭此论证双向训练迁移。Eq3边界PE维度省略；MSE缺完整目标与可执行训练loop。发布推理对三scale独立同尺寸采样并丢两图，与F2单末尺度推理意图/README时延范围需说明，三次调用不能直接推定精确3倍耗时。多轮训练数据不代表长程编辑已验证；精选样例、CLIP筛样、公开测试是否与训练实体重叠、种子/采样改写/N均未齐，不认定泄漏或造假。 先固定同一MLLM/SANA、训练数据、总querytoken及更新FLOPs，对caption、单尺度336、16²加等长随机prefix、多尺度学习query和各尺度单独移除做对照；对齐MSE开/关及匹配额外投影参数，公开原始重建PSNR/GenEval逐例与相对/百分点定义。冻结/LoRA/全训报理解和生成Pareto及梯度去向。完整端到端计时对三次采样、只采最后一组和F2协议，固定512/steps/CFG/seed、计含LLM/connector/decoder，前两图是否被任何后续计算使用以调用图验证。补M2论文模型和Qwen发布物各自身份/主表；多轮MagicBrush按scene/subject隔离并测源保留、数词/位置/字形CER与长度退化，接真实轨迹测试正逆序和shuffle。",
+          "evidence": "完整HTML研究范围/三表七实际图/四式，核正文与主表.62/.67冲突、论文M2与发布Qwen身份、三次独立采样丢前两张及MSE仅文字收益；五项书面保留未复现边界。"
+        }
+      ],
+      "boundary": "arXiv2505.02471v3完整HTML研究§1–4、Eq1–4、T1–3全部行、七张实际原图F1–7全部视觉阅读；贡献仅名单范围/参考相关追引；v1/v3研究文字差异核，未把完整PDF阅读作为凭据。核心三遍与五项书面完成，未独立口述/模型复现。固定GH预览分支117树/101blobs、相关Ming-unify18blob路径清单及六份源码/README实际阅读；HF66文件元数据与11个文本配置/关键代码核。未下载权重、未模型执行，未称所有源码逐行。"
     }
   ]
 }
