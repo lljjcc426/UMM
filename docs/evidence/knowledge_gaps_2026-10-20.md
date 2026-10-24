@@ -751,3 +751,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百零八批（2026-10-25）：Eq1全对均值系数与文字不符，额外缩放未披露；Task2IRS实现仍见图，Task4输出图确实移除；源码非执行。见[审查](comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[L173](../reviews/L173.md)。
+
+
+第二百零九批（2026-10-25）：论文128batch与README算得64不同；脚本末未train(args)，配置路径复数拼写不符；来源占比和teacher快照未给。见[审查](sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。

@@ -799,3 +799,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百零八批（2026-10-25）：CoMM正式正文10+补13页全核，arXivv3实际23页，10图13表5式；固定repo和HF公开metadata。见[审查](comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[L173](../reviews/L173.md)。
+
+
+第二百零九批（2026-10-25）：v1全19页8图5表AppA–E，GitHub固定19ac7d7及HF数据/模型固定版本；只读源码/清单无模型执行。见[审查](sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。

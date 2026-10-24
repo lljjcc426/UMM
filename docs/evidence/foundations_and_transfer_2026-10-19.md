@@ -543,3 +543,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百零八批（2026-10-25）：CoMM是静态教程/故事步骤，SSIM/PSNR参考×生成全对对乱序不敏感；迁移笔顺应加规范事件偏序。见[审查](comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[L173](../reviews/L173.md)。
+
+
+第二百零九批（2026-10-25）：MotionChange静态单图编辑和storyboard类别不证明视频或规范笔顺；图码输入可控保真需事件监督另验。见[审查](sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。

@@ -279,7 +279,7 @@
 | L171 | OBELICS: An Open Web-Scale Filtered Dataset of Interleaved Image-Text Documents | primary_sections_read | [结构化分析](../reviews/L171.md) | 核心三遍与五项检查完成 |
 | L172 | OmniCorpus: A Unified Multimodal Corpus of 10 Billion-Level Images Interleaved with Text | primary_sections_read | [结构化分析](../reviews/L172.md) | 核心三遍与五项检查完成 |
 | L173 | CoMM: A Coherent Interleaved Image-Text Dataset for Multimodal Understanding and Generation | primary_sections_read | [结构化分析](../reviews/L173.md) | 核心三遍与五项检查完成 |
-| L174 | ShareGPT-4o-Image: Aligning Multimodal Models with GPT-4o-Level Image Generation | primary_sections_read | [结构化分析](../reviews/L174.md) | 未完成 |
+| L174 | ShareGPT-4o-Image: Aligning Multimodal Models with GPT-4o-Level Image Generation | primary_sections_read | [结构化分析](../reviews/L174.md) | 核心三遍与五项检查完成 |
 | L175 | XMP-Font: Self-Supervised Cross-Modality Pre-training for Few-Shot Font Generation | primary_sections_read | [结构化分析](../reviews/L175.md) | 核心三遍与五项检查完成 |
 | L176 | Representing Online Handwriting for Recognition in Large Vision-Language Models | primary_sections_read | [结构化分析](../reviews/L176.md) | 核心三遍与五项检查完成 |
 | L177 | PaintFlow: A Unified Framework for Interactive Oil Paintings Editing and Generation | primary_sections_read | [结构化分析](../reviews/L177.md) | 核心三遍与五项检查完成 |

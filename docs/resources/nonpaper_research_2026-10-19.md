@@ -707,3 +707,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百零八批（2026-10-25）：CoMM HF无gate，可见train/val/test.pth及val_and_test_images.zip；训练图另下载，CCBY4不覆盖原来源权利。见[审查](../evidence/comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[L173](../reviews/L173.md)。
+
+
+第二百零九批（2026-10-25）：HF数据JSON45717+46539=92256，旧92K分项疑问更新；只有路径/分辨率无来源标签，tar/权重未取。数据卡Apache2/modelcard MIT并指缺失LICENSE，不混同来源权利。见[审查](../evidence/sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。

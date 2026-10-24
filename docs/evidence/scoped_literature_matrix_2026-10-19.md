@@ -710,3 +710,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百零八批（2026-10-25）：T2非全任务全shot胜，16shotVQA54.2<原54.3；SEED14SSIM20.83<Emu20.96；T11人机排序部分反向。见[审查](comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[L173](../reviews/L173.md)。
+
+
+第二百零九批（2026-10-25）：GenEval.76→.80但color下降/DPGattribute下降；ImgEdit本表3.26领先且多类别仍输，不当最新全领域排名。见[审查](sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。

@@ -736,3 +736,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百零八批（2026-10-25）：按来源/过滤/预算控制与长度分层；IRS遮图与逐步配对指标，DPO合法多序负例审查；均为设计未执行。见[审查](../evidence/comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[L173](../reviews/L173.md)。
+
+
+第二百零九批（2026-10-25）：拆教师/真实来源与两个视觉输入、mask和sprime，控制预算与统一底座并测理解保留/多人人评。见[审查](../evidence/sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。

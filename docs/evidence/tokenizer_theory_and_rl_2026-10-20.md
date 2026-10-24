@@ -291,3 +291,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百零八批（2026-10-25）：shuffle四种偏好对+DPO改善文字，Task2FID两尺寸恶化/Task3多数降；不可以文字收益代表统一图文收益。见[审查](comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[L173](../reviews/L173.md)。
+
+
+第二百零九批（2026-10-25）：目标图AR CE/继承双编码；代码10%全promptdrop与50%整源VQblockdrop，CFG三条件，无RL实验。见[审查](sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[L174](../reviews/L174.md)。

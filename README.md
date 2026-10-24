@@ -620,3 +620,6 @@ python scripts/validate_catalog.py
 
 
 第二百零八批（2026-10-25）：L173正式10+13页全部；补DPO图像退化、人机评分局部反序、全配对PSNR/SSIM与Task2 IRS见图，区分可证数学/源码问题和未复现结论。358目录，313核心/318书面；待完成核心深审18篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/comm_full_supplement_and_sequence_metric_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_eighth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百零九批（2026-10-25）：L174 v1全19页补齐，公开两JSON精确92256条；核真实图来源矛盾、整块mask、batch口径与训练入口缺调用。358目录，314核心/319书面；待完成核心深审17篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/sharegpt4o_full_appendix_manifest_and_training_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_ninth_changes_2026-10-25.md)。无删除或模型执行。
