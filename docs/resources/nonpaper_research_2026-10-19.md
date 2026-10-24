@@ -713,3 +713,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百一十批（2026-10-25）：HFadapter config与18057/19chunks记录可核；底座卡确认Muharaf但Kitab/IAM仍不完全对齐；未取权重/隐藏GT。见[审查](../evidence/ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[S001](../reviews/S001.md)。
+
+
+第二百一十一批（2026-10-25）：项目页有图音样例无code/model链接；本次只核波形/字幕/接口，未独立听评声音。见[审查](../evidence/muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[L164](../reviews/L164.md)。

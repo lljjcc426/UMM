@@ -742,3 +742,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百一十批（2026-10-25）：独立dev冻结定权+blind一次，按page/writer切分/同预算PEFT因子与等成本集成；争议样本专家GT替代自输出伪GT。见[审查](../evidence/ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[S001](../reviews/S001.md)。
+
+
+第二百一十一批（2026-10-25）：同pair边缘不同高阶joint+真tripletheldout；aggregation×detach×priorroute因子及β/γ/质量多样性。见[审查](../evidence/muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[L164](../reviews/L164.md)。

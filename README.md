@@ -626,3 +626,6 @@ python scripts/validate_catalog.py
 
 
 第二百一十批（2026-10-25）：S001正式11页完整；公开源码确认CodaBench提交分数定权与30命名配置重复，补同底座适配收益/排行榜聚合/伪GT限制。358目录，315核心/320书面；待完成核心深审16篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_tenth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百一十一批（2026-10-25）：L164完成29页全部证明/附录/图表；补总体joint理论到pair训练的缺口、真实预训练空间和附录结果边界。358目录，316核心/321书面；待完成核心深审15篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_eleventh_changes_2026-10-25.md)。无删除或模型执行。

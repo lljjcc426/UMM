@@ -805,3 +805,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百一十批（2026-10-25）：正式11页§1–7/AppA–H全核，4图10表5式；固定repo/HF与底座卡来源补查。见[审查](ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[S001](../reviews/S001.md)。
+
+
+第二百一十一批（2026-10-25）：MUNI唯一v1全部29页AppA–F/11图9表57式及项目页补齐。见[审查](muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[L164](../reviews/L164.md)。

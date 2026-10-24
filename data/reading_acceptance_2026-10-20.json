@@ -10961,6 +10961,40 @@
         }
       ],
       "boundary": "ACL正式11页pp160–170全部§1–7/Ethics/致谢/17条references清单及关键引文/AppA–H全含F1–3/H1–2；F1–4全部实际视觉、T1–10逐表含阿文样例页面、Eq1–5逐式；4contact全看并框架/长度图/伪真值页放大。固定repof1aefa8 README全文/YAML/adapter/training_info全文，train_model/preprocess/load/apply及ensemble完整advanced/weight_configs源码；inference指定参数，非全仓审计。固定HF7f55602 card与repo正文对照，底座a404b5b卡元数据/来源/结果/理论主张段审。未取数据/权重、未模型或OCR/训练/外部API执行；核心三遍和五书面完成，非隐藏GT复现或阿文史料校勘。"
+    },
+    {
+      "id": "L164",
+      "checked_on": "2026-10-25",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "共享随机latent如何同时支持任意子集条件生成与无条件图文音联合采样，并保留跨模态依赖、避免把私有细节全塞进共享表示？ 单专家混合可忽略部分输入；对所有小子集latent训练prior可能丢失缺失模态之间的相关；自重建会鼓励私有信息。作者用三项信息条件指导路由，理论仅在额外可实现/优化/排序假设下成立。",
+          "evidence": "29页11图9表57式AppA–F全核，理论排序与优化假设/两两数据高阶不可识别/实际CLIPCLAP预训范围/两个变体与附录反例结果入库。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "图/文/音任意观测子集→缺失模态，空集→三模态共生成；另Poly三图+digit/quadrant共5模态、Gaussian3模态。没有视频、字符笔画、接触事件或规范笔顺监督。 Eq1–12定义factorized stochastic decoders及subset posterior。Eq11目标expert在forward保留、backward detached，其他expert仍接收该目标梯度；Eq12 prior仅|A|≥M−1。图文音实际在预训练CLIP/CLAP/EmbeddingGemma语义空间上学习MLP enc/prior/heads，StableUnCLIP/AudioLDM负责后续图音，Gemma3-1B LoRA r16/α32/drop.05解码文字。引言不依赖text-aligned space应按框架能力理解，实际实验确用了CLIP/CLAP，不能写成完全无文字对齐先验或全部像素端到端从零训练。Poly latent32/ResNet/NCSN++；toy latent48，MMVAE+额外24/Poly额外32私有维，容量并非逐参数完全相等。",
+          "evidence": "29页11图9表57式AppA–F全核，理论排序与优化假设/两两数据高阶不可识别/实际CLIPCLAP预训范围/两个变体与附录反例结果入库。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "在UL联合训练latent框架上扩展多模态，用非混合PoE/Hellinger、目标expert stop-gradient及full/leave-one-out prior路由。定义coherence TC=0、predictivity条件互信息=0、minimality最小I；AppB给条件性命题与证明。聚合规则本身沿用已有方法，贡献重点在联合目标和路由设计。 在跨模态依赖可由共享随机表示解释、private可由强随机decoder承担、成对语义足够识别任务结构时，目标路由可能改善联合一致和多条件融合。精确字符串、异步时序/笔顺，以及只有高阶依赖的分布不由现有图音语义分数保证。",
+          "evidence": "29页11图9表57式AppA–F全核，理论排序与优化假设/两两数据高阶不可识别/实际CLIPCLAP预训范围/两个变体与附录反例结果入库。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T2/6 Poly joint .9346>MoPoE.9283/uncond.4841>HELVAE.4246、扩展ShaLa.4539；digit .9131低于HELVAE.9297/MMVAE+.9368。T3六项由MUNI与†合并取best，单一模型未全胜；MoPoE(I+A)→T CLIP27.81>MUNI†27.60/(T+I)→A CLAP30.96>30.16，主文best限定generalists。T4†26.74/24.83/82.80 vs Omni21.17/14.23/50.95，MUNI自身TI26.76略优†。T8†FID14.40好于FlowBind20.13，但ITCIDEr58.31<Unified91.36/MoPoE59.74，AT47.38<Flow54.41/MoPoE50.34；T9TI29.92<Omni30.76、AT39.45<44.74，IA90.11<MoPoE90.82。所有为作者数。 T5可控共享private结构MUNI2→1MSE.0414、SWD.1300、uncondMSE.0394最好，但1→1.0508差于MMVAE.0267；T6增加private与强prior基线支持机制比较，非聚合×detach×priorroute独立全因子消融。MUNI/†只对比聚合；未给β/γ/3:2/首64text抽样/MLP容量或noise多样性充分扫参。T7参数差异与多个目标同时改动，不能把全部差距单因果归stopgrad。 T7 AdamWβ.9/.95/wd0/clip1/constantLR+5epochwarm/EMA.999；toy4e-3/200epoch/b4000/约10min，Poly6e-4/300/b1024/约3h，真实4e-4/200/b1024/约3h，单RTXPRO6000均作者报告，不含继承底座预训/完整调参。encoderpriorγ .1/.1/.01，ShaLa toy.01。toy prior/decoder各50步，Poly prior50/decoder25；真实图Euler25/CFG4、文greedy。真实text CE仅有效batch1024首64例、权重.05并加768维表示alignment，imageFM/audioMSE，cross:prior路线3:2。Eq12β与独立wA完整数值/实际pair缺失路由细节未充分列；γ与β不可直接同名。",
+          "evidence": "29页11图9表57式AppA–F全核，理论排序与优化假设/两两数据高阶不可识别/实际CLIPCLAP预训范围/两个变体与附录反例结果入库。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "29页11图9表57编号式AppA–F全读。LemmaB1以条件MI与链式TC成立；B2依赖总体风险/理想可优化/可实现最小latent、任何ρ>0有可行降损更新、充分小β以及Eq29先验成本随保留I严格排序。Eq30最大似然示例还需H(Z|X)固定；flow情形把排序作为假设，未普证，不推出实际非凸有限样本保证。各route单独充分也未充分证明所有subset aggregated latent分布与唯一共享prior一致；pair训练没有看到完整三元风险。定性F1–11已实际看过，音频只核波形与caption/接口，未独立聆听/评审原始音质，不以图证明声音一致。项目页无code/model下载链接，未取得对应实现。 固定预训/数据/预算做aggregation×detach×priorroute因子，扫β/γ和text CE抽样，报质量/多样性/校准CI。构造相同两两边缘不同三元joint(偶校验/独立)及少量真tripletheldout，检验pair可识别边界；公布真实三元专家盲评/高阶关系测试，比较每route latent marginal与prior。数值检验Eq29而非预设；书写场景加可识别却笔顺错、缺笔或文字精确条件。未执行。",
+          "evidence": "29页11图9表57式AppA–F全核，理论排序与优化假设/两两数据高阶不可识别/实际CLIPCLAP预训范围/两个变体与附录反例结果入库。"
+        }
+      ],
+      "boundary": "arXivv1唯一版本全部29页§1–7、57条references清单及关键关联、SocietalImpacts/Limitations、AppA/A1/B LemmaB1+PropositionB2逐假设逐步/C全部loss推导/D/E1–2/F；Eq1–57、T1–9逐项、F1–11全部视觉，10contact全看并p3框架/p21配置/p22全主辅表放大。官方项目页方法/结果/样例/链接核，无code/model链接；未听原始音频、未运行模型/训练/API/基准。核心三遍五项书面完成，未声称独立复现。"
     }
   ]
 }

@@ -716,3 +716,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百一十批（2026-10-25）：同HRT CER.2032→.0884相对56.5%，ensemble.0819；corpus第3/perlineCER第1但WER不第1。见[审查](ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[S001](../reviews/S001.md)。
+
+
+第二百一十一批（2026-10-25）：T3最佳来自两个变体且限定generalist；同骨干MoPoE部分优，T8/9文字和部分对齐并非最好。见[审查](muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[L164](../reviews/L164.md)。

@@ -757,3 +757,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百一十批（2026-10-25）：weight_configs明确CODABENCH_CER取blind提交；18/21/29实际同权，测试选配置与AppD验证超参分阶段保留。见[审查](ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[S001](../reviews/S001.md)。
+
+
+第二百一十一批（2026-10-25）：实际CLIP/CLAP/EmbeddingGemma语义空间与抽象不依赖textalign声明分开；真实triplet/共享prior分布一致性仍待证。见[审查](muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[L164](../reviews/L164.md)。

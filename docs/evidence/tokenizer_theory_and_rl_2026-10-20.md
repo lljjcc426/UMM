@@ -297,3 +297,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百一十批（2026-10-25）：NF4+LoRA/DoRA/RSLoRA同时改变，rank最优缺数值消融；底座卡DynamicEquilibriumTheorem无本次可核正式证明。见[审查](ketaba_ocr_full_appendix_and_blind_weight_selection_audit_2026-10-25.md)、[S001](../reviews/S001.md)。
+
+
+第二百一十一批（2026-10-25）：B2需可实现/理想优化/充分小β/先验成本随I严格排序；flow排序为假设，不是已证普遍性质。见[审查](muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[L164](../reviews/L164.md)。
