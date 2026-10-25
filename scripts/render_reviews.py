@@ -10,6 +10,69 @@ from collections import Counter
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def render_resource_note(r, d, audit):
+    sources = '\n'.join(f'- [原始来源 {i+1}]({url})' for i, url in enumerate(r['source_urls']))
+    text = f'''# {r['id']} · {r['title']}
+
+资源身份：{d['venue']}
+
+核查日期：{d['checked_on']}
+
+已核范围：{d['sections_read']}
+
+审查层级：公开制品协议审查；与论文三遍阅读分别计数。实际样例、源码、访问缺项和未发布内容逐项列明；未执行学习模型或独立复现。
+
+{sources}
+
+## 用途与输入输出
+
+研究问题：{d['problem']}
+
+用途：{d['motivation']}
+
+输入与输出：{d['input_output']}
+
+实现及字段：{d['architecture']}
+
+## 数据、版本与使用条件
+
+{d['data']}
+
+{d['experimental_conditions']}
+
+## 可采信结论与评价边界
+
+已有证据：{d['results']}
+
+指标语义：{d['metrics']}
+
+对照与消融：{d['baselines']} {d['ablation']}
+
+作者报告的模型分数未在本仓库重算；文件解析、数量核对和静态源码分析按具体范围单列。
+
+## 局限与研究迁移
+
+{d['limitations']}
+
+优势假设（尚未验证）：{d['advantage_hypothesis']}
+
+可证伪方案（尚未运行）：{d['falsification']}
+
+记录方法：{d['writing_lesson']}
+
+## 制品协议五项审查
+
+'''
+    if audit:
+        for check in audit['checks']:
+            text += f"### {check['criterion']}\n\n{check['answer']}\n\n"
+        text += f"剩余制品缺项：{audit['remaining_artifact_gaps']}\n\n"
+        text += '公开协议审查已完成；上述缺项保留。该状态不表示所有数据、权重、源码或逐帧人工验收已经完成。\n'
+    else:
+        text += '尚无单列的制品协议验收记录。\n'
+    return text
+
+
 def main():
     catalog = json.loads((ROOT / 'data/literature.json').read_text(encoding='utf-8'))
     by_id = {r['id']: r for r in catalog}
@@ -18,14 +81,21 @@ def main():
         reviews.extend(json.loads((ROOT / 'data' / name).read_text(encoding='utf-8'))['records'])
     acceptance_file = ROOT / 'data/reading_acceptance_2026-10-20.json'
     acceptance = {r['id']: r for r in json.loads(acceptance_file.read_text(encoding='utf-8'))['records']} if acceptance_file.exists() else {}
+    resource_file = ROOT / 'data/resource_acceptance_2026-10-25.json'
+    resources = {r['id']: r for r in json.loads(resource_file.read_text(encoding='utf-8'))['records']} if resource_file.exists() else {}
     folder = ROOT / 'docs/reviews'
     folder.mkdir(exist_ok=True)
     index = ['# 第二轮原文阅读与批判分析', '',
              '以下笔记按实际阅读范围记录。相关章节核查不等于三遍完整精读；没有进行模型复现。未填完的实验条件与消融明确保留，不能计作全部完成。', '',
              '[逐条完成台账](../evidence/reading_ledger_2026-10-19.md) · [理论与实验迁移](../evidence/foundations_and_transfer_2026-10-19.md)', '',
-             '| 编号 | 论文 | 核查范围 |', '| --- | --- | --- |']
+             '资源按身份/许可、字段、实际制品、主张边界、研究迁移五项审查，另列完成状态，不套用论文三遍模板。', '',
+             '| 编号 | 论文或资源 | 核查范围 |', '| --- | --- | --- |']
     for d in reviews:
         r = by_id[d['id']]
+        if r['record_type'] == 'resource':
+            (folder / f'{r["id"]}.md').write_text(render_resource_note(r, d, resources.get(r['id'])), encoding='utf-8')
+            index.append(f'| {r["id"]} | [{r["title"]}]({r["id"]}.md) | {d["sections_read"]} |')
+            continue
         sources = '\n'.join(f'- [原始来源 {i+1}]({url})' for i, url in enumerate(r['source_urls']))
         accepted = acceptance.get(d['id'])
         complete = accepted and accepted.get('full_three_pass_completed') is True
@@ -137,20 +207,31 @@ def main():
     ledger = ['# 全目录逐条阅读台账', '',
               f'主目录 {len(catalog)} 条，本批有 {len(reviews)} 份结构化笔记。此表列出全部记录，不将来源访问、摘要核对、章节核对与完整三遍精读混为一项。', '',
               '核心三遍完成需逐条核问题/方法/框架图、主表/消融及有依据的批判分析，并记录五项书面检查。计时口试、完整代码审查和独立复现另列；没有自动把模板填齐计为完成。', '',
-              '| ID | 记录 | 原目录核查状态 | 本批笔记 | 三遍验收 |', '| --- | --- | --- | --- | --- |']
+              '资源使用独立的制品协议验收；可访问性不足与未发布制品仍明确保留，不计入论文核心完成数。', '',
+              '| ID | 记录 | 原目录核查状态 | 本批笔记 | 论文阅读／资源协议验收 |', '| --- | --- | --- | --- | --- |']
     for r in catalog:
         note = f'[结构化分析](../reviews/{r["id"]}.md)' if r['id'] in review_map else '本批未新增逐篇精读'
-        done = ('核心三遍与五项检查完成' if acceptance.get(r['id'], {}).get('full_three_pass_completed') is True else
+        done = ('制品协议五项审查完成；制品缺项见笔记' if r['record_type'] == 'resource' and resources.get(r['id'], {}).get('protocol_review_completed') is True else
+                '制品协议待审' if r['record_type'] == 'resource' else
+                '核心三遍与五项检查完成' if acceptance.get(r['id'], {}).get('full_three_pass_completed') is True else
                 '五项检查已记录；三遍待确认' if r['id'] in acceptance else '未完成')
         ledger.append(f'| {r["id"]} | {r["title"].replace("|", "/")} | {r["verification"]} | {note} | {done} |')
     (ROOT / 'docs/evidence/reading_ledger_2026-10-19.md').write_text('\n'.join(ledger) + '\n', encoding='utf-8')
     as_of = max(r.get('last_updated') or r.get('checked_on') or '2026-10-19' for r in catalog)
     report = dict(date=as_of, catalog_entries=len(catalog), curated_reviews=len(reviews),
+                  paper_research_entries=sum(r['record_type'] != 'resource' for r in catalog),
+                  resource_entries=sum(r['record_type'] == 'resource' for r in catalog),
                   by_verification=dict(Counter(r['verification'] for r in catalog)),
                   by_review_depth=dict(Counter(r['reading_status'] for r in reviews)),
                   three_pass_acceptance_completed=sum(r.get('full_three_pass_completed') is True for r in acceptance.values()),
                   five_item_written_checks_recorded=len(acceptance), independently_reproduced=0,
-                  warning='Source access, section review, complete three-pass reading and reproduction are distinct.')
+                  paper_written_checks_recorded=sum(by_id[id]['record_type'] != 'resource' for id in acceptance),
+                  historical_resource_paper_style_checks_recorded=sum(by_id[id]['record_type'] == 'resource' for id in acceptance),
+                  remaining_paper_core_ids=[r['id'] for r in catalog if r['record_type'] != 'resource' and acceptance.get(r['id'], {}).get('full_three_pass_completed') is not True],
+                  resource_protocol_reviews_completed=sum(r.get('protocol_review_completed') is True for r in resources.values()),
+                  resource_audit_checks_recorded=sum(len(r['checks']) for r in resources.values()),
+                  resource_artifact_evidence_statuses=dict(Counter(r['artifact_evidence_status'] for r in resources.values())),
+                  warning='Paper core reading, public resource protocol audit, complete artifact access and model reproduction are distinct; resource gaps remain itemized.')
     (ROOT / 'data/reading_progress_2026-10-19.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(report, ensure_ascii=False, indent=2))
 

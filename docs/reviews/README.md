@@ -4,7 +4,9 @@
 
 [逐条完成台账](../evidence/reading_ledger_2026-10-19.md) · [理论与实验迁移](../evidence/foundations_and_transfer_2026-10-19.md)
 
-| 编号 | 论文 | 核查范围 |
+资源按身份/许可、字段、实际制品、主张边界、研究迁移五项审查，另列完成状态，不套用论文三遍模板。
+
+| 编号 | 论文或资源 | 核查范围 |
 | --- | --- | --- |
 | A01 | [DP-Font: Chinese Calligraphy Font Generation Using Diffusion Model and Physical Information Neural Network](A01.md) | 正式PDF Abstract/Introduction、§3.1–3.3 Eq1–11、§4.1–4.4 Tables1–3与Conclusion，Fig2/3 PDFp4及此前p7表视觉核。未取得完整训练代码/权重，核心三遍与五项书面理解检查完成，报告缺项保留。 |
 | A02 | [Decoupling Layout from Glyph in Online Chinese Handwriting Generation（OLHWG）](A02.md) | 论文Abstract/§3.1–3.4 Eq1–6/Algorithms1–2、§4.1–4.3 Tables1–3、§5、AppA.2.1–4；Fig3 PDFp5视觉核。固定e1bed55 README、style_classifier.py45–93、train_ddpm指定训练段、unet_ddpm默认与layout配置已读。其余完整代码/权重未运行，核心三遍完成。 |
@@ -95,9 +97,9 @@
 | L045 | [CalliReader / CalliBench，ICCV 2025](L045.md) | 完整正式主PDF11页核心§1–7及固定v2核心交叉、Eq1–4/T1–8完整表；官方补充10页选读A–D2、D3损失/替代切片、E机制、F数据/intent judge全文及S1–4，未逐一实际核全部S定性图或参考文献。实际正式p4 F4/Eq与p7 T3–8。固定GH797808d4完整830blob树/README、训练README与e-IT配置、核心模型/推理/评测/embedding注入/resampler/排序与度量相关片段；非全部vendored XTuner/底层网络审计。HF三个固定revision的卡/目录及当前规模API；未下载权重/图像数据，未训练推理/原表复现或口试。 |
 | L046 | [AWCV100K](L046.md) | 作者公开完整13页accepted PDF：Abstract/§I、§III–VI核心、§II与引用的MediaPipe/数据集相关段落，Eq1–4/TI–XI全部表，非逐篇参考文献/所有定性例图；实际p7 F6–9/Eq3–4与p10 T6–11。出版DOI/卷期页核实，未把accepted排版当最终全文。固定GH308bafd7完整265blob树/README与数据网站状态，未下载Baidu视频、权重或执行tracker/模型/原表复现；未验证SCI分区、全部数据标注与划分名单。 |
 | L047 | [Recontextualizing Revitalization: A Mixed Media Approach to Reviving the Nüshu Language（NüshuVision / NüshuStrokes）](L047.md) | EMNLP2025正式ACL10页PDF全部Abstract/§1–7/Limitations/Ethics及研究附录A–D文字/所有图注；实际p12420 F2数据流程和p12421 T1/MSE/CER视觉核看。参考文献未逐篇验证、文化/历史背景主张未独立调查。GitHub固定94f2a059完整15文件tree；generation.py/TrOCR_CER.py全文、finetuning_nvshu.py数据/训练/评价段及两notebook代码的划分/配置段、output.log尾部指标；完整CSV字符/重复/句长统计。未取得397 MP4/权重，未模型执行/独立复现。 |
-| L048 | [Tegaki](L048.md) | 官网功能、API样例、FAQ全文；源码/版本/实际字体导出与质量尚未验证 |
-| L049 | [SCUT-COUCH2009-TL](L049.md) | PDF采集/标注/算法§2–5、Tables1–4；完整文件规范/授权与当前下载未核 |
-| L050 | [CASIA-OHFC](L050.md) | 官方说明的数据/partition/usage/InkML格式；压缩包与配套论文实验尚未完整核查 |
+| L048 | [Tegaki](L048.md) | 官网/API/FAQ；固定32654a4c完整tree、providers/datasets、match.ts/guide.ts全文与1110键bundled glyphData结构检查；未运行字体抽取/动画或逐字校全部几何。 |
+| L049 | [SCUT-COUCH2009-TL](L049.md) | PDF采集/标注/算法§2–5、Tables1–4；完整文件规范/授权与当前下载未核；本批补访PDF403，原始数据包仍未取得。 |
+| L050 | [CASIA-OHFC](L050.md) | 官方说明的数据/partition/usage/InkML格式；压缩包与配套论文实验尚未完整核查；本批补访失败/超时，未取得InkML样例。 |
 | L051 | [Word-As-Image for Semantic Typography](L051.md) | 本次复核固定v2核心§1–6及AppA/B/C和F18中文，参考文献未逐篇读、AppD全部画廊未遍审。完整取得28页含附录PDF，实际核p4F5/6、p6T1、p8F13–16、p12F18/AppA–C；PDF读取曾自动重建xref，所述页面实际可见，未宣称逐页视觉核全部28页。固定GH ed72b2b README/31项完整树、main/losses/config/baseyaml/runsh全文、utils学习率/增强/预处理/拼词/视频函数及ttf转cubic/细分指定段；未读全部bezier/save_svg/diffvg库/许可全文。未下载权重、运行模型或独立复现。 |
 | L052 | [Strike a Chord! Modal Kinetic Typography](L052.md) | 补完固定v1完整核心Abstract/§1–6/相关工作、全部核心方程/T1/T2；AppA4/A5/A7–A12及A1–3说明复核，A12全部文字/定量说明，实际p4F2/p7T1/p9T2，p3相关工作也核看。未重推全部FEM装配/遍看全部附图动画帧/所有引用。项目页当前Code(soon)，未发现可审训练实现；未观看全部真实循环媒体、未下载模型、执行优化或复现。 |
 | L053 | [Timage: A Generative Text-in-Image Paradigm for Fine-Tuning Vision-Language Models；公开预印本版本](L053.md) | 固定2606.19944v1完整16页PDF+完整HTML核心Abstract/§1–6、Eq1–8、T1–4/F1–5说明，实际p5F2/p7Eq5–7/p9T1/p10T2及正文差值/p11T3/F3/p12T4/F4–5。未逐篇参考文献；引用VMCBench CVPR官方入口摘要交叉确认9018题，不冒充该作全文。未取得所称Langevin补充、官方实现/训练数据；GitHub同名100条页取79结果的检索有限，无权重/数据下载/模型执行。 第九十六批追引G042正式§5与HF split，补正9450为筛查前数量。 |
@@ -233,23 +235,23 @@
 | N11 | [CalliffusionV2: Personalized Natural Calligraphy Generation with Flexible Multi-modal Control](N11.md) | arXiv2410.03787v1 Abstract/§1–5全部核心、Eq1–4/主T1–3/§4.2.1–4.4；实际Fig2a/2b、Fig4 fewshot与Fig6a非汉字已看，其余选例按正文/caption未逐图核。无独立组件loss消融，已分清base/pro信息差与shot敏感性；References未逐篇追读。未核正式版本或可验证的完整训练实现/权重，未执行。 |
 | N12 | [CalliPaint: Chinese Calligraphy Inpainting with Diffusion Model](N12.md) | 官方workshop接收页项14与链接正式5页PDF：Abstract/§1–4/Ethical/Refs/AppA–B全文提取文本已读，PDFp1实际框架图已看；arXivv1同核心/主T1–2/AppA–B交叉，实际Fig1/Q1/Q2图片已看，其他定性图按caption与文字未逐例核。B01原Calliffusion核心已于前批审，未把其全部配置无条件搬来；RePaint本文仅引入作用/来源，完整原方法另列后续补读。未核完整代码/权重或执行。 |
 | N14 | [SteerVTE: Seamless Video Text Editing with Style and Glyph Control](N14.md) | 唯一arXivv1完整23页§1–5/69条reference清单/AppA–F全读；F1–12全8contacts、F2/p4与F6/T5p18放大；T1–5所有行/Eq1–17全核。官方project文字/对应论文图核，动态图未逐帧；官方NeurIPS目录和poster详情标题/作者/摘要/OpenReview链接核；另正式PDF未取得。固定5001972b repoREADME/infer_demo/infer_bench/eval.sh/eval_multi_csv、eval_baseline指定采样/GT/有效分母/FVD分支、OCRnormalize/metrics/model、fvd.py全读、pipelineVACE与styleencoder关键节、FlowMatchSFTLoss/flowscheduler关键节/ocrvideo函数核；HF8模型文件存在、1705数据文件及三CSV400行结构核。未下载全视频/权重、未执行模型或完整代码复现；核心三遍五书面完成。 |
-| R01 | [Hanzi Writer（工具，不是论文）](R01.md) | 官方docs Animation/Quiz/Loading character data/Raw Character SVG/配置项；LICENSE来源另列；未核quiz匹配实现或运行浏览器 |
-| R02 | [Make Me a Hanzi（数据/工程资源）](R02.md) | 官方README数据格式/来源/笔顺/坐标/下载说明与COPYING全文；没有下载全库或执行解析 |
-| R03 | [CASIA-HWDB / CASIA-OLHWDB（数据）](R03.md) | 官方home采集/作者划分，Online Database全部POT/WPTT格式和统计表，Conditions of Academic Use；未下载样本或重读ICDAR2011全篇 |
-| R04 | [IAM-OnDB（数据）](R04.md) | 官方主页面Overview/Characteristics/Terms索引正文，旧官网Data format字段完整索引；未读基础论文全文/实际下载样本 |
-| R05 | [Mobao（Moyun配套静态书法数据）](R05.md) | Moyun v2 §4.1收集/分割细节与Introduction规模对照；B04已有模型笔记，本卡不重复统计为独立论文 |
-| R06 | [通用规范汉字笔顺规范](R06.md) | 官方PDF前12页；§1–5全文及§6开头示例；8105逐项、全部索引与后部表未完成逐字核查 |
-| R07 | [OpenHandWrite_Toolbox与笔画级数据](R07.md) | OSF node/files API及Data/R子目录、batch_summarise_all.R全文、batch_funcs.R定义及长度/首末点/相邻延迟函数、小xlsx全部表头和各2行样例；未运行R/全读脚本和下载完整采集包 |
-| S007 | [Brush Calligraphy Stroke Segmentation Dataset (BCSS)](S007.md) | 固定HF README完整数据/加载段、两个info.csv头部样例和范围，正式论文§3–5对照；未下载全mask或逐图审查 |
-| S008 | [Wuji Writing VAM TI2V-5B 30L 0522 0819](S008.md) | 固定HF revision的README、model_config.json、training_config.yaml；未下载11.54GB权重，动作统计与日志仅卡片引用，未执行模型 |
-| S009 | [AnimCJK](S009.md) | 官方README目录/使用/完整“中”SVG示例与许可；长历史changelog、全部字库和生成脚本未逐项读 |
-| S010 | [KanjiVG](S010.md) | 官方README全文；SVG规范关于group/path/顺序/属性与已知不一致部分；04e2d.svg全文；未逐字库核查 |
-| S011 | [Qari-OCR-LoRA](S011.md) | 官方GitHub README、HF固定revision README/adapter_config.json/training_info.json与推理示例全部相关内容；未下载adapter或运行OCR |
-| S012 | [CASIA-HWDB2-line (Teklia HF derivative)](S012.md) | HF固定revision README全部字段、规模/示例/许可；未下载全parquet或逐条图像核验 |
-| S013 | [SceneDAPR](S013.md) | 官方README核心数据/标注/训练/许可和完整src/preprocessing.py；blob bf765c696bcd1aa95cdf8879a366b01a7f377da3；未读WWW全文及受限数据 |
-| S014 | [sketch-diffusion (ark60 independent implementation)](S014.md) | notebook关键数据处理/attention/model/diffusion/trainer/config/evaluation及保存输出；未执行notebook、未下载数据权重；保存输出的运行环境和文件对应仍待核 |
-| S015 | [VidSketch sketch animation implementation](S015.md) | 官方README核心/许可；candles.yaml全文、train_vidsketch.py初始化/参数选择/优化器/主损失、inference.py adapter加载段；未全读所有模块或执行；blob config cd2b32c8df4a8564a156727b86f561dc81d3c95c/train 9d459e78da5e058be84b656ddd881b12ab7f5ecc |
-| S016 | [BCSS Stroke-Seg implementation](S016.md) | 官方README全部、recursive tree、FCN.py与deeplab.py全文、LabelMe01字段；未执行、未读全部子模块，未取得主表checkpoint |
+| R01 | [Hanzi Writer（工具，不是论文）](R01.md) | 官方docs与固定83a76237的Quiz.ts/strokeMatches.ts/defaultOptions.ts全文；未运行浏览器或逐字核全字库。 |
+| R02 | [Make Me a Hanzi（数据/工程资源）](R02.md) | README/COPYING及完整dictionary9574行解析；graphics实际31个完整JSON样例，未读全量图形。master快照日期2026-10-25，未绑定不可变commit。 |
+| R03 | [CASIA-HWDB / CASIA-OLHWDB（数据）](R03.md) | 官方home采集/作者划分，Online Database全部POT/WPTT格式和统计表，Conditions of Academic Use；未下载样本或重读ICDAR2011全篇；本批补访下载入口连接失败/超时，原始样例仍未取得。 |
+| R04 | [IAM-OnDB（数据）](R04.md) | 官方主页面Overview/Characteristics/Terms索引正文，旧官网Data format字段完整索引；未读基础论文全文/实际下载样本；本批旧格式入口证书过期，注册数据仍未取得。 |
+| R05 | [Mobao（Moyun配套静态书法数据）](R05.md) | Moyun v2 §4.1与Introduction已读；本批再查完整HTML链接和作者主页，未确认Mobao数据/许可发布。 |
+| R06 | [通用规范汉字笔顺规范](R06.md) | 北京市教委转载完整581页PDF；§1–5全文、全8105条序号/UCS索引确定性检查，规则/表首/末页实际视觉抽查；未逐字转录全部笔画图。 |
+| R07 | [OpenHandWrite_Toolbox与笔画级数据](R07.md) | OSF全部目录与R入口；主要R汇总/长度/延迟函数；12.76MB大xlsx全部10表行数/字段；模板ZIP完整1242项目录，Range提取README/experiment.psyexp/ccutil.py/wintabgraphics.py采集关键段。未取得HDF5原始轨迹或运行采集/R。 |
+| S007 | [Brush Calligraphy Stroke Segmentation Dataset (BCSS)](S007.md) | 固定HFREADME/文件表/CSV与论文相关对照；完整images.zip取得，007054原图/6类mask和七维prior实际读/看；未取得全量mask、未逐图核全库或复现指标。 |
+| S008 | [Wuji Writing VAM TI2V-5B 30L 0522 0819](S008.md) | 固定HF README/model_config/training_config、action_stats.npy静态结构和全部54维mean/std及count；未执行pickle或下载/运行11.54GB权重。 |
+| S009 | [AnimCJK](S009.md) | 官方README资源/许可与固定3e1253b3完整tree；实际中及简/繁馬SVG轮廓/guide顺序，未逐字核完整多语字库。 |
+| S010 | [KanjiVG](S010.md) | 官方README/COPYING/SVG规范与固定70a0b7ae完整tree；中/心/食三个完整SVG字段与笔序，未逐字核全库。 |
+| S011 | [Qari-OCR-LoRA](S011.md) | 固定HF卡/adapter_config/training_info与固定048f9cc1完整train.py、training_config.yaml、inference.py；未执行OCR/训练或取得本地训练语料。 |
+| S012 | [CASIA-HWDB2-line (Teklia HF derivative)](S012.md) | 固定HF完整数据卡，train前2行image/text实际读取并查看两图；未读全52160行，未取得writer/paragraph/online关联。 |
+| S013 | [SceneDAPR](S013.md) | 固定f74a82e0 README/preprocessing；SketchForm采集/undo/提交逻辑、后端resolver和COCO转换器；公开检测图实际查看。未取受限参与者数据或运行系统。 |
+| S014 | [sketch-diffusion (ark60 independent implementation)](S014.md) | 固定5a7d5499完整notebook文件42cell静态源码提取，Dataset/转换/attention/diffusion/trainer/EMA/evaluate核心选读；未执行notebook或全读每个cell。 |
+| S015 | [VidSketch sketch animation implementation](S015.md) | 固定ad7fcdb8树/README，既有config/train入口与MSE主损失；新增dataset_DPO全文和inference pipeline接口/adapter插值/去噪核心。loader存在，完整DPO目标/训练入口仍未找到；未执行或全审替代pipeline。 |
+| S016 | [BCSS Stroke-Seg implementation](S016.md) | 固定2451eb75 README/tree/FCN/DeepLab/LabelMe样例，补读backbone入口、decoder和UNet基本模块全文；未运行、未全读backbone、未取得完整训练/eval或主表checkpoint。 |
 | U01 | [Chameleon: Mixed-Modal Early-Fusion Foundation Models](U01.md) | 2405.09818v2全部核心Intro/§2–7方法/实验文字，TI–VII、AppB TXI–XIV全表；Fig1、Fig8三子图、Fig12三子图、Fig21胜平负原图视觉。其他生成样例和AppB全部任务完成细表未逐图/逐格核，参考文献未逐篇打开。官方README全文；HF卡401未读，未审全部代码/训练数据/权重、未训练/推理/复现。 |
 | U02 | [Emu3: Next-Token Prediction is All You Need](U02.md) | Nature正式HTML Abstract/Main/Architecture/Pretraining/Posttraining/Inference/Evaluation/Ablations/Applications/Conclusion/Methods全部核心文字、主T1及实际EDT1–7图片、Fig1/3/4；完整38页补PDF取得，选择读§1码本/压缩/S1–4、§2.1主要架构对照/§2.2、§3.1数据/3.2成本与recipe和dropout/loss小节、§4.1.1/4.1.2/S9–10、4.2.1/4.2.2/S11、§5.3、7/8选段，实际PDFp13 FigS9；非全部附录/样例/refs。arXiv v1核心Intro/§2全部、主表4/7/8和§3.1–3.2/3.4及AppB1/B2对照，非v1全页。固定dbbf985 README/HFGen卡（当前读取）与SFT脚本全文，非全代码/权重或执行。 |
 | U03 | [Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation](U03.md) | 2410.13848v1核心§1–5、TI–TV全部单元、AppA.1–A.3及B文字；Fig2/3/6实际视觉。CVPR正式元数据、正式§4.4/4.5/TV选读及第7页实际视觉，未全正式PDF/附录图例；官方README选读news/原Janus模型安装/生成函数与许可入口，非Pro/Flow全审，无权重运行/独立复现。 |
@@ -289,7 +291,7 @@
 | U31 | [DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement](U31.md) | arXiv2605.25328v1完整18页及正式PMLR18页文本对应检查（主要排版差异，表/方法疑点仍在），正文§1–5、Acknowledgements/Impact、AppA1–2/B1–3/C1–2；10表全行列、F1–7全部视觉、Eq1–13及未编号读出式。F4六成对选例/F7十六图与全部prompt核对；追引CLUB/FactorizedContrastiveLearning/BYOL、RecA/UAE/Showo/Nexus/Liquid与各benchmark。固定repo完整21项树、下载6文件，全文读README/diva_utils/配置，phi/modeling_utils仅定点搜索，未声称完整代码读通或全模型复现。核心三遍和五项书面记录完成。 |
 | L186 | [Towards Human-Like Robot Handwriting via Contour-Aware Generation](L186.md) | 正式CVF PDF§1/§3–7与Tables1–6、Fig5PDFp6已渲染核；官方CVF元数据/补充zip链接、GitHub树与README。未读supp/逐图或控制代码，未运行机器人/模型 |
 | N08 | [Hierarchical offline-to-online Chinese handwriting trajectory reconstruction via dual-domain priors](N08.md) | Springer正式PDF§3.1–3.8选定公式/Algorithm1及§4.1–4.5、Tables1–7、Fig2/3PDFp5视觉核；完整Algorithm2/全部参数与用户实验/代码未审，未复现；与L006同作者不同题目和DOI独立记录 |
-| R08 | [SenseNova-U1.5-8B-MoT-LoRAs：8step与V2蒸馏适配器、加载与训练配置](R08.md) | HF API文件列表与README指定头部/QuickStart/模型表/Limitations/License；GitHubREADME发布及base_vs_distill条件、utils/lora.py指定加载逻辑、trainingREADME范围；未下载权重、未运行或审全训练实现 |
+| R08 | [SenseNova-U1.5-8B-MoT-LoRAs：8step与V2蒸馏适配器、加载与训练配置](R08.md) | 固定HF完整README，固定c35c83b5 utils/lora.py全文及既有base_vs_distill/训练说明；未运行merge/模型或全审训练实现。 |
 | N01 | [UniCalli: A Unified Diffusion Framework for Column-Level Generation and Recognition of Chinese Calligraphy](N01.md) | 作者ICLR正式PDF§3.1–3.4/§4.1–4.3、Tables1–6、AppB/C/D/E/G及H用户研究指定段；Fig2 PDFp4视觉复核。完整代码、其余应用图及全部古文字细节未审，未复现 固定源码README、inference.generate、sampling.prepare/denoise及model.init_module_embeddings/forward指定路径已审。 |
 | N02 | [Bridging Online and Offline Handwriting via Differentiable Physical Rendering (OnOff Handwriting)](N02.md) | §3.1–3.3/§4.1–4.4/§5/§6、Tables2–4，AppB/C与D1/E3指定段，Fig5 PDFp9视觉核。完整机器人映射参数、指标实现及余下附录/代码未全审，未执行模型或机器人 固定官方仓库README与文件树已核，未有完整模型源码。 |
 | N03 | [DeepCalliFont: Few-shot Chinese Calligraphy Font Synthesis by Integrating Dual-modality Generative Models](N03.md) | 正式AAAI主文Introduction、Method Eq1–22、Experiments Tables1–2/消融与Limitations；Fig2 PDFp3及Table1所在p7视觉核。补充材料/完整实现未全审，未复现 固定官方README/config及train.py的optimizer/loss/rasterizer段；非全部模型/数据实现审计。 |
@@ -301,24 +303,24 @@
 | S001 | [Ketaba-OCR at AR-MS NakbaNLP 2026](S001.md) | ACL正式11页pp160–170全部§1–7/Ethics/致谢/17条references清单及关键引文/AppA–H全含F1–3/H1–2；F1–4全部实际视觉、T1–10逐表含阿文样例页面、Eq1–5逐式；4contact全看并框架/长度图/伪真值页放大。固定repof1aefa8 README全文/YAML/adapter/training_info全文，train_model/preprocess/load/apply及ensemble完整advanced/weight_configs源码；inference指定参数，非全仓审计。固定HF7f55602 card与repo正文对照，底座a404b5b卡元数据/来源/结果/理论主张段审。未取数据/权重、未模型或OCR/训练/外部API执行；核心三遍和五书面完成，非隐藏GT复现或阿文史料校勘。 |
 | L026 | [UniVideo](L026.md) | v4 §2/3.1–3.4、Tables1–7、AppD1/E/F/G1指定段；Fig2 PDFp3已视觉核；v2训练与数据表历史对照。固定代码893c9da的README/TRAINING/EVAL/hiddenyaml已读；AppG其余数据、完整test细目、所有实现仍待后续，不计完整三遍 |
 | L028 | [Lance: Unified Multimodal Modeling by Multi-Task Synergy](L028.md) | v1 §3–7、Tables2–5/9/10、VBench/理解主表指定列；Fig6 PDFp9已视觉核。固定代码4baeee的README/train.md/train_dataset.md/unified数据yaml、HF7395315的配置/llm配置已读；全专家源码/GRPO实现未审，不计完整三遍 |
-| L044 | [CalligraphyBench](L044.md) | 固定HFREADME/API树；datasetsserver全部88行元数据/几何长度检查；网站首页catalog/detailJS内TaskSetup/Scoring/来源与tool协议。未执行工具、未人工读全88参考图、未重评分，状态仅资源协议审查 |
+| L044 | [CalligraphyBench](L044.md) | 固定HF全部88行元数据/几何与全部88张64²参考图实际查看，网站TaskSetup/Scoring/工具协议JS；无harness执行、judge调用或榜单重算。 |
 | L175 | [XMP-Font: Self-Supervised Cross-Modality Pre-training for Few-Shot Font Generation](L175.md) | 正式CVPR§1/3/4/5、Tables1/2，Fig2 PDFp4已视觉核；arXivv1网络结构附录Table3–5指定段。未获取/审完补充代码及所有字体切分，不计完整三遍 |
 | L176 | [Representing Online Handwriting for Recognition in Large Vision-Language Models](L176.md) | v1§1–6、Tables1–10、AppB/D/E/F指定段；Fig2/3 PDFp4已视觉核。完整采样间隔、优化器/LoRA配置和代码未核，不计完整三遍 |
 | L177 | [PaintFlow: A Unified Framework for Interactive Oil Paintings Editing and Generation](L177.md) | v1主文Method/Experiments/Conclusion、Table1、supp interface/Algorithm2/ExperimentSettings/UserStudy/Table2；Fig2 PDFp3已视觉核。SBR具体版本、代码、全部结果图/物理执行未核，不计完整三遍 |
 | L179 | [UM-Text: A Unified Multimodal Model for Image Understanding and Visual Text Editing](L179.md) | v1§1–5、Tables1–4；Fig3 PDFp3已视觉核；AAAI官方页面出版元数据核。正式PDF技术差异、源代码与完整UMT协议仍未审，不计完整三遍 |
 | S004 | [VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control](S004.md) | v1 Method/主表/ablation/AppA/B指定段，v2对应方法、Table1和AppA4；Fig3 v2PDFp3视觉核；固定ad7fcdb README、VidSketch/inference.py抽象度/参数调用、train_vidsketch.py配置默认及noise/loss段、configs/candles.yaml全文件、inference/pipelines/pipeline_VidSketch.py adapter门控/scheduler指定段。未审全部模型源码和论文实验日志，不计完整三遍 |
-| H001 | [CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品](H001.md) | HF卡/API清单、固定bin前512KiB ZIP/data.pkl全部metadata、两官方底座固定config、Frida当前f42fa618 src/cofrida.py/codraw.py与train_lora.py配置/数据/forward选段已读；v2.0.0无该LoRA训练文件。无完整weights读取、pickle执行、环境安装或推理；资源协议审查与论文核心三遍分开。 |
+| H001 | [CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品](H001.md) | HF卡/API清单、固定bin前512KiB ZIP/data.pkl全部metadata、两官方底座固定config、Frida当前f42fa618 src/cofrida.py/codraw.py与train_lora.py配置/数据/forward选段已读；v2.0.0无该LoRA训练文件。无完整weights读取、pickle执行、环境安装或推理；资源协议审查与论文核心三遍分开。 本批重读完整HF卡复核版本矛盾，缺项未消除。 |
 | L187 | [Visual-OPSD: Cross-Modal On-Policy Self-Distillation for Efficient Unified Multimodal Reasoning](L187.md) | v6 Abstract/Introduction/Method§2含Eq1–7与AppB证明、Experiments§3/Table1–3、Conclusion；AppC/D/E/F/G/I/J/M指定配置/公式/评价及K/L正负案例文字。Fig4 PDFp5视觉核；固定32f245d README/TRAIN/EVAL和opsd_loss.py26–103核。未逐图核所有案例、未审全部trainer/harness或下载权重。三遍核心阅读和五项书面理解检查完成，复现另列。 |
 | L188 | [LiveSVG: Zero-Shot SVG Animation via Video Generation](L188.md) | v1 Abstract/Introduction/§3方法Eq1–4/§4主结果与§5限制；AppA–F/H指定结构/表3–9、评分prompt、人评与优化协议，Fig3PDFp5视觉核。公开项目页入口已定位；完整实现未取得。三遍核心阅读与五项书面理解检查完成，正文/附录冲突保留。 |
 | L189 | [AniClipart: Clipart Animation with Text-to-Video Priors](L189.md) | 正式IJCV PDFAbstract/Introduction、§3所有方法与Eq1–4、§4.1–4.5主表/消融/分层及§5讨论；Fig3PDFp5视觉核，部分定性样例仅读说明。固定fee58e05README和树；supp视频与完整代码未审。三遍核心阅读/五项书面理解检查完成，未独立复现。 |
 | L190 | [VitaGlyph: Vitalizing Artistic Typography with Flexible Dual-branch Diffusion Models](L190.md) | 正式WACV2026主文§1/3/4/5/6、Tables1/2和Fig2PDFp2视觉核；v3补充I–III/V–X指定prompt/CFG/配置/五轮/人评/耗时/局限。固定ca7d0f8 README、docs/generation115–177及模型位置段、generation.py指定条件/融合调用、acg_attention.py1–75。旧URLCarlofk1返回404，已按正式paper链接修正为Carlofkl；未跑预训模型。三遍核心阅读/五项书面理解检查完成。 |
-| R09 | [Datumwell Handwriting：10个完整模拟书写episode公开样本、动作与低频RGB对齐](R09.md) | 固定HFREADME/API74项列表、publicationstatus、meta/info、coverage、samplemanifest全部10例、qualityflags/camerareadability、featurepolicy、actionschema、loader及UJIprovenance；conversion指定时间/动作字段，首例frames全部378时间戳数值检查。未下载完整视频/轨迹、未执行模型或动作；属于资源协议审查。 |
+| R09 | [Datumwell Handwriting：10个完整模拟书写episode公开样本、动作与低频RGB对齐](R09.md) | 固定HFREADME/rights/schema/featurepolicy/conversion与既有manifest/quality；本批全部10个parquet59338行确定性字段/时间/计划-状态数值审查，首例tabletop视频完整解码与6个时刻实际视觉抽查；未全看30视频或运行模型/重仿真。 |
 | D09 | [SGF+: Decoupling Gradient Flows for Autoregressive Video Generation](D09.md) | v2 Abstract/Intro/Related、§3 Eq1–5/Fig4、§4 Tables1–3、AppA短5sT4/B配置/C–F诊断和24h示例说明/G1–6推导/H未来工作核心读；PDFp4Fig4/p7T1–2视觉核，未逐页检查所有生成示例。固定Git configs/README/gradientguide/role-routing/Pass1–2关键行、HF卡/文件列表已读，未下载权重/独立生成或诊断运行。 |
 | F06 | [Stylized Neural Painting](F06.md) | v1 Abstract/Intro/Related/§3.1–3.6/§4.1–4.3/Conclusion与App6.1–6.2核心含T1–7已读；Fig2渲染优化框架/Fig13训练曲线原图已视觉核。CVF身份与官方e7a66b2 README/许可/运行与renderer命令核查；正式PDF未完整，未全源码或运行。 |
 | F07 | [Synthesizing Programs for Images using Reinforced Adversarial Learning (SPIRAL)](F07.md) | PMLR正式正文§1–5/Eq1–7/所有主实验与补充A–C含网络图已读；正式p2Fig2/p8Fig8–10、补充p2Fig11–13视觉核。官方5ee538c README/TFHub无条件模型说明和agents/default.py选段核。公开19步CelebA-HQ模型不直接等正文20步conditional；未训练/调用TFHub或做实体实验。 |
-| R10 | [Stable Diffusion VAE ft-EMA / ft-MSE：兼容KL-f8的解码器适配资源组](R10.md) | 两HF仓库固定commit的README完整模型说明/两重建表/使用与license字段、API元数据文件列表、config.json全读；交叉核LDM第一阶段及DiT AppA/T5。未看完卡所有重建图、未读权重张量或下载运行；属于资源协议深审，无独立论文三遍完成声明。 |
-| R11 | [CogVideoX Diffusers微调与检查点配置资源组](R11.md) | 固定GitHub README新闻/模型表/优化条件/许可选段、finetune README完整说明、train_ddp_t2v.sh和train.py入口全读；args默认/解析/shape校验、trainer冻结/LoRA/优化段、t2v dataset cache/resize段、t2v LoRA encode/collate/loss/validation段与1.5继承模块。三个HF API/filelist、VAE/Transformer config全读，卡规格/精度/offload/许可选段；未读全部卡例代码或全部trainer/依赖，未下载权重/训练/推理。 另核1.5固定scheduler_config.json全文的v_prediction/zero-SNR。 |
-| R12 | [Wan Toy Transform：Wan2.1 I2V玩偶变形LoRA](R12.md) | 固定GH完整10项文件树，README/requirements/generate.py102行全文；固定HF API/文件表/README/adapter_config全文。另读diffusers v0.33.1官方Wan I2V pipeline __call__签名与scheduler/denoise相关段，未全审依赖库或读取权重张量。未下载基础/LoRA权重、运行推理/训练或本机测量；resource_protocol_reviewed，无论文五项完成声明。 |
+| R10 | [Stable Diffusion VAE ft-EMA / ft-MSE：兼容KL-f8的解码器适配资源组](R10.md) | 两固定HF完整README/config/重建表及全部6张三联重建图实际查看；未运行VAE/重算指标或读权重。 |
+| R11 | [CogVideoX Diffusers微调与检查点配置资源组](R11.md) | 固定GitHub README新闻/模型表/优化条件/许可选段、finetune README完整说明、train_ddp_t2v.sh和train.py入口全读；args默认/解析/shape校验、trainer冻结/LoRA/优化段、t2v dataset cache/resize段、t2v LoRA encode/collate/loss/validation段与1.5继承模块。三个HF API/filelist、VAE/Transformer config全读，卡规格/精度/offload/许可选段；未读全部卡例代码或全部trainer/依赖，未下载权重/训练/推理。 另核1.5固定scheduler_config.json全文的v_prediction/zero-SNR。 本批完整补读固定T2VLoraTrainer约240行，核encode/collate/加权目标与invert配置边界；未执行。 |
+| R12 | [Wan Toy Transform：Wan2.1 I2V玩偶变形LoRA](R12.md) | 固定GH完整10项文件树，README/requirements/generate.py102行全文；固定HF API/文件表/README/adapter_config全文。另读diffusers v0.33.1官方Wan I2V pipeline __call__签名与scheduler/denoise相关段，未全审依赖库或读取权重张量。未下载基础/LoRA权重、运行推理/训练或本机测量；resource_protocol_reviewed，无论文五项完成声明。 本批重读README，确认训练/数据/验证脚本缺项仍在。 |
 | L191 | [Ming-Lite-Uni: Advancements in Unified Architecture for Natural Multimodal Interaction](L191.md) | arXiv2505.02471v3完整HTML研究§1–4、Eq1–4、T1–3全部行、七张实际原图F1–7全部视觉阅读；贡献仅名单范围/参考相关追引；v1/v3研究文字差异核，未把完整PDF阅读作为凭据。核心三遍与五项书面完成，未独立口述/模型复现。固定GH预览分支117树/101blobs、相关Ming-unify18blob路径清单及六份源码/README实际阅读；HF66文件元数据与11个文本配置/关键代码核。未下载权重、未模型执行，未称所有源码逐行。 |
 | L192 | [BoundInk: Boundary-Aware Online Handwriting Generation](L192.md) | v3完整22页正文§1–5/参考清单/AppA–F全部研究文字；主F1–7+附F A1–17全24图实际视觉阅读，8张contact全看并放大p7人评/OCR、p20–21指标与问卷；T1–5及A1–3全8表所有行，主Eq1–5与AppA1–A80含未独立编号定义全部核。三遍核心与五项书面完成；不是v1/v2全文对照，也未找到可核作者源码而宣称已审代码。指标负gap分析为纸面代数，不进行推理/训练/OCR/judge/API评测；所有模型数字均作者报告。 |
 | L193 | [Towards Grand Unification of Multi-Human Activity Recognition](L193.md) | 用户提供PDF完整18页：§I–VII和82项参考清单，7图全部实际视觉阅读、8表全行、Eq1–23逐式核对；无附录（末页为参考文献），不虚构附录已读。6张contact全看，并放大p2/5/7/8/10/12/14/16/17，图4另3200像素渲染辨类名。三遍按任务/方法数学/实验批判范围完成及五项书面检查；公开代码限定固定224af506 README/tree及5脚本静态阅读，不冒称完整扩展代码已审。全数字为作者报告；数据算术、核函数范围与Half反例为纸面推导。未训练、推理、调用OCR/judge/API评价或独立复现。 |

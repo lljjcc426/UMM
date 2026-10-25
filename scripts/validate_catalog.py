@@ -56,6 +56,17 @@ def validate():
             errors.append(f'{r["id"]}: missing note_path')
         if r.get("review_path") and not (ROOT/r["review_path"]).is_file():
             errors.append(f'{r["id"]}: missing review_path')
+    resource_audit = ROOT / "data/resource_acceptance_2026-10-25.json"
+    if resource_audit.exists():
+        audits = json.loads(resource_audit.read_text(encoding="utf-8"))["records"]
+        resource_ids = {r["id"] for r in rows if r["record_type"] == "resource"}
+        if {r["id"] for r in audits} != resource_ids or len(audits) != len(resource_ids):
+            errors.append("Resource audit IDs do not match catalog resources")
+        for r in audits:
+            if len(r["checks"]) != 5 or any(not c.get("answer") for c in r["checks"]):
+                errors.append(f'{r["id"]}: resource audit requires five substantive answers')
+            if not r.get("remaining_artifact_gaps"):
+                errors.append(f'{r["id"]}: resource artifact boundary missing')
     # Validate relative Markdown destinations, not live external links.
     count = 0
     files=list(publication_files())

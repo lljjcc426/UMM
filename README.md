@@ -15,7 +15,7 @@
 | 重点论文的方法、结果与限制 | [论文精读](docs/handwriting/papers/README.md) · [四篇指定论文精读](docs/evidence/attachment_reviews.md) · [公开版本对照](docs/evidence/public_preprint_reviews.md) |
 | 数据、标准与评价 | [数据与标准](docs/handwriting/03_data_and_standards.md) · [评测协议](docs/experiments/benchmark_protocol.md) |
 | 研究进展与后续实验 | [研究进展](docs/project/STATUS.md) · [结论依据](docs/project/DECISIONS.md) · [实验计划](docs/project/EXPERIMENTS.md) · [最小研究方案](docs/experiments/stroke_order_pilot.md) |
-| 本轮逐篇阅读、理论与实验迁移 | [357份结构化笔记](docs/reviews/README.md) · [理论与迁移分析](docs/evidence/foundations_and_transfer_2026-10-19.md) · [逐条阅读台账](docs/evidence/reading_ledger_2026-10-19.md) |
+| 本轮逐篇阅读、理论与实验迁移 | [360份结构化笔记](docs/reviews/README.md) · [理论与迁移分析](docs/evidence/foundations_and_transfer_2026-10-19.md) · [逐条阅读台账](docs/evidence/reading_ledger_2026-10-19.md) |
 | 全部文献 | [文献总表](docs/all_literature.md) · [CSV](data/literature.csv) · [Excel](data/literature_public.xlsx) |
 
 ## 主要判断
@@ -27,7 +27,9 @@
 
 ## 文献与证据
 
-主目录包含 **330项论文／研究记录、27项资源，共357条记录**。每项记录包括研究主张、方法、问题、结果、限制、原始来源、版本及核查范围。数量不代表全文精读数量；文献中的数值为作者报告。
+主目录包含 **333项论文／研究记录、27项资源，共360条记录**。每项记录包括研究主张、方法、问题、结果、限制、原始来源、版本及核查范围。数量不代表全文精读数量；文献中的数值为作者报告。
+
+截至2026-10-25，论文核心完成326/333；7篇仍缺全文或实际原图。27项资源公开制品协议审查已完成，135项回答及未取得/未发布的制品缺项分别列明，见[本批审查](docs/evidence/resource_protocol_completion_and_source_limits_2026-10-25.md)。原329项五条书面记录分为328项论文与1项历史资源记录，包含未通过项。
 
 [候选目录](data/discovery/README.md)另含573条arXiv检索记录和200条综述目录候选，两者有重叠，也与主目录重叠。详细记录规则见[核查方法](docs/evidence/method_and_status.md)，早期分析见[研究档案](archive/README.md)。
 
@@ -662,3 +664,5 @@ python scripts/validate_catalog.py
 
 
 第二百二十二批（2026-10-25）：新增用户指定L193，完整18页/7图/8表/Eq1–23，区分真实分组/轨迹条件、监督互补的不对称收益，记录PARD统计与旧Half协议差异。360目录，326核心/329书面；待完成核心深审7篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/grand_unification_multi_human_activity_full_review_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_twenty_second_changes_2026-10-25.md)。无删除或模型执行。
+
+第二百二十三批（2026-10-25）：27项资源公开制品协议审查与135项回答单列，补实物/源码/规范索引/数值轨迹及实际参考图；保留原始包/未发布流程等制品缺项。7篇论文补访仍未取齐全文/实图，核心326/333保持，329书面含未通过项。详见[审查](docs/evidence/resource_protocol_completion_and_source_limits_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_twenty_third_changes_2026-10-25.md)。无文件删除，无模型执行。

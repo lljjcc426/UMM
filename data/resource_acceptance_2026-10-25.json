@@ -1,0 +1,1023 @@
+{
+  "date": "2026-10-25",
+  "base_commit": "cea09604",
+  "method": "公开资源协议五项审查：身份/版本/许可、字段语义、可取得的实际制品/源码或明确访问结果、主张和评价边界、研究迁移。访问或发布缺失可形成否定审查结论，原始包/未发布流水线仍保留为制品缺项。该状态不表示全部数据、源码、权重或运行验收完成。",
+  "resource_total": 27,
+  "protocol_reviews_completed": 27,
+  "checks_recorded": 135,
+  "no_learned_model_execution": true,
+  "records": [
+    {
+      "id": "R01",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "Hanzi Writer GitHub 83a762374e2344f2fb8cceca4a2ac5dfeca386f5",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "官方工具、MIT代码；底层字形/median来源许可另核。文档示例的3.5与此次源码commit分列，不将示例版本当最新包版本。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "字符和有序轮廓/medians驱动动画；quiz输入点序。匹配检查起止距离、长度、方向、平均距离与归一化Fréchet距离。动画时间由配置指定，缺实测笔压和速度。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "完整读Quiz.ts、strokeMatches.ts、defaultOptions.ts。接受条件包含isMatch、达到markStrokeCorrectAfterMisses阈值，或逆向匹配且acceptBackwardsStrokes=true。默认后两项均false，quizLeniency=1。当前笔画与后续笔画比较会收紧容差，不能将其简化为完全没有几何容错的序号判定。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "onCorrectStroke/onComplete回调只能证明该配置下被接受；启用失败后放行或逆写选项会改变指标定义。静态字库正确性、视频可见性与生成模型能力均未由该回调证明。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "适合作为规则渲染强基线和有序事件来源。评测须固定两个放行开关、leniency、显示提示及字库版本，另由独立规范标注核方向/顺序。"
+        }
+      ],
+      "remaining_artifact_gaps": "未运行浏览器；未逐字验证整个hanzi-writer-data；没有真实摄像或学习模型成绩。",
+      "source_urls": [
+        "https://hanziwriter.org/docs.html",
+        "https://raw.githubusercontent.com/chanind/hanzi-writer/master/LICENSE",
+        "https://github.com/chanind/hanzi-writer/blob/83a762374e2344f2fb8cceca4a2ac5dfeca386f5/src/Quiz.ts",
+        "https://github.com/chanind/hanzi-writer/blob/83a762374e2344f2fb8cceca4a2ac5dfeca386f5/src/strokeMatches.ts"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "R02",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "Make Me a Hanzi master读取快照，2026-10-25；未绑定不可变commit",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "官方README与COPYING已读；字典与图形的许可和衍生字体来源分别记录，不能把工程代码许可扩展至全部素材。当前master读取不构成不可变发布版本。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "dictionary逐行JSON保存character、读音/部件等；graphics逐行JSON保存有序strokes路径和medians点列，常用1024坐标框。数组顺序提供规范参考，没有实测时间/压力。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "本批完整解析dictionary.txt：9574行、9574个不重复字符。graphics全文件下载未成功，实际解析HTTP Range前64KiB中的31个完整JSON条目：31条的strokes与medians数量均一一对应；末尾不完整行未计入。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "9574是本次字典快照数，不能冒充全量图形已核数量；31条对应也不能外推全库标注全对。字形和规范受地区/版本影响。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可生成可追溯的规则笔顺视频、构造同字换序/反向负例。须保存原始字形来源、字符映射和渲染时间，评测时区分查表字与留出字。"
+        }
+      ],
+      "remaining_artifact_gaps": "全量graphics及每字准确性未验收；时间/压力/真实外观须另采集；版本仍是有日期的master快照。",
+      "source_urls": [
+        "https://github.com/skishore/makemeahanzi/blob/master/README.md",
+        "https://raw.githubusercontent.com/skishore/makemeahanzi/master/COPYING",
+        "https://raw.githubusercontent.com/skishore/makemeahanzi/master/dictionary.txt",
+        "https://raw.githubusercontent.com/skishore/makemeahanzi/master/graphics.txt"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "R03",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "source_format_reviewed_sample_access_pending",
+      "version_scope": "CASIA-HWDB/OLHWDB官方分版本说明；未取得当前二进制包",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "官方数据及学术使用条件已核；2020起学术下载不需申请表，免费学术用途有条件，商业用途另议。本批补访下载页出现连接失败/超时，未据此断言资源永久下线。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "POT含GB/GBK标签、笔画数、short坐标、(-1,0)笔画结束与(-1,-1)字结束；WPTT含页/行/笔画索引与×10坐标说明。官网这两种格式未列逐点时间和压力。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "已读官方采集、统计、POT/WPTT格式和使用条件；本批未成功下载原始包，二进制样例解析未完成。格式证据与样例证据分列，Teklia的离线行图不替代在线包。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "1020作者与在线各版本计数按官网分列；官方writer split不自动保证文本/字类留出。点序能够保存实际顺序，但实际顺序与规范顺序需要额外标注对应。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可作真实手写点序来源。使用前须解析实际包、处理GBK与结束标记、保留作者/模板关系；物理速度、笔压、视频逐帧真值需要其它证据。"
+        }
+      ],
+      "remaining_artifact_gaps": "原始POT/WPTT样例与全包仍未取得；基础数据论文全部实验不由资源协议审查替代。",
+      "source_urls": [
+        "https://nlpr.ia.ac.cn/databases/handwriting/home.html",
+        "https://nlpr.ia.ac.cn/databases/handwriting/Online_database.html",
+        "https://nlpr.ia.ac.cn/databases/handwriting/Application_form.html"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "R04",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "source_format_reviewed_sample_access_pending",
+      "version_scope": "IAM-OnDB官方主页及旧版Data format；未取得注册数据",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "IAM-OnDB在线英文白板数据；官方条款为注册后研究使用，不能与IAMonDo混合文档库合并。本批旧格式入口出现证书过期，访问结果单列。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "XML包含StrokeSet/Stroke/Point，Point有x、y、time；真实时间字段与点索引分开。未见该格式给出逐点笔压。白板坐标与纸笔/屏幕坐标域不同。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "现有核查覆盖Overview、Characteristics、Terms和完整格式字段说明。本次未注册/下载样例，没有将文档例子计为实测XML解析。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "221作者、13049行等为官方统计；真实英文连写和白板动力学不能直接代表规范汉字落笔。time可研究速度，不能补出未观测压力。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "适合英文轨迹时序和作者泛化对照；先取得合法样例并核时钟/坐标，再按writer split处理；迁移汉字须另外定义规范事件。"
+        }
+      ],
+      "remaining_artifact_gaps": "注册数据与样例未取得；完整基础论文、逐样本标注和视频对应未核。",
+      "source_urls": [
+        "https://fki.tic.heia-fr.ch/databases/iam-on-line-handwriting-database",
+        "https://fki.tic.heia-fr.ch/DBs/iamOnDB/data.html"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "R05",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "publication_description_reviewed_release_unconfirmed",
+      "version_scope": "Moyun arXiv:2410.07618v2中的Mobao描述；未定位官方数据发布",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "Mobao作为Moyun配套静态书法语料记录；已读原论文数据来源。本批从v2全文及作者主页继续找数据入口，未确认独立可下载数据和适用许可。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "来源为扫描/互联网书法图像，经分割、筛选构成单字图；没有逐点轨迹、时钟或笔压字段。图像书家标签与真实过程标签分开。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "已核§4.1采集/分割文字及Introduction；作者主页仍描述规模，未给出可确认的Mobao完整包。本次未取到原始样例，未用猜测的第三方仓库代替官方发布。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "§4.1约1.2M与Introduction约1.9M口径差异保留；重复原图、书家身份和跨split裁切泄漏没有被公开文字消除。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可作为静态风格研究线索。用于训练前需拿到发布包、来源/许可、去重和writer/原图分组；单图不能提供规范时序真值。"
+        }
+      ],
+      "remaining_artifact_gaps": "数据发布入口、许可、样例和拆分清单均未确认；尚不能按现成可复用数据集安排实验。",
+      "source_urls": [
+        "https://arxiv.org/abs/2410.07618",
+        "https://arxiv.org/html/2410.07618v2",
+        "https://nieeim.github.io/"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "R06",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "GF0023—2020；北京市教委转载的581页完整PDF",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "教育部/国家语委2020-11-23发布、2021-03-01实施的标准；本次由北京市教委语言文字规范栏目取得完整PDF。转载页更新日期不当作标准修订年份。规范文本的转载不等于全部衍生素材的任意授权。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "§3.5把笔顺定义为笔画的次序和方向。§5给笔形规则；§6按笔画数排序，同时保留《通用规范汉字表》的序号和UCS。五类粗笔形数字无法唯一标识重复同类笔画。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "取得581页、51,412,684字节PDF，阅读全文§1–5；整份文本提取并检查8105组“字表序号—UCS”：序号恰为1..8105，二者各8105唯一项，无缺号/重复编码。实际查看规则/表首与末页，未逐字转录全部逐笔图。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "索引完整性检查只覆盖编号和编码；不能由它宣称8105字逐笔图均已人工核对。标准不规定实测速度、笔压、纸墨、镜头或遮挡。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可作为大陆规范顺序和方向的权威依据。建立视频真值时需要把具体字形/笔画实例映射到表中图示，保存规范版本及允许的变体。"
+        }
+      ],
+      "remaining_artifact_gaps": "8105字逐笔图全部人工转录/双人校对尚未做；完整索引检查与视觉抽查的范围已分别记录。",
+      "source_urls": [
+        "https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/202103/W020210318300204215237.pdf",
+        "https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/202103/t20210318_520473.html",
+        "https://jw.beijing.gov.cn/language/bzgf/202105/t20210512_2387512.html",
+        "https://jw.beijing.gov.cn/language/bzgf/202105/P020210512414220837538.pdf"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "R07",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "OSF rn2ck文件清单与k839j/3vq7e/x7t3q/pa2vx文件，2026-10-25",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "本条是N07论文相关制品，OSF文件GUID与node ID区分。node的license字段未给统一许可；模板内wintabgraphics.py明确GPL来源，不能将整个数据和工具包视为MIT。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "原采集模板用PsychoPy/ioHub/Wintab写HDF5，可记录设备轴和pressure；R分析将time×1000、坐标/lpmm转换，并按run/radical标签汇总。字符跨度包括中间停顿，stroke_rt_rel为相邻笔首尾间隔。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "完整读取batch入口与主要汇总/长度/延迟函数；完整遍历12.76MB大xlsx全部10个工作表行数与表头，其中Trial_Character-Level为50400行27列字符级汇总。读取99MB模板ZIP完整中央目录1242项，并用Range提取README、experiment.psyexp、ccutil.py及wintabgraphics.py关键采集段；目录无HDF5/原始报告文件。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "50400行汇总不提供50400条原始逐点轨迹。连续一笔可被rad_label再次切分，R函数的ohw长度分支也有特殊端点处理；这些分段/长度不能直接当规范落笔定义。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "适合借鉴采集与字符/部件/笔画层级分析。使用原始轨迹前需取得HDF5/报告及单位标定，并公开分段映射；不得从汇总统计重建唯一原轨迹。"
+        }
+      ],
+      "remaining_artifact_gaps": "未取得原始HDF5/逐点报告，未完整下载模板ZIP或运行PsychoPy/R；未逐段重做HTML统计分析。",
+      "source_urls": [
+        "https://link.springer.com/article/10.3758/s13428-026-03001-4",
+        "https://api.osf.io/v2/nodes/rn2ck/",
+        "https://api.osf.io/v2/nodes/rn2ck/files/osfstorage/",
+        "https://osf.io/rh7kn/",
+        "https://osf.io/3vq7e/",
+        "https://osf.io/x7t3q/",
+        "https://osf.io/download/k839j/",
+        "https://osf.io/download/3vq7e/",
+        "https://osf.io/download/x7t3q/",
+        "https://osf.io/download/pa2vx/"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "L044",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "Calligraphy Bench HF d3f189f76568729def5e845569543ba9786c317e及网站已读JS",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "无独立论文定位，按网络基准资源记录。HF数据revision固定；网站内容与运行harness版本不能自动等同。素材来源及规范轨迹来源分别保留。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "88条含字、书家、64×64参考图和轨迹几何；跨源楷书规范轨迹与草书图未必一一对应。tldraw工具、OpenHands Python流程、judge评分与禁止bitmap的条件按网站说明记录。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "全部88条元数据/几何已解析；本批下载并实际查看全部88张参考图，资源URL包含同一固定revision。82个唯一字符、18个书家标签；此前39行笔画计数与几何数量差异仍在，视觉查看未消除这些不一致。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "图像能证明静态参考内容，不能证明真实落笔过程或书家历史来源。20书家宣传与18标签差异、跨源数量差异和judge校准均影响可比性。未执行工具、调用judge或重算榜单。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可作受限工具生成和静态风格对照；若用于笔顺视频，需额外建立逐事件真值，固定工具/预算/prompt/judge与允许的参考信息。"
+        }
+      ],
+      "remaining_artifact_gaps": "完整评测harness、裁判快照/校准、完整提示和预算未取得；39行跨源对应仍待专家核验。",
+      "source_urls": [
+        "https://huggingface.co/datasets/haizelabs/calligraphy-bench/blob/main/README.md",
+        "https://huggingface.co/datasets/haizelabs/calligraphy-bench/blob/d3f189f76568729def5e845569543ba9786c317e/README.md",
+        "https://datasets-server.huggingface.co/rows?dataset=haizelabs%2Fcalligraphy-bench&config=default&split=test&offset=0&length=100",
+        "https://calligraphybench.com",
+        "https://calligraphybench.com/assets/CatalogPage-qNB-GLaJ.js"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "L048",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "Tegaki GitHub 32654a4cfb0fa6a2873264cf693316acd59d1627",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "官方站点与gkurt/tegaki代码对应；MIT工程与引用字体、MMH、KanjiVG等数据许可分开。本批新增固定源码版本，不将其自动当旧网站演示的运行版本。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "字体几何抽取后匹配参考中心线以指定顺序/方向；抽取点不是实测书写。已取bundled lxgw-wenkai glyphData.json：1110个字符键，含宽度、分笔几何等序列化字段。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "完整读providers/datasets、match.ts、guide.ts。zh优先MMH、ja优先KanjiVG，首个非空参考胜出；match以24点等弧长重采样、正反向距离与Hungarian一一分配。guide在笔数不对应时以16点投影、35%位置分位数排序并估方向。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "参考匹配与启发式引导提供可重复工程顺序，不能证明原字体作者实际怎么写。guide保留字体连笔，故生成事件可跨多个规范笔画；平均几何距离也非严格顺序准确率。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可构造字体风格下的参考驱动基线。应记录locale、参考来源、matched/guided/fallback路径和分笔映射，单独评价连笔与规范事件一致性。"
+        }
+      ],
+      "remaining_artifact_gaps": "未执行字体抽取或浏览器；未逐字验证1110个几何结果、全部字体和fallback；不声明全仓源码逐行审完。",
+      "source_urls": [
+        "https://tegaki.ink/",
+        "https://github.com/gkurt/tegaki/tree/32654a4cfb0fa6a2873264cf693316acd59d1627",
+        "https://github.com/gkurt/tegaki/blob/32654a4cfb0fa6a2873264cf693316acd59d1627/packages/generator/src/stroke-order/match.ts"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "L049",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "publication_format_reviewed_sample_access_pending",
+      "version_scope": "SCUT-COUCH2009TL，ICFHR2010作者6页PDF的既有阅读",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "本条保留数据资源身份；采集论文与实际数据许可分别核。既有阅读覆盖作者PDF相关章节；本批补访相同PDF入口返回403，未取得当前发布包。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "LCD与digital-pen两设备在线自然文本；8809行=4813+3996，带分行/字符标注。论文描述的数据模态与二进制发布格式的实测检查分开。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "已读§2–5及Tables1–4采集、标注与算法；本轮继续核当前下载可用性，未找到/取得可验证的原始数据包，因此没有新样例解析。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "摘要159866字与表内159278字冲突保留；作者/地域/新闻域偏差、设备分布和真实顺序偏离规范均需考虑。两个设备统计不能混作同分布。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "用于自然中文连写与跨设备研究前，须取得实际文件与授权，公开writer/device/template拆分及规范事件映射；渲染视频和真实摄像视频分别报告。"
+        }
+      ],
+      "remaining_artifact_gaps": "原始包、实际二进制规范与适用授权仍待取得；本次未补齐整套资源实物。",
+      "source_urls": [
+        "https://pagesperso.ls2n.fr/~mouchere-h/pdf/SCUT-COUCH2009_ICFHR2010.pdf"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "L050",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "source_format_reviewed_sample_access_pending",
+      "version_scope": "CASIA-OHFC官方采集、partition、usage和InkML说明",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "官方在线手绘流程图资源，配套InstanceGNN论文另列。用途说明已读，明确许可范围/逐项内容授权仍需发布方证据；本批官网连接失败/超时。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "InkML X/Y/F/S/T与traceGroup记录点坐标、力/状态/时间及结构分组；S的1接触、0移动、2抬笔含义按官方格式，不擅自套用其它数据的状态编码。压力标度仍需实际包确认。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "已读官方数据规模、划分和完整InkML说明；没有取到压缩包或解析原始样例，不将格式文档当作数据实物。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "205作者、2957图，作者143/20/42与图2073/286/598为官网口径；writer独立不保证模板独立。图结构识别不证明汉字笔序或真实RGB过程理解。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "适合结构分组与在线图过程研究。取得样例后核单位/状态、元素与trace映射；要研究规范汉字需另建文字/事件标签。"
+        }
+      ],
+      "remaining_artifact_gaps": "原始InkML样例、压力单位/许可细则与配套论文全部实验未完成；本条只完成公开资源协议审查。",
+      "source_urls": [
+        "https://nlpr.ia.ac.cn/databases/CASIA-OHFC/"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "S007",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "BCSS HF bdc4c6fc8e0641c1572e16dd7e2c1e4f8146a4bf",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "HF数据资源与L184论文、S016源码分列。固定revision的README/划分/许可字段已核，不能由三者同名推定发布内容完全对应。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "单图、六类mask、七维先验与id；图像400×400。一个类别mask可合并多个实际笔画，没有落笔实例、时间和方向。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "本批取得完整images.zip，并实际取样007054的原图和6张mask、七维先验[25,3,4,2,3,0,2]；查看全部7张图，mask_5为空，其余显示类别分组。样例媒体来自datasets-server的图像导出，未把缓存JPEG当原始无损标注做像素指标。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "HF六类/七维/1082内部130外部与论文十类/十一维等差异保留。单样例分组确认不证明全库准确率，也不重现论文TSR/FSR。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可研究类别分割与几何先验；严格笔顺需额外标注实例、方向和事件，不可把六类编号直接当序列。比较论文时必须固定实际split与模型输入维度。"
+        }
+      ],
+      "remaining_artifact_gaps": "全量mask ZIP下载未完成，未逐图审全标注；未取得同论文实验的完整原版本与checkpoint。",
+      "source_urls": [
+        "https://huggingface.co/datasets/Rvosuke/BCSS",
+        "https://github.com/Rvosuke/BCSS",
+        "https://huggingface.co/datasets/Rvosuke/BCSS/blob/bdc4c6fc8e0641c1572e16dd7e2c1e4f8146a4bf/README.md"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "S008",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "Wuji-writing HF e93c0978a71de93533b94ad99f5e6face4444bf3",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "模型制品，无独立论文验证。README、model_config和training_config固定到同一revision；卡片中的许可只按已声明范围记录，不推断训练数据全部授权。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "发布配置采用54维动作/状态归一化向量；仅凭均值/标准差不能确定每维单位与顺序。0–9任务覆盖不足以代表完整汉字。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "本批取得871字节action_stats.npy，以pickletools静态读取结构和原始float32载荷，不执行pickle。mean/std各54维，count=438986；std最小约0.04499、最大25.69574。结合原先配置核查，确认实际统计文件存在并具有相应形状。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "count未给可确认的训练集独占范围，不能先认定数据泄漏或没有泄漏。20个snapshot展示与训练loss均不能证明物理执行成功、规范笔顺或反馈闭环。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可借鉴视频/动作建模接口；训练前须取得每维语义、统计生成范围、采样器和真实评测。公开统计形状只能作加载约定证据。"
+        }
+      ],
+      "remaining_artifact_gaps": "11.54GB权重未下载/执行；完整MoT实现、动作维度语义、统计split与物理任务评测仍缺。",
+      "source_urls": [
+        "https://huggingface.co/knightnemo/wuji-writing-vam-ti2v5b-30l-0522-0819",
+        "https://huggingface.co/knightnemo/wuji-writing-vam-ti2v5b-30l-0522-0819/blob/e93c0978a71de93533b94ad99f5e6face4444bf3/README.md",
+        "https://huggingface.co/knightnemo/wuji-writing-vam-ti2v5b-30l-0522-0819/blob/e93c0978a71de93533b94ad99f5e6face4444bf3/model_config.json",
+        "https://huggingface.co/knightnemo/wuji-writing-vam-ti2v5b-30l-0522-0819/blob/e93c0978a71de93533b94ad99f5e6face4444bf3/training_config.yaml",
+        "https://huggingface.co/knightnemo/wuji-writing-vam-ti2v5b-30l-0522-0819/blob/e93c0978a71de93533b94ad99f5e6face4444bf3/action_stats.npy"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "S009",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "AnimCJK GitHub 3e1253b341cc7be14c3540bb3c045e6163557777",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "固定完整18028项tree及README资源说明已核；工程、MMH/Arphic派生资料及其它来源的许可需保留各自范围。示例读取日期与tree版本分别记载。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "SVG轮廓、clipPath及中心线动画提供几何顺序。示例每笔1秒递增、duration0.8秒是人工动画时间；radical着色及自交路径可拆分逻辑笔画。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "实际读中4笔及简/繁目录中馬的两个10笔SVG。馬的前两条轮廓/中心线顺序在两个目录交换，构成locale影响的具体例子；没有将全部字体文件都称为已读。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "同码点在不同地区目录可有不同顺序；path数也可能受逻辑分割影响，不能一律当真实落笔数。动态SVG不包含人类实测时序或笔压。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "适合有地区标签的规则动画与反事实对照。记录locale、字形和逻辑笔画映射，保留数据来源/许可，另外定义可观察视频事件。"
+        }
+      ],
+      "remaining_artifact_gaps": "未逐字验证完整多语字库与所有生成脚本；动画时间不提供物理真值。",
+      "source_urls": [
+        "https://github.com/parsimonhi/animCJK",
+        "https://github.com/parsimonhi/animCJK/tree/3e1253b341cc7be14c3540bb3c045e6163557777"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "S010",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "KanjiVG GitHub 70a0b7ae0c18ceb5cb358274b029cce0234a43bc",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "固定完整11961项tree、README、COPYING与官方SVG规范；CC BY-SA 3.0资料，工程/派生使用须保留署名及相应许可义务。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "SVG group/path保留部件结构、笔画顺序与方向；控制点是曲线几何，非实测时间。kvg属性与可视化编号分开，不把编号label路径算入笔画。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "本批补读心(05fc3，4笔)、食(098df，9笔)完整SVG及COPYING，结合既有中(04e2d，4笔)示例和格式说明核字段/次序。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "日本字形与笔顺不能直接充当大陆简体规范；部首/phon标签存在词典体系差异。三个示例不证明全库人工标注一致。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可作日文结构与矢量基线。汉字实验需明确区域标准、变体和规范映射，分开几何参数与真实时间，保留许可来源。"
+        }
+      ],
+      "remaining_artifact_gaps": "未逐字校全库及所有变体；无逐点物理时序、压力或真实RGB过程真值。",
+      "source_urls": [
+        "https://github.com/KanjiVG/kanjivg",
+        "https://kanjivg.tagaini.net/svg-format.html",
+        "https://github.com/KanjiVG/kanjivg/blob/master/kanji/04e2d.svg",
+        "https://github.com/KanjiVG/kanjivg/tree/70a0b7ae0c18ceb5cb358274b029cce0234a43bc"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "S011",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "Qari HF b969e7f997f390ffa93338e42fb067601a5da8c8；GitHub 048f9cc165e3df9eed6c0db00bef0febd6cb00a0",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "阿拉伯文OCR LoRA，基座及适配器身份按卡和配置记录；本批固定训练/推理源码commit，不能默认它完整复现比赛提交的训练版本。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "图像/对话prompt→Qwen视觉语言OCR文本；LoRA/DoRA/RSLoRA参数与量化配置按源码和卡分开。CER/WER需明确文本规范化及解码。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "完整读train.py、training_config.yaml与inference.py。数据来自本地ARABIC_OCR_FINAL，按行random_split 95/5、seed42；collator显式labels=input_ids.clone()，未显式把prompt/padding/image token设-100。精确底座revision和完整语料构建未给出。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "按行拆分没有保证writer/page独立；缺显式loss mask是所读collator事实，其实际影响仍依模型内部处理与运行结果。比赛CER/WER为作者/官方报告，未由本次重算。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可作OCR控制模型线索，不能用于笔顺正确性裁判。使用前须核底座快照、数据分组、loss masking及CER/WER规范化，分别验证文字识别与过程识别。"
+        }
+      ],
+      "remaining_artifact_gaps": "适配器未运行；缺完整数据构建、分组证据和评价实现；不声称所读源码就是比赛checkpoint完整训练记录。",
+      "source_urls": [
+        "https://github.com/HasanBGit/QARI-OCR-LoRA",
+        "https://huggingface.co/HassanB4/Qari-OCR-LoRA",
+        "https://huggingface.co/HassanB4/Qari-OCR-LoRA/blob/b969e7f997f390ffa93338e42fb067601a5da8c8/README.md",
+        "https://huggingface.co/HassanB4/Qari-OCR-LoRA/blob/b969e7f997f390ffa93338e42fb067601a5da8c8/adapter_config.json",
+        "https://huggingface.co/HassanB4/Qari-OCR-LoRA/blob/b969e7f997f390ffa93338e42fb067601a5da8c8/training_info.json",
+        "https://github.com/HasanBGit/QARI-OCR-LoRA/tree/048f9cc165e3df9eed6c0db00bef0febd6cb00a0"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "S012",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "Teklia/CASIA-HWDB2-line HF 2974a15ceab0657047a28d2a71b76bd7544d4663",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "CASIA离线行图的HF衍生发布，原资源使用条件与衍生卡片许可分别记录。固定版本样例URL已核，不当作原始在线数据。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "实际样例字段仅image和text，图像为离线中文行；不含writer、原段落、逐点轨迹、时间和压力字段。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "在已读完整数据卡/规模/字段基础上，本批取train首两条、实际查看两张行图并核文本字段；缓存图像URL含固定revision。未将两条样例当作全52160行质量检查。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "转录只能监督最终文字；同内容的不同笔顺不会被离线image/text区分。缺原writer/paragraph关联妨碍额外分组和跨模态追溯。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "适合作为静态OCR/内容保持对照。用于过程研究需另配在线事件，避免把OCR准确率直接解释成笔顺正确率。"
+        }
+      ],
+      "remaining_artifact_gaps": "未下载全部parquet或逐条图像核验；缺原作者/段落/在线关联和过程真值。",
+      "source_urls": [
+        "https://huggingface.co/datasets/Teklia/CASIA-HWDB2-line",
+        "https://huggingface.co/datasets/Teklia/CASIA-HWDB2-line/blob/2974a15ceab0657047a28d2a71b76bd7544d4663/README.md"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "S013",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "SceneDAPR GitHub f74a82e0492709427b33ee923db627741b79a08a",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "WWW2024相关代码/数据资源，论文精读与本条制品审查分开；公开仓库不等于所有参与者数据可无条件使用，原访问/授权说明保留。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "实际采集前端保存按提交顺序的stroke点列x/y，后端保存strokes、image、allowToPublic、startedAt/endedAt；没有逐点time/pressure。undo删除最近一笔，清空会丢既有笔列。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "新增读SketchForm采集/撤销/提交完整逻辑、后端resolver全文和COCO转换器；实际查看公开检测示意图。既有preprocessing SVG转换限制保留，没有调用采集系统服务器或读取受限参与者数据。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "提交的保留笔画顺序与全编辑历史不同；总elapsed含编辑，不能还原局部速度。公开示意检测分数未重算，心理诊断或汉字规范顺序不在证据范围内。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可借鉴画序/对象分组的采集界面；过程真值应保留撤销与重画事件及逐点时钟。中文书写须另外标注文字和规范笔画。"
+        }
+      ],
+      "remaining_artifact_gaps": "受限原始参与者数据未取得；删除事件日志和逐点时间并未由当前采集格式保存。",
+      "source_urls": [
+        "https://github.com/DSAIL-SKKU/SceneDAPR",
+        "https://api.github.com/repos/DSAIL-SKKU/SceneDAPR/git/blobs/bf765c696bcd1aa95cdf8879a366b01a7f377da3",
+        "https://github.com/DSAIL-SKKU/SceneDAPR/blob/f74a82e0492709427b33ee923db627741b79a08a/collection_system/client/src/components/SketchForm.js"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "S014",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "ark60/sketch-diffusion GitHub 5a7d54992ae5cda660bf60d80a6d41593e129c7f",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "独立notebook资源，无对应独立论文验证。固定源码树和完整notebook文件取得；代码/训练数据授权及数据下载来源按原说明分别记录。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "点序列含坐标和pen-up，经固定长度pad后用于扩散；评价先把轨迹栅格化，FID/KID度量图像分布。GIF的50ms显示步长由程序设定。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "静态提取42个cell的全部源码，选读Dataset、点序转换、模型/扩散采样、训练/EMA和evaluate_category。EMA=.9999，evaluate加载checkpoint后应用EMA；这些读取未执行notebook。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "已读源码中非末笔每点被置pen_up、反推x0的噪声项缺分母、test用于早停以及padding进入MSE的问题保留。动画与静态FID/KID均不能证明规范事件规划。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "仅适合实现研究和修正后的受控基线。先明确序列/pen-up语义和训练/验证/测试隔离，再用独立事件标注评价；当前公开输出不充当可靠SOTA证据。"
+        }
+      ],
+      "remaining_artifact_gaps": "未执行、未取得训练数据/权重及运行记录对应；未声称42个cell全部逐行推导或修复上游。",
+      "source_urls": [
+        "https://github.com/ark60/sketch-diffusion",
+        "https://api.github.com/repos/ark60/sketch-diffusion/git/blobs/f8f6b78342eada2ade372eae380f713c25eb8e4c",
+        "https://github.com/ark60/sketch-diffusion/blob/5a7d54992ae5cda660bf60d80a6d41593e129c7f/sketch_diffusion.ipynb"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "S015",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "VidSketch GitHub ad7fcdb8099e39d253364275711a992febb91eb4",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "论文S004关联制品；固定当前代码与历史blob分列。README badge与末尾CC BY-NC 4.0范围冲突保留，不能假定全部代码/权重统一许可。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "草图关键帧与文本经adapter控制视频扩散；草图特征在时间上插值。DPO数据加载器输出成对样本，但加载器本身没有定义偏好损失和优化流程。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "本批完整读dataset_DPO.py，并读inference/pipelines/pipeline_VidSketch.py的接口与adapter/去噪核心；结合已读train_vidsketch.py的MSE主损失，修正此前笼统“DPO脚本缺失”为“成对loader存在，未找到完整DPO训练目标/入口”。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "所读推理路径插值循环为range(idx,next_idx)，最后关键帧位置未被写入，初始化为零的最后adapter特征保留；这是该路径静态索引结论，未据此推断论文所有结果错误。场景运动不提供stroke birth order保证。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可作为视频外观执行器候选。训练前应固定实际pipeline、补齐训练/checkpoint对应、核关键帧端点与偏好损失，并用事件标注独立评价笔序。"
+        }
+      ],
+      "remaining_artifact_gaps": "缺完整DPO训练目标/发布checkpoint映射及数据；未执行pipeline或全审所有替代路径/依赖。",
+      "source_urls": [
+        "https://github.com/CSfufu/VidSketch",
+        "https://api.github.com/repos/CSfufu/VidSketch/git/blobs/cd2b32c8df4a8564a156727b86f561dc81d3c95c",
+        "https://api.github.com/repos/CSfufu/VidSketch/git/blobs/9d459e78da5e058be84b656ddd881b12ab7f5ecc",
+        "https://api.github.com/repos/CSfufu/VidSketch/git/blobs/0a1727f6919c567c22dceb0d7fa7bc56d1d6f13f",
+        "https://github.com/CSfufu/VidSketch/blob/ad7fcdb8099e39d253364275711a992febb91eb4/VidSketch/VidSketch/data/dataset_DPO.py",
+        "https://github.com/CSfufu/VidSketch/blob/ad7fcdb8099e39d253364275711a992febb91eb4/VidSketch/inference/pipelines/pipeline_VidSketch.py"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "S016",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "BCSS implementation GitHub 2451eb756ff4adb5a6e00e8b3d5cdd8fd8400621",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "论文L184与数据S007关联实现，按固定tree审查。已有README/源码许可来源保留，不能用仓库同名证明论文方法全发布。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "已读DeepLab入口默认6类；decoder低层特征投影48通道，与ASPP256拼成304再输出num_classes。类别数来自调用参数，不能由模块名推成论文十类。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "在既有README、完整tree、FCN/DeepLab/LabelMe样例阅读基础上，补读backbone选择入口、decoder和UNet基本模块全文。固定tree没有论文完整训练/eval/checkpoint流水线，主表模型结果仍无法从该发布直接复现。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "六类实现、未用到的分支与论文10类/TransUNet叙述分开。静态源码可以说明接口和发布缺项，不能提供TSR/FSR实测成绩。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可作分割模块参考；应明确mask/先验输入维度、训练split、字识别器/阈值和实际checkpoint。严格笔顺还需实例和方向标注。"
+        }
+      ],
+      "remaining_artifact_gaps": "完整训练/评价、阈值、识别器和论文主表checkpoint缺失；未逐行审全部backbone或运行模型。",
+      "source_urls": [
+        "https://github.com/Rvosuke/BCSS",
+        "https://api.github.com/repos/Rvosuke/BCSS/git/blobs/148825e832c0d87448c9fa9ff3a489587d162ef9",
+        "https://api.github.com/repos/Rvosuke/BCSS/git/blobs/0400a4b09fe194dde7caaf3391a7b086218233b0",
+        "https://api.github.com/repos/Rvosuke/BCSS/git/blobs/aacdf4e827344caba92faf23a2e74d58f61d4ab9",
+        "https://github.com/Rvosuke/BCSS/tree/2451eb756ff4adb5a6e00e8b3d5cdd8fd8400621"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "H001",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "CoFRIDA-Sharpie HF 58d397f81bd0bf64eb43d85ee8bd5191acd9824d",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "F04论文相关适配器资源；HF卡身份、bin元数据与官方Frida源码分开。发布卡许可信息不补出精确底座、训练数据或权重alpha。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "单张绘画协同/图像编辑LoRA；静态权重元数据为256个矩阵、rank256、51019776个float32，cross-attention输入768维；与SDXL卡片标签的2048维不一致。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "既有固定bin前512KiB ZIP/data.pkl元数据已静态全读，不执行pickle；本批重读完整卡，与官方f42fa618的rank32训练配置及两个底座config交叉核。仍未找到本bin与官方训练版本的精确对应。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "卡片base SDXL与正文Timbrooks IP2P说法冲突，不能默认任选底座即可复现。rank不是alpha，权重形状也不提供训练数据/笔顺能力证据。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可作部分画布协同/编辑研究线索；需先确定匹配底座commit、加载缩放和训练对应，再比较画布保留/新笔画，另计真实执行成本。"
+        }
+      ],
+      "remaining_artifact_gaps": "精确底座/alpha、训练集/日志、依赖版本未齐；未完整读取/运行权重或复现绘画。",
+      "source_urls": [
+        "https://huggingface.co/skeeterman/CoFRIDA-Sharpie",
+        "https://huggingface.co/skeeterman/CoFRIDA-Sharpie/raw/main/README.md",
+        "https://huggingface.co/api/models/skeeterman/CoFRIDA-Sharpie/tree/main",
+        "https://huggingface.co/skeeterman/CoFRIDA-Sharpie/blob/58d397f81bd0bf64eb43d85ee8bd5191acd9824d/README.md",
+        "https://huggingface.co/skeeterman/CoFRIDA-Sharpie/tree/58d397f81bd0bf64eb43d85ee8bd5191acd9824d",
+        "https://github.com/cmubig/Frida/blob/f42fa61800847baacce9ff37b81b22fe412e8d66/src/cofrida.py",
+        "https://github.com/cmubig/Frida/blob/f42fa61800847baacce9ff37b81b22fe412e8d66/cofrida/train_lora.py",
+        "https://huggingface.co/timbrooks/instruct-pix2pix/blob/31519b5cb02a7fd89b906d88731cd4d6a7bbf88d/unet/config.json",
+        "https://huggingface.co/diffusers/sdxl-instructpix2pix-768/blob/06653d47f8d22f2c2205a5884d6a24c5e76d2ca7/unet/config.json"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "R08",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "SenseNova LoRA HF f33b8fe0216e6f10e5aed58ebbfdd05f02826732；代码c35c83b58ef6e238a08b986aa58f3b73303aa42f",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "官方8-step及V2蒸馏适配器组，与U26论文分列。模型卡/代码LICENSE已核，训练数据权利和完整RL/OPD实现不由标签推定。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "LoRA矩阵合入底座；实际缩放strength*alpha/r，alpha缺省取rank。以FP32乘积计算，再转回权重dtype；操作直接修改底座权重。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "本批完整读固定README和utils/lora.py；配对矩阵缺失或零匹配会报错。重复调用merge会继续累加，调用方需管理状态。V2建议final base、8step、CFG1、norm none、shift3按卡记录。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "卡中的综合RL能力改善不能独立归因于8-step LoRA；无本机速度/显存或文字细线结果。当前加载实现不证明完整训练已开放。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可作为少步生成候选。必须固定base/LoRA版本、是否已合并、strength/alpha与采样设置，并分别量笔顺事件、内容/风格、细线和总成本。"
+        }
+      ],
+      "remaining_artifact_gaps": "未下载/运行权重、未核全训练实现与训练数据；没有本项目质量/效率对照。",
+      "source_urls": [
+        "https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT-LoRAs/tree/f33b8fe0216e6f10e5aed58ebbfdd05f02826732",
+        "https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT-LoRAs/blob/f33b8fe0216e6f10e5aed58ebbfdd05f02826732/README.md",
+        "https://github.com/OpenSenseNova/SenseNova-U1/blob/c35c83b58ef6e238a08b986aa58f3b73303aa42f/docs/base_vs_distill.md",
+        "https://github.com/OpenSenseNova/SenseNova-U1/blob/c35c83b58ef6e238a08b986aa58f3b73303aa42f/src/sensenova_u1/utils/lora.py"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "R09",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "Datumwell HF b58ba9d09a907333a0733fbfc415e381c06765e6",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "10完整模拟episode的检查样本；200集合需申请，本次未申请。源UJI CC BY 4.0与loader MIT范围明确，机器人渲染外观权利尚未建立，不能称整体开放商用。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "实际parquet含5维state/action与velocity，rad/rad·s⁻¹；action是计划绝对关节目标。另有模拟contact/normal_force、目标tcp、source_pen_down、image_age与映射索引，规划诊断字段不得泄漏入policy输入。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "本批完整解析全部10个parquet共59338行：每例时间严格递增，中位步长约.02000046s，state/action均5维；实际引用图像源索引的变化间隔中位.334s，最大image age约.332s。首段tabletop MP4解码确认为640×480 H264/50fps/125.76s，实际查看0/25/50/75/100/125秒六帧。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "每例action-state RMSE约0.000341–0.000362rad，仅是发布模拟轨迹的计划/记录偏差。contact与计划pen_down计数不相等，二者不可互换；50fps保持旧图不增加新观测。源首例378个native timestamp与导出实际引用377个是不同计数口径，末端不使用未来图。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "适合采样/对齐和模拟动作监督研究。显式选择允许的因果观测，按源writer/phrase/base布局拆分；短事件评价需考虑3Hz视觉歧义，真实机器人泛化仍需实采实验。"
+        }
+      ],
+      "remaining_artifact_gaps": "30路视频仅解码/抽看其中首例一视角；未逐帧人工验全视频、未取得200集合或运行policy/物理重仿真。源加速度报告未独立重算。",
+      "source_urls": [
+        "https://huggingface.co/datasets/allen-datumwell/datumwell-handwriting-sample/tree/b58ba9d09a907333a0733fbfc415e381c06765e6",
+        "https://huggingface.co/datasets/allen-datumwell/datumwell-handwriting-sample/blob/b58ba9d09a907333a0733fbfc415e381c06765e6/README.md",
+        "https://huggingface.co/datasets/allen-datumwell/datumwell-handwriting-sample/blob/b58ba9d09a907333a0733fbfc415e381c06765e6/provenance/conversion.json",
+        "https://huggingface.co/datasets/allen-datumwell/datumwell-handwriting-sample/blob/b58ba9d09a907333a0733fbfc415e381c06765e6/provenance/episodes/train-00-0-v0/frames.json"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "R10",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "SD VAE ft-MSE 31f26fdeee1355a5c34592e401dd41e45d25a493；ft-EMA f04b2c4b98319346dad8c65879f680b1997b204a",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "官方组件资源，与LDM/DiT论文分别登记；卡/两config及许可范围已读。固定的是各HF版本，不能将两种微调当同一个受控loss实验。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "f8图像VAE，固定encoder兼容原latent，进一步微调decoder；ft-EMA与ft-MSE训练步数、损失和权重平均条件分开。解码重建与生成采样是不同任务。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "本批补读完整卡片并实际查看全部6张发布的EMA/MSE/原图三联重建图；顺序为左EMA、中MSE、右原图。两重建表均按作者原值记录，没有运行重建或重新计算指标。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "部分样例更平滑不构成所有指标/字符/细线都改善。重建模型不输出笔顺事件；训练时间与loss不同，表内差异不能单独归因为MSE。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可用于终态细线/文字信息损失的组件对照。需固定encoder、latent scaling、分辨率与数据，并额外测过程中的新墨和细笔保持。"
+        }
+      ],
+      "remaining_artifact_gaps": "未读取/运行权重，训练数据/超参仍不完整；发布的6图未验证汉字规范过程能力。",
+      "source_urls": [
+        "https://huggingface.co/stabilityai/sd-vae-ft-mse/blob/31f26fdeee1355a5c34592e401dd41e45d25a493/README.md",
+        "https://huggingface.co/stabilityai/sd-vae-ft-mse/blob/31f26fdeee1355a5c34592e401dd41e45d25a493/config.json",
+        "https://huggingface.co/stabilityai/sd-vae-ft-ema/blob/f04b2c4b98319346dad8c65879f680b1997b204a/README.md",
+        "https://huggingface.co/stabilityai/sd-vae-ft-ema/blob/f04b2c4b98319346dad8c65879f680b1997b204a/config.json"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "R11",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "CogVideo GH 7a1af7154511e0ce4e4be8d62faa8c5e5a3532d2及已固定2B/5B/1.5配置",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "G012论文相关组件/微调资源；三代检查点和版本许可分别记录。开发依赖未完全钉定，不能把generic脚本的约束扩展到每个模型变体。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "视频latent含16通道、时空压缩与N+1帧约束，2B/5B/1.5配置不同。已读T2V LoRA目标经scheduler.get_velocity转换并用1/(1−alphabar)加权，不能简单称原始epsilon MSE。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "本批完整读T2VLoraTrainer约240行encode/collate/compute_loss/validation，结合既有args/cache/冻结与配置。encode路径固定乘scaling_factor，未显式按invert_scale_latents分支；1.5的对应配置为true，兼容性需在相应依赖/完整pipeline中进一步验证。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "论文2B 32heads与实际config30等差异保留；1.5卡16N+1与generic8N+1建议不能混用。上述静态接口差异不等于已测得训练失败，也没有严格书写视频准确率。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可作公开视频执行底座；先选定具体模型/依赖、验证latent与帧数处理，再控制可训练参数/预算，与规则及轨迹基线比较事件指标和外观。"
+        }
+      ],
+      "remaining_artifact_gaps": "未训练/推理、未测资源占用，未全审全部训练依赖/样例；invert配置和完整版本兼容仍待运行证据。",
+      "source_urls": [
+        "https://github.com/THUDM/CogVideo/blob/7a1af7154511e0ce4e4be8d62faa8c5e5a3532d2/finetune/README.md",
+        "https://github.com/THUDM/CogVideo/blob/7a1af7154511e0ce4e4be8d62faa8c5e5a3532d2/finetune/schemas/args.py",
+        "https://github.com/THUDM/CogVideo/blob/7a1af7154511e0ce4e4be8d62faa8c5e5a3532d2/finetune/models/cogvideox_t2v/lora_trainer.py",
+        "https://huggingface.co/THUDM/CogVideoX-2b/tree/1137dacfc2c9c012bed6a0793f4ecf2ca8e7ba01",
+        "https://huggingface.co/THUDM/CogVideoX-5b/tree/8fc5b281006c82b82d34fd2543d2f0ebb4e7e321",
+        "https://huggingface.co/THUDM/CogVideoX1.5-5b/tree/fdc5267c90b5c06492985b966e43aae984e189e0",
+        "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4090/",
+        "https://huggingface.co/THUDM/CogVideoX1.5-5b/blob/fdc5267c90b5c06492985b966e43aae984e189e0/scheduler/scheduler_config.json"
+      ],
+      "independently_reproduced": false
+    },
+    {
+      "id": "R12",
+      "checked_on": "2026-10-25",
+      "protocol_review_completed": true,
+      "artifact_evidence_status": "public_artifact_inspected",
+      "version_scope": "Wan Toy Transform GH c86ea3638c137792389f2fc0f1c4d912353634dc；HF 94ca3cd260d4b824c7f8e909fd2edbaf9e94db90",
+      "checks": [
+        {
+          "criterion": "身份、版本与许可范围",
+          "answer": "官方风格变形LoRA资源，无独立论文定位。HF有MIT元数据；固定GH树无单独LICENSE，底座和其它组件许可需按来源分别核。"
+        },
+        {
+          "criterion": "输入输出、字段与单位",
+          "answer": "Wan2.1 I2V14B480P输入图像/触发文本→81帧16fps视频；LoRA rank96/alpha96。默认CFG5/50steps，diffusers0.33.1；基础model ID未固定revision、seed未固定。"
+        },
+        {
+          "criterion": "实际制品与实现证据",
+          "answer": "既有完整10项tree、README/requirements/generate.py102行全文、HF adapter_config及相关Diffusers官方pipeline段均已读；本批重读README确认当前发布范围，未补出训练脚本。"
+        },
+        {
+          "criterion": "主张、评价与分布边界",
+          "answer": "A100显存/速度为作者报告，未本机实测；外观变形不保证笔画单调生成、身份保持或规范事件。释放显存的offload也包含主机/传输成本。"
+        },
+        {
+          "criterion": "研究迁移与使用前提",
+          "answer": "可作视频风格执行候选。固定底座/适配器/触发词/seed/帧数和预算，单独测试保留旧墨、文字结构及事件约束，再决定是否纳入笔顺实验。"
+        }
+      ],
+      "remaining_artifact_gaps": "训练/数据/验证脚本和精确底座revision缺失；未下载/运行权重、未测书写或硬件表现。",
+      "source_urls": [
+        "https://github.com/alibaba/wan-toy-transform/tree/c86ea3638c137792389f2fc0f1c4d912353634dc",
+        "https://huggingface.co/Alibaba-Research-Intelligence-Computing/wan-toy-transform/tree/94ca3cd260d4b824c7f8e909fd2edbaf9e94db90",
+        "https://github.com/huggingface/diffusers/blob/v0.33.1/src/diffusers/pipelines/wan/pipeline_wan_i2v.py"
+      ],
+      "independently_reproduced": false
+    }
+  ],
+  "public_artifact_inspected_count": 22,
+  "raw_sample_access_pending_ids": [
+    "R03",
+    "R04",
+    "L049",
+    "L050"
+  ],
+  "release_unconfirmed_ids": [
+    "R05"
+  ]
+}

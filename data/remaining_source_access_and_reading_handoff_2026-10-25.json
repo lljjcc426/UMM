@@ -1,6 +1,6 @@
 {
   "checked_on": "2026-10-25",
-  "base_commit": "2b41d705",
+  "base_commit": "cea09604",
   "reviewed_existing_ids": [
     "A06",
     "F05",
@@ -13,13 +13,74 @@
   "paper_additions": [],
   "resource_additions": [],
   "core_completion_upgrades": [],
-  "catalog_total": 359,
-  "paper_research_total": 332,
+  "catalog_total": 360,
+  "paper_research_total": 333,
   "resource_total": 27,
-  "core_total": 325,
-  "written_total": 328,
+  "core_total": 326,
+  "written_total": 329,
   "remaining_paper_without_core": 7,
   "source_access_checks": {
+    "A06": {
+      "note": "CCU作者成果页仅有书目，Springer全文仍未取得；截断转录不作9页全文。",
+      "urls": [
+        "https://publication.ccu.edu.tw/user/377/research?type=0"
+      ]
+    },
+    "L002": {
+      "note": "官方PAL 2023成果索引有该条，当前页面访问失败/超时，未取得ICONIP章节全文。",
+      "urls": [
+        "https://nlpr.ia.ac.cn/pal/publications/P2023.html"
+      ]
+    },
+    "L006": {
+      "note": "ScienceDirect可读摘要/引言与检索片段；未取得完整方法、实验及PDF，不以片段升级。",
+      "urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0020025526010674"
+      ]
+    },
+    "L021": {
+      "note": "补查api.openreview.net/pdf?id=VdDtRu7RTf仍403；未取得完整PDF，搜索首段和相似ICDAR论文不替代版本证据。",
+      "urls": [
+        "https://api.openreview.net/pdf?id=VdDtRu7RTf"
+      ]
+    },
+    "L022": {
+      "note": "补查另一官方hash-PDF及api2 PDF入口，仍受403/challenge；搜索缓存前两页不足以完成全文和原图核查。",
+      "urls": [
+        "https://openreview.net/pdf/6c8886af438417e6666dfb3cd4675854fcee6ca5.pdf",
+        "https://api2.openreview.net/pdf?id=SuLp0J2uan"
+      ]
+    },
+    "F05": {
+      "note": "ICASSP官方PaperNum=13860的View Manuscript跳转IEEE文档11463098；本次返回HTTP202空响应。已核正式身份/作者，仍缺正式论文全文。",
+      "urls": [
+        "https://cmsworkshops.com/ICASSP2026/view_paper.php?PaperNum=13860",
+        "https://cmsworkshops.com/ICASSP2026/goto_manuscript.php?pn=13860",
+        "https://ieeexplore.ieee.org/document/11463098/"
+      ]
+    },
+    "L184": {
+      "note": "正式HTML/epdf全文文字可读，截图没有返回可查看的实际图像；作者上传ResearchGate PDF和直接PDF仍403。F1/3/4/5/6/7/9视觉缺项保留，F2/F8既有实图不扩展为全部。",
+      "urls": [
+        "https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/ipr2.13255"
+      ]
+    }
+  },
+  "scope": "本批7项补访均未取得足以升级的全文/原图；27资源公开协议审查另列，保留实际制品缺项。",
+  "metadata_correction": {
+    "id": "L006",
+    "journal_volume": 761,
+    "article_number": "124136",
+    "official_cover_date": "2027-02-05",
+    "previously_verified_online_date": "2026-09-10",
+    "doi_year_not_used_as_volume_year": true,
+    "elsevier_pii": "S0020025526010674",
+    "xml_payload_bytes": 1826,
+    "xml_contains_full_body": false
+  },
+  "no_learned_model_execution": true,
+  "no_file_deletions": true,
+  "previous_batch_access_checks": {
     "A06": {
       "note": "2026-10-25补查：正式content/pdf入口HTTP200但Content-Type为text/html，正文为订阅预览，未取得PDF；OpenAlex仅出版方closed位置、没有repository全文。未将Paperity截断的转录作正式全文。",
       "urls": [
@@ -73,18 +134,5 @@
       ]
     }
   },
-  "scope": "有限主源访问与书目核查；没有新阅读全文或视觉验收，七项未完成状态保持。",
-  "metadata_correction": {
-    "id": "L006",
-    "journal_volume": 761,
-    "article_number": "124136",
-    "official_cover_date": "2027-02-05",
-    "previously_verified_online_date": "2026-09-10",
-    "doi_year_not_used_as_volume_year": true,
-    "elsevier_pii": "S0020025526010674",
-    "xml_payload_bytes": 1826,
-    "xml_contains_full_body": false
-  },
-  "no_learned_model_execution": true,
-  "no_file_deletions": true
+  "resource_protocol_reviews_completed": 27
 }

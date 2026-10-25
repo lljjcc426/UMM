@@ -4,7 +4,9 @@
 
 核心三遍完成需逐条核问题/方法/框架图、主表/消融及有依据的批判分析，并记录五项书面检查。计时口试、完整代码审查和独立复现另列；没有自动把模板填齐计为完成。
 
-| ID | 记录 | 原目录核查状态 | 本批笔记 | 三遍验收 |
+资源使用独立的制品协议验收；可访问性不足与未发布制品仍明确保留，不计入论文核心完成数。
+
+| ID | 记录 | 原目录核查状态 | 本批笔记 | 论文阅读／资源协议验收 |
 | --- | --- | --- | --- | --- |
 | A01 | DP-Font: Chinese Calligraphy Font Generation Using Diffusion Model and Physical Information Neural Network | primary_sections_read | [结构化分析](../reviews/A01.md) | 核心三遍与五项检查完成 |
 | A02 | Decoupling Layout from Glyph in Online Chinese Handwriting Generation（OLHWG） | primary_sections_read | [结构化分析](../reviews/A02.md) | 核心三遍与五项检查完成 |
@@ -55,11 +57,11 @@
 | F04 | CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting | primary_sections_read | [结构化分析](../reviews/F04.md) | 核心三遍与五项检查完成 |
 | F05 | Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model | primary_sections_read | [结构化分析](../reviews/F05.md) | 五项检查已记录；三遍待确认 |
 | X01 | InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write | primary_sections_read | [结构化分析](../reviews/X01.md) | 核心三遍与五项检查完成 |
-| R01 | Hanzi Writer（工具，不是论文） | primary_sections_read | [结构化分析](../reviews/R01.md) | 未完成 |
-| R02 | Make Me a Hanzi（数据/工程资源） | primary_sections_read | [结构化分析](../reviews/R02.md) | 未完成 |
-| R03 | CASIA-HWDB / CASIA-OLHWDB（数据） | primary_sections_read | [结构化分析](../reviews/R03.md) | 未完成 |
-| R04 | IAM-OnDB（数据） | primary_sections_read | [结构化分析](../reviews/R04.md) | 未完成 |
-| R05 | Mobao（Moyun配套静态书法数据） | primary_sections_read | [结构化分析](../reviews/R05.md) | 未完成 |
+| R01 | Hanzi Writer（工具，不是论文） | primary_sections_read | [结构化分析](../reviews/R01.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| R02 | Make Me a Hanzi（数据/工程资源） | primary_sections_read | [结构化分析](../reviews/R02.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| R03 | CASIA-HWDB / CASIA-OLHWDB（数据） | primary_sections_read | [结构化分析](../reviews/R03.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| R04 | IAM-OnDB（数据） | primary_sections_read | [结构化分析](../reviews/R04.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| R05 | Mobao（Moyun配套静态书法数据） | primary_sections_read | [结构化分析](../reviews/R05.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | N01 | UniCalli: A Unified Diffusion Framework for Column-Level Generation and Recognition of Chinese Calligraphy | primary_sections_read | [结构化分析](../reviews/N01.md) | 核心三遍与五项检查完成 |
 | N02 | Bridging Online and Offline Handwriting via Differentiable Physical Rendering (OnOff Handwriting) | primary_sections_read | [结构化分析](../reviews/N02.md) | 核心三遍与五项检查完成 |
 | N03 | DeepCalliFont: Few-shot Chinese Calligraphy Font Synthesis by Integrating Dual-modality Generative Models | primary_sections_read | [结构化分析](../reviews/N03.md) | 核心三遍与五项检查完成 |
@@ -104,8 +106,8 @@
 | U29 | Bridging Modality Disconnect in Self-Reflection via Closed-Loop Visually Grounded Verification (MIRROR) | primary_sections_read | [结构化分析](../reviews/U29.md) | 核心三遍与五项检查完成 |
 | U30 | LatentUM: Unleashing the Potential of Interleaved Cross-Modal Reasoning via a Latent-Space Unified Model | primary_sections_read | [结构化分析](../reviews/U30.md) | 核心三遍与五项检查完成 |
 | U31 | DIVA: Harnessing the Representation Divergence in Unified Multimodal Models for Mutual Reinforcement | primary_sections_read | [结构化分析](../reviews/U31.md) | 核心三遍与五项检查完成 |
-| R06 | 通用规范汉字笔顺规范 | primary_sections_read | [结构化分析](../reviews/R06.md) | 未完成 |
-| R07 | OpenHandWrite_Toolbox与笔画级数据 | primary_sections_read | [结构化分析](../reviews/R07.md) | 未完成 |
+| R06 | 通用规范汉字笔顺规范 | primary_sections_read | [结构化分析](../reviews/R06.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| R07 | OpenHandWrite_Toolbox与笔画级数据 | primary_sections_read | [结构化分析](../reviews/R07.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | L001 | Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026 | primary_sections_read | [结构化分析](../reviews/L001.md) | 核心三遍与五项检查完成 |
 | L002 | Diff-Writer: A Diffusion Model-Based Stylized Online Handwritten Chinese Character Generator | primary_abstract_read | [结构化分析](../reviews/L002.md) | 未完成 |
 | L003 | Write Like You，2021 | primary_sections_read | [结构化分析](../reviews/L003.md) | 核心三遍与五项检查完成 |
@@ -149,13 +151,13 @@
 | L041 | DragAnything: Motion Control for Anything using Entity Representation | primary_sections_read | [结构化分析](../reviews/L041.md) | 核心三遍与五项检查完成 |
 | L042 | TextVBench: Evaluating Text Rendering and Preservation in Video Generation | primary_sections_read | [结构化分析](../reviews/L042.md) | 核心三遍与五项检查完成 |
 | L043 | ViTeX-Bench: Benchmarking High-Fidelity Video Scene Text Editing | primary_sections_read | [结构化分析](../reviews/L043.md) | 核心三遍与五项检查完成 |
-| L044 | CalligraphyBench | primary_sections_read | [结构化分析](../reviews/L044.md) | 未完成 |
+| L044 | CalligraphyBench | primary_sections_read | [结构化分析](../reviews/L044.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | L045 | CalliReader / CalliBench，ICCV 2025 | primary_sections_read | [结构化分析](../reviews/L045.md) | 核心三遍与五项检查完成 |
 | L046 | AWCV100K | primary_sections_read | [结构化分析](../reviews/L046.md) | 核心三遍与五项检查完成 |
 | L047 | Recontextualizing Revitalization: A Mixed Media Approach to Reviving the Nüshu Language（NüshuVision / NüshuStrokes） | primary_sections_read | [结构化分析](../reviews/L047.md) | 核心三遍与五项检查完成 |
-| L048 | Tegaki | primary_sections_read | [结构化分析](../reviews/L048.md) | 未完成 |
-| L049 | SCUT-COUCH2009-TL | primary_sections_read | [结构化分析](../reviews/L049.md) | 未完成 |
-| L050 | CASIA-OHFC | primary_sections_read | [结构化分析](../reviews/L050.md) | 未完成 |
+| L048 | Tegaki | primary_sections_read | [结构化分析](../reviews/L048.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| L049 | SCUT-COUCH2009-TL | primary_sections_read | [结构化分析](../reviews/L049.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| L050 | CASIA-OHFC | primary_sections_read | [结构化分析](../reviews/L050.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | L051 | Word-As-Image for Semantic Typography | primary_sections_read | [结构化分析](../reviews/L051.md) | 核心三遍与五项检查完成 |
 | L052 | Strike a Chord! Modal Kinetic Typography | primary_sections_read | [结构化分析](../reviews/L052.md) | 核心三遍与五项检查完成 |
 | L053 | Timage: A Generative Text-in-Image Paradigm for Fine-Tuning Vision-Language Models；公开预印本版本 | primary_sections_read | [结构化分析](../reviews/L053.md) | 核心三遍与五项检查完成 |
@@ -292,16 +294,16 @@
 | S002 | TextDiffuser: Diffusion Models as Text Painters | primary_sections_read | [结构化分析](../reviews/S002.md) | 核心三遍与五项检查完成 |
 | S003 | GlyphControl: Glyph Conditional Control for Visual Text Generation | primary_sections_read | [结构化分析](../reviews/S003.md) | 核心三遍与五项检查完成 |
 | S004 | VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control | primary_sections_read | [结构化分析](../reviews/S004.md) | 核心三遍与五项检查完成 |
-| S007 | Brush Calligraphy Stroke Segmentation Dataset (BCSS) | primary_sections_read | [结构化分析](../reviews/S007.md) | 未完成 |
-| S008 | Wuji Writing VAM TI2V-5B 30L 0522 0819 | primary_sections_read | [结构化分析](../reviews/S008.md) | 未完成 |
-| S009 | AnimCJK | primary_sections_read | [结构化分析](../reviews/S009.md) | 未完成 |
-| S010 | KanjiVG | primary_sections_read | [结构化分析](../reviews/S010.md) | 未完成 |
-| S011 | Qari-OCR-LoRA | primary_sections_read | [结构化分析](../reviews/S011.md) | 未完成 |
-| S012 | CASIA-HWDB2-line (Teklia HF derivative) | primary_sections_read | [结构化分析](../reviews/S012.md) | 未完成 |
-| S013 | SceneDAPR | primary_sections_read | [结构化分析](../reviews/S013.md) | 未完成 |
-| S014 | sketch-diffusion (ark60 independent implementation) | primary_sections_read | [结构化分析](../reviews/S014.md) | 未完成 |
-| S015 | VidSketch sketch animation implementation | primary_sections_read | [结构化分析](../reviews/S015.md) | 未完成 |
-| S016 | BCSS Stroke-Seg implementation | primary_sections_read | [结构化分析](../reviews/S016.md) | 未完成 |
+| S007 | Brush Calligraphy Stroke Segmentation Dataset (BCSS) | primary_sections_read | [结构化分析](../reviews/S007.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| S008 | Wuji Writing VAM TI2V-5B 30L 0522 0819 | primary_sections_read | [结构化分析](../reviews/S008.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| S009 | AnimCJK | primary_sections_read | [结构化分析](../reviews/S009.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| S010 | KanjiVG | primary_sections_read | [结构化分析](../reviews/S010.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| S011 | Qari-OCR-LoRA | primary_sections_read | [结构化分析](../reviews/S011.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| S012 | CASIA-HWDB2-line (Teklia HF derivative) | primary_sections_read | [结构化分析](../reviews/S012.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| S013 | SceneDAPR | primary_sections_read | [结构化分析](../reviews/S013.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| S014 | sketch-diffusion (ark60 independent implementation) | primary_sections_read | [结构化分析](../reviews/S014.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| S015 | VidSketch sketch animation implementation | primary_sections_read | [结构化分析](../reviews/S015.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| S016 | BCSS Stroke-Seg implementation | primary_sections_read | [结构化分析](../reviews/S016.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | G001 | Denoising Diffusion Probabilistic Models | primary_sections_read | [结构化分析](../reviews/G001.md) | 核心三遍与五项检查完成 |
 | G002 | Score-Based Generative Modeling through Stochastic Differential Equations | primary_sections_read | [结构化分析](../reviews/G002.md) | 核心三遍与五项检查完成 |
 | G003 | High-Resolution Image Synthesis with Latent Diffusion Models | primary_sections_read | [结构化分析](../reviews/G003.md) | 核心三遍与五项检查完成 |
@@ -334,22 +336,22 @@
 | G030 | Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion | primary_sections_read | [结构化分析](../reviews/G030.md) | 核心三遍与五项检查完成 |
 | G031 | VBench: Comprehensive Benchmark Suite for Video Generative Models | primary_sections_read | [结构化分析](../reviews/G031.md) | 核心三遍与五项检查完成 |
 | G032 | Towards Accurate Generative Models of Video: A New Metric & Challenges | primary_sections_read | [结构化分析](../reviews/G032.md) | 核心三遍与五项检查完成 |
-| H001 | CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品 | primary_sections_read | [结构化分析](../reviews/H001.md) | 五项检查已记录；三遍待确认 |
+| H001 | CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品 | primary_sections_read | [结构化分析](../reviews/H001.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | L182 | STRIVE: Scene Text Replacement In Videos | primary_sections_read | [结构化分析](../reviews/L182.md) | 核心三遍与五项检查完成 |
 | L183 | CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization | primary_sections_read | [结构化分析](../reviews/L183.md) | 核心三遍与五项检查完成 |
 | L184 | Stroke-Seg: A deep learning-based framework for chinese stroke segmentation | primary_sections_read | [结构化分析](../reviews/L184.md) | 五项检查已记录；三遍待确认 |
 | L185 | Training Diffusion Models with Reinforcement Learning（DDPO） | primary_sections_read | [结构化分析](../reviews/L185.md) | 核心三遍与五项检查完成 |
 | L186 | Towards Human-Like Robot Handwriting via Contour-Aware Generation | primary_sections_read | [结构化分析](../reviews/L186.md) | 核心三遍与五项检查完成 |
-| R08 | SenseNova-U1.5-8B-MoT-LoRAs：8step与V2蒸馏适配器、加载与训练配置 | primary_sections_read | [结构化分析](../reviews/R08.md) | 未完成 |
+| R08 | SenseNova-U1.5-8B-MoT-LoRAs：8step与V2蒸馏适配器、加载与训练配置 | primary_sections_read | [结构化分析](../reviews/R08.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | L187 | Visual-OPSD: Cross-Modal On-Policy Self-Distillation for Efficient Unified Multimodal Reasoning | primary_sections_read | [结构化分析](../reviews/L187.md) | 核心三遍与五项检查完成 |
 | L188 | LiveSVG: Zero-Shot SVG Animation via Video Generation | primary_sections_read | [结构化分析](../reviews/L188.md) | 核心三遍与五项检查完成 |
 | L189 | AniClipart: Clipart Animation with Text-to-Video Priors | primary_sections_read | [结构化分析](../reviews/L189.md) | 核心三遍与五项检查完成 |
 | L190 | VitaGlyph: Vitalizing Artistic Typography with Flexible Dual-branch Diffusion Models | primary_sections_read | [结构化分析](../reviews/L190.md) | 核心三遍与五项检查完成 |
-| R09 | Datumwell Handwriting：10个完整模拟书写episode公开样本、动作与低频RGB对齐 | primary_sections_read | [结构化分析](../reviews/R09.md) | 未完成 |
+| R09 | Datumwell Handwriting：10个完整模拟书写episode公开样本、动作与低频RGB对齐 | primary_sections_read | [结构化分析](../reviews/R09.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | F06 | Stylized Neural Painting | primary_sections_read | [结构化分析](../reviews/F06.md) | 核心三遍与五项检查完成 |
 | F07 | Synthesizing Programs for Images using Reinforced Adversarial Learning (SPIRAL) | primary_sections_read | [结构化分析](../reviews/F07.md) | 核心三遍与五项检查完成 |
-| R10 | Stable Diffusion VAE ft-EMA / ft-MSE：兼容KL-f8的解码器适配资源组 | primary_sections_read | [结构化分析](../reviews/R10.md) | 未完成 |
-| R11 | CogVideoX Diffusers微调与检查点配置资源组 | primary_sections_read | [结构化分析](../reviews/R11.md) | 未完成 |
+| R10 | Stable Diffusion VAE ft-EMA / ft-MSE：兼容KL-f8的解码器适配资源组 | primary_sections_read | [结构化分析](../reviews/R10.md) | 制品协议五项审查完成；制品缺项见笔记 |
+| R11 | CogVideoX Diffusers微调与检查点配置资源组 | primary_sections_read | [结构化分析](../reviews/R11.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | G033 | On the Content Bias in Fréchet Video Distance | primary_sections_read | [结构化分析](../reviews/G033.md) | 核心三遍与五项检查完成 |
 | G034 | VBench++: Comprehensive and Versatile Benchmark Suite for Video Generative Models | primary_sections_read | [结构化分析](../reviews/G034.md) | 核心三遍与五项检查完成 |
 | G035 | VBench-2.0: Advancing Video Generation Benchmark Suite for Intrinsic Faithfulness | primary_sections_read | [结构化分析](../reviews/G035.md) | 核心三遍与五项检查完成 |
@@ -357,7 +359,7 @@
 | G037 | A Theoretical Justification for Image Inpainting using Denoising Diffusion Probabilistic Models | primary_sections_read | [结构化分析](../reviews/G037.md) | 核心三遍与五项检查完成 |
 | G038 | History-Guided Video Diffusion | primary_sections_read | [结构化分析](../reviews/G038.md) | 核心三遍与五项检查完成 |
 | G039 | Tora3: Trajectory-Guided Audio-Video Generation with Physical Coherence | primary_sections_read | [结构化分析](../reviews/G039.md) | 核心三遍与五项检查完成 |
-| R12 | Wan Toy Transform：Wan2.1 I2V玩偶变形LoRA | primary_sections_read | [结构化分析](../reviews/R12.md) | 未完成 |
+| R12 | Wan Toy Transform：Wan2.1 I2V玩偶变形LoRA | primary_sections_read | [结构化分析](../reviews/R12.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | G040 | SEED-Data-Edit Technical Report: A Hybrid Dataset for Instructional Image Editing | primary_sections_read | [结构化分析](../reviews/G040.md) | 核心三遍与五项检查完成 |
 | G041 | DS-Fusion: Artistic Typography via Discriminated and Stylized Diffusion | primary_sections_read | [结构化分析](../reviews/G041.md) | 核心三遍与五项检查完成 |
 | G042 | Automated Generation of Challenging Multiple-Choice Questions for Vision Language Model Evaluation | primary_sections_read | [结构化分析](../reviews/G042.md) | 核心三遍与五项检查完成 |

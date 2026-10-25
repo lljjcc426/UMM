@@ -841,3 +841,7 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百二十二批（2026-10-25）：精读用户提供的18页PAR扩展稿L193；未定位同题公开正式全文；核作者旧仓库224af506及五脚本，论文主源与代码来源明确分开。见[审查](grand_unification_multi_human_activity_full_review_2026-10-25.md)、[L193](../reviews/L193.md)。
+
+## 2026-10-25 第二百二十三批：资源实物与来源补访
+
+固定版本、真实阅读范围及所有27项结论见[资源审查](resource_protocol_completion_and_source_limits_2026-10-25.md)与[135项回答](../../data/resource_acceptance_2026-10-25.json)。本批实际新增字典/8105规范索引/OSF大表与ZIP目录、10个parquet、88张参考图及指定源码；PDF/数据/图片只留仓库外。7篇全文/实图补访未解决；未执行模型、judge或训练。
