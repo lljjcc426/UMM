@@ -1,0 +1,1483 @@
+{
+  "date": "2026-10-25",
+  "base_commit": "5655c01c",
+  "priority_conferences": [
+    "CVPR",
+    "ICCV",
+    "ECCV",
+    "NeurIPS",
+    "ICLR",
+    "ICML"
+  ],
+  "decision": "按用户要求停止未完成资料追取；原7篇中L184已由远端7cb7a17b完成核心核查并同步，其余6篇停止跟进。后续以CVPR/ICCV/ECCV/NeurIPS/ICLR/ICML为主要阅读来源，已有其他研究保留并按主题组织。",
+  "deferred_paper_ids": [
+    "A06",
+    "F05",
+    "L002",
+    "L006",
+    "L021",
+    "L022"
+  ],
+  "topics": [
+    {
+      "id": "handwriting",
+      "title": "汉字、字体与在线书写",
+      "question": "字形、风格、布局、轨迹恢复与识别生成联合；确定直接前作和强基线。"
+    },
+    {
+      "id": "drawing",
+      "title": "笔画、矢量与绘画过程",
+      "question": "笔画表示、顺序生成、可微渲染、机器人绘画；区分矢量命令与真实书写事件。"
+    },
+    {
+      "id": "architecture",
+      "title": "UMM接口、架构与视觉表示",
+      "question": "视觉编码、共享主干、AR/扩散/flow目标、跨模态接口；解释统一发生在哪里。"
+    },
+    {
+      "id": "synergy",
+      "title": "协同、推理与联合优化",
+      "question": "正负迁移、交错推理、反馈与RL；用对照实验判断共享的实际收益。"
+    },
+    {
+      "id": "video",
+      "title": "视频理解、历史与运动控制",
+      "question": "时序表示、历史条件、自生成前缀、轨迹控制及动态文字；连接过程建模。"
+    },
+    {
+      "id": "evaluation_data",
+      "title": "评价、基准与训练数据",
+      "question": "任务定义、评判器、联合能力、图文交错数据与过程真值；检查指标实际测量什么。"
+    },
+    {
+      "id": "foundations_efficiency",
+      "title": "生成基础、适配与效率",
+      "question": "扩散/flow理论、少步生成、缓存、LoRA与控制；在正确性约束下讨论成本。"
+    }
+  ],
+  "primary_topic_by_id": {
+    "A01": "handwriting",
+    "A02": "handwriting",
+    "A03": "handwriting",
+    "A04": "handwriting",
+    "A05": "handwriting",
+    "A06": "handwriting",
+    "A07": "handwriting",
+    "A08": "handwriting",
+    "A09": "handwriting",
+    "A10": "handwriting",
+    "A11": "handwriting",
+    "B01": "handwriting",
+    "B02": "handwriting",
+    "B03": "handwriting",
+    "B04": "handwriting",
+    "B05": "video",
+    "B06": "video",
+    "B07": "drawing",
+    "B08": "drawing",
+    "B09": "handwriting",
+    "C01": "architecture",
+    "C02": "architecture",
+    "C03": "foundations_efficiency",
+    "C04": "foundations_efficiency",
+    "C05": "foundations_efficiency",
+    "C06": "architecture",
+    "C07": "synergy",
+    "D01": "video",
+    "D02": "video",
+    "D03": "video",
+    "D04": "video",
+    "D05": "video",
+    "D06": "video",
+    "D07": "video",
+    "D08": "video",
+    "D09": "video",
+    "E01": "foundations_efficiency",
+    "E02": "foundations_efficiency",
+    "E03": "foundations_efficiency",
+    "E04": "foundations_efficiency",
+    "E05": "foundations_efficiency",
+    "E06": "foundations_efficiency",
+    "E07": "foundations_efficiency",
+    "F01": "drawing",
+    "F02": "drawing",
+    "F03": "drawing",
+    "F04": "drawing",
+    "F05": "drawing",
+    "X01": "handwriting",
+    "N01": "handwriting",
+    "N02": "handwriting",
+    "N03": "handwriting",
+    "N04": "evaluation_data",
+    "N05": "evaluation_data",
+    "N06": "video",
+    "N07": "handwriting",
+    "N08": "handwriting",
+    "N09": "video",
+    "N10": "video",
+    "N11": "handwriting",
+    "N12": "handwriting",
+    "N13": "evaluation_data",
+    "U01": "architecture",
+    "U02": "architecture",
+    "U03": "architecture",
+    "U04": "architecture",
+    "U05": "architecture",
+    "U06": "architecture",
+    "U07": "architecture",
+    "U08": "synergy",
+    "U09": "synergy",
+    "U10": "synergy",
+    "U11": "synergy",
+    "U12": "evaluation_data",
+    "U13": "evaluation_data",
+    "U14": "evaluation_data",
+    "U15": "evaluation_data",
+    "U16": "evaluation_data",
+    "U17": "synergy",
+    "U18": "synergy",
+    "U19": "synergy",
+    "U20": "synergy",
+    "U21": "synergy",
+    "U22": "evaluation_data",
+    "U23": "synergy",
+    "U24": "architecture",
+    "U25": "evaluation_data",
+    "U26": "architecture",
+    "U27": "architecture",
+    "U28": "architecture",
+    "U29": "synergy",
+    "U30": "synergy",
+    "U31": "synergy",
+    "L001": "handwriting",
+    "L002": "handwriting",
+    "L003": "handwriting",
+    "L004": "handwriting",
+    "L005": "handwriting",
+    "L006": "handwriting",
+    "L007": "handwriting",
+    "L008": "handwriting",
+    "L009": "handwriting",
+    "L010": "drawing",
+    "L011": "drawing",
+    "L012": "drawing",
+    "L013": "drawing",
+    "L014": "drawing",
+    "L015": "drawing",
+    "L016": "drawing",
+    "L017": "drawing",
+    "L018": "handwriting",
+    "L019": "handwriting",
+    "L020": "handwriting",
+    "L021": "handwriting",
+    "L022": "handwriting",
+    "L023": "handwriting",
+    "L024": "handwriting",
+    "L025": "handwriting",
+    "L026": "architecture",
+    "L027": "architecture",
+    "L028": "architecture",
+    "L029": "drawing",
+    "L030": "synergy",
+    "L031": "synergy",
+    "L032": "synergy",
+    "L033": "synergy",
+    "L034": "video",
+    "L035": "video",
+    "L036": "video",
+    "L037": "video",
+    "L038": "video",
+    "L039": "video",
+    "L040": "video",
+    "L041": "video",
+    "L042": "evaluation_data",
+    "L043": "evaluation_data",
+    "L045": "handwriting",
+    "L046": "evaluation_data",
+    "L047": "handwriting",
+    "L051": "drawing",
+    "L052": "video",
+    "L053": "synergy",
+    "L054": "synergy",
+    "L055": "video",
+    "L056": "video",
+    "L057": "architecture",
+    "L058": "architecture",
+    "L059": "architecture",
+    "L060": "architecture",
+    "L061": "architecture",
+    "L062": "architecture",
+    "L063": "architecture",
+    "L064": "architecture",
+    "L065": "architecture",
+    "L066": "architecture",
+    "L067": "evaluation_data",
+    "L068": "evaluation_data",
+    "L069": "evaluation_data",
+    "L070": "synergy",
+    "L071": "evaluation_data",
+    "L072": "architecture",
+    "L073": "architecture",
+    "L074": "architecture",
+    "L075": "architecture",
+    "L076": "architecture",
+    "L077": "architecture",
+    "L078": "architecture",
+    "L079": "architecture",
+    "L080": "architecture",
+    "L081": "architecture",
+    "L082": "architecture",
+    "L083": "architecture",
+    "L084": "architecture",
+    "L085": "architecture",
+    "L086": "architecture",
+    "L087": "architecture",
+    "L088": "architecture",
+    "L089": "architecture",
+    "L090": "architecture",
+    "L091": "architecture",
+    "L092": "architecture",
+    "L093": "architecture",
+    "L094": "architecture",
+    "L095": "architecture",
+    "L096": "architecture",
+    "L097": "architecture",
+    "L098": "architecture",
+    "L099": "architecture",
+    "L100": "architecture",
+    "L101": "architecture",
+    "L102": "architecture",
+    "L103": "architecture",
+    "L104": "architecture",
+    "L105": "architecture",
+    "L106": "architecture",
+    "L107": "architecture",
+    "L108": "architecture",
+    "L109": "architecture",
+    "L110": "architecture",
+    "L111": "architecture",
+    "L112": "architecture",
+    "L113": "architecture",
+    "L114": "architecture",
+    "L115": "architecture",
+    "L116": "architecture",
+    "L117": "architecture",
+    "L118": "architecture",
+    "L119": "architecture",
+    "L120": "architecture",
+    "L121": "architecture",
+    "L122": "architecture",
+    "L123": "architecture",
+    "L124": "architecture",
+    "L125": "architecture",
+    "L126": "architecture",
+    "L127": "synergy",
+    "L128": "synergy",
+    "L129": "synergy",
+    "L130": "synergy",
+    "L131": "synergy",
+    "L132": "synergy",
+    "L133": "synergy",
+    "L134": "synergy",
+    "L135": "synergy",
+    "L136": "synergy",
+    "L137": "synergy",
+    "L138": "synergy",
+    "L139": "synergy",
+    "L140": "synergy",
+    "L141": "evaluation_data",
+    "L142": "evaluation_data",
+    "L143": "evaluation_data",
+    "L144": "evaluation_data",
+    "L145": "evaluation_data",
+    "L146": "evaluation_data",
+    "L147": "evaluation_data",
+    "L148": "evaluation_data",
+    "L149": "evaluation_data",
+    "L150": "evaluation_data",
+    "L151": "evaluation_data",
+    "L152": "evaluation_data",
+    "L153": "evaluation_data",
+    "L154": "evaluation_data",
+    "L155": "architecture",
+    "L156": "architecture",
+    "L157": "architecture",
+    "L158": "architecture",
+    "L159": "architecture",
+    "L160": "architecture",
+    "L161": "architecture",
+    "L162": "architecture",
+    "L163": "architecture",
+    "L164": "architecture",
+    "L165": "architecture",
+    "L166": "architecture",
+    "L167": "architecture",
+    "L168": "architecture",
+    "L169": "architecture",
+    "L170": "evaluation_data",
+    "L171": "evaluation_data",
+    "L172": "evaluation_data",
+    "L173": "evaluation_data",
+    "L174": "evaluation_data",
+    "L175": "handwriting",
+    "L176": "handwriting",
+    "L177": "drawing",
+    "L178": "handwriting",
+    "L179": "handwriting",
+    "L180": "drawing",
+    "L181": "handwriting",
+    "N14": "video",
+    "S001": "handwriting",
+    "S002": "handwriting",
+    "S003": "handwriting",
+    "S004": "video",
+    "G001": "foundations_efficiency",
+    "G002": "foundations_efficiency",
+    "G003": "foundations_efficiency",
+    "G004": "foundations_efficiency",
+    "G005": "foundations_efficiency",
+    "G006": "foundations_efficiency",
+    "G007": "foundations_efficiency",
+    "G008": "foundations_efficiency",
+    "G009": "video",
+    "G010": "video",
+    "G011": "video",
+    "G012": "video",
+    "G013": "video",
+    "G014": "drawing",
+    "G015": "drawing",
+    "G016": "drawing",
+    "G017": "drawing",
+    "G018": "foundations_efficiency",
+    "G019": "foundations_efficiency",
+    "G020": "foundations_efficiency",
+    "G021": "foundations_efficiency",
+    "G022": "foundations_efficiency",
+    "G023": "foundations_efficiency",
+    "G024": "drawing",
+    "G025": "foundations_efficiency",
+    "G026": "foundations_efficiency",
+    "G027": "foundations_efficiency",
+    "G028": "foundations_efficiency",
+    "G029": "foundations_efficiency",
+    "G030": "video",
+    "G031": "evaluation_data",
+    "G032": "evaluation_data",
+    "L182": "video",
+    "L183": "handwriting",
+    "L184": "handwriting",
+    "L185": "synergy",
+    "L186": "handwriting",
+    "L187": "synergy",
+    "L188": "video",
+    "L189": "video",
+    "L190": "drawing",
+    "F06": "drawing",
+    "F07": "drawing",
+    "G033": "evaluation_data",
+    "G034": "evaluation_data",
+    "G035": "evaluation_data",
+    "G036": "foundations_efficiency",
+    "G037": "foundations_efficiency",
+    "G038": "video",
+    "G039": "video",
+    "G040": "evaluation_data",
+    "G041": "drawing",
+    "G042": "evaluation_data",
+    "G043": "video",
+    "G044": "architecture",
+    "L191": "architecture",
+    "L192": "handwriting",
+    "L193": "synergy"
+  },
+  "conference_assignments": {
+    "E07": {
+      "conference": "CVPR",
+      "year": 2021,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "F06": {
+      "conference": "CVPR",
+      "year": 2021,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G003": {
+      "conference": "CVPR",
+      "year": 2022,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G036": {
+      "conference": "CVPR",
+      "year": 2022,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L175": {
+      "conference": "CVPR",
+      "year": 2022,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "A09": {
+      "conference": "CVPR",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G010": {
+      "conference": "CVPR",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L169": {
+      "conference": "CVPR",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L058": {
+      "conference": "CVPR",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L083": {
+      "conference": "CVPR",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G031": {
+      "conference": "CVPR",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G033": {
+      "conference": "CVPR",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "U03": {
+      "conference": "CVPR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L012": {
+      "conference": "CVPR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L034": {
+      "conference": "CVPR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L086": {
+      "conference": "CVPR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L094": {
+      "conference": "CVPR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L158": {
+      "conference": "CVPR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L173": {
+      "conference": "CVPR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "E06": {
+      "conference": "CVPR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G042": {
+      "conference": "CVPR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G044": {
+      "conference": "CVPR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "U10": {
+      "conference": "CVPR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "U12": {
+      "conference": "CVPR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L100": {
+      "conference": "CVPR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L133": {
+      "conference": "CVPR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L151": {
+      "conference": "CVPR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L186": {
+      "conference": "CVPR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G015": {
+      "conference": "ICCV",
+      "year": 2019,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G016": {
+      "conference": "ICCV",
+      "year": 2021,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L182": {
+      "conference": "ICCV",
+      "year": 2021,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G004": {
+      "conference": "ICCV",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G025": {
+      "conference": "ICCV",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L075": {
+      "conference": "ICCV",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G041": {
+      "conference": "ICCV",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "B06": {
+      "conference": "ICCV",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "D03": {
+      "conference": "ICCV",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L023": {
+      "conference": "ICCV",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L045": {
+      "conference": "ICCV",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L089": {
+      "conference": "ICCV",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L090": {
+      "conference": "ICCV",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L092": {
+      "conference": "ICCV",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G043": {
+      "conference": "ICCV",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "B05": {
+      "conference": "ECCV",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L041": {
+      "conference": "ECCV",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L102": {
+      "conference": "ECCV",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "官方初步录用名单",
+      "evidence": "官方Accepted Papers仍注明出版检查未终结；不宣称正式页码已核"
+    },
+    "G028": {
+      "conference": "NeurIPS",
+      "year": 2014,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G001": {
+      "conference": "NeurIPS",
+      "year": 2020,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G008": {
+      "conference": "NeurIPS",
+      "year": 2022,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G009": {
+      "conference": "NeurIPS",
+      "year": 2022,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G027": {
+      "conference": "NeurIPS",
+      "year": 2022,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G019": {
+      "conference": "NeurIPS",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L017": {
+      "conference": "NeurIPS",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L071": {
+      "conference": "NeurIPS",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "Datasets and Benchmarks",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L170": {
+      "conference": "NeurIPS",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "Datasets and Benchmarks",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L171": {
+      "conference": "NeurIPS",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "Datasets and Benchmarks",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "S002": {
+      "conference": "NeurIPS",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "S003": {
+      "conference": "NeurIPS",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "E04": {
+      "conference": "NeurIPS",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G030": {
+      "conference": "NeurIPS",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "C02": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "D04": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "D05": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "E01": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "F02": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L061": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L063": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L109": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L127": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L128": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L129": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L148": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "Datasets and Benchmarks",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L149": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "Datasets and Benchmarks",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L150": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "Datasets and Benchmarks",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L152": {
+      "conference": "NeurIPS",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "Datasets and Benchmarks",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L054": {
+      "conference": "NeurIPS",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "官方接收条目",
+      "evidence": "已核官方2026目录/海报；未对读camera-ready"
+    },
+    "L103": {
+      "conference": "NeurIPS",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "官方接收条目",
+      "evidence": "已核官方2026目录/海报；未对读camera-ready"
+    },
+    "L107": {
+      "conference": "NeurIPS",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "官方接收条目",
+      "evidence": "已核官方2026目录/海报；未对读camera-ready"
+    },
+    "N14": {
+      "conference": "NeurIPS",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "官方接收条目",
+      "evidence": "已核官方2026目录/海报；未对读camera-ready"
+    },
+    "G029": {
+      "conference": "ICLR",
+      "year": 2014,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G014": {
+      "conference": "ICLR",
+      "year": 2018,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G002": {
+      "conference": "ICLR",
+      "year": 2021,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G018": {
+      "conference": "ICLR",
+      "year": 2022,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L074": {
+      "conference": "ICLR",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G005": {
+      "conference": "ICLR",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G006": {
+      "conference": "ICLR",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L025": {
+      "conference": "ICLR",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L077": {
+      "conference": "ICLR",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L079": {
+      "conference": "ICLR",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L081": {
+      "conference": "ICLR",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L082": {
+      "conference": "ICLR",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G011": {
+      "conference": "ICLR",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L185": {
+      "conference": "ICLR",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "A02": {
+      "conference": "ICLR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "U05": {
+      "conference": "ICLR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "U06": {
+      "conference": "ICLR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L085": {
+      "conference": "ICLR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L172": {
+      "conference": "ICLR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记",
+      "additional_sources": [
+        "https://proceedings.iclr.cc/paper_files/paper/2025/hash/24015a142377bb08f374714648daafb6-Abstract-Conference.html"
+      ]
+    },
+    "G012": {
+      "conference": "ICLR",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "A03": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "C06": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "N01": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记",
+      "additional_sources": [
+        "https://iclr.cc/Downloads/2026",
+        "https://iclr.cc/virtual/2026/poster/10009779"
+      ]
+    },
+    "U08": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记",
+      "additional_sources": [
+        "https://iclr.cc/Downloads/2026",
+        "https://iclr.cc/virtual/2026/poster/10008540"
+      ]
+    },
+    "U09": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L020": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L026": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L056": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L064": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L072": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L096": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L110": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L111": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L132": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L142": {
+      "conference": "ICLR",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "F07": {
+      "conference": "ICML",
+      "year": 2018,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L073": {
+      "conference": "ICML",
+      "year": 2022,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L076": {
+      "conference": "ICML",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G007": {
+      "conference": "ICML",
+      "year": 2023,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L016": {
+      "conference": "ICML",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L080": {
+      "conference": "ICML",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G020": {
+      "conference": "ICML",
+      "year": 2024,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L087": {
+      "conference": "ICML",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "G038": {
+      "conference": "ICML",
+      "year": 2025,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "U19": {
+      "conference": "ICML",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "U31": {
+      "conference": "ICML",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L036": {
+      "conference": "ICML",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L069": {
+      "conference": "ICML",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L113": {
+      "conference": "ICML",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L141": {
+      "conference": "ICML",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L147": {
+      "conference": "ICML",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "L153": {
+      "conference": "ICML",
+      "year": 2026,
+      "group": "confirmed_conference",
+      "track": "会议论文",
+      "evidence": "沿用逐篇笔记已核会议归属；实际阅读版本见笔记"
+    },
+    "U15": {
+      "conference": "CVPR",
+      "year": 2026,
+      "group": "author_acceptance_claim",
+      "track": "作者声明录用",
+      "evidence": "来源为作者项目/仓库/arXiv声明；本库未另核正式目录"
+    },
+    "D07": {
+      "conference": "ECCV",
+      "year": 2026,
+      "group": "author_acceptance_claim",
+      "track": "作者声明录用",
+      "evidence": "来源为作者项目/仓库/arXiv声明；本库未另核正式目录"
+    },
+    "N02": {
+      "conference": "ECCV",
+      "year": 2026,
+      "group": "author_acceptance_claim",
+      "track": "作者声明录用",
+      "evidence": "来源为作者项目/仓库/arXiv声明；本库未另核正式目录"
+    },
+    "U18": {
+      "conference": "ECCV",
+      "year": 2026,
+      "group": "author_acceptance_claim",
+      "track": "作者声明录用",
+      "evidence": "来源为作者项目/仓库/arXiv声明；本库未另核正式目录"
+    },
+    "L043": {
+      "conference": "NeurIPS",
+      "year": 2026,
+      "group": "author_acceptance_claim",
+      "track": "作者声明录用",
+      "evidence": "来源为作者项目/仓库/arXiv声明；本库未另核正式目录"
+    },
+    "L126": {
+      "conference": "NeurIPS",
+      "year": 2026,
+      "group": "author_acceptance_claim",
+      "track": "作者声明录用",
+      "evidence": "来源为作者项目/仓库/arXiv声明；本库未另核正式目录"
+    },
+    "C04": {
+      "conference": "CVPR",
+      "year": 2026,
+      "group": "other_track",
+      "track": "Findings",
+      "evidence": "已核CVF正式条目"
+    },
+    "N13": {
+      "conference": "CVPR",
+      "year": 2026,
+      "group": "other_track",
+      "track": "Findings（作者声明）",
+      "evidence": "未核CVF正式条目"
+    },
+    "L097": {
+      "conference": "CVPR",
+      "year": 2025,
+      "group": "other_track",
+      "track": "Workshop / MMFM",
+      "evidence": "已核CVF正式条目"
+    },
+    "L154": {
+      "conference": "CVPR",
+      "year": 2026,
+      "group": "other_track",
+      "track": "Workshop / GRAIL-V",
+      "evidence": "已核正式正文/补充"
+    },
+    "L122": {
+      "conference": "CVPR",
+      "year": 2026,
+      "group": "other_track",
+      "track": "Demo（作者声明）",
+      "evidence": "官方仓库标Demo"
+    },
+    "L180": {
+      "conference": "ICCV",
+      "year": 2023,
+      "group": "other_track",
+      "track": "Workshop / MMFM",
+      "evidence": "已核CVF正式条目"
+    },
+    "N12": {
+      "conference": "NeurIPS",
+      "year": 2023,
+      "group": "other_track",
+      "track": "Workshop / ML for Creativity and Design",
+      "evidence": "已核官方workshop名单"
+    },
+    "G026": {
+      "conference": "NeurIPS",
+      "year": 2021,
+      "group": "other_track",
+      "track": "Workshop关联短版",
+      "evidence": "实际精读为2022扩展预印本"
+    },
+    "G032": {
+      "conference": "ICLR",
+      "year": 2019,
+      "group": "other_track",
+      "track": "Workshop关联短版",
+      "evidence": "实际精读为长版预印本；两版不重复计数"
+    }
+  },
+  "excluded_conference_mentions": {
+    "B04": "AnyText2未核接收，AnyText1的ICLR身份不移植。",
+    "U01": "Chameleon为所读技术报告，未核正式ICLR身份。",
+    "U16": "VGUBench中的ICML模板/关键词不构成接收证明。",
+    "L021": "公开投稿稿，未核录用；用户停止跟进。",
+    "L022": "公开投稿稿，未核录用；用户停止跟进。",
+    "L053": "Timage的arXiv comments只写ECCV，未独立确认录用。",
+    "L055": "ORVOS只有第三方ECCV标签，主源未确认。",
+    "L078": "原SEED报告与后续ICLR SEED-LLaMA分别记录。",
+    "L091": "UGen被ICLR论文引用，未核其自身接收。",
+    "L098": "Selftok是DDT-LLaMA扩展，前身CVPR身份不移植。",
+    "L101": "UniWeTok与同仓库BitDance为不同论文。",
+    "L112": "Lumina-DiMOO与后续dMLLM-TTS为不同论文。",
+    "L119": "UniFork有under-review线索，未核正式接收。",
+    "L130": "PairUni旧录用断言已撤回，正式会场未确认。",
+    "L134": "LVRPO的ICML模板/关键词不构成接收证明。",
+    "L135": "Uni-Synergy不能继承前作UniCTokens的NeurIPS身份。",
+    "L140": "Beyond Layers的ICLR格式不构成接收证明。",
+    "L145": "GENIUS的聚合站会场标签未由一手来源确认。",
+    "L166": "WorldBagel的arXiv当前注明Rejected by ECCV2026。",
+    "L168": "Puffin-World不继承早期Puffin的ICLR身份。",
+    "S004": "VidSketch仅ICML格式，未核PMLR条目。",
+    "L189": "AniClipart是IJCV期刊论文，未计作CVPR2025。",
+    "L193": "用户扩展稿与其ECCV2022前身是不同版本，未转移会议身份。"
+  },
+  "core_comparison_ids": [
+    "U03",
+    "U05",
+    "C02",
+    "L092",
+    "L094",
+    "L100",
+    "C06",
+    "U31",
+    "L132",
+    "L069",
+    "L142",
+    "A03",
+    "N01",
+    "L175",
+    "L186",
+    "G030",
+    "G038",
+    "D05",
+    "L034",
+    "L041"
+  ],
+  "source_policy": "会议归属与实际已读版本分别记录；主会/正式专题轨、作者录用声明、Workshop/Findings/Demo分组。索引不提高阅读状态。",
+  "integrated_remote_completion": {
+    "commit": "7cb7a17b",
+    "paper_ids": [
+      "L184"
+    ],
+    "scope": "同步已有原始PDF及F2–F9核查；F1像素缺项保留，本轮无新论文阅读。"
+  }
+}

@@ -2,9 +2,11 @@
 
 以下笔记按实际阅读范围记录。相关章节核查不等于三遍完整精读；没有进行模型复现。未填完的实验条件与消融明确保留，不能计作全部完成。
 
-[逐条完成台账](../evidence/reading_ledger_2026-10-19.md) · [理论与实验迁移](../evidence/foundations_and_transfer_2026-10-19.md)
+[按会议与主题查阅](../reading/README.md) · [跨论文分析](../reading/synthesis.md) · [逐条完成台账](../evidence/reading_ledger_2026-10-19.md) · [理论与实验迁移](../evidence/foundations_and_transfer_2026-10-19.md)
 
 资源按身份/许可、字段、实际制品、主张边界、研究迁移五项审查，另列完成状态，不套用论文三遍模板。
+
+当前以CVPR、ICCV、ECCV、NeurIPS、ICLR、ICML为主要阅读来源。6篇资料未齐记录已按用户要求停止跟进，保留已有笔记，不计作完成；见[范围调整](../reading/scope.md)。
 
 | 编号 | 论文或资源 | 核查范围 |
 | --- | --- | --- |
@@ -228,7 +230,7 @@
 | L181 | [Joint optimization for attention-based generation and recognition of Chinese characters using tree position embedding](L181.md) | 正式作者11页PDF1909959bytes；Abstract/§1–7全部研究正文及Dataavailability/声明，T1–8/Eq1–24/F1–11/全部图注；实际PDFp1–10共10页，覆盖框架/全部表/公式/案例，p11参考文献定位未逐篇独立读。官方当前main已核仍03b07e7/2023-03-15，58项完整树；README、embed.py完整、joint.py forward/pred/树遍历、contrastive、config/optimizer、generator/recognizer结构/forward、loss.py完整、utils训练/测试及core validate、数据解析/归一定向读；未声称全库逐行、下载权重/数据、执行训练或复现。正式和公开参数/损失差别已限定。相关追引RCN2021/TAN/ACPR2017dual待正式源；L178 TPAMI Drawing and Recognizing已在主目录，先去重。 |
 | L182 | [STRIVE: Scene Text Replacement In Videos](L182.md) | CVF完整10页4391905bytes；Abstract/§1–5全部研究正文，T1–2/Eq1–4/F1–10和全部图注；实际PDFp1–8共8研究页，p9–10参考文献仅定位未逐篇独立精读。官方项目页面全文/嵌入视频链接未观看，arxivv1 metadata；固定GitHub8c675f9/2021-08-13完整5项树、README及四个Python文件全部385行已读。Drive目录工具不可访问，未下载数据/权重、观看视频、执行AWS/模型/训练或独立复现；补充视频内容不计入已读证据。 |
 | L183 | [CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization](L183.md) | 正式主PDF10页2236432bytes：Abstract/§1–5完整研究正文、T1–6/Eq1–7/F1–9及图注；实际主PDFp1/3/4/5/6/7/8共7页，p2文字已读，p9–10参考定位未逐篇独立精读。正式supp8页3256687bytes：A–M完整研究内容、T1–6/Eq1/F1–11及图注，8页全部实际查看，参考文献定位不等逐篇精读；共15实际PDF页。固定cf31559/2026-05-26，92项完整树；README/DATASET/EVALUATING、IAM/CASIA/ViHT配置，SAQ forward/形状、codebook/SCE/PCE/PatchNCE完整，pipeline训练/配权/采样、diffusion噪声/恢复、dataset/sampler、train构建、sampling、eval及HWD/FID关键协议、CASIA转换已读；未称全库逐行。未读Drive内部数据/权重、跑模型或独立复现。 |
-| L184 | [Stroke-Seg: A deep learning-based framework for chinese stroke segmentation](L184.md) | **2026-10-25核心三遍/五项书面核查完成**：含九幅原图的15页[正式PDF](https://www.researchgate.net/journal/IET-Image-Processing-1751-9667/publication/385042124_Stroke-Seg_A_deep_learning-based_framework_for_chinese_stroke_segmentation/links/671295a0069cb92a811b531e/Stroke-Seg-A-deep-learning-based-framework-for-chinese-stroke-segmentation.pdf)已定位；F2–F9实际图像可视、T1–T4和Eq1–8分析详见单篇及[新增逐图核查](../evidence/seven_remaining_pdf_closure_2026-10-25.md)。F1包含于原PDF，但单页截图缓存报错，仅按图注；未执行源码/模型复现。 |
+| L184 | [Stroke-Seg: A deep learning-based framework for chinese stroke segmentation](L184.md) | 整合远端7cb7a17b已完成核查：Wiley/IET正式15页PDF，Abstract/§1–6、Eq1–8、T1–4及全部图注；F2–F9实际像素已核。F1完整嵌于PDF，单页截图缓存失败，仅按正文/图注，未声称F1像素实读。核心三遍与五项书面检查已完成。此前代码范围沿用固定GitHub树128项/122blob/18py、README及FCN/DeepLab/UNet指定实现；未核全训练/评测源码、权重或独立模型复现。详见docs/evidence/seven_remaining_pdf_closure_2026-10-25.md。 |
 | L185 | [Training Diffusion Models with Reinforcement Learning（DDPO）](L185.md) | ICLR2024正式核心§1–7全部文本/式1–3及MDP/SF/IS公式，AppA–F正文/T1/超参表和G说明/样本caption（未全逐张G）。本批实际p6 Fig2、p7 Fig3/4、p15 Fig7/T1、p19 Fig10、p20 Fig11/12；F5/6正文/图注已读未独立数字化。项目研究文本、固定JAX f0b6ca7主要config、scheduler.step密度/方差段及policy-gradient目标段；torch1958463 README/base/DGX全文、DDIM函数完整、train加载/LoRA/采样相关指定段/完整PPO更新段。固定HF两模型卡全文和alignment scheduler配置；未审全训练路径、未下权重/运行或复现。 |
 | N07 | [A stroke-level large-scale database of Chinese character handwriting and the OpenHandWrite_Toolbox for handwriting research](N07.md) | 正式Springer Abstract/Introduction各小节/PresentStudy/ToolboxDevelopment/数据库方法/Results/Discussion/Conclusion全部核心文字；独立Tables3–7全部系数/t/FDR p逐行核读，实际Fig3界面与Fig10认知图。其余图按正文/caption未逐格读，Table1/2字段及OSF工作簿/R指标代码见前批R07，不冒充完整附录/全部原始轨迹审计；未重拟合回归/采集/训练模型。 |
 | N10 | [Video Text Preservation with Synthetic Text-Rich Videos](N10.md) | arXiv2511.05573v1 Abstract/§1–5全部核心及References逐项书目浏览；无核心公式/量化表/消融/方法框架图，明确记录缺失。实际Fig1 letter长文失败静帧已看，图2只按caption与正文理解，未逐视频/全选例审核。交叉N09已读Text-Animator原文/笔记和第四十七批Wan原始报告；未找到本次可核训练实现/数据/模型卡，未执行。 |

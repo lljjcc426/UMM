@@ -41,6 +41,14 @@ OCR、WER、静态FID与轨迹DTW不能直接替代笔顺正确率。采样步�
 
 `review_path`连接逐篇分析，`dataset/framework/architecture/metrics/baselines/experimental_conditions`保存已摘录的实验字段；空字段表示尚未摘录，不能自动填为无相关实验。`review_history`保留改写前记录，旧档案文件保留。
 
-`review_depth=critical_sections_reviewed`只表示有针对已读章节的批判分析；`first_pass_only`仅为第一遍。它们均不等于三遍验收。完整三遍验收当前为0，详见[台账](reading_ledger_2026-10-19.md)。
+`review_depth=critical_sections_reviewed`只表示有针对已读章节的批判分析；`first_pass_only`仅为第一遍。它们均不等于核心三遍验收。当前333篇论文／研究中，327篇已完成所记录范围的核心三遍阅读及五项书面检查，具体版本、附录和代码范围仍见单篇笔记；其余6篇资料未齐，2026-10-25按用户要求停止跟进。完成证据见[台账](reading_ledger_2026-10-19.md)，停止范围见[说明](../reading/scope.md)。
+
+五项书面记录曾包含未通过条目与历史资源条目，不能直接作为论文完成数。资源使用独立的公开制品协议审查，不套用论文三遍模板。本次主题与会议整理同步远端L184已有完成证据，原部分核查记录保留在验收历史字段。
 
 [来源访问日志](../../data/source_access_audit_2026-10-19.json)单独记HTTP结果、落地页与正文候选、PDF及占位页，不能用来自动升级原文核查状态。arXiv有返回200但正文为空的转换页，DOI也可能只返回Redirecting；这两类均不当作已读全文。
+
+## 会议与主题组织
+
+[阅读总览](../reading/README.md)按六会议和七个研究问题组织已有笔记。会议身份依据原笔记中的出版方、官方目录或作者材料；正式归属、作者录用声明、Workshop／Findings／Demo等分别列示。投稿模板、引用他文及扩展稿前身的会场不能作为本记录录用依据。
+
+会议身份与实际阅读版本分开：核实一篇预印本后来录用，不表示已逐项读过终版修订。每篇论文只有一个计数用主主题，跨主题联系写入[综合分析](../reading/synthesis.md)。配置与依据见[组织配置](../../data/reading_guide_2026-10-25.json)，生成结果见[结构化索引](../../data/reading_organization_2026-10-25.json)。

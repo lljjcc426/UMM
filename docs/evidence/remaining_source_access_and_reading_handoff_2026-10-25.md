@@ -1,6 +1,6 @@
 # 未完成论文的来源访问与阅读矩阵
 
-> **2026-10-25最新增量修订：** L184 15页原版全图 PDF 已定位，F2–F9实图和T1–T4完成核验，按核心五项阅读门槛完成；六篇 A06/F05/L002/L006/L021/L022 仍未取得完整原文。本文以下是第二百二十四批历史记录（当时7篇未完成），最新请以[七项PDF来源核查](seven_remaining_pdf_closure_2026-10-25.md)为准。当前纸面核心完成数 **327/333**，尚余 **6**。
+**当前范围已调整：原7篇中L184已由远端7cb7a17b完成核心核查，其余6篇于2026-10-25按用户要求停止跟进。**本文保留当时的访问结果与资料缺项，不再要求提供PDF或人工验证。当前入口见[范围决定](../reading/scope.md)和[已分析论文整理](../reading/README.md)。
 
 2026-10-25第二百二十四批更新。360目录：333论文／研究、27资源；326论文核心完成，329书面记录含未通过项，7篇仍缺全文/实图。A06本次新增8幅原图核读，详见[图像与来源审查](seven_remaining_source_and_figure_audit_2026-10-25.md)。27资源公开制品协议审查已完成，实际制品缺项见[资源审查](resource_protocol_completion_and_source_limits_2026-10-25.md)。
 
@@ -14,4 +14,6 @@
 | [F05](../reviews/F05.md) | 再次查Samsung作者说明，论文链接仍指向IEEE11463098，没有独立作者PDF；官网/作者检索未补齐正式全文，已读作者说明与图表不重复计数。 [主源](https://research.samsung.com/blog/Online-Cursive-Handwriting-Generation-Using-Trace-Transformation-and-Symbol-Independent-Point-Classification-Model) |
 | [L184](../reviews/L184.md) | 正式15页全文文字已读。补查ResearchGate的7幅缺图页面/图像地址、Wiley图像弹窗和普通Chrome，未返回可核的缺图像素。ResearchGate本页全文为出版方提供，纠正泛称作者上传。另实看BCSS仓库dataset.png，为已知数据示例，不能补齐F1/3/4/5/6/7/9。 [主源](https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/ipr2.13255) |
 
-6篇仍需完整论文PDF，L184需含全部实际原图的PDF或可访问图像。未把订阅预览、作者说明、相似论文或搜索片段算作完整阅读。结构化结果见[JSON](../../data/remaining_source_access_and_reading_handoff_2026-10-25.json)。无新增核心完成、无模型执行、无文件删除。
+停止时的缺项为：6篇完整论文PDF，以及L184的全部实际原图。未把订阅预览、作者说明、相似论文或搜索片段算作完整阅读。结构化结果见[JSON](../../data/remaining_source_access_and_reading_handoff_2026-10-25.json)。无新增核心完成、无模型执行、无文件删除。
+
+L184后续结果见[完整PDF与逐图核查](seven_remaining_pdf_closure_2026-10-25.md)；当前已读合计327篇，其余6篇停止跟进。

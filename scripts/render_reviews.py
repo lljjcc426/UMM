@@ -83,12 +83,16 @@ def main():
     acceptance = {r['id']: r for r in json.loads(acceptance_file.read_text(encoding='utf-8'))['records']} if acceptance_file.exists() else {}
     resource_file = ROOT / 'data/resource_acceptance_2026-10-25.json'
     resources = {r['id']: r for r in json.loads(resource_file.read_text(encoding='utf-8'))['records']} if resource_file.exists() else {}
+    focus_file = ROOT / 'data/reading_guide_2026-10-25.json'
+    focus = json.loads(focus_file.read_text(encoding='utf-8')) if focus_file.exists() else {}
+    deferred = set(focus.get('deferred_paper_ids', []))
     folder = ROOT / 'docs/reviews'
     folder.mkdir(exist_ok=True)
     index = ['# 第二轮原文阅读与批判分析', '',
              '以下笔记按实际阅读范围记录。相关章节核查不等于三遍完整精读；没有进行模型复现。未填完的实验条件与消融明确保留，不能计作全部完成。', '',
-             '[逐条完成台账](../evidence/reading_ledger_2026-10-19.md) · [理论与实验迁移](../evidence/foundations_and_transfer_2026-10-19.md)', '',
+             '[按会议与主题查阅](../reading/README.md) · [跨论文分析](../reading/synthesis.md) · [逐条完成台账](../evidence/reading_ledger_2026-10-19.md) · [理论与实验迁移](../evidence/foundations_and_transfer_2026-10-19.md)', '',
              '资源按身份/许可、字段、实际制品、主张边界、研究迁移五项审查，另列完成状态，不套用论文三遍模板。', '',
+             f'当前以CVPR、ICCV、ECCV、NeurIPS、ICLR、ICML为主要阅读来源。{len(deferred)}篇资料未齐记录已按用户要求停止跟进，保留已有笔记，不计作完成；见[范围调整](../reading/scope.md)。', '',
              '| 编号 | 论文或资源 | 核查范围 |', '| --- | --- | --- |']
     for d in reviews:
         r = by_id[d['id']]
@@ -102,6 +106,8 @@ def main():
         completion = ('核心三遍阅读与五项书面理解检查已完成；未独立复现。' if complete else
                       '五项阅读检查已逐项记录；完整三遍尚未逐条确认，未独立复现。' if accepted else
                       '相关内容已经阅读，完整三遍验收尚未完成；未独立复现。')
+        if r['id'] in deferred:
+            completion += ' 2026-10-25按用户要求停止追取缺失资料，退出当前阅读队列；保留既有分析。'
         text = f'''# {r['id']} · {r['title']}
 
 论文标题：{r['title']}
@@ -200,6 +206,8 @@ def main():
             for check in accepted['checks']:
                 text += f"### {check['criterion']}\n\n{check['answer']}\n\n证据：{check['evidence']}\n\n"
             text += f"复核边界：{accepted['boundary']}\n"
+        if d.get('source_closure_notes'):
+            text += '\n---\n\n' + d['source_closure_notes'].strip() + '\n'
         (folder / f'{r["id"]}.md').write_text(text, encoding='utf-8')
         index.append(f'| {r["id"]} | [{r["title"]}]({r["id"]}.md) | {d["sections_read"]} |')
     (folder / 'README.md').write_text('\n'.join(index) + '\n', encoding='utf-8')
@@ -214,6 +222,7 @@ def main():
         done = ('制品协议五项审查完成；制品缺项见笔记' if r['record_type'] == 'resource' and resources.get(r['id'], {}).get('protocol_review_completed') is True else
                 '制品协议待审' if r['record_type'] == 'resource' else
                 '核心三遍与五项检查完成' if acceptance.get(r['id'], {}).get('full_three_pass_completed') is True else
+                '资料未齐；按用户要求停止跟进' if r['id'] in deferred else
                 '五项检查已记录；三遍待确认' if r['id'] in acceptance else '未完成')
         ledger.append(f'| {r["id"]} | {r["title"].replace("|", "/")} | {r["verification"]} | {note} | {done} |')
     (ROOT / 'docs/evidence/reading_ledger_2026-10-19.md').write_text('\n'.join(ledger) + '\n', encoding='utf-8')
@@ -228,6 +237,9 @@ def main():
                   paper_written_checks_recorded=sum(by_id[id]['record_type'] != 'resource' for id in acceptance),
                   historical_resource_paper_style_checks_recorded=sum(by_id[id]['record_type'] == 'resource' for id in acceptance),
                   remaining_paper_core_ids=[r['id'] for r in catalog if r['record_type'] != 'resource' and acceptance.get(r['id'], {}).get('full_three_pass_completed') is not True],
+                  deferred_paper_ids=sorted(deferred),
+                  active_remaining_paper_core_ids=[r['id'] for r in catalog if r['record_type'] != 'resource' and r['id'] not in deferred and acceptance.get(r['id'], {}).get('full_three_pass_completed') is not True],
+                  priority_conferences=focus.get('priority_conferences', []),
                   resource_protocol_reviews_completed=sum(r.get('protocol_review_completed') is True for r in resources.values()),
                   resource_audit_checks_recorded=sum(len(r['checks']) for r in resources.values()),
                   resource_artifact_evidence_statuses=dict(Counter(r['artifact_evidence_status'] for r in resources.values())),

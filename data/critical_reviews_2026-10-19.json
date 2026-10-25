@@ -5513,15 +5513,15 @@
       "experimental_conditions": "400²保比例pad、Otsu及连通域去噪；Adam β(.9,.990)、b16、200epochs/val plateau10，PyTorch1.12/2RTX3090。所读§4.3没有lr；阈值调参所用split未明确。Table2标题updatedtest与正文validation用词不同，保留差异。 正式§5.1称T2为validation，表注称updated test set；§5.2称four curated visual cases但T3数值多行与T2相同，确切统计集合需澄清；§5.3明确独立300外部集。固定GitHub tree2451eb756ff4adb5a6e00e8b3d5cdd8fd8400621未见完整train/loss/checkpoint，不能以样例推原表配置。 本次固定树共128项/122blob/18个Python文件；README全文明确仅FCN样例、部分原始数据/标注模板，要求按论文自行修改。选读FCN、DeepLab、UNet三个模型文件，缺完整训练、PKV字典/上采样、BDLoss、TSR实例匹配和checkpoint证据；没有运行模型。HF卡片另指Rvosuke/Stroke-Seg，当前GitHub公开入口404，不能推定其历史存在/删除情况。",
       "results": "Table3 TransUNet TSR.982/FSR.018(79G)，DeepStroke.935/.068(54.1G)，FCN.961/.045(39.9G)；§5.3/Table4外部300为.897/.103，其中已知150=.962/.065、未知150=.831/.140；不能以98.2%代表外部泛化。 正式T2 U-Net Dice无prior .681→Dice+prior .880为19.9pp；完整BDLoss+prior .955相对.681为27.4pp，§5.1把19.9写作整框架相对Dice独用的增益口径不清。不能套用摘要增幅而不标比较行。T3参数栏原单位MB，FLOPs不等于实测延迟或包含识别/字典维护成本。 正式HTML已解析T2完整勾选列，每个backbone六行依次BCE无/有prior、Dice无/有、BDLoss无/有；19.9pp与27.4pp比较行据此确认。T4已知/未知各150，(.962+.831)/2=.8965四舍五入.897，(.065+.140)/2=.1025四舍五入.103；该均值与表一致，TSR+FSR不要求恒为1，不能把已知项和大于1当算术错误。实际查看作者实验室F8，展示E3C/CCSEW/其它风格known/unknown两列，细交叉与连笔错误仍可见；展示样例不作为新的量化证据。",
       "ablation": "Table2按backbone切换BCE/Dice/BDLoss及PKV；TransUNet BDLoss不带PKV .935/.072，带PKV .982/.018；FCN .932/.061→.961/.045。未充分单独隔离10类重组与多标签策略，复杂结构更稳等因果解释仍属作者解释。 其余backbone BD+prior相对BD大多改善，但没有多seed/同训练搜索成本区间；类合并/多标签未做独立全因子；prior含count+ID，未拆各分量或gold-vs-pred识别，不能证明新增识别能力。",
-      "limitations": "作者明确人工字典维护、交叉细边界、极端风格不足；§5.4说PKV未充分利用且需更多消融，不能写已证明其内部推理。类mask不保持同类重叠实例身份和笔顺。外部性能明显下降；HF6类7值与论文10通道不齐，FCN示例10类/UNet可配而DeepLab实际6类，公开样例不能称主表复现。论文计数/表split称谓、FSR具体匹配与重复笔计数仍须审。2026-10-24补看作者实验室F2/F8实际原图、正式HTML表2勾选列；其余F1/3/4/5/6/7/9仍仅图注/文字。出版方直接PDF、作者上传和幻灯片入口访问受限；网页工具可抽全文但截图未返回实际像素，本批不将其登记为视觉阅读，也不增加核心三遍数。",
+      "limitations": "作者明确人工字典维护、交叉细边界、极端风格不足；§5.4说PKV未充分利用且需更多消融，不能写已证明其内部推理。类mask不保持同类重叠实例身份和笔顺。外部性能明显下降；HF6类7值与论文10通道不齐，FCN示例10类/UNet可配而DeepLab实际6类，公开样例不能称主表复现。论文计数/表split称谓、FSR具体匹配与重复笔计数仍须审。 已有远端核查补齐F2–F9实际图像；F9显示未见复杂笔形被拆、Pie/Dian混淆及无标签/多标签不稳。F1像素、完整训练与评价源码、原始数据和权重复现仍未核。",
       "advantage_hypothesis": "多标签有利不同类交叉，已识别字符的结构先验可能降低类混淆；优势应在静态毛笔分割与相同先验条件下验证，对视频时序没有直接证明。",
       "falsification": "固定图像/训练/预算，类别重组、multi-label、PKV、BDLoss全因子；gold/pred/noisy字符ID与等信息基线，测试未知字和同类交叉；GT匹配算法一对一公开，额外测实例重建与方向/事件次序，不能仅用TSR。 加字符ID随机重编号、gold/pred/noisy/no-ID×计数向量，排除ID记忆；同类交叉/三笔交叉与实例身份非唯一分层；阈值.6用独立val选择，公开原先验/GT匹配与前处理connected-domain阈值，完整含识别器总成本。",
       "writing_lesson": "从交叉/先验瓶颈对应到模块和消融的组织可借鉴；Claim须注明验证集与外部集，BCE+Dice与既有组合损失追引后判断创新；Limitation中机制未证实需保留。",
-      "sections_read": "此前正式Wiley 15页核心文本Abstract/§1–6、Eq1–8、T1–4数值/图注、§5.3外部300、§5.4错误/§5.5限制与数据可用性已读。本次重新核正式HTML T2全部42行及勾选列、T1/T3/T4，实际查看作者实验室原图F2框架/F8外部结果；并未本次从头重读所有旧全文。其余F1/3/4/5/6/7/9缺实际图版，保留partial。固定GH树128项/122blob/18py；README全文及FCN/DeepLab/UNet模型文件主实现已读，非全仓逐行；缺训练/权重/全部标注与评价匹配实现，未执行模型或独立复现。五项书面更新，核心三遍仍未通过。 2026-10-25新增有限来源复查：正式HTML/epdf文字可读，截图工具未返回可核像素；直接epdf、原PowerPoint及作者上传PDF403，Wiley TDM缺token400、OpenAlex content401。新核共同作者主页及其content脚本，仅见BCSS数据示意/DOI，没有补齐其余原图的全文链接；不把这些响应当文件本身。F1/3/4/5/6/7/9视觉缺项不变，继续保留core=false。",
+      "sections_read": "整合远端7cb7a17b已完成核查：Wiley/IET正式15页PDF，Abstract/§1–6、Eq1–8、T1–4及全部图注；F2–F9实际像素已核。F1完整嵌于PDF，单页截图缓存失败，仅按正文/图注，未声称F1像素实读。核心三遍与五项书面检查已完成。此前代码范围沿用固定GitHub树128项/122blob/18py、README及FCN/DeepLab/UNet指定实现；未核全训练/评测源码、权重或独立模型复现。详见docs/evidence/seven_remaining_pdf_closure_2026-10-25.md。",
       "checked_on": "2026-10-25",
       "reading_status": "critical_sections_reviewed",
       "reproduced": false,
-      "core_complete": false,
+      "core_complete": true,
       "sources": [
         "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/ipr2.13255",
         "https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/ipr2.13255",
@@ -5531,9 +5531,17 @@
         "https://github.com/Rvosuke/BCSS/tree/2451eb756ff4adb5a6e00e8b3d5cdd8fd8400621",
         "https://baizey.rvosuke.com/",
         "https://baizey.rvosuke.com/assets/site/content.054ce93f03ea.js",
-        "https://ietresearch.onlinelibrary.wiley.com/action/downloadFigures?doi=10.1049%2Fipr2.13255&id=ipr213255-fig-0001&partId="
+        "https://ietresearch.onlinelibrary.wiley.com/action/downloadFigures?doi=10.1049%2Fipr2.13255&id=ipr213255-fig-0001&partId=",
+        "https://www.researchgate.net/journal/IET-Image-Processing-1751-9667/publication/385042124_Stroke-Seg_A_deep_learning-based_framework_for_chinese_stroke_segmentation/links/671295a0069cb92a811b531e/Stroke-Seg-A-deep-learning-based-framework-for-chinese-stroke-segmentation.pdf"
       ],
-      "acceptance_evidence": "正式HTML表2四列勾选与数值、T1/3/4；作者实验室F2/F8实际图像；固定GH三个模型文件与README。其余图版尚缺，书面更新保留未通过。"
+      "acceptance_evidence": "已提交的7cb7a17b核查：正式15页PDF、F2–F9实际图像、Eq1–8、T1–4；F1仅图注/正文。逐图、方法、主表、消融与五项独立证据见docs/evidence/seven_remaining_pdf_closure_2026-10-25.md；本次仅同步已有核查。",
+      "source_closure_history": {
+        "previous_sections_read": "此前正式Wiley 15页核心文本Abstract/§1–6、Eq1–8、T1–4数值/图注、§5.3外部300、§5.4错误/§5.5限制与数据可用性已读。本次重新核正式HTML T2全部42行及勾选列、T1/T3/T4，实际查看作者实验室原图F2框架/F8外部结果；并未本次从头重读所有旧全文。其余F1/3/4/5/6/7/9缺实际图版，保留partial。固定GH树128项/122blob/18py；README全文及FCN/DeepLab/UNet模型文件主实现已读，非全仓逐行；缺训练/权重/全部标注与评价匹配实现，未执行模型或独立复现。五项书面更新，核心三遍仍未通过。 2026-10-25新增有限来源复查：正式HTML/epdf文字可读，截图工具未返回可核像素；直接epdf、原PowerPoint及作者上传PDF403，Wiley TDM缺token400、OpenAlex content401。新核共同作者主页及其content脚本，仅见BCSS数据示意/DOI，没有补齐其余原图的全文链接；不把这些响应当文件本身。F1/3/4/5/6/7/9视觉缺项不变，继续保留core=false。",
+        "previous_limitations": "作者明确人工字典维护、交叉细边界、极端风格不足；§5.4说PKV未充分利用且需更多消融，不能写已证明其内部推理。类mask不保持同类重叠实例身份和笔顺。外部性能明显下降；HF6类7值与论文10通道不齐，FCN示例10类/UNet可配而DeepLab实际6类，公开样例不能称主表复现。论文计数/表split称谓、FSR具体匹配与重复笔计数仍须审。2026-10-24补看作者实验室F2/F8实际原图、正式HTML表2勾选列；其余F1/3/4/5/6/7/9仍仅图注/文字。出版方直接PDF、作者上传和幻灯片入口访问受限；网页工具可抽全文但截图未返回实际像素，本批不将其登记为视觉阅读，也不增加核心三遍数。",
+        "previous_acceptance_evidence": "正式HTML表2四列勾选与数值、T1/3/4；作者实验室F2/F8实际图像；固定GH三个模型文件与README。其余图版尚缺，书面更新保留未通过。",
+        "superseded_by_commit": "7cb7a17b"
+      },
+      "source_closure_notes": "## 2026-10-25 原版 PDF 取得与九幅原图补核（最新状态覆盖上述旧访问结果）\n\n本次定位到[可公开直接阅读的 Wiley/IET 15 页原始 PDF](https://www.researchgate.net/journal/IET-Image-Processing-1751-9667/publication/385042124_Stroke-Seg_A_deep_learning-based_framework_for_chinese_stroke_segmentation/links/671295a0069cb92a811b531e/Stroke-Seg-A-deep-learning-based-framework-for-chinese-stroke-segmentation.pdf)，IET Image Processing 18(13), pp. 4341–4355，DOI 10.1049/ipr2.13255，版权页注明 CC BY-NC-ND 4.0。此来源直接解决此前“缺F1/3/4/5/6/7/9实际原图PDF”的获取问题：其 PDF 内完整嵌有 F1–9；已经实际渲染观察的含 F2/3/4/5/6/7/8/9。**F1 所在PDF第2页单独截图接口仍报缓存错误，故对F1只根据PDF图注/正文描述其交叉截断和书法字非规则交叉，未宣称独立像素实读F1**。F3/4见PDF第5页，F5第6页，F6第8页，F7第11页，F8第12页，F9第13页。\n\n**三遍阅读与五点验收：完成核心分析。** 第一遍已按问题—方法—结果明确“静态多标签分割”；第二遍具备F2流程与先验、10类/multi-label/BDLoss公式、T2和T3数值、数据T1、实验条件；第三遍以F9分错类型和外部T4已知/未见分布提出可证伪问题。主表T3 TransUNet .982/.018 与DeepStroke .935/.068等，消融T2 U-Net Dice .681→+prior .880 和完整BDLoss+prior .955，外部T4 .962 vs .831，均应标注分割 TSR/FSR 的含义。完整公式/结构/数据与局限在本卡原章节已有逐项解读。**未复现模型、未独立执行全部源码**。\n\n**新得的科研边界**：F9显示未见组合的复杂笔形ShuZheZheGou被划成若干基础笔；另有Pie/Dian混淆、无标签或多标签不稳定；10个输出类别跨交叉合理重叠，但同类多个具体笔实例的独立身份仍丢失。把作者报告的“98.2% TSR”称为笔顺准确率将构成指标偷换。BCSS正式原T1 1,322图共14,766笔的分项合计与历史公开包10,653笔数字存在版本覆盖差异，必须写明。更多逐图与结果表核对见[七项最新核查](../evidence/seven_remaining_pdf_closure_2026-10-25.md)。\n\n**状态**：完整原始PDF链接已核；论文五条核心阅读完成。F1额外像素截图、权重/源码复现和完全可用原始数据仍需单列，不阻碍按已核方法图/表/消融完成核心论文阅读；不删除早期无法访问的历史日志。"
     },
     {
       "id": "L185",

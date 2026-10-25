@@ -13,7 +13,7 @@
 | A03 | DiffInk: Glyph- and Style-Aware Latent Diffusion Transformer for Text to Online Handwriting Generation | primary_sections_read | [结构化分析](../reviews/A03.md) | 核心三遍与五项检查完成 |
 | A04 | Stroke Modeling Enables Vectorized Character Generation with Large Vectorized Glyph Model（LVGM） | primary_sections_read | [结构化分析](../reviews/A04.md) | 核心三遍与五项检查完成 |
 | A05 | Handwriting Trajectory Recovery with Diffusion Models | primary_sections_read | [结构化分析](../reviews/A05.md) | 核心三遍与五项检查完成 |
-| A06 | Font Generation and Keypoint Ranking for Stroke Order of Chinese Characters by Deep Neural Networks | primary_abstract_read | [结构化分析](../reviews/A06.md) | 未完成 |
+| A06 | Font Generation and Keypoint Ranking for Stroke Order of Chinese Characters by Deep Neural Networks | primary_abstract_read | [结构化分析](../reviews/A06.md) | 资料未齐；按用户要求停止跟进 |
 | A07 | Complex Handwriting Trajectory Recovery: Evaluation Metrics and Algorithm（PEN-Net） | primary_sections_read | [结构化分析](../reviews/A07.md) | 核心三遍与五项检查完成 |
 | A08 | Modality Conversion of Handwritten Patterns by Cross Variational Autoencoders（Cross-VAE） | primary_sections_read | [结构化分析](../reviews/A08.md) | 核心三遍与五项检查完成 |
 | A09 | Disentangling Writer and Character Styles for Handwriting Generation（SDT） | primary_sections_read | [结构化分析](../reviews/A09.md) | 核心三遍与五项检查完成 |
@@ -55,7 +55,7 @@
 | F02 | Bézier Splatting for Fast and Differentiable Vector Graphics Rendering | primary_sections_read | [结构化分析](../reviews/F02.md) | 核心三遍与五项检查完成 |
 | F03 | FRIDA: A Collaborative Robot Painter with a Differentiable, Real2Sim2Real Planning Environment | primary_sections_read | [结构化分析](../reviews/F03.md) | 核心三遍与五项检查完成 |
 | F04 | CoFRIDA: Self-Supervised Fine-Tuning for Human-Robot Co-Painting | primary_sections_read | [结构化分析](../reviews/F04.md) | 核心三遍与五项检查完成 |
-| F05 | Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model | primary_sections_read | [结构化分析](../reviews/F05.md) | 五项检查已记录；三遍待确认 |
+| F05 | Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model | primary_sections_read | [结构化分析](../reviews/F05.md) | 资料未齐；按用户要求停止跟进 |
 | X01 | InkSight: Offline-to-Online Handwriting Conversion by Teaching Vision-Language Models to Read and Write | primary_sections_read | [结构化分析](../reviews/X01.md) | 核心三遍与五项检查完成 |
 | R01 | Hanzi Writer（工具，不是论文） | primary_sections_read | [结构化分析](../reviews/R01.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | R02 | Make Me a Hanzi（数据/工程资源） | primary_sections_read | [结构化分析](../reviews/R02.md) | 制品协议五项审查完成；制品缺项见笔记 |
@@ -109,11 +109,11 @@
 | R06 | 通用规范汉字笔顺规范 | primary_sections_read | [结构化分析](../reviews/R06.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | R07 | OpenHandWrite_Toolbox与笔画级数据 | primary_sections_read | [结构化分析](../reviews/R07.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | L001 | Handwriting Trajectory Recovery via Autoregressive Ordered Stroke Instance Prediction，2026 | primary_sections_read | [结构化分析](../reviews/L001.md) | 核心三遍与五项检查完成 |
-| L002 | Diff-Writer: A Diffusion Model-Based Stylized Online Handwritten Chinese Character Generator | primary_abstract_read | [结构化分析](../reviews/L002.md) | 未完成 |
+| L002 | Diff-Writer: A Diffusion Model-Based Stylized Online Handwritten Chinese Character Generator | primary_abstract_read | [结构化分析](../reviews/L002.md) | 资料未齐；按用户要求停止跟进 |
 | L003 | Write Like You，2021 | primary_sections_read | [结构化分析](../reviews/L003.md) | 核心三遍与五项检查完成 |
 | L004 | Layout Stroke Imitation，2025 | primary_sections_read | [结构化分析](../reviews/L004.md) | 核心三遍与五项检查完成 |
 | L005 | StrokeBank: Automating Personalized Chinese Handwriting Generation | primary_sections_read | [结构化分析](../reviews/L005.md) | 核心三遍与五项检查完成 |
-| L006 | Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement | primary_abstract_read | [结构化分析](../reviews/L006.md) | 未完成 |
+| L006 | Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement | primary_abstract_read | [结构化分析](../reviews/L006.md) | 资料未齐；按用户要求停止跟进 |
 | L007 | B-BSMG，2024 | primary_sections_read | [结构化分析](../reviews/L007.md) | 核心三遍与五项检查完成 |
 | L008 | Three-Dimensional Trajectory Planning for Robotic Chinese Calligraphy，2026 | primary_sections_read | [结构化分析](../reviews/L008.md) | 核心三遍与五项检查完成 |
 | L009 | Video-Based Handwritten Chinese Character Recognition，2005 | primary_sections_read | [结构化分析](../reviews/L009.md) | 核心三遍与五项检查完成 |
@@ -128,8 +128,8 @@
 | L018 | Diff-Font，2022 起 | primary_sections_read | [结构化分析](../reviews/L018.md) | 核心三遍与五项检查完成 |
 | L019 | FontDiffuser，AAAI 2024 | primary_sections_read | [结构化分析](../reviews/L019.md) | 核心三遍与五项检查完成 |
 | L020 | Learning to Generate Stylized Handwritten Text via a Unified Representation of Style, Content, and Noise (InkSpire) | primary_sections_read | [结构化分析](../reviews/L020.md) | 核心三遍与五项检查完成 |
-| L021 | Write More at Once，公开投稿版本 | primary_abstract_read | [结构化分析](../reviews/L021.md) | 未完成 |
-| L022 | Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本 | primary_abstract_read | [结构化分析](../reviews/L022.md) | 未完成 |
+| L021 | Write More at Once，公开投稿版本 | primary_abstract_read | [结构化分析](../reviews/L021.md) | 资料未齐；按用户要求停止跟进 |
+| L022 | Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions，公开投稿版本 | primary_abstract_read | [结构化分析](../reviews/L022.md) | 资料未齐；按用户要求停止跟进 |
 | L023 | DiffBrush，ICCV 2025 | primary_sections_read | [结构化分析](../reviews/L023.md) | 核心三遍与五项检查完成 |
 | L024 | Learning to Compose Stylistic Calligraphy Artwork with Emotions，ACM MM 2021 | primary_sections_read | [结构化分析](../reviews/L024.md) | 核心三遍与五项检查完成 |
 | L025 | AnyText，2023/2024 | primary_sections_read | [结构化分析](../reviews/L025.md) | 核心三遍与五项检查完成 |
@@ -339,7 +339,7 @@
 | H001 | CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品 | primary_sections_read | [结构化分析](../reviews/H001.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | L182 | STRIVE: Scene Text Replacement In Videos | primary_sections_read | [结构化分析](../reviews/L182.md) | 核心三遍与五项检查完成 |
 | L183 | CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization | primary_sections_read | [结构化分析](../reviews/L183.md) | 核心三遍与五项检查完成 |
-| L184 | Stroke-Seg: A deep learning-based framework for chinese stroke segmentation | primary_sections_read | [结构化分析](../reviews/L184.md) | 核心三遍与五项书面检查完成；含九幅原图的正式PDF已定位；F1截图另待复核 |
+| L184 | Stroke-Seg: A deep learning-based framework for chinese stroke segmentation | primary_sections_read | [结构化分析](../reviews/L184.md) | 核心三遍与五项检查完成 |
 | L185 | Training Diffusion Models with Reinforcement Learning（DDPO） | primary_sections_read | [结构化分析](../reviews/L185.md) | 核心三遍与五项检查完成 |
 | L186 | Towards Human-Like Robot Handwriting via Contour-Aware Generation | primary_sections_read | [结构化分析](../reviews/L186.md) | 核心三遍与五项检查完成 |
 | R08 | SenseNova-U1.5-8B-MoT-LoRAs：8step与V2蒸馏适配器、加载与训练配置 | primary_sections_read | [结构化分析](../reviews/R08.md) | 制品协议五项审查完成；制品缺项见笔记 |
