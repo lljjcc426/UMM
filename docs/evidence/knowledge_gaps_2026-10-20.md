@@ -763,3 +763,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百一十二批（2026-10-25）：正文2.98M/75K与App2.56M/4.5K不一致，公开robot计数也不同，原始版本待作者说明。见[审查](bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[L165](../reviews/L165.md)。
+
+
+第二百一十三批（2026-10-25）：官方LIBERO总130task分suite不等于正文合10；LanguageTable引用到2020LatentPlans而官方关联2210.06407，实际子集未知。见[审查](worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[L166](../reviews/L166.md)。

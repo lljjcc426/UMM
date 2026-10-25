@@ -811,3 +811,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百一十二批（2026-10-25）：BagelVLAv2全部28页/AppA–I/13图8表3编号式及未编号目标完成，项目code仍comingsoon。见[审查](bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[L165](../reviews/L165.md)。
+
+
+第二百一十三批（2026-10-25）：WorldBagel唯一v1全25页AppA/B、2图4表30式；arxivComments明确ECCV2026拒稿，作者页无代码入口。见[审查](worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[L166](../reviews/L166.md)。

@@ -748,3 +748,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百一十二批（2026-10-25）：匹配compute/recipe做真图/生成/打乱/噪图条件，视觉更新/陈旧KV/端到端延迟与动作吞吐分别测。见[审查](../evidence/bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[L165](../reviews/L165.md)。
+
+
+第二百一十三批（2026-10-25）：同容量raw非线性头/Fourier对照、端点精度/phase分支，真实扰动重跑环境GT；joint/ordering/采样单因子。见[审查](../evidence/worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[L166](../reviews/L166.md)。

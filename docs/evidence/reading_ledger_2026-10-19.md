@@ -271,7 +271,7 @@
 | L163 | ERNIE 5.0 Technical Report | primary_sections_read | [结构化分析](../reviews/L163.md) | 未完成 |
 | L164 | MUNI: Multimodal Unified Latent Diffusion for Coherent Any-to-Any Generation | primary_sections_read | [结构化分析](../reviews/L164.md) | 核心三遍与五项检查完成 |
 | L165 | BagelVLA: Enhancing Long-Horizon Manipulation via Interleaved Vision-Language-Action Generation | primary_sections_read | [结构化分析](../reviews/L165.md) | 核心三遍与五项检查完成 |
-| L166 | WorldBagel: Uncovering the Power of Unified Multimodal Models for Vision-Language-Action-World Modeling | primary_sections_read | [结构化分析](../reviews/L166.md) | 未完成 |
+| L166 | WorldBagel: Uncovering the Power of Unified Multimodal Models for Vision-Language-Action-World Modeling | primary_sections_read | [结构化分析](../reviews/L166.md) | 核心三遍与五项检查完成 |
 | L167 | Vision as Unified Multimodal Generation | primary_sections_read | [结构化分析](../reviews/L167.md) | 未完成 |
 | L168 | Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States | primary_sections_read | [结构化分析](../reviews/L168.md) | 未完成 |
 | L169 | InstructPix2Pix: Learning to Follow Image Editing Instructions | primary_sections_read | [结构化分析](../reviews/L169.md) | 核心三遍与五项检查完成 |

@@ -632,3 +632,6 @@ python scripts/validate_catalog.py
 
 
 第二百一十二批（2026-10-25）：L165完成28页全图表附录；补正文与附录训练量冲突、RoboTwin50行均值差异及CALVIN完整5步弱项。358目录，317核心/322书面；待完成核心深审14篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_twelfth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百一十三批（2026-10-25）：L166完成25页；解析区分四条理论有效范围，补phase全域稳定反例与数据来源、表量纲和容量对照限制。358目录，318核心/323书面；待完成核心深审13篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_thirteenth_changes_2026-10-25.md)。无删除或模型执行。

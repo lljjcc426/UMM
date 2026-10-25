@@ -555,3 +555,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百一十二批（2026-10-25）：CALVINmean4.405优VPP4.329但整5步.741<.769；initialKV预测特征不证明准确未来像素。见[审查](bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[L165](../reviews/L165.md)。
+
+
+第二百一十三批（2026-10-25）：开环动作与预测世界分开；LanguageTable原数据来源不推出新真机控制，动态书写无直接证据。见[审查](worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[L166](../reviews/L166.md)。

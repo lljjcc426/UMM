@@ -303,3 +303,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百一十二批（2026-10-25）：F7mask区分GTclean训练/噪声初态action条件，RFG当前图先验属于启发式；无未来图语义必要性因果检验。见[审查](bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[L165](../reviews/L165.md)。
+
+
+第二百一十三批（2026-10-25）：Th2开区间由低频可逆但原证漏2；Th3全域C(K)被近两端点相位反例否定；Th4零DC积分反例保留。见[审查](worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[L166](../reviews/L166.md)。
