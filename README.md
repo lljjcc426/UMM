@@ -29,7 +29,7 @@
 
 主目录包含 **333项论文／研究记录、27项资源，共360条记录**。每项记录包括研究主张、方法、问题、结果、限制、原始来源、版本及核查范围。数量不代表全文精读数量；文献中的数值为作者报告。
 
-截至2026-10-25，论文核心完成326/333；7篇仍缺全文或实际原图。27项资源公开制品协议审查已完成，135项回答及未取得/未发布的制品缺项分别列明，见[本批审查](docs/evidence/resource_protocol_completion_and_source_limits_2026-10-25.md)。原329项五条书面记录分为328项论文与1项历史资源记录，包含未通过项。
+截至2026-10-25，论文核心完成326/333；7篇仍缺全文或实际原图。最新补读A06全部8幅出版社原图，更新三分支排序结构及StrokeGAN定性比较；7篇缺项见[来源与原图审查](docs/evidence/seven_remaining_source_and_figure_audit_2026-10-25.md)。27项资源公开制品协议审查已完成，135项回答及未取得/未发布的制品缺项分别列明，见[资源审查](docs/evidence/resource_protocol_completion_and_source_limits_2026-10-25.md)。原329项五条书面记录分为328项论文与1项历史资源记录，包含未通过项。
 
 [候选目录](data/discovery/README.md)另含573条arXiv检索记录和200条综述目录候选，两者有重叠，也与主目录重叠。详细记录规则见[核查方法](docs/evidence/method_and_status.md)，早期分析见[研究档案](archive/README.md)。
 
@@ -666,3 +666,5 @@ python scripts/validate_catalog.py
 第二百二十二批（2026-10-25）：新增用户指定L193，完整18页/7图/8表/Eq1–23，区分真实分组/轨迹条件、监督互补的不对称收益，记录PARD统计与旧Half协议差异。360目录，326核心/329书面；待完成核心深审7篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/grand_unification_multi_human_activity_full_review_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_twenty_second_changes_2026-10-25.md)。无删除或模型执行。
 
 第二百二十三批（2026-10-25）：27项资源公开制品协议审查与135项回答单列，补实物/源码/规范索引/数值轨迹及实际参考图；保留原始包/未发布流程等制品缺项。7篇论文补访仍未取齐全文/实图，核心326/333保持，329书面含未通过项。详见[审查](docs/evidence/resource_protocol_completion_and_source_limits_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_twenty_third_changes_2026-10-25.md)。无文件删除，无模型执行。
+
+第二百二十四批（2026-10-25）：A06实际核读出版社F1–8全部原图，补字符/笔画/关键点三编码分支、FC/CE与StrokeGAN定性比较，保留数据划分/排序定义/实验待核。余下7篇的全文/实图缺项仍未补齐，核心326/333、329书面保持。见[审查](docs/evidence/seven_remaining_source_and_figure_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_twenty_fourth_changes_2026-10-25.md)。无删除或模型执行。

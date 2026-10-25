@@ -1,0 +1,165 @@
+{
+  "checked_on": "2026-10-25",
+  "batch": "two_hundred_twenty_fourth",
+  "base_commit": "2d61ab93",
+  "requested_ids": [
+    "A06",
+    "L002",
+    "L006",
+    "L021",
+    "L022",
+    "F05",
+    "L184"
+  ],
+  "core_completion_upgrades": [],
+  "paper_fulltext_acquisitions": [],
+  "A06_publisher_figures_read": [
+    {
+      "figure": "F1",
+      "topic": "字体生成结构",
+      "source": "https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs42979-021-00717-2/MediaObjects/42979_2021_717_Fig1_HTML.png",
+      "http_status": 200,
+      "content_type": "image/png",
+      "bytes": 382196,
+      "actual_pixels_viewed": true,
+      "observation": "两个方向的G/F映射、两个判别器Dx/Dy及循环重建链；G有类别嵌入输入。",
+      "limit": "图像未给出全部损失公式、权重和嵌入定义，不能据此命名InfoGAN或复现配置。"
+    },
+    {
+      "figure": "F2",
+      "topic": "关键点排序结构",
+      "source": "https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs42979-021-00717-2/MediaObjects/42979_2021_717_Fig2_HTML.png",
+      "http_status": 200,
+      "content_type": "image/png",
+      "bytes": 346967,
+      "actual_pixels_viewed": true,
+      "observation": "字符图像进入Character Encoder；细化骨架/特征点参与笔画提取，笔画进入Stroke Encoder；关键点经Gaussian Function变换后进入Keypoint Encoder。三个分支Concat后接两个FC模块、ranking scores、Softmax及Cross Entropy Loss。",
+      "limit": "编码器层宽、预训练、候选生成和排序监督的数学定义仍须正文。"
+    },
+    {
+      "figure": "F3",
+      "topic": "数据示例",
+      "source": "https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs42979-021-00717-2/MediaObjects/42979_2021_717_Fig3_HTML.png",
+      "http_status": 200,
+      "content_type": "image/png",
+      "bytes": 715466,
+      "actual_pixels_viewed": true,
+      "observation": "图中直接标出Standard Kai Font、Slender-gold-style、Running script三组字形。",
+      "limit": "示例网格及编号不构成完整样本量、训练/测试划分或未见字符/风格证明。"
+    },
+    {
+      "figure": "F4",
+      "topic": "生成缺陷",
+      "source": "https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs42979-021-00717-2/MediaObjects/42979_2021_717_Fig4_HTML.png",
+      "http_status": 200,
+      "content_type": "image/png",
+      "bytes": 200522,
+      "actual_pixels_viewed": true,
+      "observation": "Generated Images与Input Images成组展示；红框圈出交叉和短笔画附近的局部异常。",
+      "limit": "这是字形生成缺陷示例，不能量化笔顺恢复错误率。"
+    },
+    {
+      "figure": "F5",
+      "topic": "字形比较",
+      "source": "https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs42979-021-00717-2/MediaObjects/42979_2021_717_Fig5_HTML.png",
+      "http_status": 200,
+      "content_type": "image/png",
+      "bytes": 541341,
+      "actual_pixels_viewed": true,
+      "observation": "下、化、露、照四行、每行三个字形，外观与清晰度不同。",
+      "limit": "图像内没有列方法名，不能仅凭像素给三列指定算法。"
+    },
+    {
+      "figure": "F6",
+      "topic": "生成字形集合",
+      "source": "https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs42979-021-00717-2/MediaObjects/42979_2021_717_Fig6_HTML.png",
+      "http_status": 200,
+      "content_type": "image/png",
+      "bytes": 604149,
+      "actual_pixels_viewed": true,
+      "observation": "从一、丁等字符开始的生成字形网格，编号到0112。",
+      "limit": "该图没有单独给出样本抽样原则、评测分布或笔顺。"
+    },
+    {
+      "figure": "F7",
+      "topic": "具名比较",
+      "source": "https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs42979-021-00717-2/MediaObjects/42979_2021_717_Fig7_HTML.png",
+      "http_status": 200,
+      "content_type": "image/png",
+      "bytes": 294191,
+      "actual_pixels_viewed": true,
+      "observation": "四行明确标为Standard Kai Style、StrokeGAN、Ours、Slender Gold Style。",
+      "limit": "StrokeGAN可确认是字形定性比较对象；尚不能写成关键点排序数值基线或消融结果。"
+    },
+    {
+      "figure": "F8",
+      "topic": "中间表示",
+      "source": "https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs42979-021-00717-2/MediaObjects/42979_2021_717_Fig8_HTML.png",
+      "http_status": 200,
+      "content_type": "image/png",
+      "bytes": 158343,
+      "actual_pixels_viewed": true,
+      "observation": "偌字的原图、骨架、红蓝关键点，以及两组拆分后的笔画/骨架图块。",
+      "limit": "图中没有时间轴或顺序编号；红蓝含义、拆分块与真实落笔段的对应仍须文字定义。"
+    }
+  ],
+  "source_access_checks": {
+    "A06": {
+      "note": "新增实读出版社F1–8全部原图，补三编码分支/FC/CE、字体组与StrokeGAN比较；作者主页和Publication.htm没有提供完整9页正文，仍未完成核心深审。",
+      "urls": [
+        "https://www.cs.ccu.edu.tw/~ckchiang/Publication.htm",
+        "https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs42979-021-00717-2/MediaObjects/42979_2021_717_Fig2_HTML.png",
+        "https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs42979-021-00717-2/MediaObjects/42979_2021_717_Fig7_HTML.png"
+      ]
+    },
+    "L002": {
+      "note": "查官方章节、PAL成果表及作者公开GitHub。OLHWG属于已收录L001，作者主页仓库是通用模板，没有取得Diff-Writer完整章节。",
+      "urls": [
+        "https://link.springer.com/chapter/10.1007/978-981-99-8141-0_7",
+        "https://nlpr.ia.ac.cn/pal/publications/P2023.html",
+        "https://github.com/singularityrms/OLHWG"
+      ]
+    },
+    "L006": {
+      "note": "补查作者机构UPM库与题名/DOI检索，未取得完整方法和实验。ScienceDirect摘要/引言与检索片段仍不足，既有在线2026/卷期2027区别保留。",
+      "urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0020025526010674",
+        "https://psasir.upm.edu.my/cgi/search/simple?q=%2210.1016%2Fj.ins.2026.124136%22"
+      ]
+    },
+    "L021": {
+      "note": "官方OpenReview全文仍受访问限制，未找到可核作者全文镜像。第三方列出的作者/Withdrawn未取得官方确认，不填为正式结论；相似ICDAR论文不替代本版本。",
+      "urls": [
+        "https://openreview.net/pdf?id=VdDtRu7RTf",
+        "https://openreview.net/pdf/9ebab4ec28a5d558fb0e97da83cb2c31fa4288f0.pdf"
+      ]
+    },
+    "L022": {
+      "note": "普通隔离Chrome访问仍停在浏览器验证页；搜索缓存含p8零散文字与图注，未取得完整正文、附录和实际原图。修正此前缓存范围仅前两页的描述，核心仍未完成。",
+      "urls": [
+        "https://openreview.net/pdf?id=SuLp0J2uan",
+        "https://openreview.net/pdf/6c8886af438417e6666dfb3cd4675854fcee6ca5.pdf"
+      ]
+    },
+    "F05": {
+      "note": "再次查Samsung作者说明，论文链接仍指向IEEE11463098，没有独立作者PDF；官网/作者检索未补齐正式全文，已读作者说明与图表不重复计数。",
+      "urls": [
+        "https://research.samsung.com/blog/Online-Cursive-Handwriting-Generation-Using-Trace-Transformation-and-Symbol-Independent-Point-Classification-Model",
+        "https://ieeexplore.ieee.org/document/11463098/"
+      ]
+    },
+    "L184": {
+      "note": "正式15页全文文字已读。补查ResearchGate的7幅缺图页面/图像地址、Wiley图像弹窗和普通Chrome，未返回可核的缺图像素。ResearchGate本页全文为出版方提供，纠正泛称作者上传。另实看BCSS仓库dataset.png，为已知数据示例，不能补齐F1/3/4/5/6/7/9。",
+      "urls": [
+        "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/ipr2.13255",
+        "https://www.researchgate.net/publication/385042124_Stroke-Seg_A_deep_learning-based_framework_for_chinese_stroke_segmentation",
+        "https://github.com/Rvosuke/BCSS/blob/main/assets/dataset.png"
+      ]
+    }
+  },
+  "core_total": 326,
+  "paper_research_total": 333,
+  "remaining_paper_without_core": 7,
+  "no_learned_model_execution": true,
+  "no_file_deletions": true
+}

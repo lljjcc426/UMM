@@ -421,21 +421,23 @@
     "source_urls": [
       "https://link.springer.com/article/10.1007/s42979-021-00717-2",
       "https://link.springer.com/content/pdf/10.1007/s42979-021-00717-2.pdf",
-      "https://api.openalex.org/works/https://doi.org/10.1007/s42979-021-00717-2"
+      "https://api.openalex.org/works/https://doi.org/10.1007/s42979-021-00717-2",
+      "https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs42979-021-00717-2/MediaObjects/42979_2021_717_Fig2_HTML.png",
+      "https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs42979-021-00717-2/MediaObjects/42979_2021_717_Fig7_HTML.png"
     ],
     "previous_evidence": "出版方摘要",
     "claim": "作者研究目标：从不同字体的静态汉字图像提取关键点并排序，辅助笔顺恢复。",
-    "method": "GAN生成多字体样本，关键点提取/笔画分解后学习排序；具体架构待正文。 出版社摘要只确认GAN与关键点rank流程；InfoGAN、网络层数及损失细节未由本次可读原文核实，不沿用猜测。",
+    "method": "GAN扩充字体图像，随后提取笔画与关键点；字符、笔画和关键点三个编码分支共同支持排序。已核出版社F1–8原图，完整正文待取得。 F1显示G/F双向生成、Dx/Dy判别器、循环重建和G的类别嵌入。F2显示Character/Stroke/Keypoint Encoder三分支，关键点先经Gaussian Function；Concat后两个FC模块、ranking scores、Softmax、Cross Entropy Loss。编码器细节、损失公式/权重、InfoGAN身份仍未核。",
     "problem": "从不同字体的静态汉字图像提取关键点并排序，辅助笔顺恢复。",
-    "conclusion": "目前可确认研究任务和摘要报告数字；尚不能判断是否跨未见字体/字符稳定改善。",
-    "gap": "出版社是订阅预览，公开检索未找到可读作者全文；排序高分可能仍有局部错序，这一指标界限可独立说明。具体实验缺失未补造。",
+    "conclusion": "F4可见交叉/短笔画附近的生成异常；F7提供具名字形比较；F8展示原图→骨架/关键点→拆分图块，但没有时间轴或顺序编号。摘要NDCG与这些示意不足以确认未见字体/字符泛化或端到端严格笔顺正确率。",
+    "gap": "全文仍为订阅预览。8幅出版社原图均已实际查看，但数据划分、排序定义、全部实验/表格与消融尚缺。候选提取错误是否进入排序评分、同字不同字体是否跨集合泄漏、拆分图块与真实落笔段是否一致均未核。",
     "provenance": "2026-10-14文献目录",
     "verification": "primary_abstract_read",
     "checked_on": "2026-10-25",
     "record_type": "paper",
     "scope": "handwriting_or_adjacent",
     "privacy": "public_source_note",
-    "sections_read": "出版社Abstract/正式书目信息；PDF转回订阅预览，未取得Method/Experiments全文 2026-10-25补查：正式content/pdf入口HTTP200但Content-Type为text/html，正文为订阅预览，未取得PDF；OpenAlex仅出版方closed位置、没有repository全文。未将Paperity截断的转录作正式全文。",
+    "sections_read": "出版社Abstract/正式书目信息；PDF转回订阅预览，未取得Method/Experiments全文 2026-10-25补查：正式content/pdf入口HTTP200但Content-Type为text/html，正文为订阅预览，未取得PDF；OpenAlex仅出版方closed位置、没有repository全文。未将Paperity截断的转录作正式全文。 第二百二十四批：实际下载并逐幅查看出版社F1–8 PNG，核三分支/FC/CE、三种字体和StrokeGAN具名图示；作者主页及Publication.htm没有补齐9页正文。8图阅读不升级为完整三遍。",
     "last_updated": "2026-10-25",
     "canonical_key": "paper:doi:10.1007/s42979-021-00717-2",
     "evidence_history": [
@@ -491,15 +493,22 @@
         "sections_read": "2026-10-25补查：正式content/pdf入口HTTP200但Content-Type为text/html，正文为订阅预览，未取得PDF；OpenAlex仅出版方closed位置、没有repository全文。未将Paperity截断的转录作正式全文。",
         "verification": "primary_abstract_read",
         "core_completion_upgraded": false
+      },
+      {
+        "checked_on": "2026-10-25",
+        "batch": "two_hundred_twenty_fourth",
+        "sections_read": "出版社F1–8实际像素逐图核读；9页正文仍未取得。",
+        "verification": "primary_abstract_read",
+        "core_completion_upgraded": false
       }
     ],
     "review_path": "docs/reviews/A06.md",
     "review_depth": "first_pass_only",
-    "dataset": "原始数据来源、字符数、标注、作者/字体split均待取得正文。",
-    "framework": "GAN生成多字体样本，关键点提取/笔画分解后学习排序；具体架构待正文。",
-    "architecture": "出版社摘要只确认GAN与关键点rank流程；InfoGAN、网络层数及损失细节未由本次可读原文核实，不沿用猜测。",
-    "metrics": "NDCG，摘要报告均.9667、29.53%样本>.98；不是严格全笔顺正确率96.67%。",
-    "baselines": "原文摘要未列具体baselines，待全文核。",
+    "dataset": "F3明确展示标准楷书、瘦金体、行书三组字形；F6为生成字形网格。示例编号不等于完整样本量；来源授权、字符/风格划分、标注和关键点候选规则仍待正文。",
+    "framework": "GAN扩充字体图像，随后提取笔画与关键点；字符、笔画和关键点三个编码分支共同支持排序。已核出版社F1–8原图，完整正文待取得。",
+    "architecture": "F1显示G/F双向生成、Dx/Dy判别器、循环重建和G的类别嵌入。F2显示Character/Stroke/Keypoint Encoder三分支，关键点先经Gaussian Function；Concat后两个FC模块、ranking scores、Softmax、Cross Entropy Loss。编码器细节、损失公式/权重、InfoGAN身份仍未核。",
+    "metrics": "NDCG，摘要报告平均0.9667、29.53%样本>0.98；该数值不表示96.67%的字符全笔顺正确，亦未检验RGB视频的实际落笔顺序。",
+    "baselines": "F7原图明确列Standard Kai Style、StrokeGAN、Ours、Slender Gold Style，确认StrokeGAN用于字形定性比较；排序数值基线、比较协议和全部表格未取得。",
     "experimental_conditions": "训练/推理硬件、超参、重复次数和测试分布待全文。"
   },
   {
