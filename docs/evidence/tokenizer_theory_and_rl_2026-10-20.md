@@ -318,3 +318,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百一十七批（2026-10-25）：AHRL初始pass@k=0导致提示比例按Eq5恒定；WPSM按组正确率和response熵，U-RB无形式化无偏梯度证明。见[审查](ernie5_full_report_and_elastic_rl_claim_audit_2026-10-25.md)、[L163](../reviews/L163.md)。
+
+
+第二百一十八批（2026-10-25）：连续CLIP与人评tau_b.709不证明argmax候选校准；四选一联合6.25%是期望，非有限样本上界。见[审查](mme_unify_formal_full_appendix_and_consistency_audit_2026-10-25.md)、[L142](../reviews/L142.md)。

@@ -734,3 +734,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百一十七批（2026-10-25）：官方ERNIE4.5源码/权重不能替代5.0；当前未有本报告精确层数/专家数、配比和可复现配置。见[审查](../evidence/ernie5_full_report_and_elastic_rl_claim_audit_2026-10-25.md)、[L163](../reviews/L163.md)。
+
+
+第二百一十八批（2026-10-25）：固定七标注4101与正式4104/4100计数冲突；CSQ/AL路径映射有候选，未宣称内容全验或缺664图。见[审查](../evidence/mme_unify_formal_full_appendix_and_consistency_audit_2026-10-25.md)、[L142](../reviews/L142.md)。

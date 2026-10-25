@@ -570,3 +570,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百一十七批（2026-10-25）：NGTP共享AR骨干，视觉仍级联独立diffusionrefiner；全模态输入输出未提供笔顺动作监督。见[审查](ernie5_full_report_and_elastic_rl_claim_audit_2026-10-25.md)、[L163](../reviews/L163.md)。
+
+
+第二百一十八批（2026-10-25）：联合正确率高于随机是外部行为证据，未识别共享训练机制；人类直接选图与模型生成后CLIP匹配不同。见[审查](mme_unify_formal_full_appendix_and_consistency_audit_2026-10-25.md)、[L142](../reviews/L142.md)。

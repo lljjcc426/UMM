@@ -763,3 +763,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百一十七批（2026-10-25）：同预算全模态/分离、同尺寸独立训练/裁剪、RL全因子与零pass组提示撤除实验；未执行。见[审查](../evidence/ernie5_full_report_and_elastic_rl_claim_audit_2026-10-25.md)、[L163](../reviews/L163.md)。
+
+
+第二百一十八批（2026-10-25）：共同支持集、真实有效步与存活步分母、规则上界、同协议人评及换序视频对照设计；未执行。见[审查](../evidence/mme_unify_formal_full_appendix_and_consistency_audit_2026-10-25.md)、[L142](../reviews/L142.md)。

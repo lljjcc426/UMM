@@ -737,3 +737,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百一十七批（2026-10-25）：主报告模型与ERNIE5.0-Exp分开；EA抽取后mid/posttraining，七项均75.17vs75.55不属直接零成本裁剪。见[审查](ernie5_full_report_and_elastic_rl_claim_audit_2026-10-25.md)、[L163](../reviews/L163.md)。
+
+
+第二百一十八批（2026-10-25）：正式31模型/17UMM；T2BAGELCSQ7.23vsT3 77.23，若按T2TVG/VP列会把图像重建/编辑误当视频能力。见[审查](mme_unify_formal_full_appendix_and_consistency_audit_2026-10-25.md)、[L142](../reviews/L142.md)。

@@ -778,3 +778,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百一十七批（2026-10-25）：深度采样75/25vs消融80/20、参数占比vsFLOPs、主表后训练个别音频/图表理解下降均保留。见[审查](ernie5_full_report_and_elastic_rl_claim_audit_2026-10-25.md)、[L163](../reviews/L163.md)。
+
+
+第二百一十八批（2026-10-25）：正式新增效度证据有支持但T12humanSD19<random30.5；分母/终止图固定代码差异保留，不倒推作者实际运行。见[审查](mme_unify_formal_full_appendix_and_consistency_audit_2026-10-25.md)、[L142](../reviews/L142.md)。
