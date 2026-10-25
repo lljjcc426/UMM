@@ -1,5 +1,9 @@
 # UMM 与中文书写过程生成
 
+## 2026-10-25 最后七项原文来源核验（最新）
+
+七项中 [L184 Stroke-Seg 原版含全部九幅图的15页论文PDF](https://www.researchgate.net/journal/IET-Image-Processing-1751-9667/publication/385042124_Stroke-Seg_A_deep_learning-based_framework_for_chinese_stroke_segmentation/links/671295a0069cb92a811b531e/Stroke-Seg-A-deep-learning-based-framework-for-chinese-stroke-segmentation.pdf) 已定位与精读；F2–F9逐图可视，F1在完整PDF内且图注已核但单页截图服务失败。核心三遍验收更新为 **327/333**。其他六篇 A06/F05/L002/L006/L021/L022 的正式PDF仍因订阅/浏览器校验而未取得，保持六项待核，不能以摘要代替。进度、访问结果与补读方式详见[七项来源审查](docs/evidence/seven_remaining_pdf_closure_2026-10-25.md)及[逐条台账](docs/evidence/reading_ledger_2026-10-19.md)。
+
 研究统一多模态模型（Unified Multimodal Model，UMM）如何结合理解与生成，重点关注中文书写视频中的笔画顺序、实际执行和艺术风格控制。
 
 核心问题是：模型能否根据已经发生的书写过程，判断下一笔并正确生成？在相同数据、输入和计算预算下，统一训练是否优于规则渲染、专门轨迹模型或外部视觉语言模型指导？

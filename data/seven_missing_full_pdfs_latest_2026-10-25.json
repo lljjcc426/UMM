@@ -1,0 +1,185 @@
+{
+  "checked_on": "2026-10-25",
+  "repo": "lljjcc426/UMM",
+  "scope": "Seven user-requested source completeness closure. Full-PDF source acquisition is separate from learned-model reproduction.",
+  "starting_paper_research": 333,
+  "starting_core": 326,
+  "new_core_if_five_checks": 327,
+  "source_completed_ids": [
+    "L184"
+  ],
+  "unobtained_full_pdf_ids": [
+    "A06",
+    "F05",
+    "L002",
+    "L006",
+    "L021",
+    "L022"
+  ],
+  "pdf_binary_rehosted": false,
+  "source_figures": {
+    "paper_id": "L184",
+    "doi": "10.1049/ipr2.13255",
+    "url": "https://www.researchgate.net/journal/IET-Image-Processing-1751-9667/publication/385042124_Stroke-Seg_A_deep_learning-based_framework_for_chinese_stroke_segmentation/links/671295a0069cb92a811b531e/Stroke-Seg-A-deep-learning-based-framework-for-chinese-stroke-segmentation.pdf",
+    "pages": 15,
+    "figures": [
+      {
+        "figure": "F1",
+        "pdf_page_zero_based": 1,
+        "paper_page": 4342,
+        "checked": "caption_and_complete_pdf_presence",
+        "observation": "Correct vs incorrect stroke truncation at intersections; print-versus-brush irregular intersection examples per source caption",
+        "caveat": "Rendering this particular PDF page in external screenshot tool returned a cache error; no assertion of direct pixel inspection"
+      },
+      {
+        "figure": "F2",
+        "pdf_page_zero_based": 3,
+        "paper_page": 4344,
+        "checked": "pixels_observed",
+        "observation": "character recognizer and 11-dimensional prior → upsample and combine with grayscale input → semantic segmentation backbone → 10 multi-label masks"
+      },
+      {
+        "figure": "F3",
+        "pdf_page_zero_based": 4,
+        "paper_page": 4345,
+        "checked": "pixels_observed",
+        "observation": "Stroke-frequency imbalance of the 26 original types over 3755 Hanzi, versus regrouped ten stroke classes"
+      },
+      {
+        "figure": "F4",
+        "pdf_page_zero_based": 4,
+        "paper_page": 4345,
+        "checked": "pixels_observed",
+        "observation": "Taxonomy panels mapping basic and turning strokes into ten classes; grouping sacrifices fine-grained identities within shared channel"
+      },
+      {
+        "figure": "F5",
+        "pdf_page_zero_based": 5,
+        "paper_page": 4346,
+        "checked": "pixels_observed",
+        "observation": "Character 德 decomposition, 11-D character ID plus per-type stroke counts; zeros indicate absent stroke class"
+      },
+      {
+        "figure": "F6",
+        "pdf_page_zero_based": 7,
+        "paper_page": 4348,
+        "checked": "pixels_observed",
+        "observation": "Original BCSS gray calligraphy examples and color-coded overlapping stroke masks from multiple sources/styles"
+      },
+      {
+        "figure": "F7",
+        "pdf_page_zero_based": 10,
+        "paper_page": 4351,
+        "checked": "pixels_observed",
+        "observation": "Row-wise segmentation comparison to original/ground truth, SSGAN, CCSE, DeepStroke and Stroke-Seg; visually highlights missed/intersected strokes"
+      },
+      {
+        "figure": "F8",
+        "pdf_page_zero_based": 11,
+        "paper_page": 4352,
+        "checked": "pixels_observed",
+        "observation": "Known versus unknown character style examples and colored mask failures at intersections"
+      },
+      {
+        "figure": "F9",
+        "pdf_page_zero_based": 12,
+        "paper_page": 4353,
+        "checked": "pixels_observed",
+        "observation": "Qualitative failure pairs: unseen complex ShuZheZheGou split, similar Pie→Dian confusion and unclassified/multiply assigned regions; two boxed regions referenced by §5.4"
+      }
+    ],
+    "license": "CC BY-NC-ND 4.0: no altered/copyright-unclear binary added to GitHub",
+    "reproduction": "Not performed"
+  },
+  "sources": [
+    {
+      "id": "A06",
+      "title": "Font Generation and Keypoint Ranking for Stroke Order of Chinese Characters by Deep Neural Networks",
+      "type": "journal",
+      "source": "https://link.springer.com/content/pdf/10.1007/s42979-021-00717-2.pdf",
+      "doi": "10.1007/s42979-021-00717-2",
+      "full_pdf_found": false,
+      "status": "publisher_subscription_preview",
+      "checked": "Springer article and actual F1-F8 publisher image assets; direct PDF returned HTML paywall; author/other sources yielded no full 9-page PDF",
+      "needed": "official published nine-page PDF or rights-compliant author accepted manuscript",
+      "fallback": "https://www.researchgate.net/publication/352164287_Font_Generation_and_Keypoint_Ranking_for_Stroke_Order_of_Chinese_Characters_by_Deep_Neural_Networks"
+    },
+    {
+      "id": "F05",
+      "title": "Online Cursive Handwriting Generation Using Trace Transformation and Symbol-Independent Point Classification Model",
+      "type": "conference",
+      "source": "https://ieeexplore.ieee.org/document/11463098/",
+      "doi": "10.1109/ICASSP55912.2026.11463098",
+      "full_pdf_found": false,
+      "status": "ieee_full_pdf_unavailable",
+      "checked": "ICASSP official program and Samsung authors' detailed technical note; IEEE formal PDF unavailable",
+      "needed": "same IEEE ICASSP-2026 paper PDF including full methods/evaluation",
+      "fallback": "https://research.samsung.com/blog/Online-Cursive-Handwriting-Generation-Using-Trace-Transformation-and-Symbol-Independent-Point-Classification-Model"
+    },
+    {
+      "id": "L002",
+      "title": "Diff-Writer: A Diffusion Model-Based Stylized Online Handwritten Chinese Character Generator",
+      "type": "book_chapter",
+      "source": "https://link.springer.com/chapter/10.1007/978-981-99-8141-0_7",
+      "doi": "10.1007/978-981-99-8141-0_7",
+      "full_pdf_found": false,
+      "status": "springer_chapter_subscription_preview",
+      "checked": "ICONIP chapter publisher abstract and metadata, external publication index; author repo examined but belongs to a different paper",
+      "needed": "complete original chapter pp.86-100 with architecture/loss tables",
+      "fallback": "https://nlpr.ia.ac.cn/pal/publications/P2023.html"
+    },
+    {
+      "id": "L006",
+      "title": "Frequency-guided cross-modal diffusion for online Chinese handwriting enhancement",
+      "type": "journal",
+      "source": "https://www.sciencedirect.com/science/article/pii/S0020025526010674",
+      "doi": "10.1016/j.ins.2026.124136",
+      "full_pdf_found": false,
+      "status": "elsevier_full_text_restricted",
+      "checked": "Elsevier indexed abstract/intro, problem formulation/dataset snippets; public XML only core metadata (no experimental tables)",
+      "needed": "Information Sciences article 124136 complete official/accepted manuscript, all figures, methods and tables",
+      "fallback": "https://doi.org/10.1016/j.ins.2026.124136"
+    },
+    {
+      "id": "L021",
+      "title": "Write More at Once: Stylized Chinese Handwriting Generation via Two-stage Diffusion",
+      "type": "openreview_submission",
+      "source": "https://openreview.net/pdf?id=VdDtRu7RTf",
+      "doi": null,
+      "full_pdf_found": false,
+      "status": "openreview_browser_challenge",
+      "checked": "Official indexed title/abstract; direct PDF and alternate hash returned verification challenge; downstream similarly titled chapter NOT substituted",
+      "needed": "original submission version full PDF and appendices; authors/withdrawal outcome officially cross-check separately",
+      "fallback": "https://openreview.net/forum?id=VdDtRu7RTf"
+    },
+    {
+      "id": "L022",
+      "title": "Stylized Handwriting Generation of Arbitrary Structures and OOV Expressions: A Decoupled Approach via Layout-Offsets",
+      "type": "openreview_submission",
+      "source": "https://openreview.net/pdf?id=SuLp0J2uan",
+      "doi": null,
+      "full_pdf_found": false,
+      "status": "openreview_browser_challenge",
+      "checked": "Official indexed abstract/partial page snippets; current direct PDF redirects to OpenReview browser challenge",
+      "needed": "exact full submission version PDF plus figures/appendix and official decision metadata",
+      "fallback": "https://openreview.net/forum?id=SuLp0J2uan"
+    },
+    {
+      "id": "L184",
+      "title": "Stroke-Seg: A deep learning-based framework for chinese stroke segmentation",
+      "type": "journal_open_access",
+      "source": "https://www.researchgate.net/journal/IET-Image-Processing-1751-9667/publication/385042124_Stroke-Seg_A_deep_learning-based_framework_for_chinese_stroke_segmentation/links/671295a0069cb92a811b531e/Stroke-Seg-A-deep-learning-based-framework-for-chinese-stroke-segmentation.pdf",
+      "doi": "10.1049/ipr2.13255",
+      "full_pdf_found": true,
+      "status": "original_15_page_pdf_accessible_with_embedded_figures",
+      "checked": "Original ResearchGate IET/Wiley PDF identified as 15 page 4341-4355; all text sections and T1-T4, Figure 2 and 3-9 actual render verified. Figure 1 embedded and caption read; single-page screenshot of its page returned cache miss, avoid claiming direct pixel audit F1.",
+      "needed": "no additional PDF acquisition required; local download/re-hosting not performed; Figure1 single-figure screenshot may still be checked independently",
+      "fallback": "https://ietresearch.onlinelibrary.wiley.com/doi/full/10.1049/ipr2.13255"
+    }
+  ],
+  "access_caveats": [
+    "Search-indexed content, author blogs, publisher abstracts and snippets are not complete papers.",
+    "PDF links with subscription previews or OpenReview browser challenges were not treated as complete PDFs.",
+    "Figure1 included in full L184 source but current screenshot endpoint did not render its pixel image."
+  ]
+}

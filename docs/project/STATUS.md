@@ -1,5 +1,9 @@
 # 研究进展
 
+## 2026-10-25 最新原文获取状态（高于下方历史批次记录）
+
+核心阅读 **327/333**，待完成 6 篇。L184（Stroke-Seg）取得 [2024 IET Image Processing 15页完整原版 PDF](https://www.researchgate.net/journal/IET-Image-Processing-1751-9667/publication/385042124_Stroke-Seg_A_deep_learning-based_framework_for_chinese_stroke_segmentation/links/671295a0069cb92a811b531e/Stroke-Seg-A-deep-learning-based-framework-for-chinese-stroke-segmentation.pdf)，新增实际读取 F3/F4/F5/F6/F7/F9（F2/F8此前已有），全文结构、T1–T4/主要对比/消融/错误分组均已覆盖，核心三遍完成。Figure1 在PDF内但单页额外截图接口报缓存错误，仅按图注；无独立复现。其余 A06、F05、L002、L006、L021、L022 仍缺精确版本的可读完整 PDF，出版方订阅和OpenReview browser challenge依旧存在。[逐篇证据与原文链接](../evidence/seven_remaining_pdf_closure_2026-10-25.md)。下方历史326/333数字保留作为当时进度快照。
+
 ## 研究问题
 
 共享的多模态过程理解，能否帮助生成器在艺术风格变化和不完整前缀下，持续执行正确的汉字笔画顺序？

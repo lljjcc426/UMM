@@ -339,7 +339,7 @@
 | H001 | CoFRIDA-Sharpie：机器人共同绘画LoRA模型制品 | primary_sections_read | [结构化分析](../reviews/H001.md) | 制品协议五项审查完成；制品缺项见笔记 |
 | L182 | STRIVE: Scene Text Replacement In Videos | primary_sections_read | [结构化分析](../reviews/L182.md) | 核心三遍与五项检查完成 |
 | L183 | CONSTANT: Towards High-Quality One-Shot Handwriting Generation with Patch Contrastive Enhancement and Style-Aware Quantization | primary_sections_read | [结构化分析](../reviews/L183.md) | 核心三遍与五项检查完成 |
-| L184 | Stroke-Seg: A deep learning-based framework for chinese stroke segmentation | primary_sections_read | [结构化分析](../reviews/L184.md) | 五项检查已记录；三遍待确认 |
+| L184 | Stroke-Seg: A deep learning-based framework for chinese stroke segmentation | primary_sections_read | [结构化分析](../reviews/L184.md) | 核心三遍与五项书面检查完成；含九幅原图的正式PDF已定位；F1截图另待复核 |
 | L185 | Training Diffusion Models with Reinforcement Learning（DDPO） | primary_sections_read | [结构化分析](../reviews/L185.md) | 核心三遍与五项检查完成 |
 | L186 | Towards Human-Like Robot Handwriting via Contour-Aware Generation | primary_sections_read | [结构化分析](../reviews/L186.md) | 核心三遍与五项检查完成 |
 | R08 | SenseNova-U1.5-8B-MoT-LoRAs：8step与V2蒸馏适配器、加载与训练配置 | primary_sections_read | [结构化分析](../reviews/R08.md) | 制品协议五项审查完成；制品缺项见笔记 |
