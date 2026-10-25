@@ -832,3 +832,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百一十九批（2026-10-25）：CompBench旧arXivv2完整25页含A–F，解决此前完全没有附录的来源缺口；正式新增实验的独立supp仍未取得。见[审查](compbench_early_full_appendix_and_cross_version_protocol_audit_2026-10-25.md)、[L151](../reviews/L151.md)。
+
+
+第二百二十批（2026-10-25）：新增BoundInk v3（原CASHG）L192，22页完整取得并读齐，未定位作者代码；不把Samsung独立字连接法与此句级AR模型混合。见[审查](boundink_full_appendix_and_boundary_metric_audit_2026-10-25.md)、[L192](../reviews/L192.md)。

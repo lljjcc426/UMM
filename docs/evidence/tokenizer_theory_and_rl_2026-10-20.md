@@ -324,3 +324,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百一十九批（2026-10-25）：v2judge鼓励部分动作/位移与motionblur，构念含姿态和曝光外观；不支持笔顺时序正确性。见[审查](compbench_early_full_appendix_and_cross_version_protocol_audit_2026-10-25.md)、[L151](../reviews/L151.md)。
+
+
+第二百二十批（2026-10-25）：L192连续坐标GMM+离散CursiveEOC明确分开边界语义；CSM自身读标签、baseline读几何阈值，评价接口本身需要统一。见[审查](boundink_full_appendix_and_boundary_metric_audit_2026-10-25.md)、[L192](../reviews/L192.md)。

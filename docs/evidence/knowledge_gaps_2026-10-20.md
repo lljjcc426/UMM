@@ -784,3 +784,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百一十九批（2026-10-25）：v2四expert+QA是构建团队，非正式表4human人数；温度0单次调用不足以保证跨时间确定性，归一公式仍缺。见[审查](compbench_early_full_appendix_and_cross_version_protocol_audit_2026-10-25.md)、[L151](../reviews/L151.md)。
+
+
+第二百二十批（2026-10-25）：KGS/SSS两负gap恒.5且真实重叠oracle自比.5；论文明确此惩罚，需先界定重叠惩罚与风格忠实性。V2严格分字276/588且整体DTW退化，保留条件边界。见[审查](boundink_full_appendix_and_boundary_metric_audit_2026-10-25.md)、[L192](../reviews/L192.md)。

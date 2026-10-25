@@ -576,3 +576,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百一十九批（2026-10-25）：PowerPaint去除反向添加、20dilation/15Gaussian/sigma3/Poisson构GT；同视频选帧的动作任务输出仍为静态图。见[审查](compbench_early_full_appendix_and_cross_version_protocol_audit_2026-10-25.md)、[L151](../reviews/L151.md)。
+
+
+第二百二十批（2026-10-25）：Bi-SWT前字轨迹窗口+冻结CANINE全句context，图像style参考与大模型外部预训练应纳入控制条件；局部窗口仍会有AR误差传播。见[审查](boundink_full_appendix_and_boundary_metric_audit_2026-10-25.md)、[L192](../reviews/L192.md)。

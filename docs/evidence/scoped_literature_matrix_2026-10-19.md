@@ -743,3 +743,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百一十九批（2026-10-25）：v2十三配置/单GPT4o与正式十六配置/两VLM+human分开；旧参数表不含BAGEL/Kontext/Qwen。见[审查](compbench_early_full_appendix_and_cross_version_protocol_audit_2026-10-25.md)、[L151](../reviews/L151.md)。
+
+
+第二百二十批（2026-10-25）：L192显式字符边界/连笔/间距属于在线轨迹生成，主输出GMM xy及4状态；中文OLHWGblock没有连笔正样本，不能验证规范笔顺。见[审查](boundink_full_appendix_and_boundary_metric_audit_2026-10-25.md)、[L192](../reviews/L192.md)。

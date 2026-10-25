@@ -769,3 +769,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百一十九批（2026-10-25）：旧附录补清同源帧GT与blending，后续需要分源视频/独立目标绑定、copy/oracle与同预算共享/分离对照，未执行。见[审查](../evidence/compbench_early_full_appendix_and_cross_version_protocol_audit_2026-10-25.md)、[L151](../reviews/L151.md)。
+
+
+第二百二十批（2026-10-25）：新增纸面oracle/负gap不变性、统一penstate与几何连接抽取、失败coverage和课程/VDL/参考条件正交对照；未进行模型运行。见[审查](../evidence/boundink_full_appendix_and_boundary_metric_audit_2026-10-25.md)、[L192](../reviews/L192.md)。

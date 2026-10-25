@@ -782,3 +782,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第二百一十九批（2026-10-25）：L151找到25页arXivv2并补齐AppA–F/19图6表，完成v2完整与正式正文阅读；不把旧GPT4o配置挪用到正式新增模型和人评。358目录，324核心/327书面；待完成核心深审7篇论文／研究；27项资源按制品协议另审。见[审查](compbench_early_full_appendix_and_cross_version_protocol_audit_2026-10-25.md)、[逐文件说明](two_hundred_nineteenth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百二十批（2026-10-25）：补录L192（旧称CASHG，同一arXiv去重），完整22页/24图/8表/AppA–F；核KGS重叠恒.5、连笔标签映射差异、过滤coverage与V2漂移/DTW取舍。359目录，325核心/328书面；待完成核心深审7篇论文／研究；27项资源按制品协议另审。见[审查](boundink_full_appendix_and_boundary_metric_audit_2026-10-25.md)、[逐文件说明](two_hundred_twentieth_changes_2026-10-25.md)。无删除或模型执行。

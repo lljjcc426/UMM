@@ -1,0 +1,257 @@
+{
+  "id": "L192",
+  "version": "2604.02103v3",
+  "pages": 22,
+  "core_three_pass_completed": true,
+  "all_figures_reviewed": {
+    "main": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "appendix": [
+      "A1",
+      "A2",
+      "A3",
+      "A4",
+      "A5",
+      "A6",
+      "A7",
+      "A8",
+      "A9",
+      "A10",
+      "A11",
+      "A12",
+      "A13",
+      "A14",
+      "A15",
+      "A16",
+      "A17"
+    ]
+  },
+  "tables_reviewed": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "numbered_equations": {
+    "main": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "appendix": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80
+    ]
+  },
+  "sentence_table": {
+    "DeepWriting": [
+      [
+        0.26,
+        0.81,
+        0.15,
+        0.57,
+        2.7
+      ],
+      [
+        0.33,
+        0.84,
+        0.41,
+        0.61,
+        1.41
+      ]
+    ],
+    "DSD": [
+      [
+        0.07,
+        0.84,
+        0.39,
+        0.49,
+        1.25
+      ],
+      [
+        0.45,
+        0.9,
+        0.44,
+        0.63,
+        0.99
+      ]
+    ],
+    "OLHWG": [
+      [
+        null,
+        null,
+        0.34,
+        null,
+        0.17
+      ],
+      [
+        null,
+        null,
+        0.4,
+        null,
+        0.14
+      ]
+    ]
+  },
+  "ablation_table": {
+    "full": [
+      0.49,
+      0.91,
+      0.49,
+      0.71,
+      0.51
+    ],
+    "no_bigram": [
+      0.37,
+      0.88,
+      0.44,
+      0.4,
+      0.6
+    ],
+    "no_context": [
+      0.35,
+      0.91,
+      0.48,
+      0.69,
+      0.55
+    ],
+    "neither": [
+      0.22,
+      0.85,
+      0.29,
+      0.66,
+      0.57
+    ]
+  },
+  "human": {
+    "participants": 30,
+    "items_each": 20,
+    "criteria": 3,
+    "DSD": [
+      615,
+      789,
+      111
+    ],
+    "DW": [
+      673,
+      815,
+      85
+    ],
+    "cluster_independence_not_assumed": true
+  },
+  "metric_derivation": {
+    "both_negative_gap_score": 0.5,
+    "perfect_negative_gap_oracle_score": 0.5,
+    "any_negative_magnitudes_collapse": true,
+    "not_measured_ranking_reversal": true,
+    "baseline_mapping": "distance<.005, vs model directly predicted CursiveEOC"
+  },
+  "revision_diagnostic": {
+    "total_sentences": 588,
+    "aligned_common_subset": 276,
+    "writers": 57,
+    "checkpoint": 500000,
+    "v1_dtw_all": 1.3152,
+    "v2_dtw_all": 2.6205,
+    "single_factor_ablation": false
+  },
+  "code_not_located": true,
+  "model_execution": false,
+  "scope": "v3完整22页正文§1–5/参考清单/AppA–F全部研究文字；主F1–7+附F A1–17全24图实际视觉阅读，8张contact全看并放大p7人评/OCR、p20–21指标与问卷；T1–5及A1–3全8表所有行，主Eq1–5与AppA1–A80含未独立编号定义全部核。三遍核心与五项书面完成；不是v1/v2全文对照，也未找到可核作者源码而宣称已审代码。指标负gap分析为纸面代数，不进行推理/训练/OCR/judge/API评测；所有模型数字均作者报告。",
+  "source_urls": [
+    "https://arxiv.org/abs/2604.02103v3",
+    "https://arxiv.org/pdf/2604.02103v3",
+    "https://arxiv.org/html/2604.02103v3"
+  ]
+}

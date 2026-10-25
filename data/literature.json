@@ -24828,5 +24828,58 @@
       }
     ],
     "evidence_history": []
+  },
+  {
+    "id": "L192",
+    "title": "BoundInk: Boundary-Aware Online Handwriting Generation",
+    "canonical_key": "paper:arxiv:2604.02103",
+    "source_urls": [
+      "https://arxiv.org/abs/2604.02103v3",
+      "https://arxiv.org/pdf/2604.02103v3",
+      "https://arxiv.org/html/2604.02103v3"
+    ],
+    "aliases": [
+      "BoundInk",
+      "CASHG: Context-Aware Stylized Online Handwriting Generation"
+    ],
+    "scope": "handwriting",
+    "category": "在线笔迹与英文连笔 / 字符边界、间距与风格生成",
+    "record_type": "paper",
+    "privacy": "public_source_note",
+    "provenance": "2026-10-25 第二百二十批；英文连笔及Samsung F05的相关工作补漏",
+    "verification": "primary_sections_read",
+    "review_path": "docs/reviews/L192.md",
+    "note_path": "docs/reviews/L192.md",
+    "review_depth": "critical_sections_reviewed",
+    "version": "BoundInk: Boundary-Aware Online Handwriting Generation；arXiv2604.02103v3，2026-09-20，22页完整预印本。v1/v2题名CASHG，首版2026-04-02；本批只完整精读v3，不重复计旧题名，不据arXiv认定正式接收。",
+    "checked_on": "2026-10-25",
+    "last_updated": "2026-10-25",
+    "sections_read": "v3完整22页正文§1–5/参考清单/AppA–F全部研究文字；主F1–7+附F A1–17全24图实际视觉阅读，8张contact全看并放大p7人评/OCR、p20–21指标与问卷；T1–5及A1–3全8表所有行，主Eq1–5与AppA1–A80含未独立编号定义全部核。三遍核心与五项书面完成；不是v1/v2全文对照，也未找到可核作者源码而宣称已审代码。指标负gap分析为纸面代数，不进行推理/训练/OCR/judge/API评测；所有模型数字均作者报告。",
+    "dataset": "三组pairwise：IAM-expanded对DeepWriting、BRUSH对DSD、CASIA-OLHWDB2.0–2.2对OLHWG；每协议重训，不能跨block排名。BRUSH为150train/20test作者；中文0–1019train与1020–1218test共1020/199作者。中文duration总长不符或边界不在stroke-end±3点的句子被丢，>160点单字resample，未列各协议过滤前后句子/边界量。单字English SDT与CASIA1.0–1.2。合并IAM/BRUSH用于选例、人评、消融，IAM最小二乘deskew、人工审查分字、弧长resample与必要弱RDP，端点保留，高度1保比例；评测禁RDP。合并集完整训练/测试清单及数量、各分布采样权重未释；人评与pairwise各自训练设置关系需更清楚。",
+    "framework": "Bi-SWT将前一字符身份和轨迹接当前字符作因果窗口；冻结CANINE分离孤立字符身份与全句context，再以标量门控注入风格解码；继承SDT图像风格编码，四笔状态显式增加CursiveEOC；字形→字对→句子累积课程和VDL几何正则。提出F1Cursive/CRE/KGS/SSS，匹配三基线各自协议分别重训。不是通用UMM，属于可迁移的局部边界建模/评价前史。",
+    "architecture": "冻结google/canine-c；联合训练ResNet18风格编码，SDT式writer/glyph memories；解码h512、8heads、bigram窗口2、K20 GMM。主文标准差举exp，AppC实现说明softplus+epsilon、rho=tanh且clip到±(1-1e-5)，不能把举例当同一精确实现。正文门控上界gamma未给本模型确定值；D扩展sequence-ref gamma=.35只属V2。层数/完整参数量、推理GMM采样温度/停止上限、每协议参考数量/seed/checkpoint均未完整给出。完整正文/AppA–F已读，但没有从检索定位到作者公开代码/权重，不声称全球不存在。",
+    "metrics": "DTW为欧氏xy全局对齐后除GT点数，两边各自平移/高度归一，不旋转；不等于速度/压力/真实时间或规范笔顺。CSM按writer宏平均：F1先合作者全部边界TP/FP/FN；CRE=1-句均连笔率绝对误差；KGS/SSS先作者内按合格边界加权。自身连笔直接用预测CursiveEOC，缺此标签的baseline用端点与下一首PM距离<.005推断，测量映射不对称。KGS/SSS用rho=.5的任一负gap惩罚乘exp(-|log((max(pred,0)+1e-6)/(max(GT,0)+1e-6))|)。OLHWG无连笔正类与空格，F1/CRE/SSS报未定义。两边均无正类的writer F1约定1，CRE含无边界句0误差。TrOCRlarge/PyLaiaIAM仅图示CER/WER；风格分类器为真实字迹训练，但未给完整架构/划分/训练参数。",
+    "baselines": "完整T3：DeepWriting2018/DSD2020/OLHWG2025，协议分组，因输出有效性/分字可恢复/可复现兼容性选择，非穷尽最新模型。T4 Drawing/DeepImitator/WriteLikeYou-v2/SDT；排除ElegantlyWritten因为输入观察轨迹增强与本任务不同。参考模态和外部CANINE预训练、训练预算并未被各block充分对齐，不将“benchmark matched”解释为架构单因素等预算。",
+    "experimental_conditions": "全部定量每输入一次fullyAR、无teacherforcing；DeepWriting至少3字分割错误的输出从两法共同剔除，未给剔除率，故为条件结果。合并英语主配置1H100约10天，AdamW fused、lr8e-5、1Miter、warmup30K、阶段切换1K、AMPfalse、clip1、char/bi64/sent16、Stage3sent累积4；温度.07仅style对比。0–10K字形、10–50K字对、50K–1M全句，batch比1:1:4；penCE1.5，类权[1,1,2,2.5]。stage2字形gen.3/bi1/style.3；stage3字形.3/bi.5/style.2。VDLcen/top/bot=2/1/1，字对.01，句子50–60K为0/60–80K升至.02。A13写bi系数t>=10K且C称Stage3保留，随后A2又说Stage3独立biVDLdisabled；需代码明确，未替作者选择。10天不能给每次基线匹配训练统一成本，未测速或运行模型。",
+    "problem": "从目标文字与作者风格参考生成完整在线手写行，同时学习字符间连笔、字距、词距和相对垂直布局。终点外观与真实笔状态/时序需要分别评价；输出坐标轨迹及笔状态，不生成手部视频或机械臂控制。",
+    "method": "Bi-SWT将前一字符身份和轨迹接当前字符作因果窗口；冻结CANINE分离孤立字符身份与全句context，再以标量门控注入风格解码；继承SDT图像风格编码，四笔状态显式增加CursiveEOC；字形→字对→句子累积课程和VDL几何正则。提出F1Cursive/CRE/KGS/SSS，匹配三基线各自协议分别重训。不是通用UMM，属于可迁移的局部边界建模/评价前史。 冻结google/canine-c；联合训练ResNet18风格编码，SDT式writer/glyph memories；解码h512、8heads、bigram窗口2、K20 GMM。主文标准差举exp，AppC实现说明softplus+epsilon、rho=tanh且clip到±(1-1e-5)，不能把举例当同一精确实现。正文门控上界gamma未给本模型确定值；D扩展sequence-ref gamma=.35只属V2。层数/完整参数量、推理GMM采样温度/停止上限、每协议参考数量/seed/checkpoint均未完整给出。完整正文/AppA–F已读，但没有从检索定位到作者公开代码/权重，不声称全球不存在。",
+    "conclusion": "T3 DW:F1 .26→.33/CRE .81→.84/KGS .15→.41/SSS .57→.61/DTW2.70→1.41；DSD:.07→.45/.84→.90/.39→.44/.49→.63/1.25→.99；OLHWG KGS.34→.40/DTW.17→.14，其余未定义。DTW降47.8/20.8/17.6%，只限各自条件。T4 English/Chinese：Drawing1.8519/1.1813、DeepImitator1.6460/1.0622、WLY1.6215/.9289、SDT1.6048/.8789、本作1.3649/.8718；中文单字提升仅约.81%，无多seed/CI。人评30人×20题×3准则=1800 decisions，5问卷各6人，每题三真实参考/两匿名候选左右随机，可弃权；DSD615/789有效偏好=77.95%、DW673/815=82.58%，弃111/85。把全部900分母纳入则68.33%/74.78%，不能将同人/同题三判断作独立样本。F7风格Top1/5 DW35.8/68.3→61.7/81.7，DSD6/27→69/74；GT93.4/98.4与98.5/99.5。OCR散点有取舍，如对DW的TrOCR CER更高而WER更低，不能由competitive写全部OCR无代价。",
+    "gap": "疑问1：KGS/SSS对GT=pred<0的完美重叠自比仍给.5；任何两负gap恒.5，丢失重叠深度，故不是以忠实复现为唯一目标的相似度；正常连笔也可能负gap，宏平均受作者本来重叠占比影响。此为公式推导，不据此宣布主表排行翻转。EqA56只写u<v及中间全space，未明确v>=u+2，文字要求至少一个空格；需实现确认，未把空集合逻辑缺项当已发生的计分bug。疑问2：自身显式连笔标签vsbaseline几何阈值的F1/CRE可比性未校准，.005阈值敏感性缺失。分割成功过滤、中文预处理剔除及V2只保276/588会遗漏严重失败；须同时报告coverage。主表无seedCI、每协议预算/模型身份/停止条件缺项。原文已承认V2非受控、500K非收敛且DTW退化，应保留。人评无clusterCI、每项abstain与池抽样效应；局部门控热图/identity同字cos=1是设计可预期，单探针不证明机制因果或泛化。未证明跨脚本、未见字对、规范汉字笔顺与长视频因果一致性。",
+    "claim": "从目标文字与作者风格参考生成完整在线手写行，同时学习字符间连笔、字距、词距和相对垂直布局。终点外观与真实笔状态/时序需要分别评价；输出坐标轨迹及笔状态，不生成手部视频或机械臂控制。",
+    "related_records": [
+      "F05",
+      "L003",
+      "L020"
+    ],
+    "work_family": "BoundInk / CASHG",
+    "review_history": [
+      {
+        "checked_on": "2026-10-25",
+        "batch": "two_hundred_twentieth",
+        "sections_read": "v3完整22页正文§1–5/参考清单/AppA–F全部研究文字；主F1–7+附F A1–17全24图实际视觉阅读，8张contact全看并放大p7人评/OCR、p20–21指标与问卷；T1–5及A1–3全8表所有行，主Eq1–5与AppA1–A80含未独立编号定义全部核。三遍核心与五项书面完成；不是v1/v2全文对照，也未找到可核作者源码而宣称已审代码。指标负gap分析为纸面代数，不进行推理/训练/OCR/judge/API评测；所有模型数字均作者报告。",
+        "verification": "primary_sections_read"
+      }
+    ],
+    "evidence_history": []
   }
 ]

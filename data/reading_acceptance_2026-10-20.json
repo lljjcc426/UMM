@@ -11199,6 +11199,40 @@
         }
       ],
       "boundary": "保留已读CVPR2026正式11页§1–6/T1–4全行/F1–6实际图，以及固定GH评分/下载多轮分组与HF卡3481行结构核；新增arXivv2完整25页正文§1–6/46条reference清单/AppA–F全读，F1–19全9contacts、F6p14/F7–9p15/T5p17/F17p23放大，T1–6所有行全核。核心三遍完成范围是v2完整研究与正式正文交叉版本审查；正式新增实验对应独立补充仍未取得，未宣称其参数/人评指南已读齐。未下载全3.8GB、未执行模型/API/judge/训练或独立复现。"
+    },
+    {
+      "id": "L192",
+      "checked_on": "2026-10-25",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "从目标文字与作者风格参考生成完整在线手写行，同时学习字符间连笔、字距、词距和相对垂直布局。终点外观与真实笔状态/时序需要分别评价；输出坐标轨迹及笔状态，不生成手部视频或机械臂控制。 单字形逼真不足以保证跨字符连接与间距自然；全行序列训练中稀有相邻字对覆盖不足，DTW也不单独辨认连笔事件。局部前字→当前字解码配全句上下文，试图降低组合稀疏与风格被上下文覆盖的问题；需区分任务专用边界监督、额外参考/预训练和结构本身的收益。",
+          "evidence": "22页全正文/附录A–F、24实际图、8完整表、全部编号公式与书面推导；保留CSM测量不对称、重叠自比、过滤覆盖和V2 DTW退化。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "目标Unicode文本→孤立字符CANINE+pool/projection产生eid，另加可学习CharID投影alpha；全句CANINE+轻量Transformer产生逐位置context。参考灰度字图→Writer/Glyph style memories。Eq2前字身份/轨迹+当前身份/轨迹用teacherforcing训练，推理改用生成前字、逐点AR当前字；RoPE因果selfattention，style/context不同分支。Eq1 g=gamma sigmoid(fgate(hstyle)), h=(1-g)hstyle+g hcontext。输出20分量二维GMM的dx/dy和PM/PU/CursiveEOC/EOC，空格保留短伪轨迹；坐标累加为绝对路径。Eq3累积课程，Eq4掩码MDN NLL+笔状态CE，Eq5三统计量的相邻字垂直差VDL；style对比损失独立。 冻结google/canine-c；联合训练ResNet18风格编码，SDT式writer/glyph memories；解码h512、8heads、bigram窗口2、K20 GMM。主文标准差举exp，AppC实现说明softplus+epsilon、rho=tanh且clip到±(1-1e-5)，不能把举例当同一精确实现。正文门控上界gamma未给本模型确定值；D扩展sequence-ref gamma=.35只属V2。层数/完整参数量、推理GMM采样温度/停止上限、每协议参考数量/seed/checkpoint均未完整给出。完整正文/AppA–F已读，但没有从检索定位到作者公开代码/权重，不声称全球不存在。",
+          "evidence": "22页全正文/附录A–F、24实际图、8完整表、全部编号公式与书面推导；保留CSM测量不对称、重叠自比、过滤覆盖和V2 DTW退化。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "Bi-SWT将前一字符身份和轨迹接当前字符作因果窗口；冻结CANINE分离孤立字符身份与全句context，再以标量门控注入风格解码；继承SDT图像风格编码，四笔状态显式增加CursiveEOC；字形→字对→句子累积课程和VDL几何正则。提出F1Cursive/CRE/KGS/SSS，匹配三基线各自协议分别重训。不是通用UMM，属于可迁移的局部边界建模/评价前史。 相邻字连接监督可靠、任务要求可编辑在线轨迹且风格在局部过渡中明显时，bigram窗口和sentence context可提升连笔决策与间距；末字误差仍能逐字传播。对汉字书写视频可迁移“终态/边界/轨迹/失败覆盖分开验收”，不能把中文单字DTW微降或无连笔的CASIAblock当规范笔顺已解决。KGS需明确惩罚重叠还是度量writer忠实性，再解释收益。",
+          "evidence": "22页全正文/附录A–F、24实际图、8完整表、全部编号公式与书面推导；保留CSM测量不对称、重叠自比、过滤覆盖和V2 DTW退化。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T3 DW:F1 .26→.33/CRE .81→.84/KGS .15→.41/SSS .57→.61/DTW2.70→1.41；DSD:.07→.45/.84→.90/.39→.44/.49→.63/1.25→.99；OLHWG KGS.34→.40/DTW.17→.14，其余未定义。DTW降47.8/20.8/17.6%，只限各自条件。T4 English/Chinese：Drawing1.8519/1.1813、DeepImitator1.6460/1.0622、WLY1.6215/.9289、SDT1.6048/.8789、本作1.3649/.8718；中文单字提升仅约.81%，无多seed/CI。人评30人×20题×3准则=1800 decisions，5问卷各6人，每题三真实参考/两匿名候选左右随机，可弃权；DSD615/789有效偏好=77.95%、DW673/815=82.58%，弃111/85。把全部900分母纳入则68.33%/74.78%，不能将同人/同题三判断作独立样本。F7风格Top1/5 DW35.8/68.3→61.7/81.7，DSD6/27→69/74；GT93.4/98.4与98.5/99.5。OCR散点有取舍，如对DW的TrOCR CER更高而WER更低，不能由competitive写全部OCR无代价。 T5完整2×2，按F1/CRE/KGS/SSS/DTW：full .49/.91/.49/.71/.51；无Bi .37/.88/.44/.40/.60；无context .35/.91/.48/.69/.55；均无 .22/.85/.29/.66/.57。均无并非每列最差（SSS.66>.40、DTW.57<.60）；context对F1主要，KGS.49→.48较小。CharID子集DTW.3464→.3328=3.9%无CI。没有独立课程/VDL/标签/额外风格容量等预算消融。AppD V1/V2都500K，仅276/588句57作者严格可分字共同子集，V2还改sequence-ref/aux/preprocess/space/loss/stage3，属于整版改动。漂移均.6999→.4994，GT.3015；median.5408→.4179，>1.2尾14.5→4%，GTMAE.4853→.3065，writerbootstrap95%差区间[-.3234,-.0676]/[-.2713,-.0582]；全588句DTW反而V1 1.3152<V2 2.6205。F A17三选例也显示DTW/CSM反序，不构成全体相关性或人评效度证明。 全部定量每输入一次fullyAR、无teacherforcing；DeepWriting至少3字分割错误的输出从两法共同剔除，未给剔除率，故为条件结果。合并英语主配置1H100约10天，AdamW fused、lr8e-5、1Miter、warmup30K、阶段切换1K、AMPfalse、clip1、char/bi64/sent16、Stage3sent累积4；温度.07仅style对比。0–10K字形、10–50K字对、50K–1M全句，batch比1:1:4；penCE1.5，类权[1,1,2,2.5]。stage2字形gen.3/bi1/style.3；stage3字形.3/bi.5/style.2。VDLcen/top/bot=2/1/1，字对.01，句子50–60K为0/60–80K升至.02。A13写bi系数t>=10K且C称Stage3保留，随后A2又说Stage3独立biVDLdisabled；需代码明确，未替作者选择。10天不能给每次基线匹配训练统一成本，未测速或运行模型。",
+          "evidence": "22页全正文/附录A–F、24实际图、8完整表、全部编号公式与书面推导；保留CSM测量不对称、重叠自比、过滤覆盖和V2 DTW退化。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "疑问1：KGS/SSS对GT=pred<0的完美重叠自比仍给.5；任何两负gap恒.5，丢失重叠深度，故不是以忠实复现为唯一目标的相似度；正常连笔也可能负gap，宏平均受作者本来重叠占比影响。此为公式推导，不据此宣布主表排行翻转。EqA56只写u<v及中间全space，未明确v>=u+2，文字要求至少一个空格；需实现确认，未把空集合逻辑缺项当已发生的计分bug。疑问2：自身显式连笔标签vsbaseline几何阈值的F1/CRE可比性未校准，.005阈值敏感性缺失。分割成功过滤、中文预处理剔除及V2只保276/588会遗漏严重失败；须同时报告coverage。主表无seedCI、每协议预算/模型身份/停止条件缺项。原文已承认V2非受控、500K非收敛且DTW退化，应保留。人评无clusterCI、每项abstain与池抽样效应；局部门控热图/identity同字cos=1是设计可预期，单探针不证明机制因果或泛化。未证明跨脚本、未见字对、规范汉字笔顺与长视频因果一致性。 不执行模型：先用公式做oracle自比和负gap对检查，列KGS在g=pred=-.003及g=pred=-.019均.5、g=-.003 pred=-.019仍.5的不可辨识性；改用带符号gap误差并做rho/epsilon敏感性。同一生成轨迹统一从真实pen-up/down加几何连续性抽取所有方法边界，比较显式标签/统一几何/.005阈值扫与盲人工接触标注。未来固定数据/参考/外部编码/总FLOPs和参数做Bi×context、VDL×curriculum×CursiveEOC正交对照，报多seed作者clusterCI；将过滤失败作为失败并另报条件均值/coverage、长度与未见字对分桶。V1/V2各改动单独开关到收敛，统一保留全588句，报DTW/漂移Pareto。真轨迹与重排/反向/静态复制负对照检验笔顺而非终态；方案未运行，不作为本批新实验成绩。",
+          "evidence": "22页全正文/附录A–F、24实际图、8完整表、全部编号公式与书面推导；保留CSM测量不对称、重叠自比、过滤覆盖和V2 DTW退化。"
+        }
+      ],
+      "boundary": "v3完整22页正文§1–5/参考清单/AppA–F全部研究文字；主F1–7+附F A1–17全24图实际视觉阅读，8张contact全看并放大p7人评/OCR、p20–21指标与问卷；T1–5及A1–3全8表所有行，主Eq1–5与AppA1–A80含未独立编号定义全部核。三遍核心与五项书面完成；不是v1/v2全文对照，也未找到可核作者源码而宣称已审代码。指标负gap分析为纸面代数，不进行推理/训练/OCR/judge/API评测；所有模型数字均作者报告。"
     }
   ]
 }
