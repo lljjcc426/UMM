@@ -641,3 +641,6 @@ python scripts/validate_catalog.py
 
 
 第二百一十五批（2026-10-25）：L168完成32页17图8表；核对首帧预标注传播、规则自校准与点云尺度后处理，补公开数据与训练条件。358目录，320核心/325书面；待完成核心深审11篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_fifteenth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百一十六批（2026-10-25）：N14完成23页12图5表，核对单第20帧/PPv3默认评测、集合字符指标与首16帧FVD，分开论文协议与发布入口。358目录，321核心/326书面；待完成核心深审10篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/steervte_full_appendix_and_evaluation_release_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_sixteenth_changes_2026-10-25.md)。无删除或模型执行。

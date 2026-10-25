@@ -731,3 +731,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百一十五批（2026-10-25）：T3allbest需排Any参考；T5TrajSSIM略低SEVA。默认offline_prop首帧标注与online分开。见[审查](puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。
+
+
+第二百一十六批（2026-10-25）：论文100Synth+100Real，发布另SceneText200共400；默认评测第20帧v3与论文5帧v4不同。见[审查](steervte_full_appendix_and_evaluation_release_audit_2026-10-25.md)、[N14](../reviews/N14.md)。

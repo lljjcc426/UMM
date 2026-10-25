@@ -820,3 +820,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百一十五批（2026-10-25）：PuffinWorld唯一v1全32页17图8表9式AppA；代码c6d9ae固定审查，HFcheckpoint和16M派生样本统计。见[审查](puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。
+
+
+第二百一十六批（2026-10-25）：SteerVTE唯一v1全23页/AppA–F，公开代码5001972b/模型dab2056d/基准d4e4042b固定；NeurIPS官方同名目录已核。见[审查](steervte_full_appendix_and_evaluation_release_audit_2026-10-25.md)、[N14](../reviews/N14.md)。

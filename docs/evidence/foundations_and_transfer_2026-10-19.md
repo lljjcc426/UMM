@@ -564,3 +564,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百一十五批（2026-10-25）：PP为相机重力坐标传播，动态scene列未来；selfcalib公开动作线性规则，未测学成policy闭环。见[审查](puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。
+
+
+第二百一十六批（2026-10-25）：视频文字替换STRIVE2021先前已有，first需限制具体框架；完整glyph/CTC不检因果逐笔。见[审查](steervte_full_appendix_and_evaluation_release_audit_2026-10-25.md)、[N14](../reviews/N14.md)。

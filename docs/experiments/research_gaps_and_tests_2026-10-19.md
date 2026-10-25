@@ -757,3 +757,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百一十五批（2026-10-25）：独立相机GT/评估器、online与offline_prop同条件、多轮观测校准及raw/aligneddepth分数。见[审查](../evidence/puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。
+
+
+第二百一十六批（2026-10-25）：全帧/事件邻域、独立OCR/精确大小写空格、移动mask及有效coverage、相同FLOPs析因，未执行模型。见[审查](../evidence/steervte_full_appendix_and_evaluation_release_audit_2026-10-25.md)、[N14](../reviews/N14.md)。

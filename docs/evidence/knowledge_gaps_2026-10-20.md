@@ -772,3 +772,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百一十五批（2026-10-25）：点云默认overlapdepth跨chunk与depthposegauge对齐仅显示，需原始与对齐后几何误差。见[审查](puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。
+
+
+第二百一十六批（2026-10-25）：FVD只首16/49frame且固定第20帧mask，Real无编辑GT仍输出原字foreground比较，需协议分开。见[审查](steervte_full_appendix_and_evaluation_release_audit_2026-10-25.md)、[N14](../reviews/N14.md)。

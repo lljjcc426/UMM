@@ -728,3 +728,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百一十五批（2026-10-25）：HF15,338,221triplets/1,136,696轨迹各90frame，checkpoint三pth公开，28源camera标签另计。见[审查](../evidence/puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。
+
+
+第二百一十六批（2026-10-25）：SteerVTE权重与3CSV公开；仅核metadata/400行结构；通用训练loss存在但未见三stage可复现配置。见[审查](../evidence/steervte_full_appendix_and_evaluation_release_audit_2026-10-25.md)、[N14](../reviews/N14.md)。

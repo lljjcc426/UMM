@@ -312,3 +312,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百一十五批（2026-10-25）：Hilbertdepth7段颜色路径逆解nearestsegment，有损VAE和饱和仍需测；无物理正确性保证。见[审查](puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。
+
+
+第二百一十六批（2026-10-25）：发布字符P/R/F1集合忽略顺序和重数；case/space归一化令sentence也较宽松，NED另检顺序。见[审查](steervte_full_appendix_and_evaluation_release_audit_2026-10-25.md)、[N14](../reviews/N14.md)。
