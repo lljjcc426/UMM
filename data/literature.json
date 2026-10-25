@@ -19241,22 +19241,24 @@
       "https://openaccess.thecvf.com/content/CVPR2026/papers/Jia_CompBench_Benchmarking_Complex_Instruction-guided_Image_Editing_CVPR_2026_paper.pdf",
       "https://comp-bench.github.io/",
       "https://github.com/comp-bench/CompBench/tree/ca0ec0dea6ce2ced7d42e26afdedd712034e6b56",
-      "https://huggingface.co/datasets/BohanJia/CompBench/tree/a4c5a4d1854056d24aad43a494772dc90588d426"
+      "https://huggingface.co/datasets/BohanJia/CompBench/tree/a4c5a4d1854056d24aad43a494772dc90588d426",
+      "https://arxiv.org/pdf/2505.12200v2",
+      "https://arxiv.org/html/2505.12200v2"
     ],
-    "method": "提出五类九任务的复杂指令图像编辑基准，围绕位置、外观、动作状态、对象四维组织指令；MOSE帧/实例掩码经质量筛选，MLLM候选指令与人工审核、多轮重生成/丢弃得到参考编辑。采用前景LC-T/LC-I与背景PSNR/SSIM/LPIPS，另对动作/位置/视角用两VLM及人评分。没有提出新生成网络或证明共享主干的训练机制。 四阶段构建流程为源图/实例筛选、四维指令候选与人工修订、任务编辑、人工质量控制；论文Fig3已视觉核。统一评价调用15种模型的原有接口（HIVE两配置共16行），未训练统一新架构。公开评分先将图及掩码缩到512²；用非零掩码的单个外接框裁前景，同框与所有caption分别算LC-T再均值，与单参考图同框算LC-I；多对象联合外接框包含对象间背景，不是逐对象绑定评价。",
-    "conclusion": "T2 BAGEL在三个分组LC-I均最高(.838/.883/.874)，背景保持有取舍：多对象BAGEL LC-T20.856、SSIM.932、LPIPS.051，Kontext为21.020/.952/.048；局部及隐式LC-T由Qwen21.522/20.046最高。T3全部16配置第二轮背景PSNR/SSIM下降、LPIPS上升；BAGEL第一→第二轮PSNR28.959→23.941、SSIM.949→.897、LPIPS.036→.085，LC-I.852→.850。前景变化不全相同。T4 Qwen动作均值6.352和视角5.615领先，BAGEL位置6.530领先；BAGEL相应动作6.195/视角4.583，Qwen位置5.603。37列中BAGEL18项第一可复核：T2八项+T3六项+T4位置四项；这不是独立18次实验。Fig6总体BAGEL4.76、Qwen4.32、Kontext4.27、Step1X3.72，仅引用图上值，归一/权重缺补充无法重算。完整T2–4数值存本批JSON，均为论文报告值。",
-    "gap": "疑问1：全幅置零背景PSNR含面积偏置，SSIM/LPIPS也受区域/边界影响；copy源图可保持背景却没完成编辑，需联合语义成功解释。疑问2：多对象联合bbox的CLIP均值没有逐对象绑定/空间关系验收，单参考图会惩罚其他合法解。疑问3：两VLM与人评分尺度、相关性和校准未核，三者简单均值不等于三份独立复现；总分归一和人评条件缺失。代码缺图/读失败会使calculate_metrics返回None后跳过该例，非resume仅平均各指标有效数，resume pandas跳过NaN；子任务再无权宏平均，不能默认所有提交同一有效样本分母。当前发布代码与正式实际运行版本关系未知，不据此直接否定表中模型成绩。",
+    "method": "提出五类九任务的复杂指令图像编辑基准，围绕位置、外观、动作状态、对象四维组织指令；MOSE帧/实例掩码经质量筛选，MLLM候选指令与人工审核、多轮重生成/丢弃得到参考编辑。采用前景LC-T/LC-I与背景PSNR/SSIM/LPIPS，另对动作/位置/视角用两VLM及人评分。没有提出新生成网络或证明共享主干的训练机制。 四阶段构建流程为源图/实例筛选、四维指令候选与人工修订、任务编辑、人工质量控制；论文Fig3已视觉核。统一评价调用15种模型的原有接口（HIVE两配置共16行），未训练统一新架构。公开评分先将图及掩码缩到512²；用非零掩码的单个外接框裁前景，同框与所有caption分别算LC-T再均值，与单参考图同框算LC-I；多对象联合外接框包含对象间背景，不是逐对象绑定评价。 v2AppA补构建：NIQE/MANIQA/MUSIQ/CLIPIQA归一等权筛帧，QwenVL筛mask后人工；PowerPaint去对象，反向构成添加，候选物体生成+人工选后inpaint替换。dilation20/Gaussian15,sigma3/Poissonblend保护背景；多对象同帧多个单对象去除合成，两轮按单对象→多对象合成GT。动作/位置/视角直接选同源视频帧，非为每个静态任务生成一段视频。",
+    "conclusion": "T2 BAGEL在三个分组LC-I均最高(.838/.883/.874)，背景保持有取舍：多对象BAGEL LC-T20.856、SSIM.932、LPIPS.051，Kontext为21.020/.952/.048；局部及隐式LC-T由Qwen21.522/20.046最高。T3全部16配置第二轮背景PSNR/SSIM下降、LPIPS上升；BAGEL第一→第二轮PSNR28.959→23.941、SSIM.949→.897、LPIPS.036→.085，LC-I.852→.850。前景变化不全相同。T4 Qwen动作均值6.352和视角5.615领先，BAGEL位置6.530领先；BAGEL相应动作6.195/视角4.583，Qwen位置5.603。37列中BAGEL18项第一可复核：T2八项+T3六项+T4位置四项；这不是独立18次实验。Fig6总体BAGEL4.76、Qwen4.32、Kontext4.27、Step1X3.72，仅引用图上值，归一/权重缺补充无法重算。完整T2–4数值存本批JSON，均为论文报告值。 早期v2T4 Step1X动作6.270/位置5.041/视角1.500/均4.270，CosXL位置5.479最高；旧Step1X局部LCI.817、多对象.828/隐式.850，正式仍有这些数但新增模型改变优胜。v2T2–4所有13行均已核，不把旧单GPT成绩与正式三评审均值合并排名。",
+    "gap": "疑问1：全幅置零背景PSNR含面积偏置，SSIM/LPIPS也受区域/边界影响；copy源图可保持背景却没完成编辑，需联合语义成功解释。疑问2：多对象联合bbox的CLIP均值没有逐对象绑定/空间关系验收，单参考图会惩罚其他合法解。疑问3：正式两VLM与人评分尺度、相关性和校准未核；旧附录只说明GPT4o与构建标注，未补正式新增评审条件；三者均值不等于三份独立复现。代码缺图/读失败会使calculate_metrics返回None后跳过该例，非resume仅平均各指标有效数，resume pandas跳过NaN；子任务再无权宏平均，不能默认所有提交同一有效样本分母。当前发布代码与正式实际运行版本关系未知，不据此直接否定表中模型成绩。 v2F6动作提示多处要求motionblur，静态姿态合理性与运动曝光外观混在评分中，不是连续动力学/笔顺测量。v2称mask筛选prompt见F6，实际F6是编辑评估prompt，指向不符。旧附录虽补构建程序，复杂性13.58对象/5.87类别的检测器与阈值、Fig5/正式Fig6归一权重仍未完整披露。",
     "problem": "如何在拥挤真实场景中同时测量细粒度目标定位、前景编辑成功和未编辑背景保持，并覆盖多对象、多轮、动作状态、空间变换及隐式指令？",
     "claim": "研究目标：复杂拥挤场景中，编辑能否正确定位、修改动作/空间并在多轮保留非目标内容？",
-    "version": "CompBench；CVPR2026正式正文11页及arXiv2505.12200v4；正式四表/六图、固定公开评分与数据卡审查，独立补充材料未取得",
+    "version": "CompBench；CVPR2026正式正文11页/arXivv4（4表6图）已读，新增arXiv2505.12200v2 2025-05-20完整25页/6表19图/AppA–F；核心完成范围明确为早期完整论文及正式正文，正式新增实验对应独立supp仍未取得。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 7. 评测：从分别打分转向检查联系",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-24",
+    "checked_on": "2026-10-25",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-24",
+    "last_updated": "2026-10-25",
     "id": "L151",
     "canonical_key": "paper:arxiv:2505.12200",
     "evidence_history": [
@@ -19294,17 +19296,23 @@
         "batch": "one_hundred_sixty_fourth",
         "sections_read": "正式11页§1–6全部研究正文（参考文献仅追引相关条目）、T1–4全部行与F1–6实际图/图注；第一遍任务定位、第二遍框架/指标/数据/全表、第三遍代码对照与批判书面整理已覆盖正文，但独立supp未取得，故完整核心三遍保留未通过。固定GH完整六文件列表及README、eval_all.py主要输入/计算/聚合路径、download_from_hf.py多轮分组核读；未宣称逐行审完全部发布脚本。HF数据卡/siblings核3481行元数据，未逐行/全图审数据，未运行模型、人评、口试或复现。",
         "verification": "primary_sections_read"
+      },
+      {
+        "checked_on": "2026-10-25",
+        "batch": "two_hundred_nineteenth",
+        "sections_read": "保留已读CVPR2026正式11页§1–6/T1–4全行/F1–6实际图，以及固定GH评分/下载多轮分组与HF卡3481行结构核；新增arXivv2完整25页正文§1–6/46条reference清单/AppA–F全读，F1–19全9contacts、F6p14/F7–9p15/T5p17/F17p23放大，T1–6所有行全核。核心三遍完成范围是v2完整研究与正式正文交叉版本审查；正式新增实验对应独立补充仍未取得，未宣称其参数/人评指南已读齐。未下载全3.8GB、未执行模型/API/judge/训练或独立复现。",
+        "verification": "primary_sections_read"
       }
     ],
-    "sections_read": "正式11页§1–6全部研究正文（参考文献仅追引相关条目）、T1–4全部行与F1–6实际图/图注；第一遍任务定位、第二遍框架/指标/数据/全表、第三遍代码对照与批判书面整理已覆盖正文，但独立supp未取得，故完整核心三遍保留未通过。固定GH完整六文件列表及README、eval_all.py主要输入/计算/聚合路径、download_from_hf.py多轮分组核读；未宣称逐行审完全部发布脚本。HF数据卡/siblings核3481行元数据，未逐行/全图审数据，未运行模型、人评、口试或复现。",
+    "sections_read": "保留已读CVPR2026正式11页§1–6/T1–4全行/F1–6实际图，以及固定GH评分/下载多轮分组与HF卡3481行结构核；新增arXivv2完整25页正文§1–6/46条reference清单/AppA–F全读，F1–19全9contacts、F6p14/F7–9p15/T5p17/F17p23放大，T1–6所有行全核。核心三遍完成范围是v2完整研究与正式正文交叉版本审查；正式新增实验对应独立补充仍未取得，未宣称其参数/人评指南已读齐。未下载全3.8GB、未执行模型/API/judge/训练或独立复现。",
     "review_path": "docs/reviews/L151.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "MOSE视频帧和对象mask为源，NIQE及人工筛选；拆分实例后丢弃不连续/过度遮挡目标，仍保留拥挤真实背景。T1报告每图13.58对象、5.87类别，98.47%图含遮挡对象、86.38%图含出框对象；该比例不是被编辑目标的遮挡率/严重程度。固定HF a4c5a4d1854056d24aad43a494772dc90588d426数据卡为train2905行和multi_turn576行，共3481发布行；多轮行按turn前缀/图名组合，不能等同576条完整轨迹。数据卡存图640²，公开评价缩到512²。未下载约3.8GB的9个Parquet逐图验收，未核来源视频隔离、重复或训练污染；发布split名train不证明生成模型使用其训练。",
+    "dataset": "MOSE视频帧和对象mask为源，NIQE及人工筛选；拆分实例后丢弃不连续/过度遮挡目标，仍保留拥挤真实背景。T1报告每图13.58对象、5.87类别，98.47%图含遮挡对象、86.38%图含出框对象；该比例不是被编辑目标的遮挡率/严重程度。固定HF a4c5a4d1854056d24aad43a494772dc90588d426数据卡为train2905行和multi_turn576行，共3481发布行；多轮行按turn前缀/图名组合，不能等同576条完整轨迹。数据卡存图640²，公开评价缩到512²。未下载约3.8GB的9个Parquet逐图验收，未核来源视频隔离、重复或训练污染；发布split名train不证明生成模型使用其训练。 v2AppE四expert+一QA负责数据筛选/参考/指令，训练、迭代反馈及宣称doubleblind；这属于构建团队说明，不足以确定正式表4human评分人数。AppB六能力H/UH等级为作者任务需求分析，未给独立能力测量/标注一致性，不能当量化机制因果结论。",
     "framework": "提出五类九任务的复杂指令图像编辑基准，围绕位置、外观、动作状态、对象四维组织指令；MOSE帧/实例掩码经质量筛选，MLLM候选指令与人工审核、多轮重生成/丢弃得到参考编辑。采用前景LC-T/LC-I与背景PSNR/SSIM/LPIPS，另对动作/位置/视角用两VLM及人评分。没有提出新生成网络或证明共享主干的训练机制。",
-    "architecture": "四阶段构建流程为源图/实例筛选、四维指令候选与人工修订、任务编辑、人工质量控制；论文Fig3已视觉核。统一评价调用15种模型的原有接口（HIVE两配置共16行），未训练统一新架构。公开评分先将图及掩码缩到512²；用非零掩码的单个外接框裁前景，同框与所有caption分别算LC-T再均值，与单参考图同框算LC-I；多对象联合外接框包含对象间背景，不是逐对象绑定评价。",
+    "architecture": "四阶段构建流程为源图/实例筛选、四维指令候选与人工修订、任务编辑、人工质量控制；论文Fig3已视觉核。统一评价调用15种模型的原有接口（HIVE两配置共16行），未训练统一新架构。公开评分先将图及掩码缩到512²；用非零掩码的单个外接框裁前景，同框与所有caption分别算LC-T再均值，与单参考图同框算LC-I；多对象联合外接框包含对象间背景，不是逐对象绑定评价。 v2AppA补构建：NIQE/MANIQA/MUSIQ/CLIPIQA归一等权筛帧，QwenVL筛mask后人工；PowerPaint去对象，反向构成添加，候选物体生成+人工选后inpaint替换。dilation20/Gaussian15,sigma3/Poissonblend保护背景；多对象同帧多个单对象去除合成，两轮按单对象→多对象合成GT。动作/位置/视角直接选同源视频帧，非为每个静态任务生成一段视频。",
     "metrics": "T2局部/多对象/隐式各5列共15；T3两轮各5列共10；T4动作/位置/视角各GPT4o、Qwen2.5VL72B、Human、三者均值共12；合37个表列，重复构念及均值列相关，不能当37次独立证据。公开代码CLIP为ViT-L/14，LPIPS为squeeze，PSNR/SSIM data_range=1。背景做法是前景置零后在全幅张量评分，未按有效背景像素重新归一；二值mask背景比例b时PSNR_full=PSNR_BG−10log10(b)，b=.5增加3.0103dB、b=.1增加10dB。对同图同mask各模型是相同偏置，不据此推断同任务模型排序必然错误。SSIM/LPIPS也在置零全幅计算，不能直接解释为局部语义成功。",
-    "baselines": "15种模型/16配置：InstructPix2pix、MagicBrush、HIVE-w/HIVE-c、SmartEdit7B、MGIE、CosXL-Edit、HQ-Edit、UltraEdit、AnyEdit、SEED-X、GoT、Step1X-Edit、BAGEL、FLUX.1 Kontext、Qwen-Image-Edit。模型数据规模/容量/预训练/接口不同，横向结果不识别MLLM或联合架构的独立因果贡献。",
-    "experimental_conditions": "正式主文§1–6、T1–4所有行、F1–6实际图与图注已核；arXivv4完整11页也不含另附录。正式页面未列Supplemental，预期官方supp路径404、项目页和固定GH六文件中未找到独立补充。主文反复将复杂性指标细节、构建细节、VLM提示/人评指南及Fig6总分计算指向补充，故缺项明确保留，不宣称从未发布。GH ca0ec0dea6ce2ced7d42e26afdedd712034e6b56仅LICENSE/README/download_from_hf.py/eval_all.py/eval_all.sh/update_hf_dataset.py；实际核下载多轮分组及评价主要路径，无模型推理入口，亦无动作/位置/视角的VLM或人评评分实现。未核齐各生成器分辨率、NFE/CFG/seed/API快照、预算、评审人数与一致性。没有运行模型或评分权重。"
+    "baselines": "15种模型/16配置：InstructPix2pix、MagicBrush、HIVE-w/HIVE-c、SmartEdit7B、MGIE、CosXL-Edit、HQ-Edit、UltraEdit、AnyEdit、SEED-X、GoT、Step1X-Edit、BAGEL、FLUX.1 Kontext、Qwen-Image-Edit。模型数据规模/容量/预训练/接口不同，横向结果不识别MLLM或联合架构的独立因果贡献。 早期v2仅13配置行（HIVE两行），不含BAGEL/Kontext/Qwen；旧T4只有GPT4o三项与均值，正式T4扩为两VLM+human，版本分开。",
+    "experimental_conditions": "v2AppA3/T5首次补齐早期配置：IP2P/MagicBrush/HIVE两项/SmartEdit/MGIE/SEEDX通常100steps,CFG7.5/imageCFG1.5；HQ30/CFG7，CosXL20/7.5，Ultra50/7.5，Any100/3/image3，GoT50/5/image1，Step1X28/6。构建/评测8A6000×48GB，未给单例成本/seed/所有输出分辨率。v2D仅GPT4o每对一次temperature0、F6三任务完整提示；temperature0并不充分保证远端API完全确定或跨时间可复现。v2四构建标注者+一QA不能挪作正式新增Human评审人数。正式独立supp仍未取，BAGEL/Kontext/Qwen参数、Qwenjudge/Human指南、Fig6归一公式尚缺；旧T5/F6不能填补新增条件。固定GH ca0ec0dea6ce2ced7d42e26afdedd712034e6b56/HF a4c5a4d1854056d24aad43a494772dc90588d426前次指定审查保留，未运行模型。"
   },
   {
     "title": "OneIG-Bench: Omni-dimensional Nuanced Evaluation for Image Generation",

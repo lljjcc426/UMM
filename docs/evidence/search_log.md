@@ -829,3 +829,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百一十八批（2026-10-25）：MMEUnify正式PDF45,584,320bytes/44页完整取得；结束旧截断限制，全部新增图与附录读齐。见[审查](mme_unify_formal_full_appendix_and_consistency_audit_2026-10-25.md)、[L142](../reviews/L142.md)。
+
+
+第二百一十九批（2026-10-25）：CompBench旧arXivv2完整25页含A–F，解决此前完全没有附录的来源缺口；正式新增实验的独立supp仍未取得。见[审查](compbench_early_full_appendix_and_cross_version_protocol_audit_2026-10-25.md)、[L151](../reviews/L151.md)。

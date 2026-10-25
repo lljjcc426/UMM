@@ -573,3 +573,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百一十八批（2026-10-25）：联合正确率高于随机是外部行为证据，未识别共享训练机制；人类直接选图与模型生成后CLIP匹配不同。见[审查](mme_unify_formal_full_appendix_and_consistency_audit_2026-10-25.md)、[L142](../reviews/L142.md)。
+
+
+第二百一十九批（2026-10-25）：PowerPaint去除反向添加、20dilation/15Gaussian/sigma3/Poisson构GT；同视频选帧的动作任务输出仍为静态图。见[审查](compbench_early_full_appendix_and_cross_version_protocol_audit_2026-10-25.md)、[L151](../reviews/L151.md)。

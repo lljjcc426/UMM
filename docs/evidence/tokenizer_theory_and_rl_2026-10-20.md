@@ -321,3 +321,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百一十八批（2026-10-25）：连续CLIP与人评tau_b.709不证明argmax候选校准；四选一联合6.25%是期望，非有限样本上界。见[审查](mme_unify_formal_full_appendix_and_consistency_audit_2026-10-25.md)、[L142](../reviews/L142.md)。
+
+
+第二百一十九批（2026-10-25）：v2judge鼓励部分动作/位移与motionblur，构念含姿态和曝光外观；不支持笔顺时序正确性。见[审查](compbench_early_full_appendix_and_cross_version_protocol_audit_2026-10-25.md)、[L151](../reviews/L151.md)。

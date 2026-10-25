@@ -766,3 +766,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百一十八批（2026-10-25）：共同支持集、真实有效步与存活步分母、规则上界、同协议人评及换序视频对照设计；未执行。见[审查](../evidence/mme_unify_formal_full_appendix_and_consistency_audit_2026-10-25.md)、[L142](../reviews/L142.md)。
+
+
+第二百一十九批（2026-10-25）：旧附录补清同源帧GT与blending，后续需要分源视频/独立目标绑定、copy/oracle与同预算共享/分离对照，未执行。见[审查](../evidence/compbench_early_full_appendix_and_cross_version_protocol_audit_2026-10-25.md)、[L151](../reviews/L151.md)。

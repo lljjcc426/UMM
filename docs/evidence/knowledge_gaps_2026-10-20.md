@@ -781,3 +781,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百一十八批（2026-10-25）：正式新增效度证据有支持但T12humanSD19<random30.5；分母/终止图固定代码差异保留，不倒推作者实际运行。见[审查](mme_unify_formal_full_appendix_and_consistency_audit_2026-10-25.md)、[L142](../reviews/L142.md)。
+
+
+第二百一十九批（2026-10-25）：v2四expert+QA是构建团队，非正式表4human人数；温度0单次调用不足以保证跨时间确定性，归一公式仍缺。见[审查](compbench_early_full_appendix_and_cross_version_protocol_audit_2026-10-25.md)、[L151](../reviews/L151.md)。

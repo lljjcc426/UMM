@@ -737,3 +737,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百一十八批（2026-10-25）：固定七标注4101与正式4104/4100计数冲突；CSQ/AL路径映射有候选，未宣称内容全验或缺664图。见[审查](../evidence/mme_unify_formal_full_appendix_and_consistency_audit_2026-10-25.md)、[L142](../reviews/L142.md)。
+
+
+第二百一十九批（2026-10-25）：旧v2含judge全文及13行NFE/CFG和8A6000条件；公开六文件评分仍不覆盖新增Qwen/Human完整协议。见[审查](../evidence/compbench_early_full_appendix_and_cross_version_protocol_audit_2026-10-25.md)、[L151](../reviews/L151.md)。

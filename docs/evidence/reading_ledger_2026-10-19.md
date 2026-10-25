@@ -256,7 +256,7 @@
 | L148 | ImgEdit: A Unified Image Editing Dataset and Benchmark | primary_sections_read | [结构化分析](../reviews/L148.md) | 核心三遍与五项检查完成 |
 | L149 | MMIG-Bench: Towards Comprehensive and Explainable Evaluation of Multi-Modal Image Generation Models | primary_sections_read | [结构化分析](../reviews/L149.md) | 核心三遍与五项检查完成 |
 | L150 | KRIS-Bench: Benchmarking Next-Level Intelligent Image Editing Models | primary_sections_read | [结构化分析](../reviews/L150.md) | 核心三遍与五项检查完成 |
-| L151 | CompBench: Benchmarking Complex Instruction-guided Image Editing | primary_sections_read | [结构化分析](../reviews/L151.md) | 五项检查已记录；三遍待确认 |
+| L151 | CompBench: Benchmarking Complex Instruction-guided Image Editing | primary_sections_read | [结构化分析](../reviews/L151.md) | 核心三遍与五项检查完成 |
 | L152 | OneIG-Bench: Omni-dimensional Nuanced Evaluation for Image Generation | primary_sections_read | [结构化分析](../reviews/L152.md) | 核心三遍与五项检查完成 |
 | L153 | GenExam: A Multidisciplinary Text-to-Image Exam | primary_sections_read | [结构化分析](../reviews/L153.md) | 核心三遍与五项检查完成 |
 | L154 | ChatUMM: Robust Context Tracking for Conversational Interleaved Generation | primary_sections_read | [结构化分析](../reviews/L154.md) | 核心三遍与五项检查完成 |
