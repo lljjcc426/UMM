@@ -823,3 +823,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百一十六批（2026-10-25）：SteerVTE唯一v1全23页/AppA–F，公开代码5001972b/模型dab2056d/基准d4e4042b固定；NeurIPS官方同名目录已核。见[审查](steervte_full_appendix_and_evaluation_release_audit_2026-10-25.md)、[N14](../reviews/N14.md)。
+
+
+第二百一十七批（2026-10-25）：ERNIE5.0唯一v1完整36页无独立附录，10图12表5式；官方ERNIE仓库是4.5发布，未找到5.0对应权重。见[审查](ernie5_full_report_and_elastic_rl_claim_audit_2026-10-25.md)、[L163](../reviews/L163.md)。

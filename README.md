@@ -644,3 +644,6 @@ python scripts/validate_catalog.py
 
 
 第二百一十六批（2026-10-25）：N14完成23页12图5表，核对单第20帧/PPv3默认评测、集合字符指标与首16帧FVD，分开论文协议与发布入口。358目录，321核心/326书面；待完成核心深审10篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/steervte_full_appendix_and_evaluation_release_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_sixteenth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百一十七批（2026-10-25）：L163补全36页10图12表；区分共享AR与终端扩散、弹性抽取与额外训练，记录RL公式边界及主表负项。358目录，322核心/327书面；待完成核心深审9篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/ernie5_full_report_and_elastic_rl_claim_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_seventeenth_changes_2026-10-25.md)。无删除或模型执行。

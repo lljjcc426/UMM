@@ -11165,6 +11165,40 @@
         }
       ],
       "boundary": "唯一arXivv1完整23页§1–5/69条reference清单/AppA–F全读；F1–12全8contacts、F2/p4与F6/T5p18放大；T1–5所有行/Eq1–17全核。官方project文字/对应论文图核，动态图未逐帧；官方NeurIPS目录和poster详情标题/作者/摘要/OpenReview链接核；另正式PDF未取得。固定5001972b repoREADME/infer_demo/infer_bench/eval.sh/eval_multi_csv、eval_baseline指定采样/GT/有效分母/FVD分支、OCRnormalize/metrics/model、fvd.py全读、pipelineVACE与styleencoder关键节、FlowMatchSFTLoss/flowscheduler关键节/ocrvideo函数核；HF8模型文件存在、1705数据文件及三CSV400行结构核。未下载全视频/权重、未执行模型或完整代码复现；核心三遍五书面完成。"
+    },
+    {
+      "id": "L163",
+      "checked_on": "2026-10-25",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "怎样以共享超稀疏MoE和统一分组自回归目标支持文字、图像、视频、音频的理解与生成，并从一次预训练得到不同深度/专家数/激活稀疏度的模型？ 异质模态有不同序列长度、注意力和生成粒度；分开训练/压缩多尺寸模型成本高，异步RL的长尾rollout、训练推理数值偏差、熵塌缩与零奖励难题影响吞吐和优化。",
+          "evidence": "36页无独立附录；10图12表5编号式全核；弹性采样比例差异、Exp额外训练及初始pass=0提示公式边界明确。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "文字离散token；图/视频由CNN+ViT与patchmerger提语义，再bitwise progressive多尺度量化，图K4、视频K16含4frame压缩；同尺度视觉bidirectional、跨尺度/帧causal，图视单帧视频；AR生成低分辨视觉后独立级联扩散细化。音频12.5HzRVQ首层蒸馏Whisper语义、残差codec声学；理解把同帧各级embedding相加，生成头按级预测再feedback，speakerembedding控音色。完整媒体结果未执行或播放。 路由依统一token表征而无模态ID/专门专家手工分配；总层数/宽度/专家N与topk/精确总参数未披露。视觉tokenizer bit数/尺度序列和audio级数/vocab未完整给出。NGTP不等于每种模态同一token粒度；音频NCP在顶层附加heads，不把所有codec展平。全模态fromscratch骨干与外部Whisper语义教师并存。",
+          "evidence": "36页无独立附录；10图12表5编号式全核；弹性采样比例差异、Exp额外训练及初始pass=0提示公式边界明确。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "万亿级/激活<3%的模态无关共享MoE，NGTP统一NTP/MTP文字、NFSP视觉、NCP音频；弹性depth/width/sparsity子网共同预训练；SFT+UMRL，U-RB异步缓冲、MISC混合粒度重要性采样、WPSM软降权及AHRL提示。统一主要指共享AR骨干和目标，视觉终端仍有独立训练的diffusionrefiner。 sharedMoE可按token条件分享容量，NFSP/分组音频缓解长度；弹性可能减少重复预训练成本，提示可给零奖励难题初始路径。但需同输入数据/算力对照；路由IoU与平均分不能证明理解直接改善实际笔顺生成。动态笔画需因果动作和可见前缀定义。",
+          "evidence": "36页无独立附录；10图12表5编号式全核；弹性采样比例差异、Exp额外训练及初始pass=0提示公式边界明确。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1多数base强但C-Eval91.98<Kimi92.49、CMMLU89.69<90.61、MBPP79.10<79.36；T2SimpleQA74.01/Chinese86.03及MultiChallenge65.98等优势，HMMT79.58与AIME89.06仍落后若干参照。T5GenEval88.4→90.1<Qwen91；T6overall83.78→84.20<Veo85.06，即使semantic83.40>Veo82.49。T3CharXivDQ90.35→89.05；T7CommonEval4.39→3.74/SDQA86.44→77.58/Alpaca4.65→4.62/MMAU80.80→80.40/VocalSound91.48→90.73，后训练收益非逐任务一致。AISHELL1.75→.31最好，Wenet7.27/7.36仍逊Qwen4.69/5.89；T8TTS1.35zh/1.54en，en逊Cosy1.45。未独立复现。 小MoE3.2B/active454M/64experts/topk8/250Btokens：T9base16layer1.945→elastic16 1.941、12layer2.137，仅.004差无seedCI，且无独立训练12层同预算baseline；T10base64 1.957/elastic64 1.964、32 2.218；T11basek8 1.945/elastic8 1.969、4 1.971、2 2.003、1 2.175。T12为另训ERNIE5.0-Exp：Full七项均75.55、ES25%74.43(-1.12)、EA35.8%75.17(-.38)；EA总参35.8%/激活53.7%不能当FLOPs比，抽取base后另有mid/posttraining，同策略不等于无需后续训练。F6mixedratio熵/accuracy改善无独立seedCI，WPSM/AHRL无完整独立因子结果。 8K预训练WSDwarm2K/peakLR1e-4/batch14M→56Mtokens/RoPE1M，32K/128K扩展cos1e-4→1e-5，routerbias1e-4→1e-5/MTP.3→.1。§3.3深度full75%/reduced25%，宽度/稀疏度各80/20；§6.4.2小实验深度80/20却称一致，报告内差异。Paddle4TP/12PP/64EP/ZeRO1/contextparallel/FP8/tokenizers独立nodes、FlashMask；>200%kernel/>20%e2e及>15%decode提升缺完整硬件/负载/计时表。",
+          "evidence": "36页无独立附录；10图12表5编号式全核；弹性采样比例差异、Exp额外训练及初始pass=0提示公式边界明确。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "U-RB保留预设querygroup顺序、异步预发后续组/长尾partialrollout，unbiased指减轻快慢query抽样偏差，未给无偏梯度证明与完整staleness校正。Eq3将token级train-old/infer-old截断mask与GSPO序列比结合，j聚合符号未明；WPSM Eq4依组平均acc与单response低entropy降权，条件无逐条答对判断。AHRL Eq5 p=p_initial*exp(-gamma*t*pass_initial)：pass_initial为SFT固定pass@k；等于0时p永不衰减、接近0时极慢，正文逐步移除提示需条件，未披露边界处理。参数/代码/权重/全数据不足；PaddleERNIE README为4.5、官方baidu模型目录与ERNIE-5查询未找到5.0权重，不能拿4.5工具包当本报告可复现实现。 固定数据/总FLOPs比较共享MoE与分离专家及分离模型，测正负迁移；弹性各抽取尺寸对同参同预算独立训练/常规裁剪，分开pre/mid/post成本并报真实延迟。RL对U-RB/MISC/WPSM/AHRL析因，报告延迟分布/样本比/有效token和多seed，追踪初始pass=0组的hint比例及无提示测试。笔顺用同终态不同序、方向、回跳与风格泛化，单列执行视频和终态识别，未执行模型。",
+          "evidence": "36页无独立附录；10图12表5编号式全核；弹性采样比例差异、Exp额外训练及初始pass=0提示公式边界明确。"
+        }
+      ],
+      "boundary": "唯一v1完整36页：正文§1–7全读、contributors和reference清单核，报告没有独立附录；10图全12张contacts视觉核，F7/Eq3–4p14、Eq5p15、F8–9p24、F10/T9p25、T12p27放大；12表全行及Eq1–5、未编号熵式核。核官方PaddleERNIE develop README与HFbaidu目录/ERNIE-5查询，未将4.5发布当5.0；未运行/训练/调用模型或下载权重。核心三遍和五书面完成，未做独立复现。"
     }
   ]
 }

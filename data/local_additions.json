@@ -11901,22 +11901,25 @@
     "source_urls": [
       "https://arxiv.org/abs/2602.04705",
       "https://arxiv.org/html/2602.04705v1",
-      "https://arxiv.org/pdf/2602.04705v1"
+      "https://arxiv.org/pdf/2602.04705v1",
+      "https://github.com/PaddlePaddle/ERNIE",
+      "https://huggingface.co/baidu/models",
+      "https://huggingface.co/api/models?author=baidu&search=ERNIE-5&limit=100"
     ],
-    "method": "Next-Group-of-Tokens框架：文字NTP/MTP、视觉next-frame-and-scale、音频next-codec；模态无关专家池、渐进bit视觉tokenizer、弹性深度/宽度/路由与大规模后训练基础设施。 万亿级MoE激活率<3%，具体层/hidden/精确参数未核齐。CNN+ViT量化前双路特征经attentionpatchmerger；图K4/视频K16patch聚合。视觉bitwise多尺度码，scale内并行/跨scale及帧因果，UniRoPE；低清AR输出再接独立训练扩散refiner，不能把整个输出过程说成无扩散。",
-    "conclusion": "Table5 ERNIEBase88.4→90.1 GenEval，高于GPTImage84.0但低于Qwen91.0；Table6 VBench semantic83.40高于Veo3 82.49，overall84.20低于85.06、quality84.40低于85.70。单一semantic领先不能概括成视频综合最佳。",
-    "gap": "架构规模/训练数据/评价实现披露不全；refiner可能改细节与文字，语义保持需实测。视觉误差累积、模态loss归一与路由统计不保证统一带来协同；VBench也不测汉字事件/真实执行。小模型弹性结论不自动等价万亿模型全预算结果。",
-    "problem": "能否从头训练万亿级稀疏模型，统一多模态理解和文字/视觉/音频生成，并派生不同计算预算的子模型？",
+    "method": "万亿级/激活<3%的模态无关共享MoE，NGTP统一NTP/MTP文字、NFSP视觉、NCP音频；弹性depth/width/sparsity子网共同预训练；SFT+UMRL，U-RB异步缓冲、MISC混合粒度重要性采样、WPSM软降权及AHRL提示。统一主要指共享AR骨干和目标，视觉终端仍有独立训练的diffusionrefiner。 路由依统一token表征而无模态ID/专门专家手工分配；总层数/宽度/专家N与topk/精确总参数未披露。视觉tokenizer bit数/尺度序列和audio级数/vocab未完整给出。NGTP不等于每种模态同一token粒度；音频NCP在顶层附加heads，不把所有codec展平。全模态fromscratch骨干与外部Whisper语义教师并存。",
+    "conclusion": "T1多数base强但C-Eval91.98<Kimi92.49、CMMLU89.69<90.61、MBPP79.10<79.36；T2SimpleQA74.01/Chinese86.03及MultiChallenge65.98等优势，HMMT79.58与AIME89.06仍落后若干参照。T5GenEval88.4→90.1<Qwen91；T6overall83.78→84.20<Veo85.06，即使semantic83.40>Veo82.49。T3CharXivDQ90.35→89.05；T7CommonEval4.39→3.74/SDQA86.44→77.58/Alpaca4.65→4.62/MMAU80.80→80.40/VocalSound91.48→90.73，后训练收益非逐任务一致。AISHELL1.75→.31最好，Wenet7.27/7.36仍逊Qwen4.69/5.89；T8TTS1.35zh/1.54en，en逊Cosy1.45。未独立复现。",
+    "gap": "U-RB保留预设querygroup顺序、异步预发后续组/长尾partialrollout，unbiased指减轻快慢query抽样偏差，未给无偏梯度证明与完整staleness校正。Eq3将token级train-old/infer-old截断mask与GSPO序列比结合，j聚合符号未明；WPSM Eq4依组平均acc与单response低entropy降权，条件无逐条答对判断。AHRL Eq5 p=p_initial*exp(-gamma*t*pass_initial)：pass_initial为SFT固定pass@k；等于0时p永不衰减、接近0时极慢，正文逐步移除提示需条件，未披露边界处理。参数/代码/权重/全数据不足；PaddleERNIE README为4.5、官方baidu模型目录与ERNIE-5查询未找到5.0权重，不能拿4.5工具包当本报告可复现实现。",
+    "problem": "怎样以共享超稀疏MoE和统一分组自回归目标支持文字、图像、视频、音频的理解与生成，并从一次预训练得到不同深度/专家数/激活稀疏度的模型？",
     "claim": "研究目标：能否从头训练万亿级稀疏模型，统一多模态理解和文字/视觉/音频生成，并派生不同计算预算的子模型？",
-    "version": "ERNIE 5.0 Technical Report；arXiv2602.04705v1，2026-02-04；未核实正式接收",
+    "version": "ERNIE 5.0 Technical Report；Baidu ERNIE Team；arXiv2602.04705v1 2026-02-04唯一版，36页，10图12表5编号式；§1–7正文、§8contributors与references，无独立附录。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 9. 音频、视频、动作与 any-to-any：边界要分清",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-25",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-25",
     "id": "L163",
     "canonical_key": "paper:arxiv:2602.04705",
     "evidence_history": [
@@ -11948,17 +11951,23 @@
         "conclusion": "生产规模统一 AR 路线；公开技术报告不等于全部训练数据/权重可复现",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "checked_on": "2026-10-25",
+        "batch": "two_hundred_seventeenth",
+        "sections_read": "唯一v1完整36页：正文§1–7全读、contributors和reference清单核，报告没有独立附录；10图全12张contacts视觉核，F7/Eq3–4p14、Eq5p15、F8–9p24、F10/T9p25、T12p27放大；12表全行及Eq1–5、未编号熵式核。核官方PaddleERNIE develop README与HFbaidu目录/ERNIE-5查询，未将4.5发布当5.0；未运行/训练/调用模型或下载权重。核心三遍和五书面完成，未做独立复现。",
+        "verification": "primary_sections_read"
       }
     ],
-    "sections_read": "§2.1/2.2视觉、§3.1/3.2、§6视觉Tables4–6、§6.4专家分析/弹性指定段；音频/完整后训练/附录及所有图未全读，未复现",
+    "sections_read": "唯一v1完整36页：正文§1–7全读、contributors和reference清单核，报告没有独立附录；10图全12张contacts视觉核，F7/Eq3–4p14、Eq5p15、F8–9p24、F10/T9p25、T12p27放大；12表全行及Eq1–5、未编号熵式核。核官方PaddleERNIE develop README与HFbaidu目录/ERNIE-5查询，未将4.5发布当5.0；未运行/训练/调用模型或下载权重。核心三遍和五书面完成，未做独立复现。",
     "review_path": "docs/reviews/L163.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "多语言纯文及图文/音文/视频和交错混合，从初期共同训练；“trillions”级但分模态数量/总token和公开清单未完整披露。UTF16BE fallback/BPEdropout，基准去污染为作者声明，未独立审计。",
-    "framework": "Next-Group-of-Tokens框架：文字NTP/MTP、视觉next-frame-and-scale、音频next-codec；模态无关专家池、渐进bit视觉tokenizer、弹性深度/宽度/路由与大规模后训练基础设施。",
-    "architecture": "万亿级MoE激活率<3%，具体层/hidden/精确参数未核齐。CNN+ViT量化前双路特征经attentionpatchmerger；图K4/视频K16patch聚合。视觉bitwise多尺度码，scale内并行/跨scale及帧因果，UniRoPE；低清AR输出再接独立训练扩散refiner，不能把整个输出过程说成无扩散。",
-    "metrics": "GenEval、VBench quality/semantic/overall、广泛VQA/OCR/文字及音频；专家top25%重叠IoU、归一熵、弹性验证loss。路由重叠只描述统计结构，不能直接证明跨任务正迁移。",
-    "baselines": "图像NanoBananaPro/Seedream/GPTImage/QwenImage，视频HunyuanVideo/Wan2.1/Veo3；不同专用/闭源系统、总数据计算与评测分辨率/时长未完全匹配。弹性用小MoE受控实验。",
-    "experimental_conditions": "8K阶段WSD warm2000到1e-4、globalbatch14M→56Mtoken、RoPE1M；32K/128K cos1e-4→1e-5，MTP权重.3→.1，负载bias步长1e-4→1e-5。历史图码bitflip/帧mask/窗attention、早scale加权。完整训练GPU小时、优化器细节和生成refiner采样条件未核齐，不可复现全系统。"
+    "dataset": "预训练trillion级文本token与多模态instances，清洗/去重/安全/配比动态调整有说明，无逐来源完整名单、模态token量/比例与测试去污明细。SFT覆盖文字/视觉/语音多任务，verifier含rule/model；RL题数、奖励权重、hint来源/长度配置和训练预算不足以独立复现。不可由全模态概述推出具有实际汉字逐笔轨迹监督。",
+    "framework": "万亿级/激活<3%的模态无关共享MoE，NGTP统一NTP/MTP文字、NFSP视觉、NCP音频；弹性depth/width/sparsity子网共同预训练；SFT+UMRL，U-RB异步缓冲、MISC混合粒度重要性采样、WPSM软降权及AHRL提示。统一主要指共享AR骨干和目标，视觉终端仍有独立训练的diffusionrefiner。",
+    "architecture": "路由依统一token表征而无模态ID/专门专家手工分配；总层数/宽度/专家N与topk/精确总参数未披露。视觉tokenizer bit数/尺度序列和audio级数/vocab未完整给出。NGTP不等于每种模态同一token粒度；音频NCP在顶层附加heads，不把所有codec展平。全模态fromscratch骨干与外部Whisper语义教师并存。",
+    "metrics": "T1–2文本语言知识/逻辑/数学/代码/工具/联网，T3–4视觉STEM/document/general/video与base，T5GenEval、T6VBench质量/语义/overall，T7ASR WER及voice/audio理解，T8TTS WER；指标的文本正确率/音频WER不替代画面审美、说话人相似/MOS或因果笔顺。F8专家频率/F9top25%专家IoU/F10归一化熵属于描述性路由统计，未提供干预迁移因果结论。",
+    "baselines": "文本base对DeepSeekV3/Qwen3/Llama4/KimiK2，post对DSV3.2/Gemini2.5Pro/GPT5/Gemini3Pro；视觉对Qwen2.5VL/GLM4.5V/GPT4.1/Gemini2.5；图像HiDream/Flux/QwenImage，视频Veo3等；ASR/TTS对Qwen3Omni/KimiAudio/CosyVoice等。各项分数依作者表，训练数据/推理预算/闭源版本未严格同配；无同预算全模态联合vs分离模型消融。",
+    "experimental_conditions": "8K预训练WSDwarm2K/peakLR1e-4/batch14M→56Mtokens/RoPE1M，32K/128K扩展cos1e-4→1e-5，routerbias1e-4→1e-5/MTP.3→.1。§3.3深度full75%/reduced25%，宽度/稀疏度各80/20；§6.4.2小实验深度80/20却称一致，报告内差异。Paddle4TP/12PP/64EP/ZeRO1/contextparallel/FP8/tokenizers独立nodes、FlashMask；>200%kernel/>20%e2e及>15%decode提升缺完整硬件/负载/计时表。"
   },
   {
     "title": "MUNI: Multimodal Unified Latent Diffusion for Coherent Any-to-Any Generation",

@@ -731,3 +731,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百一十六批（2026-10-25）：SteerVTE权重与3CSV公开；仅核metadata/400行结构；通用训练loss存在但未见三stage可复现配置。见[审查](../evidence/steervte_full_appendix_and_evaluation_release_audit_2026-10-25.md)、[N14](../reviews/N14.md)。
+
+
+第二百一十七批（2026-10-25）：官方ERNIE4.5源码/权重不能替代5.0；当前未有本报告精确层数/专家数、配比和可复现配置。见[审查](../evidence/ernie5_full_report_and_elastic_rl_claim_audit_2026-10-25.md)、[L163](../reviews/L163.md)。

@@ -1,0 +1,58 @@
+{
+  "id": "L163",
+  "pages": 36,
+  "figures_visually_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "tables_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "numbered_equations_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "appendices": [],
+  "no_appendix_in_full_report": true,
+  "critical_boundaries": {
+    "visual_decoder": "independently trained cascaded diffusion refiner",
+    "depth_sampling": "75/25 in section3.3;80/20 in section6.4.2",
+    "elastic_exp_not_main_model": true,
+    "EA_extra_mid_post_training": true,
+    "activated_parameters_not_measured_flops": true,
+    "hint_at_zero_initial_pass": "p(t)=p_initial",
+    "replay_unbiased_gradient_theorem_present": false,
+    "official_ERNIE4_5_release_not_5_0": true
+  },
+  "core_three_pass_completed": true,
+  "learned_model_executed": false,
+  "sources": [
+    "https://arxiv.org/abs/2602.04705",
+    "https://arxiv.org/pdf/2602.04705v1",
+    "https://github.com/PaddlePaddle/ERNIE",
+    "https://huggingface.co/baidu/models",
+    "https://huggingface.co/api/models?author=baidu&search=ERNIE-5&limit=100"
+  ]
+}

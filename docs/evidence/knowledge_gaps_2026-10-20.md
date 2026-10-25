@@ -775,3 +775,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百一十六批（2026-10-25）：FVD只首16/49frame且固定第20帧mask，Real无编辑GT仍输出原字foreground比较，需协议分开。见[审查](steervte_full_appendix_and_evaluation_release_audit_2026-10-25.md)、[N14](../reviews/N14.md)。
+
+
+第二百一十七批（2026-10-25）：深度采样75/25vs消融80/20、参数占比vsFLOPs、主表后训练个别音频/图表理解下降均保留。见[审查](ernie5_full_report_and_elastic_rl_claim_audit_2026-10-25.md)、[L163](../reviews/L163.md)。
