@@ -764,3 +764,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第二百一十三批（2026-10-25）：L166完成25页；解析区分四条理论有效范围，补phase全域稳定反例与数据来源、表量纲和容量对照限制。358目录，318核心/323书面；待完成核心深审13篇论文／研究；27项资源按制品协议另审。见[审查](worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[逐文件说明](two_hundred_thirteenth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百一十四批（2026-10-25）：L167完成48页22图19表；补齐失败案例、人工caption边界、相机评测跳过路径与depth对齐条件。358目录，319核心/324书面；待完成核心深审12篇论文／研究；27项资源按制品协议另审。见[审查](sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[逐文件说明](two_hundred_fourteenth_changes_2026-10-25.md)。无删除或模型执行。

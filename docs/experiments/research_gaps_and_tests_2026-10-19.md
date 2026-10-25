@@ -751,3 +751,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百一十三批（2026-10-25）：同容量raw非线性头/Fourier对照、端点精度/phase分支，真实扰动重跑环境GT；joint/ordering/采样单因子。见[审查](../evidence/worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[L166](../reviews/L166.md)。
+
+
+第二百一十四批（2026-10-25）：全样本含解析失败camera计分、同预算single/mixed/heads与编码VAE误差，MMVP遗忘配吞吐。见[审查](../evidence/sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。

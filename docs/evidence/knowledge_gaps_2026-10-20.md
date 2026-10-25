@@ -766,3 +766,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百一十三批（2026-10-25）：官方LIBERO总130task分suite不等于正文合10；LanguageTable引用到2020LatentPlans而官方关联2210.06407，实际子集未知。见[审查](worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[L166](../reviews/L166.md)。
+
+
+第二百一十四批（2026-10-25）：F20/21人工修复实例清单改善mask为定性条件证据，不能计自主成功；新代码条件性漏分母待原输出覆盖核。见[审查](sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。

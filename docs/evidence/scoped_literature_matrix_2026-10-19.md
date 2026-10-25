@@ -725,3 +725,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百一十三批（2026-10-25）：T3LPIPS16.33与T4.203量纲未明；reg线性头对33MFFAD含容量混淆，5seed无完整误差。见[审查](worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[L166](../reviews/L166.md)。
+
+
+第二百一十四批（2026-10-25）：T1OCRlocalization非全面CER；T2GTaffinedisparity，T5绝对depth不同。camera缺result/帧数错跳过需覆盖率。见[审查](sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。

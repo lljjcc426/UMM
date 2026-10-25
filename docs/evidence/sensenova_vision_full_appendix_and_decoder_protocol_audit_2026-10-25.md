@@ -1,0 +1,77 @@
+# SenseNova-Vision：完整附录与解码评测协议审查
+
+第二百一十四批完成[L167](../reviews/L167.md)明确范围核心三遍及五项书面验收。[结构化证据](../../data/sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.json)。358目录（331论文／研究、27资源），319核心/324书面含未通过项；待完成核心深审12篇论文／研究；27项资源按制品协议另审。无目录新增、文件删除或模型执行。
+
+来源：[主源1](https://arxiv.org/abs/2607.06560)、[主源2](https://arxiv.org/pdf/2607.06560v1)、[主源3](https://github.com/OpenSenseNova/SenseNova-Vision/tree/4366e0e1f4d22d2207ecc8e339f886b765ba876e)、[主源4](https://github.com/OpenSenseNova/SenseNova-Vision/blob/4366e0e1f4d22d2207ecc8e339f886b765ba876e/tools/evaluation/recons/relpose/eval_angle.py)、[主源5](https://github.com/OpenSenseNova/SenseNova-Vision/blob/4366e0e1f4d22d2207ecc8e339f886b765ba876e/inference/utils_3d/camera_pose_parser.py)、[主源6](https://huggingface.co/datasets/sensenova/SenseNova-Vision-Corpus-50M)、[主源7](https://huggingface.co/sensenova/SenseNova-Vision-7B-MoT)。
+
+## 研究问题
+
+能否通过UMM原生文字/图像/交错输出承接检测、OCR、分割、单目几何和多视图重建，覆盖异构CV监督而无需任务专用预测头？
+
+## 现有不足
+
+序列统一适合稀疏符号却对稠密空间成本高；图像生成式视觉擅长dense但缺符号/相机元数据；带专用decoder的MLLM输出仍分离。作者用原生双通道承接两种结构，数据转换及监督共享为主要机制。
+
+## 贡献
+
+SNVC把原标注确定性编码成instruction-response，缺失监督用Rex/Qwen/PaddleOCR/MoGe2/LingBotDepth构造；BAGEL7BMoT混合SFT，同一CE+rectifiedflow承接4家族。50M为生成/整理子集，完整SNVC更大。跨任务变体由定性探针支持，未给控制变量消融证明共享因果。
+
+## 输入、模块、输出与公式
+
+单图/至多10view+自然语言/可选图式pointboxscribblemask→普通文本稀疏坐标、denseRGB、或legend+mask；相机新保留token。Fig3可沿Image/Instruction→共享UMM→text/visual三路解释。字母/wordmask是静态文本分割；scribble是交互条件，正文将视频扩展列未来工作，无书写时序/动作证据。
+
+## 模型结构
+
+BAGEL双专家CE文字及VAE latent rectifiedflow，冻结VAEvisualencoder其余更新；SigLIP2最高980/latent1024。相机末2009vocab项复用=2001量化值+8tag，quat/unittranslation乘1000，scale1token=1cm限定.01–10m。普通box/point/kpt保留3位坐标clip[0,.999]。depth有效.1–80m→inverse灰度三通道，normalXYZ→RGB，pointmap对齐第一视图中心归一invalidskybox。200个RGBanchor贪心远点采样分配实例+blackbg，legend与image共同决定可解析label；编码定义不担保有损VAE全数值精度。
+
+## 数据分布与划分
+
+完整SNVC配置F5约32.3Mstructured/22.6Mdense/3.1Mseg/46.7Mmultiview；同RGB不同task为独立sample。实际训练采样structured26.46%/dense10.29%/seg15.21%/multi19.31%/原能力28.74%，非原数据量等比。公开50M73dataset-task/10types：18.9M/17.3M/1.3M/12.5Mframes，非50M独立图。A1–5/T6–19逐项来源/模板/阈值全读；分割binary/GTpanoptic可由公开标注重建，发布generated/curated，原RGB留路径需源数据。dense MoGe2伪标签超10%invalid丢弃，原dense1%；normal sky>10%丢；multiview>2/3invalid丢再LingBot补全。正文称遵守官方evalsplit，未公开全局图像去重/预训重叠审计。
+
+## 指标与评价协议
+
+T1box/ref/OCR localization F1@mIoU，VisDronepointF1@Point，GUIclick，kptF1@mOKS；OCR含文字监督但表以localization为主，不等同全面字符CER验证。T2affineinvariantdepthabsrel/δ1及normalangle；公开eval先RGB均值/255、nearestresize，再对GTdisparity最小二乘scale/shift，不能据此宣绝对米制精度。T3PQ/mIoU/cIoU/gIoU区分；T4acc/comp/F1使用DA3threshold与relativeposeRRA/RTA/AUC30；T5VisionBanana绝对depth/GeminiassistReasonSeg带脚注，不直接同协议排名。
+
+## 对比方法
+
+GDINO/Qwen/LocateAnything/Rex；DepthAnything/MoGe2/Marigold/FE2E/Lotus2；LISA/PSALM/X-SAM；VGGT/DA3/DUSt3R/G2VLM/MapAnything；YoutuVL/VisionBanana分家族。T2仅MoGe2标记重评，T4称全部重评，未给所有baseline匹配预训/样本/推理预算，不能由同表推出架构因果。
+
+## 实验条件和发布边界
+
+论文AdamW2.5e-5/wd0/32–36Ktoken每rank/32Ksample/50Ksteps500warm/EMA.995评测/textdrop.05ViT/VAE.1。公开launcher200Ksteps/24064sample/CE.25/tshift4，且默认恢复SenseNova模型而初始Bagel50K论文，需分开。至少2机各8×80GB/推荐32机是指南建议，实际论文训练卡时未给齐。公开inference dense50stepsCFGtext4/img1、recon50stepsCFG1/1，binaryseed42+index；这些是固定release默认，不保证原表精确运行参数。未运行模型。
+
+## 主结果
+
+T1Dense20066.8>Rex58.3，COCOcommon56.6与GDINO相同；GUI85.9<Qwen3.5 92.2。T2NYUdepth98.1优部分、DIODE76.4低MoGe82.3，normalNYU14.4优所列。T3panPQ48.8<PSALM55.9/X-SAM54.7，ReasonSegtest60.7>57.8、boxinteractive73.9>70、point60.9<65.4。T47ScenesF187.9<VGGT88.4/DA390.5；ETH72.2<80.9/76.6，Re10KAUC77.3<79.3/89.6。T5YoutuCOCOmAP53.7>47.1但Ref+76<76.2；不同depthprotocol只参考。MMVP83.3→79下降/GenEval.82→.85上升，不能称完全保留。
+
+## 消融及进一步实验
+
+无单任务/混合、samebudget轻头、输出编码/高分辨率隔离消融。F6各metric除自身final归一，depth/normal早收敛dense检测慢属观察；VisDronelegend写mIoU但T1为point。F8坐标mask/F9–12密集/颜色/文字mask仅定性。AppC F18CFG网格有语义/格式转向或噪声；F19HEX颜色错。F20tomato56GT旁caption走bbox格式，标0seg但仍可见coloredmask，须区分结构解码失败与无像素；cones57GT预测65包含人，手工GT清单修正改善。F21sheep118GT初65slots后手工118改善，非自主结果。F22反射/错觉几何有误。
+
+## 局限与疑问
+
+新代码审计：camera parser按tag分别解析错误item跳过，数量不等返回None；batch_camera_pose仅None以外写results而raw保留全部。relpose/eval_angle遍历dataset但缺resultscene直接continue，预测帧数不等也err计数后continue，指标只对累积有效pair；缺报告覆盖率时失败样本可能未入分母。该条件路径有静态证据，未声称论文实际出现漏样本或分数已被抬高。RGBnearestpalette/二值127阈值属于task解码，noheads不等于无专用转换。数据/高res/预训/多任务贡献未拆，延迟资源和多seedCI不齐。
+
+## 预期优势条件
+
+目标可被有限文本/二维编码稳定表达、预训已有识别/生成先验且解析覆盖率充分时，共享双通道可能提高任务覆盖与语言组合；需要同预算实验证明正迁移，严格几何/字形边界/时序动作另验。
+
+## 可证伪实验
+
+固定底座/数据/预算比single/mixed与专用轻头；报告解析失败/输出完整率，全样本计分及camera所有scene/pair分母，不能只有效输出。量化编码→VAE重建→解码误差，扫3位坐标/200色/phase无关相机量化及分辨率；HEX/密集文本mask用独立固定GT且分别报自主与手工清单；跟踪MMVP等遗忘/吞吐。书写需要轨迹事件与顺序指标，未执行。
+
+## 论文组织与Claim学习
+
+统一数据协议→四任务家族→分家族主表→自由组合探针，问题与贡献组织清晰；AppC失败和手工修正是有用证据。保留absolutevsaffinedepth脚注，不能把qualitative组合说成量化正迁移或消融；nohead声明应同时说明任务解码和camera保留token。正文50K与release200K、覆盖率分母需要写清。
+
+## 实际阅读范围
+
+唯一v1全48页§1–6、228条references清单与关键引文定位、AppA1–5/B/C；22图16contact全视觉，F3/p3及F20/21p46/47放大，19表含所有source/template行全读。固定master4366e0e：TRAIN/launcher、camera_parser/batchcamera/relposeeval、maskdecode与denseeval关键函数、BASE_PARAMS、detectionREADME/metric指定行；此前HF固定卡与PREP/YAML指定范围沿用并本次metadata核。未声称完整代码逐行、源数据全量去重或模型复现；核心三遍及五书面完成。
+
+## 相机计分条件路径
+
+固定代码camera_pose_parser返回None时batchcamera不写解析结果；relpose/eval_angle缺结果scene直接跳过，帧数错计err后也跳过，最终只平均累积的有效pair。路径可以导致失败未进分母，论文实际覆盖数量未提供，不能推定其分数已受影响。
+
+## 自主与人工条件
+
+F20tomato标0seg但有coloredmask，问题是caption变bbox缺legend；cones与F21sheep用GT数量人工改清单再生mask。后者不能归为自主组合成功。无需模型运行即可从正文/附录与代码得出上述限定。

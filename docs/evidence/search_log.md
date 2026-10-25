@@ -814,3 +814,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百一十三批（2026-10-25）：WorldBagel唯一v1全25页AppA/B、2图4表30式；arxivComments明确ECCV2026拒稿，作者页无代码入口。见[审查](worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[L166](../reviews/L166.md)。
+
+
+第二百一十四批（2026-10-25）：SenseNova-Vision唯一v1全48页22图19表AppA–C；官方master4366e0e固定代码审查。见[审查](sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。

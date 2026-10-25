@@ -558,3 +558,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百一十三批（2026-10-25）：开环动作与预测世界分开；LanguageTable原数据来源不推出新真机控制，动态书写无直接证据。见[审查](worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[L166](../reviews/L166.md)。
+
+
+第二百一十四批（2026-10-25）：F12word/lettermask为静态分割，scribble为交互输入；视频被列未来，不作为动态书写证据。见[审查](sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。

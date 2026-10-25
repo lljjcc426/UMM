@@ -306,3 +306,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百一十三批（2026-10-25）：Th2开区间由低频可逆但原证漏2；Th3全域C(K)被近两端点相位反例否定；Th4零DC积分反例保留。见[审查](worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[L166](../reviews/L166.md)。
+
+
+第二百一十四批（2026-10-25）：2009camera保留token/3位坐标/200色palette有各自精度与解码；nohead仍需任务转换。见[审查](sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。

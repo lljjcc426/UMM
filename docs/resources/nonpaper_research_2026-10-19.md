@@ -722,3 +722,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百一十三批（2026-10-25）：WorldBagel承诺afteracceptance，官方唯一版当前写Rejected；未得代码/权重。LIBERO与LanguageTable固定README可补数据定义。见[审查](../evidence/worldbagel_full_appendix_and_fourier_theorem_audit_2026-10-25.md)、[L166](../reviews/L166.md)。
+
+
+第二百一十四批（2026-10-25）：SNVC50M为派生73dataset-task/10types计frame，完整训练另有public源；release200K与论文50K不同。见[审查](../evidence/sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。
