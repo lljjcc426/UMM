@@ -817,3 +817,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百一十四批（2026-10-25）：SenseNova-Vision唯一v1全48页22图19表AppA–C；官方master4366e0e固定代码审查。见[审查](sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。
+
+
+第二百一十五批（2026-10-25）：PuffinWorld唯一v1全32页17图8表9式AppA；代码c6d9ae固定审查，HFcheckpoint和16M派生样本统计。见[审查](puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。

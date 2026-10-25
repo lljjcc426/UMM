@@ -638,3 +638,6 @@ python scripts/validate_catalog.py
 
 
 第二百一十四批（2026-10-25）：L167完成48页22图19表；补齐失败案例、人工caption边界、相机评测跳过路径与depth对齐条件。358目录，319核心/324书面；待完成核心深审12篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_fourteenth_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百一十五批（2026-10-25）：L168完成32页17图8表；核对首帧预标注传播、规则自校准与点云尺度后处理，补公开数据与训练条件。358目录，320核心/325书面；待完成核心深审11篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_fifteenth_changes_2026-10-25.md)。无删除或模型执行。

@@ -1,0 +1,68 @@
+{
+  "id": "L168",
+  "pages": 32,
+  "figures_visually_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "tables_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "equations_reviewed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "appendices": [
+    "A1",
+    "A2",
+    "A3"
+  ],
+  "code_commit": "c6d9ae5e63bc79d5d01554235b7c1d3772c327c8",
+  "protocols": {
+    "default": "offline_prop first-frame annotation plus known pose propagation",
+    "online": "first-frame VLM estimate",
+    "offline": "per-view precomputed annotations",
+    "self_calibration": "linear rule-based correction, no repeated generated-view measurement in demo",
+    "pointcloud": "default display-only depth-pose gauge alignment"
+  },
+  "core_three_pass_completed": true,
+  "learned_model_executed": false,
+  "sources": [
+    "https://arxiv.org/abs/2609.04196",
+    "https://arxiv.org/pdf/2609.04196v1",
+    "https://kangliao929.github.io/projects/puffin-world/",
+    "https://kangliao929.github.io/projects/puffin-world/supplementary.html",
+    "https://github.com/KangLiao929/Puffin/tree/c6d9ae5e63bc79d5d01554235b7c1d3772c327c8/Puffin-World",
+    "https://huggingface.co/ACERobotics/Puffin-World/tree/02976cb47817597dc126cfce7bfbdce60b952c68",
+    "https://huggingface.co/datasets/KangLiao/Puffin-16M/tree/2112b3502f9ea0cc1d31d2c5a2b7f2259b52cffd"
+  ]
+}

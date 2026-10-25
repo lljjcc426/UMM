@@ -754,3 +754,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百一十四批（2026-10-25）：全样本含解析失败camera计分、同预算single/mixed/heads与编码VAE误差，MMVP遗忘配吞吐。见[审查](../evidence/sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。
+
+
+第二百一十五批（2026-10-25）：独立相机GT/评估器、online与offline_prop同条件、多轮观测校准及raw/aligneddepth分数。见[审查](../evidence/puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。

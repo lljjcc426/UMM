@@ -725,3 +725,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百一十四批（2026-10-25）：SNVC50M为派生73dataset-task/10types计frame，完整训练另有public源；release200K与论文50K不同。见[审查](../evidence/sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。
+
+
+第二百一十五批（2026-10-25）：HF15,338,221triplets/1,136,696轨迹各90frame，checkpoint三pth公开，28源camera标签另计。见[审查](../evidence/puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。

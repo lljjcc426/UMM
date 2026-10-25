@@ -309,3 +309,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百一十四批（2026-10-25）：2009camera保留token/3位坐标/200色palette有各自精度与解码；nohead仍需任务转换。见[审查](sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。
+
+
+第二百一十五批（2026-10-25）：Hilbertdepth7段颜色路径逆解nearestsegment，有损VAE和饱和仍需测；无物理正确性保证。见[审查](puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。

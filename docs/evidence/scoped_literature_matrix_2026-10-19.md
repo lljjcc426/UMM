@@ -728,3 +728,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百一十四批（2026-10-25）：T1OCRlocalization非全面CER；T2GTaffinedisparity，T5绝对depth不同。camera缺result/帧数错跳过需覆盖率。见[审查](sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。
+
+
+第二百一十五批（2026-10-25）：T3allbest需排Any参考；T5TrajSSIM略低SEVA。默认offline_prop首帧标注与online分开。见[审查](puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。

@@ -561,3 +561,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百一十四批（2026-10-25）：F12word/lettermask为静态分割，scribble为交互输入；视频被列未来，不作为动态书写证据。见[审查](sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。
+
+
+第二百一十五批（2026-10-25）：PP为相机重力坐标传播，动态scene列未来；selfcalib公开动作线性规则，未测学成policy闭环。见[审查](puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。

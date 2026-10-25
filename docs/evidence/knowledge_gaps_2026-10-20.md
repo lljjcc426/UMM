@@ -769,3 +769,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百一十四批（2026-10-25）：F20/21人工修复实例清单改善mask为定性条件证据，不能计自主成功；新代码条件性漏分母待原输出覆盖核。见[审查](sensenova_vision_full_appendix_and_decoder_protocol_audit_2026-10-25.md)、[L167](../reviews/L167.md)。
+
+
+第二百一十五批（2026-10-25）：点云默认overlapdepth跨chunk与depthposegauge对齐仅显示，需原始与对齐后几何误差。见[审查](puffin_world_full_appendix_and_propagation_protocol_audit_2026-10-25.md)、[L168](../reviews/L168.md)。

@@ -273,7 +273,7 @@
 | L165 | BagelVLA: Enhancing Long-Horizon Manipulation via Interleaved Vision-Language-Action Generation | primary_sections_read | [结构化分析](../reviews/L165.md) | 核心三遍与五项检查完成 |
 | L166 | WorldBagel: Uncovering the Power of Unified Multimodal Models for Vision-Language-Action-World Modeling | primary_sections_read | [结构化分析](../reviews/L166.md) | 核心三遍与五项检查完成 |
 | L167 | Vision as Unified Multimodal Generation | primary_sections_read | [结构化分析](../reviews/L167.md) | 核心三遍与五项检查完成 |
-| L168 | Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States | primary_sections_read | [结构化分析](../reviews/L168.md) | 未完成 |
+| L168 | Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States | primary_sections_read | [结构化分析](../reviews/L168.md) | 核心三遍与五项检查完成 |
 | L169 | InstructPix2Pix: Learning to Follow Image Editing Instructions | primary_sections_read | [结构化分析](../reviews/L169.md) | 核心三遍与五项检查完成 |
 | L170 | Multimodal C4: An Open, Billion-scale Corpus of Images Interleaved with Text | primary_sections_read | [结构化分析](../reviews/L170.md) | 核心三遍与五项检查完成 |
 | L171 | OBELICS: An Open Web-Scale Filtered Dataset of Interleaved Image-Text Documents | primary_sections_read | [结构化分析](../reviews/L171.md) | 核心三遍与五项检查完成 |

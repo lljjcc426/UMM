@@ -11097,6 +11097,40 @@
         }
       ],
       "boundary": "唯一v1全48页§1–6、228条references清单与关键引文定位、AppA1–5/B/C；22图16contact全视觉，F3/p3及F20/21p46/47放大，19表含所有source/template行全读。固定master4366e0e：TRAIN/launcher、camera_parser/batchcamera/relposeeval、maskdecode与denseeval关键函数、BASE_PARAMS、detectionREADME/metric指定行；此前HF固定卡与PREP/YAML指定范围沿用并本次metadata核。未声称完整代码逐行、源数据全量去重或模型复现；核心三遍及五书面完成。"
+    },
+    {
+      "id": "L168",
+      "checked_on": "2026-10-25",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "如何用同一模型理解绝对相机姿态、按相对轨迹生成多视图RGB/depth，并保持重力与几何一致？ 相对ray只有视图关系而无重力锚，absolutePerspectiveField适合单图却缺平移轨迹；RGB生成缺显式几何，重建依赖独立模块，多源数据旋转变化不足。",
+          "evidence": "32页17图8表9式/AppA全核，PP三模式、规则selfcalib、depthgauge和训练配置偏差入库。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "Fig3单图→visionencoder/LLM→scene+roll/pitch/FoV；text/camera或refimage+轨迹→queryconnector+diffusion→RGB/depth，pose反投影点云。PP只传首图gravity、后view条件由既定相对pose形成。文字到3D先T2Ianchor再I2multi；selfcalibration演示估姿后纠正camera，非笔尖动作或环境物体互动。 Base C-RADIOv3H+Qwen2.5 7B+SD3.5medium2.5B；Pro C-RADIOv4H+Qwen2.5 1.5B+SD3.5large8.1B，64query/6层connector，另Caption Qwen3.5 .8B独立标注专家。Eq1–4dense相机，Eq5/6zero初始化注入，Eq7gt=Rrelg0；Eq8/9两种FM分别按view数均值/深度warmup。frozen16chVAE共用于RGB/Hilbertdepth，RGB/textquery不读depth但depth读全部，zeroembed逐渐启用；同权重仍受depthgradient影响，asymmask不等于无训练耦合。长程lastlatent直接传下chunk避重复VAE，但不保证全局scene记忆或无漂移。",
+          "evidence": "32页17图8表9式/AppA全核，PP三模式、规则selfcalib、depthgauge和训练配置偏差入库。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "OmniCamera9ch绝对up2/latitude1+relativeorigin3/direction3，rolemask4ch通过轻fuser加到latent并稀疏多层再注入；首帧重力相对旋转传播，RGB/深度共latent及asymattention，4stage训练。PuffinCam15M/PuffinTraj1M及28公开源44.5M伪camera标注。相机姿态几何传播支撑指定camera任务，不建一般接触/物体动力学。 视角运动主导的静态场景、首帧重力可靠且目标pose已知时，absolute锚+relative可能减roll/pitch漂移；RGBdepth共同输出可少外部学习模块，但pointcloud视觉质量仍需测原始与对齐后差异。",
+          "evidence": "32页17图8表9式/AppA全核，PP三模式、规则selfcalib、depthgauge和训练配置偏差入库。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T3除Any参考后12/12median/33of36AUC含tie；若计表列Any，LaMARFoV2.73>Any2.25，AUC5 43<51.6，故“所有”需限定参考组。LaMARpitch.71与Puffin相同。T4gravitymean1.32vsPuffin4.92/FID75.93vs80.29均优。T5RE10K17.22/.595/.318优所列，Traj18/.613/.288对SEVA17.94/.614/.307，SSIM略低，camera.8/1.1/2.96优。T6均PSNR19.87→20.54SSIM.62→.67LPIPS.23→.21、roll1.94→1.76pitch5.14→4.75，作者报告，差值无CI不推统计显著。 T6+F12仅PP有/无分roll/pitch/yaw，yaw变化小与重力不变机制一致；无同数据同computeabsolute/relative/融合位置/数据scale/depthwarmup/asym/单多任务完整因子消融。F7mimic/selfcalib、F15回转、F16长程compound、F17RGBdepth点云为选择性定性。源代码self_calibration先估roll/pitch后build_action规则每7步线性减到0，再生成；没有生成后重新感知迭代到阈值的验证循环，序列monitor遇首个异常纠正后停，不能将演示当学出闭环actionpolicy。 论文4stage lr1e-4/2e-5/5e-5/2e-5、b512/512/256/128，AdamW.9/.95wd.05cos；II全训visiongrad.1，III/IV冻visionLLMprojector；8views640²，III1–3ref/IV1ref，depthramp3000至1，jointdrop.1/PFdrop.15，50NFEgreedyunderstanding，CFG4.5single/2world。公开Pro I/II配置lr乘acc2为2e-4/4e-5，maxmicro30000/44000；IIIrepeat7×4000=28000micro，IV3000×sumrepeat，depthwarmup2000micro异于论文3000。实际GPU/运行时/各表variant和重复seed未给齐。",
+          "evidence": "32页17图8表9式/AppA全核，PP三模式、规则selfcalib、depthgauge和训练配置偏差入库。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "固定代码generation_multi_view默认offline_prop，model.py1573读取global首帧gt_cam_params[0]再相对pose传播，后chunk传anchor，无VLM；这里字段GT可能是模型预标注或合成真标签，依数据不同，不能统称纯在线。online才估首帧，offline逐帧读预标注，docs默认config已与代码不符；论文各表实际选项未说明不能直接假定。glb默认跨chunkoverlapdepth比例+每windowdepth-to-pose尺度搜索，优化投影depthagreement，只用于点云显示不改图像；native重建展示仍有确定性后处理。depth颜色映射7段cube路径+f=1−(1+d/10)^−2、逆解nearestsegment，VAE可引offcurve误差/远处饱和。末段明确未来扩dynamicworld，现模型对书写/碰撞/力学无直接证明。 同底座预算拆Omniabs/relative/PP/depth/asym/data，分别报online/offline_prop/offline及独立相机GT/估计器；首帧角度噪声传播/平移遮挡/往返回访长程误差；原始depth与对齐点云独立几何GT；samebudgetjoint/single和语义遗忘；自校准多轮观测/执行/重新观测成功率，区分规则plan与模型policy。书写另需penstate/笔顺/接触时间。未执行模型。",
+          "evidence": "32页17图8表9式/AppA全核，PP三模式、规则selfcalib、depthgauge和训练配置偏差入库。"
+        }
+      ],
+      "boundary": "唯一v1全32页§1–6/136条references清单与关键来源/AppA1.1/A1.2/A2/A3.1–3；F1–17全11contacts，F3/p5T5/6p16及F10/11p26放大；T1–8全行/Eq1–9全读。官方project及supplement文字与对应论文fig视觉已核；动态视频未独立播放，不声称全部媒体逐帧。固定c6d9ae代码README/TRAINING/EVALUATION/EVALUATION_World指定节、ProI–IV配置及mix、model.py PP关键分支/depthcodec/transitionhook/selfcalib函数核；HF模型02976cb4三pth存在、数据2112b35卡metadata/统计核。未全量数据、完整代码或模型复现；核心三遍五书面完成。"
     }
   ]
 }
