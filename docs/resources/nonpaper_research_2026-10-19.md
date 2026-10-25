@@ -716,3 +716,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百一十一批（2026-10-25）：项目页有图音样例无code/model链接；本次只核波形/字幕/接口，未独立听评声音。见[审查](../evidence/muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[L164](../reviews/L164.md)。
+
+
+第二百一十二批（2026-10-25）：官方Codeiscomingsoon指github首页；F12/13teacher帧界/任务prompt可核，完整parser/数据manifest不可得。见[审查](../evidence/bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[L165](../reviews/L165.md)。

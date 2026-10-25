@@ -719,3 +719,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百一十一批（2026-10-25）：T3最佳来自两个变体且限定generalist；同骨干MoPoE部分优，T8/9文字和部分对齐并非最好。见[审查](muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[L164](../reviews/L164.md)。
+
+
+第二百一十二批（2026-10-25）：T7去keyframeclean行均46.72vs汇总56.72，Bagelrandom20.48vs20.87；作者headline保留并注明冲突。见[审查](bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[L165](../reviews/L165.md)。

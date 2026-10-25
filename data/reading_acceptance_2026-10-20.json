@@ -10995,6 +10995,40 @@
         }
       ],
       "boundary": "arXivv1唯一版本全部29页§1–7、57条references清单及关键关联、SocietalImpacts/Limitations、AppA/A1/B LemmaB1+PropositionB2逐假设逐步/C全部loss推导/D/E1–2/F；Eq1–57、T1–9逐项、F1–11全部视觉，10contact全看并p3框架/p21配置/p22全主辅表放大。官方项目页方法/结果/样例/链接核，无code/model链接；未听原始音频、未运行模型/训练/API/基准。核心三遍五项书面完成，未声称独立复现。"
+    },
+    {
+      "id": "L165",
+      "checked_on": "2026-10-25",
+      "full_three_pass_completed": true,
+      "three_pass_scope": "core_paper_reading",
+      "checks": [
+        {
+          "criterion": "解释问题和动机",
+          "answer": "让机器人根据全局指令和当前多视图观测，显式生成子任务文字、未来关键帧表示及动作块；在长程操作中提高计划与控制且减视觉预测延迟。 语言规划与视觉预测通常分开，完整先预测图再逆动力学动作延迟高且预测误差/OOD图影响控制。作者用统一MoT与分阶段学习接入动作，RFG给当前图结构先验；并未证明所有真实场景都受此机制支配。",
+          "evidence": "28页13图8表AppA–I全核；recipe冲突、T7逐行汇总不符、5步链弱项、mask和异步频率口径补入。"
+        },
+        {
+          "criterion": "按实际框架解释输入/模块/输出",
+          "answer": "全局指令L+多视图当前图+部分实验本体状态→子任务lt/未来keyframe与连续actionchunk；真正执行依靠初始视觉KV即可，不要求先解码完未来像素。关键帧预测不等于持续视频、落笔/抬笔/接触力或标准笔顺。 BAGEL两个Qwen2.5-7B式专家+2B action，28层/hidden3584，语言/图FFN18944、动作3584，ViT SigLIP2+FLUXVAE/256²。语言CE，图/动作FM速度MSE；§3.1 logp乘积写法与§3.2负logp是概念建模，未精确likelihood求解。图t~LogitNormal0,1、动作Beta1.5,1；τ0noise/1target。F7完整方案动作读GT clean target(训练)/生成target(推理)，joint读同期noise；single与RFG只读τ0KV且mask禁止读GT target。RFG初态均值为当前VAE；不据其单步特征证明已准确预测完整图。",
+          "evidence": "28页13图8表AppA–I全核；recipe冲突、T7逐行汇总不符、5步链弱项、mask和异步频率口径补入。"
+        },
+        {
+          "criterion": "解释创新及优势条件",
+          "answer": "BAGEL理解/生成专家加2B动作专家，完整/联合/初始一步三种双FM交互；RFG从N(vt,I)而非N(0,I)起并缓存初始图特征供动作。两阶段跨模态规划/预测预训和有动作下游微调，启发式控制方案，无形式因果或全局最优保证。 背景多保留、子任务可语言分解且动作需快于完整图采样时，当前图初始化/初始KV预测特征可能改善控制；大运动、新对象或背景突变会削弱先验，需独立验证。",
+          "evidence": "28页13图8表AppA–I全核；recipe冲突、T7逐行汇总不符、5步链弱项、mask和异步频率口径补入。"
+        },
+        {
+          "criterion": "解释完整主表/消融与实验条件",
+          "answer": "T1 CALVIN4.405>VPP4.329，但T8整5步完成.741<VPP.769；前四阈值优势累积提高平均，不能说每长度都赢。RoboTwin作者表75.26clean/20.87random，泛化绝对率仍低，多个任务random0、OpenMicrowaveclean0；T7去keyframe clean行均值46.72却汇总56.72，Bagelrandom行均值20.48却汇总20.87，π0random16.36却汇总16.34。已按PDF50行12列重算列均值并视觉核表，未知原始runs或何处错，未擅改作者headline。T2平均75.5优π65/VPP59.5，但vase35<40/50、drawer95<100，非全任务最好。T3stack73.3/算式63.3、plan95/85，细动作成功低于计划；每难度20，尚无显著性推断。 T4限定单view/10Ksteps/A800延迟20次：complete6.04s/2.480、joint2.90/2.038、naive single1.23/3.345、RFG1.23/3.600；图50动作10，主表多view30K4.405不能混。F6 naive single在PourFries25<无预训40，RFGfull45，作者正面收益也有任务差。F5/11显示5/10/20步视觉样例，未给FID/预测校准或构图变化分层；没有同compute真/生成/打乱/纯噪关键帧检验未来语义必要性。语义/OOD/背景解释为机制假设，非因果隔离。 全局LR1e-5/FSDPpacked，预训64A800/b~1600/20K；CALVIN8卡b192/30K/chunk10/no proprio/2view预测第3，RoboTwin8卡b128/60K/chunk16隔3步有效48、3view预测primary；真机32卡b512/50K/chunk24/3view。正文速度RTX5090 chunk48/1.2s→40Hz是动作吞吐，与AppD真机chunk24条件分开；async只更新本体、低频更新视觉KV→72Hz，未给最大观测陈旧/完整控制延迟分布。训练随机换更早帧适应async。",
+          "evidence": "28页13图8表AppA–I全核；recipe冲突、T7逐行汇总不符、5步链弱项、mask和异步频率口径补入。"
+        },
+        {
+          "criterion": "提出两个有依据的问题和验证方案",
+          "answer": "28页AppA–I/13图8表/3编号式及未编号目标全核。正文与附录recipe/表聚合存在实质冲突；原始run数/样本名单与代码缺失无法定正。官方页Code is coming soon链接仅github首页，无可用项目代码/checkpoint。F12示例以字面看含省略对象大括号等非严格JSON，未见parser代码/失败率不能直接保证标注可解析。I的LLM solely grammar应限定稿件写作阶段，§3.4仍用teacher标注。未进行视频逐帧真机复验，demo精选帧不证明全失败分布/鲁棒安全或动态书写能力。 统一数据版本及全部50任务原始runs，确认T7聚合；匹配总compute做动作only/textplan/真实或生成或打乱或纯噪keyframe/RFG因子。固定视角与训练步数，分报完整5步、meanlength、每任务CI和plan/action错误。测视觉更新时间、KV陈旧、端到端延迟、动作吞吐及async失败；写字加落抬笔、接触力、笔顺事件和字符终态独立评判。未执行。",
+          "evidence": "28页13图8表AppA–I全核；recipe冲突、T7逐行汇总不符、5步链弱项、mask和异步频率口径补入。"
+        }
+      ],
+      "boundary": "最新v2全部28页§1–6/53条references清单及关键关联/AppA–I、T1–8全表含RoboTwin50行12列简单均值复核、F1–13全视觉含10contact、p5架构/p11消融/p22mask/p23表/p27–28prompt放大；Eq1–3和所有未编号logp/FM目标逐项。官方项目页/链接核：codecomingsoon仅github首页；无实现可审。未运行teacher/模型/训练/控制/API，仅来源阅读与表格算术；核心三遍与五书面完成，非独立复现。"
     }
   ]
 }

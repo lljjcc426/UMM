@@ -760,3 +760,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百一十一批（2026-10-25）：实际CLIP/CLAP/EmbeddingGemma语义空间与抽象不依赖textalign声明分开；真实triplet/共享prior分布一致性仍待证。见[审查](muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[L164](../reviews/L164.md)。
+
+
+第二百一十二批（2026-10-25）：正文2.98M/75K与App2.56M/4.5K不一致，公开robot计数也不同，原始版本待作者说明。见[审查](bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[L165](../reviews/L165.md)。

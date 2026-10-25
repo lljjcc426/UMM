@@ -808,3 +808,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百一十一批（2026-10-25）：MUNI唯一v1全部29页AppA–F/11图9表57式及项目页补齐。见[审查](muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[L164](../reviews/L164.md)。
+
+
+第二百一十二批（2026-10-25）：BagelVLAv2全部28页/AppA–I/13图8表3编号式及未编号目标完成，项目code仍comingsoon。见[审查](bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[L165](../reviews/L165.md)。

@@ -745,3 +745,6 @@ Painter同预算开环/反馈/残差/事件、注入漏笔测恢复、Pile×规�
 
 
 第二百一十一批（2026-10-25）：同pair边缘不同高阶joint+真tripletheldout；aggregation×detach×priorroute因子及β/γ/质量多样性。见[审查](../evidence/muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[L164](../reviews/L164.md)。
+
+
+第二百一十二批（2026-10-25）：匹配compute/recipe做真图/生成/打乱/噪图条件，视觉更新/陈旧KV/端到端延迟与动作吞吐分别测。见[审查](../evidence/bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[L165](../reviews/L165.md)。

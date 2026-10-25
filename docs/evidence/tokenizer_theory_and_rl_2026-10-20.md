@@ -300,3 +300,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百一十一批（2026-10-25）：B2需可实现/理想优化/充分小β/先验成本随I严格排序；flow排序为假设，不是已证普遍性质。见[审查](muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[L164](../reviews/L164.md)。
+
+
+第二百一十二批（2026-10-25）：F7mask区分GTclean训练/噪声初态action条件，RFG当前图先验属于启发式；无未来图语义必要性因果检验。见[审查](bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[L165](../reviews/L165.md)。

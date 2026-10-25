@@ -758,3 +758,6 @@ L109–L116已形成指定章节分析；历史待复核59条、摘要33条、5�
 
 
 第二百一十一批（2026-10-25）：L164完成29页全部证明/附录/图表；补总体joint理论到pair训练的缺口、真实预训练空间和附录结果边界。358目录，316核心/321书面；待完成核心深审15篇论文／研究；27项资源按制品协议另审。见[审查](muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[逐文件说明](two_hundred_eleventh_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百一十二批（2026-10-25）：L165完成28页全图表附录；补正文与附录训练量冲突、RoboTwin50行均值差异及CALVIN完整5步弱项。358目录，317核心/322书面；待完成核心深审14篇论文／研究；27项资源按制品协议另审。见[审查](bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[逐文件说明](two_hundred_twelfth_changes_2026-10-25.md)。无删除或模型执行。

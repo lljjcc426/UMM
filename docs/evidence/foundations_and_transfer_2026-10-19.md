@@ -552,3 +552,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百一十一批（2026-10-25）：纯pair边缘不唯一识别三元joint；偶校验与独立分布构成数学反例，语义一致不等于动态笔顺。见[审查](muni_full_appendix_and_pairwise_identifiability_audit_2026-10-25.md)、[L164](../reviews/L164.md)。
+
+
+第二百一十二批（2026-10-25）：CALVINmean4.405优VPP4.329但整5步.741<.769；initialKV预测特征不证明准确未来像素。见[审查](bagelvla_full_appendix_and_aggregation_consistency_audit_2026-10-25.md)、[L165](../reviews/L165.md)。

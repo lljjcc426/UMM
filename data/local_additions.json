@@ -12036,22 +12036,23 @@
     "source_urls": [
       "https://arxiv.org/abs/2602.09849",
       "https://arxiv.org/html/2602.09849v2",
-      "https://arxiv.org/pdf/2602.09849v2"
+      "https://arxiv.org/pdf/2602.09849v2",
+      "https://cladernyjorn.github.io/BagelVLA.github.io/"
     ],
-    "method": "BAGEL语言/图像两专家加动作专家，三种双FM条件机制；单步图像条件和以当前帧均值初始化的ResidualFlowGuidance，分阶段学文字计划/视觉动态/动作。 两个Qwen2.5-7B式BAGEL专家，SigLIP2/FLUXVAE；2B动作Transformer缩FFN到1/5，经共享attention/KV接其他专家。文字CE、图/动作各FM速度MSE；§3.1负logp写法为概念建模，实际训练用FM目标，不擅自说成精确likelihood计算。",
-    "conclusion": "Table1 CALVIN4.405 vsVPP4.329，RoboTwin clean75.26/random20.87，随机分布明显退化。Table3长程stack73.3%/算式摆块63.3%，各难度20试。未附多seedCI不推显著性。",
-    "gap": "动作可能只依靠初始KV和当前图先验，未证明必须生成正确未来像素。RFG bias可能在大运动/物体新增消失时失效；teacher计划及小真机样本有偏。40/72Hz需与新图更新频率/端到端延迟分报。CALVIN评5步链，不能照表述把整个评测说成单步。",
-    "problem": "如何让机器人显式生成当前子任务、未来关键帧和动作块，增强长程操作并降低世界预测的控制延迟？",
+    "method": "BAGEL理解/生成专家加2B动作专家，完整/联合/初始一步三种双FM交互；RFG从N(vt,I)而非N(0,I)起并缓存初始图特征供动作。两阶段跨模态规划/预测预训和有动作下游微调，启发式控制方案，无形式因果或全局最优保证。 BAGEL两个Qwen2.5-7B式专家+2B action，28层/hidden3584，语言/图FFN18944、动作3584，ViT SigLIP2+FLUXVAE/256²。语言CE，图/动作FM速度MSE；§3.1 logp乘积写法与§3.2负logp是概念建模，未精确likelihood求解。图t~LogitNormal0,1、动作Beta1.5,1；τ0noise/1target。F7完整方案动作读GT clean target(训练)/生成target(推理)，joint读同期noise；single与RFG只读τ0KV且mask禁止读GT target。RFG初态均值为当前VAE；不据其单步特征证明已准确预测完整图。",
+    "conclusion": "T1 CALVIN4.405>VPP4.329，但T8整5步完成.741<VPP.769；前四阈值优势累积提高平均，不能说每长度都赢。RoboTwin作者表75.26clean/20.87random，泛化绝对率仍低，多个任务random0、OpenMicrowaveclean0；T7去keyframe clean行均值46.72却汇总56.72，Bagelrandom行均值20.48却汇总20.87，π0random16.36却汇总16.34。已按PDF50行12列重算列均值并视觉核表，未知原始runs或何处错，未擅改作者headline。T2平均75.5优π65/VPP59.5，但vase35<40/50、drawer95<100，非全任务最好。T3stack73.3/算式63.3、plan95/85，细动作成功低于计划；每难度20，尚无显著性推断。",
+    "gap": "28页AppA–I/13图8表/3编号式及未编号目标全核。正文与附录recipe/表聚合存在实质冲突；原始run数/样本名单与代码缺失无法定正。官方页Code is coming soon链接仅github首页，无可用项目代码/checkpoint。F12示例以字面看含省略对象大括号等非严格JSON，未见parser代码/失败率不能直接保证标注可解析。I的LLM solely grammar应限定稿件写作阶段，§3.4仍用teacher标注。未进行视频逐帧真机复验，demo精选帧不证明全失败分布/鲁棒安全或动态书写能力。",
+    "problem": "让机器人根据全局指令和当前多视图观测，显式生成子任务文字、未来关键帧表示及动作块；在长程操作中提高计划与控制且减视觉预测延迟。",
     "claim": "研究目标：如何让机器人显式生成当前子任务、未来关键帧和动作块，增强长程操作并降低世界预测的控制延迟？",
-    "version": "BagelVLA: Enhancing Long-Horizon Manipulation via Interleaved Vision-Language-Action Generation；arXiv2602.09849v2，2026-02-11；未核实正式接收",
+    "version": "BagelVLA: Enhancing Long-Horizon Manipulation via Interleaved Vision-Language-Action Generation；Yucheng Hu等12作者，arXiv2602.09849v2 2026-02-11最新/28页，首页Date02-12；未核实正式接收。",
     "scope": "umm",
     "category": "UMM及相邻机制 / 9. 音频、视频、动作与 any-to-any：边界要分清",
     "record_type": "paper",
     "privacy": "public_source_note",
     "verification": "primary_sections_read",
-    "checked_on": "2026-10-20",
+    "checked_on": "2026-10-25",
     "provenance": "2026-10-15专题文献目录",
-    "last_updated": "2026-10-20",
+    "last_updated": "2026-10-25",
     "id": "L165",
     "canonical_key": "paper:arxiv:2602.09849",
     "evidence_history": [
@@ -12083,17 +12084,23 @@
         "conclusion": "UMM 向机器人控制延伸；要用动作成功率和控制延迟评价，图像质量不够",
         "gap": "见结论栏及专题分析。",
         "note_path": "archive/local/2026-10-15/扩展文献矩阵.md"
+      },
+      {
+        "checked_on": "2026-10-25",
+        "batch": "two_hundred_twelfth",
+        "sections_read": "最新v2全部28页§1–6/53条references清单及关键关联/AppA–I、T1–8全表含RoboTwin50行12列简单均值复核、F1–13全视觉含10contact、p5架构/p11消融/p22mask/p23表/p27–28prompt放大；Eq1–3和所有未编号logp/FM目标逐项。官方项目页/链接核：codecomingsoon仅github首页；无实现可审。未运行teacher/模型/训练/控制/API，仅来源阅读与表格算术；核心三遍与五书面完成，非独立复现。",
+        "verification": "primary_sections_read"
       }
     ],
-    "sections_read": "PDF§3.1–3.5、§4 Tables1/3/4与指定分析、AppD训练/评价；28页全部图/附录/代码未全审，未复现",
+    "sections_read": "最新v2全部28页§1–6/53条references清单及关键关联/AppA–I、T1–8全表含RoboTwin50行12列简单均值复核、F1–13全视觉含10contact、p5架构/p11消融/p22mask/p23表/p27–28prompt放大；Eq1–3和所有未编号logp/FM目标逐项。官方项目页/链接核：codecomingsoon仅github首页；无实现可审。未运行teacher/模型/训练/控制/API，仅来源阅读与表格算术；核心三遍与五书面完成，非独立复现。",
     "review_path": "docs/reviews/L165.md",
     "review_depth": "critical_sections_reviewed",
-    "dataset": "Stage1 2.98M VQA、310K人手视频episode、146K有计划机器人、297K视觉动态机器人、75K自采；公开无细标用Seed1.5VLthinking。Stage2 CALVIN ABC、RoboTwin50×50episode、ALOHA基本3K/长程1.5K。标注关键帧与真实笔画事件不同。",
-    "framework": "BAGEL语言/图像两专家加动作专家，三种双FM条件机制；单步图像条件和以当前帧均值初始化的ResidualFlowGuidance，分阶段学文字计划/视觉动态/动作。",
-    "architecture": "两个Qwen2.5-7B式BAGEL专家，SigLIP2/FLUXVAE；2B动作Transformer缩FFN到1/5，经共享attention/KV接其他专家。文字CE、图/动作各FM速度MSE；§3.1负logp写法为概念建模，实际训练用FM目标，不擅自说成精确likelihood计算。",
-    "metrics": "CALVIN D上1000条5任务链平均完成长度、RoboTwin成功率、ALOHA成功/计划准确、动作块延迟；无文字书写事件或连续视觉质量指标。",
-    "baselines": "π0/RDT/UPVLA/VPP，去文字计划/去关键帧，complete/joint/single-step/RFG，是否pretrain。条件视角/状态/计算需按实验区分。",
-    "experimental_conditions": "AppD lr1e-5/FSDP；预训64×A800、20K步/b≈1600；CALVIN8卡30K/b192/chunk10无本体、2view预测第3；RoboTwin8卡60K/b128/chunk16×隔3步；真机32卡50K/b512/chunk24，每类20试。主速度示例chunk48/1.2s RTX5090→40Hz为动作吞吐，非每25ms闭环；异步72Hz可用较旧视觉KV。"
+    "dataset": "正文§3.5 GeneralVQA2.98M、人手310K、公开robot146K规划+297K动态、自采75K；AppC1改成2.56M/310K/382K/4.5K，T6明确558K+2M=2.558M，公开120K+80K+99K+55K+27.5K=381.5K，自采4.5K。保留冲突不任挑一版作精确实际训练。Stage2 CALVINABC、RoboTwin50任务×50clean=2500、Aloha basic3K+long1.5K。C2长程只列视觉动作但正文和T3有语言规划，标注名称也未完全同步。Seed1.5VLthinking仅数据标注，F12子任务+帧界JSON/F13全局句子，筛选标准/错误率/划分manifest未公布。",
+    "framework": "BAGEL理解/生成专家加2B动作专家，完整/联合/初始一步三种双FM交互；RFG从N(vt,I)而非N(0,I)起并缓存初始图特征供动作。两阶段跨模态规划/预测预训和有动作下游微调，启发式控制方案，无形式因果或全局最优保证。",
+    "architecture": "BAGEL两个Qwen2.5-7B式专家+2B action，28层/hidden3584，语言/图FFN18944、动作3584，ViT SigLIP2+FLUXVAE/256²。语言CE，图/动作FM速度MSE；§3.1 logp乘积写法与§3.2负logp是概念建模，未精确likelihood求解。图t~LogitNormal0,1、动作Beta1.5,1；τ0noise/1target。F7完整方案动作读GT clean target(训练)/生成target(推理)，joint读同期noise；single与RFG只读τ0KV且mask禁止读GT target。RFG初态均值为当前VAE；不据其单步特征证明已准确预测完整图。",
+    "metrics": "CALVIN D上1000条5任务链平均完成长度与各阈值完成率；不能因单个技能短就把整评测称单步。RoboTwin每50任务100次Clean/Random/unseen指令平均成功；真机各任务/难度20次。planning accuracy为20个中间状态的correct motion trend，非精确完整轨迹正确率。F6有errorbars但定义/seed/CI来源未交代；未独立复跑。",
+    "baselines": "π0/RDT/UPVLA/VPP，以及去keyframe/去text/RFG/预训。真实动作数据称相同但总体预训练与模型容量不同；未见与全部基线匹配总compute/teacher标注预算，不能全归统一架构。",
+    "experimental_conditions": "全局LR1e-5/FSDPpacked，预训64A800/b~1600/20K；CALVIN8卡b192/30K/chunk10/no proprio/2view预测第3，RoboTwin8卡b128/60K/chunk16隔3步有效48、3view预测primary；真机32卡b512/50K/chunk24/3view。正文速度RTX5090 chunk48/1.2s→40Hz是动作吞吐，与AppD真机chunk24条件分开；async只更新本体、低频更新视觉KV→72Hz，未给最大观测陈旧/完整控制延迟分布。训练随机换更早帧适应async。"
   },
   {
     "title": "WorldBagel: Uncovering the Power of Unified Multimodal Models for Vision-Language-Action-World Modeling",
