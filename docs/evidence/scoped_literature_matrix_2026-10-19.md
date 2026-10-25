@@ -746,3 +746,6 @@ L047单字体500句/单书家397字不同模态，日志CER.6735/位置准确.23
 
 
 第二百二十批（2026-10-25）：L192显式字符边界/连笔/间距属于在线轨迹生成，主输出GMM xy及4状态；中文OLHWGblock没有连笔正样本，不能验证规范笔顺。见[审查](boundink_full_appendix_and_boundary_metric_audit_2026-10-25.md)、[L192](../reviews/L192.md)。
+
+
+第二百二十二批（2026-10-25）：L193统一个人/群体/全局视频理解，不含生成。PARD无星FPAR48.9、有真实群体划分59.4，主实验真实人物框/轨迹，须保留条件。见[审查](grand_unification_multi_human_activity_full_review_2026-10-25.md)、[L193](../reviews/L193.md)。

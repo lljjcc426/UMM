@@ -13806,5 +13806,55 @@
       }
     ],
     "evidence_history": []
+  },
+  {
+    "id": "L193",
+    "title": "Towards Grand Unification of Multi-Human Activity Recognition",
+    "canonical_key": "paper:provided:towards-grand-unification-of-multi-human-activity-recognition",
+    "source_urls": [
+      "https://github.com/RuizeHan/PAR",
+      "https://github.com/RuizeHan/PAR/tree/224af50686779f757450c6e7e9397fc5f40efaf4"
+    ],
+    "aliases": [
+      "PAR journal extension",
+      "ST-FIN / HN-GCN / PARD"
+    ],
+    "scope": "umm",
+    "category": "统一机制与视频理解 / 个人—群体—全局层次多任务",
+    "record_type": "paper",
+    "privacy": "public_source_note",
+    "provenance": "2026-10-25 第二百二十二批；用户提供18页PDF；正文来源为附件，GitHub仅为作者提供的相关代码主源，正式发表身份未核定",
+    "verification": "primary_sections_read",
+    "review_path": "docs/reviews/L193.md",
+    "note_path": "docs/reviews/L193.md",
+    "review_depth": "critical_sections_reviewed",
+    "version": "用户提供的18页IEEE Transactions on Multimedia格式扩展稿；作者Songmiao Wang、Ruize Han、Wei Feng。PDF未标明可确认的正式年份、卷期、DOI或arXiv编号；不能仅据页眉认定已接收。§I明确为ECCV2022《Panoramic Human Activity Recognition》的扩展，新增PARD、运动/时空特征和自监督；本批公开检索未定位同题正式全文。下列GitHub链接为相关代码来源，不是该18页稿的公开论文地址。",
+    "checked_on": "2026-10-25",
+    "last_updated": "2026-10-25",
+    "sections_read": "用户提供PDF完整18页：§I–VII和82项参考清单，7图全部实际视觉阅读、8表全行、Eq1–23逐式核对；无附录（末页为参考文献），不虚构附录已读。6张contact全看，并放大p2/5/7/8/10/12/14/16/17，图4另3200像素渲染辨类名。三遍按任务/方法数学/实验批判范围完成及五项书面检查；公开代码限定固定224af506 README/tree及5脚本静态阅读，不冒称完整扩展代码已审。全数字为作者报告；数据算术、核函数范围与Half反例为纸面推导。未训练、推理、调用OCR/judge/API评价或独立复现。",
+    "dataset": "JRDB-PAR继承JRDB框/ID、JRDB-Act个人动作及分组，新增群体/全局活动：27视频20train/7test，27/11/7类，27920帧1850关键帧、36554人框6872群体、75360/9956/3051个人/群体/全局标签；每15帧标一次。PARD：GoPro HERO8、8处室外场景、1920×1080@30fps，每10帧一关键帧，8姿态互斥+16交互多标签、12群体/8全局类；T1总158800帧15880关键帧、238174框44250群体、321070/68525/31170标签；train111170帧11117关键帧173138框32760群、test47630帧4763关键帧65036框11490群。框外包、8名研究生各约1周活动标注，作者复核约2周，未报标注一致性。群体2–13人，图5两人29938约67.64%、三人5599约12.65%；动作walking129523与passingball33长尾。§IV-C同时称74视频、每条2180–7530帧、均4291.9、37/37划分、共88分钟；74×4291.9≈317601，约为T1总帧两倍，且37条测试×最短2180=80660已大于测试47630。原文数字保留，不能自选改成37视频。",
+    "framework": "外观CNN+轨迹LSTM构造个人特征；ST-FIN并行建模跨人和跨帧关系、残差融合；三项社会关系预训练损失为外观/运动关系一致性、运动特征交换识别、轨迹距离伪监督。以预测关系和距离先验混合后谱聚类分群，HN-GCN/AiO按个人→群体→全局逐层聚合，联合四项监督。补充JRDB-PAR标注并新建PARD，三个层级F1等权平均为FPAR。HN-GCN/AiO继承会议版，扩展贡献应与新增ST-FIN/轨迹/自监督区分。",
+    "architecture": "主干Inception-v3、单层LSTM、并行空间/时间GCN；节点分别为人物/帧，不能与骨架关节ST-GCN混称。三层FC个人/群体头、两层FC全局头；AiO用局部图注意力列和。Eq3按文中fp为T×D直接矩阵相乘会得T×T，无法直接得到所述逐帧人对权重；Eq5同类轴说明不足，需要写明batched/einsum约定，尚不足以判定实际实现错误。图3/Eq19–22明确的前向路径主要自下向上；没有展示全局节点再次回传个人节点的消息通道。高层监督可经梯度影响共享特征，不能等同推理时显式全局纠错。",
+    "metrics": "个人/全局使用多标签P/R/F1；群体需先检测再分类，仅计人数>1的组，正文说成员IoU>0.5且活动正确；FPAR=(Fi+Fp+Fg)/3是任务均分，不要求同一场景三层同时正确，也不能代替分层结果。个体/全局多标签平均方式、群体多标签“正确”的细则及一对一匹配需精确定义。固定旧代码metrics.py对个人/全局average=samples；my_utils/group_detection_PRF.py群体判定为|交集|/max(两组人数)>0.5，双人组需完全一致，活动P/R/F按预测群数归一。这与字面IoU条件有差别：GT={a,b,c},pred={a,b,d}在旧Half规则过关，IoU=2/4=.5不满足严格>.5。旧实现不能直接当扩展稿实际评测脚本，需对应版本确认。轨迹另报HOTA/MOTA/IDF1；参数量未测延迟/FLOPs。",
+    "baselines": "T2/T3无星组为ARG、SA-GAT、JRDB-Base、MUP2023、Preliminary2022、Ours；有星组额外给真实群体划分，含AT/SACRF/Dynamic/HiGCIN及上述模型。ARG加聚类与群体融合，其他原不能分群的方法用真实群体加融合适配，条件不能混排。T4保留AT/SACRF/Dynamic/HiGCIN原个人/全局任务设置。MUP已针对PAR，说明PAR任务首提归于会议版，本扩展须据增量叙述。没有训练总FLOPs、预训练数据和调参预算一致性的完整对照。",
+    "experimental_conditions": "主实验输入真实人物框，轨迹主用标注，缺帧线性插值；监督训练群内聚合用真实分组，推理用关系谱聚类，存在训练/推理分组差异。网络先约30epoch自监督，再约15epoch多任务监督，PyTorch/文中写GTX3090；“SGD with Adam optimization”表述混用，不能当两个优化器均已核明。学习率、batch、scheduler、运动LSTM宽度、l、lambda1/2、交换比例、三项预训练损失总权重和seed未完整给出。自监督仍需人物框/身份轨迹，不能把无活动标注说成完全无外部感知前提。T6称用whole dataset无标签预训练，后在10/30/50/100%带标注子集训练；需明确whole是训练视频全集还是含测试视频，当前证据不足以认定泄漏。已静态看官方仓库224af506（2025-01-22）的README/tree、config/gcn/metrics/train_stage2/group_detection_PRF五脚本，num_frames默认1，README仍围绕ECCV2022/JRDB，未核到与新增PARD+ST-FIN+三项自监督一致的训练/评测发布。未下载云端整数据，也未运行任何模型。",
+    "problem": "Panoramic Human Activity Recognition（PAR）联合输出场景内每人的多标签动作、社交群体划分及其多标签活动、整个场景的多标签全局活动。群体人数未知，群体活动使用独立于个人动作的语义标签。统一范围为同一视频理解领域的空间粒度与任务；没有图文生成、理解生成联合训练或汉字书写执行任务。",
+    "method": "外观CNN+轨迹LSTM构造个人特征；ST-FIN并行建模跨人和跨帧关系、残差融合；三项社会关系预训练损失为外观/运动关系一致性、运动特征交换识别、轨迹距离伪监督。以预测关系和距离先验混合后谱聚类分群，HN-GCN/AiO按个人→群体→全局逐层聚合，联合四项监督。补充JRDB-PAR标注并新建PARD，三个层级F1等权平均为FPAR。HN-GCN/AiO继承会议版，扩展贡献应与新增ST-FIN/轨迹/自监督区分。 主干Inception-v3、单层LSTM、并行空间/时间GCN；节点分别为人物/帧，不能与骨架关节ST-GCN混称。三层FC个人/群体头、两层FC全局头；AiO用局部图注意力列和。Eq3按文中fp为T×D直接矩阵相乘会得T×T，无法直接得到所述逐帧人对权重；Eq5同类轴说明不足，需要写明batched/einsum约定，尚不足以判定实际实现错误。图3/Eq19–22明确的前向路径主要自下向上；没有展示全局节点再次回传个人节点的消息通道。高层监督可经梯度影响共享特征，不能等同推理时显式全局纠错。",
+    "conclusion": "T2 JRDB无星Fi/Fp/Fg/FPAR：Ours56.3/25.8/56.3/46.1，MUP47.7/25.1/51.8/41.5，Pre43.4/24.8/38.8/35.6；相对MUP总体+4.6pp，群体仅+.7pp。Ours*53.8/53.0/57.3/54.7，MUP*48.6/51.3/47.3/49.2。T3 PARD Ours57.9/24.0/65.0/48.9，MUP54.1/20.3/57.9/44.1，Pre50.8/20.4/46.8/39.3；总体+4.8pp对MUP。Ours*54.2/58.7/65.2/59.4，MUP*54.1/48.6/57.8/53.5，个人仅+.1pp。真实群体条件使Ours群体F1在JRDB25.8→53.0/PARD24.0→58.7，但个人56.3→53.8/57.9→54.2，故不可说所有任务均提升。无多seed/CI，文中的significant不足以认定统计显著。T7预测轨迹10关键帧最佳46.7，真实轨迹默认15帧48.9；匹配15帧预测43.2，差5.7pp。最佳10帧与真实15帧差2.2混入窗口变化。T8本作43.7M、MUP167.6M，参数少约73.9%；没有延迟/总算力测量，不能据此声称速度倍数。",
+    "gap": "一、核心互补证据是监督项删除的单次结果，缺等训练预算/随机标签/单任务组合对照和不确定性；跨层前向因果路径没有被证明。二、真实框/标注轨迹/训练真实分组使部署依赖被理想化；预测轨迹15帧有5.7pp下降，谱聚类后处理使“端到端”只适于限定的可微网络部分。三、数据统计74条×均长与T1差一倍，测试最小长度矛盾，不能确认场景/身份是否跨split独立；长尾类别、8地点泛化和标注一致性不足。四、Eq16对任意正D有Rhat∈(.5,1)，远距极限.5，近距趋1；作为亲和核可工作，但不提供接近0的远关系，尺度/核敏感性与校准未测；外观-运动关系一致本身也允许常量关系解，不能据此断言全部三损失已坍塌。Eq15为二维框尺度启发式，缺相机标定/真实3D，不构成恢复3D距离证明。五、AiO若W沿用逐行softmax且只有列求和，权重总和=组人数，会携带基数/尺度；需确认是否另归一并验证对长尾群体大小的影响，当前未确认实现错误。六、群体Half与IoU、样本平均和正式扩展实现未统一核明，旧源码不可替代新协议。论文承认类数有限、计划开放词表，现有模型未测试开放词表或理解生成迁移。",
+    "claim": "Panoramic Human Activity Recognition（PAR）联合输出场景内每人的多标签动作、社交群体划分及其多标签活动、整个场景的多标签全局活动。群体人数未知，群体活动使用独立于个人动作的语义标签。统一范围为同一视频理解领域的空间粒度与任务；没有图文生成、理解生成联合训练或汉字书写执行任务。",
+    "related_records": [
+      "L142"
+    ],
+    "work_family": "Panoramic Human Activity Recognition / PAR",
+    "review_history": [
+      {
+        "checked_on": "2026-10-25",
+        "batch": "two_hundred_twenty_second",
+        "sections_read": "用户提供PDF完整18页：§I–VII和82项参考清单，7图全部实际视觉阅读、8表全行、Eq1–23逐式核对；无附录（末页为参考文献），不虚构附录已读。6张contact全看，并放大p2/5/7/8/10/12/14/16/17，图4另3200像素渲染辨类名。三遍按任务/方法数学/实验批判范围完成及五项书面检查；公开代码限定固定224af506 README/tree及5脚本静态阅读，不冒称完整扩展代码已审。全数字为作者报告；数据算术、核函数范围与Half反例为纸面推导。未训练、推理、调用OCR/judge/API评价或独立复现。",
+        "verification": "primary_sections_read"
+      }
+    ],
+    "evidence_history": []
   }
 ]

@@ -327,3 +327,6 @@ Introduction提出具体缺口，Method说明可检验机制，实验区分表�
 
 
 第二百二十批（2026-10-25）：L192连续坐标GMM+离散CursiveEOC明确分开边界语义；CSM自身读标签、baseline读几何阈值，评价接口本身需要统一。见[审查](boundink_full_appendix_and_boundary_metric_audit_2026-10-25.md)、[L192](../reviews/L192.md)。
+
+
+第二百二十二批（2026-10-25）：L193用连续外观/轨迹特征、图关系、谱聚类与BCE，无生成tokenizer或RL；Eq16远关系趋.5，AiO列和若无再归一则携带群体基数。见[审查](grand_unification_multi_human_activity_full_review_2026-10-25.md)、[L193](../reviews/L193.md)。

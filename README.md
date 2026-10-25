@@ -659,3 +659,6 @@ python scripts/validate_catalog.py
 
 
 第二百二十一批（2026-10-25）：有限复查余下A06/L002/L006/L021/L022/F05/L184的原始来源，七项仍未通过核心；补L006在线/卷期双日期、F05正式DOI、OpenReview身份与Stroke-Seg原图边界。359目录、325核心/328书面，27资源另审。见[当前未完成矩阵与交接](docs/evidence/remaining_source_access_and_reading_handoff_2026-10-25.md)及[逐文件变更](docs/evidence/two_hundred_twenty_first_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百二十二批（2026-10-25）：新增用户指定L193，完整18页/7图/8表/Eq1–23，区分真实分组/轨迹条件、监督互补的不对称收益，记录PARD统计与旧Half协议差异。360目录，326核心/329书面；待完成核心深审7篇论文／研究；27项资源按制品协议另审。见[审查](docs/evidence/grand_unification_multi_human_activity_full_review_2026-10-25.md)、[逐文件说明](docs/evidence/two_hundred_twenty_second_changes_2026-10-25.md)。无删除或模型执行。

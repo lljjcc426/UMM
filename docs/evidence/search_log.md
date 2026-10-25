@@ -838,3 +838,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百二十一批（2026-10-25）：有限复查余下A06/L002/L006/L021/L022/F05/L184的原始来源，七项仍未通过核心；补L006在线/卷期双日期、F05正式DOI、OpenReview身份与Stroke-Seg原图边界。359目录、325核心/328书面，27资源另审。见[当前未完成矩阵与交接](remaining_source_access_and_reading_handoff_2026-10-25.md)及[逐文件变更](two_hundred_twenty_first_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百二十二批（2026-10-25）：精读用户提供的18页PAR扩展稿L193；未定位同题公开正式全文；核作者旧仓库224af506及五脚本，论文主源与代码来源明确分开。见[审查](grand_unification_multi_human_activity_full_review_2026-10-25.md)、[L193](../reviews/L193.md)。

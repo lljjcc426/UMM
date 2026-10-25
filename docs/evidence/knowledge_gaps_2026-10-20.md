@@ -790,3 +790,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百二十一批（2026-10-25）：有限复查余下A06/L002/L006/L021/L022/F05/L184的原始来源，七项仍未通过核心；补L006在线/卷期双日期、F05正式DOI、OpenReview身份与Stroke-Seg原图边界。359目录、325核心/328书面，27资源另审。见[当前未完成矩阵与交接](remaining_source_access_and_reading_handoff_2026-10-25.md)及[逐文件变更](two_hundred_twenty_first_changes_2026-10-25.md)。无删除或模型执行。
+
+
+第二百二十二批（2026-10-25）：PARD74条×平均4291.9帧与158800总帧矛盾；37条测试×最短2180也超过47630。旧Half与正文IoU不等价；缺对应扩展稿实现、split清单、seedCI与等预算对照。见[审查](grand_unification_multi_human_activity_full_review_2026-10-25.md)、[L193](../reviews/L193.md)。

@@ -579,3 +579,6 @@ MMaDA共享masked CE主体/不同tokenizer与采样；Think in Strokes整图多�
 
 
 第二百二十批（2026-10-25）：Bi-SWT前字轨迹窗口+冻结CANINE全句context，图像style参考与大模型外部预训练应纳入控制条件；局部窗口仍会有AR误差传播。见[审查](boundink_full_appendix_and_boundary_metric_audit_2026-10-25.md)、[L192](../reviews/L192.md)。
+
+
+第二百二十二批（2026-10-25）：层次多任务监督可影响共享特征；图3/Eq22未展示显式全局→个人前向反馈。可提出笔画—部件—整字监督假设，不能作理解生成协同已证实。见[审查](grand_unification_multi_human_activity_full_review_2026-10-25.md)、[L193](../reviews/L193.md)。

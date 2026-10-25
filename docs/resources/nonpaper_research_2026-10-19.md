@@ -743,3 +743,6 @@ MMaDA官方Supplemental仍有RL待发布声明，但新关联dLLM-RL 10b4fd1c有
 
 
 第二百二十批（2026-10-25）：BoundInk论文完整、未从指定检索定位公开训练/评测代码或权重；未将预印本当已可复现制品。见[审查](../evidence/boundink_full_appendix_and_boundary_metric_audit_2026-10-25.md)、[L192](../reviews/L192.md)。
+
+
+第二百二十二批（2026-10-25）：作者PAR仓库发布的是可核ECCV2022/JRDB相关代码；本批未核到PARD/ST-FIN扩展对应制品，不将旧代码直接当新稿复现依据。见[审查](../evidence/grand_unification_multi_human_activity_full_review_2026-10-25.md)、[L193](../reviews/L193.md)。
