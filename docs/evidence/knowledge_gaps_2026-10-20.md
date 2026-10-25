@@ -787,3 +787,6 @@ logp比值与exp差、平均token logp和序列概率、KL old与fixed reference
 
 
 第二百二十批（2026-10-25）：KGS/SSS两负gap恒.5且真实重叠oracle自比.5；论文明确此惩罚，需先界定重叠惩罚与风格忠实性。V2严格分字276/588且整体DTW退化，保留条件边界。见[审查](boundink_full_appendix_and_boundary_metric_audit_2026-10-25.md)、[L192](../reviews/L192.md)。
+
+
+第二百二十一批（2026-10-25）：有限复查余下A06/L002/L006/L021/L022/F05/L184的原始来源，七项仍未通过核心；补L006在线/卷期双日期、F05正式DOI、OpenReview身份与Stroke-Seg原图边界。359目录、325核心/328书面，27资源另审。见[当前未完成矩阵与交接](remaining_source_access_and_reading_handoff_2026-10-25.md)及[逐文件变更](two_hundred_twenty_first_changes_2026-10-25.md)。无删除或模型执行。

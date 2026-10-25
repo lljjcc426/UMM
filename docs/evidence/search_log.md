@@ -835,3 +835,6 @@ L047正式EMNLP10页核心/研究附录与实际p12420 F2/p12421T1，固定GitHu
 
 
 第二百二十批（2026-10-25）：新增BoundInk v3（原CASHG）L192，22页完整取得并读齐，未定位作者代码；不把Samsung独立字连接法与此句级AR模型混合。见[审查](boundink_full_appendix_and_boundary_metric_audit_2026-10-25.md)、[L192](../reviews/L192.md)。
+
+
+第二百二十一批（2026-10-25）：有限复查余下A06/L002/L006/L021/L022/F05/L184的原始来源，七项仍未通过核心；补L006在线/卷期双日期、F05正式DOI、OpenReview身份与Stroke-Seg原图边界。359目录、325核心/328书面，27资源另审。见[当前未完成矩阵与交接](remaining_source_access_and_reading_handoff_2026-10-25.md)及[逐文件变更](two_hundred_twenty_first_changes_2026-10-25.md)。无删除或模型执行。
