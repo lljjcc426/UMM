@@ -1,0 +1,39 @@
+name: Validate research repository
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'README.md'
+      - 'CONTRIBUTING.md'
+      - 'docs/**'
+      - 'data/**'
+      - 'configs/research/**'
+      - 'templates/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/validate-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout fixed revision
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Python environment
+        run: python3 --version
+      - name: Validate catalog and all local Markdown links
+        run: python3 scripts/validate_catalog.py
+      - name: Validate research configuration and dependencies
+        run: python3 scripts/validate_research_plan.py --output reports/research_plan_validation.json
+      - name: Research validator unit tests
+        run: python3 -m unittest discover -s tests -p 'test_research_plan.py' -v
+      - name: Existing annotated-event sequence tests
+        run: python3 -m unittest tests.test_stroke_metrics -v

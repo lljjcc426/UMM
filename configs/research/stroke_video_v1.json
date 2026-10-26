@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v1",
+  "created_on": "2026-10-26",
+  "status": "design_only",
+  "current_phase": "P0",
+  "task_protocols": ["T", "P", "O"],
+  "primary_metric": "verified_order_lower_bound",
+  "data_plan": {
+    "calibration_characters": 64,
+    "train_characters": 320,
+    "validation_characters": 64,
+    "test_characters": 128,
+    "main_total_characters": 512,
+    "constructed": false,
+    "source_authorization": "pending",
+    "note": "Planned counts only; calibration characters must not overlap the main character splits."
+  },
+  "seeds": {"training": [11, 23, 47], "inference": [11, 23, 47]},
+  "gates": {
+    "calibration_min_coverage": 0.9,
+    "false_accept_upper95_max": 0.05,
+    "minimum_effect_pp": 5.0,
+    "final_character_noninferiority_margin_pp": 2.0,
+    "note": "Proposed project criteria, not community standards or measured results. Freeze before final testing."
+  },
+  "budget": {"configured": false, "gpu_model": null, "gpu_count": null, "max_gpu_hours": null},
+  "models": {
+    "primary": {"name": "Lance_3B_Video", "code_revision": null, "weight_revision": null, "runtime_verified": false}
+  },
+  "documents": {
+    "roadmap": "docs/project/ROADMAP.md",
+    "experiments": "docs/project/EXPERIMENTS.md",
+    "task": "docs/research/task_and_method.md",
+    "data": "docs/research/data_protocol.md",
+    "evaluation": "docs/research/evaluation_protocol.md",
+    "implementation": "docs/research/implementation.md",
+    "run_template": "templates/research_run.json"
+  }
+}
