@@ -43,7 +43,10 @@ class ResearchStageGateTests(unittest.TestCase):
     def test_ready_without_artifacts_fails(self):
         self.manifest.update(status="ready_for_review", conclusion="phase_gate_passed",
                              approval_reference="user approved phase checklist",
-                             unresolved_blockers=[])
+                             unresolved_blockers=[], evidence_bundle=[])
+        for record in self.registry["experiments"]:
+            if record["phase"] == "P0":
+                record.update(status="planned", run_records=[], result_artifacts=[])
         result = self.result()
         self.assertIn("no stage evidence bundle", result["errors"])
         self.assertIn("ENV-01: not completed", result["errors"])

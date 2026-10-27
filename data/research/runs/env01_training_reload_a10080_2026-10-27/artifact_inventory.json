@@ -1,0 +1,36 @@
+{
+  "status": "all_backups_received",
+  "small_evidence_archive": "private/env01_training_evidence_2026-10-27.tar.gz",
+  "compiled_extension_backup": {
+    "local_path": "private/env01_training_reload_backup_2026-10-27/flash_attn-2.6.3-cp311-cp311-linux_x86_64.whl",
+    "bytes": 179990189,
+    "received": true
+  },
+  "checkpoint_backups": [
+    {
+      "name": "checkpoint_step1.pt.gz",
+      "compressed_bytes": 757688571,
+      "raw_bytes": 3893780478,
+      "local_path": "private/env01_training_reload_backup_2026-10-27/checkpoint_step1.pt.gz",
+      "received": true,
+      "transfer_exit_code": 0,
+      "verification": "SCP success and recorded source byte size; no repeated full-file hash"
+    },
+    {
+      "name": "reference_step2.pt.gz",
+      "compressed_bytes": 797736718,
+      "raw_bytes": 3893780420,
+      "local_path": "private/env01_training_reload_backup_2026-10-27/reference_step2.pt.gz",
+      "received": true,
+      "transfer_exit_code": 0,
+      "verification": "SCP success and recorded source byte size; no repeated full-file hash"
+    }
+  ],
+  "large_artifact_policy": "Large optimizer/model tensors and compiled wheel preserved in local private backup and cloud originals, excluded from Git; branch retains exact configuration, data fixture, raw logs, metrics and comparison evidence",
+  "environment_information": "cloud/pip-freeze.txt",
+  "frozen_weights": "Pinned official base from previous native task, retained cloud; not duplicated into Git",
+  "fresh_process_restore_verification": "cloud/attempt03/reload_exact_comparison.json",
+  "completed_at_utc": "2026-10-27T13:39:17.959497+00:00",
+  "local_backup_total_bytes": 1735415478,
+  "original_raw_checkpoint_retained_cloud": true
+}

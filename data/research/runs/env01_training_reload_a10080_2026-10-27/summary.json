@@ -1,0 +1,67 @@
+{
+  "experiment_id": "ENV-01",
+  "status": "technical_validation_passed_in_approved_scope",
+  "scope": "Three native inference interfaces plus partial-parameter native training and independent-process checkpoint reload",
+  "trainable_parameter_elements": 324479024,
+  "trainable_tensors": 13,
+  "actual_optimizer_step_executions": 3,
+  "distinct_global_steps": 2,
+  "native_model_process_launches_this_task": 3,
+  "native_model_process_successes": 2,
+  "native_model_process_failures": 1,
+  "shared_parameter": "language_model.model.embed_tokens.weight",
+  "initial_shared_grad_norm": {
+    "ce": 19.242963790893555,
+    "fm": 1.3031394481658936
+  },
+  "training_peak_allocated_bytes": 23670445056,
+  "training_peak_reserved_bytes": 24746393600,
+  "whole_process_sampled_device_peak_mib": 29163,
+  "initial_step_wall_seconds": 15.65763196899934,
+  "reload_exact": {
+    "trainable": true,
+    "optimizer": true,
+    "scheduler": true,
+    "rng": true,
+    "step": true,
+    "data_progress": true,
+    "plan": true,
+    "frozen_base": true
+  },
+  "continuation": {
+    "parameters_exact": true,
+    "parameters_within_preregistered_tolerance": true,
+    "parameter_max_abs_difference": {
+      "language_model.model.embed_tokens.weight": 0.0,
+      "language_model.model.layers.35.self_attn.q_proj.weight": 0.0,
+      "language_model.model.layers.35.self_attn.q_proj.bias": 0.0,
+      "language_model.model.layers.35.self_attn.q_proj_moe_gen.weight": 0.0,
+      "language_model.model.layers.35.self_attn.q_proj_moe_gen.bias": 0.0,
+      "time_embedder.mlp.0.weight": 0.0,
+      "time_embedder.mlp.0.bias": 0.0,
+      "time_embedder.mlp.2.weight": 0.0,
+      "time_embedder.mlp.2.bias": 0.0,
+      "vae2llm.weight": 0.0,
+      "vae2llm.bias": 0.0,
+      "llm2vae.weight": 0.0,
+      "llm2vae.bias": 0.0
+    },
+    "losses_within_preregistered_tolerance": true,
+    "optimizer_exact": true,
+    "scheduler_exact": true,
+    "rng_exact": true,
+    "status": "passed",
+    "loading_cuda_peak_bytes": {
+      "allocated": 30471729152,
+      "reserved": 30815551488
+    }
+  },
+  "decord_status": "known_non_blocking_wheel_metadata_warning_on_verified_paths",
+  "default_full_parameter_training_verified": false,
+  "sharing_benefit_established": false,
+  "P0_accepted": false,
+  "bill_cny": null,
+  "initialization_seed": 20261027,
+  "training_rng_seed": 20261028,
+  "all_artifacts_received": true
+}

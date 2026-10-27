@@ -1,0 +1,160 @@
+[
+  {
+    "task": "ce",
+    "raw_loss": 2.3199303150177,
+    "weighted_loss": 0.579982578754425,
+    "gradients": {
+      "language_model.model.embed_tokens.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 19.242963790893555
+      },
+      "language_model.model.layers.35.self_attn.q_proj.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 0.04690546542406082
+      },
+      "language_model.model.layers.35.self_attn.q_proj.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 0.002263162052258849
+      },
+      "language_model.model.layers.35.self_attn.q_proj_moe_gen.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 0.0
+      },
+      "language_model.model.layers.35.self_attn.q_proj_moe_gen.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 0.0
+      },
+      "time_embedder.mlp.0.weight": {
+        "present": false,
+        "finite": null,
+        "norm": 0.0
+      },
+      "time_embedder.mlp.0.bias": {
+        "present": false,
+        "finite": null,
+        "norm": 0.0
+      },
+      "time_embedder.mlp.2.weight": {
+        "present": false,
+        "finite": null,
+        "norm": 0.0
+      },
+      "time_embedder.mlp.2.bias": {
+        "present": false,
+        "finite": null,
+        "norm": 0.0
+      },
+      "vae2llm.weight": {
+        "present": false,
+        "finite": null,
+        "norm": 0.0
+      },
+      "vae2llm.bias": {
+        "present": false,
+        "finite": null,
+        "norm": 0.0
+      },
+      "llm2vae.weight": {
+        "present": false,
+        "finite": null,
+        "norm": 0.0
+      },
+      "llm2vae.bias": {
+        "present": false,
+        "finite": null,
+        "norm": 0.0
+      }
+    },
+    "required_nonzero": [
+      "language_model.model.embed_tokens.weight",
+      "language_model.model.layers.35.self_attn.q_proj.weight"
+    ],
+    "passed": true
+  },
+  {
+    "task": "fm",
+    "raw_loss": 0.20714610815048218,
+    "weighted_loss": 0.20714610815048218,
+    "gradients": {
+      "language_model.model.embed_tokens.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 1.3031394481658936
+      },
+      "language_model.model.layers.35.self_attn.q_proj.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 0.0
+      },
+      "language_model.model.layers.35.self_attn.q_proj.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 0.0
+      },
+      "language_model.model.layers.35.self_attn.q_proj_moe_gen.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 0.016028329730033875
+      },
+      "language_model.model.layers.35.self_attn.q_proj_moe_gen.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 0.00036027206806465983
+      },
+      "time_embedder.mlp.0.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 0.32274872064590454
+      },
+      "time_embedder.mlp.0.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 0.02852962352335453
+      },
+      "time_embedder.mlp.2.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 0.23630498349666595
+      },
+      "time_embedder.mlp.2.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 0.04837987571954727
+      },
+      "vae2llm.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 0.21206745505332947
+      },
+      "vae2llm.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 0.04837987571954727
+      },
+      "llm2vae.weight": {
+        "present": true,
+        "finite": true,
+        "norm": 1.2210410833358765
+      },
+      "llm2vae.bias": {
+        "present": true,
+        "finite": true,
+        "norm": 0.058766234666109085
+      }
+    },
+    "required_nonzero": [
+      "language_model.model.embed_tokens.weight",
+      "language_model.model.layers.35.self_attn.q_proj_moe_gen.weight",
+      "time_embedder.mlp.0.weight",
+      "time_embedder.mlp.2.weight",
+      "vae2llm.weight",
+      "llm2vae.weight"
+    ],
+    "passed": true
+  }
+]

@@ -1,0 +1,107 @@
+{
+  "all_parameters": 7105548336,
+  "trainable_parameters": 324479024,
+  "last_decoder_layer": 35,
+  "trainable": {
+    "language_model.model.embed_tokens.weight": {
+      "shape": [
+        151936,
+        2048
+      ],
+      "dtype": "torch.float32",
+      "numel": 311164928
+    },
+    "language_model.model.layers.35.self_attn.q_proj.weight": {
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "torch.float32",
+      "numel": 4194304
+    },
+    "language_model.model.layers.35.self_attn.q_proj.bias": {
+      "shape": [
+        2048
+      ],
+      "dtype": "torch.float32",
+      "numel": 2048
+    },
+    "language_model.model.layers.35.self_attn.q_proj_moe_gen.weight": {
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "torch.float32",
+      "numel": 4194304
+    },
+    "language_model.model.layers.35.self_attn.q_proj_moe_gen.bias": {
+      "shape": [
+        2048
+      ],
+      "dtype": "torch.float32",
+      "numel": 2048
+    },
+    "time_embedder.mlp.0.weight": {
+      "shape": [
+        2048,
+        256
+      ],
+      "dtype": "torch.float32",
+      "numel": 524288
+    },
+    "time_embedder.mlp.0.bias": {
+      "shape": [
+        2048
+      ],
+      "dtype": "torch.float32",
+      "numel": 2048
+    },
+    "time_embedder.mlp.2.weight": {
+      "shape": [
+        2048,
+        2048
+      ],
+      "dtype": "torch.float32",
+      "numel": 4194304
+    },
+    "time_embedder.mlp.2.bias": {
+      "shape": [
+        2048
+      ],
+      "dtype": "torch.float32",
+      "numel": 2048
+    },
+    "vae2llm.weight": {
+      "shape": [
+        2048,
+        48
+      ],
+      "dtype": "torch.float32",
+      "numel": 98304
+    },
+    "vae2llm.bias": {
+      "shape": [
+        2048
+      ],
+      "dtype": "torch.float32",
+      "numel": 2048
+    },
+    "llm2vae.weight": {
+      "shape": [
+        48,
+        2048
+      ],
+      "dtype": "torch.float32",
+      "numel": 98304
+    },
+    "llm2vae.bias": {
+      "shape": [
+        48
+      ],
+      "dtype": "torch.float32",
+      "numel": 48
+    }
+  },
+  "shared_candidate": "language_model.model.embed_tokens.weight",
+  "sharing_limit": "UND and GEN Transformer experts have separate QKV/MLP/norm tensors; shared embedding gradients alone do not establish positive transfer"
+}
