@@ -49,3 +49,7 @@ python -m unittest tests.test_research_plan tests.test_stroke_metrics -v
 [CONTRIBUTING](CONTRIBUTING.md)规定文献、当前设计、运行结果和历史的职责。本轮不修改文献主数据或其导出表；不要重跑文献生成器覆盖人工变更。[v2修订记录](docs/evidence/research_revision_v2_2026-10-27.md)列出备份与验证边界。[v1冻结版本](https://github.com/lljjcc426/UMM/tree/199646c6960677f656594b3c542c8eb8aaf890f9)可完整追溯。
 
 校验通过只支持字段、依赖及本地链接正确；不证明数据授权、观察器可靠、GPU可运行或科学假设成立。
+
+## 阶段研究分支
+
+当前 P0 在 `research/p0-stroke-video-foundation` 独立开发，`main` 仅接收完成工程和科研验收、经用户批准的 PR。Codex 执行审批约束见 [AGENTS.md](AGENTS.md)，分支及证据合并标准见 [BRANCH_WORKFLOW.md](docs/project/BRANCH_WORKFLOW.md)。有效正、负结论都可以记录；新阶段实验尚未完成。
