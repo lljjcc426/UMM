@@ -1,0 +1,92 @@
+Traceback (most recent call last):
+  File "/root/umm-env01-20261027-a10080/download-client/urllib3/connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "/root/umm-env01-20261027-a10080/download-client/urllib3/connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "/root/umm-env01-20261027-a10080/download-client/urllib3/connection.py", line 878, in connect
+    wrapped_socket, is_verified = _ssl_wrap_socket_and_match_hostname(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/urllib3/connection.py", line 1080, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/urllib3/util/ssl_.py", line 437, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/urllib3/util/ssl_.py", line 481, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vipuser/miniconda3/lib/python3.12/ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vipuser/miniconda3/lib/python3.12/ssl.py", line 1041, in _create
+    self.do_handshake()
+  File "/home/vipuser/miniconda3/lib/python3.12/ssl.py", line 1319, in do_handshake
+    self._sslobj.do_handshake()
+TimeoutError: _ssl.c:983: The handshake operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/umm-env01-20261027-a10080/download-client/requests/adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/urllib3/connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/urllib3/util/retry.py", line 510, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/root/umm-env01-20261027-a10080/download-client/urllib3/connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/urllib3/connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "/root/umm-env01-20261027-a10080/download-client/urllib3/connectionpool.py", line 472, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=conn.timeout)
+  File "/root/umm-env01-20261027-a10080/download-client/urllib3/connectionpool.py", line 373, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/umm-env01-20261027-a10080/download_weights.py", line 10, in <module>
+    snapshot_download(repo_id=plan['weight_repository'],revision=plan['weight_revision'],allow_patterns=plan['weight_patterns'],local_dir=bundle/'upstream/downloads',max_workers=2)
+  File "/root/umm-env01-20261027-a10080/download-client/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/huggingface_hub/_snapshot_download.py", line 294, in snapshot_download
+    _inner_hf_hub_download(file)
+  File "/root/umm-env01-20261027-a10080/download-client/huggingface_hub/_snapshot_download.py", line 270, in _inner_hf_hub_download
+    return hf_hub_download(
+           ^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/huggingface_hub/file_download.py", line 842, in hf_hub_download
+    return _hf_hub_download_to_local_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/huggingface_hub/file_download.py", line 1138, in _hf_hub_download_to_local_dir
+    _download_to_tmp_and_move(
+  File "/root/umm-env01-20261027-a10080/download-client/huggingface_hub/file_download.py", line 1547, in _download_to_tmp_and_move
+    http_get(
+  File "/root/umm-env01-20261027-a10080/download-client/huggingface_hub/file_download.py", line 371, in http_get
+    r = _request_wrapper(
+        ^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/huggingface_hub/file_download.py", line 303, in _request_wrapper
+    response = get_session().request(method=method, url=url, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/huggingface_hub/utils/_http.py", line 96, in send
+    return super().send(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/download-client/requests/adapters.py", line 742, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: (ReadTimeoutError("HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: befb77c3-61f8-48c3-8ffd-83b27597de6a)')

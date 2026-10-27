@@ -26,7 +26,7 @@ def main() -> None:
     plan = json.loads((ROOT / "configs/research/env01_interface_probe.json").read_text())
     tree = (ROOT / "data/research/audits/env01_static_2026-10-27/source_tree.txt").read_text().splitlines()
     paths = [name for name in tree
-             if (Path(name).suffix in {".py", ".sh", ".yaml", ".yml", ".json"}
+             if (Path(name).suffix in {".py", ".sh", ".yaml", ".yml", ".json", ".md"}
                  or name in {"LICENSE", "README.md", "requirements.txt"})
              and (not name.startswith("benchmarks/") or name == "benchmarks/sample_env.sh")]
     source = bundle / "upstream"
@@ -69,7 +69,7 @@ def main() -> None:
     (bundle / "upstream_manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
     tools = bundle / "tools"
     tools.mkdir(exist_ok=True)
-    for name in ("bootstrap.sh", "run_interfaces.py", "fixtures.py"):
+    for name in ("bootstrap.sh", "run_interfaces.py", "fixtures.py", "check_dependencies.py"):
         shutil.copyfile(ROOT / "scripts/env01" / name, tools / name)
     shutil.copyfile(ROOT / "docs/research/v2/env01_cloud_deployment.md", bundle / "README.md")
     prepare_inputs(bundle, plan)

@@ -1,0 +1,58 @@
+{
+  "scope": "Native inference executability only",
+  "unique_interface_inputs": 3,
+  "total_launch_attempts": 4,
+  "successful_launch_attempts": 3,
+  "failed_launch_attempts": 1,
+  "all_three_interfaces_have_successful_output": true,
+  "attempts": [
+    {
+      "run_id": "20261027T114559963105Z",
+      "task": "x2t_video",
+      "status": "failed",
+      "wall_seconds": 81.04616692199943,
+      "torch_peak_allocated_gib": 28.379009246826172,
+      "torch_peak_reserved_gib": 28.69921875,
+      "sampled_device_peak_mib": 29901.0,
+      "host_peak_rss_gib": 31.402462005615234,
+      "artifact_dir": "cloud/env01-cloud/runs/20261027T114559963105Z/x2t_video"
+    },
+    {
+      "run_id": "20261027T114559963105Z",
+      "task": "t2v",
+      "status": "interface_passed",
+      "wall_seconds": 135.27616766699975,
+      "torch_peak_allocated_gib": 28.379009246826172,
+      "torch_peak_reserved_gib": 35.86328125,
+      "sampled_device_peak_mib": 37257.0,
+      "host_peak_rss_gib": 31.404430389404297,
+      "artifact_dir": "cloud/env01-cloud/runs/20261027T114559963105Z/t2v"
+    },
+    {
+      "run_id": "20261027T114559963105Z",
+      "task": "i2v",
+      "status": "interface_passed",
+      "wall_seconds": 129.17491977100053,
+      "torch_peak_allocated_gib": 28.379009246826172,
+      "torch_peak_reserved_gib": 29.626953125,
+      "sampled_device_peak_mib": 30863.0,
+      "host_peak_rss_gib": 31.37419891357422,
+      "artifact_dir": "cloud/env01-cloud/runs/20261027T114559963105Z/i2v"
+    },
+    {
+      "run_id": "20261027T115314642365Z",
+      "task": "x2t_video",
+      "status": "interface_passed",
+      "wall_seconds": 88.06394590000036,
+      "torch_peak_allocated_gib": 28.379009246826172,
+      "torch_peak_reserved_gib": 28.69921875,
+      "sampled_device_peak_mib": 29901.0,
+      "host_peak_rss_gib": 31.383037567138672,
+      "artifact_dir": "cloud/env01-cloud/runs/20261027T115314642365Z/x2t_video"
+    }
+  ],
+  "native_wall_seconds_sum_including_failure_and_loading": 433.5612002600001,
+  "full_ENV_01_accepted": false,
+  "P0_accepted": false,
+  "bill_cny": null
+}

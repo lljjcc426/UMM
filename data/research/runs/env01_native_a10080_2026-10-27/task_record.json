@@ -1,0 +1,308 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "experiment_id": "ENV-01",
+  "subtask": "approved three native inference interfaces only",
+  "status": "approved_native_interface_subtask_completed_with_limits",
+  "branch": "research/p0-stroke-video-foundation",
+  "local_code_commit_at_start": "8e23c621",
+  "user_authorization": "Prior task approval and cost unconstrained; current user supplied rented A10080 and SSH credentials",
+  "actual_gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_count": 1,
+  "remote_task_root": "/root/umm-env01-20261027-a10080",
+  "hardware_evidence": "host_inventory.json",
+  "planned_interface_inputs": {
+    "x2t_video": 1,
+    "t2v": 1,
+    "i2v": 1
+  },
+  "actual_model_attempts": 4,
+  "cost": {
+    "billed_cny": null,
+    "spending_cap_cny": null,
+    "billing_source": "pending platform bill",
+    "visible_execution_window_start_utc": "2026-10-27T09:47:19+00:00",
+    "evidence_collection_utc": "2026-10-27T11:57:31.167673+00:00",
+    "native_wall_seconds_including_failure_and_loading": 433.5612002600001,
+    "instance_uptime_at_collection_seconds": 8054.31,
+    "note": "Parallel setup/download/build durations cannot be summed as billed rental duration; provider bill remains unknown"
+  },
+  "credentials_recorded": false,
+  "git_remote_push_performed": false,
+  "preflight_debug": [
+    {
+      "issue": "Noninteractive SSH PATH omits installed CUDA and Conda",
+      "resolution": "Explicitly set PATH, CUDA_HOME and toolkit library path in launch environment"
+    },
+    {
+      "issue": "Preinstalled Python3.12 has no huggingface-hub package",
+      "resolution": "Use approved fresh Python3.11 runtime; do not assume image package list is complete"
+    }
+  ],
+  "network_preflight": {
+    "huggingface_official_api": 200,
+    "pytorch_cu124_index": 200,
+    "pypi_index": 200,
+    "note": "HEAD requests from the actual GPU host"
+  },
+  "execution_notes": [
+    "Dependency installation and public weight download run in parallel using separate Python package directories. Both clients use the same pinned revision and shared Hugging Face file locks.",
+    "Selected main, ViT and VAE weights have all downloaded; model has not run yet. Main checkpoint was range-repaired and verified once; ordinary SDK-completed assets were not redundantly hashed."
+  ],
+  "environment_attempts": [
+    {
+      "attempt": 1,
+      "status": "interrupted_for_package_index_retry",
+      "exit_code": 143,
+      "elapsed_seconds": 1011,
+      "note": "Exact original download stall cause unproven; retained full first installer log"
+    },
+    {
+      "attempt": 2,
+      "status": "interrupted_for_wandb_compatibility_pin",
+      "package_index": "https://pypi.tuna.tsinghua.edu.cn/simple",
+      "torch_index": "https://download.pytorch.org/whl/cu124",
+      "exit_code": 143,
+      "elapsed_seconds": 632
+    },
+    {
+      "attempt": 3,
+      "status": "interrupted_for_scipy_compatibility_pin",
+      "wandb": "0.19.11",
+      "reason": "Constrain unpinned logging dependency to satisfy upstream protobuf3.20.3",
+      "exit_code": 143,
+      "elapsed_seconds": 332
+    },
+    {
+      "attempt": 4,
+      "status": "interrupted_after_requirements_not_a_complete_setup",
+      "wandb": "0.19.11",
+      "scipy": "1.15.3",
+      "reason": "Avoid observed scipy backtracking against numpy1.23.5; official PyPI1.15.3 metadata permits numpy>=1.23.5,<2.5",
+      "reason_for_pause": "Prevent duplicate FlashAttention build while dedicated wheel process compiles",
+      "raw_reported_exit_code": 0,
+      "elapsed_seconds": 583,
+      "note": "Old EXIT trap captured previous command status0 when terminated; later stages absent. Retained raw status and log; do not count as successful setup. TERM/INT traps corrected after this observation."
+    },
+    {
+      "attempt": 5,
+      "status": "failed_packaging_tag_check",
+      "exit_code": 1,
+      "elapsed_seconds": 9.338042491999659,
+      "reason": "pip26 reports Decord0.6 embedded cp36 tag although official wheel filename says py3-none; library imports under Python3.11",
+      "log": "cloud/bootstrap-final-attempt05.log"
+    },
+    {
+      "attempt": 6,
+      "status": "setup_completed_with_known_packaging_warning",
+      "purpose": "Retain original pip failure, verify actual fixture decoding, then run approved interfaces; no package metadata patch",
+      "exit_code": 0,
+      "elapsed_seconds": 8.099862777999988
+    }
+  ],
+  "weight_transfer_attempts": [
+    {
+      "attempt": 1,
+      "status": "interrupted_for_acceleration",
+      "preserved_partial_bytes": 429916160
+    },
+    {
+      "attempt": 2,
+      "status": "interrupted_after_three_10MiB_holes_stalled",
+      "huggingface_hub": "0.29.1",
+      "hf_transfer": "0.1.9",
+      "same_pinned_revision": true
+    },
+    {
+      "attempt": 3,
+      "status": "main_checkpoint_repaired_and_verified",
+      "missing_ranges": 3,
+      "recovered_bytes": 31457280,
+      "full_hash_passes": 1,
+      "reason_for_single_hash": "Necessary to verify manually completed sparse transfer against pinned official LFS fingerprint"
+    },
+    {
+      "attempt": 4,
+      "status": "failed",
+      "purpose": "Remaining ViT and VAE assets",
+      "transfer_concurrency": 8,
+      "reason": "TLS handshake/read timeout at CDN",
+      "elapsed_seconds": 13.287844095000082
+    },
+    {
+      "attempt": 5,
+      "status": "download_completed",
+      "purpose": "Retry remaining assets after observed network timeout",
+      "transfer_concurrency": 8,
+      "download_timeout_seconds": 90,
+      "etag_timeout_seconds": 30,
+      "elapsed_seconds": 374.039287824
+    }
+  ],
+  "file_change_explanations": {
+    "AGENTS.md": "Update only current P0 execution status; task approval, branch discipline and science requirements unchanged",
+    "tests/test_research_v2.py": "Make design-only and missing-evidence fixtures explicit now that the live registry contains running work",
+    "configs/research/env01_interface_probe.json": "Record actual A10080 allocation, compatible environment pins and narrowly scoped successful inference evidence with known packaging warning",
+    "configs/research/stroke_video_v2.json": "Mark execution started and native inference runtime verified only; leave gradient/reload and training budget unverified",
+    "data/research/experiments_v2.json": "Register completed inference subtask evidence; keep full ENV running and all16 other experiments planned",
+    "docs/project/STATUS.md": "Report actual inference, retained failures, single-case content errors and unaccepted ENV/P0 status",
+    "docs/research/v2/env01_cloud_deployment.md": "Record tested configuration and compatibility limitations; label old archives as historical snapshots and give current rebuild instructions",
+    "data/research/runs/env01_native_a10080_2026-10-27/": "Retain approved plan, actual host inventory, all setup and model attempts, raw outputs and report",
+    "scripts/env01/bootstrap.sh": "Fix observed W&B/SciPy backtracking, Ninja PATH, compile concurrency, driver linker name and download timeouts; freeze all build/runtime packages; retain Decord check warning with real decode; correct observed TERM/INT false success status",
+    "scripts/env01/repair_weight_ranges.py": "Recover three observed unwritten ranges from the official pinned URL and verify the repaired main checkpoint exactly once",
+    "docs/project/stages/P0.md": "Update stale no-execution sentence; acceptance requirements unchanged",
+    "docs/research/v2/env01_native_interface_report_2026-10-27.md": "Document measured hardware, setup failures, actual interface outcomes and limits, with no P0 acceptance claim",
+    "data/research/runs/env01_native_a10080_2026-10-27/cloud_controller.py": "Continue the already approved installer and three fixed interface probes after dedicated extension build; retain failures",
+    "data/research/runs/env01_native_a10080_2026-10-27/export_cloud_evidence.py": "Collect this task only; exclude weights, environments and caches without deleting remote files",
+    "docs/research/v2/implementation.md": "Replace stale waiting-for-instance/planned statements with actual deployment progress; training and full ENV acceptance remain pending",
+    "README.md": "Update experiment status and link actual ENV-01 records; retain PX-01 evidence",
+    "docs/research/v2/README.md": "Update P0 table to approved inference execution and pending gradient/reload authorization",
+    "data/research/runs/env01_native_a10080_2026-10-27/cloud_progress.py": "Read active build/run progress and retain sampled available memory after the observed eight-job memory failure; no model execution changes",
+    "scripts/env01/check_dependencies.py": "Retain observed pip platform-tag failure, permit only that known Decord metadata inconsistency after actual33-frame RGB decoding; other dependency errors stop",
+    "scripts/env01/prepare_bundle.py": "Include dependency evidence helper and pinned Markdown documentation, preventing observed offline broken-link failures in exported source",
+    "scripts/env01/run_interfaces.py": "Support selecting only failed approved interfaces for a fresh recorded retry, with requested-task denominator; preserve successful outputs without repeating them",
+    "data/research/runs/env01_native_a10080_2026-10-27/cloud/": "Preserve full cloud source, helper versions, setup/build/download failures, two immutable native runs, metrics, raw answers/videos and preview failure; omit large weights/runtime/caches without deleting them",
+    "data/research/runs/env01_native_a10080_2026-10-27/post_run_documentation_sources.json": "Record four same-revision documents added after execution solely to complete offline links; no dataset or training executed"
+  },
+  "files_deleted": [],
+  "extension_build_attempts": [
+    {
+      "attempt": 1,
+      "status": "interrupted_after_detected_sequential_build",
+      "reason": "Runtime bin missing from PATH; Ninja unavailable to compiler launcher",
+      "log": "cloud/flash-attn-wheel.log"
+    },
+    {
+      "attempt": 2,
+      "status": "interrupted_to_increase_concurrency_after_34_objects",
+      "MAX_JOBS": 4,
+      "reason": "Expose runtime bin in PATH; measured ~40GiB available before launch",
+      "log": "cloud/flash-attn-wheel-ninja.log"
+    },
+    {
+      "attempt": 3,
+      "status": "interrupted_for_memory_exhaustion",
+      "MAX_JOBS": 8,
+      "available_memory_at_intervention_mib": 27,
+      "swap_used_gib": 5.9,
+      "oom_kill_confirmed": false,
+      "reason": "Instantaneous four-job memory samples underestimated compiler peaks",
+      "log": "cloud/flash-attn-wheel-ninja-8.log"
+    },
+    {
+      "attempt": 4,
+      "status": "wheel_built_and_installed",
+      "MAX_JOBS": 4,
+      "log": "cloud/flash-attn-wheel-ninja-recovery.log",
+      "reason": "Restore concurrency within host capacity; reuse completed objects"
+    }
+  ],
+  "engineering_validation": {
+    "unit_tests": {
+      "passed": 50,
+      "failed": 0,
+      "duration_seconds": 0.161,
+      "log": "checks/unit_tests-attempt02.log",
+      "scope": "Repository regression tests; no scientific accuracy validation"
+    },
+    "other_required_checks": "completed locally; P0 release remains in_progress",
+    "bootstrap_shell_syntax": {
+      "command": "bash -n scripts/env01/bootstrap.sh",
+      "exit_code": 0
+    },
+    "known_upstream_packaging_check_failure": "pip check exit1 for Decord metadata; actual33-frame decode passed, original check retained. Full packaging validation is not clean.",
+    "prior_unit_tests": {
+      "command": "python -m unittest discover -s tests -v",
+      "passed": 50,
+      "failed": 0,
+      "duration_seconds": 0.261,
+      "scope": "Repository tests; no model/scientific validation"
+    },
+    "required_local_checks": {
+      "catalog": "passed",
+      "research_v1": "passed",
+      "research_v2": "passed",
+      "stage_release_development": "passed",
+      "shell_syntax": "passed",
+      "maintained_code_diff_whitespace": "passed",
+      "logs": [
+        "checks/attempt01.json",
+        "checks/attempt02.json"
+      ],
+      "github_CI_run": false
+    },
+    "first_final_check_failure": {
+      "checks": [
+        "catalog",
+        "unit_tests"
+      ],
+      "reason": "Three linked upstream Markdown docs absent from limited deployment, plus one transitive link",
+      "resolution": "Added four documents from same pinned source; originals and native outputs unchanged",
+      "sources": "post_run_documentation_sources.json"
+    }
+  },
+  "native_run_ids": [
+    "20261027T114559963105Z",
+    "20261027T115314642365Z"
+  ],
+  "known_environment_limitations": [
+    {
+      "package": "decord0.6.0",
+      "issue": "Published py3-none wheel embeds cp36-cp36m tag; pip26 reports unsupported platform",
+      "original_pip_check_exit_code": 1,
+      "actual_decode_shape": [
+        33,
+        480,
+        848,
+        3
+      ],
+      "package_metadata_modified": false,
+      "interpretation": "Actual fixture decoding passed; packaging check is not fully clean; no full ENV/P0 acceptance"
+    }
+  ],
+  "native_initial_results": {
+    "run_id": "20261027T114559963105Z",
+    "attempts": 3,
+    "passed": [
+      "t2v",
+      "i2v"
+    ],
+    "failed": [
+      "x2t_video"
+    ],
+    "reason_for_x2t_failure": "Triton could not link 64-bit -lcuda; added previously absent libcuda.so -> existing libcuda.so.1"
+  },
+  "native_retry_scope": [
+    "x2t_video"
+  ],
+  "cloud_system_changes": [
+    {
+      "created": "/lib/x86_64-linux-gnu/libcuda.so",
+      "target": "libcuda.so.1",
+      "reason": "Fix observed Triton -lcuda linker failure; existing driver binary unchanged"
+    }
+  ],
+  "result_summary": "interface_results.json",
+  "qualitative_observations": "qualitative_observations.json",
+  "source_comparison": "source_comparison.json",
+  "report": "docs/research/v2/env01_native_interface_report_2026-10-27.md",
+  "full_ENV_01_accepted": false,
+  "P0_accepted": false,
+  "cloud_evidence_received": true,
+  "cloud_instance_left_running": true,
+  "native_retry_result": {
+    "run_id": "20261027T115314642365Z",
+    "selected_tasks": [
+      "x2t_video"
+    ],
+    "attempts": 1,
+    "passed": 1,
+    "not_repeated": [
+      "t2v",
+      "i2v"
+    ]
+  },
+  "post_run_changes_not_reexecuted_as_a_full_setup": [
+    "Explicit TERM/INT traps; validated by shell syntax check, original interrupted status remains unchanged"
+  ]
+}

@@ -3,7 +3,7 @@
   "protocol_id": "stroke-video-v2",
   "created_on": "2026-10-27",
   "supersedes": "stroke-video-v1",
-  "status": "design_only",
+  "status": "execution_started",
   "current_phase": "P0",
   "research_focus": "method_driven_observable_stroke_execution",
   "primary_protocol": "T",
@@ -38,7 +38,7 @@
     "note": "Project discussion criteria; no performance claim. Freeze thresholds and core contrasts before held-out evaluation."
   },
   "budget": {"configured": false, "gpu_model": null, "gpu_count": null, "max_gpu_hours": null},
-  "models": {"primary": {"name": "Lance_3B_Video", "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997", "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056", "runtime_verified": false}},
+  "models": {"primary": {"name": "Lance_3B_Video", "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997", "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056", "runtime_verified": true, "verification_scope": "three_native_inference_interfaces_only_with_decord_packaging_warning", "gradient_reload_verified": false, "runtime_evidence": "data/research/runs/env01_native_a10080_2026-10-27/interface_results.json"}},
   "resource_constraints": {
     "source": "user_confirmed_2026-10-27",
     "max_gpu_count": 1,
@@ -46,11 +46,12 @@
     "max_gpu_host_ram_gb": 48,
     "waiting_for_other_gpu_models_allowed": true,
     "recommended_gpu_for_runtime_verification": "NVIDIA A100-SXM4-80GB",
-    "current_rental_candidate": "NVIDIA A100-SXM4-40GB",
+    "current_rental_candidate": "NVIDIA A100-SXM4-80GB",
     "current_image_candidate": "ubuntu22_cuda12.4",
+    "actual_allocation": {"gpu_model": "NVIDIA A100-SXM4-80GB", "gpu_count": 1, "visible_vram_mib": 81920, "cpu_cores": 16, "host_ram_bytes": 50470645760, "cuda_toolkit": "12.4.99", "driver": "550.127.05", "evidence": "data/research/runs/env01_native_a10080_2026-10-27/host_inventory.json"},
     "cloud_rental_approved": true,
     "cloud_approval_scope": "ENV-01 three native inference interfaces; no training or remote push",
-    "spending_policy": "User approved cost unconstrained for this task; no instance rented yet",
+    "spending_policy": "User approved cost unconstrained for this three-interface task; actual A10080 allocation verified, billed cost pending",
     "catalog": "data/research/audits/env01_static_2026-10-27/cloud_resources.json"
   },
   "documents": {

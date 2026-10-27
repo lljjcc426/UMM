@@ -1,0 +1,42 @@
+Collecting huggingface-hub==0.29.1
+  Downloading huggingface_hub-0.29.1-py3-none-any.whl.metadata (13 kB)
+Collecting filelock (from huggingface-hub==0.29.1)
+  Downloading filelock-4.2.4-py3-none-any.whl.metadata (2.0 kB)
+Collecting fsspec>=2023.5.0 (from huggingface-hub==0.29.1)
+  Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting packaging>=20.9 (from huggingface-hub==0.29.1)
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyyaml>=5.1 (from huggingface-hub==0.29.1)
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting requests (from huggingface-hub==0.29.1)
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting tqdm>=4.42.1 (from huggingface-hub==0.29.1)
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting typing-extensions>=3.7.4.3 (from huggingface-hub==0.29.1)
+  Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting charset_normalizer<4,>=2 (from requests->huggingface-hub==0.29.1)
+  Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+Collecting idna<4,>=2.5 (from requests->huggingface-hub==0.29.1)
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting urllib3<3,>=1.26 (from requests->huggingface-hub==0.29.1)
+  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting certifi>=2023.5.7 (from requests->huggingface-hub==0.29.1)
+  Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+Downloading huggingface_hub-0.29.1-py3-none-any.whl (468 kB)
+Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 3.2 MB/s eta 0:00:00
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading filelock-4.2.4-py3-none-any.whl (162 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+Installing collected packages: urllib3, typing-extensions, tqdm, pyyaml, packaging, idna, fsspec, filelock, charset_normalizer, certifi, requests, huggingface-hub
+Successfully installed certifi-2026.10.23 charset_normalizer-3.5.2 filelock-4.2.4 fsspec-2026.9.0 huggingface-hub-0.29.1 idna-3.20 packaging-26.3 pyyaml-6.0.3 requests-2.34.2 tqdm-4.70.1 typing-extensions-4.16.0 urllib3-2.8.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files:  18%|█▊        | 2/11 [00:05<00:25,  2.79s/it]Fetching 11 files:  36%|███▋      | 4/11 [00:07<00:13,  1.89s/it]Fetching 11 files:  55%|█████▍    | 6/11 [00:10<00:09,  1.83s/it]Fetching 11 files:  64%|██████▎   | 7/11 [00:30<00:17,  4.29s/it]Error while downloading from https://us.aws.cdn.hf.co/xet-bridge-us/6a06d3e548c1f043b6a4239d/285b0abbad9fcef1f49ebb457505b6864c56231037b5a6bb23e0c907a3c7b3e2?X-Xet-Cas-Uid=public&response-content-disposition=inline%3B+filename*%3DUTF-8%27%27vit.safetensors%3B+filename%3D%22vit.safetensors%22%3B&user_id=public&xip=Sm1jSTBsCvM&Expires=1793098240&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly91cy5hd3MuY2RuLmhmLmNvL3hldC1icmlkZ2UtdXMvNmEwNmQzZTU0OGMxZjA0M2I2YTQyMzlkLzI4NWIwYWJiYWQ5ZmNlZjFmNDllYmI0NTc1MDViNjg2NGM1NjIzMTAzN2I1YTZiYjIzZTBjOTA3YTNjN2IzZTJcXD9YLVhldC1DYXMtVWlkPXB1YmxpYyZyZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPWlubGluZSUzQitmaWxlbmFtZSUyQSUzRFVURi04JTI3JTI3dml0LnNhZmV0ZW5zb3JzJTNCK2ZpbGVuYW1lJTNEJTIydml0LnNhZmV0ZW5zb3JzJTIyJTNCJnVzZXJfaWQ9cHVibGljJnhpcD1TbTFqU1RCc0N2TSIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiRXBvY2hUaW1lIjoxNzkzMDk4MjQwfX19XX0_&Signature=MEUCIQCoQBXq6UL9BrqZqU6QBHbDGEPjoXIRaUh3laMlhsixjwIgF%7E3t7S4h-ZzcdsfCikzhO%7EQIGDi1szxaVDXOJGX%7E818_&Key-Pair-Id=01KXEF4KZ1B6FV465MAWR4M21F&Hash-Algorithm=SHA256: HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Read timed out.
+Trying to resume download...

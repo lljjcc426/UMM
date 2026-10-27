@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/root/umm-env01-20261027-a10080/cloud_controller.py", line 48, in <module>
+    run_step('setup_final', ['bash', str(BUNDLE / 'tools/bootstrap.sh')], 'bootstrap-final.log')
+  File "/root/umm-env01-20261027-a10080/cloud_controller.py", line 28, in run_step
+    raise RuntimeError(f'{name} exited {code}; retain the complete log')
+RuntimeError: setup_final exited 1; retain the complete log

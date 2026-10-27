@@ -60,11 +60,14 @@ class V2Contracts(unittest.TestCase):
         self.check_bad('required v2')
 
     def test_no_unsupported_sharing_claim(self):
+        self.config['status'] = 'design_only'
         self.config['sharing_benefit_established'] = True
         self.check_bad('sharing benefit')
 
     def test_schema_rejects_fabricated_completion(self):
         self.registry['experiments'][0]['status'] = 'completed'
+        self.registry['experiments'][0]['run_records'] = []
+        self.registry['experiments'][0]['result_artifacts'] = []
         self.check_bad('completed requires')
 
     def test_invalid_top_level(self):

@@ -10,16 +10,23 @@ finish() {
     local code=$?
     trap - EXIT
     local elapsed=$(( $(date +%s) - SETUP_STARTED ))
-    printf '{"exit_code":%s,"elapsed_seconds":%s,"weights_downloaded_on":"cloud"}\n' "$code" "$elapsed" > "$SETUP_DIR/status.json"
+    printf '{"exit_code":%s,"elapsed_seconds":%s,"weights_downloaded_on":"cloud","dependency_check":"dependency-check.json"}\n' "$code" "$elapsed" > "$SETUP_DIR/status.json"
     exit "$code"
 }
 trap finish EXIT
+trap 'exit 143' TERM
+trap 'exit 130' INT
 set -x
 uname -a
 nvidia-smi | tee "$SETUP_DIR/nvidia-smi.txt"
 nvcc --version
 df -h "$BUNDLE_DIR"
 free -h
+# This provider image exposes the driver .so.1 but can omit the 64-bit linker name.
+if [[ ! -e /lib/x86_64-linux-gnu/libcuda.so && -e /lib/x86_64-linux-gnu/libcuda.so.1 ]]; then
+    ln -s libcuda.so.1 /lib/x86_64-linux-gnu/libcuda.so
+    readlink -f /lib/x86_64-linux-gnu/libcuda.so
+fi
 
 ENV_DIR="$BUNDLE_DIR/runtime"
 if [[ ! -x "$ENV_DIR/bin/python" ]]; then
@@ -31,13 +38,16 @@ if [[ ! -x "$ENV_DIR/bin/python" ]]; then
     fi
 fi
 PYTHON="$ENV_DIR/bin/python"
+export PATH="$ENV_DIR/bin:$PATH"
+export HF_HUB_DOWNLOAD_TIMEOUT="${HF_HUB_DOWNLOAD_TIMEOUT:-90}"
+export HF_HUB_ETAG_TIMEOUT="${HF_HUB_ETAG_TIMEOUT:-30}"
 "$PYTHON" -m pip install --upgrade pip setuptools wheel ninja packaging psutil
 "$PYTHON" -m pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu124
-"$PYTHON" -m pip install -r "$BUNDLE_DIR/upstream/requirements.txt"
-# Limit CPU compilation parallelism to fit the available 48 GB host RAM.
-MAX_JOBS=2 "$PYTHON" -m pip install flash-attn==2.6.3 --no-build-isolation
-"$PYTHON" -m pip check
-"$PYTHON" -m pip freeze > "$SETUP_DIR/pip-freeze.txt"
+# Resolve upstream's unpinned packages against its protobuf/numpy constraints.
+"$PYTHON" -m pip install -r "$BUNDLE_DIR/upstream/requirements.txt" wandb==0.19.11 scipy==1.15.3
+# Four Ninja jobs fit measured free memory on the 16-core/48 GB host.
+MAX_JOBS=4 "$PYTHON" -m pip install flash-attn==2.6.3 --no-build-isolation --find-links "$BUNDLE_DIR/wheelhouse"
+"$PYTHON" -m pip freeze --all > "$SETUP_DIR/pip-freeze.txt"
 "$PYTHON" - "$BUNDLE_DIR" <<'PY'
 import json
 from pathlib import Path
@@ -50,4 +60,5 @@ snapshot_download(repo_id=plan["weight_repository"], revision=plan["weight_revis
                   max_workers=2)
 PY
 "$PYTHON" "$BUNDLE_DIR/tools/fixtures.py" --bundle "$BUNDLE_DIR" --encode-video
+"$PYTHON" "$BUNDLE_DIR/tools/check_dependencies.py" --bundle "$BUNDLE_DIR" --setup "$SETUP_DIR"
 printf 'Setup completed. Run: %q %q --bundle %q\n' "$PYTHON" "$BUNDLE_DIR/tools/run_interfaces.py" "$BUNDLE_DIR"

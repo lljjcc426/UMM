@@ -136,6 +136,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--bundle", type=Path, required=True)
     parser.add_argument("--dry-run", action="store_true", help="Print commands without importing GPU libraries")
+    parser.add_argument("--tasks", nargs="+", choices=("x2t_video", "t2v", "i2v"),
+                        help="Retry selected approved interfaces without repeating successful ones")
     parser.add_argument("--worker-task", choices=("x2t_video", "t2v", "i2v"), help=argparse.SUPPRESS)
     parser.add_argument("--attempt", type=Path, help=argparse.SUPPRESS)
     args = parser.parse_args()
@@ -143,8 +145,9 @@ def main() -> int:
     plan = json.loads((bundle / "plan.json").read_text())
     if args.worker_task:
         return worker(bundle, args.attempt.resolve(), args.worker_task, plan)
+    tasks = [task for task in plan["tasks"] if args.tasks is None or task in args.tasks]
     if args.dry_run:
-        for task in plan["tasks"]:
+        for task in tasks:
             print(json.dumps({"task": task, "argv": inference_args(bundle, bundle / "inputs",
                              bundle / "runs/EXAMPLE" / task / "outputs", task, plan)}, ensure_ascii=False))
         return 0
@@ -153,7 +156,8 @@ def main() -> int:
     run = bundle / "runs" / run_id
     run.mkdir(parents=True, exist_ok=False)
     summary = {"experiment_id": "ENV-01", "run_id": run_id, "status": "running",
-               "approved_scope": plan["scope"], "plan": plan, "attempts": [], "sample_denominator": 3,
+               "approved_scope": plan["scope"], "plan": plan, "attempts": [], "sample_denominator": len(tasks),
+               "selected_tasks": tasks, "not_selected_tasks": [task for task in plan["tasks"] if task not in tasks],
                "started_at_utc": datetime.now(timezone.utc).isoformat(),
                "setup_attempts": sorted(path.name for path in (bundle / "setup").glob("*")),
                "cost": {"spending_cap_cny": None, "actual_billed_cny": None,
@@ -175,7 +179,7 @@ def main() -> int:
                    HF_HUB_OFFLINE="1", TRANSFORMERS_OFFLINE="1", WANDB_MODE="disabled")
         for key in ("RANK", "WORLD_SIZE", "LOCAL_RANK"):
             env.pop(key, None)
-        for task in plan["tasks"]:
+        for task in tasks:
             attempt = run / task
             attempt.mkdir()
             command = [sys.executable, str(Path(__file__).resolve()), "--bundle", str(bundle),
@@ -234,9 +238,9 @@ def main() -> int:
         traceback.print_exc()
     finally:
         passed = sum(row["status"] == "interface_passed" for row in summary["attempts"])
-        summary.update(status="interfaces_passed" if passed == 3 else "incomplete_or_failed",
+        summary.update(status="interfaces_passed" if passed == len(tasks) else "incomplete_or_failed",
                        passed_interfaces=passed, attempted_interfaces=len(summary["attempts"]),
-                       unattempted_tasks=[t for t in plan["tasks"] if t not in [a["task"] for a in summary["attempts"]]],
+                       unattempted_tasks=[t for t in tasks if t not in [a["task"] for a in summary["attempts"]]],
                        elapsed_seconds=time.perf_counter() - started,
                        finished_at_utc=datetime.now(timezone.utc).isoformat())
         save_json(run / "summary.json", summary)
