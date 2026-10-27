@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "catalog",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_catalog.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.2482650410020142,
+      "log": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/catalog_attempt01.log"
+    },
+    {
+      "name": "research_v1",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_research_plan.py",
+        "--output",
+        "data/research/runs/p0_human_review_preparation_2026-10-28/checks/research_v1_result.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.019928333000279963,
+      "log": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/research_v1_attempt01.log"
+    },
+    {
+      "name": "research_v2",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_research_v2.py",
+        "--output",
+        "data/research/runs/p0_human_review_preparation_2026-10-28/checks/research_v2_result.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.020080041002074722,
+      "log": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/research_v2_attempt01.log"
+    },
+    {
+      "name": "stage_release",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_stage_release.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.01801908299967181,
+      "log": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/stage_release_attempt01.log"
+    },
+    {
+      "name": "unit_tests",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.3970700409990968,
+      "log": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/unit_tests_attempt01.log"
+    }
+  ],
+  "actual_local_browser_operation_test": "../ui_operation_test.json",
+  "remote_CI_run": false,
+  "scope": "Engineering checks only; no science acceptance or human gold inferred",
+  "post_metadata_revision": {
+    "unit_test_exit_code": 0,
+    "unit_test_count": 61,
+    "unit_test_log": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/unit_tests_attempt02_metadata.log",
+    "catalog_exit_code": 0,
+    "catalog_log": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/catalog_attempt02_metadata.log",
+    "reason": "PNG attribution preservation correction; prior checks retained"
+  },
+  "post_restore_revision": {
+    "unit_test_exit_code": 0,
+    "unit_test_count": 62,
+    "unit_test_log": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/unit_tests_attempt03_restore.log",
+    "reason": "Fresh-store export restore corrected and tested; saved human objects unchanged and position restored",
+    "catalog_exit_code": 0,
+    "catalog_log": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/catalog_attempt03_final.log"
+  }
+}

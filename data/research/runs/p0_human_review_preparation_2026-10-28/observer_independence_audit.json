@@ -1,0 +1,40 @@
+{
+  "observe_arguments": [
+    "frames",
+    "masks",
+    "progress",
+    "thresholds"
+  ],
+  "event_log_arguments": false,
+  "filenames_or_sample_ID_arguments": false,
+  "construction_labels_joined_after_observation": true,
+  "raw_RGB_decoding": "Pillow RGB conversion; PNG text metadata not passed to observer",
+  "reference_dependency": "Renderer and observer both call stroke_geometry with the same canonical masks and median projection; reference geometry is privileged G1 information",
+  "independence_levels": {
+    "event_schedule": "separate from actual observer input",
+    "geometry_algorithm": "shared, not independent",
+    "source_library": "one shared Arphic lineage",
+    "independent_human_truth": "not established",
+    "independent_model_output_domain": "not tested"
+  },
+  "zero_over_64": {
+    "group": "one character-source template with all 22 negative/control variants grouped",
+    "event": "any negative video confidently accepted as correct",
+    "bound95": 0.045729702330762456,
+    "assumptions": [
+      "Distinct sampled character groups treated as independent Bernoulli trials",
+      "Same fixed case suite and geometry/renderer limits apply to all groups",
+      "No weighting of correlated variants or individual frames as extra independent trials",
+      "Exact common-binomial interpretation additionally assumes a common/exchangeable group risk; balanced stroke strata and shared source challenge IID population interpretation"
+    ],
+    "limits": [
+      "Shared strokes/radicals/font/renderer may correlate group failures",
+      "One source cluster cannot estimate between-source uncertainty",
+      "Finite stratified sample from this source; no general guarantee for real handwriting",
+      "Construction truth and human judgments may differ; original automatic result remains provisional"
+    ],
+    "interpretation": "4.57297% is conditional on the stated group model and controlled source suite; empirical independence and cross-source validity have not been established"
+  },
+  "old_observer_and_thresholds_changed": false,
+  "heldout_scoring_rerun": false
+}

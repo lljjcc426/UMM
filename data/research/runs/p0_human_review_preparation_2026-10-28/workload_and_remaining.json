@@ -1,0 +1,86 @@
+{
+  "status": "prepared_waiting_for_human",
+  "formal_completed_normative": 0,
+  "formal_completed_RGB": 0,
+  "prior_global_records": {
+    "normative": 6,
+    "RGB": 32,
+    "total": 38,
+    "formal_credited": 0
+  },
+  "practice": {
+    "characters": [
+      "犬",
+      "怀",
+      "热",
+      "蔽"
+    ],
+    "normative": 4,
+    "RGB": 12,
+    "separate_from_formal": true,
+    "tutorial_optional_RGB": 11
+  },
+  "priority_batches": [
+    {
+      "batch": "A",
+      "characters": 64,
+      "normative": 64,
+      "RGB": 1408,
+      "purpose": "Controlled observer holdout; normative before RGB",
+      "stroke_strata_characters": {
+        "2-5": 16,
+        "6-8": 16,
+        "9-12": 16,
+        "13-20": 16
+      },
+      "RGB_per_stratum": 352,
+      "RGB_per_construction_type": 128
+    },
+    {
+      "batch": "B",
+      "characters": 64,
+      "normative": 64,
+      "RGB": 704,
+      "purpose": "Development reference audit; includes already exposed tutorial/practice characters; excluded from independent holdout"
+    },
+    {
+      "batch": "C",
+      "characters": 512,
+      "normative": 512,
+      "RGB": 640,
+      "purpose": "Main-learning candidates; not claimed scientifically ready until human/source requirements met"
+    }
+  ],
+  "total_remaining": {
+    "characters": 640,
+    "normative_tasks": 640,
+    "RGB": 2752,
+    "formal_tasks": 3392,
+    "note": "Existing pre-protocol records do not reduce prospective formal count; practice adds4+12 repeated-task exercises. Full budget assumes census, no unexamined sampled-out videos credited."
+  },
+  "controlled_alternative_remaining": {
+    "characters": 128,
+    "normative": 128,
+    "RGB": 2112,
+    "phase_scope_change_requires_user_acceptance": true
+  },
+  "media_duration_minutes": 243.9121000000006,
+  "holdout_media_duration_minutes": 106.94826666666708,
+  "duration_limit": "One-pass media runtime only; annotation, reference lookup, replay and arbitration time not measured",
+  "seed": 2026102801,
+  "frozen_at_utc": "2026-10-27T17:49:56.463717+00:00",
+  "sampling": "Existing groups audited as census within chosen scope. Four stroke-count strata interleaved with seeded shuffled order; no post-result sample selection. No new media generated.",
+  "primary_and_secondary_answers_separate": true,
+  "secondary_reviewer_available": false,
+  "secondary_recommended_additional_work": {
+    "normative": 64,
+    "RGB": 1408,
+    "character_groups": 64
+  },
+  "live_review_url": "http://127.0.0.1:8766/",
+  "legacy_review_retained_url": "http://127.0.0.1:8765/data/research/datasets/p0_stroke_synthetic_v1/review/index.html",
+  "actual_formal_holdout_human_review_started": false,
+  "cloud_GPU": "Released per user; no cloud action or GPU use in this task",
+  "first_frozen_at_utc": "2026-10-27T17:21:48.570663+00:00",
+  "technical_revision": "2.2"
+}

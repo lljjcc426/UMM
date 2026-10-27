@@ -1,0 +1,22 @@
+{
+  "version_from": "2.1",
+  "version_to": "2.2",
+  "changed": [
+    "Own v2 exports can restore original judgments and saved position to a fresh directory",
+    "Original onboarding attestation restored only when exported true and practice records present"
+  ],
+  "unchanged": [
+    "Rubric and all human judgments",
+    "All sample IDs, seed and order",
+    "All media pixels, animation and timing",
+    "Observer, thresholds and original predictions",
+    "New-review onboarding gates"
+  ],
+  "before_formal_review": true,
+  "live_annotation_events_at_revision": 0,
+  "prior_version_preserved": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze_v2_1_preserved.json",
+  "earlier_revision": "data/research/runs/p0_human_review_preparation_2026-10-28/protocol_version_difference_v2_1.json",
+  "validation": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/unit_tests_attempt03_restore.log",
+  "validation_scope": "Fresh-store HTTP import with standalone toy IDs; no holdout media or actual human labels",
+  "frozen_at_utc": "2026-10-27T17:49:56.463717+00:00"
+}

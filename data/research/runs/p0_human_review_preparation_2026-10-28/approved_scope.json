@@ -1,0 +1,18 @@
+{
+  "authorized": true,
+  "base_commit": "a4f464b883f354ee0f1c8a786797ccf52510caf8",
+  "user_authorization": "批准本轮P0人工审核准备方案，允许立即执行；按六项与七项修订执行，本轮无需再次申请批准",
+  "constraints": [
+    "Local CPU only",
+    "No model training or large media regeneration",
+    "No GPU or phase advancement",
+    "Preserve legacy judgments verbatim",
+    "Test non-holdout before freeze",
+    "Do not retune evaluator from holdout",
+    "Local research-branch commit only"
+  ],
+  "cloud_lease": "User confirmed released; no further lease action",
+  "raw_export_source": "/Users/cc/Downloads/p0-human-annotations.json",
+  "raw_export_preserved": "data/research/runs/p0_human_review_preparation_2026-10-28/raw_user_export_2026-10-28.json",
+  "saved_at_utc": "2026-10-27T17:05:35.877430+00:00"
+}

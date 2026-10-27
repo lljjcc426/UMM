@@ -53,7 +53,13 @@
     "construction_scope": "provisional_licensed_G1_synthetic_RGB_not_human_verified_gold",
     "normative_human_verified": false,
     "scientific_ready": false,
-    "dataset_manifest": "data/research/datasets/p0_stroke_synthetic_v1/splits.json"
+    "dataset_manifest": "data/research/datasets/p0_stroke_synthetic_v1/splits.json",
+    "human_review_protocol": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze.json",
+    "human_review_rubric": "data/research/runs/p0_human_review_preparation_2026-10-28/rubric_freeze.json",
+    "legacy_human_records": 38,
+    "formal_human_normative_count": 0,
+    "formal_human_RGB_count": 0,
+    "human_review_status": "legacy_preserved_new_protocol_frozen_waiting_for_user_practice_and_formal_review"
   },
   "seeds": {
     "training": [
@@ -122,7 +128,9 @@
     "cloud_rental_approved": true,
     "cloud_approval_scope": "ENV-01 native interfaces, partial training/reload, and separately approved actual default-policy capacity test on existing A10080; no remote push",
     "spending_policy": "User approved cost unconstrained; existing A10080 reused, actual provider bill pending; model work ended, archival and idle time retained",
-    "catalog": "data/research/audits/env01_static_2026-10-27/cloud_resources.json"
+    "catalog": "data/research/audits/env01_static_2026-10-27/cloud_resources.json",
+    "current_cloud_instance_status": "released_user_confirmed_2026-10-28",
+    "allocation_note": "actual_allocation is historical ENV-01 evidence; no active cloud instance claimed"
   },
   "documents": {
     "design": "docs/research/v2/README.md",
@@ -132,6 +140,7 @@
     "implementation": "docs/research/v2/implementation.md",
     "source_audit": "docs/research/v2/source_audit.md",
     "run_template": "templates/research_run_v2.json",
-    "p0_data_evaluation_report": "docs/research/v2/p0_data_eval_report_2026-10-28.md"
+    "p0_data_evaluation_report": "docs/research/v2/p0_data_eval_report_2026-10-28.md",
+    "p0_human_review_preparation": "docs/research/v2/p0_human_review_preparation_2026-10-28.md"
   }
 }

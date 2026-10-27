@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>P0 人工审核 v2</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:#202b38;font:15px system-ui,sans-serif}main{max-width:1180px;margin:auto;padding:24px}h1{font-size:25px;margin:0 0 8px}h2{font-size:21px}.card{background:white;border:1px solid #d9e0e7;border-radius:8px;padding:20px;margin:14px 0}p,li{line-height:1.6}label{display:block;margin:10px 0 5px}button,select,input,textarea{font:inherit;padding:8px;border:1px solid #b8c5d3;border-radius:4px}button{background:white;cursor:pointer}button.primary{background:#2159a1;color:white;border-color:#2159a1}button:disabled{opacity:.45;cursor:default}.toolbar{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.facets{display:grid;grid-template-columns:1fr 145px;gap:8px;align-items:center}.facets label{margin:0}select.full,textarea,input.full{width:100%}textarea{min-height:70px}.muted{font-size:13px;color:#5b6c7e}.warning{color:#845400}.status{min-height:26px;white-space:pre-wrap}.media{min-height:300px;background:#fafbfc;display:flex;align-items:center;justify-content:center;border:1px solid #e0e5eb}.media canvas,.media img{width:320px;height:320px;object-fit:contain}.source{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;width:100%}.source svg{width:100%;background:white;border:1px solid #e0e5eb}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:10px 0}.reasons label{display:inline-flex;gap:5px;margin:4px 12px 4px 0}.hidden{display:none}a{color:#2159a1}summary{cursor:pointer;font-weight:600}.guide{background:#f1f6fd;padding:16px;margin-top:10px;border-radius:5px}.small{font-size:13px}#frame{width:100%}@media(max-width:800px){.grid{grid-template-columns:1fr}main{padding:12px}.facets{grid-template-columns:1fr 135px}}
+</style>
+<main>
+<h1>P0 人工审核 v2</h1>
+<p class="muted">规范核验与实际RGB核验分别记录。正式页隐藏自动判断、构造类别、来源角色及其他标注者答案。旧版试标独立保留，不预填本轮结论。</p>
+<details class="card" id="guide" open>
+<summary>先看判定口径与非保留集示例</summary>
+<div class="guide">
+<p><strong>请分别判断“整个书写过程是否有效”和“能否看清逐笔顺序”。</strong> 闪现整字或只有首末帧时，可以把过程判为错误，同时把先后、方向判为未知；不要为看不清的事件补写顺序。</p>
+<ul>
+<li>规范核验：打开规范原页，逐笔比较笔数、空间身份、次序、方向和异写适用范围。蓝色候选来自矢量源，尚未独立核准。仅见字符存在，不能勾选全部项目通过。</li>
+<li>RGB核验：只依据文件内实际帧。能确认违规填“失败”；无法观察填“未知”；没有适用对象填“不适用”。空白可以判过程错误，顺序可填不适用。多个笔画首次同帧出现，先后通常为未知；连续多帧显示同时增长时，才有可见并行证据。</li>
+<li>逐帧位置从第1帧开始显示；记录规范笔画编号时也从1开始。事件时刻和笔画身份未观察到时留空，不填写推测值。</li>
+<li>播放器默认停在首帧，点击“一次播放”只播放一遍并停在末帧。末帧返回首帧属于重播动作，不作为墨迹消失证据。</li>
+<li>每项都可填未知；可单独标记争议。错误或争议请写具体依据。保存不会自动进入下一条，提交后仍可留下新的修订版本。</li>
+</ul>
+<p class="warning">下方“犬”示例为已暴露的开发集构造示意，类别说明来自程序设计，尚无独立人工金标准；只用于理解问题和操作。练习结论由您填写，不自动判对错。</p>
+<div class="row"><select id="demo"></select><button id="showDemo">查看构造示意</button><span id="demoText" class="small"></span></div>
+</div></details>
+<div class="card toolbar">
+<label>标注者ID <input id="reviewer" placeholder="例如 1；每人独立ID"></label><button id="load">加载自己的进度</button>
+<label>批次 <select id="batch"></select></label>
+<button id="export">导出自己的v2记录</button><button id="importButton">导入JSON</button><input id="importFile" class="hidden" type="file" accept="application/json,.json">
+<span id="progress" class="muted"></span>
+</div>
+<div class="card" id="onboarding">
+<p>先保存4项规范与12项RGB非保留集练习。练习与正式记录分开；完成练习不代表已通过专家资格或准确率检验。</p>
+<label><input type="checkbox" id="ack"> 我已阅读上述口径，并理解过程错误可以与顺序未知同时存在。</label>
+<button id="onboard">记录本人确认，解锁正式批次</button><span id="onboardState" class="muted"></span>
+</div>
+<p id="message" class="status" role="status"></p>
+<section class="card" id="taskCard">
+<h2 id="title">请输入标注者ID并加载自己的进度</h2><p id="taskMeta" class="muted"></p>
+<div class="grid"><div>
+<p><a id="standard" target="_blank" rel="noreferrer">查看本地规范对应页</a> · <a id="official" target="_blank" rel="noreferrer">官方来源</a></p>
+<div id="media" class="media"></div>
+<div id="videoControls" class="hidden"><div class="row"><button id="play">一次播放</button><button id="pause">暂停</button><button id="start">回到首帧</button></div>
+<input id="frame" type="range" min="0" step="1" value="0"><p id="frameInfo" class="muted"></p><button id="markFrame">把当前帧记入依据</button></div>
+<p id="mediaStatus" class="muted"></p>
+</div><div>
+<label>独立总体结论</label><select id="decision" class="full"></select>
+<p class="muted">各项目独立填写；未知与不适用均可保留。未选项目不能视为已审核。</p>
+<div id="facets" class="facets"></div>
+<label id="referenceRow"><input type="checkbox" id="reference"> 本人实际查看了所引用规范对应页</label>
+<label>错误/不可判定原因（可多选，不预选）</label><div id="reasons" class="reasons"></div>
+<label><input type="checkbox" id="disputed"> 存在争议，需复核或仲裁</label>
+<label>实际可见顺序 / 争议笔画（可选）</label><input id="observedOrder" class="full" placeholder="规范笔画编号从1开始；看不清请留空">
+<label>逐笔事件与帧依据（可选）</label><textarea id="events" placeholder="笔画编号、首次可见帧、完成帧、方向；只写实际核验到的项目"></textarea>
+<label>判定依据与备注</label><textarea id="notes" placeholder="错误或争议请说明具体可见证据；不确定可明确写无法判断"></textarea>
+<div class="row"><button id="save" class="primary">保存本条至本机文件</button><span id="saveState" class="muted"></span></div>
+</div></div>
+<div class="row"><button id="prev">上一条</button><span id="position"></span><button id="next">下一条</button><button id="unfinished">下一条未完成</button></div>
+</section>
+<p class="muted">正式媒体去除文字元数据后提供，像素/动画块保持原样。只加载当前批次；不提供构造事件日志或自动预测。数据图形按 <a href="/reference/license" target="_blank">Arphic Public License</a> 使用。保存位置为本机private审核日志，需导出后纳入研究证据。旧版8765页面仅供保留旧进度；正式审核使用本页面。</p>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const batchNames={practice_norm:'练习：4项规范',practice_rgb:'练习：12段RGB',holdout_norm:'A：64字规范',holdout_rgb:'A：1408段RGB',development_norm:'B：64字规范',development_rgb:'B：704段RGB',main_norm:'C：512字规范',main_rgb:'C：640段RGB'};
+const statusNames={pass:'通过',fail:'失败',unknown:'未知',not_applicable:'不适用'};
+const demoNames={correct:'逐笔构造',swap:'交换先后',reverse:'反向生长',missing:'漏笔',extra:'额外墨迹',simultaneous:'并行增长',early_next:'前笔未完提前添墨',flash:'整字闪现',disappear:'旧墨迹消失',sparse:'稀疏时间采样',blank:'空白'};
+let protocol,tutorial=[],reviewer='',tasks=[],index=0,state={annotations:[],onboarded:false},decoder=null,currentTask=null,playing=false,viewVersion=0;
+async function api(url,body){const response=await fetch(url,body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{});const data=await response.json();if(!response.ok)throw Error(data.error);return data;}
+function tell(error){$('message').textContent=error.message||String(error);}
+function currentProgress(){return {batch:$('batch').value,index,blind_id:currentTask?.blind_id};}
+function draftKey(){return `umm-p0-v2-draft:${reviewer}:${currentTask?.blind_id}`;}
+function collect(){return {protocol_id:protocol.id,blind_id:currentTask.blind_id,type:currentTask.type,reviewer_id:reviewer,decision:$('decision').value,facets:Object.fromEntries([...$('facets').querySelectorAll('select')].map(el=>[el.dataset.facet,el.value])),reference_consulted:$('reference').checked,reasons:[...$('reasons').querySelectorAll('input:checked')].map(el=>el.value),disputed:$('disputed').checked,observed_order:$('observedOrder').value,events:$('events').value,notes:$('notes').value,annotated_at:new Date().toISOString()};}
+function saveDraft(){if(!currentTask||currentTask.batch==='tutorial'||!reviewer)return;localStorage.setItem(draftKey(),JSON.stringify(collect()));$('saveState').textContent='草稿已保存在此浏览器；尚未提交本机文件。';}
+function fill(entry){$('decision').value=entry.decision||'';for(const el of $('facets').querySelectorAll('select'))el.value=entry.facets?.[el.dataset.facet]||'';$('reference').checked=entry.reference_consulted===true;for(const el of $('reasons').querySelectorAll('input'))el.checked=(entry.reasons||[]).includes(el.value);$('disputed').checked=entry.disputed===true;$('observedOrder').value=entry.observed_order||'';$('events').value=entry.events||'';$('notes').value=entry.notes||'';}
+function updateProgress(){const ids=new Set(state.annotations.map(a=>a.blind_id));$('progress').textContent=`本批已提交 ${tasks.filter(t=>ids.has(t.blind_id)).length} / ${tasks.length}；服务器已存 ${state.annotations.length} 条练习/正式记录`;$('onboardState').textContent=state.onboarded?'本人已确认口径；正式批次已解锁':'待完成操作练习并由本人确认';}
+async function loadTasks(resume=false){try{tasks=await api(`/api/tasks?batch=${$('batch').value}&reviewer=${encodeURIComponent(reviewer)}`);index=resume?Math.min(state.progress?.index||0,tasks.length-1):0;await show();}catch(error){$('batch').value=currentTask?.batch==='tutorial'?'practice_norm':currentTask?.batch||'practice_norm';tell(error);}}
+async function show(taskOverride){
+ const task=taskOverride||tasks[index];currentTask=task;const version=++viewVersion;playing=false;if(decoder){decoder.close();decoder=null;}
+ $('message').textContent='';$('saveState').textContent='';$('media').replaceChildren();$('videoControls').classList.add('hidden');$('mediaStatus').textContent='';
+ if(!task)return;
+ const demo=task.batch==='tutorial';$('save').disabled=demo;$('title').textContent=`${task.character} · ${task.type==='normative'?'规范候选核对':'实际RGB核验'}${demo?'（教学示意，不计正式统计）':''}`;
+ $('taskMeta').textContent=task.blind_id;$('position').textContent=demo?'教学示例':`${index+1} / ${tasks.length}`;
+ $('prev').disabled=demo||index===0;$('next').disabled=demo||index>=tasks.length-1;$('unfinished').disabled=demo;
+ $('standard').href=`/reference/standard.pdf#page=${task.official_page}`;$('official').href=`https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/202103/W020210318300204215237.pdf#page=${task.official_page}`;
+ const options=task.type==='normative'?[['consistent','候选与规范一致'],['conflict','存在规范冲突'],['unverified','无法核实']]:[['correct','可确认正确过程'],['incorrect','可确认过程错误'],['unknown','整体无法判断']];
+ $('decision').replaceChildren(new Option('请选择',''),...options.map(([v,t])=>new Option(t,v)));
+ $('facets').replaceChildren();for(const [key,label] of Object.entries(protocol.facets[task.type])){const lab=document.createElement('label');lab.textContent=label;const select=document.createElement('select');select.dataset.facet=key;select.append(new Option('请选择',''),...protocol.status_values.map(value=>new Option(statusNames[value],value)));$('facets').append(lab,select);}
+ $('reasons').replaceChildren();for(const [key,text] of Object.entries(protocol.error_reasons)){const lab=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.value=key;lab.append(input,document.createTextNode(text));$('reasons').append(lab);}
+ $('referenceRow').classList.toggle('hidden',task.type!=='normative');fill({});
+ if(!demo){const saved=state.annotations.find(a=>a.blind_id===task.blind_id);const draft=localStorage.getItem(draftKey());if(draft){fill(JSON.parse(draft));$('saveState').textContent='已恢复本浏览器草稿，请确认后提交。';}else if(saved){fill(saved);$('saveState').textContent='已加载本人此前提交；修改后保存会追加版本。';}localStorage.setItem('umm-p0-v2-position:'+reviewer,JSON.stringify(currentProgress()));}
+ if(task.type==='normative'){
+  const grid=document.createElement('div');grid.className='source';task.candidate_strokes.forEach((path,i)=>{const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 1024 1024');const g=document.createElementNS(svg.namespaceURI,'g');g.setAttribute('transform','scale(1,-1) translate(0,-900)');task.candidate_strokes.slice(0,i+1).forEach((d,j)=>{const shape=document.createElementNS(svg.namespaceURI,'path');shape.setAttribute('d',d);shape.setAttribute('fill',j===i?'#2159a1':'#bcc6d0');g.append(shape);});const title=document.createElementNS(svg.namespaceURI,'title');title.textContent=`候选第${i+1}笔，方向须对照规范核验`;const median=task.candidate_medians[i];const line=document.createElementNS(svg.namespaceURI,'polyline');line.setAttribute('points',median.map(p=>p.join(',')).join(' '));line.setAttribute('fill','none');line.setAttribute('stroke','#c23737');line.setAttribute('stroke-width','7');g.append(line);for(const [point,color] of [[median[0],'#228144'],[median[median.length-1],'#e18a16']]){const dot=document.createElementNS(svg.namespaceURI,'circle');dot.setAttribute('cx',point[0]);dot.setAttribute('cy',point[1]);dot.setAttribute('r','16');dot.setAttribute('fill',color);g.append(dot);}svg.append(title,g);grid.append(svg);});$('media').append(grid);$('mediaStatus').textContent='候选红线为源中线，绿点为候选起点，橙点为候选终点。次序与方向均须对照规范逐项核验，不能把候选当成答案。';
+ }else{
+  try{const raw=await (await fetch(task.media+'?reviewer='+encodeURIComponent(reviewer))).arrayBuffer();if(version!==viewVersion)return;decoder=new ImageDecoder({data:raw,type:'image/png'});await decoder.tracks.ready;if(version!==viewVersion)return;$('frame').max=decoder.tracks.selectedTrack.frameCount-1;$('frame').value=0;$('videoControls').classList.remove('hidden');const canvas=document.createElement('canvas');$('media').append(canvas);await paint(0);$('mediaStatus').textContent='停在首帧；一次播放后停在末帧，不自动循环。';}catch(error){$('mediaStatus').textContent='逐帧读取失败：'+error.message+'。请使用支持ImageDecoder的Chrome浏览器；此项尚未审核。';}
+ }
+ updateProgress();
+}
+async function paint(n){const localDecoder=decoder,version=viewVersion;const {image}=await localDecoder.decode({frameIndex:n});if(version!==viewVersion){image.close();return 0;}const canvas=$('media').querySelector('canvas');canvas.width=image.displayWidth;canvas.height=image.displayHeight;canvas.getContext('2d').drawImage(image,0,0);const duration=image.duration/1000;image.close();$('frame').value=n;$('frameInfo').textContent=`第${n+1} / ${Number($('frame').max)+1}帧，${(currentTask.frame_timestamps[n]||0).toFixed(3)}秒`;return duration;}
+$('play').onclick=async()=>{if(!decoder)return;playing=true;const version=viewVersion;for(let n=Number($('frame').value);n<=Number($('frame').max)&&playing&&version===viewVersion;n++){const duration=await paint(n);await new Promise(resolve=>setTimeout(resolve,duration));}playing=false;};
+$('pause').onclick=()=>{playing=false;};$('start').onclick=()=>{playing=false;paint(0).catch(tell);};$('frame').oninput=()=>{playing=false;paint(Number($('frame').value)).catch(tell);};
+$('markFrame').onclick=()=>{$('events').value+=($('events').value?'\n':'')+$('frameInfo').textContent;saveDraft();};
+$('taskCard').onchange=event=>{if(!['frame'].includes(event.target.id))saveDraft();};$('notes').oninput=saveDraft;$('events').oninput=saveDraft;
+$('load').onclick=async()=>{try{reviewer=$('reviewer').value.trim();state=await api('/api/state?reviewer='+encodeURIComponent(reviewer));localStorage.setItem('umm-p0-v2-reviewer',reviewer);const local=localStorage.getItem('umm-p0-v2-position:'+reviewer);const progress=local?JSON.parse(local):state.progress;if(progress?.batch)$('batch').value=progress.batch;if(local)state.progress=progress;await loadTasks(true);}catch(error){tell(error);}};
+$('batch').onchange=()=>loadTasks();$('prev').onclick=()=>{index--;show();};$('next').onclick=()=>{index++;show();};$('unfinished').onclick=()=>{const done=new Set(state.annotations.map(a=>a.blind_id));const next=tasks.findIndex((t,i)=>i>index&&!done.has(t.blind_id));index=next>=0?next:tasks.findIndex(t=>!done.has(t.blind_id));if(index<0)index=0;show();};
+$('save').onclick=async()=>{try{const annotation=collect();await api('/api/save',{reviewer_id:reviewer,annotation,progress:currentProgress()});localStorage.removeItem(draftKey());state=await api('/api/state?reviewer='+encodeURIComponent(reviewer));$('saveState').textContent='已提交至本机文件；旧版本保留。';updateProgress();}catch(error){tell(error);}};
+$('onboard').onclick=async()=>{try{await api('/api/onboard',{reviewer_id:reviewer,acknowledged:$('ack').checked});state=await api('/api/state?reviewer='+encodeURIComponent(reviewer));updateProgress();$('message').textContent='本人确认已记录。请从A批规范开始；未自动填写任何正式结论。';}catch(error){tell(error);}};
+$('export').onclick=async()=>{try{const value=await api('/api/export?reviewer='+encodeURIComponent(reviewer));const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));const link=document.createElement('a');link.href=url;link.download=`p0-human-annotations-v2-${reviewer}.json`;link.click();URL.revokeObjectURL(url);}catch(error){tell(error);}};
+$('importButton').onclick=()=>$('importFile').click();$('importFile').onchange=async event=>{try{const payload=JSON.parse(await event.target.files[0].text());const result=await api('/api/import',{reviewer_id:reviewer,payload});$('message').textContent=payload.schema==='p0-human-annotations-v1'?`旧版${result.legacy_records}条已原样另存，计入正式记录0条。`:`导入${result.imported}条；冲突${result.conflicts}条已保留待处理，现有记录未覆盖。`;state=await api('/api/state?reviewer='+encodeURIComponent(reviewer));updateProgress();}catch(error){tell(error);}};
+$('showDemo').onclick=()=>{const task=tutorial[Number($('demo').value)];$('demoText').textContent=demoNames[task.construction_demo]+'：构造示意，非独立人工金标准。';show({...task,batch:'tutorial'});};
+(async()=>{protocol=await api('/api/protocol');tutorial=await api('/api/tutorial');$('batch').append(...Object.entries(batchNames).map(([value,text])=>new Option(text,value)));$('demo').append(...tutorial.map((task,i)=>new Option(demoNames[task.construction_demo],String(i))));$('reviewer').value=localStorage.getItem('umm-p0-v2-reviewer')||'';if($('reviewer').value)$('load').click();})().catch(tell);
+</script>
+</html>

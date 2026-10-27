@@ -1,0 +1,143 @@
+{
+  "original_quantity_plan": 576,
+  "actual_characters": 640,
+  "delta": 64,
+  "delta_role": "observer_holdout",
+  "original_frozen_576_character_list_exists": false,
+  "historical_evidence_commit": "6dc1bb23",
+  "reconciliation": "Initial config specified quantities only. Excluding current observer_holdout yields a 576-character projection, not a recovered historical character list. The inserted allocation may change later role membership under the same shuffle.",
+  "prior_execution_record_disclosed_128_observer_characters": true,
+  "original_user_question_named_64_observer_characters": true,
+  "exact_expansion_approval_not_proven_by_quantity_answer_alone": true,
+  "acceptance_of_640_requires_explicit_final_scope_confirmation": true,
+  "roles": [
+    {
+      "role": "observer_dev",
+      "characters": 64,
+      "videos": 704,
+      "strata": {
+        "2-5": 16,
+        "6-8": 16,
+        "9-12": 16,
+        "13-20": 16
+      },
+      "cases": {
+        "correct": 64,
+        "swap": 64,
+        "reverse": 64,
+        "missing": 64,
+        "extra": 64,
+        "simultaneous": 64,
+        "early_next": 64,
+        "flash": 64,
+        "disappear": 64,
+        "sparse": 64,
+        "blank": 64
+      },
+      "renderers": {
+        "outline": 704
+      },
+      "decoded_frames": 31761,
+      "duration_seconds": 3.26688,
+      "source_groups": 64
+    },
+    {
+      "role": "observer_holdout",
+      "characters": 64,
+      "videos": 1408,
+      "strata": {
+        "2-5": 16,
+        "6-8": 16,
+        "9-12": 16,
+        "13-20": 16
+      },
+      "cases": {
+        "correct": 128,
+        "swap": 128,
+        "reverse": 128,
+        "missing": 128,
+        "extra": 128,
+        "simultaneous": 128,
+        "early_next": 128,
+        "flash": 128,
+        "disappear": 128,
+        "sparse": 128,
+        "blank": 128
+      },
+      "renderers": {
+        "outline": 704,
+        "centerline": 704
+      },
+      "decoded_frames": 62433,
+      "duration_seconds": 6.416896,
+      "source_groups": 64
+    },
+    {
+      "role": "model_train",
+      "characters": 320,
+      "videos": 320,
+      "strata": {
+        "2-5": 80,
+        "6-8": 80,
+        "9-12": 80,
+        "13-20": 80
+      },
+      "cases": {
+        "correct": 320
+      },
+      "renderers": {
+        "outline": 320
+      },
+      "decoded_frames": 23876,
+      "duration_seconds": 2.50328,
+      "source_groups": 320
+    },
+    {
+      "role": "model_validation",
+      "characters": 64,
+      "videos": 64,
+      "strata": {
+        "2-5": 16,
+        "6-8": 16,
+        "9-12": 16,
+        "13-20": 16
+      },
+      "cases": {
+        "correct": 64
+      },
+      "renderers": {
+        "outline": 64
+      },
+      "decoded_frames": 4718,
+      "duration_seconds": 0.494514,
+      "source_groups": 64
+    },
+    {
+      "role": "model_character_test",
+      "characters": 128,
+      "videos": 256,
+      "strata": {
+        "2-5": 32,
+        "6-8": 32,
+        "9-12": 32,
+        "13-20": 32
+      },
+      "cases": {
+        "correct": 256
+      },
+      "renderers": {
+        "outline": 128,
+        "centerline": 128
+      },
+      "decoded_frames": 18635,
+      "duration_seconds": 1.9531560000000001,
+      "source_groups": 128
+    }
+  ],
+  "total_videos": 2752,
+  "cross_role_source_overlap": [],
+  "independent_font_families_confirmed": 0,
+  "independent_writers": 0,
+  "source_root": "Make Me a Hanzi graphics / Arphic font lineage",
+  "renderer_independence": "Outline and centerline share source geometry, progress projection and Pillow backend"
+}

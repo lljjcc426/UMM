@@ -19,7 +19,7 @@
 - `manifest_model_train.jsonl`、`manifest_model_validation.jsonl`、`manifest_model_character_test.jsonl`：320、64与256段正例候选；最后128个字符各有两种渲染方法。
 - 共 **2,752段**无损RGB APNG，全部实际RGB另存于随研究分支保留的[rgb_media.tar.gz](rgb_media.tar.gz)，媒体原件仍在本机 `private/p0_data_eval_2026-10-27/media/`；逐文件路径、大小以运行登记为准，manifest保留一次生成时的SHA256。每段已保存后解码，全量RGB变化帧与时间戳一致。
 - APNG合并连续重复帧，故帧间隔可变；以`frame_timestamps`与`frame_durations`为准。原始合成网格为83ms（名义12fps经整数毫秒量化），没有真实笔压/接触/速度传感数据。
-- [人工核验页面](review/index.html)、[待办标注文件](human_annotations.json)：640项规范候选核对＋2,112项RGB核验，当前人工完成数为0。
+- [人工核验页面](review/index.html)、[待办标注文件](human_annotations.json)：640项规范候选核对＋2,112项RGB核验，该旧版任务表已收到38条全局试标（规范6、RGB32），原文保留；当前新协议正式人工完成数为0。新版另纳入主学习RGB，正式队列为640项规范＋2,752段RGB，见下方新入口。
 - [受控小样例](../../../../examples/p0_data_eval/examples.json)可随Git查看；完整媒体已随分支打包，原始来源及第二份完整迁移归档仍保留本地private。
 
 ## 数据权限与隔离
@@ -36,6 +36,8 @@
 
 观察器先执行 `python -m scripts.p0.evaluate calibrate`，冻结开发集选择的阈值，再执行 `evaluate`。已有保留集预测文件时拒绝覆盖。结果属于固定相机、已知参考几何和受控合成域；不证明真实生成视频或任意书体可自动评分。
 
-人工页面可直接打开本地HTML，动画与规范候选可查看；逐帧滑块建议通过本地HTTP运行：`python -m http.server 8765 --bind 127.0.0.1`。填写标注者ID、独立判定后导出JSON；浏览器界面测试产生的临时标签未导入科研数据。
+人工页面可直接打开本地HTML，动画与规范候选可查看；逐帧滑块建议通过本地HTTP运行：`python -m http.server 8765 --bind 127.0.0.1`。旧页面仅保留历史进度。正式审核使用 `python -m scripts.p0.review_server --port 8766` 与 http://127.0.0.1:8766/ ，先查看示意并完成犬、怀、热、蔽的非保留集练习。提交记录追加保存在本机private，导出v2 JSON用于入库；测试标签与科研记录隔离。
 
 [本轮报告](../../../../docs/research/v2/p0_data_eval_report_2026-10-28.md) · [执行登记](../../runs/p0_data_eval_2026-10-27/task_record.json)。
+
+新版[审核准备与工作量](../../../../docs/research/v2/p0_human_review_preparation_2026-10-28.md)说明正式640字、2,752段视频的顺序、未知/争议与保存方法。旧试标不预填正式任务，不计入前瞻校准统计。
