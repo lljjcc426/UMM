@@ -1,62 +1,51 @@
-# UMM 与汉字书写视频：文献证据与研究实施
+# UMM 与汉字书写视频：证据、方法与实验
 
-研究统一多模态模型如何读取实际书写历史、判断笔画状态，并生成符合指定规范的可见书写过程。核心假设：**过程理解能改善实际视觉执行；在相同信息、数据和计算条件下，共享训练可能具有额外收益。** 两个假设分别验证，不预设 UMM 优于专用模型或组合系统。
+**研究核心：提升生成RGB中实际笔画事件与规范书写的一致性，通过已有视频UMM的后训练形成方法和模型。** 先验证同数据普通适配后的执行缺口，再研究事件状态条件、共享训练；自主纠错和效率为可选扩展。
 
-## 当前阶段：从调研转入实验准备
+## 当前有效设计：stroke-video-v2
 
-更新：2026-10-26。基于 `e95bed3766fa43b03a704145483dd05b43a6d326` 整理。文献主目录保持 **360 条：333 篇论文／研究、27 项资源**；327 篇完成所记录范围的核心阅读。A06、F05、L002、L006、L021、L022 保留资料缺项并退出主动追取队列，未计入完成。此次整理不增加论文完成数。[范围决定](docs/reading/scope.md)
+更新于2026-10-27。[设计v2总览](docs/research/v2/README.md)是当前科学设计主入口；[阶段路线](docs/project/ROADMAP.md)与[实验矩阵](docs/project/EXPERIMENTS.md)提供执行导航。
 
-**已有实验**仅为 [PX-01 受控像素反例](docs/experiments/process_probe.md)。新的数据、评价器校准、模型推理、微调及结果比较尚未开展；文档中的样本量、阈值和预算均为拟定设置。
-
-## 研究实施入口
-
-| 要做什么 | 唯一主入口 |
+| 内容 | 当前入口 |
 | --- | --- |
-| 理解目标、阶段、交付物与停止条件 | **[分阶段研究路线](docs/project/ROADMAP.md)** |
-| 查每个实验的假设、对照和依赖 | **[实验矩阵](docs/project/EXPERIMENTS.md)** · [结构化登记](data/research/experiments_v1.json) |
-| 确定任务、方法与最近前作的区别 | [任务与方法设计](docs/research/task_and_method.md) |
-| 选数据、标注和划分，防止泄漏 | [数据实施协议](docs/research/data_protocol.md) |
-| 定义真实 RGB 笔顺、不可观察及质量指标 | **[评价协议 v1](docs/research/evaluation_protocol.md)** |
-| 选择底座、检查接口和启动顺序 | [实现与资源方案](docs/research/implementation.md) |
-| 查看真实完成状态 | [当前状态](docs/project/STATUS.md) |
-| 创建配置和运行记录 | [计划配置](configs/research/stroke_video_v1.json) · [运行模板](templates/research_run.json) |
+| 目标、最近前作及v1修订 | **[研究设计v2](docs/research/v2/README.md)** · [近期来源审计](docs/research/v2/source_audit.md) |
+| 模型可见信息、事件表示和损失 | [方法](docs/research/v2/method.md) |
+| 数据划分、独立评价与统计 | [数据和评价](docs/research/v2/data_evaluation.md) |
+| 17个实验的目的与停止条件 | **[详细实验](docs/research/v2/experiments.md)** · [机器登记v2](data/research/experiments_v2.json) |
+| 实现、资源与接口缺项 | [实现方案](docs/research/v2/implementation.md) |
+| 配置及运行证据 | [配置v2](configs/research/stroke_video_v2.json) · [运行模板v2](templates/research_run_v2.json) |
+| 实际状态 | [STATUS](docs/project/STATUS.md) |
 
-初始范围：单字、固定视角、无手遮挡、保留明确笔画结构的风格化墨迹。先完成可观察性、单任务和正确控制实验，再进行联合训练；多字、真实手持笔、行草及加速按阶段解锁。
+初始范围为固定画布、无手遮挡、规范和实例可辨的风格化单字。T从空白完整生成是主结果，P实际前缀续写用于机制分析，O真值控制为特权上界，I目标图到过程是可选独立任务。字库几何权限G0/G1分开。不得以计划正确、最终OCR或teacher-forced一步成绩替代完整过程成功。
 
-## 文献与证据入口
+新增关键检查：同数据普通SFT和轨迹/硬控制强基线；真实模型输出上的评价器校准；事件身份/进度/空间干预；共享与分离系统的同接口对照。全部17项实验为planned，尚未执行新模型、构建新数据集或校准通用RGB观察器。已有证据仅包含[PX-01八个受控像素案例](docs/experiments/process_probe.md)。
 
-**[阅读总览](docs/reading/README.md)** · **[跨论文分析与20篇核心对照](docs/reading/synthesis.md)**
+## 文献与证据
+
+主目录保持360条（333篇论文/研究、27项资源），327篇核心阅读完成；具体范围见单篇。A06、F05、L002、L006、L021、L022继续[停止主动追取](docs/reading/scope.md)，未计完成。本轮新增来源审计未自动增加论文或完成计数。
+
+**[阅读总览](docs/reading/README.md)** · **[跨论文综合](docs/reading/synthesis.md)** · [全部逐篇卡](docs/reviews/README.md)
 
 | 会议 | 会议 | 会议 |
 | --- | --- | --- |
 | [CVPR](docs/reading/cvpr.md) | [ICCV](docs/reading/iccv.md) | [ECCV](docs/reading/eccv.md) |
 | [NeurIPS](docs/reading/neurips.md) | [ICLR](docs/reading/iclr.md) | [ICML](docs/reading/icml.md) |
 
-会议身份、实际阅读版本、Workshop／Demo及作者声明继续分开记录。
+主题入口：[架构](docs/reading/architecture.md)、[协同](docs/reading/synergy.md)、[书写](docs/reading/handwriting.md)、[视频](docs/reading/video.md)、[绘画](docs/reading/drawing.md)、[数据评价](docs/reading/evaluation_data.md)、[基础效率](docs/reading/foundations_efficiency.md)。
 
-| 主题 | 入口 |
-| --- | --- |
-| 架构与表示 | [主题索引](docs/reading/architecture.md) · [UMM综述](docs/umm/00_overview.md) · [UMM文献](docs/umm/literature.md) |
-| 协同、反馈与推理 | [主题索引](docs/reading/synergy.md) · [研究判断](docs/project/DECISIONS.md) |
-| 中文笔迹与书法 | [主题索引](docs/reading/handwriting.md) · [笔顺专项](docs/handwriting/05_stroke_order_umm.md) |
-| 视频与绘画 | [视频控制](docs/reading/video.md) · [绘画与矢量](docs/reading/drawing.md) |
-| 数据、评价与基础 | [数据评价索引](docs/reading/evaluation_data.md) · [基础效率](docs/reading/foundations_efficiency.md) |
-| 单篇证据 | [360份笔记](docs/reviews/README.md) · [验收台账](docs/evidence/reading_ledger_2026-10-19.md) |
-| 全量题录与资源 | [文献总表](docs/all_literature.md) · [CSV](data/literature.csv) · [Excel](data/literature_public.xlsx) · [候选目录](data/discovery/README.md) |
-| 边界与历史 | [资源实际制品边界](docs/evidence/resource_protocol_completion_and_source_limits_2026-10-25.md) · [历史记录](docs/project/history/README.md) · [本轮整理说明](docs/evidence/research_transition_2026-10-26.md) |
+证据入口：[研究地图](docs/RESEARCH_MAP.md)、[笔顺专项](docs/handwriting/05_stroke_order_umm.md)、[验收台账](docs/evidence/reading_ledger_2026-10-19.md)、[资源边界](docs/evidence/resource_protocol_completion_and_source_limits_2026-10-25.md)、[文献总表](docs/all_literature.md)、[CSV](data/literature.csv)、[Excel](data/literature_public.xlsx)。
 
-## 维护与验证
-
-目录职责、权威来源及状态定义见 [维护规范](CONTRIBUTING.md)；研究工作区导航见 [docs/research](docs/research/README.md)。
+## 维护与校验
 
 ```bash
-# 无网络、无权重：验证计划结构、依赖和本地引用
-python scripts/validate_research_plan.py
-python -m unittest discover -s tests -p 'test_research_plan.py' -v
-# 全仓库文献字段与 Markdown 相对链接检查
+python scripts/validate_research_v2.py
+python -m unittest tests.test_research_v2 -v
 python scripts/validate_catalog.py
+# v1历史结构与既有单元测试继续保留
+python scripts/validate_research_plan.py
+python -m unittest tests.test_research_plan tests.test_stroke_metrics -v
 ```
 
-`data/literature.json` 为文献主数据；`data/reading_guide_2026-10-25.json` 为阅读分组配置。只在相应源数据变化后运行 `scripts/render_reviews.py`、`scripts/render_reading_guide.py`；主目录变更后运行 `scripts/render_catalog.py` 同步总表、CSV和Excel。本轮不修改这些文献数据或导出文件。
+[CONTRIBUTING](CONTRIBUTING.md)规定文献、当前设计、运行结果和历史的职责。本轮不修改文献主数据或其导出表；不要重跑文献生成器覆盖人工变更。[v2修订记录](docs/evidence/research_revision_v2_2026-10-27.md)列出备份与验证边界。[v1冻结版本](https://github.com/lljjcc426/UMM/tree/199646c6960677f656594b3c542c8eb8aaf890f9)可完整追溯。
 
-计划校验通过仅说明文件与依赖满足规则，不表示模型性能、数据授权、评价器有效性或科学假设得到验证。
+校验通过只支持字段、依赖及本地链接正确；不证明数据授权、观察器可靠、GPU可运行或科学假设成立。

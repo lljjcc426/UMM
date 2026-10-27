@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "created_on": "2026-10-27",
+  "supersedes": "stroke-video-v1",
+  "status": "design_only",
+  "current_phase": "P0",
+  "research_focus": "method_driven_observable_stroke_execution",
+  "primary_protocol": "T",
+  "task_protocols": ["T", "P", "O"],
+  "optional_task_protocols": ["I"],
+  "primary_metric": "verified_order_lower_bound",
+  "geometry_tracks": ["G0_symbolic_rules", "G1_shared_normative_template"],
+  "inference_uses_gold_event_boundaries": false,
+  "generator_logs_are_evaluation_truth": false,
+  "sharing_benefit_established": false,
+  "required_baselines": ["same_data_sft", "trajectory_style_renderer", "spatial_control", "separated_ug"],
+  "optional_experiments": ["REC-01", "EF-01"],
+  "data_plan": {
+    "calibration_characters": 64,
+    "train_characters": 320,
+    "validation_characters": 64,
+    "test_characters": 128,
+    "main_total_characters": 512,
+    "constructed": false,
+    "source_authorization": "pending",
+    "split_axes": ["character", "writer_or_style_family", "renderer", "source_group"],
+    "note": "Budget starting counts only. Add record-disjoint ID holdout within seen characters; cross character and style axes. Pretraining exposure is unknown."
+  },
+  "seeds": {"training": [11, 23, 47], "inference": [11, 23, 47]},
+  "gates": {
+    "calibration_min_coverage": 0.9,
+    "false_accept_upper95_max": 0.05,
+    "minimum_effect_pp": 5.0,
+    "final_character_noninferiority_margin_pp": 2.0,
+    "style_noninferiority_margin": null,
+    "threshold_status": "provisional_pending_pilot_power_and_calibration",
+    "note": "Project discussion criteria; no performance claim. Freeze thresholds and core contrasts before held-out evaluation."
+  },
+  "budget": {"configured": false, "gpu_model": null, "gpu_count": null, "max_gpu_hours": null},
+  "models": {"primary": {"name": "Lance_3B_Video", "code_revision": null, "weight_revision": null, "runtime_verified": false}},
+  "documents": {
+    "design": "docs/research/v2/README.md",
+    "method": "docs/research/v2/method.md",
+    "data_evaluation": "docs/research/v2/data_evaluation.md",
+    "experiments": "docs/research/v2/experiments.md",
+    "implementation": "docs/research/v2/implementation.md",
+    "source_audit": "docs/research/v2/source_audit.md",
+    "run_template": "templates/research_run_v2.json"
+  }
+}

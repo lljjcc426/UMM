@@ -31,9 +31,13 @@ jobs:
         run: python3 --version
       - name: Validate catalog and all local Markdown links
         run: python3 scripts/validate_catalog.py
-      - name: Validate research configuration and dependencies
-        run: python3 scripts/validate_research_plan.py --output reports/research_plan_validation.json
-      - name: Research validator unit tests
+      - name: Validate legacy v1 compatibility
+        run: python3 scripts/validate_research_plan.py --output reports/research_plan_v1_validation.json
+      - name: Validate active v2 research contracts
+        run: python3 scripts/validate_research_v2.py --output reports/research_plan_v2_validation.json
+      - name: Legacy research validator unit tests
         run: python3 -m unittest discover -s tests -p 'test_research_plan.py' -v
+      - name: V2 information and baseline contract tests
+        run: python3 -m unittest tests.test_research_v2 -v
       - name: Existing annotated-event sequence tests
         run: python3 -m unittest tests.test_stroke_metrics -v
