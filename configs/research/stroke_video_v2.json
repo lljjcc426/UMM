@@ -38,7 +38,7 @@
     "note": "Project discussion criteria; no performance claim. Freeze thresholds and core contrasts before held-out evaluation."
   },
   "budget": {"configured": false, "gpu_model": null, "gpu_count": null, "max_gpu_hours": null},
-  "models": {"primary": {"name": "Lance_3B_Video", "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997", "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056", "runtime_verified": true, "verification_scope": "three_native_inference_interfaces_and_approved_partial_parameter_training_reload", "gradient_reload_verified": true, "runtime_evidence": "data/research/runs/env01_native_a10080_2026-10-27/interface_results.json", "training_evidence": "data/research/runs/env01_training_reload_a10080_2026-10-27/summary.json", "known_environment_issue": "Decord wheel metadata tag mismatch, non-blocking on audited frame/training paths; pip warning retained", "default_full_parameter_training_verified": false}},
+  "models": {"primary": {"name": "Lance_3B_Video", "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997", "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056", "runtime_verified": true, "verification_scope": "three_native_inference_interfaces_and_approved_partial_parameter_training_reload", "gradient_reload_verified": true, "runtime_evidence": "data/research/runs/env01_native_a10080_2026-10-27/interface_results.json", "training_evidence": "data/research/runs/env01_training_reload_a10080_2026-10-27/summary.json", "known_environment_issue": "Decord wheel metadata tag mismatch, non-blocking on audited frame/training paths; pip warning retained", "default_full_parameter_training_verified": false, "default_full_parameter_capacity_measured": true, "default_full_parameter_capacity_status": "cuda_oom_during_first_adamw_moment_initialization", "default_capacity_evidence": "data/research/runs/env01_default_capacity_a10080_2026-10-27/summary.json"}},
   "resource_constraints": {
     "source": "user_confirmed_2026-10-27",
     "max_gpu_count": 1,
@@ -50,7 +50,7 @@
     "current_image_candidate": "ubuntu22_cuda12.4",
     "actual_allocation": {"gpu_model": "NVIDIA A100-SXM4-80GB", "gpu_count": 1, "visible_vram_mib": 81920, "cpu_cores": 16, "host_ram_bytes": 50470645760, "cuda_toolkit": "12.4.99", "driver": "550.127.05", "evidence": "data/research/runs/env01_native_a10080_2026-10-27/host_inventory.json"},
     "cloud_rental_approved": true,
-    "cloud_approval_scope": "ENV-01 native interfaces plus approved minimal partial-parameter CE/FM training and independent-process checkpoint reload; no remote push",
+    "cloud_approval_scope": "ENV-01 native interfaces, partial training/reload, and separately approved actual default-policy capacity test on existing A10080; no remote push",
     "spending_policy": "User approved cost unconstrained; existing A10080 reused, actual provider bill pending; model work ended, archival and idle time retained",
     "catalog": "data/research/audits/env01_static_2026-10-27/cloud_resources.json"
   },

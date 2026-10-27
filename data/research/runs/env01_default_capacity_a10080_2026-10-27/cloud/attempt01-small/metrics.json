@@ -1,0 +1,181 @@
+{
+  "status": "cuda_oom",
+  "tier": "small",
+  "started_at_utc": "2026-10-27T14:11:11.327188+00:00",
+  "events": [
+    {
+      "phase": "components_begin",
+      "time_utc": "2026-10-27T14:11:11.529011+00:00",
+      "elapsed_seconds": 0.20182849200136843,
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "peak_allocated_bytes": 0,
+      "peak_reserved_bytes": 0,
+      "device_free_bytes": 84516536320,
+      "device_total_bytes": 84974239744,
+      "host_peak_rss_bytes": 828301312
+    },
+    {
+      "phase": "checkpoint_load_begin",
+      "time_utc": "2026-10-27T14:12:08.405616+00:00",
+      "elapsed_seconds": 57.07844265099993,
+      "allocated_bytes": 1423599104,
+      "reserved_bytes": 1444937728,
+      "peak_allocated_bytes": 1423599616,
+      "peak_reserved_bytes": 1444937728,
+      "device_free_bytes": 82991906816,
+      "device_total_bytes": 84974239744,
+      "host_peak_rss_bytes": 33629224960
+    },
+    {
+      "phase": "packing_begin",
+      "time_utc": "2026-10-27T14:12:44.346468+00:00",
+      "elapsed_seconds": 93.0192789770008,
+      "allocated_bytes": 1423599104,
+      "reserved_bytes": 1444937728,
+      "peak_allocated_bytes": 1423599616,
+      "peak_reserved_bytes": 1444937728,
+      "device_free_bytes": 82991906816,
+      "device_total_bytes": 84974239744,
+      "host_peak_rss_bytes": 41862397952
+    },
+    {
+      "phase": "fsdp_begin",
+      "time_utc": "2026-10-27T14:12:45.772036+00:00",
+      "elapsed_seconds": 94.44485330000134,
+      "allocated_bytes": 1423599104,
+      "reserved_bytes": 1444937728,
+      "peak_allocated_bytes": 1423599616,
+      "peak_reserved_bytes": 1444937728,
+      "device_free_bytes": 82991906816,
+      "device_total_bytes": 84974239744,
+      "host_peak_rss_bytes": 41862397952
+    },
+    {
+      "phase": "model_ready",
+      "time_utc": "2026-10-27T14:12:51.082506+00:00",
+      "elapsed_seconds": 99.755319969001,
+      "allocated_bytes": 29846211072,
+      "reserved_bytes": 35213279232,
+      "peak_allocated_bytes": 35015118848,
+      "peak_reserved_bytes": 35213279232,
+      "device_free_bytes": 49223565312,
+      "device_total_bytes": 84974239744,
+      "host_peak_rss_bytes": 41862397952
+    },
+    {
+      "phase": "step0_input_begin",
+      "time_utc": "2026-10-27T14:12:51.083168+00:00",
+      "elapsed_seconds": 99.75597171400113,
+      "allocated_bytes": 29846211072,
+      "reserved_bytes": 35213279232,
+      "peak_allocated_bytes": 35015118848,
+      "peak_reserved_bytes": 35213279232,
+      "device_free_bytes": 49223565312,
+      "device_total_bytes": 84974239744,
+      "host_peak_rss_bytes": 41862397952
+    },
+    {
+      "phase": "step0_forward_begin",
+      "time_utc": "2026-10-27T14:12:52.086137+00:00",
+      "elapsed_seconds": 100.75895441900138,
+      "allocated_bytes": 29846823424,
+      "reserved_bytes": 30014439424,
+      "peak_allocated_bytes": 35015118848,
+      "peak_reserved_bytes": 35223764992,
+      "device_free_bytes": 54409822208,
+      "device_total_bytes": 84974239744,
+      "host_peak_rss_bytes": 41862397952
+    },
+    {
+      "phase": "step0_loss_begin",
+      "time_utc": "2026-10-27T14:13:00.877873+00:00",
+      "elapsed_seconds": 109.55068588600079,
+      "allocated_bytes": 29949021184,
+      "reserved_bytes": 35729178624,
+      "peak_allocated_bytes": 35015118848,
+      "peak_reserved_bytes": 35729178624,
+      "device_free_bytes": 48663625728,
+      "device_total_bytes": 84974239744,
+      "host_peak_rss_bytes": 41862397952
+    },
+    {
+      "phase": "step0_backward_begin",
+      "time_utc": "2026-10-27T14:13:01.128385+00:00",
+      "elapsed_seconds": 109.80119819900028,
+      "allocated_bytes": 29948998144,
+      "reserved_bytes": 35729178624,
+      "peak_allocated_bytes": 35015118848,
+      "peak_reserved_bytes": 35729178624,
+      "device_free_bytes": 48342761472,
+      "device_total_bytes": 84974239744,
+      "host_peak_rss_bytes": 41862397952
+    },
+    {
+      "phase": "step0_backward_complete",
+      "time_utc": "2026-10-27T14:13:02.773310+00:00",
+      "elapsed_seconds": 111.44612495100046,
+      "allocated_bytes": 57246289408,
+      "reserved_bytes": 67498934272,
+      "peak_allocated_bytes": 59832785920,
+      "peak_reserved_bytes": 67498934272,
+      "device_free_bytes": 16291987456,
+      "device_total_bytes": 84974239744,
+      "host_peak_rss_bytes": 41862397952
+    },
+    {
+      "phase": "step0_clip_begin",
+      "time_utc": "2026-10-27T14:13:03.000324+00:00",
+      "elapsed_seconds": 111.67313637400002,
+      "allocated_bytes": 57246289408,
+      "reserved_bytes": 67498934272,
+      "peak_allocated_bytes": 59832785920,
+      "peak_reserved_bytes": 67498934272,
+      "device_free_bytes": 16291987456,
+      "device_total_bytes": 84974239744,
+      "host_peak_rss_bytes": 41862397952
+    },
+    {
+      "phase": "step0_optimizer_begin",
+      "time_utc": "2026-10-27T14:13:03.075404+00:00",
+      "elapsed_seconds": 111.74821377800072,
+      "allocated_bytes": 57246289920,
+      "reserved_bytes": 67498934272,
+      "peak_allocated_bytes": 59832785920,
+      "peak_reserved_bytes": 67498934272,
+      "device_free_bytes": 16291987456,
+      "device_total_bytes": 84974239744,
+      "host_peak_rss_bytes": 41862397952
+    },
+    {
+      "phase": "step0_optimizer_begin",
+      "time_utc": "2026-10-27T14:13:03.355049+00:00",
+      "elapsed_seconds": 112.02785977400163,
+      "allocated_bytes": 83566852608,
+      "reserved_bytes": 83726696448,
+      "peak_allocated_bytes": 83566852608,
+      "peak_reserved_bytes": 83770736640,
+      "device_free_bytes": 64225280,
+      "device_total_bytes": 84974239744,
+      "host_peak_rss_bytes": 41862397952
+    }
+  ],
+  "steps": [
+    {
+      "step": 0,
+      "optimizer_lr": 0.0,
+      "loss": 0.7054613828659058,
+      "ce": 2.3295228481292725,
+      "fm": 0.12308064103126526,
+      "ce_tokens": 14,
+      "fm_tokens": 132,
+      "gradient_norm": 10.239189147949219
+    }
+  ],
+  "failed_phase": "step0_optimizer_begin",
+  "error_type": "OutOfMemoryError",
+  "error": "CUDA out of memory. Tried to allocate 86.00 MiB. GPU 0 has a total capacity of 79.14 GiB of which 61.25 MiB is free. Including non-PyTorch memory, this process has 79.06 GiB memory in use. Of the allocated memory 77.83 GiB is allocated by PyTorch, and 152.44 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)",
+  "traceback": "Traceback (most recent call last):\n  File \"/root/umm-env01-20261027-a10080/env01-default-capacity/default_capacity.py\", line 268, in worker\n    optimizer.step()\n  File \"/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/optim/lr_scheduler.py\", line 137, in wrapper\n    return func.__get__(opt, opt.__class__)(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/optim/optimizer.py\", line 487, in wrapper\n    out = func(*args, **kwargs)\n          ^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/optim/optimizer.py\", line 91, in _use_grad\n    ret = func(self, *args, **kwargs)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/optim/adamw.py\", line 209, in step\n    has_complex = self._init_group(\n                  ^^^^^^^^^^^^^^^^^\n  File \"/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py\", line 632, in _fn\n    return fn(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/optim/adamw.py\", line 152, in _init_group\n    state[\"exp_avg_sq\"] = torch.zeros_like(\n                          ^^^^^^^^^^^^^^^^^\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 86.00 MiB. GPU 0 has a total capacity of 79.14 GiB of which 61.25 MiB is free. Including non-PyTorch memory, this process has 79.06 GiB memory in use. Of the allocated memory 77.83 GiB is allocated by PyTorch, and 152.44 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n",
+  "finished_at_utc": "2026-10-27T14:13:03.356336+00:00",
+  "wall_seconds": 112.02914178900028
+}

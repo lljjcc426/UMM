@@ -12,6 +12,13 @@ STATUS = {"historical_record_not_rechecked","primary_sections_read","primary_abs
 REQUIRED = {"id","title","claim","method","problem","conclusion","gap","source_urls",
             "verification","provenance","record_type","scope","privacy"}
 PRIVATE_IDS = {"C08","C09","C10","C11"}
+# These owned, recorded packed-input fixtures contain training data tensors.
+# Keep their exact paths explicit; model checkpoints remain excluded below.
+PACKED_INPUT_FIXTURES = {
+    "data/research/runs/env01_training_reload_a10080_2026-10-27/cloud/attempt02/packed_batches.pt",
+    "data/research/runs/env01_training_reload_a10080_2026-10-27/cloud/attempt03/packed_batches.pt",
+    "data/research/runs/env01_default_capacity_a10080_2026-10-27/cloud/attempt01-small/packed_joint_batch.pt",
+}
 def publication_files():
     # Inspect files that can enter a normal Git commit, including tracked files
     # that would otherwise match an ignore rule. Local ignored caches stay local.
@@ -83,7 +90,8 @@ def validate():
             errors.append(f"Unresolved chat citation token in {p.relative_to(ROOT)}")
     forbidden_exts={".pdf",".ttf",".otf",".woff",".woff2",".pt",".pth",".ckpt",".safetensors"}
     for p in files:
-        if p.is_file() and p.suffix.lower() in forbidden_exts:
+        if (p.is_file() and p.suffix.lower() in forbidden_exts
+                and p.relative_to(ROOT).as_posix() not in PACKED_INPUT_FIXTURES):
             errors.append(f"Excluded binary/source type included: {p.relative_to(ROOT)}")
     if any(r.get("verification")=="historical_record_unresolved" for r in rows):
         warnings.append("Some historical references remain unresolved; explicitly tagged.")

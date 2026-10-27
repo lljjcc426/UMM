@@ -64,3 +64,5 @@ step1 checkpoint保存全部13个可训练张量、AdamW动量/二阶矩与step�
 本地目录、v1/v2结构及P0开发门禁检查通过，50项回归测试通过。首轮有一项既有门禁测试默认实际清单永远没有证据、ENV-01永远未完成；现已将该负例夹具显式设为“无证据、未完成”，保留原失败并重跑测试通过。门禁实现及科研验收要求未放宽。[首轮测试日志](../../../data/research/runs/env01_training_reload_a10080_2026-10-27/checks/unit_tests.log)与[修复后日志](../../../data/research/runs/env01_training_reload_a10080_2026-10-27/checks/unit_tests_attempt02.log)均保存。未推送或触发GitHub CI。
 
 本轮完成后停止模型计算，不启动新研究任务。平台实例仍需用户选择停机保盘或后续使用，SSH连接成功和模型进程结束均不等同于平台停止计费。完整P0保持进行中，不提出面向main的PR。
+
+后续独立任务：[官方默认训练策略容量实测](env01_default_capacity_report_2026-10-27.md)已在A10080上完成真实联合前反传，首次AdamW状态初始化OOM；本报告的部分参数训练/重载结果与当时边界保留。
