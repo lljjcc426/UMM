@@ -4,12 +4,12 @@
 
 ## 租用配置
 
-- 智星云 GPU 云主机：**1×NVIDIA A100-SXM4-80GB，16核 CPU / 48GB 内存**。
+- 当前租用方案：**1×NVIDIA A100-SXM4-40GB，16核 CPU / 48GB 内存**。用户确认当前只有40GB有货；官方推理要求至少40GB，实际三项接口仍待验证。80GB保留为有库存时显存余量更大的首选。
 - 建议可写磁盘 **150GB**，供约18.38GB选定权重、运行环境、编译缓存及输出使用。150GB为预留量，尚非实测最低值。
-- Linux x86_64，优先 Ubuntu 22.04 + CUDA 12.6 **开发环境**（含 `nvcc`），含 Conda 或 Python 3.11。驱动须支持 CUDA 12.6 的 PyTorch；连接后核实实际配置。
+- 用户展示的镜像为 **Ubuntu 22.04 / ubuntu22_cuda12.4**，标注CUDA12.4、Anaconda、torch2.5、Python3.12及软件升级支持，可以采用。通过Anaconda另建Python3.11环境，安装下述固定版本；镜像预装版本不计作已验证研究环境。连接后检查驱动和 `nvcc`，缺少编译工具时在本任务内补齐。
 - 若界面只有其他镜像，先给出镜像名称，由执行 Agent 核对，无需自行反复安装。
 - **无需额外租无卡 CPU 主机**。部署包直接上传 GPU 主机；大权重直接在云端下载。本地不加载模型。
-- 若 A100 80GB 暂无库存，可以等。其他卡的替代方案须依据实际可用配置评估；本脚本未声明它们已可运行。
+- 本次使用40GB属于同一获准接口任务的资源适配；显存不足时保留失败证据，不能声明三项接口已经可用。
 
 截图中的8元/小时对应8核/16GB配置；16核/48GB的实际租价以平台下单页为准，记录到账单中。
 
@@ -18,23 +18,22 @@
 仓库构建命令（维护者使用；本地仅收集公开源码及绘制小图片，不下载权重）：
 
 ```bash
-python3 scripts/env01/prepare_bundle.py --output private/env01_deployment_build_2026-10-27 \
-  --source-cache /tmp/umm-env01-lance-raw-20261027 \
-  --source-cache /tmp/umm-env01-lance-20261027
+python3 scripts/env01/prepare_bundle.py --output private/env01_deployment_cuda124_2026-10-27 \
+  --source-cache private/env01_deployment_final_2026-10-27/env01-cloud/upstream
 ```
 
-交付压缩包：`data/research/deployments/env01_interface_2026-10-27/env01-cloud.tar.gz`。解压后顶层为 `env01-cloud/`，包含原作者许可、固定源码、计划、脚本和原创输入图片，不含权重及外部数据集。`upstream_manifest.json` 记录逐文件来源和收集失败；构建尝试记录另随交付包保留。将整个目录放在持久可写磁盘；脚本运行环境与权重都在该目录下。
+当前交付压缩包：`data/research/deployments/env01_interface_cuda124_2026-10-27/env01-cloud.tar.gz`。先前CUDA12.6包及记录保留于原目录，当前使用这个CUDA12.4包。解压后顶层为 `env01-cloud/`，包含原作者许可、固定源码、计划、脚本和原创输入图片，不含权重及外部数据集。`upstream_manifest.json` 记录逐文件来源和收集失败；构建尝试记录另随交付包保留。将整个目录放在持久可写磁盘；脚本运行环境与权重都在该目录下。
 
 固定代码：`bytedance/Lance@4baeee086648996f6ab12e673cbe461b0b149997`。
 固定权重：`bytedance-research/Lance@7395315758865e6f56ab87ad06a88c7ac172f056`。
-安装方案依据该版官方说明：Python 3.11、PyTorch 2.8.0/cu126、FlashAttention 2.8.3，并安装该版 `requirements.txt`。依赖安装、扩展编译和权重下载尚待云端验证，成功安装后保存完整 `pip freeze`。FlashAttention以 `MAX_JOBS=2` 控制编译主存。
+安装方案采用该版官方列出的另一套A100测试组合：**Python3.11、PyTorch2.5.1/cu124、torchvision0.20.1、torchaudio2.5.1、FlashAttention2.6.3**，并安装该版 `requirements.txt`。单独建立Python3.11环境是为了匹配包括numpy1.23.5在内的固定依赖。依赖安装、扩展编译和权重下载尚待云端验证，成功安装后保存完整 `pip freeze`。FlashAttention以 `MAX_JOBS=2` 控制编译主存。
 
 实例开通后提供控制台中的 SSH 主机、端口、用户名或本机 SSH 别名。使用 SSH 密钥或现有登录方式；无需把密码写入研究仓库。macOS自带 `ssh` 和 `scp`，平台也支持 SFTP。
 
 以下 `PORT`、`USER`、`HOST` 和 `/your/persistent/disk` 替换为实际值；可由执行 Agent 在获得连接信息后完成：
 
 ```bash
-scp -P PORT data/research/deployments/env01_interface_2026-10-27/env01-cloud.tar.gz USER@HOST:/your/persistent/disk/
+scp -P PORT data/research/deployments/env01_interface_cuda124_2026-10-27/env01-cloud.tar.gz USER@HOST:/your/persistent/disk/
 ssh -p PORT USER@HOST
 cd /your/persistent/disk
 tar -xzf env01-cloud.tar.gz

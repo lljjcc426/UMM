@@ -32,10 +32,10 @@ if [[ ! -x "$ENV_DIR/bin/python" ]]; then
 fi
 PYTHON="$ENV_DIR/bin/python"
 "$PYTHON" -m pip install --upgrade pip setuptools wheel ninja packaging psutil
-"$PYTHON" -m pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu126
+"$PYTHON" -m pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu124
 "$PYTHON" -m pip install -r "$BUNDLE_DIR/upstream/requirements.txt"
 # Limit CPU compilation parallelism to fit the available 48 GB host RAM.
-MAX_JOBS=2 "$PYTHON" -m pip install flash-attn==2.8.3 --no-build-isolation
+MAX_JOBS=2 "$PYTHON" -m pip install flash-attn==2.6.3 --no-build-isolation
 "$PYTHON" -m pip check
 "$PYTHON" -m pip freeze > "$SETUP_DIR/pip-freeze.txt"
 "$PYTHON" - "$BUNDLE_DIR" <<'PY'

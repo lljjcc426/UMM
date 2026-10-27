@@ -18,7 +18,20 @@
   "enhance_prompt": false,
   "use_kv_cache": true,
   "expected_gpu_count": 1,
-  "recommended_gpu": "NVIDIA A100-SXM4-80GB",
+  "recommended_gpu": "NVIDIA A100-SXM4-40GB",
+  "preferred_gpu_when_available": "NVIDIA A100-SXM4-80GB",
+  "selection_basis": "User reports only A100 40GB in stock; official inference minimum is 40GB, runtime remains unverified",
+  "runtime_environment": {
+    "provider_image": "ubuntu22_cuda12.4",
+    "os": "Ubuntu 22.04",
+    "cuda_toolkit": "12.4",
+    "python": "3.11 in a separate Conda environment",
+    "torch": "2.5.1+cu124",
+    "torchvision": "0.20.1",
+    "torchaudio": "2.5.1",
+    "flash_attn": "2.6.3",
+    "verification_status": "planned_pending_instance_access"
+  },
   "recommended_host": {"cpu_cores": 16, "ram_gb": 48, "disk_gb": 150},
   "approval": {
     "user_approved": true,
