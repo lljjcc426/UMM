@@ -12,13 +12,17 @@
 | 已有非模型实验 | PX-01八个受控像素案例，未证明任何UMM性能 |
 | 新数据/观察器 | 未构建、未校准 |
 | 模型推理/训练 | 未启动；17项实验全planned |
+| ENV-01静态盘点 | [已完成资源与源码盘点](../research/v2/env01_feasibility_audit_2026-10-27.md)；代码/权重revision已固定，单卡上限与最高16核/48GB主存已确认；模型接口及梯度未实测，ENV-01未验收 |
+| ENV-01云端准备 | 三项原生接口任务已批准，费用不设上限；[部署说明](../research/v2/env01_cloud_deployment.md)，等待用户租用实例并提供SSH连接；没有模型运行结果 |
 | 结构代码测试 | v1保留、v2增补；实际结果以该提交CI日志为准，非模型实验 |
 
 ## 当前动作
 
-可先做DATA-01规范/授权/manifest与CPU受控EVAL-01；ENV-01待实际GPU/固定权重确认。随后SO-00采样检查、BASE-01人工失败分析、EVAL-02真实输出域校准，再完成ADAPT-01强基线。无明确剩余问题时不进入复杂机制训练。
+ENV-01资源与代码静态盘点已完成，证据见[审计记录](../../data/research/audits/env01_static_2026-10-27/audit_record.json)。用户已批准三项原生云端接口验证，明确费用不设上限；推荐1×A100 80GB、16核/48GB主存，直接上传部署包到GPU主机，无需另租CPU主机。用户已回复“尚未租用”，当前等待实例与SSH信息；部署与验证记录见[准备记录](../../data/research/deployments/env01_interface_2026-10-27/preparation_record.json)。不启动训练；默认大范围AdamW训练静态状态预算约88.55GiB，不能按当前单卡配置直接照搬。
 
-待填：GPU型号/数量、GPU时上限、模型/数据revision、真实授权材料和人工标注。配置null保留真实缺项。
+DATA-01规范/授权/manifest与CPU受控EVAL-01仍可作为独立待审批任务。之后按依赖进入SO-00采样检查、BASE-01人工失败分析、EVAL-02真实输出域校准，再完成ADAPT-01强基线。无明确剩余问题时不进入复杂机制训练。
+
+已固定候选模型代码与权重revision，runtime_verified仍为false。待填：实际实例、升级CPU/内存后的租价、实测耗时与完整账单、数据revision、真实授权材料和人工标注；本任务不设费用上限，实际budget配置待实例开通，性能字段保持null。
 
 ## 核心判断
 

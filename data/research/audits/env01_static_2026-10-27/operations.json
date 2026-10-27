@@ -1,0 +1,82 @@
+{
+  "scope": "Actual static-audit operations and retrieval failures. No model code was imported or run.",
+  "commands": [
+    {
+      "command": "git status --short --branch; git log -1 --format=...",
+      "purpose": "Confirm clean research branch and starting commit",
+      "result": "research/p0-stroke-video-foundation at 5e46d229c73168f31b21a46c50f36878be37449a"
+    },
+    {
+      "command": "uname -sm; sw_vers; sysctl -n hw.model hw.memsize hw.ncpu; system_profiler SPDisplaysDataType; df -h /Users/cc/Documents/UMM",
+      "purpose": "Read-only local host inventory",
+      "result": "M5 ARM64 macOS; 16GiB unified memory, 10 logical CPU cores; no NVIDIA GPU"
+    },
+    {
+      "command": "git -c user.name=lljjcc426 -c user.email=3115250840@qq.com clone --depth 1 --filter=blob:none --sparse https://github.com/bytedance/Lance.git /tmp/umm-env01-lance-20261027",
+      "result": "Initial root checkout and Git tree/commit metadata succeeded"
+    },
+    {
+      "command": "git sparse-checkout set common config data modeling scripts train benchmarks",
+      "result": "Blob retrieval stalled for approximately five minutes; stopped own Git processes. No UMM file was deleted or reset. Switched to pinned raw source URLs."
+    },
+    {
+      "command": "python3 scripts/audit_lance_assets.py --output data/research/audits/env01_static_2026-10-27/assets",
+      "result": "Completed pinned API metadata, configs and safetensors header-only collection; zero tensor payload bytes"
+    },
+    {
+      "command": "git ls-tree -r --name-only HEAD",
+      "working_directory": "/tmp/umm-env01-lance-20261027",
+      "result": "Saved source_tree.txt; used real tree paths for subsequent source retrieval"
+    },
+    {
+      "command": "Python urllib.request + concurrent.futures source retrieval from https://raw.githubusercontent.com/bytedance/Lance/4baeee086648996f6ab12e673cbe461b0b149997/<path>",
+      "result": "Retrieved relevant training, model, config and data code; selected excerpts and file/line permalinks saved in source_excerpts.json"
+    },
+    {
+      "command": "rg, sed and nl over fixed local source; Python json/math over safetensors headers",
+      "result": "Static interface, parameter-role and memory assessment saved; no CUDA/torch installation or model forward pass"
+    },
+    {
+      "command": "Copy user-provided resource screenshot and serialize the supplied catalog",
+      "result": "cloud_resource_snapshot.png and cloud_resources.json preserve GPU count, host RAM limits and price scope"
+    },
+    {
+      "command": "python3 scripts/validate_research_v2.py --output data/research/audits/env01_static_2026-10-27/validation.json; python3 scripts/validate_stage_release.py; python3 -m unittest tests.test_research_v2 tests.test_stage_release -v; git diff --check",
+      "result": "Both validators passed; 20 related regression tests passed; diff whitespace and audit JSON/local-link checks passed. No new smoke/model tests were added."
+    }
+  ],
+  "retrieval_failures": [
+    {
+      "source": "https://gpu.ai-galaxy.com/",
+      "result": "Public web fetch returned 502/timeout across initial preparation and audit; resource catalog and prices attributed to user screenshot/text"
+    },
+    {
+      "source": "https://github.com/Dao-AILab/flash-attention/tree/v2.8.3",
+      "result": "Web tool could not fetch URL; general official compatibility guidance used only as architecture screening, not proof of pinned build execution"
+    },
+    {
+      "source_paths": [
+        "modeling/lance.py",
+        "common/model/fsdp.py",
+        "common/model/autoencoder.py",
+        "data/transform/video_transform.py",
+        "common/utils/download.py",
+        "config/model_paths.yaml"
+      ],
+      "result": "Exploratory raw path requests returned HTTP404; corrected using actual source tree. These path guesses do not establish missing upstream functionality."
+    }
+  ],
+  "tooling_notes": [
+    "One poll used an unavailable process id and failed without modifying files; later inspections used the actual returned sessions."
+  ],
+  "not_performed": [
+    "GPU rental",
+    "paid API call",
+    "tensor payload download",
+    "dataset download",
+    "model import/inference/training",
+    "checkpoint reload",
+    "Git commit/push/PR"
+  ],
+  "cleanup": "Only own stalled Git retrieval processes were terminated; no repository or prior result files were deleted."
+}

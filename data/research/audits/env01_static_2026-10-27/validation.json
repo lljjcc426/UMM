@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "protocol_id": "stroke-video-v2",
+  "experiments": 17,
+  "local_files_checked": 7,
+  "errors": [],
+  "model_results_verified": false,
+  "scope": "v2 schema, dependencies, information and baseline contracts only; no model performance validation",
+  "additional_checks": {
+    "stage_manifest": {
+      "command": "python3 scripts/validate_stage_release.py",
+      "passed": true,
+      "mode": "development",
+      "scientific_claims_verified": false
+    },
+    "regression": {
+      "command": "python3 -m unittest tests.test_research_v2 tests.test_stage_release -v",
+      "passed": true,
+      "tests_run": 20,
+      "elapsed_seconds": 0.008
+    },
+    "diff_whitespace": {
+      "command": "git diff --check",
+      "passed": true
+    },
+    "artifact_json_and_links": {
+      "passed": true,
+      "description": "Parsed all 16 audit JSON files existing at verification; checked report local links and audit result_artifacts paths."
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "observed_on": "2026-10-27",
+  "provider": "智星云",
+  "provider_url": "https://gpu.ai-galaxy.com/",
+  "evidence": "User screenshot and subsequent typed resource catalog; not independently logged into provider.",
+  "screenshot": "cloud_resource_snapshot.png",
+  "max_gpu_count": 1,
+  "waiting_for_other_models_allowed": true,
+  "gpu_catalog": [
+    {
+      "model": "GeForce RTX 5090",
+      "advertised_vram_gb": 32,
+      "assessment": "below_official_vram_floor_new_architecture",
+      "rented": false
+    },
+    {
+      "model": "NVIDIA A100-SXM4-80GB",
+      "advertised_vram_gb": 80,
+      "assessment": "preferred_single_gpu",
+      "rented": false
+    },
+    {
+      "model": "NVIDIA A800-SXM4-40GB",
+      "advertised_vram_gb": 40,
+      "assessment": "conditional_inference_candidate",
+      "rented": false
+    },
+    {
+      "model": "NVIDIA A100-SXM4-40GB",
+      "advertised_vram_gb": 40,
+      "assessment": "conditional_inference_candidate",
+      "rented": false
+    },
+    {
+      "model": "GeForce RTX 4090PLUS",
+      "advertised_vram_gb": 48,
+      "assessment": "conditional_inference_candidate_provider_variant",
+      "rented": false
+    },
+    {
+      "model": "GeForce RTX 4090",
+      "advertised_vram_gb": 24,
+      "assessment": "below_official_vram_floor",
+      "rented": false
+    },
+    {
+      "model": "Tesla V100-32GB",
+      "advertised_vram_gb": 32,
+      "assessment": "below_official_floor_and_incompatible_default_bf16_fa2",
+      "rented": false
+    },
+    {
+      "model": "GeForce GTX 1080 Ti",
+      "advertised_vram_gb": 11,
+      "assessment": "below_official_floor_and_incompatible_default_bf16_fa2",
+      "rented": false
+    },
+    {
+      "model": "GeForce RTX 2080 Ti",
+      "advertised_vram_gb": 11,
+      "assessment": "below_official_floor_and_incompatible_default_bf16_fa2",
+      "rented": false
+    },
+    {
+      "model": "GeForce RTX 3080",
+      "advertised_vram_gb": 10,
+      "assessment": "below_official_vram_floor",
+      "rented": false
+    },
+    {
+      "model": "GeForce RTX 3090",
+      "advertised_vram_gb": 24,
+      "assessment": "below_official_vram_floor",
+      "rented": false
+    },
+    {
+      "model": "NVIDIA A30",
+      "advertised_vram_gb": 24,
+      "assessment": "below_official_vram_floor",
+      "rented": false
+    },
+    {
+      "model": "NVIDIA A40",
+      "advertised_vram_gb": 48,
+      "assessment": "conditional_inference_candidate",
+      "rented": false
+    },
+    {
+      "model": "RTX A5000",
+      "advertised_vram_gb": 24,
+      "assessment": "below_official_vram_floor",
+      "rented": false
+    },
+    {
+      "model": "RTX A6000",
+      "advertised_vram_gb": 48,
+      "assessment": "conditional_inference_candidate",
+      "rented": false
+    },
+    {
+      "model": "Tesla V100-16GB",
+      "advertised_vram_gb": 16,
+      "assessment": "below_official_floor_and_incompatible_default_bf16_fa2",
+      "rented": false
+    }
+  ],
+  "gpu_host_options": [
+    {
+      "cpu_cores": 8,
+      "ram_gb": 16
+    },
+    {
+      "cpu_cores": 8,
+      "ram_gb": 24
+    },
+    {
+      "cpu_cores": 16,
+      "ram_gb": 32
+    },
+    {
+      "cpu_cores": 16,
+      "ram_gb": 48
+    }
+  ],
+  "cpu_only_options": {
+    "family": "ecs.c1.base",
+    "options": [
+      {
+        "cpu_cores": 2,
+        "ram_gb": 2
+      },
+      {
+        "cpu_cores": 4,
+        "ram_gb": 4
+      },
+      {
+        "cpu_cores": 4,
+        "ram_gb": 8
+      },
+      {
+        "cpu_cores": 8,
+        "ram_gb": 16
+      }
+    ]
+  },
+  "screenshot_quotes": [
+    {
+      "model": "NVIDIA A100-SXM4-80GB",
+      "gpu_count": 1,
+      "cpu_cores": 8,
+      "ram_gb": 16,
+      "displayed_cny_per_hour": 8,
+      "status_in_screenshot": "available"
+    },
+    {
+      "model": "GeForce RTX 5090",
+      "gpu_count": 1,
+      "cpu_cores": 8,
+      "ram_gb": 16,
+      "displayed_cny_per_hour": 3.16,
+      "status_in_screenshot": "full_reservation_only"
+    },
+    {
+      "model": "CPU-only",
+      "family": "ecs.c1.base",
+      "cpu_cores": 2,
+      "ram_gb": 2,
+      "displayed_cny_per_hour": 0.18
+    }
+  ],
+  "recommended_for_next_approval": {
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "gpu_count": 1,
+    "cpu_cores": 16,
+    "ram_gb": 48,
+    "disk_gb": 150,
+    "price_for_this_cpu_ram_configuration_cny_per_hour": null,
+    "max_gpu_hours": null,
+    "max_total_charge_cny": null,
+    "note": "150GB is a planning allowance for software, selected assets, logs and possible checkpoint validation, not a provider quota or measured minimum. Training suitability is unverified."
+  },
+  "rental_authorized": false,
+  "rental_started": false
+}

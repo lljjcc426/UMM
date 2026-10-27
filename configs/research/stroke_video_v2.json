@@ -38,7 +38,19 @@
     "note": "Project discussion criteria; no performance claim. Freeze thresholds and core contrasts before held-out evaluation."
   },
   "budget": {"configured": false, "gpu_model": null, "gpu_count": null, "max_gpu_hours": null},
-  "models": {"primary": {"name": "Lance_3B_Video", "code_revision": null, "weight_revision": null, "runtime_verified": false}},
+  "models": {"primary": {"name": "Lance_3B_Video", "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997", "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056", "runtime_verified": false}},
+  "resource_constraints": {
+    "source": "user_confirmed_2026-10-27",
+    "max_gpu_count": 1,
+    "max_gpu_host_cpu_cores": 16,
+    "max_gpu_host_ram_gb": 48,
+    "waiting_for_other_gpu_models_allowed": true,
+    "recommended_gpu_for_runtime_verification": "NVIDIA A100-SXM4-80GB",
+    "cloud_rental_approved": true,
+    "cloud_approval_scope": "ENV-01 three native inference interfaces; no training or remote push",
+    "spending_policy": "User approved cost unconstrained for this task; no instance rented yet",
+    "catalog": "data/research/audits/env01_static_2026-10-27/cloud_resources.json"
+  },
   "documents": {
     "design": "docs/research/v2/README.md",
     "method": "docs/research/v2/method.md",

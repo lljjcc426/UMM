@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "experiment_id": "ENV-01",
+  "scope": "Three native inference interfaces only; no training or scientific accuracy claim",
+  "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+  "weight_repository": "bytedance-research/Lance",
+  "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+  "weight_patterns": ["Lance_3B_Video/*", "Qwen2.5-VL-ViT/*", "Wan2.2_VAE.pth", "config.json"],
+  "tasks": ["x2t_video", "t2v", "i2v"],
+  "seed": 11,
+  "num_frames": 33,
+  "height": 480,
+  "width": 848,
+  "fps": 12,
+  "denoising_steps": 30,
+  "cfg_text_scale": 4.0,
+  "enhance_prompt": false,
+  "use_kv_cache": true,
+  "expected_gpu_count": 1,
+  "recommended_gpu": "NVIDIA A100-SXM4-80GB",
+  "recommended_host": {"cpu_cores": 16, "ram_gb": 48, "disk_gb": 150},
+  "approval": {
+    "user_approved": true,
+    "cloud_spending_cap_cny": null,
+    "budget_policy": "User approved this three-interface task and stated that cost is not a constraint",
+    "scope_limit": "No training, model replacement, new experiment group or remote Git push"
+  }
+}
