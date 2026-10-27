@@ -4,7 +4,7 @@
 
 ## 当前有效设计：stroke-video-v2
 
-更新于2026-10-27。[设计v2总览](docs/research/v2/README.md)是当前科学设计主入口；[阶段路线](docs/project/ROADMAP.md)与[实验矩阵](docs/project/EXPERIMENTS.md)提供执行导航。
+更新于2026-10-28。[设计v2总览](docs/research/v2/README.md)是当前科学设计主入口；[阶段路线](docs/project/ROADMAP.md)与[实验矩阵](docs/project/EXPERIMENTS.md)提供执行导航。
 
 | 内容 | 当前入口 |
 | --- | --- |
@@ -18,7 +18,7 @@
 
 初始范围为固定画布、无手遮挡、规范和实例可辨的风格化单字。T从空白完整生成是主结果，P实际前缀续写用于机制分析，O真值控制为特权上界，I目标图到过程是可选独立任务。字库几何权限G0/G1分开。不得以计划正确、最终OCR或teacher-forced一步成绩替代完整过程成功。
 
-新增关键检查：同数据普通SFT和轨迹/硬控制强基线；真实模型输出上的评价器校准；事件身份/进度/空间干预；共享与分离系统的同接口对照。ENV-01已完成三项原生接口、最小部分参数训练和独立重载，见[训练与重载报告](docs/research/v2/env01_training_reload_report_2026-10-27.md)；其余16项仍为planned，未构建正式数据集或校准通用RGB观察器。默认全参训练容量、收敛与笔顺质量不在本轮通过结论内，完整P0尚未验收。[PX-01八个受控像素案例](docs/experiments/process_probe.md)保留。
+新增关键检查：同数据普通SFT和轨迹/硬控制强基线；真实模型输出上的评价器校准；事件身份/进度/空间干预；共享与分离系统的同接口对照。ENV-01已完成三项原生接口、最小部分参数训练和独立重载，见[训练与重载报告](docs/research/v2/env01_training_reload_report_2026-10-27.md)；DATA-01/EVAL-01已构建640字、2,752段RGB并通过冻结受控自动门槛，见[数据与观察器报告](docs/research/v2/p0_data_eval_report_2026-10-28.md)；两项因人审及完整独立来源划分待办登记blocked，其余14项planned。默认策略容量已有OOM负结果，收敛与笔顺质量未验证，完整P0尚未验收。[PX-01八个受控像素案例](docs/experiments/process_probe.md)保留。
 
 ## 文献与证据
 

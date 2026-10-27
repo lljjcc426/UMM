@@ -1,6 +1,6 @@
-# 当前状态：ENV-01最小环境验证通过，完整P0未验收
+# 当前状态：P0环境闭环通过，数据/评价工程完成、人审待办
 
-2026-10-27。入口：[设计v2](../research/v2/README.md)、[阶段路线](ROADMAP.md)、[17项实验登记](../../data/research/experiments_v2.json)。
+2026-10-28。入口：[设计v2](../research/v2/README.md)、[阶段路线](ROADMAP.md)、[17项实验登记](../../data/research/experiments_v2.json)。
 
 | 项目 | 实际状态 |
 | --- | --- |
@@ -10,8 +10,8 @@
 | 本轮新证据 | 原始出版/作者页与指定README核查，见[来源审计](../research/v2/source_audit.md)，未冒充全文精读 |
 | 科研设计 | v2：方法驱动的可见执行；新增同数据适配、模型输出评价器校准和机制干预 |
 | 已有非模型实验 | PX-01八个受控像素案例，未证明任何UMM性能 |
-| 新数据/观察器 | 未构建、未校准 |
-| 模型推理/训练 | 三项原生接口均有成功输出；最小部分参数CE/FM训练、真实AdamW更新与独立checkpoint重载通过；ENV-01 completed，其余16项planned |
+| 新数据/观察器 | 640字、2,752段候选RGB已构建；G1受控观察器冻结评测通过自动门槛，独立人审0，完整独立来源划分待办；[报告](../research/v2/p0_data_eval_report_2026-10-28.md) |
+| 模型推理/训练 | 三项原生接口均有成功输出；最小部分参数CE/FM训练、真实AdamW更新与独立checkpoint重载通过；ENV-01 completed，DATA-01/EVAL-01 blocked，其余14项planned |
 | ENV-01静态盘点 | [资源与源码盘点](../research/v2/env01_feasibility_audit_2026-10-27.md)固定制品身份；默认训练状态估算与后续实测区分记录，详见下行容量结论 |
 | ENV-01云端执行 | 已在1×A100 80GB、16核/约48GB主存上运行x2t_video/t2v/i2v；生成均为33帧480×848/12fps，最高整卡采样37257MiB；[结果报告](../research/v2/env01_native_interface_report_2026-10-27.md) |
 | ENV-01训练/重载 | 实际训练324,479,024个参数元素，共享词嵌入分别收到CE/FM非零梯度；训练allocated/reserved峰值22.04/23.05GiB；恢复及下一步状态完全一致；[结果报告](../research/v2/env01_training_reload_report_2026-10-27.md) |
@@ -23,9 +23,9 @@ ENV-01已在本次批准的原生接口和最小部分参数训练/重载范围�
 
 原生推理视频仍有明显字形/方向错误，本轮训练仅用于环境闭环，不构成笔顺性能、收敛或共享收益证据。默认大范围AdamW状态约88.55GiB是给定假设下的静态估算，后续[默认策略容量实测](../research/v2/env01_default_capacity_report_2026-10-27.md)已完成：267个有效token、1,024预算的真实联合批次前反传完成，5.55B可训练元素均获得有限非零梯度，首次AdamW状态初始化OOM，allocated峰值77.83GiB、整卡采样80,977MiB；未运行65,536 token，也未验证其他配方。完整P0尚未验收，不提出面向main的PR。
 
-DATA-01规范/授权/manifest与CPU受控EVAL-01仍可作为独立待审批任务。之后按依赖进入SO-00采样检查、BASE-01人工失败分析、EVAL-02真实输出域校准，再完成ADAPT-01强基线。无明确剩余问题时不进入复杂机制训练。
+DATA-01/EVAL-01已按用户批准在本地CPU执行，构建640个独立字符组与2,752段RGB；五份manifest、固定源许可、未来信息审计和全部生成/解码记录保留。一次冻结保留集1,408段中，清晰样本覆盖100%，全部输出覆盖81.82%，256段未知单列；0/64字符来源组发生误接受，条件性单侧95%上界4.57%。用户明确暂缓独立人工核验，当前完成数0；完整交叉矩阵仍缺独立字体/书写者/记录素材，两项保持blocked。见[执行报告](../research/v2/p0_data_eval_report_2026-10-28.md)和[人工核验界面](../../data/research/datasets/p0_stroke_synthetic_v1/review/index.html)。之后按依赖进入SO-00采样检查、BASE-01人工失败分析、EVAL-02真实输出域校准，再完成ADAPT-01强基线。无明确剩余问题时不进入复杂机制训练。
 
-runtime_verified及gradient_reload_verified为true，作用范围限于已记录配方。正式数据授权与观察器校准仍待执行。费用上限延续null，平台实际账单未知；完整进程、失败、归档和空闲占用记录保留。模型进程已结束；checkpoint及编译wheel另存本地private备份，原始环境和权重保留云端，最终归档状态见任务登记。后续任务须另行批准，避免等待期间继续占用GPU租费。
+runtime_verified及gradient_reload_verified为true，作用范围限于已记录配方。候选数据许可已记录，受控G1自动门槛已通过；逐字规范/RGB人审及实际生成域校准尚缺。费用上限延续null，平台实际账单未知；完整进程、失败、归档和空闲占用记录保留。模型进程已结束；checkpoint及编译wheel另存本地private备份，原始环境和权重保留云端，最终归档状态见任务登记。本次DATA/EVAL未连接云端、未使用GPU，也未查看或释放旧实例租约，既有平台费用可能持续。后续研究任务须另行批准。
 
 ## 核心判断
 

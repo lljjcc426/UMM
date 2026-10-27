@@ -7,38 +7,99 @@
   "current_phase": "P0",
   "research_focus": "method_driven_observable_stroke_execution",
   "primary_protocol": "T",
-  "task_protocols": ["T", "P", "O"],
-  "optional_task_protocols": ["I"],
+  "task_protocols": [
+    "T",
+    "P",
+    "O"
+  ],
+  "optional_task_protocols": [
+    "I"
+  ],
   "primary_metric": "verified_order_lower_bound",
-  "geometry_tracks": ["G0_symbolic_rules", "G1_shared_normative_template"],
+  "geometry_tracks": [
+    "G0_symbolic_rules",
+    "G1_shared_normative_template"
+  ],
   "inference_uses_gold_event_boundaries": false,
   "generator_logs_are_evaluation_truth": false,
   "sharing_benefit_established": false,
-  "required_baselines": ["same_data_sft", "trajectory_style_renderer", "spatial_control", "separated_ug"],
-  "optional_experiments": ["REC-01", "EF-01"],
+  "required_baselines": [
+    "same_data_sft",
+    "trajectory_style_renderer",
+    "spatial_control",
+    "separated_ug"
+  ],
+  "optional_experiments": [
+    "REC-01",
+    "EF-01"
+  ],
   "data_plan": {
-    "calibration_characters": 64,
+    "calibration_characters": 128,
     "train_characters": 320,
     "validation_characters": 64,
     "test_characters": 128,
     "main_total_characters": 512,
-    "constructed": false,
-    "source_authorization": "pending",
-    "split_axes": ["character", "writer_or_style_family", "renderer", "source_group"],
-    "note": "Budget starting counts only. Add record-disjoint ID holdout within seen characters; cross character and style axes. Pretraining exposure is unknown."
+    "constructed": true,
+    "source_authorization": "Arphic Public License retained with copyright and modification notices; normative PDF reference only",
+    "split_axes": [
+      "character",
+      "writer_or_style_family",
+      "renderer",
+      "source_group"
+    ],
+    "note": "640 source-character groups; 128 observer groups disjoint from 512 main characters. Independent same-character font/writer/record crossed cells unavailable. Pretraining exposure unknown.",
+    "observer_development_characters": 64,
+    "observer_holdout_characters": 64,
+    "construction_scope": "provisional_licensed_G1_synthetic_RGB_not_human_verified_gold",
+    "normative_human_verified": false,
+    "scientific_ready": false,
+    "dataset_manifest": "data/research/datasets/p0_stroke_synthetic_v1/splits.json"
   },
-  "seeds": {"training": [11, 23, 47], "inference": [11, 23, 47]},
+  "seeds": {
+    "training": [
+      11,
+      23,
+      47
+    ],
+    "inference": [
+      11,
+      23,
+      47
+    ]
+  },
   "gates": {
     "calibration_min_coverage": 0.9,
     "false_accept_upper95_max": 0.05,
     "minimum_effect_pp": 5.0,
     "final_character_noninferiority_margin_pp": 2.0,
     "style_noninferiority_margin": null,
-    "threshold_status": "provisional_pending_pilot_power_and_calibration",
-    "note": "Project discussion criteria; no performance claim. Freeze thresholds and core contrasts before held-out evaluation."
+    "threshold_status": "controlled_G1_frozen_and_auto_gate_passed_independent_human_review_pending",
+    "note": "Project discussion criteria; no performance claim. Freeze thresholds and core contrasts before held-out evaluation.",
+    "controlled_calibration_evidence": "data/research/runs/p0_data_eval_2026-10-27/holdout_metrics.json"
   },
-  "budget": {"configured": false, "gpu_model": null, "gpu_count": null, "max_gpu_hours": null},
-  "models": {"primary": {"name": "Lance_3B_Video", "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997", "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056", "runtime_verified": true, "verification_scope": "three_native_inference_interfaces_and_approved_partial_parameter_training_reload", "gradient_reload_verified": true, "runtime_evidence": "data/research/runs/env01_native_a10080_2026-10-27/interface_results.json", "training_evidence": "data/research/runs/env01_training_reload_a10080_2026-10-27/summary.json", "known_environment_issue": "Decord wheel metadata tag mismatch, non-blocking on audited frame/training paths; pip warning retained", "default_full_parameter_training_verified": false, "default_full_parameter_capacity_measured": true, "default_full_parameter_capacity_status": "cuda_oom_during_first_adamw_moment_initialization", "default_capacity_evidence": "data/research/runs/env01_default_capacity_a10080_2026-10-27/summary.json"}},
+  "budget": {
+    "configured": false,
+    "gpu_model": null,
+    "gpu_count": null,
+    "max_gpu_hours": null
+  },
+  "models": {
+    "primary": {
+      "name": "Lance_3B_Video",
+      "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+      "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+      "runtime_verified": true,
+      "verification_scope": "three_native_inference_interfaces_and_approved_partial_parameter_training_reload",
+      "gradient_reload_verified": true,
+      "runtime_evidence": "data/research/runs/env01_native_a10080_2026-10-27/interface_results.json",
+      "training_evidence": "data/research/runs/env01_training_reload_a10080_2026-10-27/summary.json",
+      "known_environment_issue": "Decord wheel metadata tag mismatch, non-blocking on audited frame/training paths; pip warning retained",
+      "default_full_parameter_training_verified": false,
+      "default_full_parameter_capacity_measured": true,
+      "default_full_parameter_capacity_status": "cuda_oom_during_first_adamw_moment_initialization",
+      "default_capacity_evidence": "data/research/runs/env01_default_capacity_a10080_2026-10-27/summary.json"
+    }
+  },
   "resource_constraints": {
     "source": "user_confirmed_2026-10-27",
     "max_gpu_count": 1,
@@ -48,7 +109,16 @@
     "recommended_gpu_for_runtime_verification": "NVIDIA A100-SXM4-80GB",
     "current_rental_candidate": "NVIDIA A100-SXM4-80GB",
     "current_image_candidate": "ubuntu22_cuda12.4",
-    "actual_allocation": {"gpu_model": "NVIDIA A100-SXM4-80GB", "gpu_count": 1, "visible_vram_mib": 81920, "cpu_cores": 16, "host_ram_bytes": 50470645760, "cuda_toolkit": "12.4.99", "driver": "550.127.05", "evidence": "data/research/runs/env01_native_a10080_2026-10-27/host_inventory.json"},
+    "actual_allocation": {
+      "gpu_model": "NVIDIA A100-SXM4-80GB",
+      "gpu_count": 1,
+      "visible_vram_mib": 81920,
+      "cpu_cores": 16,
+      "host_ram_bytes": 50470645760,
+      "cuda_toolkit": "12.4.99",
+      "driver": "550.127.05",
+      "evidence": "data/research/runs/env01_native_a10080_2026-10-27/host_inventory.json"
+    },
     "cloud_rental_approved": true,
     "cloud_approval_scope": "ENV-01 native interfaces, partial training/reload, and separately approved actual default-policy capacity test on existing A10080; no remote push",
     "spending_policy": "User approved cost unconstrained; existing A10080 reused, actual provider bill pending; model work ended, archival and idle time retained",
@@ -61,6 +131,7 @@
     "experiments": "docs/research/v2/experiments.md",
     "implementation": "docs/research/v2/implementation.md",
     "source_audit": "docs/research/v2/source_audit.md",
-    "run_template": "templates/research_run_v2.json"
+    "run_template": "templates/research_run_v2.json",
+    "p0_data_evaluation_report": "docs/research/v2/p0_data_eval_report_2026-10-28.md"
   }
 }

@@ -15,15 +15,21 @@
     "docs/research/v2/env01_training_reload_report_2026-10-27.md",
     "data/research/runs/env01_training_reload_a10080_2026-10-27/summary.json",
     "docs/research/v2/env01_default_capacity_report_2026-10-27.md",
-    "data/research/runs/env01_default_capacity_a10080_2026-10-27/summary.json"
+    "data/research/runs/env01_default_capacity_a10080_2026-10-27/summary.json",
+    "docs/research/v2/p0_data_eval_report_2026-10-28.md",
+    "data/research/runs/p0_data_eval_2026-10-27/summary.json",
+    "data/research/runs/p0_data_eval_2026-10-27/task_record.json",
+    "data/research/runs/p0_data_eval_2026-10-27/holdout_metrics.json"
   ],
   "approval_reference": null,
   "unresolved_blockers": [
-    "DATA-01和EVAL-01尚未执行",
-    "完整P0证据与用户科学审核尚未完成"
+    "DATA-01/EVAL-01 independent human normative and RGB event verification pending; user deferred",
+    "DATA-01 full independent font/writer/record crossed split sources unavailable",
+    "Complete P0 scientific review and explicit user acceptance pending"
   ],
   "limitations": [
     "ENV-01通过范围限于已批准的原生接口及最小部分参数训练/重载",
-    "官方默认策略在A10080小联合批次首次AdamW状态初始化时实测OOM，65,536 token未执行；正式数据和笔顺质量未获验证"
+    "官方默认策略在A10080小联合批次首次AdamW状态初始化时实测OOM，65,536 token未执行；正式数据和笔顺质量未获验证",
+    "Controlled G1 synthetic calibration only; all-output coverage81.82%, clear-case coverage100%; no generated-domain or independent-font claim"
   ]
 }

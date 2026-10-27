@@ -1,0 +1,638 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "experiment_ids": [
+    "DATA-01",
+    "EVAL-01"
+  ],
+  "branch": "research/p0-stroke-video-foundation",
+  "base_commit": "6dc1bb23e113e0727cd0306d3238e94d821f4457",
+  "task_status": "engineering_complete_scientific_review_pending",
+  "scientific_status": "blocked",
+  "created_at_utc": "2026-10-27T16:18:57.207647+00:00",
+  "authorization": {
+    "data": "按推荐范围推进，数据源由你审查选择",
+    "human": "暂时没有，人工核验先保留待办",
+    "resource_and_gates": "同意这些设置"
+  },
+  "authorization_record": "data/research/runs/p0_data_eval_2026-10-27/approved_plan.json",
+  "scope": "Licensed PRC-character ordered vectors, original synthetic RGB sequences, source/template group splits, input permissions and controlled G1 template-assisted observation; no real-world observer validity claim",
+  "resources": {
+    "compute": "local CPU only",
+    "seed": 20261027,
+    "new_gpu_hours": 0,
+    "new_cloud_service_bill_cny": 0,
+    "existing_cloud_lease": "not inspected or changed; provider charges may continue"
+  },
+  "source_revision": "bddc96d41bef78427ed0e034e9f7e31d71fd1b92",
+  "source_evidence": [
+    "data/research/runs/p0_data_eval_2026-10-27/source_audit.json",
+    "data/research/runs/p0_data_eval_2026-10-27/source_acquisition.json",
+    "data/research/runs/p0_data_eval_2026-10-27/source_resume.json"
+  ],
+  "results": [
+    "data/research/runs/p0_data_eval_2026-10-27/summary.json",
+    "data/research/runs/p0_data_eval_2026-10-27/data_audit.json",
+    "data/research/runs/p0_data_eval_2026-10-27/holdout_metrics.json",
+    "data/research/runs/p0_data_eval_2026-10-27/evaluation_analysis.json"
+  ],
+  "report": "docs/research/v2/p0_data_eval_report_2026-10-28.md",
+  "freeze": "data/research/runs/p0_data_eval_2026-10-27/threshold_freeze.json",
+  "heldout_scoring_runs": 1,
+  "post_holdout_tuning": false,
+  "manual_annotations": {
+    "normative": 0,
+    "RGB": 0,
+    "status": "pending as explicitly deferred by user",
+    "browser_test_labels_imported": false
+  },
+  "pending_requirements": [
+    "Independent human normative and RGB event verification, explicitly deferred by user",
+    "Independent same-character font/writer/record sources for the full crossed matrix; current synthetic renderer variants do not provide this"
+  ],
+  "independent_source_generalization_proven": false,
+  "main_PR_or_push": false,
+  "files_deleted": [],
+  "artifact_storage": {
+    "tracked_metadata": "data/research/datasets/p0_stroke_synthetic_v1",
+    "tracked_evidence": "data/research/runs/p0_data_eval_2026-10-27",
+    "private_raw_and_media": "private/p0_data_eval_2026-10-27",
+    "official_PDF_reference_only": "/Users/cc/.cache/umm-survey-20261023/223/R06-beijing.pdf",
+    "archive_record": "data/research/runs/p0_data_eval_2026-10-27/archive_record.json",
+    "tracked_complete_RGB_bundle": "data/research/datasets/p0_stroke_synthetic_v1/rgb_media.tar.gz"
+  },
+  "reproduction": {
+    "stage_commands": "Each *_attempt*.json stores exact argv, exit, elapsed and available RSS/CPU",
+    "requirements": [
+      "Python3.12",
+      "NumPy",
+      "Pillow"
+    ],
+    "human_review_server": "python -m http.server 8765 --bind 127.0.0.1",
+    "do_not_overwrite": "Original holdout predictions, raw source attempts and human annotations retained"
+  },
+  "validation": {
+    "status": "passed",
+    "record": "data/research/runs/p0_data_eval_2026-10-27/checks/validation_summary.json",
+    "unit_tests": 56,
+    "remote_CI_executed": false
+  },
+  "file_change_explanations": [
+    {
+      "path": "AGENTS.md",
+      "action": "modified",
+      "reason": "同步当前数据/评价证据与未验收状态；审批和分支制度不变"
+    },
+    {
+      "path": "README.md",
+      "action": "modified",
+      "reason": "同步当前数据/评价证据与未验收状态；审批和分支制度不变"
+    },
+    {
+      "path": "configs/research/stroke_video_v2.json",
+      "action": "modified",
+      "reason": "反映已构建候选数据、冻结受控门槛和未完成人审"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/README.md",
+      "action": "added",
+      "reason": "数据候选、分组、许可和人工待办说明；无已核金标准主张"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/human_annotations.json",
+      "action": "added",
+      "reason": "数据候选、分组、许可和人工待办说明；无已核金标准主张"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/licenses/ARPHICPL.TXT",
+      "action": "added",
+      "reason": "未改动的原图形许可和版权条款"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/licenses/COPYING",
+      "action": "added",
+      "reason": "未改动的原图形许可和版权条款"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/manifest_model_character_test.jsonl",
+      "action": "added",
+      "reason": "逐样本来源、角色、实际RGB时间、输入权限与待核标签完整清单"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/manifest_model_train.jsonl",
+      "action": "added",
+      "reason": "逐样本来源、角色、实际RGB时间、输入权限与待核标签完整清单"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/manifest_model_validation.jsonl",
+      "action": "added",
+      "reason": "逐样本来源、角色、实际RGB时间、输入权限与待核标签完整清单"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/manifest_observer_dev.jsonl",
+      "action": "added",
+      "reason": "逐样本来源、角色、实际RGB时间、输入权限与待核标签完整清单"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/manifest_observer_holdout.jsonl",
+      "action": "added",
+      "reason": "逐样本来源、角色、实际RGB时间、输入权限与待核标签完整清单"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/review/index.html",
+      "action": "added",
+      "reason": "人工盲核验界面或候选队列；人工完成数仍为0"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/review/review_data.js",
+      "action": "added",
+      "reason": "人工盲核验界面或候选队列；人工完成数仍为0"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/rgb_media.tar.gz",
+      "action": "added",
+      "reason": "完整RGB研究证据压缩包或对应打包记录；保留原件，无删除"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/splits.json",
+      "action": "added",
+      "reason": "数据候选、分组、许可和人工待办说明；无已核金标准主张"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/templates.json",
+      "action": "added",
+      "reason": "数据候选、分组、许可和人工待办说明；无已核金标准主张"
+    },
+    {
+      "path": "data/research/experiments_v2.json",
+      "action": "modified",
+      "reason": "DATA-01/EVAL-01登记blocked并关联实际证据，保留其他实验状态"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/approved_plan.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/archive_record.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/artifact_inventory.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/calibration_attempt01.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/calibration_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/checks/catalog_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/checks/research_v1_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/checks/research_v1_result.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/checks/research_v2_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/checks/research_v2_result.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/checks/stage_release_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/checks/unit_tests_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/checks/validation_summary.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/data_audit.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/data_audit_attempt01.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/data_audit_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/development_metrics.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/development_predictions.jsonl",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/environment.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/evaluation_analysis.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/geometry_alias_audit.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/holdout_evaluation_attempt01.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/holdout_evaluation_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/holdout_metrics.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/holdout_predictions.jsonl",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/human_queue_attempt01.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/human_queue_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/human_queue_attempt02.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/human_queue_attempt02.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/human_review_queue.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/independent_pixel_tests_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/input_audit_attempt01.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/input_audit_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/input_permission_audit.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_model_character_test.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_model_character_test_attempt01.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_model_character_test_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_model_train.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_model_train_attempt01.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_model_train_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_model_validation.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_model_validation_attempt01.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_model_validation_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_observer_dev.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_observer_dev_attempt01.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_observer_dev_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_observer_holdout.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_observer_holdout_attempt01.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/media_observer_holdout_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/model_character_test_contact.png",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/model_train_contact.png",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/model_validation_contact.png",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/observer_dev_contact.png",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/observer_holdout_contact.png",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/prepare_attempt01.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/prepare_attempt01.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/review_frame_interface.png",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/review_interface.png",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/review_interface_check.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/review_interface_check_attempt02.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/source_acquisition.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/source_audit.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/source_resume.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/source_resume.log",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/summary.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/task_record.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/threshold_freeze.json",
+      "action": "added",
+      "reason": "保留批准、来源/媒体/评测/失败/成本/环境/核验或检查证据；不代表科学验收"
+    },
+    {
+      "path": "data/research/runs/p0_data_eval_2026-10-27/tracked_media_bundle.json",
+      "action": "added",
+      "reason": "完整RGB研究证据压缩包或对应打包记录；保留原件，无删除"
+    },
+    {
+      "path": "docs/project/STATUS.md",
+      "action": "modified",
+      "reason": "同步当前数据/评价证据与未验收状态；审批和分支制度不变"
+    },
+    {
+      "path": "docs/project/stages/P0-release.json",
+      "action": "modified",
+      "reason": "同步当前数据/评价证据与未验收状态；审批和分支制度不变"
+    },
+    {
+      "path": "docs/project/stages/P0.md",
+      "action": "modified",
+      "reason": "同步当前数据/评价证据与未验收状态；审批和分支制度不变"
+    },
+    {
+      "path": "docs/research/v2/README.md",
+      "action": "modified",
+      "reason": "同步当前数据/评价证据与未验收状态；审批和分支制度不变"
+    },
+    {
+      "path": "docs/research/v2/data_evaluation.md",
+      "action": "modified",
+      "reason": "同步当前数据/评价证据与未验收状态；审批和分支制度不变"
+    },
+    {
+      "path": "docs/research/v2/implementation.md",
+      "action": "modified",
+      "reason": "同步当前数据/评价证据与未验收状态；审批和分支制度不变"
+    },
+    {
+      "path": "docs/research/v2/p0_data_eval_report_2026-10-28.md",
+      "action": "added",
+      "reason": "本轮实际结果、统计口径、限制、失败与待办报告"
+    },
+    {
+      "path": "examples/p0_data_eval/ARPHICPL.TXT",
+      "action": "added",
+      "reason": "六个小型受控RGB示例与对应APL许可/来源说明"
+    },
+    {
+      "path": "examples/p0_data_eval/correct.png",
+      "action": "added",
+      "reason": "六个小型受控RGB示例与对应APL许可/来源说明"
+    },
+    {
+      "path": "examples/p0_data_eval/disappear.png",
+      "action": "added",
+      "reason": "六个小型受控RGB示例与对应APL许可/来源说明"
+    },
+    {
+      "path": "examples/p0_data_eval/examples.json",
+      "action": "added",
+      "reason": "六个小型受控RGB示例与对应APL许可/来源说明"
+    },
+    {
+      "path": "examples/p0_data_eval/flash.png",
+      "action": "added",
+      "reason": "六个小型受控RGB示例与对应APL许可/来源说明"
+    },
+    {
+      "path": "examples/p0_data_eval/reverse.png",
+      "action": "added",
+      "reason": "六个小型受控RGB示例与对应APL许可/来源说明"
+    },
+    {
+      "path": "examples/p0_data_eval/simultaneous.png",
+      "action": "added",
+      "reason": "六个小型受控RGB示例与对应APL许可/来源说明"
+    },
+    {
+      "path": "examples/p0_data_eval/swap.png",
+      "action": "added",
+      "reason": "六个小型受控RGB示例与对应APL许可/来源说明"
+    },
+    {
+      "path": "scripts/p0/build_data.py",
+      "action": "added",
+      "reason": "选源、分层隔离、APNG生成/解码、输入/同终态审计"
+    },
+    {
+      "path": "scripts/p0/evaluate.py",
+      "action": "added",
+      "reason": "开发集校准、冻结、一次保留集评分、末帧对照与输入权限审计"
+    },
+    {
+      "path": "scripts/p0/geometry.py",
+      "action": "added",
+      "reason": "将有序轮廓/中线栅格化并合成受控RGB正负例；保留冻结版本"
+    },
+    {
+      "path": "scripts/p0/observer.py",
+      "action": "added",
+      "reason": "仅由RGB和G1参考几何提取可见事件三态；保留冻结版本"
+    },
+    {
+      "path": "scripts/p0/prepare_review.py",
+      "action": "added",
+      "reason": "生成独立人工核验候选与盲RGB队列，保留既有标注"
+    },
+    {
+      "path": "scripts/p0/resume_source.py",
+      "action": "added",
+      "reason": "补齐实际超时来源下载，保留HTTP范围与重试证据"
+    },
+    {
+      "path": "scripts/p0/review.html",
+      "action": "added",
+      "reason": "人工候选核对、RGB重播/逐帧查看、独立判定与导出"
+    },
+    {
+      "path": "scripts/p0/run_stage.py",
+      "action": "added",
+      "reason": "保存实际命令、退出、耗时与CPU/RSS"
+    },
+    {
+      "path": "tests/test_p0_data_eval.py",
+      "action": "added",
+      "reason": "六项独立手工像素、未来信息隔离与来源组统计测试"
+    }
+  ],
+  "cost_evidence": [
+    "data/research/runs/p0_data_eval_2026-10-27/summary.json",
+    "data/research/runs/p0_data_eval_2026-10-27/source_acquisition.json",
+    "data/research/runs/p0_data_eval_2026-10-27/source_resume.json",
+    "data/research/runs/p0_data_eval_2026-10-27/environment.json"
+  ]
+}
