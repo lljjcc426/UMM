@@ -84,7 +84,10 @@ class FinalCalibrationTests(unittest.TestCase):
             predictions=[dict(id='V'+str(i),writer_id=str(i),**{m:{'decision':'correct'} for m in ['frozen_observer','AI_v1','AI_v2']}) for i in [1,2]]
             (run/'predictions.jsonl').write_text(''.join(json.dumps(p)+'\n' for p in predictions))
             (run/'pre_review_exposure.json').write_text(json.dumps({'character_named_AI_flag_writer_ids':['2']}))
-            with patch.object(module,'RUN',run),patch.object(module,'PRIVATE',private),redirect_stdout(io.StringIO()):result=module.collect()
+            output=root/'dated-results';output.mkdir()
+            with patch.object(module,'RUN',run),patch.object(module,'PRIVATE',private),redirect_stdout(io.StringIO()):result=module.collect(output_dir=output,records_dir=private/'human_records')
+            self.assertTrue((output/'human_calibration_results.json').exists())
+            self.assertFalse((run/'human_calibration_results.json').exists())
             self.assertEqual([r['human_reference'] for r in result['video_reference']],['unknown','incorrect'])
             self.assertEqual(result['consensus_counts']['record'],{'unknown':1})
             metric=result['metrics']['frozen_observer']

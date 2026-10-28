@@ -1,0 +1,367 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "experiment_ids": [
+    "DATA-01",
+    "EVAL-01"
+  ],
+  "branch": "research/p0-stroke-video-foundation",
+  "base_commit": "f247bf3e734f89b94ec75f478ad14147b50319c5",
+  "status": "human_audit_complete_negative_scientific_result",
+  "recorded_at_utc": "2026-10-28T18:35:16.000495+00:00",
+  "authorization": {
+    "continuation": "完成剩余工作，需要人工的一次性给我吧",
+    "completion": "人工的都审核完了",
+    "reviewer_independence": "两位不同真人，独立完成",
+    "scope": "Previously approved local CPU collection, evidence analysis, documentation, required checks and research-branch local commit. No next-stage study."
+  },
+  "human_records": {
+    "reviewers": 2,
+    "user_confirmed_distinct_independent": true,
+    "tasks_per_reviewer": 216,
+    "latest_submissions": 432,
+    "raw_versions": 441,
+    "remaining": 0,
+    "additional_batch_assigned": false,
+    "inventory": "data/research/runs/p0_human_acceptance_2026-10-29/record_inventory.json",
+    "original_logs_modified": false
+  },
+  "scientific_results": {
+    "normative": {
+      "pass": 34,
+      "fail": 23,
+      "unknown": 7
+    },
+    "RGB_buttons": {
+      "correct": 34,
+      "incorrect": 103,
+      "unknown": 7
+    },
+    "RGB_after_frozen_normative_gate": {
+      "correct": 32,
+      "incorrect": 103,
+      "unknown": 9
+    },
+    "independent_cuts": {
+      "pass": 4,
+      "fail": 3,
+      "unknown": 1
+    },
+    "primary_false_accept_groups": "25/63",
+    "primary_false_accept_upper95": 0.5082057851491011,
+    "observable_scope_false_accept_groups": "25/60",
+    "observable_scope_false_accept_upper95": 0.5310149523142054,
+    "DATA_01": "blocked_reference_qualification",
+    "EVAL_01": "blocked_frozen_gate_failed",
+    "P0": "not_accepted"
+  },
+  "preservation": {
+    "deleted_files": [],
+    "original_media_changed": false,
+    "original_protocol_or_thresholds_changed": false,
+    "predictions_rerun": false,
+    "human_conclusions_overridden": false,
+    "posthoc_subset_promoted": false,
+    "old_preparation_snapshot_changed": false
+  },
+  "resources": {
+    "device": "local_CPU",
+    "GPU_hours": 0,
+    "training_runs": 0,
+    "new_media": 0,
+    "network_data_downloads": 0,
+    "human_time_spans": "data/research/runs/p0_human_acceptance_2026-10-29/human_time_spans.json",
+    "environment": "data/research/runs/p0_human_acceptance_2026-10-29/environment.json"
+  },
+  "reproduction": {
+    "collector": "from scripts.p0.final_calibration import collect; collect(output_dir=dated_run, records_dir=dated_run / \"human_records\")",
+    "analysis": "scripts.p0.human_acceptance.summarize() with OUTPUT pointing to a separate unused run containing collected results",
+    "inputs": [
+      "private/p0_final_calibration_2026-10-28/pack_frozen.json",
+      "data/research/runs/p0_final_calibration_2026-10-28/predictions.jsonl",
+      "data/research/runs/p0_final_calibration_2026-10-28/pre_review_exposure.json",
+      "data/research/runs/p0_human_acceptance_2026-10-29/human_records/1.jsonl",
+      "data/research/runs/p0_human_acceptance_2026-10-29/human_records/2.jsonl"
+    ],
+    "note": "Existing dated source results are immutable; do not rerun into archived output. Raw CASIA/private source is not distributed."
+  },
+  "evidence": [
+    "data/research/runs/p0_human_acceptance_2026-10-29/analysis_summary.json",
+    "data/research/runs/p0_human_acceptance_2026-10-29/human_calibration_results.json",
+    "data/research/runs/p0_human_acceptance_2026-10-29/scope_metrics.json",
+    "data/research/runs/p0_human_acceptance_2026-10-29/reference_discrepancy.json",
+    "docs/research/v2/p0_human_acceptance_2026-10-29.md"
+  ],
+  "checks": {
+    "status": "all_passed",
+    "summary": "data/research/runs/p0_human_acceptance_2026-10-29/checks/summary.json",
+    "unittest_count": 77,
+    "remote_CI_run": false,
+    "scientific_acceptance": false
+  },
+  "git": {
+    "local_research_branch_only": true,
+    "remote_push": false,
+    "main_modified": false,
+    "stage_PR": false,
+    "identity": "lljjcc426 <3115250840@qq.com>"
+  },
+  "file_changes": [
+    {
+      "path": "AGENTS.md",
+      "change": "modified",
+      "reason": "同步当前人审已完成、人工待办0、DATA参考资格和EVAL误接受门槛仍blocked；历史证据和审批规则保留。"
+    },
+    {
+      "path": "README.md",
+      "change": "modified",
+      "reason": "同步当前人审已完成、人工待办0、DATA参考资格和EVAL误接受门槛仍blocked；历史证据和审批规则保留。"
+    },
+    {
+      "path": "configs/research/stroke_video_v2.json",
+      "change": "modified",
+      "reason": "同步当前人审已完成、人工待办0、DATA参考资格和EVAL误接受门槛仍blocked；历史证据和审批规则保留。"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/README.md",
+      "change": "modified",
+      "reason": "同步当前人审已完成、人工待办0、DATA参考资格和EVAL误接受门槛仍blocked；历史证据和审批规则保留。"
+    },
+    {
+      "path": "data/research/experiments_v2.json",
+      "change": "modified",
+      "reason": "同步当前人审已完成、人工待办0、DATA参考资格和EVAL误接受门槛仍blocked；历史证据和审批规则保留。"
+    },
+    {
+      "path": "docs/project/STATUS.md",
+      "change": "modified",
+      "reason": "同步当前人审已完成、人工待办0、DATA参考资格和EVAL误接受门槛仍blocked；历史证据和审批规则保留。"
+    },
+    {
+      "path": "docs/project/stages/P0-release.json",
+      "change": "modified",
+      "reason": "同步当前人审已完成、人工待办0、DATA参考资格和EVAL误接受门槛仍blocked；历史证据和审批规则保留。"
+    },
+    {
+      "path": "docs/project/stages/P0.md",
+      "change": "modified",
+      "reason": "同步当前人审已完成、人工待办0、DATA参考资格和EVAL误接受门槛仍blocked；历史证据和审批规则保留。"
+    },
+    {
+      "path": "docs/research/v2/README.md",
+      "change": "modified",
+      "reason": "同步当前人审已完成、人工待办0、DATA参考资格和EVAL误接受门槛仍blocked；历史证据和审批规则保留。"
+    },
+    {
+      "path": "docs/research/v2/data_evaluation.md",
+      "change": "modified",
+      "reason": "同步当前人审已完成、人工待办0、DATA参考资格和EVAL误接受门槛仍blocked；历史证据和审批规则保留。"
+    },
+    {
+      "path": "scripts/p0/final_calibration.py",
+      "change": "modified",
+      "reason": "收集函数支持独立输出与原始快照目录；保存已完成进度，避免覆盖旧准备时点的结果。"
+    },
+    {
+      "path": "tests/test_p0_final_calibration.py",
+      "change": "modified",
+      "reason": "现有配对收集测试增加独立输出隔离断言，防止写回原运行目录。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/agreement.json",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/analysis_summary.json",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/annotation_scope_audit.json",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/case_analysis.json",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/catalog.stderr.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/catalog.stdout.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/diff_check.stderr.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/diff_check.stdout.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/research_v1.json",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/research_v1.stderr.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/research_v1.stdout.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/research_v2.json",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/research_v2.stderr.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/research_v2.stdout.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/stage_draft.stderr.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/stage_draft.stdout.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/summary.json",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/unittest.stderr.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/checks/unittest.stdout.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查及测试的实际输出；不等同科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/environment.json",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/false_accepts.csv",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/gate_assessment.json",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/human_calibration_results.json",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/human_progress.json",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/human_records/1.jsonl",
+      "change": "added",
+      "reason": "保存两位真人实际提交的完整原始版本或本人导出，不补写人工判断。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/human_records/2.jsonl",
+      "change": "added",
+      "reason": "保存两位真人实际提交的完整原始版本或本人导出，不补写人工判断。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/human_time_spans.json",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/independent_record_judgments.csv",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/normative_accepted_candidates.csv",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/normative_quarantined_candidates.csv",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/per_sample_evidence.csv",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/record_inventory.json",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/reference_discrepancy.json",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/reviewer1-export.json",
+      "change": "added",
+      "reason": "保存两位真人实际提交的完整原始版本或本人导出，不补写人工判断。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/reviewer2-export.json",
+      "change": "added",
+      "reason": "保存两位真人实际提交的完整原始版本或本人导出，不补写人工判断。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/scope_metrics.json",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "data/research/runs/p0_human_acceptance_2026-10-29/task_record.json",
+      "change": "added",
+      "reason": "新增本轮来源、逐项判断、统计、失败/范围审计、环境与任务记录；不覆盖旧运行证据。"
+    },
+    {
+      "path": "docs/research/v2/p0_human_acceptance_2026-10-29.md",
+      "change": "added",
+      "reason": "新增双人人审归档和科学验收实际结果报告，列出负结果、参考限制和待决事项。"
+    },
+    {
+      "path": "scripts/p0/human_acceptance.py",
+      "change": "added",
+      "reason": "新增固定人审结果汇总脚本：逐项证据、分歧、冻结指标、范围敏感性与标签疑点；不改人工或评分器。"
+    }
+  ],
+  "completed_at_utc": "2026-10-28T18:37:16.131456+00:00"
+}

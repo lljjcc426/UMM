@@ -324,15 +324,17 @@ def freeze():
     print(json.dumps(p,ensure_ascii=False))
 
 
-def collect():
-    """Aggregate actual paired human labels; incomplete passes stay pending."""
+def collect(output_dir=None,records_dir=None):
+    """Aggregate paired labels; allow a dated output and immutable raw snapshot."""
     from scripts.p0.final_review_server import FinalStore
-    pack=json.loads((PRIVATE/'pack_frozen.json').read_text());store=FinalStore(pack,PRIVATE/'human_records')
+    output=Path(output_dir) if output_dir is not None else RUN
+    directory=Path(records_dir) if records_dir is not None else PRIVATE/'human_records'
+    pack=json.loads((PRIVATE/'pack_frozen.json').read_text());store=FinalStore(pack,directory)
     states={r:store.state(r) for r in ['1','2']}
     progress={r:dict(saved=s['saved'],total=s['total'],remaining=s['total']-s['saved']) for r,s in states.items()}
     if any(p['remaining'] for p in progress.values()):
         out=dict(status='waiting_for_actual_human_records',reviewers=progress,human_conclusions_inferred=False)
-        save(RUN/'human_progress.json',out);print(json.dumps(out));return out
+        save(output/'human_progress.json',out);print(json.dumps(out));return out
     annotations={r:{a['blind_id']:a for a in s['annotations']} for r,s in states.items()}
     consensus={};pairs=[]
     for task in pack['tasks']:
@@ -380,7 +382,8 @@ def collect():
         consensus_counts={kind:dict(Counter(consensus[t['id']] for t in pack['tasks'] if t['formal'] and t['kind']==kind)) for kind in ['normative','rgb','record']},
         metrics=metrics,pairs=pairs,video_reference=videos,full_per_stroke_timings_inferred=False,
         additional_human_round_required=False,DATA_01_auto_pass=False,EVAL_01_auto_pass=False,P0_auto_pass=False)
-    save(RUN/'human_calibration_results.json',out);print(json.dumps(dict(status=out['status'],metrics=metrics),ensure_ascii=False));return out
+    save(output/'human_progress.json',dict(status=out['status'],reviewers=progress,human_conclusions_inferred=False))
+    save(output/'human_calibration_results.json',out);print(json.dumps(dict(status=out['status'],metrics=metrics),ensure_ascii=False));return out
 
 
 if __name__=='__main__':

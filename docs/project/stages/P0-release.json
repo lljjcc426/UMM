@@ -43,14 +43,18 @@
     "data/research/runs/p0_final_calibration_2026-10-28/task_record.json",
     "data/research/runs/p0_final_calibration_2026-10-28/summary.json",
     "data/research/runs/p0_final_calibration_2026-10-28/protocol_frozen.json",
-    "data/research/runs/p0_final_calibration_2026-10-28/remaining_acceptance.json"
+    "data/research/runs/p0_final_calibration_2026-10-28/remaining_acceptance.json",
+    "docs/research/v2/p0_human_acceptance_2026-10-29.md",
+    "data/research/runs/p0_human_acceptance_2026-10-29/task_record.json",
+    "data/research/runs/p0_human_acceptance_2026-10-29/analysis_summary.json",
+    "data/research/runs/p0_human_acceptance_2026-10-29/gate_assessment.json",
+    "data/research/runs/p0_human_acceptance_2026-10-29/reference_discrepancy.json"
   ],
   "approval_reference": null,
   "unresolved_blockers": [
-    "Final fixed package: two real independent216-item passes pending (64normative+144RGB+8record identity each); previous12+6 diagnostic batch retained",
-    "CASIA independent raw trajectories acquired; count-matched normative candidates and repeated-record cuts unverified. Prospective crossed split has no model training/generalization result",
-    "EVAL-01 human-referenced coverage, positive rejection and independent writer-group false-accept95 bound pending; original same-source0/64 not upgraded",
-    "Complete P0 scientific review and explicit user acceptance pending"
+    "DATA-01: human batch complete; normative reference and prospective crossed-source label qualification incomplete (34pass/23fail/7unknown normative,4/8 cuts pass). No further human batch assigned.",
+    "EVAL-01: independent-source human-referenced false-accept gate failed; original25/63 groups, conditional95 upper50.82%; excluding temporal controls25/60,53.10%. Fixed candidates also fail; no method promoted.",
+    "Complete P0 scientific review and explicit user acceptance pending; negative result does not automatically change stage contract."
   ],
   "limitations": [
     "ENV-01通过范围限于已批准的原生接口及最小部分参数训练/重载",
@@ -58,6 +62,7 @@
     "Controlled G1 synthetic calibration only; all-output coverage81.82%, clear-case coverage100%; no generated-domain or independent-font claim",
     "Historical program-AI closeout: Program/AI work on existing data complete;572 bounded order opinions,68unknown; six global human process consensuses retained, no new human queue.",
     "192 media are static blank controls; candidatev2 development-only with3 nominal positive rejections; temporal-log independence does not establish geometric/source independence.",
-    "New176 media from CASIA original coordinate order with synthetic timing and oracle geometry; no native handwriting RGB, full per-stroke gold, freely matched style or generated-domain claim. No automatic further human batch."
+    "New176 media from CASIA original coordinate order with synthetic timing and oracle geometry; no native handwriting RGB, full per-stroke gold, freely matched style or generated-domain claim. No automatic further human batch.",
+    "2026-10-29:432/432 submissions complete from two user-confirmed independent humans,441raw versions preserved. Two-frame ambiguity and potential human-reference error disclosed; all scopes and denominators retained. Human tasks remaining0; no original-data modification, GPU, training, threshold tuning or automatic phase advance."
   ]
 }
