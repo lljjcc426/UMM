@@ -1,0 +1,513 @@
+{
+  "total": {
+    "files": 2752,
+    "animated_clips": 2560,
+    "static_controls": 192,
+    "decoded_frames": 141423,
+    "encoded_duration_seconds": 14634.726
+  },
+  "by_role": {
+    "model_character_test": {
+      "files": 256,
+      "animated_clips": 256,
+      "static_controls": 0,
+      "decoded_frames": 18635,
+      "encoded_duration_seconds": 1953.156
+    },
+    "model_train": {
+      "files": 320,
+      "animated_clips": 320,
+      "static_controls": 0,
+      "decoded_frames": 23876,
+      "encoded_duration_seconds": 2503.28
+    },
+    "model_validation": {
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4718,
+      "encoded_duration_seconds": 494.514
+    },
+    "observer_dev": {
+      "files": 704,
+      "animated_clips": 640,
+      "static_controls": 64,
+      "decoded_frames": 31761,
+      "encoded_duration_seconds": 3266.88
+    },
+    "observer_holdout": {
+      "files": 1408,
+      "animated_clips": 1280,
+      "static_controls": 128,
+      "decoded_frames": 62433,
+      "encoded_duration_seconds": 6416.896
+    }
+  },
+  "by_construction_case": {
+    "blank": {
+      "files": 192,
+      "animated_clips": 0,
+      "static_controls": 192,
+      "decoded_frames": 192,
+      "encoded_duration_seconds": 0.0
+    },
+    "correct": {
+      "files": 832,
+      "animated_clips": 832,
+      "static_controls": 0,
+      "decoded_frames": 61348,
+      "encoded_duration_seconds": 6431.172
+    },
+    "disappear": {
+      "files": 192,
+      "animated_clips": 192,
+      "static_controls": 0,
+      "decoded_frames": 14311,
+      "encoded_duration_seconds": 1480.222
+    },
+    "early_next": {
+      "files": 192,
+      "animated_clips": 192,
+      "static_controls": 0,
+      "decoded_frames": 7940,
+      "encoded_duration_seconds": 706.828
+    },
+    "extra": {
+      "files": 192,
+      "animated_clips": 192,
+      "static_controls": 0,
+      "decoded_frames": 14311,
+      "encoded_duration_seconds": 1480.222
+    },
+    "flash": {
+      "files": 192,
+      "animated_clips": 192,
+      "static_controls": 0,
+      "decoded_frames": 384,
+      "encoded_duration_seconds": 31.872
+    },
+    "missing": {
+      "files": 192,
+      "animated_clips": 192,
+      "static_controls": 0,
+      "decoded_frames": 12585,
+      "encoded_duration_seconds": 1320.862
+    },
+    "reverse": {
+      "files": 192,
+      "animated_clips": 192,
+      "static_controls": 0,
+      "decoded_frames": 14119,
+      "encoded_duration_seconds": 1480.222
+    },
+    "simultaneous": {
+      "files": 192,
+      "animated_clips": 192,
+      "static_controls": 0,
+      "decoded_frames": 1728,
+      "encoded_duration_seconds": 191.232
+    },
+    "sparse": {
+      "files": 192,
+      "animated_clips": 192,
+      "static_controls": 0,
+      "decoded_frames": 384,
+      "encoded_duration_seconds": 31.872
+    },
+    "swap": {
+      "files": 192,
+      "animated_clips": 192,
+      "static_controls": 0,
+      "decoded_frames": 14121,
+      "encoded_duration_seconds": 1480.222
+    }
+  },
+  "by_renderer": {
+    "centerline": {
+      "files": 832,
+      "animated_clips": 768,
+      "static_controls": 64,
+      "decoded_frames": 40544,
+      "encoded_duration_seconds": 4185.026
+    },
+    "outline": {
+      "files": 1920,
+      "animated_clips": 1792,
+      "static_controls": 128,
+      "decoded_frames": 100879,
+      "encoded_duration_seconds": 10449.7
+    }
+  },
+  "role_case_renderer": [
+    {
+      "role": "model_character_test",
+      "construction_case": "correct",
+      "renderer": "centerline",
+      "files": 128,
+      "animated_clips": 128,
+      "static_controls": 0,
+      "decoded_frames": 9323,
+      "encoded_duration_seconds": 976.578
+    },
+    {
+      "role": "model_character_test",
+      "construction_case": "correct",
+      "renderer": "outline",
+      "files": 128,
+      "animated_clips": 128,
+      "static_controls": 0,
+      "decoded_frames": 9312,
+      "encoded_duration_seconds": 976.578
+    },
+    {
+      "role": "model_train",
+      "construction_case": "correct",
+      "renderer": "outline",
+      "files": 320,
+      "animated_clips": 320,
+      "static_controls": 0,
+      "decoded_frames": 23876,
+      "encoded_duration_seconds": 2503.28
+    },
+    {
+      "role": "model_validation",
+      "construction_case": "correct",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4718,
+      "encoded_duration_seconds": 494.514
+    },
+    {
+      "role": "observer_dev",
+      "construction_case": "blank",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 0,
+      "static_controls": 64,
+      "decoded_frames": 64,
+      "encoded_duration_seconds": 0.0
+    },
+    {
+      "role": "observer_dev",
+      "construction_case": "correct",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4762,
+      "encoded_duration_seconds": 499.494
+    },
+    {
+      "role": "observer_dev",
+      "construction_case": "disappear",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4826,
+      "encoded_duration_seconds": 499.494
+    },
+    {
+      "role": "observer_dev",
+      "construction_case": "early_next",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 2676,
+      "encoded_duration_seconds": 238.044
+    },
+    {
+      "role": "observer_dev",
+      "construction_case": "extra",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4826,
+      "encoded_duration_seconds": 499.494
+    },
+    {
+      "role": "observer_dev",
+      "construction_case": "flash",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 128,
+      "encoded_duration_seconds": 10.624
+    },
+    {
+      "role": "observer_dev",
+      "construction_case": "missing",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4250,
+      "encoded_duration_seconds": 446.374
+    },
+    {
+      "role": "observer_dev",
+      "construction_case": "reverse",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4762,
+      "encoded_duration_seconds": 499.494
+    },
+    {
+      "role": "observer_dev",
+      "construction_case": "simultaneous",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 576,
+      "encoded_duration_seconds": 63.744
+    },
+    {
+      "role": "observer_dev",
+      "construction_case": "sparse",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 128,
+      "encoded_duration_seconds": 10.624
+    },
+    {
+      "role": "observer_dev",
+      "construction_case": "swap",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4763,
+      "encoded_duration_seconds": 499.494
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "blank",
+      "renderer": "centerline",
+      "files": 64,
+      "animated_clips": 0,
+      "static_controls": 64,
+      "decoded_frames": 64,
+      "encoded_duration_seconds": 0.0
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "blank",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 0,
+      "static_controls": 64,
+      "decoded_frames": 64,
+      "encoded_duration_seconds": 0.0
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "correct",
+      "renderer": "centerline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4679,
+      "encoded_duration_seconds": 490.364
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "correct",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4678,
+      "encoded_duration_seconds": 490.364
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "disappear",
+      "renderer": "centerline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4743,
+      "encoded_duration_seconds": 490.364
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "disappear",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4742,
+      "encoded_duration_seconds": 490.364
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "early_next",
+      "renderer": "centerline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 2632,
+      "encoded_duration_seconds": 234.392
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "early_next",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 2632,
+      "encoded_duration_seconds": 234.392
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "extra",
+      "renderer": "centerline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4743,
+      "encoded_duration_seconds": 490.364
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "extra",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4742,
+      "encoded_duration_seconds": 490.364
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "flash",
+      "renderer": "centerline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 128,
+      "encoded_duration_seconds": 10.624
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "flash",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 128,
+      "encoded_duration_seconds": 10.624
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "missing",
+      "renderer": "centerline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4168,
+      "encoded_duration_seconds": 437.244
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "missing",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4167,
+      "encoded_duration_seconds": 437.244
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "reverse",
+      "renderer": "centerline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4679,
+      "encoded_duration_seconds": 490.364
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "reverse",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4678,
+      "encoded_duration_seconds": 490.364
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "simultaneous",
+      "renderer": "centerline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 576,
+      "encoded_duration_seconds": 63.744
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "simultaneous",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 576,
+      "encoded_duration_seconds": 63.744
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "sparse",
+      "renderer": "centerline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 128,
+      "encoded_duration_seconds": 10.624
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "sparse",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 128,
+      "encoded_duration_seconds": 10.624
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "swap",
+      "renderer": "centerline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4681,
+      "encoded_duration_seconds": 490.364
+    },
+    {
+      "role": "observer_holdout",
+      "construction_case": "swap",
+      "renderer": "outline",
+      "files": 64,
+      "animated_clips": 64,
+      "static_controls": 0,
+      "decoded_frames": 4677,
+      "encoded_duration_seconds": 490.364
+    }
+  ]
+}

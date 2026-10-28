@@ -136,7 +136,7 @@ def first_frame(values):
     return int(indexes[0]) if len(indexes) else None
 
 
-def inspect_rgb(frames,times,masks,medians):
+def inspect_rgb(frames,times,masks,medians,anchor_selector=None):
     """No construction labels, schedule, original prediction or progress map."""
     ink=frames.min(axis=-1)<SETTINGS['ink'];n=len(masks)
     union=masks.any(axis=0)
@@ -173,8 +173,10 @@ def inspect_rgb(frames,times,masks,medians):
         points=10+points*(frames.shape[1]-20)/1024
         yy,xx=np.nonzero(core);coords=np.c_[xx,yy]
         anchors=[]
-        for point in [points[0],points[-1]]:
-            nearest=np.argsort(((coords-point)**2).sum(axis=1))[:SETTINGS['endpoint_pixels']]
+        regions=(anchor_selector(coords,points[0],points[-1]) if anchor_selector else
+                 [np.argsort(((coords-point)**2).sum(axis=1))[:SETTINGS['endpoint_pixels']]
+                  for point in [points[0],points[-1]]])
+        for nearest in regions:
             region_times=[first_frame(ink[:,yy[j],xx[j]]) for j in nearest]
             visible=[v for v in region_times if v is not None]
             anchors.append(float(np.median(visible)) if len(visible)>=max(2,len(nearest)//2) else None)

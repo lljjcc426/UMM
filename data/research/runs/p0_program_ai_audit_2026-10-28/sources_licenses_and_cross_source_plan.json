@@ -1,0 +1,56 @@
+{
+  "checked_on": "2026-10-28",
+  "current_source": "Make Me a Hanzi graphics",
+  "revision": "bddc96d41bef78427ed0e034e9f7e31d71fd1b92",
+  "license": "Arphic Public License",
+  "ancestors": [
+    "Arphic PL KaitiM GB",
+    "Arphic PL UKai"
+  ],
+  "per_glyph_font_ancestor_unknown": 640,
+  "license_and_copyright_files_present": true,
+  "media_metadata_checks": 2752,
+  "media_metadata_missing": [],
+  "dictionary_data_used": false,
+  "official_PDF_and_derived_crops_kept_private": true,
+  "sources": [
+    {
+      "name": "Make Me a Hanzi",
+      "url": "https://raw.githubusercontent.com/skishore/makemeahanzi/bddc96d41bef78427ed0e034e9f7e31d71fd1b92/COPYING",
+      "finding": "Graphics derive from Arphic; retain APL. Dictionary is separately LGPL and unused."
+    },
+    {
+      "name": "AnimCJK",
+      "url": "https://raw.githubusercontent.com/parsimonhi/animCJK/master/licenses/COPYING.txt",
+      "finding": "Explicit MMH/Arphic ancestry; a different repository name is insufficient for independent-source credit."
+    },
+    {
+      "name": "Noto CJK Sans",
+      "url": "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/LICENSE",
+      "finding": "OFL1.1 font candidate. A static glyph provides neither ordered stroke instances nor actual pen timing; decomposition and lineage need audit before process use."
+    },
+    {
+      "name": "CASIA OLHWDB",
+      "url": "https://nlpr.ia.ac.cn/databases/handwriting/Application_form.html",
+      "finding": "Official page says academic downloads need no application form since2020. Research-only/group-use and acknowledgment conditions remain; commercial use is separate.",
+      "supersedes_old_signed_form_requirement": true
+    },
+    {
+      "name": "CASIA data description",
+      "url": "https://nlpr.ia.ac.cn/databases/handwriting/Home.html",
+      "finding": "Online/offline paired handwriting from1020 writers; coordinates/offline scans do not establish native RGB recording or normative order."
+    }
+  ],
+  "independent_source_proposal": {
+    "status": "proposal_only_no_dataset_download",
+    "seen_unseen_characters": [
+      32,
+      32
+    ],
+    "font_track": "64characters x2 independently audited font families=128static candidates; cannot validate temporal process alone",
+    "writer_track": "64characters x2writers x2independent repetitions=256records; writer/repetition grouping and actual synchronized RGB required for real writing-video claims",
+    "new_evaluator_validation": "Fresh disjoint characters/records beyond exposed64holdout; lock recipe and thresholds before evaluation; at least59 truly independent zero-event negative groups would yield upper95<=5%, conditional on independence and representative labeling",
+    "narrow_scope": "G1 known source geometry, fixed camera, existing controlled construction cases only; no writer/font/real-world claim; reduced milestone requires explicit user scientific acceptance"
+  },
+  "source_payload_downloaded": false
+}

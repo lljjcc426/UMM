@@ -15,11 +15,11 @@
 ## 文件与媒体
 
 - [templates.json](templates.json)：源轮廓、medians、稳定笔画身份、规范索引与待核状态。
-- `manifest_observer_dev.jsonl`、`manifest_observer_holdout.jsonl`：704与1,408段受控RGB动画。
+- `manifest_observer_dev.jsonl`、`manifest_observer_holdout.jsonl`：704与1,408份受控RGB媒体，分别含64与128份静态空白对照。
 - `manifest_model_train.jsonl`、`manifest_model_validation.jsonl`、`manifest_model_character_test.jsonl`：320、64与256段正例候选；最后128个字符各有两种渲染方法。
-- 共 **2,752段**无损RGB APNG，全部实际RGB另存于随研究分支保留的[rgb_media.tar.gz](rgb_media.tar.gz)，媒体原件仍在本机 `private/p0_data_eval_2026-10-27/media/`；逐文件路径、大小以运行登记为准，manifest保留一次生成时的SHA256。每段已保存后解码，全量RGB变化帧与时间戳一致。
-- APNG合并连续重复帧，故帧间隔可变；以`frame_timestamps`与`frame_durations`为准。原始合成网格为83ms（名义12fps经整数毫秒量化），没有真实笔压/接触/速度传感数据。
-- [人工核验页面](review/index.html)、[待办标注文件](human_annotations.json)：640项规范候选核对＋2,112项RGB核验，该旧版任务表已收到38条全局试标（规范6、RGB32），原文保留；当前新协议正式人工完成数为0。此前全量审核包另纳入主学习RGB，含640项规范＋2,752段RGB；当前默认减为下方12张小批次。
+- 共 **2,752份**无损RGB媒体：**2,560份动态APNG＋192份单帧空白PNG**。全部实际RGB另存于随研究分支保留的[rgb_media.tar.gz](rgb_media.tar.gz)，媒体原件仍在本机 `private/p0_data_eval_2026-10-27/media/`；逐文件路径、大小以运行登记为准，manifest保留一次生成时的SHA256。本轮全量解码141,423帧与清单一致，动态时序异常0。
+- APNG合并连续重复帧，故帧间隔可变；以`frame_timestamps`与`frame_durations`为准。192份静态空白未编码时长，不构成时序证据；本轮不补帧重建。原始合成网格为83ms（名义12fps经整数毫秒量化），没有真实笔压/接触/速度传感数据。
+- [人工核验页面](review/index.html)、[旧标注文件](human_annotations.json)：原640项规范＋2,112项RGB队列收到38条全局试标（规范6、RGB32），原文保留。其后全量AI审核包为640字＋2,752份媒体；默认真人队列已减量，12张首审＋6张第二位复核均完成，六段获双人整体过程正确判断，完整分项金标未推定。当前剩余卡片0，未重新启用全量人工队列。
 - [受控小样例](../../../../examples/p0_data_eval/examples.json)可随Git查看；完整媒体已随分支打包，原始来源及第二份完整迁移归档仍保留本地private。
 
 ## 数据权限与隔离
@@ -36,10 +36,10 @@
 
 观察器先执行 `python -m scripts.p0.evaluate calibrate`，冻结开发集选择的阈值，再执行 `evaluate`。已有保留集预测文件时拒绝覆盖。结果属于固定相机、已知参考几何和受控合成域；不证明真实生成视频或任意书体可自动评分。
 
-**当前入口**：[首轮12张抽检卡](http://127.0.0.1:8768/)，启动 `python -m scripts.p0.review_server --quick --port 8768`。用户批准先复核12字＋12段视频，第二位真人只先看争议；规范/RGB意见分别反馈。旧全量人工队列撤下默认入口，旧38条试标及全量AI意见原样保留。详见[减量说明](../../../../docs/research/v2/p0_quick_review_2026-10-28.md)。本轮小批次不替代完整数据核准或P0验收；下方旧盲审说明保留为历史。
+**当前入口**：[已完成的小批次卡片](http://127.0.0.1:8768/)，启动 `python -m scripts.p0.review_server --quick --port 8768`。12张首审＋6张第二位争议复核均已归档；规范/RGB意见分别保留，AI意见可见。旧全量人工队列撤下默认入口。最新[程序与AI收尾报告](../../../../docs/research/v2/p0_program_ai_audit_2026-10-28.md)提供640字/全部媒体证据表、572字有限次序一致/68未知及剩余条件。小批次不替代完整科学校准或P0验收；下方旧盲审说明保留为历史。
 
 人工页面可直接打开本地HTML，动画与规范候选可查看；逐帧滑块建议通过本地HTTP运行：`python -m http.server 8765 --bind 127.0.0.1`。旧页面仅保留历史进度。正式审核使用 `python -m scripts.p0.review_server --port 8766` 与 http://127.0.0.1:8766/ ，先查看示意并完成犬、怀、热、蔽的非保留集练习。提交记录追加保存在本机private，导出v2 JSON用于入库；测试标签与科研记录隔离。
 
 [本轮报告](../../../../docs/research/v2/p0_data_eval_report_2026-10-28.md) · [执行登记](../../runs/p0_data_eval_2026-10-27/task_record.json)。
 
-新版[审核准备与工作量](../../../../docs/research/v2/p0_human_review_preparation_2026-10-28.md)说明正式640字、2,752段视频的顺序、未知/争议与保存方法。旧试标不预填正式任务，不计入前瞻校准统计。
+历史[审核准备与工作量](../../../../docs/research/v2/p0_human_review_preparation_2026-10-28.md)保留当时全量方案、顺序及保存方法，当前人工量以上述减量批次为准。旧试标不预填正式任务，不计入前瞻校准统计。

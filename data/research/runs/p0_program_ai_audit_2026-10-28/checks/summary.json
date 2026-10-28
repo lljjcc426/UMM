@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "passed": true,
+  "checked_at_utc": "2026-10-28T12:05:02.198093+00:00",
+  "checks": [
+    {
+      "name": "catalog",
+      "command": "python scripts/validate_catalog.py",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "catalog.stdout.log",
+      "stderr": "catalog.stderr.log"
+    },
+    {
+      "name": "research_v1",
+      "command": "python scripts/validate_research_plan.py --output checks/research_v1.json",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "research_v1.stdout.log",
+      "stderr": "research_v1.stderr.log"
+    },
+    {
+      "name": "research_v2",
+      "command": "python scripts/validate_research_v2.py --output checks/research_v2.json",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "research_v2.stdout.log",
+      "stderr": "research_v2.stderr.log"
+    },
+    {
+      "name": "stage_draft",
+      "command": "python scripts/validate_stage_release.py",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "stage_draft.stdout.log",
+      "stderr": "stage_draft.stderr.log"
+    },
+    {
+      "name": "unittest",
+      "command": "python -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "unittest.stdout.log",
+      "stderr": "unittest.stderr.log"
+    },
+    {
+      "name": "diff_check",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "passed": true,
+      "stdout": "diff_check.stdout.log",
+      "stderr": "diff_check.stderr.log"
+    }
+  ],
+  "unit_tests": 70,
+  "unit_test_wall_seconds": 1.497,
+  "browser_operation_test": "../quick_action_history_browser.json",
+  "browser_test_passed": true,
+  "browser_samples": "Separate nonholdout two-card preview, never the64holdout",
+  "GitHub_CI_run": false,
+  "local_equivalent_CI_checks": true,
+  "stage_manifest_validation_mode": "development only, not require-ready",
+  "scientific_acceptance": false
+}
