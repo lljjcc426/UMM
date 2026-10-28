@@ -40,6 +40,14 @@ def public_task(task):
               'candidate_strokes', 'candidate_medians', 'frame_timestamps']
     result = {key: task[key] for key in fields if key in task}
     if task['type']=='rgb_event': result['media']='/media/'+task['blind_id']
+    if 'ai_suggestion' in task:
+        suggestion=task['ai_suggestion']
+        result['ai_suggestion']={k:suggestion[k] for k in ['decision','facets','reasons','notes','disputed',
+            'observed_order','events','model_version','priority','review_method','review_coverage','evidence']}
+        if task['type']=='normative' and suggestion.get('reference_diagram'):
+            result['reference_diagram']='/evidence/'+task['blind_id']
+        result['assigned_partition']=task.get('assigned_partition')
+        result['cross_review']=task.get('cross_review',False)
     return result
 
 
@@ -95,6 +103,7 @@ class ReviewStore:
 
     def allowed_batch(self, batch, reviewer):
         if batch not in self.pack['batches']: raise ValueError('不存在此批次')
+        if self.pack['protocol'].get('mode')=='assisted': return
         if batch.startswith('practice'): return
         if self.preview: raise ValueError('页面操作测试只允许非保留集练习任务')
         state=self.state(reviewer)
@@ -118,11 +127,12 @@ def handler_for(store):
             reviewer=query.get('reviewer',[''])[0]
             try:
                 if url.path=='/':
-                    self.reply(200,Path('scripts/p0/review_v2.html').read_bytes(),'text/html; charset=utf-8')
+                    filename='review_assisted.html' if store.pack['protocol'].get('mode')=='assisted' else 'review_v2.html'
+                    self.reply(200,(Path('scripts/p0')/filename).read_bytes(),'text/html; charset=utf-8')
                 elif url.path=='/api/protocol':
                     protocol=store.pack['protocol']
                     # Sampling seed, source IDs, labels and private order mappings stay off the review API.
-                    self.reply(200,{k:protocol[k] for k in ['id','status','facets','status_values','error_reasons']})
+                    self.reply(200,{k:protocol[k] for k in ['id','status','facets','status_values','error_reasons','mode'] if k in protocol})
                 elif url.path=='/api/state': self.reply(200,store.state(reviewer))
                 elif url.path=='/api/tasks':
                     batch=query.get('batch',['practice_norm'])[0]
@@ -130,6 +140,9 @@ def handler_for(store):
                     self.reply(200,[public_task(t) for t in store.pack['batches'][batch]])
                 elif url.path=='/api/tutorial':
                     self.reply(200,[dict(public_task(t),construction_demo=t['case']) for t in store.pack['tutorial']])
+                elif url.path.startswith('/evidence/') and store.pack['protocol'].get('mode')=='assisted':
+                    task=store.tasks[url.path.removeprefix('/evidence/')]
+                    self.reply(200,Path(task['ai_suggestion']['reference_diagram']).read_bytes(),'image/png')
                 elif url.path.startswith('/media/'):
                     task=store.tasks.get(url.path.removeprefix('/media/'))
                     if not task or task['type']!='rgb_event': self.reply(404,dict(error='不存在此媒体')); return
@@ -200,7 +213,7 @@ def handler_for(store):
                             else:
                                 store.append(reviewer,dict(kind='annotation',annotation=entry,
                                     progress=imported.get('progress',{}))); added+=1
-                        required=store.pack['batches']['practice_norm']+store.pack['batches']['practice_rgb']
+                        required=store.pack['batches'].get('practice_norm',[])+store.pack['batches'].get('practice_rgb',[])
                         restored_ids=set(current)|{entry['blind_id'] for entry in entries}
                         if imported.get('onboarded') is True and not prior_state['onboarded'] and all(t['blind_id'] in restored_ids for t in required):
                             store.append(reviewer,dict(kind='onboarding',acknowledged=True,
@@ -217,9 +230,14 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--port',type=int,default=8766)
     parser.add_argument('--preview',action='store_true')
-    parser.add_argument('--storage',type=Path,default=Path('private/p0_human_review_2026-10-28'))
+    parser.add_argument('--assisted',action='store_true',help='Human review of AI prereview results; separate protocol/store')
+    parser.add_argument('--storage',type=Path)
     args=parser.parse_args()
-    pack=json.loads((RUN/('review_draft.json' if args.preview else 'review_freeze.json')).read_text())
-    server=ThreadingHTTPServer(('127.0.0.1',args.port),handler_for(ReviewStore(pack,args.storage,args.preview)))
+    if args.assisted:
+        from scripts.p0.ai_prereview import RUN as AI_RUN
+        pack=json.loads((AI_RUN/'assisted_review_pack.json').read_text())
+    else: pack=json.loads((RUN/('review_draft.json' if args.preview else 'review_freeze.json')).read_text())
+    storage=args.storage or Path('private/p0_assisted_human_review_2026-10-28' if args.assisted else 'private/p0_human_review_2026-10-28')
+    server=ThreadingHTTPServer(('127.0.0.1',args.port),handler_for(ReviewStore(pack,storage,args.preview)))
     print('P0 review', 'non-holdout preview' if args.preview else 'frozen protocol', server.server_address,flush=True)
     server.serve_forever()

@@ -36,6 +36,8 @@
 
 观察器先执行 `python -m scripts.p0.evaluate calibrate`，冻结开发集选择的阈值，再执行 `evaluate`。已有保留集预测文件时拒绝覆盖。结果属于固定相机、已知参考几何和受控合成域；不证明真实生成视频或任意书体可自动评分。
 
+**当前入口**：[人工复核AI预审](http://127.0.0.1:8768/)，启动 `python -m scripts.p0.review_server --assisted --port 8768`。640字图示AI比较及全部2,752段RGB程序预审完成；两人各320项规范＋1,376段，36段交叉复核。AI意见可见，旧38条试标保留，新人审0；详见[AI预审修订报告](../../../../docs/research/v2/p0_ai_prereview_2026-10-28.md)。下文旧盲审入口作为历史协议保留。
+
 人工页面可直接打开本地HTML，动画与规范候选可查看；逐帧滑块建议通过本地HTTP运行：`python -m http.server 8765 --bind 127.0.0.1`。旧页面仅保留历史进度。正式审核使用 `python -m scripts.p0.review_server --port 8766` 与 http://127.0.0.1:8766/ ，先查看示意并完成犬、怀、热、蔽的非保留集练习。提交记录追加保存在本机private，导出v2 JSON用于入库；测试标签与科研记录隔离。
 
 [本轮报告](../../../../docs/research/v2/p0_data_eval_report_2026-10-28.md) · [执行登记](../../runs/p0_data_eval_2026-10-27/task_record.json)。

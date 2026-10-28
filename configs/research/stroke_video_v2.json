@@ -54,12 +54,27 @@
     "normative_human_verified": false,
     "scientific_ready": false,
     "dataset_manifest": "data/research/datasets/p0_stroke_synthetic_v1/splits.json",
-    "human_review_protocol": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze.json",
+    "human_review_protocol": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_protocol.json",
     "human_review_rubric": "data/research/runs/p0_human_review_preparation_2026-10-28/rubric_freeze.json",
     "legacy_human_records": 38,
     "formal_human_normative_count": 0,
     "formal_human_RGB_count": 0,
-    "human_review_status": "legacy_preserved_new_protocol_frozen_waiting_for_user_practice_and_formal_review"
+    "human_review_status": "full_AI_prereview_complete_waiting_for_actual_AI_visible_human_review",
+    "previous_human_review_protocol": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze.json",
+    "AI_prereview_summary": "data/research/runs/p0_ai_prereview_2026-10-28/effective_prereview_summary.json",
+    "human_reviewer_partitions": {
+      "A": {
+        "normative": 320,
+        "RGB": 1376
+      },
+      "B": {
+        "normative": 320,
+        "RGB": 1376
+      },
+      "cross_review_RGB": 36
+    },
+    "human_AI_suggestions_visible": true,
+    "second_reviewer_status": "User can arrange; no actual participation yet"
   },
   "seeds": {
     "training": [
@@ -141,6 +156,7 @@
     "source_audit": "docs/research/v2/source_audit.md",
     "run_template": "templates/research_run_v2.json",
     "p0_data_evaluation_report": "docs/research/v2/p0_data_eval_report_2026-10-28.md",
-    "p0_human_review_preparation": "docs/research/v2/p0_human_review_preparation_2026-10-28.md"
+    "p0_human_review_preparation": "docs/research/v2/p0_human_review_preparation_2026-10-28.md",
+    "p0_ai_prereview": "docs/research/v2/p0_ai_prereview_2026-10-28.md"
   }
 }

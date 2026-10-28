@@ -1,0 +1,75 @@
+{
+  "facets": {
+    "normative": {
+      "character_identity": "规范字符与地区对应",
+      "stroke_count": "笔画数与拆并笔",
+      "stroke_identity": "候选笔画与规范空间身份对应",
+      "order": "逐笔次序",
+      "direction": "笔内方向与折笔",
+      "variant_scope": "所依据规范及异写适用范围"
+    },
+    "rgb_event": {
+      "visible_content": "可见内容与最终完整性",
+      "stroke_identity_count": "实例身份与笔画数",
+      "order": "实际可见先后",
+      "direction": "实际笔内方向",
+      "completion_sequence": "前笔完成后再开始后笔",
+      "simultaneous_growth": "可见增长是否逐笔分开",
+      "ink_preservation": "旧墨迹是否保持"
+    }
+  },
+  "status_values": [
+    "pass",
+    "fail",
+    "unknown",
+    "not_applicable"
+  ],
+  "error_reasons": {
+    "wrong_order": "先后错误",
+    "reverse_direction": "方向错误",
+    "missing": "缺笔/未完成",
+    "extra": "多笔/额外墨迹",
+    "concurrent": "同步或提前增长",
+    "disappeared": "墨迹消失",
+    "blank": "空白/无内容",
+    "temporal_ambiguity": "时间采样不足或同帧跳变",
+    "geometry_ambiguity": "空间身份不明",
+    "norm_conflict": "规范或异写冲突",
+    "other": "其他"
+  },
+  "id": "p0-human-assisted-review-v1",
+  "mode": "assisted",
+  "revision": "1.0",
+  "status": "AI_prereview_completed_waiting_for_human_review",
+  "batch_order": [
+    "assisted_norm",
+    "assisted_rgb"
+  ],
+  "practice_normative": 0,
+  "practice_RGB": 0,
+  "human_AI_suggestions_visible": true,
+  "second_reviewer": "User can arrange; no participation or agreement inferred",
+  "replaces_blind_workflow_for_current_user": true,
+  "old_protocol_preserved": true,
+  "seed": null,
+  "not_the_proposed_320_clip_sample": true,
+  "review_count_normative": 640,
+  "review_count_RGB": 2752,
+  "human_reviewer_workload": "Full AI results available; final confirmed human count is actual saved submissions only",
+  "legacy_records_formal_count": 0,
+  "preserve_prior_results": true,
+  "new_evaluator_requires_new_independent_validation": true,
+  "previous_protocol": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze.json",
+  "code_base_commit": "a53f031c",
+  "source_files": [
+    "scripts/p0/ai_prereview.py",
+    "scripts/p0/review_server.py",
+    "scripts/p0/review_assisted.html"
+  ],
+  "rubric": "Existing facet definitions retained; AI-visible explicit human adoption/edit; unknown is not verified gold",
+  "partition_seed": 2026102802,
+  "partition_is_recommended_not_identity_assignment": true,
+  "review_order": "Each person: own partition normative; both review36 cross-review RGB; remaining own partition RGB",
+  "sampling": "Full census640 normative+2752RGB; no320-clip sampling claim",
+  "frozen_at_utc": "2026-10-28T05:52:22.623886+00:00"
+}

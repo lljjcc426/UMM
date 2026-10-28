@@ -1,0 +1,27 @@
+{
+  "platform": "macOS-26.6-arm64-arm-64bit",
+  "machine": "arm64",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "executable": "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+  "numpy": "2.3.5",
+  "Pillow": "12.3.0",
+  "optional_PDF_engines": [
+    "pdfplumber",
+    "pypdfium2"
+  ],
+  "SVG_engine": "Local Chrome/Playwright with --disable-gpu",
+  "local_CPU_only": true,
+  "GPU_hours": 0,
+  "commands": [
+    "python -m scripts.p0.ai_prereview reference",
+    "node scripts/p0/rasterize_reference.cjs",
+    "python -m scripts.p0.ai_prereview review",
+    "python -m scripts.p0.prereview_contacts normative",
+    "640 actual normative contact comparisons and30 actual RGB keyframe comparisons recorded separately",
+    "python -m scripts.p0.ai_prereview pack",
+    "node scripts/p0/test_assisted_browser.cjs",
+    "python -m scripts.p0.review_server --assisted --port8768"
+  ],
+  "cost_limit": "No cloud use; full CPU time/peakRSS/AI usage not instrumented",
+  "RGB_scanning_seconds": 28.158857542000078
+}
