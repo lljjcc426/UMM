@@ -1,0 +1,86 @@
+{
+  "seed": 2026102803,
+  "fixed_diagnostic_clips": 6,
+  "random_clips": 6,
+  "random_slots": [
+    {
+      "stratum": "2-5",
+      "AI_decision": "correct",
+      "eligible_characters": 154,
+      "eligible_clips": 202,
+      "selected_character": "中",
+      "selected_id": "607f80cfb3009c49ac51",
+      "selected_character_eligible_clips": 1
+    },
+    {
+      "stratum": "2-5",
+      "AI_decision": "incorrect",
+      "eligible_characters": 26,
+      "eligible_clips": 336,
+      "selected_character": "奴",
+      "selected_id": "da73758e7fa59631c4dd",
+      "selected_character_eligible_clips": 16
+    },
+    {
+      "stratum": "6-8",
+      "AI_decision": "incorrect",
+      "eligible_characters": 32,
+      "eligible_clips": 384,
+      "selected_character": "疚",
+      "selected_id": "de27f3919fb339381d69",
+      "selected_character_eligible_clips": 8
+    },
+    {
+      "stratum": "6-8",
+      "AI_decision": "unknown",
+      "eligible_characters": 35,
+      "eligible_clips": 98,
+      "selected_character": "当",
+      "selected_id": "d605863f936a2788d6a4",
+      "selected_character_eligible_clips": 2
+    },
+    {
+      "stratum": "9-12",
+      "AI_decision": "correct",
+      "eligible_characters": 148,
+      "eligible_clips": 193,
+      "selected_character": "鬼",
+      "selected_id": "32ea921a8f51bfe0b633",
+      "selected_character_eligible_clips": 1
+    },
+    {
+      "stratum": "13-20",
+      "AI_decision": "incorrect",
+      "eligible_characters": 27,
+      "eligible_clips": 304,
+      "selected_character": "遭",
+      "selected_id": "3f66e45ad85629e3d656",
+      "selected_character_eligible_clips": 8
+    }
+  ],
+  "selection": "Within each prespecified stroke-count/AI-decision slot: uniform character then uniform eligible clip; without repeated characters",
+  "excluded_legacy_characters": [
+    "犬",
+    "仓",
+    "穴",
+    "刁",
+    "己",
+    "冯"
+  ],
+  "review_order": "Six random cards from simple to dense; then six diagnostic cards by stroke count",
+  "bias": "Half targeted, half conditional stratified sample; not a representative accuracy estimate",
+  "role_counts": {
+    "model_train": 1,
+    "observer_holdout": 7,
+    "observer_dev": 4
+  },
+  "stratum_counts": {
+    "2-5": 2,
+    "6-8": 2,
+    "9-12": 2,
+    "13-20": 6
+  },
+  "original_holdout_used_for_diagnostics": true,
+  "original_0_of_64_not_revalidated": true,
+  "all_human_records_created": 0
+}

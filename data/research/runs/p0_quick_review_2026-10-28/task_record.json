@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "experiment_ids": [
+    "DATA-01",
+    "EVAL-01"
+  ],
+  "branch": "research/p0-stroke-video-foundation",
+  "base_commit": "3ea92d8f",
+  "status": "complete_waiting_for_human_spotcheck",
+  "authorization": "data/research/runs/p0_quick_review_2026-10-28/approved_scope.json",
+  "report": "docs/research/v2/p0_quick_review_2026-10-28.md",
+  "frozen_protocol": "data/research/runs/p0_quick_review_2026-10-28/quick_protocol.json",
+  "review_order": "data/research/runs/p0_quick_review_2026-10-28/selection_manifest.csv",
+  "prior_AI_review_records_unchanged": true,
+  "legacy_human_records_unchanged": true,
+  "full_census_workload_default_active": false,
+  "formal_gold_created": 0,
+  "human_feedback_created_by_agent": 0,
+  "scientific_status": {
+    "DATA-01": "blocked",
+    "EVAL-01": "blocked",
+    "P0": "not_accepted"
+  },
+  "evaluator_modified": false,
+  "thresholds_modified": false,
+  "old_predictions_modified": false,
+  "original_media_modified": false,
+  "GPU_hours": 0,
+  "new_video_generation": 0,
+  "new_downloads": 0,
+  "remote_push": false,
+  "stage_PR": false,
+  "files_deleted": [],
+  "failures_and_debugging": [
+    "Initial compact layout assertion found action buttons below900px viewport (bottom979.0625px); original metrics/screenshot preserved, sticky action bar added and layout-only read-only check passed. No human records created by this check."
+  ],
+  "validation": "data/research/runs/p0_quick_review_2026-10-28/checks/validation_summary.json",
+  "next_action": "Stop after handoff; wait for actual human feedback; no next batch or phase automatically",
+  "completed_at_utc": "2026-10-28T07:53:43.000716+00:00",
+  "execution_environment": "data/research/runs/p0_quick_review_2026-10-28/execution_environment.json",
+  "live_handoff": "data/research/runs/p0_quick_review_2026-10-28/live_service_handoff.json",
+  "validation_status": "passed_67_tests_and_required_checks",
+  "local_review_url": "http://127.0.0.1:8768/",
+  "costs": {
+    "GPU_hours": 0,
+    "new_cloud_fees": 0,
+    "full_CPU_time_and_peak_RSS": "not_measured"
+  },
+  "file_changes": [
+    {
+      "path": "README.md",
+      "change": "modified",
+      "reason": "将当前默认入口改为12张卡，撤下全量人工待办并保留科学边界。"
+    },
+    {
+      "path": "configs/research/stroke_video_v2.json",
+      "change": "modified",
+      "reason": "激活小批次协议；旧全量协议、分工及完整标注口径另存历史字段，不修改研究门槛。"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/README.md",
+      "change": "modified",
+      "reason": "更新小批次启动方式与历史队列关系，媒体和原批注未改。"
+    },
+    {
+      "path": "data/research/experiments_v2.json",
+      "change": "modified",
+      "reason": "登记小批次证据和诊断边界，DATA-01/EVAL-01仍blocked。"
+    },
+    {
+      "path": "docs/project/STATUS.md",
+      "change": "modified",
+      "reason": "更新当前人工任务为12字/12视频，第二位只先处理争议。"
+    },
+    {
+      "path": "docs/project/stages/P0-release.json",
+      "change": "modified",
+      "reason": "添加小批次证据，保留未验收及来源/校准阻塞。"
+    },
+    {
+      "path": "docs/project/stages/P0.md",
+      "change": "modified",
+      "reason": "更新阶段内当前人工安排，保持原验收契约。"
+    },
+    {
+      "path": "docs/research/v2/README.md",
+      "change": "modified",
+      "reason": "说明当前小批次及历史全量AI报告。"
+    },
+    {
+      "path": "docs/research/v2/data_evaluation.md",
+      "change": "modified",
+      "reason": "说明当前12张诊断抽检不重新证明全量准确率或0/64。"
+    },
+    {
+      "path": "docs/research/v2/p0_ai_prereview_2026-10-28.md",
+      "change": "modified",
+      "reason": "增加后续减量修订入口；原结果和旧工作量正文作为历史保留。"
+    },
+    {
+      "path": "scripts/p0/review_server.py",
+      "change": "modified",
+      "reason": "支持quick协议、配对卡片和独立反馈导入导出；第二位队列只暴露争议卡ID及AI意见。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/approved_scope.json",
+      "change": "added",
+      "reason": "保存用户批准的12字/12视频减量方案。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/browser_operation_attempt01.log",
+      "change": "added",
+      "reason": "保留对应步骤原始执行/测试日志，不作为科学人审记录。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/browser_operation_check.json",
+      "change": "added",
+      "reason": "记录冻结前2个非保留字的实际浏览器检查结果。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/checks/catalog.log",
+      "change": "added",
+      "reason": "保留对应步骤原始执行/测试日志，不作为科学人审记录。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/checks/research_v1.json",
+      "change": "added",
+      "reason": "保存v1研究结构检查输出。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/checks/research_v1.log",
+      "change": "added",
+      "reason": "保留对应步骤原始执行/测试日志，不作为科学人审记录。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/checks/research_v2.json",
+      "change": "added",
+      "reason": "保存v2研究协议检查输出。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/checks/research_v2.log",
+      "change": "added",
+      "reason": "保留对应步骤原始执行/测试日志，不作为科学人审记录。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/checks/stage_release.log",
+      "change": "added",
+      "reason": "保留对应步骤原始执行/测试日志，不作为科学人审记录。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/checks/unit_tests.log",
+      "change": "added",
+      "reason": "保留对应步骤原始执行/测试日志，不作为科学人审记录。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/checks/validation_summary.json",
+      "change": "added",
+      "reason": "汇总67项测试和必要工程检查，区分科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/compact_layout_attempt01.json",
+      "change": "added",
+      "reason": "保留首次主按钮超出900px视口的失败测量。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/compact_layout_check.json",
+      "change": "added",
+      "reason": "保存调整后只读布局检查，无反馈写入。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/execution_environment.json",
+      "change": "added",
+      "reason": "保存本地CPU执行环境和未测成本限制。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/focused_tests.log",
+      "change": "added",
+      "reason": "保留对应步骤原始执行/测试日志，不作为科学人审记录。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/layout_attempt01.png",
+      "change": "added",
+      "reason": "保留首次紧凑布局失败截图。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/live_page.png",
+      "change": "added",
+      "reason": "保留正式服务切换后的初始页面截图。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/live_page_compact.png",
+      "change": "added",
+      "reason": "保存最终紧凑页面截图。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/live_service_handoff.json",
+      "change": "added",
+      "reason": "保存正式服务只读交接、12卡及真实人审初始数量。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/nonhuman_operation_events.jsonl",
+      "change": "added",
+      "reason": "保存隔离测试产生的全部反馈事件，科学人审计数0。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/operation_screenshot.png",
+      "change": "added",
+      "reason": "保存隔离非保留集操作测试截图。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/operation_server.log",
+      "change": "added",
+      "reason": "保留对应步骤原始执行/测试日志，不作为科学人审记录。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/operation_test_pack.json",
+      "change": "added",
+      "reason": "2个开发字的页面操作测试包，与正式12字隔离。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/prior_service_transition.json",
+      "change": "added",
+      "reason": "记录旧全量服务进度和目录保留，切换同一URL到独立小批次目录。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/quick_protocol.json",
+      "change": "added",
+      "reason": "冻结12张AI可见诊断复核协议和反馈语义。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/quick_review_draft.json",
+      "change": "added",
+      "reason": "保留操作测试之前的12张候选包。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/quick_review_freeze.json",
+      "change": "added",
+      "reason": "测试通过后冻结正式12张审核包；未覆盖既有协议。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/sampling_audit.json",
+      "change": "added",
+      "reason": "保存抽样池、固定6段差异和6个条件随机格子、种子及来源角色。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/selection_manifest.csv",
+      "change": "added",
+      "reason": "保存12张逐字符/视频ID顺序和选择依据。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_review_2026-10-28/task_record.json",
+      "change": "added",
+      "reason": "保存本次授权、结果、失败、逐文件说明和停止点。"
+    },
+    {
+      "path": "docs/research/v2/p0_quick_review_2026-10-28.md",
+      "change": "added",
+      "reason": "新增本轮操作、12字顺序、抽样方法、实际检查、改动及科学边界报告。"
+    },
+    {
+      "path": "scripts/p0/quick_review.py",
+      "change": "added",
+      "reason": "从既有证据固定选择12张配对卡，先非保留集测试再冻结；仅校验独立反馈，不转人工真值。"
+    },
+    {
+      "path": "scripts/p0/review_quick.html",
+      "change": "added",
+      "reason": "提供简版3操作、按需分项、逐帧、图示放大、恢复和争议复核，无必填原因表单。"
+    },
+    {
+      "path": "scripts/p0/test_quick_browser.cjs",
+      "change": "added",
+      "reason": "隔离非保留集实际浏览器操作验证，测试记录不纳入科学人审。"
+    },
+    {
+      "path": "tests/test_p0_quick_review.py",
+      "change": "added",
+      "reason": "验证分项反馈不生成或反转金标，以及争议队列不暴露他人答案。"
+    }
+  ]
+}

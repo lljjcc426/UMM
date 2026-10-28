@@ -1,4 +1,4 @@
-"""Local P0 review service: blind payloads and versioned, reviewer-scoped saves.
+"""Local P0 review service with versioned, reviewer-scoped saves.
 
 Run with --preview for non-holdout operation tests before protocol freeze.
 The repository, manifests, original IDs, predictions and event logs have no route.
@@ -36,6 +36,10 @@ def blind_png(raw):
 
 
 def public_task(task):
+    if task['type']=='quick_card':
+        return dict(blind_id=task['blind_id'],type=task['type'],character=task['character'],
+                    normative=public_task(task['normative']),rgb=public_task(task['rgb']),
+                    frame_hints=task['frame_hints'])
     fields = ['blind_id', 'type', 'character', 'official_page', 'official_index',
               'candidate_strokes', 'candidate_medians', 'frame_timestamps']
     result = {key: task[key] for key in fields if key in task}
@@ -48,11 +52,15 @@ def public_task(task):
             result['reference_diagram']='/evidence/'+task['blind_id']
         result['assigned_partition']=task.get('assigned_partition')
         result['cross_review']=task.get('cross_review',False)
+        if 'review_proposal' in task: result['review_proposal']=task['review_proposal']
     return result
 
 
 def validate_annotation(entry, task, protocol_id):
     """Validate the incoming annotation once; never infer human judgments."""
+    if task['type']=='quick_card':
+        from scripts.p0.quick_review import validate_feedback
+        return validate_feedback(entry,task,protocol_id)
     if entry.get('protocol_id')!=protocol_id or entry.get('type')!=task['type']:
         raise ValueError('记录协议或任务类型不匹配')
     choices = ['consistent','conflict','unverified'] if task['type']=='normative' else ['correct','incorrect','unknown']
@@ -74,6 +82,9 @@ class ReviewStore:
         directory.mkdir(parents=True,exist_ok=True)
         self.tasks={t['blind_id']:t for values in pack['batches'].values() for t in values}
         self.tasks.update({t['blind_id']:t for t in pack['tutorial']})
+        if pack['protocol'].get('mode')=='quick':
+            self.tasks.update({t['blind_id']:t for c in pack['batches']['quick_cards']
+                               for t in [c['normative'],c['rgb']]})
 
     def reviewer(self, value):
         if not re.fullmatch(r'[A-Za-z0-9_-]{1,40}',value or ''):
@@ -103,7 +114,7 @@ class ReviewStore:
 
     def allowed_batch(self, batch, reviewer):
         if batch not in self.pack['batches']: raise ValueError('不存在此批次')
-        if self.pack['protocol'].get('mode')=='assisted': return
+        if self.pack['protocol'].get('mode') in ['assisted','quick']: return
         if batch.startswith('practice'): return
         if self.preview: raise ValueError('页面操作测试只允许非保留集练习任务')
         state=self.state(reviewer)
@@ -127,20 +138,25 @@ def handler_for(store):
             reviewer=query.get('reviewer',[''])[0]
             try:
                 if url.path=='/':
-                    filename='review_assisted.html' if store.pack['protocol'].get('mode')=='assisted' else 'review_v2.html'
+                    filename={'assisted':'review_assisted.html','quick':'review_quick.html'}.get(store.pack['protocol'].get('mode'),'review_v2.html')
                     self.reply(200,(Path('scripts/p0')/filename).read_bytes(),'text/html; charset=utf-8')
                 elif url.path=='/api/protocol':
                     protocol=store.pack['protocol']
                     # Sampling seed, source IDs, labels and private order mappings stay off the review API.
-                    self.reply(200,{k:protocol[k] for k in ['id','status','facets','status_values','error_reasons','mode'] if k in protocol})
+                    self.reply(200,{k:protocol[k] for k in ['id','status','facets','status_values','error_reasons','mode','reactions','character_count','RGB_count'] if k in protocol})
                 elif url.path=='/api/state': self.reply(200,store.state(reviewer))
                 elif url.path=='/api/tasks':
                     batch=query.get('batch',['practice_norm'])[0]
                     store.allowed_batch(batch,reviewer)
-                    self.reply(200,[public_task(t) for t in store.pack['batches'][batch]])
+                    tasks=store.pack['batches'][batch]
+                    if store.pack['protocol'].get('mode')=='quick' and query.get('disputes',[''])[0]=='1':
+                        disputed={a['blind_id'] for a in store.state('1')['annotations']
+                                  if any(a[key]['reaction'] in ['disagree','uncertain'] for key in ['normative_feedback','rgb_feedback'])}
+                        tasks=[t for t in tasks if t['blind_id'] in disputed]
+                    self.reply(200,[public_task(t) for t in tasks])
                 elif url.path=='/api/tutorial':
                     self.reply(200,[dict(public_task(t),construction_demo=t['case']) for t in store.pack['tutorial']])
-                elif url.path.startswith('/evidence/') and store.pack['protocol'].get('mode')=='assisted':
+                elif url.path.startswith('/evidence/') and store.pack['protocol'].get('mode') in ['assisted','quick']:
                     task=store.tasks[url.path.removeprefix('/evidence/')]
                     self.reply(200,Path(task['ai_suggestion']['reference_diagram']).read_bytes(),'image/png')
                 elif url.path.startswith('/media/'):
@@ -150,7 +166,8 @@ def handler_for(store):
                     self.reply(200,blind_png(Path(task['media_path']).read_bytes()),'image/png')
                 elif url.path=='/api/export':
                     state=store.state(reviewer)
-                    self.reply(200,dict(schema='p0-human-annotations-v2',protocol_id=store.pack['protocol']['id'],
+                    schema='p0-quick-feedback-v1' if store.pack['protocol'].get('mode')=='quick' else 'p0-human-annotations-v2'
+                    self.reply(200,dict(schema=schema,protocol_id=store.pack['protocol']['id'],
                         reviewer_id=reviewer,exported_at=datetime.now(timezone.utc).isoformat(),
                         annotations=state['annotations'],onboarded=state['onboarded'],progress=state['progress']))
                 elif url.path=='/reference/standard.pdf' and REFERENCE.exists():
@@ -192,14 +209,14 @@ def handler_for(store):
                         store.append(reviewer,dict(kind='legacy_import',file=destination.name,
                             records=len(imported['annotations']),formal_credited=0))
                         self.reply(200,dict(saved=True,legacy_records=len(imported['annotations']),formal_credited=0))
-                    elif schema=='p0-human-annotations-v2':
+                    elif schema in ['p0-human-annotations-v2','p0-quick-feedback-v1']:
                         entries=imported['annotations']
                         # Restoring an existing export does not require the new
                         # store to already contain that export's onboarding/tasks.
                         # Validate once, before appending any human record.
                         for entry in entries:
                             task=store.tasks[entry['blind_id']]
-                            if store.preview and not task['batch'].startswith('practice'):
+                            if store.preview and store.pack['protocol'].get('mode')!='quick' and not task['batch'].startswith('practice'):
                                 raise ValueError('操作测试只导入非保留集练习记录')
                             validate_annotation(entry,task,store.pack['protocol']['id'])
                             if entry.get('reviewer_id')!=reviewer: raise ValueError('只导入当前标注者自己的记录，避免其他答案暴露')
@@ -231,13 +248,18 @@ if __name__=='__main__':
     parser.add_argument('--port',type=int,default=8766)
     parser.add_argument('--preview',action='store_true')
     parser.add_argument('--assisted',action='store_true',help='Human review of AI prereview results; separate protocol/store')
+    parser.add_argument('--quick',action='store_true',help='Twelve paired cards, AI-visible diagnostic spotcheck only')
     parser.add_argument('--storage',type=Path)
     args=parser.parse_args()
-    if args.assisted:
+    if args.quick:
+        from scripts.p0.quick_review import RUN as QUICK_RUN
+        pack=json.loads((QUICK_RUN/('operation_test_pack.json' if args.preview else 'quick_review_freeze.json')).read_text())
+    elif args.assisted:
         from scripts.p0.ai_prereview import RUN as AI_RUN
         pack=json.loads((AI_RUN/'assisted_review_pack.json').read_text())
     else: pack=json.loads((RUN/('review_draft.json' if args.preview else 'review_freeze.json')).read_text())
-    storage=args.storage or Path('private/p0_assisted_human_review_2026-10-28' if args.assisted else 'private/p0_human_review_2026-10-28')
+    storage=args.storage or Path('private/p0_quick_human_review_2026-10-28' if args.quick else
+        'private/p0_assisted_human_review_2026-10-28' if args.assisted else 'private/p0_human_review_2026-10-28')
     server=ThreadingHTTPServer(('127.0.0.1',args.port),handler_for(ReviewStore(pack,storage,args.preview)))
     print('P0 review', 'non-holdout preview' if args.preview else 'frozen protocol', server.server_address,flush=True)
     server.serve_forever()

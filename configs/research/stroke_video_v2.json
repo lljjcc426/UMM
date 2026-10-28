@@ -54,15 +54,19 @@
     "normative_human_verified": false,
     "scientific_ready": false,
     "dataset_manifest": "data/research/datasets/p0_stroke_synthetic_v1/splits.json",
-    "human_review_protocol": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_protocol.json",
-    "human_review_rubric": "data/research/runs/p0_human_review_preparation_2026-10-28/rubric_freeze.json",
+    "human_review_protocol": "data/research/runs/p0_quick_review_2026-10-28/quick_protocol.json",
+    "human_review_rubric": "data/research/runs/p0_quick_review_2026-10-28/quick_protocol.json",
     "legacy_human_records": 38,
     "formal_human_normative_count": 0,
     "formal_human_RGB_count": 0,
-    "human_review_status": "full_AI_prereview_complete_waiting_for_actual_AI_visible_human_review",
-    "previous_human_review_protocol": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze.json",
+    "human_review_status": "12_card_diagnostic_spotcheck_ready_waiting_for_human_feedback_full_scientific_calibration_pending",
+    "previous_human_review_protocol": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_protocol.json",
     "AI_prereview_summary": "data/research/runs/p0_ai_prereview_2026-10-28/effective_prereview_summary.json",
-    "human_reviewer_partitions": {
+    "human_AI_suggestions_visible": true,
+    "second_reviewer_status": "User can arrange; no actual participation yet",
+    "historical_blind_review_protocol": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze.json",
+    "full_label_rubric_reference": "data/research/runs/p0_human_review_preparation_2026-10-28/rubric_freeze.json",
+    "previous_human_reviewer_partitions": {
       "A": {
         "normative": 320,
         "RGB": 1376
@@ -73,8 +77,17 @@
       },
       "cross_review_RGB": 36
     },
-    "human_AI_suggestions_visible": true,
-    "second_reviewer_status": "User can arrange; no actual participation yet"
+    "human_spotcheck": {
+      "characters": 12,
+      "RGB_clips": 12,
+      "cards": 12,
+      "targeted_method_differences": 6,
+      "conditional_stratified_random": 6,
+      "primary_feedback_count": 0,
+      "second_reviewer": "Only primary ID1 disagreement/uncertainty; actual participation pending",
+      "automatic_gold_from_feedback": false,
+      "full_census_human_queue_active": false
+    }
   },
   "seeds": {
     "training": [

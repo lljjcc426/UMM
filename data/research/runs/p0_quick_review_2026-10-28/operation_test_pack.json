@@ -1,0 +1,839 @@
+{
+  "protocol": {
+    "id": "p0-quick-operation-test-v1",
+    "revision": "1.0",
+    "mode": "quick",
+    "status": "operation_test_only",
+    "seed": 2026102803,
+    "character_count": 2,
+    "RGB_count": 2,
+    "scope": "First diagnostic spotcheck only; not full DATA-01/EVAL-01 calibration or P0 acceptance",
+    "workload": "12 paired cards; normative and RGB reactions stored separately; no required detailed forms",
+    "reactions": [
+      "agree",
+      "disagree",
+      "uncertain"
+    ],
+    "AI_suggestions_visible": true,
+    "independent_blind_review": false,
+    "normative_approval_from_agreement": false,
+    "RGB_gold_from_agreement": false,
+    "semantics": {
+      "agree": "Agrees with the displayed bounded AI proposal; unknown remains unknown",
+      "disagree": "Disagrees with displayed AI proposal; no opposite correctness label inferred",
+      "uncertain": "Human cannot determine; no pass or fail inferred"
+    },
+    "second_reviewer": "Only cards with primary ID1 disagreement or uncertainty; own answers, primary answers hidden",
+    "prior_protocol_preserved": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_protocol.json",
+    "prior_full_workload_active": false,
+    "scientific_status": "DATA-01/EVAL-01 blocked; P0 not accepted",
+    "base_commit": "3ea92d8f",
+    "source_pack": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_review_pack.json",
+    "evaluator_modified": false,
+    "thresholds_modified": false,
+    "no_unsampled_human_credit": true
+  },
+  "batches": {
+    "quick_cards": [
+      {
+        "blind_id": "Q-01",
+        "type": "quick_card",
+        "batch": "quick_cards",
+        "character": "汹",
+        "normative": {
+          "original_id": "norm-mmh-06C79",
+          "type": "normative",
+          "character": "汹",
+          "role": "observer_dev",
+          "stratum": "6-8",
+          "official_page": 57,
+          "official_index": 864,
+          "candidate_strokes": [
+            "M 242 733 Q 273 709 305 681 Q 321 668 337 669 Q 347 670 353 684 Q 357 700 346 731 Q 334 764 235 783 Q 219 787 212 783 Q 206 779 209 765 Q 213 755 242 733 Z",
+            "M 140 548 Q 194 494 227 481 Q 242 478 251 493 Q 257 506 253 523 Q 241 565 151 588 Q 135 592 125 588 Q 118 587 122 574 Q 123 562 140 548 Z",
+            "M 131 142 Q 119 138 122 120 Q 146 44 176 30 Q 183 23 194 27 Q 201 28 201 54 Q 207 111 295 372 Q 301 388 299 394 Q 298 404 289 397 Q 276 388 171 189 Q 159 167 131 142 Z",
+            "M 661 485 Q 689 534 715 609 Q 724 634 736 657 Q 743 667 737 676 Q 730 686 701 700 Q 679 710 671 708 Q 658 704 661 689 Q 673 610 621 513 L 597 472 Q 540 397 467 329 Q 460 322 466 319 Q 499 313 584 391 Q 609 413 631 439 L 661 485 Z",
+            "M 631 439 Q 728 346 736 343 Q 743 342 749 350 Q 758 360 747 396 Q 738 430 661 485 L 621 513 Q 620 514 618 515 Q 530 573 479 600 Q 472 604 470 594 Q 470 584 479 575 Q 534 529 597 472 L 631 439 Z",
+            "M 810 291 Q 596 270 434 225 Q 406 218 412 250 Q 416 335 419 424 Q 422 451 410 466 Q 392 484 364 497 Q 351 503 340 500 Q 328 493 339 473 Q 378 395 370 316 Q 366 240 336 204 Q 317 185 325 169 Q 338 153 357 140 Q 372 133 383 141 Q 425 195 706 242 Q 772 254 797 248 C 827 246 840 294 810 291 Z",
+            "M 797 248 Q 791 223 814 177 Q 824 161 836 172 Q 863 200 867 288 Q 882 496 902 538 Q 911 554 899 568 Q 880 584 844 605 Q 831 612 818 606 Q 811 602 813 588 Q 850 522 810 291 L 797 248 Z"
+          ],
+          "candidate_medians": [
+            [
+              [
+                219,
+                775
+              ],
+              [
+                303,
+                728
+              ],
+              [
+                333,
+                689
+              ]
+            ],
+            [
+              [
+                132,
+                579
+              ],
+              [
+                215,
+                525
+              ],
+              [
+                232,
+                502
+              ]
+            ],
+            [
+              [
+                188,
+                37
+              ],
+              [
+                173,
+                75
+              ],
+              [
+                169,
+                118
+              ],
+              [
+                198,
+                171
+              ],
+              [
+                293,
+                391
+              ]
+            ],
+            [
+              [
+                674,
+                694
+              ],
+              [
+                699,
+                661
+              ],
+              [
+                672,
+                564
+              ],
+              [
+                643,
+                502
+              ],
+              [
+                616,
+                457
+              ],
+              [
+                546,
+                380
+              ],
+              [
+                470,
+                324
+              ]
+            ],
+            [
+              [
+                479,
+                591
+              ],
+              [
+                670,
+                443
+              ],
+              [
+                721,
+                391
+              ],
+              [
+                740,
+                352
+              ]
+            ],
+            [
+              [
+                346,
+                489
+              ],
+              [
+                386,
+                445
+              ],
+              [
+                391,
+                417
+              ],
+              [
+                394,
+                337
+              ],
+              [
+                382,
+                217
+              ],
+              [
+                384,
+                201
+              ],
+              [
+                391,
+                197
+              ],
+              [
+                417,
+                197
+              ],
+              [
+                652,
+                253
+              ],
+              [
+                782,
+                269
+              ],
+              [
+                802,
+                286
+              ]
+            ],
+            [
+              [
+                827,
+                594
+              ],
+              [
+                865,
+                547
+              ],
+              [
+                826,
+                180
+              ]
+            ]
+          ],
+          "blind_id": "A-a9355c4dea5f0460",
+          "batch": "quick_cards",
+          "ordinal": 19,
+          "ai_suggestion": {
+            "type": "normative",
+            "character": "汹",
+            "decision": "unverified",
+            "facets": {
+              "character_identity": "pass",
+              "stroke_count": "pass",
+              "stroke_identity": "pass",
+              "order": "pass",
+              "direction": "unknown",
+              "variant_scope": "unknown"
+            },
+            "reasons": [],
+            "disputed": false,
+            "notes": "GF0023—2020 PDF第57页，条目864。\n官方印刷笔数=7；源候选笔数=7；提取编码=4413452。\n候选中线粗分类=???3452（?为无法粗分；该分类不具备规范裁判效力）。\n相同编码仍可能对应不同空间笔画；没有以编码一致替代完整次序、折笔方向或异写核验。\nAI已逐字比较规范图示与候选累计图：空间笔画身份、累计次序在缩图可辨范围内一致。 完整折笔方向、允许异写范围仍未核准；本条整体保持未核实。",
+            "events": "",
+            "observed_order": "",
+            "evidence": [
+              "GF0023—2020 PDF第57页，条目864。",
+              "官方印刷笔数=7；源候选笔数=7；提取编码=4413452。",
+              "候选中线粗分类=???3452（?为无法粗分；该分类不具备规范裁判效力）。",
+              "相同编码仍可能对应不同空间笔画；没有以编码一致替代完整次序、折笔方向或异写核验。",
+              "AI已逐字比较规范图示与候选累计图：空间笔画身份、累计次序在缩图可辨范围内一致。 完整折笔方向、允许异写范围仍未核准；本条整体保持未核实。"
+            ],
+            "priority": "normative_confirmation",
+            "classification_suspects": [],
+            "official_codes": "4413452",
+            "candidate_coarse_codes": "???3452",
+            "review_method": "All-character official/source diagram visual comparison plus code screening; direction and variant scope unresolved",
+            "review_coverage": {
+              "official_row_extracted": true,
+              "full_normative_semantics_verified": false,
+              "AI_visual_reference_comparison": true
+            },
+            "reference_diagram": "private/p0_ai_prereview_2026-10-28/reference/06C79.png",
+            "reference_consulted": false,
+            "reference_required": true,
+            "model_version": "p0-ai-prereview-v1+visual1",
+            "original_id": "norm-mmh-06C79",
+            "template_id": "mmh-06C79",
+            "source_group_id": "mmh:bddc96d41bef78427ed0e034e9f7e31d71fd1b92:06C79"
+          },
+          "assigned_partition": "A",
+          "cross_review": false,
+          "review_proposal": "AI在当前图示可辨范围内，未发现笔画身份及累计次序差异。完整方向、异写范围仍待核验。"
+        },
+        "rgb": {
+          "original_id": "083f8210dfede4a2d570",
+          "type": "rgb_event",
+          "character": "汹",
+          "role": "observer_dev",
+          "stratum": "6-8",
+          "official_page": 57,
+          "media_path": "private/p0_data_eval_2026-10-27/media/observer_dev/083f8210dfede4a2d570.png",
+          "frame_timestamps": [
+            0.0,
+            0.083,
+            0.166,
+            0.249,
+            0.332,
+            0.41500000000000004,
+            0.49800000000000005,
+            0.5810000000000001,
+            0.664,
+            0.913,
+            0.996,
+            1.079,
+            1.162,
+            1.2449999999999999,
+            1.3279999999999998,
+            1.4109999999999998,
+            1.4939999999999998,
+            1.7429999999999999,
+            1.8259999999999998,
+            1.9089999999999998,
+            1.9919999999999998,
+            2.0749999999999997,
+            2.158,
+            2.241,
+            2.3240000000000003,
+            2.5730000000000004,
+            2.6560000000000006,
+            2.7390000000000008,
+            2.822000000000001,
+            2.905000000000001,
+            2.9880000000000013,
+            3.0710000000000015,
+            3.1540000000000017,
+            3.403000000000002,
+            3.486000000000002,
+            3.569000000000002,
+            3.6520000000000024,
+            3.7350000000000025,
+            3.8180000000000027,
+            3.901000000000003,
+            3.984000000000003,
+            4.233000000000003,
+            4.316000000000003,
+            4.399000000000004,
+            4.482000000000004,
+            4.565000000000004,
+            4.648000000000004,
+            4.731000000000004,
+            4.8140000000000045,
+            5.063000000000004,
+            5.146000000000004,
+            5.2290000000000045,
+            5.312000000000005,
+            5.395000000000005,
+            5.478000000000005,
+            5.561000000000005,
+            5.6440000000000055
+          ],
+          "renderer": "outline",
+          "case": "correct",
+          "blind_id": "A-88e0146500dd3bd9",
+          "batch": "quick_cards",
+          "ordinal": 116,
+          "ai_suggestion": {
+            "decision": "correct",
+            "facets": {
+              "visible_content": "pass",
+              "stroke_identity_count": "pass",
+              "order": "pass",
+              "direction": "pass",
+              "completion_sequence": "pass",
+              "simultaneous_growth": "pass",
+              "ink_preservation": "pass"
+            },
+            "reasons": [],
+            "events": [
+              {
+                "stroke": 1,
+                "exclusive_pixels": 49,
+                "onset_frame": 1,
+                "complete_frame": 8,
+                "onset_seconds": 0.083,
+                "complete_seconds": 0.664,
+                "direction": "forward",
+                "final_coverage": 1.0,
+                "start_anchor_frame": 2.0,
+                "end_anchor_frame": 8.0
+              },
+              {
+                "stroke": 2,
+                "exclusive_pixels": 42,
+                "onset_frame": 9,
+                "complete_frame": 16,
+                "onset_seconds": 0.913,
+                "complete_seconds": 1.4939999999999998,
+                "direction": "forward",
+                "final_coverage": 1.0,
+                "start_anchor_frame": 10.0,
+                "end_anchor_frame": 16.0
+              },
+              {
+                "stroke": 3,
+                "exclusive_pixels": 117,
+                "onset_frame": 17,
+                "complete_frame": 22,
+                "onset_seconds": 1.7429999999999999,
+                "complete_seconds": 2.158,
+                "direction": "forward",
+                "final_coverage": 1.0,
+                "start_anchor_frame": 17.0,
+                "end_anchor_frame": 23.0
+              },
+              {
+                "stroke": 4,
+                "exclusive_pixels": 85,
+                "onset_frame": 25,
+                "complete_frame": 31,
+                "onset_seconds": 2.5730000000000004,
+                "complete_seconds": 3.0710000000000015,
+                "direction": "forward",
+                "final_coverage": 1.0,
+                "start_anchor_frame": 25.0,
+                "end_anchor_frame": 31.0
+              },
+              {
+                "stroke": 5,
+                "exclusive_pixels": 46,
+                "onset_frame": 34,
+                "complete_frame": 40,
+                "onset_seconds": 3.486000000000002,
+                "complete_seconds": 3.984000000000003,
+                "direction": "forward",
+                "final_coverage": 1.0,
+                "start_anchor_frame": 34.5,
+                "end_anchor_frame": 40.0
+              },
+              {
+                "stroke": 6,
+                "exclusive_pixels": 215,
+                "onset_frame": 41,
+                "complete_frame": 48,
+                "onset_seconds": 4.233000000000003,
+                "complete_seconds": 4.8140000000000045,
+                "direction": "forward",
+                "final_coverage": 1.0,
+                "start_anchor_frame": 41.0,
+                "end_anchor_frame": 48.0
+              },
+              {
+                "stroke": 7,
+                "exclusive_pixels": 151,
+                "onset_frame": 49,
+                "complete_frame": 56,
+                "onset_seconds": 5.063000000000004,
+                "complete_seconds": 5.6440000000000055,
+                "direction": "forward",
+                "final_coverage": 1.0,
+                "start_anchor_frame": 49.0,
+                "end_anchor_frame": 56.0
+              }
+            ],
+            "observed_order": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "metrics": {
+              "frame_count": 57,
+              "stroke_count": 7,
+              "maximum_ink_loss_pixels": 0,
+              "maximum_outside_reference_pixels": 0,
+              "initial_ink_pixels": 0,
+              "final_ink_pixels": 1780,
+              "concurrent_partial_frames": 0
+            },
+            "review_coverage": {
+              "all_decoded_frames_checked": true,
+              "AI_visually_watched_all_frames": false,
+              "direction_reference": "source candidate median, not human-confirmed normative direction"
+            },
+            "review_method": "AI-engineered all-frame RGB analysis with independently rasterized SVG reference; provisional, source-geometry dependent",
+            "type": "rgb_event",
+            "original_id": "083f8210dfede4a2d570",
+            "template_id": "mmh-06C79",
+            "source_group_id": "mmh:bddc96d41bef78427ed0e034e9f7e31d71fd1b92:06C79",
+            "character": "汹",
+            "model_version": "p0-ai-prereview-v1",
+            "notes": "程序检查全部57个实际解码帧，媒体时长5.976秒。\n参考是源候选几何；规范次序/方向尚需人工确认。\n初筛：correct；原因：当前规则未发现违规。",
+            "evidence": [
+              "程序检查全部57个实际解码帧，媒体时长5.976秒。",
+              "参考是源候选几何；规范次序/方向尚需人工确认。",
+              "初筛：correct；原因：当前规则未发现违规。"
+            ],
+            "disputed": false,
+            "priority": "routine",
+            "reference_consulted": false,
+            "frame_timestamps": [
+              0.0,
+              0.083,
+              0.166,
+              0.249,
+              0.332,
+              0.41500000000000004,
+              0.49800000000000005,
+              0.5810000000000001,
+              0.664,
+              0.913,
+              0.996,
+              1.079,
+              1.162,
+              1.2449999999999999,
+              1.3279999999999998,
+              1.4109999999999998,
+              1.4939999999999998,
+              1.7429999999999999,
+              1.8259999999999998,
+              1.9089999999999998,
+              1.9919999999999998,
+              2.0749999999999997,
+              2.158,
+              2.241,
+              2.3240000000000003,
+              2.5730000000000004,
+              2.6560000000000006,
+              2.7390000000000008,
+              2.822000000000001,
+              2.905000000000001,
+              2.9880000000000013,
+              3.0710000000000015,
+              3.1540000000000017,
+              3.403000000000002,
+              3.486000000000002,
+              3.569000000000002,
+              3.6520000000000024,
+              3.7350000000000025,
+              3.8180000000000027,
+              3.901000000000003,
+              3.984000000000003,
+              4.233000000000003,
+              4.316000000000003,
+              4.399000000000004,
+              4.482000000000004,
+              4.565000000000004,
+              4.648000000000004,
+              4.731000000000004,
+              4.8140000000000045,
+              5.063000000000004,
+              5.146000000000004,
+              5.2290000000000045,
+              5.312000000000005,
+              5.395000000000005,
+              5.478000000000005,
+              5.561000000000005,
+              5.6440000000000055
+            ]
+          },
+          "assigned_partition": "A",
+          "cross_review": false,
+          "review_proposal": "AI程序未发现过程违规；这条意见仍依赖尚未核准的源字形，需对照实际视频。"
+        },
+        "selection": {
+          "kind": "non_holdout_UI_test"
+        },
+        "frame_hints": []
+      },
+      {
+        "blind_id": "Q-02",
+        "type": "quick_card",
+        "batch": "quick_cards",
+        "character": "乃",
+        "normative": {
+          "original_id": "norm-mmh-04E43",
+          "type": "normative",
+          "character": "乃",
+          "role": "observer_dev",
+          "stratum": "2-5",
+          "official_page": 9,
+          "official_index": 20,
+          "candidate_strokes": [
+            "M 731 459 Q 755 460 762 450 Q 772 441 768 415 Q 761 234 664 105 Q 658 101 654 96 Q 638 87 582 111 Q 533 132 532 127 Q 531 120 539 110 Q 585 56 600 28 Q 613 -2 625 -6 Q 637 -13 659 2 Q 717 36 748 97 Q 776 152 827 377 Q 831 401 857 419 Q 872 432 862 443 Q 846 465 802 491 Q 790 500 772 493 Q 723 492 676 490 Q 658 489 650 496 Q 640 505 650 519 Q 701 607 741 664 Q 763 689 786 698 Q 801 705 800 715 Q 797 734 725 770 Q 707 780 682 769 Q 639 753 602 743 Q 496 724 333 689 Q 284 679 223 676 Q 210 676 203 666 Q 200 663 208 654 Q 218 639 239 631 Q 255 624 283 632 Q 347 651 422 669 L 461 678 Q 668 724 689 710 Q 696 706 689 691 Q 619 535 575 495 Q 562 485 569 469 Q 579 445 594 440 Q 607 436 621 445 Q 654 463 731 459 Z",
+            "M 422 669 Q 425 639 415 600 Q 348 441 316 378 Q 232 252 95 132 Q 88 128 84 122 Q 78 112 89 111 Q 123 110 235 198 Q 253 216 273 236 Q 372 345 446 513 Q 470 571 490 603 Q 503 615 500 630 Q 490 652 463 676 Q 462 677 461 678 C 439 699 421 699 422 669 Z"
+          ],
+          "candidate_medians": [
+            [
+              [
+                213,
+                663
+              ],
+              [
+                242,
+                654
+              ],
+              [
+                269,
+                654
+              ],
+              [
+                688,
+                741
+              ],
+              [
+                708,
+                740
+              ],
+              [
+                734,
+                717
+              ],
+              [
+                629,
+                528
+              ],
+              [
+                615,
+                483
+              ],
+              [
+                663,
+                473
+              ],
+              [
+                765,
+                473
+              ],
+              [
+                785,
+                467
+              ],
+              [
+                806,
+                443
+              ],
+              [
+                810,
+                431
+              ],
+              [
+                759,
+                217
+              ],
+              [
+                712,
+                108
+              ],
+              [
+                691,
+                78
+              ],
+              [
+                662,
+                54
+              ],
+              [
+                643,
+                47
+              ],
+              [
+                535,
+                123
+              ]
+            ],
+            [
+              [
+                430,
+                663
+              ],
+              [
+                452,
+                645
+              ],
+              [
+                459,
+                625
+              ],
+              [
+                394,
+                472
+              ],
+              [
+                344,
+                373
+              ],
+              [
+                294,
+                301
+              ],
+              [
+                211,
+                208
+              ],
+              [
+                148,
+                155
+              ],
+              [
+                92,
+                119
+              ]
+            ]
+          ],
+          "blind_id": "A-8c2d3754e9642552",
+          "batch": "quick_cards",
+          "ordinal": 64,
+          "ai_suggestion": {
+            "type": "normative",
+            "character": "乃",
+            "decision": "unverified",
+            "facets": {
+              "character_identity": "pass",
+              "stroke_count": "pass",
+              "stroke_identity": "pass",
+              "order": "pass",
+              "direction": "unknown",
+              "variant_scope": "unknown"
+            },
+            "reasons": [],
+            "disputed": false,
+            "notes": "GF0023—2020 PDF第9页，条目20。\n官方印刷笔数=2；源候选笔数=2；提取编码=53。\n候选中线粗分类=53（?为无法粗分；该分类不具备规范裁判效力）。\n相同编码仍可能对应不同空间笔画；没有以编码一致替代完整次序、折笔方向或异写核验。\nAI已逐字比较规范图示与候选累计图：空间笔画身份、累计次序在缩图可辨范围内一致。 完整折笔方向、允许异写范围仍未核准；本条整体保持未核实。",
+            "events": "",
+            "observed_order": "",
+            "evidence": [
+              "GF0023—2020 PDF第9页，条目20。",
+              "官方印刷笔数=2；源候选笔数=2；提取编码=53。",
+              "候选中线粗分类=53（?为无法粗分；该分类不具备规范裁判效力）。",
+              "相同编码仍可能对应不同空间笔画；没有以编码一致替代完整次序、折笔方向或异写核验。",
+              "AI已逐字比较规范图示与候选累计图：空间笔画身份、累计次序在缩图可辨范围内一致。 完整折笔方向、允许异写范围仍未核准；本条整体保持未核实。"
+            ],
+            "priority": "normative_confirmation",
+            "classification_suspects": [],
+            "official_codes": "53",
+            "candidate_coarse_codes": "53",
+            "review_method": "All-character official/source diagram visual comparison plus code screening; direction and variant scope unresolved",
+            "review_coverage": {
+              "official_row_extracted": true,
+              "full_normative_semantics_verified": false,
+              "AI_visual_reference_comparison": true
+            },
+            "reference_diagram": "private/p0_ai_prereview_2026-10-28/reference/04E43.png",
+            "reference_consulted": false,
+            "reference_required": true,
+            "model_version": "p0-ai-prereview-v1+visual1",
+            "original_id": "norm-mmh-04E43",
+            "template_id": "mmh-04E43",
+            "source_group_id": "mmh:bddc96d41bef78427ed0e034e9f7e31d71fd1b92:04E43"
+          },
+          "assigned_partition": "B",
+          "cross_review": false,
+          "review_proposal": "AI在当前图示可辨范围内，未发现笔画身份及累计次序差异。完整方向、异写范围仍待核验。"
+        },
+        "rgb": {
+          "original_id": "0135b032baf585291cd9",
+          "type": "rgb_event",
+          "character": "乃",
+          "role": "observer_dev",
+          "stratum": "2-5",
+          "official_page": 9,
+          "media_path": "private/p0_data_eval_2026-10-27/media/observer_dev/0135b032baf585291cd9.png",
+          "frame_timestamps": [
+            0.0,
+            0.083
+          ],
+          "renderer": "outline",
+          "case": "flash",
+          "blind_id": "A-a54ae469a2bf789b",
+          "batch": "quick_cards",
+          "ordinal": 457,
+          "ai_suggestion": {
+            "decision": "unknown",
+            "facets": {
+              "visible_content": "pass",
+              "stroke_identity_count": "pass",
+              "order": "unknown",
+              "direction": "unknown",
+              "completion_sequence": "unknown",
+              "simultaneous_growth": "unknown",
+              "ink_preservation": "pass"
+            },
+            "reasons": [
+              "temporal_ambiguity"
+            ],
+            "events": [
+              {
+                "stroke": 1,
+                "exclusive_pixels": 533,
+                "onset_frame": 1,
+                "complete_frame": 1,
+                "onset_seconds": 0.083,
+                "complete_seconds": 0.083,
+                "direction": "unknown",
+                "final_coverage": 1.0,
+                "start_anchor_frame": 1.0,
+                "end_anchor_frame": 1.0
+              },
+              {
+                "stroke": 2,
+                "exclusive_pixels": 200,
+                "onset_frame": 1,
+                "complete_frame": 1,
+                "onset_seconds": 0.083,
+                "complete_seconds": 0.083,
+                "direction": "unknown",
+                "final_coverage": 1.0,
+                "start_anchor_frame": 1.0,
+                "end_anchor_frame": 1.0
+              }
+            ],
+            "observed_order": null,
+            "metrics": {
+              "frame_count": 2,
+              "stroke_count": 2,
+              "maximum_ink_loss_pixels": 0,
+              "maximum_outside_reference_pixels": 0,
+              "initial_ink_pixels": 0,
+              "final_ink_pixels": 1587,
+              "concurrent_partial_frames": 0
+            },
+            "review_coverage": {
+              "all_decoded_frames_checked": true,
+              "AI_visually_watched_all_frames": false,
+              "direction_reference": "source candidate median, not human-confirmed normative direction"
+            },
+            "review_method": "AI-engineered all-frame RGB analysis with independently rasterized SVG reference; provisional, source-geometry dependent",
+            "type": "rgb_event",
+            "original_id": "0135b032baf585291cd9",
+            "template_id": "mmh-04E43",
+            "source_group_id": "mmh:bddc96d41bef78427ed0e034e9f7e31d71fd1b92:04E43",
+            "character": "乃",
+            "model_version": "p0-ai-prereview-v1",
+            "notes": "程序检查全部2个实际解码帧，媒体时长0.166秒。\n参考是源候选几何；规范次序/方向尚需人工确认。\n初筛：unknown；原因：temporal_ambiguity\n只有首末等少量帧，不能恢复中间逐笔顺序。整体过程判定与顺序未知分别复核。",
+            "evidence": [
+              "程序检查全部2个实际解码帧，媒体时长0.166秒。",
+              "参考是源候选几何；规范次序/方向尚需人工确认。",
+              "初筛：unknown；原因：temporal_ambiguity",
+              "只有首末等少量帧，不能恢复中间逐笔顺序。整体过程判定与顺序未知分别复核。"
+            ],
+            "disputed": false,
+            "priority": "high",
+            "reference_consulted": false,
+            "frame_timestamps": [
+              0.0,
+              0.083
+            ]
+          },
+          "assigned_partition": "B",
+          "cross_review": false,
+          "review_proposal": "AI不能确认完整过程是否正确，建议保留未知；看不出明确结论时可直接选“看不清”。"
+        },
+        "selection": {
+          "kind": "non_holdout_UI_test"
+        },
+        "frame_hints": [
+          1
+        ]
+      }
+    ]
+  },
+  "tutorial": []
+}
