@@ -59,11 +59,11 @@
     "legacy_human_records": 38,
     "formal_human_normative_count": 0,
     "formal_human_RGB_count": 0,
-    "human_review_status": "12_card_diagnostic_spotcheck_ready_waiting_for_human_feedback_full_scientific_calibration_pending",
+    "human_review_status": "first12_diagnostic_cards_received_secondary6_pending_full_scientific_calibration_pending",
     "previous_human_review_protocol": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_protocol.json",
     "AI_prereview_summary": "data/research/runs/p0_ai_prereview_2026-10-28/effective_prereview_summary.json",
     "human_AI_suggestions_visible": true,
-    "second_reviewer_status": "User can arrange; no actual participation yet",
+    "second_reviewer_status": "ID1 completed12 cards; ID2 actual0, pending6 existing dispute cards as of archived snapshot",
     "historical_blind_review_protocol": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze.json",
     "full_label_rubric_reference": "data/research/runs/p0_human_review_preparation_2026-10-28/rubric_freeze.json",
     "previous_human_reviewer_partitions": {
@@ -83,10 +83,21 @@
       "cards": 12,
       "targeted_method_differences": 6,
       "conditional_stratified_random": 6,
-      "primary_feedback_count": 0,
-      "second_reviewer": "Only primary ID1 disagreement/uncertainty; actual participation pending",
+      "primary_feedback_count": 12,
+      "second_reviewer": "Existing6-card dispute queue; ID2 has0 saved cards as of archived snapshot",
       "automatic_gold_from_feedback": false,
-      "full_census_human_queue_active": false
+      "full_census_human_queue_active": false,
+      "primary_annotation_versions": 13,
+      "primary_normative_reactions": {
+        "agree": 12
+      },
+      "primary_RGB_reactions": {
+        "agree": 6,
+        "disagree": 6
+      },
+      "secondary_feedback_count": 0,
+      "secondary_pending_count": 6,
+      "evidence_summary": "data/research/runs/p0_quick_feedback_2026-10-28/summary.json"
     }
   },
   "seeds": {

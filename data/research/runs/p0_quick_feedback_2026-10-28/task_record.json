@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "experiment_ids": [
+    "DATA-01",
+    "EVAL-01"
+  ],
+  "branch": "research/p0-stroke-video-foundation",
+  "base_commit": "5d2eb180",
+  "status": "completed_receipt_and_archive_waiting_for_secondary_review",
+  "authorization": "Continuation of approved12-card workflow; user reports 当前12个已经完成; receive and archive actual records only",
+  "summary": "data/research/runs/p0_quick_feedback_2026-10-28/summary.json",
+  "report": "docs/research/v2/p0_quick_feedback_2026-10-28.md",
+  "raw_human_record_source": "private/p0_quick_human_review_2026-10-28/1.jsonl",
+  "raw_original_retained": true,
+  "human_conclusions_modified": false,
+  "original_protocol_modified": false,
+  "code_modified": false,
+  "evaluator_modified": false,
+  "thresholds_modified": false,
+  "GPU_hours": 0,
+  "new_experiment": false,
+  "new_review_batch": false,
+  "remote_push": false,
+  "stage_PR": false,
+  "files_deleted": [],
+  "scientific_status": {
+    "DATA-01": "blocked",
+    "EVAL-01": "blocked",
+    "P0": "not_accepted"
+  },
+  "validation_status": "passed_record_metadata_checks",
+  "next_action": "No extra work for primary reviewer; existing secondary6-card queue available; wait for human review or next explicit authorization",
+  "validation": "data/research/runs/p0_quick_feedback_2026-10-28/checks.json",
+  "completed_at_utc": "2026-10-28T10:18:39.199026+00:00",
+  "primary_received_cards": 12,
+  "primary_raw_versions": 13,
+  "secondary_pending_cards": 6,
+  "secondary_received_cards": 0,
+  "local_commit_only": true,
+  "file_changes": [
+    {
+      "path": "README.md",
+      "change": "modified",
+      "reason": "更新首轮12张已收齐的实际结果及现有6张争议，不追加主审核任务。"
+    },
+    {
+      "path": "configs/research/stroke_video_v2.json",
+      "change": "modified",
+      "reason": "将小批次反馈计数更新为12、原始版本13及第二位待办6；完整金标计数未自动增加。"
+    },
+    {
+      "path": "data/research/experiments_v2.json",
+      "change": "modified",
+      "reason": "登记实际人审反馈证据，保留DATA-01/EVAL-01 blocked及完整校准限制。"
+    },
+    {
+      "path": "docs/project/STATUS.md",
+      "change": "modified",
+      "reason": "记录首轮完成和现有6张争议，区分有限反馈与完整科学验收。"
+    },
+    {
+      "path": "docs/project/stages/P0-release.json",
+      "change": "modified",
+      "reason": "增加反馈归档证据，更新阻塞描述；不变更阶段验收状态。"
+    },
+    {
+      "path": "docs/project/stages/P0.md",
+      "change": "modified",
+      "reason": "补充首轮反馈完成状态及第二位待办，保持阶段未验收。"
+    },
+    {
+      "path": "docs/research/v2/p0_quick_review_2026-10-28.md",
+      "change": "modified",
+      "reason": "添加实际完成结果链接，原准备协议正文保留。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_feedback_2026-10-28/catalog_check.log",
+      "change": "added",
+      "reason": "保存目录/本地链接检查输出。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_feedback_2026-10-28/checks.json",
+      "change": "added",
+      "reason": "保存完整性与必要元数据检查结果；代码未变，不重复单元测试。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_feedback_2026-10-28/feedback_inventory.csv",
+      "change": "added",
+      "reason": "按冻结名单关联12张反馈、原文、来源及修订/动作记录，不推导新人工结论。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_feedback_2026-10-28/research_v2_check.json",
+      "change": "added",
+      "reason": "保存v2研究结构检查结果。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_feedback_2026-10-28/research_v2_check.log",
+      "change": "added",
+      "reason": "保存v2研究结构检查原始输出。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_feedback_2026-10-28/reviewer1-events.original.jsonl",
+      "change": "added",
+      "reason": "原始13次提交逐字节副本，保留晌的修改历史。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_feedback_2026-10-28/reviewer1-export.json",
+      "change": "added",
+      "reason": "从现有服务只读导出ID1已保存的12张最新反馈。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_feedback_2026-10-28/reviewer2-export.json",
+      "change": "added",
+      "reason": "只读导出ID2当前0条的实际状态，不假定已参与。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_feedback_2026-10-28/secondary_pending.json",
+      "change": "added",
+      "reason": "保存已获准流程的现有6张争议队列，不创建新批次。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_feedback_2026-10-28/stage_check.log",
+      "change": "added",
+      "reason": "保存P0开发阶段检查输出，未主张科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_feedback_2026-10-28/summary.json",
+      "change": "added",
+      "reason": "汇总12张、13版本、规范12同意、RGB6同意/6不同意及证据边界。"
+    },
+    {
+      "path": "data/research/runs/p0_quick_feedback_2026-10-28/task_record.json",
+      "change": "added",
+      "reason": "记录本次接收归档、检查和逐文件改动说明。"
+    },
+    {
+      "path": "docs/research/v2/p0_quick_feedback_2026-10-28.md",
+      "change": "added",
+      "reason": "新增逐卡反馈、原文、动作日志局限与现有待办报告。"
+    }
+  ]
+}
