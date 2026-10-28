@@ -1,0 +1,39 @@
+{
+  "DATA_01": {
+    "status": "blocked_waiting_human",
+    "program_complete": [
+      "Original640/2752 audit retained",
+      "CASIA license/provenance/payload parsed",
+      "80 writer stratified calibration +128 record crossed matrix prepared",
+      "8 independent WPTT cut identity candidates prepared"
+    ],
+    "human": [
+      "64 norm candidates x2 independent reviewers",
+      "8 independent acquisition identity/cut judgments x2"
+    ],
+    "unmet": [
+      "Human labels absent; source-order is not normative truth",
+      "Prospective crossed matrix has no model training or generalization result",
+      "No per-stroke physical times or native RGB inferred"
+    ]
+  },
+  "EVAL_01": {
+    "status": "blocked_waiting_human",
+    "program_complete": [
+      "176 new controlled media fixed scored with3 unchanged observers",
+      "Nonholdout interface browser test passed",
+      "64-writer new validation predictions frozen; no old holdout rerun",
+      "Paired-label collector and conditional group metrics implemented"
+    ],
+    "human": [
+      "144 RGB judgments x2 independent reviewers"
+    ],
+    "unmet": [
+      "Coverage>=90% and false-accept95 upper<=5% not computed against actual paired reference yet",
+      "No chosen observer promotion or P0 scientific acceptance",
+      "Native RGB/model generated-domain validity outside current evidence"
+    ]
+  },
+  "automatic_next_human_round": false,
+  "next_step": "Collect fixed432 actual submissions then compute metrics and scientific review; retain unknowns and valid negatives without automatically enlarging task"
+}

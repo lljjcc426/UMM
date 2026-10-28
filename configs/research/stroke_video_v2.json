@@ -47,23 +47,23 @@
       "renderer",
       "source_group"
     ],
-    "note": "640 source-character groups; 128 observer groups disjoint from 512 main characters. Independent same-character font/writer/record crossed cells unavailable. Pretraining exposure unknown.",
+    "note": "Original640 source-character groups and roles unchanged. CASIA independent80-writer calibration plus separate128-record character/writer crossed extension acquired; identity/normative labels pending, no training or generalization result. Pretraining exposure unknown.",
     "observer_development_characters": 64,
     "observer_holdout_characters": 64,
     "construction_scope": "provisional_licensed_G1_synthetic_RGB_not_human_verified_gold",
     "normative_human_verified": false,
     "scientific_ready": false,
     "dataset_manifest": "data/research/datasets/p0_stroke_synthetic_v1/splits.json",
-    "human_review_protocol": "data/research/runs/p0_quick_review_2026-10-28/quick_protocol.json",
-    "human_review_rubric": "data/research/runs/p0_quick_review_2026-10-28/quick_protocol.json",
+    "human_review_protocol": "data/research/runs/p0_final_calibration_2026-10-28/protocol_frozen.json",
+    "human_review_rubric": "docs/research/v2/p0_final_human_package_2026-10-28.md",
     "legacy_human_records": 38,
     "formal_human_normative_count": 0,
     "formal_human_RGB_count": 0,
-    "human_review_status": "approved_small_batch_complete_12_primary_plus6_secondary_full_scientific_calibration_pending",
-    "previous_human_review_protocol": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_protocol.json",
+    "human_review_status": "final_fixed_package_frozen_waiting_for_two_real_independent_reviewers",
+    "previous_human_review_protocol": "data/research/runs/p0_quick_review_2026-10-28/quick_protocol.json",
     "AI_prereview_summary": "data/research/runs/p0_ai_prereview_2026-10-28/effective_prereview_summary.json",
-    "human_AI_suggestions_visible": true,
-    "second_reviewer_status": "ID2 completed6/6; both reviewer records explicitly judge those6 clips globally correct; no independent blind claim",
+    "human_AI_suggestions_visible": false,
+    "second_reviewer_status": "Prior6/6 completed; new fixed independent216-item full pass pending",
     "historical_blind_review_protocol": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze.json",
     "full_label_rubric_reference": "data/research/runs/p0_human_review_preparation_2026-10-28/rubric_freeze.json",
     "previous_human_reviewer_partitions": {
@@ -108,7 +108,18 @@
     "animated_clips": 2560,
     "static_blank_controls": 192,
     "AI_candidate_v2_status": "development_only_3_nominal_positive_rejections_not_promoted",
-    "current_human_queue": 0
+    "current_human_queue": 432,
+    "prior_AI_visible_human_batch": {
+      "protocol": "data/research/runs/p0_quick_review_2026-10-28/quick_protocol.json",
+      "cards_completed": 18,
+      "global_process_consensus": 6
+    },
+    "current_human_unique_tasks": 216,
+    "current_human_tasks_per_reviewer": 216,
+    "current_human_unique_characters": 72,
+    "final_calibration_summary": "data/research/runs/p0_final_calibration_2026-10-28/summary.json",
+    "independent_source_extension": "data/research/runs/p0_final_calibration_2026-10-28/crossed_source_matrix.json",
+    "independent_source_license": "CASIA academic research group use; raw and derived media private, no native RGB/physical-time claim"
   },
   "seeds": {
     "training": [
@@ -128,7 +139,7 @@
     "minimum_effect_pp": 5.0,
     "final_character_noninferiority_margin_pp": 2.0,
     "style_noninferiority_margin": null,
-    "threshold_status": "controlled_G1_frozen_and_auto_gate_passed_independent_human_review_pending",
+    "threshold_status": "original_controlled_evidence_retained_new_fixed_cross_source_calibration_waiting_for_human",
     "note": "Project discussion criteria; no performance claim. Freeze thresholds and core contrasts before held-out evaluation.",
     "controlled_calibration_evidence": "data/research/runs/p0_data_eval_2026-10-27/holdout_metrics.json"
   },
@@ -192,6 +203,7 @@
     "p0_data_evaluation_report": "docs/research/v2/p0_data_eval_report_2026-10-28.md",
     "p0_human_review_preparation": "docs/research/v2/p0_human_review_preparation_2026-10-28.md",
     "p0_ai_prereview": "docs/research/v2/p0_ai_prereview_2026-10-28.md",
-    "p0_program_AI_audit": "docs/research/v2/p0_program_ai_audit_2026-10-28.md"
+    "p0_program_AI_audit": "docs/research/v2/p0_program_ai_audit_2026-10-28.md",
+    "p0_final_human_package": "docs/research/v2/p0_final_human_package_2026-10-28.md"
   }
 }

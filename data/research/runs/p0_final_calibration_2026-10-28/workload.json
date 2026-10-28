@@ -1,0 +1,45 @@
+{
+  "protocol_id": "p0-final-independent-calibration-v1",
+  "finite_batches": 1,
+  "reviewers": 2,
+  "per_reviewer": {
+    "normative": 64,
+    "RGB": 144,
+    "independent_record_ID": 8,
+    "total": 216
+  },
+  "total_submissions": 432,
+  "total_unique_characters": 72,
+  "total_unique_RGB_media": 144,
+  "formal_examples_counted": false,
+  "tutorial_examples": 4,
+  "RGB_strata": {
+    "recorded_source_order_candidates": 64,
+    "controlled_negative_candidates": 64,
+    "two_frame_insufficient_evidence": 16
+  },
+  "negative_types": {
+    "swap": 8,
+    "reverse": 8,
+    "missing": 8,
+    "extra": 8,
+    "simultaneous": 8,
+    "early_next": 8,
+    "disappear": 8,
+    "blank": 8
+  },
+  "normative_by_penstroke_stratum": {
+    "2-5": 16,
+    "6-8": 16,
+    "9-12": 16,
+    "13-20": 16
+  },
+  "normative_by_original_role": {
+    "model_train": 32,
+    "model_character_test": 32
+  },
+  "order": "Each reviewer own frozen order:64 normative then152 mixed RGB/record tasks",
+  "chunking": "May pause/resume at any item; no deadline or automatic extra batch",
+  "legacy_records_reused_as_new_gold": false,
+  "disagreement": "unknown; no automatic third pass"
+}
