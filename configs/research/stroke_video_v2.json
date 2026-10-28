@@ -59,11 +59,11 @@
     "legacy_human_records": 38,
     "formal_human_normative_count": 0,
     "formal_human_RGB_count": 0,
-    "human_review_status": "first12_diagnostic_cards_received_secondary6_pending_full_scientific_calibration_pending",
+    "human_review_status": "approved_small_batch_complete_12_primary_plus6_secondary_full_scientific_calibration_pending",
     "previous_human_review_protocol": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_protocol.json",
     "AI_prereview_summary": "data/research/runs/p0_ai_prereview_2026-10-28/effective_prereview_summary.json",
     "human_AI_suggestions_visible": true,
-    "second_reviewer_status": "ID1 completed12 cards; ID2 actual0, pending6 existing dispute cards as of archived snapshot",
+    "second_reviewer_status": "ID2 completed6/6; both reviewer records explicitly judge those6 clips globally correct; no independent blind claim",
     "historical_blind_review_protocol": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze.json",
     "full_label_rubric_reference": "data/research/runs/p0_human_review_preparation_2026-10-28/rubric_freeze.json",
     "previous_human_reviewer_partitions": {
@@ -84,7 +84,7 @@
       "targeted_method_differences": 6,
       "conditional_stratified_random": 6,
       "primary_feedback_count": 12,
-      "second_reviewer": "Existing6-card dispute queue; ID2 has0 saved cards as of archived snapshot",
+      "second_reviewer": "ID2 completed all6 existing dispute cards; same AI visible, no blind independence claim",
       "automatic_gold_from_feedback": false,
       "full_census_human_queue_active": false,
       "primary_annotation_versions": 13,
@@ -95,10 +95,13 @@
         "agree": 6,
         "disagree": 6
       },
-      "secondary_feedback_count": 0,
-      "secondary_pending_count": 6,
-      "evidence_summary": "data/research/runs/p0_quick_feedback_2026-10-28/summary.json"
-    }
+      "secondary_feedback_count": 6,
+      "secondary_pending_count": 0,
+      "evidence_summary": "data/research/runs/p0_quick_consensus_2026-10-28/summary.json",
+      "status": "approved_12_primary_plus6_secondary_batch_complete",
+      "global_RGB_process_consensus_count": 6
+    },
+    "human_global_RGB_process_consensus_count": 6
   },
   "seeds": {
     "training": [
