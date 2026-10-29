@@ -1,0 +1,61 @@
+{
+  "protocol_id": "stroke-video-v2",
+  "scope": "User-approved first-stage D1-D4; exposed development only",
+  "records": [
+    {
+      "id": "D1",
+      "status": "development_semantics_passed",
+      "record_groups": 8,
+      "RGB_files": 17,
+      "new_RGB_files": 8,
+      "conditions": 36,
+      "passed": 36,
+      "evidence": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/D1_four_cells.json",
+      "AI_RGB_review": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/AI_RGB_development_review.json",
+      "independent_gold_claim": false,
+      "order_conditions": 32,
+      "direction_conditions": 4,
+      "supplemental_direction_evidence": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/D1_direction_probe.json"
+    },
+    {
+      "id": "D2",
+      "status": "development_invariance_passed",
+      "trials": 96,
+      "evidence_invariance_trials": 96,
+      "execution_invariance_applicable_trials": 80,
+      "execution_direction_counterfactual_trials": 16,
+      "unreviewed_norm_version_tests": 16,
+      "evidence": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/D2_invariance.json",
+      "permissions": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/information_permissions.json"
+    },
+    {
+      "id": "D3",
+      "status": "checks_complete_readiness_failed",
+      "old_RGB_files": 144,
+      "clear_coverage": 0.23703703703703705,
+      "positive_acceptance": 0.28125,
+      "false_accept_writer_groups": 0,
+      "negative_writer_groups": 63,
+      "unknown_outputs": 111,
+      "evidence": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/D3_D4_metrics.json",
+      "failures": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/failure_cases.json"
+    },
+    {
+      "id": "D4",
+      "status": "fair_comparison_complete_no_incremental_pixel_gain",
+      "methods": [
+        "legacy_original",
+        "legacy_simple_norm_gate",
+        "legacy_events_with_norm",
+        "decoupled"
+      ],
+      "same_thresholds": true,
+      "same_geometry": true,
+      "same_independent_norm_information_for_revised_arms": true,
+      "new_vs_simple_gate_prediction_differences": 0,
+      "new_vs_legacy_event_readout_differences": 0,
+      "predictions": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/D3_D4_predictions.json",
+      "metrics": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/D3_D4_metrics.json"
+    }
+  ]
+}
