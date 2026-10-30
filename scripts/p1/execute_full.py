@@ -40,6 +40,24 @@ def run_owned(command, log_path, seconds):
             return process.returncode, True
 
 
+def audit_understanding(bundle, run, row):
+    attempt = run / row['task']
+    result = json.loads((attempt / 'outputs/result.json').read_text())
+    actual = json.loads((attempt / 'actual_understanding_input.json').read_text())
+    prepared = json.loads((bundle / 'inputs/x2t_video.json').read_text())
+    question = prepared['0001']['interleave_array'][1][1]
+    sampling = json.loads((attempt / 'actual_sampling.json').read_text())
+    audit = dict(nonempty_answer=len(result) == 1 and bool(result[0].get('answer')),
+        archived_input_matches_freeze=input_fingerprint(run / 'inputs/x2t_video.json') == row['input_sha256'],
+        question_in_actual_conditioning=question in actual['conditioning_decoded_text'],
+        placeholder_withheld='Reference answer withheld.' not in actual['conditioning_decoded_text'],
+        actual_seed_matches=actual['torch_initial_seed'] == row['seed'],
+        actual_video_read_recorded=bool(sampling) and all(s.get('indices') for s in sampling))
+    audit['passed'] = all(audit.values())
+    save(attempt / 'input_integrity_audit.json', audit)
+    return audit
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, required=True)
@@ -96,8 +114,7 @@ def main():
                         audit = audit_output(bundle, run, row)
                         entry['integrity_passed'] = audit['passed']
                     else:
-                        result = json.loads((run / task / 'outputs/result.json').read_text())
-                        entry['integrity_passed'] = len(result) == 1 and bool(result[0].get('answer'))
+                        entry['integrity_passed'] = audit_understanding(bundle, run, row)['passed']
                     entry['status'] = 'completed' if entry['integrity_passed'] else 'failed'
                 except Exception:
                     entry['CPU_audit_error'] = traceback.format_exc()
