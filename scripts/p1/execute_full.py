@@ -66,79 +66,79 @@ def main():
     root = args.root.resolve()
     auth = json.loads((root / 'authorization.json').read_text())
     manifest = validate_scope(auth, json.loads((root / 'manifest.json').read_text()))
-    lock = (root / 'GPU_queue.lock').open('a')
-    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-    state_path = root / 'state.json'
-    state = json.loads(state_path.read_text())
-    deadline = datetime.fromisoformat(auth['hard_stop_at_utc']).timestamp()
-    gate = json.loads((root / 'first_request_gate.json').read_text())
-    if gate.get('technical_integrity_passed') is not True:
-        raise ValueError('Preserved first native request has not passed the input/RGB gate')
-    for row in manifest[args.phase]:
-        entry = next(r for r in state[args.phase] if r['id'] == row['id'])
-        if entry['status'] != 'pending':
-            continue  # No failed or interrupted GPU attempt is automatically retried.
-        remaining = deadline - time.time()
-        if remaining <= 0:
-            state['stop_reason'] = '12-hour global hard stop; no additional calls'
-            break
-        bundle = root / 'bundles' / row['id']
-        if args.phase != 'codec':
-            plan = json.loads((bundle / 'plan.json').read_text())
-            task = row['task']
-            if (plan['approval']['approved_request_id'] != row['id'] or plan['seed'] != row['seed']
-                    or input_fingerprint(bundle / 'inputs' / (task + '.json')) != row['input_sha256']):
-                entry.update(status='blocked', reason='Pre-call frozen input/seed/approval mismatch', actual_calls=0)
-                save(state_path, state)
-                raise ValueError(entry['reason'])
-            command = [sys.executable, str(root / 'tools/run_interfaces.py'), '--bundle', str(bundle)]
-        else:
-            command = [sys.executable, str(root / 'tools/run_codec.py'), '--root', str(root), '--id', row['id']]
-        entry.update(status='running', actual_calls=1, started_at_utc=datetime.now(timezone.utc).isoformat())
-        save(state_path, state)
-        started = time.perf_counter()
-        log = root / 'job_logs' / (row['id'] + '.log')
-        returncode, timed_out = run_owned(command, log, min(auth['per_call_timeout_seconds'], remaining))
-        entry.update(return_code=returncode, timed_out=timed_out,
-                     wall_seconds=time.perf_counter() - started,
-                     finished_at_utc=datetime.now(timezone.utc).isoformat(), status='failed')
-        if args.phase != 'codec':
-            summaries = list((bundle / 'runs').glob('*/summary.json'))
-            if summaries:
-                run = summaries[0].parent
-                entry['native_run'] = str(run.relative_to(root))
-                entry['summary'] = json.loads(summaries[0].read_text())
-            if returncode == 0 and summaries:
-                try:
-                    if args.phase == 'generation':
-                        audit = audit_output(bundle, run, row)
-                        entry['integrity_passed'] = audit['passed']
-                    else:
-                        entry['integrity_passed'] = audit_understanding(bundle, run, row)['passed']
-                    entry['status'] = 'completed' if entry['integrity_passed'] else 'failed'
-                except Exception:
-                    entry['CPU_audit_error'] = traceback.format_exc()
-            archive = root / 'archives' / (row['id'] + '.tar.gz')
-            subprocess.run(['tar', '--exclude=./upstream', '-czf', str(archive), '-C', str(bundle), '.'], check=True)
-            entry.update(private_archive=str(archive.relative_to(root)), archive_bytes=archive.stat().st_size)
-        else:
-            result_path = root / 'codec' / row['id'] / 'result.json'
-            if result_path.exists():
-                entry['result'] = json.loads(result_path.read_text())
-                if returncode == 0 and entry['result'].get('completed'):
-                    entry['status'] = 'completed'
-            archive = root / 'archives' / (row['id'] + '.tar.gz')
-            subprocess.run(['tar', '-czf', str(archive), '-C', str(root / 'codec' / row['id']), '.'], check=True)
-            entry.update(private_archive=str(archive.relative_to(root)), archive_bytes=archive.stat().st_size)
-        save(state_path, state)
-        print(json.dumps({k:entry[k] for k in ['id', 'status', 'wall_seconds', 'return_code']}, ensure_ascii=False), flush=True)
-        if entry.get('integrity_passed') is False or entry.get('CPU_audit_error') or returncode != 0:
-            state['stop_reason'] = 'Inspect failure before resuming pending slots; no GPU retry of the attempted slot'
+    with (root / 'GPU_queue.lock').open('a') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        state_path = root / 'state.json'
+        state = json.loads(state_path.read_text())
+        deadline = datetime.fromisoformat(auth['hard_stop_at_utc']).timestamp()
+        gate = json.loads((root / 'first_request_gate.json').read_text())
+        if gate.get('technical_integrity_passed') is not True:
+            raise ValueError('Preserved first native request has not passed the input/RGB gate')
+        for row in manifest[args.phase]:
+            entry = next(r for r in state[args.phase] if r['id'] == row['id'])
+            if entry['status'] != 'pending':
+                continue  # No failed or interrupted GPU attempt is automatically retried.
+            remaining = deadline - time.time()
+            if remaining <= 0:
+                state['stop_reason'] = '12-hour global hard stop; no additional calls'
+                break
+            bundle = root / 'bundles' / row['id']
+            if args.phase != 'codec':
+                plan = json.loads((bundle / 'plan.json').read_text())
+                task = row['task']
+                if (plan['approval']['approved_request_id'] != row['id'] or plan['seed'] != row['seed']
+                        or input_fingerprint(bundle / 'inputs' / (task + '.json')) != row['input_sha256']):
+                    entry.update(status='blocked', reason='Pre-call frozen input/seed/approval mismatch', actual_calls=0)
+                    save(state_path, state)
+                    raise ValueError(entry['reason'])
+                command = [sys.executable, str(root / 'tools/run_interfaces.py'), '--bundle', str(bundle)]
+            else:
+                command = [sys.executable, str(root / 'tools/run_codec.py'), '--root', str(root), '--id', row['id']]
+            entry.update(status='running', actual_calls=1, started_at_utc=datetime.now(timezone.utc).isoformat())
             save(state_path, state)
-            return 2
-    state['last_executed_phase'] = args.phase
-    save(state_path, state)
-    return 0
+            started = time.perf_counter()
+            log = root / 'job_logs' / (row['id'] + '.log')
+            returncode, timed_out = run_owned(command, log, min(auth['per_call_timeout_seconds'], remaining))
+            entry.update(return_code=returncode, timed_out=timed_out,
+                         wall_seconds=time.perf_counter() - started,
+                         finished_at_utc=datetime.now(timezone.utc).isoformat(), status='failed')
+            if args.phase != 'codec':
+                summaries = list((bundle / 'runs').glob('*/summary.json'))
+                if summaries:
+                    run = summaries[0].parent
+                    entry['native_run'] = str(run.relative_to(root))
+                    entry['summary'] = json.loads(summaries[0].read_text())
+                if returncode == 0 and summaries:
+                    try:
+                        if args.phase == 'generation':
+                            audit = audit_output(bundle, run, row)
+                            entry['integrity_passed'] = audit['passed']
+                        else:
+                            entry['integrity_passed'] = audit_understanding(bundle, run, row)['passed']
+                        entry['status'] = 'completed' if entry['integrity_passed'] else 'failed'
+                    except Exception:
+                        entry['CPU_audit_error'] = traceback.format_exc()
+                archive = root / 'archives' / (row['id'] + '.tar.gz')
+                subprocess.run(['tar', '--exclude=./upstream', '-czf', str(archive), '-C', str(bundle), '.'], check=True)
+                entry.update(private_archive=str(archive.relative_to(root)), archive_bytes=archive.stat().st_size)
+            else:
+                result_path = root / 'codec' / row['id'] / 'result.json'
+                if result_path.exists():
+                    entry['result'] = json.loads(result_path.read_text())
+                    if returncode == 0 and entry['result'].get('completed'):
+                        entry['status'] = 'completed'
+                archive = root / 'archives' / (row['id'] + '.tar.gz')
+                subprocess.run(['tar', '-czf', str(archive), '-C', str(root / 'codec' / row['id']), '.'], check=True)
+                entry.update(private_archive=str(archive.relative_to(root)), archive_bytes=archive.stat().st_size)
+            save(state_path, state)
+            print(json.dumps({k:entry[k] for k in ['id', 'status', 'wall_seconds', 'return_code']}, ensure_ascii=False), flush=True)
+            if entry.get('integrity_passed') is False or entry.get('CPU_audit_error') or returncode != 0:
+                state['stop_reason'] = 'Inspect failure before resuming pending slots; no GPU retry of the attempted slot'
+                save(state_path, state)
+                return 2
+        state['last_executed_phase'] = args.phase
+        save(state_path, state)
+        return 0
 
 
 if __name__ == '__main__':
