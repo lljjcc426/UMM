@@ -25,7 +25,7 @@ def main():
     row=next(r for r in json.loads((root/'manifest.json').read_text())['codec'] if r['id']==args.id)
     out=root/'codec'/args.id;out.mkdir(parents=True,exist_ok=False)
     result=dict(id=args.id,completed=False,model_call_started=False,seed=row['seed'])
-    started=time.perf_counter();monitor=None;gpu_log=None
+    started=time.perf_counter();monitor=None;gpu_log=None;torch=None
     try:
         source=root/row['input_file']
         assert sha256(source)==row['input_sha256'], 'Frozen codec source changed'
@@ -87,6 +87,9 @@ def main():
         result['error']=traceback.format_exc();print(result['error'],flush=True)
     finally:
         if monitor is not None:monitor.terminate();monitor.wait();gpu_log.close()
+        if torch is not None and torch.cuda.is_initialized():
+            result.update(cuda_peak_allocated_bytes=torch.cuda.max_memory_allocated(),
+                          cuda_peak_reserved_bytes=torch.cuda.max_memory_reserved())
         result.update(wall_seconds=time.perf_counter()-started,host_peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024)
         save(out/'result.json',result)
     return 0 if result['completed'] else 1
