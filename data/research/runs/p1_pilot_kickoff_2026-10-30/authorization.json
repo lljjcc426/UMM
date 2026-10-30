@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-30",
+  "phase": "P1",
+  "repo": "lljjcc426/UMM",
+  "branch": "research/p1-native-baselines",
+  "base_main_merge_commit": "8bfa109d201afddf368275525f372a123154dc04",
+  "user_instruction_verbatim": "你审核啊，没问题就合并PR，然后开启P1",
+  "authorization_interpretation": "P0 PR #2 reviewed, strict CI passed and merged. Start P1 with the previously reviewed first 16 native G0 T2V requests only.",
+  "status": "approved_not_executed",
+  "scientific_focus": "Observe actual UMM-generated RGB stroke order and failure modes before choosing a training intervention",
+  "experiments": [
+    "SO-00",
+    "BASE-01"
+  ],
+  "model": "Lance_3B_Video",
+  "model_code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+  "model_weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+  "pilot_count": 16,
+  "initial_attempt_denominator": 16,
+  "approved_request_ids": [
+    "N076-T_G0_native_simple-s11",
+    "N076-T_G0_native_simple-s29",
+    "N076-T_G0_order_text-s11",
+    "N076-T_G0_order_text-s29",
+    "N019-T_G0_native_simple-s11",
+    "N019-T_G0_native_simple-s29",
+    "N019-T_G0_order_text-s11",
+    "N019-T_G0_order_text-s29",
+    "N079-T_G0_native_simple-s11",
+    "N079-T_G0_native_simple-s29",
+    "N079-T_G0_order_text-s11",
+    "N079-T_G0_order_text-s29",
+    "N030-T_G0_native_simple-s11",
+    "N030-T_G0_native_simple-s29",
+    "N030-T_G0_order_text-s11",
+    "N030-T_G0_order_text-s29"
+  ],
+  "approved_characters": [
+    "士",
+    "丑",
+    "小",
+    "广"
+  ],
+  "conditions": [
+    "T_G0_native_simple",
+    "T_G0_order_text"
+  ],
+  "seeds": [
+    11,
+    29
+  ],
+  "input_geometry_permission": "G0",
+  "num_frames": 33,
+  "video_size": "480x848",
+  "fps": 12,
+  "denoising_steps": 30,
+  "cfg_text_scale": 4,
+  "execution_policy": {
+    "serial_single_request": true,
+    "first_request_id": "N076-T_G0_native_simple-s11",
+    "first_request_gate": "Verify prompt character, seed, output, 33 decoded frames/PTS, latency and GPU peak before proceeding",
+    "timeout_seconds_per_attempt": 900,
+    "max_technical_retry_without_additional_approval": 0,
+    "all_failures_retained": true,
+    "all_attempts_denominator": true,
+    "no_best_seed_selection": true,
+    "stop_on_major_input_or_output_integrity_error": true
+  },
+  "permitted_actions": [
+    "Use retained single A10080 GPU for these 16 native T2V requests",
+    "Archive original RGB videos, exact prompts, run logs, FFprobe metadata, actual GPU utilization and billed time",
+    "Perform preliminary SO-00 decoding and observability audit on these outputs",
+    "Prepare four deterministic reference-control videos locally without counting as GPU successes"
+  ],
+  "disallowed_actions": [
+    "Run remaining 48 generation requests",
+    "Run 28 understanding requests",
+    "SFT/LoRA/joint training",
+    "Create new held-out writer dataset",
+    "Claim independent human evaluation results before two actual reviewers submit",
+    "Merge P1 to main"
+  ],
+  "independent_human_review": "Preparation only; separate user confirmation/actual submissions before claiming EVAL-02 completion",
+  "gpu_host_execution_status": "No direct SSH or GPU execution path exposed to this chat; requires the server-connected Codex/operator to apply this approval to each eligible bundle and run",
+  "baseline_plan": "configs/research/p1_baseline_plan.json",
+  "frozen_request_manifest": "data/research/plans/p1_baseline_2026-10-30/prepared/requests.json",
+  "provenance": "P0 accepted limited negative closeout; no original science failure erased",
+  "user_approved": true
+}
