@@ -104,8 +104,16 @@ def worker(bundle: Path, attempt: Path, task: str, plan: dict) -> int:
                 return native_generate(model, *call_args, **call_kwargs)
 
             def traced_understand(model, *call_args, **call_kwargs):
+                packed = call_kwargs['val_packed_text_ids'].detach().cpu()
+                loss_indexes = call_kwargs['val_ce_loss_indexes'].detach().cpu()
+                # These runs contain one sample; reproduce the unchanged native
+                # context cut to show that the schema placeholder is withheld.
+                context = packed[:int(loss_indexes[0])+1] if len(loss_indexes) else packed
                 save_json(attempt / "actual_understanding_input.json", {
-                    "packed_text_ids": call_kwargs["val_packed_text_ids"].detach().cpu().tolist(),
+                    "packed_text_ids": packed.tolist(),
+                    "ce_loss_indexes": loss_indexes.tolist(),
+                    "conditioning_text_ids": context.tolist(),
+                    "conditioning_decoded_text": call_kwargs['tokenizer'].decode(context),
                     "torch_initial_seed": torch.initial_seed(),
                     "meaning": "Actual native understanding entry; placeholder target is not a normative answer"})
                 return native_understand(model, *call_args, **call_kwargs)

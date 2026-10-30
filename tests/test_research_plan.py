@@ -3,7 +3,7 @@ import copy
 import tempfile
 import unittest
 from pathlib import Path
-from scripts.validate_research_plan import validate_payload
+from scripts.validate_research_plan import validate_payload, TERMINAL_STATUSES
 
 
 class ResearchPlanTests(unittest.TestCase):
@@ -64,6 +64,11 @@ class ResearchPlanTests(unittest.TestCase):
     def test_completed_requires_evidence(self):
         self.registry["experiments"][0]["status"] = "completed"
         self.assertFalse(self.validate()["passed"])
+
+    def test_pending_human_review_is_nonterminal(self):
+        self.registry['experiments'][0]['status'] = 'pending_human_review'
+        self.assertTrue(self.validate()['passed'])
+        self.assertNotIn('pending_human_review', TERMINAL_STATUSES)
 
     def test_planned_cannot_claim_results(self):
         self.registry["experiments"][0]["result_artifacts"] = ["fake-result.json"]

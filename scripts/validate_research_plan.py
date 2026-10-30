@@ -10,7 +10,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 LIMITED_STATUSES = {"completed_negative", "completed_with_limitations"}
 TERMINAL_STATUSES = {"completed"} | LIMITED_STATUSES
-STATUSES = {"planned", "ready", "running", "blocked", "stopped"} | TERMINAL_STATUSES
+STATUSES = {"planned", "ready", "running", "blocked", "stopped", "pending_human_review"} | TERMINAL_STATUSES
 REQUIRED = {"id", "phase", "hypothesis", "depends_on", "baselines", "primary_metrics",
             "deliverables", "success_condition", "status", "run_records", "result_artifacts"}
 

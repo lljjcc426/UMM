@@ -1,0 +1,26 @@
+{
+  "local_CPU_setup": [
+    {
+      "issue": "Unused imageio import missing locally; slow package retrieval",
+      "model_calls": 0,
+      "recovery": "Removed unused import; installed existing cached imageio_ffmpeg wheel 0.6.0; both interrupted install logs and original CPU failure retained privately"
+    }
+  ],
+  "CPU_loader_preflight": [
+    {
+      "attempt": 1,
+      "error": "KeyError image_token_id while constructing native dataset, before model call",
+      "GPU_model_calls": 0,
+      "recovery": "Loaded video_token_id from frozen llm_config.json exactly as inference_lance.py; preserved first empty preflight directory"
+    },
+    {
+      "attempt": 2,
+      "passed": 36,
+      "understanding_inputs": 28,
+      "codec_inputs": 8,
+      "all_finite": true,
+      "GPU_model_calls": 0,
+      "evidence": "CPU_loader_preflight_v2/results.json"
+    }
+  ]
+}
