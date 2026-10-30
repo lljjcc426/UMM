@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "phase": "P1",
+  "branch": "research/p1-native-baselines",
+  "status": "in_progress",
+  "conclusion": "pending",
+  "experiment_ids": [
+    "SO-00",
+    "BASE-01",
+    "EVAL-02",
+    "SO-01"
+  ],
+  "pilot_authorization_reference": "data/research/runs/p1_pilot_kickoff_2026-10-30/authorization.json",
+  "permitted_pilot_initial_requests": 16,
+  "evidence_bundle": [
+    "data/research/runs/p1_pilot_kickoff_2026-10-30/authorization.json",
+    "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md",
+    "data/research/plans/p1_baseline_2026-10-30/prepared/requests.json"
+  ],
+  "unresolved_blockers": [
+    "No actual P1 native video generated or decoded yet; server execution must be performed by connected operator",
+    "EVAL-02 requires actual independent human reviews on generated RGB",
+    "Full BASE-01 expansion and SO-01 require separate authorization"
+  ],
+  "limitations": [
+    "P0 limited negative closeout accepted; old auto judge is auxiliary only",
+    "4 characters and 2 seeds are developmental diagnostics, not population generalization",
+    "No P1 result may be inferred from dry-run or preserved ENV-01 outputs"
+  ],
+  "main_merge_authorized": false,
+  "training_authorized": false,
+  "notes": "Research branch created from approved PR #2 merge; archival evidence is planned, no GPU execution yet."
+}
