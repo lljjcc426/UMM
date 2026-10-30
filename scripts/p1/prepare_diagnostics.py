@@ -1,8 +1,6 @@
 """Materialize the authorized CPU controls and frozen SO-01 inputs, without a model call."""
-import copy
 import json
 from pathlib import Path
-import shutil
 import subprocess
 
 import imageio_ffmpeg
@@ -133,12 +131,13 @@ def main():
                 frames[:,y:y+side,x:x+side]=255
                 a.update(occlusion_xywh=[x,y,side,side],occluded_area_pixels=side*side,time_frame_interval=[0,len(prefix)-1])
             elif condition=='alternate_history':
-                alternate,_=render(strokes,total=end,order=[1,0],completed_count=2)
+                order=list(range(len(strokes)));order[0],order[1]=order[1],order[0]
+                alternate,_=render(strokes,total=len(source),order=order)
                 frames=alternate[indices].copy()
                 assert np.array_equal(frames[-1],prefix[-1]), 'Same-final-frame control is not exact'
                 assert not np.array_equal(frames,prefix), 'Histories must differ'
                 a.update(construction='new monotone drawing of the same first two bound strokes in swapped order; not shuffled real frames',
-                         identical_final_RGB=True,different_history_RGB=True)
+                         identical_final_RGB=True,different_history_RGB=True,matched_stroke_time_boundaries=True)
             else:frames=prefix
         else:
             old=Path('private/p1_native_pilot_issue3_2026-10-30/requests')/row['source_request_id']

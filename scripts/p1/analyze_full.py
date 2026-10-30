@@ -1,6 +1,5 @@
 """Summarize all fixed slots and auxiliary RGB evidence; leave human judgments empty."""
 from collections import Counter
-from dataclasses import asdict
 import json
 from pathlib import Path
 
@@ -38,6 +37,17 @@ def main():
                       initial_calls_including_pilot=entry.get('historical_actual_calls',0)+entry['actual_calls'],
                       formal_human_judgment='pending_human_review',verified_success=None)
         base=(PILOT if row['reused'] else PRIVATE/'requests')/row['id']
+        summaries=list(base.glob('runs/*/summary.json'))
+        if summaries:
+            native_summary=json.loads(summaries[0].read_text());attempt_summary=native_summary['attempts'][0]
+            measures=attempt_summary.get('measurements',{})
+            result.update(native_process_wall_seconds=native_summary['elapsed_seconds'],
+                device_sampled_peak_MiB=attempt_summary.get('gpu_sampling',{}).get('device_used_memory_peak_mib'),
+                torch_peak_allocated_bytes=measures.get('cuda_peak_allocated_bytes'),
+                torch_peak_reserved_bytes=measures.get('cuda_peak_reserved_bytes'),host_peak_RSS_bytes=measures.get('host_peak_rss_bytes'))
+            if measures.get('error'):
+                result['technical_failure']={k:v for k,v in measures['error'].items() if k in ['type','message']}
+                result['failure_stage']='Instrumentation at generation entry after GPU VAE preprocessing; no denoising output; not retried'
         arrays=list(base.glob('runs/*/'+row['task']+'/decoded_rgb_uint8.npz'))
         if arrays:
             attempt=arrays[0].parent;frames=np.load(arrays[0])['frames']
@@ -138,6 +148,14 @@ def main():
     for nid in [r['norm_id'] for r in manifest['controls']]:
         for seed in [11,29,47]:pairs.append(dict(norm_id=nid,seed=seed,left=f'{nid}-T_G0_native_simple-s{seed}',right=f'{nid}-T_G0_order_text-s{seed}',outcome='pending_human_review'))
         pairs.append(dict(norm_id=nid,seed=11,left=f'{nid}-T_G0_order_text-s11',right=f'{nid}-T_G0_blank_i2v-s11',outcome='pending_human_review',interface_difference='text-only vs actual blank first-frame condition'))
+    distances=[]
+    by_id={r['id']:r for r in generated}
+    for pair in pairs:
+        left,right=[by_id[pair[k]] for k in ['left','right']]
+        if left['valid_RGB'] and right['valid_RGB']:
+            a,b=[np.load(Path(r['artifact_directory'])/'decoded_rgb_uint8.npz')['frames'] for r in [left,right]]
+            distances.append(dict(left=left['id'],right=right['id'],pixel_MAE_0_255=float(np.abs(a.astype(np.int16)-b.astype(np.int16)).mean()),
+                                  interpretation='Descriptive RGB distance, sensitive to background; no human accuracy or causal interpretation'))
     def counts(kind):
         entries=state[kind]
         return dict(slots=len(entries),actual_initial_calls_this_run=sum(e.get('actual_calls',0) for e in entries),
@@ -155,6 +173,7 @@ def main():
     save(PUBLIC/'generation_media_and_inputs.json',generated);save(PUBLIC/'controlled_auxiliary_evidence.json',controls)
     save(PUBLIC/'codec_auxiliary_evidence.json',codec);save(PUBLIC/'understanding_answers_and_sampling.json',understanding)
     save(PUBLIC/'paired_evaluation_pending.json',pairs);save(PUBLIC/'execution_summary.json',summary)
+    save(PUBLIC/'paired_RGB_distances_auxiliary.json',distances)
     print(json.dumps(summary,ensure_ascii=False,indent=2))
 
 

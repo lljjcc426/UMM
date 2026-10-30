@@ -1,0 +1,47 @@
+{
+  "source": "Codex visual inspection, auxiliary only",
+  "reviewed_sampled_frames": [
+    0,
+    8,
+    16,
+    24,
+    32
+  ],
+  "requests": [
+    "N076-T_G0_native_simple-s47",
+    "N076-T_G0_order_text-s47",
+    "N019-T_G0_native_simple-s47",
+    "N019-T_G0_order_text-s47",
+    "N079-T_G0_native_simple-s47",
+    "N079-T_G0_order_text-s47",
+    "N039-T_G0_native_simple-s11",
+    "N039-T_G0_native_simple-s29",
+    "N039-T_G0_native_simple-s47",
+    "N039-T_G0_order_text-s11",
+    "N039-T_G0_order_text-s29",
+    "N039-T_G0_order_text-s47",
+    "N030-T_G0_native_simple-s47",
+    "N030-T_G0_order_text-s47",
+    "N066-T_G0_native_simple-s11",
+    "N066-T_G0_native_simple-s29",
+    "N066-T_G0_native_simple-s47",
+    "N066-T_G0_order_text-s11",
+    "N066-T_G0_order_text-s29",
+    "N066-T_G0_order_text-s47",
+    "N043-T_G0_native_simple-s11",
+    "N043-T_G0_native_simple-s29",
+    "N043-T_G0_native_simple-s47",
+    "N043-T_G0_order_text-s11"
+  ],
+  "findings": [
+    "All 24 sampled request strips begin with existing dark glyphs, rather than a visible blank-to-complete construction",
+    "Different requested characters and simple/order prompts show strongly similar seed-specific scenes in these samples",
+    "Hands or pens appear in sampled seed11/29 scenes despite prompt exclusions"
+  ],
+  "limitations": [
+    "Five frame positions per video inspected in this progress preview; original full videos and all decoded frames retained",
+    "No human labels or formal order/direction success rate created",
+    "Does not establish a bottleneck or exclude a native conditional-inference issue"
+  ],
+  "human_review_status": "pending_human_review"
+}

@@ -75,6 +75,9 @@ def main():
                 original_MP4_sha256=sha256(row['video']) if row['video'] is not None and row['video'].exists() else None))
         (directory/'index.html').write_text(PAGE)
         (directory/'cards.js').write_text('const PACKAGE = '+json.dumps(dict(id=package_id,protocol='P1-human-review-v1',cards=cards),ensure_ascii=False)+';\n')
+        checksums=[dict(path=str(p.relative_to(directory)),bytes=p.stat().st_size,sha256=sha256(p))
+                   for p in sorted(directory.rglob('*')) if p.is_file()]
+        (directory/'SHA256SUMS.json').write_text(json.dumps(checksums,indent=2)+'\n')
         with zipfile.ZipFile(output/(directory.name+'.zip'),'w',zipfile.ZIP_DEFLATED,compresslevel=1) as z:
             for path in directory.rglob('*'):
                 if path.is_file():z.write(path,path.relative_to(output))

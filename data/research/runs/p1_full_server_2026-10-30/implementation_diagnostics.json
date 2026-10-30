@@ -22,5 +22,26 @@
       "GPU_model_calls": 0,
       "evidence": "CPU_loader_preflight_v2/results.json"
     }
-  ]
+  ],
+  "SO01_history_timing_revision": {
+    "before_model_calls": true,
+    "understanding_calls_before_revision": 0,
+    "modified_conditions": 4,
+    "reason": "v1 alternate construction had slightly different stage times from full prefix",
+    "resolution": "Use full 132-frame schedule, swap first two bound strokes, crop identical prefix indices",
+    "old_inputs_preserved": true,
+    "old_freeze": "input_construction_freeze_v1.json",
+    "new_freeze": "input_construction_freeze.json",
+    "no_prompt_seed_or_model_change": true
+  },
+  "GPU_failure_i2v_N076": {
+    "request_id": "N076-T_G0_blank_i2v-s11",
+    "attempts": 1,
+    "stage": "instrumentation before Lance denoising, after GPU VAE encoding",
+    "cause": "val_packed_vit_tokens is a native list; .numel() used as though Tensor",
+    "operator_error": true,
+    "disposition": "failed initial slot retained; no additional GPU retry",
+    "fix": "Count native list tensor elements or Tensor.numel once in logging only; native model code, prompts, inputs, seeds and parameters unchanged",
+    "remaining_generation_slots_to_resume": 15
+  }
 }

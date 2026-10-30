@@ -91,6 +91,9 @@ def worker(bundle: Path, attempt: Path, task: str, plan: dict) -> int:
             native_save = imageio.mimsave
 
             def traced_generate(model, *call_args, **call_kwargs):
+                vit = call_kwargs.get('val_packed_vit_tokens')
+                vit_elements = (sum(t.numel() for t in vit) if isinstance(vit, list)
+                                else vit.numel() if vit is not None else 0)
                 save_json(attempt / "actual_generation_input.json", {
                     "caption": call_kwargs["caption"],
                     "packed_text_ids": call_kwargs["val_packed_text_ids"].detach().cpu().tolist(),
@@ -98,8 +101,7 @@ def worker(bundle: Path, attempt: Path, task: str, plan: dict) -> int:
                     "num_timesteps": call_kwargs["num_timesteps"],
                     "cfg_text_scale": call_kwargs["cfg_text_scale"],
                     "video_sizes": [[int(n) for n in size] for size in call_kwargs["video_sizes"]],
-                    "VIT_input_elements": (call_kwargs["val_packed_vit_tokens"].numel()
-                                           if call_kwargs.get("val_packed_vit_tokens") is not None else 0),
+                    "VIT_input_elements": vit_elements,
                     "meaning": "Arguments observed at the native generation method entry; not a predicted plan"})
                 return native_generate(model, *call_args, **call_kwargs)
 
