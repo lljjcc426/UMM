@@ -81,20 +81,34 @@ def worker(bundle: Path, attempt: Path, task: str, plan: dict) -> int:
         source = bundle / "upstream"
         os.chdir(source)
         sys.path.insert(0, str(source))
-        if plan.get("audit_native_rgb_inputs"):
+        if plan.get("audit_native_rgb_inputs") or plan.get("audit_native_sampling"):
             import imageio
             import numpy as np
             from modeling.lance import Lance
 
             native_generate = Lance.validation_gen_KVcache
+            native_understand = Lance.validation_und_KVcache
             native_save = imageio.mimsave
 
             def traced_generate(model, *call_args, **call_kwargs):
                 save_json(attempt / "actual_generation_input.json", {
                     "caption": call_kwargs["caption"],
                     "packed_text_ids": call_kwargs["val_packed_text_ids"].detach().cpu().tolist(),
+                    "torch_initial_seed": torch.initial_seed(),
+                    "num_timesteps": call_kwargs["num_timesteps"],
+                    "cfg_text_scale": call_kwargs["cfg_text_scale"],
+                    "video_sizes": [[int(n) for n in size] for size in call_kwargs["video_sizes"]],
+                    "VIT_input_elements": (call_kwargs["val_packed_vit_tokens"].numel()
+                                           if call_kwargs.get("val_packed_vit_tokens") is not None else 0),
                     "meaning": "Arguments observed at the native generation method entry; not a predicted plan"})
                 return native_generate(model, *call_args, **call_kwargs)
+
+            def traced_understand(model, *call_args, **call_kwargs):
+                save_json(attempt / "actual_understanding_input.json", {
+                    "packed_text_ids": call_kwargs["val_packed_text_ids"].detach().cpu().tolist(),
+                    "torch_initial_seed": torch.initial_seed(),
+                    "meaning": "Actual native understanding entry; placeholder target is not a normative answer"})
+                return native_understand(model, *call_args, **call_kwargs)
 
             def traced_save(uri, frames, *save_args, **save_kwargs):
                 np.savez_compressed(attempt / "source_rgb_uint8.npz", frames=np.asarray(frames))
@@ -105,7 +119,14 @@ def worker(bundle: Path, attempt: Path, task: str, plan: dict) -> int:
                 return native_save(uri, frames, *save_args, **save_kwargs)
 
             Lance.validation_gen_KVcache = traced_generate
+            Lance.validation_und_KVcache = traced_understand
             imageio.mimsave = traced_save
+            if plan.get("audit_native_sampling"):
+                if __package__:
+                    from scripts.p1.native_sampling import install_sampling_trace
+                else:
+                    from native_sampling import install_sampling_trace
+                install_sampling_trace(attempt)
         sys.argv = [str(source / "inference_lance.py")] + inference_args(
             bundle, attempt.parent / "inputs", attempt / "outputs", task, plan)
         try:

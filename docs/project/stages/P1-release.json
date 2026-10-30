@@ -24,8 +24,7 @@
   ],
   "unresolved_blockers": [
     "SO-00 output media/PTS audit is complete for 16 pilot clips; native input sampling, VAE roundtrip and event observability remain unverified",
-    "EVAL-02 requires actual independent human reviews on generated RGB; no new tasks assigned in this execution",
-    "Full BASE-01 expansion and SO-01 require separate authorization"
+    "EVAL-02 requires actual independent human reviews on generated RGB; no new tasks assigned in this execution"
   ],
   "limitations": [
     "P0 limited negative closeout accepted; old auto judge is auxiliary only",
@@ -34,5 +33,13 @@
   ],
   "main_merge_authorized": false,
   "training_authorized": false,
-  "notes": "Exact 16 authorized initial native G0 T2V calls executed and privately archived on single A10080. No retries/training. Engineering output integrity is distinct from content or scientific success."
+  "notes": "Exact 16 authorized initial native G0 T2V calls executed and privately archived on single A10080. No retries/training. Engineering output integrity is distinct from content or scientific success.",
+  "full_execution_authorization_reference": "data/research/runs/p1_full_server_2026-10-30/authorization.json",
+  "full_execution_counts": {
+    "generation_total": 64,
+    "generation_reused": 16,
+    "understanding": 28,
+    "codec_max": 8,
+    "CPU_controls": 8
+  }
 }

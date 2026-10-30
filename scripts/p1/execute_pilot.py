@@ -31,14 +31,27 @@ def validate_scope(authorization, manifest):
 def audit_output(bundle, run, expected):
     import imageio.v2 as imageio
     import numpy as np
-    attempt = run / 't2v'
-    prepared = json.loads((bundle / 'inputs/t2v.json').read_text())
-    archived = json.loads((run / 'inputs/t2v.json').read_text())
+    task = expected.get('task', 't2v')
+    attempt = run / task
+    prepared_path = bundle / 'inputs' / (task + '.json')
+    archived_path = run / 'inputs' / (task + '.json')
+    prepared = json.loads(prepared_path.read_text())
+    archived = json.loads(archived_path.read_text())
+    if task == 'i2v':
+        if __package__:
+            from .full_common import normalized_input
+        else:
+            from full_common import normalized_input
+        inputs_equal = normalized_input(prepared_path) == normalized_input(archived_path)
+        prompt = prepared['0001']['interleave_array'][0]
+    else:
+        inputs_equal = archived == prepared
+        prompt = prepared['0001']
     actual = json.loads((attempt / 'actual_generation_input.json').read_text())
     native_prompts = json.loads((attempt / 'outputs/prompt.json').read_text())
     caption = actual['caption']
     captions = [caption] if isinstance(caption, str) else caption
-    prompt_ok = (archived == prepared and len(captions) == 1 and prepared['0001'] in captions[0]
+    prompt_ok = (inputs_equal and len(captions) == 1 and prompt in captions[0]
                  and expected['character'] in captions[0] and 'Chinese character 十 ' not in captions[0])
     videos = list((attempt / 'outputs').glob('*.mp4'))
     if len(videos) != 1:
