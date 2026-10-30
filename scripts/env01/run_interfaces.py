@@ -81,6 +81,31 @@ def worker(bundle: Path, attempt: Path, task: str, plan: dict) -> int:
         source = bundle / "upstream"
         os.chdir(source)
         sys.path.insert(0, str(source))
+        if plan.get("audit_native_rgb_inputs"):
+            import imageio
+            import numpy as np
+            from modeling.lance import Lance
+
+            native_generate = Lance.validation_gen_KVcache
+            native_save = imageio.mimsave
+
+            def traced_generate(model, *call_args, **call_kwargs):
+                save_json(attempt / "actual_generation_input.json", {
+                    "caption": call_kwargs["caption"],
+                    "packed_text_ids": call_kwargs["val_packed_text_ids"].detach().cpu().tolist(),
+                    "meaning": "Arguments observed at the native generation method entry; not a predicted plan"})
+                return native_generate(model, *call_args, **call_kwargs)
+
+            def traced_save(uri, frames, *save_args, **save_kwargs):
+                np.savez_compressed(attempt / "source_rgb_uint8.npz", frames=np.asarray(frames))
+                save_json(attempt / "source_rgb_metadata.json", {
+                    "shape": list(np.asarray(frames).shape), "dtype": str(np.asarray(frames).dtype),
+                    "fps": save_kwargs.get("fps"), "native_destination": str(uri),
+                    "meaning": "Exact uint8 RGB supplied to the unchanged native MP4 encoder"})
+                return native_save(uri, frames, *save_args, **save_kwargs)
+
+            Lance.validation_gen_KVcache = traced_generate
+            imageio.mimsave = traced_save
         sys.argv = [str(source / "inference_lance.py")] + inference_args(
             bundle, attempt.parent / "inputs", attempt / "outputs", task, plan)
         try:

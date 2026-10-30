@@ -1,0 +1,45 @@
+{
+  "protocol_id": "stroke-video-v2",
+  "date": "2026-10-30",
+  "branch": "research/p1-native-baselines",
+  "base_commit": "e1de52e6c8b49159a101dad4e324ca5d688ebdeb",
+  "task": "Execute Issue #3 exact 16 initial native G0 T2V requests with first-request integrity gate",
+  "direct_user_instruction": "按 GitHub Issue #3 执行P1首批16次原生生成。先运行第一个请求，核验真实输入和视频输出后完成剩余任务。严格遵守授权范围，保留全部原片、失败、显存、时间和费用记录，不启动训练。",
+  "authorization": "data/research/runs/p1_pilot_kickoff_2026-10-30/authorization.json",
+  "issue": "https://github.com/lljjcc426/UMM/issues/3",
+  "initial_attempt_denominator": 16,
+  "automatic_retries": 0,
+  "training_authorized": false,
+  "private_cloud_root": "/root/umm-p1-issue3-native-20261030",
+  "private_local_root": "private/p1_native_pilot_issue3_2026-10-30",
+  "status": "execution_tools_validated_first_request_not_started",
+  "instrumentation": {
+    "native_code_and_weights_unchanged": true,
+    "observed_input": "caption and actual packed token IDs at native generation-method entry",
+    "source_RGB": "Exact uint8 RGB array supplied to native imageio encoder; compressed lossless archive",
+    "decoded_RGB": "All decoded native MP4 frames plus per-frame FFprobe PTS",
+    "no_extra_model_calls": true
+  },
+  "tests": {
+    "total_passed": 113,
+    "log": "checks/pre_execution_unittest.log"
+  },
+  "billing": {
+    "actual_billed_CNY": null,
+    "actual_hourly_rate_CNY": null,
+    "reason": "Provider invoice and exact instance tariff have not been supplied; record measured timestamps and GPU utilization, do not invent billing",
+    "setup_idle_and_review_time": "Track separately from native model execution; all rented-host time may be billed"
+  },
+  "preparation_failure": {
+    "operation": "local Git checkout",
+    "cause": "Existing remote fetch configuration omitted P1; initial checkout could not set tracking",
+    "resolution": "Add the exact P1 fetch refspec and complete checkout with no reset, cleanup or main modification"
+  },
+  "file_changes": {
+    "scripts/env01/run_interfaces.py": "Optional observation-only native caption/token and encoder-RGB tracing for the authorized pilot",
+    "scripts/p1/execute_pilot.py": "Exact allowlist, one-shot serial execution, 900-second timeout, first-request gate, decoding audit and private archive",
+    "tests/test_p1_pilot_execution.py": "Reject request expansion, duplicates, G1/i2v/seed changes and missing approval",
+    "data/research/runs/p1_native_pilot_issue3_2026-10-30": "Preserve authorization scope, pre-execution checks and execution evidence index"
+  },
+  "files_deleted": []
+}
