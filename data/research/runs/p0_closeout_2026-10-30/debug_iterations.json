@@ -1,0 +1,16 @@
+{
+  "iterations": [
+    {
+      "id": "initial_checks",
+      "result": "One catalog/unit failure caused by relative links in verbatim original contract snapshot after placing it in a child folder",
+      "preserved_logs": "checks/catalog.stdout.log and checks/unittest.stderr.log",
+      "fix": "Moved the unchanged snapshot to original P0 directory level and updated new references; no validation rule disabled",
+      "files_deleted": false
+    }
+  ],
+  "source_snapshot_renamed": {
+    "from_path": "docs/project/stages/archive/P0-contract-preclose-2026-10-29.md",
+    "to_path": "docs/project/stages/P0-contract-preclose-2026-10-29.md",
+    "original_contents_preserved": true
+  }
+}

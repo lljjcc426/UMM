@@ -1,10 +1,10 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "protocol_id": "stroke-video-v2",
   "phase": "P0",
   "branch": "research/p0-stroke-video-foundation",
-  "status": "in_progress",
-  "conclusion": "pending",
+  "status": "closed_with_negative_results",
+  "conclusion": "supported_negative",
   "experiment_ids": [
     "ENV-01",
     "DATA-01",
@@ -53,15 +53,17 @@
     "data/research/runs/p0_decoupled_d1_d4_2026-10-29/task_record.json",
     "data/research/runs/p0_decoupled_d1_d4_2026-10-29/execution_records.json",
     "data/research/runs/p0_decoupled_d1_d4_2026-10-29/readiness_assessment.json",
-    "data/research/runs/p0_decoupled_d1_d4_2026-10-29/writer_resource_audit.json"
+    "data/research/runs/p0_decoupled_d1_d4_2026-10-29/writer_resource_audit.json",
+    "docs/research/v2/p0_final_scientific_closeout_2026-10-30.md",
+    "data/research/runs/p0_closeout_2026-10-30/task_record.json",
+    "data/research/runs/p0_closeout_2026-10-30/evidence_inventory.json",
+    "data/research/runs/p0_closeout_2026-10-30/version_record.json",
+    "data/research/runs/p0_closeout_2026-10-30/scope_approval.json",
+    "data/research/runs/p0_closeout_2026-10-30/reference_catalog.json",
+    "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md"
   ],
   "approval_reference": null,
-  "unresolved_blockers": [
-    "DATA-01: human batch complete; normative reference and prospective crossed-source label qualification incomplete (34pass/23fail/7unknown normative,4/8 cuts pass). No further human batch assigned.",
-    "EVAL-01: independent-source human-referenced false-accept gate failed; original25/63 groups, conditional95 upper50.82%; excluding temporal controls25/60,53.10%. Fixed candidates also fail; no method promoted.",
-    "Complete P0 scientific review and explicit user acceptance pending; negative result does not automatically change stage contract.",
-    "D1-D4 development complete but full144 new coverage23.70% and correct acceptance28.125% fail gates;111unknown. Only2 remaining Pot1.0Test candidate IDs, no64-new-writer holdout resource. No stage acceptance inferred."
-  ],
+  "unresolved_blockers": [],
   "limitations": [
     "ENV-01通过范围限于已批准的原生接口及最小部分参数训练/重载",
     "官方默认策略在A10080小联合批次首次AdamW状态初始化时实测OOM，65,536 token未执行；正式数据和笔顺质量未获验证",
@@ -70,6 +72,40 @@
     "192 media are static blank controls; candidatev2 development-only with3 nominal positive rejections; temporal-log independence does not establish geometric/source independence.",
     "New176 media from CASIA original coordinate order with synthetic timing and oracle geometry; no native handwriting RGB, full per-stroke gold, freely matched style or generated-domain claim. No automatic further human batch.",
     "2026-10-29:432/432 submissions complete from two user-confirmed independent humans,441raw versions preserved. Two-frame ambiguity and potential human-reference error disclosed; all scopes and denominators retained. Human tasks remaining0; no original-data modification, GPU, training, threshold tuning or automatic phase advance.",
-    "2026-10-29 D1-D4:36 semantic conditions and96 transformation checks; all144 same-norm simple-gate and decoupled decisions identical,no incremental pixel gain.13 AI-static development qualifications do not constitute human per-stroke gold. Only8 new private CPU clips; old human labels/thresholds/predictions unchanged,no new human tasks or fresh holdout."
-  ]
+    "2026-10-29 D1-D4:36 semantic conditions and96 transformation checks; all144 same-norm simple-gate and decoupled decisions identical,no incremental pixel gain.13 AI-static development qualifications do not constitute human per-stroke gold. Only8 new private CPU clips; old human labels/thresholds/predictions unchanged,no new human tasks or fresh holdout.",
+    "2026-10-30 user authorized finite research-foundation closeout. Original criteria explicitly unmet; DATA limited completion and EVAL negative completion. Human primary RGB evaluation permits P1 planning; no GPU/merge authorization. High-reliability automatic scorer optional, not a positive dependency."
+  ],
+  "closure": {
+    "accepted_scope": "limited_research_foundation",
+    "original_scientific_gates_met": false,
+    "automatic_scorer_required_for_P1": false,
+    "scope_approval_reference": "data/research/runs/p0_closeout_2026-10-30/scope_approval.json",
+    "original_contract": "docs/project/stages/P0-contract-preclose-2026-10-29.md",
+    "original_release_manifest": "data/research/runs/p0_closeout_2026-10-30/original_P0-release.json",
+    "final_report": "docs/research/v2/p0_final_scientific_closeout_2026-10-30.md",
+    "formal_evaluation_path": [
+      "trusted_normative_reference",
+      "independent_human_judgments",
+      "automatic_auxiliary_only",
+      "strict_unknown_handling"
+    ],
+    "unmet_original_criteria": [
+      {
+        "experiment_id": "DATA-01",
+        "criterion": "Full normative per-stroke gold and crossed-source label qualification",
+        "observed": "64 paired normative candidates34pass/23fail/7unknown;13 AI-static development qualifications; no complete per-stroke human gold",
+        "disposition": "Preserve qualification levels; use official normative references plus independent manual RGB evaluation; extend gold only as separately approved work"
+      },
+      {
+        "experiment_id": "EVAL-01",
+        "criterion": "Clear coverage>=0.90 and false-accept upper95<=0.05; revised correct acceptance>=0.90",
+        "observed": "Legacy full coverage116/135 and25/63 false-accept groups upper95=50.82%; observable coverage97.48% but upper95=53.10%. Decoupled32/135 coverage,9/32 correct accepts,111unknown; same-norm simple gate identical",
+        "disposition": "Document supported negative result; no automatic primary verdict; reliable automation improvement optional, independently audited human path primary for P1"
+      }
+    ],
+    "previous_blockers_disposition": "Original blockers preserved in original manifest and unmet criteria; removed only as absolute blockers under the directly approved limited closeout scope, not claimed solved",
+    "user_final_report_review": "pending",
+    "main_merge_authorized": false,
+    "P1_GPU_authorized": false
+  }
 }

@@ -8,7 +8,9 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-STATUSES = {"planned", "ready", "running", "blocked", "completed", "stopped"}
+LIMITED_STATUSES = {"completed_negative", "completed_with_limitations"}
+TERMINAL_STATUSES = {"completed"} | LIMITED_STATUSES
+STATUSES = {"planned", "ready", "running", "blocked", "stopped"} | TERMINAL_STATUSES
 REQUIRED = {"id", "phase", "hypothesis", "depends_on", "baselines", "primary_metrics",
             "deliverables", "success_condition", "status", "run_records", "result_artifacts"}
 
@@ -116,9 +118,14 @@ def validate_payload(config: Any, registry: Any, root: Path | None = None) -> di
         deps = row.get("depends_on", [])
         graph[name] = deps if isinstance(deps, list) and all(isinstance(d, str) for d in deps) else []
         runs, results = row.get("run_records", []), row.get("result_artifacts", [])
-        if row.get("status") == "completed":
+        if row.get("status") in TERMINAL_STATUSES:
             check(isinstance(runs, list) and bool(runs) and isinstance(results, list) and bool(results),
                   f"{name}: completed requires run records and result artifacts")
+        if row.get("status") in LIMITED_STATUSES:
+            outcome = row.get("scientific_outcome", {})
+            check(isinstance(outcome, dict) and outcome.get("original_gate_met") is False
+                  and bool(outcome.get("unmet_criteria")) and bool(outcome.get("conclusion")),
+                  f"{name}: limited completion requires explicit unmet original criteria")
         if row.get("status") == "planned":
             check(runs == [] and results == [], f"{name}: planned cannot contain claimed run/results")
         for field in ("run_records", "result_artifacts"):

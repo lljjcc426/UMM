@@ -16,6 +16,13 @@ class ResearchStageGateTests(unittest.TestCase):
             (ROOT / "docs/project/stages/P0-release.json").read_text(encoding="utf-8"))
         self.registry = json.loads(
             (ROOT / "data/research/experiments_v2.json").read_text(encoding="utf-8"))
+        # Legacy protocol fixtures must not change when the live P0 closes.
+        self.manifest = dict(schema_version=1, protocol_id="stroke-video-v2", phase="P0",
+            branch="research/p0-stroke-video-foundation", status="in_progress", conclusion="pending",
+            experiment_ids=["ENV-01", "DATA-01", "EVAL-01"], evidence_bundle=[],
+            approval_reference=None, unresolved_blockers=["pending science"], limitations=[])
+        for row in self.registry['experiments']:
+            row.pop('scientific_outcome', None)
 
     def result(self, ready=False, root=ROOT, head=None):
         return validate_release(self.manifest, self.registry, root,

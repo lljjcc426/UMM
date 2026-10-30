@@ -1,0 +1,114 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "catalog_final",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "stdout": "data/research/runs/p0_closeout_2026-10-30/checks/catalog_final.stdout.log",
+      "stderr": "data/research/runs/p0_closeout_2026-10-30/checks/catalog_final.stderr.log",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_catalog.py"
+      ]
+    },
+    {
+      "name": "research_v1",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "stdout": "data/research/runs/p0_closeout_2026-10-30/checks/research_v1.stdout.log",
+      "stderr": "data/research/runs/p0_closeout_2026-10-30/checks/research_v1.stderr.log",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_research_plan.py",
+        "--output",
+        "data/research/runs/p0_closeout_2026-10-30/checks/research_v1.json"
+      ]
+    },
+    {
+      "name": "research_v2_final",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "stdout": "data/research/runs/p0_closeout_2026-10-30/checks/research_v2_final.stdout.log",
+      "stderr": "data/research/runs/p0_closeout_2026-10-30/checks/research_v2_final.stderr.log",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_research_v2.py",
+        "--output",
+        "data/research/runs/p0_closeout_2026-10-30/checks/research_v2_final.json"
+      ]
+    },
+    {
+      "name": "closeout_final_semantics",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "stdout": "data/research/runs/p0_closeout_2026-10-30/checks/closeout_final_semantics.stdout.log",
+      "stderr": "data/research/runs/p0_closeout_2026-10-30/checks/closeout_final_semantics.stderr.log",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_stage_release.py"
+      ]
+    },
+    {
+      "name": "merge_rejection_final_semantics",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "passed": true,
+      "stdout": "data/research/runs/p0_closeout_2026-10-30/checks/merge_rejection_final_semantics.stdout.log",
+      "stderr": "data/research/runs/p0_closeout_2026-10-30/checks/merge_rejection_final_semantics.stderr.log",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_stage_release.py",
+        "--require-ready",
+        "--head-ref",
+        "research/p0-stroke-video-foundation"
+      ]
+    },
+    {
+      "name": "unittest_final_semantics",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "stdout": "data/research/runs/p0_closeout_2026-10-30/checks/unittest_final_semantics.stdout.log",
+      "stderr": "data/research/runs/p0_closeout_2026-10-30/checks/unittest_final_semantics.stderr.log",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ]
+    },
+    {
+      "name": "diff_check",
+      "command": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "stdout": "data/research/runs/p0_closeout_2026-10-30/checks/diff_check.stdout.log",
+      "stderr": "data/research/runs/p0_closeout_2026-10-30/checks/diff_check.stderr.log"
+    }
+  ],
+  "unittest_count": 96,
+  "new_tests": 12,
+  "original_tests": 84,
+  "closeout_gate_passed": true,
+  "original_scientific_gates_met": false,
+  "merge_gate_expected_rejection": true,
+  "merge_approval_missing": true,
+  "initial_failed_link_check_preserved": true,
+  "git_diff_check": "passed",
+  "P1_preparation_checks": "data/research/plans/p1_baseline_2026-10-30/preparation_checks.json",
+  "remote_CI": "Not run at local evidence freeze; see review PR for live status"
+}

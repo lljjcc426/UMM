@@ -143,6 +143,8 @@ def main() -> int:
     args = parser.parse_args()
     bundle = args.bundle.resolve()
     plan = json.loads((bundle / "plan.json").read_text())
+    if not args.dry_run and plan.get('approval', {}).get('user_approved') is not True:
+        parser.error('GPU execution requires explicit approval recorded in this plan')
     if args.worker_task:
         return worker(bundle, args.attempt.resolve(), args.worker_task, plan)
     tasks = [task for task in plan["tasks"] if args.tasks is None or task in args.tasks]
@@ -155,7 +157,7 @@ def main() -> int:
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
     run = bundle / "runs" / run_id
     run.mkdir(parents=True, exist_ok=False)
-    summary = {"experiment_id": "ENV-01", "run_id": run_id, "status": "running",
+    summary = {"experiment_id": plan.get("experiment_id", "ENV-01"), "run_id": run_id, "status": "running",
                "approved_scope": plan["scope"], "plan": plan, "attempts": [], "sample_denominator": len(tasks),
                "selected_tasks": tasks, "not_selected_tasks": [task for task in plan["tasks"] if task not in tasks],
                "started_at_utc": datetime.now(timezone.utc).isoformat(),

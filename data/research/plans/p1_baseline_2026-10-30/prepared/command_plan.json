@@ -1,0 +1,13 @@
+{
+  "phase": "P1_preparation_only",
+  "dry_run_command": "python -m scripts.env01.run_interfaces --bundle PREPARED_BUNDLE --dry-run",
+  "future_execution_command": "python -m scripts.env01.run_interfaces --bundle PREPARED_BUNDLE",
+  "conditions": [
+    "Obtain explicit GPU experiment approval",
+    "Materialize fixed upstream and weights on GPU host",
+    "Rebase onto approved P1 branch after P0 merge approval",
+    "Freeze actual deployment and sampling version",
+    "Set plan.approval.user_approved with approval evidence before execution"
+  ],
+  "output_accounting": "Each native invocation creates a new run directory and preserves process/log/metrics. Join request IDs across all attempts; no best-of selection."
+}

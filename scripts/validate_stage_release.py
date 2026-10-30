@@ -16,7 +16,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 RELEASE = Path("docs/project/stages/P0-release.json")
 REGISTRY = Path("data/research/experiments_v2.json")
-STATUSES = {"in_progress", "blocked", "ready_for_review"}
+STATUSES = {"in_progress", "blocked", "ready_for_review", "closed_with_negative_results"}
 VALID_CONCLUSIONS = {"phase_gate_passed", "supported_positive", "supported_negative"}
 
 
@@ -44,7 +44,7 @@ def validate_release(manifest: Any, registry: Any, root: Path,
     if not isinstance(manifest, dict) or not isinstance(registry, dict):
         return {"passed": False, "errors": ["manifest and registry must be dictionaries"]}
 
-    check(manifest.get("schema_version") == 1, "invalid stage manifest version")
+    check(manifest.get("schema_version") in {1, 2}, "invalid stage manifest version")
     check(manifest.get("protocol_id") == "stroke-video-v2", "invalid research protocol")
     check(registry.get("protocol_id") == manifest.get("protocol_id"),
           "protocol and registry mismatch")
@@ -84,17 +84,44 @@ def validate_release(manifest: Any, registry: Any, root: Path,
     check(isinstance(limitations, list) and all(isinstance(f, str) for f in limitations),
           "limitations must be a string list")
 
+    closure = manifest.get("closure")
+    limited_closeout = status == "closed_with_negative_results" or closure is not None
+    if limited_closeout:
+        check(status in {"closed_with_negative_results", "ready_for_review"}, "limited closeout lifecycle is inconsistent")
+        check(manifest.get("schema_version") == 2 and phase == "P0", "limited closeout requires P0 schema2")
+        check(manifest.get("conclusion") == "supported_negative", "limited closeout cannot claim original gates passed")
+        closure = closure if isinstance(closure, dict) else {}
+        check(closure.get("accepted_scope") == "limited_research_foundation", "missing limited accepted scope")
+        check(closure.get("original_scientific_gates_met") is False, "original scientific failures must remain explicit")
+        check(closure.get("automatic_scorer_required_for_P1") is False, "P1 must support the independent human evaluation route")
+        routes = closure.get("formal_evaluation_path", [])
+        check(isinstance(routes, list) and {"trusted_normative_reference", "independent_human_judgments",
+              "automatic_auxiliary_only", "strict_unknown_handling"}.issubset(routes),
+              "incomplete alternative evaluation path")
+        for key in ("scope_approval_reference", "original_contract", "original_release_manifest", "final_report"):
+            check_file(closure.get(key), "closure." + key)
+        unmet = closure.get("unmet_original_criteria")
+        check(isinstance(unmet, list) and len(unmet) > 0 and all(
+            isinstance(x, dict) and x.get("experiment_id") in ids and x.get("criterion")
+            and x.get("observed") and x.get("disposition") for x in unmet),
+            "missing explicit disposition of unmet original criteria")
+        if isinstance(unmet, list):
+            unmet_ids = {x.get("experiment_id") for x in unmet if isinstance(x, dict)}
+            check({"DATA-01", "EVAL-01"}.issubset(unmet_ids), "DATA/EVAL original failures omitted")
+        check(blockers == [], "unresolved blockers to the approved limited closeout")
+
     promote = require_ready or status == "ready_for_review"
+    promotion_errors = []
     if promote:
-        check(status == "ready_for_review", "PR requires ready_for_review")
-        check(manifest.get("conclusion") in VALID_CONCLUSIONS,
-              "phase conclusion is pending or unsupported")
         approval = manifest.get("approval_reference")
-        check(isinstance(approval, str) and len(approval.strip()) >= 10
-              and approval.strip().lower() not in {"pending", "todo", "placeholder"},
-              "missing user approval reference")
-        check(isinstance(blockers, list) and len(blockers) == 0,
-              "unresolved phase blockers")
+        promotion_errors = [message for condition, message in [
+            (status == "ready_for_review", "PR requires ready_for_review"),
+            (manifest.get("conclusion") in VALID_CONCLUSIONS, "phase conclusion is pending or unsupported"),
+            (isinstance(approval, str) and len(approval.strip()) >= 10
+             and approval.strip().lower() not in {"pending", "todo", "placeholder"}, "missing user approval reference"),
+            (isinstance(blockers, list) and len(blockers) == 0, "unresolved phase blockers"),
+        ] if not condition]
+    if promote or limited_closeout:
         check(isinstance(bundle, list) and len(bundle) > 0, "no stage evidence bundle")
         if isinstance(bundle, list):
             for filename in bundle:
@@ -103,7 +130,20 @@ def validate_release(manifest: Any, registry: Any, root: Path,
             row = indexed.get(exp_id)
             if not isinstance(row, dict):
                 continue
-            check(row.get("status") == "completed", f"{exp_id}: not completed")
+            state = row.get("status")
+            allowed = {"completed", "completed_negative", "completed_with_limitations"} if limited_closeout else {"completed"}
+            check(state in allowed, f"{exp_id}: not completed")
+            outcome = row.get("scientific_outcome", {})
+            if state in {"completed_negative", "completed_with_limitations"}:
+                check(isinstance(outcome, dict) and outcome.get("original_gate_met") is False
+                      and bool(outcome.get("unmet_criteria")), f"{exp_id}: incomplete negative/limited outcome")
+            elif isinstance(outcome, dict) and outcome.get("original_gate_met") is False:
+                check(False, f"{exp_id}: unmet original gate cannot be recorded as unqualified completed")
+            if limited_closeout and exp_id == "ENV-01":
+                check(state == "completed", "ENV-01 verified scope must remain completed")
+            if limited_closeout and exp_id in {"DATA-01", "EVAL-01"}:
+                expected_state = "completed_with_limitations" if exp_id == "DATA-01" else "completed_negative"
+                check(state == expected_state, f"{exp_id}: original outcome must remain limited/negative")
             for key in ("run_records", "result_artifacts"):
                 arr = row.get(key)
                 check(isinstance(arr, list) and len(arr) > 0, f"{exp_id}: {key} missing")
@@ -111,11 +151,16 @@ def validate_release(manifest: Any, registry: Any, root: Path,
                     for filename in arr:
                         check_file(filename, f"{exp_id}.{key}")
 
+    phase_completed = limited_closeout and not errors
+    errors.extend(promotion_errors)
     return {
         "passed": not errors, "errors": errors,
         "mode": "merge_gate" if require_ready else "development",
         "phase": phase, "branch": branch, "experiments": len(ids),
         "scientific_claims_verified": False,
+        "phase_completed": phase_completed,
+        "original_scientific_gates_met": False if limited_closeout else None,
+        "merge_authorized": promote and not errors,
     }
 
 

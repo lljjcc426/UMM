@@ -3,7 +3,7 @@
   "protocol_id": "stroke-video-v2",
   "created_on": "2026-10-27",
   "supersedes": "stroke-video-v1",
-  "status": "execution_started",
+  "status": "P0_closed_with_negative_results_P1_CPU_prepared",
   "current_phase": "P0",
   "research_focus": "method_driven_observable_stroke_execution",
   "primary_protocol": "T",
@@ -245,6 +245,23 @@
     "p0_program_AI_audit": "docs/research/v2/p0_program_ai_audit_2026-10-28.md",
     "p0_final_human_package": "docs/research/v2/p0_final_human_package_2026-10-28.md",
     "p0_human_acceptance": "docs/research/v2/p0_human_acceptance_2026-10-29.md",
-    "decoupled_D1_D4_report": "docs/research/v2/p0_decoupled_d1_d4_report_2026-10-29.md"
+    "decoupled_D1_D4_report": "docs/research/v2/p0_decoupled_d1_d4_report_2026-10-29.md",
+    "P0_closeout": "docs/research/v2/p0_final_scientific_closeout_2026-10-30.md",
+    "P1_baseline_plan": "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md"
+  },
+  "P0_closure": {
+    "manifest": "docs/project/stages/P0-release.json",
+    "accepted_scope": "limited_research_foundation",
+    "original_scientific_gates_met": false,
+    "automatic_evaluator_is_P1_positive_gate": false,
+    "formal_evaluation": "Trusted normative reference + independent human actual-RGB judgments + auxiliary automation + strict unknown policy"
+  },
+  "P1_preparation": {
+    "plan": "configs/research/p1_baseline_plan.json",
+    "GPU_authorized": false,
+    "status": "prepared_waiting_user_review",
+    "request_count": 64,
+    "pilot_request_count": 16,
+    "training": false
   }
 }
