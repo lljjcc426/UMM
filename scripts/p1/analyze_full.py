@@ -3,6 +3,7 @@ from collections import Counter
 import csv
 import json
 from pathlib import Path
+import re
 
 import numpy as np
 from PIL import Image, ImageDraw
@@ -144,11 +145,30 @@ def main():
             result['sampling']=json.loads((attempt/'actual_sampling.json').read_text())
             result['sampling']=[{k:v for k,v in s.items() if k!='media'} for s in result['sampling']]
             result['input_integrity']=json.loads((attempt/'input_integrity_audit.json').read_text())
+            read=result['sampling'][0]
+            duration=read['reader_frame_count']/read['reader_fps']
+            answer='\n'.join(r['answer'] for r in result['raw_answer_records'])
+            claim=re.search(r'(\d+(?:\.\d+)?) seconds? long',answer)
+            result['duration_literal_check']=dict(reader_nominal_container_seconds=duration,
+                matched_literal_seconds=float(claim.group(1)) if claim else None,
+                literal_conflicts_with_container=abs(float(claim.group(1))-duration)>.1 if claim else None,
+                scope='Posthoc literal text check only; not stroke accuracy or human judgment')
             metrics=json.loads((attempt/'worker_metrics.json').read_text());summary=json.loads((attempt.parent/'summary.json').read_text())
             result.update(native_process_wall_seconds=summary['elapsed_seconds'],
                 torch_peak_allocated_bytes=metrics.get('cuda_peak_allocated_bytes'),torch_peak_reserved_bytes=metrics.get('cuda_peak_reserved_bytes'),
                 host_peak_RSS_bytes=metrics.get('host_peak_rss_bytes'),device_sampled_peak_MiB=summary['attempts'][0]['gpu_sampling']['device_used_memory_peak_mib'])
         understanding.append(result)
+    understanding_pairs=[]
+    indexed={r['id']:r for r in understanding}
+    for row in understanding:
+        if row['condition']=='full_prefix':continue
+        full=indexed[row['id'].rsplit('-',1)[0]+'-full_prefix']
+        left,right=[r.get('raw_answer_records') for r in [full,row]]
+        understanding_pairs.append(dict(full=full['id'],other=row['id'],condition=row['condition'],
+            raw_answer_text_identical=left==right if left is not None and right is not None else None,
+            actual_read_indices_match=(full['sampling'][0]['indices']==row['sampling'][0]['indices']) if 'sampling' in full and 'sampling' in row else None,
+            formal_accuracy_comparison='pending_human_review',
+            interpretation='Answer equality/difference does not establish correct history use or causal bottleneck'))
     pairs=[]
     for nid in [r['norm_id'] for r in manifest['controls']]:
         for seed in [11,29,47]:pairs.append(dict(norm_id=nid,seed=seed,left=f'{nid}-T_G0_native_simple-s{seed}',right=f'{nid}-T_G0_order_text-s{seed}',outcome='pending_human_review'))
@@ -177,6 +197,7 @@ def main():
         EVAL_02='pending_human_review',scientific_acceptance='pending',verified_success=None,training_calls=0,extra_GPU_retries=0)
     save(PUBLIC/'generation_media_and_inputs.json',generated);save(PUBLIC/'controlled_auxiliary_evidence.json',controls)
     save(PUBLIC/'codec_auxiliary_evidence.json',codec);save(PUBLIC/'understanding_answers_and_sampling.json',understanding)
+    save(PUBLIC/'understanding_paired_auxiliary.json',understanding_pairs)
     save(PUBLIC/'paired_evaluation_pending.json',pairs);save(PUBLIC/'execution_summary.json',summary)
     save(PUBLIC/'paired_RGB_distances_auxiliary.json',distances)
     print(json.dumps(summary,ensure_ascii=False,indent=2))

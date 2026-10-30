@@ -14,7 +14,6 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-RELEASE = Path("docs/project/stages/P0-release.json")
 REGISTRY = Path("data/research/experiments_v2.json")
 STATUSES = {"in_progress", "blocked", "ready_for_review", "closed_with_negative_results"}
 VALID_CONCLUSIONS = {"phase_gate_passed", "supported_positive", "supported_negative"}
@@ -208,11 +207,15 @@ def main() -> None:
     mode.add_argument("--github-event", action="store_true",
                       help="Check drafts for review; enforce approval for non-draft research PRs")
     parser.add_argument("--root", type=Path, default=ROOT)
+    parser.add_argument("--phase", choices=[f"P{i}" for i in range(7)],
+                        help="Audit a historical phase; defaults to the configured current phase")
     parser.add_argument("--head-ref", default=os.environ.get("GITHUB_HEAD_REF"))
     args = parser.parse_args()
     root = args.root.resolve()
     try:
-        manifest = json.loads((root / RELEASE).read_text(encoding="utf-8"))
+        phase = args.phase or json.loads(
+            (root / "configs/research/stroke_video_v2.json").read_text(encoding="utf-8"))["current_phase"]
+        manifest = json.loads((root / f"docs/project/stages/{phase}-release.json").read_text(encoding="utf-8"))
         registry = json.loads((root / REGISTRY).read_text(encoding="utf-8"))
         if args.github_event:
             event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text(encoding="utf-8"))

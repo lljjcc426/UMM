@@ -77,6 +77,9 @@ class CIStageGateTests(unittest.TestCase):
         self.assertFalse(result["merge_authorized"])
 
     def test_workflow_cli_reads_actual_github_event_file(self):
+        config = self.root / "configs/research"
+        config.mkdir(parents=True)
+        (config / "stroke_video_v2.json").write_text(json.dumps(dict(current_phase="P0")))
         folder = self.root / "docs/project/stages"
         folder.mkdir(parents=True)
         (folder / "P0-release.json").write_text(json.dumps(self.manifest))
@@ -92,3 +95,26 @@ class CIStageGateTests(unittest.TestCase):
                     "--github-event", "--root", str(self.root)], env=env, text=True, capture_output=True)
                 self.assertEqual(run.returncode, expected_code, run.stdout + run.stderr)
                 self.assertFalse(json.loads(run.stdout)["merge_authorized"])
+
+    def test_cli_checks_current_P1_and_does_not_promote_pending_science(self):
+        config = self.root / "configs/research"
+        config.mkdir(parents=True)
+        (config / "stroke_video_v2.json").write_text(json.dumps(dict(current_phase="P1")))
+        folder = self.root / "docs/project/stages"
+        folder.mkdir(parents=True)
+        self.manifest.update(phase="P1", branch="research/p1-native-baselines", experiment_ids=["EVAL-02"])
+        (folder / "P1-release.json").write_text(json.dumps(self.manifest))
+        self.registry["experiments"] = [dict(id="EVAL-02",phase="P1",status="pending_human_review",
+            run_records=["evidence.json"],result_artifacts=["evidence.json"])]
+        folder = self.root / "data/research"
+        folder.mkdir(parents=True)
+        (folder / "experiments_v2.json").write_text(json.dumps(self.registry))
+        command=[sys.executable,str(ROOT / "scripts/validate_stage_release.py"),"--root",str(self.root)]
+        run=subprocess.run(command,text=True,capture_output=True)
+        self.assertEqual(run.returncode,0,run.stdout+run.stderr)
+        result=json.loads(run.stdout)
+        self.assertEqual(result["phase"],"P1")
+        self.assertFalse(result["merge_authorized"])
+        run=subprocess.run(command+["--require-ready"],text=True,capture_output=True)
+        self.assertEqual(run.returncode,1,run.stdout+run.stderr)
+        self.assertIn("EVAL-02: not completed",json.loads(run.stdout)["errors"])
