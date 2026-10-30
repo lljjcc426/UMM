@@ -1,0 +1,187 @@
+{
+  "as_of": "2026-10-30",
+  "approval": "公开论文和代码；扩散与Drifting优先；Flow Matching/Rectified Flow/Consistency/MeanFlow对照；六会议优先；数量限制已撤销；GPU和付费预算0；提交推送另行确认",
+  "search_queries": [
+    {
+      "query": "ti:drifting AND submittedDate:[202602010000 TO 202610302359]",
+      "provider": "arXiv API",
+      "returned_rows": 815,
+      "pagination": "start=0,200,400,600,800; max_results=200",
+      "screening": "生成建模关键词筛选67条；另核查20条字面Drifting标题，保留9条，排除11条；并非815条均逐篇阅读全文"
+    },
+    {
+      "query": "(abs:\"drifting models\" OR abs:\"generative drifting\" OR abs:\"drifting field\") AND submittedDate:[202602010000 TO 202610302359]",
+      "provider": "arXiv API",
+      "returned_rows": 113,
+      "screening": "与标题检索有重叠；去重后补充8项相关候选；815与113不能直接相加作为独立论文数"
+    },
+    {
+      "query": "diffusion / score / flow matching / rectified flow / consistency / mean flow / flow map / representation autoencoder / distillation + official conference",
+      "provider": "arXiv与Web主来源检索、引用扩展",
+      "screening": "追溯基础文献、从Drifting相关工作扩展、检查官方会议目录及正式论文集；标题相同不自动证明主会身份"
+    },
+    {
+      "query": "CVPR ICCV ECCV NeurIPS ICLR ICML + exact title",
+      "provider": "CVF / ECVA / PMLR / ICLR proceedings / official Downloads",
+      "screening": "正式论文集、官方目录、作者自报分层保存；无法证实接收的条目保留未核实状态"
+    }
+  ],
+  "deduplication": {
+    "canonical_records": 360,
+    "new_unique_records": 142,
+    "overlap": 0,
+    "keys": [
+      "arxiv_base_id",
+      "normalized_title",
+      "PMLR canonical URL"
+    ],
+    "existing_foundations_reused": [
+      "G001",
+      "G002",
+      "G003",
+      "G004",
+      "G005",
+      "G006",
+      "G007",
+      "G008",
+      "G026",
+      "G027",
+      "G030",
+      "D05",
+      "E01",
+      "E02",
+      "E03",
+      "E04"
+    ]
+  },
+  "selected_homonym_exclusions": [
+    {
+      "arxiv_id": "2610.31041",
+      "title": "Algorithmic drift in generative adaptive learning",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2608.15844",
+      "title": "MicroVerse: An Instrument for Measuring Self-Authored Identity Drift in Long-Horizon Multi-Agent Language-Model Simulations",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2607.24662",
+      "title": "When Can You Correct Distribution Drift in Temporal Graph Generation? A Sharpening--Drift Tension and an Impossibility for Observation-Based Correction",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2607.15117",
+      "title": "A Model Predictive Control Framework for Assisted Vehicle Drifting",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2607.08270",
+      "title": "Progression as Latent Drift: Generative Forecasting of Slow-Evolving Pathologies",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2603.09024",
+      "title": "When to Retrain after Drift: A Data-Only Test of Post-Drift Data Size Sufficiency",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2610.25699",
+      "title": "Stochastic Tracking of Drifting Affine Fixed Points",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2608.00113",
+      "title": "Track-Guided Hierarchical Reinforcement Learning for Autonomous Vehicle Drifting with Minimum-Lap-Time Planning",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2607.27482",
+      "title": "Latent States in Neural Networks: Recovering the Temporal Structure of Drifting Data from Model Weights",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2607.24863",
+      "title": "Steeringless Drifting: Differential-Torque Control of a Four-Wheel Independently Driven Vehicle",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2607.19484",
+      "title": "Emergent Autonomous Drifting for Collision Avoidance in Real-World Winter Driving Scenarios",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2606.31991",
+      "title": "Anchored or Drifting: What Recursive Self-Generation Reveals About Training Data",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2606.27914",
+      "title": "Drifting in the Future: Stabilizing Path Following Drifting on High-Latency Vehicle Systems",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2606.12019",
+      "title": "MPPI-based Informative Trajectory Planning for Search and Capture of Drifting Targets with ASVs",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2606.11149",
+      "title": "Efficiently Learning Drifting Halfspaces with Massart Noise",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2602.20329",
+      "title": "CaDrift: A Time-dependent Causal Generator of Drifting Data Streams",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    },
+    {
+      "arxiv_id": "2602.09681",
+      "title": "Resilient Class-Incremental Learning: on the Interplay of Drifting, Unlabelled and Imbalanced Data Streams",
+      "reason": "同名漂移：概念／身份漂移、运动漂移或其他任务；未形成所查分布漂移生成机制。"
+    }
+  ],
+  "flow_map_non_generative_exclusions": [
+    {
+      "arxiv_id": "2608.00400",
+      "reason": "流体/PDE/配准等flow-map同名；未作为所查生成模型的直接机制文献纳入"
+    },
+    {
+      "arxiv_id": "2609.10789",
+      "reason": "流体/PDE/配准等flow-map同名；未作为所查生成模型的直接机制文献纳入"
+    },
+    {
+      "arxiv_id": "2307.11013",
+      "reason": "流体/PDE/配准等flow-map同名；未作为所查生成模型的直接机制文献纳入"
+    },
+    {
+      "arxiv_id": "2510.07549",
+      "reason": "流体/PDE/配准等flow-map同名；未作为所查生成模型的直接机制文献纳入"
+    },
+    {
+      "arxiv_id": "2407.10854",
+      "reason": "流体/PDE/配准等flow-map同名；未作为所查生成模型的直接机制文献纳入"
+    },
+    {
+      "arxiv_id": "2603.07678",
+      "reason": "流体/PDE/配准等flow-map同名；未作为所查生成模型的直接机制文献纳入"
+    },
+    {
+      "arxiv_id": "2605.31438",
+      "reason": "流体/PDE/配准等flow-map同名；未作为所查生成模型的直接机制文献纳入"
+    }
+  ],
+  "access_limits": [
+    "76次arXiv HTML访问记录；成功获取只表示可读，不表示已读完",
+    "部分HTML/PDF访问超时或失败；有不完整下载，不据此认定完整PDF阅读",
+    "未核实全部代码、训练数据许可或会议轨道；公开论文不自动授权所有数据与模型用途"
+  ],
+  "reading_counts": {
+    "abstract_screened": 101,
+    "body_excerpts": 31,
+    "targeted_sections": 10
+  },
+  "stop_condition": "已完成本轮Drifting标题与摘要查询的分页筛选，并扩展基础机制、引用、官方会议信息及主要跨模态支线；末轮回查以重复或偏题为主，当前未识别新的直接相关分支后停止。无篇数上限；不能据此断言互联网再无相关论文。",
+  "repository_policy": "补充登记，不改变原360条目录及327篇核心完成统计；不恢复6篇已停止追取项目；无训练或推理。调研后的GitHub main发布已由2026-10-30用户指令另行授权，使用最新main基线及PR流程。",
+  "external_cache_root": "/Users/cc/.cache/umm-generative-20261030"
+}

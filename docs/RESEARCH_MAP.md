@@ -4,6 +4,8 @@
 
 2026-10-25新增[已读论文的会议／主题索引](reading/README.md)与[20篇核心对照及跨论文分析](reading/synthesis.md)，优先梳理CVPR、ICCV、ECCV、NeurIPS、ICLR、ICML。此前未齐资料中的6篇已按用户要求[停止跟进](reading/scope.md)。
 
+2026-10-30补充[扩散、Flow与Drifting专题](generative/README.md)及[机制／实验／UMM对照](generative/synthesis.md)：142项新增记录按10项重点章节、31项正文片段和101项摘要筛选标明阅读范围，复用原目录中的基础文献；[检索范围](generative/search_scope.md)记录无篇数上限后的扩展与停止条件。
+
 ## 1. UMM：统一什么，以及为什么不自动产生协同
 
 UMM研究涉及输入输出接口、视觉表征、生成目标、共享参数、数据与训练调度、跨任务推理及评价。统一成一个模型不意味着理解和生成必然互相帮助。

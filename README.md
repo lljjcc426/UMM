@@ -1,6 +1,6 @@
 # UMM 与汉字书写视频：证据、方法与实验
 
-2026-10-30：**用户最终审批已通过P0有限结项**，见[正式审批与P1交接](docs/research/v2/p0_final_acceptance_and_p1_handoff_2026-10-30.md)。[P0报告](docs/research/v2/p0_final_scientific_closeout_2026-10-30.md)保留原指标未达标结论：ENV-01维持已验证配方通过，DATA-01为completed_with_limitations，EVAL-01为completed_negative；原阈值、人审及失败不变。正式评价仍用可信规范＋独立人工实际RGB主评＋自动辅助＋严格unknown。[P1方案](docs/research/v2/p1_baseline_failure_plan_2026-10-30.md)聚焦UMM真实视频的笔顺错误及改进，已有8字/64请求，首批4字/16请求；当前为准备与部署，尚无P1推理、训练或新人工任务。main尚未合并。
+2026-10-30：**用户最终审批已通过P0有限结项**，见[正式审批与P1交接](docs/research/v2/p0_final_acceptance_and_p1_handoff_2026-10-30.md)。[P0报告](docs/research/v2/p0_final_scientific_closeout_2026-10-30.md)保留原指标未达标结论：ENV-01维持已验证配方通过，DATA-01为completed_with_limitations，EVAL-01为completed_negative；原阈值、人审及失败不变。正式评价仍用可信规范＋独立人工实际RGB主评＋自动辅助＋严格unknown。[P1方案](docs/research/v2/p1_baseline_failure_plan_2026-10-30.md)聚焦UMM真实视频的笔顺错误及改进，已有8字/64请求，首批4字/16请求；该P1方案记录的是准备与部署快照，不代表已完成推理、训练或新人工任务。**P0有限结项及P1准备已通过[PR #2](https://github.com/lljjcc426/UMM/pull/2)合入main**，原科学门槛未达标结论保留。
 
 以下保留此前设计与执行快照；当前状态以上段及结项报告为准。
 
@@ -32,6 +32,8 @@
 
 ## 文献与证据
 
+2026-10-30新增 **[扩散、Flow与Drifting专题](docs/generative/README.md)**：取消篇数上限后补充142项去重记录，含10项重点章节核读、31项正文片段选读、101项摘要筛选；[综合分析](docs/generative/synthesis.md)对照原理、理论条件、实验与UMM适用边界。该补充专题独立登记，不增加下述主目录的核心完成计数；[检索边界](docs/generative/search_scope.md)与[文件变更](docs/generative/changes_2026-10-30.md)可追溯。
+
 主目录保持360条（333篇论文/研究、27项资源），327篇核心阅读完成；具体范围见单篇。A06、F05、L002、L006、L021、L022继续[停止主动追取](docs/reading/scope.md)，未计完成。本轮新增来源审计未自动增加论文或完成计数。
 
 **[阅读总览](docs/reading/README.md)** · **[跨论文综合](docs/reading/synthesis.md)** · [全部逐篇卡](docs/reviews/README.md)
@@ -62,4 +64,4 @@ python -m unittest tests.test_research_plan tests.test_stroke_metrics -v
 
 ## 阶段研究分支
 
-当前 P0 在 `research/p0-stroke-video-foundation` 独立开发，`main` 仅接收完成工程和科研验收、经用户批准的 PR。Codex 执行审批约束见 [AGENTS.md](AGENTS.md)，分支及证据合并标准见 [BRANCH_WORKFLOW.md](docs/project/BRANCH_WORKFLOW.md)。有效正、负结论都可以记录；新阶段实验尚未完成。
+P0有限结项已通过PR #2进入 `main`，原研究分支与证据保留。后续研究仍按阶段分支执行，`main` 仅接收完成工程和科研验收、经用户批准的 PR。Codex 执行审批约束见 [AGENTS.md](AGENTS.md)，分支及证据合并标准见 [BRANCH_WORKFLOW.md](docs/project/BRANCH_WORKFLOW.md)。有效正、负结论都可以记录；新阶段实验尚未完成。

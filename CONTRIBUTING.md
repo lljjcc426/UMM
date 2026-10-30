@@ -7,6 +7,8 @@
 | data/literature.json | 文献主数据；题录、方法、证据和版本 |
 | data/reading_guide_2026-10-25.json | 会议、主题与停止跟进范围 |
 | docs/reviews、docs/reading | 单篇和生成索引；改前核对应生成脚本 |
+| data/discovery/generative_*.json | 生成模型补充题录、阅读范围与检索审计；与主目录独立登记 |
+| docs/generative | 扩散、Flow、Drifting专题；总览、主题卡及预印本索引由补充JSON生成，综合分析与边界手工维护 |
 | docs/research/v2 | 当前科学目标、信息契约、方法、数据评价与实验 |
 | docs/project | 当前阶段导航与真实状态 |
 | data/research/experiments_v2.json | 当前实验ID、依赖、状态及证据 |
@@ -25,6 +27,12 @@ v1文件保留，完整冻结状态见[199646c](https://github.com/lljjcc426/UMM
 每次运行记录代码/权重/数据revision、T/P/O与G0/G1输入权限、源组划分、训练与推理seed、共享/冻结参数、曝光/计算、硬件、完整命令、全部媒体、人工/自动标签、失败/未知与端到端成本。
 
 不提交私有稿件、字体、未许可数据、模型权重、凭据和原始个人笔迹；已有匿名稿过滤保持。维护权威源数据后再生成导出，不以重渲染覆盖手工证据。新发现的摘要级来源先登记阅读范围，不能自动计为全文完成。
+
+## 生成模型补充专题的维护
+
+先修改 `data/discovery/generative_models_2026-10-30.json`，再运行 `python scripts/render_generative_survey.py`，更新专题README、9个主题页及预印本索引。`docs/generative/synthesis.md`、`search_scope.md`、`changes_2026-10-30.md` 手工维护，不由渲染器覆盖。
+
+阅读层级分别为重点章节核读、正文片段选读和摘要筛选；正式论文集、官方目录与作者自报身份分别保存。补充记录不自动写入 `data/literature.json`、CSV、Excel或原核心阅读完成计数；后续整合须去重并保留实际覆盖。论文全文与下载缓存放在仓库外，公开交付保留来源URL、版本和中文分析。
 
 ## 检查命令
 
