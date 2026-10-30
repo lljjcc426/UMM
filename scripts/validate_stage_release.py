@@ -111,16 +111,31 @@ def validate_release(manifest: Any, registry: Any, root: Path,
         check(blockers == [], "unresolved blockers to the approved limited closeout")
 
     promote = require_ready or status == "ready_for_review"
+    # A scientifically closed P0 negative release can be promoted without
+    # changing its lifecycle label back to a pending-review state. This
+    # exception still requires a separate, documented main-merge approval.
+    negative_closeout_merge_ready = (
+        limited_closeout
+        and status == "closed_with_negative_results"
+        and isinstance(closure, dict)
+        and closure.get("user_final_report_review") == "approved"
+        and closure.get("main_merge_authorized") is True
+    )
     promotion_errors = []
     if promote:
         approval = manifest.get("approval_reference")
         promotion_errors = [message for condition, message in [
-            (status == "ready_for_review", "PR requires ready_for_review"),
+            (status == "ready_for_review" or negative_closeout_merge_ready,
+             "PR requires ready_for_review"),
             (manifest.get("conclusion") in VALID_CONCLUSIONS, "phase conclusion is pending or unsupported"),
             (isinstance(approval, str) and len(approval.strip()) >= 10
              and approval.strip().lower() not in {"pending", "todo", "placeholder"}, "missing user approval reference"),
             (isinstance(blockers, list) and len(blockers) == 0, "unresolved phase blockers"),
         ] if not condition]
+    if promote and status == "closed_with_negative_results":
+        # Reject a bare approval assertion. The merge-specific source must
+        # exist in the repository and remain separate from science approval.
+        check_file(manifest.get("approval_reference"), "explicit merge approval")
     if promote or limited_closeout:
         check(isinstance(bundle, list) and len(bundle) > 0, "no stage evidence bundle")
         if isinstance(bundle, list):
