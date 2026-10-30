@@ -385,12 +385,19 @@
       "success_condition": "Resolve information loss before interpreting learning failure; no oracle-boundary inference windows.",
       "status": "running",
       "run_records": [
-        "data/research/runs/p1_native_pilot_issue3_2026-10-30/task_record.json"
+        "data/research/runs/p1_native_pilot_issue3_2026-10-30/task_record.json",
+        "data/research/runs/p1_full_server_2026-10-30/task_record.json"
       ],
       "result_artifacts": [
         "data/research/runs/p1_native_pilot_issue3_2026-10-30/execution_summary.json",
         "data/research/runs/p1_native_pilot_issue3_2026-10-30/request_results.json",
-        "docs/research/v2/p1_native_pilot_issue3_report_2026-10-30.md"
+        "docs/research/v2/p1_native_pilot_issue3_report_2026-10-30.md",
+        "data/research/runs/p1_full_server_2026-10-30/execution_summary.json",
+        "data/research/runs/p1_full_server_2026-10-30/request_status.json",
+        "docs/research/v2/p1_full_server_report_2026-10-30.md",
+        "data/research/runs/p1_full_server_2026-10-30/SO00_sampling_summary.json",
+        "data/research/runs/p1_full_server_2026-10-30/codec_auxiliary_evidence.json",
+        "data/research/runs/p1_full_server_2026-10-30/CPU_codec_output_audit.json"
       ],
       "preparation_artifacts": [
         "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md",
@@ -401,12 +408,16 @@
       ],
       "execution_authorized": true,
       "dependency_interpretation": "Terminal P0 outcome/decision required; positive automatic reliability is not required. Independent human primary evaluation replaces automated promotion.",
-      "authorized_scope": "P1 pilot 16 G0 T2V request IDs only; no full 64 queue, understanding calls or training",
+      "authorized_scope": "2026-10-30 full directive: original64 generation slots including16 reused,28 understanding,8 codec,8CPU controls; zero extra GPU retry; no training or main merge",
       "pilot_approval_reference": "data/research/runs/p1_pilot_kickoff_2026-10-30/authorization.json",
       "pilot_execution_status": "16_initial_requests_completed_pending_independent_evaluation",
       "pilot_actual_model_calls": 16,
       "formal_human_evaluation_completed": false,
-      "remaining_evidence": "Native sampling and VAE roundtrip/event observability not tested; output RGB/MP4 PTS audit only"
+      "remaining_evidence": "Native sampling, source/reconstruction and decoding evidence collected for all8. Event preservation has frozen development-observer evidence only; independent human event gold and domain generalization remain unverified.",
+      "previous_authorized_scope": "P1 pilot 16 G0 T2V request IDs only; no full 64 queue, understanding calls or training",
+      "full_execution_authorization_reference": "data/research/runs/p1_full_server_2026-10-30/authorization.json",
+      "server_execution_status": "server_completed_with_failures",
+      "scientific_acceptance": "pending"
     },
     {
       "id": "BASE-01",
@@ -435,12 +446,21 @@
       "success_condition": "Zero-shot is context only; use development media for EVAL-02 and retain all failures.",
       "status": "running",
       "run_records": [
-        "data/research/runs/p1_native_pilot_issue3_2026-10-30/task_record.json"
+        "data/research/runs/p1_native_pilot_issue3_2026-10-30/task_record.json",
+        "data/research/runs/p1_full_server_2026-10-30/task_record.json"
       ],
       "result_artifacts": [
         "data/research/runs/p1_native_pilot_issue3_2026-10-30/execution_summary.json",
         "data/research/runs/p1_native_pilot_issue3_2026-10-30/request_results.json",
-        "docs/research/v2/p1_native_pilot_issue3_report_2026-10-30.md"
+        "docs/research/v2/p1_native_pilot_issue3_report_2026-10-30.md",
+        "data/research/runs/p1_full_server_2026-10-30/execution_summary.json",
+        "data/research/runs/p1_full_server_2026-10-30/request_status.json",
+        "docs/research/v2/p1_full_server_report_2026-10-30.md",
+        "data/research/runs/p1_full_server_2026-10-30/generation_media_and_inputs.json",
+        "data/research/runs/p1_full_server_2026-10-30/generation_condition_counts.json",
+        "data/research/runs/p1_full_server_2026-10-30/generation_token_audit.json",
+        "data/research/runs/p1_full_server_2026-10-30/paired_evaluation_pending.json",
+        "data/research/runs/p1_full_server_2026-10-30/failure_atlas_auxiliary.json"
       ],
       "preparation_artifacts": [
         "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md",
@@ -451,12 +471,16 @@
       ],
       "execution_authorized": true,
       "dependency_interpretation": "Terminal P0 outcome/decision required; positive automatic reliability is not required. Independent human primary evaluation replaces automated promotion.",
-      "authorized_scope": "P1 pilot 16 G0 T2V request IDs only; no full 64 queue, understanding calls or training",
+      "authorized_scope": "2026-10-30 full directive: original64 generation slots including16 reused,28 understanding,8 codec,8CPU controls; zero extra GPU retry; no training or main merge",
       "pilot_approval_reference": "data/research/runs/p1_pilot_kickoff_2026-10-30/authorization.json",
       "pilot_execution_status": "16_initial_requests_completed_pending_independent_evaluation",
       "pilot_actual_model_calls": 16,
       "formal_human_evaluation_completed": false,
-      "remaining_evidence": "Independent actual-RGB facet judgments, error atlas and any separately authorized baseline expansion"
+      "remaining_evidence": "63 valid videos,1 preserved operator failure. Independent human facets and paired improvements/degradations remain unjudged; failed N076 i2v has no replacement.",
+      "previous_authorized_scope": "P1 pilot 16 G0 T2V request IDs only; no full 64 queue, understanding calls or training",
+      "full_execution_authorization_reference": "data/research/runs/p1_full_server_2026-10-30/authorization.json",
+      "server_execution_status": "server_completed_with_failures",
+      "scientific_acceptance": "pending"
     },
     {
       "id": "EVAL-02",
@@ -479,16 +503,31 @@
         "generated-domain calibration report"
       ],
       "success_condition": "Produce independent actual-RGB facet judgments, disagreement and unknown accounting; automatic calibration is auxiliary and failure does not invalidate the human evaluation route.",
-      "status": "planned",
-      "run_records": [],
-      "result_artifacts": [],
+      "status": "pending_human_review",
+      "run_records": [
+        "data/research/runs/p1_full_server_2026-10-30/task_record.json"
+      ],
+      "result_artifacts": [
+        "data/research/runs/p1_full_server_2026-10-30/execution_summary.json",
+        "data/research/runs/p1_full_server_2026-10-30/request_status.json",
+        "docs/research/v2/p1_full_server_report_2026-10-30.md",
+        "data/research/runs/p1_full_server_2026-10-30/offline_review_manifest.json",
+        "data/research/runs/p1_full_server_2026-10-30/controlled_auxiliary_evidence.json"
+      ],
       "preparation_artifacts": [
         "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md",
         "configs/research/p1_baseline_plan.json",
         "data/research/plans/p1_baseline_2026-10-30/prepared/summary.json"
       ],
-      "execution_authorized": false,
-      "dependency_interpretation": "Terminal P0 outcome/decision required; positive automatic reliability is not required. Independent human primary evaluation replaces automated promotion."
+      "execution_authorized": true,
+      "dependency_interpretation": "Terminal P0 outcome/decision required; positive automatic reliability is not required. Independent human primary evaluation replaces automated promotion.",
+      "previous_authorized_scope": "P1 planning before full execution",
+      "authorized_scope": "Two offline independent human review packages; no AI proxy human submissions",
+      "full_execution_authorization_reference": "data/research/runs/p1_full_server_2026-10-30/authorization.json",
+      "server_execution_status": "server_completed_with_failures",
+      "scientific_acceptance": "pending",
+      "formal_human_evaluation_completed": false,
+      "remaining_evidence": "Two packages each72slots/71playable prepared;142 actual video reviews pending,0 human submissions. No per-stroke gold, agreement, unknown accounting or verified-success fabricated."
     },
     {
       "id": "SO-01",
@@ -514,16 +553,32 @@
         "paired perception intervention results"
       ],
       "success_condition": "Do not require distinct next actions for histories with the same legal continuation state.",
-      "status": "planned",
-      "run_records": [],
-      "result_artifacts": [],
+      "status": "running",
+      "run_records": [
+        "data/research/runs/p1_full_server_2026-10-30/task_record.json"
+      ],
+      "result_artifacts": [
+        "data/research/runs/p1_full_server_2026-10-30/execution_summary.json",
+        "data/research/runs/p1_full_server_2026-10-30/request_status.json",
+        "docs/research/v2/p1_full_server_report_2026-10-30.md",
+        "data/research/runs/p1_full_server_2026-10-30/understanding_answers_and_sampling.json",
+        "data/research/runs/p1_full_server_2026-10-30/understanding_paired_auxiliary.json",
+        "data/research/runs/p1_full_server_2026-10-30/SO01_auxiliary_summary.json"
+      ],
       "preparation_artifacts": [
         "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md",
         "configs/research/p1_baseline_plan.json",
         "data/research/plans/p1_baseline_2026-10-30/prepared/summary.json"
       ],
-      "execution_authorized": false,
-      "dependency_interpretation": "Terminal P0 outcome/decision required; positive automatic reliability is not required. Independent human primary evaluation replaces automated promotion."
+      "execution_authorized": true,
+      "dependency_interpretation": "Full directive authorizes frozen server evidence collection before EVAL-02 completion; formal metrics, H1 and scientific promotion remain dependent on independent human evaluation. No dependency removed.",
+      "previous_authorized_scope": "P1 planning before full execution",
+      "authorized_scope": "2026-10-30 full directive: original64 generation slots including16 reused,28 understanding,8 codec,8CPU controls; zero extra GPU retry; no training or main merge",
+      "full_execution_authorization_reference": "data/research/runs/p1_full_server_2026-10-30/authorization.json",
+      "server_execution_status": "server_completed_with_failures",
+      "scientific_acceptance": "pending",
+      "formal_human_evaluation_completed": false,
+      "remaining_evidence": "All28 original answers and actual sampling archived. Formal event/first-error accuracy and H1 require independent judgment; text differences alone do not establish history benefit."
     },
     {
       "id": "FIT-01",

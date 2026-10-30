@@ -1,5 +1,5 @@
 {
-  "status": "full_scope_authorized_preparing",
+  "status": "server_completed_with_failures",
   "branch": "research/p1-native-baselines",
   "base_commit": "7fa2d5c1a689ee3b3ef64cd2bdfacd5ac9d59cd9",
   "authorization": "authorization.json",
@@ -14,5 +14,71 @@
   "private_cloud_root": "/root/umm-p1-full-20261030",
   "private_local_root": "private/p1_full_server_2026-10-30",
   "files_deleted": [],
-  "old_evidence_modified": false
+  "old_evidence_modified": false,
+  "finished_GPU_at_utc": "2026-10-30T15:28:11.023447+00:00",
+  "EVAL_02": "pending_human_review",
+  "scientific_acceptance": "pending",
+  "actual_counts": {
+    "generation": {
+      "slots": 64,
+      "actual_initial_calls_this_run": 48,
+      "reused_initial_calls": 16,
+      "statuses": {
+        "completed": 63,
+        "failed": 1
+      }
+    },
+    "understanding": {
+      "slots": 28,
+      "actual_initial_calls_this_run": 28,
+      "reused_initial_calls": 0,
+      "statuses": {
+        "completed": 28
+      }
+    },
+    "codec": {
+      "slots": 8,
+      "actual_initial_calls_this_run": 8,
+      "reused_initial_calls": 0,
+      "statuses": {
+        "completed": 8
+      }
+    },
+    "controls": {
+      "slots": 8,
+      "actual_initial_calls_this_run": 0,
+      "reused_initial_calls": 0,
+      "statuses": {
+        "completed": 8
+      }
+    }
+  },
+  "generation_valid": 63,
+  "generation_technical_failures": 1,
+  "blocked": 0,
+  "unrun": 0,
+  "training_calls": 0,
+  "extra_GPU_retries": 0,
+  "results": [
+    "data/research/runs/p1_full_server_2026-10-30/execution_summary.json",
+    "data/research/runs/p1_full_server_2026-10-30/request_status.json",
+    "docs/research/v2/p1_full_server_report_2026-10-30.md"
+  ],
+  "backup_verification": "data/research/runs/p1_full_server_2026-10-30/backup_verification.json",
+  "supplemental_backup": "data/research/runs/p1_full_server_2026-10-30/local_supplemental_backup.json",
+  "final_report": "docs/research/v2/p1_full_server_report_2026-10-30.md",
+  "modified_file_explanations": {
+    "AGENTS.md": "Record full execution authorization, current P1 results and human-pending boundary; retain historical approvals.",
+    "configs/research/stroke_video_v2.json": "Set current phase toP1 and distinguish server completion from pending human/science.",
+    "data/research/experiments_v2.json": "Update only four P1 experiments with full authorization, actual evidence and pending science; P0 rows asserted unchanged.",
+    "docs/project/BRANCH_WORKFLOW.md": "Identify active P1 branch and configured current-phase/historical gate selection.",
+    "docs/project/stages/P1.md": "Preserve pilot scope as history and record current full results.",
+    "docs/project/stages/P1-release.json": "Record full actual counts, technical failure, human pending and unchanged merge prohibition.",
+    "scripts/env01/run_interfaces.py": "Capture actual generation/understanding inputs and source RGB/sampling; fix native list instrumentation without changing model inputs.",
+    "scripts/p1/execute_pilot.py": "Audit relocated i2v media by content and preserve existing pilot behavior.",
+    "scripts/validate_research_plan.py": "Represent pending_human_review as nonterminal.",
+    "scripts/validate_stage_release.py": "Check configured current phase and allow explicit historical --phase; retain strict promotion gate.",
+    "tests/test_ci_stage_gate.py": "Verify current P1 selection and denial of pending-human promotion alongside existing event tests.",
+    "tests/test_research_plan.py": "Verify pending-human status remains nonterminal."
+  }
 }

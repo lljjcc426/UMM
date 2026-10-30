@@ -1,0 +1,38 @@
+{
+  "first_new_GPU_request_at_utc": "2026-10-30T12:39:39.481508+00:00",
+  "last_new_GPU_request_finished_at_utc": "2026-10-30T15:27:58.438800+00:00",
+  "new_request_window_seconds": 10098.957292,
+  "finished_and_GPU_idle_at_utc": "2026-10-30T15:28:11.023447+00:00",
+  "authorization_at_utc": "2026-10-30T12:30:02.301095+00:00",
+  "hard_stop_at_utc": "2026-10-31T00:30:02.301095+00:00",
+  "per_call_timeout_seconds": 900,
+  "timeout_count": 0,
+  "new_initial_GPU_attempts": 84,
+  "reused_generation_attempts": 16,
+  "initial_GPU_attempts_including_pilot": 100,
+  "per_phase_peaks": {
+    "generation": {
+      "torch_peak_allocated_bytes": 30471729152,
+      "torch_peak_reserved_bytes": 38535168000,
+      "host_peak_RSS_bytes": 33787273216
+    },
+    "understanding": {
+      "torch_peak_allocated_bytes": 30471729152,
+      "torch_peak_reserved_bytes": 30815551488,
+      "host_peak_RSS_bytes": 33787428864
+    },
+    "codec": {
+      "torch_peak_allocated_bytes": 9636647424,
+      "torch_peak_reserved_bytes": 12878610432,
+      "host_peak_RSS_bytes": 3837255680
+    }
+  },
+  "sampled_whole_device_peak_MiB": 37283,
+  "measurement_scope": "Native process wall includes loading; GPU device samples are1Hz. Not kernel-only runtime or an actual rental invoice.",
+  "CPU_materialization_total_wall_seconds": null,
+  "CPU_materialization_timing_status": "not instrumented; no retroactive estimate",
+  "rate_CNY_per_hour": null,
+  "actual_bill_CNY": null,
+  "training_calls": 0,
+  "extra_GPU_retries": 0
+}

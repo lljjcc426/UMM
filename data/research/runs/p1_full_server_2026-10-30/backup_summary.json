@@ -1,0 +1,44 @@
+{
+  "server_artifact_files": 2192,
+  "server_artifact_bytes": 2549866110,
+  "per_file_SHA256_passed": true,
+  "mismatches": [],
+  "inventory_sha256": "3fa78d2622a16884fa86e8a3415456845bc4f5bbe5f14bf24097e08d065b2a2a",
+  "metadata_transport_sha256": "fabb9dd6cd97853de9fff130522df4b2e8c5c9822ebb5c3e9321499b1c85799c",
+  "metadata_transport_cloud": "/root/umm-p1-full-metadata-final-20261030.tar.gz",
+  "local_roots": [
+    "private/p1_full_server_2026-10-30",
+    "private/p1_native_pilot_issue3_2026-10-30"
+  ],
+  "cloud_roots": [
+    "/root/umm-p1-full-20261030",
+    "/root/umm-p1-issue3-native-20261030"
+  ],
+  "new_request_archives": 84,
+  "reused_request_archives": 16,
+  "offline_packages": [
+    {
+      "path": "offline_review/reviewer_1.zip",
+      "bytes": 172768984,
+      "sha256": "7028ab49ff51f065fba146877591850fdde910363676d16660631a90fb4399ee",
+      "local_scope": "full",
+      "local_path": "offline_review/reviewer_1.zip"
+    },
+    {
+      "path": "offline_review/reviewer_2.zip",
+      "bytes": 172768924,
+      "sha256": "d0e016d8b888d755d06018095f8432cd155f5fc22a282934a95dfe44df91d54c",
+      "local_scope": "full",
+      "local_path": "offline_review/reviewer_2.zip"
+    }
+  ],
+  "supplemental": "local_supplemental_backup.json",
+  "exclusions": [
+    "preexisting model weights, referenced separately by pinned revision",
+    "checksum inventory itself",
+    "metadata transport tar",
+    "derived offline unpacked directories, covered by internal SHA manifests and ZIP SHA"
+  ],
+  "instance_released": false,
+  "disks_deleted": false
+}
