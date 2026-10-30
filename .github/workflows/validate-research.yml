@@ -38,7 +38,7 @@ permissions:
   contents: read
 
 jobs:
-  validate:
+  engineering:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -59,6 +59,21 @@ jobs:
         run: .venv-ci/bin/python scripts/validate_stage_release.py
       - name: Run full regression tests
         run: .venv-ci/bin/python -m unittest discover -s tests -v
+
+  # Keep the existing required-check name and its full blocking behavior.
+  validate:
+    needs: engineering
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Require engineering checks to pass
+        if: needs.engineering.result != 'success'
+        run: exit 1
+      - name: Checkout pinned action
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
       - name: Require approved evidence for research PR into main
         if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'research/')
-        run: .venv-ci/bin/python scripts/validate_stage_release.py --require-ready
+        run: python3 scripts/validate_stage_release.py --require-ready
