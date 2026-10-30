@@ -85,6 +85,28 @@ class LimitedCloseoutTests(unittest.TestCase):
         self.manifest['closure']['formal_evaluation_path'] = ['automatic_auxiliary_only']
         self.assertFalse(self.result()['passed'])
 
+    def test_closed_negative_merge_requires_separate_user_authorization(self):
+        self.manifest['approval_reference'] = 'evidence.json'
+        self.manifest['closure']['user_final_report_review'] = 'approved'
+        r = self.result(merge=True)
+        self.assertFalse(r['passed'])
+        self.assertIn('PR requires ready_for_review', r['errors'])
+        self.manifest['closure']['main_merge_authorized'] = True
+        r = self.result(merge=True)
+        self.assertTrue(r['passed'], r['errors'])
+        self.assertTrue(r['merge_authorized'])
+        self.assertFalse(r['original_scientific_gates_met'])
+
+    def test_closed_negative_merge_requires_existing_approval_evidence(self):
+        self.manifest['approval_reference'] = 'missing-approval.json'
+        self.manifest['closure'].update(
+            user_final_report_review='approved', main_merge_authorized=True)
+        r = self.result(merge=True)
+        self.assertFalse(r['passed'])
+        self.assertTrue(any('explicit merge approval: evidence file missing' in
+                            e for e in r['errors']))
+        self.assertFalse(r['merge_authorized'])
+
     def test_in_progress_metadata_cannot_claim_phase_completion(self):
         self.manifest['status']='in_progress'
         r=self.result()
