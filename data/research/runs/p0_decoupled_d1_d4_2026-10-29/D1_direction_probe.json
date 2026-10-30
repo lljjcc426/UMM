@@ -1,0 +1,116 @@
+{
+  "scope": "Additional exposed-development direction counterfactual; original human labels untouched",
+  "rows": [
+    {
+      "sample": "V066-1",
+      "actual_condition": "correct",
+      "plan_normative": true,
+      "execution": {
+        "decision": "match",
+        "against_plan": "norm:GF0023-2020:刃",
+        "errors": [],
+        "unknown_reasons": []
+      },
+      "normative": {
+        "decision": "correct",
+        "reference_status": "qualified",
+        "reference_id": "GF0023-2020:刃",
+        "binding_id": "AI-dev-binding:N066",
+        "audit_level": "AI_static_development_not_human_gold",
+        "errors": [],
+        "unknown_reasons": []
+      },
+      "expected_execution": "match",
+      "expected_normative": "correct",
+      "passed": true
+    },
+    {
+      "sample": "V066-1",
+      "actual_condition": "correct",
+      "plan_normative": false,
+      "execution": {
+        "decision": "mismatch",
+        "against_plan": "explicit-reversed-directions",
+        "errors": [
+          "opposite_visible_direction:g_41d33577722f",
+          "opposite_visible_direction:g_853284228d3c",
+          "opposite_visible_direction:g_9c13519201eb"
+        ],
+        "unknown_reasons": []
+      },
+      "normative": {
+        "decision": "correct",
+        "reference_status": "qualified",
+        "reference_id": "GF0023-2020:刃",
+        "binding_id": "AI-dev-binding:N066",
+        "audit_level": "AI_static_development_not_human_gold",
+        "errors": [],
+        "unknown_reasons": []
+      },
+      "expected_execution": "mismatch",
+      "expected_normative": "correct",
+      "passed": true
+    },
+    {
+      "sample": "V066-2",
+      "actual_condition": "incorrect",
+      "plan_normative": true,
+      "execution": {
+        "decision": "mismatch",
+        "against_plan": "norm:GF0023-2020:刃",
+        "errors": [
+          "opposite_visible_direction:g_41d33577722f",
+          "opposite_visible_direction:g_853284228d3c",
+          "opposite_visible_direction:g_9c13519201eb"
+        ],
+        "unknown_reasons": []
+      },
+      "normative": {
+        "decision": "incorrect",
+        "reference_status": "qualified",
+        "reference_id": "GF0023-2020:刃",
+        "binding_id": "AI-dev-binding:N066",
+        "audit_level": "AI_static_development_not_human_gold",
+        "errors": [
+          "opposite_visible_direction:g_41d33577722f",
+          "opposite_visible_direction:g_853284228d3c",
+          "opposite_visible_direction:g_9c13519201eb"
+        ],
+        "unknown_reasons": []
+      },
+      "expected_execution": "mismatch",
+      "expected_normative": "incorrect",
+      "passed": true
+    },
+    {
+      "sample": "V066-2",
+      "actual_condition": "incorrect",
+      "plan_normative": false,
+      "execution": {
+        "decision": "match",
+        "against_plan": "explicit-reversed-directions",
+        "errors": [],
+        "unknown_reasons": []
+      },
+      "normative": {
+        "decision": "incorrect",
+        "reference_status": "qualified",
+        "reference_id": "GF0023-2020:刃",
+        "binding_id": "AI-dev-binding:N066",
+        "audit_level": "AI_static_development_not_human_gold",
+        "errors": [
+          "opposite_visible_direction:g_41d33577722f",
+          "opposite_visible_direction:g_853284228d3c",
+          "opposite_visible_direction:g_9c13519201eb"
+        ],
+        "unknown_reasons": []
+      },
+      "expected_execution": "match",
+      "expected_normative": "incorrect",
+      "passed": true
+    }
+  ],
+  "conditions": 4,
+  "passed": 4,
+  "new_video_files": 0
+}

@@ -1,0 +1,23 @@
+{
+  "protocol_id": "stroke-video-v2",
+  "experiment_id": "ENV-01",
+  "scope": "Approved minimal partial-parameter native CE/video-FM training and independent-process checkpoint resume; no full-default training or P0 scientific acceptance",
+  "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+  "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+  "seed": 20261027,
+  "gpu_count": 1,
+  "trainable": ["language_model.model.embed_tokens.weight", "language_model.model.layers.27.self_attn.q_proj", "language_model.model.layers.27.self_attn.q_proj_moe_gen", "vae2llm", "llm2vae", "time_embedder"],
+  "trainable_layer_selection": "Replace layer index with actual final decoder layer, preserving the declared module types",
+  "frozen_dtype": "bfloat16",
+  "trainable_dtype": "float32",
+  "optimizer": {"name": "AdamW", "lr": 0.0001, "betas": [0.9, 0.95], "eps": 1e-8, "weight_decay": 0.0, "foreach": false},
+  "scheduler": {"name": "StepLR", "step_size": 1, "gamma": 0.9},
+  "ce_weight": 0.25,
+  "mse_weight": 1.0,
+  "max_grad_norm": 1.0,
+  "input": {"source": "previously approved original observed_strokes.mp4", "frame_sample_fps": 3, "max_duration_seconds": 3, "understanding_resolution": 112, "generation_resolution": 128, "samples_per_task": 1, "data_workers": 0},
+  "checkpoint": {"format": "torch state_dict of all trainable parameters plus immutable pinned base identity, optimizer, scheduler, step, RNG and fixed packed-batch progress", "fresh_process_reload": true, "continuation_reference_steps": 1, "repeat_after_reload_steps": 1},
+  "acceptance": {"loss_finite": true, "expected_gradient_finite_nonzero_per_task": true, "optimizer_changes_target_parameters": true, "checkpoint_parameter_and_state_exact": true, "continuation_loss_atol": 1e-5, "continuation_loss_rtol": 1e-4, "continuation_parameter_atol": 1e-6, "continuation_parameter_rtol": 1e-5, "decord_pixel_max_abs": 3, "decord_timestamp_atol_seconds": 1e-5},
+  "budget": {"spending_cap_cny": null, "actual_bill_cny": null, "use_existing_instance": true},
+  "memory_statement": "Earlier 88.55GiB default-state estimate is conditional on stated dtype/state assumptions; actual default training peak and capacity have not been measured. This run verifies only the declared partial-parameter recipe."
+}

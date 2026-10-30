@@ -1,0 +1,54 @@
+{
+  "protocol_id": "stroke-video-v2",
+  "experiments": [
+    "DATA-01",
+    "EVAL-01"
+  ],
+  "branch": "research/p0-stroke-video-foundation",
+  "base_commit": "6dc1bb23e113e0727cd0306d3238e94d821f4457",
+  "approved_at_recorded_utc": "2026-10-27T15:07:34.888395+00:00",
+  "authorization": {
+    "data": "按推荐范围推进，数据源由你审查选择",
+    "human": "暂时没有，人工核验先保留待办",
+    "resource_and_gates": "同意这些设置"
+  },
+  "compute": "local_CPU_only_no_GPU_or_cloud_access",
+  "counts": {
+    "observer_development_characters": 64,
+    "observer_holdout_characters": 64,
+    "model_train_characters": 320,
+    "model_validation_characters": 64,
+    "model_character_ood_test_characters": 128
+  },
+  "seed": 20261027,
+  "scope": "Licensed PRC-character ordered vectors, original synthetic RGB sequences, source/template group splits, input permissions and controlled G1 template-assisted observation; no real-world observer validity claim",
+  "gates": {
+    "clear_observable_coverage_min": 0.9,
+    "false_accept_one_sided_95_upper_max": 0.05,
+    "independent_group_unit": "character-source template, any confidently wrong negative accepted makes the group a false acceptance",
+    "thresholds_frozen_before_holdout": true,
+    "ambiguous_cases_separate": true,
+    "positive_control_acceptance_min": 0.9,
+    "positive_control_guard": "Pre-evaluation guard against an always-reject observer; retain positive false-rejection rate separately"
+  },
+  "human_review": {
+    "status": "pending_no_human_annotator_available",
+    "no_fabricated_reviews": true,
+    "scientific_acceptance_blocked_until_completed": true
+  },
+  "budget": {
+    "cloud_gpu_hours": 0,
+    "cloud_bill_cny": 0,
+    "existing_instance_lease_untouched": true
+  },
+  "source_selection": [
+    "Make Me a Hanzi immutable graphics revision after COPYING/APL review",
+    "GF0023-2020 official index and page references; PDF retained outside Git"
+  ],
+  "stop_rules": [
+    "License-incompatible sources excluded",
+    "No holdout threshold adjustment; failures retained",
+    "Do not mark DATA-01/EVAL-01 scientifically accepted while independent human review is pending",
+    "Unavailable crossed source/font domains explicitly empty, never relabel same-source augmentation as independent"
+  ]
+}

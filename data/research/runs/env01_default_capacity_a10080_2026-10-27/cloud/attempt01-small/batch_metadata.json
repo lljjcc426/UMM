@@ -1,0 +1,97 @@
+{
+  "sequence_length": 267,
+  "sample_lens": [
+    71,
+    196,
+    757
+  ],
+  "budget": 1024,
+  "consumed_tasks": [
+    "ce",
+    "fm"
+  ],
+  "native_num_tokens": [
+    71,
+    196
+  ],
+  "tensor_shapes": {
+    "packed_text_ids": [
+      267
+    ],
+    "packed_text_indexes": [
+      105
+    ],
+    "packed_position_ids": [
+      267
+    ],
+    "sample_task": [
+      267
+    ],
+    "sample_modality": [
+      267
+    ],
+    "packed_latent_position_ids": [
+      132
+    ],
+    "packed_vae_token_indexes": [
+      132
+    ],
+    "packed_vit_position_ids": [
+      30
+    ],
+    "packed_vit_token_indexes": [
+      30
+    ],
+    "vit_token_seqlens": [
+      1
+    ],
+    "packed_timesteps": [
+      132
+    ],
+    "mse_loss_indexes": [
+      132
+    ],
+    "packed_label_ids": [
+      14
+    ],
+    "ce_loss_indexes": [
+      14
+    ],
+    "ce_loss_weights": [
+      14
+    ],
+    "vae_video_grid_thw": [
+      1,
+      3
+    ],
+    "vit_video_grid_thw": [
+      1,
+      3
+    ]
+  },
+  "video_shapes": [
+    [
+      3,
+      5,
+      96,
+      176
+    ]
+  ],
+  "vit_video_shapes": [
+    [
+      3,
+      6,
+      56,
+      140
+    ]
+  ],
+  "attn_modes": [
+    "causal",
+    "full",
+    "causal",
+    "causal",
+    "noise",
+    "causal",
+    "causal"
+  ]
+}

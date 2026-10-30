@@ -1,0 +1,46 @@
+{
+  "id": "p0-final-independent-calibration-v1",
+  "status": "frozen_waiting_for_real_human_records",
+  "seed": 2026102804,
+  "population": "Fresh count-matched CASIA isolated handwritten records; artificial timing and known per-record G1 geometry",
+  "human_characters": 64,
+  "human_normative_tasks": 64,
+  "human_RGB_tasks": 144,
+  "human_record_tasks": 8,
+  "tasks_per_reviewer": 216,
+  "reviewers": [
+    "1",
+    "2"
+  ],
+  "independent_full_passes": 2,
+  "AI_answers_visible_during_formal_review": false,
+  "reference_examples": 4,
+  "new_human_batches_after_completion": 0,
+  "disagreement_policy": "Preserve disagreement as unknown; no third review round is automatically required",
+  "decisions": {
+    "normative": [
+      "pass",
+      "fail",
+      "unknown"
+    ],
+    "rgb": [
+      "correct",
+      "incorrect",
+      "unknown"
+    ],
+    "record": [
+      "pass",
+      "fail",
+      "unknown"
+    ]
+  },
+  "formal_task_order": "Per-reviewer independently shuffled normative tasks, then shuffled RGB and record tasks; no case/AI/other-human answers",
+  "annotation_scope": "Explicit identity/order and direction judgments; RGB overall process with error reasons; no inferred per-stroke timings or allowed-variant gold",
+  "second_reviewer": "Entire same fixed calibration subset, not only disputes; same actors may have prior AI-visible experience, disclosed",
+  "thresholds_modified": false,
+  "old_holdout_reused": false,
+  "source_license": "CASIA academic research group use only; raw assets private",
+  "no_native_RGB_claim": true,
+  "no_natural_timing_claim": true,
+  "frozen_at_utc": "2026-10-28T14:18:30.793628+00:00"
+}

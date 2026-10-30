@@ -1,0 +1,71 @@
+{
+  "samples": 176,
+  "by_part": {
+    "development": {
+      "source_order": 16,
+      "swap": 2,
+      "reverse": 2,
+      "missing": 2,
+      "extra": 2,
+      "simultaneous": 2,
+      "early_next": 2,
+      "disappear": 2,
+      "blank": 2
+    },
+    "validation": {
+      "source_order": 64,
+      "swap": 8,
+      "sparse": 16,
+      "reverse": 8,
+      "missing": 8,
+      "extra": 8,
+      "simultaneous": 8,
+      "early_next": 8,
+      "disappear": 8,
+      "blank": 8
+    }
+  },
+  "decisions": {
+    "development": {
+      "frozen_observer": {
+        "correct": 14,
+        "incorrect": 16,
+        "unknown": 2
+      },
+      "AI_v1": {
+        "correct": 13,
+        "incorrect": 16,
+        "unknown": 3
+      },
+      "AI_v2": {
+        "correct": 14,
+        "incorrect": 16,
+        "unknown": 2
+      }
+    },
+    "validation": {
+      "frozen_observer": {
+        "correct": 62,
+        "incorrect": 63,
+        "unknown": 19
+      },
+      "AI_v1": {
+        "correct": 54,
+        "incorrect": 64,
+        "unknown": 26
+      },
+      "AI_v2": {
+        "correct": 54,
+        "incorrect": 64,
+        "unknown": 26
+      }
+    }
+  },
+  "human_reference_status": "pending; construction and recorded pen order are not normative gold",
+  "thresholds_modified": false,
+  "old_holdout_runs_added": 0,
+  "tuning_after_new_validation": false,
+  "scientific_acceptance": false,
+  "wall_seconds": 21.551980374999403,
+  "GPU_hours": 0
+}

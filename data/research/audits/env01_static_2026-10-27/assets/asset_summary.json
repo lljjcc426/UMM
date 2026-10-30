@@ -1,0 +1,208 @@
+{
+  "collected_at_utc": "2026-10-27T07:37:06.892029+00:00",
+  "model_id": "bytedance-research/Lance",
+  "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+  "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+  "model_executed": false,
+  "tensor_payload_downloaded": false,
+  "requests": [
+    {
+      "url": "https://huggingface.co/api/models/bytedance-research/Lance/revision/7395315758865e6f56ab87ad06a88c7ac172f056?blobs=true",
+      "status": "ok"
+    },
+    {
+      "url": "https://huggingface.co/bytedance-research/Lance/resolve/7395315758865e6f56ab87ad06a88c7ac172f056/Lance_3B_Video/llm_config.json",
+      "status": "ok"
+    },
+    {
+      "url": "https://huggingface.co/bytedance-research/Lance/resolve/7395315758865e6f56ab87ad06a88c7ac172f056/Lance_3B_Video/generation_config.json",
+      "status": "ok"
+    },
+    {
+      "url": "https://huggingface.co/bytedance-research/Lance/resolve/7395315758865e6f56ab87ad06a88c7ac172f056/Lance_3B_Video/tokenizer_config.json",
+      "status": "ok"
+    },
+    {
+      "url": "https://huggingface.co/bytedance-research/Lance/resolve/7395315758865e6f56ab87ad06a88c7ac172f056/Qwen2.5-VL-ViT/config.json",
+      "status": "ok"
+    },
+    {
+      "url": "https://huggingface.co/bytedance-research/Lance/resolve/7395315758865e6f56ab87ad06a88c7ac172f056/config.json",
+      "status": "ok"
+    },
+    {
+      "url": "https://huggingface.co/bytedance-research/Lance/resolve/7395315758865e6f56ab87ad06a88c7ac172f056/Lance_3B_Video/model.safetensors",
+      "status": "ok",
+      "byte_ranges": [
+        [
+          0,
+          7
+        ],
+        [
+          8,
+          180471
+        ]
+      ]
+    },
+    {
+      "url": "https://huggingface.co/bytedance-research/Lance/resolve/7395315758865e6f56ab87ad06a88c7ac172f056/Qwen2.5-VL-ViT/vit.safetensors",
+      "status": "ok",
+      "byte_ranges": [
+        [
+          0,
+          7
+        ],
+        [
+          8,
+          38983
+        ]
+      ]
+    }
+  ],
+  "required_assets": [
+    {
+      "rfilename": "Lance_3B_Video/generation_config.json",
+      "blobId": "1dfafa23e24b68b694722c6211e7da36730e9917",
+      "size": 216
+    },
+    {
+      "rfilename": "Lance_3B_Video/llm_config.json",
+      "blobId": "0ae1866f05ab0153ad293bdc92bb1b842c4d95b1",
+      "size": 1373
+    },
+    {
+      "rfilename": "Lance_3B_Video/merges.txt",
+      "blobId": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+      "size": 1671839
+    },
+    {
+      "rfilename": "Lance_3B_Video/model.safetensors",
+      "blobId": "4fa508ba4f4b29907de4fa0a3e980d1908ce06f7",
+      "size": 14211277144,
+      "lfs": {
+        "sha256": "7f0550e1d1511b29a4740a67c1e18e176302a4ecb3177c8a5850ff5fe6447c25",
+        "size": 14211277144,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "Lance_3B_Video/tokenizer.json",
+      "blobId": "443909a61d429dff23010e5bddd28ff530edda00",
+      "size": 7031645
+    },
+    {
+      "rfilename": "Lance_3B_Video/tokenizer_config.json",
+      "blobId": "91684ea3dc135a7d815e2c932054ce88c1aab41f",
+      "size": 5702
+    },
+    {
+      "rfilename": "Lance_3B_Video/vocab.json",
+      "blobId": "4783fe10ac3adce15ac8f358ef5462739852c569",
+      "size": 2776833
+    },
+    {
+      "rfilename": "Qwen2.5-VL-ViT/config.json",
+      "blobId": "96173aec46a5a08000d931ae57a0a8f068b3b523",
+      "size": 552
+    },
+    {
+      "rfilename": "Qwen2.5-VL-ViT/vit.safetensors",
+      "blobId": "e2bb30171107b9153c3184a9024a006c437cb8a9",
+      "size": 1337407560,
+      "lfs": {
+        "sha256": "78714e560781576a00c030e60383db3c71698083d0c5d493dc628c10dc1a9094",
+        "size": 1337407560,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "Wan2.2_VAE.pth",
+      "blobId": "2264ad59a1f3be73cf56ff0dcf7d0a8e06efe8ed",
+      "size": 2818839170,
+      "lfs": {
+        "sha256": "20eb789667fa5e60e7516bf509512f6cb61f01b0aa0695eadaea930c13892b36",
+        "size": 2818839170,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "config.json",
+      "blobId": "a545677f37cadb19cecd725cb7cd3b61d0e0e9cc",
+      "size": 901
+    }
+  ],
+  "required_asset_bytes": 18379012935,
+  "safetensors": {
+    "Lance_3B_Video/model.safetensors": {
+      "header_bytes": 180464,
+      "tensor_count": 1411,
+      "tensor_elements_by_dtype": {
+        "BF16": 7105548336
+      },
+      "storage_bytes_by_dtype": {
+        "BF16": 14211096672
+      },
+      "tensor_elements_by_prefix": {
+        "language_model.lm_head": 311164928,
+        "language_model.model": 5860730880,
+        "latent_pos_embed.pos_embed": 260046848,
+        "llm2vae.bias": 48,
+        "llm2vae.weight": 98304,
+        "time_embedder.mlp": 4722688,
+        "vae2llm.bias": 2048,
+        "vae2llm.weight": 98304,
+        "vit_model.blocks": 630470400,
+        "vit_model.merger": 36708608,
+        "vit_model.patch_embed": 1505280
+      }
+    },
+    "Qwen2.5-VL-ViT/vit.safetensors": {
+      "header_bytes": 38976,
+      "tensor_count": 390,
+      "tensor_elements_by_dtype": {
+        "BF16": 668684288
+      },
+      "storage_bytes_by_dtype": {
+        "BF16": 1337368576
+      },
+      "tensor_elements_by_prefix": {
+        "blocks.0": 19702200,
+        "blocks.1": 19702200,
+        "blocks.10": 19702200,
+        "blocks.11": 19702200,
+        "blocks.12": 19702200,
+        "blocks.13": 19702200,
+        "blocks.14": 19702200,
+        "blocks.15": 19702200,
+        "blocks.16": 19702200,
+        "blocks.17": 19702200,
+        "blocks.18": 19702200,
+        "blocks.19": 19702200,
+        "blocks.2": 19702200,
+        "blocks.20": 19702200,
+        "blocks.21": 19702200,
+        "blocks.22": 19702200,
+        "blocks.23": 19702200,
+        "blocks.24": 19702200,
+        "blocks.25": 19702200,
+        "blocks.26": 19702200,
+        "blocks.27": 19702200,
+        "blocks.28": 19702200,
+        "blocks.29": 19702200,
+        "blocks.3": 19702200,
+        "blocks.30": 19702200,
+        "blocks.31": 19702200,
+        "blocks.4": 19702200,
+        "blocks.5": 19702200,
+        "blocks.6": 19702200,
+        "blocks.7": 19702200,
+        "blocks.8": 19702200,
+        "blocks.9": 19702200,
+        "merger.ln_q": 1280,
+        "merger.mlp": 36707328,
+        "patch_embed.proj": 1505280
+      }
+    }
+  },
+  "collection_status": "completed"
+}

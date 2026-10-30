@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "status": "prepared_not_authorized_for_GPU",
+  "experiment_ids": [
+    "SO-00",
+    "BASE-01",
+    "EVAL-02",
+    "SO-01"
+  ],
+  "model": {
+    "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+    "weight_repository": "bytedance-research/Lance",
+    "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056"
+  },
+  "native": {
+    "num_frames": 33,
+    "height": 480,
+    "width": 848,
+    "fps": 12,
+    "denoising_steps": 30,
+    "cfg_text_scale": 4.0,
+    "enhance_prompt": false,
+    "use_kv_cache": true,
+    "expected_gpu_count": 1
+  },
+  "seeds": [
+    11,
+    29,
+    47
+  ],
+  "strata": [
+    {
+      "name": "crossing_and_fold",
+      "ids": [
+        "N076",
+        "N019"
+      ]
+    },
+    {
+      "name": "separated_and_oblique",
+      "ids": [
+        "N079",
+        "N039"
+      ]
+    },
+    {
+      "name": "roof_and_hook",
+      "ids": [
+        "N030",
+        "N066"
+      ]
+    },
+    {
+      "name": "stacked_and_turn",
+      "ids": [
+        "N043",
+        "N017"
+      ]
+    }
+  ],
+  "pilot_ids": [
+    "N076",
+    "N079",
+    "N030",
+    "N019"
+  ],
+  "pilot_seeds": [
+    11,
+    29
+  ],
+  "conditions": [
+    "T_G0_native_simple",
+    "T_G0_order_text",
+    "T_G0_blank_i2v",
+    "T_G1_template_text"
+  ],
+  "reference_policy": {
+    "normative_source": "GF0023-2020 official reference crops and document page",
+    "required_existing_human_scope": "paired global normative identity_order and direction pass, without adverse reasons",
+    "geometry_audit_level": "AI_static_development_not_human_gold",
+    "formal_per_stroke_gold": false,
+    "model_outputs_evaluated_independently": true,
+    "old_holdout_is_exposed": true
+  },
+  "resources": {
+    "recommended_GPU": "1x NVIDIA A100-SXM4-80GB",
+    "host_CPU_cores": 16,
+    "host_RAM_GB": 48,
+    "disk_GB": 200,
+    "measured_t2v_device_peak_MiB": 37257,
+    "measured_t2v_including_load_seconds": 135.27616766699975,
+    "measured_x2t_including_load_seconds": 88.06394590000036,
+    "estimated_active_GPU_hours_pilot": 1,
+    "estimated_active_GPU_hours_full": 4,
+    "proposed_rental_hours_pilot": [
+      3,
+      6
+    ],
+    "proposed_rental_hours_full": [
+      6,
+      12
+    ],
+    "advertised_CNY_per_hour": 8.0,
+    "price_reference": "data/research/plans/p1_baseline_2026-10-30/price_reference.json",
+    "budget_is_proposal_not_approval": true
+  },
+  "human_review": {
+    "reviewers": 2,
+    "blind_to_method_seed_auto": true,
+    "dimensions": [
+      "stroke_order",
+      "direction",
+      "completeness",
+      "historical_ink_preservation",
+      "temporal_observability",
+      "final_glyph"
+    ],
+    "values": [
+      "correct",
+      "incorrect",
+      "unknown",
+      "not_applicable"
+    ],
+    "independent_before_reconciliation": true,
+    "new_tasks_assigned_now": 0
+  },
+  "constraints": {
+    "GPU_authorized": false,
+    "training_authorized": false,
+    "download_new_data_authorized": false,
+    "automatic_primary_judge": false,
+    "new_holdout": false
+  },
+  "protocol_changes_require_new_version": true,
+  "P0_final_scientific_approval_reference": "data/research/runs/p0_final_acceptance_2026-10-30/final_scientific_approval.json",
+  "research_priority": "Observe actual UMM-generated RGB stroke-order errors, then compare targeted improvements; high-reliability automatic scoring is optional"
+}

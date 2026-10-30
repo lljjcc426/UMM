@@ -1,0 +1,94 @@
+{
+  "scope": "Local unit tests, schema checks, shell syntax and command construction only; no GPU/model execution",
+  "passed": true,
+  "checks": [
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-m",
+        "unittest",
+        "tests.test_env01_interfaces",
+        "tests.test_research_v2",
+        "tests.test_stage_release"
+      ],
+      "exit_code": 0,
+      "output": "........................\n----------------------------------------------------------------------\nRan 24 tests in 0.006s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_research_v2.py"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"passed\": true,\n  \"protocol_id\": \"stroke-video-v2\",\n  \"experiments\": 17,\n  \"local_files_checked\": 7,\n  \"errors\": [],\n  \"model_results_verified\": false,\n  \"scope\": \"v2 schema, dependencies, information and baseline contracts only; no model performance validation\"\n}\n"
+    },
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "scripts/validate_stage_release.py"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"passed\": true,\n  \"errors\": [],\n  \"mode\": \"development\",\n  \"phase\": \"P0\",\n  \"branch\": \"research/p0-stroke-video-foundation\",\n  \"experiments\": 3,\n  \"scientific_claims_verified\": false\n}\n"
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "scripts/env01/bootstrap.sh"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "private/env01_deployment_final_2026-10-27/env01-cloud/tools/run_interfaces.py",
+        "--bundle",
+        "private/env01_deployment_final_2026-10-27/env01-cloud",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "output": "{\"task\": \"x2t_video\", \"argv\": [\"--model_path\", \"/Users/cc/Documents/UMM/private/env01_deployment_final_2026-10-27/env01-cloud/upstream/downloads/Lance_3B_Video\", \"--vit_path\", \"/Users/cc/Documents/UMM/private/env01_deployment_final_2026-10-27/env01-cloud/upstream/downloads/Qwen2.5-VL-ViT\", \"--vit_type\", \"qwen_2_5_vl_original\", \"--llm_qk_norm\", \"true\", \"--llm_qk_norm_und\", \"true\", \"--llm_qk_norm_gen\", \"true\", \"--tie_word_embeddings\", \"false\", \"--validation_num_timesteps\", \"30\", \"--validation_timestep_shift\", \"3.5\", \"--copy_init_moe\", \"true\", \"--max_num_frames\", \"121\", \"--max_latent_size\", \"64\", \"--visual_und\", \"true\", \"--visual_gen\", \"true\", \"--vae_model_type\", \"wan\", \"--apply_qwen_2_5_vl_pos_emb\", \"true\", \"--apply_chat_template\", \"false\", \"--cfg_type\", \"0\", \"--global_seed\", \"11\", \"--validation_data_seed\", \"11\", \"--video_height\", \"480\", \"--video_width\", \"848\", \"--num_frames\", \"33\", \"--task\", \"x2t_video\", \"--save_path_gen\", \"/Users/cc/Documents/UMM/private/env01_deployment_final_2026-10-27/env01-cloud/runs/EXAMPLE/x2t_video/outputs\", \"--resolution\", \"video_480p\", \"--text_template\", \"true\", \"--cfg_text_scale\", \"4.0\", \"--use_KVcache\", \"true\", \"--enhance_prompt\", \"false\", \"--val_dataset_config_file\", \"/Users/cc/Documents/UMM/private/env01_deployment_final_2026-10-27/env01-cloud/inputs/x2t_video.json\", \"--latent_patch_size\", \"1\", \"1\", \"1\"]}\n{\"task\": \"t2v\", \"argv\": [\"--model_path\", \"/Users/cc/Documents/UMM/private/env01_deployment_final_2026-10-27/env01-cloud/upstream/downloads/Lance_3B_Video\", \"--vit_path\", \"/Users/cc/Documents/UMM/private/env01_deployment_final_2026-10-27/env01-cloud/upstream/downloads/Qwen2.5-VL-ViT\", \"--vit_type\", \"qwen_2_5_vl_original\", \"--llm_qk_norm\", \"true\", \"--llm_qk_norm_und\", \"true\", \"--llm_qk_norm_gen\", \"true\", \"--tie_word_embeddings\", \"false\", \"--validation_num_timesteps\", \"30\", \"--validation_timestep_shift\", \"3.5\", \"--copy_init_moe\", \"true\", \"--max_num_frames\", \"121\", \"--max_latent_size\", \"64\", \"--visual_und\", \"true\", \"--visual_gen\", \"true\", \"--vae_model_type\", \"wan\", \"--apply_qwen_2_5_vl_pos_emb\", \"true\", \"--apply_chat_template\", \"false\", \"--cfg_type\", \"0\", \"--global_seed\", \"11\", \"--validation_data_seed\", \"11\", \"--video_height\", \"480\", \"--video_width\", \"848\", \"--num_frames\", \"33\", \"--task\", \"t2v\", \"--save_path_gen\", \"/Users/cc/Documents/UMM/private/env01_deployment_final_2026-10-27/env01-cloud/runs/EXAMPLE/t2v/outputs\", \"--resolution\", \"video_480p\", \"--text_template\", \"true\", \"--cfg_text_scale\", \"4.0\", \"--use_KVcache\", \"true\", \"--enhance_prompt\", \"false\", \"--val_dataset_config_file\", \"/Users/cc/Documents/UMM/private/env01_deployment_final_2026-10-27/env01-cloud/inputs/t2v.json\", \"--latent_patch_size\", \"1\", \"1\", \"1\"]}\n{\"task\": \"i2v\", \"argv\": [\"--model_path\", \"/Users/cc/Documents/UMM/private/env01_deployment_final_2026-10-27/env01-cloud/upstream/downloads/Lance_3B_Video\", \"--vit_path\", \"/Users/cc/Documents/UMM/private/env01_deployment_final_2026-10-27/env01-cloud/upstream/downloads/Qwen2.5-VL-ViT\", \"--vit_type\", \"qwen_2_5_vl_original\", \"--llm_qk_norm\", \"true\", \"--llm_qk_norm_und\", \"true\", \"--llm_qk_norm_gen\", \"true\", \"--tie_word_embeddings\", \"false\", \"--validation_num_timesteps\", \"30\", \"--validation_timestep_shift\", \"3.5\", \"--copy_init_moe\", \"true\", \"--max_num_frames\", \"121\", \"--max_latent_size\", \"64\", \"--visual_und\", \"true\", \"--visual_gen\", \"true\", \"--vae_model_type\", \"wan\", \"--apply_qwen_2_5_vl_pos_emb\", \"true\", \"--apply_chat_template\", \"false\", \"--cfg_type\", \"0\", \"--global_seed\", \"11\", \"--validation_data_seed\", \"11\", \"--video_height\", \"480\", \"--video_width\", \"848\", \"--num_frames\", \"33\", \"--task\", \"i2v\", \"--save_path_gen\", \"/Users/cc/Documents/UMM/private/env01_deployment_final_2026-10-27/env01-cloud/runs/EXAMPLE/i2v/outputs\", \"--resolution\", \"video_480p\", \"--text_template\", \"true\", \"--cfg_text_scale\", \"4.0\", \"--use_KVcache\", \"true\", \"--enhance_prompt\", \"false\", \"--val_dataset_config_file\", \"/Users/cc/Documents/UMM/private/env01_deployment_final_2026-10-27/env01-cloud/inputs/i2v.json\", \"--latent_patch_size\", \"1\", \"1\", \"1\"]}\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_catalog.py"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"passed\": true,\n  \"records\": 360,\n  \"papers\": 333,\n  \"resources\": 27,\n  \"markdown_files_checked\": 941,\n  \"errors\": [],\n  \"warnings\": [\n    \"External links not availability-tested by this offline validator.\",\n    \"No learned-model inference, accuracy benchmark, or speed test performed.\"\n  ]\n}\n"
+    },
+    {
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_research_plan.py"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"passed\": true,\n  \"protocol_id\": \"stroke-video-v1\",\n  \"experiments\": 14,\n  \"local_files_checked\": 7,\n  \"errors\": [],\n  \"model_results_verified\": false,\n  \"scope\": \"schema/dependencies/local paths only; no dataset, judge or model validation\"\n}\n"
+    },
+    {
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output": "test_valid_catalog (test_catalog.CatalogTest.test_valid_catalog) ... ok\ntest_empty_native_answer_cannot_pass (test_env01_interfaces.NativeInterfaceEvidence.test_empty_native_answer_cannot_pass) ... ok\ntest_execution_records_both_model_and_noise_seeds (test_env01_interfaces.NativeInterfaceEvidence.test_execution_records_both_model_and_noise_seeds) ... ok\ntest_process_failure_retains_measurements_and_denominator (test_env01_interfaces.NativeInterfaceEvidence.test_process_failure_retains_measurements_and_denominator) ... ok\ntest_success_exit_without_artifact_is_failure (test_env01_interfaces.NativeInterfaceEvidence.test_success_exit_without_artifact_is_failure) ... ok\ntest_reverse_direction_and_early_next_stroke (test_process_probe.ProcessProbeTest.test_reverse_direction_and_early_next_stroke) ... ok\ntest_same_final_different_order (test_process_probe.ProcessProbeTest.test_same_final_different_order) ... ok\ntest_two_frames_do_not_establish_order (test_process_probe.ProcessProbeTest.test_two_frames_do_not_establish_order) ... ok\ntest_bool_is_not_count (test_research_plan.ResearchPlanTests.test_bool_is_not_count) ... ok\ntest_completed_requires_evidence (test_research_plan.ResearchPlanTests.test_completed_requires_evidence) ... ok\ntest_configured_budget_requires_values (test_research_plan.ResearchPlanTests.test_configured_budget_requires_values) ... ok\ntest_cycle (test_research_plan.ResearchPlanTests.test_cycle) ... ok\ntest_duplicate_ids (test_research_plan.ResearchPlanTests.test_duplicate_ids) ... ok\ntest_duplicate_seed (test_research_plan.ResearchPlanTests.test_duplicate_seed) ... ok\ntest_gate_nan (test_research_plan.ResearchPlanTests.test_gate_nan) ... ok\ntest_invalid_record_type (test_research_plan.ResearchPlanTests.test_invalid_record_type) ... ok\ntest_invalid_top_level (test_research_plan.ResearchPlanTests.test_invalid_top_level) ... ok\ntest_paths (test_research_plan.ResearchPlanTests.test_paths) ... ok\ntest_planned_cannot_claim_results (test_research_plan.ResearchPlanTests.test_planned_cannot_claim_results) ... ok\ntest_protocol_mismatch (test_research_plan.ResearchPlanTests.test_protocol_mismatch) ... ok\ntest_split_total (test_research_plan.ResearchPlanTests.test_split_total) ... ok\ntest_two_node_cycle (test_research_plan.ResearchPlanTests.test_two_node_cycle) ... ok\ntest_unknown_dependency (test_research_plan.ResearchPlanTests.test_unknown_dependency) ... ok\ntest_valid_design (test_research_plan.ResearchPlanTests.test_valid_design) ... ok\ntest_cpu_calibration_is_independent (test_research_v2.V2Contracts.test_cpu_calibration_is_independent) ... ok\ntest_invalid_top_level (test_research_v2.V2Contracts.test_invalid_top_level) ... ok\ntest_missing_adaptation_experiment (test_research_v2.V2Contracts.test_missing_adaptation_experiment) ... ok\ntest_no_indirect_optional_dependency (test_research_v2.V2Contracts.test_no_indirect_optional_dependency) ... ok\ntest_no_optional_dependency_on_core (test_research_v2.V2Contracts.test_no_optional_dependency_on_core) ... ok\ntest_no_oracle_boundaries (test_research_v2.V2Contracts.test_no_oracle_boundaries) ... ok\ntest_no_self_log_truth (test_research_v2.V2Contracts.test_no_self_log_truth) ... ok\ntest_no_unsupported_sharing_claim (test_research_v2.V2Contracts.test_no_unsupported_sharing_claim) ... ok\ntest_primary_is_generation (test_research_v2.V2Contracts.test_primary_is_generation) ... ok\ntest_repository_design_and_paths (test_research_v2.V2Contracts.test_repository_design_and_paths) ... ok\ntest_schema_rejects_fabricated_completion (test_research_v2.V2Contracts.test_schema_rejects_fabricated_completion) ... ok\ntest_sft_baseline_cannot_disappear (test_research_v2.V2Contracts.test_sft_baseline_cannot_disappear) ... ok\ntest_draft_can_pass_branch_development (test_stage_release.ResearchStageGateTests.test_draft_can_pass_branch_development) ... ok\ntest_evidence_outside_repo_rejected (test_stage_release.ResearchStageGateTests.test_evidence_outside_repo_rejected) ... ok\ntest_incomplete_experiment_list_rejected (test_stage_release.ResearchStageGateTests.test_incomplete_experiment_list_rejected) ... ok\ntest_incorrect_head_branch_cannot_promote (test_stage_release.ResearchStageGateTests.test_incorrect_head_branch_cannot_promote) ... ok\ntest_missing_run_file_fails_even_when_completed (test_stage_release.ResearchStageGateTests.test_missing_run_file_fails_even_when_completed) ... ok\ntest_ready_without_artifacts_fails (test_stage_release.ResearchStageGateTests.test_ready_without_artifacts_fails) ... ok\ntest_unfinished_stage_cannot_pass_merge_gate (test_stage_release.ResearchStageGateTests.test_unfinished_stage_cannot_pass_merge_gate) ... ok\ntest_verified_negative_is_valid_release_type (test_stage_release.ResearchStageGateTests.test_verified_negative_is_valid_release_type) ... ok\ntest_empty (test_stroke_metrics.EventMetricTest.test_empty) ... ok\ntest_extra (test_stroke_metrics.EventMetricTest.test_extra) ... ok\ntest_identical (test_stroke_metrics.EventMetricTest.test_identical) ... ok\ntest_invalid (test_stroke_metrics.EventMetricTest.test_invalid) ... ok\ntest_missing (test_stroke_metrics.EventMetricTest.test_missing) ... ok\ntest_swap_is_not_exact (test_stroke_metrics.EventMetricTest.test_swap_is_not_exact) ... ok\n\n----------------------------------------------------------------------\nRan 50 tests in 0.142s\n\nOK\n"
+    }
+  ],
+  "model_results_verified": false,
+  "runtime_installation_verified": false
+}

@@ -1,0 +1,43 @@
+D1:
+  x2t_interleave_local:
+    dataset_names:
+      env01_original:
+        data_dir:
+        - /root/umm-env01-20261027-a10080/env01-training-reload/attempt02/ce.parquet
+    dataset_type: x2t_general
+    debug_parquet_repeat: 1
+    is_image: false
+    is_mandatory: false
+    raw_bytes_input: true
+    task_type: tv2t
+    text_template: true
+    video_frame_sampler_args:
+      params:
+        assert_seconds: false
+        max_duration: 3
+        sample_fps: 3
+        temporal: 4
+        truncate: false
+      res_dump:
+      - 12fps_480p
+      type: multi_clips
+    video_transform_args:
+      aspect_ratios:
+      - '21:9'
+      - '16:9'
+      - '4:3'
+      - '1:1'
+      - '3:4'
+      - '9:16'
+      divisible_crop_size: 28
+      mean:
+      - 0.48145466
+      - 0.4578275
+      - 0.40821073
+      mode: bucket
+      resolution: 112
+      std:
+      - 0.26862954
+      - 0.26130258
+      - 0.27577711
+    weight: 1.0

@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "command": [
+        "bash",
+        "-n",
+        "scripts/env01/bootstrap.sh"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests"
+      ],
+      "exit_code": 0,
+      "output": "..................................................\n----------------------------------------------------------------------\nRan 50 tests in 0.241s\n\nOK\n"
+    },
+    {
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_catalog.py"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"passed\": true,\n  \"records\": 360,\n  \"papers\": 333,\n  \"resources\": 27,\n  \"markdown_files_checked\": 941,\n  \"errors\": [],\n  \"warnings\": [\n    \"External links not availability-tested by this offline validator.\",\n    \"No learned-model inference, accuracy benchmark, or speed test performed.\"\n  ]\n}\n"
+    },
+    {
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_research_v2.py"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"passed\": true,\n  \"protocol_id\": \"stroke-video-v2\",\n  \"experiments\": 17,\n  \"local_files_checked\": 7,\n  \"errors\": [],\n  \"model_results_verified\": false,\n  \"scope\": \"v2 schema, dependencies, information and baseline contracts only; no model performance validation\"\n}\n"
+    },
+    {
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_stage_release.py"
+      ],
+      "exit_code": 0,
+      "output": "{\n  \"passed\": true,\n  \"errors\": [],\n  \"mode\": \"development\",\n  \"phase\": \"P0\",\n  \"branch\": \"research/p0-stroke-video-foundation\",\n  \"experiments\": 3,\n  \"scientific_claims_verified\": false\n}\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "archive_plan_and_installer_consistent": true,
+  "model_execution_verified": false,
+  "runtime_installation_verified": false
+}

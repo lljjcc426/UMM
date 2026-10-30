@@ -1,0 +1,23 @@
+[startup] Loading LLM config: /root/umm-env01-20261027-a10080/env01-cloud/upstream/downloads/Lance_3B_Video/llm_config.json
+Missing validation function mapping in `ROPE_VALIDATION_FUNCTIONS` for 'rope_type'='mrope'
+[startup] LLM config load done in 0.00s
+[startup] Initializing LLM weights: /root/umm-env01-20261027-a10080/env01-cloud/upstream/downloads/Lance_3B_Video
+[startup] LLM weight init done in 35.00s
+[startup] Loading VIT config: /root/umm-env01-20261027-a10080/env01-cloud/upstream/downloads/Qwen2.5-VL-ViT
+[startup] VIT config load done in 0.00s
+[startup] Loading VIT weights: /root/umm-env01-20261027-a10080/env01-cloud/upstream/downloads/Qwen2.5-VL-ViT/vit.safetensors
+[startup] VIT weight load done in 3.93s
+[startup] Initializing VAE
+[2026-10-27 19:50:19,590] [/root/umm-env01-20261027-a10080/env01-cloud/upstream/modeling/vae/wan/vae2_2.py:855][MainThread][root][INFO] loading downloads/Wan2.2_VAE.pth
+[startup] VAE init done in 2.30s
+[startup] Moving Lance model to GPU 0
+[startup] Lance model move to GPU done in 5.00s
+[startup] Loading tokenizer: /root/umm-env01-20261027-a10080/env01-cloud/upstream/downloads/Lance_3B_Video
+[startup] tokenizer load and special token init done in 0.19s | num_new_tokens=0
+[startup] Loading dataset config and validation set: /root/umm-env01-20261027-a10080/env01-cloud/runs/20261027T114559963105Z/inputs/i2v.json
+[startup] validation set and DataLoader init done in 0.00s | dataset_size=1
+
+Validating:   0%|                                      | 0/1 [00:00<?, ?batch/s]video or image saved to /root/umm-env01-20261027-a10080/env01-cloud/runs/20261027T114559963105Z/i2v/outputs/000001.mp4
+
+Validating: 100%|██████████████████████████████| 1/1 [01:00<00:00, 60.93s/batch]
+Validating: 100%|██████████████████████████████| 1/1 [01:00<00:00, 60.93s/batch]

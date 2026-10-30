@@ -1,0 +1,9 @@
+{
+  "fixed_at_utc": "2026-10-28T13:39:29.138158+00:00",
+  "issue": "Initial prefix renderer resampled each stroke to13 points, simplifying bends and changing terminal geometry (first observed IoU0.8794). All176 initial media/predictions preserved as invalid reconstruction evidence, not gold.",
+  "change": "Retain original bends, interpolate only moving endpoint, accumulate monotonic ink within full static stroke geometry.",
+  "observer_or_threshold_modified": false,
+  "independent_new_records": "All80 prior (writer, character) pairs excluded; each selected pair is new. Character identities may recur under different writers. Writers retain prior invalid-render exposure; no fully unseen-writer claim after repair.",
+  "new_human_workload_unchanged": true,
+  "old_2752_media_untouched": true
+}

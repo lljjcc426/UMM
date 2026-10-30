@@ -2,8 +2,14 @@ name: Validate research repository
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - 'research/**'
+      - 'feat/**'
+      - 'fix/**'
+      - 'exp/**'
     paths:
+      - 'AGENTS.md'
       - 'README.md'
       - 'CONTRIBUTING.md'
       - 'docs/**'
@@ -12,32 +18,62 @@ on:
       - 'templates/**'
       - 'scripts/**'
       - 'tests/**'
-      - '.github/workflows/validate-research.yml'
+      - '.github/**'
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review, converted_to_draft]
+    paths:
+      - 'AGENTS.md'
+      - 'README.md'
+      - 'CONTRIBUTING.md'
+      - 'docs/**'
+      - 'data/**'
+      - 'configs/research/**'
+      - 'templates/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/**'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  validate:
+  engineering:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Checkout fixed revision
+      - name: Checkout pinned action
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
           persist-credentials: false
-      - name: Python environment
-        run: python3 --version
-      - name: Validate catalog and all local Markdown links
-        run: python3 scripts/validate_catalog.py
-      - name: Validate legacy v1 compatibility
-        run: python3 scripts/validate_research_plan.py --output reports/research_plan_v1_validation.json
-      - name: Validate active v2 research contracts
-        run: python3 scripts/validate_research_v2.py --output reports/research_plan_v2_validation.json
-      - name: Legacy research validator unit tests
-        run: python3 -m unittest discover -s tests -p 'test_research_plan.py' -v
-      - name: V2 information and baseline contract tests
-        run: python3 -m unittest tests.test_research_v2 -v
-      - name: Existing annotated-event sequence tests
-        run: python3 -m unittest tests.test_stroke_metrics -v
+      - name: Set up isolated test runtime
+        run: |
+          python3 -m venv .venv-ci
+          .venv-ci/bin/python -m pip install --disable-pip-version-check -r requirements.txt
+      - name: Validate full repository, research v1 and v2
+        run: |
+          .venv-ci/bin/python scripts/validate_catalog.py
+          .venv-ci/bin/python scripts/validate_research_plan.py --output reports/research_plan_v1_validation.json
+          .venv-ci/bin/python scripts/validate_research_v2.py --output reports/research_plan_v2_validation.json
+      - name: Validate stage manifest in draft or candidate state
+        run: .venv-ci/bin/python scripts/validate_stage_release.py
+      - name: Run full regression tests
+        run: .venv-ci/bin/python -m unittest discover -s tests -v
+
+  # Draft review checks evidence; non-draft research PRs also require approval.
+  validate:
+    needs: engineering
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Require engineering checks to pass
+        if: needs.engineering.result != 'success'
+        run: exit 1
+      - name: Checkout pinned action
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - name: Validate review state and require approval for merge candidates
+        run: python3 scripts/validate_stage_release.py --github-event

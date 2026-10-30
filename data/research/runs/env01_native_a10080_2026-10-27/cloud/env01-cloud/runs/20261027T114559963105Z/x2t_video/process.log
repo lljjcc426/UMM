@@ -1,0 +1,114 @@
+[startup] Loading LLM config: /root/umm-env01-20261027-a10080/env01-cloud/upstream/downloads/Lance_3B_Video/llm_config.json
+Missing validation function mapping in `ROPE_VALIDATION_FUNCTIONS` for 'rope_type'='mrope'
+[startup] LLM config load done in 0.00s
+[startup] Initializing LLM weights: /root/umm-env01-20261027-a10080/env01-cloud/upstream/downloads/Lance_3B_Video
+[startup] LLM weight init done in 35.15s
+[startup] Loading VIT config: /root/umm-env01-20261027-a10080/env01-cloud/upstream/downloads/Qwen2.5-VL-ViT
+[startup] VIT config load done in 0.00s
+[startup] Loading VIT weights: /root/umm-env01-20261027-a10080/env01-cloud/upstream/downloads/Qwen2.5-VL-ViT/vit.safetensors
+[startup] VIT weight load done in 5.77s
+[startup] Initializing VAE
+[2026-10-27 19:46:47,789] [/root/umm-env01-20261027-a10080/env01-cloud/upstream/modeling/vae/wan/vae2_2.py:855][MainThread][root][INFO] loading downloads/Wan2.2_VAE.pth
+[startup] VAE init done in 5.97s
+[startup] Moving Lance model to GPU 0
+[startup] Lance model move to GPU done in 3.76s
+[startup] Loading tokenizer: /root/umm-env01-20261027-a10080/env01-cloud/upstream/downloads/Lance_3B_Video
+[startup] tokenizer load and special token init done in 0.18s | num_new_tokens=0
+[startup] Loading dataset config and validation set: /root/umm-env01-20261027-a10080/env01-cloud/runs/20261027T114559963105Z/inputs/x2t_video.json
+[startup] validation set and DataLoader init done in 0.00s | dataset_size=1
+
+Validating:   0%|                                      | 0/1 [00:00<?, ?batch/s]/usr/bin/ld: skipping incompatible /lib/i386-linux-gnu/libcuda.so when searching for -lcuda
+/usr/bin/ld: cannot find -lcuda: No such file or directory
+/usr/bin/ld: skipping incompatible /lib/i386-linux-gnu/libcuda.so when searching for -lcuda
+collect2: error: ld returned 1 exit status
+
+Validating:   0%|                                      | 0/1 [00:01<?, ?batch/s]
+Traceback (most recent call last):
+  File "/root/umm-env01-20261027-a10080/env01-cloud/tools/run_interfaces.py", line 87, in worker
+    runpy.run_path(str(source / "inference_lance.py"), run_name="__main__")
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/root/umm-env01-20261027-a10080/env01-cloud/upstream/inference_lance.py", line 691, in <module>
+    main()
+  File "/root/umm-env01-20261027-a10080/env01-cloud/upstream/inference_lance.py", line 640, in main
+    validate_on_fixed_batch(
+  File "/root/umm-env01-20261027-a10080/env01-cloud/upstream/inference_lance.py", line 382, in validate_on_fixed_batch
+    generated_sequence_all, captions, index = fsdp_model.validation_und_KVcache(**params)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/upstream/modeling/lance/lance.py", line 1050, in validation_und_KVcache
+    packed_vit_token_embed = self.vit_model(hidden_states=current_val_packed_vit_tokens, grid_thw=current_val_vit_video_grid_thw)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/upstream/modeling/vit/qwen2_5_vl_vit.py", line 488, in forward
+    hidden_states = blk(hidden_states, cu_seqlens=cu_seqlens_now, position_embeddings=position_embeddings)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/upstream/modeling/vit/qwen2_5_vl_vit.py", line 310, in forward
+    hidden_states = hidden_states + self.attn(
+                                    ^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/upstream/modeling/vit/qwen2_5_vl_vit.py", line 166, in forward
+    q, k = apply_rotary_pos_emb_flashatt(q.unsqueeze(0), k.unsqueeze(0), cos, sin)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/upstream/modeling/vit/qwen2_5_vl_vit.py", line 133, in apply_rotary_pos_emb_flashatt
+    q_embed = apply_rotary_emb(q.float(), cos, sin).type_as(q)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/flash_attn/layers/rotary.py", line 122, in apply_rotary_emb
+    return ApplyRotaryEmb.apply(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/autograd/function.py", line 575, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/flash_attn/layers/rotary.py", line 48, in forward
+    out = apply_rotary(
+          ^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/flash_attn/ops/triton/rotary.py", line 202, in apply_rotary
+    rotary_kernel[grid](
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/triton/runtime/jit.py", line 345, in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/triton/runtime/jit.py", line 607, in run
+    device = driver.active.get_current_device()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/triton/runtime/driver.py", line 23, in __getattr__
+    self._initialize_obj()
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/triton/runtime/driver.py", line 20, in _initialize_obj
+    self._obj = self._init_fn()
+                ^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/triton/runtime/driver.py", line 9, in _create_driver
+    return actives[0]()
+           ^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/triton/backends/nvidia/driver.py", line 371, in __init__
+    self.utils = CudaUtils()  # TODO: make static
+                 ^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/triton/backends/nvidia/driver.py", line 80, in __init__
+    mod = compile_module_from_src(Path(os.path.join(dirname, "driver.c")).read_text(), "cuda_utils")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/triton/backends/nvidia/driver.py", line 57, in compile_module_from_src
+    so = _build(name, src_path, tmpdir, library_dirs(), include_dir, libraries)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/triton/runtime/build.py", line 48, in _build
+    ret = subprocess.check_call(cc_cmd)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['/usr/bin/gcc', '/tmp/tmp1li__5z7/main.c', '-O3', '-shared', '-fPIC', '-o', '/tmp/tmp1li__5z7/cuda_utils.cpython-311-x86_64-linux-gnu.so', '-lcuda', '-L/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/triton/backends/nvidia/lib', '-L/lib/x86_64-linux-gnu', '-L/lib/i386-linux-gnu', '-I/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/triton/backends/nvidia/include', '-I/tmp/tmp1li__5z7', '-I/root/umm-env01-20261027-a10080/env01-cloud/runtime/include/python3.11']' returned non-zero exit status 1.

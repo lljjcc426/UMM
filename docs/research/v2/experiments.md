@@ -1,5 +1,9 @@
 # v2实验矩阵：先排除简单解，再验证机制
 
+2026-10-30：[P0最终科学结项](p0_final_scientific_closeout_2026-10-30.md)按用户批准的有限基础范围完成，原指标未达标。ENV-01维持已验证配方通过；DATA-01为completed_with_limitations，EVAL-01为completed_negative，原阈值、人审和失败保留。自动评分改进为可选，正式评价采用可信规范＋独立人工RGB主评＋自动辅助＋严格unknown。[P1基线方案](p1_baseline_failure_plan_2026-10-30.md)已在CPU准备8字、16次先导/64次完整生成队列；未租GPU、未推理训练，未分派新人工任务。报告与PR等待审核，main合并及GPU执行均未授权。
+
+以下保留此前设计与执行快照；当前状态以上段及结项报告为准。
+
 2026-10-27；17个实验全部`planned`，机器登记见[experiments_v2.json](../../../data/research/experiments_v2.json)。依赖表示前置实验已完成并记录决定，不要求其结果为正；负结果可以触发停止。可选实验不阻塞核心生成与泛化。
 
 ## 1. 实验ID与对照

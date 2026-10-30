@@ -1,0 +1,623 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "experiment_ids": [
+    "DATA-01",
+    "EVAL-01"
+  ],
+  "development_experiment_ids": [
+    "D1",
+    "D2",
+    "D3",
+    "D4"
+  ],
+  "branch": "research/p0-stroke-video-foundation",
+  "base_commit": "258512d380be69d62b77cdadd38d6c419fcffc11",
+  "status": "development_complete_engineering_checks_passed_scientific_not_ready",
+  "recorded_at_utc": "2026-10-29T05:12:55.712205+00:00",
+  "authorization": {
+    "source": "Current user explicit approval of D1-D4 and eight supplemental constraints",
+    "scope": "Local CPU interface implementation,16 exposed static audits,36 semantic conditions,96 representation trials,144 exposed RGB regression,four same-data baselines,writer-resource metadata audit",
+    "new_video_limit": 8,
+    "no_GPU": true,
+    "no_training": true,
+    "no_new_human_tasks": true,
+    "no_new_holdout_or_download": true,
+    "no_main_push_or_merge": true,
+    "local_research_commit_authorized": true,
+    "approval_covers_science_acceptance": false
+  },
+  "inputs": {
+    "original_protocol": "data/research/runs/p0_final_calibration_2026-10-28/protocol_frozen.json",
+    "original_predictions": "data/research/runs/p0_final_calibration_2026-10-28/predictions.jsonl",
+    "unchanged_human_reference": "data/research/runs/p0_human_acceptance_2026-10-29/human_calibration_results.json",
+    "original_thresholds": "data/research/runs/p0_data_eval_2026-10-27/threshold_freeze.json",
+    "private_packet": "private/p0_final_calibration_2026-10-28/pack_frozen.json",
+    "directory_metadata": "private/p0_final_calibration_2026-10-28/pot_directory.json",
+    "source_freeze": "data/research/runs/p0_final_calibration_2026-10-28/writer_selection_freeze.json"
+  },
+  "reproduction": {
+    "python": "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "working_directory": "/Users/cc/Documents/UMM",
+    "commands": [
+      "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m scripts.p0.evaluate_decoupled prepare",
+      "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m scripts.p0.evaluate_decoupled run # executed three times; attempt_01..03 preserved",
+      "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m scripts.p0.evaluate_decoupled direction-probe",
+      "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/validate_catalog.py",
+      "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/validate_research_plan.py --output data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/research_v1.json",
+      "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/validate_research_v2.py --output data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/research_v2.json",
+      "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/validate_stage_release.py",
+      "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m unittest discover -s tests -v",
+      "git diff --cached --check"
+    ],
+    "seed_for_opaque_instance_ids": "2026102903 + numeric norm-task ID",
+    "sampling": "Deterministic declared selection of16 existing exposed groups; no fresh sampling or holdout seed used",
+    "attempt_code_snapshots": [
+      "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/source_snapshot"
+    ],
+    "direction_probe_source": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/direction_probe_source_snapshot.py",
+    "dependencies": "Existing bundled runtime and requirements.txt; no installation or network acquisition",
+    "missing_early_snapshots": "attempt_01 and attempt_02 did not capture contemporaneous source snapshots. Their outputs and change descriptions are preserved; no later reconstruction is presented as original source. Authoritative attempt_03 has exact snapshots.",
+    "post_run_code_change": "Only prepare inventory metadata corrected: duration_seconds=sum(frame durations), last_sample_seconds explicit. Existing preparation snapshot preserved and separately corrected by media_decode_audit.json; no media or scoring rerun."
+  },
+  "scientific_results": {
+    "D1": "36/36 semantic conditions;8 development groups,not36 independent samples",
+    "D2": "96/96 evidence invariance,80/80 applicable execution invariance,16/16 direction conflicts;16 unreviewed normative versions refused",
+    "D3": "Full144:32/135 clear coverage,9/32 correct accepts,0/63 false-accept groups,111unknown; not ready",
+    "D4": "All144 same-norm simple gate,old-event semantic readout,new RGB observer decisions identical; no incremental pixel gain",
+    "qualified_static": "13 AI-only developer qualifications;3 unknown; no human per-stroke gold inferred",
+    "writer_resources": "84 filename IDs,80 selected plus2 pilots exposed,only194/213 candidate IDs remain;actual human and cross-archive independence not verified",
+    "independent_holdout_ready": false,
+    "DATA_01": "blocked",
+    "EVAL_01": "blocked",
+    "P0": "not_accepted"
+  },
+  "resources": {
+    "recorded_at_utc": "2026-10-29T04:56:40.734323+00:00",
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "executable": "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "platform": "macOS-26.6-arm64-arm-64bit",
+    "device": "local_CPU",
+    "training_runs": 0,
+    "GPU_hours": 0,
+    "network_data_bytes": 0,
+    "new_POT_parsed": 0,
+    "new_video_files": 8,
+    "AI_static_contacts_viewed": 3,
+    "actual_RGB_contact_sheets_viewed": 3,
+    "new_human_tasks": 0,
+    "final_evaluation_wall_seconds": 3.9821351250066073,
+    "all_three_development_runs_wall_seconds": 11.888072749010462,
+    "preparation_tool_wall_seconds": 0.19191325,
+    "writing_and_AI_visual_review_CPU_or_token_cost": "not separately instrumented; no active cloud instance or charged resource started",
+    "direction_probe_wall_seconds": "not separately instrumented"
+  },
+  "preservation": {
+    "original640_and2752_unchanged": true,
+    "original_CASIA_media_and_predictions_unchanged": true,
+    "old_human_versions_441_preserved": true,
+    "old_human_latest432_preserved": true,
+    "thresholds_unchanged": true,
+    "all_attempts_retained": true,
+    "private_new_media": "private/p0_decoupled_d1_d4_2026-10-29",
+    "new_media_decode_audit": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/media_decode_audit.json",
+    "no_file_deletions": true,
+    "private_files_added": [
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/N017-swap.png",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      },
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/N019-swap.png",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      },
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/N030-swap.png",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      },
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/N039-swap.png",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      },
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/N043-swap.png",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      },
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/N066-swap.png",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      },
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/N076-swap.png",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      },
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/N079-swap.png",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      },
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/actual_RGB_correct.jpg",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      },
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/actual_RGB_incorrect.jpg",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      },
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/actual_RGB_reverse.jpg",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      },
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/qualification_candidates_01.jpg",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      },
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/qualification_candidates_02.jpg",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      },
+      {
+        "path": "private/p0_decoupled_d1_d4_2026-10-29/qualification_candidates_03.jpg",
+        "reason": "8段获批开发APNG或静态/实际RGB接触表；受许可约束留本地private，不纳入Git。"
+      }
+    ]
+  },
+  "evidence": {
+    "report": "docs/research/v2/p0_decoupled_d1_d4_report_2026-10-29.md",
+    "summary": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/summary.json",
+    "experiments": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/execution_records.json",
+    "freeze": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/development_freeze.json",
+    "static_audits": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/static_qualification_audit.json",
+    "AI_actual_RGB_review": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/AI_RGB_development_review.json",
+    "AI_direction_review": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/AI_RGB_direction_review.json",
+    "development_iterations": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/development_iteration_log.json",
+    "failures": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/failure_cases.json"
+  },
+  "checks": {
+    "status": "passed",
+    "summary": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/summary.json",
+    "unittest_count": 84,
+    "new_tests": 7,
+    "repository_validators_passed": 4,
+    "git_diff_check": "passed"
+  },
+  "git": {
+    "identity": "lljjcc426 <3115250840@qq.com>",
+    "local_commit": "This task is recorded by the local research commit containing task_record.json; no remote push.",
+    "remote_push": false,
+    "main_modified": false,
+    "PR_created": false
+  },
+  "file_changes": [
+    {
+      "path": "AGENTS.md",
+      "change": "modified",
+      "reason": "补充本轮执行状态与科学限制；审批、分支和科学纪律原文保留。"
+    },
+    {
+      "path": "README.md",
+      "change": "modified",
+      "reason": "增加最新执行报告入口及实际失败范围，旧人审结论保留。"
+    },
+    {
+      "path": "configs/research/stroke_video_v2.json",
+      "change": "modified",
+      "reason": "新增D1-D4开发证据和候选作者资源字段；科学就绪、人工原统计保持原值。"
+    },
+    {
+      "path": "data/research/experiments_v2.json",
+      "change": "modified",
+      "reason": "向DATA-01/EVAL-01追加运行/结果/限制；两项仍blocked，其他实验不改。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/AI_RGB_development_review.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/AI_RGB_direction_review.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/D1_direction_probe.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_01/D1_four_cells.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_01/D2_invariance.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_01/D3_D4_metrics.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_01/D3_D4_predictions.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_01/actual_RGB_witness_index.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_01/failure_cases.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_01/information_permissions.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_01/qualification_results.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_01/summary.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_02/D1_four_cells.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_02/D2_invariance.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_02/D3_D4_metrics.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_02/D3_D4_predictions.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_02/actual_RGB_witness_index.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_02/failure_cases.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_02/information_permissions.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_02/qualification_results.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_02/summary.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/D1_four_cells.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/D2_invariance.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/D3_D4_metrics.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/D3_D4_predictions.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/actual_RGB_witness_index.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/failure_cases.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/information_permissions.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/qualification_results.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/source_snapshot/evaluate_decoupled.py",
+      "change": "added",
+      "reason": "保留该次开发运行的准确源码，用于追溯迭代，原快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/source_snapshot/judgments.py",
+      "change": "added",
+      "reason": "保留该次开发运行的准确源码，用于追溯迭代，原快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/source_snapshot/normative_reference.py",
+      "change": "added",
+      "reason": "保留该次开发运行的准确源码，用于追溯迭代，原快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/source_snapshot/rgb_observation.py",
+      "change": "added",
+      "reason": "保留该次开发运行的准确源码，用于追溯迭代，原快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/attempt_03/summary.json",
+      "change": "added",
+      "reason": "保留该次D1-D4完整预测、分母、失败及权限检查，包含中间尝试。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/catalog.stderr.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查的实际输出与汇总；不认定科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/catalog.stdout.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查的实际输出与汇总；不认定科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/research_v1.json",
+      "change": "added",
+      "reason": "保存本轮适用工程检查的实际输出与汇总；不认定科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/research_v1.stderr.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查的实际输出与汇总；不认定科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/research_v1.stdout.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查的实际输出与汇总；不认定科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/research_v2.json",
+      "change": "added",
+      "reason": "保存本轮适用工程检查的实际输出与汇总；不认定科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/research_v2.stderr.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查的实际输出与汇总；不认定科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/research_v2.stdout.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查的实际输出与汇总；不认定科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/stage_draft.stderr.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查的实际输出与汇总；不认定科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/stage_draft.stdout.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查的实际输出与汇总；不认定科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/summary.json",
+      "change": "added",
+      "reason": "保存本轮适用工程检查的实际输出与汇总；不认定科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/unittest.stderr.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查的实际输出与汇总；不认定科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/unittest.stdout.log",
+      "change": "added",
+      "reason": "保存本轮适用工程检查的实际输出与汇总；不认定科学通过。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/development_attempt_01.stderr.log",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/development_attempt_01.stdout.log",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/development_attempt_02.stderr.log",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/development_attempt_02.stdout.log",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/development_attempt_03.stderr.log",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/development_attempt_03.stdout.log",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/development_freeze.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/development_iteration_log.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/direction_probe.stderr.log",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/direction_probe.stdout.log",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/direction_probe_source_snapshot.py",
+      "change": "added",
+      "reason": "保留该次开发运行的准确源码，用于追溯迭代，原快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/environment.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/execution_records.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/media_decode_audit.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/new_media_inventory.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/qualified_reference_manifest.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/readiness_assessment.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/static_qualification_audit.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/summary.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/task_record.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/writer_resource_audit.json",
+      "change": "added",
+      "reason": "新增本轮冻结证据、逐实例AI审核、媒体/资源审计、日志或任务记录；不改旧运行/人审。"
+    },
+    {
+      "path": "docs/project/STATUS.md",
+      "change": "modified",
+      "reason": "新增当前状态，将上一轮正文保留为历史快照。"
+    },
+    {
+      "path": "docs/project/stages/P0-release.json",
+      "change": "modified",
+      "reason": "追加本轮证据及阻塞；仍in_progress，用户科学批准为空。"
+    },
+    {
+      "path": "docs/project/stages/P0.md",
+      "change": "modified",
+      "reason": "追加本轮执行增补；原科学验收契约保留。"
+    },
+    {
+      "path": "docs/research/v2/README.md",
+      "change": "modified",
+      "reason": "增加当前D1-D4执行入口及科学未就绪结论。"
+    },
+    {
+      "path": "docs/research/v2/data_evaluation.md",
+      "change": "modified",
+      "reason": "追加当前参考/评价缺口，原目标契约保留。"
+    },
+    {
+      "path": "docs/research/v2/p0_decoupled_d1_d4_report_2026-10-29.md",
+      "change": "added",
+      "reason": "新增完整实际接口、D1-D4、失败、基线归因、来源缺口和停止结论报告。"
+    },
+    {
+      "path": "docs/research/v2/p0_reference_execution_decoupling_proposal_2026-10-29.md",
+      "change": "added",
+      "reason": "纳入前一轮起草、本轮获批的方案；原文保留，新增实际执行报告链接。"
+    },
+    {
+      "path": "scripts/p0/evaluate_decoupled.py",
+      "change": "added",
+      "reason": "新增获批开发准备、追加式四实验及方向补充入口。"
+    },
+    {
+      "path": "scripts/p0/judgments.py",
+      "change": "added",
+      "reason": "新增独立执行和规范判定，区分未知及明确错误。"
+    },
+    {
+      "path": "scripts/p0/normative_reference.py",
+      "change": "added",
+      "reason": "新增静态规范及逐实例资格接口，不读RGB或计划。"
+    },
+    {
+      "path": "scripts/p0/rgb_observation.py",
+      "change": "added",
+      "reason": "新增无序几何RGB证据接口，不接收计划或规范。"
+    },
+    {
+      "path": "tests/test_p0_decoupled.py",
+      "change": "added",
+      "reason": "新增7项必要语义回归；内存像素fixture不生成额外视频。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/diff_check.stdout.log",
+      "change": "added",
+      "reason": "保留暂存改动空白/冲突检查实际输出。"
+    },
+    {
+      "path": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/checks/diff_check.stderr.log",
+      "change": "added",
+      "reason": "保留暂存改动空白/冲突检查实际输出。"
+    }
+  ],
+  "completed_at_utc": "2026-10-29T05:14:50.010205+00:00"
+}

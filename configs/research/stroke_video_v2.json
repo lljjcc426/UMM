@@ -3,42 +3,234 @@
   "protocol_id": "stroke-video-v2",
   "created_on": "2026-10-27",
   "supersedes": "stroke-video-v1",
-  "status": "design_only",
+  "status": "P0_scientifically_accepted_limited_negative_P1_CPU_prepared",
   "current_phase": "P0",
   "research_focus": "method_driven_observable_stroke_execution",
   "primary_protocol": "T",
-  "task_protocols": ["T", "P", "O"],
-  "optional_task_protocols": ["I"],
+  "task_protocols": [
+    "T",
+    "P",
+    "O"
+  ],
+  "optional_task_protocols": [
+    "I"
+  ],
   "primary_metric": "verified_order_lower_bound",
-  "geometry_tracks": ["G0_symbolic_rules", "G1_shared_normative_template"],
+  "geometry_tracks": [
+    "G0_symbolic_rules",
+    "G1_shared_normative_template"
+  ],
   "inference_uses_gold_event_boundaries": false,
   "generator_logs_are_evaluation_truth": false,
   "sharing_benefit_established": false,
-  "required_baselines": ["same_data_sft", "trajectory_style_renderer", "spatial_control", "separated_ug"],
-  "optional_experiments": ["REC-01", "EF-01"],
+  "required_baselines": [
+    "same_data_sft",
+    "trajectory_style_renderer",
+    "spatial_control",
+    "separated_ug"
+  ],
+  "optional_experiments": [
+    "REC-01",
+    "EF-01"
+  ],
   "data_plan": {
-    "calibration_characters": 64,
+    "calibration_characters": 128,
     "train_characters": 320,
     "validation_characters": 64,
     "test_characters": 128,
     "main_total_characters": 512,
-    "constructed": false,
-    "source_authorization": "pending",
-    "split_axes": ["character", "writer_or_style_family", "renderer", "source_group"],
-    "note": "Budget starting counts only. Add record-disjoint ID holdout within seen characters; cross character and style axes. Pretraining exposure is unknown."
+    "constructed": true,
+    "source_authorization": "Arphic Public License retained with copyright and modification notices; normative PDF reference only",
+    "split_axes": [
+      "character",
+      "writer_or_style_family",
+      "renderer",
+      "source_group"
+    ],
+    "note": "Original640 source-character groups and roles unchanged. CASIA80-writer calibration human batch complete:64 normative candidates34pass/23fail/7unknown;144RGB32correct/103incorrect/9unknown after frozen normative gate;8 cuts4pass/3fail/1unknown. Separate128-record prospective crossed extension not wholly qualified. No training/generalization result; pretraining exposure unknown.",
+    "observer_development_characters": 64,
+    "observer_holdout_characters": 64,
+    "construction_scope": "provisional_licensed_G1_synthetic_RGB_not_human_verified_gold",
+    "normative_human_verified": false,
+    "scientific_ready": false,
+    "dataset_manifest": "data/research/datasets/p0_stroke_synthetic_v1/splits.json",
+    "human_review_protocol": "data/research/runs/p0_final_calibration_2026-10-28/protocol_frozen.json",
+    "human_review_rubric": "docs/research/v2/p0_final_human_package_2026-10-28.md",
+    "legacy_human_records": 38,
+    "formal_human_normative_count": 64,
+    "formal_human_RGB_count": 144,
+    "human_review_status": "two_independent_humans_complete_frozen_calibration_failed",
+    "previous_human_review_protocol": "data/research/runs/p0_quick_review_2026-10-28/quick_protocol.json",
+    "AI_prereview_summary": "data/research/runs/p0_ai_prereview_2026-10-28/effective_prereview_summary.json",
+    "human_AI_suggestions_visible": false,
+    "second_reviewer_status": "ID2 completed216/216; user confirmed two distinct humans independently completed",
+    "historical_blind_review_protocol": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze.json",
+    "full_label_rubric_reference": "data/research/runs/p0_human_review_preparation_2026-10-28/rubric_freeze.json",
+    "previous_human_reviewer_partitions": {
+      "A": {
+        "normative": 320,
+        "RGB": 1376
+      },
+      "B": {
+        "normative": 320,
+        "RGB": 1376
+      },
+      "cross_review_RGB": 36
+    },
+    "human_spotcheck": {
+      "characters": 12,
+      "RGB_clips": 12,
+      "cards": 12,
+      "targeted_method_differences": 6,
+      "conditional_stratified_random": 6,
+      "primary_feedback_count": 12,
+      "second_reviewer": "ID2 completed all6 existing dispute cards; same AI visible, no blind independence claim",
+      "automatic_gold_from_feedback": false,
+      "full_census_human_queue_active": false,
+      "primary_annotation_versions": 13,
+      "primary_normative_reactions": {
+        "agree": 12
+      },
+      "primary_RGB_reactions": {
+        "agree": 6,
+        "disagree": 6
+      },
+      "secondary_feedback_count": 6,
+      "secondary_pending_count": 0,
+      "evidence_summary": "data/research/runs/p0_quick_consensus_2026-10-28/summary.json",
+      "status": "approved_12_primary_plus6_secondary_batch_complete",
+      "global_RGB_process_consensus_count": 6
+    },
+    "human_global_RGB_process_consensus_count": 6,
+    "program_AI_audit": "data/research/runs/p0_program_ai_audit_2026-10-28/summary.json",
+    "AI_bounded_spatial_order_consistent": 572,
+    "AI_spatial_order_unknown": 68,
+    "animated_clips": 2560,
+    "static_blank_controls": 192,
+    "AI_candidate_v2_status": "fixed_independent_source_calibration_complete_false_accept_gate_failed_not_promoted",
+    "current_human_queue": 0,
+    "prior_AI_visible_human_batch": {
+      "protocol": "data/research/runs/p0_quick_review_2026-10-28/quick_protocol.json",
+      "cards_completed": 18,
+      "global_process_consensus": 6
+    },
+    "current_human_unique_tasks": 216,
+    "current_human_tasks_per_reviewer": 216,
+    "current_human_unique_characters": 72,
+    "final_calibration_summary": "data/research/runs/p0_human_acceptance_2026-10-29/analysis_summary.json",
+    "independent_source_extension": "data/research/runs/p0_final_calibration_2026-10-28/crossed_source_matrix.json",
+    "independent_source_license": "CASIA academic research group use; raw and derived media private, no native RGB/physical-time claim",
+    "final_calibration_preparation_summary": "data/research/runs/p0_final_calibration_2026-10-28/summary.json",
+    "human_completed_submissions": 432,
+    "human_raw_submission_versions": 441,
+    "human_normative_submissions": 128,
+    "human_RGB_submissions": 288,
+    "human_independent_record_submissions": 16,
+    "paired_normative_counts": {
+      "pass": 34,
+      "fail": 23,
+      "unknown": 7
+    },
+    "paired_RGB_reference_counts": {
+      "correct": 32,
+      "incorrect": 103,
+      "unknown": 9
+    },
+    "paired_record_counts": {
+      "pass": 4,
+      "fail": 3,
+      "unknown": 1
+    },
+    "AI_candidate_v2_previous_development_status": "development_only_3_nominal_positive_rejections_not_promoted",
+    "human_global_RGB_process_consensus_count_scope": "Historical AI-visible six-clip batch only; current432-submission paired results reported separately.",
+    "decoupled_D1_D4_development": {
+      "summary": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/summary.json",
+      "AI_qualified_groups": 13,
+      "AI_unknown_groups": 3,
+      "human_per_stroke_gold_created": false,
+      "engineering_scope": "four independent interfaces,36 D1 conditions,96 D2 transformations,144 exposed-media comparison",
+      "independent_holdout_ready": false,
+      "new_human_tasks": 0,
+      "new_video_files": 8
+    },
+    "fresh_writer_resource_audit": "data/research/runs/p0_decoupled_d1_d4_2026-10-29/writer_resource_audit.json",
+    "fresh_writer_candidates_in_Pot1_0Test": [
+      "194",
+      "213"
+    ]
   },
-  "seeds": {"training": [11, 23, 47], "inference": [11, 23, 47]},
+  "seeds": {
+    "training": [
+      11,
+      23,
+      47
+    ],
+    "inference": [
+      11,
+      23,
+      47
+    ]
+  },
   "gates": {
     "calibration_min_coverage": 0.9,
     "false_accept_upper95_max": 0.05,
     "minimum_effect_pp": 5.0,
     "final_character_noninferiority_margin_pp": 2.0,
     "style_noninferiority_margin": null,
-    "threshold_status": "provisional_pending_pilot_power_and_calibration",
-    "note": "Project discussion criteria; no performance claim. Freeze thresholds and core contrasts before held-out evaluation."
+    "threshold_status": "frozen_independent_human_reference_false_accept_gate_failed",
+    "note": "Thresholds unchanged. Full-button coverage includes predeclared two-frame temporal controls. Observable-scope coverage passes but writer-group false-accept bound fails; no method promoted.",
+    "controlled_calibration_evidence": "data/research/runs/p0_data_eval_2026-10-27/holdout_metrics.json",
+    "current_human_evidence": "data/research/runs/p0_human_acceptance_2026-10-29/gate_assessment.json"
   },
-  "budget": {"configured": false, "gpu_model": null, "gpu_count": null, "max_gpu_hours": null},
-  "models": {"primary": {"name": "Lance_3B_Video", "code_revision": null, "weight_revision": null, "runtime_verified": false}},
+  "budget": {
+    "configured": false,
+    "gpu_model": null,
+    "gpu_count": null,
+    "max_gpu_hours": null
+  },
+  "models": {
+    "primary": {
+      "name": "Lance_3B_Video",
+      "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+      "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+      "runtime_verified": true,
+      "verification_scope": "three_native_inference_interfaces_and_approved_partial_parameter_training_reload",
+      "gradient_reload_verified": true,
+      "runtime_evidence": "data/research/runs/env01_native_a10080_2026-10-27/interface_results.json",
+      "training_evidence": "data/research/runs/env01_training_reload_a10080_2026-10-27/summary.json",
+      "known_environment_issue": "Decord wheel metadata tag mismatch, non-blocking on audited frame/training paths; pip warning retained",
+      "default_full_parameter_training_verified": false,
+      "default_full_parameter_capacity_measured": true,
+      "default_full_parameter_capacity_status": "cuda_oom_during_first_adamw_moment_initialization",
+      "default_capacity_evidence": "data/research/runs/env01_default_capacity_a10080_2026-10-27/summary.json"
+    }
+  },
+  "resource_constraints": {
+    "source": "user_confirmed_2026-10-27",
+    "max_gpu_count": 1,
+    "max_gpu_host_cpu_cores": 16,
+    "max_gpu_host_ram_gb": 48,
+    "waiting_for_other_gpu_models_allowed": true,
+    "recommended_gpu_for_runtime_verification": "NVIDIA A100-SXM4-80GB",
+    "current_rental_candidate": "NVIDIA A100-SXM4-80GB",
+    "current_image_candidate": "ubuntu22_cuda12.4",
+    "actual_allocation": {
+      "gpu_model": "NVIDIA A100-SXM4-80GB",
+      "gpu_count": 1,
+      "visible_vram_mib": 81920,
+      "cpu_cores": 16,
+      "host_ram_bytes": 50470645760,
+      "cuda_toolkit": "12.4.99",
+      "driver": "550.127.05",
+      "evidence": "data/research/runs/env01_native_a10080_2026-10-27/host_inventory.json"
+    },
+    "cloud_rental_approved": true,
+    "cloud_approval_scope": "ENV-01 native interfaces, partial training/reload, and separately approved actual default-policy capacity test on existing A10080; no remote push",
+    "spending_policy": "User approved cost unconstrained; existing A10080 reused, actual provider bill pending; model work ended, archival and idle time retained",
+    "catalog": "data/research/audits/env01_static_2026-10-27/cloud_resources.json",
+    "current_cloud_instance_status": "released_user_confirmed_2026-10-28",
+    "allocation_note": "actual_allocation is historical ENV-01 evidence; no active cloud instance claimed"
+  },
   "documents": {
     "design": "docs/research/v2/README.md",
     "method": "docs/research/v2/method.md",
@@ -46,6 +238,34 @@
     "experiments": "docs/research/v2/experiments.md",
     "implementation": "docs/research/v2/implementation.md",
     "source_audit": "docs/research/v2/source_audit.md",
-    "run_template": "templates/research_run_v2.json"
+    "run_template": "templates/research_run_v2.json",
+    "p0_data_evaluation_report": "docs/research/v2/p0_data_eval_report_2026-10-28.md",
+    "p0_human_review_preparation": "docs/research/v2/p0_human_review_preparation_2026-10-28.md",
+    "p0_ai_prereview": "docs/research/v2/p0_ai_prereview_2026-10-28.md",
+    "p0_program_AI_audit": "docs/research/v2/p0_program_ai_audit_2026-10-28.md",
+    "p0_final_human_package": "docs/research/v2/p0_final_human_package_2026-10-28.md",
+    "p0_human_acceptance": "docs/research/v2/p0_human_acceptance_2026-10-29.md",
+    "decoupled_D1_D4_report": "docs/research/v2/p0_decoupled_d1_d4_report_2026-10-29.md",
+    "P0_closeout": "docs/research/v2/p0_final_scientific_closeout_2026-10-30.md",
+    "P1_baseline_plan": "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md"
+  },
+  "P0_closure": {
+    "manifest": "docs/project/stages/P0-release.json",
+    "accepted_scope": "limited_research_foundation",
+    "original_scientific_gates_met": false,
+    "automatic_evaluator_is_P1_positive_gate": false,
+    "formal_evaluation": "Trusted normative reference + independent human actual-RGB judgments + auxiliary automation + strict unknown policy",
+    "user_final_report_review": "approved",
+    "final_scientific_approval_reference": "data/research/runs/p0_final_acceptance_2026-10-30/final_scientific_approval.json"
+  },
+  "P1_preparation": {
+    "plan": "configs/research/p1_baseline_plan.json",
+    "GPU_authorized": false,
+    "status": "CPU_prepared_after_P0_final_acceptance",
+    "request_count": 64,
+    "pilot_request_count": 16,
+    "training": false,
+    "research_priority": "Actual UMM RGB stroke-order failures and evidence-led improvement comparisons",
+    "handoff": "docs/research/v2/p0_final_acceptance_and_p1_handoff_2026-10-30.md"
   }
 }

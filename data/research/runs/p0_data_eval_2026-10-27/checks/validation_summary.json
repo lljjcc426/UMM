@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "catalog",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_catalog.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.25829187499766704,
+      "log": "data/research/runs/p0_data_eval_2026-10-27/checks/catalog_attempt01.log"
+    },
+    {
+      "name": "research_v1",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_research_plan.py",
+        "--output",
+        "data/research/runs/p0_data_eval_2026-10-27/checks/research_v1_result.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.020099666995520238,
+      "log": "data/research/runs/p0_data_eval_2026-10-27/checks/research_v1_attempt01.log"
+    },
+    {
+      "name": "research_v2",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_research_v2.py",
+        "--output",
+        "data/research/runs/p0_data_eval_2026-10-27/checks/research_v2_result.json"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.020389833000081126,
+      "log": "data/research/runs/p0_data_eval_2026-10-27/checks/research_v2_attempt01.log"
+    },
+    {
+      "name": "stage_release",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_stage_release.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.019108458996925037,
+      "log": "data/research/runs/p0_data_eval_2026-10-27/checks/stage_release_attempt01.log"
+    },
+    {
+      "name": "unit_tests",
+      "command": [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.22253470800205832,
+      "log": "data/research/runs/p0_data_eval_2026-10-27/checks/unit_tests_attempt01.log"
+    }
+  ],
+  "scope": "Local equivalents of CI; no GitHub CI or scientific acceptance claim",
+  "post_packaging_catalog_check": {
+    "command": [
+      "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "scripts/validate_catalog.py"
+    ],
+    "exit_code": 0,
+    "records": 360,
+    "markdown_files_checked": 952,
+    "reason": "Verify newly added RGB bundle link and final README/report edits; no observer/model rerun"
+  }
+}

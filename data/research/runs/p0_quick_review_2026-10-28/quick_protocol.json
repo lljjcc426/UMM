@@ -1,0 +1,36 @@
+{
+  "id": "p0-quick-ai-visible-review-v1",
+  "revision": "1.0",
+  "mode": "quick",
+  "status": "frozen_waiting_for_actual_human_spotcheck",
+  "seed": 2026102803,
+  "character_count": 12,
+  "RGB_count": 12,
+  "scope": "First diagnostic spotcheck only; not full DATA-01/EVAL-01 calibration or P0 acceptance",
+  "workload": "12 paired cards; normative and RGB reactions stored separately; no required detailed forms",
+  "reactions": [
+    "agree",
+    "disagree",
+    "uncertain"
+  ],
+  "AI_suggestions_visible": true,
+  "independent_blind_review": false,
+  "normative_approval_from_agreement": false,
+  "RGB_gold_from_agreement": false,
+  "semantics": {
+    "agree": "Agrees with the displayed bounded AI proposal; unknown remains unknown",
+    "disagree": "Disagrees with displayed AI proposal; no opposite correctness label inferred",
+    "uncertain": "Human cannot determine; no pass or fail inferred"
+  },
+  "second_reviewer": "Only cards with primary ID1 disagreement or uncertainty; own answers, primary answers hidden",
+  "prior_protocol_preserved": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_protocol.json",
+  "prior_full_workload_active": false,
+  "scientific_status": "DATA-01/EVAL-01 blocked; P0 not accepted",
+  "base_commit": "3ea92d8f",
+  "source_pack": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_review_pack.json",
+  "evaluator_modified": false,
+  "thresholds_modified": false,
+  "no_unsampled_human_credit": true,
+  "frozen_at_utc": "2026-10-28T07:37:32.452758+00:00",
+  "operation_check": "data/research/runs/p0_quick_review_2026-10-28/browser_operation_check.json"
+}

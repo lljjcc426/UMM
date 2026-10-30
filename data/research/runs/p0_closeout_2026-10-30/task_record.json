@@ -1,0 +1,536 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "branch": "research/p0-stroke-video-foundation",
+  "base_commit": "45a90c17",
+  "status": "P0_closed_with_explicit_negative_results_P1_CPU_prepared",
+  "authorization": "data/research/runs/p0_closeout_2026-10-30/scope_approval.json",
+  "date": "2026-10-30",
+  "scope": "P0 finite foundation closeout; P1 CPU planning and input preparation only",
+  "changes": "New explicit limited/negative terminal outcomes and preserved original gates; independent human formal evaluation route; P1 request and resource plan",
+  "resources": {
+    "device": "local_CPU",
+    "GPU_hours": 0,
+    "model_inference_calls": 0,
+    "training_runs": 0,
+    "new_videos": 0,
+    "new_human_tasks": 0,
+    "new_research_dataset_downloads": 0,
+    "web_reads": "Public official provider price only; no purchase or server access",
+    "total_CPU_time": "Not comprehensively instrumented; test and command runtimes recorded where available",
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "platform": "macOS-26.6-arm64-arm-64bit"
+  },
+  "reproduction": {
+    "python": "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "prepare_command": "python -m scripts.p1.prepare_baseline --output data/research/plans/p1_baseline_2026-10-30/prepared --private-output private/p1_baseline_preparation_2026-10-30 --upstream private/env01_deployment_build_2026-10-27/env01-cloud/upstream",
+    "dry_run_and_rejection_checks": "data/research/plans/p1_baseline_2026-10-30/preparation_checks.json",
+    "validation_commands": [
+      [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_catalog.py"
+      ],
+      [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_research_plan.py",
+        "--output",
+        "data/research/runs/p0_closeout_2026-10-30/checks/research_v1.json"
+      ],
+      [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_research_v2.py",
+        "--output",
+        "data/research/runs/p0_closeout_2026-10-30/checks/research_v2_final.json"
+      ],
+      [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_stage_release.py"
+      ],
+      [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/validate_stage_release.py",
+        "--require-ready",
+        "--head-ref",
+        "research/p0-stroke-video-foundation"
+      ],
+      [
+        "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ]
+    ]
+  },
+  "evidence_inventory": "data/research/runs/p0_closeout_2026-10-30/evidence_inventory.json",
+  "version_record": "data/research/runs/p0_closeout_2026-10-30/version_record.json",
+  "reports": [
+    "docs/research/v2/p0_final_scientific_closeout_2026-10-30.md",
+    "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md"
+  ],
+  "preservation": {
+    "original_contract_archived": true,
+    "original_release_archived": true,
+    "original_registry_archived": true,
+    "old_thresholds_human_predictions_unchanged": true,
+    "no_file_deletions": true,
+    "prior_unpushed_commits_preserved": true,
+    "private_prepared_inputs": {
+      "directory": "private/p1_baseline_preparation_2026-10-30",
+      "request_bundles": 64,
+      "blank_static_inputs": 8,
+      "new_video_files": 0,
+      "upstream_symlinks": "Existing local fixed code only; weights not assumed present; relocate before approved GPU deployment"
+    }
+  },
+  "git": {
+    "identity": "lljjcc426 <3115250840@qq.com>",
+    "merge_authorized": false,
+    "GPU_authorized": false,
+    "review_PR_authorized": true,
+    "remote_action": "User authorized preparation of research review PR after checks: push this research branch and create draft PR; main merge gate intentionally remains blocked",
+    "prior_remote_research_head": "258512d380be69d62b77cdadd38d6c419fcffc11",
+    "prior_unpushed_experiment_commit_preserved": "45a90c17",
+    "PR_body": "data/research/runs/p0_closeout_2026-10-30/PR_description.md",
+    "branch_to_main_push": false
+  },
+  "checks": "data/research/runs/p0_closeout_2026-10-30/checks/summary.json",
+  "file_changes": [
+    {
+      "path": "AGENTS.md",
+      "change": "modified",
+      "reason": "补充用户批准的有限结项与P1 CPU准备状态；历史科学约束和授权边界保留。"
+    },
+    {
+      "path": "README.md",
+      "change": "modified",
+      "reason": "增加两份当前报告入口与实际结项状态，旧结果作为历史保留。"
+    },
+    {
+      "path": "configs/research/p1_baseline_plan.json",
+      "change": "added",
+      "reason": "新增无微调P1请求、种子、权限、人工主评及资源预算方案，GPU授权为false。"
+    },
+    {
+      "path": "configs/research/stroke_video_v2.json",
+      "change": "modified",
+      "reason": "追加有限结项与P1准备状态，原门槛数值、数据金标准未就绪等字段保留。"
+    },
+    {
+      "path": "data/research/experiments_v2.json",
+      "change": "modified",
+      "reason": "DATA/EVAL改为明确有限/负结果终态，原未满足要求另存并保留原登记快照；P1仅追加准备入口，未填运行成果。"
+    },
+    {
+      "path": "data/research/plans/p1_baseline_2026-10-30/minimal_execution_checklist.md",
+      "change": "added",
+      "reason": "新增P1待执行请求、CPU准备/拒绝日志、官方价格依据和最小清单；无实际模型结果。"
+    },
+    {
+      "path": "data/research/plans/p1_baseline_2026-10-30/native_dry_run.stderr.log",
+      "change": "added",
+      "reason": "新增P1待执行请求、CPU准备/拒绝日志、官方价格依据和最小清单；无实际模型结果。"
+    },
+    {
+      "path": "data/research/plans/p1_baseline_2026-10-30/native_dry_run.stdout.log",
+      "change": "added",
+      "reason": "新增P1待执行请求、CPU准备/拒绝日志、官方价格依据和最小清单；无实际模型结果。"
+    },
+    {
+      "path": "data/research/plans/p1_baseline_2026-10-30/preparation_checks.json",
+      "change": "added",
+      "reason": "新增P1待执行请求、CPU准备/拒绝日志、官方价格依据和最小清单；无实际模型结果。"
+    },
+    {
+      "path": "data/research/plans/p1_baseline_2026-10-30/prepared/command_plan.json",
+      "change": "added",
+      "reason": "新增P1待执行请求、CPU准备/拒绝日志、官方价格依据和最小清单；无实际模型结果。"
+    },
+    {
+      "path": "data/research/plans/p1_baseline_2026-10-30/prepared/requests.json",
+      "change": "added",
+      "reason": "新增P1待执行请求、CPU准备/拒绝日志、官方价格依据和最小清单；无实际模型结果。"
+    },
+    {
+      "path": "data/research/plans/p1_baseline_2026-10-30/prepared/summary.json",
+      "change": "added",
+      "reason": "新增P1待执行请求、CPU准备/拒绝日志、官方价格依据和最小清单；无实际模型结果。"
+    },
+    {
+      "path": "data/research/plans/p1_baseline_2026-10-30/price_reference.json",
+      "change": "added",
+      "reason": "新增P1待执行请求、CPU准备/拒绝日志、官方价格依据和最小清单；无实际模型结果。"
+    },
+    {
+      "path": "data/research/plans/p1_baseline_2026-10-30/unauthorized_execution_rejected.stderr.log",
+      "change": "added",
+      "reason": "新增P1待执行请求、CPU准备/拒绝日志、官方价格依据和最小清单；无实际模型结果。"
+    },
+    {
+      "path": "data/research/plans/p1_baseline_2026-10-30/unauthorized_execution_rejected.stdout.log",
+      "change": "added",
+      "reason": "新增P1待执行请求、CPU准备/拒绝日志、官方价格依据和最小清单；无实际模型结果。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/PR_description.md",
+      "change": "added",
+      "reason": "新增结项原始快照、范围批准、版本、证据、参考层级、任务或审核PR说明；不改旧运行。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/catalog.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/catalog.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/catalog_final.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/catalog_final.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/closeout.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/closeout.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/closeout_final.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/closeout_final.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/closeout_final_semantics.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/closeout_final_semantics.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/closeout_release.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/closeout_release.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/merge_rejection.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/merge_rejection.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/merge_rejection_final.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/merge_rejection_final.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/merge_rejection_final_semantics.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/merge_rejection_final_semantics.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/merge_rejection_release.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/merge_rejection_release.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/research_v1.json",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/research_v1.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/research_v1.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/research_v2.json",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/research_v2.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/research_v2.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/research_v2_final.json",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/research_v2_final.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/research_v2_final.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/summary.json",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/unittest.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/unittest.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/unittest_final.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/unittest_final.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/unittest_final_semantics.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/unittest_final_semantics.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/unittest_release.stderr.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/unittest_release.stdout.log",
+      "change": "added",
+      "reason": "保留本轮检查所有尝试、实际失败/修正、最终通过及预期合并拒绝记录。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/debug_iterations.json",
+      "change": "added",
+      "reason": "新增结项原始快照、范围批准、版本、证据、参考层级、任务或审核PR说明；不改旧运行。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/evidence_inventory.json",
+      "change": "added",
+      "reason": "新增结项原始快照、范围批准、版本、证据、参考层级、任务或审核PR说明；不改旧运行。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/original_P0-release.json",
+      "change": "added",
+      "reason": "新增结项原始快照、范围批准、版本、证据、参考层级、任务或审核PR说明；不改旧运行。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/original_experiments_v2.json",
+      "change": "added",
+      "reason": "新增结项原始快照、范围批准、版本、证据、参考层级、任务或审核PR说明；不改旧运行。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/reference_catalog.json",
+      "change": "added",
+      "reason": "新增结项原始快照、范围批准、版本、证据、参考层级、任务或审核PR说明；不改旧运行。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/scope_approval.json",
+      "change": "added",
+      "reason": "新增结项原始快照、范围批准、版本、证据、参考层级、任务或审核PR说明；不改旧运行。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/task_record.json",
+      "change": "added",
+      "reason": "新增结项原始快照、范围批准、版本、证据、参考层级、任务或审核PR说明；不改旧运行。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/version_record.json",
+      "change": "added",
+      "reason": "新增结项原始快照、范围批准、版本、证据、参考层级、任务或审核PR说明；不改旧运行。"
+    },
+    {
+      "path": "docs/project/BRANCH_WORKFLOW.md",
+      "change": "modified",
+      "reason": "按用户批准范围补充负结果结项和审核/合并分离规则，保留main批准门禁。"
+    },
+    {
+      "path": "docs/project/ROADMAP.md",
+      "change": "modified",
+      "reason": "补充P0有限结项及P1准备入口，原路线保留。"
+    },
+    {
+      "path": "docs/project/STATUS.md",
+      "change": "modified",
+      "reason": "更新当前状态；此前blocked等记录保留为历史。"
+    },
+    {
+      "path": "docs/project/stages/P0-contract-preclose-2026-10-29.md",
+      "change": "added",
+      "reason": "逐字保存原契约；初存archive子目录引起相对链接失效后移到原同级，不改原文，无原有文件删除。"
+    },
+    {
+      "path": "docs/project/stages/P0-release.json",
+      "change": "modified",
+      "reason": "schema2明确有限完成、原科学指标失败与人工替代路径；最终合并批准为空。"
+    },
+    {
+      "path": "docs/project/stages/P0.md",
+      "change": "modified",
+      "reason": "以获批有限范围修订当前契约；原全文另存同级快照，原标准和失败未抹除。"
+    },
+    {
+      "path": "docs/research/v2/README.md",
+      "change": "modified",
+      "reason": "追加当前结项和准备入口；此前协议与执行快照保留。"
+    },
+    {
+      "path": "docs/research/v2/data_evaluation.md",
+      "change": "modified",
+      "reason": "追加当前结项和准备入口；此前协议与执行快照保留。"
+    },
+    {
+      "path": "docs/research/v2/experiments.md",
+      "change": "modified",
+      "reason": "追加当前结项和准备入口；此前协议与执行快照保留。"
+    },
+    {
+      "path": "docs/research/v2/implementation.md",
+      "change": "modified",
+      "reason": "追加当前结项和准备入口；此前协议与执行快照保留。"
+    },
+    {
+      "path": "docs/research/v2/p0_final_scientific_closeout_2026-10-30.md",
+      "change": "added",
+      "reason": "新增最终结项报告，明确成果、负结果、参考层级、缺口处置及合并边界。"
+    },
+    {
+      "path": "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md",
+      "change": "added",
+      "reason": "新增SO-00/BASE-01/EVAL-02/SO-01、全分母人工主评、GPU/显存/费用及停止条件。"
+    },
+    {
+      "path": "scripts/env01/run_interfaces.py",
+      "change": "modified",
+      "reason": "复用原生接口时按计划实验ID记录，并拒绝未获批的非dry-run执行；ENV既有批准配方不变。"
+    },
+    {
+      "path": "scripts/p1/prepare_baseline.py",
+      "change": "added",
+      "reason": "新增CPU请求与private输入包准备，不运行模型、不补写金标；G0/G1信息分开。"
+    },
+    {
+      "path": "scripts/validate_research_plan.py",
+      "change": "modified",
+      "reason": "支持有限/负结果终态，仍强制运行成果及未满足标准记录。"
+    },
+    {
+      "path": "scripts/validate_stage_release.py",
+      "change": "modified",
+      "reason": "支持有限负结果结项、强制原失败与证据保留，独立维持最终合并批准检查。"
+    },
+    {
+      "path": "tests/test_p0_closeout.py",
+      "change": "added",
+      "reason": "新增9项结项语义/证据/原失败/人工路径/最终批准及生命周期测试。"
+    },
+    {
+      "path": "tests/test_p1_preparation.py",
+      "change": "added",
+      "reason": "新增3项P1分母、G0信息权限、金标级别及全白T条件测试。"
+    },
+    {
+      "path": "tests/test_stage_release.py",
+      "change": "modified",
+      "reason": "将旧门禁测试固定为历史schema1 fixture，避免当前结项状态污染旧行为测试。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/diff_check.stdout.log",
+      "change": "added",
+      "reason": "保留本轮暂存差异检查实际输出。"
+    },
+    {
+      "path": "data/research/runs/p0_closeout_2026-10-30/checks/diff_check.stderr.log",
+      "change": "added",
+      "reason": "保留本轮暂存差异检查实际输出。"
+    }
+  ],
+  "completed_at_utc": "2026-10-30T07:27:04.518231+00:00",
+  "results": {
+    "P0_phase_completed": true,
+    "original_scientific_gates_met": false,
+    "ENV_01": "completed_bounded_recipe",
+    "DATA_01": "completed_with_limitations",
+    "EVAL_01": "completed_negative",
+    "D1_D2": "development_semantics_passed",
+    "D3_D4": "coverage_and_correct_acceptance_failed_no_incremental_pixel_gain",
+    "P1_generation_requests_prepared": 64,
+    "pilot_requests_included": 16,
+    "P1_GPU_execution_authorized": false
+  }
+}

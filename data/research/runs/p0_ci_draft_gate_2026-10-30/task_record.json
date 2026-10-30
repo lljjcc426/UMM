@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-30",
+  "task": "Fix recurring draft PR CI failures while retaining strict approval on merge candidates",
+  "authorization": "User instructed to resolve all GitHub errors in one complete fix; research branch only",
+  "base_commit": "0684e3b22926ce773c980dbac64424afd493c4ab",
+  "previous_attempt": "data/research/runs/p0_ci_job_split_2026-10-30/task_record.json",
+  "remaining_failure": "https://github.com/lljjcc426/UMM/actions/runs/41022499967",
+  "cause": "Draft review was incorrectly run as a request for final merge approval; separating jobs left the same failure",
+  "change": {
+    "draft_research_PR": "Validate release evidence; explicitly report deferred_non_mergeable_draft; do not claim merge approval",
+    "non_draft_research_PR": "Run unchanged strict require-ready rules, including explicit final approval and evidence",
+    "triggers": [
+      "opened",
+      "synchronize",
+      "reopened",
+      "ready_for_review",
+      "converted_to_draft"
+    ],
+    "engineering_failure": "validate still runs after engineering and fails if engineering did not succeed",
+    "platform_protection": "main branch protection and rulesets remain unconfigured, as documented; no settings changed",
+    "approval_reference_changed": false,
+    "release_status_changed": false,
+    "main_changed_or_merged": false
+  },
+  "verification": {
+    "full_unittest": {
+      "passed": true,
+      "tests": 104,
+      "new_event_gate_tests": 8,
+      "log": "checks/unittest.log"
+    },
+    "workflow_yaml_and_event_triggers": "Ruby YAML parse and lifecycle/entrypoint assertions passed",
+    "new_tests_cover": [
+      "draft review without merge authorization",
+      "all supported non-draft lifecycle events reject missing approval",
+      "approved merge candidate uses strict gate",
+      "converted_to_draft returns to review",
+      "invalid draft evidence still fails",
+      "wrong stage branch rejected for merge",
+      "push is not merge approval",
+      "CLI reads GitHub event file and returns correct exit status"
+    ],
+    "remote_CI": "Must inspect both push and pull_request runs for this fix before reporting completion; see PR #2 Checks",
+    "review_PR": "https://github.com/lljjcc426/UMM/pull/2"
+  },
+  "official_behavior_references": [
+    "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request",
+    "https://docs.github.com/en/pull-requests/reference/pull-requests#draft-pull-requests"
+  ],
+  "file_changes": {
+    ".github/workflows/validate-research.yml": "Subscribe to review lifecycle events and call event-aware gate",
+    "scripts/validate_stage_release.py": "Use actual GitHub draft state without changing strict release-validation rules",
+    "tests/test_ci_stage_gate.py": "Add eight behavioral regression tests for CI/approval transitions",
+    "docs/project/BRANCH_WORKFLOW.md": "Correct draft versus merge-candidate CI semantics; preserve earlier failure history",
+    "data/research/runs/p0_ci_draft_gate_2026-10-30": "Preserve follow-up diagnosis and actual local test log"
+  },
+  "files_deleted": [],
+  "resources": {
+    "GPU_hours": 0,
+    "new_human_tasks": 0,
+    "model_runs": 0
+  }
+}

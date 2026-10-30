@@ -1,0 +1,116 @@
+{
+  "recomputed_from_saved_predictions_only": {
+    "attempts": 1408,
+    "valid_outputs": 1408,
+    "invalid_outputs": 0,
+    "decisions": {
+      "correct": 128,
+      "incorrect": 1024,
+      "unknown": 256
+    },
+    "by_case": {
+      "correct": {
+        "correct": 128
+      },
+      "swap": {
+        "incorrect": 128
+      },
+      "reverse": {
+        "incorrect": 128
+      },
+      "missing": {
+        "incorrect": 128
+      },
+      "extra": {
+        "incorrect": 128
+      },
+      "simultaneous": {
+        "incorrect": 128
+      },
+      "early_next": {
+        "incorrect": 128
+      },
+      "flash": {
+        "unknown": 128
+      },
+      "disappear": {
+        "incorrect": 128
+      },
+      "sparse": {
+        "unknown": 128
+      },
+      "blank": {
+        "incorrect": 128
+      }
+    },
+    "independent_groups": 64,
+    "false_accept_groups": 0,
+    "false_accept_group_ids": [],
+    "false_accept_group_upper95_one_sided": 0.04572970233076251,
+    "negative_attempts": 1280,
+    "negative_false_accepts": 0,
+    "clear_constructed_attempts": 1152,
+    "clear_coverage": 1.0,
+    "positive_control_attempts": 128,
+    "positive_control_coverage": 1.0,
+    "positive_control_acceptance": 1.0,
+    "ambiguous_attempts": 256,
+    "ambiguous_correct_accepts": 0,
+    "auto_gate_passed": true,
+    "human_reference_status": "pending; labels currently synthetic constructions, not independent human gold",
+    "scientific_acceptance": false
+  },
+  "observer_inputs": [
+    "decoded_RGB_frames",
+    "canonical_masks",
+    "canonical_arc_progress",
+    "frozen_thresholds"
+  ],
+  "event_log_or_construction_label_used_inside_observe": false,
+  "labels_joined_after_observation": true,
+  "reference_geometry_shared_with_renderer": true,
+  "arc_projection_implementation_shared_with_renderer": true,
+  "SVG_AI_prereview_uses_independent_rasterizer": true,
+  "SVG_AI_prereview_still_uses_same_source_strokes_and_medians": true,
+  "geometric_source_independence": false,
+  "temporal_event_log_independence": true,
+  "prefix_adapter_excludes_future_RGB": true,
+  "condition_for_binomial_bound": [
+    "64 character groups are independent and representative of the declared sampling population",
+    "within each group fixed controlled negatives define any-false-accept outcome",
+    "construction labels correctly describe observable events",
+    "no threshold selection on holdout"
+  ],
+  "font_writer_domains_observed": 1,
+  "independent_domain_sample_size_known": false,
+  "hypothetical_effective_group_sensitivity": [
+    {
+      "assumed_independent_groups": 64,
+      "zero_event_upper95": 0.045729702330762456
+    },
+    {
+      "assumed_independent_groups": 32,
+      "zero_event_upper95": 0.0893681989862648
+    },
+    {
+      "assumed_independent_groups": 16,
+      "zero_event_upper95": 0.17074972298248092
+    },
+    {
+      "assumed_independent_groups": 8,
+      "zero_event_upper95": 0.31234397806636793
+    },
+    {
+      "assumed_independent_groups": 4,
+      "zero_event_upper95": 0.5271291954984121
+    },
+    {
+      "assumed_independent_groups": 1,
+      "zero_event_upper95": 0.95
+    }
+  ],
+  "sensitivity_is_not_an_estimated_adjusted_confidence_interval": true,
+  "later_exposure": "Holdout labels and human opinions have now been inspected; any new observer version needs a fresh locked validation set",
+  "current_holdout_predictions_changed": false,
+  "holdout_observer_run_count_added": 0
+}

@@ -1,0 +1,83 @@
+{
+  "protocol_id": "stroke-video-v2",
+  "experiment_id": "ENV-01",
+  "status": "completed_with_measured_negative_capacity_result",
+  "default_policy_training_fits": false,
+  "actual_default_budget_tested": false,
+  "small_joint_capacity_run": "cloud/attempt01-small/metrics.json",
+  "attempts": 1,
+  "software_failures": 0,
+  "cuda_oom_failures": 1,
+  "optimizer_steps_attempted": 1,
+  "optimizer_steps_completed": 0,
+  "failed_phase": "step0_optimizer_begin",
+  "oom_allocation_mib": 86,
+  "packed_budget": 1024,
+  "actual_sequence_tokens": 267,
+  "seed": 2026,
+  "parameters": {
+    "frozen:torch.float32": 1551060992,
+    "trainable:torch.float32": 5554487344
+  },
+  "trainable_tensors": 1018,
+  "gradient_tensors_present": 1018,
+  "all_trainable_gradients_finite": true,
+  "all_trainable_gradient_norms_nonzero": true,
+  "gradient_dtype": "torch.float32",
+  "gradient_groups": {
+    "UND_or_shared_decoder": 2774780928,
+    "GEN_named_expert": 2774782976,
+    "language_model": 2048,
+    "time_embedder": 4722688,
+    "vae2llm": 100352,
+    "llm2vae": 98352
+  },
+  "loss": {
+    "step": 0,
+    "optimizer_lr": 0.0,
+    "loss": 0.7054613828659058,
+    "ce": 2.3295228481292725,
+    "fm": 0.12308064103126526,
+    "ce_tokens": 14,
+    "fm_tokens": 132,
+    "gradient_norm": 10.239189147949219
+  },
+  "peak_allocated_gib": 77.82769632339478,
+  "peak_reserved_gib": 78.017578125,
+  "sampled_device_peak_mib": 80977.0,
+  "sampled_device_peak_gib": 79.0791015625,
+  "host_peak_rss_gib": 38.987396240234375,
+  "worker_wall_seconds": 112.02914178900028,
+  "controller_wall_seconds": 122.2550551280001,
+  "started_at_utc": "2026-10-27T14:11:06.729382+00:00",
+  "finished_at_utc": "2026-10-27T14:13:09.065208+00:00",
+  "optimizer_at_failure": {
+    "parameters_with_state": 608,
+    "state_tensors": 1823,
+    "elements": {
+      "step:torch.float32:cpu": 608,
+      "exp_avg:torch.float32:cuda": 3301213184,
+      "exp_avg_sq:torch.float32:cuda": 3278668800
+    }
+  },
+  "skipped": "65536-token run and steady-state second step skipped because small default-state test OOM",
+  "checkpoint": "No new checkpoint produced; failure preceded optimizer completion; prior independent reload validation remains applicable only to its partial recipe",
+  "interpretation": "One A10080 cannot complete the measured pinned native default-policy AdamW recipe even on this small real joint batch. Other precisions/offload/optimizers/trainable subsets are not measured by this run.",
+  "scope_limits": [
+    "Pinned native functions in an instrumented harness, not the untouched accelerate launcher end to end",
+    "BF16 compute configured through official FSDP; persistent parameters, gradients and allocated moments measured FP32; no per-operator compute dtype trace",
+    "Original owned fixture replaces official mixed corpus",
+    "Small 267-token sequence padded to 1024; no 65536-token execution",
+    "Warmup starts at lr=0.0; lazy moments still allocated by real optimizer.step; it OOMs before update"
+  ],
+  "cost": {
+    "actual_provider_bill_cny": null,
+    "spending_cap_cny": null,
+    "instance_reused": true,
+    "instance_still_running": true,
+    "post_run_gpu_memory_mib": 14,
+    "post_run_compute_processes": 0,
+    "raw_execution_and_sampling_retained": true
+  },
+  "files_deleted": []
+}

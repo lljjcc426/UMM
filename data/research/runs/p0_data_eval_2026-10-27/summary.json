@@ -1,0 +1,258 @@
+{
+  "protocol_id": "stroke-video-v2",
+  "experiments": [
+    "DATA-01",
+    "EVAL-01"
+  ],
+  "status": "engineering_complete_scientific_review_pending",
+  "completed_at_utc": "2026-10-27T16:05:18.077369+00:00",
+  "completed_local_date": "2026-10-28",
+  "DATA-01": {
+    "status": "blocked",
+    "engineered_characters": 640,
+    "observer_development_characters": 64,
+    "observer_holdout_characters": 64,
+    "main_characters": 512,
+    "train_validation_test_characters": [
+      320,
+      64,
+      128
+    ],
+    "rendered_RGB_clips": 2752,
+    "source_group_overlap_count": 0,
+    "matched_final_group_count": 192,
+    "RGB_roundtrip_all_passed": true,
+    "license": "Arphic Public License; retained unmodified text and modification notices",
+    "human_normative_verified": 0,
+    "scientific_acceptance": false
+  },
+  "EVAL-01": {
+    "status": "blocked",
+    "heldout_attempts": 1408,
+    "independent_character_groups": 64,
+    "clear_coverage": 1.0,
+    "positive_controls_accepted": 128,
+    "ambiguous_attempts": 256,
+    "ambiguous_correct_accepts": 0,
+    "false_accept_groups": 0,
+    "false_accept_upper95_one_sided": 0.04572970233076251,
+    "auto_gate_passed": true,
+    "threshold_frozen_before_holdout": true,
+    "human_RGB_verified": 0,
+    "scientific_acceptance": false
+  },
+  "remaining_requirements": [
+    "Independent human normative and RGB event verification, explicitly deferred by user",
+    "Independent same-character font/writer/record sources for the full crossed matrix; current synthetic renderer variants do not provide this"
+  ],
+  "cost": {
+    "local_CPU_only": true,
+    "new_cloud_GPU_hours": 0,
+    "new_cloud_service_bill_cny": 0,
+    "existing_instance_lease_status": "Not inspected or changed; ongoing provider fees cannot be inferred from zero task GPU use",
+    "media_bytes": 18219918,
+    "recorded_local_stage_wall_seconds_sum": 94.12611391799874,
+    "recorded_local_stage_CPU_seconds_sum": 87.299232,
+    "local_stages": [
+      {
+        "record": "data/research/runs/p0_data_eval_2026-10-27/prepare_attempt01.json",
+        "command": [
+          "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "-m",
+          "scripts.p0.build_data",
+          "prepare",
+          "--norm-text",
+          "/Users/cc/.cache/umm-survey-20261023/223/R06-full.txt"
+        ],
+        "status": null,
+        "exit_code": 0,
+        "wall_seconds": 0.4132353749955655,
+        "cpu_user_seconds": null,
+        "cpu_system_seconds": null,
+        "peak_rss_bytes": null
+      },
+      {
+        "record": "data/research/runs/p0_data_eval_2026-10-27/media_observer_dev_attempt01.json",
+        "command": [
+          "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "-m",
+          "scripts.p0.build_data",
+          "media",
+          "--role",
+          "observer_dev"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "wall_seconds": 15.853501457997481,
+        "cpu_user_seconds": 13.652608,
+        "cpu_system_seconds": 0.202762,
+        "peak_rss_bytes": 216317952
+      },
+      {
+        "record": "data/research/runs/p0_data_eval_2026-10-27/media_model_character_test_attempt01.json",
+        "command": [
+          "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "-m",
+          "scripts.p0.build_data",
+          "media",
+          "--role",
+          "model_character_test"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "wall_seconds": 7.57036175000394,
+        "cpu_user_seconds": 7.440469,
+        "cpu_system_seconds": 0.100285,
+        "peak_rss_bytes": 238731264
+      },
+      {
+        "record": "data/research/runs/p0_data_eval_2026-10-27/media_model_validation_attempt01.json",
+        "command": [
+          "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "-m",
+          "scripts.p0.build_data",
+          "media",
+          "--role",
+          "model_validation"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "wall_seconds": 3.9962599589998717,
+        "cpu_user_seconds": 1.972922,
+        "cpu_system_seconds": 0.045552999999999996,
+        "peak_rss_bytes": 156827648
+      },
+      {
+        "record": "data/research/runs/p0_data_eval_2026-10-27/data_audit_attempt01.json",
+        "command": [
+          "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "-m",
+          "scripts.p0.build_data",
+          "audit"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "wall_seconds": 1.088094667000405,
+        "cpu_user_seconds": 0.9516819999999999,
+        "cpu_system_seconds": 0.062503,
+        "peak_rss_bytes": 325287936
+      },
+      {
+        "record": "data/research/runs/p0_data_eval_2026-10-27/media_observer_holdout_attempt01.json",
+        "command": [
+          "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "-m",
+          "scripts.p0.build_data",
+          "media",
+          "--role",
+          "observer_holdout"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "wall_seconds": 27.043689707999874,
+        "cpu_user_seconds": 26.589619,
+        "cpu_system_seconds": 0.380743,
+        "peak_rss_bytes": 248774656
+      },
+      {
+        "record": "data/research/runs/p0_data_eval_2026-10-27/input_audit_attempt01.json",
+        "command": [
+          "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "-m",
+          "scripts.p0.evaluate",
+          "input_audit"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "wall_seconds": 0.05907445900083985,
+        "cpu_user_seconds": 0.046368,
+        "cpu_system_seconds": 0.010244999999999999,
+        "peak_rss_bytes": 36618240
+      },
+      {
+        "record": "data/research/runs/p0_data_eval_2026-10-27/human_queue_attempt02.json",
+        "command": [
+          "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "-m",
+          "scripts.p0.prepare_review"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "wall_seconds": 0.16115849999914644,
+        "cpu_user_seconds": 0.11652399999999999,
+        "cpu_system_seconds": 0.017464999999999998,
+        "peak_rss_bytes": 99237888
+      },
+      {
+        "record": "data/research/runs/p0_data_eval_2026-10-27/holdout_evaluation_attempt01.json",
+        "command": [
+          "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "-m",
+          "scripts.p0.evaluate",
+          "evaluate"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "wall_seconds": 11.199552750003932,
+        "cpu_user_seconds": 10.916407,
+        "cpu_system_seconds": 0.142797,
+        "peak_rss_bytes": 241041408
+      },
+      {
+        "record": "data/research/runs/p0_data_eval_2026-10-27/media_model_train_attempt01.json",
+        "command": [
+          "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "-m",
+          "scripts.p0.build_data",
+          "media",
+          "--role",
+          "model_train"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "wall_seconds": 11.468660332997388,
+        "cpu_user_seconds": 9.343917,
+        "cpu_system_seconds": 0.12531,
+        "peak_rss_bytes": 203587584
+      },
+      {
+        "record": "data/research/runs/p0_data_eval_2026-10-27/human_queue_attempt01.json",
+        "command": [
+          "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "-m",
+          "scripts.p0.prepare_review"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "wall_seconds": 0.17785404199821642,
+        "cpu_user_seconds": 0.11898399999999999,
+        "cpu_system_seconds": 0.019639,
+        "peak_rss_bytes": 94912512
+      },
+      {
+        "record": "data/research/runs/p0_data_eval_2026-10-27/calibration_attempt01.json",
+        "command": [
+          "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+          "-m",
+          "scripts.p0.evaluate",
+          "calibrate"
+        ],
+        "status": "passed",
+        "exit_code": 0,
+        "wall_seconds": 15.094670917002077,
+        "cpu_user_seconds": 14.949162,
+        "cpu_system_seconds": 0.09326799999999999,
+        "peak_rss_bytes": 178438144
+      }
+    ],
+    "recorded_local_stage_peak_rss_bytes_max": 325287936
+  },
+  "failures_and_debugging": [
+    "Initial full graphics download timed out at 13,631,488 bytes after 1,109.665 seconds; bounded parallel HTTP ranges completed the pinned source; original failure and retries retained",
+    "Inspection of an in-progress download encountered a partial JSON line; no partial row entered the dataset",
+    "Initial normative-index regex excluded supplementary-plane codepoints; corrected before selection, yielding all 8,105 unique entries",
+    "PDF render logged missing English/CJK mapping fonts; Chinese normative definitions visually readable; no normative PDF redistributed",
+    "Human UI enhanced with frame scrubbing before handoff; no post-holdout changes to observer/geometry/thresholds"
+  ],
+  "files_deleted": []
+}

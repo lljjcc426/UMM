@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "experiment_id": "ENV-01",
+  "task_id": "env01-native-interface-cuda124-adaptation-2026-10-27",
+  "status": "deployment_prepared_awaiting_instance",
+  "branch": "research/p0-stroke-video-foundation",
+  "prior_preparation": "data/research/deployments/env01_interface_2026-10-27/preparation_record.json",
+  "authorization": {
+    "task_approval": "User: 批准，费用不用管。",
+    "resource_steering": "User: 现在只有40GB有货; selected ubuntu22_cuda12.4 image screenshot",
+    "scope": "Same approved three-interface inference task, technical environment adaptation only"
+  },
+  "candidate_instance": {
+    "gpu": "NVIDIA A100-SXM4-40GB",
+    "gpu_count": 1,
+    "cpu_cores": 16,
+    "host_ram_gb": 48,
+    "screenshot_system_disk_gb": 200,
+    "actual_instance_created": null,
+    "actual_instance_status": "unknown; SSH access not provided"
+  },
+  "provider_image_evidence": "image_selection.png",
+  "runtime_environment": {
+    "provider_image": "ubuntu22_cuda12.4",
+    "os": "Ubuntu 22.04",
+    "cuda_toolkit": "12.4",
+    "python": "3.11 in a separate Conda environment",
+    "torch": "2.5.1+cu124",
+    "torchvision": "0.20.1",
+    "torchaudio": "2.5.1",
+    "flash_attn": "2.6.3",
+    "verification_status": "planned_pending_instance_access"
+  },
+  "rationale": [
+    "Official pinned Lance README lists CUDA12.4+ and tested A100 torch2.5.1/cu124 + flash-attn2.6.3",
+    "Official PyTorch version table specifies torchvision0.20.1 and torchaudio2.5.1 for torch2.5.1",
+    "Create Python3.11 via existing Anaconda to match numpy1.23.5 and other pinned upstream dependencies"
+  ],
+  "sources": [
+    "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/README.md#-installation",
+    "https://pytorch.org/get-started/previous-versions/#v251"
+  ],
+  "plan": {
+    "schema_version": 1,
+    "protocol_id": "stroke-video-v2",
+    "experiment_id": "ENV-01",
+    "scope": "Three native inference interfaces only; no training or scientific accuracy claim",
+    "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+    "weight_repository": "bytedance-research/Lance",
+    "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+    "weight_patterns": [
+      "Lance_3B_Video/*",
+      "Qwen2.5-VL-ViT/*",
+      "Wan2.2_VAE.pth",
+      "config.json"
+    ],
+    "tasks": [
+      "x2t_video",
+      "t2v",
+      "i2v"
+    ],
+    "seed": 11,
+    "num_frames": 33,
+    "height": 480,
+    "width": 848,
+    "fps": 12,
+    "denoising_steps": 30,
+    "cfg_text_scale": 4.0,
+    "enhance_prompt": false,
+    "use_kv_cache": true,
+    "expected_gpu_count": 1,
+    "recommended_gpu": "NVIDIA A100-SXM4-40GB",
+    "preferred_gpu_when_available": "NVIDIA A100-SXM4-80GB",
+    "selection_basis": "User reports only A100 40GB in stock; official inference minimum is 40GB, runtime remains unverified",
+    "runtime_environment": {
+      "provider_image": "ubuntu22_cuda12.4",
+      "os": "Ubuntu 22.04",
+      "cuda_toolkit": "12.4",
+      "python": "3.11 in a separate Conda environment",
+      "torch": "2.5.1+cu124",
+      "torchvision": "0.20.1",
+      "torchaudio": "2.5.1",
+      "flash_attn": "2.6.3",
+      "verification_status": "planned_pending_instance_access"
+    },
+    "recommended_host": {
+      "cpu_cores": 16,
+      "ram_gb": 48,
+      "disk_gb": 150
+    },
+    "approval": {
+      "user_approved": true,
+      "cloud_spending_cap_cny": null,
+      "budget_policy": "User approved this three-interface task and stated that cost is not a constraint",
+      "scope_limit": "No training, model replacement, new experiment group or remote Git push"
+    }
+  },
+  "archive": "data/research/deployments/env01_interface_cuda124_2026-10-27/env01-cloud.tar.gz",
+  "archive_bytes": 248833,
+  "prior_archive_retained": true,
+  "runtime": {
+    "actual_attempts": 0,
+    "model_outputs": [],
+    "peak_memory_bytes": null,
+    "billed_cost_cny": null
+  },
+  "limitations": [
+    "GPU memory sufficiency for all three interfaces remains unverified",
+    "Cloud driver, nvcc, installation and execution pending instance access",
+    "Full ENV-01 remains planned and P0 remains in_progress"
+  ],
+  "file_changes": {
+    "scripts/env01/bootstrap.sh": "Use official torch2.5.1/cu124 with matching vision/audio packages and flash-attn2.6.3",
+    "configs/research/env01_interface_probe.json": "Record current A10040GB candidate and exact environment versions",
+    "configs/research/stroke_video_v2.json": "Record current GPU/image candidates without claiming measured hardware",
+    "data/research/experiments_v2.json": "Append new preparation evidence while preserving all planned statuses",
+    "docs/research/v2/env01_cloud_deployment.md": "Document image compatibility, Python3.11 environment and current archive",
+    "docs/project/STATUS.md": "Describe actual awaiting-SSH state and current inventory-based candidate",
+    "data/research/deployments/env01_interface_cuda124_2026-10-27/": "New deployment archive, source provenance, screenshot and verification records"
+  },
+  "files_deleted": [],
+  "git_remote_push_performed": false,
+  "verification_record": "data/research/deployments/env01_interface_cuda124_2026-10-27/verification.json"
+}

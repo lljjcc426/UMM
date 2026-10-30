@@ -1,0 +1,28 @@
+{
+  "parameters_exact": true,
+  "parameters_within_preregistered_tolerance": true,
+  "parameter_max_abs_difference": {
+    "language_model.model.embed_tokens.weight": 0.0,
+    "language_model.model.layers.35.self_attn.q_proj.weight": 0.0,
+    "language_model.model.layers.35.self_attn.q_proj.bias": 0.0,
+    "language_model.model.layers.35.self_attn.q_proj_moe_gen.weight": 0.0,
+    "language_model.model.layers.35.self_attn.q_proj_moe_gen.bias": 0.0,
+    "time_embedder.mlp.0.weight": 0.0,
+    "time_embedder.mlp.0.bias": 0.0,
+    "time_embedder.mlp.2.weight": 0.0,
+    "time_embedder.mlp.2.bias": 0.0,
+    "vae2llm.weight": 0.0,
+    "vae2llm.bias": 0.0,
+    "llm2vae.weight": 0.0,
+    "llm2vae.bias": 0.0
+  },
+  "losses_within_preregistered_tolerance": true,
+  "optimizer_exact": true,
+  "scheduler_exact": true,
+  "rng_exact": true,
+  "status": "passed",
+  "loading_cuda_peak_bytes": {
+    "allocated": 30471729152,
+    "reserved": 30815551488
+  }
+}

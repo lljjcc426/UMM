@@ -1,0 +1,396 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "experiment_ids": [
+    "DATA-01",
+    "EVAL-01"
+  ],
+  "branch": "research/p0-stroke-video-foundation",
+  "base_commit": "a53f031c",
+  "status": "AI_prereview_complete_waiting_for_actual_human_review",
+  "authorization": "data/research/runs/p0_ai_prereview_2026-10-28/approved_scope.json",
+  "report": "docs/research/v2/p0_ai_prereview_2026-10-28.md",
+  "AI_summary": "data/research/runs/p0_ai_prereview_2026-10-28/effective_prereview_summary.json",
+  "protocol": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_protocol.json",
+  "review_order": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_review_order.csv",
+  "legacy_human_records_preserved": 38,
+  "new_formal_human_records": 0,
+  "human_AI_suggestions_visible": true,
+  "second_real_human": "User can arrange, participation pending",
+  "scientific_status": {
+    "DATA-01": "blocked",
+    "EVAL-01": "blocked",
+    "P0": "not_accepted"
+  },
+  "original_observer_modified": false,
+  "original_holdout_rescored": false,
+  "thresholds_modified": false,
+  "training": false,
+  "GPU_hours": 0,
+  "cloud_status": "Already released per user; no connection or action",
+  "new_media_videos": 0,
+  "new_fonts_or_datasets_downloaded": false,
+  "local_commit_only": true,
+  "remote_push": false,
+  "stage_PR": false,
+  "files_deleted": [],
+  "preserved_moves": [
+    "private/p0_ai_prereview_2026-10-28/reference to reference_attempt01_misaligned",
+    "private/p0_ai_prereview_2026-10-28/contact/norm_* to norm_contact_attempt01_misaligned"
+  ],
+  "failures_and_debugging": [
+    "Optional fitz import unavailable; used already available pdfplumber/PDFium",
+    "Initial PingFang font path absent; used installed STHeiti font",
+    "Nonzero PDF MediaBox origin shifted first row crops; incorrect images and JSON preserved; corrected and all640 visually compared",
+    "Coarse stroke classifier has364 suspect characters, not364 verified errors",
+    "30 constructive-positive RGB initial flags not confirmed by7-keyframe visual evidence; revised suggestionsunknown/disputed, raw results retained",
+    "Several exploratory file-name reads missed local workflow path; discovered actual validate-research.yml and used it",
+    "First full check had64passes and1catalog failure because the newly linked validation_summary.json had not yet been written; original logs preserved, summary written, catalog and65-test suite then passed"
+  ],
+  "validation": {
+    "status": "passed",
+    "unit_tests_passed": 65,
+    "record": "data/research/runs/p0_ai_prereview_2026-10-28/checks/validation_summary.json",
+    "scientific_acceptance": false
+  },
+  "costs": {
+    "RGB_core_scan_seconds": 28.16,
+    "local_CPU": true,
+    "GPU_hours": 0,
+    "new_cloud_fee": 0,
+    "full_CPU_time_and_RSS": "not_measured"
+  },
+  "next_human_action": "ID1/2 separate partitions; normative first, both36 cross-review clips, then remaining own RGB; user may adopt/edit AI",
+  "execution_environment": "data/research/runs/p0_ai_prereview_2026-10-28/execution_environment.json",
+  "local_review_url": "http://127.0.0.1:8768/",
+  "live_service_handoff": "data/research/runs/p0_ai_prereview_2026-10-28/live_service_handoff.json",
+  "completed_at_utc": "2026-10-28T06:03:15.103950+00:00",
+  "next_action": "Stop research execution; wait for actual human review and subsequent user authorization",
+  "file_changes": [
+    {
+      "path": "README.md",
+      "change": "modified",
+      "reason": "更新当前AI辅助人工复核入口，保留历史报告。"
+    },
+    {
+      "path": "configs/research/stroke_video_v2.json",
+      "change": "modified",
+      "reason": "登记新版AI可见复核协议与旧协议关系、分工及尚未发生的真人审核。"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/README.md",
+      "change": "modified",
+      "reason": "说明当前8768复核页面，保留旧页面历史入口。"
+    },
+    {
+      "path": "data/research/experiments_v2.json",
+      "change": "modified",
+      "reason": "补充本轮预审与分工证据，DATA-01和EVAL-01仍为blocked。"
+    },
+    {
+      "path": "docs/project/STATUS.md",
+      "change": "modified",
+      "reason": "更新当前复核方式和停止点，不宣布P0通过。"
+    },
+    {
+      "path": "docs/project/stages/P0-release.json",
+      "change": "modified",
+      "reason": "添加本轮证据，保留阶段未验收状态。"
+    },
+    {
+      "path": "docs/project/stages/P0.md",
+      "change": "modified",
+      "reason": "补充当前AI预审及真人复核安排。"
+    },
+    {
+      "path": "docs/research/v2/README.md",
+      "change": "modified",
+      "reason": "加入本轮报告入口。"
+    },
+    {
+      "path": "docs/research/v2/data_evaluation.md",
+      "change": "modified",
+      "reason": "说明AI可见复核修订及证据边界。"
+    },
+    {
+      "path": "scripts/p0/review_server.py",
+      "change": "modified",
+      "reason": "增加assisted模式、AI建议字段、规范图证据及独立真人存储；保留旧模式。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/AI_normative_visual_reviews.jsonl",
+      "change": "added",
+      "reason": "640字实际规范比较的AI视觉意见，未知字段不补人工结论。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/AI_visual_followup.json",
+      "change": "added",
+      "reason": "30段疑点每段7个关键帧的AI视觉复核及保留未知的理由。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/ai_suggestions.jsonl",
+      "change": "added",
+      "reason": "原始3392项工具辅助AI预审意见，修订后仍保留原件。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/approved_scope.json",
+      "change": "added",
+      "reason": "保存本轮用户批准的任务范围及未采用的320段盲审提案。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_browser_attempt01.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_browser_check.json",
+      "change": "added",
+      "reason": "首次隔离浏览器功能检查结果，发生于规范图坐标修正前。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_browser_final_attempt01.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_browser_final_check.json",
+      "change": "added",
+      "reason": "最终非保留集浏览器检查结果，未创建科学人工标签。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_page_operation.png",
+      "change": "added",
+      "reason": "首次界面操作截图，仅作功能证据。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_page_operation_final.png",
+      "change": "added",
+      "reason": "最终界面操作截图。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_protocol.json",
+      "change": "added",
+      "reason": "冻结AI可见复核协议，继承字段定义并说明锚定限制。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_review_order.csv",
+      "change": "added",
+      "reason": "冻结全部3392项角色、分层、分工及审核顺序。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_review_pack.json",
+      "change": "added",
+      "reason": "合并640字视觉意见和30段疑点修订后的全量审核包。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_ui_test_server.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_ui_test_server_attempt02.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/assisted_ui_test_server_final.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/checks/catalog_attempt01_pending_summary.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/checks/catalog_final.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/checks/research_v1.json",
+      "change": "added",
+      "reason": "研究计划验证器输出。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/checks/research_v1.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/checks/research_v2.json",
+      "change": "added",
+      "reason": "v2研究协议验证器输出。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/checks/research_v2.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/checks/stage_release.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/checks/unit_tests_attempt01_pending_summary.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/checks/unit_tests_final.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/checks/validation_summary.json",
+      "change": "added",
+      "reason": "汇总最终65项测试和仓库检查结果，保留首轮失败原因。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/comparison_to_frozen_observer.json",
+      "change": "added",
+      "reason": "预审完成后与原冻结观察器比较，记录6段差异，不修改旧预测。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/coverage_and_partition_audit.json",
+      "change": "added",
+      "reason": "核对全量覆盖和两人分工的字符/视频分母。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/effective_prereview_summary.json",
+      "change": "added",
+      "reason": "汇总最终AI建议，明确不作为真实性能。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/execution_environment.json",
+      "change": "added",
+      "reason": "记录本机运行环境、依赖与执行方式。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/human_assignment_plan.json",
+      "change": "added",
+      "reason": "冻结分层分工、36段交叉复核及实际人工量。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/independence_and_exposure_audit.json",
+      "change": "added",
+      "reason": "审计日志独立性、同源几何、AI可见锚定及保留集使用。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/live_service_handoff.json",
+      "change": "added",
+      "reason": "正式服务只读交接检查，两位真人实际新记录均为0。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/nonhuman_UI_events.jsonl",
+      "change": "added",
+      "reason": "保留隔离UI测试事件，明确排除科学人工标签。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/normative_contacts_attempt02.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/normative_visual_contact_index.json",
+      "change": "added",
+      "reason": "索引80张实际查看的规范比较图板。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/official_reference_extraction.json",
+      "change": "added",
+      "reason": "修正坐标后的640字官方笔数/编码和规范局部图索引。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/official_reference_extraction_attempt01_misaligned_crops.json",
+      "change": "added",
+      "reason": "保留规范图裁剪错位的首次提取记录。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/prereview_attempt01.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/prereview_method_frozen.json",
+      "change": "added",
+      "reason": "记录预审方法版本及决定前的约束。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/reference_crop_correction.json",
+      "change": "added",
+      "reason": "记录非零MediaBox原点造成错位、修正和原件保留位置。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/reference_extraction.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/reference_extraction_attempt02.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/review_tests_attempt01.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/summary.json",
+      "change": "added",
+      "reason": "保留视觉跟进前的程序初筛汇总。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/svg_rasterization.log",
+      "change": "added",
+      "reason": "保留该步骤原始执行/调试日志；attempt记录保留初次尝试，final记录最终检查。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/task_record.json",
+      "change": "added",
+      "reason": "任务登记、失败记录、证据指针及逐文件改动说明。"
+    },
+    {
+      "path": "data/research/runs/p0_ai_prereview_2026-10-28/visual_adjudication_candidates.json",
+      "change": "added",
+      "reason": "保存30段需要视觉跟进的疑点名单及触发依据。"
+    },
+    {
+      "path": "docs/research/v2/p0_ai_prereview_2026-10-28.md",
+      "change": "added",
+      "reason": "完整交付报告：实际结果、人工量、来源和独立性限制、失败及剩余验收条件。"
+    },
+    {
+      "path": "scripts/p0/ai_prereview.py",
+      "change": "added",
+      "reason": "实现官方参考提取、实际RGB工具辅助预审及AI辅助审核包生成。"
+    },
+    {
+      "path": "scripts/p0/prereview_contacts.py",
+      "change": "added",
+      "reason": "生成供AI实际查看的规范比较图索引与图板。"
+    },
+    {
+      "path": "scripts/p0/rasterize_reference.cjs",
+      "change": "added",
+      "reason": "以CPU/Chromium栅格化既有SVG参考，未生成新RGB视频。"
+    },
+    {
+      "path": "scripts/p0/review_assisted.html",
+      "change": "added",
+      "reason": "提供AI可见逐项采纳或修改、逐帧、争议、分工、进度与导入导出界面。"
+    },
+    {
+      "path": "scripts/p0/test_assisted_browser.cjs",
+      "change": "added",
+      "reason": "在非保留集及隔离测试存储执行真实浏览器功能检查。"
+    },
+    {
+      "path": "tests/test_p0_ai_prereview.py",
+      "change": "added",
+      "reason": "验证实际像素诊断、规范证据边界及人工记录隔离。"
+    }
+  ]
+}

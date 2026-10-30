@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "decision": "user_explicit_conditional_main_merge_approval",
+  "recorded_date": "2026-10-30",
+  "user_instruction_verbatim": "你审核啊，没问题就合并PR，然后开启P1",
+  "target_repository": "lljjcc426/UMM",
+  "pull_request_number": 2,
+  "reviewed_head_before_gate_finalization": "d29622f67a398e0e2ba6492fad195950b02ce704",
+  "meaning": "Assistant reviews PR #2 for accepted limited P0 scientific scope, evidence integrity, code/CI; merge is authorized if review and strict non-draft CI pass.",
+  "P0_scope": "limited_research_foundation",
+  "original_scientific_gates_met": false,
+  "original_negative_results_retained": true,
+  "permitted_merge_method": "merge",
+  "main_merge_is_separate_from_science_approval": true,
+  "P1_scope_from_user_instruction": "Start P1 after successful P0 merge; initial pilot limited to 16 native G0 generation requests per frozen plan, no training or expanded 64-request queue.",
+  "gpu_execution_method": "Requires connected A100 host operator; GitHub merge/branch creation does not execute GPU inference."
+}

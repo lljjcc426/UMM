@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-30",
+  "task": "Investigate user-reported All jobs have failed and clarify CI without weakening the approval gate",
+  "authorization": "User CI error follow-up; routine engineering fix within approved P0 closeout/PR scope",
+  "base_commit": "bfdd858d",
+  "branch": "research/p0-stroke-video-foundation",
+  "diagnosis": {
+    "failed_run": "https://github.com/lljjcc426/UMM/actions/runs/41020845096",
+    "successful_branch_run": "https://github.com/lljjcc426/UMM/actions/runs/41020700038",
+    "only_failed_step": "Require approved evidence for research PR into main",
+    "errors": [
+      "PR requires ready_for_review",
+      "missing user approval reference"
+    ],
+    "engineering_tests": "96 tests and all earlier engineering steps passed; all checks were grouped in one job"
+  },
+  "fix": {
+    "engineering": "Separate catalog/protocol/evidence/full-test job",
+    "validate": "Retains existing required-check name; needs engineering, always executes and fails if engineering did not pass; retains unchanged require-ready approval command",
+    "approval_reference_changed": false,
+    "release_status_changed": false,
+    "main_merged": false
+  },
+  "verification": {
+    "YAML_parse": "Ruby standard-library YAML.load_file passed",
+    "remote_CI": "Inspect updated PR for actual two-job results after push; no model/test-code changes requiring another local full suite"
+  },
+  "resources": {
+    "GPU_hours": 0,
+    "new_human_tasks": 0,
+    "model_runs": 0
+  },
+  "file_changes": [
+    {
+      "path": ".github/workflows/validate-research.yml",
+      "reason": "Split engineering evidence from release approval display; preserve validate blocking behavior and name"
+    },
+    {
+      "path": "docs/project/BRANCH_WORKFLOW.md",
+      "reason": "Explain job meanings and unchanged aggregate approval requirement"
+    },
+    {
+      "path": "data/research/runs/p0_ci_job_split_2026-10-30/task_record.json",
+      "reason": "Preserve diagnosis, prior failure, change and authorization boundaries"
+    }
+  ],
+  "files_deleted": []
+}

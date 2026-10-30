@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/cc/Documents/UMM/scripts/p0/final_calibration.py", line 307, in <module>
+    {'prepare':prepare,'freeze':freeze}[sys.argv[1]]()
+  File "/Users/cc/Documents/UMM/scripts/p0/final_calibration.py", line 169, in prepare
+    if found is None:raise ValueError(f'No unexposed writer/character fits declared slot {part}/{stratum}/{role}')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: No unexposed writer/character fits declared slot development/13-20/model_character_test

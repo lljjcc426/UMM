@@ -1,0 +1,322 @@
++ uname -a
+Linux ubuntu22 6.2.0-37-generic #38~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Nov  2 18:01:13 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
++ nvidia-smi
++ tee /root/umm-env01-20261027-a10080/env01-cloud/setup/20261027T101524-2710/nvidia-smi.txt
+Tue Oct 27 18:15:24 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.127.05             Driver Version: 550.127.05     CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          Off |   00000000:00:08.0 Off |                    0 |
+| N/A   41C    P0             54W /  400W |      14MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A       839      G   /usr/lib/xorg/Xorg                              4MiB |
++-----------------------------------------------------------------------------------------+
++ nvcc --version
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2024 NVIDIA Corporation
+Built on Tue_Feb_27_16:19:38_PST_2024
+Cuda compilation tools, release 12.4, V12.4.99
+Build cuda_12.4.r12.4/compiler.33961263_0
++ df -h /root/umm-env01-20261027-a10080/env01-cloud
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda3       196G   61G  126G  33% /
++ free -h
+               total        used        free      shared  buff/cache   available
+Mem:            47Gi       858Mi        20Gi        15Mi        25Gi        45Gi
+Swap:          5.9Gi          0B       5.9Gi
++ ENV_DIR=/root/umm-env01-20261027-a10080/env01-cloud/runtime
++ [[ ! -x /root/umm-env01-20261027-a10080/env01-cloud/runtime/bin/python ]]
++ PYTHON=/root/umm-env01-20261027-a10080/env01-cloud/runtime/bin/python
++ /root/umm-env01-20261027-a10080/env01-cloud/runtime/bin/python -m pip install --upgrade pip setuptools wheel ninja packaging psutil
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Requirement already satisfied: pip in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (26.2.2)
+Requirement already satisfied: setuptools in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (84.2.1)
+Requirement already satisfied: wheel in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (0.48.0)
+Requirement already satisfied: ninja in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (1.13.2)
+Requirement already satisfied: packaging in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (26.3)
+Requirement already satisfied: psutil in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (7.2.2)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ /root/umm-env01-20261027-a10080/env01-cloud/runtime/bin/python -m pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu124
+Looking in indexes: https://download.pytorch.org/whl/cu124
+Requirement already satisfied: torch==2.5.1 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (2.5.1+cu124)
+Requirement already satisfied: torchvision==0.20.1 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (0.20.1+cu124)
+Requirement already satisfied: torchaudio==2.5.1 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (2.5.1+cu124)
+Requirement already satisfied: filelock in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (3.32.3)
+Requirement already satisfied: typing-extensions>=4.8.0 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (4.16.0)
+Requirement already satisfied: networkx in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (3.6.1)
+Requirement already satisfied: jinja2 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (3.1.6)
+Requirement already satisfied: fsspec in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (2026.7.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (12.4.127)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (12.4.127)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (12.4.127)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (12.4.5.8)
+Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (11.2.1.3)
+Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (10.3.5.147)
+Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (11.6.1.9)
+Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (12.3.1.170)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (2.21.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (12.4.127)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (12.4.127)
+Requirement already satisfied: triton==3.1.0 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (3.1.0)
+Requirement already satisfied: sympy==1.13.1 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch==2.5.1) (1.13.1)
+Requirement already satisfied: numpy in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torchvision==0.20.1) (2.4.6)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torchvision==0.20.1) (12.3.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from sympy==1.13.1->torch==2.5.1) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from jinja2->torch==2.5.1) (3.0.3)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
++ /root/umm-env01-20261027-a10080/env01-cloud/runtime/bin/python -m pip install -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt wandb==0.19.11
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting wandb==0.19.11
+  Downloading wandb-0.19.11-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (21.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.4/21.4 MB 17.5 MB/s  0:00:01
+Collecting accelerate==1.13.0 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1))
+  Downloading accelerate-1.13.0-py3-none-any.whl (383 kB)
+Collecting decord==0.6.0 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 2))
+  Using cached decord-0.6.0-py3-none-manylinux2010_x86_64.whl (13.6 MB)
+Collecting diffusers==0.29.1 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 3))
+  Using cached diffusers-0.29.1-py3-none-any.whl (2.2 MB)
+Collecting einops==0.8.1 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 4))
+  Downloading einops-0.8.1-py3-none-any.whl (64 kB)
+Collecting fsspec==2026.4.0 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 5))
+  Downloading fsspec-2026.4.0-py3-none-any.whl (203 kB)
+Collecting gradio==5.31.0 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading gradio-5.31.0-py3-none-any.whl (54.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 54.2/54.2 MB 19.9 MB/s  0:00:02
+Collecting gradio-client==1.10.1 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 7))
+  Downloading gradio_client-1.10.1-py3-none-any.whl (323 kB)
+Collecting huggingface-hub==0.29.1 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 8))
+  Downloading huggingface_hub-0.29.1-py3-none-any.whl (468 kB)
+Collecting imageio==2.34.0 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 9))
+  Using cached imageio-2.34.0-py3-none-any.whl (313 kB)
+Collecting imageio-ffmpeg==0.5.1 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 10))
+  Using cached imageio_ffmpeg-0.5.1-py3-none-manylinux2010_x86_64.whl (26.9 MB)
+Collecting Jinja2==3.1.3 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 11))
+  Using cached Jinja2-3.1.3-py3-none-any.whl (133 kB)
+Collecting numpy==1.23.5 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 12))
+  Using cached numpy-1.23.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.1 MB)
+Collecting nvidia-ml-py==13.610.43 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 13))
+  Downloading nvidia_ml_py-13.610.43-py3-none-any.whl (53 kB)
+Collecting omegaconf==2.3.0 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 14))
+  Using cached omegaconf-2.3.0-py3-none-any.whl (79 kB)
+Collecting opencv-python==4.7.0.72 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 15))
+  Using cached opencv_python-4.7.0.72-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (61.8 MB)
+Collecting openai==2.26.0 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 16))
+  Downloading openai-2.26.0-py3-none-any.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 15.1 MB/s  0:00:00
+Collecting packaging==25.0 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 17))
+  Downloading packaging-25.0-py3-none-any.whl (66 kB)
+Collecting pillow==11.0.0 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 18))
+  Downloading pillow-11.0.0-cp311-cp311-manylinux_2_28_x86_64.whl (4.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 13.1 MB/s  0:00:00
+Collecting protobuf==3.20.3 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 19))
+  Using cached protobuf-3.20.3-py2.py3-none-any.whl (162 kB)
+Collecting pyarrow==11.0.0 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 20))
+  Using cached pyarrow-11.0.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (34.9 MB)
+Collecting PyYAML==6.0 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 21))
+  Using cached PyYAML-6.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (757 kB)
+Collecting regex==2022.10.31 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 22))
+  Using cached regex-2022.10.31-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (781 kB)
+Collecting requests==2.32.3 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 23))
+  Using cached requests-2.32.3-py3-none-any.whl (64 kB)
+Collecting retrying==1.3.4 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 24))
+  Using cached retrying-1.3.4-py3-none-any.whl (11 kB)
+Collecting safetensors==0.4.5 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 25))
+  Downloading safetensors-0.4.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (435 kB)
+Collecting sentencepiece==0.1.99 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 26))
+  Using cached sentencepiece-0.1.99-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
+Collecting sk-video==1.1.10 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 27))
+  Downloading sk_video-1.1.10-py2.py3-none-any.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 9.6 MB/s  0:00:00
+Collecting spaces==0.50.2 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 28))
+  Downloading spaces-0.50.2-py3-none-any.whl (111 kB)
+Collecting timm==0.6.13 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 29))
+  Using cached timm-0.6.13-py3-none-any.whl (549 kB)
+Collecting tokenizers==0.21.4 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 30))
+  Downloading tokenizers-0.21.4-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 5.4 MB/s  0:00:00
+Collecting tqdm==4.67.3 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 31))
+  Downloading tqdm-4.67.3-py3-none-any.whl (78 kB)
+Collecting transformers==4.49.0 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 32))
+  Downloading transformers-4.49.0-py3-none-any.whl (10.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 3.2 MB/s  0:00:03
+Collecting transformers-stream-generator==0.0.5 (from -r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 33))
+  Using cached transformers-stream-generator-0.0.5.tar.gz (13 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting click!=8.0.0,>=7.1 (from wandb==0.19.11)
+  Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Collecting docker-pycreds>=0.4.0 (from wandb==0.19.11)
+  Downloading docker_pycreds-0.4.0-py2.py3-none-any.whl (9.0 kB)
+Collecting gitpython!=3.1.29,>=1.0.0 (from wandb==0.19.11)
+  Downloading gitpython-3.2.1-py3-none-any.whl (231 kB)
+Collecting platformdirs (from wandb==0.19.11)
+  Downloading platformdirs-4.13.6-py3-none-any.whl (32 kB)
+Requirement already satisfied: psutil>=5.0.0 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from wandb==0.19.11) (7.2.2)
+Collecting pydantic<3 (from wandb==0.19.11)
+  Downloading pydantic-2.14.1-py3-none-any.whl (488 kB)
+Collecting sentry-sdk>=2.0.0 (from wandb==0.19.11)
+  Downloading sentry_sdk-2.73.0-py3-none-any.whl (549 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 549.0/549.0 kB 2.6 MB/s  0:00:00
+Collecting setproctitle (from wandb==0.19.11)
+  Downloading setproctitle-1.3.8-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (32 kB)
+Requirement already satisfied: setuptools in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from wandb==0.19.11) (84.2.1)
+Requirement already satisfied: typing-extensions<5,>=4.4 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from wandb==0.19.11) (4.16.0)
+Collecting charset-normalizer<4,>=2 (from requests==2.32.3->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 23))
+  Downloading charset_normalizer-3.5.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (269 kB)
+Collecting idna<4,>=2.5 (from requests==2.32.3->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 23))
+  Downloading idna-3.20-py3-none-any.whl (69 kB)
+Collecting urllib3<3,>=1.21.1 (from requests==2.32.3->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 23))
+  Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+Collecting certifi>=2017.4.17 (from requests==2.32.3->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 23))
+  Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+Requirement already satisfied: torch>=2.0.0 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (2.5.1+cu124)
+Collecting importlib-metadata (from diffusers==0.29.1->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 3))
+  Downloading importlib_metadata-10.1.0-py3-none-any.whl (32 kB)
+Requirement already satisfied: filelock in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from diffusers==0.29.1->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 3)) (3.32.3)
+Collecting aiofiles<25.0,>=22.0 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Using cached aiofiles-24.1.0-py3-none-any.whl (15 kB)
+Collecting anyio<5.0,>=3.0 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+Collecting fastapi<1.0,>=0.115.2 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading fastapi-0.162.0-py3-none-any.whl (148 kB)
+Collecting ffmpy (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading ffmpy-1.0.0-py3-none-any.whl (5.6 kB)
+Collecting groovy~=0.1 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading groovy-0.1.2-py3-none-any.whl (14 kB)
+Collecting httpx>=0.24.1 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Requirement already satisfied: markupsafe<4.0,>=2.0 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6)) (3.0.3)
+Collecting orjson~=3.0 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading orjson-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (130 kB)
+Collecting pandas<3.0,>=1.0 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading pandas-2.3.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 2.4 MB/s  0:00:05
+Collecting pydantic<3 (from wandb==0.19.11)
+  Downloading pydantic-2.11.10-py3-none-any.whl (444 kB)
+Collecting pydub (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading pydub-0.25.1-py2.py3-none-any.whl (32 kB)
+Collecting python-multipart>=0.0.18 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading python_multipart-0.0.32-py3-none-any.whl (30 kB)
+Collecting ruff>=0.9.3 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Using cached ruff-0.17.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (10.6 MB)
+Collecting safehttpx<0.2.0,>=0.1.6 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading safehttpx-0.1.7-py3-none-any.whl (9.0 kB)
+Collecting semantic-version~=2.0 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Using cached semantic_version-2.10.0-py2.py3-none-any.whl (15 kB)
+Collecting starlette<1.0,>=0.40.0 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading starlette-0.52.1-py3-none-any.whl (74 kB)
+Collecting tomlkit<0.14.0,>=0.12.0 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading tomlkit-0.13.3-py3-none-any.whl (38 kB)
+Collecting typer<1.0,>=0.12 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading typer-0.27.3-py3-none-any.whl (123 kB)
+Collecting uvicorn>=0.14.0 (from gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+Collecting websockets<16.0,>=10.0 (from gradio-client==1.10.1->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 7))
+  Downloading websockets-15.0.1-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (182 kB)
+Collecting antlr4-python3-runtime==4.9.* (from omegaconf==2.3.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 14))
+  Using cached antlr4-python3-runtime-4.9.3.tar.gz (117 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting distro<2,>=1.7.0 (from openai==2.26.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 16))
+  Using cached distro-1.9.0-py3-none-any.whl (20 kB)
+Collecting jiter<1,>=0.10.0 (from openai==2.26.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 16))
+  Downloading jiter-0.18.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (337 kB)
+Collecting sniffio (from openai==2.26.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 16))
+  Using cached sniffio-1.3.1-py3-none-any.whl (10 kB)
+Collecting six>=1.7.0 (from retrying==1.3.4->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 24))
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Collecting scipy (from sk-video==1.1.10->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 27))
+  Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 489.8 kB/s  0:01:00
+Requirement already satisfied: torchvision in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from timm==0.6.13->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 29)) (0.20.1+cu124)
+Collecting typing-inspection>=0.4.2 (from fastapi<1.0,>=0.115.2->gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading typing_inspection-0.4.4-py3-none-any.whl (14 kB)
+Collecting annotated-doc>=0.0.2 (from fastapi<1.0,>=0.115.2->gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading annotated_doc-0.0.5-py3-none-any.whl (5.3 kB)
+Collecting opentelemetry-api>=1.44.0 (from fastapi<1.0,>=0.115.2->gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading opentelemetry_api-1.45.1-py3-none-any.whl (60 kB)
+Collecting httpcore==1.* (from httpx>=0.24.1->gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx>=0.24.1->gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Collecting python-dateutil>=2.8.2 (from pandas<3.0,>=1.0->gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading python_dateutil-3.0.0-py2.py3-none-any.whl (94 kB)
+Collecting pytz>=2020.1 (from pandas<3.0,>=1.0->gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading pytz-2026.5-py2.py3-none-any.whl (506 kB)
+Collecting tzdata>=2022.7 (from pandas<3.0,>=1.0->gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading tzdata-2026.5-py2.py3-none-any.whl (347 kB)
+Collecting annotated-types>=0.6.0 (from pydantic<3->wandb==0.19.11)
+  Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Collecting pydantic-core==2.33.2 (from pydantic<3->wandb==0.19.11)
+  Downloading pydantic_core-2.33.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 942.9 kB/s  0:00:02
+Collecting shellingham>=1.3.0 (from typer<1.0,>=0.12->gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Using cached shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Collecting rich>=13.8.0 (from typer<1.0,>=0.12->gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Collecting gitdb<5,>=4.0.1 (from gitpython!=3.1.29,>=1.0.0->wandb==0.19.11)
+  Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython!=3.1.29,>=1.0.0->wandb==0.19.11)
+  Downloading smmap-5.0.3-py3-none-any.whl (24 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer<1.0,>=0.12->gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich>=13.8.0->typer<1.0,>=0.12->gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 693.1 kB/s  0:00:01
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer<1.0,>=0.12->gradio==5.31.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 6))
+  Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Requirement already satisfied: networkx in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (3.6.1)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (12.4.127)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (12.4.127)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (12.4.127)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (12.4.5.8)
+Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (11.2.1.3)
+Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (10.3.5.147)
+Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (11.6.1.9)
+Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (12.3.1.170)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (2.21.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (12.4.127)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (12.4.127)
+Requirement already satisfied: triton==3.1.0 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (3.1.0)
+Requirement already satisfied: sympy==1.13.1 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (1.13.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages (from sympy==1.13.1->torch>=2.0.0->accelerate==1.13.0->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 1)) (1.3.0)
+Collecting zipp>=3.20 (from importlib-metadata->diffusers==0.29.1->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 3))
+  Downloading zipp-4.1.2-py3-none-any.whl (10 kB)
+INFO: pip is looking at multiple versions of scipy to determine which version is compatible with other requirements. This could take a while.
+Collecting scipy (from sk-video==1.1.10->-r /root/umm-env01-20261027-a10080/env01-cloud/upstream/requirements.txt (line 27))
+  Downloading scipy-1.17.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.1/35.1 MB 534.2 kB/s  0:01:00
+  Downloading scipy-1.16.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (35.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.9/35.9 MB 823.4 kB/s  0:00:48
+  Downloading scipy-1.16.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (35.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.9/35.9 MB 610.2 kB/s  0:01:03
+  Downloading scipy-1.16.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (35.4 MB)
+Terminated
++ finish
++ local code=143
++ trap - EXIT
+++ date +%s
++ local elapsed=332
++ printf '{"exit_code":%s,"elapsed_seconds":%s,"weights_downloaded_on":"cloud"}\n' 143 332
++ exit 143

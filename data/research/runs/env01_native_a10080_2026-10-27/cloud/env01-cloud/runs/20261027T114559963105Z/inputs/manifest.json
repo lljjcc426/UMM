@@ -1,0 +1,26 @@
+{
+  "origin": "Original deterministic straight-stroke drawing; no external dataset or font",
+  "purpose": "Native interface input only; no calibration or performance evidence",
+  "i2v_visible_input": "Completed horizontal stroke only; no future vertical stroke or final glyph",
+  "x2t_reference": "Nonempty placeholder required by native target schema; no gold answer supplied",
+  "width": 848,
+  "height": 480,
+  "frames": 33,
+  "fps": 12,
+  "video_encoded": true,
+  "encoding_command": [
+    "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux64-v4.2.2",
+    "-y",
+    "-loglevel",
+    "error",
+    "-framerate",
+    "12",
+    "-i",
+    "/root/umm-env01-20261027-a10080/env01-cloud/inputs/frames/%03d.png",
+    "-c:v",
+    "libx264",
+    "-pix_fmt",
+    "yuv420p",
+    "/root/umm-env01-20261027-a10080/env01-cloud/inputs/observed_strokes.mp4"
+  ]
+}

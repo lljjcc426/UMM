@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "experiment_ids": [
+    "DATA-01",
+    "EVAL-01"
+  ],
+  "branch": "research/p0-stroke-video-foundation",
+  "base_commit": "f5b71b3a894d68c6b7fe32d732c5e0bef83d4177",
+  "status": "program_AI_complete_fixed_human_package_pending",
+  "authorization": "User:完成剩余工作，需要人工的一次性给我吧; continuation under localCPU P0 scope",
+  "summary": "data/research/runs/p0_final_calibration_2026-10-28/summary.json",
+  "report": "docs/research/v2/p0_final_human_package_2026-10-28.md",
+  "new_human_batch": true,
+  "human_tasks_per_reviewer": 216,
+  "human_reviewers": 2,
+  "total_pending_submissions": 432,
+  "old_human_records_modified": false,
+  "prior_run_snapshots_modified": false,
+  "old_observer_or_AI_candidates_modified": false,
+  "old_thresholds_modified": false,
+  "old_holdout_reused": false,
+  "old640_or2752_regenerated": false,
+  "GPU_hours": 0,
+  "training": false,
+  "remote_push": false,
+  "stage_PR": false,
+  "files_deleted": [],
+  "moved_within_this_new_run": [
+    "Initial176 invalid-render media, predictions,selection and private pack moved to corresponding attempt01_renderer/; no old-run file moved/deleted"
+  ],
+  "retained_failures": [
+    "Initial concurrent range-download SSL EOF; files retained and resumed with2 workers",
+    "Initial simplified renderer failed terminal geometry;176 invalid results retained; fixed renderer/new writer-character pairs, frozen observer unchanged",
+    "Two failed quota-selection attempts retained; exact quotas solved with matching before scoring",
+    "First browser harness window.tasks lookup failed; corrected harness, real browser pass on3 operation-only tasks; no formal samples used"
+  ],
+  "private_artifacts": "private/p0_final_calibration_2026-10-28 contains CASIA raw geometry,derived media/reference crops,28 AI contact sheets, append-only operation tests and formal local records; not Git redistributed",
+  "pre_review_exposure": "data/research/runs/p0_final_calibration_2026-10-28/pre_review_exposure.json",
+  "scientific_status": "DATA-01/EVAL-01 blocked pending actual paired labels/metrics; P0 not accepted",
+  "next_action": "Stop after local commit/report; humans review same finite216 tasks independently, no automatic additional batch",
+  "validation": "data/research/runs/p0_final_calibration_2026-10-28/checks/summary.json",
+  "validation_status": "passed_77_tests_and_required_local_checks",
+  "environment": "data/research/runs/p0_final_calibration_2026-10-28/environment.json",
+  "local_commit_only": true,
+  "file_changes": [
+    {
+      "path": "AGENTS.md",
+      "change": "modified",
+      "reason": "更新实际P0状态与固定包入口，不改变审批/分支制度。"
+    },
+    {
+      "path": "README.md",
+      "change": "modified",
+      "reason": "将当前审核入口和实际来源、工作量、科学边界更新为最终包。"
+    },
+    {
+      "path": "configs/research/stroke_video_v2.json",
+      "change": "modified",
+      "reason": "保留旧批次，登记独立轨迹扩展、当前216项/人及未验收状态。"
+    },
+    {
+      "path": "data/research/experiments_v2.json",
+      "change": "modified",
+      "reason": "追加本轮可追溯证据，保留DATA/EVAL blocked及旧结果。"
+    },
+    {
+      "path": "docs/project/STATUS.md",
+      "change": "modified",
+      "reason": "追加当前状态，旧0任务/无轨迹说明标为上一轮快照。"
+    },
+    {
+      "path": "docs/project/stages/P0.md",
+      "change": "modified",
+      "reason": "追加本轮授权完成与剩余标签条件，不缩小契约。"
+    },
+    {
+      "path": "docs/project/stages/P0-release.json",
+      "change": "modified",
+      "reason": "更新待验收证据及阻塞，保持in_progress和approval=null。"
+    },
+    {
+      "path": "docs/research/v2/README.md",
+      "change": "modified",
+      "reason": "更新当前来源、审核包入口与阶段状态。"
+    },
+    {
+      "path": "docs/research/v2/data_evaluation.md",
+      "change": "modified",
+      "reason": "更新当前扩展及人审口径，完整设计目标保留。"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/README.md",
+      "change": "modified",
+      "reason": "当前人审指向8770；原640/2752与旧页面保留。"
+    },
+    {
+      "path": "docs/research/v2/p0_final_human_package_2026-10-28.md",
+      "change": "added",
+      "reason": "最终报告：一次性工作量、来源/独立性、负结果、操作和验收缺口。"
+    },
+    {
+      "path": "scripts/p0/casia_subset.py",
+      "change": "added",
+      "reason": "官方远端ZIP按成员获取，严格POT/WPTT解析、许可/原始载荷和重试证据。"
+    },
+    {
+      "path": "scripts/p0/final_calibration.py",
+      "change": "added",
+      "reason": "冻结配额匹配、保留折点的小型动画、新数据固定评分、人工包与真实双人统计。"
+    },
+    {
+      "path": "scripts/p0/final_review_server.py",
+      "change": "added",
+      "reason": "独立页面服务、不透明ID、本人追加记录、导入导出和答案隔离。"
+    },
+    {
+      "path": "scripts/p0/review_final.html",
+      "change": "added",
+      "reason": "参考示例、规范分项、RGB逐帧、原因/未知、裁片、分次保存与两人独立作答。"
+    },
+    {
+      "path": "scripts/p0/test_final_review_browser.cjs",
+      "change": "added",
+      "reason": "非正式三个样本上验证实际浏览器操作及盲化/进度隔离。"
+    },
+    {
+      "path": "tests/test_p0_final_calibration.py",
+      "change": "added",
+      "reason": "七项针对性解析/渲染、盲化/标签及实际双人统计测试，临时夹具与正式人审库隔离。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/AI_visual_followup.jsonl",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/AI_visual_index.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/AI_visual_summary.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/attempt01_renderer/crossed_source_matrix.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/attempt01_renderer/new_media_inventory.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/attempt01_renderer/predictions.jsonl",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/attempt01_renderer/program_summary.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/attempt01_renderer/protocol_draft.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/attempt01_renderer/selection_freeze.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/attempt01_renderer/selection_manifest.csv",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/authorized_scope.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/browser_operation_check.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/casia_download.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/catalog.stderr.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/catalog.stdout.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/diff_check.stderr.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/diff_check.stdout.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/research_v1.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/research_v1.stderr.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/research_v1.stdout.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/research_v2.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/research_v2.stderr.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/research_v2.stdout.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/stage_draft.stderr.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/stage_draft.stdout.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/summary.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/unittest.stderr.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/checks/unittest.stdout.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/crossed_source_matrix.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/environment.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/human_progress.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/independent_text_records.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/method_freeze.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/new_media_inventory.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/pre_review_exposure.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/predictions.jsonl",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/program_summary.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/protocol_clarification.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/protocol_draft.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/protocol_frozen.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/remaining_acceptance.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/renderer_revision02.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/review_order_frozen.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/scorer_independence.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/selection_attempt02_failure.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/selection_attempt03_failure.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/selection_freeze.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/selection_manifest.csv",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/source_expand_attempt01.log",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/summary.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/task_record.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/workload.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/writer_selection_freeze.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    },
+    {
+      "path": "data/research/runs/p0_final_calibration_2026-10-28/writer_source_inventory.json",
+      "change": "added",
+      "reason": "保存本轮来源、分母/协议、固定比较与负结果、有限AI意见、人审待办、环境或必需检查证据；不覆盖旧运行记录。"
+    }
+  ],
+  "prepared_at_utc": "2026-10-28T14:41:07.822482+00:00",
+  "review_server": {
+    "url": "http://127.0.0.1:8770/",
+    "pid": 13413,
+    "preview_server_stopped": true,
+    "log": "private/p0_final_calibration_2026-10-28/formal_server.log"
+  },
+  "completed_automatic_work_at_utc": "2026-10-28T14:44:35.693950+00:00"
+}

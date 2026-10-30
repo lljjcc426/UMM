@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "run_id": "ENV-01-static-20261027",
+  "experiment_id": "ENV-01",
+  "status": "completed",
+  "task_protocol": null,
+  "geometry_track": null,
+  "model_code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+  "model_weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+  "dataset_manifest_hash": null,
+  "input_permissions": {
+    "target_final_image": false,
+    "gold_event_boundaries": false,
+    "normative_template": false
+  },
+  "condition_source": null,
+  "state_source": null,
+  "history_source": null,
+  "sampler_and_fixed_window": null,
+  "shared_and_frozen_parameter_paths": [],
+  "loss_and_gradient_audit": null,
+  "budget_track": {
+    "approved_task": "static resource/code feasibility only",
+    "cloud_budget_configured": false,
+    "cloud_charge_cny": 0,
+    "gpu_hours": 0
+  },
+  "training_seed": null,
+  "inference_seeds": [],
+  "trainable_total_active_parameters": null,
+  "training_exposure_and_gpu_hours": {
+    "training_exposure": 0,
+    "gpu_hours": 0
+  },
+  "hardware_precision_memory": {
+    "executed_on": "Apple M5, 16GiB unified RAM, macOS ARM64",
+    "cloud_gpu_rented": false,
+    "proposed_cloud_gpu": "1 x NVIDIA A100-SXM4-80GB",
+    "proposed_host_cpu_cores": 16,
+    "proposed_host_ram_gb": 48,
+    "measured_gpu_memory_gib": null
+  },
+  "all_attempts_manifest": "data/research/audits/env01_static_2026-10-27/operations.json",
+  "evaluator_revision_and_calibration": null,
+  "independent_human_audit": null,
+  "measured_metrics": null,
+  "failure_and_unknown_counts": null,
+  "all_retry_and_auxiliary_cost": null,
+  "result_artifacts": [
+    "docs/research/v2/env01_feasibility_audit_2026-10-27.md",
+    "data/research/audits/env01_static_2026-10-27/assets/asset_summary.json",
+    "data/research/audits/env01_static_2026-10-27/source_excerpts.json",
+    "data/research/audits/env01_static_2026-10-27/static_assessment.json",
+    "data/research/audits/env01_static_2026-10-27/cloud_resources.json"
+  ],
+  "note": "Completed refers only to the approved static subtask. ENV-01 and all 17 full experiments remain planned. Model and tensor-payload execution/download did not occur. Runtime memory, speed, gradient, reload and scientific quality are unverified.",
+  "record_type": "static_feasibility_audit",
+  "parent_experiment_status": "planned",
+  "approval": {
+    "source": "User explicitly approved the proposed static audit in this chat, then supplied the GPU catalog and CPU/RAM limits.",
+    "approved_scope": "Resource/code feasibility inventory and evidence records; no rental or new model experiment.",
+    "scope_expansions": [
+      "May wait for other GPU types; one GPU maximum remains."
+    ],
+    "branch": "research/p0-stroke-video-foundation",
+    "starting_commit": "5e46d229c73168f31b21a46c50f36878be37449a"
+  }
+}

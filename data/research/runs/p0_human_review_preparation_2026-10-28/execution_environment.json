@@ -1,0 +1,28 @@
+{
+  "recorded_at_utc": "2026-10-27T17:52:02.353442+00:00",
+  "OS": "macOS-26.6-arm64-arm-64bit",
+  "machine": "arm64",
+  "python_executable": "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+  "python_version": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "pillow": "12.3.0",
+  "node_executable": "/Users/cc/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+  "node_version": "v24.19.0",
+  "browser": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "GPU_used": false,
+  "media_regenerated": 0,
+  "executed_entrypoints": [
+    "python -m scripts.p0.prepare_acceptance audit",
+    "python -m scripts.p0.prepare_acceptance draft",
+    "python -m scripts.p0.review_server --preview --port 8767 --storage private/p0_human_review_ui_test_2026-10-28",
+    "node scripts/p0/test_review_browser.cjs",
+    "python -m scripts.p0.prepare_acceptance freeze",
+    "python scripts/validate_catalog.py",
+    "python scripts/validate_research_plan.py --output data/research/runs/p0_human_review_preparation_2026-10-28/checks/research_v1_result.json",
+    "python scripts/validate_research_v2.py --output data/research/runs/p0_human_review_preparation_2026-10-28/checks/research_v2_result.json",
+    "python scripts/validate_stage_release.py",
+    "python -m unittest discover -s tests -v",
+    "python -m scripts.p0.review_server --port 8766",
+    "git diff --check"
+  ],
+  "command_note": "python and node abbreviate the absolute bundled executables above; stdout and prior attempts retained in checks and UI result files. One-off audit/metadata edits and focused non-holdout browser revision check are documented in task_record and revision reports."
+}

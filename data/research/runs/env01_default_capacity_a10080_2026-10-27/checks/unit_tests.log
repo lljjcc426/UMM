@@ -1,0 +1,63 @@
+test_valid_catalog (test_catalog.CatalogTest.test_valid_catalog) ... FAIL
+test_empty_native_answer_cannot_pass (test_env01_interfaces.NativeInterfaceEvidence.test_empty_native_answer_cannot_pass) ... ok
+test_execution_records_both_model_and_noise_seeds (test_env01_interfaces.NativeInterfaceEvidence.test_execution_records_both_model_and_noise_seeds) ... ok
+test_process_failure_retains_measurements_and_denominator (test_env01_interfaces.NativeInterfaceEvidence.test_process_failure_retains_measurements_and_denominator) ... ok
+test_success_exit_without_artifact_is_failure (test_env01_interfaces.NativeInterfaceEvidence.test_success_exit_without_artifact_is_failure) ... ok
+test_reverse_direction_and_early_next_stroke (test_process_probe.ProcessProbeTest.test_reverse_direction_and_early_next_stroke) ... ok
+test_same_final_different_order (test_process_probe.ProcessProbeTest.test_same_final_different_order) ... ok
+test_two_frames_do_not_establish_order (test_process_probe.ProcessProbeTest.test_two_frames_do_not_establish_order) ... ok
+test_bool_is_not_count (test_research_plan.ResearchPlanTests.test_bool_is_not_count) ... ok
+test_completed_requires_evidence (test_research_plan.ResearchPlanTests.test_completed_requires_evidence) ... ok
+test_configured_budget_requires_values (test_research_plan.ResearchPlanTests.test_configured_budget_requires_values) ... ok
+test_cycle (test_research_plan.ResearchPlanTests.test_cycle) ... ok
+test_duplicate_ids (test_research_plan.ResearchPlanTests.test_duplicate_ids) ... ok
+test_duplicate_seed (test_research_plan.ResearchPlanTests.test_duplicate_seed) ... ok
+test_gate_nan (test_research_plan.ResearchPlanTests.test_gate_nan) ... ok
+test_invalid_record_type (test_research_plan.ResearchPlanTests.test_invalid_record_type) ... ok
+test_invalid_top_level (test_research_plan.ResearchPlanTests.test_invalid_top_level) ... ok
+test_paths (test_research_plan.ResearchPlanTests.test_paths) ... ok
+test_planned_cannot_claim_results (test_research_plan.ResearchPlanTests.test_planned_cannot_claim_results) ... ok
+test_protocol_mismatch (test_research_plan.ResearchPlanTests.test_protocol_mismatch) ... ok
+test_split_total (test_research_plan.ResearchPlanTests.test_split_total) ... ok
+test_two_node_cycle (test_research_plan.ResearchPlanTests.test_two_node_cycle) ... ok
+test_unknown_dependency (test_research_plan.ResearchPlanTests.test_unknown_dependency) ... ok
+test_valid_design (test_research_plan.ResearchPlanTests.test_valid_design) ... ok
+test_cpu_calibration_is_independent (test_research_v2.V2Contracts.test_cpu_calibration_is_independent) ... ok
+test_invalid_top_level (test_research_v2.V2Contracts.test_invalid_top_level) ... ok
+test_missing_adaptation_experiment (test_research_v2.V2Contracts.test_missing_adaptation_experiment) ... ok
+test_no_indirect_optional_dependency (test_research_v2.V2Contracts.test_no_indirect_optional_dependency) ... ok
+test_no_optional_dependency_on_core (test_research_v2.V2Contracts.test_no_optional_dependency_on_core) ... ok
+test_no_oracle_boundaries (test_research_v2.V2Contracts.test_no_oracle_boundaries) ... ok
+test_no_self_log_truth (test_research_v2.V2Contracts.test_no_self_log_truth) ... ok
+test_no_unsupported_sharing_claim (test_research_v2.V2Contracts.test_no_unsupported_sharing_claim) ... ok
+test_primary_is_generation (test_research_v2.V2Contracts.test_primary_is_generation) ... ok
+test_repository_design_and_paths (test_research_v2.V2Contracts.test_repository_design_and_paths) ... ok
+test_schema_rejects_fabricated_completion (test_research_v2.V2Contracts.test_schema_rejects_fabricated_completion) ... ok
+test_sft_baseline_cannot_disappear (test_research_v2.V2Contracts.test_sft_baseline_cannot_disappear) ... ok
+test_draft_can_pass_branch_development (test_stage_release.ResearchStageGateTests.test_draft_can_pass_branch_development) ... ok
+test_evidence_outside_repo_rejected (test_stage_release.ResearchStageGateTests.test_evidence_outside_repo_rejected) ... ok
+test_incomplete_experiment_list_rejected (test_stage_release.ResearchStageGateTests.test_incomplete_experiment_list_rejected) ... ok
+test_incorrect_head_branch_cannot_promote (test_stage_release.ResearchStageGateTests.test_incorrect_head_branch_cannot_promote) ... ok
+test_missing_run_file_fails_even_when_completed (test_stage_release.ResearchStageGateTests.test_missing_run_file_fails_even_when_completed) ... ok
+test_ready_without_artifacts_fails (test_stage_release.ResearchStageGateTests.test_ready_without_artifacts_fails) ... ok
+test_unfinished_stage_cannot_pass_merge_gate (test_stage_release.ResearchStageGateTests.test_unfinished_stage_cannot_pass_merge_gate) ... ok
+test_verified_negative_is_valid_release_type (test_stage_release.ResearchStageGateTests.test_verified_negative_is_valid_release_type) ... ok
+test_empty (test_stroke_metrics.EventMetricTest.test_empty) ... ok
+test_extra (test_stroke_metrics.EventMetricTest.test_extra) ... ok
+test_identical (test_stroke_metrics.EventMetricTest.test_identical) ... ok
+test_invalid (test_stroke_metrics.EventMetricTest.test_invalid) ... ok
+test_missing (test_stroke_metrics.EventMetricTest.test_missing) ... ok
+test_swap_is_not_exact (test_stroke_metrics.EventMetricTest.test_swap_is_not_exact) ... ok
+
+======================================================================
+FAIL: test_valid_catalog (test_catalog.CatalogTest.test_valid_catalog)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/cc/Documents/UMM/tests/test_catalog.py", line 7, in test_valid_catalog
+    self.assertTrue(report["passed"], report["errors"])
+AssertionError: False is not true : ['Excluded binary/source type included: data/research/runs/env01_training_reload_a10080_2026-10-27/cloud/attempt02/packed_batches.pt', 'Excluded binary/source type included: data/research/runs/env01_training_reload_a10080_2026-10-27/cloud/attempt03/packed_batches.pt']
+
+----------------------------------------------------------------------
+Ran 50 tests in 0.135s
+
+FAILED (failures=1)

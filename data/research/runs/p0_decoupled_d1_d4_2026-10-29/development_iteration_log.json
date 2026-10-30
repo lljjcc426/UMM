@@ -1,0 +1,29 @@
+{
+  "authoritative_attempt": "attempt_03",
+  "iterations": [
+    {
+      "attempt": "attempt_01",
+      "scope": "Initial32 D1 cells and80 D2 trials plus144 regression; all completed",
+      "pixel_algorithm_or_threshold_tuning": false
+    },
+    {
+      "attempt": "attempt_02",
+      "scope": "Added16 explicit direction-plan counterfactuals. Direction rows had an equality placeholder despite invariance being inapplicable.",
+      "pixel_algorithm_or_threshold_tuning": false
+    },
+    {
+      "attempt": "attempt_03",
+      "scope": "Removed placeholder;80 actual execution-invariance trials and16 intended direction changes reported separately. Saved exact source snapshots.",
+      "pixel_algorithm_or_threshold_tuning": false
+    }
+  ],
+  "prediction_comparison": {
+    "attempt_01_vs_final_predictions_identical": true,
+    "attempt_02_vs_final_predictions_identical": true
+  },
+  "initial_duration_metadata_note": "Prepare inventory encoded_seconds means last-sample timestamp; media_decode_audit.json records actual duration separately, preserving preparation snapshot.",
+  "old_results_overwritten": false,
+  "new_videos_regenerated": false,
+  "early_source_snapshot_limitation": "No contemporaneous source snapshot for attempts01/02; final03 is authoritative and has exact snapshots. Outputs and documented changes preserved, not reconstructed as original source.",
+  "post_run_metadata_fix": "prepare now names last_sample_seconds separately and sums actual durations. Existing preparation snapshot unchanged; no evaluation or media rerun."
+}

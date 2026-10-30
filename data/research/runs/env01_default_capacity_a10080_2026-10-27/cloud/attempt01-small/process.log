@@ -1,0 +1,58 @@
+2026-10-27T14:11:11.529782+00:00 {'phase': 'components_begin', 'time_utc': '2026-10-27T14:11:11.529011+00:00', 'elapsed_seconds': 0.20182849200136843, 'allocated_bytes': 0, 'reserved_bytes': 0, 'peak_allocated_bytes': 0, 'peak_reserved_bytes': 0, 'device_free_bytes': 84516536320, 'device_total_bytes': 84974239744, 'host_peak_rss_bytes': 828301312}
+Missing validation function mapping in `ROPE_VALIDATION_FUNCTIONS` for 'rope_type'='mrope'
+2026-10-27T14:11:11.530156+00:00 llm_config.qk_norm: True, llm_config.qk_norm_und: True, llm_config.qk_norm_gen: True
+2026-10-27T14:11:54.447394+00:00 Load vit model weights: <All keys matched successfully>, from /root/umm-env01-20261027-a10080/env01-cloud/upstream/downloads/Qwen2.5-VL-ViT
+[2026-10-27 22:11:54,730] [/root/umm-env01-20261027-a10080/env01-cloud/upstream/modeling/vae/wan/vae2_2.py:855][MainThread][root][INFO] loading downloads/Wan2.2_VAE.pth
+2026-10-27T14:12:08.407309+00:00 {'phase': 'checkpoint_load_begin', 'time_utc': '2026-10-27T14:12:08.405616+00:00', 'elapsed_seconds': 57.07844265099993, 'allocated_bytes': 1423599104, 'reserved_bytes': 1444937728, 'peak_allocated_bytes': 1423599616, 'peak_reserved_bytes': 1444937728, 'device_free_bytes': 82991906816, 'device_total_bytes': 84974239744, 'host_peak_rss_bytes': 33629224960}
+2026-10-27T14:12:13.064277+00:00 Copy init moe params: copy llm weight to gen.
+2026-10-27T14:12:13.064406+00:00 EMA checkpoint not found. Using fallback: 'model.safetensors'.
+2026-10-27T14:12:13.064422+00:00 Loading fine-tune model from: /root/umm-env01-20261027-a10080/env01-cloud/upstream/downloads/Lance_3B_Video/model.safetensors
+2026-10-27T14:12:14.120435+00:00 Pop `latent_pos_embed.pos_embed` from hf model
+2026-10-27T14:12:43.831999+00:00 Init from Lance checkpoint (model): /root/umm-env01-20261027-a10080/env01-cloud/upstream/downloads/Lance_3B_Video: matched=1410, not_matched=1, missing=1, unexpected=0
+2026-10-27T14:12:43.833242+00:00 Saved checkpoint load report to /root/umm-env01-20261027-a10080/env01-default-capacity/attempt01-small/lance_checkpoint_load_report_model.txt
+2026-10-27T14:12:44.328050+00:00 Note: NO new tokens!
+2026-10-27T14:12:44.328230+00:00 Freeze LLM token embeddings and lm_head
+2026-10-27T14:12:44.329966+00:00 Freeze VIT parameters
+2026-10-27T14:12:44.347526+00:00 {'phase': 'packing_begin', 'time_utc': '2026-10-27T14:12:44.346468+00:00', 'elapsed_seconds': 93.0192789770008, 'allocated_bytes': 1423599104, 'reserved_bytes': 1444937728, 'peak_allocated_bytes': 1423599616, 'peak_reserved_bytes': 1444937728, 'device_free_bytes': 82991906816, 'device_total_bytes': 84974239744, 'host_peak_rss_bytes': 41862397952}
+[2026-10-27 22:12:45,445] [/root/umm-env01-20261027-a10080/env01-cloud/upstream/data/dataset_base_train.py:349][MainThread][root][INFO] Preparing Dataset x2t_interleave_local/env01_original
+[2026-10-27 22:12:45,445] [/root/umm-env01-20261027-a10080/env01-cloud/upstream/data/parquet_utils.py:72][MainThread][data.parquet_utils][INFO] Rank 0 is gathering local data file paths...
+[2026-10-27 22:12:45,445] [/root/umm-env01-20261027-a10080/env01-cloud/upstream/data/parquet_utils.py:75][MainThread][data.parquet_utils][INFO] Total local data files found: 1
+[2026-10-27 22:12:45,445] [/root/umm-env01-20261027-a10080/env01-cloud/upstream/data/datasets_factory/dataset_x2t_interleave.py:22][MainThread][root][INFO] X2TInterleaveIterableDataset raw_bytes_input: True
+[2026-10-27 22:12:45,689] [/root/umm-env01-20261027-a10080/env01-cloud/upstream/data/dataset_base_train.py:349][MainThread][root][INFO] Preparing Dataset x2v_interleave_local/env01_original
+[2026-10-27 22:12:45,689] [/root/umm-env01-20261027-a10080/env01-cloud/upstream/data/parquet_utils.py:72][MainThread][data.parquet_utils][INFO] Rank 0 is gathering local data file paths...
+[2026-10-27 22:12:45,689] [/root/umm-env01-20261027-a10080/env01-cloud/upstream/data/parquet_utils.py:75][MainThread][data.parquet_utils][INFO] Total local data files found: 1
+[2026-10-27 22:12:45,690] [/root/umm-env01-20261027-a10080/env01-cloud/upstream/data/datasets_factory/dataset_x2v_interleave.py:24][MainThread][root][INFO] X2VInterleaveIterableDataset raw_bytes_input: True
+2026-10-27T14:12:45.773906+00:00 {'phase': 'fsdp_begin', 'time_utc': '2026-10-27T14:12:45.772036+00:00', 'elapsed_seconds': 94.44485330000134, 'allocated_bytes': 1423599104, 'reserved_bytes': 1444937728, 'peak_allocated_bytes': 1423599616, 'peak_reserved_bytes': 1444937728, 'device_free_bytes': 82991906816, 'device_total_bytes': 84974239744, 'host_peak_rss_bytes': 41862397952}
+/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/distributed/fsdp/_init_utils.py:444: UserWarning: FSDP is switching to use `NO_SHARD` instead of ShardingStrategy.HYBRID_SHARD since the world size is 1.
+  warnings.warn(
+2026-10-27T14:12:51.083086+00:00 {'phase': 'model_ready', 'time_utc': '2026-10-27T14:12:51.082506+00:00', 'elapsed_seconds': 99.755319969001, 'allocated_bytes': 29846211072, 'reserved_bytes': 35213279232, 'peak_allocated_bytes': 35015118848, 'peak_reserved_bytes': 35213279232, 'device_free_bytes': 49223565312, 'device_total_bytes': 84974239744, 'host_peak_rss_bytes': 41862397952}
+2026-10-27T14:12:51.083989+00:00 {'phase': 'step0_input_begin', 'time_utc': '2026-10-27T14:12:51.083168+00:00', 'elapsed_seconds': 99.75597171400113, 'allocated_bytes': 29846211072, 'reserved_bytes': 35213279232, 'peak_allocated_bytes': 35015118848, 'peak_reserved_bytes': 35213279232, 'device_free_bytes': 49223565312, 'device_total_bytes': 84974239744, 'host_peak_rss_bytes': 41862397952}
+2026-10-27T14:12:52.087016+00:00 {'phase': 'step0_forward_begin', 'time_utc': '2026-10-27T14:12:52.086137+00:00', 'elapsed_seconds': 100.75895441900138, 'allocated_bytes': 29846823424, 'reserved_bytes': 30014439424, 'peak_allocated_bytes': 35015118848, 'peak_reserved_bytes': 35223764992, 'device_free_bytes': 54409822208, 'device_total_bytes': 84974239744, 'host_peak_rss_bytes': 41862397952}
+2026-10-27T14:13:00.878624+00:00 {'phase': 'step0_loss_begin', 'time_utc': '2026-10-27T14:13:00.877873+00:00', 'elapsed_seconds': 109.55068588600079, 'allocated_bytes': 29949021184, 'reserved_bytes': 35729178624, 'peak_allocated_bytes': 35015118848, 'peak_reserved_bytes': 35729178624, 'device_free_bytes': 48663625728, 'device_total_bytes': 84974239744, 'host_peak_rss_bytes': 41862397952}
+2026-10-27T14:13:01.129255+00:00 {'phase': 'step0_backward_begin', 'time_utc': '2026-10-27T14:13:01.128385+00:00', 'elapsed_seconds': 109.80119819900028, 'allocated_bytes': 29948998144, 'reserved_bytes': 35729178624, 'peak_allocated_bytes': 35015118848, 'peak_reserved_bytes': 35729178624, 'device_free_bytes': 48342761472, 'device_total_bytes': 84974239744, 'host_peak_rss_bytes': 41862397952}
+2026-10-27T14:13:02.774072+00:00 {'phase': 'step0_backward_complete', 'time_utc': '2026-10-27T14:13:02.773310+00:00', 'elapsed_seconds': 111.44612495100046, 'allocated_bytes': 57246289408, 'reserved_bytes': 67498934272, 'peak_allocated_bytes': 59832785920, 'peak_reserved_bytes': 67498934272, 'device_free_bytes': 16291987456, 'device_total_bytes': 84974239744, 'host_peak_rss_bytes': 41862397952}
+2026-10-27T14:13:03.001003+00:00 {'phase': 'step0_clip_begin', 'time_utc': '2026-10-27T14:13:03.000324+00:00', 'elapsed_seconds': 111.67313637400002, 'allocated_bytes': 57246289408, 'reserved_bytes': 67498934272, 'peak_allocated_bytes': 59832785920, 'peak_reserved_bytes': 67498934272, 'device_free_bytes': 16291987456, 'device_total_bytes': 84974239744, 'host_peak_rss_bytes': 41862397952}
+2026-10-27T14:13:03.076038+00:00 {'phase': 'step0_optimizer_begin', 'time_utc': '2026-10-27T14:13:03.075404+00:00', 'elapsed_seconds': 111.74821377800072, 'allocated_bytes': 57246289920, 'reserved_bytes': 67498934272, 'peak_allocated_bytes': 59832785920, 'peak_reserved_bytes': 67498934272, 'device_free_bytes': 16291987456, 'device_total_bytes': 84974239744, 'host_peak_rss_bytes': 41862397952}
+2026-10-27T14:13:03.355717+00:00 {'phase': 'step0_optimizer_begin', 'time_utc': '2026-10-27T14:13:03.355049+00:00', 'elapsed_seconds': 112.02785977400163, 'allocated_bytes': 83566852608, 'reserved_bytes': 83726696448, 'peak_allocated_bytes': 83566852608, 'peak_reserved_bytes': 83770736640, 'device_free_bytes': 64225280, 'device_total_bytes': 84974239744, 'host_peak_rss_bytes': 41862397952}
+Traceback (most recent call last):
+  File "/root/umm-env01-20261027-a10080/env01-default-capacity/default_capacity.py", line 268, in worker
+    optimizer.step()
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/optim/lr_scheduler.py", line 137, in wrapper
+    return func.__get__(opt, opt.__class__)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/optim/optimizer.py", line 487, in wrapper
+    out = func(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/optim/optimizer.py", line 91, in _use_grad
+    ret = func(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/optim/adamw.py", line 209, in step
+    has_complex = self._init_group(
+                  ^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/_dynamo/eval_frame.py", line 632, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/optim/adamw.py", line 152, in _init_group
+    state["exp_avg_sq"] = torch.zeros_like(
+                          ^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 86.00 MiB. GPU 0 has a total capacity of 79.14 GiB of which 61.25 MiB is free. Including non-PyTorch memory, this process has 79.06 GiB memory in use. Of the allocated memory 77.83 GiB is allocated by PyTorch, and 152.44 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

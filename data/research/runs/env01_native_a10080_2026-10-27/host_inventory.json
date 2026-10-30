@@ -1,0 +1,56 @@
+{
+  "os_release": "PRETTY_NAME=\"Ubuntu 22.04.3 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"22.04\"\nVERSION=\"22.04.3 LTS (Jammy Jellyfish)\"\nVERSION_CODENAME=jammy\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=jammy\n",
+  "host_python": "3.10.12",
+  "checks": [
+    {
+      "command": [
+        "nvidia-smi",
+        "--query-gpu=name,memory.total,driver_version",
+        "--format=csv,noheader"
+      ],
+      "exit_code": 0,
+      "output": "NVIDIA A100-SXM4-80GB, 81920 MiB, 550.127.05\n"
+    },
+    {
+      "command": [
+        "/usr/local/cuda-12.4/bin/nvcc",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2024 NVIDIA Corporation\nBuilt on Tue_Feb_27_16:19:38_PST_2024\nCuda compilation tools, release 12.4, V12.4.99\nBuild cuda_12.4.r12.4/compiler.33961263_0\n"
+    },
+    {
+      "command": [
+        "/home/vipuser/miniconda3/bin/conda",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output": "conda 24.9.2\n"
+    },
+    {
+      "command": [
+        "free",
+        "-b"
+      ],
+      "exit_code": 0,
+      "output": "               total        used        free      shared  buff/cache   available\nMem:     50470645760   834654208 48455061504    16416768  1180930048 49096970240\nSwap:     6339686400           0  6339686400\n"
+    },
+    {
+      "command": [
+        "df",
+        "-B1",
+        "/"
+      ],
+      "exit_code": 0,
+      "output": "Filesystem        1B-blocks        Used    Available Use% Mounted on\n/dev/vda3      210246524928 40987074560 159606329344  21% /\n"
+    },
+    {
+      "command": [
+        "getconf",
+        "_NPROCESSORS_ONLN"
+      ],
+      "exit_code": 0,
+      "output": "16\n"
+    }
+  ]
+}

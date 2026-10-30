@@ -1,0 +1,36 @@
+{
+  "version": "p0-ai-prereview-v1",
+  "settings": {
+    "ink": 128,
+    "mask_core_erosion": 3,
+    "endpoint_pixels": 8,
+    "onset_fraction": 0.06,
+    "completion_fraction": 0.94,
+    "min_exclusive_pixels": 8,
+    "significant_changed_pixels": 12,
+    "outside_tolerance_pixels": 18,
+    "anchor_displacement_fraction": 0.1
+  },
+  "decision_inputs": [
+    "all decoded RGB frames",
+    "native frame durations",
+    "independently rasterized SVG reference masks",
+    "candidate medians"
+  ],
+  "forbidden_decision_inputs": [
+    "construction cases",
+    "schedule/events",
+    "old observer predictions",
+    "injected-error names"
+  ],
+  "normative_inputs": [
+    "official PDF row and basic stroke codes",
+    "source candidate geometry"
+  ],
+  "no_calibrated_accuracy_claim": true,
+  "no_expert_or_human_gold_claim": true,
+  "all_frame_program_inspection_not_all_frame_AI_visual_inspection": true,
+  "preserve_original_holdout_and_thresholds": true,
+  "old_predictions_joined_only_after_prereview_for_disagreement_queue": true,
+  "threshold_tuning_on_holdout": false
+}

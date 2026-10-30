@@ -1,0 +1,45 @@
+{
+  "task": "i2v",
+  "exit_code": 0,
+  "status": "interface_passed",
+  "sample_denominator": 1,
+  "worker_metrics": "worker_metrics.json",
+  "log": "process.log",
+  "output_check": {
+    "valid": true,
+    "videos": [
+      {
+        "path": "outputs/000001.mp4",
+        "decoded_frames": 33,
+        "last_frame_shape": [
+          480,
+          848,
+          3
+        ]
+      }
+    ],
+    "meaning": "RGB decoding only; no scientific accuracy claim"
+  },
+  "measurements": {
+    "task": "i2v",
+    "status": "process_completed",
+    "cuda_peak_allocated_bytes": 30471729152,
+    "cuda_peak_reserved_bytes": 31811698688,
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "error": null,
+    "gpu_total_bytes": 84974239744,
+    "torch_version": "2.5.1+cu124",
+    "cuda_runtime": "12.4",
+    "python_version": "3.11.18",
+    "worker_elapsed_seconds_including_loading": 127.8745949109998,
+    "host_peak_rss_bytes": 33687789568
+  },
+  "gpu_sampling": {
+    "device_used_memory_peak_mib": 30863.0,
+    "sample_count": 129,
+    "interval_seconds": 1,
+    "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+  },
+  "wall_seconds": 129.17491977100053,
+  "path": "i2v"
+}

@@ -1,0 +1,801 @@
+{
+  "_id": "6a06d3e548c1f043b6a4239d",
+  "id": "bytedance-research/Lance",
+  "private": false,
+  "pipeline_tag": "any-to-any",
+  "library_name": "Lance",
+  "tags": [
+    "Lance",
+    "safetensors",
+    "multimodal",
+    "image-generation",
+    "video-generation",
+    "image-editing",
+    "video-understanding",
+    "any-to-any",
+    "arxiv:2605.18678",
+    "base_model:Qwen/Qwen2.5-VL-3B-Instruct",
+    "base_model:finetune:Qwen/Qwen2.5-VL-3B-Instruct",
+    "license:apache-2.0",
+    "region:us"
+  ],
+  "downloads": 389,
+  "likes": 1069,
+  "modelId": "bytedance-research/Lance",
+  "author": "bytedance-research",
+  "sha": "7395315758865e6f56ab87ad06a88c7ac172f056",
+  "lastModified": "2026-05-28T06:25:28.000Z",
+  "gated": false,
+  "disabled": false,
+  "model-index": null,
+  "config": {},
+  "cardData": {
+    "license": "apache-2.0",
+    "base_model": [
+      "Qwen/Qwen2.5-VL-3B-Instruct"
+    ],
+    "pipeline_tag": "any-to-any",
+    "library_name": "Lance",
+    "tags": [
+      "multimodal",
+      "image-generation",
+      "video-generation",
+      "image-editing",
+      "video-understanding",
+      "any-to-any"
+    ]
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes",
+      "blobId": "d89543c145499586768df2d19a023e5eef71ec4f",
+      "size": 6785
+    },
+    {
+      "rfilename": "Lance_3B/generation_config.json",
+      "blobId": "1dfafa23e24b68b694722c6211e7da36730e9917",
+      "size": 216
+    },
+    {
+      "rfilename": "Lance_3B/llm_config.json",
+      "blobId": "0ae1866f05ab0153ad293bdc92bb1b842c4d95b1",
+      "size": 1373
+    },
+    {
+      "rfilename": "Lance_3B/merges.txt",
+      "blobId": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+      "size": 1671839
+    },
+    {
+      "rfilename": "Lance_3B/model.safetensors",
+      "blobId": "b0dc781c05a61130763b76c520d81270ee435854",
+      "size": 12370547752,
+      "lfs": {
+        "sha256": "a2cfed3992486699aa550c1ea9b3519bd19dde475a0992daf2249f2486b268a3",
+        "size": 12370547752,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "Lance_3B/tokenizer.json",
+      "blobId": "443909a61d429dff23010e5bddd28ff530edda00",
+      "size": 7031645
+    },
+    {
+      "rfilename": "Lance_3B/vocab.json",
+      "blobId": "4783fe10ac3adce15ac8f358ef5462739852c569",
+      "size": 2776833
+    },
+    {
+      "rfilename": "Lance_3B_Video/generation_config.json",
+      "blobId": "1dfafa23e24b68b694722c6211e7da36730e9917",
+      "size": 216
+    },
+    {
+      "rfilename": "Lance_3B_Video/llm_config.json",
+      "blobId": "0ae1866f05ab0153ad293bdc92bb1b842c4d95b1",
+      "size": 1373
+    },
+    {
+      "rfilename": "Lance_3B_Video/merges.txt",
+      "blobId": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0",
+      "size": 1671839
+    },
+    {
+      "rfilename": "Lance_3B_Video/model.safetensors",
+      "blobId": "4fa508ba4f4b29907de4fa0a3e980d1908ce06f7",
+      "size": 14211277144,
+      "lfs": {
+        "sha256": "7f0550e1d1511b29a4740a67c1e18e176302a4ecb3177c8a5850ff5fe6447c25",
+        "size": 14211277144,
+        "pointerSize": 136
+      }
+    },
+    {
+      "rfilename": "Lance_3B_Video/tokenizer.json",
+      "blobId": "443909a61d429dff23010e5bddd28ff530edda00",
+      "size": 7031645
+    },
+    {
+      "rfilename": "Lance_3B_Video/tokenizer_config.json",
+      "blobId": "91684ea3dc135a7d815e2c932054ce88c1aab41f",
+      "size": 5702
+    },
+    {
+      "rfilename": "Lance_3B_Video/vocab.json",
+      "blobId": "4783fe10ac3adce15ac8f358ef5462739852c569",
+      "size": 2776833
+    },
+    {
+      "rfilename": "Qwen2.5-VL-ViT/config.json",
+      "blobId": "96173aec46a5a08000d931ae57a0a8f068b3b523",
+      "size": 552
+    },
+    {
+      "rfilename": "Qwen2.5-VL-ViT/vit.safetensors",
+      "blobId": "e2bb30171107b9153c3184a9024a006c437cb8a9",
+      "size": 1337407560,
+      "lfs": {
+        "sha256": "78714e560781576a00c030e60383db3c71698083d0c5d493dc628c10dc1a9094",
+        "size": 1337407560,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "README.md",
+      "blobId": "cb76f85a0795e0848f566afa49811a0d9555392e",
+      "size": 34244
+    },
+    {
+      "rfilename": "README_zh.md",
+      "blobId": "d589a41f45a51a67c3c196f695fae6bc7ec02212",
+      "size": 33262
+    },
+    {
+      "rfilename": "Wan2.2_VAE.pth",
+      "blobId": "2264ad59a1f3be73cf56ff0dcf7d0a8e06efe8ed",
+      "size": 2818839170,
+      "lfs": {
+        "sha256": "20eb789667fa5e60e7516bf509512f6cb61f01b0aa0695eadaea930c13892b36",
+        "size": 2818839170,
+        "pointerSize": 135
+      }
+    },
+    {
+      "rfilename": "assets/benchmarks/benchmark-overview.png",
+      "blobId": "41e22eed8564007ed62087b08378579789c75714",
+      "size": 1342098,
+      "lfs": {
+        "sha256": "317bd35ef72d37ac743eac2dcdcd66e9b83d7f7181b6578702cf54ec10ea61d5",
+        "size": 1342098,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/docs/.DS_Store",
+      "blobId": "0f6edd80b539d68092881620a60fe9c13d8fbcb9",
+      "size": 6148
+    },
+    {
+      "rfilename": "assets/docs/changelog/2026-05-26.md",
+      "blobId": "fa0c155ae9887cd337708b1bbb390668a3c00bdd",
+      "size": 800
+    },
+    {
+      "rfilename": "assets/docs/changelog/demo-05-26.webp",
+      "blobId": "0e2483e6ff6eca70d655a0cd57bba7290efad025",
+      "size": 306532,
+      "lfs": {
+        "sha256": "ddb5c3adbf13c81193ab971ff2bf72c240de2e07cf15ae041c1d4da6efa8fedb",
+        "size": 306532,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/image-editing/image-editing-overview.webp",
+      "blobId": "0a405720c1e6a4f6a9da129e72600b973a3ac521",
+      "size": 459994,
+      "lfs": {
+        "sha256": "1ea51f3d7b64859b5c60e8da9863e4674fea60acaf1e4c29995837137e88360f",
+        "size": 459994,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/image-understanding/cases/image-understanding-case-01.png",
+      "blobId": "0f63b15b227901626c908f3a02448ad059c56226",
+      "size": 126264,
+      "lfs": {
+        "sha256": "dca7c23bbdc486815df8cdfe681effbf323f8f324a1180b1626347ee60c56e04",
+        "size": 126264,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/image-understanding/cases/image-understanding-case-02.png",
+      "blobId": "30549e9bd9c77aee9952ce172f4706107c912eed",
+      "size": 50309
+    },
+    {
+      "rfilename": "assets/image-understanding/cases/image-understanding-case-03.png",
+      "blobId": "96f3deea3b984e09d4e9a26e9102779dcaaa85a0",
+      "size": 1073728,
+      "lfs": {
+        "sha256": "07ec27822042a52ab89c299846863849e9c4bb974a338a59eb068cbcdca18d67",
+        "size": 1073728,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/image-understanding/cases/image-understanding-case-04.png",
+      "blobId": "77d4406803e3b5f842a4941c130eef35d34f4e11",
+      "size": 112103,
+      "lfs": {
+        "sha256": "b47c54a47e552b00db42b8867dbb4f46844aa4b95c5caba605691c787ad27e40",
+        "size": 112103,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/image-understanding/cases/image-understanding-case-05.png",
+      "blobId": "b38bc7829601f45890391568ce3e9e0cd6ba51aa",
+      "size": 948665,
+      "lfs": {
+        "sha256": "3853e3af85824429178a14a63255eba6f0e2e44dd47f7cc64c27fe3eefe765cb",
+        "size": 948665,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/image-understanding/cases/image-understanding-case-06.png",
+      "blobId": "fbbb939939425ffeae8cad02c99ae3dc5725b337",
+      "size": 223310,
+      "lfs": {
+        "sha256": "d16216657d25789af4e6f7ef68adfea7f161bf944b65f9a6657c9b019bea34b3",
+        "size": 223310,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/intelligent-video/previews/intelligent-video-demo-01.gif",
+      "blobId": "411118bcb3dbd96f835083677a86fb932d9fb753",
+      "size": 42465
+    },
+    {
+      "rfilename": "assets/intelligent-video/previews/intelligent-video-demo-02.gif",
+      "blobId": "18b61d07b3dfb5ce3a004919ab86244bc896fa07",
+      "size": 46696
+    },
+    {
+      "rfilename": "assets/intelligent-video/previews/intelligent-video-demo-03.gif",
+      "blobId": "9ae4ab63b1c58a4b085e66b59e84813b2de5d1f3",
+      "size": 55648
+    },
+    {
+      "rfilename": "assets/intelligent-video/previews/intelligent-video-demo-04.gif",
+      "blobId": "ce1481ff3593b2eefbb4c8638e7f5282361b54c1",
+      "size": 42810
+    },
+    {
+      "rfilename": "assets/intelligent-video/videos/intelligent-video-demo-01.mp4",
+      "blobId": "c4b643c6fcc06fc1e18c2ffb28850247b4219261",
+      "size": 24969
+    },
+    {
+      "rfilename": "assets/intelligent-video/videos/intelligent-video-demo-02.mp4",
+      "blobId": "e1479faf215ae22401de2cac990c39b49965793b",
+      "size": 27972
+    },
+    {
+      "rfilename": "assets/intelligent-video/videos/intelligent-video-demo-03.mp4",
+      "blobId": "06d11bb6aef28e28680e54b9751a1617701fb71a",
+      "size": 30638
+    },
+    {
+      "rfilename": "assets/intelligent-video/videos/intelligent-video-demo-04.mp4",
+      "blobId": "2fdc429de8187425fba9e1cbadf7f41b05f89477",
+      "size": 27464
+    },
+    {
+      "rfilename": "assets/logo/lance-logo.webp",
+      "blobId": "a3d89c457858783e3af467dca94fd2536654c080",
+      "size": 460894,
+      "lfs": {
+        "sha256": "5359f986a6a29e25b4eb92fd470e74c83d92581dc6fb22d2c4ac789637842934",
+        "size": 460894,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/multi-turn-editing/previews/multi-turn-editing-demo-01.gif",
+      "blobId": "d33bd916fef490b7973e0947bd70b62d22296b35",
+      "size": 1687897,
+      "lfs": {
+        "sha256": "7fe1c324cf4244d5f22f4efc009664a45cc71beb1830a076eee569f8690bfc40",
+        "size": 1687897,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/multi-turn-editing/videos/multi-turn-editing-demo-01.mp4",
+      "blobId": "08c6cbe77b57b0150bd3168687133d9b079383e6",
+      "size": 1915287,
+      "lfs": {
+        "sha256": "bf8a36b7a94b0d4769d6ce4c5ccad25e3cf5bb22a000f57e4e5cbb05b7854fb4",
+        "size": 1915287,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-image/text-to-image-overview.webp",
+      "blobId": "89670cdee635128a37263c9f549cd36be7c26294",
+      "size": 1145204,
+      "lfs": {
+        "sha256": "643ab6df451db427702cfda3319d471f37c9a7f8bb0646b966961495590a665e",
+        "size": 1145204,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/previews/text-to-video-demo-01.gif",
+      "blobId": "d00ccb5e5dc0461c3e9a844acf566fab10400248",
+      "size": 1433406,
+      "lfs": {
+        "sha256": "e0a9258e7f77cfd96aa759e2cdad36faedb646067e43ad53160dc3484120d1ce",
+        "size": 1433406,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/previews/text-to-video-demo-02.gif",
+      "blobId": "7828039aa87bc652a1d1b8ed2d2df1f492775f84",
+      "size": 1093312,
+      "lfs": {
+        "sha256": "9f3583aa5f687d288e94807b24256f7b248cc9fb990978f77ef54a925ee1ff3a",
+        "size": 1093312,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/previews/text-to-video-demo-03.gif",
+      "blobId": "4bca3a6807d81381c90a48a5ff9e7a43fbc510cc",
+      "size": 1066542,
+      "lfs": {
+        "sha256": "1e68d947fad2e9190a668ca5dcf55445a06ca422563763a1f1557f458aa1c49f",
+        "size": 1066542,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/previews/text-to-video-demo-04.gif",
+      "blobId": "415bc1e7f6a8c7a6b29c1b247992e09b5639ae59",
+      "size": 1294291,
+      "lfs": {
+        "sha256": "8d6ae9f7a192f823071f6d72bd58f376e9911c07c8213a755dfee94efae16f3e",
+        "size": 1294291,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/previews/text-to-video-demo-05.gif",
+      "blobId": "1476deb719d28accb9d6da72913a4cfd7e6a0b54",
+      "size": 1834178,
+      "lfs": {
+        "sha256": "389975bd2d5b5ce5669d46382543e1a059a5753215146a80d27ccdc7c13d5399",
+        "size": 1834178,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/previews/text-to-video-demo-06.gif",
+      "blobId": "5e66854a92084fda34eaa481fcec0778a0cf6953",
+      "size": 1436696,
+      "lfs": {
+        "sha256": "f1645a20ebf29b955f33a759d475e35f119223e67591e0d4e347bb56a68df3bc",
+        "size": 1436696,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/previews/text-to-video-demo-07.gif",
+      "blobId": "a8030274b04d67716f9dad479df87292eaf4e3a9",
+      "size": 1259506,
+      "lfs": {
+        "sha256": "c59dfd54006305ac4f502df50dc1158ed2f25382aff38e7f021f72980c12ba62",
+        "size": 1259506,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/previews/text-to-video-demo-08.gif",
+      "blobId": "b0695b074382a78c82c9a692539b09438fa403e1",
+      "size": 1806277,
+      "lfs": {
+        "sha256": "7047d46e0977970ffd23c334cc4aefe1d356e71592a7ba8311be5bc53def7c33",
+        "size": 1806277,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/videos/text-to-video-demo-01.mp4",
+      "blobId": "af4407bea18870032a47ec252b8f4fd9b1595f57",
+      "size": 7186230,
+      "lfs": {
+        "sha256": "7b76e0bffa453aa61da2be454dab728da967badcd2c80d5bb3b330e1810a65cc",
+        "size": 7186230,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/videos/text-to-video-demo-02.mp4",
+      "blobId": "77a444c78c117ff44042c5a63ba21d84888bb049",
+      "size": 2826861,
+      "lfs": {
+        "sha256": "f0b04500bd433bc5705e080001a02d7647252dff4e7cdb48e42efba5a8c721a1",
+        "size": 2826861,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/videos/text-to-video-demo-03.mp4",
+      "blobId": "3698e769244906975b4eb43fd501f013fc607233",
+      "size": 2854502,
+      "lfs": {
+        "sha256": "c6d1254b88c0ee823083a0c256c25adbe2b20ad0eb1f27a31e6dc62e35f4ecb5",
+        "size": 2854502,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/videos/text-to-video-demo-04.mp4",
+      "blobId": "00e68e6380200c1fde252acb86b200f3f10c1a76",
+      "size": 4744471,
+      "lfs": {
+        "sha256": "05f42163771e05b9104b27e2133793dd94697a1ecba2bd1bf2ce103de8d3ddfb",
+        "size": 4744471,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/videos/text-to-video-demo-05.mp4",
+      "blobId": "0944bc8650c52e239790bcdfd24faa77f6c2f8ce",
+      "size": 2854867,
+      "lfs": {
+        "sha256": "2fc022110d19f12f5f3222990d69812dbbf3bd6ae7beb953d5d1d4a12858674f",
+        "size": 2854867,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/videos/text-to-video-demo-06.mp4",
+      "blobId": "5d282cc517183e8d00f520583535af39ace2529c",
+      "size": 3397515,
+      "lfs": {
+        "sha256": "02d0fc0fe120589e94b7739caee15ff2ddef0e461a7d124b8eaa4724853d995f",
+        "size": 3397515,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/videos/text-to-video-demo-07.mp4",
+      "blobId": "a487aafe563a7e5d0b553ecd8474a3d7201abfaf",
+      "size": 5506590,
+      "lfs": {
+        "sha256": "17466d43ce3439a6d58148d0634f2d365ae20debf12bfa87d3d39e29708a91ff",
+        "size": 5506590,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/text-to-video/videos/text-to-video-demo-08.mp4",
+      "blobId": "4546475016575a134543086dd1fa2d5ecb7a7edb",
+      "size": 3313897,
+      "lfs": {
+        "sha256": "22215f0fdfe4a6ddc21977fecf972c98a3c9be739fb3b96e2523706a5da90362",
+        "size": 3313897,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/previews/video-editing-demo-01.gif",
+      "blobId": "2f12e274c9df9fb742aea9b32a7d742f531f09c4",
+      "size": 1099065,
+      "lfs": {
+        "sha256": "dff9e03f3729a1fd8bc75d7077be61201554a45b9c1a222131b98bc7cc4993f6",
+        "size": 1099065,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/previews/video-editing-demo-02.gif",
+      "blobId": "6f616571b143a3bbb3683a514e653f638c5d3b2e",
+      "size": 1075431,
+      "lfs": {
+        "sha256": "e42f280ad1d6a378a634b8936c34b23a360ef94995b26bf18e9e5cf0d01fb1f7",
+        "size": 1075431,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/previews/video-editing-demo-03.gif",
+      "blobId": "19f804e8a7ad21c77c9bafb11e1922c74b0cff11",
+      "size": 1463279,
+      "lfs": {
+        "sha256": "09800ebe2b5d58d83052b614176e9c25b346f9bc548f134ce051476a0e76cd8b",
+        "size": 1463279,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/previews/video-editing-demo-04.gif",
+      "blobId": "0bd96e241d0c6579be393a35270f2067f2fe7fdc",
+      "size": 817773,
+      "lfs": {
+        "sha256": "e39f3ba103d157d258832b93aada67fc1090be882809db0db2bc86335433a011",
+        "size": 817773,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/previews/video-editing-demo-05.gif",
+      "blobId": "988ee3eaec613ea3caf901c2a44c390474b99c7b",
+      "size": 1595814,
+      "lfs": {
+        "sha256": "5104ded46ecb6acd40cea01280bf7b8760bd8fb6c4a6f0af2d3dc782f0d8ee72",
+        "size": 1595814,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/previews/video-editing-demo-06.gif",
+      "blobId": "a0d48537f844c71f6296d39d5524f2a303cbac21",
+      "size": 1372032,
+      "lfs": {
+        "sha256": "6e0863f9269901ad560407476a06c38a9947f46b5d0e40af378a989e8741427a",
+        "size": 1372032,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/previews/video-editing-demo-07.gif",
+      "blobId": "f400f4814bde50d296a3c76bc5c92ced1848461b",
+      "size": 783546,
+      "lfs": {
+        "sha256": "636a6653462d38116a2431f727750afbb25faf5d0a1ec120430c46dffe0d0acd",
+        "size": 783546,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/previews/video-editing-demo-08.gif",
+      "blobId": "2cb3cae388a5021d4cf7389427faadb02beea81d",
+      "size": 1045809,
+      "lfs": {
+        "sha256": "773958d112d939f83df708c9cc206707b8cc1eb1a1bf8f0bed826c42d5cb3283",
+        "size": 1045809,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/videos/video-editing-demo-01.mp4",
+      "blobId": "5f041046b9df68de6612243bd8552bfec7bbe031",
+      "size": 1495837,
+      "lfs": {
+        "sha256": "d64ade5b3c4c1cb658211e95ab0cc3a5b0b05c5ec3debcad56117ed968cb2d5a",
+        "size": 1495837,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/videos/video-editing-demo-02.mp4",
+      "blobId": "923c7806ca55e373994d77cdf0e818c0877902b9",
+      "size": 1511686,
+      "lfs": {
+        "sha256": "9f3a36f748c8de337c4c63efccde66939116dd28538c95a46714aae64a3609eb",
+        "size": 1511686,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/videos/video-editing-demo-03.mp4",
+      "blobId": "9acc255a207ca7dd5f06229cc0270cab8f7ad57e",
+      "size": 1654537,
+      "lfs": {
+        "sha256": "1ff730fa5da6c03e6cdcd6ca439a5bb18c6bacf842e21924b4e549c70cd1a197",
+        "size": 1654537,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/videos/video-editing-demo-04.mp4",
+      "blobId": "edf66e6844718e409fcdbc4b156b304e60fe4912",
+      "size": 686458,
+      "lfs": {
+        "sha256": "ef54e4925d7ac1e4d682bb438aa1e10dae889d5c3a23f3c96da7c33e6403f07c",
+        "size": 686458,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/videos/video-editing-demo-05.mp4",
+      "blobId": "47076a5fbe9e04b7b32f4e7702c8ad857bd36cb4",
+      "size": 892673,
+      "lfs": {
+        "sha256": "3b9178fd4239b775b5690221bd9212ef220d64bf84e255e2dcaba3675ace5541",
+        "size": 892673,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/videos/video-editing-demo-06.mp4",
+      "blobId": "c572e801dac07355d7f9927ea19f4fc0a3bd8008",
+      "size": 476837,
+      "lfs": {
+        "sha256": "88388ea12ce0b1e556f1e7923d1c0acedf77295bb35d034ca976ebc039d27f41",
+        "size": 476837,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/videos/video-editing-demo-07.mp4",
+      "blobId": "67e30980a56048afe6c3848d2baea4f4ed4d2cf1",
+      "size": 531418,
+      "lfs": {
+        "sha256": "d775b2cddfba65f480753d20b87a7973a341ca5dc44b8e87ab75d30a0c908e2d",
+        "size": 531418,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/video-editing/videos/video-editing-demo-08.mp4",
+      "blobId": "19a5b520bf645a23ba8705eafbe89dc761a9d217",
+      "size": 1468408,
+      "lfs": {
+        "sha256": "e9541ee67391691c58409ae97a5921747d0c38ad759b216bbbc5826d246b2d74",
+        "size": 1468408,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-understanding/previews/video-understanding-caption-long-01.gif",
+      "blobId": "eedd6ac56f2d7f5821ad0d0caade016fd808bbd1",
+      "size": 3053170,
+      "lfs": {
+        "sha256": "48b125e68667e3d06fdd25b0b0b5d77f58d4550e551bb63cf577b5fca3b7e785",
+        "size": 3053170,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-understanding/previews/video-understanding-caption-short-01.gif",
+      "blobId": "c0495f0d7c7227515ad48cab8530dcb4bc6586c7",
+      "size": 1060291,
+      "lfs": {
+        "sha256": "4ed01f2bd5658a4550ea8d0b80b9eacb291f73ac3370d285384df00d2e5c1d9e",
+        "size": 1060291,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-understanding/previews/video-understanding-vqa-01.gif",
+      "blobId": "28b3b376965487155291f4f208e9d579b30c45f1",
+      "size": 1433496,
+      "lfs": {
+        "sha256": "ceb1618f7fd417bca8be3a705ebc75eef13e536b848354a2368b15a93614e35c",
+        "size": 1433496,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-understanding/previews/video-understanding-vqa-02.gif",
+      "blobId": "8a68d16474c9fae3bfa92a28847ea4bb1a77f91c",
+      "size": 1053056,
+      "lfs": {
+        "sha256": "6af48bf796b792ae31d950573629a6b86620761aaa91f41b5cdfff2cd09e9688",
+        "size": 1053056,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-understanding/previews/video-understanding-vqa-03.gif",
+      "blobId": "362e85d6c7cf3107a6f66774e9ea98fdd37a92fb",
+      "size": 170163,
+      "lfs": {
+        "sha256": "c1fec5e13137c6594652c56a524ef1a61612af2c38d6dcd8ab1eac1de223b1f1",
+        "size": 170163,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/video-understanding/previews/video-understanding-vqa-04.gif",
+      "blobId": "19aca48b3a97718db6872612b149b86be193146d",
+      "size": 1596549,
+      "lfs": {
+        "sha256": "e1430704532c298c02943e12f12633a56e7122dd959d7adb1dd1c1b09d180178",
+        "size": 1596549,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-understanding/videos/video-understanding-caption-long-01.mp4",
+      "blobId": "18ef888dc37e7fc94a3f379d98d48b0a1198cdd1",
+      "size": 5318845,
+      "lfs": {
+        "sha256": "5f070eefe27dc3f3d065926345299b996124dc1ee4372c223164ddfd0792ce1a",
+        "size": 5318845,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-understanding/videos/video-understanding-caption-short-01.mp4",
+      "blobId": "993bcddeb0abe4941be2e6d42d932102cffcdcb7",
+      "size": 2209818,
+      "lfs": {
+        "sha256": "5fcb4c18846571444ae024331a64e8740716e3b151f3e05a0d901b405b608da6",
+        "size": 2209818,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-understanding/videos/video-understanding-vqa-01.mp4",
+      "blobId": "7a9b2e331969aedae2a150682b28341ac74d454f",
+      "size": 2673972,
+      "lfs": {
+        "sha256": "4f382ee52b21942d7840eef2843bf5c57ed4e5ff4bb958e2c4fa23635030c02b",
+        "size": 2673972,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-understanding/videos/video-understanding-vqa-02.mp4",
+      "blobId": "1562546f0fff499fdb607c187776472b8dca565f",
+      "size": 2323559,
+      "lfs": {
+        "sha256": "02572c7b087e7b36867aade045d9c43e9e62e6496aff36dbcbdc599eed03a276",
+        "size": 2323559,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "assets/video-understanding/videos/video-understanding-vqa-03.mp4",
+      "blobId": "06b1ee5e8fef304b8e763dd77291dfbe1a99eb9b",
+      "size": 195524,
+      "lfs": {
+        "sha256": "9cc93946ae538475878a9af4238a50a690b661795975d8cb513f3320d71ae0ca",
+        "size": 195524,
+        "pointerSize": 131
+      }
+    },
+    {
+      "rfilename": "assets/video-understanding/videos/video-understanding-vqa-04.mp4",
+      "blobId": "a5d7b3a9eac5d5a9a063849ceee0da2d574ff3b3",
+      "size": 2486318,
+      "lfs": {
+        "sha256": "b5dc46b40014a4a4685d081ae9c5dfb60b48ae17f5f9dbbd8cd6a746be11d3ce",
+        "size": 2486318,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "config.json",
+      "blobId": "a545677f37cadb19cecd725cb7cd3b61d0e0e9cc",
+      "size": 901
+    }
+  ],
+  "spaces": [
+    "bytedance-research/Lance",
+    "victor/lance-zerogpu-demo",
+    "FoxLoverAI/TurboCustomImageEditing",
+    "akhaliq/Lance",
+    "Nayefleb/Lance",
+    "Imosu/Lance",
+    "monurcan/simit",
+    "desire111fdfs/Lance",
+    "ThunderingCondor702/Lance",
+    "IgorCSIS/nifty-lab",
+    "developerjeremylive/Lance-etheroi",
+    "desirel/Lance"
+  ],
+  "createdAt": "2026-05-15T08:05:57.000Z",
+  "usedStorage": 83996660659
+}

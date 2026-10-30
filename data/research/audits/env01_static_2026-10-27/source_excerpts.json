@@ -1,0 +1,307 @@
+{
+  "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+  "scope": "Selected static source excerpts; no model import or execution",
+  "excerpts": [
+    {
+      "path": "README.md",
+      "start_line": 125,
+      "end_line": 149,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/README.md#L125-L149",
+      "text": "## 🚀 Installation\n\n### Recommended Environment\n\n- **Software:** Python 3.10+, CUDA 12.4+ (required)\n- **Hardware:** A GPU with at least 40GB VRAM is required for inference\n\nWe have tested the following dependency combinations on NVIDIA A100:\n\n- PyTorch 2.8.0 + cu126 + flash-attn 2.8.3\n- PyTorch 2.5.1 + cu124 + flash-attn 2.6.3\n\nThe default installation commands use the PyTorch 2.8.0 + cu126 setup. For other GPU models, please choose and validate a PyTorch build and a matching `flash-attn` version according to your driver, CUDA runtime, Python version, and GPU architecture.\n\n### Installation Steps\n\nFirst, clone the repository:\n\n```bash\ngit clone https://github.com/bytedance/Lance.git\ncd Lance\n```\n\nThen, set up the environment:\n"
+    },
+    {
+      "path": "requirements.txt",
+      "start_line": 1,
+      "end_line": 34,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/requirements.txt#L1-L34",
+      "text": "accelerate==1.13.0\ndecord==0.6.0\ndiffusers==0.29.1\neinops==0.8.1\nfsspec==2026.4.0\ngradio==5.31.0\ngradio-client==1.10.1\nhuggingface-hub==0.29.1\nimageio==2.34.0\nimageio-ffmpeg==0.5.1\nJinja2==3.1.3\nnumpy==1.23.5\nnvidia-ml-py==13.610.43\nomegaconf==2.3.0\nopencv-python==4.7.0.72\nopenai==2.26.0\npackaging==25.0\npillow==11.0.0\nprotobuf==3.20.3\npyarrow==11.0.0\nPyYAML==6.0\nregex==2022.10.31\nrequests==2.32.3\nretrying==1.3.4\nsafetensors==0.4.5\nsentencepiece==0.1.99\nsk-video==1.1.10\nspaces==0.50.2\ntimm==0.6.13\ntokenizers==0.21.4\ntqdm==4.67.3\ntransformers==4.49.0\ntransformers-stream-generator==0.0.5\nwandb"
+    },
+    {
+      "path": "inference_lance.sh",
+      "start_line": 7,
+      "end_line": 32,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/inference_lance.sh#L7-L32",
+      "text": "# ========================= Inference Parameters =========================\nNUM_GPUS=${NUM_GPUS:-1}\n\nTASK_NAME=${TASK_NAME:-x2t_image} # t2i | image_edit | t2v | i2v | video_edit | x2t_image | x2t_video\n\nVALIDATION_NUM_TIMESTEPS=${VALIDATION_NUM_TIMESTEPS:-30}\nVALIDATION_TIMESTEP_SHIFT=${VALIDATION_TIMESTEP_SHIFT:-3.5}\nVALIDATION_DATA_SEED=${VALIDATION_DATA_SEED:-42}\nCFG_TEXT_SCALE=${CFG_TEXT_SCALE:-4.0}\nUSE_KVCACHE=${USE_KVCACHE:-true}\nENHANCE_PROMPT=${ENHANCE_PROMPT:-false}\n\nNUM_FRAMES=${NUM_FRAMES:-50}             # max: 121 frames, unused for image tasks\nVIDEO_HEIGHT=${VIDEO_HEIGHT:-768}        # unused for editing\nVIDEO_WIDTH=${VIDEO_WIDTH:-768}          # unused for editing\nRESOLUTION=${RESOLUTION:-\"video_480p\"}   # image_768res | video_480p\nTEXT_TEMPLATE=${TEXT_TEMPLATE:-true}\n\nMODEL_PATH=${MODEL_PATH:-\"downloads/Lance_3B_Video\"}\nCONFIG_PATH=${CONFIG_PATH:-\"\"}\n\n# ========================= Command-line Arguments =========================\nwhile [[ $# -gt 0 ]]; do\n    case \"$1\" in\n        --NUM_GPUS) NUM_GPUS=\"$2\"; shift 2 ;;\n        --TASK_NAME) TASK_NAME=\"$2\"; shift 2 ;;"
+    },
+    {
+      "path": "inference_lance.sh",
+      "start_line": 118,
+      "end_line": 157,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/inference_lance.sh#L118-L157",
+      "text": "CONFIG_ARGS=()\nif [ -n \"$CONFIG_PATH\" ]; then\n    CONFIG_ARGS=(--val_dataset_config_file \"$CONFIG_PATH\")\nfi\n\naccelerate launch \\\n    --num_machines          $NUM_MACHINES \\\n    --num_processes         $TOTAL_RANK \\\n    --machine_rank          $MACHINE_RANK \\\n    --main_process_ip       $MAIN_PROCESS_IP \\\n    --main_process_port     $MAIN_PROCESS_PORT \\\n    --mixed_precision       bf16 \\\n    inference_lance.py \\\n    --model_path            \"$MODEL_PATH\" \\\n    --vit_type              qwen_2_5_vl_original \\\n    --llm_qk_norm           true \\\n    --llm_qk_norm_und       true \\\n    --llm_qk_norm_gen       true \\\n    --tie_word_embeddings   false \\\n    --validation_num_timesteps $VALIDATION_NUM_TIMESTEPS \\\n    --validation_timestep_shift $VALIDATION_TIMESTEP_SHIFT \\\n    --copy_init_moe         true \\\n    --max_num_frames        121 \\\n    --max_latent_size       64 \\\n    --latent_patch_size     1 1 1 \\\n    --visual_und            true \\\n    --visual_gen            true \\\n    --vae_model_type        wan \\\n    --apply_qwen_2_5_vl_pos_emb true \\\n    --apply_chat_template   false \\\n    --cfg_type              0 \\\n    --validation_data_seed  $VALIDATION_DATA_SEED \\\n    --video_height          $VIDEO_HEIGHT \\\n    --video_width           $VIDEO_WIDTH \\\n    --num_frames            $NUM_FRAMES \\\n    --task                  $TASK_NAME \\\n    --save_path_gen         \"$SAVE_PATH_GEN\" \\\n    --resolution            \"$RESOLUTION\" \\\n    --text_template         \"$TEXT_TEMPLATE\" \\\n    --cfg_text_scale        $CFG_TEXT_SCALE \\"
+    },
+    {
+      "path": "inference_lance.py",
+      "start_line": 61,
+      "end_line": 115,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/inference_lance.py#L61-L115",
+      "text": "TASK_T2V = \"t2v\"\nTASK_T2I = \"t2i\"\nTASK_I2V = \"i2v\"\nTASK_X2T_IMAGE = \"x2t_image\"\nTASK_X2T_VIDEO = \"x2t_video\"\nTASK_IMAGE_EDIT = \"image_edit\"\nTASK_VIDEO_EDIT = \"video_edit\"\nGENERATION_TASKS = {\n    TASK_T2V,\n    TASK_T2I,\n    TASK_I2V,\n    TASK_IMAGE_EDIT,\n    TASK_VIDEO_EDIT,\n}\nUNDERSTANDING_TASKS = {\n    TASK_X2T_IMAGE,\n    TASK_X2T_VIDEO,\n}\nTASK_DEFAULT_CONFIGS = {\n    TASK_T2I: {\n        \"model_family\": \"image\",\n        \"example_json\": \"config/examples/t2i_example.json\",\n        \"save_path_prefix\": \"results/t2i_sample\",\n    },\n    TASK_T2V: {\n        \"model_family\": \"video\",\n        \"example_json\": \"config/examples/t2v_example.json\",\n        \"save_path_prefix\": \"results/t2v_sample\",\n    },\n    TASK_I2V: {\n        \"model_family\": \"video\",\n        \"example_json\": \"config/examples/i2v_example.json\",\n        \"save_path_prefix\": \"results/i2v_sample\",\n    },\n    TASK_IMAGE_EDIT: {\n        \"model_family\": \"image\",\n        \"example_json\": \"config/examples/image_edit_example.json\",\n        \"save_path_prefix\": \"results/image_edit_sample\",\n    },\n    TASK_VIDEO_EDIT: {\n        \"model_family\": \"video\",\n        \"example_json\": \"config/examples/video_edit_example.json\",\n        \"save_path_prefix\": \"results/video_edit_sample\",\n    },\n    TASK_X2T_IMAGE: {\n        \"model_family\": \"image\",\n        \"example_json\": \"config/examples/x2t_image_example.json\",\n        \"save_path_prefix\": \"results/x2t_image_sample\",\n    },\n    TASK_X2T_VIDEO: {\n        \"model_family\": \"video\",\n        \"example_json\": \"config/examples/x2t_video_example.json\",\n        \"save_path_prefix\": \"results/x2t_video_sample\",\n    },\n}"
+    },
+    {
+      "path": "inference_lance.py",
+      "start_line": 398,
+      "end_line": 415,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/inference_lance.py#L398-L415",
+      "text": "\ndef main():\n    # ========================= Env setup ==============================\n    assert torch.cuda.is_available()\n    if \"RANK\" in os.environ and \"WORLD_SIZE\" in os.environ:\n        dist.init_process_group(\"nccl\")\n        GLOBAL_RANK = dist.get_rank()\n        WORLD_SIZE = dist.get_world_size()\n    else:\n        GLOBAL_RANK = 0\n        WORLD_SIZE = 1\n\n    LOCAL_RANK = GLOBAL_RANK % torch.cuda.device_count()\n    DEVICE = LOCAL_RANK\n    torch.cuda.set_device(DEVICE)\n\n    # ========================= Args and logger setup ==============================\n    parser = HfArgumentParser((ModelArguments, DataArguments, InferenceArguments))"
+    },
+    {
+      "path": "inference_lance.py",
+      "start_line": 449,
+      "end_line": 485,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/inference_lance.py#L449-L485",
+      "text": "    llm_config.tie_word_embeddings = model_args.tie_word_embeddings\n    llm_config.freeze_und = training_args.freeze_und\n    llm_config.apply_qwen_2_5_vl_pos_emb = training_args.apply_qwen_2_5_vl_pos_emb\n\n    stage_start = time.perf_counter()\n    log_rank0(f\"[startup] Initializing LLM weights: {model_args.model_path}\")\n    language_model: Qwen2ForCausalLM = Qwen2ForCausalLM(llm_config)\n    log_stage(\"LLM weight init\", stage_start)\n\n    if training_args.visual_und:\n        if model_args.vit_type in (\"qwen2_5_vl\", \"qwen_2_5_vl_original\"):\n            stage_start = time.perf_counter()\n            log_rank0(f\"[startup] Loading VIT config: {model_args.vit_path}\")\n            vit_config = Qwen2_5_VLVisionConfig.from_pretrained(model_args.vit_path)\n            log_stage(\"VIT config load\", stage_start)\n\n            stage_start = time.perf_counter()\n            log_rank0(f\"[startup] Loading VIT weights: {osp.join(model_args.vit_path, 'vit.safetensors')}\")\n            vit_model = Qwen2_5_VisionTransformerPretrainedModel(vit_config)\n            vit_weights = load_file(osp.join(model_args.vit_path, \"vit.safetensors\"))\n            vit_model.load_state_dict(vit_weights, strict=True)\n            log_stage(\"VIT weight load\", stage_start)\n        else:\n            raise ValueError(f\"Unsupported vit_type: {model_args.vit_type}\")\n\n        clean_memory(vit_weights)\n\n    if training_args.visual_gen:\n        stage_start = time.perf_counter()\n        log_rank0(\"[startup] Initializing VAE\")\n        vae_model = WanVideoVAE()\n        vae_config: AutoEncoderParams = deepcopy(vae_model.vae_config)\n        log_stage(\"VAE init\", stage_start)\n    else:\n        vae_model = None\n        vae_config = None\n"
+    },
+    {
+      "path": "inference_lance.py",
+      "start_line": 509,
+      "end_line": 555,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/inference_lance.py#L509-L555",
+      "text": "    log_rank0(f\"[startup] Moving Lance model to GPU {DEVICE}\")\n    model = model.to(DEVICE)\n    log_stage(\"Lance model move to GPU\", stage_start)\n\n    # Setup tokenizer for model:\n    stage_start = time.perf_counter()\n    log_rank0(f\"[startup] Loading tokenizer: {model_args.model_path}\")\n    tokenizer: Qwen2Tokenizer = Qwen2Tokenizer.from_pretrained(model_args.model_path)\n\n    tokenizer, new_token_ids, num_new_tokens = add_special_tokens(tokenizer)\n    log_stage(\"tokenizer load and special token init\", stage_start, extra=f\"num_new_tokens={num_new_tokens}\")\n\n    # Initialize MoE before loading the checkpoint.\n    if training_args.copy_init_moe:\n        language_model.init_moe()\n\n    init_from_model_path_if_needed(model, model_args)\n\n    # Resize afterward to avoid checkpoint shape mismatches or overwritten weights.\n    if num_new_tokens > 0:\n        model.language_model.resize_token_embeddings(len(tokenizer))\n        model.config.llm_config.vocab_size = len(tokenizer)\n        model.language_model.config.vocab_size = len(tokenizer)\n\n    if model_args.vit_type.lower() == \"qwen2_5_vl\":\n        from common.model.hacks import hack_qwen2_5_vl_config\n        language_model = hack_qwen2_5_vl_config(language_model)\n\n    image_token_id = language_model.config.video_token_id # image_token_id # <|image_pad|>\n    new_token_ids.update({\"image_token_id\": image_token_id})\n    model.update_tokenizer(tokenizer=tokenizer)\n\n    if model_args.tie_word_embeddings: # and training_args.load_from_lance_checkpoint is False:\n        # HACK: Handle the tying logic manually.\n        model.language_model.untie_lm_head() # NOTE: untied lm head weights\n        model.language_model.copy_new_token_rows_to_lm_head(num_new_tokens) # NOTE: copy the new token rows into lm_head\n\n        # Make sure this stays False.\n        model_args.tie_word_embeddings = False\n        llm_config.tie_word_embeddings = False\n    else:\n        assert model.language_model.get_input_embeddings().weight.data.data_ptr() != model.language_model.get_output_embeddings().weight.data.data_ptr(), 'tie_word_embeddings conflict'\n\n    model = model.to(device=DEVICE, dtype=torch.bfloat16)\n    model.eval()\n    if vae_model is not None and hasattr(vae_model, \"eval\"):\n        vae_model.eval()"
+    },
+    {
+      "path": "inference_lance.py",
+      "start_line": 580,
+      "end_line": 600,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/inference_lance.py#L580-L600",
+      "text": "    dataset_config.vae_cond_dropout_prob = model_args.vae_cond_dropout_prob\n    dataset_config.vit_cond_dropout_prob = model_args.vit_cond_dropout_prob\n\n    # Load inference parameters.\n    dataset_config.num_frames = inference_args.num_frames\n    dataset_config.H = inference_args.video_height\n    dataset_config.W = inference_args.video_width\n    dataset_config.task = inference_args.task\n    dataset_config.resolution = inference_args.resolution\n    dataset_config.text_template = inference_args.text_template\n    dataset_config.enhance_prompt = inference_args.enhance_prompt\n    if inference_args.enhance_prompt:\n        if inference_args.task not in {TASK_T2V, TASK_I2V}:\n            log_rank0(\"[startup] enhance_prompt is enabled but only applies to t2v and i2v; skipping prompt rewrite for this task.\")\n        else:\n            log_rank0(\n                f\"[startup] enhance_prompt is enabled for {inference_args.task} prompts. \"\n                \"Configure LANCE_REWRITE_API_KEY, LANCE_REWRITE_MODEL_NAME, and LANCE_REWRITE_BASE_URL.\"\n            )\n    val_dataset = ValidationDataset(\n        jsonl_path= data_args.val_dataset_config_file,"
+    },
+    {
+      "path": "train.md",
+      "start_line": 48,
+      "end_line": 63,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train.md#L48-L63",
+      "text": "For parquet schemas, supported task types, and custom dataset construction, see [train_dataset.md](train_dataset.md).\n\n## 3. Launch Patterns\n\nAfter preparing the environment, model weights, and example datasets, launch one of the training scripts below.\n\nBy default, the scripts use all GPUs visible to `nvidia-smi` on the current machine. To run on fewer GPUs, set `ARNOLD_WORKER_GPU` before launching, for example `ARNOLD_WORKER_GPU=1 bash scripts/sft_lance_unified.sh`.\nFor smaller local machines, you can also lower dataloader workers, for example `NUM_WORKERS=2 ARNOLD_WORKER_GPU=1 bash scripts/sft_lance_unified.sh`.\n\n### 3.1 Unified mixed training\n\n```bash\nbash scripts/sft_lance_unified.sh\n```\n\n### 3.2 Generation-task training"
+    },
+    {
+      "path": "train.md",
+      "start_line": 114,
+      "end_line": 163,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train.md#L114-L163",
+      "text": "| `VAL_DATASET_CONFIG_FILE` | Specifies the validation dataset yaml | Validation is currently not supported | Keep the default value |\n| `WANDB_NAME` | Names the experiment | Almost every run | Include task name, dataset name, and date |\n| `VISUAL_UND` | Enables the visual understanding branch | Usually not changed often | Keep `True` for understanding tasks and most generation tasks |\n| `VISUAL_GEN` | Enables the visual generation branch | Must be checked when switching between understanding and generation | Set `False` for understanding tasks, `True` for generation tasks |\n| `SAVE_EVERY` | Checkpoint save interval | Commonly changed in both debug and formal runs | Smaller for debugging, larger for long runs |\n| `CKPT_DEBUG_STEPS` | Very early debug checkpoint | Commonly changed during debugging | Set to `-1` if you do not need early debug checkpoints |\n| `VALIDATION_STEP` | Validation interval | Validation is currently not supported | Keep `-1`; do not set it to a positive integer |\n| `NUM_SHARD` | Number of FSDP shards | When changing the parallelism strategy | Tune together with GPU count and memory budget |\n| `NUM_REPLICATE` | Number of replicas | Usually changes with `NUM_SHARD` | Computed as `TOTAL_RANK / NUM_SHARD` |\n\n\n## 6. Two Switches That Are Easy to Misconfigure\n\n### 6.1 `VISUAL_GEN`\n\n`VISUAL_GEN` controls whether the visual generation branch is enabled, including the VAE latent / flow matching / MSE path.\n\n- Common settings for generation tasks:\n  - `VISUAL_UND=True`\n  - `VISUAL_GEN=True`\n\n- Common settings for understanding tasks:\n  - `VISUAL_UND=True`\n  - `VISUAL_GEN=False`\n\nIf you accidentally set `VISUAL_GEN=True` for an understanding task, but the batch does not contain the latent fields required by the generation branch, `Lance.forward(...)` may enter the wrong branch and fail.\n\n### 6.2 `VALIDATION_STEP`\n\nAll three scripts default to:\n\n```bash\nVALIDATION_STEP=-1\n```\n\nThis means:\n\n- no fixed validation dataset is prepared\n- `validate_on_fixed_batch(...)` is never triggered in the training loop\n\nThe validation logic in the training script has not been fully checked yet. Enabling validation with a positive value is currently not supported, so do not set values such as `VALIDATION_STEP=100`; keep it as `-1`.\n\n\n## 7. Practical Recommendations\n\n1. Use `sft_lance_understand.sh` first for pure understanding tasks.\n2. Use `sft_lance_generation.sh` first for pure generation tasks.\n3. Use `sft_lance_unified.sh` when you really want mixed-task training.\n4. During debugging, prioritize changing:\n   - `DATASET_CONFIG_FILE`"
+    },
+    {
+      "path": "train_dataset.md",
+      "start_line": 15,
+      "end_line": 34,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train_dataset.md#L15-L34",
+      "text": "\n\n### 1.1.2 t2v\n\n- Corresponding `dataset_type`: `text2video_general`\n\n| Field | Type | Description |\n| --- | --- | --- |\n| `caption` | `string` | Text condition |\n| `video_bytes` | `binary` | Target video |\n\n\n### 1.1.3 i2i\n\n- Corresponding `dataset_type`: `image2image`\n\n| Field | Type | Description |\n| --- | --- | --- |\n| `caption` | `string` | Editing instruction |\n| `input_image_bytes` | `binary` | Conditional image |"
+    },
+    {
+      "path": "train_dataset.md",
+      "start_line": 65,
+      "end_line": 86,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train_dataset.md#L65-L86",
+      "text": "| Field | Type | Description |\n| --- | --- | --- |\n| `video_bytes` | `binary` | Conditional video |\n| `caption_i` | `string` | Instruction / system prompt |\n| `caption_q` | `string` | Question, can be empty `\"\"` |\n| `caption_a` | `string` | Target answer |\n\n\n### 1.1.7 About `caption_i / caption_q / caption_a`\n\nThese three fields form an `I / Q / A` tuple in `x2t` tasks:\n\n| Field | Meaning |\n| --- | --- |\n| `caption_i` | instruction |\n| `caption_q` | question |\n| `caption_a` | answer |\n\nThe training code packs them into a triplet and then feeds them into prompt construction logic.\n\n\n## 1.2 Datasets and YAML"
+    },
+    {
+      "path": "scripts/sft_lance_unified.sh",
+      "start_line": 36,
+      "end_line": 41,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/scripts/sft_lance_unified.sh#L36-L41",
+      "text": "NUM_SHARD=${NUM_SHARD:-$((TOTAL_RANK < 4 ? TOTAL_RANK : 4))}\nif [ \"$TOTAL_RANK\" -lt 1 ]; then\n    echo \"TOTAL_RANK must be >= 1, got $TOTAL_RANK\"\n    exit 1\nfi\nif [ \"$NUM_SHARD\" -lt 1 ] || [ $((TOTAL_RANK % NUM_SHARD)) -ne 0 ]; then"
+    },
+    {
+      "path": "scripts/sft_lance_unified.sh",
+      "start_line": 65,
+      "end_line": 97,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/scripts/sft_lance_unified.sh#L65-L97",
+      "text": "LLM_QK_NORM=True # Use QK_NORM in LLM_UND and LLM_GEN, only when both LLM_QK_NORM_UND and LLM_QK_NORM_GEN are False\nLLM_QK_NORM_UND=True # Use QK_NORM in LLM_UND\nLLM_QK_NORM_GEN=True # Use QK_NORM in LLM_GEN\nTIE_WORD_EMBEDDINGS=False\n\nLATENT_PATCH_SIZE=\"1 1 1\"\nMAX_LATENT_SIZE=64\nMAX_NUM_FRAMES=121\nVAE_MODEL_TYPE=\"wan\"\nVISUAL_UND=True\nVISUAL_GEN=True # False # Set False for understanding-only tasks\n\n# ==============================Freeze configuration==============================\nFREEZE_LLM=False # Freeze all LLM_UND and LLM_GEN parameters\nFREEZE_LLM_EMBED_TOKENS=True # Freeze the LLM embedding layer\nFREEZE_UND_PARAMS=False # Freeze all LLM_UND parameters\nFREEZE_UND=False # Freeze LLM_UND behavior\n\n# ==============================Data configuration==============================\nDATASET_CONFIG_FILE=${DATASET_CONFIG_FILE:-config/train_local/unified.yaml}\nVAL_DATASET_CONFIG_FILE=${VAL_DATASET_CONFIG_FILE:-config/train_local/unified.yaml}\n\nNUM_WORKERS=${NUM_WORKERS:-8}\nPREFETCH_FACTOR=${PREFETCH_FACTOR:-2}\nMAX_NUM_TOKENS=65536\nEXPECTED_NUM_TOKENS=65536\nMAX_NUM_TOKENS_PER_SAMPLE=65536\nPREFER_BUFFER_BEFORE=65536\nMAX_BUFFER_SIZE=50\nREQUIRE_UND_GEN=True\n\nDATA_SEED=2026\nGLOBAL_SEED=2026"
+    },
+    {
+      "path": "scripts/sft_lance_unified.sh",
+      "start_line": 116,
+      "end_line": 137,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/scripts/sft_lance_unified.sh#L116-L137",
+      "text": "CKPT_DEBUG_STEPS=10\n\n# ==============================EMA, resume, and output configuration==============================\nUSE_EMA=False\nAUTO_RESUME=False\nRESUME_MODEL_ONLY=True\nLOAD_DATA_STATUS=False\n\nDATE=v0608\nWANDB_PROJECT=huangmengqi_sft_lance\nWANDB_NAME=${DATE}_\"$NUM_SHARD\"x\"$NUM_REPLICATE\"_unified\nWANDB_OFFLINE=True # False\n\nOUTPUTS_DIR=./outputs/${WANDB_PROJECT}\n\n# ==============================Validation configuration==============================\nVALIDATION_STEP=-1 # 100 | -1 disables validation\nVALIDATION_TYPE=\"und_gen\"\nVALIDATION_NUM_TIMESTEPS=10\nVALIDATION_TIMESTEP_SHIFT=3.0\nVALIDATION_MAX_SAMPLES=$((128 / TOTAL_RANK))\nVALIDATION_LOG_TYPE=\"direct\""
+    },
+    {
+      "path": "train/unified_train.py",
+      "start_line": 148,
+      "end_line": 188,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train/unified_train.py#L148-L188",
+      "text": "    load_ckpt = prepare_checkpoint_loader(\n        model_args=model_args,\n        training_args=training_args,\n        llm_config=llm_config,\n        language_model=language_model,\n        tokenizer=tokenizer,\n        num_new_tokens=num_new_tokens,\n        log_rank0=log_rank0,\n        report_dir=training_args.config_dir,\n    )\n\n    fsdp_config = build_fsdp_config(training_args)\n    ema_model = setup_ema_and_load_checkpoint(\n        model=model,\n        training_args=training_args,\n        fsdp_config=fsdp_config,\n        load_ckpt=load_ckpt,\n        resume_from=resume_from,\n        resume_model_only=resume_model_only,\n        logger=logger,\n    )\n    image_token_id = get_image_token_id(language_model)\n\n\n    fsdp_model: Lance = fsdp_wrapper(model, fsdp_config)\n    apply_activation_checkpointing(\n        fsdp_model,\n        checkpoint_wrapper_fn=functools.partial(checkpoint_wrapper, checkpoint_impl=CheckpointImpl.NO_REENTRANT),\n        check_fn=grad_checkpoint_check_fn,  # Custom check function that selects which modules use activation checkpointing\n    )\n\n    save_trainable_parameters(model, fsdp_model, training_args, logger, GLOBAL_RANK)\n\n    # ========================= Optimizer and scheduler setup ==============================\n    params_to_train = [p for p in fsdp_model.parameters() if p.requires_grad]\n    optimizer = torch.optim.AdamW(\n        params_to_train,  # Use only parameters that require gradients\n        lr=training_args.lr,\n        betas=(training_args.beta1, training_args.beta2),\n        eps=training_args.eps,\n        weight_decay=0,"
+    },
+    {
+      "path": "train/unified_train.py",
+      "start_line": 205,
+      "end_line": 212,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train/unified_train.py#L205-L212",
+      "text": "    # Setup packed dataloader\n    dataset_config = build_train_dataset_config(data_args, model_args, training_args, vae_config)\n\n    if training_args.validation_step > 0:\n        log_rank0(\n            f\"validation_step={training_args.validation_step}, but validation is currently disabled in train/unified_train.py. Skip validation.\"\n        )\n        training_args.validation_step = -1"
+    },
+    {
+      "path": "train/unified_train.py",
+      "start_line": 329,
+      "end_line": 355,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train/unified_train.py#L329-L355",
+      "text": "                data_status[item[\"dataset_name\"]][item[\"worker_id\"]] = item[\"data_indexes\"]\n\n            if (curr_step == training_args.ckpt_debug_steps) or (curr_step > 0 and curr_step % training_args.save_every == 0):\n                if curr_step == training_args.ckpt_debug_steps:\n                    log_rank0(f\"ckpt_debug_steps = {curr_step}, saving checkpoints just for debug...\")\n\n                import gc; gc.collect(); torch.cuda.empty_cache()\n                if GLOBAL_RANK == 0:\n                    gather_list = [None] * WORLD_SIZE\n                else:\n                    gather_list = None\n                dist.gather_object(data_status, gather_list, dst=0)\n\n                FSDPCheckpoint.fsdp_save_fsdp_ckpt(\n                    ckpt_dir=training_args.ckpt_dir,\n                    train_steps=curr_step,\n                    model=fsdp_model,\n                    ema_model=(\n                        ema_model if (training_args.use_ema and curr_step >= training_args.ema_start_steps)\n                        else None\n                    ),\n                    optimizer=optimizer,\n                    scheduler=scheduler,\n                    logger=logger,\n                    fsdp_config=fsdp_config,\n                    data_status=gather_list,\n                    blocking=(curr_step >= (training_args.total_steps - 1)),"
+    },
+    {
+      "path": "train/train_utils.py",
+      "start_line": 136,
+      "end_line": 163,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train/train_utils.py#L136-L163",
+      "text": "def freeze_model_components(model: Lance, training_args: TrainingArguments, log_rank0):\n    if training_args.freeze_llm:\n        model.language_model.eval()\n        for param in model.language_model.parameters():\n            param.requires_grad = False\n        log_rank0(\"Freeze all LLM parameters\")\n\n    if training_args.freeze_llm_embed_tokens:\n        model.language_model.freeze_embed_tokens()\n        model.language_model.freeze_lm_head()\n        log_rank0(\"Freeze LLM token embeddings and lm_head\")\n\n    if training_args.freeze_und_params:\n        model.language_model.freeze_und_params()\n        log_rank0(\"Freeze UND parameters\")\n\n    if training_args.freeze_vit and training_args.visual_und:\n        model.vit_model.eval()\n        for param in model.vit_model.parameters():\n            param.requires_grad = False\n        log_rank0(\"Freeze VIT parameters\")\n\n    if training_args.freeze_vit_connector:\n        model.connector.eval()\n        for param in model.connector.parameters():\n            param.requires_grad = False\n        log_rank0(\"Freeze VIT connector parameters\")\n"
+    },
+    {
+      "path": "train/train_utils.py",
+      "start_line": 224,
+      "end_line": 268,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train/train_utils.py#L224-L268",
+      "text": "def setup_model_components(model_args: ModelArguments, training_args: TrainingArguments, log_rank0):\n    if training_args.load_from_lance_checkpoint:\n        llm_config: Qwen2Config = Qwen2Config.from_json_file(os.path.join(model_args.model_path, \"llm_config.json\"))\n    else:\n        llm_config: Qwen2Config = Qwen2Config.from_pretrained(model_args.llm_path)\n\n    llm_config.layer_module = model_args.layer_module\n    llm_config.qk_norm = model_args.llm_qk_norm\n    llm_config.qk_norm_und = model_args.llm_qk_norm_und\n    llm_config.qk_norm_gen = model_args.llm_qk_norm_gen\n    log_rank0(f\"llm_config.qk_norm: {llm_config.qk_norm}, llm_config.qk_norm_und: {llm_config.qk_norm_und}, llm_config.qk_norm_gen: {llm_config.qk_norm_gen}\")\n\n    llm_config.tie_word_embeddings = model_args.tie_word_embeddings\n    llm_config.freeze_und = training_args.freeze_und\n    llm_config.apply_qwen_2_5_vl_pos_emb = training_args.apply_qwen_2_5_vl_pos_emb\n\n    if training_args.load_from_lance_checkpoint or training_args.init_from_vlm_checkpoint:\n        language_model: Qwen2ForCausalLM = Qwen2ForCausalLM(llm_config)\n    else:\n        language_model: Qwen2ForCausalLM = Qwen2ForCausalLM.from_pretrained(model_args.llm_path, config=llm_config)\n\n    vit_config, vit_model = None, None\n    if training_args.visual_und:\n        if model_args.vit_type in (\"qwen2_5_vl\", \"qwen_2_5_vl_original\"):\n            vit_config = Qwen2_5_VLVisionConfig.from_pretrained(model_args.vit_path)\n            vit_model = Qwen2_5_VisionTransformerPretrainedModel(vit_config)\n            vit_weights = load_file(os.path.join(model_args.vit_path, \"vit.safetensors\"))\n            msg = vit_model.load_state_dict(vit_weights, strict=True)\n            log_rank0(f\"Load vit model weights: {msg}, from {model_args.vit_path}\")\n        else:\n            raise ValueError(f\"Unsupported vit_type: {model_args.vit_type}\")\n\n        del vit_weights\n        import gc; gc.collect(); torch.cuda.empty_cache()\n\n    if training_args.visual_gen:\n        if training_args.vae_model_type.lower() in (\"wan\", \"wanvideo\", \"wan-video\"):\n            vae_model = WanVideoVAE()\n        else:\n            raise ValueError(f\"Unsupported vae_model_type: {training_args.vae_model_type}\")\n        vae_config: AutoEncoderParams = deepcopy(vae_model.vae_config)\n    else:\n        vae_model = None\n        vae_config = None\n"
+    },
+    {
+      "path": "train/train_utils.py",
+      "start_line": 272,
+      "end_line": 281,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train/train_utils.py#L272-L281",
+      "text": "def build_fsdp_config(training_args: TrainingArguments):\n    return FSDPConfig(\n        sharding_strategy=training_args.sharding_strategy,\n        backward_prefetch=training_args.backward_prefetch,\n        cpu_offload=training_args.cpu_offload,\n        num_replicate=training_args.num_replicate,\n        num_shard=training_args.num_shard,\n        use_orig_params=True,\n    )\n"
+    },
+    {
+      "path": "train/train_utils.py",
+      "start_line": 534,
+      "end_line": 563,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train/train_utils.py#L534-L563",
+      "text": "def setup_ema_and_load_checkpoint(\n    model: Lance,\n    training_args: TrainingArguments,\n    fsdp_config: FSDPConfig,\n    load_ckpt,\n    resume_from=None,\n    resume_model_only: bool = True,\n    logger=None,\n):\n    ema_model = None\n    if training_args.use_ema:\n        ema_model = deepcopy(model)\n        load_ckpt(ema_model, ema=True)\n\n    load_ckpt(model, ema=False)\n\n    if resume_from is not None and not resume_model_only:\n        model, ema_model = FSDPCheckpoint.try_load_ckpt(\n            resume_from=resume_from,\n            logger=logger,\n            model=model,\n            ema_model=ema_model,\n            resume_from_ema=training_args.finetune_from_ema,\n            report_dir=training_args.config_dir,\n        )\n\n    if ema_model is not None:\n        ema_model = fsdp_ema_setup(ema_model, fsdp_config)\n\n    return ema_model"
+    },
+    {
+      "path": "train/train_utils.py",
+      "start_line": 566,
+      "end_line": 588,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train/train_utils.py#L566-L588",
+      "text": "def prepare_checkpoint_loader(\n    model_args: ModelArguments,\n    training_args: TrainingArguments,\n    llm_config: Qwen2Config,\n    language_model: Qwen2ForCausalLM,\n    tokenizer: Qwen2Tokenizer,\n    num_new_tokens: int,\n    log_rank0,\n    report_dir: Optional[str] = None,\n):\n    if training_args.copy_init_moe:\n        language_model.init_moe()\n        log_rank0(\"Copy init moe params: copy llm weight to gen.\")\n\n    should_untie_lm_head = model_args.tie_word_embeddings\n    if should_untie_lm_head:\n        model_args.tie_word_embeddings = False\n        llm_config.tie_word_embeddings = False\n\n    def load_ckpt(model: Lance, ema: bool = False):\n        if training_args.load_from_lance_checkpoint:\n            load_from_lance_checkpoint(model, model_args, log_rank0, ema=ema, report_dir=report_dir)\n        elif training_args.init_from_vlm_checkpoint:"
+    },
+    {
+      "path": "train/train_utils.py",
+      "start_line": 794,
+      "end_line": 844,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train/train_utils.py#L794-L844",
+      "text": "def load_from_lance_checkpoint(model: Qwen2ForCausalLM, model_args: ModelArguments, log_rank0, ema=False, report_dir: Optional[str] = None):\n    # NOTE: Fine-tuning from a Lance checkpoint goes through this higher-priority path; prefer ema.safetensors, then model.safetensors\n    path_dir = model_args.model_path\n    ema_path = os.path.join(path_dir, \"ema.safetensors\")\n    model_path = os.path.join(path_dir, \"model.safetensors\")\n\n    model_path_ft = None\n    if ema and os.path.exists(ema_path):\n        model_path_ft = ema_path\n        log_rank0(\"Found preferred EMA checkpoint for fine-tuning.\")\n    elif os.path.exists(model_path):\n        model_path_ft = model_path\n        log_rank0(\"EMA checkpoint not found. Using fallback: 'model.safetensors'.\")\n\n    if model_path_ft:\n        log_rank0(f\"Loading fine-tune model from: {model_path_ft}\")\n        model_state_dict = load_file(model_path_ft, device=\"cpu\")\n    else:\n        raise FileNotFoundError(\n            f\"Fine-tuning failed: No valid checkpoint ('ema.safetensors' or 'model.safetensors') found in {path_dir}\"\n        )\n\n    # NOTE: position embeds are fixed sinusoidal embeddings, so we can just pop it off,\n    # which makes it easier to adapt to different resolutions.\n    if 'latent_pos_embed.pos_embed' in model_state_dict:\n        model_state_dict.pop('latent_pos_embed.pos_embed')\n        log_rank0(f\"Pop `latent_pos_embed.pos_embed` from hf model\")\n    # model_state_dict.pop('vit_pos_embed.pos_embed')  # TODO: check whether vit_pos_embed.pos_embed is present\n\n    msg = model.load_state_dict(model_state_dict, strict=False)  # strict = True | False\n    missing = msg.missing_keys\n    unexpected = msg.unexpected_keys\n    matched = len(model_state_dict) - len(unexpected)  # Number of matched parameters\n    not_matched = len(missing) + len(unexpected)  # Number of unmatched parameters\n    report_name = f\"lance_checkpoint_load_report_{'ema' if ema else 'model'}.txt\"\n    save_checkpoint_load_report(\n        report_dir=report_dir,\n        report_name=report_name,\n        title=f\"Init from Lance checkpoint ({'ema' if ema else 'model'}): {model_args.model_path}\",\n        matched=matched,\n        not_matched=not_matched,\n        missing=missing,\n        unexpected=unexpected,\n        log_rank0=log_rank0,\n    )\n\n    del model_state_dict\n    import gc; gc.collect(); torch.cuda.empty_cache()\n\n    return msg\n"
+    },
+    {
+      "path": "train/fsdp_utils.py",
+      "start_line": 122,
+      "end_line": 162,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train/fsdp_utils.py#L122-L162",
+      "text": "def fsdp_wrapper(original_model, fsdp_config: FSDPConfig, ignored_modules=[], mixed_precision_override=None):\n    if fsdp_config.sharding_strategy == 'HYBRID_SHARD':\n        device_mesh = init_device_mesh(\n            \"cuda\",\n            mesh_shape=(fsdp_config.num_replicate, fsdp_config.num_shard),\n            mesh_dim_names=(\"replicate\", \"shard\")\n        )\n    else:\n        device_mesh = None\n\n    mp = mixed_precision_override or MixedPrecision(\n        param_dtype=torch.bfloat16,\n        reduce_dtype=torch.bfloat16,\n        # reduce_dtype=torch.float32, # TODO: using torch.float32 converts bfloat16 to float32\n        buffer_dtype=torch.bfloat16,\n    )\n\n    return FSDP(\n        original_model,\n        auto_wrap_policy=functools.partial(\n            transformer_auto_wrap_policy,\n            transformer_layer_cls={\n                # Qwen2ForCausalLM,\n                Qwen2DecoderLayer,\n                Qwen2MoEDecoderLayer,\n                Qwen2MoTDecoderLayer,\n                MLPconnector,\n                TimestepEmbedder,\n                # PositionEmbedding,  # NOTE: NOT USED\n                PositionEmbedding3D,\n            },\n        ),\n        ignored_modules=ignored_modules,\n        mixed_precision=mp,\n        device_id=dist.get_rank() % torch.cuda.device_count(),\n        sharding_strategy=ShardingStrategy[fsdp_config.sharding_strategy],\n        backward_prefetch=BackwardPrefetch[fsdp_config.backward_prefetch],\n        cpu_offload=CPUOffload(offload_params=fsdp_config.cpu_offload),\n        device_mesh=device_mesh,\n        use_orig_params=fsdp_config.use_orig_params,\n    )"
+    },
+    {
+      "path": "train/fsdp_utils.py",
+      "start_line": 213,
+      "end_line": 248,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train/fsdp_utils.py#L213-L248",
+      "text": "            # ---- 2.1) EMA Model FULL ----\n            if ema_model is not None:\n                with FSDP.state_dict_type(ema_model, StateDictType.FULL_STATE_DICT, FullStateDictConfig(rank0_only=True, offload_to_cpu=True)):\n                    sd = ema_model.state_dict()\n\n                    __barrier__()  # Synchronize once inside the FULL context\n\n                    if rank == 0:\n                        # Optional contiguous conversion\n                        for k, v in list(sd.items()):\n                            if isinstance(v, torch.Tensor) and not v.is_contiguous():\n                                sd[k] = v.contiguous()\n                        save(sd, osp.join(save_path, \"ema.safetensors\"), blocking=blocking, local_dir=local_save_dir)\n\n                    __barrier__()\n\n                del sd\n                import gc; gc.collect(); torch.cuda.empty_cache()\n\n            # ---- 2.2) Model FULL ----\n            # NOTE: Saved model fine-tuning loss was verified on 2025-08-21\n            with FSDP.state_dict_type(model, StateDictType.FULL_STATE_DICT, FullStateDictConfig(rank0_only=True, offload_to_cpu=True)):\n                sd = model.state_dict()  # Even with rank0-only, all ranks must call state_dict() for collective communication\n\n                __barrier__()  # Synchronize once inside the FULL context\n\n                if rank == 0:\n                    # Optional contiguous conversion\n                    for k, v in list(sd.items()):\n                        if isinstance(v, torch.Tensor) and not v.is_contiguous():\n                            sd[k] = v.contiguous()\n                    save(sd, osp.join(save_path, \"model.safetensors\"), blocking=blocking, local_dir=local_save_dir)\n\n                __barrier__() # Synchronize inside the FULL context so non-rank0 processes do not exit too early\n\n            del sd"
+    },
+    {
+      "path": "train/fsdp_utils.py",
+      "start_line": 263,
+      "end_line": 290,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/train/fsdp_utils.py#L263-L290",
+      "text": "        if kwargs.get(\"flag_save_optimizer\", True): # Whether to save the optimizer; enabled by default for full resume\n            # Determine shard file name (keeps your original convention)\n            if fsdp_config.sharding_strategy == \"FULL_SHARD\":\n                shard_index = rank\n                total_shards = world\n            elif fsdp_config.sharding_strategy == \"HYBRID_SHARD\":\n                shard_index = rank % fsdp_config.num_shard\n                total_shards = fsdp_config.num_shard\n            else:\n                raise NotImplementedError\n\n            opt_path = osp.join(save_path, f\"optimizer.{shard_index:05d}-of-{total_shards:05d}.pt\")\n\n            # Export the *sharded* optimizer state dict (no rank0 aggregation; low memory)\n            with FSDP.state_dict_type(\n                model,\n                StateDictType.SHARDED_STATE_DICT,\n                optim_state_dict_config=ShardedOptimStateDictConfig(offload_to_cpu=True),  # torch 2.5.1: no `group` arg\n            ):\n                osd = FSDP.optim_state_dict(model, optimizer)\n\n            # Save the shard (HYBRID: only first `num_shard` ranks write, matching your pattern)\n            try:\n                if fsdp_config.sharding_strategy == \"FULL_SHARD\":\n                    save(osd, opt_path, blocking=blocking, local_dir=local_save_dir)\n                elif fsdp_config.sharding_strategy == \"HYBRID_SHARD\":\n                    if rank < fsdp_config.num_shard:\n                        save(osd, opt_path, blocking=blocking, local_dir=local_save_dir)"
+    },
+    {
+      "path": "config/config_factory.py",
+      "start_line": 147,
+      "end_line": 156,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/config/config_factory.py#L147-L156",
+      "text": "    model_path:                 str = \"\"\n    llm_path:                   str = \"\"\n    llm_qk_norm:                bool = True\n    llm_qk_norm_und:            bool = True\n    llm_qk_norm_gen:            bool = True\n    tie_word_embeddings:        bool = False\n    layer_module:               str = \"Qwen2MoTDecoderLayer\"\n    vit_path:                   str = \"\"\n    max_num_frames:             int = 25\n    max_latent_size:            int = 64"
+    },
+    {
+      "path": "config/config_factory.py",
+      "start_line": 268,
+      "end_line": 283,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/config/config_factory.py#L268-L283",
+      "text": "    ce_loss_reweighting:        bool = False\n\n    # FSDP settings\n    sharding_strategy:          str = \"HYBRID_SHARD\"\n    backward_prefetch:          str = \"BACKWARD_PRE\"\n    cpu_offload:                bool = False\n\n    # Parameter freezing settings\n    freeze_llm:                 bool = False\n    freeze_llm_embed_tokens:    bool = False\n    freeze_vit:                 bool = True\n    freeze_vit_connector:       bool = False\n    freeze_vae:                 bool = True\n    freeze_und_params:          bool = False\n\n    # Validation and data checking settings"
+    },
+    {
+      "path": "modeling/lance/modeling_utils.py",
+      "start_line": 183,
+      "end_line": 198,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/modeling/lance/modeling_utils.py#L183-L198",
+      "text": "class PositionEmbedding3D(nn.Module):\n    def __init__(self, max_latent_num_frames, max_latent_size, hidden_size):\n        super().__init__()\n        self.max_num_latent_frames = max_latent_num_frames  # t\n        self.max_latent_size = max_latent_size  # h, w\n        self.hidden_size = hidden_size\n        self.pos_embed = nn.Parameter(torch.zeros(max_latent_num_frames * (max_latent_size**2), hidden_size), requires_grad=False)\n        self._init_weights()\n\n    def _init_weights(self):\n        # Initialize (and freeze) pos_embed by sin-cos embedding:\n        pos_embed = get_3d_sincos_pos_embed(self.hidden_size, self.max_num_latent_frames, self.max_latent_size, self.max_latent_size)\n        self.pos_embed.data.copy_(torch.from_numpy(pos_embed).float())\n\n    def forward(self, position_ids):\n        return self.pos_embed[position_ids]"
+    },
+    {
+      "path": "modeling/lance/qwen2_navit.py",
+      "start_line": 254,
+      "end_line": 257,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/modeling/lance/qwen2_navit.py#L254-L257",
+      "text": "        self.q_proj_moe_gen = nn.Linear(self.hidden_size, self.num_heads * self.head_dim, bias=True)\n        self.k_proj_moe_gen = nn.Linear(self.hidden_size, self.num_key_value_heads * self.head_dim, bias=True)\n        self.v_proj_moe_gen = nn.Linear(self.hidden_size, self.num_key_value_heads * self.head_dim, bias=True)\n        self.o_proj_moe_gen = nn.Linear(self.num_heads * self.head_dim, self.hidden_size, bias=False)"
+    },
+    {
+      "path": "modeling/lance/qwen2_navit.py",
+      "start_line": 580,
+      "end_line": 596,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/modeling/lance/qwen2_navit.py#L580-L596",
+      "text": "        attn_module: Optional[PackedAttentionMoT] = PackedAttentionMoT,\n    ):\n        super().__init__()\n        self.hidden_size = config.hidden_size\n        self.freeze_und = config.freeze_und\n\n        self.self_attn: PackedAttentionMoT = attn_module(config, layer_idx)\n\n        self.mlp = Qwen2MLP(config)\n        self.mlp_moe_gen = Qwen2MLP(config)\n        self.input_layernorm = Qwen2RMSNorm(config.hidden_size, eps=config.rms_norm_eps)\n        self.input_layernorm_moe_gen = Qwen2RMSNorm(config.hidden_size, eps=config.rms_norm_eps)\n        self.post_attention_layernorm = Qwen2RMSNorm(config.hidden_size, eps=config.rms_norm_eps)\n        self.post_attention_layernorm_moe_gen = Qwen2RMSNorm(config.hidden_size, eps=config.rms_norm_eps)\n\n    def forward(self, *args, **kwargs):\n        if self.training or kwargs.get(\"mode_forward\") == \"validation\":"
+    },
+    {
+      "path": "modeling/lance/qwen2_navit.py",
+      "start_line": 1009,
+      "end_line": 1040,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/modeling/lance/qwen2_navit.py#L1009-L1040",
+      "text": "    def init_moe(self):\n        for name, param in self.named_parameters():\n            if \"moe_gen\" in name:\n                try:\n                    original_name = name.replace(\"_moe_gen\", \"\")\n                    param.data.copy_(self.state_dict()[original_name].data)\n                except KeyError:\n                    print(f\"Warning: {original_name} not found in state_dict, skipping copy.\")\n\n    def freeze_llm_params(self):\n        self.eval()\n        for param in self.parameters():\n            param.requires_grad = False\n\n    def freeze_embed_tokens(self):\n        for name, param in self.model.embed_tokens.named_parameters():\n            # print(f'freeze_embed_tokens: {name}')\n            param.requires_grad = False\n\n    def freeze_lm_head(self):\n        for name, param in self.lm_head.named_parameters():\n            param.requires_grad = False\n\n    def freeze_und_params(self):\n        # NOTE: freeze the understanding-side parameters.\n        for name, param in self.named_parameters():\n            if \"moe_gen\" not in name:\n                # print(name)\n                param.requires_grad = False\n\n    def get_input_embeddings(self):\n        return self.model.embed_tokens"
+    },
+    {
+      "path": "modeling/lance/lance.py",
+      "start_line": 248,
+      "end_line": 267,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/modeling/lance/lance.py#L248-L267",
+      "text": "            if self.vit_type in (\"qwen2_5_vl\", \"qwen_2_5_vl_original\"):\n                with torch.no_grad():\n                    packed_vit_token_embed = make_packed_vit_token_embed(packed_vit_tokens, vit_data_mode, vit_video_grid_thw, self.vit_model)\n                if self.vit_type == \"qwen2_5_vl\":\n                    packed_vit_token_embed = self.connector(packed_vit_token_embed)\n                packed_sequence[packed_vit_token_indexes] = packed_vit_token_embed\n\n        # flow matching loss\n        if self.config.visual_gen:\n            pt, ph, pw = self.latent_patch_size\n            packed_latent = []\n            for latent, (t, h, w) in zip(padded_latent, patchified_vae_latent_shapes):\n                patches = rearrange(latent, \"(t pt) (h ph) (w pw) c -> (t h w) (pt ph pw c)\", t=t, pt=pt, h=h, ph=ph, w=w, pw=pw)\n                packed_latent.append(patches)\n            packed_latent_clean = torch.cat(packed_latent, dim=0)\n\n            noise = torch.randn_like(packed_latent_clean)\n            if getattr(self.training_args, \"incre_time_pro\", 0) <=0:\n                packed_timesteps = torch.sigmoid(packed_timesteps)\n            packed_timesteps = self.timestep_shift * packed_timesteps / (1 + (self.timestep_shift - 1) * packed_timesteps)"
+    },
+    {
+      "path": "modeling/lance/lance.py",
+      "start_line": 294,
+      "end_line": 313,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/modeling/lance/lance.py#L294-L313",
+      "text": "            packed_mse_preds = self.llm2vae(last_hidden_state[mse_loss_indexes])\n            total_mse_tokens = packed_mse_preds.shape[0]\n            target = noise - packed_latent_clean\n            has_mse = packed_timesteps > 0\n            mse = (packed_mse_preds - target[has_mse]) ** 2\n\n        ce = None\n        if ce_loss_indexes is not None:\n            V_eff = self.vocab_size_efficient\n            ignore_index = -100\n\n            h = last_hidden_state[ce_loss_indexes]\n            logits = self.language_model.lm_head(h)[..., :V_eff]\n\n            targets = packed_label_ids.to(dtype=torch.long)\n            invalid = (targets >= V_eff) | (targets < 0)\n            targets = torch.where(invalid, torch.full_like(targets, ignore_index), targets)\n            ce = F.cross_entropy(logits, targets, reduction=\"none\", ignore_index=ignore_index)\n\n        return dict(mse=mse, ce=ce, frame_mse=frame_mse, total_mse_tokens=total_mse_tokens)"
+    },
+    {
+      "path": "modeling/lance/lance.py",
+      "start_line": 1528,
+      "end_line": 1542,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/modeling/lance/lance.py#L1528-L1542",
+      "text": "                current_split_lens = current_split_lens + [current_pad]\n                current_attn_modes = current_attn_modes + [\"causal\"]\n\n            validation_noise_seed = kwargs.get(\"validation_noise_seed\", -1)\n            if validation_noise_seed > 0:\n                generator = torch.Generator(device=device).manual_seed(validation_noise_seed + get_global_rank() * max_samples + i_sample)\n            else:\n                generator = None\n            x_t = torch.randn(num_vid_tokens, self.patch_latent_dim, generator=generator, device=device, dtype=dtype)\n\n            if curr_padded_latent != []:\n                curr_padded_latent[current_vae_mse_indexes_local_in_vae] = x_t[current_vae_mse_indexes_local_in_vae]\n                x_t = curr_padded_latent\n\n            timesteps = torch.linspace(1, 0, num_timesteps + 1, device=x_t.device)"
+    },
+    {
+      "path": "modeling/lance/lance.py",
+      "start_line": 1616,
+      "end_line": 1658,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/modeling/lance/lance.py#L1616-L1658",
+      "text": "\n\n            for _ in range(1):\n                timestep = torch.zeros(x_t.shape[0], device=x_t.device)\n                for i, timestep_ in enumerate(timesteps):\n\n                    timestep[current_vae_mse_indexes_local_in_vae] = torch.tensor([timestep_] * current_vae_mse_indexes_local_in_vae.shape[0], device=x_t.device)\n                    if timestep_ > cfg_interval[0] and timestep_ <= cfg_interval[1]:\n                        cfg_text_scale_ = cfg_text_scale\n                        cfg_vision_scale_ = cfg_vision_scale\n                    else:\n                        cfg_text_scale_ = 1.0\n                        cfg_vision_scale_ = 1.0\n\n                    # --- Visual feature encoding ---\n                    timestep_embed = self.time_embedder(timestep)\n                    latent_pos_embed = self.latent_pos_embed(vae_position_ids)\n                    vae_embed = self.vae2llm(x_t) + timestep_embed + latent_pos_embed\n                    vae_embed = vae_embed.to(current_sequence.dtype)\n\n                    current_sequence[current_vae_token_indexes_local] = vae_embed\n                    packed_sequence_vae = current_sequence[vae_in_packed_sequence_index]\n\n                    extra_inputs_vae = {}\n                    if self.use_moe:\n                        extra_inputs_vae = {\"mode\": \"gen\", \"packed_vae_token_indexes\": target_packed_vae_token_indexes, \"packed_text_indexes\": target_packed_text_indexes}\n\n\n                    v_t_output = self.language_model.forward_inference(\n                        packed_query_sequence=packed_sequence_vae,\n                        query_lens=torch.tensor([packed_seqlens_vae],dtype=torch.int32, device=device),\n                        packed_query_position_ids=current_pos_ids[:, :, current_cond_start:current_cond_end],\n                        packed_query_indexes=vae_in_packed_sequence_index,\n                        past_key_values=gen_context['past_key_values'],\n                        key_values_lens=gen_context['kv_lens'],\n                        packed_key_value_indexes=torch.arange(0,gen_context['kv_lens'][0], dtype=torch.int64, device=device),\n                        update_past_key_values=False,\n                        is_causal=False,\n                        **extra_inputs_vae,\n                    )\n\n                    v_t = self.llm2vae(v_t_output.packed_query_sequence)\n                    v_t = v_t[target_packed_vae_token_indexes]"
+    },
+    {
+      "path": "modeling/vae/wan/model.py",
+      "start_line": 44,
+      "end_line": 77,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/modeling/vae/wan/model.py#L44-L77",
+      "text": "\n        self.dtype = kwargs.get(\"dtype\", torch.bfloat16)\n        self.device = torch.device(kwargs.get(\"device\", get_device()))\n        self.configure_vae_model()\n        self.use_sample = kwargs.get(\"use_sample\", True)\n\n        # wan vae2.2 config is equal to seedance vae\n        self.vae_config = AutoEncoderParams(\n            downsample_spatial=16,\n            downsample_temporal=4,\n            z_channels=48,\n            # scale_factor=1.0,\n            # shift_factor=0.012,\n        )\n\n    def configure_vae_model(self):\n        device = self.device\n\n        # Read the VAE path from path_default.yaml.\n        try:\n            from config.config_factory import get_model_path\n            vae_path = get_model_path(\"vae.wan\")\n        except Exception as e:\n            # Fall back to the default local path.\n            vae_path = \"downloads/Wan2.2_VAE.pth\"\n\n        self.vae: Wan2_2_VAE = Wan2_2_VAE(vae_pth=vae_path, device=device, dtype=self.dtype)\n        # self.vae.requires_grad_(False).eval()\n        # self.vae.to(device=get_device())\n\n    def to(self, device) -> \"WanVideoVAE\":\n        self.device = torch.device(device)\n        self.vae.model.to(device=self.device, dtype=self.dtype)\n        self.vae.scale = [item.to(device=self.device) for item in self.vae.scale]"
+    },
+    {
+      "path": "config/train_local/t2v_local.yaml",
+      "start_line": 1,
+      "end_line": 38,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/config/train_local/t2v_local.yaml#L1-L38",
+      "text": "D1:\n x2v_interleave_local:\n  dataset_type: text2video_general\n  raw_bytes_input: true\n  is_image: false\n  target_modality: \"video\"\n  text_template: true\n  task_type: [\"t2v\", \"ff2v\"]\n  task_type_rate: [0.8, 0.2]\n  debug_parquet_repeat: 256  # debug option for quick smoke tests on small local datasets\n  dataset_names:\n    t2v_local_128:\n      data_dir:\n        - datasets/text2video/local_128.parquet\n\n  video_transform_args:\n    resolution: 640\n    mode: \"bucket\"\n    divisible_crop_size: 16\n    stride_spatial: 16\n    stride_temporal: 4\n    aspect_ratios: [\"21:9\", \"16:9\", \"4:3\", \"1:1\", \"3:4\", \"9:16\"]\n    mean: 0.5\n    std: 0.5\n\n  video_frame_sampler_args:\n    type: \"multi_clips\"\n    res_dump: [\"12fps_360p\"]\n    params:\n      temporal: 4\n      sample_fps: 12\n      max_duration: 6\n      assert_seconds: false\n      truncate: false\n\n  is_mandatory: false\n  weight: 1\n  caption_key: \"caption\""
+    },
+    {
+      "path": "config/train_local/v2t_local.yaml",
+      "start_line": 1,
+      "end_line": 33,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/config/train_local/v2t_local.yaml#L1-L33",
+      "text": "D1:\n x2t_interleave_local:\n  dataset_type: x2t_general\n  raw_bytes_input: true\n  is_image: false\n  task_type: \"tv2t\"\n  text_template: true\n  dataset_names:\n    v2t_local_256:\n      data_dir:\n        - datasets/video2text/local_256.parquet\n  debug_parquet_repeat: 256  # debug option for quick smoke tests on small local datasets\n\n  video_transform_args:\n    resolution: 616\n    mode: \"bucket\"\n    divisible_crop_size: 28\n    aspect_ratios: [\"21:9\", \"16:9\", \"4:3\", \"1:1\", \"3:4\", \"9:16\"]\n    mean: [0.48145466, 0.4578275, 0.40821073]\n    std: [0.26862954, 0.26130258, 0.27577711]\n\n  video_frame_sampler_args:\n    type: \"multi_clips\"\n    res_dump: [\"12fps_480p\"]\n    params:\n      temporal: 4\n      sample_fps: 12\n      max_duration: 2\n      assert_seconds: false\n      truncate: false\n\n  is_mandatory: false\n  weight: 1.0"
+    },
+    {
+      "path": "data/datasets_factory/dataset_x2v_interleave.py",
+      "start_line": 48,
+      "end_line": 66,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/data/datasets_factory/dataset_x2v_interleave.py#L48-L66",
+      "text": "                self.logger.warning(f\"Warning processing row: num of target element {self.target_modality} is 0, element_dtype_array is {element_dtype_array}\")\n                return None\n\n            # Select task type\n            if isinstance(self.task_type, str):\n                task_type_sample = self.task_type\n            elif \"text\" not in element_dtype_array[condition_idx]:\n                task_type_sample = \"v2v\"\n            elif isinstance(self.task_type, list):\n                task_type_sample = sample_task(self.task_type, self.task_type_rate)\n\n            if task_type_sample == 'flf2v': # First and Last Frame to Video Generation\n                self.frame_condition_idx = [0, -1]\n            elif task_type_sample == 'ff2v': # First Frame to Video Generation\n                self.frame_condition_idx = [0]\n            else:\n                self.frame_condition_idx = []\n\n            num_tokens, sequence_plan, text_ids_list, video_tensor_list = [], [], [], []  # sequence_plan stores loss, cfg, and other marker metadata"
+    },
+    {
+      "path": "config/path_default.yaml",
+      "start_line": 1,
+      "end_line": 19,
+      "url": "https://github.com/bytedance/Lance/blob/4baeee086648996f6ab12e673cbe461b0b149997/config/path_default.yaml#L1-L19",
+      "text": "# 预训练模型根目录\nbase_dir: \"downloads\"\n\n# Lance 模型配置\nlance:\n  image: \"${base_dir}/Lance_3B\"\n  video: \"${base_dir}/Lance_3B_Video\"\n\n# Vision Transformer 配置\nvit:\n  qwen2_5_vl: \"${base_dir}/Qwen2.5-VL-ViT\"\n\n# VAE 配置\nvae:\n  wan: \"${base_dir}/Wan2.2_VAE.pth\"\n\n# GenEVAL 配置\ngeneval:\n  data: \"benchmarks/image_gen/GenEVAL/GenEVAL.jsonl\""
+    }
+  ]
+}

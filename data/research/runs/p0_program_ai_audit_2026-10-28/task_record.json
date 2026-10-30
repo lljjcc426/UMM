@@ -1,0 +1,382 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "experiment_ids": [
+    "DATA-01",
+    "EVAL-01"
+  ],
+  "branch": "research/p0-stroke-video-foundation",
+  "base_commit": "3ca0fcf8",
+  "status": "completed_program_AI_closeout_with_documented_unknowns",
+  "authorization": "User: 可由程序和AI完成的工作 全部完成; existing P0 localCPU preparation scope",
+  "summary": "data/research/runs/p0_program_ai_audit_2026-10-28/summary.json",
+  "report": "docs/research/v2/p0_program_ai_audit_2026-10-28.md",
+  "code_modified": true,
+  "human_records_modified": false,
+  "prior_snapshots_modified": false,
+  "frozen_protocol_modified": false,
+  "evaluator_modified": false,
+  "AI_prereview_candidate_modified": true,
+  "thresholds_modified": false,
+  "GPU_hours": 0,
+  "remote_push": false,
+  "stage_PR": false,
+  "files_deleted": [],
+  "new_human_batch": false,
+  "remaining_cards_in_approved_batch": 0,
+  "scientific_status": "DATA-01/EVAL-01 blocked; P0 not accepted",
+  "next_action": "Stop after local commit and report; wait for user scientific-scope decision, no new human cards assigned",
+  "validation": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/summary.json",
+  "validation_status": "passed_70_tests_and_required_local_checks",
+  "retained_failures": [
+    {
+      "issue": "192 positive-duration flags",
+      "resolution": "Static blank controls with no encoded duration; initial inventory preserved and explicit adjudication added"
+    },
+    {
+      "issue": "First six-clip diagnostic query returned30unknowns by matching characters",
+      "resolution": "Select frozen quick-card exact sample IDs;6actual clips; old files kept in diagnostics_attempt01"
+    },
+    {
+      "issue": "First browser action-isolation test failed",
+      "resolution": "Invalidate/close old async view before changing reviewer; later browser tests pass; private attempt logs preserved"
+    },
+    {
+      "issue": "Candidatev2 rejected3/64 nominally correct development clips",
+      "resolution": "Retain failure details; no holdout retuning or official promotion"
+    }
+  ],
+  "private_artifacts": "private/p0_program_ai_audit_2026-10-28: reference crops,43contact sheets, UI test records/logs and screenshot; not redistributed",
+  "execution_commands": [
+    "python -m scripts.p0.program_ai_audit inventory",
+    "python -m scripts.p0.program_ai_audit visuals",
+    "python -m scripts.p0.program_ai_audit diagnostics",
+    "python -m scripts.p0.prereview_v2",
+    "node scripts/p0/test_quick_action_history.cjs"
+  ],
+  "file_changes": [
+    {
+      "path": "README.md",
+      "change": "modified",
+      "reason": "更新程序AI收尾入口、媒体分类、有限结果和科学阻塞。"
+    },
+    {
+      "path": "configs/research/stroke_video_v2.json",
+      "change": "modified",
+      "reason": "登记572/68有限规范意见、静态对照分类、开发候选和最新报告；保持scientific_ready=false。"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/README.md",
+      "change": "modified",
+      "reason": "更正全部媒体为动态APNG的表述，明确2560动态/192静态及当前已完成小批次。"
+    },
+    {
+      "path": "data/research/experiments_v2.json",
+      "change": "modified",
+      "reason": "DATA-01/EVAL-01追加本轮证据及局限，保持blocked。"
+    },
+    {
+      "path": "docs/project/STATUS.md",
+      "change": "modified",
+      "reason": "更新当前执行结果、第二位完成及剩余科学条件，不追加队列或阶段。"
+    },
+    {
+      "path": "docs/project/stages/P0-release.json",
+      "change": "modified",
+      "reason": "追加证据及限制，保留in_progress/pending和未批准状态。"
+    },
+    {
+      "path": "docs/project/stages/P0.md",
+      "change": "modified",
+      "reason": "契约入口补充本轮结果、有限范围和未改变的验收要求。"
+    },
+    {
+      "path": "docs/research/v2/README.md",
+      "change": "modified",
+      "reason": "研究设计入口更新实际人审/程序AI证据边界。"
+    },
+    {
+      "path": "scripts/p0/ai_prereview.py",
+      "change": "modified",
+      "reason": "增加可选端点选择接口；默认v1算法不变，不修改原冻结观察器。"
+    },
+    {
+      "path": "scripts/p0/review_quick.html",
+      "change": "modified",
+      "reason": "修复本人查看动作保存/恢复及切换ID异步视图隔离，不补写历史动作。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/RGB_visual_followup.jsonl",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/RGB_visual_index.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/acceptance_matrix.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/all_video_integrity.jsonl",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/approved_scope.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/character_inventory.csv",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/catalog.stderr.log",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/catalog.stdout.log",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/diff_check.stderr.log",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/diff_check.stdout.log",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/research_v1.json",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/research_v1.stderr.log",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/research_v1.stdout.log",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/research_v2.json",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/research_v2.stderr.log",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/research_v2.stdout.log",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/stage_draft.stderr.log",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/stage_draft.stdout.log",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/summary.json",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/unittest.stderr.log",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/checks/unittest.stdout.log",
+      "change": "added",
+      "reason": "保存必需本地校验的实际输出或汇总，不构成科学验收。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/development_limitations.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/development_v2_predictions.jsonl",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/development_v2_summary.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/diagnostics_attempt01/expanded_same_final_pairs.json",
+      "change": "added",
+      "reason": "保留首次错误字符级查询的原始诊断及同批输出；后续按精确视频ID修订，禁止混计人工分母。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/diagnostics_attempt01/integrity_adjudication.json",
+      "change": "added",
+      "reason": "保留首次错误字符级查询的原始诊断及同批输出；后续按精确视频ID修订，禁止混计人工分母。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/diagnostics_attempt01/scorer_independence_and_statistics.json",
+      "change": "added",
+      "reason": "保留首次错误字符级查询的原始诊断及同批输出；后续按精确视频ID修订，禁止混计人工分母。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/diagnostics_attempt01/six_consensus_root_cause.json",
+      "change": "added",
+      "reason": "保留首次错误字符级查询的原始诊断及同批输出；后续按精确视频ID修订，禁止混计人工分母。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/diagnostics_attempt01/unknown_diagnostics.json",
+      "change": "added",
+      "reason": "保留首次错误字符级查询的原始诊断及同批输出；后续按精确视频ID修订，禁止混计人工分母。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/environment.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/expanded_same_final_pairs.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/human_evidence_scope.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/integrity_adjudication.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/inventory_summary.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/media_breakdown.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/method_v2_frozen.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/normative_visual_followup.jsonl",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/normative_visual_index.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/quick_action_history_browser.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/review_evidence_all2752.csv",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/review_evidence_all640.csv",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/same_final_pairs.jsonl",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/scorer_independence_and_statistics.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/six_consensus_root_cause.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/sources_licenses_and_cross_source_plan.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/summary.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/task_record.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/unknown_diagnostics.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "data/research/runs/p0_program_ai_audit_2026-10-28/visual_followup_summary.json",
+      "change": "added",
+      "reason": "保存本轮完整分母、逐项意见、审计、开发结果/失败或执行环境；原历史快照不覆盖。"
+    },
+    {
+      "path": "docs/research/v2/p0_program_ai_audit_2026-10-28.md",
+      "change": "added",
+      "reason": "完整收尾报告：数据、AI意见、人审原文范围、独立性、许可更正、负结果及剩余条件。"
+    },
+    {
+      "path": "scripts/p0/prereview_v2.py",
+      "change": "added",
+      "reason": "开发专用端点互斥候选，限制observer_dev并拒绝覆盖已完成开发结果。"
+    },
+    {
+      "path": "scripts/p0/program_ai_audit.py",
+      "change": "added",
+      "reason": "现有媒体/划分/时序/末帧审计、私人参考图生成及未知/统计诊断。"
+    },
+    {
+      "path": "scripts/p0/test_quick_action_history.cjs",
+      "change": "added",
+      "reason": "非保留预览的真实浏览器动作保存及审核者隔离验证。"
+    },
+    {
+      "path": "tests/test_p0_prereview_v2.py",
+      "change": "added",
+      "reason": "三项有针对性的微小笔画正向、逆向和不可判定证据测试。"
+    }
+  ],
+  "completed_at_utc": "2026-10-28T12:05:02.198093+00:00",
+  "environment": "data/research/runs/p0_program_ai_audit_2026-10-28/environment.json",
+  "local_commit_only": true
+}

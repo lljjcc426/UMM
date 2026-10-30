@@ -1,0 +1,47 @@
+/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/wheel/bdist_wheel.py:4: FutureWarning: The 'wheel' package is no longer the canonical location of the 'bdist_wheel' command, and will be removed in a future release. Please update to setuptools v70.1 or later which contains an integrated version of this command.
+  warn(
+fatal: not a git repository (or any of the parent directories): .git
+
+
+torch.__version__  = 2.5.1+cu124
+
+
+/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/setuptools/__init__.py:92: _DeprecatedInstaller: setuptools.installer and fetch_build_eggs are deprecated.
+!!
+
+        ********************************************************************************
+        Requirements should be satisfied by a PEP 517 installer.
+        If you are using pip, you can try `pip install --use-pep517`.
+
+        This deprecation is overdue, please update your project and remove deprecated
+        calls to avoid build errors in the future.
+        ********************************************************************************
+
+!!
+  dist.fetch_build_eggs(dist.setup_requires)
+/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: BSD License
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running bdist_wheel
+Guessing wheel URL:  https://github.com/Dao-AILab/flash-attention/releases/download/v2.6.3/flash_attn-2.6.3+cu123torch2.5cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
+Precompiled wheel not found. Building from source...
+running build
+running build_py
+running build_ext
+/root/umm-env01-20261027-a10080/env01-cloud/runtime/lib/python3.11/site-packages/torch/utils/cpp_extension.py:426: UserWarning: There are no g++ version bounds defined for CUDA version 12.4
+  warnings.warn(f'There are no {compiler_name} version bounds defined for CUDA version {cuda_str_version}')
+building 'flash_attn_2_cuda' extension
+Emitting ninja build file /tmp/pip-wheel-ww5fiost/flash-attn_f28654ec0c89408a905705fcea112296/build/temp.linux-x86_64-cpython-311/build.ninja...
+Compiling objects...
+Using envvar MAX_JOBS (8) as the number of workers...
+ninja: build stopped: interrupted by user.

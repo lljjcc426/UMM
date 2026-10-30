@@ -1,0 +1,76 @@
+{
+  "protocol_id": "stroke-video-v2",
+  "experiment_id": "ENV-01",
+  "scope": "Measured capacity of the pinned official unified training freeze/FSDP/BF16/AdamW recipe on one A100 80GB; no claim about other training recipes",
+  "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+  "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+  "approval": "User explicitly approved the proposed default-policy small joint-batch capacity run, followed by 65536 packed tokens only if the first run passes",
+  "seed": 2026,
+  "gpu_count": 1,
+  "small": {
+    "max_num_tokens": 1024,
+    "understanding_resolution": 112,
+    "generation_resolution": 128,
+    "sample_fps": 3,
+    "max_duration": 3,
+    "steps": 1
+  },
+  "default_budget": {
+    "max_num_tokens": 65536,
+    "steps": 2,
+    "preprocessing": "Pinned v2t_local.yaml and t2v_local.yaml defaults; original owned video repeated to fill the packed budget"
+  },
+  "official_policy": {
+    "freeze_vit": true,
+    "freeze_llm_embed_tokens": true,
+    "freeze_llm": false,
+    "freeze_und_params": false,
+    "freeze_und": false,
+    "use_ema": false,
+    "sharding_strategy": "HYBRID_SHARD",
+    "num_shard": 1,
+    "num_replicate": 1,
+    "cpu_offload": false,
+    "activation_checkpoint": "NO_REENTRANT",
+    "mixed_precision": "BF16 via official FSDP wrapper; persistent dtype measured",
+    "lr": 0.0001,
+    "warmup_steps": 500,
+    "lr_scheduler": "constant",
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "eps": 1e-15,
+    "weight_decay": 0,
+    "foreach": null,
+    "fused": null,
+    "ce_weight": 0.25,
+    "mse_weight": 1,
+    "max_grad_norm": 1
+  },
+  "input": {
+    "source": "Previously approved original observed_strokes.mp4",
+    "new_external_data": false,
+    "tasks": [
+      "tv2t",
+      "t2v"
+    ],
+    "workers": 0
+  },
+  "deviations": [
+    "Instrumented harness calls pinned native setup, checkpoint load, freezing, FSDP, activation checkpoint, dataset packing, encoders and loss; records boundaries around the same backward/clip/optimizer/scheduler calls",
+    "One original owned fixture replaces unavailable official mixed training corpus; generation task fixed to t2v",
+    "Small run reduces preprocessing and packed budget to isolate training-state capacity",
+    "No W&B logging, periodic evaluation, automatic checkpoint writes, or data-worker prefetch; no capacity mitigation or changed precision"
+  ],
+  "acceptance": {
+    "actual_joint_ce_fm_forward": true,
+    "finite_loss_and_gradients": true,
+    "actual_optimizer_step": true,
+    "default_budget_requires_small_pass": true,
+    "stop_after_first_capacity_oom": true
+  },
+  "budget": {
+    "spending_cap_cny": null,
+    "actual_bill_cny": null,
+    "use_existing_instance": true
+  }
+}

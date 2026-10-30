@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "experiment_id": "ENV-01",
+  "task_id": "env01-native-interface-preparation-2026-10-27",
+  "status": "deployment_prepared_awaiting_instance",
+  "branch": "research/p0-stroke-video-foundation",
+  "approval": {
+    "reference": "Current user conversation: 批准，费用不用管。",
+    "instance_reply": "尚未租用",
+    "spending_cap_cny": null,
+    "scope": "Prepare cloud bundle and test native x2t_video/t2v/i2v, one input each; no training or remote push"
+  },
+  "recommended_instance": {
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "gpu_count": 1,
+    "cpu_cores": 16,
+    "host_ram_gb": 48,
+    "suggested_disk_gb": 150,
+    "disk_basis": "Planning reserve, not measured minimum",
+    "separate_cpu_instance_needed": false
+  },
+  "fixed_plan": "configs/research/env01_interface_probe.json",
+  "deployment_guide": "docs/research/v2/env01_cloud_deployment.md",
+  "archive": "data/research/deployments/env01_interface_2026-10-27/env01-cloud.tar.gz",
+  "upstream_source_files": 95,
+  "local_weight_tensor_payloads_downloaded": false,
+  "original_inputs": {
+    "x2t_video": "Synthetic horizontal-then-vertical RGB clip; encode only on cloud",
+    "t2v": "One text prompt",
+    "i2v": "Horizontal-only original prefix image and continuation instruction"
+  },
+  "runtime": {
+    "actual_gpu": null,
+    "actual_outputs": [],
+    "actual_attempts": 0,
+    "planned_samples_per_interface": 1,
+    "planned_total_samples": 3,
+    "peak_memory_bytes": null,
+    "elapsed_seconds": null,
+    "billed_cost_cny": null
+  },
+  "limits": [
+    "No cloud instance or SSH access yet; installation and inference unverified",
+    "Three-interface executability is only a subset of full ENV-01",
+    "No training, gradient, reload, stroke accuracy, or parameter-sharing evidence",
+    "All 17 full experiments remain planned; P0 remains in_progress"
+  ],
+  "preparation_debug_notes": [
+    {
+      "issue": "Guessed raw path data/datasets_custom.py returned HTTP 404",
+      "resolution": "Used pinned source tree to fetch data/datasets_custom/validation_dataset.py; file is present"
+    },
+    {
+      "issue": "Official inference shell web fetch returned HTTP 503",
+      "resolution": "Read the already pinned local source; no revision change"
+    },
+    {
+      "issue": "Initial t2v fixture used interleave schema",
+      "resolution": "Static native t2v_sample inspection requires dict values as strings; fixed before any model run"
+    },
+    {
+      "issue": "First source package included unused benchmark configs",
+      "resolution": "Final package omits benchmark prompts and data; original build kept in ignored local staging"
+    },
+    {
+      "issue": "Review found interrupted worker could outlive parent",
+      "resolution": "Terminate worker on interruption and retain attempted task, logs and partial measurements"
+    }
+  ],
+  "files": {
+    "added": [
+      "configs/research/env01_interface_probe.json",
+      "scripts/env01/bootstrap.sh",
+      "scripts/env01/fixtures.py",
+      "scripts/env01/prepare_bundle.py",
+      "scripts/env01/run_interfaces.py",
+      "tests/test_env01_interfaces.py",
+      "docs/research/v2/env01_cloud_deployment.md",
+      "data/research/deployments/env01_interface_2026-10-27/"
+    ],
+    "modified": [
+      "configs/research/stroke_video_v2.json",
+      "data/research/experiments_v2.json",
+      "docs/project/STATUS.md",
+      "docs/research/v2/implementation.md"
+    ],
+    "deleted": []
+  },
+  "verification_record": "data/research/deployments/env01_interface_2026-10-27/verification.json",
+  "git_remote_push_performed": false,
+  "file_change_explanations": {
+    "configs/research/stroke_video_v2.json": "Pin model identities and record approved cloud scope and resource limits",
+    "data/research/experiments_v2.json": "Link static audit and deployment preparation; keep all full experiments planned",
+    "docs/project/STATUS.md": "Report approved task and actual awaiting-instance state",
+    "docs/research/v2/implementation.md": "Add static memory and sharing limits, link approved deployment task",
+    "configs/research/env01_interface_probe.json": "Freeze scope, input count, seeds, model revisions and recommendation",
+    "scripts/env01/bootstrap.sh": "Install pinned runtime and download selected weights only on cloud, retaining setup logs",
+    "scripts/env01/fixtures.py": "Generate original three-interface fixtures without external datasets or future i2v frames",
+    "scripts/env01/prepare_bundle.py": "Collect pinned public source with license, retain fetch attempts and build portable archive",
+    "scripts/env01/run_interfaces.py": "Execute independent native interfaces with complete outputs, failures and resource records",
+    "tests/test_env01_interfaces.py": "Reject false success from missing outputs or empty answers; retain failure denominator and seeds",
+    "docs/research/v2/env01_cloud_deployment.md": "Document rental configuration, upload, setup, execution and evidence collection",
+    "data/research/deployments/env01_interface_2026-10-27/": "Retain deliverable archive, source provenance, debug notes and verification",
+    "scripts/audit_lance_assets.py": "Prior approved static audit: read public metadata and headers without local tensor payloads",
+    "docs/research/v2/env01_feasibility_audit_2026-10-27.md": "Prior approved audit conclusions, limitations and resource decision",
+    "data/research/audits/env01_static_2026-10-27/": "Prior approved audit raw evidence and failures"
+  },
+  "local_checks": {
+    "passed": true,
+    "full_regression_tests": 50,
+    "research_v1_v2_and_stage_validators": "passed",
+    "catalog_validator": "passed",
+    "shell_syntax_and_command_dry_run": "passed",
+    "model_execution_verified": false
+  },
+  "git_retention": "Prepared for a local commit on the current research branch; no remote push or main change"
+}

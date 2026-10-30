@@ -1,0 +1,109 @@
+{
+  "checked_on": "2026-10-28",
+  "normative": {
+    "standard": "GF0023-2020",
+    "official_url": "https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/202103/W020210318300204215237.pdf",
+    "local_reference": "/Users/cc/.cache/umm-survey-20261023/223/R06-beijing.pdf",
+    "membership_index_count": 8105,
+    "selected_membership_verified": 640,
+    "per_character_human_facets_formal_verified": 0,
+    "human_check_fields": [
+      "Locale/codepoint and edition/page",
+      "Stroke count, splits/merges",
+      "Spatial identity correspondence",
+      "Full allowed order sequence",
+      "Within-stroke direction and turns",
+      "Explicit normative variant scope and disputes"
+    ],
+    "independent_checks_pending_for_all": 640,
+    "raw_global_consistent_records": 6,
+    "official_web_fetch": "Current web tool encountered redirect loop; existing official-reference cache served locally, PDF not committed or redistributed in bundles"
+  },
+  "current_vectors": {
+    "source": "Make Me a Hanzi graphics",
+    "revision": "bddc96d41bef78427ed0e034e9f7e31d71fd1b92",
+    "declared_font_ancestors": [
+      "Arphic PL KaitiM GB",
+      "Arphic PL UKai"
+    ],
+    "per_glyph_family": "unknown",
+    "license": "Arphic Public License",
+    "COPYING": "data/research/datasets/p0_stroke_synthetic_v1/licenses/COPYING",
+    "unmodified_license": "data/research/datasets/p0_stroke_synthetic_v1/licenses/ARPHICPL.TXT",
+    "retained": [
+      "Original attribution/copyright",
+      "Unmodified license",
+      "Modification date/notice",
+      "Derivative geometry/media APL"
+    ],
+    "dictionary_used": false,
+    "real_timing_or_pressure": false
+  },
+  "source_alternatives": [
+    {
+      "name": "Hanzi Writer data",
+      "url": "https://hanziwriter.org/license.html",
+      "lineage": "Explicitly derived from Make Me a Hanzi / Arphic",
+      "independent_source": false,
+      "recommendation": "Useful tooling, no independent provenance credit"
+    },
+    {
+      "name": "AnimCJK",
+      "url": "https://github.com/parsimonhi/animCJK/blob/master/licenses/COPYING.txt",
+      "lineage": "Arphic fonts and Make Me a Hanzi, with modifications",
+      "independent_source": false,
+      "recommendation": "Could audit alternate vectors/order, cannot assume independent font/writer domain per file"
+    },
+    {
+      "name": "Noto CJK Sans/Serif",
+      "url": "https://github.com/notofonts/noto-cjk",
+      "license_url": "https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/LICENSE",
+      "license": "SIL Open Font License1.1",
+      "independent_font_candidate": true,
+      "missing": [
+        "Per-stroke decomposition",
+        "Stroke order and directional truth",
+        "Actual recorded temporal process"
+      ],
+      "proposal": "Later authorize64 characters (32 seen+32 unseen) across2 selected families=128 static glyph candidates; manual instance/trajectory work required; no download performed"
+    },
+    {
+      "name": "CASIA-OLHWDB",
+      "url": "https://nlpr.ia.ac.cn/databases/handwriting/Home.html",
+      "terms": "https://nlpr.ia.ac.cn/databases/download/CASIA-OLHWDB-Chinese.pdf",
+      "modality": "Online pen-coordinate records, distinct writers; not original RGB videos",
+      "authorization": "Signed academic-use agreement and applicant eligibility; project authorization not established",
+      "proposal": "After permission inspect actual trajectory format/order and writer IDs; split by writer and independent record, not neighboring frames"
+    },
+    {
+      "name": "Consented new records",
+      "independent_source_candidate": true,
+      "proposal": "64 characters (32 seen+32 unseen) x2 writers x2 independent repetitions=256 records; preserve writer/repetition identities",
+      "modality_limit": "Trajectories rendered to RGB test writer geometry only. Real handwriting visual-domain claims additionally need actual synchronized camera videos and independent event annotation",
+      "execution_status": "proposal_only_not_collected"
+    }
+  ],
+  "no_new_font_or_trajectory_dataset_download": true,
+  "no_messages_or_applications_sent": true,
+  "second_reviewer": {
+    "available": false,
+    "formal_primary_records": 0,
+    "formal_secondary_records": 0,
+    "recommended_holdout_normative": 64,
+    "recommended_holdout_RGB": 1408,
+    "exact_contract": "Original P0 specifies independent human calibration without a hard two-person count; EVAL-02 explicitly requires two. Do not silently waive a two-person reliability claim or invent a new mandatory criterion.",
+    "current_blocker": "Independent agreement/adjudication evidence absent; any future material dispute requires resolution before gold release"
+  },
+  "bounded_alternative": {
+    "proposed": true,
+    "approved_as_phase_acceptance": false,
+    "scope": "128 observer characters /2112 synthetic G1 clips only;512 main characters remain unverified engineering candidates",
+    "independent_font_blocker_for_this_narrow_claim": false,
+    "remaining": [
+      "Human normative/RGB reference audit",
+      "Material disputes resolved",
+      "Conditional source/renderer scope and all denominators disclosed",
+      "Explicit user acceptance of narrowed milestone"
+    ]
+  }
+}

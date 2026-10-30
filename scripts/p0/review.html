@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>P0 人工核验</title>
+<style>
+*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:0;background:#f3f5f7;color:#1b2532}
+main{max-width:1120px;margin:auto;padding:28px}h1{margin:0 0 8px;font-size:26px}p{line-height:1.6}
+.notice{color:#566477;margin:0 0 22px}.toolbar,.panel{background:white;padding:20px;border:1px solid #dce1e7;border-radius:8px;margin:14px 0}
+.toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap}input,select,textarea,button{font:inherit;padding:9px;border:1px solid #bcc6d3;border-radius:5px}
+button{cursor:pointer;background:#fff}button.primary{background:#2454a4;color:#fff;border-color:#2454a4}button:disabled{opacity:.45;cursor:default}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.media{min-height:300px;display:flex;align-items:center;justify-content:center;background:#fafafa;border:1px solid #e4e8ed}
+.media img,.media canvas{width:320px;height:320px;object-fit:contain;image-rendering:auto}.source{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.source svg{width:100%;height:auto;background:#fff;border:1px solid #eee}
+label{display:block;margin:12px 0 6px}textarea{width:100%;min-height:94px}input.full,select.full{width:100%}.muted{font-size:13px;color:#657487}.nav{display:flex;gap:10px;margin-top:18px;align-items:center}.status{min-height:24px;color:#285239}
+a{color:#2454a4}.hidden{display:none}@media(max-width:760px){.grid{grid-template-columns:1fr}.media img{width:260px;height:260px}main{padding:16px}}
+</style>
+<main>
+<h1>P0 人工核验</h1>
+<p class="notice">核对规范笔顺与可见 RGB 过程。页面不显示自动评分或构造标签；当前没有已完成的人工核验。标注保存在此浏览器，完成后请导出文件。</p>
+<div class="toolbar">
+<label>任务 <select id="type"><option value="normative">规范候选核对</option><option value="rgb_event">RGB 事件核验</option></select></label>
+<label>字符 / ID <input id="search" placeholder="输入字符或样本 ID"></label>
+<label>标注者 <input id="reviewer" placeholder="填写独立标注者 ID"></label>
+<button id="export">导出标注</button><span id="count" class="muted"></span>
+</div>
+<section class="panel">
+<h2 id="title"></h2><p id="meta" class="muted"></p>
+<p><a id="standard" target="_blank" rel="noreferrer">打开官方规范对应页</a> <span class="muted">PDF 页码与书内印刷页码不同。核对冲突时请记录具体笔画。</span></p>
+<div class="grid">
+<div><div id="media" class="media"></div><p id="instructions" class="muted"></p><button id="replay">重播动画</button>
+<div id="frameControls" class="hidden"><label for="frame">逐帧查看 <span id="frameLabel"></span></label><input id="frame" type="range" min="0" value="0" step="1" style="width:100%"><span id="frameStatus" class="muted"></span></div></div>
+<div>
+<label for="decision">核验结论</label><select class="full" id="decision"></select>
+<label for="order">实际可见顺序 / 冲突笔画（可选）</label><input class="full" id="order" placeholder="例如 0, 2, 1；无法区分请留空">
+<label for="notes">依据、歧义与备注</label><textarea id="notes" placeholder="请根据完整动画及规范核对，记录方向、重叠增长、缺笔或不可判断的原因。"></textarea>
+<div class="nav"><button id="save" class="primary">保存本条</button><span id="status" class="status"></span></div>
+</div></div>
+<div class="nav"><button id="prev">上一条</button><span id="position"></span><button id="next">下一条</button></div>
+</section>
+<p class="muted">RGB 任务中的笔画实例序号对应规范候选的空间身份，不能按视频出现顺序重新编号。同帧首次出现且缺乏笔内变化证据时，标记不可判断。规范候选来自 Make Me a Hanzi，逐字合规性待核验。图形衍生数据采用 Arphic Public License，<a href="../licenses/ARPHICPL.TXT">许可全文</a>。</p>
+</main>
+<script src="review_data.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const key='umm-p0-human-annotations-v1';
+let annotations=JSON.parse(localStorage.getItem(key)||'{}');
+let filtered=[],index=0;
+let decoder=null,activeTask=null,renderVersion=0;
+const optionSets={normative:[['','请选择'],['consistent','候选与规范一致'],['conflict','候选与规范冲突'],['unverified','无法核实']],rgb_event:[['','请选择'],['correct','可确认正确'],['incorrect','可确认错误'],['unknown','不可判断']]};
+function counts(){ $('count').textContent=`已保存 ${Object.keys(annotations).length} 条 / 共 ${REVIEW_TASKS.length} 条`; }
+function filter(){const term=$('search').value.trim();filtered=REVIEW_TASKS.filter(t=>t.type===$('type').value&&(!term||t.character.includes(term)||t.id.includes(term)));index=0;show();}
+function show(){
+ const version=++renderVersion;if(decoder){decoder.close();decoder=null;}
+ counts();const task=filtered[index];$('status').textContent='';$('media').replaceChildren();
+ activeTask=task;$('frameControls').classList.add('hidden');
+ $('save').disabled=!task;$('prev').disabled=index===0;$('next').disabled=index>=filtered.length-1;
+ if(!task){$('title').textContent='没有匹配的任务';$('meta').textContent='';$('position').textContent='0 / 0';return;}
+ $('title').textContent=`${task.character} · ${task.type==='normative'?'规范候选核对':'RGB 事件核验'}`;
+ $('meta').textContent=`${task.id} · ${task.role}`;
+ $('standard').href=`https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/202103/W020210318300204215237.pdf#page=${task.official_page}`;
+ $('position').textContent=`${index+1} / ${filtered.length}`;
+ $('decision').replaceChildren(...optionSets[task.type].map(([value,text])=>new Option(text,value)));
+ if(task.type==='rgb_event'){
+  const img=document.createElement('img');img.src=task.media;img.alt=`${task.character} 的待核验过程`;$('media').append(img);$('replay').classList.remove('hidden');
+  $('instructions').textContent='观看完整动画后独立判定，也可拖动下方滑块逐帧检查。页面不提供预设错误类别。';
+  prepareFrames(task,version);
+ }else{
+  const grid=document.createElement('div');grid.className='source';
+  task.candidate_strokes.forEach((path,i)=>{
+   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 1024 1024');
+   const group=document.createElementNS(svg.namespaceURI,'g');group.setAttribute('transform','scale(1,-1) translate(0,-900)');
+   task.candidate_strokes.slice(0,i+1).forEach((d,j)=>{const p=document.createElementNS(svg.namespaceURI,'path');p.setAttribute('d',d);p.setAttribute('fill',j===i?'#2454a4':'#b6bec9');group.append(p);});
+   const title=document.createElementNS(svg.namespaceURI,'title');title.textContent=`候选第 ${i+1} 笔`;svg.append(title,group);grid.append(svg);
+  });$('media').append(grid);$('replay').classList.add('hidden');
+  $('instructions').textContent='蓝色为当前候选笔画，灰色为之前候选笔画。请逐笔对照官方规范，不能把候选顺序直接当作已核验真值。';
+ }
+ const old=annotations[task.id]||{};$('decision').value=old.decision||'';$('order').value=old.observed_order||'';$('notes').value=old.notes||'';
+}
+async function prepareFrames(task,version){
+ $('frameControls').classList.remove('hidden');$('frameStatus').textContent='正在准备逐帧查看…';$('frame').disabled=true;
+ try{
+  const data=await (await fetch(task.media)).arrayBuffer();if(version!==renderVersion)return;
+  if(typeof ImageDecoder==='undefined')throw new Error('unavailable');
+  decoder=new ImageDecoder({data,type:'image/png'});await decoder.tracks.ready;
+  if(version!==renderVersion)return;
+  $('frame').max=decoder.tracks.selectedTrack.frameCount-1;$('frame').value=0;$('frame').disabled=false;
+  $('frameStatus').textContent='拖动滑块会切换为静止帧；点击重播返回动画。';$('frameLabel').textContent='';
+ }catch(error){if(version===renderVersion)$('frameStatus').textContent='当前浏览器无法逐帧查看，请使用 Chrome；动画仍可播放。';}
+}
+async function showFrame(){
+ if(!decoder)return;const version=renderVersion,n=Number($('frame').value);
+ try{const {image}=await decoder.decode({frameIndex:n});if(version!==renderVersion){image.close();return;}
+  let canvas=$('media').querySelector('canvas');if(!canvas){canvas=document.createElement('canvas');$('media').replaceChildren(canvas);}
+  canvas.width=image.displayWidth;canvas.height=image.displayHeight;canvas.getContext('2d').drawImage(image,0,0);image.close();
+  $('frameLabel').textContent=`第 ${n+1} / ${Number($('frame').max)+1} 帧 · ${(activeTask.frame_timestamps[n]||0).toFixed(3)} 秒`;
+ }catch(error){$('frameStatus').textContent='这一帧未能读取，请重播或切换其他帧。';}
+}
+$('frame').oninput=showFrame;
+$('type').onchange=filter;$('search').oninput=filter;
+$('prev').onclick=()=>{index--;show();};$('next').onclick=()=>{index++;show();};
+$('replay').onclick=()=>{if(activeTask?.type==='rgb_event'){const img=document.createElement('img');img.src=activeTask.media+'?replay='+Date.now();img.alt=`${activeTask.character} 的待核验过程`;$('media').replaceChildren(img);}};
+$('save').onclick=()=>{
+ const task=filtered[index],reviewer=$('reviewer').value.trim(),decision=$('decision').value;
+ if(!reviewer||!decision){$('status').textContent='请填写标注者并选择结论。';return;}
+ annotations[task.id]={sample_id:task.id,type:task.type,source_group_id:task.source_group_id,reviewer_id:reviewer,decision,observed_order:$('order').value.trim(),notes:$('notes').value.trim(),annotated_at:new Date().toISOString()};
+ localStorage.setItem(key,JSON.stringify(annotations));counts();$('status').textContent='已保存在当前浏览器。';
+};
+$('export').onclick=()=>{
+ const payload={schema:'p0-human-annotations-v1',exported_at:new Date().toISOString(),annotations:Object.values(annotations)};
+ const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}));
+ const a=document.createElement('a');a.href=url;a.download='p0-human-annotations.json';a.click();URL.revokeObjectURL(url);
+};
+filter();
+</script>
+</html>

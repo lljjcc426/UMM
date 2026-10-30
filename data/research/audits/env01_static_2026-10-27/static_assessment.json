@@ -1,0 +1,62 @@
+{
+  "protocol_id": "stroke-video-v2",
+  "experiment_id": "ENV-01",
+  "audit_id": "ENV-01-static-20261027",
+  "evidence_level": "static_source_and_tensor_header",
+  "model_executed": false,
+  "tensor_elements_by_role": {
+    "token_embeddings_and_lm_head": 622329856,
+    "understanding_expert": 2774782976,
+    "generation_expert": 2774782976,
+    "fixed_position": 260046848,
+    "generation_heads": 4921392,
+    "vision_encoder": 668684288
+  },
+  "model_tensor_elements": 7105548336,
+  "default_trainable_elements_estimate": 5554487344,
+  "generation_only_trainable_elements_estimate": 2779704368,
+  "assumptions": [
+    "Checkpoint shape metadata matches constructed modules before any tokenizer expansion.",
+    "Frozen ViT, token embeddings/lm_head and sinusoidal positions are excluded from trainable elements.",
+    "Direct model constructors leave persistent parameters in FP32; FSDP mixed precision casts compute, with full precision gradients for optimizer.",
+    "AdamW first and second moments are FP32 for trainable parameters with gradients.",
+    "One GPU provides no useful parameter-state sharding.",
+    "This is static budgeting, not measured peak memory; excludes VAE, activations, CUDA/FSDP workspaces, optimizer temporaries and possible gradient padding."
+  ],
+  "memory_budget": {
+    "formula_bytes": "4*N_model + 4*N_trainable + 8*N_trainable",
+    "default_model_bytes": 28422193344,
+    "default_gradient_bytes": 22217949376,
+    "default_adam_moment_bytes": 44435898752,
+    "default_state_bytes": 95076041472,
+    "default_state_gib": 88.54646372795105,
+    "generation_only_state_gib": 57.535847425460815
+  },
+  "decision": "Proceed to separately approved single-A100-80GB inference verification; do not launch default broad training unchanged. Partial freezing/PEFT adaptation requires its own approved implementation task.",
+  "runtime_metrics": {
+    "inference_peak_vram_gib": null,
+    "training_peak_vram_gib": null,
+    "seconds_per_video": null,
+    "seconds_per_training_step": null,
+    "gpu_hours": 0,
+    "cloud_charge_cny": 0
+  },
+  "external_references": [
+    {
+      "url": "https://docs.pytorch.org/docs/2.8/fsdp.html#torch.distributed.fsdp.MixedPrecision",
+      "supports": "FP32 persistent parameters and default full-precision gradients outside mixed-precision compute."
+    },
+    {
+      "url": "https://github.com/Dao-AILab/flash-attention#nvidia-cuda-support",
+      "supports": "FA2 baseline architecture and dtype support; no implication that Blackwell works with a pinned older build."
+    },
+    {
+      "url": "https://developer.nvidia.com/cuda/gpus",
+      "supports": "NVIDIA architecture/compute capability classifications."
+    },
+    {
+      "url": "https://developer.nvidia.com/cuda/gpus/legacy",
+      "supports": "Legacy Volta/Pascal capability classification."
+    }
+  ]
+}

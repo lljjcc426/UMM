@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "experiment_ids": [
+    "DATA-01",
+    "EVAL-01"
+  ],
+  "branch": "research/p0-stroke-video-foundation",
+  "base_commit": "a4f464b8",
+  "status": "preparation_complete_waiting_for_human_review",
+  "authorization": "data/research/runs/p0_human_review_preparation_2026-10-28/approved_scope.json",
+  "user_steering": "Pilot judgments followed personal interpretation without reference examples; rubric and non-holdout examples added, no judgment overwritten",
+  "report": "docs/research/v2/p0_human_review_preparation_2026-10-28.md",
+  "raw_export": "data/research/runs/p0_human_review_preparation_2026-10-28/raw_user_export_2026-10-28.json",
+  "legacy_records": 38,
+  "formal_records": 0,
+  "normative_and_RGB_separate": true,
+  "freeze": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze.json",
+  "rubric_freeze": "data/research/runs/p0_human_review_preparation_2026-10-28/rubric_freeze.json",
+  "observer_modified": false,
+  "original_holdout_rescored": false,
+  "model_training": false,
+  "new_media_generated": 0,
+  "GPU_hours": 0,
+  "cloud_instance_status": "released per user confirmation; no cloud action",
+  "scientific_status": {
+    "DATA_01": "blocked",
+    "EVAL_01": "blocked",
+    "P0": "not_accepted"
+  },
+  "next_human_action": "Read rubric/tutorial, complete4 normative+12 RGB practice, then64 holdout normative and1408 RGB in frozen order",
+  "file_changes": [
+    {
+      "path": "README.md",
+      "action": "modified",
+      "explanation": "同步当前审核状态、工作量、新入口和适用边界；不改变审批或主分支规范"
+    },
+    {
+      "path": "configs/research/stroke_video_v2.json",
+      "action": "modified",
+      "explanation": "记录人审协议与原始/正式计数、用户已释放实例的事实"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/README.md",
+      "action": "modified",
+      "explanation": "同步当前审核状态、工作量、新入口和适用边界；不改变审批或主分支规范"
+    },
+    {
+      "path": "data/research/datasets/p0_stroke_synthetic_v1/human_annotations.json",
+      "action": "modified",
+      "explanation": "导入原始38条试标，保留结论/备注/时间/空字段；正式计数0"
+    },
+    {
+      "path": "data/research/experiments_v2.json",
+      "action": "modified",
+      "explanation": "关联本轮准备证据，两项仍blocked，不宣布科学通过"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/approved_scope.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/character_inventory.csv",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/character_inventory.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/catalog_attempt01.log",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/catalog_attempt02_metadata.log",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/catalog_attempt03_final.log",
+      "action": "added",
+      "explanation": "本地工程检查及修订验证日志；不作为科学验收或人工结论"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/research_v1_attempt01.log",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/research_v1_result.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/research_v2_attempt01.log",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/research_v2_result.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/review_integrity_attempt03_restore.log",
+      "action": "added",
+      "explanation": "本地工程检查及修订验证日志；不作为科学验收或人工结论"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/stage_release_attempt01.log",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/unit_tests_attempt01.log",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/unit_tests_attempt02_metadata.log",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/unit_tests_attempt03_restore.log",
+      "action": "added",
+      "explanation": "本地工程检查及修订验证日志；不作为科学验收或人工结论"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/validation_summary.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/frozen_review_order.csv",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/human_annotations_before_import.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/legacy_annotation_audit.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/live_service_handoff.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/nonhuman_UI_preview_server.log",
+      "action": "added",
+      "explanation": "非保留集程序操作测试证据，测试标签不计入人工审核"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/nonhuman_UI_test_events.jsonl",
+      "action": "added",
+      "explanation": "非保留集程序操作测试证据，测试标签不计入人工审核"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/observer_independence_audit.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/population_audit.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/population_audit_attempt01_unit_error.json",
+      "action": "added",
+      "explanation": "保留先前版本或错误尝试，防止覆盖失去审计线索"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/protocol_version_difference.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/protocol_version_difference_v2_1.json",
+      "action": "added",
+      "explanation": "记录技术修订差异；名单、顺序、准则和原自动结果不变"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/raw_user_export_2026-10-28.json",
+      "action": "added",
+      "explanation": "用户导出原件逐字节保存，不补写人工结论"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/review_draft.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze_v2_0_preserved.json",
+      "action": "added",
+      "explanation": "保留先前版本或错误尝试，防止覆盖失去审计线索"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/review_freeze_v2_1_preserved.json",
+      "action": "added",
+      "explanation": "保存技术修订前的协议或源代码，不覆盖原版本"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/review_page_v2_0_preserved.html.txt",
+      "action": "added",
+      "explanation": "保留先前版本或错误尝试，防止覆盖失去审计线索"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/review_server_v2_0_preserved.py.txt",
+      "action": "added",
+      "explanation": "保留先前版本或错误尝试，防止覆盖失去审计线索"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/review_server_v2_1_preserved.py.txt",
+      "action": "added",
+      "explanation": "保存技术修订前的协议或源代码，不覆盖原版本"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/review_v2_operation.png",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/rubric_freeze.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/rubric_freeze_v2_0_preserved.json",
+      "action": "added",
+      "explanation": "保留先前版本或错误尝试，防止覆盖失去审计线索"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/rubric_freeze_v2_1_preserved.json",
+      "action": "added",
+      "explanation": "保存技术修订前的协议或源代码，不覆盖原版本"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/source_and_normative_audit.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/task_record.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/ui_metadata_revision_check.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/ui_operation_test.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/ui_operation_test_attempt01.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/video_inventory_admin_only.csv",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/workload_and_remaining.json",
+      "action": "added",
+      "explanation": "本轮来源/覆盖/统计/冻结/顺序/工作量/检查/执行审计证据"
+    },
+    {
+      "path": "docs/project/STATUS.md",
+      "action": "modified",
+      "explanation": "同步当前审核状态、工作量、新入口和适用边界；不改变审批或主分支规范"
+    },
+    {
+      "path": "docs/project/stages/P0-release.json",
+      "action": "modified",
+      "explanation": "增加实际准备证据，保留未解决阻塞与未批准状态"
+    },
+    {
+      "path": "docs/project/stages/P0.md",
+      "action": "modified",
+      "explanation": "同步当前审核状态、工作量、新入口和适用边界；不改变审批或主分支规范"
+    },
+    {
+      "path": "docs/research/v2/README.md",
+      "action": "modified",
+      "explanation": "同步当前审核状态、工作量、新入口和适用边界；不改变审批或主分支规范"
+    },
+    {
+      "path": "docs/research/v2/data_evaluation.md",
+      "action": "modified",
+      "explanation": "同步当前审核状态、工作量、新入口和适用边界；不改变审批或主分支规范"
+    },
+    {
+      "path": "docs/research/v2/p0_human_review_preparation_2026-10-28.md",
+      "action": "added",
+      "explanation": "用户要求的完整准备报告及剩余科学验收事项"
+    },
+    {
+      "path": "scripts/p0/prepare_acceptance.py",
+      "action": "added",
+      "explanation": "仅审计现有数据、冻结人审名单和准则，不生成媒体或评分"
+    },
+    {
+      "path": "scripts/p0/review_server.py",
+      "action": "added",
+      "explanation": "专用本地盲审服务、许可保留、分人保存、版本追加及导入导出"
+    },
+    {
+      "path": "scripts/p0/review_v2.html",
+      "action": "added",
+      "explanation": "分离规范/RGB标签、示例与练习、逐帧/单次播放、未知/争议、草稿与进度"
+    },
+    {
+      "path": "scripts/p0/test_review_browser.cjs",
+      "action": "added",
+      "explanation": "非保留集真实浏览器操作测试，独立测试记录目录"
+    },
+    {
+      "path": "tests/test_p0_review.py",
+      "action": "added",
+      "explanation": "6项必要完整性测试：媒体/许可、盲审字段、原判不变、版本隔离、原记录覆盖、全新目录导入恢复"
+    },
+    {
+      "path": "data/research/runs/p0_human_review_preparation_2026-10-28/execution_environment.json",
+      "action": "added",
+      "explanation": "保存本轮本地运行环境与实际执行入口，未虚构CPU资源峰值或费用"
+    }
+  ],
+  "files_deleted": [],
+  "validation": {
+    "status": "passed",
+    "unit_tests": 62,
+    "record": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/validation_summary.json",
+    "non_holdout_workflow": "data/research/runs/p0_human_review_preparation_2026-10-28/ui_operation_test.json",
+    "metadata_revision": "data/research/runs/p0_human_review_preparation_2026-10-28/ui_metadata_revision_check.json",
+    "actual_human_annotations_created_by_tests": 0,
+    "remote_CI": false,
+    "restore_revision": "data/research/runs/p0_human_review_preparation_2026-10-28/checks/unit_tests_attempt03_restore.log"
+  },
+  "failures_and_debugging": [
+    "Initial population audit duration divided seconds by1000 again; original incorrect attempt retained and corrected before workload report",
+    "Official normative PDF URL web fetch redirected in a loop; existing local reference served without bundling PDF",
+    "Noto root LICENSE probe404; verified official Sans/LICENSE instead",
+    "v2.0 blind-media text removal also stripped generic attribution; v2.0 freeze/page/server retained, v2.1 preserves license/copyright while still hiding identities; pixel/timing tests and focused non-holdout browser check passed",
+    "v2.1 own-export restore to a fresh store incorrectly required pre-existing onboarding and omitted saved position; v2.1 sources/freeze preserved, v2.2 validates once and restores only original judgments/attestation/position. Standalone toy HTTP restoration and62 tests passed; no holdout inspected."
+  ],
+  "actual_browser_test": "data/research/runs/p0_human_review_preparation_2026-10-28/ui_operation_test.json",
+  "test_human_labels_scientifically_counted": 0,
+  "preserved_old_artifacts": [
+    "Original user download/export",
+    "Legacy review page and browser storage",
+    "Native geometry/observer/thresholds",
+    "All automatic development/holdout predictions",
+    "All source media"
+  ],
+  "local_review_url": "http://127.0.0.1:8766/",
+  "costs": {
+    "local_CPU": true,
+    "GPU_hours": 0,
+    "new_cloud_fee": 0,
+    "full_CPU_time_or_peak_RSS": "not instrumented; no fabricated estimate"
+  },
+  "local_commit_only": true,
+  "remote_push": false,
+  "stage_PR": false,
+  "completed_at_utc": "2026-10-27T17:50:47.639305+00:00",
+  "protocol_revision": "data/research/runs/p0_human_review_preparation_2026-10-28/protocol_version_difference.json",
+  "execution_environment": "data/research/runs/p0_human_review_preparation_2026-10-28/execution_environment.json"
+}
