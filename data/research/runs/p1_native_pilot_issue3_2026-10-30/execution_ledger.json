@@ -1,0 +1,2009 @@
+{
+  "initial_attempt_denominator": 16,
+  "automatic_retries": 0,
+  "training_steps": 0,
+  "started_at_utc": "2026-10-30T11:05:06.167444+00:00",
+  "requests": [
+    {
+      "request_id": "N076-T_G0_native_simple-s11",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:05:06.167485+00:00",
+      "return_code": 0,
+      "wall_seconds": 144.3183304510003,
+      "finished_at_utc": "2026-10-30T11:07:30.485996+00:00",
+      "native_run": "bundles/N076-T_G0_native_simple-s11/runs/20261030T110506204842Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T110506204842Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 11,
+          "request": {
+            "norm_id": "N076",
+            "character": "士",
+            "stratum": "crossing_and_fold",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N076-T_G0_native_simple-s11",
+            "condition": "T_G0_native_simple",
+            "seed": 11,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N076-T_G0_native_simple-s11",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 142.79114420600035,
+              "host_peak_rss_bytes": 33784127488
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 144,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 144.25227180299953,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:05:06.204943+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 144.25328762899971,
+        "finished_at_utc": "2026-10-30T11:07:30.458500+00:00"
+      },
+      "audit_wall_seconds": 1.137663335999605,
+      "integrity_audit": "bundles/N076-T_G0_native_simple-s11/runs/20261030T110506204842Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N076-T_G0_native_simple-s11.tar.gz",
+      "private_archive_bytes": 13722488
+    },
+    {
+      "request_id": "N076-T_G0_native_simple-s29",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:14:08.788397+00:00",
+      "return_code": 0,
+      "wall_seconds": 135.3218467300003,
+      "finished_at_utc": "2026-10-30T11:16:24.110936+00:00",
+      "native_run": "bundles/N076-T_G0_native_simple-s29/runs/20261030T111408823787Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T111408823787Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 29,
+          "request": {
+            "norm_id": "N076",
+            "character": "士",
+            "stratum": "crossing_and_fold",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N076-T_G0_native_simple-s29",
+            "condition": "T_G0_native_simple",
+            "seed": 29,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N076-T_G0_native_simple-s29",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 133.8566198870003,
+              "host_peak_rss_bytes": 33682210816
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 135,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 135.2593724039998,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:14:08.823902+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 135.26086735399986,
+        "finished_at_utc": "2026-10-30T11:16:24.085009+00:00"
+      },
+      "audit_wall_seconds": 1.4175789689998055,
+      "integrity_audit": "bundles/N076-T_G0_native_simple-s29/runs/20261030T111408823787Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N076-T_G0_native_simple-s29.tar.gz",
+      "private_archive_bytes": 19231335
+    },
+    {
+      "request_id": "N076-T_G0_order_text-s11",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:16:26.173632+00:00",
+      "return_code": 0,
+      "wall_seconds": 132.33928655899945,
+      "finished_at_utc": "2026-10-30T11:18:38.515810+00:00",
+      "native_run": "bundles/N076-T_G0_order_text-s11/runs/20261030T111626233749Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T111626233749Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 11,
+          "request": {
+            "norm_id": "N076",
+            "character": "士",
+            "stratum": "crossing_and_fold",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N076-T_G0_order_text-s11",
+            "condition": "T_G0_order_text",
+            "seed": 11,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N076-T_G0_order_text-s11",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 129.73409868499948,
+              "host_peak_rss_bytes": 33679220736
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 132,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 132.2507499859994,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:16:26.233878+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 132.25227364900002,
+        "finished_at_utc": "2026-10-30T11:18:38.486428+00:00"
+      },
+      "audit_wall_seconds": 1.2615198580006108,
+      "integrity_audit": "bundles/N076-T_G0_order_text-s11/runs/20261030T111626233749Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N076-T_G0_order_text-s11.tar.gz",
+      "private_archive_bytes": 12133214
+    },
+    {
+      "request_id": "N076-T_G0_order_text-s29",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:18:40.230989+00:00",
+      "return_code": 0,
+      "wall_seconds": 139.31901164900046,
+      "finished_at_utc": "2026-10-30T11:20:59.552860+00:00",
+      "native_run": "bundles/N076-T_G0_order_text-s29/runs/20261030T111840290819Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T111840290819Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 29,
+          "request": {
+            "norm_id": "N076",
+            "character": "士",
+            "stratum": "crossing_and_fold",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N076-T_G0_order_text-s29",
+            "condition": "T_G0_order_text",
+            "seed": 29,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N076-T_G0_order_text-s29",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 137.13303045400062,
+              "host_peak_rss_bytes": 33665253376
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 139,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 139.23316161399998,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:18:40.290945+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 139.23497062800016,
+        "finished_at_utc": "2026-10-30T11:20:59.526246+00:00"
+      },
+      "audit_wall_seconds": 1.1795064870002534,
+      "integrity_audit": "bundles/N076-T_G0_order_text-s29/runs/20261030T111840290819Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N076-T_G0_order_text-s29.tar.gz",
+      "private_archive_bytes": 19416481
+    },
+    {
+      "request_id": "N019-T_G0_native_simple-s11",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:21:01.389830+00:00",
+      "return_code": 0,
+      "wall_seconds": 130.46663197399994,
+      "finished_at_utc": "2026-10-30T11:23:11.857998+00:00",
+      "native_run": "bundles/N019-T_G0_native_simple-s11/runs/20261030T112101428212Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T112101428212Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 11,
+          "request": {
+            "norm_id": "N019",
+            "character": "丑",
+            "stratum": "crossing_and_fold",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N019-T_G0_native_simple-s11",
+            "condition": "T_G0_native_simple",
+            "seed": 11,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N019-T_G0_native_simple-s11",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 128.63494466199973,
+              "host_peak_rss_bytes": 33716973568
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 130,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 130.39959078399988,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:21:01.428323+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 130.4013891630002,
+        "finished_at_utc": "2026-10-30T11:23:11.829967+00:00"
+      },
+      "audit_wall_seconds": 1.0109118270002,
+      "integrity_audit": "bundles/N019-T_G0_native_simple-s11/runs/20261030T112101428212Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N019-T_G0_native_simple-s11.tar.gz",
+      "private_archive_bytes": 13408782
+    },
+    {
+      "request_id": "N019-T_G0_native_simple-s29",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:23:13.342172+00:00",
+      "return_code": 0,
+      "wall_seconds": 131.55296751100013,
+      "finished_at_utc": "2026-10-30T11:25:24.896000+00:00",
+      "native_run": "bundles/N019-T_G0_native_simple-s29/runs/20261030T112313411110Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T112313411110Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 29,
+          "request": {
+            "norm_id": "N019",
+            "character": "丑",
+            "stratum": "crossing_and_fold",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N019-T_G0_native_simple-s29",
+            "condition": "T_G0_native_simple",
+            "seed": 29,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N019-T_G0_native_simple-s29",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 128.80019317799997,
+              "host_peak_rss_bytes": 33677279232
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 131,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 131.45524218799983,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:23:13.411227+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 131.45752815600008,
+        "finished_at_utc": "2026-10-30T11:25:24.869000+00:00"
+      },
+      "audit_wall_seconds": 1.520591733999936,
+      "integrity_audit": "bundles/N019-T_G0_native_simple-s29/runs/20261030T112313411110Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N019-T_G0_native_simple-s29.tar.gz",
+      "private_archive_bytes": 19154469
+    },
+    {
+      "request_id": "N019-T_G0_order_text-s11",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:25:27.056083+00:00",
+      "return_code": 0,
+      "wall_seconds": 138.42483751300006,
+      "finished_at_utc": "2026-10-30T11:27:45.482206+00:00",
+      "native_run": "bundles/N019-T_G0_order_text-s11/runs/20261030T112527103631Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T112527103631Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 11,
+          "request": {
+            "norm_id": "N019",
+            "character": "丑",
+            "stratum": "crossing_and_fold",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N019-T_G0_order_text-s11",
+            "condition": "T_G0_order_text",
+            "seed": 11,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N019-T_G0_order_text-s11",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38512099328,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 136.1148145369998,
+              "host_peak_rss_bytes": 33765195776
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37261.0,
+              "sample_count": 138,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 138.34963881299973,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:25:27.103759+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 138.35141770799964,
+        "finished_at_utc": "2026-10-30T11:27:45.455445+00:00"
+      },
+      "audit_wall_seconds": 0.9736517840001397,
+      "integrity_audit": "bundles/N019-T_G0_order_text-s11/runs/20261030T112527103631Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N019-T_G0_order_text-s11.tar.gz",
+      "private_archive_bytes": 12160163
+    },
+    {
+      "request_id": "N019-T_G0_order_text-s29",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:27:46.881697+00:00",
+      "return_code": 0,
+      "wall_seconds": 131.44846937900002,
+      "finished_at_utc": "2026-10-30T11:29:58.333391+00:00",
+      "native_run": "bundles/N019-T_G0_order_text-s29/runs/20261030T112746923972Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T112746923972Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 29,
+          "request": {
+            "norm_id": "N019",
+            "character": "丑",
+            "stratum": "crossing_and_fold",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N019-T_G0_order_text-s29",
+            "condition": "T_G0_order_text",
+            "seed": 29,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N019-T_G0_order_text-s29",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38512099328,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 128.92201323900008,
+              "host_peak_rss_bytes": 33742921728
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37261.0,
+              "sample_count": 131,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 131.38122024599943,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:27:46.924084+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 131.38311990400052,
+        "finished_at_utc": "2026-10-30T11:29:58.307509+00:00"
+      },
+      "audit_wall_seconds": 1.224462243999369,
+      "integrity_audit": "bundles/N019-T_G0_order_text-s29/runs/20261030T112746923972Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N019-T_G0_order_text-s29.tar.gz",
+      "private_archive_bytes": 19515782
+    },
+    {
+      "request_id": "N079-T_G0_native_simple-s11",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:30:00.227165+00:00",
+      "return_code": 0,
+      "wall_seconds": 131.43620290999934,
+      "finished_at_utc": "2026-10-30T11:32:11.665706+00:00",
+      "native_run": "bundles/N079-T_G0_native_simple-s11/runs/20261030T113000281808Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T113000281808Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 11,
+          "request": {
+            "norm_id": "N079",
+            "character": "小",
+            "stratum": "separated_and_oblique",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N079-T_G0_native_simple-s11",
+            "condition": "T_G0_native_simple",
+            "seed": 11,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N079-T_G0_native_simple-s11",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 128.63484842199978,
+              "host_peak_rss_bytes": 33681104896
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 131,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 131.35339788500005,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:30:00.281922+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 131.3560450040004,
+        "finished_at_utc": "2026-10-30T11:32:11.638281+00:00"
+      },
+      "audit_wall_seconds": 1.3819275599998946,
+      "integrity_audit": "bundles/N079-T_G0_native_simple-s11/runs/20261030T113000281808Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N079-T_G0_native_simple-s11.tar.gz",
+      "private_archive_bytes": 13799365
+    },
+    {
+      "request_id": "N079-T_G0_native_simple-s29",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:32:13.534980+00:00",
+      "return_code": 0,
+      "wall_seconds": 138.62485888100036,
+      "finished_at_utc": "2026-10-30T11:34:32.161842+00:00",
+      "native_run": "bundles/N079-T_G0_native_simple-s29/runs/20261030T113213594907Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T113213594907Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 29,
+          "request": {
+            "norm_id": "N079",
+            "character": "小",
+            "stratum": "separated_and_oblique",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N079-T_G0_native_simple-s29",
+            "condition": "T_G0_native_simple",
+            "seed": 29,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N079-T_G0_native_simple-s29",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 135.98475064100057,
+              "host_peak_rss_bytes": 33669337088
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 138,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 138.5383508899995,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:32:13.595023+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 138.54011655700015,
+        "finished_at_utc": "2026-10-30T11:34:32.135438+00:00"
+      },
+      "audit_wall_seconds": 1.180287285000304,
+      "integrity_audit": "bundles/N079-T_G0_native_simple-s29/runs/20261030T113213594907Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N079-T_G0_native_simple-s29.tar.gz",
+      "private_archive_bytes": 19370902
+    },
+    {
+      "request_id": "N079-T_G0_order_text-s11",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:34:33.975422+00:00",
+      "return_code": 0,
+      "wall_seconds": 132.36890064699946,
+      "finished_at_utc": "2026-10-30T11:36:46.348296+00:00",
+      "native_run": "bundles/N079-T_G0_order_text-s11/runs/20261030T113434018359Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T113434018359Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 11,
+          "request": {
+            "norm_id": "N079",
+            "character": "小",
+            "stratum": "separated_and_oblique",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N079-T_G0_order_text-s11",
+            "condition": "T_G0_order_text",
+            "seed": 11,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N079-T_G0_order_text-s11",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 130.1517884900004,
+              "host_peak_rss_bytes": 33698664448
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 132,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 132.3014597349993,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:34:34.018470+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 132.3032458839989,
+        "finished_at_utc": "2026-10-30T11:36:46.321961+00:00"
+      },
+      "audit_wall_seconds": 0.9854185800013511,
+      "integrity_audit": "bundles/N079-T_G0_order_text-s11/runs/20261030T113434018359Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N079-T_G0_order_text-s11.tar.gz",
+      "private_archive_bytes": 11787057
+    },
+    {
+      "request_id": "N079-T_G0_order_text-s29",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:36:47.754979+00:00",
+      "return_code": 0,
+      "wall_seconds": 135.40072358100042,
+      "finished_at_utc": "2026-10-30T11:39:03.158482+00:00",
+      "native_run": "bundles/N079-T_G0_order_text-s29/runs/20261030T113647800488Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T113647800488Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 29,
+          "request": {
+            "norm_id": "N079",
+            "character": "小",
+            "stratum": "separated_and_oblique",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N079-T_G0_order_text-s29",
+            "condition": "T_G0_order_text",
+            "seed": 29,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N079-T_G0_order_text-s29",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 132.40193749799982,
+              "host_peak_rss_bytes": 33666060288
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 135,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 135.32929035800043,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:36:47.800603+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 135.33092710299934,
+        "finished_at_utc": "2026-10-30T11:39:03.131777+00:00"
+      },
+      "audit_wall_seconds": 1.57159717399918,
+      "integrity_audit": "bundles/N079-T_G0_order_text-s29/runs/20261030T113647800488Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N079-T_G0_order_text-s29.tar.gz",
+      "private_archive_bytes": 19552902
+    },
+    {
+      "request_id": "N030-T_G0_native_simple-s11",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:39:05.379362+00:00",
+      "return_code": 0,
+      "wall_seconds": 135.531492868,
+      "finished_at_utc": "2026-10-30T11:41:20.912582+00:00",
+      "native_run": "bundles/N030-T_G0_native_simple-s11/runs/20261030T113905445645Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T113905445645Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 11,
+          "request": {
+            "norm_id": "N030",
+            "character": "广",
+            "stratum": "roof_and_hook",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N030-T_G0_native_simple-s11",
+            "condition": "T_G0_native_simple",
+            "seed": 11,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N030-T_G0_native_simple-s11",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 133.8096676719997,
+              "host_peak_rss_bytes": 33740296192
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 135,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 135.4367493009995,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:39:05.445752+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 135.43846607100022,
+        "finished_at_utc": "2026-10-30T11:41:20.884527+00:00"
+      },
+      "audit_wall_seconds": 1.0083504710000852,
+      "integrity_audit": "bundles/N030-T_G0_native_simple-s11/runs/20261030T113905445645Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N030-T_G0_native_simple-s11.tar.gz",
+      "private_archive_bytes": 12410777
+    },
+    {
+      "request_id": "N030-T_G0_native_simple-s29",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:41:22.357346+00:00",
+      "return_code": 0,
+      "wall_seconds": 132.395876614999,
+      "finished_at_utc": "2026-10-30T11:43:34.755258+00:00",
+      "native_run": "bundles/N030-T_G0_native_simple-s29/runs/20261030T114122405519Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T114122405519Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 29,
+          "request": {
+            "norm_id": "N030",
+            "character": "广",
+            "stratum": "roof_and_hook",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N030-T_G0_native_simple-s29",
+            "condition": "T_G0_native_simple",
+            "seed": 29,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N030-T_G0_native_simple-s29",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 130.86976690399933,
+              "host_peak_rss_bytes": 33742499840
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 132,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 132.32138065600157,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:41:22.405644+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 132.32325893099915,
+        "finished_at_utc": "2026-10-30T11:43:34.729150+00:00"
+      },
+      "audit_wall_seconds": 1.152168241000254,
+      "integrity_audit": "bundles/N030-T_G0_native_simple-s29/runs/20261030T114122405519Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N030-T_G0_native_simple-s29.tar.gz",
+      "private_archive_bytes": 18496773
+    },
+    {
+      "request_id": "N030-T_G0_order_text-s11",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:43:36.519362+00:00",
+      "return_code": 0,
+      "wall_seconds": 134.3909140300002,
+      "finished_at_utc": "2026-10-30T11:45:50.918638+00:00",
+      "native_run": "bundles/N030-T_G0_order_text-s11/runs/20261030T114336570158Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T114336570158Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 11,
+          "request": {
+            "norm_id": "N030",
+            "character": "广",
+            "stratum": "roof_and_hook",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N030-T_G0_order_text-s11",
+            "condition": "T_G0_order_text",
+            "seed": 11,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N030-T_G0_order_text-s11",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 131.82156453599964,
+              "host_peak_rss_bytes": 33750020096
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 134,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 134.32036936700024,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:43:36.570269+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 134.322083725001,
+        "finished_at_utc": "2026-10-30T11:45:50.892642+00:00"
+      },
+      "audit_wall_seconds": 1.3273588119991473,
+      "integrity_audit": "bundles/N030-T_G0_order_text-s11/runs/20261030T114336570158Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N030-T_G0_order_text-s11.tar.gz",
+      "private_archive_bytes": 11011440
+    },
+    {
+      "request_id": "N030-T_G0_order_text-s29",
+      "status": "output_integrity_passed",
+      "started_at_utc": "2026-10-30T11:45:52.670210+00:00",
+      "return_code": 0,
+      "wall_seconds": 136.57445630499933,
+      "finished_at_utc": "2026-10-30T11:48:09.246758+00:00",
+      "native_run": "bundles/N030-T_G0_order_text-s29/runs/20261030T114552736251Z",
+      "native_summary": {
+        "experiment_id": "BASE-01",
+        "run_id": "20261030T114552736251Z",
+        "status": "interfaces_passed",
+        "approved_scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+        "plan": {
+          "num_frames": 33,
+          "height": 480,
+          "width": 848,
+          "fps": 12,
+          "denoising_steps": 30,
+          "cfg_text_scale": 4.0,
+          "enhance_prompt": false,
+          "use_kv_cache": true,
+          "expected_gpu_count": 1,
+          "experiment_id": "BASE-01",
+          "scope": "P1 proposed no-finetuning single request; actual RGB independent human evaluation",
+          "tasks": [
+            "t2v"
+          ],
+          "seed": 29,
+          "request": {
+            "norm_id": "N030",
+            "character": "广",
+            "stratum": "roof_and_hook",
+            "reference_level": "official_norm_plus_existing_global_human_and_AI_development_binding",
+            "formal_geometry_gold": false,
+            "status": "planned_not_executed",
+            "id": "N030-T_G0_order_text-s29",
+            "condition": "T_G0_order_text",
+            "seed": 29,
+            "task": "t2v",
+            "geometry_permission": "G0",
+            "pilot": true
+          },
+          "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+          "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+          "approval": {
+            "user_approved": true,
+            "reference": "authorization.json",
+            "issue": "https://github.com/lljjcc426/UMM/issues/3",
+            "approved_request_id": "N030-T_G0_order_text-s29",
+            "scope_limit": "One initial native G0 T2V attempt only; no retry, no training"
+          },
+          "audit_native_rgb_inputs": true
+        },
+        "attempts": [
+          {
+            "task": "t2v",
+            "exit_code": 0,
+            "status": "interface_passed",
+            "sample_denominator": 1,
+            "worker_metrics": "worker_metrics.json",
+            "log": "process.log",
+            "output_check": {
+              "valid": true,
+              "videos": [
+                {
+                  "path": "outputs/000001.mp4",
+                  "decoded_frames": 33,
+                  "last_frame_shape": [
+                    480,
+                    848,
+                    3
+                  ]
+                }
+              ],
+              "meaning": "RGB decoding only; no scientific accuracy claim"
+            },
+            "measurements": {
+              "task": "t2v",
+              "status": "process_completed",
+              "cuda_peak_allocated_bytes": 30471729152,
+              "cuda_peak_reserved_bytes": 38510002176,
+              "gpu": "NVIDIA A100-SXM4-80GB",
+              "error": null,
+              "gpu_total_bytes": 84974239744,
+              "torch_version": "2.5.1+cu124",
+              "cuda_runtime": "12.4",
+              "python_version": "3.11.18",
+              "worker_elapsed_seconds_including_loading": 134.16799400200034,
+              "host_peak_rss_bytes": 33691414528
+            },
+            "gpu_sampling": {
+              "device_used_memory_peak_mib": 37259.0,
+              "sample_count": 136,
+              "interval_seconds": 1,
+              "limitation": "Whole visible device, sampled once per second; short peaks may be missed"
+            },
+            "wall_seconds": 136.47918451700025,
+            "path": "t2v"
+          }
+        ],
+        "sample_denominator": 1,
+        "selected_tasks": [
+          "t2v"
+        ],
+        "not_selected_tasks": [],
+        "started_at_utc": "2026-10-30T11:45:52.736360+00:00",
+        "setup_attempts": [],
+        "cost": {
+          "spending_cap_cny": null,
+          "actual_billed_cny": null,
+          "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."
+        },
+        "scientific_claim": "P1 generation attempt only; actual RGB requires independent evaluation",
+        "passed_interfaces": 1,
+        "attempted_interfaces": 1,
+        "unattempted_tasks": [],
+        "elapsed_seconds": 136.48082247899947,
+        "finished_at_utc": "2026-10-30T11:48:09.217485+00:00"
+      },
+      "audit_wall_seconds": 1.1588783780007361,
+      "integrity_audit": "bundles/N030-T_G0_order_text-s29/runs/20261030T114552736251Z/t2v/integrity_audit.json",
+      "private_archive": "archives/N030-T_G0_order_text-s29.tar.gz",
+      "private_archive_bytes": 19423370
+    }
+  ],
+  "last_completed_phase": "remainder"
+}

@@ -12,7 +12,7 @@
   "training_authorized": false,
   "private_cloud_root": "/root/umm-p1-issue3-native-20261030",
   "private_local_root": "private/p1_native_pilot_issue3_2026-10-30",
-  "status": "execution_tools_validated_first_request_not_started",
+  "status": "authorized_16_initial_requests_completed",
   "instrumentation": {
     "native_code_and_weights_unchanged": true,
     "observed_input": "caption and actual packed token IDs at native generation-method entry",
@@ -22,24 +22,50 @@
   },
   "tests": {
     "total_passed": 113,
-    "log": "checks/pre_execution_unittest.log"
+    "log": "checks/pre_execution_unittest.log",
+    "final_total_passed": 113,
+    "final_log": "checks/final_unittest.log",
+    "explicit_P1_stage_manifest": "checks/P1_stage_release.json",
+    "actual_output_accounting": "checks/actual_output_accounting.json"
   },
   "billing": {
     "actual_billed_CNY": null,
     "actual_hourly_rate_CNY": null,
-    "reason": "Provider invoice and exact instance tariff have not been supplied; record measured timestamps and GPU utilization, do not invent billing",
-    "setup_idle_and_review_time": "Track separately from native model execution; all rented-host time may be billed"
+    "reason": "User explicitly requested no further bill/tariff management: 这个不需要你管. Preserve measured time/resource evidence; do not infer an invoice amount.",
+    "setup_idle_and_review_time": "Track separately from native model execution; all rented-host time may be billed",
+    "user_declined_bill_reconciliation": true,
+    "measured_native_process_wall_seconds": 2159.9148076029987,
+    "first_start_to_last_finish_seconds": 2583.079273
   },
   "preparation_failure": {
     "operation": "local Git checkout",
     "cause": "Existing remote fetch configuration omitted P1; initial checkout could not set tracking",
-    "resolution": "Add the exact P1 fetch refspec and complete checkout with no reset, cleanup or main modification"
+    "resolution": "Add the exact P1 fetch refspec and complete checkout with no reset, cleanup or main modification",
+    "additional_read_only_provenance_probe": "Upstream is a retained tar deployment without .git. Read-only git rev-parse failed; source manifest, 3 direct byte comparisons and weight download metadata resolve provenance without rehashing weights."
   },
   "file_changes": {
     "scripts/env01/run_interfaces.py": "Optional observation-only native caption/token and encoder-RGB tracing for the authorized pilot",
     "scripts/p1/execute_pilot.py": "Exact allowlist, one-shot serial execution, 900-second timeout, first-request gate, decoding audit and private archive",
     "tests/test_p1_pilot_execution.py": "Reject request expansion, duplicates, G1/i2v/seed changes and missing approval",
-    "data/research/runs/p1_native_pilot_issue3_2026-10-30": "Preserve authorization scope, pre-execution checks and execution evidence index"
+    "data/research/runs/p1_native_pilot_issue3_2026-10-30": "Preserve authorization scope, pre-execution checks and execution evidence index",
+    "AGENTS.md": "Update current P1 branch and Issue #3 execution authorization; preserve P0 negative-history statements as historical records",
+    "scripts/p1/summarize_pilot.py": "Derive public per-request metrics and local evidence gallery from preserved private records without model calls",
+    "docs/project/stages/P1.md": "Replace historical no-SSH/no-output status with the actual scoped pilot evidence and remaining scientific gaps",
+    "docs/project/stages/P1-release.json": "Add actual pilot evidence; keep P1 in_progress and record remaining blockers",
+    "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md": "Add execution-status note while retaining frozen original plan",
+    "data/research/experiments_v2.json": "SO-00 and BASE-01 running with actual 16-call evidence; no premature scientific completion",
+    "docs/research/v2/p1_native_pilot_issue3_report_2026-10-30.md": "New actual execution report with full denominator, media audit, resource measurements, preliminary failures and claim limits"
   },
-  "files_deleted": []
+  "files_deleted": [],
+  "first_request_gate": "first_request_gate.json",
+  "execution_summary": "execution_summary.json",
+  "request_results": "request_results.json",
+  "report": "docs/research/v2/p1_native_pilot_issue3_report_2026-10-30.md",
+  "model_calls": 16,
+  "training_steps": 0,
+  "formal_human_reviews": 0,
+  "all_actual_packed_prompts_verified": true,
+  "private_metadata_backup": "private/p1_native_pilot_issue3_2026-10-30/metadata-final.tar.gz",
+  "final_resource_state": "final_resource_state.json",
+  "GPU_compute_processes_remaining": 0
 }

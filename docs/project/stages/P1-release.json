@@ -16,11 +16,15 @@
   "evidence_bundle": [
     "data/research/runs/p1_pilot_kickoff_2026-10-30/authorization.json",
     "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md",
-    "data/research/plans/p1_baseline_2026-10-30/prepared/requests.json"
+    "data/research/plans/p1_baseline_2026-10-30/prepared/requests.json",
+    "data/research/runs/p1_native_pilot_issue3_2026-10-30/task_record.json",
+    "data/research/runs/p1_native_pilot_issue3_2026-10-30/execution_summary.json",
+    "data/research/runs/p1_native_pilot_issue3_2026-10-30/first_request_gate.json",
+    "docs/research/v2/p1_native_pilot_issue3_report_2026-10-30.md"
   ],
   "unresolved_blockers": [
-    "No actual P1 native video generated or decoded yet; server execution must be performed by connected operator",
-    "EVAL-02 requires actual independent human reviews on generated RGB",
+    "SO-00 output media/PTS audit is complete for 16 pilot clips; native input sampling, VAE roundtrip and event observability remain unverified",
+    "EVAL-02 requires actual independent human reviews on generated RGB; no new tasks assigned in this execution",
     "Full BASE-01 expansion and SO-01 require separate authorization"
   ],
   "limitations": [
@@ -30,5 +34,5 @@
   ],
   "main_merge_authorized": false,
   "training_authorized": false,
-  "notes": "Research branch created from approved PR #2 merge; archival evidence is planned, no GPU execution yet."
+  "notes": "Exact 16 authorized initial native G0 T2V calls executed and privately archived on single A10080. No retries/training. Engineering output integrity is distinct from content or scientific success."
 }

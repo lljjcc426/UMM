@@ -1,6 +1,6 @@
 # Codex 科研执行规范
 
-本仓库研究协议：`stroke-video-v2`。当前阶段分支：`research/p0-stroke-video-foundation`。完整制度见 [阶段分支规范](docs/project/BRANCH_WORKFLOW.md)。
+本仓库研究协议：`stroke-video-v2`。当前阶段分支：`research/p1-native-baselines`，从获准合并的P0主线提交`8bfa109d201afddf368275525f372a123154dc04`建立。完整制度见 [阶段分支规范](docs/project/BRANCH_WORKFLOW.md)。
 
 ## 每次执行前的用户确认
 
@@ -11,7 +11,7 @@
 ## Git 纪律
 
 - `main` 是阶段**科学结论和工程证据经过验收**后的稳定基线。Codex 禁止直接提交、推送、强推或自动合并到 `main`。
-- 当前阶段在 `research/p0-stroke-video-foundation` 开发；需要独立的功能、修复或试验，可经用户批准从当期研究分支建立 `feat/p0-*`、`fix/p0-*`、`exp/p0-*`，先合入当期阶段分支。
+- 当前阶段在 `research/p1-native-baselines` 开发；需要独立的功能、修复或试验，可经用户批准从当期研究分支建立 `feat/p1-*`、`fix/p1-*`、`exp/p1-*`，先合入当期阶段分支。P0研究分支保留历史记录。
 - 一个阶段结束时，须准备可审计报告、完成机器可读实验登记并通过 CI，再取得用户**科学验收及合并批准**。经 PR 方可进入 `main`。
 - 下一阶段从最新获准的 `main` 分出新的 `research/p1-*` 等分支。不得用过期的工作树覆盖主线。
 - 仓库另有 `research/stroke-order-joint-feedback` 分支，与当前主线历史有明显分叉。本轮不改动该分支，不自动合并；迁移旧实验须审计协议、环境和结果并征求用户批准。
@@ -21,7 +21,11 @@
 
 用户最终审批“P0有限结项通过”已记录于`data/research/runs/p0_final_acceptance_2026-10-30/final_scientific_approval.json`；P0有限范围科学验收已完成，允许正式结项记录与P1准备。当前发布状态为closed_with_negative_results，原科学门槛未达标；ENV-01批准配方内completed，DATA-01为completed_with_limitations，EVAL-01为completed_negative。原合同、原阈值、人审、预测及失败全部保留。正式评价采用可信规范与两位独立人工实际RGB主评，自动仅辅助，未知严格单列；高可靠性自动评分改进为可选，不是P1绝对前置条件。
 
-P0科学验收批准已生效；不得再次把P0有限结项写成待科学验收。当前仍在研究分支保存正式记录，main未合并，科学验收记录不补写未明确下达的合并命令。用户已提供租用的A10080主机，允许连接与部署准备；P1实际推理、训练和新人工任务未在本轮执行。后续主线聚焦UMM实际生成RGB的笔顺错误及证据支持的改进，不以继续提高自动评分器为必经路线。阶段执行分支仍从获准main建立。见docs/research/v2/p0_final_scientific_closeout_2026-10-30.md和docs/research/v2/p1_baseline_failure_plan_2026-10-30.md。下文P0未验收/blocked等为此前历史记录，当前状态以本段为准，不能把有限结项解释为原指标达标。
+P0科学验收批准已生效；不得再次把P0有限结项写成待科学验收。P0 PR #2已由获准操作者合并至main，P1从该合并提交建立。后续主线聚焦UMM实际生成RGB的笔顺错误及证据支持的改进，不以继续提高自动评分器为必经路线。见docs/research/v2/p0_final_scientific_closeout_2026-10-30.md和docs/research/v2/p1_baseline_failure_plan_2026-10-30.md。下文P0未验收/blocked等为此前历史记录，当前状态以本段为准，不能把有限结项解释为原指标达标。
+
+用户已明确要求按GitHub Issue #3执行P1首批16次原生生成，批准范围见`data/research/runs/p1_pilot_kickoff_2026-10-30/authorization.json`。只运行精确列举的16个G0 T2V初始请求，首个请求核对实际模型输入、原片、源RGB和解码PTS后才放行其余15次；技术失败自动重试为0。所有生成、失败、显存和时间证据须保留；实际账单按用户本轮回复不再追问或代为核对，不能虚构金额。其他48次生成、28次理解、训练、新人工任务和P1主线合并均未获本轮授权。执行记录见`data/research/runs/p1_native_pilot_issue3_2026-10-30/`，旧授权中的“尚未执行”是审批时快照，以后续执行证据表示实际进展。
+
+该16请求队列已完成：16份原生MP4、528帧、对应源/解码RGB与全部日志已回传私有目录；16/16实际packed输入包含冻结提示，媒体/PTS完整性通过，0重试/0训练。总原生进程墙钟约2160秒，整卡采样峰值37261MiB。AI逐帧预审未观察到目标字从空白逐笔形成，首帧已有非目标字形；笔顺与方向不可判定，未补写人工结论。P1仍进行中，SO-00完整可观察性、EVAL-02独立人工评价和SO-01尚未完成。见`docs/research/v2/p1_native_pilot_issue3_report_2026-10-30.md`。本轮执行完成后停止，等待下一项明确授权。
 
 ## 科学约束
 

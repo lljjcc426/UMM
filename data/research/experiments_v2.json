@@ -383,9 +383,15 @@
         "sampling and codec audit"
       ],
       "success_condition": "Resolve information loss before interpreting learning failure; no oracle-boundary inference windows.",
-      "status": "ready",
-      "run_records": [],
-      "result_artifacts": [],
+      "status": "running",
+      "run_records": [
+        "data/research/runs/p1_native_pilot_issue3_2026-10-30/task_record.json"
+      ],
+      "result_artifacts": [
+        "data/research/runs/p1_native_pilot_issue3_2026-10-30/execution_summary.json",
+        "data/research/runs/p1_native_pilot_issue3_2026-10-30/request_results.json",
+        "docs/research/v2/p1_native_pilot_issue3_report_2026-10-30.md"
+      ],
       "preparation_artifacts": [
         "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md",
         "configs/research/p1_baseline_plan.json",
@@ -396,7 +402,11 @@
       "execution_authorized": true,
       "dependency_interpretation": "Terminal P0 outcome/decision required; positive automatic reliability is not required. Independent human primary evaluation replaces automated promotion.",
       "authorized_scope": "P1 pilot 16 G0 T2V request IDs only; no full 64 queue, understanding calls or training",
-      "pilot_approval_reference": "data/research/runs/p1_pilot_kickoff_2026-10-30/authorization.json"
+      "pilot_approval_reference": "data/research/runs/p1_pilot_kickoff_2026-10-30/authorization.json",
+      "pilot_execution_status": "16_initial_requests_completed_pending_independent_evaluation",
+      "pilot_actual_model_calls": 16,
+      "formal_human_evaluation_completed": false,
+      "remaining_evidence": "Native sampling and VAE roundtrip/event observability not tested; output RGB/MP4 PTS audit only"
     },
     {
       "id": "BASE-01",
@@ -423,9 +433,15 @@
         "manually labeled error atlas"
       ],
       "success_condition": "Zero-shot is context only; use development media for EVAL-02 and retain all failures.",
-      "status": "ready",
-      "run_records": [],
-      "result_artifacts": [],
+      "status": "running",
+      "run_records": [
+        "data/research/runs/p1_native_pilot_issue3_2026-10-30/task_record.json"
+      ],
+      "result_artifacts": [
+        "data/research/runs/p1_native_pilot_issue3_2026-10-30/execution_summary.json",
+        "data/research/runs/p1_native_pilot_issue3_2026-10-30/request_results.json",
+        "docs/research/v2/p1_native_pilot_issue3_report_2026-10-30.md"
+      ],
       "preparation_artifacts": [
         "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md",
         "configs/research/p1_baseline_plan.json",
@@ -436,7 +452,11 @@
       "execution_authorized": true,
       "dependency_interpretation": "Terminal P0 outcome/decision required; positive automatic reliability is not required. Independent human primary evaluation replaces automated promotion.",
       "authorized_scope": "P1 pilot 16 G0 T2V request IDs only; no full 64 queue, understanding calls or training",
-      "pilot_approval_reference": "data/research/runs/p1_pilot_kickoff_2026-10-30/authorization.json"
+      "pilot_approval_reference": "data/research/runs/p1_pilot_kickoff_2026-10-30/authorization.json",
+      "pilot_execution_status": "16_initial_requests_completed_pending_independent_evaluation",
+      "pilot_actual_model_calls": 16,
+      "formal_human_evaluation_completed": false,
+      "remaining_evidence": "Independent actual-RGB facet judgments, error atlas and any separately authorized baseline expansion"
     },
     {
       "id": "EVAL-02",
