@@ -132,10 +132,6 @@ def validate_release(manifest: Any, registry: Any, root: Path,
              and approval.strip().lower() not in {"pending", "todo", "placeholder"}, "missing user approval reference"),
             (isinstance(blockers, list) and len(blockers) == 0, "unresolved phase blockers"),
         ] if not condition]
-    if promote and status == "closed_with_negative_results":
-        # Reject a bare approval assertion. The merge-specific source must
-        # exist in the repository and remain separate from science approval.
-        check_file(manifest.get("approval_reference"), "explicit merge approval")
     if promote or limited_closeout:
         check(isinstance(bundle, list) and len(bundle) > 0, "no stage evidence bundle")
         if isinstance(bundle, list):
@@ -166,7 +162,12 @@ def validate_release(manifest: Any, registry: Any, root: Path,
                     for filename in arr:
                         check_file(filename, f"{exp_id}.{key}")
 
+    # Scientific completion is independent from subsequent merge authorization.
     phase_completed = limited_closeout and not errors
+    if promote and status == "closed_with_negative_results":
+        # Reject a bare approval assertion. The merge-specific source must
+        # exist in the repository and remain separate from science approval.
+        check_file(manifest.get("approval_reference"), "explicit merge approval")
     errors.extend(promotion_errors)
     return {
         "passed": not errors, "errors": errors,
