@@ -1,5 +1,6 @@
 """Summarize all fixed slots and auxiliary RGB evidence; leave human judgments empty."""
 from collections import Counter
+import csv
 import json
 from pathlib import Path
 
@@ -106,6 +107,10 @@ def main():
         entry=next(e for e in state['codec'] if e['id']==row['id']);base=PRIVATE/'requests'/row['id']
         result=dict(id=row['id'],status=entry['status'],actual_calls=entry['actual_calls'],human_event_gold=False)
         if (base/'result.json').exists():result['execution']=json.loads((base/'result.json').read_text())
+        if (base/'gpu_samples.csv').exists():
+            with (base/'gpu_samples.csv').open() as stream:
+                samples=list(csv.reader(stream))
+            result['device_sampled_peak_MiB']=max(float(s[1]) for s in samples if len(s)>=2)
         if result.get('execution',{}).get('completed'):
             sampling=json.loads((base/'actual_sampling.json').read_text())[0]
             original=np.load(base/(sampling['trace_id']+'-read_RGB.npz'))['frames']
@@ -167,7 +172,7 @@ def main():
             generation_this_run=sum(r.get('native_process_wall_seconds',0) for r in generated if not r['reused']),
             understanding=sum(r.get('native_process_wall_seconds',0) for r in understanding),
             codec=sum(r.get('execution',{}).get('wall_seconds',0) for r in codec)),
-        sampled_device_peak_MiB=max([r.get('device_sampled_peak_MiB',0) or 0 for r in generated+understanding]),
+        sampled_device_peak_MiB=max([r.get('device_sampled_peak_MiB',0) or 0 for r in generated+understanding+codec]),
         billing=dict(rate_CNY_per_hour=None,actual_bill_CNY=None,status='unknown; user declined bill management; measured durations retained'),
         EVAL_02='pending_human_review',scientific_acceptance='pending',verified_success=None,training_calls=0,extra_GPU_retries=0)
     save(PUBLIC/'generation_media_and_inputs.json',generated);save(PUBLIC/'controlled_auxiliary_evidence.json',controls)

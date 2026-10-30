@@ -43,5 +43,32 @@
     "No human labels or formal order/direction success rate created",
     "Does not establish a bottleneck or exclude a native conditional-inference issue"
   ],
-  "human_review_status": "pending_human_review"
+  "human_review_status": "pending_human_review",
+  "additional_visual_observations": [
+    {
+      "evidence": "private progress_AI_preview/G1-first-completed.jpg",
+      "requests": [
+        "N019-T_G1_template_text-s11",
+        "N030-T_G1_template_text-s11",
+        "N039-T_G1_template_text-s11",
+        "N066-T_G1_template_text-s11",
+        "N076-T_G1_template_text-s11",
+        "N079-T_G1_template_text-s11"
+      ],
+      "positions": [
+        0,
+        8,
+        16,
+        24,
+        32
+      ],
+      "observation": "Existing dark glyphs at frame0; similar scenes and a hand entering near the end. No blank-to-complete process visible at these sampled positions. Auxiliary visual inspection only."
+    },
+    {
+      "evidence": "private progress_AI_preview/N019-blank-i2v-all33.jpg",
+      "request": "N019-T_G0_blank_i2v-s11",
+      "positions": "all33 decoded frames",
+      "observation": "Frame0 white; faint nearly whole complex glyph at frame1 (0.083s), darkens early and persists. Whole-glyph fade-in is an AI observation; target-glyph and process facets await independent humans."
+    }
+  ]
 }
