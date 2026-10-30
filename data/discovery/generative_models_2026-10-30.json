@@ -1,0 +1,5101 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-30",
+  "scope": "补充专题；与原360条目录分开登记；不设数量配额；不声称全球穷尽或全文读毕",
+  "canonical_catalog_records": 360,
+  "canonical_overlap_count": 0,
+  "record_count": 142,
+  "reading_counts": {
+    "abstract_screened": 101,
+    "body_excerpts": 31,
+    "targeted_sections": 10
+  },
+  "cost": {
+    "gpu_hours": 0,
+    "paid_services": 0,
+    "training_runs": 0,
+    "inference_runs": 0
+  },
+  "records": [
+    {
+      "key": "1502.02761",
+      "title": "Generative Moment Matching Networks",
+      "authors": [
+        "Yujia Li",
+        "Kevin Swersky",
+        "Richard Zemel"
+      ],
+      "arxiv_id": "1502.02761v1",
+      "published": "2015-02-10T02:54:58Z",
+      "updated": "2015-02-10T02:54:58Z",
+      "topic": "drifting_theory",
+      "method_zh": "GMMN 以核矩或 MMD 匹配训练直接生成器，提供无逐样本重建配对的分布学习先例。",
+      "limitations_zh": "核选择与高维批量估计限制仍在；其未归一化矩梯度与现代归一化漂移场不完全相同。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/1502.02761v1"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "1503.03585",
+      "title": "Deep Unsupervised Learning using Nonequilibrium Thermodynamics",
+      "authors": [
+        "Jascha Sohl-Dickstein",
+        "Eric A. Weiss",
+        "Niru Maheswaranathan",
+        "Surya Ganguli"
+      ],
+      "arxiv_id": "1503.03585v8",
+      "published": "2015-03-12T04:51:37Z",
+      "updated": "2015-11-18T21:50:51Z",
+      "topic": "diffusion",
+      "method_zh": "以逐步扰动与可学习逆过程建立扩散概率生成框架，把非平衡过程连接到可计算学习目标。",
+      "limitations_zh": "奠定形式框架，不能把后续现代图像质量、Transformer 扩展或少步能力归给该早期实验。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICML",
+          "year": 2015,
+          "evidence": "formal_proceedings",
+          "url": "https://proceedings.mlr.press/v37/sohl-dickstein15.html",
+          "track": "正式论文集条目或正式会议PDF"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/1503.03585v8",
+        "https://proceedings.mlr.press/v37/sohl-dickstein15.html"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "1608.04471",
+      "title": "Stein Variational Gradient Descent: A General Purpose Bayesian Inference Algorithm",
+      "authors": [
+        "Qiang Liu",
+        "Dilin Wang"
+      ],
+      "arxiv_id": "1608.04471v3",
+      "published": "2016-08-16T03:24:20Z",
+      "updated": "2019-09-09T17:31:39Z",
+      "topic": "drifting_theory",
+      "method_zh": "SVGD 通过 score 与核排斥组合移动粒子，是样本变分推断和后续摊销对齐的重要基础。",
+      "limitations_zh": "它本身并非已训练的单步生成器；粒子推断、参数摊销和高维核退化问题需要区分。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2016,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2016/poster/7009",
+          "index_url": "https://neurips.cc/Downloads/2016",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "To appear in NIPS 2016",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/1608.04471v3",
+        "https://neurips.cc/virtual/2016/poster/7009"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "1907.05600",
+      "title": "Generative Modeling by Estimating Gradients of the Data Distribution",
+      "authors": [
+        "Yang Song",
+        "Stefano Ermon"
+      ],
+      "arxiv_id": "1907.05600v3",
+      "published": "2019-07-12T07:37:26Z",
+      "updated": "2020-10-10T07:46:19Z",
+      "topic": "diffusion",
+      "method_zh": "用多噪声水平的 denoising score matching 学习 score，再以退火 Langevin 动力学生成。",
+      "limitations_zh": "多尺度 score 估计与采样链质量均重要；它是 DDPM 之前的关键支线，采样成本应包含各噪声水平的多次更新。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2019,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2019/poster/13242",
+          "index_url": "https://neurips.cc/Downloads/2019",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "NeurIPS 2019 (Oral)",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/1907.05600v3",
+        "https://neurips.cc/virtual/2019/poster/13242"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2010.02502",
+      "title": "Denoising Diffusion Implicit Models",
+      "authors": [
+        "Jiaming Song",
+        "Chenlin Meng",
+        "Stefano Ermon"
+      ],
+      "arxiv_id": "2010.02502v4",
+      "published": "2020-10-06T06:15:51Z",
+      "updated": "2022-10-05T20:19:21Z",
+      "topic": "diffusion",
+      "method_zh": "DDIM 保持训练边缘的同时改变非马尔可夫生成过程，支持确定性路径和跳步采样。",
+      "limitations_zh": "确定性不代表任意大步都准确；同一训练目标可配不同采样器，不能据采样方式反推训练范式。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2021,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2021/poster/2804",
+          "index_url": "https://iclr.cc/Downloads/2021",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "ICLR 2021; updated connections with ODEs at page 6, fixed some typos in the proof",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2010.02502v4",
+        "https://iclr.cc/virtual/2021/poster/2804"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2102.09672",
+      "title": "Improved Denoising Diffusion Probabilistic Models",
+      "authors": [
+        "Alex Nichol",
+        "Prafulla Dhariwal"
+      ],
+      "arxiv_id": "2102.09672v1",
+      "published": "2021-02-18T23:44:17Z",
+      "updated": "2021-02-18T23:44:17Z",
+      "topic": "diffusion",
+      "method_zh": "Improved DDPM 研究方差学习、混合目标与噪声调度，以改善似然和减少采样步。",
+      "limitations_zh": "少步收益依赖具体方差参数化与训练设定；似然改善和感知质量不能相互替代。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICML",
+          "year": 2021,
+          "evidence": "official_listing",
+          "url": "https://icml.cc/virtual/2021/poster/9531",
+          "index_url": "https://icml.cc/Downloads/2021",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2102.09672v1",
+        "https://icml.cc/virtual/2021/poster/9531"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2105.05233",
+      "title": "Diffusion Models Beat GANs on Image Synthesis",
+      "authors": [
+        "Prafulla Dhariwal",
+        "Alex Nichol"
+      ],
+      "arxiv_id": "2105.05233v4",
+      "published": "2021-05-11T17:50:24Z",
+      "updated": "2021-06-01T17:49:49Z",
+      "topic": "diffusion",
+      "method_zh": "ADM 系统改进扩散网络与训练，并用分类器梯度引导图像质量和覆盖的权衡。",
+      "limitations_zh": "分类器预训练、引导计算和数据权限需计入，FID 改善可能伴随召回下降。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2021,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2021/poster/28362",
+          "index_url": "https://neurips.cc/Downloads/2021",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "Added compute requirements, ImageNet 256$\\times$256 upsampling FID and samples, DDIM guided sampler, fixed typos",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2105.05233v4",
+        "https://neurips.cc/virtual/2021/poster/28362"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2107.00630",
+      "title": "Variational Diffusion Models",
+      "authors": [
+        "Diederik P. Kingma",
+        "Tim Salimans",
+        "Ben Poole",
+        "Jonathan Ho"
+      ],
+      "arxiv_id": "2107.00630v6",
+      "published": "2021-07-01T17:43:20Z",
+      "updated": "2023-04-14T00:20:30Z",
+      "topic": "diffusion",
+      "method_zh": "VDM 以连续时间变分界组织扩散，并研究信噪比参数化、调度学习和密度建模。",
+      "limitations_zh": "变分似然目标和有限步生成误差属于不同评价；连续时间的理论等价依赖具体参数化。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2021,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2021/poster/27712",
+          "index_url": "https://neurips.cc/Downloads/2021",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "Published at NeurIPS'21",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2107.00630v6",
+        "https://neurips.cc/virtual/2021/poster/27712"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2107.03006",
+      "title": "Structured Denoising Diffusion Models in Discrete State-Spaces",
+      "authors": [
+        "Jacob Austin",
+        "Daniel D. Johnson",
+        "Jonathan Ho",
+        "Daniel Tarlow",
+        "Rianne van den Berg"
+      ],
+      "arxiv_id": "2107.03006v3",
+      "published": "2021-07-07T04:11:00Z",
+      "updated": "2023-02-22T16:05:48Z",
+      "topic": "diffusion",
+      "method_zh": "D3PM 将扩散扩展到离散状态，用结构化转移矩阵和辅助交叉熵建模序列及图像。",
+      "limitations_zh": "离散跃迁与连续 Gaussian 加噪的生成空间不同；矩阵结构、词表规模与步数共同决定成本。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2021,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2021/poster/27623",
+          "index_url": "https://neurips.cc/Downloads/2021",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "10 pages plus references and appendices. First two authors contributed equally",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2107.03006v3",
+        "https://neurips.cc/virtual/2021/poster/27623"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2202.00512",
+      "title": "Progressive Distillation for Fast Sampling of Diffusion Models",
+      "authors": [
+        "Tim Salimans",
+        "Jonathan Ho"
+      ],
+      "arxiv_id": "2202.00512v2",
+      "published": "2022-02-01T16:07:25Z",
+      "updated": "2022-06-07T09:17:35Z",
+      "topic": "distillation_alignment",
+      "method_zh": "Progressive Distillation 逐次将教师的两步确定性采样映射压为一步，逐级缩短部署链。",
+      "limitations_zh": "每一级蒸馏和教师生成都有训练成本；压缩轨迹映射并不保证保留全部模式或过程语义。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2022,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2022/poster/6537",
+          "index_url": "https://iclr.cc/Downloads/2022",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "Published as a conference paper at ICLR 2022",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2202.00512v2",
+        "https://iclr.cc/virtual/2022/poster/6537"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2205.14217",
+      "title": "Diffusion-LM Improves Controllable Text Generation",
+      "authors": [
+        "Xiang Lisa Li",
+        "John Thickstun",
+        "Ishaan Gulrajani",
+        "Percy Liang",
+        "Tatsunori B. Hashimoto"
+      ],
+      "arxiv_id": "2205.14217v1",
+      "published": "2022-05-27T20:12:09Z",
+      "updated": "2022-05-27T20:12:09Z",
+      "topic": "language_audio",
+      "method_zh": "Diffusion-LM 在连续词嵌入上去噪，并利用梯度实现可控文本生成。",
+      "limitations_zh": "离散化、嵌入到 token 的映射和多步控制成本均须计入；文本属性控制不等于严格逻辑推理。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2205.14217v1"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2211.01095",
+      "title": "DPM-Solver++: Fast Solver for Guided Sampling of Diffusion Probabilistic Models",
+      "authors": [
+        "Cheng Lu",
+        "Yuhao Zhou",
+        "Fan Bao",
+        "Jianfei Chen",
+        "Chongxuan Li",
+        "Jun Zhu"
+      ],
+      "arxiv_id": "2211.01095v3",
+      "published": "2022-11-02T13:14:30Z",
+      "updated": "2025-05-19T07:56:56Z",
+      "topic": "diffusion",
+      "method_zh": "DPM-Solver++ 面向引导采样，用数据预测形式与多步高阶积分提高少步稳定性。",
+      "limitations_zh": "属于采样器设计，仍使用预训练多步模型；强引导、阶数和 NFE 的对照需要同一底座。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Machine Intelligence Research",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2211.01095v3"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2302.00482",
+      "title": "Improving and generalizing flow-based generative models with minibatch optimal transport",
+      "authors": [
+        "Alexander Tong",
+        "Kilian Fatras",
+        "Nikolay Malkin",
+        "Guillaume Huguet",
+        "Yanlei Zhang",
+        "Jarrid Rector-Brooks",
+        "Guy Wolf",
+        "Yoshua Bengio"
+      ],
+      "arxiv_id": "2302.00482v4",
+      "published": "2023-02-01T14:47:17Z",
+      "updated": "2024-03-11T14:27:48Z",
+      "topic": "flow_consistency",
+      "method_zh": "以小批量最优运输耦合改善条件 flow matching，统一处理噪声到数据路径的配对方式。",
+      "limitations_zh": "批内最优不等于总体最优运输；批大小和匹配开销是轨迹直度、质量与效率的共同变量。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "TMLR. Code: https://github.com/atong01/conditional-flow-matching",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2302.00482v4"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2303.08797",
+      "title": "Stochastic Interpolants: A Unifying Framework for Flows and Diffusions",
+      "authors": [
+        "Michael S. Albergo",
+        "Nicholas M. Boffi",
+        "Eric Vanden-Eijnden"
+      ],
+      "arxiv_id": "2303.08797v4",
+      "published": "2023-03-15T17:43:42Z",
+      "updated": "2025-10-09T00:43:44Z",
+      "topic": "flow_consistency",
+      "method_zh": "Stochastic Interpolants 用连接端点的随机插值组织速度和 score 回归，统一 ODE 与 SDE 生成。",
+      "limitations_zh": "统一框架不代表所有目标、数值误差和训练成本相同；不同噪声项与耦合仍形成不同算法。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "JMLR Version",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2303.08797v4"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2304.12906",
+      "title": "The Score-Difference Flow for Implicit Generative Modeling",
+      "authors": [
+        "Romann M. Weber"
+      ],
+      "arxiv_id": "2304.12906v5",
+      "published": "2023-04-25T15:21:12Z",
+      "updated": "2026-05-20T14:27:50Z",
+      "topic": "drifting_theory",
+      "method_zh": "SD-Flow 早在 2023 年研究平滑分布的 score 差运输与参数生成器，是漂移机制的重要先行研究。",
+      "limitations_zh": "TMLR 原文与后续更新分列；理论的密度及最优判别器条件不直接覆盖现代全部实际归一化实现。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "25 pages, 5 figures, 4 tables. Updated final version of a paper originally published in Transactions on Machine Learning Research (TMLR), including minor typographical corrections and post-publication commentary connecting the SD flow to drifting models",
+      "author_reported_journal_ref": "Transactions on Machine Learning Research (7/2023)",
+      "sources": [
+        "https://arxiv.org/abs/2304.12906v5",
+        "https://studios.disneyresearch.com/2023/08/31/the-score-difference-flow/",
+        "https://openreview.net/forum?id=dpGSNLUCzu"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2309.06380",
+      "title": "InstaFlow: One Step is Enough for High-Quality Diffusion-Based Text-to-Image Generation",
+      "authors": [
+        "Xingchao Liu",
+        "Xiwen Zhang",
+        "Jianzhu Ma",
+        "Jian Peng",
+        "Qiang Liu"
+      ],
+      "arxiv_id": "2309.06380v2",
+      "published": "2023-09-12T16:42:09Z",
+      "updated": "2024-03-23T14:22:39Z",
+      "topic": "flow_consistency",
+      "method_zh": "InstaFlow 用 reflow 改善噪声到图像耦合，再把 Stable Diffusion 运输压成一步文生图。",
+      "limitations_zh": "耦合再生成、教师与大规模训练成本应合计；旧 COCO 子集和后续 COCO 全量指标不可直接排名。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2024,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2024/poster/19575",
+          "index_url": "https://iclr.cc/Downloads/2024",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "ICLR 2024",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2309.06380v2",
+        "https://iclr.cc/virtual/2024/poster/19575"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2310.02279",
+      "title": "Consistency Trajectory Models: Learning Probability Flow ODE Trajectory of Diffusion",
+      "authors": [
+        "Dongjun Kim",
+        "Chieh-Hsin Lai",
+        "Wei-Hsiang Liao",
+        "Naoki Murata",
+        "Yuhta Takida",
+        "Toshimitsu Uesaka",
+        "Yutong He",
+        "Yuki Mitsufuji",
+        "Stefano Ermon"
+      ],
+      "arxiv_id": "2310.02279v3",
+      "published": "2023-10-01T05:07:17Z",
+      "updated": "2024-03-30T06:29:48Z",
+      "topic": "flow_consistency",
+      "method_zh": "CTM 学习概率流 ODE 的任意时间间映射，结合轨迹一致性、蒸馏和感知目标。",
+      "limitations_zh": "任意时间跳转依赖对应训练；附加判别或感知组件的效果不能统一归于一致性条件本身。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2024,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2024/poster/17404",
+          "index_url": "https://iclr.cc/Downloads/2024",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "International Conference on Learning Representations",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2310.02279v3",
+        "https://iclr.cc/virtual/2024/poster/17404"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2310.04378",
+      "title": "Latent Consistency Models: Synthesizing High-Resolution Images with Few-Step Inference",
+      "authors": [
+        "Simian Luo",
+        "Yiqin Tan",
+        "Longbo Huang",
+        "Jian Li",
+        "Hang Zhao"
+      ],
+      "arxiv_id": "2310.04378v1",
+      "published": "2023-10-06T17:11:58Z",
+      "updated": "2023-10-06T17:11:58Z",
+      "topic": "flow_consistency",
+      "method_zh": "LCM 在潜空间直接预测带引导概率流 ODE 的解，将预训练文生图蒸馏为少步模型。",
+      "limitations_zh": "前置 LDM、蒸馏与解码器均为依赖；2到4步主要设置不能概括为所有任务一步高质量。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2310.04378v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2310.14189",
+      "title": "Improved Techniques for Training Consistency Models",
+      "authors": [
+        "Yang Song",
+        "Prafulla Dhariwal"
+      ],
+      "arxiv_id": "2310.14189v1",
+      "published": "2023-10-22T05:33:38Z",
+      "updated": "2023-10-22T05:33:38Z",
+      "topic": "flow_consistency",
+      "method_zh": "改进一致性训练的噪声离散、损失、时间采样与参数设计，提高从零学习少步生成的稳定性。",
+      "limitations_zh": "少步模型的训练资源不可由推理 NFE 推断；具体离散计划与网络缩放应随版本保留。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2024,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2024/poster/18479",
+          "index_url": "https://iclr.cc/Downloads/2024",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2310.14189v1",
+        "https://iclr.cc/virtual/2024/poster/18479"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2310.16834",
+      "title": "Discrete Diffusion Modeling by Estimating the Ratios of the Data Distribution",
+      "authors": [
+        "Aaron Lou",
+        "Chenlin Meng",
+        "Stefano Ermon"
+      ],
+      "arxiv_id": "2310.16834v3",
+      "published": "2023-10-25T17:59:12Z",
+      "updated": "2024-06-06T21:06:44Z",
+      "topic": "language_audio",
+      "method_zh": "SEDD 用离散分布比率与 score entropy 目标建立离散扩散，支持文本建模与生成。",
+      "limitations_zh": "离散比率估计和连续 score 恒等式不同；困惑度、似然界和少步质量须按相同设置评价。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICML",
+          "year": 2024,
+          "evidence": "official_listing",
+          "url": "https://icml.cc/virtual/2024/poster/34686",
+          "index_url": "https://icml.cc/Downloads/2024",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "ICML 2024 Oral. Code at https://github.com/louaaron/Score-Entropy-Discrete-Diffusion",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2310.16834v3",
+        "https://icml.cc/virtual/2024/poster/34686"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2311.01462",
+      "title": "Idempotent Generative Network",
+      "authors": [
+        "Assaf Shocher",
+        "Amil Dravid",
+        "Yossi Gandelsman",
+        "Inbar Mosseri",
+        "Michael Rubinstein",
+        "Alexei A. Efros"
+      ],
+      "arxiv_id": "2311.01462v1",
+      "published": "2023-11-02T17:59:55Z",
+      "updated": "2023-11-02T17:59:55Z",
+      "topic": "flow_consistency",
+      "method_zh": "IGN 同时约束真实样本重建和 f(f(z))=f(z) 幂等性，学习一次投影式生成。",
+      "limitations_zh": "幂等固定点集合与分布权重匹配不同；理想条件的收敛不能省略支持、损失与优化假设。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2024,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2024/poster/18455",
+          "index_url": "https://iclr.cc/Downloads/2024",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2311.01462v1",
+        "https://iclr.cc/virtual/2024/poster/18455"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2311.05556",
+      "title": "LCM-LoRA: A Universal Stable-Diffusion Acceleration Module",
+      "authors": [
+        "Simian Luo",
+        "Yiqin Tan",
+        "Suraj Patil",
+        "Daniel Gu",
+        "Patrick von Platen",
+        "Apolinário Passos",
+        "Longbo Huang",
+        "Jian Li",
+        "Hang Zhao"
+      ],
+      "arxiv_id": "2311.05556v1",
+      "published": "2023-11-09T18:04:15Z",
+      "updated": "2023-11-09T18:04:15Z",
+      "topic": "flow_consistency",
+      "method_zh": "LCM-LoRA 用低秩一致性蒸馏得到可与兼容微调模型组合的少步加速模块。",
+      "limitations_zh": "跨底座和任意 LoRA 的普适性不能超出测试范围；合并后仍需检验条件、风格与细节保持。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Technical Report",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2311.05556v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2311.17042",
+      "title": "Adversarial Diffusion Distillation",
+      "authors": [
+        "Axel Sauer",
+        "Dominik Lorenz",
+        "Andreas Blattmann",
+        "Robin Rombach"
+      ],
+      "arxiv_id": "2311.17042v1",
+      "published": "2023-11-28T18:53:24Z",
+      "updated": "2023-11-28T18:53:24Z",
+      "topic": "distillation_alignment",
+      "method_zh": "ADD 将扩散教师蒸馏与对抗目标结合，实现一到少步高分辨率图像生成。",
+      "limitations_zh": "判别器特征、教师、真实数据及优化稳定性都属于依赖；不能与无教师原生方法只按步数比较。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2311.17042v1"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2311.18828",
+      "title": "One-step Diffusion with Distribution Matching Distillation",
+      "authors": [
+        "Tianwei Yin",
+        "Michaël Gharbi",
+        "Richard Zhang",
+        "Eli Shechtman",
+        "Fredo Durand",
+        "William T. Freeman",
+        "Taesung Park"
+      ],
+      "arxiv_id": "2311.18828v4",
+      "published": "2023-11-30T18:59:20Z",
+      "updated": "2024-10-04T04:41:06Z",
+      "topic": "distillation_alignment",
+      "method_zh": "DMD 以教师和学生分布的 score 差训练单步学生，并用配对回归稳定早期学习。",
+      "limitations_zh": "教师 score 与持续拟合的 fake score 都有误差；原版配对噪声图像集包含多步教师成本。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2311.18828",
+        "local_extracted_line_starts": [
+          81,
+          83,
+          93
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "CVPR 2024, Project page: https://tianweiy.github.io/dmd/",
+      "author_reported_journal_ref": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2024",
+      "sources": [
+        "https://arxiv.org/abs/2311.18828v4",
+        "https://arxiv.org/html/2311.18828"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2401.08740",
+      "title": "SiT: Exploring Flow and Diffusion-based Generative Models with Scalable Interpolant Transformers",
+      "authors": [
+        "Nanye Ma",
+        "Mark Goldstein",
+        "Michael S. Albergo",
+        "Nicholas M. Boffi",
+        "Eric Vanden-Eijnden",
+        "Saining Xie"
+      ],
+      "arxiv_id": "2401.08740v2",
+      "published": "2024-01-16T18:55:25Z",
+      "updated": "2024-09-23T15:59:41Z",
+      "topic": "representation",
+      "method_zh": "SiT 在同一 Transformer 中系统比较插值路径、预测目标和 ODE/SDE 采样，作为 DiT 到 flow 的受控桥梁。",
+      "limitations_zh": "表中训练步数与 NFE 固定的局部消融比跨系统榜单更有归因价值；长期大模型结果还包含其他设置变化。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2401.08740",
+        "local_extracted_line_starts": [
+          246,
+          248,
+          256
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ECCV",
+          "year": 2024,
+          "evidence": "formal_proceedings",
+          "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/09828.pdf",
+          "track": "正式论文集条目或正式会议PDF"
+        }
+      ],
+      "author_reported_comment": "ECCV 2024; Code available: https://github.com/willisma/SiT",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2401.08740v2",
+        "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/09828.pdf",
+        "https://arxiv.org/html/2401.08740"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2402.19159",
+      "title": "Trajectory Consistency Distillation: Improved Latent Consistency Distillation by Semi-Linear Consistency Function with Trajectory Mapping",
+      "authors": [
+        "Jianbin Zheng",
+        "Minghui Hu",
+        "Zhongyi Fan",
+        "Chaoyue Wang",
+        "Changxing Ding",
+        "Dacheng Tao",
+        "Tat-Jen Cham"
+      ],
+      "arxiv_id": "2402.19159v2",
+      "published": "2024-02-29T13:44:14Z",
+      "updated": "2024-04-15T13:51:17Z",
+      "topic": "flow_consistency",
+      "method_zh": "TCD 用半线性轨迹一致性函数与策略性随机采样，改进潜一致性模型细节和多步误差。",
+      "limitations_zh": "蒸馏路径、参数化与随机采样共同贡献；较多 NFE 的细节提升不能标成一步结果。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Project Page: https://mhh0318.github.io/tcd",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2402.19159v2"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2403.03206",
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "authors": [
+        "Patrick Esser",
+        "Sumith Kulal",
+        "Andreas Blattmann",
+        "Rahim Entezari",
+        "Jonas Müller",
+        "Harry Saini",
+        "Yam Levi",
+        "Dominik Lorenz",
+        "Axel Sauer",
+        "Frederic Boesel",
+        "Dustin Podell",
+        "Tim Dockhorn",
+        "Zion English",
+        "Kyle Lacey",
+        "Alex Goodwin",
+        "Yannik Marek",
+        "Robin Rombach"
+      ],
+      "arxiv_id": "2403.03206v1",
+      "published": "2024-03-05T18:45:39Z",
+      "updated": "2024-03-05T18:45:39Z",
+      "topic": "flow_consistency",
+      "method_zh": "SD3 研究高分辨率 rectified flow、噪声采样和多模态 Transformer，用扩展训练提高文本图像合成。",
+      "limitations_zh": "大数据、模型规模和文本编码器参与收益；不能把系统结果单因归给 flow 目标或假定可单步无损。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICML",
+          "year": 2024,
+          "evidence": "official_listing",
+          "url": "https://icml.cc/virtual/2024/poster/34535",
+          "index_url": "https://icml.cc/Downloads/2024",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2403.03206v1",
+        "https://icml.cc/virtual/2024/poster/34535"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2403.12015",
+      "title": "Fast High-Resolution Image Synthesis with Latent Adversarial Diffusion Distillation",
+      "authors": [
+        "Axel Sauer",
+        "Frederic Boesel",
+        "Tim Dockhorn",
+        "Andreas Blattmann",
+        "Patrick Esser",
+        "Robin Rombach"
+      ],
+      "arxiv_id": "2403.12015v1",
+      "published": "2024-03-18T17:51:43Z",
+      "updated": "2024-03-18T17:51:43Z",
+      "topic": "distillation_alignment",
+      "method_zh": "LADD 把对抗蒸馏放到潜扩散特征中，用于 SD3-Turbo 等少步高分辨率生成。",
+      "limitations_zh": "减少像素级判别开销仍需教师表示和对抗训练；4步无引导与1步性能应明确分列。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2403.12015v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2404.04057",
+      "title": "Score identity Distillation: Exponentially Fast Distillation of Pretrained Diffusion Models for One-Step Generation",
+      "authors": [
+        "Mingyuan Zhou",
+        "Huangjie Zheng",
+        "Zhendong Wang",
+        "Mingzhang Yin",
+        "Hai Huang"
+      ],
+      "arxiv_id": "2404.04057v3",
+      "published": "2024-04-05T12:30:19Z",
+      "updated": "2024-05-24T17:20:46Z",
+      "topic": "distillation_alignment",
+      "method_zh": "SiD 利用 score 恒等式以自身合成样本蒸馏预训练扩散，无需真实训练集或多步教师配对数据。",
+      "limitations_zh": "data-free 描述蒸馏阶段，教师仍已学习数据；辅助 score 拟合和训练成本不因无真实样本而消失。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICML",
+          "year": 2024,
+          "evidence": "official_listing",
+          "url": "https://icml.cc/virtual/2024/poster/34068",
+          "index_url": "https://icml.cc/Downloads/2024",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "ICML 2024, PyTorch implementation: https://github.com/mingyuanzhou/SiD",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2404.04057v3",
+        "https://icml.cc/virtual/2024/poster/34068"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2405.07510",
+      "title": "PeRFlow: Piecewise Rectified Flow as Universal Plug-and-Play Accelerator",
+      "authors": [
+        "Hanshu Yan",
+        "Xingchao Liu",
+        "Jiachun Pan",
+        "Jun Hao Liew",
+        "Qiang Liu",
+        "Jiashi Feng"
+      ],
+      "arxiv_id": "2405.07510v5",
+      "published": "2024-05-13T07:10:53Z",
+      "updated": "2024-09-02T06:27:05Z",
+      "topic": "flow_consistency",
+      "method_zh": "PeRFlow 把运输分成若干窗口，在每个窗口 reflow，使潜扩散模型获得分段直化和少步部署。",
+      "limitations_zh": "需计入预训练教师及窗口轨迹构建；可插拔兼容性以论文测试模型和适配方式为限。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2405.07510v5"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2405.14867",
+      "title": "Improved Distribution Matching Distillation for Fast Image Synthesis",
+      "authors": [
+        "Tianwei Yin",
+        "Michaël Gharbi",
+        "Taesung Park",
+        "Richard Zhang",
+        "Eli Shechtman",
+        "Fredo Durand",
+        "William T. Freeman"
+      ],
+      "arxiv_id": "2405.14867v2",
+      "published": "2024-05-23T17:59:49Z",
+      "updated": "2024-05-24T17:08:32Z",
+      "topic": "distillation_alignment",
+      "method_zh": "DMD2 去除原版配对回归，采用快慢更新的 fake critic、真实数据对抗损失和推理分布模拟。",
+      "limitations_zh": "减少配对数据构建仍保留教师、辅助网络和真实数据；ImageNet-64 与 256 的 FID 不直接比较。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2405.14867",
+        "local_extracted_line_starts": [
+          97,
+          102,
+          110
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2024,
+          "evidence": "formal_proceedings",
+          "url": "https://papers.nips.cc/paper_files/paper/2024/hash/54dcf25318f9de5a7a01f0a4125c541e-Abstract-Conference.html",
+          "track": "正式论文集条目或正式会议PDF"
+        }
+      ],
+      "author_reported_comment": "Code, model, and dataset are available at https://tianweiy.github.io/dmd2",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2405.14867v2",
+        "https://papers.nips.cc/paper_files/paper/2024/hash/54dcf25318f9de5a7a01f0a4125c541e-Abstract-Conference.html",
+        "https://arxiv.org/html/2405.14867"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2406.07507",
+      "title": "Flow map matching with stochastic interpolants: A mathematical framework for consistency models",
+      "authors": [
+        "Nicholas M. Boffi",
+        "Michael S. Albergo",
+        "Eric Vanden-Eijnden"
+      ],
+      "arxiv_id": "2406.07507v2",
+      "published": "2024-06-11T17:41:26Z",
+      "updated": "2025-06-03T00:03:07Z",
+      "topic": "flow_consistency",
+      "method_zh": "Flow Map Matching 从随机插值构造两时刻映射，连接一致性、Eulerian 与 Lagrangian 形式。",
+      "limitations_zh": "流映射的固定点、解存在性和参数训练收敛分别需要条件；不能把任意 flow 当作已学成的直接运输图。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2406.07507",
+        "local_extracted_line_starts": [
+          80,
+          91,
+          108
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2406.07507v2",
+        "https://arxiv.org/html/2406.07507"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2406.07524",
+      "title": "Simple and Effective Masked Diffusion Language Models",
+      "authors": [
+        "Subham Sekhar Sahoo",
+        "Marianne Arriola",
+        "Yair Schiff",
+        "Aaron Gokaslan",
+        "Edgar Marroquin",
+        "Justin T Chiu",
+        "Alexander Rush",
+        "Volodymyr Kuleshov"
+      ],
+      "arxiv_id": "2406.07524v2",
+      "published": "2024-06-11T17:51:40Z",
+      "updated": "2024-11-10T20:34:34Z",
+      "topic": "language_audio",
+      "method_zh": "MDLM 通过掩码离散扩散和简化参数化提升文本密度建模及采样。",
+      "limitations_zh": "掩码恢复的并行预测仍可需要多轮；困惑度、吞吐和生成连贯性应分列。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "NeurIPS 2024. We provide the code at https://github.com/kuleshov-group/mdlm",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2406.07524v2"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2406.14548",
+      "title": "Consistency Models Made Easy",
+      "authors": [
+        "Zhengyang Geng",
+        "Ashwini Pokle",
+        "William Luo",
+        "Justin Lin",
+        "J. Zico Kolter"
+      ],
+      "arxiv_id": "2406.14548v2",
+      "published": "2024-06-20T17:56:02Z",
+      "updated": "2024-10-10T21:59:49Z",
+      "topic": "flow_consistency",
+      "method_zh": "ECT 从已有扩散模型逐步收紧一致性条件，降低训练高质量一致性模型的附加成本。",
+      "limitations_zh": "所报快速微调以前置预训练为条件；微调 GPU 小时不能与从零总训练成本直接相比。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2025,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2025/poster/27780",
+          "index_url": "https://iclr.cc/Downloads/2025",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2406.14548v2",
+        "https://iclr.cc/virtual/2025/poster/27780"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2407.02398",
+      "title": "Consistency Flow Matching: Defining Straight Flows with Velocity Consistency",
+      "authors": [
+        "Ling Yang",
+        "Zixiang Zhang",
+        "Zhilong Zhang",
+        "Xingchao Liu",
+        "Minkai Xu",
+        "Wentao Zhang",
+        "Chenlin Meng",
+        "Stefano Ermon",
+        "Bin Cui"
+      ],
+      "arxiv_id": "2407.02398v1",
+      "published": "2024-07-02T16:15:37Z",
+      "updated": "2024-07-02T16:15:37Z",
+      "topic": "flow_consistency",
+      "method_zh": "Consistency Flow Matching 在速度一致性上约束流，尝试直接训练更直的生成路径。",
+      "limitations_zh": "路径直度有助于积分但不充分保证全局正确耦合；不得与所有同名 consistency 模型合并。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Code: https://github.com/YangLing0818/consistency_flow_matching",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2407.02398v1"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2410.06940",
+      "title": "Representation Alignment for Generation: Training Diffusion Transformers Is Easier Than You Think",
+      "authors": [
+        "Sihyun Yu",
+        "Sangkyung Kwak",
+        "Huiwon Jang",
+        "Jongheon Jeong",
+        "Jonathan Huang",
+        "Jinwoo Shin",
+        "Saining Xie"
+      ],
+      "arxiv_id": "2410.06940v4",
+      "published": "2024-10-09T14:34:53Z",
+      "updated": "2025-06-18T04:35:42Z",
+      "topic": "representation",
+      "method_zh": "REPA 在扩散 Transformer 中间层对齐预训练视觉表征，主要提高训练效率和生成质量。",
+      "limitations_zh": "对齐特征是训练监督，不自动把生成器变为可靠理解器；预训练编码器成本、特征层和细节保真需记录。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2025,
+          "evidence": "formal_proceedings",
+          "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/d9e42b4d7163931f3689d6d6fbaa11d0-Paper-Conference.pdf",
+          "track": "正式论文集条目或正式会议PDF"
+        },
+        {
+          "venue": "ICLR",
+          "year": 2025,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2025/poster/30467",
+          "index_url": "https://iclr.cc/Downloads/2025",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "ICLR 2025 (Oral). Project page: https://sihyun.me/REPA",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2410.06940v4",
+        "https://proceedings.iclr.cc/paper_files/paper/2025/file/d9e42b4d7163931f3689d6d6fbaa11d0-Paper-Conference.pdf",
+        "https://iclr.cc/virtual/2025/poster/30467"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2410.07303",
+      "title": "Rectified Diffusion: Straightness Is Not Your Need in Rectified Flow",
+      "authors": [
+        "Fu-Yun Wang",
+        "Ling Yang",
+        "Zhaoyang Huang",
+        "Mengdi Wang",
+        "Hongsheng Li"
+      ],
+      "arxiv_id": "2410.07303v2",
+      "published": "2024-10-09T17:43:38Z",
+      "updated": "2024-10-11T16:17:53Z",
+      "topic": "flow_consistency",
+      "method_zh": "Rectified Diffusion 分离 reflow 的关键训练条件，检验直线性在少步收益中的实际作用。",
+      "limitations_zh": "同标题的否定性结论针对特定机制比较；不能理解成所有路径几何对数值采样都无影响。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2410.07303",
+        "local_extracted_line_starts": [
+          125,
+          127,
+          129
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2025,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2025/poster/28415",
+          "index_url": "https://iclr.cc/Downloads/2025",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2410.07303v2",
+        "https://iclr.cc/virtual/2025/poster/28415",
+        "https://arxiv.org/html/2410.07303"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2410.11081",
+      "title": "Simplifying, Stabilizing and Scaling Continuous-Time Consistency Models",
+      "authors": [
+        "Cheng Lu",
+        "Yang Song"
+      ],
+      "arxiv_id": "2410.11081v2",
+      "published": "2024-10-14T20:43:25Z",
+      "updated": "2025-03-01T09:52:49Z",
+      "topic": "flow_consistency",
+      "method_zh": "sCM 重新设计连续时间一致性参数化、损失和训练稳定化，扩展少步一致性训练。",
+      "limitations_zh": "连续极限中的目标性质不等于有限网络稳定性；训练精度、归一化与导数计算开销需匹配。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2410.11081",
+        "local_extracted_line_starts": [
+          46,
+          47,
+          49
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2025,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2025/poster/29963",
+          "index_url": "https://iclr.cc/Downloads/2025",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "ICLR 2025 Oral",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2410.11081v2",
+        "https://iclr.cc/virtual/2025/poster/29963",
+        "https://arxiv.org/html/2410.11081"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2410.12557",
+      "title": "One Step Diffusion via Shortcut Models",
+      "authors": [
+        "Kevin Frans",
+        "Danijar Hafner",
+        "Sergey Levine",
+        "Pieter Abbeel"
+      ],
+      "arxiv_id": "2410.12557v3",
+      "published": "2024-10-16T13:34:40Z",
+      "updated": "2025-06-23T14:26:35Z",
+      "topic": "flow_consistency",
+      "method_zh": "Shortcut Models 同时条件于当前时间和步长，用小步监督及两步自举学习可变跨度跳转。",
+      "limitations_zh": "自举误差和训练步长分布影响大跳转；一步与多步表现均应报告，不能只展示最优预算点。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2410.12557",
+        "local_extracted_line_starts": [
+          61,
+          67,
+          69
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2025,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2025/poster/29802",
+          "index_url": "https://iclr.cc/Downloads/2025",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2410.12557v3",
+        "https://iclr.cc/virtual/2025/poster/29802",
+        "https://arxiv.org/html/2410.12557"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2412.06264",
+      "title": "Flow Matching Guide and Code",
+      "authors": [
+        "Yaron Lipman",
+        "Marton Havasi",
+        "Peter Holderrieth",
+        "Neta Shaul",
+        "Matt Le",
+        "Brian Karrer",
+        "Ricky T. Q. Chen",
+        "David Lopez-Paz",
+        "Heli Ben-Hamu",
+        "Itai Gat"
+      ],
+      "arxiv_id": "2412.06264v1",
+      "published": "2024-12-09T07:22:38Z",
+      "updated": "2024-12-09T07:22:38Z",
+      "topic": "flow_consistency",
+      "method_zh": "Flow Matching Guide and Code 系统整理连续和离散 flow matching 的路径、目标、条件生成及公开实现。",
+      "limitations_zh": "属于方法指南和代码资料，内部多个配置不构成新的独立实证论文成绩；本轮未运行其代码。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2412.06264v1"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2412.07772",
+      "title": "From Slow Bidirectional to Fast Autoregressive Video Diffusion Models",
+      "authors": [
+        "Tianwei Yin",
+        "Qiang Zhang",
+        "Richard Zhang",
+        "William T. Freeman",
+        "Fredo Durand",
+        "Eli Shechtman",
+        "Xun Huang"
+      ],
+      "arxiv_id": "2412.07772v4",
+      "published": "2024-12-10T18:59:50Z",
+      "updated": "2025-09-23T21:08:03Z",
+      "topic": "video_policy",
+      "method_zh": "CausVid 用分布匹配蒸馏把双向视频教师转换为因果少步学生，并利用缓存支持低延迟生成。",
+      "limitations_zh": "因果滚动与去噪步数是两条成本轴；蒸馏教师和训练推理输入分布差异仍可能造成长期误差。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2412.07772",
+        "local_extracted_line_starts": [
+          102,
+          103,
+          106
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "CVPR",
+          "year": 2025,
+          "evidence": "formal_proceedings",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Yin_From_Slow_Bidirectional_to_Fast_Autoregressive_Video_Diffusion_Models_CVPR_2025_paper.pdf",
+          "track": "正式论文集条目或正式会议PDF"
+        }
+      ],
+      "author_reported_comment": "CVPR 2025. Project Page: https://causvid.github.io/",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2412.07772v4",
+        "https://openaccess.thecvf.com/content/CVPR2025/papers/Yin_From_Slow_Bidirectional_to_Fast_Autoregressive_Video_Diffusion_Models_CVPR_2025_paper.pdf",
+        "https://arxiv.org/html/2412.07772"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2412.15689",
+      "title": "DOLLAR: Few-Step Video Generation via Distillation and Latent Reward Optimization",
+      "authors": [
+        "Zihan Ding",
+        "Chi Jin",
+        "Difan Liu",
+        "Haitian Zheng",
+        "Krishna Kumar Singh",
+        "Qiang Zhang",
+        "Yan Kang",
+        "Zhe Lin",
+        "Yuchen Liu"
+      ],
+      "arxiv_id": "2412.15689v2",
+      "published": "2024-12-20T09:07:36Z",
+      "updated": "2026-05-06T21:36:42Z",
+      "topic": "video_policy",
+      "method_zh": "DOLLAR 结合变分 score 蒸馏、一致性蒸馏和潜奖励优化，研究少步视频的质量与多样性。",
+      "limitations_zh": "VBench 和人类偏好未覆盖笔画规范；1步最高加速与4步质量对照口径不同，不能拼接成一个系统成绩。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICCV",
+          "year": 2025,
+          "evidence": "formal_proceedings",
+          "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Ding_DOLLAR_Few-Step_Video_Generation_via_Distillation_and_Latent_Reward_Optimization_ICCV_2025_paper.html",
+          "track": "正式论文集条目或正式会议PDF"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2412.15689v2",
+        "https://openaccess.thecvf.com/content/ICCV2025/html/Ding_DOLLAR_Few-Step_Video_Generation_via_Distillation_and_Latent_Reward_Optimization_ICCV_2025_paper.html"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2501.09732",
+      "title": "Inference-Time Scaling for Diffusion Models beyond Scaling Denoising Steps",
+      "authors": [
+        "Nanye Ma",
+        "Shangyuan Tong",
+        "Haolin Jia",
+        "Hexiang Hu",
+        "Yu-Chuan Su",
+        "Mingda Zhang",
+        "Xuan Yang",
+        "Yandong Li",
+        "Tommi Jaakkola",
+        "Xuhui Jia",
+        "Saining Xie"
+      ],
+      "arxiv_id": "2501.09732v1",
+      "published": "2025-01-16T18:30:37Z",
+      "updated": "2025-01-16T18:30:37Z",
+      "topic": "diffusion",
+      "method_zh": "除增加去噪步数外，通过 verifier 和搜索寻找更好的初始噪声，研究扩散推理时计算扩展。",
+      "limitations_zh": "正式 CVPR 题名与 arXiv 题名不同；搜索候选数、奖励调用和选择偏差须计入，不能只报单候选 NFE。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "CVPR",
+          "year": 2025,
+          "evidence": "formal_proceedings",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Ma_Scaling_Inference_Time_Compute_for_Diffusion_Models_CVPR_2025_paper.pdf",
+          "track": "正式论文集条目或正式会议PDF"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2501.09732v1",
+        "https://openaccess.thecvf.com/content/CVPR2025/papers/Ma_Scaling_Inference_Time_Compute_for_Diffusion_Models_CVPR_2025_paper.pdf"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2502.09992",
+      "title": "Large Language Diffusion Models",
+      "authors": [
+        "Shen Nie",
+        "Fengqi Zhu",
+        "Zebin You",
+        "Xiaolu Zhang",
+        "Jingyang Ou",
+        "Jun Hu",
+        "Jun Zhou",
+        "Yankai Lin",
+        "Ji-Rong Wen",
+        "Chongxuan Li"
+      ],
+      "arxiv_id": "2502.09992v3",
+      "published": "2025-02-14T08:23:51Z",
+      "updated": "2025-10-18T15:35:05Z",
+      "topic": "language_audio",
+      "method_zh": "LLaDA 以掩码扩散完成语言预训练与指令适配，检验扩散语言模型的规模化能力。",
+      "limitations_zh": "双向建模不直接证明胜过同预算 AR；采样步数、重掩码和生成长度影响吞吐与指标。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2502.09992v3"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2503.07565",
+      "title": "Inductive Moment Matching",
+      "authors": [
+        "Linqi Zhou",
+        "Stefano Ermon",
+        "Jiaming Song"
+      ],
+      "arxiv_id": "2503.07565v7",
+      "published": "2025-03-10T17:37:39Z",
+      "updated": "2025-05-14T19:11:44Z",
+      "topic": "flow_consistency",
+      "method_zh": "IMM 通过归纳式分布矩匹配学习少步生成；ICML 正式条目与后续 arXiv 版本分别留档。",
+      "limitations_zh": "正式标题仍为 Inductive Moment Matching，部分摘要使用 MMSD；新版本数值不可回填为正式论文原成绩。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICML",
+          "year": 2025,
+          "evidence": "formal_proceedings",
+          "url": "https://proceedings.mlr.press/v267/zhou25c.html",
+          "track": "正式论文集条目或正式会议PDF"
+        },
+        {
+          "venue": "ICML",
+          "year": 2025,
+          "evidence": "official_listing",
+          "url": "https://icml.cc/virtual/2025/poster/43977",
+          "index_url": "https://icml.cc/Downloads/2025",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2503.07565v7",
+        "https://proceedings.mlr.press/v267/zhou25c.html",
+        "https://icml.cc/virtual/2025/poster/43977"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2504.10483",
+      "title": "REPA-E: Unlocking VAE for End-to-End Tuning with Latent Diffusion Transformers",
+      "authors": [
+        "Xingjian Leng",
+        "Jaskirat Singh",
+        "Yunzhong Hou",
+        "Zhenchang Xing",
+        "Saining Xie",
+        "Liang Zheng"
+      ],
+      "arxiv_id": "2504.10483v3",
+      "published": "2025-04-14T17:59:53Z",
+      "updated": "2025-10-22T10:52:47Z",
+      "topic": "representation",
+      "method_zh": "REPA-E 联合调整 VAE 与潜扩散生成器，尝试减轻固定重建潜空间对生成和表征的限制。",
+      "limitations_zh": "端到端调优增加训练变量；应单独检验重建、生成、语义对齐和细笔信息的变化。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2504.10483v3"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2504.12626",
+      "title": "Frame Context Packing and Drift Prevention in Next-Frame-Prediction Video Diffusion Models",
+      "authors": [
+        "Lvmin Zhang",
+        "Shengqu Cai",
+        "Muyang Li",
+        "Gordon Wetzstein",
+        "Maneesh Agrawala"
+      ],
+      "arxiv_id": "2504.12626v3",
+      "published": "2025-04-17T04:02:31Z",
+      "updated": "2025-10-14T23:28:39Z",
+      "topic": "video_policy",
+      "method_zh": "FramePack 按历史帧重要性压缩上下文，并研究下一帧视频生成中的长期漂移抑制。",
+      "limitations_zh": "这里的 drift 是长视频误差累积；不属于 GMD 核场机制，视频时序与生成采样时间须分开。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2504.12626",
+        "local_extracted_line_starts": [
+          48,
+          49,
+          51
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "https://github.com/lllyasviel/FramePack",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2504.12626v3",
+        "https://arxiv.org/html/2504.12626"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2509.22622",
+      "title": "LongLive: Real-time Interactive Long Video Generation",
+      "authors": [
+        "Shuai Yang",
+        "Wei Huang",
+        "Ruihang Chu",
+        "Yicheng Xiao",
+        "Yuyang Zhao",
+        "Xianbang Wang",
+        "Muyang Li",
+        "Enze Xie",
+        "Yingcong Chen",
+        "Yao Lu",
+        "Song Han",
+        "Yukang Chen"
+      ],
+      "arxiv_id": "2509.22622v2",
+      "published": "2025-09-26T17:48:24Z",
+      "updated": "2025-10-13T22:41:26Z",
+      "topic": "video_policy",
+      "method_zh": "LongLive 通过因果流式生成、训练分布和记忆管理支持实时交互长视频。",
+      "limitations_zh": "实时性依赖具体分辨率、硬件和缓存设定；长时视觉稳定并未验证规范书写中的离散事件顺序。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2509.22622",
+        "local_extracted_line_starts": [
+          48,
+          50,
+          52
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2026/poster/10007501",
+          "index_url": "https://iclr.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "Code, model, and demos are available at https://github.com/NVlabs/LongLive",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2509.22622v2",
+        "https://iclr.cc/virtual/2026/poster/10007501",
+        "https://arxiv.org/html/2509.22622"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2509.24526",
+      "title": "CMT: Mid-Training for Efficient Learning of Consistency, Mean Flow, and Flow Map Models",
+      "authors": [
+        "Zheyuan Hu",
+        "Chieh-Hsin Lai",
+        "Yuki Mitsufuji",
+        "Stefano Ermon"
+      ],
+      "arxiv_id": "2509.24526v2",
+      "published": "2025-09-29T09:42:08Z",
+      "updated": "2026-02-22T04:23:24Z",
+      "topic": "flow_consistency",
+      "method_zh": "CMT 在预训练与最终 flow map 训练之间插入轨迹到干净端点的中训练，改善初始化和后续稳定性。",
+      "limitations_zh": "中训练和教师轨迹的成本要与最终微调合计；不同分辨率、数据量的节省不可混用。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2026/poster/10011770",
+          "index_url": "https://iclr.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "ICLR 2026. Code available at https://github.com/sony/cmt",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2509.24526v2",
+        "https://iclr.cc/virtual/2026/poster/10011770"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2510.11690",
+      "title": "Diffusion Transformers with Representation Autoencoders",
+      "authors": [
+        "Boyang Zheng",
+        "Nanye Ma",
+        "Shengbang Tong",
+        "Saining Xie"
+      ],
+      "arxiv_id": "2510.11690v1",
+      "published": "2025-10-13T17:51:39Z",
+      "updated": "2025-10-13T17:51:39Z",
+      "topic": "representation",
+      "method_zh": "RAE 将冻结视觉表征编码器与可训练解码器配对，在高维语义潜空间训练扩散 Transformer。",
+      "limitations_zh": "论文实际展示语义编码器也能良好重建，不能先验认定语义必丢细节；汉字细笔仍需专门测量。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2510.11690",
+        "local_extracted_line_starts": [
+          31,
+          33,
+          39
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2026/poster/10011890",
+          "index_url": "https://iclr.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "Technical Report; Project Page: https://rae-dit.github.io/",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2510.11690v1",
+        "https://iclr.cc/virtual/2026/poster/10011890",
+        "https://arxiv.org/html/2510.11690"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2510.24474",
+      "title": "Decoupled MeanFlow: Turning Flow Models into Flow Maps for Accelerated Sampling",
+      "authors": [
+        "Kyungmin Lee",
+        "Sihyun Yu",
+        "Jinwoo Shin"
+      ],
+      "arxiv_id": "2510.24474v1",
+      "published": "2025-10-28T14:43:48Z",
+      "updated": "2025-10-28T14:43:48Z",
+      "topic": "flow_consistency",
+      "method_zh": "Decoupled MeanFlow 仅在末段网络引入目标时间条件，把预训练 flow Transformer 转成平均速度流映射。",
+      "limitations_zh": "先训练 flow 再转换的优势包含完整两阶段预算；可转换接口与具体 UMM 主干仍需核实。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2026,
+          "evidence": "formal_proceedings",
+          "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/699124f548e4cb86674b20eae0fd8619-Abstract-Conference.html",
+          "track": "正式论文集条目或正式会议PDF"
+        },
+        {
+          "venue": "ICLR",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2026/poster/10009715",
+          "index_url": "https://iclr.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2510.24474v1",
+        "https://proceedings.iclr.cc/paper_files/paper/2026/hash/699124f548e4cb86674b20eae0fd8619-Abstract-Conference.html",
+        "https://iclr.cc/virtual/2026/poster/10009715"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2511.13720",
+      "title": "Back to Basics: Let Denoising Generative Models Denoise",
+      "authors": [
+        "Tianhong Li",
+        "Kaiming He"
+      ],
+      "arxiv_id": "2511.13720v2",
+      "published": "2025-11-17T18:59:57Z",
+      "updated": "2026-01-07T05:36:57Z",
+      "topic": "representation",
+      "method_zh": "JiT 以干净数据预测和适合像素空间的网络设计重审去噪模型，减少对高维噪声预测目标的依赖。",
+      "limitations_zh": "预测 x、噪声或速度的效果依赖数据维数和参数化；本轮没有确认其正式会议身份，不按题名推定。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2511.13720",
+        "local_extracted_line_starts": [
+          178,
+          179,
+          193
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Tech report. Code at https://github.com/LTH14/JiT",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2511.13720v2",
+        "https://arxiv.org/html/2511.13720"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2511.18834",
+      "title": "FlowSteer: Guiding Few-Step Image Synthesis with Authentic Trajectories",
+      "authors": [
+        "Lei Ke",
+        "Hubery Yin",
+        "Gongye Liu",
+        "Zhengyao Lv",
+        "Jingcai Guo",
+        "Chen Li",
+        "Wenhan Luo",
+        "Yujiu Yang",
+        "Jing Lyu"
+      ],
+      "arxiv_id": "2511.18834v1",
+      "published": "2025-11-24T07:13:23Z",
+      "updated": "2025-11-24T07:13:23Z",
+      "topic": "flow_consistency",
+      "method_zh": "FlowSteer 在分段 reflow 中对齐在线轨迹，并加入轨迹对抗约束，修正训练采样失配。",
+      "limitations_zh": "教师轨迹、对抗损失和 scheduler 修复共同影响少步结果；不能把全部增益归因于直化。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "CVPR",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://openaccess.thecvf.com/CVPR2026?day=2026-06-07",
+          "track": "CVF官方日目录/BibTeX；未以403页面充当全文"
+        }
+      ],
+      "author_reported_comment": "Few-Step Image Synthesis",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2511.18834v1",
+        "https://openaccess.thecvf.com/CVPR2026?day=2026-06-07"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2511.22688",
+      "title": "Test-time scaling of diffusions with flow maps",
+      "authors": [
+        "Amirmojtaba Sabour",
+        "Michael S. Albergo",
+        "Carles Domingo-Enrich",
+        "Nicholas M. Boffi",
+        "Sanja Fidler",
+        "Karsten Kreis",
+        "Eric Vanden-Eijnden"
+      ],
+      "arxiv_id": "2511.22688v1",
+      "published": "2025-11-27T18:44:12Z",
+      "updated": "2025-11-27T18:44:12Z",
+      "topic": "flow_consistency",
+      "method_zh": "FMTT 用 flow map 将最终数据上的奖励连接到中间状态，做轨迹倾斜、重要性采样或搜索。",
+      "limitations_zh": "精确采样与局部奖励最大化是不同目标；理论收益依赖映射及权重条件，验证器误差仍会影响实际选择。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2026/poster/154289",
+          "index_url": "https://neurips.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2511.22688v1",
+        "https://neurips.cc/virtual/2026/poster/154289"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2512.11831",
+      "title": "On the Design of One-step Diffusion via Shortcutting Flow Paths",
+      "authors": [
+        "Haitao Lin",
+        "Peiyan Hu",
+        "Minsi Ren",
+        "Zhifeng Gao",
+        "Zhi-Ming Ma",
+        "Guolin ke",
+        "Tailin Wu",
+        "Stan Z. Li"
+      ],
+      "arxiv_id": "2512.11831v5",
+      "published": "2025-12-03T09:28:29Z",
+      "updated": "2026-02-01T09:13:37Z",
+      "topic": "flow_consistency",
+      "method_zh": "统一 shortcut 路径的设计空间，分离参数化、时间采样与损失，以受控比较改进从零一步训练。",
+      "limitations_zh": "同表单步质量仍依赖引导与训练步数；新版本结果需绑定所读版本，不能归给所有 shortcut 变体。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2026/poster/10007823",
+          "index_url": "https://iclr.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "10 pages of main body, conference paper",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2512.11831v5",
+        "https://iclr.cc/virtual/2026/poster/10007823"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2601.16208",
+      "title": "Scaling Text-to-Image Diffusion Transformers with Representation Autoencoders",
+      "authors": [
+        "Shengbang Tong",
+        "Boyang Zheng",
+        "Ziteng Wang",
+        "Bingda Tang",
+        "Nanye Ma",
+        "Ellis Brown",
+        "Jihan Yang",
+        "Rob Fergus",
+        "Yann LeCun",
+        "Saining Xie"
+      ],
+      "arxiv_id": "2601.16208v1",
+      "published": "2026-01-22T18:58:16Z",
+      "updated": "2026-01-22T18:58:16Z",
+      "topic": "representation",
+      "method_zh": "研究文本到图像 RAE 扩展，指出文本渲染的定向数据组成及高维表示噪声日程是关键因素。",
+      "limitations_zh": "摘要与正文片段支持这些设计动机；尚未核读全部规模实验。一般重建或语义指标不能替代细笔画实例和完整笔顺评价。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2601.16208",
+        "local_extracted_line_starts": [
+          134,
+          135,
+          138
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "website: https://rae-dit.github.io/scale-rae/",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2601.16208v1",
+        "https://arxiv.org/html/2601.16208"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2602.04770",
+      "title": "Generative Modeling via Drifting",
+      "authors": [
+        "Mingyang Deng",
+        "He Li",
+        "Tianhong Li",
+        "Yilun Du",
+        "Kaiming He"
+      ],
+      "arxiv_id": "2602.04770v2",
+      "published": "2026-02-04T17:06:49Z",
+      "updated": "2026-02-06T07:18:33Z",
+      "topic": "drifting_theory",
+      "method_zh": "以吸引真实样本、排斥生成样本的核场构造停止梯度目标，把分布演化放到训练，部署直接生成。",
+      "limitations_zh": "反对称性只直接给出分布相同则场为零；原附录的逆向结论依赖有限基、探针交互独立等条件。特征预训练和大参考批量仍有成本。",
+      "reading_level": "targeted_sections",
+      "reading_scope_zh": "§3.2 Eq6；§5.2 Tables1/2与特征消融；§5.3 Table7；Appendix C.1有限基条件。",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2602.04770v2",
+        "finding": "单步 ImageNet256 FID1.54/1.61为作者报告；参考池大小和表征显著影响质量；机器人结果并非全部优于 Diffusion Policy。"
+      },
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2026/poster/154240",
+          "index_url": "https://neurips.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "Project page: https://lambertae.github.io/projects/drifting/",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2602.04770v2",
+        "https://neurips.cc/virtual/2026/poster/154240",
+        "https://arxiv.org/html/2602.04770v2"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2602.20463",
+      "title": "A Long-Short Flow-Map Perspective for Drifting Models",
+      "authors": [
+        "Zhiqi Li",
+        "Bo Zhu"
+      ],
+      "arxiv_id": "2602.20463v1",
+      "published": "2026-02-24T01:48:52Z",
+      "updated": "2026-02-24T01:48:52Z",
+      "topic": "drifting_theory",
+      "method_zh": "用满足半群一致性的长程映射与短程终端映射重新解释漂移，并引出密度学习及保守冲量项。",
+      "limitations_zh": "终端区间趋零及近似阶数有明确前提；不能把流映射分解称为所有实现和优化过程完全等价。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "25 pages, 7 figures",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2602.20463v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2603.05527",
+      "title": "Drifting to Boltzmann: Million-Fold Acceleration in Boltzmann Sampling with Force-Guided Drifting",
+      "authors": [
+        "Pipi Hu"
+      ],
+      "arxiv_id": "2603.05527v1",
+      "published": "2026-02-26T18:38:22Z",
+      "updated": "2026-02-26T18:38:22Z",
+      "topic": "domain_geometry",
+      "method_zh": "Force-Guided Drifting 用力标签替换或修正目标 score，比较坐标和距离特征中不同的力注入方式。",
+      "limitations_zh": "百万倍宣传对应传统分子动力学基线，不能当作相对同硬件扩散的统一加速比；力标签也有成本。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2603.05527v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2603.07514",
+      "title": "A Unified View of Score-Based and Drifting Models",
+      "authors": [
+        "Chieh-Hsin Lai",
+        "Bac Nguyen",
+        "Naoki Murata",
+        "Yuhta Takida",
+        "Toshimitsu Uesaka",
+        "Yuki Mitsufuji",
+        "Stefano Ermon",
+        "Molei Tao"
+      ],
+      "arxiv_id": "2603.07514v3",
+      "published": "2026-03-08T07:41:36Z",
+      "updated": "2026-05-15T06:01:26Z",
+      "topic": "drifting_theory",
+      "method_zh": "Gaussian 核的总体均值位移精确对应平滑 score 差；一般径向核分解为预条件 score 项与残差。",
+      "limitations_zh": "Laplace 的高维近似依赖壳集中、内积和矩条件；有限池、双轴归一化及特征空间实现另有偏差项。",
+      "reading_level": "targeted_sections",
+      "reading_scope_zh": "§3.3 Theorem3及假设；§4.2 CIFAR与ImageNet诊断；§5.1 SD-flow联系；PDF第2页Fig1视觉核读。",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2603.07514v3",
+        "finding": "Gaussian总体归一化均值位移等于平滑score差乘方差；一般径向核保留残差，Laplace近似另需集中条件。"
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2603.07514v3",
+        "https://arxiv.org/html/2603.07514v3"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2603.09936",
+      "title": "Generative Drifting is Secretly Score Matching: a Spectral and Variational Perspective",
+      "authors": [
+        "Erkan Turan",
+        "Nicolas Dufour",
+        "Maks Ovsjanikov"
+      ],
+      "arxiv_id": "2603.09936v2",
+      "published": "2026-03-10T17:30:35Z",
+      "updated": "2026-05-29T15:15:09Z",
+      "topic": "drifting_theory",
+      "method_zh": "从谱与变分角度研究 Gaussian 漂移、频率收敛瓶颈和带宽退火，并连接冻结场回归与 JKO 近似。",
+      "limitations_zh": "谱速率有线性化设定；完美拟合冻结目标与一次 SGD 更新有差距，不能推出实际大网络全局收敛。",
+      "reading_level": "targeted_sections",
+      "reading_scope_zh": "§5.6冻结场理想拟合命题；§6线性化谱速率、退火与ImageNet消融；Appendix D.4仅核读证明路线。",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2603.09936v2",
+        "finding": "score联系不等于所有核和有限批量实现精确等价；8.36的退火结果属于该文受控消融。"
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2603.09936v2",
+        "https://arxiv.org/html/2603.09936v2"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2603.10592",
+      "title": "Gradient Flow Drifting: Generative Modeling via Wasserstein Gradient Flows of KDE-Approximated Divergences",
+      "authors": [
+        "Jiarui Cao",
+        "Zixuan Wei",
+        "Yuxin Liu"
+      ],
+      "arxiv_id": "2603.10592v1",
+      "published": "2026-03-11T09:48:42Z",
+      "updated": "2026-03-11T09:48:42Z",
+      "topic": "drifting_theory",
+      "method_zh": "以 KDE 近似散度的 Wasserstein 梯度流组织漂移，探讨 KL、χ² 混合与流形扩展。",
+      "limitations_zh": "主要为框架与合成实验；Gaussian score 恒等式的条件、散度方向和实际归一化须分别核对。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2603.10592v1"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2603.11854",
+      "title": "Inverse Neural Operator for ODE Parameter Optimization",
+      "authors": [
+        "Zhi-Song Liu",
+        "Wenqing Peng",
+        "Helmi Toropainen",
+        "Ammar Kheder",
+        "Andreas Rupp",
+        "Holger Froning",
+        "Xiaojie Lin",
+        "Michael Boy"
+      ],
+      "arxiv_id": "2603.11854v1",
+      "published": "2026-03-12T12:20:23Z",
+      "updated": "2026-03-12T12:20:23Z",
+      "topic": "domain_geometry",
+      "method_zh": "INO 先用条件神经算子重建 ODE 轨迹，再以摊销漂移从观测反演参数。",
+      "limitations_zh": "速度比较包含预先学习代理的投入；代理误差和反问题可辨识性与参数更新稳定性分别存在。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "17 pages, 6 figures",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2603.11854v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2603.11984",
+      "title": "Ada3Drift: Adaptive Training-Time Drifting for One-Step 3D Visuomotor Robotic Manipulation",
+      "authors": [
+        "Chongyang Xu",
+        "Yixian Zou",
+        "Tianyu Yang",
+        "Fanman Meng",
+        "Ziliang Feng",
+        "Li Lu",
+        "Shuaicheng Liu"
+      ],
+      "arxiv_id": "2603.11984v2",
+      "published": "2026-03-12T14:36:53Z",
+      "updated": "2026-09-20T13:04:10Z",
+      "topic": "video_policy",
+      "method_zh": "Ada3Drift 先用配对回归建立观测动作对应，再逐步增加批量漂移正则，单次生成三维控制动作块。",
+      "limitations_zh": "配对监督、课程调度和几何输入共同影响结果；不能把收益全部归于替换生成目标。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2603.11984v2"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2603.12366",
+      "title": "Sinkhorn-Drifting Generative Models",
+      "authors": [
+        "Ping He",
+        "Om Khangaonkar",
+        "Hamed Pirsiavash",
+        "Yikun Bai",
+        "Soheil Kolouri"
+      ],
+      "arxiv_id": "2603.12366v2",
+      "published": "2026-03-12T18:33:36Z",
+      "updated": "2026-03-26T21:32:47Z",
+      "topic": "drifting_theory",
+      "method_zh": "以双边 Sinkhorn 缩放替换局部归一化，通过交叉运输减自运输构造场，研究温度稳定性。",
+      "limitations_zh": "正文区分光滑正密度总体结论和有限粒子结论；正则化且粒子数至少三时的通用零粒子场可辨识性仍未解决。",
+      "reading_level": "targeted_sections",
+      "reading_scope_zh": "§3.4 Propositions3.7–3.11与有限粒子开放问题；§4成本；§5.1温度扫描。",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2603.12366v2",
+        "finding": "连续正密度情形的可辨识结论有条件；n≥3有限正则经验测度的零场逆向结论仍未解决。"
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2603.12366v2",
+        "https://arxiv.org/html/2603.12366v2"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2603.14056",
+      "title": "Amortizing Trajectory Diffusion with Keyed Drift Fields",
+      "authors": [
+        "Gokul Puthumanaillam",
+        "Melkior Ornik"
+      ],
+      "arxiv_id": "2603.14056v1",
+      "published": "2026-03-14T17:56:15Z",
+      "updated": "2026-03-14T17:56:15Z",
+      "topic": "video_policy",
+      "method_zh": "Keyed Drifting 在反映当前条件的紧凑 key 空间检索邻域，在完整轨迹空间施加漂移。",
+      "limitations_zh": "无条件未来维度可能淹没当前状态并造成近静止输出；key 的信息权限和同条件样本覆盖决定迁移合理性。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2603.14056v1"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2603.17579",
+      "title": "One-Step Sampler for Boltzmann Distributions via Drifting",
+      "authors": [
+        "Wenhan Cao",
+        "Keyu Yan",
+        "Lin Zhao"
+      ],
+      "arxiv_id": "2603.17579v1",
+      "published": "2026-03-18T10:35:16Z",
+      "updated": "2026-03-18T10:35:16Z",
+      "topic": "domain_geometry",
+      "method_zh": "针对只知未归一化能量的 Boltzmann 目标，以平滑能量、重要性估计或曲率修正构造目标侧场。",
+      "limitations_zh": "主要为低维多峰及弯曲能量的合成验证；未知归一化常数处理不等于解决高维采样覆盖。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2603.17579v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2603.17671",
+      "title": "Few-Step Diffusion Sampling Through Instance-Aware Discretizations",
+      "authors": [
+        "Liangyu Yuan",
+        "Ruoyu Wang",
+        "Tong Zhao",
+        "Dingwen Fu",
+        "Mingkun Lei",
+        "Beier Zhu",
+        "Chi Zhang"
+      ],
+      "arxiv_id": "2603.17671v1",
+      "published": "2026-03-18T12:49:38Z",
+      "updated": "2026-03-18T12:49:38Z",
+      "topic": "diffusion",
+      "method_zh": "学习由输入先验决定的实例自适应时间离散，为不同扩散或 flow 轨迹分配不同积分步。",
+      "limitations_zh": "存在离散策略调优成本；按样本自适应可能改变推理预算分布，比较应报告完整开销。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "CVPR",
+          "year": 2026,
+          "evidence": "formal_proceedings",
+          "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yuan_Few-Step_Diffusion_Sampling_Through_Instance-Aware_Discretizations_CVPR_2026_paper.pdf",
+          "track": "正式论文集条目或正式会议PDF"
+        }
+      ],
+      "author_reported_comment": "24 pages, 20 figures. code: https://github.com/851695e35/INDIS",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2603.17671v1",
+        "https://openaccess.thecvf.com/content/CVPR2026/papers/Yuan_Few-Step_Diffusion_Sampling_Through_Instance-Aware_Discretizations_CVPR_2026_paper.pdf"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2603.25182",
+      "title": "Learning Monge maps with constrained drifting models",
+      "authors": [
+        "Théo Dumont",
+        "Théo Lacombe",
+        "François-Xavier Vialard"
+      ],
+      "arxiv_id": "2603.25182v3",
+      "published": "2026-03-26T08:51:51Z",
+      "updated": "2026-04-10T09:31:37Z",
+      "topic": "drifting_theory",
+      "method_zh": "在最优运输映射的凸约束集合上定义散度梯度流，以凸性受限网络和自然梯度近似 Monge 映射。",
+      "limitations_zh": "目标对数凹及相应凸性条件限制定理范围；任意复杂图像分布和普通生成器不直接满足。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2603.25182v3"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2603.28049",
+      "title": "Drift-AR: Single-Step Visual Autoregressive Generation via Anti-Symmetric Drifting",
+      "authors": [
+        "Zhen Zou",
+        "Xiaoxiao Ma",
+        "Mingde Yao",
+        "Jie Huang",
+        "LinJiang Huang",
+        "Feng Zhao"
+      ],
+      "arxiv_id": "2603.28049v3",
+      "published": "2026-03-30T05:29:00Z",
+      "updated": "2026-06-29T03:15:39Z",
+      "topic": "language_audio",
+      "method_zh": "Drift-AR 把漂移用于连续视觉 AR 的扩散解码，并配合连续特征的提议与验证加速。",
+      "limitations_zh": "单步解码器与自回归前缀、提议验证、整图端到端调用次数须分列。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2603.28049",
+        "local_extracted_line_starts": [
+          64,
+          66,
+          72
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2603.28049v3",
+        "https://arxiv.org/html/2603.28049"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2603.28498",
+      "title": "MRI-to-CT synthesis using drifting models",
+      "authors": [
+        "Qing Lyu",
+        "Jianxu Wang",
+        "Jeremy Hudson",
+        "Ge Wang",
+        "Chirstopher T. Whitlow"
+      ],
+      "arxiv_id": "2603.28498v2",
+      "published": "2026-03-30T14:34:32Z",
+      "updated": "2026-04-06T00:58:20Z",
+      "topic": "domain_geometry",
+      "method_zh": "在盆腔 MRI 到 CT 任务中比较一步漂移、CNN、GAN 和多步扩散，评价骨界面重建。",
+      "limitations_zh": "任务特定图像指标与后续放疗可靠性不同；真实泛化和下游用途不能由样例清晰直接推出。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2603.28498v2"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2604.03540",
+      "title": "Drift-Based Policy Optimization: Native One-Step Policy Learning for Online Robot Control",
+      "authors": [
+        "Yuxuan Gao",
+        "Yedong Shen",
+        "Shiqi Zhang",
+        "Wenhao Yu",
+        "Yifan Duan",
+        "Jia pan",
+        "Jiajia Wu",
+        "Jiajun Deng",
+        "Yanyong Zhang"
+      ],
+      "arxiv_id": "2604.03540v4",
+      "published": "2026-04-04T01:32:01Z",
+      "updated": "2026-08-29T02:29:15Z",
+      "topic": "video_policy",
+      "method_zh": "DBP 单步生成多模态动作块；DBPO 增加随机接口提供 PPO 风格的条件 rollout 似然用于在线优化。",
+      "limitations_zh": "训练随机接口与部署生成器应区分；真实任务成功率不能跨数据、硬件和演示预算直接比较。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Accepted at the 34th ACM International Conference on Multimedia",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2604.03540v4"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2604.04528",
+      "title": "Receding-Horizon Control via Drifting Models",
+      "authors": [
+        "Daniele Foffano",
+        "Alessio Russo",
+        "Alexandre Proutiere"
+      ],
+      "arxiv_id": "2604.04528v1",
+      "published": "2026-04-06T08:48:10Z",
+      "updated": "2026-04-06T08:48:10Z",
+      "topic": "video_policy",
+      "method_zh": "Drifting MPC 将离线行为先验和期望代价联合成条件轨迹目标，用单步生成支持滚动控制。",
+      "limitations_zh": "未知动力学下仍受离线支持限制；规划目标最优与真实闭环安全、可执行性需分别测量。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2604.04528v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2604.06333",
+      "title": "Drifting Fields are not Conservative",
+      "authors": [
+        "Leonard T. Franz",
+        "Sebastian Hoffmann",
+        "Tim Weiland",
+        "Bernhard Schölkopf",
+        "Georg Martius"
+      ],
+      "arxiv_id": "2604.06333v3",
+      "published": "2026-04-07T18:14:37Z",
+      "updated": "2026-05-08T15:26:20Z",
+      "topic": "drifting_theory",
+      "method_zh": "指出位置相关归一化通常产生非保守位移场，Gaussian 为径向核中的例外；sharp 归一化恢复势函数。",
+      "limitations_zh": "非保守性、零场可辨识性和训练收敛属于不同命题；新归一化的实验可比性不能充当原实现的统一收敛证明。",
+      "reading_level": "targeted_sections",
+      "reading_scope_zh": "§3.1至§4场与归一化公式、Propositions6/7及引言；未全面复核ImageNet实验。",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2604.06333v3",
+        "finding": "标准归一化漂移场一般非保守；该性质不能单独推出分布不可辨识。"
+      },
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2026/poster/155051",
+          "index_url": "https://neurips.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2604.06333v3",
+        "https://neurips.cc/virtual/2026/poster/155051",
+        "https://arxiv.org/html/2604.06333v3"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.04060",
+      "title": "Lookahead Drifting Model",
+      "authors": [
+        "Guoqiang Zhang",
+        "Kenta Niwa",
+        "W. Bastiaan Kleijn"
+      ],
+      "arxiv_id": "2605.04060v1",
+      "published": "2026-04-10T11:12:21Z",
+      "updated": "2026-04-10T11:12:21Z",
+      "topic": "drifting_methods",
+      "method_zh": "训练时顺序构造多个前瞻漂移方向并加权合成，尝试吸收更高阶校正而保留一次部署调用。",
+      "limitations_zh": "额外场计算留在训练；现有玩具与 CIFAR 证据不能直接支撑高分辨率视频优势。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.04060v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2604.16519",
+      "title": "Positive-Only Drifting Policy Optimization",
+      "authors": [
+        "Qi Zhang"
+      ],
+      "arxiv_id": "2604.16519v1",
+      "published": "2026-04-15T17:01:10Z",
+      "updated": "2026-04-15T17:01:10Z",
+      "topic": "video_policy",
+      "method_zh": "PODPO 用正优势样本驱动局部对比漂移，探索无策略密度的在线策略改进。",
+      "limitations_zh": "正样本选择并未自动证明全局优化或主动防错；摘要中的机制主张还需正文和公平闭环证据支持。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "12 pages, 6 figures",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2604.16519v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2604.18194",
+      "title": "Friction-Augmented Drifting Models for Resource-Efficient Domain Translation",
+      "authors": [
+        "Arkadii Kazanskii",
+        "Tatiana Petrova",
+        "Andrey Ustyuzhanin",
+        "Konstantin Bagrianskii",
+        "Aleksandr Puzikov",
+        "Radu State"
+      ],
+      "arxiv_id": "2604.18194v2",
+      "published": "2026-04-20T12:47:27Z",
+      "updated": "2026-08-14T05:23:13Z",
+      "topic": "drifting_methods",
+      "method_zh": "DMF 通过随训练变化的摩擦系数缩放漂移，分析双粒子代理的局部排斥与有限时域收缩。",
+      "limitations_zh": "两粒子代理不足以证明一般分布收敛；二维矩匹配与 Wasserstein 指标、FFHQ 域迁移应分开理解。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2604.18194v2"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2604.19736",
+      "title": "Generative Drifting for Conditional Medical Image Generation",
+      "authors": [
+        "Zirong Li",
+        "Siyuan Mei",
+        "Weiwen Wu",
+        "Andreas Maier",
+        "Lina Gölz",
+        "Yan Xia"
+      ],
+      "arxiv_id": "2604.19736v1",
+      "published": "2026-04-21T17:58:26Z",
+      "updated": "2026-04-21T17:58:26Z",
+      "topic": "domain_geometry",
+      "method_zh": "GDM 以医学编码器多级特征库估计三维条件漂移，并协调分布目标和患者级保真梯度。",
+      "limitations_zh": "医学预训练、配对信息和梯度协调共同贡献，未证明仅换漂移损失即可保持实例细节。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2604.19736v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2604.21489",
+      "title": "MISTY: High-Throughput Motion Planning via Mixer-based Single-step Drifting",
+      "authors": [
+        "Yining Xing",
+        "Zehong Ke",
+        "Yiqian Tu",
+        "Zhiyuan Liu",
+        "Wenhao Yu",
+        "Jianqiang Wang"
+      ],
+      "arxiv_id": "2604.21489v1",
+      "published": "2026-04-23T09:50:34Z",
+      "updated": "2026-04-23T09:50:34Z",
+      "topic": "video_policy",
+      "method_zh": "MISTY 以 mixer 结构和单步漂移生成轨迹，强调高吞吐运动规划。",
+      "limitations_zh": "规划生成头的吞吐与端到端碰撞检查、可行性和控制闭环成本不同；本轮未复核全部设置和运行代码。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "8 pages, 4 figures, 3 tables. Submitted to IEEE Robotics and Automation Letters (RA-L)",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2604.21489v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2604.24196",
+      "title": "Identifiability and Stability of Generative Drifting in the Companion-Elliptic Kernel Family",
+      "authors": [
+        "HakGeun Lee",
+        "Hyonho Chun"
+      ],
+      "arxiv_id": "2604.24196v4",
+      "published": "2026-04-27T08:56:39Z",
+      "updated": "2026-08-13T01:05:43Z",
+      "topic": "drifting_theory",
+      "method_zh": "在含 Laplace 的 companion-elliptic 核类证明总体零场可辨识，并研究局部残差、尾质量和反卷积稳定性。",
+      "limitations_zh": "局部小场无法排除质量逃逸；定量界含尾项，Matérn 另需导数残差。该定理没有保证有限批量网络训练到达零场。",
+      "reading_level": "targeted_sections",
+      "reading_scope_zh": "Theorem3.7证明；Counterexample4.1证明；Theorems4.5/4.8/4.10陈述及4.10证明。",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2604.24196v4",
+        "finding": "总体全空间零场可辨识，与质量逃逸下局部小场失效同时成立；Gaussian反卷积和Matérn稳定性条件不同。"
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "40 pages, 0 figures",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2604.24196v4",
+        "https://arxiv.org/html/2604.24196v4"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2604.24199",
+      "title": "Speech Enhancement Based on Drifting Models",
+      "authors": [
+        "Liang Xu",
+        "Diego Caviedes-Nozal",
+        "W. Bastiaan Kleijn",
+        "Longfei Felix Yan",
+        "Rasmus Kongsgaard Olsson"
+      ],
+      "arxiv_id": "2604.24199v4",
+      "published": "2026-04-27T09:00:51Z",
+      "updated": "2026-06-06T06:47:13Z",
+      "topic": "language_audio",
+      "method_zh": "较早的 DriftSE 将语音增强写成分布平衡，比较从噪声观测直接映射和条件随机生成。",
+      "limitations_zh": "无配对边缘匹配不保证保留输入说话者和语义；需结合后续带条件的反例分析。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "6 pages, 2 figures",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2604.24199v4"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2604.27239",
+      "title": "Analytical Correction for Subsampling Bias in Drifting Models",
+      "authors": [
+        "Jiaru Zhang",
+        "Zeyun Deng",
+        "Juanwu Lu",
+        "Ziran Wang",
+        "Ruqi Zhang"
+      ],
+      "arxiv_id": "2604.27239v1",
+      "published": "2026-04-29T22:26:06Z",
+      "updated": "2026-04-29T22:26:06Z",
+      "topic": "drifting_theory",
+      "method_zh": "分析 softmax 自归一化质心的有限样本偏差，给出利用批内统计的 ABC 修正。",
+      "limitations_zh": "O(1/n) 到 O(1/n²) 的结论依赖权重、矩和相应估计条件；不能宣称消除所有高维估计与优化误差。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验；另核读§4.1构造、Theorem4.1及凸包讨论。",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2604.27239",
+        "local_extracted_line_starts": [
+          68,
+          75,
+          78
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2026/poster/155602",
+          "index_url": "https://neurips.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2604.27239v1",
+        "https://neurips.cc/virtual/2026/poster/155602",
+        "https://arxiv.org/html/2604.27239"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.02325",
+      "title": "DriftDecode: One-Step Wireless Image Decoding via Drifting-Inspired Detail Recovery",
+      "authors": [
+        "Jingwen Fu",
+        "Ming Xiao",
+        "Mikael Skoglund"
+      ],
+      "arxiv_id": "2605.02325v1",
+      "published": "2026-05-04T08:26:15Z",
+      "updated": "2026-05-04T08:26:15Z",
+      "topic": "domain_geometry",
+      "method_zh": "DriftDecode 以空间对齐真值特征的实例纹理漂移辅助单步无线图像恢复。",
+      "limitations_zh": "接收信号已含粗结构，目标是受损细节恢复；不属于完整无条件分布采样的同一问题。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.02325v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.05118",
+      "title": "On the Wasserstein Gradient Flow Interpretation of Drifting Models",
+      "authors": [
+        "Arthur Gretton",
+        "Li Kevin Wenliang",
+        "Alexandre Galashov",
+        "James Thornton",
+        "Valentin De Bortoli",
+        "Arnaud Doucet"
+      ],
+      "arxiv_id": "2605.05118v2",
+      "published": "2026-05-06T16:48:46Z",
+      "updated": "2026-05-21T15:54:25Z",
+      "topic": "drifting_theory",
+      "method_zh": "区分原论文概念算法的 KDE-score 场与实际双轴权重算法，并构造更接近 Sinkhorn 的代理。",
+      "limitations_zh": "代理的 Gaussian 总体一致性要求加权测度有限；作者明确指出代理通常也不是真正的 Wasserstein 梯度流。",
+      "reading_level": "targeted_sections",
+      "reading_scope_zh": "§3.1 Algorithm1对照；§3.2 Proposition2与Theorem3有限加权测度条件；Appendix B.5仅核读陈述。",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2605.05118v2",
+        "finding": "需逐项区分论文定义的KDE散度梯度流与原始启发式漂移场；有限测度结论不可泛化成任意SGD全局收敛。"
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.05118v2",
+        "https://arxiv.org/html/2605.05118v2"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.06140",
+      "title": "SymDrift: One-Shot Generative Modeling under Symmetries",
+      "authors": [
+        "Samir Darouich",
+        "Vinh Tong",
+        "Lluís Pastor-Pérez",
+        "Tanja Bien",
+        "Loay Mualem",
+        "Mathias Niepert"
+      ],
+      "arxiv_id": "2605.06140v3",
+      "published": "2026-05-07T12:38:44Z",
+      "updated": "2026-09-29T04:46:12Z",
+      "topic": "domain_geometry",
+      "method_zh": "SymDrift 对齐坐标或使用群不变嵌入，使漂移场本身适应分子等任务的全局对称性。",
+      "limitations_zh": "等变生成器不自动消除经验分布的对称偏差；汉字规范方向不可随意当作应消去的旋转对称。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2026/poster/151782",
+          "index_url": "https://neurips.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.06140v3",
+        "https://neurips.cc/virtual/2026/poster/151782"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.07327",
+      "title": "Teacher-Feature Drifting: One-Step Diffusion Distillation with Pretrained Diffusion Representations",
+      "authors": [
+        "Yuan Zhang",
+        "Chenyi Li",
+        "Haodong Yu",
+        "Guoqing Ma",
+        "Jiajun Zha",
+        "Yuanming Yang",
+        "Bo Wang",
+        "Wei Tang",
+        "Wenbo Li",
+        "Haoyang Huang",
+        "Nan Duan"
+      ],
+      "arxiv_id": "2605.07327v2",
+      "published": "2026-05-08T06:33:33Z",
+      "updated": "2026-08-07T15:00:39Z",
+      "topic": "distillation_alignment",
+      "method_zh": "Teacher-Feature Drifting 直接用扩散教师隐藏特征计算漂移，并加覆盖约束，减少额外表征网络。",
+      "limitations_zh": "仍依赖预训练教师及其特征计算；ImageNet-64 的 FID 与原论文 ImageNet-256 不可直接排总榜。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2605.07327",
+        "local_extracted_line_starts": [
+          92,
+          114,
+          121
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.07327v2",
+        "https://arxiv.org/html/2605.07327"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.07727",
+      "title": "Drifting Field Policy: A One-Step Generative Policy via Wasserstein Gradient Flow",
+      "authors": [
+        "Juil Koo",
+        "Mingue Park",
+        "Jiwon Choi",
+        "Yunhong Min",
+        "Minhyuk Sung"
+      ],
+      "arxiv_id": "2605.07727v1",
+      "published": "2026-05-08T13:34:27Z",
+      "updated": "2026-05-08T13:34:27Z",
+      "topic": "video_policy",
+      "method_zh": "DFP 把价值提升与锚策略约束分解为动作空间场，并用 top-K 价值选择构造可训练代理。",
+      "limitations_zh": "Q 函数误差、行为支持与代理偏差会影响结果；会议目录改题条目未在本轮强行合并为同一正式版本。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.07727v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.10727",
+      "title": "Kernel-Gradient Drifting Models",
+      "authors": [
+        "Maria Esteban-Casadevall",
+        "Jorge Carrasco-Pollo",
+        "Max Welling",
+        "Jan-Willem van de Meent",
+        "Erik J. Bekkers",
+        "Floor Eijkelboom"
+      ],
+      "arxiv_id": "2605.10727v1",
+      "published": "2026-05-11T15:33:21Z",
+      "updated": "2026-05-11T15:33:21Z",
+      "topic": "drifting_theory",
+      "method_zh": "以核本身的梯度代替固定欧氏位移，得到一般核的平滑 score 差，并扩展到流形与概率单纯形。",
+      "limitations_zh": "这是修改后的场；characteristic 核及相应正则性结论不能直接套到原 Laplace 位移场和离散大语言模型。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2026/poster/151352",
+          "index_url": "https://neurips.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.10727v1",
+        "https://neurips.cc/virtual/2026/poster/151352"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.11755",
+      "title": "One-Step Generative Modeling via Wasserstein Gradient Flows",
+      "authors": [
+        "Jiaqi Han",
+        "Puheng Li",
+        "Qiushan Guo",
+        "Renyuan Xu",
+        "Stefano Ermon",
+        "Emmanuel J. Candès"
+      ],
+      "arxiv_id": "2605.11755v2",
+      "published": "2026-05-12T08:29:44Z",
+      "updated": "2026-05-26T21:22:24Z",
+      "topic": "drifting_theory",
+      "method_zh": "W-Flow 用 Sinkhorn 能量的 Wasserstein 场训练单步运输生成器，交叉运输减独立批次自运输改善分布覆盖。",
+      "limitations_zh": "有限粒子向总体动力学逼近的定理在有限时间、正则性和相应有界支持下成立；不等于有限 SGD 达到全局数据分布。",
+      "reading_level": "targeted_sections",
+      "reading_scope_zh": "§3.3 Theorem3.1；Appendix B.1假设、B.3有界支持局部化；作者项目页方法与结果；未逐行验算全证明。",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2605.11755v2",
+        "finding": "有限粒子小步长在有限时间逼近总体PDE，受Lipschitz、增长及Sinkhorn局部化条件限制。"
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "40 pages, 14 figures",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.11755v2",
+        "https://arxiv.org/html/2605.11755v2"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.12183",
+      "title": "DriftXpress: Faster Drifting Models via Projected RKHS Fields",
+      "authors": [
+        "Ali Falahati",
+        "Elliot Creager",
+        "Gautam Kamath",
+        "Shubhankar Mohapatra"
+      ],
+      "arxiv_id": "2605.12183v2",
+      "published": "2026-05-12T14:26:31Z",
+      "updated": "2026-07-23T19:54:46Z",
+      "topic": "drifting_methods",
+      "method_zh": "DriftXpress 在低秩 RKHS 特征中近似核场，降低参考交互的训练开销。",
+      "limitations_zh": "需同时报告近似秩、场误差、训练墙钟和质量；推理单步与训练节省是两个独立比较。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.12183v2"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.17188",
+      "title": "RDDM: A Residual-Driven Drifting Model for High-Fidelity Low-Dose CT Denoising",
+      "authors": [
+        "Jianxu Wang",
+        "Qing Lyu",
+        "Ge Wang"
+      ],
+      "arxiv_id": "2605.17188v1",
+      "published": "2026-05-16T23:05:29Z",
+      "updated": "2026-05-16T23:05:29Z",
+      "topic": "domain_geometry",
+      "method_zh": "RDDM 在低剂量 CT 的残差上建立吸引排斥场，配合像素监督形成不同保真噪声权衡。",
+      "limitations_zh": "收益包含配对像素监督与残差设计；临床结论超出公开图像质量比较的证据范围。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Code is available at: https://github.com/Jayx-Wang/RDDM",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.17188v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.17244",
+      "title": "Drift Flow Matching",
+      "authors": [
+        "Chenrui Ma",
+        "Xi Xiao",
+        "Lin Zhao",
+        "Tianyang Wang",
+        "Ferdinando Fioretto",
+        "Yanning Shen"
+      ],
+      "arxiv_id": "2605.17244v1",
+      "published": "2026-05-17T03:58:01Z",
+      "updated": "2026-05-17T03:58:01Z",
+      "topic": "drifting_methods",
+      "method_zh": "Drift Flow Matching 将直接运输与流式迭代连接，使漂移生成器支持可选的多步质量提升。",
+      "limitations_zh": "多次调用需要对应训练机制；简单重复调用普通单步生成器不自动获得同样效果。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2026/poster/155776",
+          "index_url": "https://neurips.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.17244v1",
+        "https://neurips.cc/virtual/2026/poster/155776"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.19470",
+      "title": "Drifting Objectives for Refining Discrete Diffusion Language Models",
+      "authors": [
+        "Daisuke Oba",
+        "Hiroki Furuta",
+        "Naoaki Okazaki"
+      ],
+      "arxiv_id": "2605.19470v1",
+      "published": "2026-05-19T07:22:17Z",
+      "updated": "2026-05-19T07:22:17Z",
+      "topic": "language_audio",
+      "method_zh": "TokenDrift 将离散扩散预测提升为软 token 特征，在冻结语义空间增加吸引排斥目标。",
+      "limitations_zh": "它是离散扩散的细化目标，所报设置包含多次调用；不能标为从噪声原生一步生成全文。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2605.19470",
+        "local_extracted_line_starts": [
+          81,
+          93,
+          182
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Project page: https://daioba.github.io/tokendrift/",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.19470v1",
+        "https://arxiv.org/html/2605.19470"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.22795",
+      "title": "Finite-Particle Convergence Rates for Conservative and Non-Conservative Drifting Models",
+      "authors": [
+        "Krishnakumar Balasubramanian"
+      ],
+      "arxiv_id": "2605.22795v3",
+      "published": "2026-05-21T17:49:09Z",
+      "updated": "2026-09-21T04:06:01Z",
+      "topic": "drifting_theory",
+      "method_zh": "研究保守和原 Laplace 场的有限粒子熵耗散、局部占据与残差速率，显式保留带宽依赖。",
+      "limitations_zh": "逆 KDE 矩可在缩带宽下发散；所述 N 的速率依赖均匀正则性、求积及尺度对齐，维数代价明显。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2605.22795",
+        "local_extracted_line_starts": [
+          85,
+          103,
+          104
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.22795v3",
+        "https://arxiv.org/html/2605.22795"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.22990",
+      "title": "Drift-React: One-step Generation of Reaction Pathways via SE(3) Drifting Fields",
+      "authors": [
+        "Rémi Schlama",
+        "Philippe Schwaller"
+      ],
+      "arxiv_id": "2605.22990v1",
+      "published": "2026-05-21T19:40:45Z",
+      "updated": "2026-05-21T19:40:45Z",
+      "topic": "domain_geometry",
+      "method_zh": "Drift-React 以 SE(3) 等变模型和 Sinkhorn 加权漂移从反应物、产物预测完整反应路径。",
+      "limitations_zh": "反应坐标上的连续路径与视频物理时间不同；能量瓶颈和几何误差不证明一般事件顺序推理。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2026/poster/154432",
+          "index_url": "https://neurips.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.22990v1",
+        "https://neurips.cc/virtual/2026/poster/154432"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.24841",
+      "title": "DriftingMol: Decoder-Coupled Drift for One-Pass Property-Conditional Molecular Generation",
+      "authors": [
+        "Jiangjie Qiu",
+        "Yijun Li",
+        "Wentao Li",
+        "Xiaonan Wang"
+      ],
+      "arxiv_id": "2605.24841v1",
+      "published": "2026-05-24T03:17:20Z",
+      "updated": "2026-05-24T03:17:20Z",
+      "topic": "domain_geometry",
+      "method_zh": "DriftingMol 使用冻结 SELFIES VAE 解码器隐藏特征计算漂移，通过输入梯度把表示几何传回生成器。",
+      "limitations_zh": "冻结解码器权重不意味着切断输入梯度；一次生成器加一次解码器的成本须同时报告。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "9 pages, 5 figures",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.24841v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2605.26552",
+      "title": "Aligning Few-Step Generative Models by Amortizing Sample-based Variational Inference",
+      "authors": [
+        "Jaewoo Lee",
+        "Hyeongyu Kang",
+        "Dohyun Kim",
+        "Kyuil Sim",
+        "Woocheol Shin",
+        "Minsu Kim",
+        "Taeyoung Yun",
+        "Jeongjae Lee",
+        "Sanghyeok Choi",
+        "Tabitha Edith Lee",
+        "Jong Chul Ye",
+        "Jinkyoo Park"
+      ],
+      "arxiv_id": "2605.26552v2",
+      "published": "2026-05-26T05:02:49Z",
+      "updated": "2026-05-27T07:59:16Z",
+      "topic": "distillation_alignment",
+      "method_zh": "FAV 把参考分布上的奖励倾斜写成样本变分推断，以 SVGD 粒子更新和固定点回归适配多类少步生成器。",
+      "limitations_zh": "需要明确参考采样、奖励评价与特征选择成本；模型无似然要求不等于没有分布假设。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Under review",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2605.26552v2"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2606.01098",
+      "title": "Implicit Drifting Policy: One-Step Action Generation via Conditional Expert Geometry",
+      "authors": [
+        "Zemin Yang",
+        "Yaoyu He",
+        "Yiming Zhong",
+        "Yuhao Zhang",
+        "Xinge Zhu",
+        "Yao Mu",
+        "Qingqiu Huang",
+        "Yuexin Ma"
+      ],
+      "arxiv_id": "2606.01098v1",
+      "published": "2026-05-31T08:39:57Z",
+      "updated": "2026-05-31T08:39:57Z",
+      "topic": "video_policy",
+      "method_zh": "IDP 用观测相似演示的局部专家几何和全局参考几何构造标量势，避免显式估计极稀疏条件场。",
+      "limitations_zh": "该方法改变了直接核场估计；邻域是否共享合法动作语义和终端约束是 UMM 迁移时的关键。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2026/poster/153972",
+          "index_url": "https://neurips.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2606.01098v1",
+        "https://neurips.cc/virtual/2026/poster/153972"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2606.02521",
+      "title": "Drifting Preference Optimization for One-Step Generative Models",
+      "authors": [
+        "Zhou Jiang",
+        "Yandong Wen",
+        "Zhen Liu"
+      ],
+      "arxiv_id": "2606.02521v3",
+      "published": "2026-06-01T17:31:49Z",
+      "updated": "2026-06-03T15:46:57Z",
+      "topic": "distillation_alignment",
+      "method_zh": "DrPO 用黑箱奖励排序正负候选，以偏好偶极场加参考漂移形成停止梯度更新，保持单步部署。",
+      "limitations_zh": "省去奖励反传不等于省去奖励查询和候选生成；目标奖励的提升仍可能伴随偏好过拟合。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2606.02521",
+        "local_extracted_line_starts": [
+          35,
+          53,
+          65
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "24 pages, 9 figures",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2606.02521v3",
+        "https://arxiv.org/html/2606.02521"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2606.07481",
+      "title": "Drifting Models for Surrogate Flow Modeling",
+      "authors": [
+        "Chris R. Jung",
+        "Markus Dörr",
+        "Natalie Jüngling",
+        "Jennifer Niessner",
+        "Adam T. Müller",
+        "Nicolaj C. Stache"
+      ],
+      "arxiv_id": "2606.07481v1",
+      "published": "2026-06-05T17:35:09Z",
+      "updated": "2026-06-05T17:35:09Z",
+      "topic": "domain_geometry",
+      "method_zh": "在 VAE 潜空间和边界标签掩码下应用条件漂移，构建单次 CFD 流场代理。",
+      "limitations_zh": "特定边界与几何范围内的误差比较不保证未见几何或物理守恒；CFD 的 flow 与生成 flow matching 需区分。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Accepted to the 2nd International Symposium AI and Fluid Mechanics 2026",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2606.07481v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2606.13795",
+      "title": "DiPOD: Diffusion Policy Optimization without Drifting Apart",
+      "authors": [
+        "Haozhe Jiang",
+        "Haiwen Feng",
+        "Pieter Abbeel",
+        "Jiantao Jiao",
+        "Angjoo Kanazawa",
+        "Nika Haghtalab"
+      ],
+      "arxiv_id": "2606.13795v2",
+      "published": "2026-06-11T18:06:04Z",
+      "updated": "2026-06-17T17:53:46Z",
+      "topic": "video_policy",
+      "method_zh": "DiPOD 通过自蒸馏和在策略 ELBO 正则，减轻扩散策略似然代理与真实策略梯度的双重偏移。",
+      "limitations_zh": "题名 drifting apart 指目标偏移，机制属于扩散策略优化；不归为 GMD 漂移模型。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Project page: astro-eric.github.io/blogs/dipod/ Code: https://github.com/Astro-Eric/DiPOD-release",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2606.13795v2"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2606.15553",
+      "title": "Distilling Drifting Transformers with Representation Autoencoders",
+      "authors": [
+        "Jiawei Zhang",
+        "Mengfei Xia",
+        "Gen Li",
+        "Yuantao Gu"
+      ],
+      "arxiv_id": "2606.15553v2",
+      "published": "2026-06-14T02:46:50Z",
+      "updated": "2026-08-03T16:23:10Z",
+      "topic": "distillation_alignment",
+      "method_zh": "Drift-RAE 以语义丰富的 RAE 表示做漂移蒸馏，研究各向异性潜空间和引导设计。",
+      "limitations_zh": "报告短程蒸馏成本不含完整教师和 RAE 预训练；ImageNet 结果尚不能保证汉字细笔重建与过程正确。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2606.15553",
+        "local_extracted_line_starts": [
+          96,
+          100,
+          133
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2606.15553v2",
+        "https://arxiv.org/html/2606.15553"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2606.27824",
+      "title": "Pepti-drift: Scalable Safe-Active Peptide Generation Without Inference-Time Guidance",
+      "authors": [
+        "Takashi Fujiwara",
+        "Hikaru Shindo",
+        "Kaushalya Madhawa",
+        "Jun Jin Choong",
+        "Shuan Chen",
+        "Yuna Oikawa",
+        "Yiming Zhang",
+        "Gyubok Lee",
+        "Keisuke Ozawa"
+      ],
+      "arxiv_id": "2606.27824v3",
+      "published": "2026-06-26T08:04:11Z",
+      "updated": "2026-10-01T08:42:56Z",
+      "topic": "domain_geometry",
+      "method_zh": "Pepti-drift 以结合活性吸引和风险区域排斥做一次潜变量细化，并强调长度匹配评价。",
+      "limitations_zh": "预测活性安全与真实药效不同；报告单次潜细化之外还有并行解码，速度和长度混杂必须分列。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "preprint",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2606.27824v3"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2607.02428",
+      "title": "Self-Auditing Residual Drifting for Pathology-Preserving Accelerated Knee MRI",
+      "authors": [
+        "Qing Lyu",
+        "Jianxu Wang",
+        "Mohammad Kawas",
+        "Ge Wang",
+        "Christopher T. Whitlow"
+      ],
+      "arxiv_id": "2607.02428v1",
+      "published": "2026-07-02T16:59:03Z",
+      "updated": "2026-07-02T16:59:03Z",
+      "topic": "domain_geometry",
+      "method_zh": "SA-RDM-DC 联合预测图像与缺失 k-space 残差，使用数据一致性、频率漂移和同次误差估计。",
+      "limitations_zh": "自审计分数属于模型输出，跨协议可靠性和病理保留须独立验证；不能自动升级为可信人工金标。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2607.02428v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2607.14507",
+      "title": "DRIFT: Drift and Aggregation for Motion Planning",
+      "authors": [
+        "Yining Xing",
+        "Zhiyuan Liu",
+        "Zehong Ke",
+        "Wenhao Yu",
+        "Jianqiang Wang"
+      ],
+      "arxiv_id": "2607.14507v1",
+      "published": "2026-07-16T02:43:13Z",
+      "updated": "2026-07-16T02:43:13Z",
+      "topic": "video_policy",
+      "method_zh": "DRIFT 批量生成多条紧凑轨迹提议，再用场景感知聚合头形成最终驾驶计划。",
+      "limitations_zh": "提议头 10.82ms 与完整模型 66.43ms 的口径不同；单个最终计划仍包含多候选和聚合计算。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "8 pages, 3 figures, 4 tables. Under review at IEEE RAL",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2607.14507v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2607.15065",
+      "title": "DriftWorld: Fast World Modeling through Drifting",
+      "authors": [
+        "Susie Lu",
+        "Haonan Chen",
+        "Weirui Ye",
+        "Yilun Du"
+      ],
+      "arxiv_id": "2607.15065v3",
+      "published": "2026-07-16T14:37:43Z",
+      "updated": "2026-10-02T17:56:20Z",
+      "topic": "video_policy",
+      "method_zh": "DriftWorld 在历史帧与动作条件下用单正例和多个生成负例训练未来观测生成器，并做自回归展开。",
+      "limitations_zh": "真实场景的一次调用通常预测一帧，长视频仍需多次调用；PSNR/FVD 和机器人场景不构成汉字笔顺正确证据。",
+      "reading_level": "targeted_sections",
+      "reading_scope_zh": "§III-C单正样本条件场；§IV-A数据与时间窗；§IV-B TableI、讨论及自回归范围。",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2607.15065v3",
+        "finding": "单次生成未来块随后自回归滚动；头部一步不等于完整长视频一步，PushT同UNet对照支持该场景的目标函数收益。"
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Website at https://susie-lu.github.io/driftworld/",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2607.15065v3",
+        "https://arxiv.org/html/2607.15065v3"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2607.18198",
+      "title": "Three-Body Scattering for Generative Modeling",
+      "authors": [
+        "Peng Sun",
+        "Zhenglin Cheng",
+        "Deyuan Liu",
+        "Jun Xie",
+        "Xinyi Shang",
+        "Tao Lin"
+      ],
+      "arxiv_id": "2607.18198v1",
+      "published": "2026-07-20T17:38:12Z",
+      "updated": "2026-07-20T17:38:12Z",
+      "topic": "drifting_methods",
+      "method_zh": "TBSM 将能量距离转成每个样本只与一真一假源交互的三体散射，以 O(B) 样本损失训练一步生成器。",
+      "limitations_zh": "线性交互计数不包含特征编码器和生成器成本；同条件单参考及跟踪估计仍有统计误差。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "31 pages, 5 figures, and 4 tables. Code: https://github.com/sp12138/TBSM",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2607.18198v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2607.26398",
+      "title": "Flow Map Learning via Nongradient Vector Flow",
+      "authors": [
+        "Mark Goldstein",
+        "Anshuk Uppal",
+        "Raghav Singhal",
+        "Aahlad Puli",
+        "Rajesh Ranganath"
+      ],
+      "arxiv_id": "2607.26398v1",
+      "published": "2026-07-29T02:17:27Z",
+      "updated": "2026-07-29T02:17:27Z",
+      "topic": "flow_consistency",
+      "method_zh": "SGFlow 通过非保守、停止梯度的向量动态学习 ODE 流映射，避免模型逆与迭代调用反传。",
+      "limitations_zh": "其固定点性质与有限神经网络 SGD 收敛有差别；论文也未宣称在全部采样步数上 FID 最优。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICLR",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://iclr.cc/virtual/2026/poster/10010892",
+          "index_url": "https://iclr.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": "ICLR 2026",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2607.26398v1",
+        "https://iclr.cc/virtual/2026/poster/10010892"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2608.01547",
+      "title": "Finite-Probe Total-Variation Certificates for Finite-Basis Drifting Models",
+      "authors": [
+        "Sam Andersson",
+        "Ricky Molén"
+      ],
+      "arxiv_id": "2608.01547v1",
+      "published": "2026-08-03T00:00:40Z",
+      "updated": "2026-08-03T00:00:40Z",
+      "topic": "drifting_theory",
+      "method_zh": "在声明的有限密度基中，利用独立探针的未归一化场分子和可观测性边际构造 TV 条件证书。",
+      "limitations_zh": "需独立噪声界、算子误差与外部残差半径；退化时弃判。不能从任意训练小损失给出通用分布证书。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "39 pages, 8 figures. Reproducibility code and numerical outputs: https://github.com/SamAndersson-C/finite-drift-certification",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2608.01547v1"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2608.07924",
+      "title": "Second Order Drifting Models",
+      "authors": [
+        "Drake Brown",
+        "Yuhao Huang",
+        "Shih-Hsin Wang",
+        "Bao Wang"
+      ],
+      "arxiv_id": "2608.07924v1",
+      "published": "2026-08-08T05:02:55Z",
+      "updated": "2026-08-08T05:02:55Z",
+      "topic": "drifting_methods",
+      "method_zh": "在相空间加入人工速度变量，利用二阶动力学缓解核平滑带来的谱刚性，并给出半隐式训练。",
+      "limitations_zh": "加速分析围绕线性化频率动力学；人工训练速度变量不能解释为视频的真实物体速度。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2608.07924",
+        "local_extracted_line_starts": [
+          73,
+          105,
+          107
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "20 pages, 4 figures",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2608.07924v1",
+        "https://arxiv.org/html/2608.07924"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2608.23939",
+      "title": "CoDrift: Compositional Drifting for Offline Reinforcement Learning",
+      "authors": [
+        "Xiewei Ni",
+        "Ruofeng Mei",
+        "Xiangyu Xu"
+      ],
+      "arxiv_id": "2608.23939v1",
+      "published": "2026-08-25T00:54:59Z",
+      "updated": "2026-08-25T00:54:59Z",
+      "topic": "video_policy",
+      "method_zh": "CoDrift 组合条件行为场、跨状态边缘场与价值场，应对离线 RL 的单正例和多目标问题。",
+      "limitations_zh": "边缘稳定性与状态条件保持可能冲突；需要匹配 critic、数据和调参预算才能归因。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2608.23939v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2608.29749",
+      "title": "DriftingVLA: Native One-Step Vision-Language-Action Generation via Per-Dimension Temporal Drifting",
+      "authors": [
+        "Yuxuan Gao",
+        "Shiqi Zhang",
+        "Yedong Shen",
+        "Yifan Duan",
+        "Wenhao Yu",
+        "Xin Zhang",
+        "Siyuan Cao",
+        "Jiajun Deng",
+        "Yanyong Zhang"
+      ],
+      "arxiv_id": "2608.29749v1",
+      "published": "2026-08-30T12:21:44Z",
+      "updated": "2026-08-30T12:21:44Z",
+      "topic": "video_policy",
+      "method_zh": "DriftingVLA 以每个动作维度的完整时间曲线组织漂移，模型仍联合生成所有维度，并后训练 VLM 与动作头。",
+      "limitations_zh": "单维训练几何不等于推理中各维独立；动作专家单步也不等于整个 VLM 加控制回路只做一次轻量计算。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2608.29749",
+        "local_extracted_line_starts": [
+          51,
+          56,
+          76
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2608.29749v1",
+        "https://arxiv.org/html/2608.29749"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2609.06923",
+      "title": "DriftParking: Trajectory Modeling via Drifting Field for End-to-End Automated Parking",
+      "authors": [
+        "Ziyan Wang",
+        "Dong Li",
+        "Weibo Wang",
+        "Yinyin Lu",
+        "Jiayu Xie",
+        "Jiamao Gu",
+        "Dongpeng Zhang"
+      ],
+      "arxiv_id": "2609.06923v1",
+      "published": "2026-09-07T01:42:57Z",
+      "updated": "2026-09-07T01:42:57Z",
+      "topic": "video_policy",
+      "method_zh": "DriftParking 使用配对轨迹的一对一吸引、专家中心排斥及端点残差表示，强调停车终点精度。",
+      "limitations_zh": "吸引项已转为条件配对监督；不可把该设定直接等同于总体分布匹配理论或自由多模态采样。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2609.06923v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2609.12252",
+      "title": "DriftSE: Speech Enhancement with Generative Drifting",
+      "authors": [
+        "Liang Xu",
+        "Diego Caviedes-Nozal",
+        "W. Bastiaan Kleijn",
+        "Longfei Felix Yan",
+        "Rasmus Kongsgaard Olsson"
+      ],
+      "arxiv_id": "2609.12252v1",
+      "published": "2026-09-10T22:17:31Z",
+      "updated": "2026-09-10T22:17:31Z",
+      "topic": "language_audio",
+      "method_zh": "新 DriftSE 在语义与声学双潜空间同时漂移，尝试兼顾内容清晰度和物理声学保真。",
+      "limitations_zh": "与 2604.24199 同名但不同论文；语义与声学目标的权衡不能外推为书写细节无损。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "11 pages, 3 figures",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2609.12252v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2609.15193",
+      "title": "Convergence rates for generative drifting flows: fixed-scale obstructions and multihead acceleration",
+      "authors": [
+        "Arthur Stéphanovitch",
+        "Eddie Aamari"
+      ],
+      "arxiv_id": "2609.15193v2",
+      "published": "2026-09-14T08:12:35Z",
+      "updated": "2026-10-13T08:58:21Z",
+      "topic": "drifting_theory",
+      "method_zh": "研究理想漂移动力学的固定尺度障碍，以连续多尺度头改善参考分布附近的收敛率。",
+      "limitations_zh": "指数收敛位于规定参考分布的邻域与理想条件；有限数据、有限尺度、网络拟合和真实图像训练另待验证。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2609.15193v2"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2609.16222",
+      "title": "How I learned to stop worrying and love StopGrads: Stationarity, Convergence, and a case study on Flow Map Learning",
+      "authors": [
+        "Max W. Shen",
+        "Mark Goldstein",
+        "Zichu Wang",
+        "Aahlad Puli",
+        "Rajesh Ranganath"
+      ],
+      "arxiv_id": "2609.16222v1",
+      "published": "2026-09-14T18:51:55Z",
+      "updated": "2026-09-14T18:51:55Z",
+      "topic": "flow_consistency",
+      "method_zh": "用停止梯度回归原则刻画固定点和函数半梯度动力学，分析 MeanFlow 等映射并改动梯度放置降低内存。",
+      "limitations_zh": "函数空间唯一驻点和解析动力学有规定假设；不能直接推导实际模型对任意初始化、有限优化的全局收敛。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "NeurIPS",
+          "year": 2026,
+          "evidence": "official_listing",
+          "url": "https://neurips.cc/virtual/2026/poster/149145",
+          "index_url": "https://neurips.cc/Downloads/2026",
+          "track": "官方目录定位；未由目录自动认定主会或奖项"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2609.16222v1",
+        "https://neurips.cc/virtual/2026/poster/149145"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2609.18108",
+      "title": "Technical Report: One-Step Drifting Action Heads for GR00T N1.7",
+      "authors": [
+        "Xihe Shao"
+      ],
+      "arxiv_id": "2609.18108v1",
+      "published": "2026-09-16T04:25:29Z",
+      "updated": "2026-09-16T04:25:29Z",
+      "topic": "video_policy",
+      "method_zh": "GR00T 技术报告记录单步漂移动作头的速度和多种子闭环成功率，明确披露成功率下降。",
+      "limitations_zh": "延迟只含骨干加动作头；对照种子并非各项完全齐全，Object 缺结果，异步重叠路径未被同步 LIBERO 测试。",
+      "reading_level": "targeted_sections",
+      "reading_scope_zh": "方法、同步与异步范围；§IV-A TablesI/II/III、评测覆盖及缺失项。",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2609.18108v1",
+        "finding": "GR00T头部45.3→5.0ms，backbone+head70.0→30.6ms；LIBERO三个已测套件成功率下降，异步扩展未在该基准验证。"
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "For code and test result, see https://github.com/RealManShao/lerobot/tree/feat/drif-ov. For trained checkpoint, see https://huggingface.co/Xihe666/models",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2609.18108v1",
+        "https://arxiv.org/html/2609.18108v1"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2609.23305",
+      "title": "Shared Execution-Clock Drifting Policy for Dynamic Precision Manipulation",
+      "authors": [
+        "Zhenchen Dong",
+        "Qingran Wu",
+        "Jinna Fu",
+        "Jiaming Wu",
+        "Fulin Chen",
+        "Hongyu Yu",
+        "Yide Liu"
+      ],
+      "arxiv_id": "2609.23305v1",
+      "published": "2026-09-20T02:42:31Z",
+      "updated": "2026-09-20T02:42:31Z",
+      "topic": "video_policy",
+      "method_zh": "SECD 同时生成进度索引动作曲线与共享单调执行时钟，通过解码动作上的漂移和演示对齐联合训练。",
+      "limitations_zh": "块内进度不等于完整任务进度；执行时钟、采样积分时间和优化迭代应分开。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2609.23305",
+        "local_extracted_line_starts": [
+          42,
+          44,
+          45
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "8 pages. Project page: https://secd-anonymous-ewn.pages.dev/",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2609.23305v1",
+        "https://arxiv.org/html/2609.23305"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2609.26435",
+      "title": "One-Step Generative Surrogate Models via Block-Triangular Joint Drifting",
+      "authors": [
+        "Nicholas Geissler",
+        "Shreya Jha",
+        "Ricardo Baptista",
+        "Benjamin Peherstorfer"
+      ],
+      "arxiv_id": "2609.26435v1",
+      "published": "2026-09-22T14:00:01Z",
+      "updated": "2026-09-22T14:00:01Z",
+      "topic": "domain_geometry",
+      "method_zh": "用块三角联合漂移学习连续状态对的联合分布，保留当前态边缘并直接生成条件下一态。",
+      "limitations_zh": "单对样本下的条件建模依赖结构约束；模拟轨迹统计尚不等于复杂 RGB 事件的实例绑定。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2609.26435v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2609.27598",
+      "title": "DriftAudio: Marginal Drifting for Distributional Post-Training of One-Step Text-to-Audio Generators",
+      "authors": [
+        "Xingyu Chen",
+        "Fei Ma",
+        "Sipei Zhao"
+      ],
+      "arxiv_id": "2609.27598v1",
+      "published": "2026-09-23T09:14:57Z",
+      "updated": "2026-09-23T09:14:57Z",
+      "topic": "language_audio",
+      "method_zh": "DriftAudio 对已有单步文生音频做跨文本边缘分布后训练，用冻结音频特征与滚动生成样本库估计场。",
+      "limitations_zh": "边缘分布改进与文本条件保持分别评估；不同底座的 CLAP、IS 有取舍，不能仅凭 FAD 宣称全面改善。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2609.27598",
+        "local_extracted_line_starts": [
+          105,
+          116,
+          304
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Submitted to IEEE ICASSP 2027",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2609.27598v1",
+        "https://arxiv.org/html/2609.27598"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2609.32298",
+      "title": "Refresh or Realize? Compute Allocation in Drifting Models",
+      "authors": [
+        "Sipeng Chen",
+        "Xu Zheng",
+        "Shibo Li"
+      ],
+      "arxiv_id": "2609.32298v1",
+      "published": "2026-09-26T06:42:23Z",
+      "updated": "2026-09-26T06:42:23Z",
+      "topic": "drifting_methods",
+      "method_zh": "固定目标重复拟合，测量实际网络位移与指定场的差距，并比较更新场和深入拟合的预算分配。",
+      "limitations_zh": "两种训练种子的同墙钟结果支持该设定下优先刷新；不能由更低固定目标误差推出更好最终 FID。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2609.32298",
+        "local_extracted_line_starts": [
+          183,
+          204,
+          580
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "20pages",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2609.32298v1",
+        "https://arxiv.org/html/2609.32298"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2609.32708",
+      "title": "One-Step Generative Modeling via Unbalanced Optimal Transport",
+      "authors": [
+        "Yirong Shen",
+        "Mengfei Xia",
+        "Junpeng Jing",
+        "Lu Gan",
+        "Cong Ling"
+      ],
+      "arxiv_id": "2609.32708v1",
+      "published": "2026-09-26T15:17:31Z",
+      "updated": "2026-09-26T15:17:31Z",
+      "topic": "drifting_theory",
+      "method_zh": "UOT-GF 保持生成侧边缘固定，只松弛真实侧质量，以缓解有限批次的强制匹配偏差。",
+      "limitations_zh": "与双侧松弛存在不同目标和失配风险；报告同配置改进也不证明所有不平衡任务上都优于平衡运输。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2609.32708v1"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2609.34662",
+      "title": "Unsupervised Speech Enhancement via Drifting",
+      "authors": [
+        "Diego Caviedes-Nozal",
+        "Liang Xu",
+        "Rasmus Kongsgaard Olsson",
+        "W. Bastiaan Kleijn"
+      ],
+      "arxiv_id": "2609.34662v1",
+      "published": "2026-09-28T09:02:12Z",
+      "updated": "2026-09-28T09:02:12Z",
+      "topic": "language_audio",
+      "method_zh": "揭示无配对边缘漂移会丢失内容与说话者，使用输入 anchor 与 key 重加权重新绑定条件。",
+      "limitations_zh": "内容和渲染质量可分别变化；正文在统一重评分流水线比较，不能混用不同实现的非侵入指标。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2609.34662",
+        "local_extracted_line_starts": [
+          108,
+          115,
+          118
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "5 pages, 2 figures. Submitted to ICASSP 2027",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2609.34662v1",
+        "https://arxiv.org/html/2609.34662"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.01355",
+      "title": "Discrete Wasserstein Flows for One-Step Generative Modeling",
+      "authors": [
+        "Alessandro Micheli",
+        "Andrea Zerio",
+        "Samir Bhatt"
+      ],
+      "arxiv_id": "2610.01355v1",
+      "published": "2026-10-01T09:25:25Z",
+      "updated": "2026-10-01T09:25:25Z",
+      "topic": "drifting_theory",
+      "method_zh": "在离散状态空间以概率流与占据权重学习单步采样器，连接离散 Wasserstein 演化。",
+      "limitations_zh": "主要是有限状态可控设定；不能据此宣称已解决大词表文本生成或长序列语义一致性。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.01355v1"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.02188",
+      "title": "DMAD: Distribution Matching as Adversarial Distillation for Fast Visual Generation",
+      "authors": [
+        "Zhengming Yu",
+        "Junkun Yuan",
+        "Haotian Yang",
+        "Gordon Guocheng Qian",
+        "Yizhi Wang",
+        "Angtian Wang",
+        "Yiding Yang",
+        "Bo Liu",
+        "Xin Li",
+        "Wenping Wang",
+        "Chongyang Ma"
+      ],
+      "arxiv_id": "2610.02188v2",
+      "published": "2026-10-01T17:59:01Z",
+      "updated": "2026-10-13T20:53:44Z",
+      "topic": "distillation_alignment",
+      "method_zh": "DMAD 以共享骨干上的真假分类头估计密度比，将 DMD 的 score 分布匹配改写为对抗蒸馏。",
+      "limitations_zh": "等价梯度依赖判别器最优等条件；真实数据、教师样本和大骨干训练仍有成本，视频榜单不证明过程正确。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "28 pages, 15 figures. Project page: https://yzmblog.github.io/projects/DMAD",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.02188v2"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.03626",
+      "title": "Depth as Time in One-Step Generative Models",
+      "authors": [
+        "Arnold Caleb Asiimwe",
+        "William Yang",
+        "Sanghyuk Chun",
+        "Esin Tureci",
+        "Olga Russakovsky"
+      ],
+      "arxiv_id": "2610.03626v1",
+      "published": "2026-10-02T17:20:08Z",
+      "updated": "2026-10-02T17:20:08Z",
+      "topic": "drifting_methods",
+      "method_zh": "以中间层输出头探测单步模型的深度计算，发现流映射模型可呈现逐层去噪及再加噪现象。",
+      "limitations_zh": "层探测是经验观察，原生漂移模型未呈现同样模式；不能把所有单步网络都解释成隐藏扩散轨迹。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.03626v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.04454",
+      "title": "One-Step Generation via Riemannian Wasserstein Gradient Flows",
+      "authors": [
+        "David Li",
+        "Chanhyuk Lee",
+        "Jaehoon Yoo",
+        "Nikita Gushchin",
+        "Floor Eijkelboom",
+        "Eric Moulines",
+        "Maxim Panov",
+        "Alexander Korotin",
+        "Seunghoon Hong",
+        "Jinwoo Kim"
+      ],
+      "arxiv_id": "2610.04454v1",
+      "published": "2026-10-03T11:42:19Z",
+      "updated": "2026-10-03T11:42:19Z",
+      "topic": "drifting_theory",
+      "method_zh": "在共同训练框架下比较多个几何感知 Wasserstein 场，避免加性欧氏更新越出约束空间。",
+      "limitations_zh": "不同任务的最佳场不同；尚无一个能量对全部几何和数据域普遍最优的证据。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.04454v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.04703",
+      "title": "Learning Discriminative Geometry for Drifting Models",
+      "authors": [
+        "Doudou Zhang",
+        "Wenwen Hou",
+        "Yilin Chen",
+        "Qi Chen"
+      ],
+      "arxiv_id": "2610.04703v1",
+      "published": "2026-10-03T18:36:52Z",
+      "updated": "2026-10-03T18:36:52Z",
+      "topic": "drifting_methods",
+      "method_zh": "交替学习编码器的判别几何和生成器，以当前批次重建 KDE，并裁剪特征速度。",
+      "limitations_zh": "生成器更新仍需经冻结编码器对输入反传；引入判别几何训练的依赖与计算须单独计入。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2610.04703",
+        "local_extracted_line_starts": [
+          249,
+          278,
+          331
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.04703v1",
+        "https://arxiv.org/html/2610.04703"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.04819",
+      "title": "DriftSR: One-Step Real-World Image Super-Resolution via Distribution Drifting",
+      "authors": [
+        "Wei Zhu",
+        "Kai Zhang",
+        "Yu Zheng",
+        "Zhaopeng Yang",
+        "Lei Luo",
+        "Yong Guo",
+        "Jian Yang"
+      ],
+      "arxiv_id": "2610.04819v1",
+      "published": "2026-10-03T23:54:51Z",
+      "updated": "2026-10-03T23:54:51Z",
+      "topic": "domain_geometry",
+      "method_zh": "借助冻结扩散教师的隐藏特征实施空间特征漂移，以结构调制引导约束低质输入内容，训练单步超分辨生成器。",
+      "limitations_zh": "空间位置作为样本形成的分布约束仍需检查局部对应；教师特征、退化配方与结构保真均构成条件，未核读全部实验。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.04819v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.10989",
+      "title": "Multi-Bandwidth Distribution Matching Distillation: On the Equivalence of Distribution Matching Distillation and Drifting Models",
+      "authors": [
+        "Jialin Zhu",
+        "Xing Liu",
+        "Feixiang He",
+        "He Wang"
+      ],
+      "arxiv_id": "2610.10989v1",
+      "published": "2026-10-07T23:21:55Z",
+      "updated": "2026-10-07T23:21:55Z",
+      "topic": "drifting_methods",
+      "method_zh": "把预训练扩散或 flow 的信号改写为漂移吸引场，联系 DMD，并提出多带宽 DMD。",
+      "limitations_zh": "等价性取决于教师场、排斥估计和参数化；有教师的蒸馏与原生无教师训练应分列。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2610.10989",
+        "local_extracted_line_starts": [
+          72,
+          73,
+          74
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.10989v1",
+        "https://arxiv.org/html/2610.10989"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.12879",
+      "title": "One-Step Text Generation by Seq-Drifting",
+      "authors": [
+        "Jiayu Liu",
+        "Ruizhi Zhao",
+        "Tianyun Ji",
+        "Yee Whye Teh",
+        "Zhenya Huang",
+        "Ning Miao"
+      ],
+      "arxiv_id": "2610.12879v1",
+      "published": "2026-10-09T02:15:52Z",
+      "updated": "2026-10-09T02:15:52Z",
+      "topic": "language_audio",
+      "method_zh": "Seq-Drifting 在连续 token 表示上形成上下文相关吸引和跨样本、序列内排斥，一次并行输出文本。",
+      "limitations_zh": "训练使用支持模型构造上下文候选；不应把推理不需支持模型写成完全没有教师或外部知识成本。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2610.12879",
+        "local_extracted_line_starts": [
+          64,
+          84,
+          142
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.12879v1",
+        "https://arxiv.org/html/2610.12879"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.15662",
+      "title": "Drift, Then Spread: Learning One-Step Generative Policies for Online Reinforcement Learning",
+      "authors": [
+        "Chunyu Luo",
+        "Hongyu Zhao",
+        "Guangyi Ni",
+        "Yue Song",
+        "Lingkai Kong"
+      ],
+      "arxiv_id": "2610.15662v1",
+      "published": "2026-10-11T14:40:01Z",
+      "updated": "2026-10-11T14:40:01Z",
+      "topic": "video_policy",
+      "method_zh": "DriftSpread 在同一 actor 中交替吸收 critic 引导漂移与熵扩散，用于无显式密度的最大熵 RL。",
+      "limitations_zh": "Boltzmann 收敛结论要求固定 critic、精确拟合及先小步后长时间极限，不能直接保证有限在线训练。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.15662v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.18552",
+      "title": "Unbalanced W-Flow: Unbalanced Wasserstein Drifting under Finite-Batch Marginal Fluctuations",
+      "authors": [
+        "Jongwook Jeon",
+        "Mingue Park",
+        "Jiwon Choi",
+        "Jaihoon Kim",
+        "Yunhong Min",
+        "Minhyuk Sung"
+      ],
+      "arxiv_id": "2610.18552v1",
+      "published": "2026-10-13T15:28:05Z",
+      "updated": "2026-10-13T15:28:05Z",
+      "topic": "drifting_theory",
+      "method_zh": "UW-Flow 从去偏不平衡 Sinkhorn 能量推导漂移，分析批次质量波动与模态间隔对速度误差的影响。",
+      "limitations_zh": "与仅松弛真实侧的 UOT-GF 为不同论文；需注明质量松弛参数、平衡极限及可辨识假设。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "31 pages, 9 figures, 9 tables",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.18552v1"
+      ],
+      "local_source_access": "html_unavailable",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.19883",
+      "title": "Occupancy Modeling via Drifting: One-Step Generation Enables Direct Policy Extraction",
+      "authors": [
+        "Robin Uhrich",
+        "Marco Bagatella",
+        "Núria Armengol Urpí",
+        "Pavel Kolev",
+        "Georg Martius"
+      ],
+      "arxiv_id": "2610.19883v1",
+      "published": "2026-10-14T09:37:20Z",
+      "updated": "2026-10-14T09:37:20Z",
+      "topic": "video_policy",
+      "method_zh": "用漂移建模折扣状态占据，通过单步生成器直接微分提取策略，减少额外 critic 蒸馏。",
+      "limitations_zh": "占据建模、多模态覆盖和策略提取各影响结果；无标签预训练仍依赖覆盖合适行为的数据。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.19883v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.20190",
+      "title": "Value-Guided Repulsion for Offline Reinforcement Learning",
+      "authors": [
+        "Yixue Hao",
+        "Jiahao Zhang",
+        "Jiesong Lian",
+        "Xufei Guo",
+        "Xumeng Guo",
+        "Wenhui Zhang",
+        "Long Hu",
+        "Rui Wang"
+      ],
+      "arxiv_id": "2610.20190v1",
+      "published": "2026-10-14T13:39:03Z",
+      "updated": "2026-10-14T13:39:03Z",
+      "topic": "video_policy",
+      "method_zh": "VRQL 用归一化价值修改生成动作间排斥强度，同时保留对行为动作的吸引。",
+      "limitations_zh": "局部场的价值偏置依赖 critic 准确性；较高离线平均成绩不自动说明更强的分布覆盖。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.20190v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.22960",
+      "title": "DriftTTS: One-stage Single Step Text-to-Speech via Generative Drifting",
+      "authors": [
+        "Jaehyun Ahn",
+        "Dohyun Kim",
+        "Heeseung Kim"
+      ],
+      "arxiv_id": "2610.22960v1",
+      "published": "2026-10-16T05:31:38Z",
+      "updated": "2026-10-16T05:31:38Z",
+      "topic": "language_audio",
+      "method_zh": "DriftTTS 在时长预测与单调对齐形成的先验上做分段漂移，一次解码 mel 频谱。",
+      "limitations_zh": "单次 decoder 不包含文本编码、时长模型和声码器全链路；分段与时长对齐是重要条件信息。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2610.22960",
+        "local_extracted_line_starts": [
+          47,
+          48,
+          49
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Project page: https://drifttts.github.io/",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.22960v1",
+        "https://arxiv.org/html/2610.22960"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.23225",
+      "title": "ReLaDrift: Recurrent Language Generation via Drifting for Test-Time Scaling",
+      "authors": [
+        "Yuki Otsuka",
+        "Daisuke Oba",
+        "Naoaki Okazaki"
+      ],
+      "arxiv_id": "2610.23225v1",
+      "published": "2026-10-16T09:55:22Z",
+      "updated": "2026-10-16T09:55:22Z",
+      "topic": "language_audio",
+      "method_zh": "ReLaDrift 共享生成器反复修订草稿，只对随机抽到的末轮反传，使测试计算可随轮数扩展。",
+      "limitations_zh": "推理 N 轮就是 N 次生成器调用；该方法超出了原生单步，不可统一标为所有结果 1-NFE。",
+      "reading_level": "body_excerpts",
+      "reading_scope_zh": "正文方法段落选读；行号为本地HTML提取文本定位，未覆盖全文证明和全部实验",
+      "reading_evidence": {
+        "source_url": "https://arxiv.org/html/2610.23225",
+        "local_extracted_line_starts": [
+          93,
+          95,
+          103
+        ]
+      },
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.23225v1",
+        "https://arxiv.org/html/2610.23225"
+      ],
+      "local_source_access": "html_text_available",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.29106",
+      "title": "DriftNeRF: Cross-Ray Density Drifting for Sparse-View Neural Radiance Fields",
+      "authors": [
+        "Juntang Wang",
+        "Yihan Wang",
+        "Sheng'en Li",
+        "Hao Wu",
+        "Dongmian Zou",
+        "Shixin Xu"
+      ],
+      "arxiv_id": "2610.29106v1",
+      "published": "2026-10-21T02:49:34Z",
+      "updated": "2026-10-21T02:49:34Z",
+      "topic": "domain_geometry",
+      "method_zh": "DriftNeRF 用跨光线邻近点的密度共识构造停止梯度正则，约束稀疏视角 NeRF 的局部三维不一致。",
+      "limitations_zh": "它是辐射场训练正则，未建立从随机噪声一次生成图像的采样器；不可与原生 GMD 的 1-NFE 结果合并。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "13 pages, 6 figures, 18 tables",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.29106v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.32870",
+      "title": "Noisy Target Training Meets Drifting for Weakly-Supervised Speech Enhancement",
+      "authors": [
+        "Yoshiki Masuyama",
+        "Dominik Klement",
+        "Christoph Boeddeker",
+        "Julius Richter",
+        "Kohei Saijo",
+        "Gordon Wichern",
+        "Takahiro Edo",
+        "Jonathan Le Roux"
+      ],
+      "arxiv_id": "2610.32870v1",
+      "published": "2026-10-23T16:42:00Z",
+      "updated": "2026-10-23T16:42:00Z",
+      "topic": "language_audio",
+      "method_zh": "把 noisy-target 训练与未配对干净语音的 Sinkhorn 漂移相结合，修正残留噪声。",
+      "limitations_zh": "仍需额外干净语料分布，且噪声域和内容保持需检查；弱监督不等于无数据依赖。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": "Submitted to ICASSP 2027",
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.32870v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "2610.38953",
+      "title": "Guidance-Coupled Nullspace Drifting for One-Step Medical Image Reconstruction",
+      "authors": [
+        "M. Tuna Alatan",
+        "Agah Server Tapan",
+        "Şaban Öztürk",
+        "Muhammad Usama Mirza",
+        "Bilal Kabas",
+        "Ge Wang",
+        "Tolga Çukur"
+      ],
+      "arxiv_id": "2610.38953v1",
+      "published": "2026-10-28T21:36:58Z",
+      "updated": "2026-10-28T21:36:58Z",
+      "topic": "domain_geometry",
+      "method_zh": "DriftRecon 在成像算子零空间约束下漂移生成缺失分量，并联动引导强度和核温度。",
+      "limitations_zh": "测量一致性来自显式物理结构；没有对应观测算子时不能直接移植零空间保证。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "阅读原始摘要、核对问题与方法归属；未完成正文核读。",
+      "reading_evidence": {},
+      "full_read_claim": false,
+      "venue_evidence": [],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://arxiv.org/abs/2610.38953v1"
+      ],
+      "local_source_access": "metadata_or_other_primary_source",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "pmlr-v306-zhang26do",
+      "title": "Contrastive Flow Map Matching",
+      "authors": [
+        "Junyu Zhang",
+        "Daochang Liu",
+        "Younghyun Kim",
+        "Jong Hwan Ko",
+        "Shichao Zhang",
+        "Chang Xu",
+        "Eunbyung Park"
+      ],
+      "arxiv_id": null,
+      "published": "2026",
+      "updated": null,
+      "topic": "flow_consistency",
+      "method_zh": "在平均速度回归中加入与采样路径对齐的InfoNCE；作者从联合KL分解解释对比学习项，以训练期插件改善flow map。",
+      "limitations_zh": "仅核读正式论文集摘要；未独立复核联合KL推导及全部算力匹配，不能据摘要断言所有MeanFlow变体普遍改善。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "正式PMLR摘要筛选；未核读正文。",
+      "reading_evidence": {
+        "source_url": "https://proceedings.mlr.press/v306/zhang26do.html"
+      },
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICML",
+          "year": 2026,
+          "evidence": "formal_proceedings",
+          "url": "https://proceedings.mlr.press/v306/zhang26do.html",
+          "track": "正式PMLR论文集"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://proceedings.mlr.press/v306/zhang26do.html"
+      ],
+      "local_source_access": "primary_abstract",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    },
+    {
+      "key": "pmlr-v306-ouyang26c",
+      "title": "Primal-Spectral Generative Modeling: Fast Analytical Generation via Pseudoinverse Lévy Inversion",
+      "authors": [
+        "Zhiyuan Ouyang",
+        "Simei Huang",
+        "Zuokai Wen",
+        "Xiangyun Zhang",
+        "Junchi Yan"
+      ],
+      "arxiv_id": null,
+      "published": "2026",
+      "updated": null,
+      "topic": "drifting_theory",
+      "method_zh": "以可学习谱密度与伪逆Lévy反演连接原始域和谱域，构建PriSpecNet/PiLI的一步解析生成路线。",
+      "limitations_zh": "仅核读正式摘要；ImageNet256 FID1.66及26GFLOPs为作者报告，反演正则、数据和完整模型成本尚未逐项复核。",
+      "reading_level": "abstract_screened",
+      "reading_scope_zh": "正式PMLR摘要筛选；未核读正文。",
+      "reading_evidence": {
+        "source_url": "https://proceedings.mlr.press/v306/ouyang26c.html"
+      },
+      "full_read_claim": false,
+      "venue_evidence": [
+        {
+          "venue": "ICML",
+          "year": 2026,
+          "evidence": "formal_proceedings",
+          "url": "https://proceedings.mlr.press/v306/ouyang26c.html",
+          "track": "正式PMLR论文集"
+        }
+      ],
+      "author_reported_comment": null,
+      "author_reported_journal_ref": null,
+      "sources": [
+        "https://proceedings.mlr.press/v306/ouyang26c.html"
+      ],
+      "local_source_access": "primary_abstract",
+      "checked_on": "2026-10-30",
+      "results_reproduced": false
+    }
+  ]
+}
