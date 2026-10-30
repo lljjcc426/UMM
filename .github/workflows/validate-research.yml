@@ -21,6 +21,7 @@ on:
       - '.github/**'
   pull_request:
     branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review, converted_to_draft]
     paths:
       - 'AGENTS.md'
       - 'README.md'
@@ -60,7 +61,7 @@ jobs:
       - name: Run full regression tests
         run: .venv-ci/bin/python -m unittest discover -s tests -v
 
-  # Keep the existing required-check name and its full blocking behavior.
+  # Draft review checks evidence; non-draft research PRs also require approval.
   validate:
     needs: engineering
     if: ${{ always() }}
@@ -74,6 +75,5 @@ jobs:
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
           persist-credentials: false
-      - name: Require approved evidence for research PR into main
-        if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'research/')
-        run: python3 scripts/validate_stage_release.py --require-ready
+      - name: Validate review state and require approval for merge candidates
+        run: python3 scripts/validate_stage_release.py --github-event

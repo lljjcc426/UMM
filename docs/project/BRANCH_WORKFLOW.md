@@ -28,9 +28,9 @@
 
 发布schema2以closed_with_negative_results、supported_negative及original_scientific_gates_met=false表示结项。必须有范围批准、原契约/原发布清单、最终报告、全部运行及结果路径、原未满足标准的明确处置。未解决科学事项留在closure.unmet_original_criteria和限制中，不凭清空阻塞项伪造通过。普通completed仍用于原批准范围确已通过的任务。
 
-本地结项门禁与main合并门禁分开。结项检查通过允许准备研究分支审核PR；`--require-ready`仍要求ready_for_review、用户最终科学审核及明确合并批准，范围调整批准不替代合并批准。既有CI门禁保持开启；草稿PR若尚未取得最终批准，合并门禁应拒绝，这是预期阻塞，不能为使PR全绿而关闭检查。
+本地结项门禁与main合并门禁分开。结项检查通过允许准备研究分支审核PR；`--require-ready`仍要求ready_for_review、用户最终科学审核及明确合并批准，范围调整批准不替代合并批准。草稿PR用于审查证据，GitHub草稿状态本身禁止合并；草稿CI通过不授予科学验收或合并批准。转为正式PR时必须执行严格合并门禁，缺少最终批准就拒绝，不能伪填批准使检查通过。
 
-CI分别显示`engineering`与`validate`。前者运行目录、协议、阶段证据及全部测试；后者保留原required-check名称，等待前者后再检查合并批准。`validate`采用always运行并明确拒绝工程失败，避免上游失败后跳过检查而绕过要求。未批准的草稿PR应显示工程通过、合并检查拒绝，不能将整个状态描述成测试全部失败。
+CI分别显示`engineering`与`validate`。前者运行目录、协议、阶段证据及全部测试；后者保留原检查名称，采用always运行并明确拒绝工程失败，再通过`--github-event`按GitHub实际PR状态选择门禁。研究草稿返回`approval_gate=deferred_non_mergeable_draft`，校验发布证据但不要求尚未申请的合并批准；正式研究PR返回`approval_gate=required`，完整执行原`--require-ready`规则。工作流监听opened、synchronize、reopened、ready_for_review及converted_to_draft，确保转换为正式PR即重跑批准检查，后续提交或恢复PR也重新检查。此前0684e3b2将草稿也作为合并候选而持续报错，本次修正该触发语义，历史失败保留。GitHub平台强制保护尚未启用，不能将检查名称等同于已配置的required status check。
 
 自动评分器高可靠性改进为后续可选项。P1采用可信规范参考、独立人工实际RGB主评、自动辅助及严格未知处理，不以EVAL-01科学指标必须转正为前提；所有前置依赖仍须有已完成的结果和决策记录。P1 GPU实验、租机和训练均需新的明确批准；新执行分支仍从最新获准main派生。
 

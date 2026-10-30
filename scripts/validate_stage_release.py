@@ -164,9 +164,33 @@ def validate_release(manifest: Any, registry: Any, root: Path,
     }
 
 
+def validate_ci_release(manifest: Any, registry: Any, root: Path,
+                        event_name: str, event: dict) -> dict:
+    """A draft can be reviewed but cannot merge; ready PRs keep the strict gate."""
+    head_ref = None
+    stage_pr = False
+    draft = False
+    if event_name == "pull_request":
+        pr = event["pull_request"]
+        head_ref = pr["head"]["ref"]
+        stage_pr = head_ref.startswith("research/")
+        draft = pr["draft"]
+    require_ready = stage_pr and not draft
+    result = validate_release(manifest, registry, root, require_ready=require_ready,
+                              head_ref=head_ref if require_ready else None)
+    result["approval_gate"] = (
+        "required" if require_ready else
+        "deferred_non_mergeable_draft" if stage_pr else "not_applicable"
+    )
+    return result
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--require-ready", action="store_true")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--require-ready", action="store_true")
+    mode.add_argument("--github-event", action="store_true",
+                      help="Check drafts for review; enforce approval for non-draft research PRs")
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--head-ref", default=os.environ.get("GITHUB_HEAD_REF"))
     args = parser.parse_args()
@@ -174,9 +198,14 @@ def main() -> None:
     try:
         manifest = json.loads((root / RELEASE).read_text(encoding="utf-8"))
         registry = json.loads((root / REGISTRY).read_text(encoding="utf-8"))
-        result = validate_release(manifest, registry, root,
-                                  require_ready=args.require_ready,
-                                  head_ref=args.head_ref if args.require_ready else None)
+        if args.github_event:
+            event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text(encoding="utf-8"))
+            result = validate_ci_release(manifest, registry, root,
+                                         os.environ["GITHUB_EVENT_NAME"], event)
+        else:
+            result = validate_release(manifest, registry, root,
+                                      require_ready=args.require_ready,
+                                      head_ref=args.head_ref if args.require_ready else None)
     except (OSError, TypeError, ValueError) as e:
         result = {"passed": False, "errors": [str(e)], "scientific_claims_verified": False}
     print(json.dumps(result, ensure_ascii=False, indent=2))
