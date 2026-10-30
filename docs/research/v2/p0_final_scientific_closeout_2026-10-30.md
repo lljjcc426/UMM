@@ -2,7 +2,7 @@
 
 2026-10-30。协议`stroke-video-v2`，研究分支`research/p0-stroke-video-foundation`，本轮起点`45a90c17`。
 
-**P0按用户批准的“有限研究基础”范围结项，结论为带明确限制的负结果结项。原自动评价标准未达标，完整规范逐笔金标未建成。** 本结项支持准备P1真实UMM基线，不能作为自动评分器高可靠性、生成质量或研究机制有效的证明。用户尚未批准main合并或P1 GPU执行。
+**用户最终审批已通过P0“有限研究基础”结项，科学验收为approved，结论为带明确限制的负结果结项。原自动评价标准未达标，完整规范逐笔金标未建成。** 本结项支持准备P1真实UMM基线，不能作为自动评分器高可靠性、生成质量或研究机制有效的证明。用户尚未批准main合并或P1 GPU执行。
 
 ## 1. 范围变更及不可追溯改写的内容
 
@@ -67,3 +67,9 @@ Arphic许可及修改声明沿用原来源审计；CASIA原始轨迹、衍生媒
 本地96项测试全部通过，目录/v1/v2及有限结项检查通过；合并门禁按预期返回拒绝，原因是尚无ready_for_review状态及最终用户批准，且阶段完成标志仍为true。检查实际输出见[checks/summary.json](../../../data/research/runs/p0_closeout_2026-10-30/checks/summary.json)。新增测试覆盖有限结项、原失败不可伪改、原证据/标准不能省略、人工路径不可撤销及范围批准不能替代最终批准，另覆盖P1输入权限和分母。远端CI情况与本地检查分别记录，结构通过不认证科研真实性。
 
 完整证据清单见[evidence_inventory.json](../../../data/research/runs/p0_closeout_2026-10-30/evidence_inventory.json)，版本见[version_record.json](../../../data/research/runs/p0_closeout_2026-10-30/version_record.json)，命令、改动说明与资源见[task_record.json](../../../data/research/runs/p0_closeout_2026-10-30/task_record.json)。首轮目录检查发现原文快照放入子目录后相对链接失效，已将未改内容的快照移回原目录层级；失败日志和修正说明保留，未关闭链接检查。本轮CPU结项和请求准备，没有模型推理、训练、新数据下载或新增人工任务；未删除文件。未推送的研究历史完整保留，PR仅供审核，main合并和P1 GPU执行继续等待用户明确批准。
+
+## 7. 最终审批记录（本报告初版之后）
+
+用户最终审批原文及范围已独立保存于[final_scientific_approval.json](../../../data/research/runs/p0_final_acceptance_2026-10-30/final_scientific_approval.json)。P0有限范围科学验收已完成，`closure.user_final_report_review=approved`，发布生命周期继续为`closed_with_negative_results`；本次批准未将原自动评价失败、参考资格缺口或D3/D4负结果改成通过。上文初版“等待用户审批”及96项检查为当时状态和历史证据，不据此否认本次最终审批。
+
+后续工作聚焦UMM实际生成汉字书写RGB视频的笔顺错误及改进。正式交接、首批分母、准备时发现的执行入口问题及修复见[P0最终审批与P1准备交接](p0_final_acceptance_and_p1_handoff_2026-10-30.md)。原阈值、原人审、原预测、原失败文件均未更改；main尚未合并，当前没有P1生成结果。

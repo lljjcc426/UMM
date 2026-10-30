@@ -164,17 +164,32 @@ def main() -> int:
                "setup_attempts": sorted(path.name for path in (bundle / "setup").glob("*")),
                "cost": {"spending_cap_cny": None, "actual_billed_cny": None,
                         "note": "User approved no spending cap. Rental bill, setup and idle time remain to be reconciled."},
-               "scientific_claim": "Native interface executability only; full ENV-01 remains incomplete"}
+               "scientific_claim": ("P1 generation attempt only; actual RGB requires independent evaluation"
+                                    if "request" in plan else
+                                    "Native interface executability only; full ENV-01 remains incomplete")}
     save_json(run / "summary.json", summary)
-    from fixtures import prepare_inputs
     started = time.perf_counter()
     try:
-        prepare_inputs(bundle, plan, encode_video=True)  # Rebase all media paths after upload.
+        if "request" not in plan:
+            if __package__:
+                from .fixtures import prepare_inputs
+            else:
+                from fixtures import prepare_inputs
+            prepare_inputs(bundle, plan, encode_video=True)
         shutil.copytree(bundle / "inputs", run / "inputs")
         # Make execution inputs immutable within this run directory.
         for task in plan["tasks"]:
             sample = (run / "inputs" / f"{task}.json").read_text()
-            (run / "inputs" / f"{task}.json").write_text(sample.replace(str(bundle / "inputs"), str(run / "inputs")))
+            if "request" in plan and task == "i2v":
+                sample = json.loads(sample)
+                for row in sample.values():
+                    for index, kind in enumerate(row["element_dtype_array"]):
+                        if kind == "image":
+                            media = Path(row["interleave_array"][index])
+                            row["interleave_array"][index] = str(run / "inputs" / media.name)
+                save_json(run / "inputs" / f"{task}.json", sample)
+            else:
+                (run / "inputs" / f"{task}.json").write_text(sample.replace(str(bundle / "inputs"), str(run / "inputs")))
         env = os.environ.copy()
         env.update(CUDA_VISIBLE_DEVICES="0", EXP_HW_20250819="False", POSITION_EMBEDDING_3D_VERSION="v2",
                    CUDA_LAUNCH_BLOCKING="0", PYTHONUNBUFFERED="1", TOKENIZERS_PARALLELISM="false",

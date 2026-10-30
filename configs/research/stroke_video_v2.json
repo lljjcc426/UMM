@@ -3,7 +3,7 @@
   "protocol_id": "stroke-video-v2",
   "created_on": "2026-10-27",
   "supersedes": "stroke-video-v1",
-  "status": "P0_closed_with_negative_results_P1_CPU_prepared",
+  "status": "P0_scientifically_accepted_limited_negative_P1_CPU_prepared",
   "current_phase": "P0",
   "research_focus": "method_driven_observable_stroke_execution",
   "primary_protocol": "T",
@@ -254,14 +254,18 @@
     "accepted_scope": "limited_research_foundation",
     "original_scientific_gates_met": false,
     "automatic_evaluator_is_P1_positive_gate": false,
-    "formal_evaluation": "Trusted normative reference + independent human actual-RGB judgments + auxiliary automation + strict unknown policy"
+    "formal_evaluation": "Trusted normative reference + independent human actual-RGB judgments + auxiliary automation + strict unknown policy",
+    "user_final_report_review": "approved",
+    "final_scientific_approval_reference": "data/research/runs/p0_final_acceptance_2026-10-30/final_scientific_approval.json"
   },
   "P1_preparation": {
     "plan": "configs/research/p1_baseline_plan.json",
     "GPU_authorized": false,
-    "status": "prepared_waiting_user_review",
+    "status": "CPU_prepared_after_P0_final_acceptance",
     "request_count": 64,
     "pilot_request_count": 16,
-    "training": false
+    "training": false,
+    "research_priority": "Actual UMM RGB stroke-order failures and evidence-led improvement comparisons",
+    "handoff": "docs/research/v2/p0_final_acceptance_and_p1_handoff_2026-10-30.md"
   }
 }

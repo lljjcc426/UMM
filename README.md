@@ -1,6 +1,6 @@
 # UMM 与汉字书写视频：证据、方法与实验
 
-2026-10-30：[P0最终科学结项](docs/research/v2/p0_final_scientific_closeout_2026-10-30.md)按用户批准的有限基础范围完成，原指标未达标。ENV-01维持已验证配方通过；DATA-01为completed_with_limitations，EVAL-01为completed_negative，原阈值、人审和失败保留。自动评分改进为可选，正式评价采用可信规范＋独立人工RGB主评＋自动辅助＋严格unknown。[P1基线方案](docs/research/v2/p1_baseline_failure_plan_2026-10-30.md)已在CPU准备8字、16次先导/64次完整生成队列；未租GPU、未推理训练，未分派新人工任务。报告与PR等待审核，main合并及GPU执行均未授权。
+2026-10-30：**用户最终审批已通过P0有限结项**，见[正式审批与P1交接](docs/research/v2/p0_final_acceptance_and_p1_handoff_2026-10-30.md)。[P0报告](docs/research/v2/p0_final_scientific_closeout_2026-10-30.md)保留原指标未达标结论：ENV-01维持已验证配方通过，DATA-01为completed_with_limitations，EVAL-01为completed_negative；原阈值、人审及失败不变。正式评价仍用可信规范＋独立人工实际RGB主评＋自动辅助＋严格unknown。[P1方案](docs/research/v2/p1_baseline_failure_plan_2026-10-30.md)聚焦UMM真实视频的笔顺错误及改进，已有8字/64请求，首批4字/16请求；当前为准备与部署，尚无P1推理、训练或新人工任务。main尚未合并。
 
 以下保留此前设计与执行快照；当前状态以上段及结项报告为准。
 

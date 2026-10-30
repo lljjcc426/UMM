@@ -19,9 +19,9 @@
 
 ## 当前批准状态（2026-10-30）
 
-用户已批准P0按有限研究基础结项及P1本地CPU方案准备。当前发布状态为closed_with_negative_results，原科学门槛未达标；ENV-01批准配方内completed，DATA-01为completed_with_limitations，EVAL-01为completed_negative。原合同、原阈值、人审、预测及失败全部保留。正式评价采用可信规范与两位独立人工实际RGB主评，自动仅辅助，未知严格单列；高可靠性自动评分改进为可选，不是P1绝对前置条件。
+用户最终审批“P0有限结项通过”已记录于`data/research/runs/p0_final_acceptance_2026-10-30/final_scientific_approval.json`；P0有限范围科学验收已完成，允许正式结项记录与P1准备。当前发布状态为closed_with_negative_results，原科学门槛未达标；ENV-01批准配方内completed，DATA-01为completed_with_limitations，EVAL-01为completed_negative。原合同、原阈值、人审、预测及失败全部保留。正式评价采用可信规范与两位独立人工实际RGB主评，自动仅辅助，未知严格单列；高可靠性自动评分改进为可选，不是P1绝对前置条件。
 
-本轮可在研究分支准备审核PR，不得合并main；合并门禁仍须用户最终批准。P1仅完成CPU输入/方案准备，GPU租用、推理、训练及新人工任务未授权。阶段执行分支仍从获准main建立。见docs/research/v2/p0_final_scientific_closeout_2026-10-30.md和docs/research/v2/p1_baseline_failure_plan_2026-10-30.md。下文P0未验收/blocked等为此前历史记录，当前状态以本段为准，不能把有限结项解释为原指标达标。
+P0科学验收批准已生效；不得再次把P0有限结项写成待科学验收。当前仍在研究分支保存正式记录，main未合并，科学验收记录不补写未明确下达的合并命令。用户已提供租用的A10080主机，允许连接与部署准备；P1实际推理、训练和新人工任务未在本轮执行。后续主线聚焦UMM实际生成RGB的笔顺错误及证据支持的改进，不以继续提高自动评分器为必经路线。阶段执行分支仍从获准main建立。见docs/research/v2/p0_final_scientific_closeout_2026-10-30.md和docs/research/v2/p1_baseline_failure_plan_2026-10-30.md。下文P0未验收/blocked等为此前历史记录，当前状态以本段为准，不能把有限结项解释为原指标达标。
 
 ## 科学约束
 

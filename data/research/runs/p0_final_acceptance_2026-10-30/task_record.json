@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "date": "2026-10-30",
+  "task": "Finalize accepted limited P0 closeout and prepare actual-RGB P1 pilot on supplied cloud host",
+  "branch": "research/p0-stroke-video-foundation",
+  "base_commit": "e461229467c10057ad9ab3a7a45585fcc9cd14c6",
+  "approval": "data/research/runs/p0_final_acceptance_2026-10-30/final_scientific_approval.json",
+  "scientific_status": {
+    "P0_limited_scientific_acceptance": "approved",
+    "original_scientific_gates_met": false,
+    "ENV01": "completed_bounded_recipe",
+    "DATA01": "completed_with_limitations",
+    "EVAL01": "completed_negative",
+    "old_labels_thresholds_predictions_failure_records_unchanged": true
+  },
+  "preparation": {
+    "original_generation_requests": 64,
+    "pilot_requests": 16,
+    "retained_original_private_bundles": true,
+    "user_supplied_A10080_connected": true,
+    "old_runtime_and_weights_reused": true,
+    "new_weights_downloaded": false,
+    "cloud_deployment_status_file": "p1_pilot_preparation.json",
+    "credentials_recorded": false,
+    "cloud_deployment_completed": true
+  },
+  "execution_entry_bug": {
+    "found": "Unconditional ENV prepare_inputs would replace P1 prompts with 十 fixture",
+    "affected_P1_generation_results": 0,
+    "previous_dry_run_coverage": "Returned before fixture preparation; did not establish actual-input integrity",
+    "fix": "Keep request-bearing prepared inputs; copy per run; rebase blank i2v asset; retain ENV fixture behavior",
+    "first_test_attempt": "Two path-identity assertions failed on macOS /var versus /private/var; corrected test root resolution; log retained"
+  },
+  "checks": "checks/summary.json",
+  "resources": {
+    "new_GPU_inference_calls": 0,
+    "training_steps": 0,
+    "new_human_tasks": 0,
+    "new_video_files": 0,
+    "GPU_host_health_query": "Existing torch and CUDA imported for device/runtime metadata only; no UMM loaded",
+    "actual_cloud_fee": "User-provided rented host; actual billing not yet supplied; no new rental purchased by agent"
+  },
+  "git": {
+    "identity": "lljjcc426 <3115250840@qq.com>",
+    "main_modified": false,
+    "main_merged": false,
+    "phase_branch_unchanged": true,
+    "final_science_approval_not_fabricated_as_merge_command": true
+  },
+  "file_changes": {
+    "AGENTS.md": "Record final limited P0 scientific acceptance and P1 research focus; retain original failure history",
+    "README.md": "Update current phase acceptance and handoff entry",
+    "configs/research/p1_baseline_plan.json": "Attach final P0 approval and actual-RGB failure research priority; preserve all GPU/training switches",
+    "configs/research/stroke_video_v2.json": "Update final P0 acceptance and P1 preparation metadata",
+    "data/research/experiments_v2.json": "Update only scope and final-approval reference; keep every experiment row unchanged",
+    "data/research/plans/p1_baseline_2026-10-30/minimal_execution_checklist.md": "Reflect completed science approval and supplied retained GPU environment",
+    "docs/project/stages/P0-release.json": "Record approved final science review and evidence references without claiming original gates passed",
+    "docs/project/stages/P0.md": "Reflect final acceptance while preserving original contract snapshot and limitations",
+    "docs/research/v2/p0_final_scientific_closeout_2026-10-30.md": "Append final approval after historical initial report and checks",
+    "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md": "Clarify generation-error research priority and actual execution input repair",
+    "docs/research/v2/p0_final_acceptance_and_p1_handoff_2026-10-30.md": "Document final approval, P1 pilot, evidence-led improvements and preparation results",
+    "scripts/env01/run_interfaces.py": "Preserve prepared P1 character prompts, relocate blank i2v assets and keep ENV fixture path",
+    "tests/test_p1_preparation.py": "Add three CPU execution-entry regressions that stop before GPU access",
+    "data/research/runs/p0_final_acceptance_2026-10-30": "Preserve exact user final approval, version, request manifest, environment, check and failure logs"
+  },
+  "files_deleted": [],
+  "checks_result": "107 tests and catalog/v1/v2/limited-closeout checks passed; strict merge refusal remains scoped to missing merge authorization",
+  "transient_deployment_failure": {
+    "operation": "initial file transfer via ControlMaster",
+    "error": "ControlMaster connection broke; BatchMode password fallback denied; credentials and network endpoint redacted",
+    "resolution": "Established detached SSH control connection and transferred the same new archive using legacy SCP; succeeded"
+  }
+}

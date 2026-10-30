@@ -1,10 +1,10 @@
-# P1最小可执行实验清单（待GPU授权）
+# P1最小可执行实验清单（P0已最终验收，云端输入已准备）
 
 本轮已完成CPU计划、64请求及private原生输入包准备。当前模型调用0、视频生成0、训练0、新人工任务0。完整方案见[报告](../../../../docs/research/v2/p1_baseline_failure_plan_2026-10-30.md)。
 
-1. 用户审核P0有限结项、P1方案及3–6小时先导租用预算。取得GPU执行授权后才租1×A10080，16CPU/48GB/200GB；无需额外CPU云主机。
+1. P0有限结项已获用户最终科学验收，审批见`data/research/runs/p0_final_acceptance_2026-10-30/final_scientific_approval.json`。用户已提供1×A10080云主机，当前连接与部署准备；无需再租无卡CPU主机。P1推理授权与模型运行结果分别记录。
 2. 沿分支流程完成P0审核/获准合并，再从最新获准main建立`research/p1-native-baselines`。不得以当前计划擅自推理或改main。
-3. 部署固定Lance代码/权重和已核依赖，复用既有环境记录。materialize原生输入包：更新upstream软链接及输入JSON的绝对路径；云端权重与实际解码索引当前尚不存在。取得授权后将计划approval.user_approved改为true并附批准记录，原prepared版本保留。
+3. 部署固定Lance代码/权重和已核依赖，复用既有环境记录。materialize原生输入包：更新upstream软链接及输入JSON的绝对路径；当前云主机保留ENV-01固定运行环境及权重，可直接复用；P1实际解码索引尚未产生。取得授权后将计划approval.user_approved改为true并附批准记录，原prepared版本保留。
 4. 在运行环境审计实际视频解码、native抽帧索引及最多8例codec重建。保存原片/PTS/原生采样/重建并核查短事件；证据不足先报告，不将重建成功预填为SO-00通过。
 5. 选择requests.json中pilot=true的16个唯一ID。按请求调用原生运行器，串行单输入、33帧/480×848/12fps/30步/CFG4，seed11或29。每次launch均保存原片、stdout、错误、真实峰值显存和含加载耗时；不能挑最好seed。
 6. 使用同4字准备4个确定性规范渲染O对照，几何绑定仍标AI开发级，实际形成过程另核，不宣称完整金标。固定33帧、同画布/编码参数；保留高时间分辨率源与均匀抽样索引供SO-00比较。

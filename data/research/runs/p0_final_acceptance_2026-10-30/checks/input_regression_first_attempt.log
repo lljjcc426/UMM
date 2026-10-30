@@ -1,0 +1,27 @@
+test_blank_i2v_asset_relocates_without_substituting_env01_prefix (tests.test_p1_preparation.P1PreparationTests.test_blank_i2v_asset_relocates_without_substituting_env01_prefix) ... FAIL
+test_blank_image_condition_is_T_and_not_real_prefix_P (tests.test_p1_preparation.P1PreparationTests.test_blank_image_condition_is_T_and_not_real_prefix_P) ... ok
+test_env01_still_builds_its_original_interface_fixtures (tests.test_p1_preparation.P1PreparationTests.test_env01_still_builds_its_original_interface_fixtures) ... FAIL
+test_no_geometry_or_gold_upgrades_in_G0 (tests.test_p1_preparation.P1PreparationTests.test_no_geometry_or_gold_upgrades_in_G0) ... ok
+test_pilot_is_counted_once_within_full_queue (tests.test_p1_preparation.P1PreparationTests.test_pilot_is_counted_once_within_full_queue) ... ok
+test_real_execution_start_preserves_prepared_character_prompt (tests.test_p1_preparation.P1PreparationTests.test_real_execution_start_preserves_prepared_character_prompt) ... ok
+
+======================================================================
+FAIL: test_blank_i2v_asset_relocates_without_substituting_env01_prefix (tests.test_p1_preparation.P1PreparationTests.test_blank_i2v_asset_relocates_without_substituting_env01_prefix)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/cc/Documents/UMM/tests/test_p1_preparation.py", line 74, in test_blank_i2v_asset_relocates_without_substituting_env01_prefix
+    self.assertEqual(Path(archived['interleave_array'][1]), run / 'inputs/blank.png')
+AssertionError: PosixPath('/private/var/folders/7n/fb2b69993fv59p9ct5[68 chars]png') != PosixPath('/var/folders/7n/fb2b69993fv59p9ct5sfv7kc00[60 chars]png')
+
+======================================================================
+FAIL: test_env01_still_builds_its_original_interface_fixtures (tests.test_p1_preparation.P1PreparationTests.test_env01_still_builds_its_original_interface_fixtures)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/cc/Documents/UMM/tests/test_p1_preparation.py", line 80, in test_env01_still_builds_its_original_interface_fixtures
+    self.assertEqual(builder.call_args.args[0], bundle)
+AssertionError: PosixPath('/private/var/folders/7n/fb2b69993fv59p9ct5[23 chars]frk') != PosixPath('/var/folders/7n/fb2b69993fv59p9ct5sfv7kc00[15 chars]frk')
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.011s
+
+FAILED (failures=2)

@@ -1,0 +1,63 @@
+{
+  "status": "preparation_checks_passed",
+  "unittest": {
+    "passed": true,
+    "total": 107,
+    "new_execution_input_tests": 3,
+    "log": "unittest.log"
+  },
+  "catalog": {
+    "passed": true,
+    "log": "catalog.log"
+  },
+  "research_v1": {
+    "passed": true,
+    "log": "research_v1.json"
+  },
+  "research_v2": {
+    "passed": true,
+    "log": "research_v2.json"
+  },
+  "closeout": {
+    "passed": true,
+    "errors": [],
+    "mode": "development",
+    "phase": "P0",
+    "branch": "research/p0-stroke-video-foundation",
+    "experiments": 3,
+    "scientific_claims_verified": false,
+    "phase_completed": true,
+    "original_scientific_gates_met": false,
+    "merge_authorized": false
+  },
+  "strict_merge": {
+    "expected_refusal": true,
+    "result": {
+      "passed": false,
+      "errors": [
+        "PR requires ready_for_review",
+        "missing user approval reference"
+      ],
+      "mode": "merge_gate",
+      "phase": "P0",
+      "branch": "research/p0-stroke-video-foundation",
+      "experiments": 3,
+      "scientific_claims_verified": false,
+      "phase_completed": true,
+      "original_scientific_gates_met": false,
+      "merge_authorized": false
+    },
+    "reason": "Final limited scientific acceptance recorded separately; this instruction did not explicitly command main merge"
+  },
+  "preservation": {
+    "all_experiment_rows_unchanged": true,
+    "all_recorded_original_unmet_criteria_unchanged": true,
+    "release_remains_explicit_negative": true
+  },
+  "cloud_runtime": "cloud_runtime.stdout.json",
+  "cloud_preparation": "cloud_preparation.stdout.json",
+  "first_test_failure": "input_regression_first_attempt.log",
+  "inference_calls": 0,
+  "training_steps": 0,
+  "new_human_tasks": 0
+}
