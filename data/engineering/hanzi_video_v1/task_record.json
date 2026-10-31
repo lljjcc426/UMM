@@ -1,0 +1,70 @@
+{
+  "task": "Engineering conversion: UMM recognition/planning plus controlled Hanzi video execution",
+  "date": "2026-10-31",
+  "branch": "codex/engineering-hanzi-video",
+  "base_commit": "ed92bd8a",
+  "user_confirmations": [
+    "允许UMM识别和规划，再由受控执行模块生成视频",
+    "按这个首版范围推进"
+  ],
+  "scope": {
+    "input": "one mainland simplified character as text or clear image",
+    "output": "Kai-style black on white MP4",
+    "local_CPU_implementation": true,
+    "GPU_calls": 0,
+    "real_UMM_calls": 0,
+    "training": false,
+    "new_downloads": false,
+    "new_human_tasks": 0,
+    "remote_push": false,
+    "main_change": false
+  },
+  "software": {
+    "python": "3.12.14",
+    "platform": "macOS-26.6-arm64-arm-64bit"
+  },
+  "deliverable_state": "CPU_preview_verified; real_UMM_integration_pending",
+  "references": {
+    "characters": [
+      "士",
+      "丑",
+      "小",
+      "以",
+      "广",
+      "刃",
+      "乞",
+      "点"
+    ],
+    "stroke_count": 32,
+    "qualification": "AI_reviewed_engineering_preview",
+    "human_per_stroke_gold": false
+  },
+  "validation": {
+    "actual_previews": 8,
+    "decoded_preview_frames": 952,
+    "injected_faults_rejected": 5,
+    "full_regression": {
+      "tests": 139,
+      "passed": true,
+      "log": "tests_final.log",
+      "earlier_log": "tests.log"
+    },
+    "final_targeted_regression": {
+      "tests": 11,
+      "passed": true,
+      "log": "engineering_tests_final.log"
+    },
+    "repository_checks": "regression.json",
+    "browser": "browser.json",
+    "actual_RGB_PTS_evidence": "validation.json",
+    "browser_actual_seek_verified": true
+  },
+  "limitations": [
+    "UMM text planning and image recognition not run on GPU",
+    "Only eight AI-reviewed development references; not per-stroke human gold",
+    "RGB audit shares trusted reference; no general-observer or normative-gold accuracy claim",
+    "No production deployment/large-coverage claim; model loading is per invocation"
+  ],
+  "historical_research_records": "unchanged; P0/P1 limited negative conclusions preserved",
+  "failure_record": "development_issues.json"
+}

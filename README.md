@@ -1,4 +1,18 @@
-# UMM 与汉字书写视频：证据、方法与实验
+# 一笔：UMM与受控汉字书写视频
+
+2026-10-31起按用户确认转为工程目标：UMM识别目标字、提出笔画计划，显式规范校验后由受控执行器输出逐笔书写MP4。首版面向大陆规范简体单字、文本或清晰字图输入、标准楷体式黑字白底。当前为**8字本地工程预览**；真实UMM图像识字/结构化规划适配器已准备，尚未在GPU上实测，不能宣称模型链路已完成。
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m hanzi_video.server --port 8780
+```
+
+打开 `http://127.0.0.1:8780/`，可预览士、丑、小、以、广、刃、乞、点并下载MP4。现有虚拟环境可直接运行第三条命令。未配置UMM时只启用明确标注的CPU预览，图像识字与模型规划不会被伪造。字形数据附Arphic公共许可证，8字绑定为AI工程核对，尚非真人逐笔金标。[工程接口、边界、运行与验证报告](docs/engineering/hanzi_video_v1.md) · [当前分支规范](docs/project/BRANCH_WORKFLOW.md)。
+
+P0有限结项及P1有限负结果均保留：[P0最终报告](docs/research/v2/p0_final_scientific_closeout_2026-10-30.md)、[P1最终报告](docs/research/v2/p1_final_scientific_closeout_2026-10-31.md)。工程路线允许使用参考几何进行受控执行，不将其计为UMM原生视频能力或研究指标转正。
+
+## 历史研究入口与执行快照
 
 2026-10-30：**用户最终审批已通过P0有限结项**，见[正式审批与P1交接](docs/research/v2/p0_final_acceptance_and_p1_handoff_2026-10-30.md)。[P0报告](docs/research/v2/p0_final_scientific_closeout_2026-10-30.md)保留原指标未达标结论：ENV-01维持已验证配方通过，DATA-01为completed_with_limitations，EVAL-01为completed_negative；原阈值、人审及失败不变。正式评价仍用可信规范＋独立人工实际RGB主评＋自动辅助＋严格unknown。[P1方案](docs/research/v2/p1_baseline_failure_plan_2026-10-30.md)聚焦UMM真实视频的笔顺错误及改进，已有8字/64请求，首批4字/16请求；当前为准备与部署，尚无P1推理、训练或新人工任务。main尚未合并。
 

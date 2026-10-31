@@ -1,0 +1,36 @@
+[
+  {
+    "id": "BROWSER-01",
+    "type": "test_synchronization",
+    "observed": "First browser test checked imagePreview immediately after setInputFiles; FileReader event was still pending",
+    "result": "assert isVisible failed; playback and download already passed",
+    "resolution": "Wait for imagePreview hidden attribute to clear; browser rerun passed; failed browser process closed",
+    "product_code_change_required": false
+  },
+  {
+    "id": "BROWSER-02",
+    "type": "actual_video_seek_bug",
+    "observed": "Chrome decoded and played the MP4, but seeking to 3.94 seconds returned time 0 and a blank frame because the server ignored Range requests",
+    "diagnostic_evidence": {
+      "initial_HTTP_status": 200,
+      "played_time": 1.5217,
+      "played_dark_pixels": 12020,
+      "seek_time": 0,
+      "seek_dark_pixels": 0
+    },
+    "resolution": "Serve Accept-Ranges and HTTP206/Content-Range; verify requested byte range, actual seek time and nonblank decoded final frame in browser",
+    "regression": "scripts/engineering/test_browser.cjs"
+  },
+  {
+    "id": "TEST-IO-01",
+    "type": "test_helper_resource_warning",
+    "observed": "First targeted run passed 10 tests with imageio_ffmpeg.read_frames ResourceWarnings in fault-injection setup",
+    "resolution": "Use one explicit subprocess rawvideo decode in test fixture; full 139 and final 11 tests passed without warning"
+  },
+  {
+    "id": "GATE-01",
+    "type": "known_unverified_dependency",
+    "observed": "GPU is closed; no actual UMM image/text planning invocation this task",
+    "resolution": "No fake fallback; disabled UI/API model operations; native adapter prepared; live validation remains pending"
+  }
+]

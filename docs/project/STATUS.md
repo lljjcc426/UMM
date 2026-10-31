@@ -1,4 +1,10 @@
-# 当前状态：P0有限范围负结果结项，P1方案待审核
+# 当前状态：规范汉字视频工程原型
+
+2026-10-31：用户确认转为工程方向，允许UMM识别/规划＋受控执行，文本或清晰单字图输入、黑字白底、MP4导出。工作保留在`codex/engineering-hanzi-video`，从P1本地结项`ed92bd8a`派生。当前8字CPU预览、计划校验、真实MP4回读检查与本地页面已实现；UMM适配器尚待获准GPU环境联调，图像识字尚未实测。详见[工程报告](../engineering/hanzi_video_v1.md)。
+
+P0有限结项有效；P1按获准范围有限负结果结项，原生成失败和评价限制保留。P1结项报告审阅及main合并仍未授权；工程原型不改变历史科学状态。本轮无GPU、训练、推送或main合并。
+
+## 历史状态快照
 
 2026-10-30：[P0最终科学结项](../research/v2/p0_final_scientific_closeout_2026-10-30.md)按用户批准的有限基础范围完成，原指标未达标。ENV-01维持已验证配方通过；DATA-01为completed_with_limitations，EVAL-01为completed_negative，原阈值、人审和失败保留。自动评分改进为可选，正式评价采用可信规范＋独立人工RGB主评＋自动辅助＋严格unknown。[P1基线方案](../research/v2/p1_baseline_failure_plan_2026-10-30.md)已在CPU准备8字、16次先导/64次完整生成队列；未租GPU、未推理训练，未分派新人工任务。报告与PR等待审核，main合并及GPU执行均未授权。
 
