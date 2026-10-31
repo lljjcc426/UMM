@@ -383,10 +383,11 @@
         "sampling and codec audit"
       ],
       "success_condition": "Resolve information loss before interpreting learning failure; no oracle-boundary inference windows.",
-      "status": "running",
+      "status": "completed_with_limitations",
       "run_records": [
         "data/research/runs/p1_native_pilot_issue3_2026-10-30/task_record.json",
-        "data/research/runs/p1_full_server_2026-10-30/task_record.json"
+        "data/research/runs/p1_full_server_2026-10-30/task_record.json",
+        "data/research/runs/p1_closeout_2026-10-31/task_record.json"
       ],
       "result_artifacts": [
         "data/research/runs/p1_native_pilot_issue3_2026-10-30/execution_summary.json",
@@ -397,7 +398,10 @@
         "docs/research/v2/p1_full_server_report_2026-10-30.md",
         "data/research/runs/p1_full_server_2026-10-30/SO00_sampling_summary.json",
         "data/research/runs/p1_full_server_2026-10-30/codec_auxiliary_evidence.json",
-        "data/research/runs/p1_full_server_2026-10-30/CPU_codec_output_audit.json"
+        "data/research/runs/p1_full_server_2026-10-30/CPU_codec_output_audit.json",
+        "data/research/runs/p1_closeout_2026-10-31/scientific_disposition.json",
+        "data/research/runs/p1_closeout_2026-10-31/existing_evidence_analysis.json",
+        "docs/research/v2/p1_final_scientific_closeout_2026-10-31.md"
       ],
       "preparation_artifacts": [
         "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md",
@@ -413,11 +417,29 @@
       "pilot_execution_status": "16_initial_requests_completed_pending_independent_evaluation",
       "pilot_actual_model_calls": 16,
       "formal_human_evaluation_completed": false,
-      "remaining_evidence": "Native sampling, source/reconstruction and decoding evidence collected for all8. Event preservation has frozen development-observer evidence only; independent human event gold and domain generalization remain unverified.",
+      "remaining_evidence": "No additional task in the approved finite closeout; unmet original requirements remain explicitly recorded in scientific_outcome. Final report review and any merge require separate decisions.",
       "previous_authorized_scope": "P1 pilot 16 G0 T2V request IDs only; no full 64 queue, understanding calls or training",
       "full_execution_authorization_reference": "data/research/runs/p1_full_server_2026-10-30/authorization.json",
       "server_execution_status": "server_completed_with_failures",
-      "scientific_acceptance": "pending"
+      "scientific_acceptance": "limited_scope_closed_pending_final_report_review",
+      "scientific_outcome": {
+        "experiment_id": "SO-00",
+        "status": "completed_with_limitations",
+        "original_gate_met": false,
+        "conclusion": "Actual sampling and media integrity were audited; event preservation is supported only by bounded synthetic development observations",
+        "hypothesis_status": "not_established_in_original_scope",
+        "unmet_criteria": [
+          {
+            "experiment_id": "SO-00",
+            "criterion": "Establish preservation and observability of required short events and directions, beyond a narrow synthetic development probe",
+            "observed": "8 codec audits;32 development instances retain observer onset/completion/anchors,7 correct/correct and1 unknown/unknown; no independent human event gold or broad source coverage",
+            "disposition": "Close with limitations: sampling/decoding audited and bounded codec evidence retained; broad preservation and causal exclusion of codec remain unestablished"
+          }
+        ],
+        "approved_closure_scope": "limited_native_baseline_negative",
+        "scope_approval_reference": "data/research/runs/p1_closeout_2026-10-31/scope_approval.json"
+      },
+      "closure_reference": "data/research/runs/p1_closeout_2026-10-31/scientific_disposition.json"
     },
     {
       "id": "BASE-01",
@@ -444,10 +466,11 @@
         "manually labeled error atlas"
       ],
       "success_condition": "Zero-shot is context only; use development media for EVAL-02 and retain all failures.",
-      "status": "running",
+      "status": "completed_negative",
       "run_records": [
         "data/research/runs/p1_native_pilot_issue3_2026-10-30/task_record.json",
-        "data/research/runs/p1_full_server_2026-10-30/task_record.json"
+        "data/research/runs/p1_full_server_2026-10-30/task_record.json",
+        "data/research/runs/p1_closeout_2026-10-31/task_record.json"
       ],
       "result_artifacts": [
         "data/research/runs/p1_native_pilot_issue3_2026-10-30/execution_summary.json",
@@ -460,7 +483,13 @@
         "data/research/runs/p1_full_server_2026-10-30/generation_condition_counts.json",
         "data/research/runs/p1_full_server_2026-10-30/generation_token_audit.json",
         "data/research/runs/p1_full_server_2026-10-30/paired_evaluation_pending.json",
-        "data/research/runs/p1_full_server_2026-10-30/failure_atlas_auxiliary.json"
+        "data/research/runs/p1_full_server_2026-10-30/failure_atlas_auxiliary.json",
+        "data/research/runs/p1_human_feedback_2026-10-31/user_feedback.json",
+        "docs/research/v2/p1_human_feedback_2026-10-31.md",
+        "data/research/runs/p1_human_feedback_2026-10-31/identified_screening.json",
+        "data/research/runs/p1_closeout_2026-10-31/scientific_disposition.json",
+        "data/research/runs/p1_closeout_2026-10-31/existing_evidence_analysis.json",
+        "docs/research/v2/p1_final_scientific_closeout_2026-10-31.md"
       ],
       "preparation_artifacts": [
         "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md",
@@ -476,11 +505,43 @@
       "pilot_execution_status": "16_initial_requests_completed_pending_independent_evaluation",
       "pilot_actual_model_calls": 16,
       "formal_human_evaluation_completed": false,
-      "remaining_evidence": "63 valid videos,1 preserved operator failure. Independent human facets and paired improvements/degradations remain unjudged; failed N076 i2v has no replacement.",
+      "remaining_evidence": "No additional task in the approved finite closeout; unmet original requirements remain explicitly recorded in scientific_outcome. Final report review and any merge require separate decisions.",
       "previous_authorized_scope": "P1 pilot 16 G0 T2V request IDs only; no full 64 queue, understanding calls or training",
       "full_execution_authorization_reference": "data/research/runs/p1_full_server_2026-10-30/authorization.json",
       "server_execution_status": "server_completed_with_failures",
-      "scientific_acceptance": "pending"
+      "scientific_acceptance": "limited_scope_closed_pending_final_report_review",
+      "human_feedback_reference": "data/research/runs/p1_human_feedback_2026-10-31/identified_screening.json",
+      "human_viewing_status": "both_reviewers_viewed_as_relayed_by_user",
+      "human_record_status": "coarse_screening_recorded_formal_facet_scope_unresolved",
+      "per_video_human_annotations_imported": 0,
+      "coarse_human_screening": {
+        "unique_playable_videos": 71,
+        "reviewers_as_reported": 2,
+        "recognizable_generally_acceptable_controls": 8,
+        "UMM_videos_outside_acceptable_set": 63,
+        "UMM_successes_identified": 0,
+        "technical_missing": 1,
+        "evidence": "user-relayed exact reviewer1 positive IDs plus reviewer2 source-equivalent results, not seven-facet submissions"
+      },
+      "UI_export_required": false,
+      "scientific_outcome": {
+        "experiment_id": "BASE-01",
+        "status": "completed_negative",
+        "original_gate_met": false,
+        "conclusion": "No acceptable Hanzi-writing video identified among63 playable native outputs in this batch;1 of64 attempts is an operator instrumentation failure",
+        "hypothesis_status": "bounded_observed_failure",
+        "unmet_criteria": [
+          {
+            "experiment_id": "BASE-01",
+            "criterion": "Independent fine-facet actual-RGB failure atlas and complete comparative character/process assessment",
+            "observed": "64 initial attempts:63 playable outputs with0 acceptable writing clips identified by user-relayed matching dual-human coarse screening,1 instrumentation failure without retry;8 recognizable clips are CPU controls",
+            "disposition": "Close as a bounded native-baseline negative result for this deployed configuration; preserve all denominators, no claim of observable order accuracy or general model incapacity"
+          }
+        ],
+        "approved_closure_scope": "limited_native_baseline_negative",
+        "scope_approval_reference": "data/research/runs/p1_closeout_2026-10-31/scope_approval.json"
+      },
+      "closure_reference": "data/research/runs/p1_closeout_2026-10-31/scientific_disposition.json"
     },
     {
       "id": "EVAL-02",
@@ -503,16 +564,23 @@
         "generated-domain calibration report"
       ],
       "success_condition": "Produce independent actual-RGB facet judgments, disagreement and unknown accounting; automatic calibration is auxiliary and failure does not invalidate the human evaluation route.",
-      "status": "pending_human_review",
+      "status": "completed_with_limitations",
       "run_records": [
-        "data/research/runs/p1_full_server_2026-10-30/task_record.json"
+        "data/research/runs/p1_full_server_2026-10-30/task_record.json",
+        "data/research/runs/p1_closeout_2026-10-31/task_record.json"
       ],
       "result_artifacts": [
         "data/research/runs/p1_full_server_2026-10-30/execution_summary.json",
         "data/research/runs/p1_full_server_2026-10-30/request_status.json",
         "docs/research/v2/p1_full_server_report_2026-10-30.md",
         "data/research/runs/p1_full_server_2026-10-30/offline_review_manifest.json",
-        "data/research/runs/p1_full_server_2026-10-30/controlled_auxiliary_evidence.json"
+        "data/research/runs/p1_full_server_2026-10-30/controlled_auxiliary_evidence.json",
+        "data/research/runs/p1_human_feedback_2026-10-31/user_feedback.json",
+        "docs/research/v2/p1_human_feedback_2026-10-31.md",
+        "data/research/runs/p1_human_feedback_2026-10-31/identified_screening.json",
+        "data/research/runs/p1_closeout_2026-10-31/scientific_disposition.json",
+        "data/research/runs/p1_closeout_2026-10-31/existing_evidence_analysis.json",
+        "docs/research/v2/p1_final_scientific_closeout_2026-10-31.md"
       ],
       "preparation_artifacts": [
         "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md",
@@ -525,9 +593,41 @@
       "authorized_scope": "Two offline independent human review packages; no AI proxy human submissions",
       "full_execution_authorization_reference": "data/research/runs/p1_full_server_2026-10-30/authorization.json",
       "server_execution_status": "server_completed_with_failures",
-      "scientific_acceptance": "pending",
+      "scientific_acceptance": "limited_scope_closed_pending_final_report_review",
       "formal_human_evaluation_completed": false,
-      "remaining_evidence": "Two packages each72slots/71playable prepared;142 actual video reviews pending,0 human submissions. No per-stroke gold, agreement, unknown accounting or verified-success fabricated."
+      "remaining_evidence": "No additional task in the approved finite closeout; unmet original requirements remain explicitly recorded in scientific_outcome. Final report review and any merge require separate decisions.",
+      "human_feedback_reference": "data/research/runs/p1_human_feedback_2026-10-31/identified_screening.json",
+      "human_viewing_status": "both_reviewers_viewed_as_relayed_by_user",
+      "human_record_status": "coarse_screening_recorded_formal_facet_scope_unresolved",
+      "per_video_human_annotations_imported": 0,
+      "coarse_human_screening": {
+        "unique_playable_videos": 71,
+        "reviewers_as_reported": 2,
+        "recognizable_generally_acceptable_controls": 8,
+        "UMM_videos_outside_acceptable_set": 63,
+        "UMM_successes_identified": 0,
+        "technical_missing": 1,
+        "evidence": "user-relayed exact reviewer1 positive IDs plus reviewer2 source-equivalent results, not seven-facet submissions"
+      },
+      "UI_export_required": false,
+      "scientific_outcome": {
+        "experiment_id": "EVAL-02",
+        "status": "completed_with_limitations",
+        "original_gate_met": false,
+        "conclusion": "User-relayed dual-human coarse screening is archived with source identities; original fine-facet calibration remains unfulfilled",
+        "hypothesis_status": "not_established_in_original_scope",
+        "unmet_criteria": [
+          {
+            "experiment_id": "EVAL-02",
+            "criterion": "Independent per-video seven-facet records, generated-domain calibration, uncertainty and formal agreement accounting",
+            "observed": "Two archive-based coarse reviews relayed by user, exact8 positive reviewer1 IDs mapped to CPU controls and reviewer2 results reported equivalent; no seven-facet submissions or separate P1 independence-condition confirmation",
+            "disposition": "Close with limitations: archive coarse screen as supplied, preserve unknowns and missing facets; no new review task or invented event gold/calibration claim"
+          }
+        ],
+        "approved_closure_scope": "limited_native_baseline_negative",
+        "scope_approval_reference": "data/research/runs/p1_closeout_2026-10-31/scope_approval.json"
+      },
+      "closure_reference": "data/research/runs/p1_closeout_2026-10-31/scientific_disposition.json"
     },
     {
       "id": "SO-01",
@@ -553,9 +653,10 @@
         "paired perception intervention results"
       ],
       "success_condition": "Do not require distinct next actions for histories with the same legal continuation state.",
-      "status": "running",
+      "status": "completed_with_limitations",
       "run_records": [
-        "data/research/runs/p1_full_server_2026-10-30/task_record.json"
+        "data/research/runs/p1_full_server_2026-10-30/task_record.json",
+        "data/research/runs/p1_closeout_2026-10-31/task_record.json"
       ],
       "result_artifacts": [
         "data/research/runs/p1_full_server_2026-10-30/execution_summary.json",
@@ -563,7 +664,10 @@
         "docs/research/v2/p1_full_server_report_2026-10-30.md",
         "data/research/runs/p1_full_server_2026-10-30/understanding_answers_and_sampling.json",
         "data/research/runs/p1_full_server_2026-10-30/understanding_paired_auxiliary.json",
-        "data/research/runs/p1_full_server_2026-10-30/SO01_auxiliary_summary.json"
+        "data/research/runs/p1_full_server_2026-10-30/SO01_auxiliary_summary.json",
+        "data/research/runs/p1_closeout_2026-10-31/scientific_disposition.json",
+        "data/research/runs/p1_closeout_2026-10-31/existing_evidence_analysis.json",
+        "docs/research/v2/p1_final_scientific_closeout_2026-10-31.md"
       ],
       "preparation_artifacts": [
         "docs/research/v2/p1_baseline_failure_plan_2026-10-30.md",
@@ -576,9 +680,27 @@
       "authorized_scope": "2026-10-30 full directive: original64 generation slots including16 reused,28 understanding,8 codec,8CPU controls; zero extra GPU retry; no training or main merge",
       "full_execution_authorization_reference": "data/research/runs/p1_full_server_2026-10-30/authorization.json",
       "server_execution_status": "server_completed_with_failures",
-      "scientific_acceptance": "pending",
+      "scientific_acceptance": "limited_scope_closed_pending_final_report_review",
       "formal_human_evaluation_completed": false,
-      "remaining_evidence": "All28 original answers and actual sampling archived. Formal event/first-error accuracy and H1 require independent judgment; text differences alone do not establish history benefit."
+      "remaining_evidence": "No additional task in the approved finite closeout; unmet original requirements remain explicitly recorded in scientific_outcome. Final report review and any merge require separate decisions.",
+      "scientific_outcome": {
+        "experiment_id": "SO-01",
+        "status": "completed_with_limitations",
+        "original_gate_met": false,
+        "conclusion": "History benefit, correct event perception and first-error accuracy are not established; descriptive answer failures are retained",
+        "hypothesis_status": "not_established_in_original_scope",
+        "unmet_criteria": [
+          {
+            "experiment_id": "SO-01",
+            "criterion": "Establish H1 through correct observed sequence, direction, instance and first-error judgments under history interventions",
+            "observed": "28 original answers and20 text comparisons;6 identical pairs,8 literal duration conflicts and3 ascending-integer answers; no independent event/first-error accuracy evaluation",
+            "disposition": "Close with limitations: H1 not established and not disproven; retain original answers and failure diagnostics without attributing a causal bottleneck"
+          }
+        ],
+        "approved_closure_scope": "limited_native_baseline_negative",
+        "scope_approval_reference": "data/research/runs/p1_closeout_2026-10-31/scope_approval.json"
+      },
+      "closure_reference": "data/research/runs/p1_closeout_2026-10-31/scientific_disposition.json"
     },
     {
       "id": "FIT-01",

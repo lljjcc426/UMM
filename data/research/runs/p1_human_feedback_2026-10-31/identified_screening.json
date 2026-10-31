@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "record_type": "user_relayed_coarse_screening_with_explicit_positive_ids",
+  "received_date": "2026-10-31",
+  "timezone": "Asia/Shanghai",
+  "raw_user_message": "两人是直接看压缩包内容审核的，最终结果一模一样，我就和你说审核1审的结果：V2bc16745009b96、V6a89b56f2d8ca4、V528b0e04f05db3、V03388df3d60ada、Vacc46d6b21643a、Vc905deb5e60a47、Veadde26dd22ab1、Vff58d748ed3e2b这八个就是人能认出来是汉字，且大致上没什么问题的视频。审核人2那边审核的类比一样",
+  "previous_feedback_reference": "data/research/runs/p1_human_feedback_2026-10-31/user_feedback.json",
+  "review_method": "Both humans directly inspected archive contents, not the annotation UI; no UI JSON export is expected",
+  "reviewer_count_reported": 2,
+  "reviewer_agreement": "identical coarse screening results as reported by user",
+  "independent_conditions_separately_confirmed_for_P1": false,
+  "source_mapping_reference": "private/p1_full_server_2026-10-30/review_blind_mapping_private.json",
+  "positive_ids_equal_all_CPU_controls": true,
+  "recognizable_generally_acceptable_CPU_controls": [
+    {
+      "reviewer_1_blind_id_as_supplied": "V2bc16745009b96",
+      "source_id": "O-N019",
+      "character": "丑",
+      "reviewer_2_corresponding_blind_id_derived_from_frozen_mapping": "V5c5309f9bea013",
+      "reviewer_1_evidence": "explicitly listed by user",
+      "reviewer_2_evidence": "user states both reviewers have identical results; reviewer2 blind ID is programmatically mapped, not separately supplied",
+      "human_statement": "人能认出来是汉字，且大致上没什么问题"
+    },
+    {
+      "reviewer_1_blind_id_as_supplied": "V6a89b56f2d8ca4",
+      "source_id": "O-N043",
+      "character": "乞",
+      "reviewer_2_corresponding_blind_id_derived_from_frozen_mapping": "Vb201619b843c9c",
+      "reviewer_1_evidence": "explicitly listed by user",
+      "reviewer_2_evidence": "user states both reviewers have identical results; reviewer2 blind ID is programmatically mapped, not separately supplied",
+      "human_statement": "人能认出来是汉字，且大致上没什么问题"
+    },
+    {
+      "reviewer_1_blind_id_as_supplied": "V528b0e04f05db3",
+      "source_id": "O-N030",
+      "character": "广",
+      "reviewer_2_corresponding_blind_id_derived_from_frozen_mapping": "V2a5c9778fe44f5",
+      "reviewer_1_evidence": "explicitly listed by user",
+      "reviewer_2_evidence": "user states both reviewers have identical results; reviewer2 blind ID is programmatically mapped, not separately supplied",
+      "human_statement": "人能认出来是汉字，且大致上没什么问题"
+    },
+    {
+      "reviewer_1_blind_id_as_supplied": "V03388df3d60ada",
+      "source_id": "O-N076",
+      "character": "士",
+      "reviewer_2_corresponding_blind_id_derived_from_frozen_mapping": "V57c32000439fa3",
+      "reviewer_1_evidence": "explicitly listed by user",
+      "reviewer_2_evidence": "user states both reviewers have identical results; reviewer2 blind ID is programmatically mapped, not separately supplied",
+      "human_statement": "人能认出来是汉字，且大致上没什么问题"
+    },
+    {
+      "reviewer_1_blind_id_as_supplied": "Vacc46d6b21643a",
+      "source_id": "O-N066",
+      "character": "刃",
+      "reviewer_2_corresponding_blind_id_derived_from_frozen_mapping": "V1a67c990f39101",
+      "reviewer_1_evidence": "explicitly listed by user",
+      "reviewer_2_evidence": "user states both reviewers have identical results; reviewer2 blind ID is programmatically mapped, not separately supplied",
+      "human_statement": "人能认出来是汉字，且大致上没什么问题"
+    },
+    {
+      "reviewer_1_blind_id_as_supplied": "Vc905deb5e60a47",
+      "source_id": "O-N079",
+      "character": "小",
+      "reviewer_2_corresponding_blind_id_derived_from_frozen_mapping": "Vfa00f084360362",
+      "reviewer_1_evidence": "explicitly listed by user",
+      "reviewer_2_evidence": "user states both reviewers have identical results; reviewer2 blind ID is programmatically mapped, not separately supplied",
+      "human_statement": "人能认出来是汉字，且大致上没什么问题"
+    },
+    {
+      "reviewer_1_blind_id_as_supplied": "Veadde26dd22ab1",
+      "source_id": "O-N039",
+      "character": "以",
+      "reviewer_2_corresponding_blind_id_derived_from_frozen_mapping": "V97d4af96aa18c3",
+      "reviewer_1_evidence": "explicitly listed by user",
+      "reviewer_2_evidence": "user states both reviewers have identical results; reviewer2 blind ID is programmatically mapped, not separately supplied",
+      "human_statement": "人能认出来是汉字，且大致上没什么问题"
+    },
+    {
+      "reviewer_1_blind_id_as_supplied": "Vff58d748ed3e2b",
+      "source_id": "O-N017",
+      "character": "点",
+      "reviewer_2_corresponding_blind_id_derived_from_frozen_mapping": "Vefee1cc5f60aca",
+      "reviewer_1_evidence": "explicitly listed by user",
+      "reviewer_2_evidence": "user states both reviewers have identical results; reviewer2 blind ID is programmatically mapped, not separately supplied",
+      "human_statement": "人能认出来是汉字，且大致上没什么问题"
+    }
+  ],
+  "derived_population_accounting": {
+    "per_package_slots": 72,
+    "per_package_playable": 71,
+    "unique_playable_videos_in_both_packages": 71,
+    "coarse_review_observations_relayed": 142,
+    "recognizable_generally_acceptable_controls": 8,
+    "UMM_outputs_outside_positive_set": 63,
+    "technical_missing_slots": 1,
+    "derivation": "Exact eight supplied positive IDs equal all CPU controls. Combine with previous user statement that all remaining videos are unrecognizable and lack writing process. Reviewer2 source outcomes follow the user-confirmed same-results statement, not newly invented individual annotations."
+  },
+  "UMM_coarse_screening": {
+    "readable_generally_acceptable_videos_identified": 0,
+    "playable_UMM_video_denominator": 63,
+    "all_initial_UMM_attempt_denominator": 64,
+    "technical_failure_without_video": 1,
+    "interpretation": "No qualified Hanzi-writing success identified in this batch by the user-relayed coarse screening; this is not a standalone estimate of stroke-order accuracy on observable writing or population generalization"
+  },
+  "formal_facets": {
+    "seven_facet_UI_annotations_imported": 0,
+    "per_stroke_gold_created": false,
+    "order_accuracy": null,
+    "direction_accuracy": null,
+    "verified_target_glyph_accuracy": null,
+    "formal_joint_accuracy": null,
+    "formal_interrater_agreement": null,
+    "first_error_intervals": null,
+    "disposition": "Preserve human rough acceptance verbatim for controls. Absence of an observable writing process makes order/direction unknown by protocol; no hidden seven-facet answers assigned."
+  },
+  "EVAL_02": "pending_human_review",
+  "EVAL_02_substatus": "coarse_screening_recorded_formal_facet_scope_unresolved",
+  "scientific_acceptance": "pending",
+  "human_workflow": {
+    "coarse_screening_record_archived": true,
+    "request_UI_export": false,
+    "new_tasks_assigned": 0,
+    "repeat_viewing_requested": false,
+    "remaining_issue": "Original fine-facet/calibration protocol is not fulfilled by coarse screening; scope disposition and scientific acceptance remain open, without assigning further human work"
+  },
+  "preservation": {
+    "original_feedback_JSON_unchanged": true,
+    "original_media_and_packages_unchanged": true,
+    "new_GPU_calls": 0,
+    "training_calls": 0,
+    "files_deleted": [],
+    "commit_or_push": false
+  }
+}

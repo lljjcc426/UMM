@@ -1,0 +1,241 @@
+test_valid_catalog (test_catalog.CatalogTest) ... FAIL
+test_all_non_draft_pr_events_require_final_approval (test_ci_stage_gate.CIStageGateTests) ... ok
+test_approved_non_draft_can_pass_strict_gate (test_ci_stage_gate.CIStageGateTests) ... ok
+test_branch_push_does_not_grant_merge_authorization (test_ci_stage_gate.CIStageGateTests) ... ok
+test_cli_checks_current_P1_and_does_not_promote_pending_science (test_ci_stage_gate.CIStageGateTests) ... ok
+test_converting_back_to_draft_restores_review_only (test_ci_stage_gate.CIStageGateTests) ... ok
+test_draft_review_passes_without_merge_authorization (test_ci_stage_gate.CIStageGateTests) ... ok
+test_draft_still_rejects_invalid_release_evidence (test_ci_stage_gate.CIStageGateTests) ... ok
+test_non_draft_wrong_stage_branch_is_rejected (test_ci_stage_gate.CIStageGateTests) ... ok
+test_workflow_cli_reads_actual_github_event_file (test_ci_stage_gate.CIStageGateTests) ... ok
+test_empty_native_answer_cannot_pass (test_env01_interfaces.NativeInterfaceEvidence) ... ok
+test_execution_records_both_model_and_noise_seeds (test_env01_interfaces.NativeInterfaceEvidence) ... ok
+test_process_failure_retains_measurements_and_denominator (test_env01_interfaces.NativeInterfaceEvidence) ... ok
+test_success_exit_without_artifact_is_failure (test_env01_interfaces.NativeInterfaceEvidence) ... ok
+test_p0_ai_prereview (unittest.loader._FailedTest) ... ERROR
+test_closed_negative_merge_requires_existing_approval_evidence (test_p0_closeout.LimitedCloseoutTests) ... ok
+test_closed_negative_merge_requires_separate_user_authorization (test_p0_closeout.LimitedCloseoutTests) ... ok
+test_closed_phase_does_not_claim_scientific_pass_or_merge (test_p0_closeout.LimitedCloseoutTests) ... ok
+test_final_human_approval_can_release_a_negative_stage (test_p0_closeout.LimitedCloseoutTests) ... ok
+test_human_evaluation_route_cannot_be_removed (test_p0_closeout.LimitedCloseoutTests) ... ok
+test_in_progress_metadata_cannot_claim_phase_completion (test_p0_closeout.LimitedCloseoutTests) ... ok
+test_missing_original_contract_or_scope_decision_blocks_closeout (test_p0_closeout.LimitedCloseoutTests) ... ok
+test_omitting_failed_original_criteria_is_rejected (test_p0_closeout.LimitedCloseoutTests) ... ok
+test_relabeling_original_failure_as_pass_is_rejected (test_p0_closeout.LimitedCloseoutTests) ... ok
+test_scope_approval_cannot_replace_merge_approval (test_p0_closeout.LimitedCloseoutTests) ... ok
+test_unfinished_experiment_or_missing_evidence_still_blocks (test_p0_closeout.LimitedCloseoutTests) ... ok
+test_p0_data_eval (unittest.loader._FailedTest) ... ERROR
+test_p0_decoupled (unittest.loader._FailedTest) ... ERROR
+test_p0_final_calibration (unittest.loader._FailedTest) ... ERROR
+test_p0_prereview_v2 (unittest.loader._FailedTest) ... ERROR
+test_p0_quick_review (unittest.loader._FailedTest) ... ERROR
+test_p0_review (unittest.loader._FailedTest) ... ERROR
+test_P0_or_future_phase_cannot_reuse_this_scope (test_p1_closeout.P1CloseoutTests) ... ok
+test_closure_completes_scope_without_claiming_original_science_or_merge (test_p1_closeout.P1CloseoutTests) ... ok
+test_coarse_review_and_unproven_H1_cannot_be_relabelled (test_p1_closeout.P1CloseoutTests) ... ok
+test_distinct_later_report_and_merge_approval_can_promote_negative_release (test_p1_closeout.P1CloseoutTests) ... ok
+test_missing_preserved_contract_blocks_closure (test_p1_closeout.P1CloseoutTests) ... ok
+test_original_unmet_conditions_and_nonterminal_rows_cannot_disappear (test_p1_closeout.P1CloseoutTests) ... ok
+test_scope_approval_does_not_promote_even_with_ready_label (test_p1_closeout.P1CloseoutTests) ... ok
+test_actual_understanding_context_and_archived_input (test_p1_full_execution.FullExecutionTests) ... ok
+test_added_or_duplicate_slots_rejected (test_p1_full_execution.FullExecutionTests) ... ok
+test_asset_relocation_preserves_fingerprint_content_change_does_not (test_p1_full_execution.FullExecutionTests) ... ok
+test_exact_original_matrix (test_p1_full_execution.FullExecutionTests) ... ok
+test_failed_attempt_is_not_retried_on_resume (test_p1_full_execution.FullExecutionTests) ... ok
+test_permission_task_seed_and_approval_rejected (test_p1_full_execution.FullExecutionTests) ... ok
+test_duplicate_or_expanded_requests_are_rejected (test_p1_pilot_execution.PilotScopeTests) ... ok
+test_exact_approved_pilot_is_accepted (test_p1_pilot_execution.PilotScopeTests) ... ok
+test_geometry_or_interface_change_is_rejected (test_p1_pilot_execution.PilotScopeTests) ... ok
+test_unapproved_execution_is_rejected (test_p1_pilot_execution.PilotScopeTests) ... ok
+test_p1_preparation (unittest.loader._FailedTest) ... ERROR
+test_process_probe (unittest.loader._FailedTest) ... ERROR
+test_bool_is_not_count (test_research_plan.ResearchPlanTests) ... ok
+test_completed_requires_evidence (test_research_plan.ResearchPlanTests) ... ok
+test_configured_budget_requires_values (test_research_plan.ResearchPlanTests) ... ok
+test_cycle (test_research_plan.ResearchPlanTests) ... ok
+test_duplicate_ids (test_research_plan.ResearchPlanTests) ... ok
+test_duplicate_seed (test_research_plan.ResearchPlanTests) ... ok
+test_gate_nan (test_research_plan.ResearchPlanTests) ... ok
+test_invalid_record_type (test_research_plan.ResearchPlanTests) ... ok
+test_invalid_top_level (test_research_plan.ResearchPlanTests) ... ok
+test_paths (test_research_plan.ResearchPlanTests) ... ok
+test_pending_human_review_is_nonterminal (test_research_plan.ResearchPlanTests) ... ok
+test_planned_cannot_claim_results (test_research_plan.ResearchPlanTests) ... ok
+test_protocol_mismatch (test_research_plan.ResearchPlanTests) ... ok
+test_split_total (test_research_plan.ResearchPlanTests) ... ok
+test_two_node_cycle (test_research_plan.ResearchPlanTests) ... ok
+test_unknown_dependency (test_research_plan.ResearchPlanTests) ... ok
+test_valid_design (test_research_plan.ResearchPlanTests) ... ok
+test_cpu_calibration_is_independent (test_research_v2.V2Contracts) ... ok
+test_invalid_top_level (test_research_v2.V2Contracts) ... ok
+test_missing_adaptation_experiment (test_research_v2.V2Contracts) ... ok
+test_no_indirect_optional_dependency (test_research_v2.V2Contracts) ... ok
+test_no_optional_dependency_on_core (test_research_v2.V2Contracts) ... ok
+test_no_oracle_boundaries (test_research_v2.V2Contracts) ... ok
+test_no_self_log_truth (test_research_v2.V2Contracts) ... ok
+test_no_unsupported_sharing_claim (test_research_v2.V2Contracts) ... ok
+test_primary_is_generation (test_research_v2.V2Contracts) ... ok
+test_repository_design_and_paths (test_research_v2.V2Contracts) ... ok
+test_schema_rejects_fabricated_completion (test_research_v2.V2Contracts) ... ok
+test_sft_baseline_cannot_disappear (test_research_v2.V2Contracts) ... ok
+test_draft_can_pass_branch_development (test_stage_release.ResearchStageGateTests) ... ok
+test_evidence_outside_repo_rejected (test_stage_release.ResearchStageGateTests) ... ok
+test_incomplete_experiment_list_rejected (test_stage_release.ResearchStageGateTests) ... ok
+test_incorrect_head_branch_cannot_promote (test_stage_release.ResearchStageGateTests) ... ok
+test_missing_run_file_fails_even_when_completed (test_stage_release.ResearchStageGateTests) ... ok
+test_ready_without_artifacts_fails (test_stage_release.ResearchStageGateTests) ... ok
+test_unfinished_stage_cannot_pass_merge_gate (test_stage_release.ResearchStageGateTests) ... ok
+test_verified_negative_is_valid_release_type (test_stage_release.ResearchStageGateTests) ... ok
+test_empty (test_stroke_metrics.EventMetricTest) ... ok
+test_extra (test_stroke_metrics.EventMetricTest) ... ok
+test_identical (test_stroke_metrics.EventMetricTest) ... ok
+test_invalid (test_stroke_metrics.EventMetricTest) ... ok
+test_missing (test_stroke_metrics.EventMetricTest) ... ok
+test_swap_is_not_exact (test_stroke_metrics.EventMetricTest) ... ok
+
+======================================================================
+ERROR: test_p0_ai_prereview (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_p0_ai_prereview
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/Users/cc/Documents/UMM/tests/test_p0_ai_prereview.py", line 6, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_p0_data_eval (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_p0_data_eval
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/Users/cc/Documents/UMM/tests/test_p0_data_eval.py", line 4, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_p0_decoupled (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_p0_decoupled
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/Users/cc/Documents/UMM/tests/test_p0_decoupled.py", line 7, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_p0_final_calibration (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_p0_final_calibration
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/Users/cc/Documents/UMM/tests/test_p0_final_calibration.py", line 10, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_p0_prereview_v2 (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_p0_prereview_v2
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/Users/cc/Documents/UMM/tests/test_p0_prereview_v2.py", line 2, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_p0_quick_review (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_p0_quick_review
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/Users/cc/Documents/UMM/tests/test_p0_quick_review.py", line 10, in <module>
+    from scripts.p0.review_server import ReviewStore, handler_for
+  File "/Users/cc/Documents/UMM/scripts/p0/review_server.py", line 18, in <module>
+    from scripts.p0.prepare_acceptance import RUN, FACETS, STATUS_VALUES, REASONS
+  File "/Users/cc/Documents/UMM/scripts/p0/prepare_acceptance.py", line 19, in <module>
+    from scripts.p0.build_data import DATA, ROLES
+  File "/Users/cc/Documents/UMM/scripts/p0/build_data.py", line 17, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_p0_review (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_p0_review
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/Users/cc/Documents/UMM/tests/test_p0_review.py", line 11, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_p1_preparation (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_p1_preparation
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/Users/cc/Documents/UMM/tests/test_p1_preparation.py", line 12, in <module>
+    from scripts.p1.prepare_baseline import build_requests, prompt_for
+  File "/Users/cc/Documents/UMM/scripts/p1/prepare_baseline.py", line 7, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+ERROR: test_process_probe (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_process_probe
+Traceback (most recent call last):
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/unittest/loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "/Users/cc/Documents/UMM/tests/test_process_probe.py", line 3, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+
+
+======================================================================
+FAIL: test_valid_catalog (test_catalog.CatalogTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/cc/Documents/UMM/tests/test_catalog.py", line 7, in test_valid_catalog
+    self.assertTrue(report["passed"], report["errors"])
+AssertionError: False is not true : ['Broken local link: data/research/runs/p1_closeout_2026-10-31/originals/P1-contract-preclose.md -> ../../../data/research/runs/p1_pilot_kickoff_2026-10-30/authorization.json', 'Broken local link: data/research/runs/p1_closeout_2026-10-31/originals/P1-contract-preclose.md -> ../../research/v2/p1_baseline_failure_plan_2026-10-30.md', 'Broken local link: data/research/runs/p1_closeout_2026-10-31/originals/P1-contract-preclose.md -> ../../research/v2/p1_native_pilot_issue3_report_2026-10-30.md', 'Broken local link: data/research/runs/p1_closeout_2026-10-31/originals/P1-contract-preclose.md -> ../../research/v2/p1_full_server_report_2026-10-30.md', 'Broken local link: data/research/runs/p1_closeout_2026-10-31/originals/P1-contract-preclose.md -> ../../research/v2/p1_human_feedback_2026-10-31.md', 'Broken local link: docs/research/v2/p1_final_scientific_closeout_2026-10-31.md -> ../../../data/research/runs/p1_closeout_2026-10-31/checks/summary.json']
+
+----------------------------------------------------------------------
+Ran 94 tests in 0.376s
+
+FAILED (failures=1, errors=9)

@@ -17,6 +17,9 @@ ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = Path("data/research/experiments_v2.json")
 STATUSES = {"in_progress", "blocked", "ready_for_review", "closed_with_negative_results"}
 VALID_CONCLUSIONS = {"phase_gate_passed", "supported_positive", "supported_negative"}
+LIMITED_SCOPES = {"P0": "limited_research_foundation", "P1": "limited_native_baseline_negative"}
+P1_LIMITED_OUTCOMES = {"SO-00": "completed_with_limitations", "BASE-01": "completed_negative",
+                       "EVAL-02": "completed_with_limitations", "SO-01": "completed_with_limitations"}
 
 
 def validate_release(manifest: Any, registry: Any, root: Path,
@@ -28,7 +31,7 @@ def validate_release(manifest: Any, registry: Any, root: Path,
         if not condition:
             errors.append(message)
 
-    def check_file(value: Any, label: str) -> None:
+    def check_file(value: Any, label: str) -> Path | None:
         if not isinstance(value, str) or not value.strip():
             errors.append(f"{label}: empty reference")
             return
@@ -39,6 +42,8 @@ def validate_release(manifest: Any, registry: Any, root: Path,
         resolved = (root / path).resolve()
         if not resolved.is_relative_to(root) or not resolved.is_file():
             errors.append(f"{label}: evidence file missing: {value}")
+            return None
+        return resolved
 
     if not isinstance(manifest, dict) or not isinstance(registry, dict):
         return {"passed": False, "errors": ["manifest and registry must be dictionaries"]}
@@ -87,18 +92,39 @@ def validate_release(manifest: Any, registry: Any, root: Path,
     limited_closeout = status == "closed_with_negative_results" or closure is not None
     if limited_closeout:
         check(status in {"closed_with_negative_results", "ready_for_review"}, "limited closeout lifecycle is inconsistent")
-        check(manifest.get("schema_version") == 2 and phase == "P0", "limited closeout requires P0 schema2")
+        check(manifest.get("schema_version") == 2 and phase in LIMITED_SCOPES,
+              "limited closeout requires a phase-specific schema2 scope")
         check(manifest.get("conclusion") == "supported_negative", "limited closeout cannot claim original gates passed")
         closure = closure if isinstance(closure, dict) else {}
-        check(closure.get("accepted_scope") == "limited_research_foundation", "missing limited accepted scope")
+        check(phase in LIMITED_SCOPES and closure.get("accepted_scope") == LIMITED_SCOPES.get(phase),
+              "missing limited accepted scope")
         check(closure.get("original_scientific_gates_met") is False, "original scientific failures must remain explicit")
-        check(closure.get("automatic_scorer_required_for_P1") is False, "P1 must support the independent human evaluation route")
-        routes = closure.get("formal_evaluation_path", [])
-        check(isinstance(routes, list) and {"trusted_normative_reference", "independent_human_judgments",
-              "automatic_auxiliary_only", "strict_unknown_handling"}.issubset(routes),
-              "incomplete alternative evaluation path")
-        for key in ("scope_approval_reference", "original_contract", "original_release_manifest", "final_report"):
-            check_file(closure.get(key), "closure." + key)
+        if phase == "P0":
+            check(closure.get("automatic_scorer_required_for_P1") is False, "P1 must support the independent human evaluation route")
+            routes = closure.get("formal_evaluation_path", [])
+            check(isinstance(routes, list) and {"trusted_normative_reference", "independent_human_judgments",
+                  "automatic_auxiliary_only", "strict_unknown_handling"}.issubset(routes),
+                  "incomplete alternative evaluation path")
+        references = {key: check_file(closure.get(key), "closure." + key)
+                      for key in ("scope_approval_reference", "original_contract", "original_release_manifest", "final_report")}
+        if phase == "P1":
+            check(closure.get("human_evidence_level") == "user_relayed_coarse_screening"
+                  and closure.get("formal_seven_facet_review_completed") is False,
+                  "P1 coarse screening cannot become formal seven-facet gold")
+            check(closure.get("H1_status") == "not_established", "P1 history benefit remains unestablished")
+            check(closure.get("automatic_judge_role") == "auxiliary_only"
+                  and closure.get("unknown_policy") == "preserved_without_imputation",
+                  "P1 auxiliary evidence and unknown limits must remain explicit")
+            approval_path = references["scope_approval_reference"]
+            if approval_path is not None:
+                try:
+                    approval_data = json.loads(approval_path.read_text(encoding="utf-8"))
+                except (OSError, ValueError):
+                    approval_data = None
+                check(isinstance(approval_data, dict) and approval_data.get("phase") == "P1"
+                      and approval_data.get("decision") == "approved"
+                      and approval_data.get("accepted_scope") == LIMITED_SCOPES["P1"],
+                      "P1 requires its own explicit limited-scope approval")
         unmet = closure.get("unmet_original_criteria")
         check(isinstance(unmet, list) and len(unmet) > 0 and all(
             isinstance(x, dict) and x.get("experiment_id") in ids and x.get("criterion")
@@ -106,11 +132,12 @@ def validate_release(manifest: Any, registry: Any, root: Path,
             "missing explicit disposition of unmet original criteria")
         if isinstance(unmet, list):
             unmet_ids = {x.get("experiment_id") for x in unmet if isinstance(x, dict)}
-            check({"DATA-01", "EVAL-01"}.issubset(unmet_ids), "DATA/EVAL original failures omitted")
+            required_unmet = {"DATA-01", "EVAL-01"} if phase == "P0" else set(P1_LIMITED_OUTCOMES)
+            check(required_unmet.issubset(unmet_ids), "original phase failures or unverified criteria omitted")
         check(blockers == [], "unresolved blockers to the approved limited closeout")
 
     promote = require_ready or status == "ready_for_review"
-    # A scientifically closed P0 negative release can be promoted without
+    # An approved finite negative release can be promoted without
     # changing its lifecycle label back to a pending-review state. This
     # exception still requires a separate, documented main-merge approval.
     negative_closeout_merge_ready = (
@@ -149,11 +176,13 @@ def validate_release(manifest: Any, registry: Any, root: Path,
                       and bool(outcome.get("unmet_criteria")), f"{exp_id}: incomplete negative/limited outcome")
             elif isinstance(outcome, dict) and outcome.get("original_gate_met") is False:
                 check(False, f"{exp_id}: unmet original gate cannot be recorded as unqualified completed")
-            if limited_closeout and exp_id == "ENV-01":
+            if limited_closeout and phase == "P0" and exp_id == "ENV-01":
                 check(state == "completed", "ENV-01 verified scope must remain completed")
-            if limited_closeout and exp_id in {"DATA-01", "EVAL-01"}:
+            if limited_closeout and phase == "P0" and exp_id in {"DATA-01", "EVAL-01"}:
                 expected_state = "completed_with_limitations" if exp_id == "DATA-01" else "completed_negative"
                 check(state == expected_state, f"{exp_id}: original outcome must remain limited/negative")
+            if limited_closeout and phase == "P1" and exp_id in P1_LIMITED_OUTCOMES:
+                check(state == P1_LIMITED_OUTCOMES[exp_id], f"{exp_id}: original outcome must remain limited/negative")
             for key in ("run_records", "result_artifacts"):
                 arr = row.get(key)
                 check(isinstance(arr, list) and len(arr) > 0, f"{exp_id}: {key} missing")
@@ -163,10 +192,15 @@ def validate_release(manifest: Any, registry: Any, root: Path,
 
     # Scientific completion is independent from subsequent merge authorization.
     phase_completed = limited_closeout and not errors
-    if promote and status == "closed_with_negative_results":
+    if promote and limited_closeout and (status == "closed_with_negative_results" or phase == "P1"):
         # Reject a bare approval assertion. The merge-specific source must
         # exist in the repository and remain separate from science approval.
         check_file(manifest.get("approval_reference"), "explicit merge approval")
+    if promote and limited_closeout and phase == "P1":
+        check(closure.get("user_final_report_review") == "approved", "P1 final report review is pending")
+        check(closure.get("main_merge_authorized") is True, "P1 main merge not authorized")
+        check(manifest.get("approval_reference") != closure.get("scope_approval_reference"),
+              "P1 scope approval cannot replace separate merge approval")
     errors.extend(promotion_errors)
     return {
         "passed": not errors, "errors": errors,

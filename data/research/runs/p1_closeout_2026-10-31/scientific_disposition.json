@@ -1,0 +1,71 @@
+{
+  "phase": "P1",
+  "accepted_scope": "limited_native_baseline_negative",
+  "scope_approval_reference": "data/research/runs/p1_closeout_2026-10-31/scope_approval.json",
+  "experiments": [
+    {
+      "experiment_id": "SO-00",
+      "status": "completed_with_limitations",
+      "original_gate_met": false,
+      "conclusion": "Actual sampling and media integrity were audited; event preservation is supported only by bounded synthetic development observations",
+      "hypothesis_status": "not_established_in_original_scope",
+      "unmet_criteria": [
+        {
+          "experiment_id": "SO-00",
+          "criterion": "Establish preservation and observability of required short events and directions, beyond a narrow synthetic development probe",
+          "observed": "8 codec audits;32 development instances retain observer onset/completion/anchors,7 correct/correct and1 unknown/unknown; no independent human event gold or broad source coverage",
+          "disposition": "Close with limitations: sampling/decoding audited and bounded codec evidence retained; broad preservation and causal exclusion of codec remain unestablished"
+        }
+      ]
+    },
+    {
+      "experiment_id": "BASE-01",
+      "status": "completed_negative",
+      "original_gate_met": false,
+      "conclusion": "No acceptable Hanzi-writing video identified among63 playable native outputs in this batch;1 of64 attempts is an operator instrumentation failure",
+      "hypothesis_status": "bounded_observed_failure",
+      "unmet_criteria": [
+        {
+          "experiment_id": "BASE-01",
+          "criterion": "Independent fine-facet actual-RGB failure atlas and complete comparative character/process assessment",
+          "observed": "64 initial attempts:63 playable outputs with0 acceptable writing clips identified by user-relayed matching dual-human coarse screening,1 instrumentation failure without retry;8 recognizable clips are CPU controls",
+          "disposition": "Close as a bounded native-baseline negative result for this deployed configuration; preserve all denominators, no claim of observable order accuracy or general model incapacity"
+        }
+      ]
+    },
+    {
+      "experiment_id": "EVAL-02",
+      "status": "completed_with_limitations",
+      "original_gate_met": false,
+      "conclusion": "User-relayed dual-human coarse screening is archived with source identities; original fine-facet calibration remains unfulfilled",
+      "hypothesis_status": "not_established_in_original_scope",
+      "unmet_criteria": [
+        {
+          "experiment_id": "EVAL-02",
+          "criterion": "Independent per-video seven-facet records, generated-domain calibration, uncertainty and formal agreement accounting",
+          "observed": "Two archive-based coarse reviews relayed by user, exact8 positive reviewer1 IDs mapped to CPU controls and reviewer2 results reported equivalent; no seven-facet submissions or separate P1 independence-condition confirmation",
+          "disposition": "Close with limitations: archive coarse screen as supplied, preserve unknowns and missing facets; no new review task or invented event gold/calibration claim"
+        }
+      ]
+    },
+    {
+      "experiment_id": "SO-01",
+      "status": "completed_with_limitations",
+      "original_gate_met": false,
+      "conclusion": "History benefit, correct event perception and first-error accuracy are not established; descriptive answer failures are retained",
+      "hypothesis_status": "not_established_in_original_scope",
+      "unmet_criteria": [
+        {
+          "experiment_id": "SO-01",
+          "criterion": "Establish H1 through correct observed sequence, direction, instance and first-error judgments under history interventions",
+          "observed": "28 original answers and20 text comparisons;6 identical pairs,8 literal duration conflicts and3 ascending-integer answers; no independent event/first-error accuracy evaluation",
+          "disposition": "Close with limitations: H1 not established and not disproven; retain original answers and failure diagnostics without attributing a causal bottleneck"
+        }
+      ]
+    }
+  ],
+  "original_scientific_gates_met": false,
+  "final_report_review": "pending",
+  "main_merge_authorized": false,
+  "next_phase_authorized": false
+}

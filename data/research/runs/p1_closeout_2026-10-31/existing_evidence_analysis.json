@@ -1,0 +1,109 @@
+{
+  "phase": "P1",
+  "scope": "limited_native_baseline_negative",
+  "analysis_device": "local_CPU_no_model",
+  "generation": {
+    "conditions": {
+      "T_G0_blank_i2v": {
+        "slots": 8,
+        "statuses": {
+          "failed": 1,
+          "completed": 7
+        },
+        "acceptable_video_identified_in_user_relayed_coarse_screening": 0,
+        "formal_order_accuracy": null,
+        "interpretation": "Coarse screening only; no per-facet or population claim"
+      },
+      "T_G0_native_simple": {
+        "slots": 24,
+        "statuses": {
+          "completed": 24
+        },
+        "acceptable_video_identified_in_user_relayed_coarse_screening": 0,
+        "formal_order_accuracy": null,
+        "interpretation": "Coarse screening only; no per-facet or population claim"
+      },
+      "T_G0_order_text": {
+        "slots": 24,
+        "statuses": {
+          "completed": 24
+        },
+        "acceptable_video_identified_in_user_relayed_coarse_screening": 0,
+        "formal_order_accuracy": null,
+        "interpretation": "Coarse screening only; no per-facet or population claim"
+      },
+      "T_G1_template_text": {
+        "slots": 8,
+        "statuses": {
+          "completed": 8
+        },
+        "acceptable_video_identified_in_user_relayed_coarse_screening": 0,
+        "formal_order_accuracy": null,
+        "interpretation": "Coarse screening only; no per-facet or population claim"
+      }
+    },
+    "playable_UMM_outputs": 63,
+    "initial_attempts": 64,
+    "engineering_failures": 1,
+    "coarse_successes_identified": 0,
+    "CPU_controls": 8,
+    "human_evidence": "User-relayed matching two-person coarse screening with explicit reviewer1 positive IDs",
+    "denominator_policy": "Keep all64 initial attempts; report1 technical failure separately from63 screened outputs",
+    "observable_order_accuracy": null,
+    "formal_seven_facet_metrics": null
+  },
+  "SO00": {
+    "codec_inputs": 8,
+    "compared_development_instances": 32,
+    "identical_onset_completion_anchor_records": 32,
+    "paired_auxiliary_decision_counts": {
+      "correct/correct": 7,
+      "unknown/unknown": 1
+    },
+    "MAE_min": 0.11537302069436503,
+    "MAE_max": 0.28471730870020967,
+    "independent_human_event_gold": false,
+    "hypothesis_status": "not_established_beyond_development_evidence",
+    "interpretation": "32 instances share8 characters and one renderer; not32 independent sources. Equal unknowns do not prove events preserved."
+  },
+  "SO01": {
+    "answers": 28,
+    "controlled": 20,
+    "fixed_real": 8,
+    "compared_pairs": 20,
+    "identical_answer_pairs": 6,
+    "identical_pairs_by_condition": {
+      "irrelevant_occlusion": 4,
+      "alternate_history": 1,
+      "last_frame": 1
+    },
+    "duration_conflicts": [
+      "SO01-C-N076-full_prefix",
+      "SO01-C-N076-relevant_occlusion",
+      "SO01-C-N076-irrelevant_occlusion",
+      "SO01-C-N076-alternate_history",
+      "SO01-C-N019-full_prefix",
+      "SO01-C-N019-relevant_occlusion",
+      "SO01-C-N019-irrelevant_occlusion",
+      "SO01-C-N019-alternate_history"
+    ],
+    "ascending_integer_answer_ids": [
+      "SO01-R-N076-last_frame",
+      "SO01-R-N079-full_prefix",
+      "SO01-R-N079-last_frame"
+    ],
+    "H1_status": "not_established",
+    "formal_event_accuracy": null,
+    "formal_first_error_accuracy": null,
+    "interpretation": "Text differences do not establish correct history use. Duration conflicts and numeric runs are descriptive failures, not an event-accuracy score."
+  },
+  "sources": [
+    "data/research/runs/p1_full_server_2026-10-30/request_status.json",
+    "data/research/runs/p1_full_server_2026-10-30/codec_auxiliary_evidence.json",
+    "data/research/runs/p1_full_server_2026-10-30/understanding_answers_and_sampling.json",
+    "data/research/runs/p1_full_server_2026-10-30/understanding_paired_auxiliary.json",
+    "data/research/runs/p1_human_feedback_2026-10-31/identified_screening.json"
+  ],
+  "new_model_calls": 0,
+  "new_human_tasks": 0
+}

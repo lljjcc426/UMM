@@ -8,7 +8,7 @@
 | --- | --- | --- |
 | `main` | 稳定研究协议、已经验收的模型/代码/数据与可支持的结论 | 只能通过经用户批准的 PR；所有必须检查与科学审核通过 |
 | `research/p0-stroke-video-foundation` | 历史P0：已有限负结果结项，分支与原证据保留 | 已获准P0 PR #2合入main，原科学失败保持 |
-| `research/p1-native-baselines` | 当前P1：原生生成、实际RGB失败与理解诊断 | 服务器计算已交付；独立人审及阶段科学验收仍待完成 |
+| `research/p1-native-baselines` | 当前P1：已按明确批准的有限范围负结果结项 | 最终报告待审阅；main合并及下一阶段仍需单独批准 |
 | `research/pN-主题` | 后续阶段集成分支，从已验收的最新 main 派生 | 按阶段验收，独立 PR 进入 main |
 | `feat/pN-*` / `fix/pN-*` / `exp/pN-*` | 某个功能、缺陷修复、隔离性实验 | 测试后汇入阶段分支；常规不得直入 main |
 | 已存在的其他研究分支 | 历史/并行实验，协议可能不同 | 保留原样；审计并获用户许可后选择性移植 |
@@ -23,7 +23,15 @@
 6. **PR 审核**：向 main 提出 PR，附阶段清单、每个实验的运行路径、结果/样本覆盖、CI 链接和用户批准引用。所有适用门禁通过并经用户确认后才合并；禁止自动合并。
 7. **下一阶段**：合入 main 后从最新 main 开始新的阶段分支，旧阶段分支保留供追溯；未经用户允许不删除。
 
-阶段门禁CLI默认读取`configs/research/stroke_video_v2.json`的`current_phase`所对应发布文件；当前为P1。审计历史P0可显式使用`python scripts/validate_stage_release.py --phase P0`。研究分支开发检查通过不授予科学验收或main合并权限；P1待人审时严格合并门禁继续拒绝。
+阶段门禁CLI默认读取`configs/research/stroke_video_v2.json`的`current_phase`所对应发布文件；当前为P1。审计历史P0可显式使用`python scripts/validate_stage_release.py --phase P0`。研究分支开发检查通过不授予科学验收或main合并权限；P1范围结项后，缺少最终报告审阅及main合并批准时严格合并门禁继续拒绝。
+
+## P1有限负结果结项（2026-10-31）
+
+用户已明确批准[P1有限原生基线负结果范围](stages/P1.md)，批准记录见`data/research/runs/p1_closeout_2026-10-31/scope_approval.json`。该范围独立于P0例外，不推广至P2以后。原P1契约、原发布清单和原登记留档，四项未满足标准及原阻塞明确保留，允许结束本轮而不追加GPU或机械人审。
+
+P1使用schema2/closed_with_negative_results/supported_negative，BASE-01为completed_negative，SO-00/EVAL-02/SO-01为completed_with_limitations，original_scientific_gates_met=false。已归档的双人粗筛不得升级为完整七维金标，H1继续not_established，自动辅助及unknown保留规则不变。原缺口记入closure.unmet_original_criteria及closure.previous_blockers；当前unresolved_blockers仅表示获准有限范围内尚未完成的工作，不代表原问题全部解决。
+
+本地结项检查验证P1专属范围批准、原契约、原清单、报告、终态及证据。当前范围批准不授予新报告的最终审阅结论、main合并或P2执行。P1严格合并检查即使标为ready_for_review，也要求user_final_report_review=approved、main_merge_authorized=true及独立存在且不同于范围批准的合并批准文件。缺少任一项就拒绝。当前仅本地提交，不推送或合并。
 
 ## P0 有限结项及合并门槛（2026-10-30修订）
 

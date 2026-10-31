@@ -1,10 +1,10 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "protocol_id": "stroke-video-v2",
   "phase": "P1",
   "branch": "research/p1-native-baselines",
-  "status": "in_progress",
-  "conclusion": "pending",
+  "status": "closed_with_negative_results",
+  "conclusion": "supported_negative",
   "experiment_ids": [
     "SO-00",
     "BASE-01",
@@ -30,24 +30,36 @@
     "data/research/runs/p1_full_server_2026-10-30/offline_review_manifest.json",
     "data/research/runs/p1_full_server_2026-10-30/artifact_inventory.json",
     "data/research/runs/p1_full_server_2026-10-30/backup_verification.json",
-    "data/research/runs/p1_full_server_2026-10-30/local_supplemental_backup.json"
+    "data/research/runs/p1_full_server_2026-10-30/local_supplemental_backup.json",
+    "data/research/runs/p1_human_feedback_2026-10-31/user_feedback.json",
+    "docs/research/v2/p1_human_feedback_2026-10-31.md",
+    "data/research/runs/p1_human_feedback_2026-10-31/identified_screening.json",
+    "data/research/runs/p1_closeout_2026-10-31/scope_approval.json",
+    "data/research/runs/p1_closeout_2026-10-31/scientific_disposition.json",
+    "data/research/runs/p1_closeout_2026-10-31/existing_evidence_analysis.json",
+    "data/research/runs/p1_closeout_2026-10-31/SO01_text_audit.json",
+    "data/research/runs/p1_closeout_2026-10-31/evidence_inventory.json",
+    "data/research/runs/p1_closeout_2026-10-31/version_record.json",
+    "data/research/runs/p1_closeout_2026-10-31/task_record.json",
+    "docs/project/stages/P1-contract-preclose-2026-10-31.md",
+    "docs/research/v2/p1_final_scientific_closeout_2026-10-31.md"
   ],
-  "unresolved_blockers": [
-    "Independent actual-RGB human judgments:142 playable reviews pending;0 submitted. No scientific success rate or paired improvement adjudicated.",
-    "SO-00 event preservation has development auxiliary evidence only; SO-01 formal event/first-error accuracy and H1 unverified.",
-    "Reference/source qualification remains development-level; disputes must be resolved before formal per-stroke gold claims."
-  ],
+  "unresolved_blockers": [],
   "limitations": [
     "P0 limited negative closeout accepted; old auto judge auxiliary only.",
     "Eight development characters with limited original seeds; no population generalization or new holdout.",
     "N076 blank-i2v initial attempt failed in operator instrumentation after GPU VAE preprocessing; no retry, no video, denominator retained.",
     "Model-input packing verified for63valid outputs; downstream conditional contribution and mechanisms not established.",
     "Metadata blinded in review packages; visible appearance may reveal source.",
-    "CPU materialization total wall time not instrumented; actual rental price and bill unknown by user preference."
+    "CPU materialization total wall time not instrumented; actual rental price and bill unknown by user preference.",
+    "Two humans reported matching coarse archive reviews; no complete independent seven-facet event gold or calibrated agreement statistic.",
+    "SO-00 supports bounded synthetic development observations only; broad event preservation not established.",
+    "SO-01 H1 remains unestablished;28 answers alone do not demonstrate correct history use.",
+    "Current deployed native generation failed the coarse task screen; conditional downstream contribution remains unaudited, so no universal model incapacity or causal mechanism claim."
   ],
   "main_merge_authorized": false,
   "training_authorized": false,
-  "notes": "All fixed initial server slots processed and privately archived; no retries/training. Server completion is separate from independent human review and scientific acceptance. Instance and disks retained.",
+  "notes": "P1 finite negative closeout scope approved by user on2026-10-31. All original criteria, raw media, failures and coarse human evidence retained. Scope closure is separate from final report acceptance and main merge; no new human/GPU work or P2 execution.",
   "full_execution_authorization_reference": "data/research/runs/p1_full_server_2026-10-30/authorization.json",
   "full_execution_counts": {
     "generation_total": 64,
@@ -64,7 +76,75 @@
     "unrun": 0
   },
   "server_status": "server_completed_with_failures",
-  "EVAL_02": "pending_human_review",
-  "scientific_acceptance": "pending",
-  "formal_human_reviews": 0
+  "EVAL_02": "completed_with_limitations",
+  "scientific_acceptance": "limited_scope_closed_pending_final_report_review",
+  "formal_human_reviews": 0,
+  "human_feedback_reference": "data/research/runs/p1_human_feedback_2026-10-31/identified_screening.json",
+  "human_viewing_status": "both_reviewers_viewed_as_relayed_by_user",
+  "human_record_status": "coarse_screening_archived_original_fine_facets_unfulfilled_under_approved_closeout",
+  "formal_human_reviews_definition": "Imported traceable per-video judgments; aggregate chat feedback is preserved separately and is not converted into individual labels",
+  "instance_state": "user_reported_closed_2026-10-31",
+  "UI_export_required": false,
+  "coarse_human_screening": {
+    "unique_playable_videos": 71,
+    "reviewers_as_reported": 2,
+    "recognizable_generally_acceptable_controls": 8,
+    "acceptable_UMM_outputs_identified": 0,
+    "UMM_playable_denominator": 63,
+    "UMM_initial_attempt_denominator": 64,
+    "technical_missing": 1,
+    "source": "user_relayed_coarse_screening"
+  },
+  "approval_reference": null,
+  "closure": {
+    "accepted_scope": "limited_native_baseline_negative",
+    "scope_approval_reference": "data/research/runs/p1_closeout_2026-10-31/scope_approval.json",
+    "original_scientific_gates_met": false,
+    "original_contract": "docs/project/stages/P1-contract-preclose-2026-10-31.md",
+    "original_release_manifest": "data/research/runs/p1_closeout_2026-10-31/originals/P1-release-preclose.json",
+    "original_registry": "data/research/runs/p1_closeout_2026-10-31/originals/experiments_v2-preclose.json",
+    "final_report": "docs/research/v2/p1_final_scientific_closeout_2026-10-31.md",
+    "human_evidence_level": "user_relayed_coarse_screening",
+    "formal_seven_facet_review_completed": false,
+    "H1_status": "not_established",
+    "automatic_judge_role": "auxiliary_only",
+    "unknown_policy": "preserved_without_imputation",
+    "unmet_original_criteria": [
+      {
+        "experiment_id": "SO-00",
+        "criterion": "Establish preservation and observability of required short events and directions, beyond a narrow synthetic development probe",
+        "observed": "8 codec audits;32 development instances retain observer onset/completion/anchors,7 correct/correct and1 unknown/unknown; no independent human event gold or broad source coverage",
+        "disposition": "Close with limitations: sampling/decoding audited and bounded codec evidence retained; broad preservation and causal exclusion of codec remain unestablished"
+      },
+      {
+        "experiment_id": "BASE-01",
+        "criterion": "Independent fine-facet actual-RGB failure atlas and complete comparative character/process assessment",
+        "observed": "64 initial attempts:63 playable outputs with0 acceptable writing clips identified by user-relayed matching dual-human coarse screening,1 instrumentation failure without retry;8 recognizable clips are CPU controls",
+        "disposition": "Close as a bounded native-baseline negative result for this deployed configuration; preserve all denominators, no claim of observable order accuracy or general model incapacity"
+      },
+      {
+        "experiment_id": "EVAL-02",
+        "criterion": "Independent per-video seven-facet records, generated-domain calibration, uncertainty and formal agreement accounting",
+        "observed": "Two archive-based coarse reviews relayed by user, exact8 positive reviewer1 IDs mapped to CPU controls and reviewer2 results reported equivalent; no seven-facet submissions or separate P1 independence-condition confirmation",
+        "disposition": "Close with limitations: archive coarse screen as supplied, preserve unknowns and missing facets; no new review task or invented event gold/calibration claim"
+      },
+      {
+        "experiment_id": "SO-01",
+        "criterion": "Establish H1 through correct observed sequence, direction, instance and first-error judgments under history interventions",
+        "observed": "28 original answers and20 text comparisons;6 identical pairs,8 literal duration conflicts and3 ascending-integer answers; no independent event/first-error accuracy evaluation",
+        "disposition": "Close with limitations: H1 not established and not disproven; retain original answers and failure diagnostics without attributing a causal bottleneck"
+      }
+    ],
+    "previous_blockers": [
+      "Coarse human screening complete as relayed by user: exact8 positive IDs are CPU controls;63 UMM videos are outside the acceptable set. Original seven-facet/calibration and P1 independence requirements remain unresolved; no UI export or repeat viewing required, and no additional human task assigned.",
+      "SO-00 event preservation has development auxiliary evidence only; SO-01 formal event/first-error accuracy and H1 unverified.",
+      "Reference/source qualification remains development-level; disputes must be resolved before formal per-stroke gold claims."
+    ],
+    "previous_blockers_disposition": "Original blockers retained in snapshots and all four explicit unmet dispositions; they are not solved or converted to passes. They cease being absolute blockers only within the specifically approved finite negative closeout.",
+    "user_final_report_review": "pending",
+    "main_merge_authorized": false,
+    "next_phase_authorized": false,
+    "new_human_tasks": 0,
+    "new_GPU_calls": 0
+  }
 }

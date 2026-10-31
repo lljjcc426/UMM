@@ -1,0 +1,52 @@
+{
+  "status": "passed_with_expected_merge_rejection",
+  "passed": true,
+  "initial_attempt": {
+    "runtime": "/usr/bin/python3",
+    "result": "failed",
+    "reason": "System Python lacks project numpy dependency; copied Markdown snapshot resolves links from a different directory; final summary link not yet materialized",
+    "log": "data/research/runs/p1_closeout_2026-10-31/checks/unittest_initial_system_python.log"
+  },
+  "resolution": "Use existing project .venv; preserve duplicate raw snapshot as .md.txt while canonical Markdown snapshot remains beside original contract; materialize this check record",
+  "runtime": ".venv/bin/python",
+  "unit_tests": {
+    "passed": true,
+    "count": 128,
+    "log": "data/research/runs/p1_closeout_2026-10-31/checks/unittest.log"
+  },
+  "validations": {
+    "catalog": {
+      "passed": true,
+      "path": "data/research/runs/p1_closeout_2026-10-31/checks/catalog.json"
+    },
+    "research_v1": {
+      "passed": true,
+      "path": "data/research/runs/p1_closeout_2026-10-31/checks/research_v1.json"
+    },
+    "research_v2": {
+      "passed": true,
+      "path": "data/research/runs/p1_closeout_2026-10-31/checks/research_v2.json"
+    },
+    "P1_development": {
+      "passed": true,
+      "path": "data/research/runs/p1_closeout_2026-10-31/checks/P1_development.json"
+    },
+    "P0_historical": {
+      "passed": true,
+      "path": "data/research/runs/p1_closeout_2026-10-31/checks/P0_historical.json"
+    }
+  },
+  "strict_merge_gate": {
+    "expected": "reject until separate final-report and main-merge approval",
+    "actual": "rejected",
+    "phase_completed": true,
+    "merge_authorized": false,
+    "path": "data/research/runs/p1_closeout_2026-10-31/checks/P1_merge_expected_rejection.json"
+  },
+  "original_evidence_policy": {
+    "non_P1_experiment_rows_unchanged": true,
+    "P0_config_and_model_seeds_thresholds_unchanged": true,
+    "raw_media_rehashed": false
+  },
+  "remote_CI": "not_triggered_no_new_push"
+}

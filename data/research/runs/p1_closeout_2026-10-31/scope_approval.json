@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "phase": "P1",
+  "received_date": "2026-10-31",
+  "timezone": "Asia/Shanghai",
+  "decision": "approved",
+  "accepted_scope": "limited_native_baseline_negative",
+  "raw_user_message": "批准",
+  "proposal_context": "建议用现有证据准备P1有限负结果结项，保留未回答的机制问题，不为凑齐指标追加机械人审或GPU实验。结项范围仍需你批准。",
+  "authorized": [
+    "Local CPU analysis of existing evidence",
+    "Preserve original P1 contract and unmet criteria",
+    "Prepare final finite negative closeout report",
+    "Update four P1 outcomes and phase-specific release gate",
+    "Necessary engineering checks and local research-branch commit"
+  ],
+  "not_authorized": [
+    "New GPU calls or retries",
+    "Training",
+    "Additional human review tasks",
+    "Main modification or merge",
+    "P2 execution",
+    "New remote push"
+  ],
+  "final_report_review": "pending_after_report_delivery",
+  "main_merge_authorized": false,
+  "source": "Current conversation; user approval applies to the immediately preceding limited-closeout proposal, not unseen final report or a merge"
+}

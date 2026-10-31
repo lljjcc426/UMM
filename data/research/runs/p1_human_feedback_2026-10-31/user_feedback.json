@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "protocol_id": "stroke-video-v2",
+  "record_type": "user_relayed_aggregate_human_feedback",
+  "received_date": "2026-10-31",
+  "timezone": "Asia/Shanghai",
+  "source": "Current conversation: user reports both reviewers' observations and instance shutdown",
+  "raw_user_message": "这人工审核包中的内容只有八个视频能认出是汉字，笔画顺序和方向等也基本没啥问题，但是其他的都不知道是什么东西，并且也没有书写过程。两个人审核都是如此。另外实例我已经关闭，因为P1的需要服务器的实验应该都跑完了。",
+  "human_feedback": {
+    "reviewers_reported": 2,
+    "reported_observations": {
+      "recognizable_as_hanzi_videos": 8,
+      "order_direction_statement": "笔画顺序和方向等也基本没啥问题",
+      "remaining_videos_statement": "其他的都不知道是什么东西，并且也没有书写过程",
+      "reviewer_consistency_statement": "两个人审核都是如此"
+    },
+    "reported_video_viewing": "Both reviewers reportedly inspected the package contents; no additional viewing assigned",
+    "evidence_level": "aggregate_relay_only",
+    "current_review_independence_verified_from_this_message": false,
+    "per_video_annotations_imported": 0,
+    "per_video_source_assignment": "not_established_from_aggregate_message",
+    "formal_agreement_statistic": null,
+    "formal_order_accuracy": null,
+    "formal_direction_accuracy": null,
+    "formal_target_character_accuracy": null,
+    "formal_joint_success": null,
+    "human_conclusions_inferred_or_filled": false
+  },
+  "package_composition_verified_locally": {
+    "mapping_reference": "private/p1_full_server_2026-10-30/review_blind_mapping_private.json",
+    "packages": 2,
+    "per_package_slots": 72,
+    "per_package_playable": 71,
+    "per_package_UMM_generated_videos": 63,
+    "per_package_CPU_deterministic_controls": 8,
+    "per_package_technical_missing_slots": 1,
+    "control_characters": ["士", "丑", "小", "以", "广", "刃", "乞", "点"],
+    "reported_eight_equals_control_eight_count": true,
+    "reported_eight_identified_as_controls": null,
+    "interpretation": "Count correspondence suggests the eight recognizable clips may be the deterministic controls; per-video identity is not established. Controls must not count as UMM generation successes."
+  },
+  "evaluation_disposition": {
+    "EVAL_02": "pending_human_review",
+    "substatus": "aggregate_feedback_received_pending_itemwise_record_reconciliation",
+    "existing_export_import_requested": "If existing reviewer exports are available, import them without requesting another viewing round",
+    "absence_of_observable_writing": "Task compliance may fail while order/direction remain unknown; do not turn absence into correct order or direction",
+    "current_supported_conclusion": "Reported video-level task failure and lack of observable writing are consistent with archived AI auxiliary observations. Source-specific human rates and paired effects are not yet established.",
+    "scientific_acceptance": "pending",
+    "new_human_tasks_assigned": 0
+  },
+  "instance": {
+    "state": "user_reported_closed",
+    "source": "raw_user_message",
+    "exact_shutdown_time": null,
+    "remote_verification_performed": false,
+    "disk_retention_or_deletion": "not_reported",
+    "server_execution_status": "server_completed_with_failures",
+    "unrun_authorized_initial_slots": 0,
+    "new_GPU_calls": 0
+  },
+  "preservation": {
+    "original_packages_modified": false,
+    "original_server_snapshots_modified": false,
+    "original_predictions_or_human_annotations_modified": false,
+    "files_deleted": [],
+    "main_modified": false,
+    "new_commit_or_push": false
+  }
+}
