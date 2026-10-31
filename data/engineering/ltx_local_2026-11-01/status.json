@@ -1,0 +1,64 @@
+{
+  "status": "completed_local_feasibility_trial",
+  "finished_at": "2026-11-01T00:28:52.388666+08:00",
+  "counts": {
+    "encoder_load_attempts": 2,
+    "encoder_failures": 1,
+    "successful_prompt_encoding": 1,
+    "native_video_pipeline_calls": 4,
+    "native_technical_failures": 2,
+    "valid_native_videos": 2,
+    "requested_video_conditions": 2,
+    "remaining_conditions": 0
+  },
+  "stages": {
+    "attempt01": "Encoder failed during single-allocation warmup, no video calls.",
+    "attempt02": "Encoder completed. Two video calls failed because cached attention masks remained on CPU.",
+    "attempt03": "Reuse unchanged embeddings. Both video calls completed after moving masks to MPS."
+  },
+  "resource": {
+    "host": "Apple M5, 16GiB unified memory",
+    "cloud_gpu_usage": 0,
+    "training": 0,
+    "paid_api_calls": 0,
+    "weight_download_bytes": 25390866849,
+    "encoder_wall_seconds": 20.22037354200438,
+    "text_generation_process_wall_seconds": 20.075497041005292,
+    "image_generation_process_wall_seconds": 16.582560082999407,
+    "text_inference_seconds": 6.747325874996022,
+    "image_inference_seconds": 6.570712792003178,
+    "encoder_sampled_peak_mps_driver_bytes": 10914054144,
+    "text_sampled_peak_mps_driver_bytes": 7700692992,
+    "image_sampled_peak_mps_driver_bytes": 7692484608,
+    "memory_measurement": "MPS allocated and driver memory sampled every0.5s; per-process RSS separately recorded. These overlap unified physical memory and must not be added. Download/setup/debug time excluded from successful stage times."
+  },
+  "outputs": {
+    "text": {
+      "mp4": "private/ltx_local/trial_2026-11-01/attempt03/text.mp4",
+      "source_rgb": "private/ltx_local/trial_2026-11-01/attempt03/text_source_rgb.npy",
+      "contact_sheet": "private/ltx_local/trial_2026-11-01/attempt03/text_contact.png",
+      "config": "private/ltx_local/trial_2026-11-01/attempt03/config.json",
+      "metrics": "private/ltx_local/trial_2026-11-01/attempt03/text_metrics.json"
+    },
+    "image": {
+      "mp4": "private/ltx_local/trial_2026-11-01/attempt03/image.mp4",
+      "source_rgb": "private/ltx_local/trial_2026-11-01/attempt03/image_source_rgb.npy",
+      "contact_sheet": "private/ltx_local/trial_2026-11-01/attempt03/image_contact.png",
+      "config": "private/ltx_local/trial_2026-11-01/attempt03/config.json",
+      "metrics": "private/ltx_local/trial_2026-11-01/attempt03/image_metrics.json"
+    }
+  },
+  "conclusion": {
+    "local_short_native_video_feasible": true,
+    "correct_hanzi_writing_demonstrated": false,
+    "replace_engineering_planner": false,
+    "replace_controlled_renderer": false
+  },
+  "existing_files_modified": [
+    "AGENTS.md"
+  ],
+  "files_deleted": [],
+  "branch": "codex/engineering-hanzi-video",
+  "remote_push": false,
+  "main_modified": false
+}

@@ -1,0 +1,14 @@
+Loading video transformer and VAE; text encoder is absent
+/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4324.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:00<00:05,  1.23it/s]{"step": 0, "timestep": 1.0, "elapsed_seconds": 10.0, "mps_driver_bytes": 6569132032}
+ 25%|██▌       | 2/8 [00:00<00:02,  2.44it/s]{"step": 1, "timestep": 0.9937000274658203, "elapsed_seconds": 10.25, "mps_driver_bytes": 6577520640}
+ 38%|███▊      | 3/8 [00:01<00:01,  2.93it/s]{"step": 2, "timestep": 0.987500011920929, "elapsed_seconds": 10.5, "mps_driver_bytes": 6577520640}
+ 50%|█████     | 4/8 [00:01<00:01,  3.29it/s]{"step": 3, "timestep": 0.9811999797821045, "elapsed_seconds": 10.75, "mps_driver_bytes": 6577520640}
+ 62%|██████▎   | 5/8 [00:01<00:00,  3.49it/s]{"step": 4, "timestep": 0.9750000238418579, "elapsed_seconds": 11.0, "mps_driver_bytes": 6577520640}
+ 75%|███████▌  | 6/8 [00:01<00:00,  3.67it/s]{"step": 5, "timestep": 0.9093999862670898, "elapsed_seconds": 11.26, "mps_driver_bytes": 6577520640}
+ 88%|████████▊ | 7/8 [00:02<00:00,  3.77it/s]{"step": 6, "timestep": 0.7250000238418579, "elapsed_seconds": 11.51, "mps_driver_bytes": 6577520640}
+100%|██████████| 8/8 [00:02<00:00,  3.85it/s]{"step": 7, "timestep": 0.4219000041484833, "elapsed_seconds": 11.76, "mps_driver_bytes": 6577520640}
+100%|██████████| 8/8 [00:02<00:00,  3.11it/s]
+/Users/cc/Documents/UMM/private/ltx_local/upstream/ltx_video/pipelines/pipeline_ltx_video.py:1304: FutureWarning: Accessing config attribute `in_channels` directly via 'Transformer3DModel' object attribute is deprecated. Please access 'in_channels' over 'Transformer3DModel's config object instead, e.g. 'unet.config.in_channels'.
+  out_channels=self.transformer.in_channels

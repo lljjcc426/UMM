@@ -1,0 +1,49 @@
+Loading video transformer and VAE; text encoder is absent
+/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/torch/functional.py:554: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /Users/runner/work/pytorch/pytorch/pytorch/aten/src/ATen/native/TensorShape.cpp:4324.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/Users/cc/Documents/UMM/scripts/engineering/ltx_local_trial.py", line 223, in <module>
+    main()
+  File "/Users/cc/Documents/UMM/scripts/engineering/ltx_local_trial.py", line 197, in main
+    worker(args, config)
+  File "/Users/cc/Documents/UMM/scripts/engineering/ltx_local_trial.py", line 125, in worker
+    images = pipeline(
+             ^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/upstream/ltx_video/pipelines/pipeline_ltx_video.py", line 1206, in __call__
+    noise_pred = self.transformer(
+                 ^^^^^^^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/upstream/ltx_video/models/transformers/transformer3d.py", line 478, in forward
+    hidden_states = block(
+                    ^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/upstream/ltx_video/models/transformers/attention.py", line 278, in forward
+    attn_output = self.attn2(
+                  ^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1773, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1784, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/upstream/ltx_video/models/transformers/attention.py", line 709, in forward
+    return self.processor(
+           ^^^^^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/upstream/ltx_video/models/transformers/attention.py", line 1057, in __call__
+    hidden_states_a = F.scaled_dot_product_attention(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Placeholder storage has not been allocated on MPS device!

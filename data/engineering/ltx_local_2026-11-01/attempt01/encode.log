@@ -1,0 +1,22 @@
+Loading T5 on MPS in bfloat16, without video weights
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/Users/cc/Documents/UMM/scripts/engineering/ltx_local_trial.py", line 216, in <module>
+    main()
+  File "/Users/cc/Documents/UMM/scripts/engineering/ltx_local_trial.py", line 190, in main
+    worker(args, config)
+  File "/Users/cc/Documents/UMM/scripts/engineering/ltx_local_trial.py", line 56, in worker
+    encoder = T5EncoderModel.from_pretrained(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/transformers/modeling_utils.py", line 279, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4399, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4793, in _load_pretrained_model
+    caching_allocator_warmup(model_to_load, expanded_device_map, factor=2 if hf_quantizer is None else 4)
+  File "/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/transformers/modeling_utils.py", line 5803, in caching_allocator_warmup
+    _ = torch.empty(byte_count // factor, dtype=torch.float16, device=device, requires_grad=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Invalid buffer size: 9.12 GiB
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]

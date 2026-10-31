@@ -1,0 +1,44 @@
+{
+  "reviewer_type": "AI_visual_inspection_and_programmatic_decode",
+  "human_review_performed": false,
+  "viewed_frame_indices": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32
+  ],
+  "decoded_frames_per_video": 33,
+  "text": {
+    "target_character": "士",
+    "recognizable_target": false,
+    "visible_result": "Multiple non-target glyph-like shapes already present on first frame; nearly static across sampled frames.",
+    "blank_initial_frame": false,
+    "observed_sequential_stroke_formation": false,
+    "stroke_order": "unknown_no_observable_writing",
+    "stroke_direction": "unknown_no_observable_writing",
+    "requirement_met": false
+  },
+  "image": {
+    "target_character": "士",
+    "target_image_condition_frame": 32,
+    "visible_result": "Resembles the provided 士 image, but the whole glyph is visible on first frame and throughout sampled frames.",
+    "blank_initial_frame": false,
+    "observed_sequential_stroke_formation": false,
+    "stroke_order": "unknown_no_observable_writing",
+    "stroke_direction": "unknown_no_observable_writing",
+    "reference_appearance_supplied_as_input": true,
+    "independent_recognition_demonstrated": false,
+    "requirement_met": false
+  },
+  "interpretation_limits": [
+    "One target, one seed, low-resolution eight-step single-scale setup.",
+    "Not a population accuracy estimate or proof that all LTX configurations fail.",
+    "Image-conditioned final appearance is provided reference information.",
+    "No new human annotation task or human-gold qualification."
+  ]
+}

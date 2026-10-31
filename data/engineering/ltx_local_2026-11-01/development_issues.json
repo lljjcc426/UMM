@@ -1,0 +1,40 @@
+[
+  {
+    "issue": "Initial isolated environment selected system Python3.9",
+    "resolution": "Recreated isolation using project Python3.12. Retained unused Python3.9 environment.",
+    "effect": "No model inference in initial environment."
+  },
+  {
+    "issue": "PyPI transfer timeout",
+    "resolution": "Installed pinned packages through Tsinghua mirror.",
+    "effect": "Original application environment unchanged."
+  },
+  {
+    "issue": "HF transfer stalled/slow",
+    "resolution": "Use pinned ModelScope mirror with same official HF large-file identities; single-pass verification during download.",
+    "evidence": "download_receipts.json",
+    "failed_partials_preserved": true
+  },
+  {
+    "issue": "Transformers4.51.3 allocator warmup requests a9.12GiB single MPS buffer",
+    "resolution": "Scoped disabling of caching_allocator_warmup performance optimization; actual parameter loading and arithmetic unchanged.",
+    "original_failure": "attempt01/encode_metrics.json"
+  },
+  {
+    "issue": "Cached attention masks remained on CPU in new wrapper",
+    "resolution": "Move both cached masks and embeddings to MPS before official pipeline call.",
+    "original_failures": [
+      "attempt02/text_metrics.json",
+      "attempt02/image_metrics.json"
+    ]
+  },
+  {
+    "issue": "Literal target 士 is a T5 unknown token",
+    "resolution": "Record limitation. Preserve literal input and English stroke description; no silent translation/substitution.",
+    "evidence": "attempt03/actual_text_input.json"
+  },
+  {
+    "issue": "meshgrid indexing and direct in_channels access warnings",
+    "resolution": "Retain upstream warnings; both completed outputs decode correctly. No warning-only dependency changes."
+  }
+]

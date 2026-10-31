@@ -1,0 +1,177 @@
+{
+  "transformer": {
+    "_class_name": "Transformer3DModel",
+    "_diffusers_version": "0.25.1",
+    "_name_or_path": "PixArt-alpha/PixArt-XL-2-256x256",
+    "activation_fn": "gelu-approximate",
+    "attention_bias": true,
+    "attention_head_dim": 64,
+    "attention_type": "default",
+    "caption_channels": 4096,
+    "cross_attention_dim": 2048,
+    "double_self_attention": false,
+    "dropout": 0.0,
+    "in_channels": 128,
+    "norm_elementwise_affine": false,
+    "norm_eps": 1e-06,
+    "norm_num_groups": 32,
+    "num_attention_heads": 32,
+    "num_embeds_ada_norm": 1000,
+    "num_layers": 28,
+    "num_vector_embeds": null,
+    "only_cross_attention": false,
+    "out_channels": 128,
+    "upcast_attention": false,
+    "use_linear_projection": false,
+    "qk_norm": "rms_norm",
+    "standardization_norm": "rms_norm",
+    "positional_embedding_type": "rope",
+    "positional_embedding_theta": 10000.0,
+    "positional_embedding_max_pos": [
+      20,
+      2048,
+      2048
+    ],
+    "timestep_scale_multiplier": 1000
+  },
+  "vae": {
+    "_class_name": "CausalVideoAutoencoder",
+    "dims": 3,
+    "in_channels": 3,
+    "out_channels": 3,
+    "latent_channels": 128,
+    "encoder_blocks": [
+      [
+        "res_x",
+        {
+          "num_layers": 4
+        }
+      ],
+      [
+        "compress_space_res",
+        {
+          "multiplier": 2
+        }
+      ],
+      [
+        "res_x",
+        {
+          "num_layers": 6
+        }
+      ],
+      [
+        "compress_time_res",
+        {
+          "multiplier": 2
+        }
+      ],
+      [
+        "res_x",
+        {
+          "num_layers": 6
+        }
+      ],
+      [
+        "compress_all_res",
+        {
+          "multiplier": 2
+        }
+      ],
+      [
+        "res_x",
+        {
+          "num_layers": 2
+        }
+      ],
+      [
+        "compress_all_res",
+        {
+          "multiplier": 2
+        }
+      ],
+      [
+        "res_x",
+        {
+          "num_layers": 2
+        }
+      ]
+    ],
+    "decoder_blocks": [
+      [
+        "res_x",
+        {
+          "num_layers": 5,
+          "inject_noise": false
+        }
+      ],
+      [
+        "compress_all",
+        {
+          "residual": true,
+          "multiplier": 2
+        }
+      ],
+      [
+        "res_x",
+        {
+          "num_layers": 5,
+          "inject_noise": false
+        }
+      ],
+      [
+        "compress_all",
+        {
+          "residual": true,
+          "multiplier": 2
+        }
+      ],
+      [
+        "res_x",
+        {
+          "num_layers": 5,
+          "inject_noise": false
+        }
+      ],
+      [
+        "compress_all",
+        {
+          "residual": true,
+          "multiplier": 2
+        }
+      ],
+      [
+        "res_x",
+        {
+          "num_layers": 5,
+          "inject_noise": false
+        }
+      ]
+    ],
+    "scaling_factor": 1.0,
+    "norm_layer": "pixel_norm",
+    "patch_size": 4,
+    "latent_log_var": "uniform",
+    "use_quant_conv": false,
+    "causal_decoder": false,
+    "timestep_conditioning": true,
+    "normalize_latent_channels": false
+  },
+  "scheduler": {
+    "_class_name": "RectifiedFlowScheduler",
+    "_diffusers_version": "0.25.1",
+    "num_train_timesteps": 1000,
+    "shifting": null,
+    "base_resolution": null,
+    "sampler": "LinearQuadratic"
+  },
+  "allowed_inference_steps": [
+    1.0,
+    0.9937,
+    0.9875,
+    0.9812,
+    0.975,
+    0.9094,
+    0.725,
+    0.4219
+  ]
+}

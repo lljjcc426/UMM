@@ -1,0 +1,10 @@
+{
+  "stage": "encode",
+  "device": "mps",
+  "status": "failed",
+  "peak_mps_allocated_bytes": 0,
+  "peak_mps_driver_bytes": 458752,
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/cc/Documents/UMM/scripts/engineering/ltx_local_trial.py\", line 56, in worker\n    encoder = T5EncoderModel.from_pretrained(\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/transformers/modeling_utils.py\", line 279, in _wrapper\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/transformers/modeling_utils.py\", line 4399, in from_pretrained\n    ) = cls._load_pretrained_model(\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/transformers/modeling_utils.py\", line 4793, in _load_pretrained_model\n    caching_allocator_warmup(model_to_load, expanded_device_map, factor=2 if hf_quantizer is None else 4)\n  File \"/Users/cc/Documents/UMM/private/ltx_local/venv312/lib/python3.12/site-packages/transformers/modeling_utils.py\", line 5803, in caching_allocator_warmup\n    _ = torch.empty(byte_count // factor, dtype=torch.float16, device=device, requires_grad=False)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Invalid buffer size: 9.12 GiB\n",
+  "wall_seconds": 1.3187556659977417,
+  "peak_process_rss_bytes": 357892096
+}
