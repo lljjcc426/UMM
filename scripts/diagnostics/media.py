@@ -21,11 +21,17 @@ def encode(path, frames, fps=12):
         input=frames.tobytes(),check=True,capture_output=True)
 
 
-def decode(path):
-    run=subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(),'-v','info','-nostdin','-i',str(path),
-        '-map','0:v:0','-vf','showinfo','-fps_mode','passthrough','-an','-f','rawvideo','-pix_fmt','rgb24','pipe:1'],
+def decode(path, audit_directory=None):
+    command=[imageio_ffmpeg.get_ffmpeg_exe(),'-v','info','-nostdin','-i',str(path),
+        '-map','0:v:0','-vf','showinfo','-vsync','0','-an','-f','rawvideo','-pix_fmt','rgb24','pipe:1']
+    run=subprocess.run(command,
         capture_output=True,check=True)
     lines=run.stderr.decode(errors='replace')
+    if audit_directory is not None:
+        import json
+        audit_directory=Path(audit_directory)
+        (audit_directory/'decode_ffmpeg.log').write_text(lines)
+        (audit_directory/'decode_command.json').write_text(json.dumps(command,indent=2)+'\n')
     records=re.findall(r' n:\s*\d+.*?pts_time:([\d.eE+\-]+).*? s:(\d+)x(\d+)',lines)
     if not records:
         raise ValueError('No decoded frame/PTS records')

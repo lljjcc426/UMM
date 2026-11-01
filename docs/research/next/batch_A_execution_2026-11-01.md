@@ -1,4 +1,8 @@
-# Batch A执行记录：固定缓存恢复授权待确认
+# Batch A部署初始记录（保留当时阻塞快照）
+
+后续进展：用户已明确批准恢复原固定检查点与独立环境，见`data/research/runs/diagnostic_batch_A_2026-11-01/checkpoint_restore_approval.json`。原固定revision的11份文件已恢复；服务器20项原生CPU读取与参数预检通过，CUDA未初始化。下文“待确认”及0调用为初始部署时快照，不表示当前仍等待批准。后续真实调用记录单独保存，不覆盖本快照。
+
+最终本批24次已全部完成，实际结果和备份见[Batch A执行报告](batch_A_results_2026-11-01.md)。下文不作追溯改写。
 
 日期：2026-11-01。分支：`exp/p1-process-diagnostic`。用户已批准同一Lance检查点的24次诊断，并提供A100-SXM4-80GB、16核CPU、48GB主存的实例。本记录仅新增本批事实；D0–D5原准备快照及P1正式科学状态不变。
 

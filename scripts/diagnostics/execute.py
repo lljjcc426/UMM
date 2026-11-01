@@ -20,6 +20,18 @@ from .contracts import save
 from .prepare import CODE_REVISION, MODEL_REVISION, NATIVE
 
 
+def save_execution_state(path, state):
+    rows=state['requests']
+    calls=sum(r.get('process_attempts',0) for r in rows)
+    unrun=len(rows)-calls
+    state.update(process_attempts=calls, native_model_calls=sum(bool(r.get('native_method_entered')) for r in rows),
+        valid_outputs=sum(r['status']=='completed' for r in rows),
+        technical_failures=sum(r['status']=='failed' for r in rows), unrun_slots=unrun,
+        blocked_unrun_slots=unrun if state['status'] in
+            ('paused_resource_conflict','stopped_budget','paused_after_retained_failure') else 0)
+    save(path,state)
+
+
 def validate_authorization(proposal, authorization):
     rows = proposal['requests']
     expected = proposal['batch_A']['unique_request_ids']
@@ -72,8 +84,8 @@ def resource_snapshot():
 
 
 def resources_available(snapshot):
-    # Coexistence policy: wait for GPU compute to be idle, never stop other jobs.
-    return (not snapshot['compute_processes'] and snapshot['gpu_free_MiB'] >= 44000
+    # Other compute may coexist when measured free resources cover this recipe.
+    return (snapshot['gpu_free_MiB'] >= 44000
             and snapshot['RAM_available_MiB'] >= 35000)
 
 
@@ -121,15 +133,9 @@ def audit_output(row, run):
         videos = list((attempt / 'outputs').glob('*.mp4'))
         if len(videos) != 1:
             raise ValueError('Expected one original native MP4')
-        probe = subprocess.run(['ffprobe', '-v', 'error', '-show_streams', '-show_frames',
-            '-of', 'json', str(videos[0])], check=True, text=True, capture_output=True)
-        (attempt / 'ffprobe.json').write_text(probe.stdout)
-        info = json.loads(probe.stdout)
-        frames = [f for f in info['frames'] if f['media_type'] == 'video']
-        pts = [float(f['best_effort_timestamp_time']) for f in frames]
-        import imageio.v2 as imageio
-        with imageio.get_reader(str(videos[0]), format='ffmpeg') as reader:
-            decoded = np.stack([frame for frame in reader])
+        from .media import decode
+        decoded, timestamps = decode(videos[0], audit_directory=attempt)
+        pts = timestamps.tolist()
         np.savez_compressed(attempt / 'decoded_rgb_uint8.npz', frames=decoded)
         source = np.load(attempt / 'source_rgb_uint8.npz')['frames']
         checks.update(source_and_decoded_shape=list(source.shape) == list(decoded.shape) == [33, 480, 848, 3],
@@ -159,6 +165,7 @@ def execute(root, limit=None):
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         statepath = root / 'state.json'
         state = json.loads(statepath.read_text())
+        state['status'] = 'executing'
         launched = 0
         for row, entry in zip(rows, state['requests']):
             if entry['status'] != 'pending':
@@ -166,15 +173,17 @@ def execute(root, limit=None):
             snapshot = resource_snapshot()
             state['last_resource_snapshot'] = snapshot
             if not resources_available(snapshot):
+                state['status'] = 'paused_resource_conflict'
                 state['stop_reason'] = 'Resource conflict; other processes left untouched'
-                save(statepath, state)
+                save_execution_state(statepath, state)
                 return 3
             if state.get('deadline_unix') is None:
                 state['deadline_unix'] = time.time() + auth['max_gpu_hours'] * 3600
             remaining = state['deadline_unix'] - time.time()
             if remaining <= 0:
+                state['status'] = 'stopped_budget'
                 state['stop_reason'] = 'Two-hour hard stop; pending slots not called'
-                save(statepath, state)
+                save_execution_state(statepath, state)
                 return 4
             bundle = root / 'bundles' / row['id']
             bundle.mkdir(parents=True, exist_ok=True)
@@ -186,7 +195,8 @@ def execute(root, limit=None):
             attempt = run / row['native_task']
             attempt.mkdir()
             plan = {**row['native_parameters'], 'expected_gpu_count': 1,
-                    'audit_native_rgb_inputs': True, 'audit_native_sampling': True}
+                    'audit_native_rgb_inputs': True, 'audit_native_sampling': True,
+                    'process_torch_memory_limit_GiB': 42}
             save(run / 'plan.json', plan)
             command = [sys.executable, '-m', 'scripts.diagnostics.execute', '--root', str(root),
                        '--worker', row['id'], '--run', str(run)]
@@ -194,15 +204,22 @@ def execute(root, limit=None):
             environment.update(CUDA_VISIBLE_DEVICES='0', EXP_HW_20250819='False', POSITION_EMBEDDING_3D_VERSION='v2',
                 CUDA_LAUNCH_BLOCKING='0', PYTHONUNBUFFERED='1', TOKENIZERS_PARALLELISM='false',
                 HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1', WANDB_MODE='disabled',
+                TRITON_LIBCUDA_PATH=str(root/'driver-compat'),
+                HF_HOME=str(root/'cache/hf'), XDG_CACHE_HOME=str(root/'cache'),
+                TORCH_EXTENSIONS_DIR=str(root/'cache/torch_extensions'),
+                TRITON_CACHE_DIR=str(root/'cache/triton'), CUDA_CACHE_PATH=str(root/'cache/cuda'),
                 OMP_NUM_THREADS='2', OPENBLAS_NUM_THREADS='2', MKL_NUM_THREADS='2')
             for key in ('RANK', 'WORLD_SIZE', 'LOCAL_RANK'):
                 environment.pop(key, None)
             save(attempt / 'command.json', {'command': command, 'environment_overrides':
-                {k: environment[k] for k in ('CUDA_VISIBLE_DEVICES','HF_HUB_OFFLINE','OMP_NUM_THREADS')},
+                {k: environment[k] for k in ('CUDA_VISIBLE_DEVICES','EXP_HW_20250819',
+                    'POSITION_EMBEDDING_3D_VERSION','HF_HUB_OFFLINE','TRANSFORMERS_OFFLINE',
+                    'TRITON_LIBCUDA_PATH','HF_HOME','XDG_CACHE_HOME','TORCH_EXTENSIONS_DIR',
+                    'TRITON_CACHE_DIR','CUDA_CACHE_PATH','OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS')},
                 'resource_snapshot_before_call': snapshot})
             entry.update(status='running', process_attempts=1, native_run=str(run.relative_to(root)),
                          started_at_utc=datetime.now(timezone.utc).isoformat())
-            save(statepath, state)
+            save_execution_state(statepath, state)
             started = time.perf_counter()
             with (attempt / 'gpu_samples.csv').open('w') as gpu_log:
                 monitor = subprocess.Popen(['nvidia-smi', '-i', '0',
@@ -226,19 +243,23 @@ def execute(root, limit=None):
                     entry.update(integrity_passed=audit['passed'], status='completed' if audit['passed'] else 'failed')
                 except Exception:
                     entry['CPU_audit_error'] = traceback.format_exc()
-            save(statepath, state)
+            save_execution_state(statepath, state)
             print(json.dumps({k: entry[k] for k in ('id','status','wall_seconds','return_code')}, ensure_ascii=False), flush=True)
             launched += 1
             if entry['status'] != 'completed':
+                state['status'] = 'paused_after_retained_failure'
                 state['stop_reason'] = 'Inspect retained failed slot; no technical retry permitted'
-                save(statepath, state)
+                save_execution_state(statepath, state)
                 return 2
             if limit is not None and launched >= limit:
+                state['status'] = 'paused_for_input_inspection'
                 state['stop_reason'] = 'Requested inspection checkpoint; pending slots untouched'
-                save(statepath, state)
+                save_execution_state(statepath, state)
                 return 0
         state['stop_reason'] = 'All 24 slots processed'
-        save(statepath, state)
+        state['status'] = ('completed_with_failures' if any(r['status']=='failed' for r in state['requests'])
+                           else 'completed')
+        save_execution_state(statepath, state)
     return 0
 
 
@@ -260,6 +281,28 @@ def main():
             raise ValueError('Worker output must remain inside its own request directory')
         from scripts.env01.run_interfaces import worker
         os.nice(10)
+        import torch
+        torch.cuda.set_per_process_memory_fraction(42*1024**3/torch.cuda.get_device_properties(0).total_memory,0)
+        if row['native_task']=='x2t_video':
+            import numpy as np
+            source=root/'upstream'
+            os.chdir(source)
+            sys.path.insert(0,str(source))
+            from modeling.lance import Lance
+            original_understand=Lance.validation_und_KVcache
+            def retain_answer_tokens(model,*call_args,**call_kwargs):
+                returned=original_understand(model,*call_args,**call_kwargs)
+                sequences=[sequence.detach().cpu().numpy() for sequence in returned[0]]
+                attempt=run/row['native_task']
+                np.savez_compressed(attempt/'raw_generated_token_ids.npz',
+                    **{f'sequence_{i}':sequence for i,sequence in enumerate(sequences)})
+                eos=call_kwargs['new_token_ids']['eos_token_id']
+                save(attempt/'answer_token_metadata.json',{'native_max_length':call_kwargs['max_length'],
+                    'generated_tokens':[len(s) for s in sequences],
+                    'stopped_on_EOS':[int(s[-1,0])==eos for s in sequences],
+                    'hit_limit_without_EOS':[len(s)==call_kwargs['max_length'] and int(s[-1,0])!=eos for s in sequences]})
+                return returned
+            Lance.validation_und_KVcache=retain_answer_tokens
         return worker(root / 'bundles' / row['id'], run / row['native_task'], row['native_task'],
                       json.loads((run / 'plan.json').read_text()))
     return execute(root, args.limit)

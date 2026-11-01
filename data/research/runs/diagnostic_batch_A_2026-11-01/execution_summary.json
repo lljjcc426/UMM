@@ -1,0 +1,1356 @@
+{
+  "status": "completed",
+  "requested_slots": 24,
+  "process_attempts": 24,
+  "native_method_entries": 24,
+  "integrity_valid_outputs": 24,
+  "integrity_valid_answers": 20,
+  "integrity_valid_videos": 4,
+  "technical_failed_slots": 0,
+  "unrun_slots": 0,
+  "status_counts": {
+    "completed": 24
+  },
+  "per_track": {
+    "K-CHAR": {
+      "requested": 4,
+      "completed": 4,
+      "process_attempts": 4,
+      "native_method_entries": 4
+    },
+    "K-ORDER": {
+      "requested": 4,
+      "completed": 4,
+      "process_attempts": 4,
+      "native_method_entries": 4
+    },
+    "V-STRUCT": {
+      "requested": 4,
+      "completed": 4,
+      "process_attempts": 4,
+      "native_method_entries": 4
+    },
+    "H-ACTUAL": {
+      "requested": 8,
+      "completed": 8,
+      "process_attempts": 8,
+      "native_method_entries": 8
+    },
+    "G-ATOMIC": {
+      "requested": 4,
+      "completed": 4,
+      "process_attempts": 4,
+      "native_method_entries": 4
+    }
+  },
+  "native_worker_wall_seconds_including_loading": 2561.5069930850023,
+  "per_process_peaks": {
+    "host_peak_rss_bytes": 33783074816,
+    "cuda_peak_reserved_bytes": 38507905024,
+    "cuda_peak_allocated_bytes": 30471729152
+  },
+  "calls_with_other_GPU_processes_present": 6,
+  "whole_device_samples_attribution": "Shared device; not the memory footprint of Lance alone",
+  "automatic_GPU_retries": 0,
+  "training_runs": 0,
+  "actual_cost_CNY": null,
+  "formal_primary_metrics": null,
+  "human_review_created": false,
+  "model_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+  "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+  "attempts": [
+    {
+      "id": "DIAG-A-001-K-CHAR-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-001-K-CHAR-s11/runs/20261101T133023513715Z",
+      "started_at_utc": "2026-11-01T13:30:23.515185+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 8100,
+      "wall_seconds": 93.04810644299869,
+      "finished_at_utc": "2026-11-01T13:31:56.563564+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 88.30897056100002,
+        "host_peak_rss_bytes": 33740967936
+      },
+      "integrity_passed": true,
+      "track": "K-CHAR",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N019",
+      "whole_device_sampled_peak_MiB": 29901.0
+    },
+    {
+      "id": "DIAG-A-002-K-CHAR-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-002-K-CHAR-s11/runs/20261101T133412955746Z",
+      "started_at_utc": "2026-11-01T13:34:12.957384+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 8220,
+      "wall_seconds": 89.04457287200057,
+      "finished_at_utc": "2026-11-01T13:35:42.002230+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 84.14590149600008,
+        "host_peak_rss_bytes": 33642754048
+      },
+      "integrity_passed": true,
+      "track": "K-CHAR",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N030",
+      "whole_device_sampled_peak_MiB": 29901.0
+    },
+    {
+      "id": "DIAG-A-003-K-CHAR-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-003-K-CHAR-s11/runs/20261101T133718079920Z",
+      "started_at_utc": "2026-11-01T13:37:18.081858+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 8385,
+      "wall_seconds": 94.0455412980009,
+      "finished_at_utc": "2026-11-01T13:38:52.127691+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 87.40741230999993,
+        "host_peak_rss_bytes": 33652457472
+      },
+      "integrity_passed": true,
+      "track": "K-CHAR",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N076",
+      "whole_device_sampled_peak_MiB": 29901.0
+    },
+    {
+      "id": "DIAG-A-004-K-CHAR-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-004-K-CHAR-s11/runs/20261101T134117735939Z",
+      "started_at_utc": "2026-11-01T13:41:17.738579+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 8479,
+      "wall_seconds": 86.04441393699926,
+      "finished_at_utc": "2026-11-01T13:42:43.783313+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 79.07620376600062,
+        "host_peak_rss_bytes": 33652224000
+      },
+      "integrity_passed": true,
+      "track": "K-CHAR",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N079",
+      "whole_device_sampled_peak_MiB": 29901.0
+    },
+    {
+      "id": "DIAG-A-005-K-ORDER-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-005-K-ORDER-s11/runs/20261101T134401962123Z",
+      "started_at_utc": "2026-11-01T13:44:01.963976+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 8590,
+      "wall_seconds": 101.04805228100122,
+      "finished_at_utc": "2026-11-01T13:45:43.012354+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 93.41338594700028,
+        "host_peak_rss_bytes": 33715806208
+      },
+      "integrity_passed": true,
+      "track": "K-ORDER",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N019",
+      "whole_device_sampled_peak_MiB": 29901.0
+    },
+    {
+      "id": "DIAG-A-006-K-ORDER-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-006-K-ORDER-s11/runs/20261101T134543052434Z",
+      "started_at_utc": "2026-11-01T13:45:43.054861+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 8688,
+      "wall_seconds": 90.04047912399983,
+      "finished_at_utc": "2026-11-01T13:47:13.095676+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 84.56341288399926,
+        "host_peak_rss_bytes": 33662091264
+      },
+      "integrity_passed": true,
+      "track": "K-ORDER",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N030",
+      "whole_device_sampled_peak_MiB": 35661.0
+    },
+    {
+      "id": "DIAG-A-007-K-ORDER-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-007-K-ORDER-s11/runs/20261101T134713156716Z",
+      "started_at_utc": "2026-11-01T13:47:13.159431+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 8845,
+      "wall_seconds": 156.26392202199895,
+      "finished_at_utc": "2026-11-01T13:49:49.424153+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 146.9602855989997,
+        "host_peak_rss_bytes": 32523575296
+      },
+      "integrity_passed": true,
+      "track": "K-ORDER",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N076",
+      "whole_device_sampled_peak_MiB": 60633.0
+    },
+    {
+      "id": "DIAG-A-008-K-ORDER-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-008-K-ORDER-s11/runs/20261101T134949469585Z",
+      "started_at_utc": "2026-11-01T13:49:49.471930+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 8918,
+      "wall_seconds": 108.0430102779992,
+      "finished_at_utc": "2026-11-01T13:51:37.515295+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 102.65737304700087,
+        "host_peak_rss_bytes": 33683861504
+      },
+      "integrity_passed": true,
+      "track": "K-ORDER",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N079",
+      "whole_device_sampled_peak_MiB": 60633.0
+    },
+    {
+      "id": "DIAG-A-009-V-STRUCT-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-009-V-STRUCT-s11/runs/20261101T135137560234Z",
+      "started_at_utc": "2026-11-01T13:51:37.563152+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 8987,
+      "wall_seconds": 118.04684315800114,
+      "finished_at_utc": "2026-11-01T13:53:35.610367+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 112.16739897099978,
+        "host_peak_rss_bytes": 33712082944
+      },
+      "integrity_passed": true,
+      "track": "V-STRUCT",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N019",
+      "whole_device_sampled_peak_MiB": 60633.0
+    },
+    {
+      "id": "DIAG-A-010-V-STRUCT-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-010-V-STRUCT-s11/runs/20261101T135335652650Z",
+      "started_at_utc": "2026-11-01T13:53:35.654659+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 9061,
+      "wall_seconds": 109.04442933300015,
+      "finished_at_utc": "2026-11-01T13:55:24.699866+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 103.08530851499927,
+        "host_peak_rss_bytes": 33631326208
+      },
+      "integrity_passed": true,
+      "track": "V-STRUCT",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N030",
+      "whole_device_sampled_peak_MiB": 60633.0
+    },
+    {
+      "id": "DIAG-A-011-V-STRUCT-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-011-V-STRUCT-s11/runs/20261101T135524752642Z",
+      "started_at_utc": "2026-11-01T13:55:24.755328+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 9133,
+      "wall_seconds": 126.05014434300028,
+      "finished_at_utc": "2026-11-01T13:57:30.805887+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 117.22223242000109,
+        "host_peak_rss_bytes": 33738231808
+      },
+      "integrity_passed": true,
+      "track": "V-STRUCT",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N076",
+      "whole_device_sampled_peak_MiB": 60633.0
+    },
+    {
+      "id": "DIAG-A-012-V-STRUCT-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-012-V-STRUCT-s11/runs/20261101T135730852645Z",
+      "started_at_utc": "2026-11-01T13:57:30.855783+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 9205,
+      "wall_seconds": 88.07523338000101,
+      "finished_at_utc": "2026-11-01T13:58:58.931440+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 82.70470206100072,
+        "host_peak_rss_bytes": 33682227200
+      },
+      "integrity_passed": true,
+      "track": "V-STRUCT",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N079",
+      "whole_device_sampled_peak_MiB": 31169.0
+    },
+    {
+      "id": "DIAG-A-013-H-ACTUAL-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-013-H-ACTUAL-s11/runs/20261101T135858973746Z",
+      "started_at_utc": "2026-11-01T13:58:58.978219+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 9273,
+      "wall_seconds": 87.03983643199899,
+      "finished_at_utc": "2026-11-01T14:00:26.018845+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 81.05430993200025,
+        "host_peak_rss_bytes": 33691643904
+      },
+      "integrity_passed": true,
+      "track": "H-ACTUAL",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N076",
+      "whole_device_sampled_peak_MiB": 29901.0
+    },
+    {
+      "id": "DIAG-A-014-H-ACTUAL-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-014-H-ACTUAL-s11/runs/20261101T140026062848Z",
+      "started_at_utc": "2026-11-01T14:00:26.066673+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 9344,
+      "wall_seconds": 92.09904326300057,
+      "finished_at_utc": "2026-11-01T14:01:58.166196+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 86.02766152500044,
+        "host_peak_rss_bytes": 33739894784
+      },
+      "integrity_passed": true,
+      "track": "H-ACTUAL",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N076",
+      "whole_device_sampled_peak_MiB": 29901.0
+    },
+    {
+      "id": "DIAG-A-015-H-ACTUAL-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-015-H-ACTUAL-s11/runs/20261101T140158208028Z",
+      "started_at_utc": "2026-11-01T14:01:58.210170+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 9415,
+      "wall_seconds": 87.051418396999,
+      "finished_at_utc": "2026-11-01T14:03:25.263429+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 81.77188556699912,
+        "host_peak_rss_bytes": 33692336128
+      },
+      "integrity_passed": true,
+      "track": "H-ACTUAL",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N079",
+      "whole_device_sampled_peak_MiB": 29901.0
+    },
+    {
+      "id": "DIAG-A-016-H-ACTUAL-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-016-H-ACTUAL-s11/runs/20261101T140325304814Z",
+      "started_at_utc": "2026-11-01T14:03:25.307336+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 9491,
+      "wall_seconds": 90.0379641290001,
+      "finished_at_utc": "2026-11-01T14:04:55.345799+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 84.81839101200057,
+        "host_peak_rss_bytes": 33622470656
+      },
+      "integrity_passed": true,
+      "track": "H-ACTUAL",
+      "native_task": "x2t_video",
+      "source_group": "exposed-hanzi-N079",
+      "whole_device_sampled_peak_MiB": 29901.0
+    },
+    {
+      "id": "DIAG-A-017-H-ACTUAL-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-017-H-ACTUAL-s11/runs/20261101T140455395107Z",
+      "started_at_utc": "2026-11-01T14:04:55.397885+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 9568,
+      "wall_seconds": 95.04124493199924,
+      "finished_at_utc": "2026-11-01T14:06:30.440010+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 87.57916565899905,
+        "host_peak_rss_bytes": 33739100160
+      },
+      "integrity_passed": true,
+      "track": "H-ACTUAL",
+      "native_task": "x2t_video",
+      "source_group": "micro-two-lines",
+      "whole_device_sampled_peak_MiB": 29901.0
+    },
+    {
+      "id": "DIAG-A-018-H-ACTUAL-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-018-H-ACTUAL-s11/runs/20261101T140630489385Z",
+      "started_at_utc": "2026-11-01T14:06:30.491693+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 9642,
+      "wall_seconds": 98.03991767800107,
+      "finished_at_utc": "2026-11-01T14:08:08.532141+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 92.52218686599917,
+        "host_peak_rss_bytes": 33667616768
+      },
+      "integrity_passed": true,
+      "track": "H-ACTUAL",
+      "native_task": "x2t_video",
+      "source_group": "micro-two-lines",
+      "whole_device_sampled_peak_MiB": 29901.0
+    },
+    {
+      "id": "DIAG-A-019-H-ACTUAL-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-019-H-ACTUAL-s11/runs/20261101T140808572922Z",
+      "started_at_utc": "2026-11-01T14:08:08.575752+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 9716,
+      "wall_seconds": 88.03632043899961,
+      "finished_at_utc": "2026-11-01T14:09:36.612628+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 83.58392594799989,
+        "host_peak_rss_bytes": 33686372352
+      },
+      "integrity_passed": true,
+      "track": "H-ACTUAL",
+      "native_task": "x2t_video",
+      "source_group": "micro-two-lines",
+      "whole_device_sampled_peak_MiB": 29901.0
+    },
+    {
+      "id": "DIAG-A-020-H-ACTUAL-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-020-H-ACTUAL-s11/runs/20261101T140936660797Z",
+      "started_at_utc": "2026-11-01T14:09:36.663102+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 9788,
+      "wall_seconds": 96.03867505400012,
+      "finished_at_utc": "2026-11-01T14:11:12.702475+00:00",
+      "measurements": {
+        "task": "x2t_video",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 30815551488,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 90.84241816100075,
+        "host_peak_rss_bytes": 33620766720
+      },
+      "integrity_passed": true,
+      "track": "H-ACTUAL",
+      "native_task": "x2t_video",
+      "source_group": "micro-two-lines",
+      "whole_device_sampled_peak_MiB": 29901.0
+    },
+    {
+      "id": "DIAG-A-021-G-ATOMIC-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-021-G-ATOMIC-s11/runs/20261101T141112747663Z",
+      "started_at_utc": "2026-11-01T14:11:12.749133+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 9861,
+      "wall_seconds": 143.0456430230006,
+      "finished_at_utc": "2026-11-01T14:13:35.795394+00:00",
+      "measurements": {
+        "task": "t2v",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 38507905024,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 139.05483583000023,
+        "host_peak_rss_bytes": 33783074816
+      },
+      "integrity_passed": true,
+      "track": "G-ATOMIC",
+      "native_task": "t2v",
+      "source_group": "micro-reverse_line",
+      "whole_device_sampled_peak_MiB": 37257.0
+    },
+    {
+      "id": "DIAG-A-022-G-ATOMIC-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-022-G-ATOMIC-s11/runs/20261101T141336873416Z",
+      "started_at_utc": "2026-11-01T14:13:36.874707+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 10029,
+      "wall_seconds": 146.05185268700006,
+      "finished_at_utc": "2026-11-01T14:16:02.927192+00:00",
+      "measurements": {
+        "task": "t2v",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 38507905024,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 142.66243298300105,
+        "host_peak_rss_bytes": 33689698304
+      },
+      "integrity_passed": true,
+      "track": "G-ATOMIC",
+      "native_task": "t2v",
+      "source_group": "micro-vertical",
+      "whole_device_sampled_peak_MiB": 37257.0
+    },
+    {
+      "id": "DIAG-A-023-G-ATOMIC-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-023-G-ATOMIC-s11/runs/20261101T141603424046Z",
+      "started_at_utc": "2026-11-01T14:16:03.426863+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 10214,
+      "wall_seconds": 140.04579481700057,
+      "finished_at_utc": "2026-11-01T14:18:23.473313+00:00",
+      "measurements": {
+        "task": "t2v",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 38507905024,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 137.70785244799845,
+        "host_peak_rss_bytes": 33737437184
+      },
+      "integrity_passed": true,
+      "track": "G-ATOMIC",
+      "native_task": "t2v",
+      "source_group": "micro-one_line",
+      "whole_device_sampled_peak_MiB": 37257.0
+    },
+    {
+      "id": "DIAG-A-024-G-ATOMIC-s11",
+      "status": "completed",
+      "process_attempts": 1,
+      "native_method_entered": true,
+      "native_run": "bundles/DIAG-A-024-G-ATOMIC-s11/runs/20261101T141823944769Z",
+      "started_at_utc": "2026-11-01T14:18:23.947133+00:00",
+      "return_code": 0,
+      "timed_out": false,
+      "worker_pid": 10401,
+      "wall_seconds": 140.1845337650011,
+      "finished_at_utc": "2026-11-01T14:20:44.133957+00:00",
+      "measurements": {
+        "task": "t2v",
+        "status": "process_completed",
+        "cuda_peak_allocated_bytes": 30471729152,
+        "cuda_peak_reserved_bytes": 38507905024,
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "error": null,
+        "gpu_total_bytes": 84974239744,
+        "torch_version": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "python_version": "3.11.18",
+        "worker_elapsed_seconds_including_loading": 137.1808275880012,
+        "host_peak_rss_bytes": 33688875008
+      },
+      "integrity_passed": true,
+      "track": "G-ATOMIC",
+      "native_task": "t2v",
+      "source_group": "micro-two_lines",
+      "whole_device_sampled_peak_MiB": 37257.0
+    }
+  ],
+  "understanding_answers": [
+    {
+      "id": "DIAG-A-001-K-CHAR-s11",
+      "track": "K-CHAR",
+      "question": "Identify the single character in this image. Return unknown if unreadable.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-001-K-CHAR-s11/runs/20261101T133023513715Z/inputs/visible.mp4",
+          "question": "Identify the single character in this image. Return unknown if unreadable.",
+          "answer": "The single character in this image is a squint."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          12
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-002-K-CHAR-s11",
+      "track": "K-CHAR",
+      "question": "Identify the single character in this image. Return unknown if unreadable.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-002-K-CHAR-s11/runs/20261101T133412955746Z/inputs/visible.mp4",
+          "question": "Identify the single character in this image. Return unknown if unreadable.",
+          "answer": "The single character in this image is a stroke or symbol that looks like a lowercase \"l'\". It has a thick, black outline and a slightly uneven, hand drawn appearance."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          37
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-003-K-CHAR-s11",
+      "track": "K-CHAR",
+      "question": "Identify the single character in this image. Return unknown if unreadable.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-003-K-CHAR-s11/runs/20261101T133718079920Z/inputs/visible.mp4",
+          "question": "Identify the single character in this image. Return unknown if unreadable.",
+          "answer": "The single character in this image is a stroke of the character for \"water\". It is a black, bold, and thick line on a white background."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          32
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-004-K-CHAR-s11",
+      "track": "K-CHAR",
+      "question": "Identify the single character in this image. Return unknown if unreadable.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-004-K-CHAR-s11/runs/20261101T134117735939Z/inputs/visible.mp4",
+          "question": "Identify the single character in this image. Return unknown if unreadable.",
+          "answer": "The single character in this image is \"J\"."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          11
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-005-K-ORDER-s11",
+      "track": "K-ORDER",
+      "question": "For mainland standard simplified Chinese character 丑, describe distinct stroke instances, their relative order and travel directions. State uncertainty.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-005-K-ORDER-s11/runs/20261101T134401962123Z/inputs/visible.mp4",
+          "question": "For mainland standard simplified Chinese character 丑, describe distinct stroke instances, their relative order and travel directions. State uncertainty.",
+          "answer": "For a simplified Chinese character, say:\n\n* A person walks forward\n* A car moves forward\n* A plane flies forward\n* A train travels forward\n* A boat floats forward\n\nFor each character, use a different stroke and relative order. The stroke order is:\n* A vertical stroke (in the character's first line) is the stroke for the character's head and shoulders (for example, \"head\" or \"shoulders\" in this case, \"head\" is the stroke for the character's body and \"shoulders\" are the strokes for the character's arms and legs (in this case, \"arms\" and \"legs\" are the strokes for the character's hands and feet, respectively). The characters move in a straight line, with the stroke direction changing to follow the direction of the character's movement (e.g., \"head\" stays in the first line, \"body\" stays in the second line, \"arms\" stays in the third line, and \"legs\" stay in the fourth line). The total count of strokes for each character is the same as the corresponding stroke order, making the characters follow the same path."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          233
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-006-K-ORDER-s11",
+      "track": "K-ORDER",
+      "question": "For mainland standard simplified Chinese character 广, describe distinct stroke instances, their relative order and travel directions. State uncertainty.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-006-K-ORDER-s11/runs/20261101T134543052434Z/inputs/visible.mp4",
+          "question": "For mainland standard simplified Chinese character 广, describe distinct stroke instances, their relative order and travel directions. State uncertainty.",
+          "answer": "For a simplified Chinese character, describe distinct stroke instances, their relative order, and travel directions. The video is 6 seconds long and has no background or context. The characters are presented in a clean, white space, making the black stroke variations and their relative positions easily visible."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          57
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-007-K-ORDER-s11",
+      "track": "K-ORDER",
+      "question": "For mainland standard simplified Chinese character 士, describe distinct stroke instances, their relative order and travel directions. State uncertainty.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-007-K-ORDER-s11/runs/20261101T134713156716Z/inputs/visible.mp4",
+          "question": "For mainland standard simplified Chinese character 士, describe distinct stroke instances, their relative order and travel directions. State uncertainty.",
+          "answer": "For a simplified Chinese character, the stroke instances are described in a way that maintains their relative order and travel directions. The character's horizontal line is maintained, while the vertical line is subtracted to reduce the total horizontal line of the character. The relative positions of the horizontal and vertical lines are also maintained, with the horizontal line above and the vertical line below. This creates a state of balance and harmony in the character, and the relative order of the strokes is also ensured that the vertical line is always below the horizontal line."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          106
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-008-K-ORDER-s11",
+      "track": "K-ORDER",
+      "question": "For mainland standard simplified Chinese character 小, describe distinct stroke instances, their relative order and travel directions. State uncertainty.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-008-K-ORDER-s11/runs/20261101T134949469585Z/inputs/visible.mp4",
+          "question": "For mainland standard simplified Chinese character 小, describe distinct stroke instances, their relative order and travel directions. State uncertainty.",
+          "answer": "For a simplified Chinese character, describe the distinct stroke instances, their relative order, and travel directions. The video is 6 seconds long and has no background or context. The characters are presented in a clean, white background."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          46
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-009-V-STRUCT-s11",
+      "track": "V-STRUCT",
+      "question": "Describe distinct spatial stroke instances, start/end candidates and relations. Do not infer time order from this static image.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-009-V-STRUCT-s11/runs/20261101T135137560234Z/inputs/visible.mp4",
+          "question": "Describe distinct spatial stroke instances, start/end candidates and relations. Do not infer time order from this static image.",
+          "answer": "No, infer any temporal or spatial relationships. The image is a simple, black pixelated design with no additional details or elements."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          27
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-010-V-STRUCT-s11",
+      "track": "V-STRUCT",
+      "question": "Describe distinct spatial stroke instances, start/end candidates and relations. Do not infer time order from this static image.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-010-V-STRUCT-s11/runs/20261101T135335652650Z/inputs/visible.mp4",
+          "question": "Describe distinct spatial stroke instances, start/end candidates and relations. Do not infer time order from this static image.",
+          "answer": "No, infer any temporal or spatial relationships. The only variable is the stroke's length and thickness, which remains constant throughout."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          26
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-011-V-STRUCT-s11",
+      "track": "V-STRUCT",
+      "question": "Describe distinct spatial stroke instances, start/end candidates and relations. Do not infer time order from this static image.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-011-V-STRUCT-s11/runs/20261101T135524752642Z/inputs/visible.mp4",
+          "question": "Describe distinct spatial stroke instances, start/end candidates and relations. Do not infer time order from this static image.",
+          "answer": "No, infer any temporal or spatial data, such as distance, angle, or rotation, to generate a more comprehensive description. Also, there are no visible attributes or counts that allow for more detailed spatial analysis."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          43
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-012-V-STRUCT-s11",
+      "track": "V-STRUCT",
+      "question": "Describe distinct spatial stroke instances, start/end candidates and relations. Do not infer time order from this static image.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-012-V-STRUCT-s11/runs/20261101T135730852645Z/inputs/visible.mp4",
+          "question": "Describe distinct spatial stroke instances, start/end candidates and relations. Do not infer time order from this static image.",
+          "answer": "No, infer any temporal or spatial relationships. The image is a static, non - moving picture."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          21
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-013-H-ACTUAL-s11",
+      "track": "H-ACTUAL",
+      "question": "Describe only actual visible events and their spatial identities, onset/completion, travel directions and uncertainty. Never replace observed history with standard order.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-013-H-ACTUAL-s11/runs/20261101T135858973746Z/inputs/visible.mp4",
+          "question": "Describe only actual visible events and their spatial identities, onset/completion, travel directions and uncertainty. Never replace observed history with standard order.",
+          "answer": "In this 6-second video, we see a white background with a black ink drop. As the video starts, the drop moves to the left, and then it begins to spread out. The ink creates a horizontal line, which is followed by a vertical stroke being drawn in the middle. After that, a small blob of ink falls from above, and as it lands on the line, it spreads out a bit more, forming a small blob at the bottom. The ink continues to spread out, creating a larger blob at the bottom, with the original line now having two blobs of ink on it, one at each end. The video ends with this pattern of ink spreading."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          137
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-014-H-ACTUAL-s11",
+      "track": "H-ACTUAL",
+      "question": "Describe only actual visible events and their spatial identities, onset/completion, travel directions and uncertainty. Never replace observed history with standard order.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-014-H-ACTUAL-s11/runs/20261101T140026062848Z/inputs/visible.mp4",
+          "question": "Describe only actual visible events and their spatial identities, onset/completion, travel directions and uncertainty. Never replace observed history with standard order.",
+          "answer": "In this 6 second animation, we see a simple stick figure (or any other two-dimensional entity) appear on a white background. It starts with a small head, then a body, and finally a pair of feet. The figure moves to the right, but as it does, the whole body seems to be missing, as if the figure is walking on an infinite white surface. The stick figure's movements are not fluid, just a series of still frames that give the impression of a slow, deliberate walk. The white background remains constant, and there are no other visible objects or actions in the animation."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          123
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-015-H-ACTUAL-s11",
+      "track": "H-ACTUAL",
+      "question": "Describe only actual visible events and their spatial identities, onset/completion, travel directions and uncertainty. Never replace observed history with standard order.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-015-H-ACTUAL-s11/runs/20261101T140158208028Z/inputs/visible.mp4",
+          "question": "Describe only actual visible events and their spatial identities, onset/completion, travel directions and uncertainty. Never replace observed history with standard order.",
+          "answer": "In this 6-second video, we see a black pixelated object (or figure) against a white background. As the video starts, the object appears to be in a vertical position. Then, it begins to decompose from the bottom, with parts of it falling away like fragments. These fragments move around, some rising and some falling, until the object is completely disassembled into several parts. The camera remains steady throughout, capturing the entire process of the object's disassembly."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          99
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-016-H-ACTUAL-s11",
+      "track": "H-ACTUAL",
+      "question": "Describe only actual visible events and their spatial identities, onset/completion, travel directions and uncertainty. Never replace observed history with standard order.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-016-H-ACTUAL-s11/runs/20261101T140325304814Z/inputs/visible.mp4",
+          "question": "Describe only actual visible events and their spatial identities, onset/completion, travel directions and uncertainty. Never replace observed history with standard order.",
+          "answer": "In this 6-second animation, we see a small black shape, which is the head of a human figure, moving from the left to the right of the screen. As it moves, it leaves a series of black traces that gradually form the body and limbs of a human figure. The body is a vertical line, and the limbs are represented by simple black shapes. The animation is set on a plain white background, and there are no other visible objects or actions. The whole process, from the head to the body and limbs, unfolds in a straightforward, non-detailed way, with the black shapes and lines contrasting sharply against the white backdrop."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          131
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-017-H-ACTUAL-s11",
+      "track": "H-ACTUAL",
+      "question": "Describe the visible order, spatial identities, directions, completion and any disappearing or extra ink. Report uncertainty.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-017-H-ACTUAL-s11/runs/20261101T140455395107Z/inputs/visible.mp4",
+          "question": "Describe the visible order, spatial identities, directions, completion and any disappearing or extra ink. Report uncertainty.",
+          "answer": "The visible order, spatial identities, directions, and completion of the lines are as follows:\n1. The upper line is straight and horizontal, with a fixed width of 0.5 pixels. The lower line is also straight and horizontal, with a width of 0.5 pixels. There is no visible gap between the two lines. The line on the upper side has a small extra of 0.5 pixels on its right edge, and the line on the lower side has a small extra of 0.5 pixels on its left edge. The line on the upper side is connected to the line on the lower side by a small gap, and the line on the lower side is connected to the line on the upper side by a small gap. The line on the upper side has a small extra of 0.5 pixels on its left side, and the line on the lower side has a small extra of 0.5 pixels on its right side. The line on the upper side is moving to the right, and the line on the lower side is moving to the left. The line on the upper side has a small extra of 0.5 pixels on its right side, and the line on the lower side has a small extra of 0."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          256
+        ],
+        "stopped_on_EOS": [
+          false
+        ],
+        "hit_limit_without_EOS": [
+          true
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-018-H-ACTUAL-s11",
+      "track": "H-ACTUAL",
+      "question": "Describe the visible order, spatial identities, directions, completion and any disappearing or extra ink. Report uncertainty.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-018-H-ACTUAL-s11/runs/20261101T140630489385Z/inputs/visible.mp4",
+          "question": "Describe the visible order, spatial identities, directions, completion and any disappearing or extra ink. Report uncertainty.",
+          "answer": "The visible order, spatial identities, directions, and completion of the lines are as follows:\n1. The first line is horizontal and straight, with a fixed width. The second line is also horizontal and straight, with a fixed width. The third line is a vertical line, with a fixed width. The fourth line is a horizontal line, with a fixed width. The fifth line is a vertical line, with a fixed width. The sixth line is a horizontal line, with a fixed width. The seventh line is a vertical line, with a fixed width. The eighth line is a horizontal line, with a fixed width. The ninth line is a vertical line, with a fixed width. The tenth line is a horizontal line, with a fixed width. The eleventh line is a vertical line, with a fixed width. The twirling line is horizontal and has a fixed width. The twirling line has a twine-like appearance, with a fixed width. The twirling line has a twine-like appearance, with a fixed width. The twirling line has a twine-like appearance, with a fixed width. The twirling line has a twine-like appearance, with a fixed width. The twirling line has a twine-like appearance, with a fixed width"
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          256
+        ],
+        "stopped_on_EOS": [
+          false
+        ],
+        "hit_limit_without_EOS": [
+          true
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-019-H-ACTUAL-s11",
+      "track": "H-ACTUAL",
+      "question": "Describe the visible order, spatial identities, directions, completion and any disappearing or extra ink. Report uncertainty.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-019-H-ACTUAL-s11/runs/20261101T140808572922Z/inputs/visible.mp4",
+          "question": "Describe the visible order, spatial identities, directions, completion and any disappearing or extra ink. Report uncertainty.",
+          "answer": "In this animation, there are two black lines on a white background. Initially, both lines are horizontal and evenly spaced. Then, they both move vertically upward simultaneously. As they move, the total height of the lines remains constant (since there are no vertical changes), and their positions do not change either. After a short while, the lines start to move downward again, with the same height and position as before, creating a stable and uniform set of coordinates. There are no other visible objects or actions in the video."
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          105
+        ],
+        "stopped_on_EOS": [
+          true
+        ],
+        "hit_limit_without_EOS": [
+          false
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    },
+    {
+      "id": "DIAG-A-020-H-ACTUAL-s11",
+      "track": "H-ACTUAL",
+      "question": "Describe the visible order, spatial identities, directions, completion and any disappearing or extra ink. Report uncertainty.",
+      "raw_answer": [
+        {
+          "video": "/mnt/data/umm-diagnostic-batch-a-20261101/bundles/DIAG-A-020-H-ACTUAL-s11/runs/20261101T140936660797Z/inputs/visible.mp4",
+          "question": "Describe the visible order, spatial identities, directions, completion and any disappearing or extra ink. Report uncertainty.",
+          "answer": "The visible order, spatial identities, directions, and completion of the lines are as follows:\n1. The upper line is straight and horizontal, with a fixed width of 0.5 pixels. The lower line is also straight and horizontal, with a width of 0.5 pixels. There is no visible gap between the two lines. The line on the upper side has a small extra line at its end, which is also horizontal and 0.5 pixels. The line on the lower side has a small extra line at its end, which is also horizontal and 0.5 pixels. The line on the upper side has a small extra line at its end, which is also horizontal and 0.5 pixels. The line on the lower side has a small extra line at its end, which is also horizontal and 0.5 pixels. The line on the upper side has a small extra line at its end, which is also horizontal and 0.5 pixels. The line on the lower side has a small extra line at its end, which is also horizontal and 0.5 pixels. The line on the upper side has a small extra line at its end, which is also horizontal and 0.5 pixels. The line on the lower side"
+        }
+      ],
+      "token_metadata": {
+        "native_max_length": 256,
+        "generated_tokens": [
+          256
+        ],
+        "stopped_on_EOS": [
+          false
+        ],
+        "hit_limit_without_EOS": [
+          true
+        ]
+      },
+      "status": "completed",
+      "scientific_judgment": null
+    }
+  ],
+  "first_call_started_at_utc": "2026-11-01T13:30:23.515185+00:00",
+  "last_call_finished_at_utc": "2026-11-01T14:20:44.133957+00:00",
+  "scheduler_span_seconds": 3020.618772
+}

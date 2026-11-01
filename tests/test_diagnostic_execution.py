@@ -6,7 +6,7 @@ import sys
 import tempfile
 import unittest
 
-from scripts.diagnostics.execute import archive_inputs, resources_available, run_owned, validate_authorization
+from scripts.diagnostics.execute import archive_inputs, execute, resources_available, run_owned, validate_authorization
 
 
 class BatchAExecutionTests(unittest.TestCase):
@@ -57,10 +57,11 @@ class BatchAExecutionTests(unittest.TestCase):
             (src/'t2v.json').write_text(json.dumps(value))
             self.assertEqual(archive_inputs(src, root/'archive', 't2v'), value)
 
-    def test_other_gpu_work_or_low_available_memory_pauses_queue(self):
+    def test_shared_gpu_requires_measured_headroom(self):
         free = {'compute_processes':'', 'gpu_free_MiB':81000, 'RAM_available_MiB':40000}
         self.assertTrue(resources_available(free))
-        for change in ({'compute_processes':'1234, 1024'}, {'gpu_free_MiB':10000}, {'RAM_available_MiB':20000}):
+        self.assertTrue(resources_available({**free,'compute_processes':'1234, 30720'}))
+        for change in ({'gpu_free_MiB':10000}, {'RAM_available_MiB':20000}):
             self.assertFalse(resources_available({**free, **change}))
 
     def test_timeout_stops_only_owned_child_process(self):
@@ -71,3 +72,47 @@ class BatchAExecutionTests(unittest.TestCase):
             self.assertTrue(timed_out)
             self.assertNotEqual(code, 0)
             self.assertGreater(pid, 0)
+
+    def test_resume_skips_failed_slot_without_retrying_it(self):
+        from unittest.mock import patch, Mock
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);source=root/'upstream'
+            for name in ('Lance_3B_Video/model.safetensors','Qwen2.5-VL-ViT/vit.safetensors','Wan2.2_VAE.pth'):
+                p=source/'downloads'/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b'TEST_ONLY_NO_WEIGHTS')
+            def save(name,value):(root/name).write_text(json.dumps(value))
+            save('authorization.json',self.auth);save('manifest.json',self.proposal)
+            save('runtime.json',{'source_directory':str(source)})
+            save('model_provenance.json',{'model_revision':self.proposal['batch_A']['model_revision'],
+                'code_revision':self.proposal['batch_A']['code_revision'],'all_download_metadata_matches':True})
+            save('state.json',{'deadline_unix':None,'requests':[{'id':r['id'],'status':'pending'} for r in self.proposal['requests']]})
+            for row in self.proposal['requests'][:2]:
+                path=root/'inputs'/row['id'];path.mkdir(parents=True)
+                (path/'x2t_video.json').write_text(json.dumps({'0001':{'interleave_array':['visible.mp4', ['system',row['prompt'],'withheld']],
+                    'element_dtype_array':['video','text']}}));(path/'visible.mp4').write_bytes(b'TEST_ONLY')
+            snapshot={'compute_processes':'','gpu_free_MiB':80000,'RAM_available_MiB':40000}
+            with patch('scripts.diagnostics.execute.resource_snapshot',return_value=snapshot), \
+                 patch('scripts.diagnostics.execute.subprocess.Popen',return_value=Mock()), \
+                 patch('scripts.diagnostics.execute.run_owned',return_value=(1,False,12345)) as run:
+                self.assertEqual(execute(root),2)
+                self.assertEqual(execute(root),2)
+            invoked=[call.args[0][call.args[0].index('--worker')+1] for call in run.call_args_list]
+            self.assertEqual(invoked,[r['id'] for r in self.proposal['requests'][:2]])
+            state=json.loads((root/'state.json').read_text())
+            self.assertEqual(state['status'],'paused_after_retained_failure')
+            self.assertEqual([r['status'] for r in state['requests'][:3]],['failed','failed','pending'])
+            self.assertEqual((state['process_attempts'],state['native_model_calls'],state['technical_failures'],state['blocked_unrun_slots']),(2,0,2,22))
+
+    def test_partial_batch_keeps_all_slots_and_separates_calls_from_method_entries(self):
+        from scripts.diagnostics.summarize_batch import summarize
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            (root/'manifest.json').write_text(json.dumps(self.proposal))
+            entries=[{'id':r['id'],'status':'pending','process_attempts':0,'native_method_entered':False} for r in self.proposal['requests']]
+            entries[0].update(status='failed',process_attempts=1)
+            entries[1].update(status='completed',process_attempts=1,native_method_entered=True,wall_seconds=12)
+            (root/'state.json').write_text(json.dumps({'requests':entries}))
+            result=summarize(root)
+            self.assertEqual(result['status'],'partial')
+            self.assertEqual((result['requested_slots'],result['process_attempts'],result['native_method_entries']),(24,2,1))
+            self.assertEqual((result['integrity_valid_answers'],result['technical_failed_slots'],result['unrun_slots']),(1,1,22))
+            self.assertIsNone(result['actual_cost_CNY']);self.assertIsNone(result['formal_primary_metrics'])

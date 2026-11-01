@@ -1,6 +1,6 @@
 # 2026-11-01 Batch A执行状态
 
-用户已批准同一Lance检查点24次诊断，并提供共享A10080实例。24项输入与独立CPU运行器已部署，180项测试通过。服务器未找到固定权重及独立原环境；原申请`allow_download=false`要求另批恢复，已询问且待回复。当前0次模型调用、24项阻塞未运行，未改其他实验进程；Batch B/C未授权，P1正式科学状态不变。见[执行记录](../research/next/batch_A_execution_2026-11-01.md)。
+Batch A已完成24次精确原生调用：20份理解回答＋4段原生MP4工程有效，技术失败/阻塞/未运行/额外GPU重试/本任务训练均为0，182项CPU测试通过。理解端存在识字与过程描述错误，017/018/020回答截断；023呈现左到右横线增长的正面个案。全部真实输入核验通过，本任务GPU进程已退出，其他实验未被改动；原片、日志和环境信息已归档。没有新的规范金标、性能提升或机制归因，P0/P1科学状态不变，Batch B/C未授权。见[最终执行报告](../research/next/batch_A_results_2026-11-01.md)、[完整分母与资源](../../data/research/runs/diagnostic_batch_A_2026-11-01/execution_summary.json)及[AI案例分析](../../data/research/runs/diagnostic_batch_A_2026-11-01/AI_case_analysis.json)。本轮交付后停止等待下一项授权。
 
 以下为之前的状态快照，授权以当前Batch A记录为准。
 

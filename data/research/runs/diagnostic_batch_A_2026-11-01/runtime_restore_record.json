@@ -1,0 +1,25 @@
+{
+  "supplemental_approval": "checkpoint_restore_approval.json",
+  "original_approval_retained": "authorization.json",
+  "model_repository": "bytedance-research/Lance",
+  "model_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+  "source_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+  "fixed_files_restored": 11,
+  "large_weight_verification": "Three large files checked once against official LFS SHA-256 metadata; see model_provenance.json",
+  "environment": "isolated_environment.json",
+  "CPU_native_loader": "native_CPU_preflight.json",
+  "dependency_build": "Pinned FlashAttention 2.6.3 built from source for Torch 2.5.1/Python 3.11; compiled wheel retained privately",
+  "dependency_failures_and_adjustments": [
+    "Slow fixed-checkpoint transport stopped only within own downloader; partial files and logs retained; same revision restored with hf_transfer",
+    "Truncated standalone FFmpeg download retained; native imageio_ffmpeg bundled binary used instead",
+    "Bundled FFmpeg 4.2.2 rejected -fps_mode; CPU decoder changed to equivalent -vsync 0; 33-frame server decode passed, 182 CPU tests passed",
+    "Original two-job FlashAttention build resumed from completed objects with four jobs; own previous process group stopped and build snapshot retained",
+    "Missing libcuda.so linker alias provided only in task-owned driver-compat directory via TRITON_LIBCUDA_PATH"
+  ],
+  "shared_server_policy": "resource_policy_revision.json",
+  "global_or_other_experiment_environment_modified": false,
+  "model_parameters_or_frozen_prompts_changed": false,
+  "GPU_model_calls_for_setup_or_warmup": 0,
+  "setup_failure_artifacts_private": true,
+  "actual_billing_CNY": null
+}

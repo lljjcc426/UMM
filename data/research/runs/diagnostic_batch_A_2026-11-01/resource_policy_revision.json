@@ -1,0 +1,13 @@
+{
+  "recorded_at_utc": "2026-11-01T12:14:40.074379+00:00",
+  "user_constraint": "服务器可能有别的进程和实验在跑别打断，我们这边自己跑自己的。",
+  "reason": "Observed other job holding 30720MiB; 50296MiB GPU memory and 40048MiB host RAM available. Resource sharing can proceed without exclusive GPU access.",
+  "supersedes_implementation_only": "Initial idle-GPU guard in prior deployment; original approval evidence retained",
+  "min_free_GPU_MiB": 44000,
+  "min_available_RAM_MiB": 35000,
+  "own_torch_allocator_cap_GiB": 42,
+  "other_processes_may_coexist": true,
+  "other_processes_may_be_stopped_or_modified": false,
+  "frozen_model_and_generation_parameters_changed": false,
+  "per_process_peaks_primary": "Whole-device samples include other job and are not attributed to Lance alone"
+}

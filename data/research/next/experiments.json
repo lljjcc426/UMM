@@ -1,5 +1,5 @@
 {
-  "status": "research_kickoff_prepared",
+  "status": "diagnostic_batch_A_completed",
   "formal_P1_state_changed": false,
   "experiments": [
     {
@@ -43,5 +43,33 @@
     "H_U": "unverified",
     "H_UE": "unverified",
     "H_R": "unverified"
-  }
+  },
+  "gpu_executions": [
+    {
+      "id": "Batch-A-Lance-2026-11-01",
+      "status": "completed",
+      "requested_slots": 24,
+      "process_attempts": 24,
+      "native_method_entries": 24,
+      "integrity_valid_answers": 20,
+      "integrity_valid_videos": 4,
+      "technical_failures": 0,
+      "blocked": 0,
+      "unrun": 0,
+      "GPU_retries": 0,
+      "training_runs": 0,
+      "CPU_tests": 182,
+      "new_holdout": 0,
+      "new_human_tasks": 0,
+      "formal_primary_metrics": null,
+      "historical_D_records": "Preparation-time snapshots preserved above",
+      "report": "docs/research/next/batch_A_results_2026-11-01.md",
+      "evidence": "data/research/runs/diagnostic_batch_A_2026-11-01/execution_summary.json",
+      "Batch_B_authorized": false,
+      "Batch_C_authorized": false,
+      "backup_verified": true,
+      "backup_receipt": "data/research/runs/diagnostic_batch_A_2026-11-01/backup_receipt.json",
+      "own_GPU_processes_remaining": 0
+    }
+  ]
 }
