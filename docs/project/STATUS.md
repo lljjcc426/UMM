@@ -1,3 +1,9 @@
+# 2026-11-01 Batch A执行状态
+
+用户已批准同一Lance检查点24次诊断，并提供共享A10080实例。24项输入与独立CPU运行器已部署，180项测试通过。服务器未找到固定权重及独立原环境；原申请`allow_download=false`要求另批恢复，已询问且待回复。当前0次模型调用、24项阻塞未运行，未改其他实验进程；Batch B/C未授权，P1正式科学状态不变。见[执行记录](../research/next/batch_A_execution_2026-11-01.md)。
+
+以下为之前的状态快照，授权以当前Batch A记录为准。
+
 # 当前状态：科研重启的CPU准备
 
 2026-11-01：用户明确授权D0–D5本地CPU准备，分支`exp/p1-process-diagnostic`保留P1结项与工程全部历史。新诊断不改变P0/P1正式状态，不宣称正式P2或模型改进。入口：[科研启动执行报告](../research/next/kickoff_execution_report.md)、[Benchmark v0.1](../research/next/diagnostic_benchmark_v0_1.md)、[下一批精确GPU申请](../research/next/gpu_pilot_request.md)。当前GPU/训练/新模型下载/推送/main合并均未授权。完成本轮准备后停止等待审核。
