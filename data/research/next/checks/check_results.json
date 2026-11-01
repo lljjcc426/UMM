@@ -1,0 +1,69 @@
+{
+  "status": "CPU_checks_passed_with_expected_merge_rejection",
+  "checks": [
+    {
+      "id": "catalog",
+      "command": ".venv/bin/python scripts/validate_catalog.py",
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "passed_expectation": true,
+      "log": "data/research/next/checks/catalog.log"
+    },
+    {
+      "id": "research_v1",
+      "command": ".venv/bin/python scripts/validate_research_plan.py --output reports/research_plan_v1_validation.json",
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "passed_expectation": true,
+      "log": "data/research/next/checks/research_v1.log"
+    },
+    {
+      "id": "research_v2",
+      "command": ".venv/bin/python scripts/validate_research_v2.py --output reports/research_plan_v2_validation.json",
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "passed_expectation": true,
+      "log": "data/research/next/checks/research_v2.log"
+    },
+    {
+      "id": "P1_development",
+      "command": ".venv/bin/python scripts/validate_stage_release.py",
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "passed_expectation": true,
+      "log": "data/research/next/checks/P1_development.log"
+    },
+    {
+      "id": "P0_history",
+      "command": ".venv/bin/python scripts/validate_stage_release.py --phase P0",
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "passed_expectation": true,
+      "log": "data/research/next/checks/P0_history.log"
+    },
+    {
+      "id": "P1_strict_merge",
+      "command": ".venv/bin/python scripts/validate_stage_release.py --require-ready",
+      "expected_exit_code": 1,
+      "actual_exit_code": 1,
+      "passed_expectation": true,
+      "log": "data/research/next/checks/P1_strict_merge.log"
+    },
+    {
+      "id": "all_tests",
+      "command": ".venv/bin/python -m unittest discover -s tests -v",
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "passed_expectation": true,
+      "log": "data/research/next/checks/all_tests.log"
+    }
+  ],
+  "full_suite_tests": 174,
+  "new_diagnostic_tests": 35,
+  "strict_merge_rejection_expected": true,
+  "final_full_suite_exit_code": 0,
+  "final_full_suite_tests": 174,
+  "final_full_suite_seconds": 7.794,
+  "final_full_suite_after_lossless_and_permission_fix": true,
+  "earlier_run_log": "private/research_restart_2026-11-01/all_tests_before_codec_fix.log"
+}

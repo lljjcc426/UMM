@@ -1,0 +1,419 @@
+{
+  "status": "historical_evidence_reused_read_only",
+  "counts": {
+    "generation": {
+      "completed": 63,
+      "failed": 1
+    },
+    "understanding": {
+      "completed": 28
+    },
+    "codec": {
+      "completed": 8
+    },
+    "controls": {
+      "completed": 8
+    }
+  },
+  "conditions": [
+    {
+      "condition": "T_G0_blank_i2v",
+      "attempts": 8,
+      "statuses": {
+        "failed": 1,
+        "completed": 7
+      },
+      "geometry_permissions": [
+        "G0"
+      ]
+    },
+    {
+      "condition": "T_G0_native_simple",
+      "attempts": 24,
+      "statuses": {
+        "completed": 24
+      },
+      "geometry_permissions": [
+        "G0"
+      ]
+    },
+    {
+      "condition": "T_G0_order_text",
+      "attempts": 24,
+      "statuses": {
+        "completed": 24
+      },
+      "geometry_permissions": [
+        "G0"
+      ]
+    },
+    {
+      "condition": "T_G1_template_text",
+      "attempts": 8,
+      "statuses": {
+        "completed": 8
+      },
+      "geometry_permissions": [
+        "G1_fixed_development_template"
+      ]
+    }
+  ],
+  "original_execution_counts": {
+    "generation": {
+      "slots": 64,
+      "actual_initial_calls_this_run": 48,
+      "reused_initial_calls": 16,
+      "statuses": {
+        "completed": 63,
+        "failed": 1
+      }
+    },
+    "understanding": {
+      "slots": 28,
+      "actual_initial_calls_this_run": 28,
+      "reused_initial_calls": 0,
+      "statuses": {
+        "completed": 28
+      }
+    },
+    "codec": {
+      "slots": 8,
+      "actual_initial_calls_this_run": 8,
+      "reused_initial_calls": 0,
+      "statuses": {
+        "completed": 8
+      }
+    },
+    "controls": {
+      "slots": 8,
+      "actual_initial_calls_this_run": 0,
+      "reused_initial_calls": 0,
+      "statuses": {
+        "completed": 8
+      }
+    }
+  },
+  "formal_phase_status": "closed_with_negative_results",
+  "EVAL_02_current": "completed_with_limitations",
+  "startup_stale_fields": [
+    "p1_state_expected.human_review_status",
+    "P1 unclosed description"
+  ],
+  "human_evidence": {
+    "unique_playable_videos": 71,
+    "reviewers_as_reported": 2,
+    "recognizable_generally_acceptable_controls": 8,
+    "acceptable_UMM_outputs_identified": 0,
+    "UMM_playable_denominator": 63,
+    "UMM_initial_attempt_denominator": 64,
+    "technical_missing": 1,
+    "source": "user_relayed_coarse_screening"
+  },
+  "formal_human_metrics": null,
+  "human_submission_scope": "coarse_screening_archived_original_fine_facets_unfulfilled_under_approved_closeout",
+  "new_human_tasks": 0,
+  "formal_facet_export_count": 0,
+  "original_offline_package_snapshot": {
+    "status": "pending_human_review",
+    "reviewers": [
+      {
+        "package_id": "P1-independent-1",
+        "slots": 72,
+        "playable": 71,
+        "planned_target_slots": 72,
+        "required_playable_video_judgments": 71,
+        "actual_human_submissions": 0
+      },
+      {
+        "package_id": "P1-independent-2",
+        "slots": 72,
+        "playable": 71,
+        "planned_target_slots": 72,
+        "required_playable_video_judgments": 71,
+        "actual_human_submissions": 0
+      }
+    ],
+    "blind_to": [
+      "method",
+      "condition",
+      "seed",
+      "prompt",
+      "automatic_analysis"
+    ],
+    "total_planned_video_review_slots": 144,
+    "pending_playable_video_reviews": 142,
+    "actual_human_reviews": 0,
+    "understanding_review_optional_additional": 56,
+    "independent_mapping_outside_packages": true
+  },
+  "sampled_private_media": [
+    {
+      "root": "private/p1_native_pilot_issue3_2026-10-30/requests/N076-T_G0_native_simple-s11",
+      "root_available": true,
+      "matching_MP4_files": 1,
+      "path": "private/p1_native_pilot_issue3_2026-10-30/requests/N076-T_G0_native_simple-s11/runs/20261030T110506204842Z/t2v/outputs/000001.mp4",
+      "status": "decoded",
+      "media": {
+        "kind": "native_video",
+        "dense_video_eligible": true,
+        "frames": 33,
+        "size": [
+          848,
+          480
+        ],
+        "PTS": [
+          0.0,
+          0.0833333,
+          0.166667,
+          0.25,
+          0.333333,
+          0.416667,
+          0.5,
+          0.583333,
+          0.666667,
+          0.75,
+          0.833333,
+          0.916667,
+          1.0,
+          1.083333,
+          1.166667,
+          1.25,
+          1.333333,
+          1.416667,
+          1.5,
+          1.583333,
+          1.666667,
+          1.75,
+          1.833333,
+          1.916667,
+          2.0,
+          2.083333,
+          2.166667,
+          2.25,
+          2.333333,
+          2.416667,
+          2.5,
+          2.583333,
+          2.666667
+        ],
+        "nominal_end_PTS": 2.666667
+      },
+      "scope": "one deterministic first MP4 per selected root; content not re-human-reviewed"
+    },
+    {
+      "root": "private/p1_full_server_2026-10-30/requests/N019-T_G0_blank_i2v-s11",
+      "root_available": true,
+      "matching_MP4_files": 1,
+      "path": "private/p1_full_server_2026-10-30/requests/N019-T_G0_blank_i2v-s11/runs/20261030T141117991942Z/i2v/outputs/000001.mp4",
+      "status": "decoded",
+      "media": {
+        "kind": "native_video",
+        "dense_video_eligible": true,
+        "frames": 33,
+        "size": [
+          848,
+          480
+        ],
+        "PTS": [
+          0.0,
+          0.0833333,
+          0.166667,
+          0.25,
+          0.333333,
+          0.416667,
+          0.5,
+          0.583333,
+          0.666667,
+          0.75,
+          0.833333,
+          0.916667,
+          1.0,
+          1.083333,
+          1.166667,
+          1.25,
+          1.333333,
+          1.416667,
+          1.5,
+          1.583333,
+          1.666667,
+          1.75,
+          1.833333,
+          1.916667,
+          2.0,
+          2.083333,
+          2.166667,
+          2.25,
+          2.333333,
+          2.416667,
+          2.5,
+          2.583333,
+          2.666667
+        ],
+        "nominal_end_PTS": 2.666667
+      },
+      "scope": "one deterministic first MP4 per selected root; content not re-human-reviewed"
+    },
+    {
+      "root": "private/p1_full_server_2026-10-30/diagnostics/controls/O-N076",
+      "root_available": true,
+      "matching_MP4_files": 1,
+      "path": "private/p1_full_server_2026-10-30/diagnostics/controls/O-N076/control.mp4",
+      "status": "decoded",
+      "media": {
+        "kind": "native_video",
+        "dense_video_eligible": true,
+        "frames": 33,
+        "size": [
+          848,
+          480
+        ],
+        "PTS": [
+          0.0,
+          0.0833333,
+          0.166667,
+          0.25,
+          0.333333,
+          0.416667,
+          0.5,
+          0.583333,
+          0.666667,
+          0.75,
+          0.833333,
+          0.916667,
+          1.0,
+          1.083333,
+          1.166667,
+          1.25,
+          1.333333,
+          1.416667,
+          1.5,
+          1.583333,
+          1.666667,
+          1.75,
+          1.833333,
+          1.916667,
+          2.0,
+          2.083333,
+          2.166667,
+          2.25,
+          2.333333,
+          2.416667,
+          2.5,
+          2.583333,
+          2.666667
+        ],
+        "nominal_end_PTS": 2.666667
+      },
+      "scope": "one deterministic first MP4 per selected root; content not re-human-reviewed"
+    },
+    {
+      "root": "private/p1_full_server_2026-10-30/requests/SO00-codec-N076",
+      "root_available": true,
+      "matching_MP4_files": 1,
+      "path": "private/p1_full_server_2026-10-30/requests/SO00-codec-N076/reconstruction.mp4",
+      "status": "decoded",
+      "media": {
+        "kind": "native_video",
+        "dense_video_eligible": true,
+        "frames": 33,
+        "size": [
+          848,
+          480
+        ],
+        "PTS": [
+          0.0,
+          0.0833333,
+          0.166667,
+          0.25,
+          0.333333,
+          0.416667,
+          0.5,
+          0.583333,
+          0.666667,
+          0.75,
+          0.833333,
+          0.916667,
+          1.0,
+          1.083333,
+          1.166667,
+          1.25,
+          1.333333,
+          1.416667,
+          1.5,
+          1.583333,
+          1.666667,
+          1.75,
+          1.833333,
+          1.916667,
+          2.0,
+          2.083333,
+          2.166667,
+          2.25,
+          2.333333,
+          2.416667,
+          2.5,
+          2.583333,
+          2.666667
+        ],
+        "nominal_end_PTS": 2.666667
+      },
+      "scope": "one deterministic first MP4 per selected root; content not re-human-reviewed"
+    }
+  ],
+  "sampling_sample": {
+    "root": "private/p1_full_server_2026-10-30/requests/SO01-C-N076-full_prefix",
+    "sampling_paths": [
+      "private/p1_full_server_2026-10-30/requests/SO01-C-N076-full_prefix/runs/20261030T144618945527Z/x2t_video/actual_sampling.json"
+    ],
+    "archived_arrays": 1,
+    "raw_answer_count": 28,
+    "sampling_records": 28
+  },
+  "prior_backup_audit_scope": "2192-file SHA check belongs to historical P1 run; not repeated in this task",
+  "SO01_summary": {
+    "completed": 28,
+    "controlled": 20,
+    "fixed_real": 8,
+    "pair_count": 20,
+    "pairs_with_identical_raw_answer": 6,
+    "irrelevant_mask_equals_full_answer": 4,
+    "duration_literal_conflict_ids": [
+      "SO01-C-N076-full_prefix",
+      "SO01-C-N076-relevant_occlusion",
+      "SO01-C-N076-irrelevant_occlusion",
+      "SO01-C-N076-alternate_history",
+      "SO01-C-N019-full_prefix",
+      "SO01-C-N019-relevant_occlusion",
+      "SO01-C-N019-irrelevant_occlusion",
+      "SO01-C-N019-alternate_history"
+    ],
+    "formal_accuracy": null,
+    "human_submissions": 0,
+    "limits": "Posthoc exact text and literal duration checks; answer differences do not establish correct temporal use or H1. Controlled cuts use known synthetic stages for development only; no oracle segmentation of real RGB."
+  },
+  "auxiliary_atlas_records": 64,
+  "failed_generation": [
+    {
+      "id": "N076-T_G0_blank_i2v-s11",
+      "status": "failed",
+      "reused": false,
+      "actual_calls": 1,
+      "started_at_utc": "2026-10-30T13:52:30.527221+00:00",
+      "finished_at_utc": "2026-10-30T13:53:42.642512+00:00",
+      "wall_seconds": 72.108815890002,
+      "return_code": 1,
+      "timed_out": false,
+      "native_run": "bundles/N076-T_G0_blank_i2v-s11/runs/20261030T135230570130Z",
+      "private_archive": "archives/N076-T_G0_blank_i2v-s11.tar.gz",
+      "archive_bytes": 5028
+    }
+  ],
+  "models_newly_run": 0,
+  "hypotheses": {
+    "H_K": "unverified",
+    "H_V": "unverified",
+    "H_U": "unverified",
+    "H_UE": "unverified",
+    "H_R": "unverified"
+  }
+}

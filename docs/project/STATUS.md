@@ -1,3 +1,9 @@
+# 当前状态：科研重启的CPU准备
+
+2026-11-01：用户明确授权D0–D5本地CPU准备，分支`exp/p1-process-diagnostic`保留P1结项与工程全部历史。新诊断不改变P0/P1正式状态，不宣称正式P2或模型改进。入口：[科研启动执行报告](../research/next/kickoff_execution_report.md)、[Benchmark v0.1](../research/next/diagnostic_benchmark_v0_1.md)、[下一批精确GPU申请](../research/next/gpu_pilot_request.md)。当前GPU/训练/新模型下载/推送/main合并均未授权。完成本轮准备后停止等待审核。
+
+以下为此前工程及研究快照，原文保留。
+
 # 当前状态：规范汉字视频工程原型
 
 2026-10-31：用户确认转为工程方向，允许UMM识别/规划＋受控执行，文本或清晰单字图输入、黑字白底、MP4导出。工作保留在`codex/engineering-hanzi-video`，从P1本地结项`ed92bd8a`派生。当前8字CPU预览、计划校验、真实MP4回读检查与本地页面已实现；UMM适配器尚待获准GPU环境联调，图像识字尚未实测。详见[工程报告](../engineering/hanzi_video_v1.md)。

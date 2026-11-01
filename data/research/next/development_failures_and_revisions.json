@@ -1,0 +1,41 @@
+{
+  "failures": [
+    {
+      "id": "DEV-01",
+      "scope": "CPU development observer",
+      "original": "Simultaneous onset was always unknown, including two clearly growing lines",
+      "evidence": "private/.../benchmark_v01/microtask_pixel_results.json: overlap",
+      "fix": "Separate confirmed multiframe concurrent growth from flash/sparse onset ambiguity",
+      "new_result": "overlap incorrect; flash/sparse unknown",
+      "new_evidence": "data/research/next/microtask_pixel_results_v03.json",
+      "P1_thresholds_or_results_changed": false
+    },
+    {
+      "id": "DEV-02",
+      "scope": "Unexecuted input preparation",
+      "original": "T2V was initially packed as interleave-array JSON",
+      "evidence": "private/research_restart_2026-11-01/gpu_batch_A",
+      "fix": "Read frozen P1 T2V input schema; use id -> prompt string",
+      "new_evidence": "private/research_restart_2026-11-01/gpu_batch_A_v02",
+      "new_GPU_calls": 0,
+      "old_packet_retained": true
+    },
+    {
+      "id": "SRC-01",
+      "scope": "Official source discovery",
+      "original": "Guessed Zebra-CoT repository name returned404",
+      "fix": "Follow exact model-card link multimodal-reasoning-lab/Bagel-Zebra-CoT; pinned bbf53c3; initial404 retained"
+    },
+    {
+      "id": "DEV-03",
+      "scope": "CPU same-final history inputs",
+      "failure": "8/8 source-identical final frames differed after lossy decode, MAE .00952-.04694",
+      "fix": "Retain benchmark_v01 and earlier unexecuted packets; materialize lossless benchmark_v02 and gpu_batch_A_v03",
+      "evidence": "data/research/next/same_final_pair_audit.json",
+      "final_decoded_pairs_exact": 8,
+      "new_GPU_calls": 0,
+      "old_P1_changed": false
+    }
+  ],
+  "formal_holdout_tuning": false
+}

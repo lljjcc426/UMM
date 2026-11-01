@@ -1,0 +1,451 @@
+[
+  {
+    "id": "Sfa3decee6105",
+    "case": "sparse",
+    "observation": {
+      "events": [
+        {
+          "instance_id": "upper",
+          "status": "observed",
+          "onset": 0.0833333,
+          "completion": 0.0833333,
+          "direction": "unknown",
+          "partial_frames": 0
+        },
+        {
+          "instance_id": "lower",
+          "status": "observed",
+          "onset": 0.0833333,
+          "completion": 0.0833333,
+          "direction": "unknown",
+          "partial_frames": 0
+        }
+      ],
+      "observed_order": [
+        "upper",
+        "lower"
+      ],
+      "order_observable": false,
+      "confirmed_overlap": false,
+      "historical_ink": "correct",
+      "extra_ink": false,
+      "unknown_reasons": [
+        "insufficient_visible_growth:upper",
+        "insufficient_visible_growth:lower"
+      ],
+      "domain": "synthetic_disjoint_line_regions_only",
+      "uses_renderer_events": false
+    },
+    "facets": {
+      "stroke_order": "unknown",
+      "direction": "unknown",
+      "completeness": "correct",
+      "historical_ink": "correct",
+      "temporal_observability": "unknown",
+      "final_glyph": "not_applicable",
+      "task_compliance": "unknown"
+    },
+    "authority": "CPU_development"
+  },
+  {
+    "id": "S0280f029cc89",
+    "case": "overlap",
+    "observation": {
+      "events": [
+        {
+          "instance_id": "upper",
+          "status": "observed",
+          "onset": 0.25,
+          "completion": 1.0,
+          "direction": "positive",
+          "partial_frames": 9
+        },
+        {
+          "instance_id": "lower",
+          "status": "observed",
+          "onset": 0.25,
+          "completion": 1.0,
+          "direction": "positive",
+          "partial_frames": 9
+        }
+      ],
+      "observed_order": [
+        "upper",
+        "lower"
+      ],
+      "order_observable": false,
+      "confirmed_overlap": true,
+      "historical_ink": "correct",
+      "extra_ink": false,
+      "unknown_reasons": [],
+      "domain": "synthetic_disjoint_line_regions_only",
+      "uses_renderer_events": false
+    },
+    "facets": {
+      "stroke_order": "incorrect",
+      "direction": "correct",
+      "completeness": "correct",
+      "historical_ink": "correct",
+      "temporal_observability": "correct",
+      "final_glyph": "not_applicable",
+      "task_compliance": "unknown"
+    },
+    "authority": "CPU_development"
+  },
+  {
+    "id": "Scf4ade4e8059",
+    "case": "disappear",
+    "observation": {
+      "events": [
+        {
+          "instance_id": "upper",
+          "status": "observed",
+          "onset": 0.25,
+          "completion": 1.0,
+          "direction": "positive",
+          "partial_frames": 9
+        },
+        {
+          "instance_id": "lower",
+          "status": "observed",
+          "onset": 1.25,
+          "completion": 2.0,
+          "direction": "positive",
+          "partial_frames": 9
+        }
+      ],
+      "observed_order": [
+        "upper",
+        "lower"
+      ],
+      "order_observable": true,
+      "confirmed_overlap": false,
+      "historical_ink": "incorrect",
+      "extra_ink": false,
+      "unknown_reasons": [],
+      "domain": "synthetic_disjoint_line_regions_only",
+      "uses_renderer_events": false
+    },
+    "facets": {
+      "stroke_order": "correct",
+      "direction": "correct",
+      "completeness": "correct",
+      "historical_ink": "incorrect",
+      "temporal_observability": "correct",
+      "final_glyph": "not_applicable",
+      "task_compliance": "unknown"
+    },
+    "authority": "CPU_development"
+  },
+  {
+    "id": "Sd38ad1f997c0",
+    "case": "extra",
+    "observation": {
+      "events": [
+        {
+          "instance_id": "upper",
+          "status": "observed",
+          "onset": 0.25,
+          "completion": 1.0,
+          "direction": "positive",
+          "partial_frames": 9
+        },
+        {
+          "instance_id": "lower",
+          "status": "observed",
+          "onset": 1.25,
+          "completion": 2.0,
+          "direction": "positive",
+          "partial_frames": 9
+        }
+      ],
+      "observed_order": [
+        "upper",
+        "lower"
+      ],
+      "order_observable": true,
+      "confirmed_overlap": false,
+      "historical_ink": "correct",
+      "extra_ink": true,
+      "unknown_reasons": [],
+      "domain": "synthetic_disjoint_line_regions_only",
+      "uses_renderer_events": false
+    },
+    "facets": {
+      "stroke_order": "correct",
+      "direction": "correct",
+      "completeness": "incorrect",
+      "historical_ink": "correct",
+      "temporal_observability": "correct",
+      "final_glyph": "not_applicable",
+      "task_compliance": "incorrect"
+    },
+    "authority": "CPU_development"
+  },
+  {
+    "id": "S364aec437dac",
+    "case": "blank",
+    "observation": {
+      "events": [
+        {
+          "instance_id": "upper",
+          "status": "missing",
+          "onset": null,
+          "completion": null,
+          "direction": "unknown"
+        },
+        {
+          "instance_id": "lower",
+          "status": "missing",
+          "onset": null,
+          "completion": null,
+          "direction": "unknown"
+        }
+      ],
+      "observed_order": [],
+      "order_observable": false,
+      "confirmed_overlap": false,
+      "historical_ink": "correct",
+      "extra_ink": false,
+      "unknown_reasons": [],
+      "domain": "synthetic_disjoint_line_regions_only",
+      "uses_renderer_events": false
+    },
+    "facets": {
+      "stroke_order": "unknown",
+      "direction": "unknown",
+      "completeness": "incorrect",
+      "historical_ink": "correct",
+      "temporal_observability": "unknown",
+      "final_glyph": "not_applicable",
+      "task_compliance": "incorrect"
+    },
+    "authority": "CPU_development"
+  },
+  {
+    "id": "S36120d3aeef6",
+    "case": "swap",
+    "observation": {
+      "events": [
+        {
+          "instance_id": "upper",
+          "status": "observed",
+          "onset": 1.25,
+          "completion": 2.0,
+          "direction": "positive",
+          "partial_frames": 9
+        },
+        {
+          "instance_id": "lower",
+          "status": "observed",
+          "onset": 0.25,
+          "completion": 1.0,
+          "direction": "positive",
+          "partial_frames": 9
+        }
+      ],
+      "observed_order": [
+        "lower",
+        "upper"
+      ],
+      "order_observable": true,
+      "confirmed_overlap": false,
+      "historical_ink": "correct",
+      "extra_ink": false,
+      "unknown_reasons": [],
+      "domain": "synthetic_disjoint_line_regions_only",
+      "uses_renderer_events": false
+    },
+    "facets": {
+      "stroke_order": "incorrect",
+      "direction": "correct",
+      "completeness": "correct",
+      "historical_ink": "correct",
+      "temporal_observability": "correct",
+      "final_glyph": "not_applicable",
+      "task_compliance": "unknown"
+    },
+    "authority": "CPU_development"
+  },
+  {
+    "id": "S495907972784",
+    "case": "correct",
+    "observation": {
+      "events": [
+        {
+          "instance_id": "upper",
+          "status": "observed",
+          "onset": 0.25,
+          "completion": 1.0,
+          "direction": "positive",
+          "partial_frames": 9
+        },
+        {
+          "instance_id": "lower",
+          "status": "observed",
+          "onset": 1.25,
+          "completion": 2.0,
+          "direction": "positive",
+          "partial_frames": 9
+        }
+      ],
+      "observed_order": [
+        "upper",
+        "lower"
+      ],
+      "order_observable": true,
+      "confirmed_overlap": false,
+      "historical_ink": "correct",
+      "extra_ink": false,
+      "unknown_reasons": [],
+      "domain": "synthetic_disjoint_line_regions_only",
+      "uses_renderer_events": false
+    },
+    "facets": {
+      "stroke_order": "correct",
+      "direction": "correct",
+      "completeness": "correct",
+      "historical_ink": "correct",
+      "temporal_observability": "correct",
+      "final_glyph": "not_applicable",
+      "task_compliance": "unknown"
+    },
+    "authority": "CPU_development"
+  },
+  {
+    "id": "S2f19278a8b94",
+    "case": "reverse",
+    "observation": {
+      "events": [
+        {
+          "instance_id": "upper",
+          "status": "observed",
+          "onset": 0.25,
+          "completion": 1.0,
+          "direction": "negative",
+          "partial_frames": 9
+        },
+        {
+          "instance_id": "lower",
+          "status": "observed",
+          "onset": 1.25,
+          "completion": 2.0,
+          "direction": "positive",
+          "partial_frames": 9
+        }
+      ],
+      "observed_order": [
+        "upper",
+        "lower"
+      ],
+      "order_observable": true,
+      "confirmed_overlap": false,
+      "historical_ink": "correct",
+      "extra_ink": false,
+      "unknown_reasons": [],
+      "domain": "synthetic_disjoint_line_regions_only",
+      "uses_renderer_events": false
+    },
+    "facets": {
+      "stroke_order": "correct",
+      "direction": "incorrect",
+      "completeness": "correct",
+      "historical_ink": "correct",
+      "temporal_observability": "correct",
+      "final_glyph": "not_applicable",
+      "task_compliance": "unknown"
+    },
+    "authority": "CPU_development"
+  },
+  {
+    "id": "S61ffb4b011d7",
+    "case": "missing",
+    "observation": {
+      "events": [
+        {
+          "instance_id": "upper",
+          "status": "observed",
+          "onset": 0.25,
+          "completion": 1.0,
+          "direction": "positive",
+          "partial_frames": 9
+        },
+        {
+          "instance_id": "lower",
+          "status": "missing",
+          "onset": null,
+          "completion": null,
+          "direction": "unknown"
+        }
+      ],
+      "observed_order": [
+        "upper"
+      ],
+      "order_observable": true,
+      "confirmed_overlap": false,
+      "historical_ink": "correct",
+      "extra_ink": false,
+      "unknown_reasons": [],
+      "domain": "synthetic_disjoint_line_regions_only",
+      "uses_renderer_events": false
+    },
+    "facets": {
+      "stroke_order": "incorrect",
+      "direction": "correct",
+      "completeness": "incorrect",
+      "historical_ink": "correct",
+      "temporal_observability": "correct",
+      "final_glyph": "not_applicable",
+      "task_compliance": "incorrect"
+    },
+    "authority": "CPU_development"
+  },
+  {
+    "id": "S3dc952517f30",
+    "case": "flash",
+    "observation": {
+      "events": [
+        {
+          "instance_id": "upper",
+          "status": "observed",
+          "onset": 0.0833333,
+          "completion": 0.0833333,
+          "direction": "unknown",
+          "partial_frames": 0
+        },
+        {
+          "instance_id": "lower",
+          "status": "observed",
+          "onset": 0.0833333,
+          "completion": 0.0833333,
+          "direction": "unknown",
+          "partial_frames": 0
+        }
+      ],
+      "observed_order": [
+        "upper",
+        "lower"
+      ],
+      "order_observable": false,
+      "confirmed_overlap": false,
+      "historical_ink": "correct",
+      "extra_ink": false,
+      "unknown_reasons": [
+        "insufficient_visible_growth:upper",
+        "insufficient_visible_growth:lower"
+      ],
+      "domain": "synthetic_disjoint_line_regions_only",
+      "uses_renderer_events": false
+    },
+    "facets": {
+      "stroke_order": "unknown",
+      "direction": "unknown",
+      "completeness": "correct",
+      "historical_ink": "correct",
+      "temporal_observability": "unknown",
+      "final_glyph": "not_applicable",
+      "task_compliance": "unknown"
+    },
+    "authority": "CPU_development"
+  }
+]

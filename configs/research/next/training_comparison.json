@@ -1,0 +1,94 @@
+{
+  "status": "prepared_not_training_ready",
+  "authorized": false,
+  "model_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+  "train_seed_proposal": [
+    101
+  ],
+  "exploratory_single_seed": true,
+  "formal_training_seeds_target": 3,
+  "common_data": "same future qualified development training groups; no exposed sample represented as new test",
+  "common_parameters": "identical explicitly chosen trainable names/rank within each comparison; VAE fixed",
+  "common_budget": [
+    "match source records and exposures",
+    "also compare total GPU/NFE/teacher compute",
+    "all tuning and retries retained"
+  ],
+  "arms": [
+    {
+      "id": "B0-native",
+      "training": false,
+      "role": "reuse P1 background"
+    },
+    {
+      "id": "B1-G-SFT",
+      "training": "generation-only ordinary SFT; constrained parameter subset if capacity needs"
+    },
+    {
+      "id": "B1L-G-LoRA",
+      "training": "same objective/data; QKV/output target modules to be measured, LoRA not yet integrated",
+      "status": "blocked adapter names, rank and reload test required"
+    },
+    {
+      "id": "B2-curriculum",
+      "training": "same total examples/steps, geometric temporal curriculum then Hanzi; VideoSketcher-inspired, not reproduction"
+    },
+    {
+      "id": "B3-U-SFT",
+      "training": "understanding-only same qualified observed histories"
+    },
+    {
+      "id": "B4-U+G-SFT",
+      "training": "plain mixed CE+FM, no recovery; equal exposure and parameter-controls"
+    },
+    {
+      "id": "C1-diagnosis-text",
+      "training": "error contexts + diagnostic text only, equal recovery data exposure"
+    },
+    {
+      "id": "C2-Draw",
+      "training": "bad image context masked; reflection CE + GT replacement FM + positive continuation"
+    },
+    {
+      "id": "C3-Policy",
+      "training": "infeasible action masked; RedX FM + same-step valid text/image + positive continuation"
+    },
+    {
+      "id": "C4-both-static",
+      "training": "both branches, fixed error dataset"
+    },
+    {
+      "id": "C5-both-replay",
+      "training": "both, refreshed current model errors; equal mining/teacher cost budget"
+    },
+    {
+      "id": "R0-no-feedback",
+      "training": false,
+      "role": "same model and total candidate budget, no critique"
+    },
+    {
+      "id": "R1-random-retry",
+      "training": false,
+      "role": "same NFE/wall/candidate budget and independent final evaluation"
+    }
+  ],
+  "FIT01_before_training": [
+    "real forward/loss/backward/step and nonzero finite target gradients",
+    "assert exact CE/FM masks incl padding and error nodes",
+    "save optimizer/scheduler/step/RNG; compare resumed next step",
+    "measure peak allocation/device/RSS and step time; no default full-AdamW rerun"
+  ],
+  "blockers": [
+    "no training approval",
+    "complete normative and observed-event labels missing",
+    "capacity / LoRA integration unmeasured",
+    "same-step video reset not released/proven",
+    "independent holdout not created"
+  ],
+  "memory_evidence": {
+    "Lance_default_full_AdamW": "measured OOM on single A10080 at first state allocation in ENV-01",
+    "partial_trainable_elements": 324479024,
+    "partial_success_is_scientific_improvement": false
+  },
+  "all_performance_metrics": null
+}

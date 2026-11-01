@@ -1,0 +1,135 @@
+{
+  "paper_source": "SC_CoIT_source.pdf pp5-6,15-17",
+  "training_executed": false,
+  "draw": [
+    {
+      "id": "draw-0",
+      "type": "correct_text",
+      "logical_step": 1,
+      "modality": "text",
+      "in_context": true,
+      "CE_mask": 1,
+      "FM_mask": 0
+    },
+    {
+      "id": "draw-1",
+      "type": "draw_error_image",
+      "logical_step": 1,
+      "modality": "image",
+      "in_context": true,
+      "CE_mask": 0,
+      "FM_mask": 0
+    },
+    {
+      "id": "draw-2",
+      "type": "reflection_text",
+      "logical_step": 1,
+      "modality": "text",
+      "in_context": true,
+      "CE_mask": 1,
+      "FM_mask": 0
+    },
+    {
+      "id": "draw-3",
+      "type": "recovered_image",
+      "logical_step": 1,
+      "modality": "image",
+      "in_context": true,
+      "CE_mask": 0,
+      "FM_mask": 1
+    },
+    {
+      "id": "draw-4",
+      "type": "correct_text",
+      "logical_step": 1,
+      "modality": "text",
+      "in_context": true,
+      "CE_mask": 1,
+      "FM_mask": 0
+    }
+  ],
+  "policy": [
+    {
+      "id": "policy-0",
+      "type": "correct_image",
+      "logical_step": 1,
+      "modality": "image",
+      "in_context": true,
+      "CE_mask": 0,
+      "FM_mask": 1
+    },
+    {
+      "id": "policy-1",
+      "type": "policy_error_text",
+      "logical_step": 1,
+      "modality": "text",
+      "in_context": true,
+      "CE_mask": 0,
+      "FM_mask": 0
+    },
+    {
+      "id": "policy-2",
+      "type": "redx",
+      "logical_step": 1,
+      "modality": "image",
+      "in_context": true,
+      "CE_mask": 0,
+      "FM_mask": 1
+    },
+    {
+      "id": "policy-3",
+      "type": "recovered_text",
+      "logical_step": 1,
+      "modality": "text",
+      "in_context": true,
+      "CE_mask": 1,
+      "FM_mask": 0
+    },
+    {
+      "id": "policy-4",
+      "type": "recovered_image",
+      "logical_step": 1,
+      "modality": "image",
+      "in_context": true,
+      "CE_mask": 0,
+      "FM_mask": 1
+    }
+  ],
+  "positive": [
+    {
+      "id": "positive-0",
+      "type": "correct_text",
+      "logical_step": 1,
+      "modality": "text",
+      "in_context": true,
+      "CE_mask": 1,
+      "FM_mask": 0
+    },
+    {
+      "id": "positive-1",
+      "type": "correct_image",
+      "logical_step": 1,
+      "modality": "image",
+      "in_context": true,
+      "CE_mask": 0,
+      "FM_mask": 1
+    },
+    {
+      "id": "positive-2",
+      "type": "correct_text",
+      "logical_step": 1,
+      "modality": "text",
+      "in_context": true,
+      "CE_mask": 1,
+      "FM_mask": 0
+    }
+  ],
+  "numeric_mask_contract": {
+    "CE": 3.0,
+    "FM": 6.0,
+    "total": 9.0
+  },
+  "paper_replay_semantics": "previous round joint30%; keep20%; current errors; B_k=E_k; not cumulative all-history",
+  "gradient_verification": "not_run_CPU_numeric_only",
+  "dropout_implementation": "pending qualified paired GT + real adapter"
+}

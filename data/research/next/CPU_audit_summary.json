@@ -1,0 +1,110 @@
+{
+  "status": "CPU_diagnostic_audit_completed",
+  "samples": 74,
+  "source_groups": 13,
+  "formal_holdout": 0,
+  "decoded_video_count": 26,
+  "microtask_count": 10,
+  "model_predictions_supplied": 0,
+  "formal_primary_metrics": null,
+  "new_model_calls": 0,
+  "CPU_fixture_metrics": {
+    "initial_attempts": 10,
+    "status_counts": {
+      "completed": 10
+    },
+    "verified_success_count": 1,
+    "all_attempt_success_lower_bound": 0.1,
+    "technical_failure_rate": 0.0,
+    "process_observability": 0.7,
+    "dimensions": {
+      "stroke_order": {
+        "counts": {
+          "unknown": 3,
+          "incorrect": 3,
+          "correct": 4
+        },
+        "correct_all_attempts": 0.4,
+        "clear_coverage": 0.7,
+        "conditional_correct": 0.5714285714285714
+      },
+      "direction": {
+        "counts": {
+          "unknown": 3,
+          "correct": 6,
+          "incorrect": 1
+        },
+        "correct_all_attempts": 0.6,
+        "clear_coverage": 0.7,
+        "conditional_correct": 0.8571428571428571
+      },
+      "completeness": {
+        "counts": {
+          "correct": 7,
+          "incorrect": 3
+        },
+        "correct_all_attempts": 0.7,
+        "clear_coverage": 1.0,
+        "conditional_correct": 0.7
+      },
+      "historical_ink": {
+        "counts": {
+          "correct": 9,
+          "incorrect": 1
+        },
+        "correct_all_attempts": 0.9,
+        "clear_coverage": 1.0,
+        "conditional_correct": 0.9
+      },
+      "temporal_observability": {
+        "counts": {
+          "unknown": 3,
+          "correct": 7
+        },
+        "correct_all_attempts": 0.7,
+        "clear_coverage": 0.7,
+        "conditional_correct": 1.0
+      },
+      "final_glyph": {
+        "counts": {
+          "not_applicable": 10
+        },
+        "correct_all_attempts": 0.0,
+        "clear_coverage": 0.0,
+        "conditional_correct": null
+      },
+      "task_compliance": {
+        "counts": {
+          "unknown": 7,
+          "incorrect": 3
+        },
+        "correct_all_attempts": 0.0,
+        "clear_coverage": 0.3,
+        "conditional_correct": 0.0
+      },
+      "identity": {
+        "counts": {
+          "unknown": 10
+        },
+        "correct_all_attempts": 0.0,
+        "clear_coverage": 0.0,
+        "conditional_correct": null
+      }
+    },
+    "authority": "CPU_development",
+    "formal_primary_metrics": null,
+    "joint_success_definition": [
+      "stroke_order",
+      "direction",
+      "completeness",
+      "historical_ink",
+      "temporal_observability"
+    ],
+    "cost": {
+      "wall_seconds": 0,
+      "gpu_seconds": 0,
+      "CNY": 0
+    },
+    "cost_complete": false
+  }
+}

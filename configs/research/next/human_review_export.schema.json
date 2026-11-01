@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schema",
+    "package_id",
+    "current",
+    "versions"
+  ],
+  "properties": {
+    "schema": {
+      "const": "P1-human-review-v1"
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "current": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/review"
+      }
+    },
+    "versions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/review"
+      }
+    }
+  },
+  "$defs": {
+    "review": {
+      "type": "object",
+      "required": [
+        "id",
+        "reviewer",
+        "submitted_at",
+        "reason",
+        "stroke_order",
+        "direction",
+        "completeness",
+        "historical_ink",
+        "temporal_observability",
+        "final_glyph",
+        "task_compliance"
+      ],
+      "properties": {
+        "stroke_order": {
+          "enum": [
+            "correct",
+            "incorrect",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "direction": {
+          "enum": [
+            "correct",
+            "incorrect",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "completeness": {
+          "enum": [
+            "correct",
+            "incorrect",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "historical_ink": {
+          "enum": [
+            "correct",
+            "incorrect",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "temporal_observability": {
+          "enum": [
+            "correct",
+            "incorrect",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "final_glyph": {
+          "enum": [
+            "correct",
+            "incorrect",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "task_compliance": {
+          "enum": [
+            "correct",
+            "incorrect",
+            "not_applicable",
+            "unknown"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "reviewer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "submitted_at": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "disputed": {
+          "type": "boolean"
+        },
+        "first_error_start": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "first_error_end": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "$comment": "Cross-field/version/missing-slot constraints are implemented by scripts.diagnostics.reviews; schema alone is insufficient"
+}

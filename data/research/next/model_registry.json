@@ -1,0 +1,465 @@
+{
+  "audit_date": "2026-11-01",
+  "capability_status_semantics": "released interface verified, NOT task accuracy; prior actual runs explicitly separate",
+  "new_weight_downloads": 0,
+  "new_model_runs": 0,
+  "sources_read_scope": "official metadata/readmes/licenses and selected inference/training code; not all candidate repositories audited line by line",
+  "models": [
+    {
+      "id": "Lance_3B_Video",
+      "checkpoint": "bytedance-research/Lance",
+      "variant": "Lance_3B_Video",
+      "weight_revision": "7395315758865e6f56ab87ad06a88c7ac172f056",
+      "code_repository": "https://github.com/bytedance/Lance",
+      "code_revision": "4baeee086648996f6ab12e673cbe461b0b149997",
+      "capabilities": {
+        "image_understanding": "not_verified",
+        "video_understanding": "verified_supported",
+        "native_video_generation": "verified_supported",
+        "static_image_generation": "not_verified",
+        "interleaved_state_generation": "not_verified",
+        "same_step_recovery": "not_verified"
+      },
+      "parameters": {
+        "checkpoint_tensor_elements": 7105548336,
+        "active_author_label": "3B",
+        "total_scope": "main BF16 file includes ViT/position tables, separate VAE additional; not 3B resident"
+      },
+      "entrypoints": {
+        "understanding": "inference_lance.py --task x2t_video",
+        "generation": "inference_lance.py --task t2v / i2v"
+      },
+      "training_release_scope": "generation / understanding / unified training released; no ready LoRA integration in audited entry",
+      "memory": {
+        "measured_prior_device_peak_MiB": 37283,
+        "measured_prior_host_peak_GB": 33.79,
+        "new_task_peak": null,
+        "default_full_AdamW": "prior ENV01 singleA10080 first-state initialization OOM"
+      },
+      "runtime_verified_in_this_task": false,
+      "release_evidence_verified_by": "pinned official README/model-card, selected source interfaces; no new weights executed",
+      "weight_license": "apache-2.0",
+      "gated_at_audit": false,
+      "blockers": [
+        "no newGPU approval",
+        "existing server released; cache availability unknown"
+      ],
+      "sources": [
+        "https://huggingface.co/bytedance-research/Lance/blob/7395315758865e6f56ab87ad06a88c7ac172f056/README.md",
+        "https://github.com/bytedance/Lance/tree/4baeee086648996f6ab12e673cbe461b0b149997"
+      ],
+      "new_calls_authorized": false,
+      "accuracy_or_stroke_knowledge_verified": false,
+      "task_support": {
+        "K-CHAR": "verified_supported",
+        "K-ORDER": "verified_supported",
+        "V-STRUCT": "verified_supported",
+        "H-ACTUAL": "verified_supported",
+        "G-GLYPH": "not_verified",
+        "G-ATOMIC": "verified_supported",
+        "G-STROKE": "verified_supported",
+        "X-RECOVERY": "not_verified"
+      },
+      "runtime_prior_verified": "P0/P1 same frozen video checkpoint; T2V/I2V/video question answering; quality not established",
+      "image_diagnostic_adapter": "proposed24 uses same video checkpoint: static image repeated33 frames, text-only uses blank video carrier; not an x2t_image performance claim"
+    },
+    {
+      "id": "BAGEL-7B-MoT",
+      "checkpoint": "ByteDance-Seed/BAGEL-7B-MoT",
+      "variant": "base",
+      "weight_revision": "5019f57d168e5816e8f3f701b17cc816bb7cf24b",
+      "code_repository": "https://github.com/ByteDance-Seed/Bagel",
+      "code_revision": "a2fa77dd8caeefc41e6607ae0ec17408d3f4ee9f",
+      "capabilities": {
+        "image_understanding": "verified_supported",
+        "video_understanding": "not_verified",
+        "native_video_generation": "unsupported_by_released_interface",
+        "static_image_generation": "verified_supported",
+        "interleaved_state_generation": "verified_supported",
+        "same_step_recovery": "not_verified"
+      },
+      "parameters": {
+        "active_author_B": 7,
+        "total_author_B": 14,
+        "HF_safetensors_elements": 14691079811,
+        "counts_scope": "full HF inventory includes components; paper label rounded"
+      },
+      "entrypoints": {
+        "generation": "inference.ipynb / inferencer.py / app.py",
+        "training": "train/pretrain_unified_navit.py"
+      },
+      "training_release_scope": "official TRAIN.md and multitask training example; full video recovery recipe absent",
+      "memory": {
+        "author_inference_guidance": "32GB+ for standard app; quantization changes configuration",
+        "task_measured_GiB": null
+      },
+      "runtime_verified_in_this_task": false,
+      "release_evidence_verified_by": "pinned official README/model-card, selected source interfaces; no new weights executed",
+      "weight_license": "apache-2.0",
+      "gated_at_audit": false,
+      "blockers": [
+        "new weight download / GPU approval",
+        "task peak unmeasured",
+        "no dense native video interface"
+      ],
+      "sources": [
+        "https://huggingface.co/ByteDance-Seed/BAGEL-7B-MoT/blob/5019f57d168e5816e8f3f701b17cc816bb7cf24b/README.md",
+        "https://github.com/ByteDance-Seed/Bagel/tree/a2fa77dd8caeefc41e6607ae0ec17408d3f4ee9f"
+      ],
+      "new_calls_authorized": false,
+      "accuracy_or_stroke_knowledge_verified": false,
+      "task_support": {
+        "K-CHAR": "verified_supported",
+        "K-ORDER": "verified_supported",
+        "V-STRUCT": "verified_supported",
+        "H-ACTUAL": "not_verified",
+        "G-GLYPH": "verified_supported",
+        "G-ATOMIC": "unsupported_by_released_interface",
+        "G-STROKE": "unsupported_by_released_interface",
+        "X-RECOVERY": "not_verified"
+      }
+    },
+    {
+      "id": "Bagel-Zebra-CoT",
+      "checkpoint": "multimodal-reasoning-lab/Bagel-Zebra-CoT",
+      "variant": "interleaved reasoning",
+      "weight_revision": "ebce32410ee2062d073feae484ea2c6c1515fba8",
+      "code_repository": "https://github.com/multimodal-reasoning-lab/Bagel-Zebra-CoT",
+      "code_revision": "bbf53c327889a1764d27989d117d1a6b73ffdd3f",
+      "capabilities": {
+        "image_understanding": "verified_supported",
+        "video_understanding": "not_verified",
+        "native_video_generation": "unsupported_by_released_interface",
+        "static_image_generation": "verified_supported",
+        "interleaved_state_generation": "verified_supported",
+        "same_step_recovery": "not_verified"
+      },
+      "parameters": {
+        "architecture_inherited_from_BAGEL": true,
+        "total_author_B": 14,
+        "active_author_B": 7,
+        "checkpoint_exact_count": null
+      },
+      "entrypoints": {
+        "interleaved": "infz_bf16.py: alternate understanding_output text and native image outputs",
+        "training": "scripts/train.sh; data/interleave_datasets/think_trace_dataset.py"
+      },
+      "training_release_scope": "interleaved SFT released; SC-CoIT RedX/error mining/mask recipe implementation not supplied in uploaded PDF package",
+      "memory": {
+        "task_measured_GiB": null,
+        "baseline_inheritance_only": "BAGEL32GB app guidance does not bound long interleaved context"
+      },
+      "runtime_verified_in_this_task": false,
+      "release_evidence_verified_by": "pinned official README/model-card, selected source interfaces; no new weights executed",
+      "weight_license": "apache-2.0",
+      "gated_at_audit": false,
+      "blockers": [
+        "new weight/GPU approval",
+        "exact checkpoint parameter/memory audit missing",
+        "logical recovery scheduling must be instrumented; released loop does not enforce redraw"
+      ],
+      "sources": [
+        "https://huggingface.co/multimodal-reasoning-lab/Bagel-Zebra-CoT/blob/ebce32410ee2062d073feae484ea2c6c1515fba8/README.md",
+        "https://github.com/multimodal-reasoning-lab/Bagel-Zebra-CoT/tree/bbf53c327889a1764d27989d117d1a6b73ffdd3f"
+      ],
+      "new_calls_authorized": false,
+      "accuracy_or_stroke_knowledge_verified": false,
+      "task_support": {
+        "K-CHAR": "verified_supported",
+        "K-ORDER": "verified_supported",
+        "V-STRUCT": "verified_supported",
+        "H-ACTUAL": "not_verified",
+        "G-GLYPH": "verified_supported",
+        "G-ATOMIC": "unsupported_by_released_interface",
+        "G-STROKE": "unsupported_by_released_interface",
+        "X-RECOVERY": "not_verified"
+      }
+    },
+    {
+      "id": "UniVideo-hidden",
+      "checkpoint": "KlingTeam/UniVideo",
+      "variant": "univideo_qwen2p5vl7b_hidden_hunyuanvideo/model.ckpt",
+      "weight_revision": "c84ceb49b87c05e3ba50333f32b4ec6ca2aec35e",
+      "code_repository": "https://github.com/KlingAIResearch/UniVideo",
+      "code_revision": "893c9da04b87fdf5099e8e0e9ef164bca6753327",
+      "capabilities": {
+        "image_understanding": "verified_supported",
+        "video_understanding": "verified_supported",
+        "native_video_generation": "verified_supported",
+        "static_image_generation": "verified_supported",
+        "interleaved_state_generation": "not_verified",
+        "same_step_recovery": "not_verified"
+      },
+      "parameters": {
+        "components_author": [
+          "Qwen2.5-VL-7B",
+          "HunyuanVideo13B"
+        ],
+        "exact_full_elements": null,
+        "active_elements": null
+      },
+      "entrypoints": {
+        "native": "univideo_inference.py --demo_task understanding|t2v|t2i|i2v --config configs/univideo_qwen2p5vl7b_hidden_hunyuanvideo.yaml"
+      },
+      "training_release_scope": "TRAINING.md hidden variant only; MLLM/VAE frozen; default8GPU FSDP; partial-transformer debug possible",
+      "memory": {
+        "single_A10080_inference_peak": null,
+        "full_transformer_AdamW": "official guide says does not fit single80GB"
+      },
+      "runtime_verified_in_this_task": false,
+      "release_evidence_verified_by": "pinned official README/model-card, selected source interfaces; no new weights executed",
+      "weight_license": "apache-2.0",
+      "gated_at_audit": false,
+      "blockers": [
+        "new components/download/GPU approval",
+        "subcomponent weight terms require separate audit",
+        "single card inference budget unmeasured"
+      ],
+      "sources": [
+        "https://huggingface.co/KlingTeam/UniVideo/blob/c84ceb49b87c05e3ba50333f32b4ec6ca2aec35e/README.md",
+        "https://github.com/KlingAIResearch/UniVideo/tree/893c9da04b87fdf5099e8e0e9ef164bca6753327"
+      ],
+      "new_calls_authorized": false,
+      "accuracy_or_stroke_knowledge_verified": false,
+      "task_support": {
+        "K-CHAR": "verified_supported",
+        "K-ORDER": "verified_supported",
+        "V-STRUCT": "verified_supported",
+        "H-ACTUAL": "verified_supported",
+        "G-GLYPH": "verified_supported",
+        "G-ATOMIC": "verified_supported",
+        "G-STROKE": "verified_supported",
+        "X-RECOVERY": "not_verified"
+      },
+      "license_caveat": "code/model card Apache-2.0 does not settle all upstream Qwen/Hunyuan component terms"
+    },
+    {
+      "id": "PixelUMM-S8-F22-R05",
+      "checkpoint": "nvidia/PixelUMM",
+      "variant": "S8-F22-R05",
+      "weight_revision": "4bb3ce9a112e7e1c7d375b1c5bd64f54d259ecc8",
+      "code_repository": "https://github.com/nv-tlabs/PixelUMM",
+      "code_revision": "e19e91aabb99784f7b5524268ed42ec59c1ad660",
+      "capabilities": {
+        "image_understanding": "verified_supported",
+        "video_understanding": "verified_supported",
+        "native_video_generation": "verified_supported",
+        "static_image_generation": "verified_supported",
+        "interleaved_state_generation": "not_verified",
+        "same_step_recovery": "not_verified"
+      },
+      "parameters": {
+        "total_author_elements": 15199672064,
+        "initial_backbone": "Qwen3-8B",
+        "active_elements": null
+      },
+      "entrypoints": {
+        "native": "inference.py --task t2v|t2i|image-vlm|video-vlm --checkpoint .../S8-F22-R05",
+        "native_T2V": "320x176,96frames,24fps,35steps in pinned README"
+      },
+      "training_release_scope": "four-step toy training,7GPUs >=48GiB each; not full optimizer resume or complete pretraining recipe",
+      "memory": {
+        "single_gpu_inference_peak": null,
+        "toy_training_author": "7x>=48GiB"
+      },
+      "runtime_verified_in_this_task": false,
+      "release_evidence_verified_by": "pinned official README/model-card, selected source interfaces; no new weights executed",
+      "weight_license": "other",
+      "gated_at_audit": false,
+      "blockers": [
+        "NVIDIA One-Way Noncommercial weight terms",
+        "CUDA13 development + FlashAttention build + TorchCodec shared FFmpeg",
+        "default Cosmos guardrail requires separate access and dependency qualification",
+        "F18 cannot supply F22 video understanding",
+        "newdownload/GPU approval"
+      ],
+      "sources": [
+        "https://huggingface.co/nvidia/PixelUMM/blob/4bb3ce9a112e7e1c7d375b1c5bd64f54d259ecc8/README.md",
+        "https://github.com/nv-tlabs/PixelUMM/tree/e19e91aabb99784f7b5524268ed42ec59c1ad660"
+      ],
+      "new_calls_authorized": false,
+      "accuracy_or_stroke_knowledge_verified": false,
+      "task_support": {
+        "K-CHAR": "verified_supported",
+        "K-ORDER": "verified_supported",
+        "V-STRUCT": "verified_supported",
+        "H-ACTUAL": "verified_supported",
+        "G-GLYPH": "verified_supported",
+        "G-ATOMIC": "verified_supported",
+        "G-STROKE": "verified_supported",
+        "X-RECOVERY": "not_verified"
+      }
+    },
+    {
+      "id": "InternVL-U",
+      "checkpoint": "InternVL-U/InternVL-U",
+      "variant": "released model directory",
+      "weight_revision": "f012d760e69712bb47f7d3d09a24280f346cee01",
+      "code_repository": "https://github.com/OpenGVLab/InternVL-U",
+      "code_revision": "018a59c1b69690a33698234128aa04e9b3f46c71",
+      "capabilities": {
+        "image_understanding": "verified_supported",
+        "video_understanding": "not_verified",
+        "native_video_generation": "unsupported_by_released_interface",
+        "static_image_generation": "verified_supported",
+        "interleaved_state_generation": "not_verified",
+        "same_step_recovery": "not_verified"
+      },
+      "parameters": {
+        "total_author_B": 4,
+        "exact_full_elements": null,
+        "active_elements": null
+      },
+      "entrypoints": {
+        "native": "InternVLUPipeline.from_pretrained(...), generation_mode=image or text_image, output.images"
+      },
+      "training_release_scope": "inference published; complete task-specific training release not verified",
+      "memory": {
+        "task_measured_GiB": null,
+        "MPS_runtime": "not_verified"
+      },
+      "runtime_verified_in_this_task": false,
+      "release_evidence_verified_by": "pinned official README/model-card, selected source interfaces; no new weights executed",
+      "weight_license": "MIT (actual HF LICENSE file read)",
+      "gated_at_audit": false,
+      "blockers": [
+        "new weight approval",
+        "actual peak/device support untested; 4B not a16GB-Mac guarantee"
+      ],
+      "sources": [
+        "https://huggingface.co/InternVL-U/InternVL-U/blob/f012d760e69712bb47f7d3d09a24280f346cee01/README.md",
+        "https://github.com/OpenGVLab/InternVL-U/tree/018a59c1b69690a33698234128aa04e9b3f46c71"
+      ],
+      "new_calls_authorized": false,
+      "accuracy_or_stroke_knowledge_verified": false,
+      "task_support": {
+        "K-CHAR": "verified_supported",
+        "K-ORDER": "verified_supported",
+        "V-STRUCT": "verified_supported",
+        "H-ACTUAL": "not_verified",
+        "G-GLYPH": "verified_supported",
+        "G-ATOMIC": "unsupported_by_released_interface",
+        "G-STROKE": "unsupported_by_released_interface",
+        "X-RECOVERY": "not_verified"
+      },
+      "code_license": "MIT"
+    },
+    {
+      "id": "SenseNova-U1.5-8B-MoT",
+      "checkpoint": "sensenova/SenseNova-U1.5-8B-MoT",
+      "variant": "U1.5 final; feat/u1.5 code",
+      "weight_revision": "9feeeab8a2792514d109cd34589342a2cc1d4ab2",
+      "code_repository": "https://github.com/OpenSenseNova/SenseNova-U1",
+      "code_revision": "48bf8275478f2216d2e846f48bf7627bf56b1301",
+      "capabilities": {
+        "image_understanding": "verified_supported",
+        "video_understanding": "not_verified",
+        "native_video_generation": "unsupported_by_released_interface",
+        "static_image_generation": "verified_supported",
+        "interleaved_state_generation": "not_verified",
+        "same_step_recovery": "not_verified"
+      },
+      "parameters": {
+        "HF_safetensors_elements": 17532854464,
+        "author_name": "8B-MoT",
+        "active_elements": null,
+        "scope": "do not equate published8B name with total17.53B inventory"
+      },
+      "entrypoints": {
+        "native": "feat/u1.5 inference scripts in exact code revision; image generation/edit/understanding"
+      },
+      "training_release_scope": "training guide verified for U1 andU1.5Preview only; finalU1.5 reproduction not established",
+      "memory": {
+        "task_measured_GiB": null,
+        "native_environment": "Python3.11 Torch2.8 CUDA12.8"
+      },
+      "runtime_verified_in_this_task": false,
+      "release_evidence_verified_by": "pinned official README/model-card, selected source interfaces; no new weights executed",
+      "weight_license": "apache-2.0",
+      "gated_at_audit": false,
+      "blockers": [
+        "must use final U1.5 branch and exact weights",
+        "not a verified native-video model",
+        "new downloads/GPU approval"
+      ],
+      "sources": [
+        "https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT/blob/9feeeab8a2792514d109cd34589342a2cc1d4ab2/README.md",
+        "https://github.com/OpenSenseNova/SenseNova-U1/tree/48bf8275478f2216d2e846f48bf7627bf56b1301"
+      ],
+      "new_calls_authorized": false,
+      "accuracy_or_stroke_knowledge_verified": false,
+      "task_support": {
+        "K-CHAR": "verified_supported",
+        "K-ORDER": "verified_supported",
+        "V-STRUCT": "verified_supported",
+        "H-ACTUAL": "not_verified",
+        "G-GLYPH": "verified_supported",
+        "G-ATOMIC": "unsupported_by_released_interface",
+        "G-STROKE": "unsupported_by_released_interface",
+        "X-RECOVERY": "not_verified"
+      }
+    },
+    {
+      "id": "LTX-Video-2B-distilled",
+      "checkpoint": "Lightricks/LTX-Video",
+      "variant": "ltxv-2b-0.9.8-distilled.safetensors",
+      "weight_revision": "8984fa25007f376c1a299016d0957a37a2f797bb",
+      "code_revision": "4b2d053057623ddd4d0a1d3e9cd28890e9ef487f",
+      "code_repository": "https://github.com/Lightricks/LTX-Video",
+      "capabilities": {
+        "image_understanding": "unsupported_by_released_interface",
+        "video_understanding": "unsupported_by_released_interface",
+        "native_video_generation": "verified_supported",
+        "static_image_generation": "unsupported_by_released_interface",
+        "interleaved_state_generation": "unsupported_by_released_interface",
+        "same_step_recovery": "unsupported_by_released_interface"
+      },
+      "task_support": {
+        "K-CHAR": "unsupported_by_released_interface",
+        "K-ORDER": "unsupported_by_released_interface",
+        "V-STRUCT": "unsupported_by_released_interface",
+        "H-ACTUAL": "unsupported_by_released_interface",
+        "G-GLYPH": "unsupported_by_released_interface",
+        "G-ATOMIC": "verified_supported",
+        "G-STROKE": "verified_supported",
+        "X-RECOVERY": "unsupported_by_released_interface"
+      },
+      "weight_license": "LTXV Open Weights License0.X",
+      "parameters": {
+        "transformer_B": 1.923,
+        "VAE_B": 1.247,
+        "text_encoder_additional": true
+      },
+      "runtime_prior_verified": "M5/MPS2valid33frame256square outputs; process negative in one exposed character/seed",
+      "new_calls_authorized": false,
+      "runtime_verified_in_this_task": false,
+      "accuracy_or_stroke_knowledge_verified": false,
+      "memory": {
+        "prior_MPS_driver_GiB_video": 7.17,
+        "prior_text_encode_GiB": 10.16,
+        "unified_memory_metrics_not_additive": true
+      },
+      "sources": [
+        "docs/engineering/ltx_local_trial_2026-11-01.md"
+      ],
+      "blockers": [
+        "generation-only control; not a unified understanding model"
+      ]
+    }
+  ],
+  "method_baselines": [
+    {
+      "id": "VideoSketcher-inspired-curriculum",
+      "source": "https://arxiv.org/abs/2602.15819v2",
+      "author_mechanism": "synthetic composition temporal ordering then small hand-drawn style tuning",
+      "replicated": false,
+      "role": "equal-data ordinary curriculum baseline, no borrowed performance numbers"
+    }
+  ],
+  "source_discovery_errors": [
+    {
+      "url": "https://api.github.com/repos/Multimodal-Reasoning-Lab/Zebra-CoT/commits/HEAD",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
+}
