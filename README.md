@@ -2,7 +2,7 @@
 
 研究目标是生成内容、笔画方向与笔画先后正确的汉字书写视频。本仓库同时保留原生视频模型实验、理解—生成诊断、受控执行工程原型与文献资料，几类结果分别记录。
 
-**当前分支：`codex/research/new`。2026-11-03：S0完成，S1 CPU工作已补齐；独立审核累计36字/130笔，合格pilot图文对20，仍220字待审，关系未知按原规则保留。全量S0–S1尚未完成。没有模型调用或训练，Batch B/C及本方案S2–S6执行未获批准。**
+**当前分支：`codex/research/new`。2026-11-03：S0–S1已完成当前256字/2243笔开发范围，用户审核已接收，D-SMOKE16对、D-PILOT240对（192/24/24），剩余审核任务0。原关系未知保留；尚无模型结果或正式保留集。**
 
 先阅读[当前状态](docs/project/STATUS.md)和[实验交接](docs/project/WORKSPACE_HANDOFF.md)。P0/P1维持有限负结果结项，Batch A的工程完整性不代表模型能力通过。
 
@@ -10,7 +10,7 @@
 
 | 内容 | 入口 |
 |---|---|
-| 静态字图与有序笔形配对：S0–S1实际交付与真值缺口 | [第一批审核接收](docs/research/paired_strokes_v1/batch_01_review_receipt_2026-11-03.md) · [CPU补齐](docs/research/paired_strokes_v1/s0_s1_completion_2026-11-02.md) · [冻结协议](docs/research/paired_strokes_v1/protocol.md) · [数据入口](data/research/paired_strokes_v1/README.md) |
+| 静态字图与有序笔形配对：S0–S1数据与评价工具 | [审核接收](docs/research/paired_strokes_v1/batch_01_review_receipt_2026-11-03.md) · [CPU补齐](docs/research/paired_strokes_v1/s0_s1_completion_2026-11-02.md) · [冻结协议](docs/research/paired_strokes_v1/protocol.md) · [数据入口](data/research/paired_strokes_v1/README.md) |
 | 下一轮实验的起点、资源与待解决事项 | [工作区交接](docs/project/WORKSPACE_HANDOFF.md) · [新实验计划模板](templates/experiment_plan.md) |
 | Batch A科学结论与FIT-01准入判断 | [只读复核报告](docs/research/next/batch_A_scientific_review_2026-11-01.md) |
 | Batch A全部调用、环境、资源与备份 | [执行报告](docs/research/next/batch_A_results_2026-11-01.md) · [实际执行登记](data/research/runs/diagnostic_batch_A_2026-11-01/execution_summary.json) |

@@ -1,6 +1,6 @@
-# paired-strokes-v1 CPU候选数据
+# paired-strokes-v1 开发数据
 
-256字、2243笔、1504条原主请求，完整套件2232条。最新状态见`current_status.json`，初始构建快照见`build_record.json`；定义见[协议](../../../docs/research/paired_strokes_v1/protocol.md)。2026-11-03已归档1名独立审核者的36字/130笔审核，E3/E5各36字通过，E4为27通过/7未知/2不适用；合格pilot图文对20，仍220字待审。全部仍属开发数据，无正式保留集。
+256字、2243笔、1504条原主请求，完整套件2232条。最新状态见`current_status.json`，初始构建快照见`build_record.json`；定义见[协议](../../../docs/research/paired_strokes_v1/protocol.md)。2026-11-03已接收用户对剩余220字的审核确认，累计256字/2243笔、1008条审核记录；E3/E5各256字通过，E4为247通过/7未知/2不适用。D-SMOKE16对、D-PILOT240对，剩余审核任务0。全部仍属开发数据，无正式保留集。
 
 | 文件/目录 | 内容与读取权限 |
 |---|---|
@@ -8,7 +8,7 @@
 | `s1_completion_2026-11-02/` | CPU与人审分别验收、240字分批登记、208项CPU/浏览器/接收检查、未执行资源提案 |
 | `current_status.json`、`human_review_2026-11-02/` | 当前人审数量、原件来源、未知项和按指标资格叠加登记，不批量升级原构建快照 |
 | `smoke_pairs_reviewed.jsonl` | 16对数据侧合格D-SMOKE，仅字图+五类描述；拟合尚未执行 |
-| `pilot_train_pairs_reviewed.jsonl`、`pilot_validation_pairs_reviewed.jsonl`、`pilot_test_pairs_reviewed.jsonl` | 接收PAIR后按原split分别导出的18/1/1个合格图文对；PAIR不授予空间/方向资格 |
+| `pilot_train_pairs_reviewed.jsonl`、`pilot_validation_pairs_reviewed.jsonl`、`pilot_test_pairs_reviewed.jsonl` | 按原split分别导出的192/24/24个合格图文对；PAIR不授予空间/方向资格 |
 | `human_review_2026-11-03_batch_01/` | 第一批20字的实际接收、用户反馈、未知项数值说明及检查；数值说明不授予人工通过资格 |
 | `manifest.jsonl` | 全部来源、许可、字符/模板分组、规范序列与资格；不直接喂给模型 |
 | `training_pairs.jsonl`、`data_schema.json` | 仅192个训练候选的字图+描述；训练端只读此类窄导出或上述已审核16对，不读完整manifest或评价目录 |
@@ -21,7 +21,7 @@
 | `evaluation_only/geometry.jsonl`、`evaluation_only/masks/` | 构建时的mask/路径/关系候选及版本；后续逐指标资格另读审核记录，不改写来源快照 |
 | `evaluation_only/normative_extracts.jsonl` | 规范数字编码与页码事实，独立于SVG提取 |
 | `evaluation_only/sequence_collisions.jsonl` | 同序列异字碰撞；去尾字兼容，不能标成负例 |
-| `evaluation_only/reviews.jsonl` | 审核者1的128条实际记录及逐项判断/备注；119条accepted，9条unknown（含2条单笔不适用） |
+| `evaluation_only/reviews.jsonl` | 审核者1的1008条记录：999条accepted、9条unknown（含2条不适用）；原128条保留，另880条来自用户在本聊天的审核确认，原表单500项选择不变 |
 | `evaluation_only/review_template.jsonl`、`review_schema.json` | 48条待填审核记录及正式审核字段要求；待填记录不算提交 |
 | `source_rejections.jsonl` | 逐字排除/冲突原因，保留全来源分母 |
 | `build_record.json`、`scope_record.json`、`verification.json`、`*.log` | 构建、授权范围、实际验证与失败说明 |
