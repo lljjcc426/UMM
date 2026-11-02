@@ -54,6 +54,9 @@ def parse_prediction(raw, metric):
         value = obj.get('point')
         ok = (isinstance(value, list) and len(value) == 2
               and all(type(x) in (int, float) and math.isfinite(x) and 0 <= x <= 1 for x in value))
+    elif metric == 'E8':
+        value = obj.get('character')
+        ok = isinstance(value, str) and len(value) == 1
     else:
         value = obj.get('direction')
         ok = value in ('right', 'down_right', 'down', 'down_left', 'left', 'up_left', 'up', 'up_right')
@@ -64,7 +67,7 @@ def parse_prediction(raw, metric):
     return ('valid', obj) if ok else ('format_error', None)
 
 
-def evaluate(requests, predictions, labels, geometry, reviews, root):
+def evaluate(requests, predictions, labels, geometry, reviews, root, strata=()):
     request_ids = {r['id'] for r in requests}
     if len(request_ids) != len(requests):
         raise ValueError('Duplicate request ID')
@@ -76,6 +79,7 @@ def evaluate(requests, predictions, labels, geometry, reviews, root):
         answers[key] = prediction.get('output')
     details = []
     masks = {}
+    strata_by_id = {s['sample_id']: s['tags'] for s in strata}
     for request in requests:
         key, metric = request['id'], request['metric']
         label = labels[key]
@@ -83,6 +87,8 @@ def evaluate(requests, predictions, labels, geometry, reviews, root):
         item = {'id': key, 'metric': metric, 'sample_id': request['sample_id'],
                 'split': request['split'], 'stratum': request['stratum'],
                 'condition': request['condition'], 'output_status': status}
+        item['permission'] = request.get('permission', 'main')
+        item['analysis_tags'] = strata_by_id.get(request['sample_id'], [])
         if metric == 'E4':
             item['relation'] = label['relation']
         if metric in ('E3', 'E4', 'E5') and not qualify(geometry[request['sample_id']], reviews, metric):
@@ -98,6 +104,8 @@ def evaluate(requests, predictions, labels, geometry, reviews, root):
             item['status'] = 'correct' if output['answer'] == label['answer'] else 'incorrect'
         elif metric == 'E6R':
             item['status'] = 'correct' if output['token'] == label['token'] else 'incorrect'
+        elif metric == 'E8':
+            item['status'] = 'correct' if output['character'] == label['character'] else 'incorrect'
         elif metric == 'E5':
             item['status'] = 'correct' if output['direction'] == label['direction'] else 'incorrect'
             if 'start' in output:
@@ -116,7 +124,7 @@ def evaluate(requests, predictions, labels, geometry, reviews, root):
 
     def summarize(rows):
         result = {}
-        for metric in ('E2', 'E3', 'E4', 'E5', 'E6', 'E6R'):
+        for metric in ('E2', 'E3', 'E4', 'E5', 'E6', 'E6R', 'E8'):
             group = [r for r in rows if r['metric'] == metric]
             counts = Counter(r['status'] for r in group)
             eligible = len(group) - counts['unqualified_gold'] - counts['ambiguous_gold']
@@ -141,16 +149,22 @@ def evaluate(requests, predictions, labels, geometry, reviews, root):
         return result
 
     grouped = {}
-    for field in ('split', 'stratum', 'condition'):
+    main_rows = [r for r in details if r['permission'] == 'main']
+    for field in ('split', 'stratum'):
+        grouped[field] = {value: summarize([r for r in main_rows if r[field] == value])
+                          for value in sorted({r[field] for r in main_rows})}
+    for field in ('condition', 'permission'):
         grouped[field] = {value: summarize([r for r in details if r[field] == value])
                           for value in sorted({r[field] for r in details})}
-    relation_rows = [r for r in details if r['metric'] == 'E4']
+    grouped['analysis_tag'] = {tag: summarize([r for r in main_rows if tag in r['analysis_tags']])
+                               for tag in sorted({tag for r in main_rows for tag in r['analysis_tags']})}
+    relation_rows = [r for r in main_rows if r['metric'] == 'E4']
     grouped['relation'] = {value: summarize([r for r in relation_rows if r['relation'] == value])
                            for value in sorted({r['relation'] for r in relation_rows})}
     return {'protocol': 'paired-strokes-v1', 'scope': 'development_candidates_only',
             'predictions_received': len(predictions), 'requests': len(requests),
-            'metrics': summarize(details), 'by_group': grouped, 'details': details,
-            'primary_CI95_by_character': {metric: grouped_interval(details, metric) for metric in ('E2', 'E4')},
+            'metrics': summarize(main_rows), 'by_group': grouped, 'details': details,
+            'primary_CI95_by_character': {metric: grouped_interval(main_rows, metric) for metric in ('E2', 'E4')},
             'fine_type_metrics': None, 'mask_AP': None,
             'limitation': 'Point identity is not mask AP. No formal model result is inferred from fixtures.'}
 
@@ -176,11 +190,15 @@ def main():
     parser.add_argument('--dataset', type=Path, required=True)
     parser.add_argument('--predictions', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
+    parser.add_argument('--suite', type=Path, help='Optional completed CPU suite directory; image paths remain relative to dataset')
     args = parser.parse_args()
-    labels = {r['id']: r for r in read_jsonl(args.dataset / 'evaluation_only/labels.jsonl')}
+    suite = args.suite or args.dataset
+    labels_path = suite / 'evaluation_only/labels.jsonl'
+    labels = {r['id']: r for r in read_jsonl(labels_path)}
     geometry = {r['id']: r for r in read_jsonl(args.dataset / 'evaluation_only/geometry.jsonl')}
-    result = evaluate(read_jsonl(args.dataset / 'requests.jsonl'), read_jsonl(args.predictions),
-                      labels, geometry, read_jsonl(args.dataset / 'evaluation_only/reviews.jsonl'), args.dataset)
+    strata = read_jsonl(suite / 'analysis_strata.jsonl') if args.suite else []
+    result = evaluate(read_jsonl(suite / 'requests.jsonl'), read_jsonl(args.predictions),
+                      labels, geometry, read_jsonl(args.dataset / 'evaluation_only/reviews.jsonl'), args.dataset, strata)
     write_json(args.output, result)
     print(json.dumps(result['metrics'], ensure_ascii=False))
 

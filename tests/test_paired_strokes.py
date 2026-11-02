@@ -10,6 +10,7 @@ from scripts.paired_strokes.data import (description, parse_norm, read_jsonl,
                                          training_view, validate_manifest)
 from scripts.paired_strokes.evaluate import evaluate, grouped_interval, parse_prediction, sequence_metrics
 from scripts.paired_strokes.gold import direction, qualify, spatial_relations
+from scripts.paired_strokes.intake import validate_payload
 
 ROOT = Path(__file__).resolve().parents[1] / 'data/research/paired_strokes_v1'
 
@@ -200,6 +201,60 @@ class PairedStrokeTest(unittest.TestCase):
         self.assertEqual(result['groups'], 2)
         self.assertEqual(result, grouped_interval(rows, 'E2', repeats=50))
         self.assertIsNone(grouped_interval([], 'E4')['interval'])
+
+    def test_text_oracle_and_health_controls_do_not_enter_main_score(self):
+        suite = ROOT / 'complete_suite_v1'
+        requests = read_jsonl(suite / 'requests.jsonl')
+        labels = {r['id']: r for r in read_jsonl(suite / 'evaluation_only/labels.jsonl')}
+        main = next(r for r in requests if r['metric'] == 'E2' and r['permission'] == 'main')
+        text = next(r for r in requests if r['permission'] == 'text_only')
+        health = next(r for r in requests if r['permission'] == 'health_only')
+        oracle = next(r for r in requests if r['permission'] == 'oracle_highlight')
+        self.assertNotIn('image', text['model_inputs'])
+        self.assertEqual(set(r['pre_id'] for r in requests), {f'PRE-0{i}' for i in range(1, 8)})
+        predictions = [{'id': main['id'], 'output': {'sequence': labels[main['id']]['sequence']}},
+                       {'id': text['id'], 'output': {'answer': 'unknown'}},
+                       {'id': health['id'], 'output': {'character': labels[health['id']]['character']}}]
+        result = evaluate([main, text, health, oracle], predictions, labels, self.geometry, [], ROOT,
+                          read_jsonl(suite / 'analysis_strata.jsonl'))
+        self.assertEqual(result['metrics']['E2']['requests'], 1)
+        self.assertEqual(result['metrics']['E2']['accuracy'], 1)
+        self.assertEqual(result['by_group']['permission']['text_only']['E2']['accuracy'], 0)
+        self.assertEqual(result['by_group']['permission']['health_only']['E8']['accuracy'], 1)
+        self.assertEqual(result['metrics']['E8']['requests'], 0)
+        self.assertEqual(result['primary_CI95_by_character']['E2']['groups'], 1)
+
+    def test_health_prediction_unknown_and_format_are_distinct(self):
+        self.assertEqual(parse_prediction({'character': '木'}, 'E8')[0], 'valid')
+        self.assertEqual(parse_prediction({'character': '木未'}, 'E8')[0], 'format_error')
+        self.assertEqual(parse_prediction({'answer': 'unknown'}, 'E8')[0], 'unknown')
+
+    def partial_pair_export(self):
+        row = next(r for r in self.rows if r['split'] != 'audit_development')
+        item, sid = self.geometry[row['id']], row['id']
+        raw = {'reviewer_id': 'UNIT_TEST_ONLY', 'independent': True, f'{sid}:sequence': 'accepted'}
+        record = {'sample_id': sid, 'facet': 'PAIR', 'reviewer_id': 'UNIT_TEST_ONLY', 'reviewer_kind': 'human',
+                  'independent_of_label_construction': True, 'annotated_at': 'test-time',
+                  'verdict': 'accepted', 'not_applicable': False, 'gold_revision': item['gold_revision'],
+                  'norm_reference': item['norm_reference'], 'stroke_ids': item['stroke_ids'],
+                  'item_decisions': {f'{sid}:sequence': 'accepted'}, 'reviewer_notes': '', 'evidence': 'unit test only'}
+        return row, {'reviewer_id': 'UNIT_TEST_ONLY', 'independent_of_label_construction': True,
+                     'exported_at': 'test-time', 'raw_answers': raw, 'records': [record],
+                     'pending': [{'sample_id': sid, 'facet': facet} for facet in ('E3', 'E4', 'E5')]}
+
+    def test_pair_only_review_does_not_qualify_spatial_gold(self):
+        row, payload = self.partial_pair_export()
+        result = validate_payload(payload, [row], self.geometry, include_pair=True)
+        self.assertEqual(result['facet_records'], 1)
+        self.assertEqual(result['pending'], 3)
+        self.assertTrue(qualify(self.geometry[row['id']], payload['records'], 'PAIR'))
+        self.assertFalse(qualify(self.geometry[row['id']], payload['records'], 'E3'))
+
+    def test_review_summary_cannot_override_raw_disagreement(self):
+        row, payload = self.partial_pair_export()
+        payload['raw_answers'][f'{row["id"]}:sequence'] = 'disputed'
+        with self.assertRaisesRegex(ValueError, 'summary differ'):
+            validate_payload(payload, [row], self.geometry, include_pair=True)
 
 
 if __name__ == '__main__':

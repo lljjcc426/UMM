@@ -24,10 +24,10 @@ function reviewPayload() {
   const exportedAt = new Date().toISOString();
   for (const task of specification.tasks) {
     const identity = [task.sequence_key, ...task.identity_keys];
-    for (const [facet, keys] of [
-      ['E3', identity], ['E4', [...identity, ...task.pair_keys]],
-      ['E5', [...identity, ...task.direction_keys]]
-    ]) {
+    const facetKeys = {PAIR: [task.sequence_key], E3: identity,
+      E4: [...identity, ...task.pair_keys], E5: [...identity, ...task.direction_keys]};
+    for (const facet of task.facets || ['E3', 'E4', 'E5']) {
+      const keys = facetKeys[facet];
       let status = verdict(keys);
       const notApplicable = facet === 'E4' && task.pair_keys.length === 0;
       if (notApplicable && status !== 'pending') status = 'unknown';
@@ -56,7 +56,7 @@ function refresh() {
   const completed = decisions.filter(f => f.value).length;
   const payload = reviewPayload();
   document.getElementById('progress').textContent =
-    `已填 ${completed} / ${decisions.length} 项；完成 ${payload.records.length} / 48 个字×指标记录。待填项不会导出为通过。`;
+    `已填 ${completed} / ${decisions.length} 项；完成 ${payload.records.length} / ${specification.tasks.reduce((n,t) => n + (t.facets || ['E3','E4','E5']).length,0)} 个字×指标记录。待填项不会导出为通过。`;
   for (const task of specification.tasks) {
     const taskKeys = [task.sequence_key, ...task.identity_keys, ...task.direction_keys, ...task.pair_keys];
     const n = taskKeys.filter(key => answers[key]).length;
@@ -86,7 +86,9 @@ document.getElementById('export').addEventListener('click', () => {
   const blob = new Blob([JSON.stringify(payload, null, 2) + '\n'], {type: 'application/json'});
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
-  link.download = 'S1_stroke_review_' + reviewer.value.trim().replace(/[^\w\u3400-\u9fff-]/g, '_') + '.json';
+  const batch = specification.package_revision.match(/batch-\d+$/);
+  link.download = 'S1_stroke_review_' + reviewer.value.trim().replace(/[^\w\u3400-\u9fff-]/g, '_') +
+    (batch ? '_' + batch[0] : '') + '.json';
   link.click();
   URL.revokeObjectURL(link.href);
   message.textContent = `已导出 ${payload.records.length} 条完整记录和原始进度；待完成 ${payload.pending.length} 条。`;

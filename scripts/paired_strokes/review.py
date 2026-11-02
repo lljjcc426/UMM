@@ -1,4 +1,4 @@
-"""Prepare the sixteen-character offline human review form, without submissions."""
+"""Prepare offline independent review forms, without creating submissions."""
 import argparse
 from collections import defaultdict
 import html
@@ -26,13 +26,16 @@ def choice(key, label):
             '<option value="disputed">有误</option><option value="unknown">无法判断</option></select></label>')
 
 
-def build_review(dataset, references, output):
+def build_review(dataset, references, output, *, sample_ids=None,
+                 revision='S1-independent-review-form-v1', include_pair=False,
+                 create_archive=True):
     output.mkdir(parents=True, exist_ok=False)
     (output / 'media').mkdir()
     (output / 'official').mkdir()
     (output / 'licenses').mkdir()
     geometry = {g['id']: g for g in read_jsonl(dataset / 'evaluation_only/geometry.jsonl')}
-    rows = [r for r in read_jsonl(dataset / 'manifest.jsonl') if r['split'] == 'audit_development']
+    rows = [r for r in read_jsonl(dataset / 'manifest.jsonl')
+            if (r['id'] in sample_ids if sample_ids is not None else r['split'] == 'audit_development')]
     tasks, cards, total_pairs = [], [], 0
     for row in rows:
         sid, item = row['id'], geometry[row['id']]
@@ -85,6 +88,8 @@ def build_review(dataset, references, output):
                       'norm_reference': item['norm_reference'], 'stroke_ids': item['stroke_ids'],
                       'sequence_key': sequence_key, 'identity_keys': identity_keys,
                       'direction_keys': direction_keys, 'pair_keys': pair_keys, 'note_key': note_key})
+        if include_pair:
+            tasks[-1]['facets'] = ['PAIR', 'E3', 'E4', 'E5']
         page = item['norm_reference']['pdf_page']
         official = f'official/page-{page:03d}.png'
         if not (output / official).exists():
@@ -95,7 +100,7 @@ def build_review(dataset, references, output):
                      f'<div><p>规范物理页 {page}，字表序号 {item["norm_reference"]["index"]}。</p>'
                      f'<a href="{official}" target="_blank">打开规范原页，放大查阅</a>'
                      f'<p>候选五类编码：{" ".join(row["sequence"])}</p>'
-                     + choice(sequence_key, '五类序列与规范原页一致') + '</div></div>'
+                     + choice(sequence_key, '完整字图为本字，五类序列与规范原页一致') + '</div></div>'
                      '<h3>逐笔核对</h3><p>黑色是当前笔，浅灰是其余笔。先核对实例和次序，再看起终点。'
                      '“有误”或“无法判断”请在本字备注中写明笔号与原因。</p><div class="strokes">'
                      + ''.join(tiles) + '</div><h3>笔画间关系</h3>'
@@ -103,7 +108,8 @@ def build_review(dataset, references, output):
                      '上下左右按质心与2%画布容差，中线长短用5%容差；接触/重叠包含相接，不等同于穿越。</p>'
                      + (''.join(pair_cards) if pair_cards else '<p>单笔字，无笔画对；E4不适用。</p>')
                      + f'<label>本字备注（指出笔号/笔画对、错误项与判断依据）<textarea data-key="{note_key}" rows="3"></textarea></label></details>')
-    data = {'package_revision': 'S1-independent-review-form-v1', 'tasks': tasks}
+    data = {'package_revision': revision, 'tasks': tasks}
+    write_json(output / 'review_specification.json', data)
     encoded = json.dumps(data, ensure_ascii=False).replace('<', '\\u003c')
     page = '''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>16字逐笔独立审核</title><style>
@@ -125,6 +131,11 @@ textarea{display:block;box-sizing:border-box;width:100%;max-width:900px}button{b
 <main>''' + ''.join(cards) + '</main><p class="notice">' + html.escape(NOTICE) + '''</p>
 <p><a href="licenses/ARPHICPL.TXT">Arphic Public License</a> · <a href="licenses/COPYING">来源说明</a>。规范原页仅供本地查阅。</p>
 <script id="review-data" type="application/json">''' + encoded + '</script><script src="review_app.js"></script></html>'
+    strokes = sum(len(t['stroke_ids']) for t in tasks)
+    page = page.replace('16字、54笔', f'{len(tasks)}字、{strokes}笔').replace('16字逐笔', f'{len(tasks)}字逐笔')
+    if include_pair:
+        page = page.replace('<div class="toolbar">',
+                            '<p>可先只核对每字第一项，导出PAIR记录以完成图文对审核；逐笔与关系未填部分继续保留待审，不会自动通过。</p><div class="toolbar">')
     (output / 'index.html').write_text(page)
     shutil.copyfile(APP, output / APP.name)
     for name in ('COPYING', 'ARPHICPL.TXT'):
@@ -147,17 +158,25 @@ textarea{display:block;box-sizing:border-box;width:100%;max-width:900px}button{b
 
 本包为开发材料，不能使其他240字自动通过。字形许可在licenses中，规范页面仅供本地查阅。原只读审核包保留。
 '''
+    readme = readme.replace('16字54笔', f'{len(tasks)}字{strokes}笔').replace('16字', f'{len(tasks)}字')
+    if include_pair:
+        readme = readme.replace('16项规范序列、54项实例/顺序、54项规范起终点',
+                                f'{len(tasks)}项规范序列、{strokes}项实例/顺序、{strokes}项规范起终点')
+        readme = readme.replace('此处审核全部笔画对，覆盖本轮108条E4请求。', '此处审核本批全部笔画对，复杂字尚未新增模型请求。')
+        readme = readme.replace('本包为开发材料，不能使其他240字自动通过。', '本包只覆盖所列开发字，未填的逐笔/关系项继续待审。')
+        readme += '\n可先只完成每字第一项后导出：PAIR单独记录图文与规范序列核查；E3/E4/E5仍需各自逐笔完成。\n'
     (output / '先读我.md').write_text(readme)
-    archive = output.with_suffix('.zip')
-    with ZipFile(archive, 'x', ZIP_DEFLATED) as zipped:
-        for asset in sorted(output.rglob('*')):
-            if asset.is_file():
-                zipped.write(asset, asset.relative_to(output))
+    archive = output.with_suffix('.zip') if create_archive else None
+    if create_archive:
+        with ZipFile(archive, 'x', ZIP_DEFLATED) as zipped:
+            for asset in sorted(output.rglob('*')):
+                if asset.is_file():
+                    zipped.write(asset, asset.relative_to(output))
     record = {'package_revision': data['package_revision'], 'characters': len(tasks),
-              'strokes': sum(len(t['stroke_ids']) for t in tasks), 'pairs': total_pairs,
+              'strokes': strokes, 'pairs': total_pairs,
               'relation_claims': total_pairs * 6,
               'manual_decisions': sum(1 + len(t['identity_keys']) + len(t['direction_keys']) + len(t['pair_keys']) for t in tasks),
-              'output': str(output), 'zip': str(archive), 'actual_submissions': 0}
+              'output': str(output), 'zip': str(archive) if archive else None, 'actual_submissions': 0}
     print(json.dumps(record, ensure_ascii=False, indent=2))
     return record
 

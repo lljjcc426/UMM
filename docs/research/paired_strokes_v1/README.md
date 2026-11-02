@@ -1,11 +1,14 @@
 # 汉字笔画图文配对 S0–S1
 
+最新：[S0–S1全量补齐与剩余人审](s0_s1_completion_2026-11-02.md)。S0和S1 CPU工作已齐，完整离线套件2232条；240字实际独立审核尚未返回，全量数据审核未完成。12批审核包和部分结果接收工具均已就绪，原16字无需重审。
+
 本轮执行记录见[原报告](execution_report_2026-11-02.md)，可复现定义见[协议](protocol.md)。已收到16字/54笔独立审核，结果和范围见[接收报告](human_review_receipt_2026-11-02.md)：E3/E5各16字通过，E4共14字通过、“未”unknown、“一”不适用。D-SMOKE数据侧16对具备资格，其余240字待审，无正式保留集或模型得分。
 
 审核包的转交步骤与准备时文件变更见[审核交接说明](human_review_guide.md)。构建与审核包准备记录中的0保留为历史快照；最新人审数量见[current_status](../../../data/research/paired_strokes_v1/current_status.json)。
 
 | 产物 | 入口 |
 |---|---|
+| CPU验收、完整评测套件、240字审核批次 | [验收登记](../../../data/research/paired_strokes_v1/s1_completion_2026-11-02/acceptance.json) · [套件](../../../data/research/paired_strokes_v1/complete_suite_v1/preparation.json) · [批次](../../../data/research/paired_strokes_v1/s1_completion_2026-11-02/review_batches.json) |
 | 已归档审核、当前资格与16对D-SMOKE | [实际审核](../../../data/research/paired_strokes_v1/evaluation_only/reviews.jsonl) · [最新状态](../../../data/research/paired_strokes_v1/current_status.json) · [16对导出](../../../data/research/paired_strokes_v1/smoke_pairs_reviewed.jsonl) |
 | 256字图文候选、来源、规范及分组 | [manifest](../../../data/research/paired_strokes_v1/manifest.jsonl) |
 | 192条窄训练导出 | [training_pairs](../../../data/research/paired_strokes_v1/training_pairs.jsonl) · [schema](../../../data/research/paired_strokes_v1/data_schema.json) |

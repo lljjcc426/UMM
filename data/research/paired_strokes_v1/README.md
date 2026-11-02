@@ -4,8 +4,11 @@
 
 | 文件/目录 | 内容与读取权限 |
 |---|---|
+| `complete_suite_v1/` | 2232条完整离线请求与标签、PRE-01至PRE-07、72张oracle高亮图和分层；额外权限单列，主表仍只用原1504条 |
+| `s1_completion_2026-11-02/` | CPU与人审分别验收、240字分批登记、208项CPU/浏览器/接收检查、未执行资源提案 |
 | `current_status.json`、`human_review_2026-11-02/` | 当前人审数量、原件来源、未知项和按指标资格叠加登记，不批量升级原构建快照 |
 | `smoke_pairs_reviewed.jsonl` | 16对数据侧合格D-SMOKE，仅字图+五类描述；拟合尚未执行 |
+| `pilot_train_pairs_reviewed.jsonl`、`pilot_validation_pairs_reviewed.jsonl`、`pilot_test_pairs_reviewed.jsonl` | 接收PAIR后按原split分别导出的合格图文对，目前均为空；PAIR不授予空间/方向资格 |
 | `manifest.jsonl` | 全部来源、许可、字符/模板分组、规范序列与资格；不直接喂给模型 |
 | `training_pairs.jsonl`、`data_schema.json` | 仅192个训练候选的字图+描述；训练端只读此类窄导出或上述已审核16对，不读完整manifest或评价目录 |
 | `media/` | 256张256×256黑字白底图；文件名和PNG元信息无答案字符 |

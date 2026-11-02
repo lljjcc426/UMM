@@ -6,6 +6,8 @@
 
 入口`docs/research/paired_strokes_v1/human_review_receipt_2026-11-02.md`、原`execution_report_2026-11-02.md`与`protocol.md`；独立登记`data/research/paired_strokes_v1/`。已构建256字/2243笔五类主笔形图文候选、192/24/24开发划分与16字审核区、候选mask/路径/关系、1504条未执行请求和CPU评测器。现已收到审核者1的16字/54笔独立审核：200项完整选择、48条记录，E3/E5各16字通过，E4共14字通过，“未”unknown、“一”不适用；保留原话和整字资格规则。可评分标签E3/E5各54项、E4为84项，另18项几何未知及6项审核资格不足。D-SMOKE数据侧合格16对，FIT未执行；其余240字待审、合格D-PILOT为0、正式保留集为0。最新状态见`current_status.json`，原构建/审核包准备记录中的0为历史快照。没有模型预测，E3/E4/E5模型分值仍为null；单人审核不冒充双人一致性或独立手绘mask。不能把SVG自动标签、AI预审或旧粗筛升级为独立真值。P0/P1/Batch A历史证据与正式状态不变，附件中P1“人审尚待完成”为旧快照，不重复索取旧审核。
 
+用户后续要求“S0–S1完成了没，没有的话全部完成”，本地CPU缺项已补齐，见`docs/research/paired_strokes_v1/s0_s1_completion_2026-11-02.md`。新增PRE-02/06/07对照后完整套件2232条，原1504条主清单不改写；文字先验、oracle和OCR结果单列，主表/CI不混权限。208项CPU测试和一个实际浏览器工作流通过。剩余240字审核包已按12批×20字准备：可先填240项PAIR图文/规范序列，再继续14772项完整逐笔核查；PAIR不能授予E3/E4/E5资格，导出仍保留原split。实际新增审核为0，完整数据审核仍待真人返回，不能把材料生成或界面模拟写成S1全部完成。原16字不重审；未知不强行改通过。状态与验收见`current_status.json`及`s1_completion_2026-11-02/acceptance.json`。S2–S6和资源边界不变。
+
 ## 当前工作区交接（2026-11-02）
 
 当前工作分支仍为`exp/p1-process-diagnostic`。Batch A的追加只读科学复核已完成，见`docs/research/next/batch_A_scientific_review_2026-11-01.md`；工程完整性与模型能力结论分开，FIT-01尚未准入训练执行。下一任务先读`docs/project/WORKSPACE_HANDOFF.md`和`docs/research/next/README.md`。本轮仅整理导航、保存既有复核成果和本地提交，不授予新GPU/MPS调用、训练、下载、远端推送或main操作。历史数据、阈值、人审、失败与P0/P1正式状态保持不变。
