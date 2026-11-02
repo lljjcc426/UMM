@@ -1,6 +1,12 @@
 # 当前状态
 
-更新：2026-11-02。当前工作分支：`exp/p1-process-diagnostic`。入口：[工作区交接](WORKSPACE_HANDOFF.md)、[当前研究导航](../research/next/README.md)。
+更新：2026-11-03。当前工作分支：`codex/research/new`。入口：[S0–S1](../research/paired_strokes_v1/README.md)、[工作区交接](WORKSPACE_HANDOFF.md)。
+
+## 静态图文配对 S0–S1
+
+当前256字/2243笔开发范围已完成来源核查、配对构建、审核接收及CPU评测器。D-SMOKE16对、D-PILOT240对（192/24/24），剩余审核任务0；原7字关系未知和2字不适用保留。完整离线套件2232条，尚无模型结果或正式保留集。见[审核接收](../research/paired_strokes_v1/batch_01_review_receipt_2026-11-03.md)和[验收登记](../../data/research/paired_strokes_v1/s1_completion_2026-11-02/acceptance.json)。
+
+用户已要求GitHub跟进，本轮推送成果并准备草稿PR；基线为`exp/p1-process-diagnostic`。下文保留此前实验状态。
 
 ## Batch A执行与科学复核
 
@@ -27,6 +33,6 @@
 
 ## 下一项实验
 
-当前仅完成仓库整理与本地保存，尚未启动新实验。新任务的目标、模型/数据、精确请求或训练配方、资源、验收和分支由下一次明确授权确定。Batch B/C、额外GPU/MPS调用、远端推送和main合并仍未授权。
+S0–S1已交付。后续S2–S6、Batch B/C、新GPU/MPS调用、训练及main合并仍需新的执行授权。
 
 当前目录说明、私有证据路径及下一任务须继承的限制见[WORKSPACE_HANDOFF.md](WORKSPACE_HANDOFF.md)。整理前的完整STATUS原文保存在[历史导航快照](../../archive/workspace_navigation_2026-11-02/STATUS.md.txt)。本页为导航更新，不改写阶段发布文件或旧实验登记。

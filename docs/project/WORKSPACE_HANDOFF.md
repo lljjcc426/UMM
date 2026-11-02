@@ -4,7 +4,7 @@
 
 S0–S1已完成当前256字/2243笔开发范围。用户已确认剩余220字审核通过，统一写入原审核表，累计1008条记录；原128条和7字关系unknown、2字不适用保持原样。D-SMOKE16对，D-PILOT240对按192/24/24导出，剩余审核任务0。审核及文件变更见[接收报告](../research/paired_strokes_v1/batch_01_review_receipt_2026-11-03.md)，机器状态见[current_status](../../data/research/paired_strokes_v1/current_status.json)。无需再次要求用户提交剩余批次，也不另设审核标签。
 
-CPU配对、评测器、PRE-01至PRE-07及2232条离线请求已完成，原1504条主清单保留。来源、五类笔形、单人审核和开发集限制继续适用；无正式保留集或模型得分。当前分支`codex/research/new`，后续GPU/MPS、训练、模型下载、推送、main与S2–S6没有执行授权。P0/P1/Batch A状态不变。以下为此前整理交接快照。
+CPU配对、评测器、PRE-01至PRE-07及2232条离线请求已完成，原1504条主清单保留。来源、五类笔形、单人审核和开发集限制继续适用；无正式保留集或模型得分。当前分支`codex/research/new`，用户已要求GitHub跟进，允许推送并建立草稿PR。后续GPU/MPS、训练、模型下载、main合并与S2–S6没有执行授权。P0/P1/Batch A状态不变。以下为此前整理交接快照。
 
 整理日期：2026-11-02。当前分支`exp/p1-process-diagnostic`，整理前HEAD为`a1c2d5fbe3f00d80cf1ad00d8819ea322e05cdad`。本轮保存上一轮未提交的复核材料并更新导航；没有开始新实验。
 
