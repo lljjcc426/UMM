@@ -1,9 +1,15 @@
-# 研究协议工作区
+# 研究资料导航
 
-**当前：stroke-video-v2，2026-10-27。** 从[新版设计](v2/README.md)进入，依次读[方法](v2/method.md)、[数据评价](v2/data_evaluation.md)、[实验](v2/experiments.md)、[实现](v2/implementation.md)、[近期前作](v2/source_audit.md)。
+更新：2026-11-02。当前分支`exp/p1-process-diagnostic`，从[本轮研究入口](next/README.md)和[工作区交接](../project/WORKSPACE_HANDOFF.md)开始。
 
-当前机器入口：[配置v2](../../configs/research/stroke_video_v2.json)、[实验登记v2](../../data/research/experiments_v2.json)、[运行模板v2](../../templates/research_run_v2.json)。状态见[研究状态](../project/STATUS.md)。
+| 范围 | 入口 | 记录含义 |
+|---|---|---|
+| 理解—生成双向诊断 | [next/](next/README.md) | D0–D5准备、Batch A实测及后续只读复核；未启动Batch B/C |
+| Batch A结论 | [科学复核](next/batch_A_scientific_review_2026-11-01.md) · [原执行报告](next/batch_A_results_2026-11-01.md) | 实测原答/RGB、正反证据、接口与评价限制 |
+| 正式历史协议 | [stroke-video-v2](v2/README.md) · [阶段契约](../project/BRANCH_WORKFLOW.md) | 已固定实验仍按当时版本解释，不能由新方案追溯改判 |
+| P0/P1有限结项 | [P0](v2/p0_final_scientific_closeout_2026-10-30.md) · [P1](v2/p1_final_scientific_closeout_2026-10-31.md) | 原科学门槛未达标及资格缺口保持 |
+| 工程路线 | [工程报告](../engineering/hanzi_video_v1.md) · [本机LTX验证](../engineering/ltx_local_trial_2026-11-01.md) | 受控执行、CPU预览、真实模型结果分别记录 |
 
-本目录原`task_and_method.md`、`data_protocol.md`、`evaluation_protocol.md`、`implementation.md`以及v1配置/登记继续保留为2026-10-26设计材料。原始不可变快照为[199646c](https://github.com/lljjcc426/UMM/tree/199646c6960677f656594b3c542c8eb8aaf890f9)。出现优先级、协议或实施参数差异时采用v2，已固定的旧实验不得静默重解释。
+`data/research/next/`保存准备材料，`data/research/runs/`保存真实执行，`data/research/reviews/`保存追加复核。P0/P1正式机器登记保留在各自原路径，新实验单独登记。文献、CPU契约测试和运行器完成均不能替代模型能力或改进证据。
 
-文献阅读完成、结构代码测试、数据构建、观察器校准、模型运行分别记录。当前v2仍是研究设计，全部17项模型/数据实验planned；确定性测试不填为模型成绩。
+更早的v1设计文件仍保留在本目录，原冻结状态见[199646c](https://github.com/lljjcc426/UMM/tree/199646c6960677f656594b3c542c8eb8aaf890f9)。整理前本页原文见[导航快照](../../archive/workspace_navigation_2026-11-02/research_README.md.txt)。

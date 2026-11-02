@@ -1,5 +1,9 @@
 # Codex 项目执行规范
 
+## 当前工作区交接（2026-11-02）
+
+当前工作分支仍为`exp/p1-process-diagnostic`。Batch A的追加只读科学复核已完成，见`docs/research/next/batch_A_scientific_review_2026-11-01.md`；工程完整性与模型能力结论分开，FIT-01尚未准入训练执行。下一任务先读`docs/project/WORKSPACE_HANDOFF.md`和`docs/research/next/README.md`。本轮仅整理导航、保存既有复核成果和本地提交，不授予新GPU/MPS调用、训练、下载、远端推送或main操作。历史数据、阈值、人审、失败与P0/P1正式状态保持不变。
+
 ## 当前Batch A服务器诊断授权（2026-11-01）
 
 本批已完成：精确24次原生调用，20份理解回答、4段原生MP4均工程有效，技术失败/阻塞/未运行/额外GPU重试/本任务训练均为0；182项CPU测试通过。本任务GPU进程已退出，其他实验未被改动。四字识别与多项过程描述存在错误，017/018/020回答截断；023提供左到右横线增长的正面个案。没有新保留金标、模型改进或因果机制结论。见`docs/research/next/batch_A_results_2026-11-01.md`及本批登记；P0/P1正式状态保持原样，Batch B/C和远端推送仍未授权。本轮交付后停止。

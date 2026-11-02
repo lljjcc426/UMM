@@ -1,39 +1,44 @@
-# 仓库维护与科研证据规范
+# 仓库维护与证据规范
 
-更新2026-10-27；当前协议stroke-video-v2。
+更新：2026-11-02。当前入口：[README](README.md)、[工作区交接](docs/project/WORKSPACE_HANDOFF.md)。执行权限以用户本轮指令及[AGENTS.md](AGENTS.md)为准，分支规则见[BRANCH_WORKFLOW](docs/project/BRANCH_WORKFLOW.md)。
+
+## 目录职责
 
 | 位置 | 职责 |
-| --- | --- |
-| data/literature.json | 文献主数据；题录、方法、证据和版本 |
-| data/reading_guide_2026-10-25.json | 会议、主题与停止跟进范围 |
-| docs/reviews、docs/reading | 单篇和生成索引；改前核对应生成脚本 |
-| docs/research/v2 | 当前科学目标、信息契约、方法、数据评价与实验 |
-| docs/project | 当前阶段导航与真实状态 |
-| data/research/experiments_v2.json | 当前实验ID、依赖、状态及证据 |
-| configs/research/stroke_video_v2.json | 计划参数、核心对照和资源前提，不是第三方训练配置 |
-| templates/research_run_v2.json | 空白运行记录，性能字段初始null |
-| docs/evidence、archive、docs/project/history | 来源核查和历史；不得当当前实验完成情况 |
+|---|---|
+| `docs/research/next/`、`configs/research/next/` | 当前诊断报告与候选方案/配置 |
+| `data/research/next/` | 科研重启准备材料，冻结清单不追溯改成新实验 |
+| `data/research/runs/<run_id>/` | 实际授权、执行日志、配置、失败与结果索引 |
+| `data/research/reviews/<review_id>/` | 追加复核；不覆盖原预测、原答或人审 |
+| `docs/research/v2/`、`docs/project/stages/`、`data/research/experiments_v2.json` | P0/P1原协议、阶段科学状态与正式证据 |
+| `hanzi_video/`、`scripts/engineering/` | 工程原型与独立本地试验 |
+| `data/literature.json`、`docs/reading/`、`docs/reviews/` | 文献权威源与索引；重渲染前确认不会覆盖手工内容 |
+| `private/`、`checkpoints/` | 原片、字体、论文、权重及本地独立环境；Git忽略 |
+| `archive/`、`docs/project/history/` | 历史材料，采用日期和原版本解释 |
 
-v1文件保留，完整冻结状态见[199646c](https://github.com/lljjcc426/UMM/tree/199646c6960677f656594b3c542c8eb8aaf890f9)。当前入口由[研究工作区](docs/research/README.md)指定，运行记录必须固定协议版本；禁止把旧结果重命名为新协议。
+新实验先用[实验计划模板](templates/experiment_plan.md)明确范围，运行元信息沿用[记录模板v2](templates/research_run_v2.json)并写明适用协议。新任务的分支名按获准范围确定，不自动从过期本地main建立工作分支。
 
-## 证据层级
+## 证据与版本
 
-作者报告、原文核读、代码静态审查、确定性单元测试、模型实测、未验证假设分别标注。数据卡可见不等于取得数据或获再分发许可。任何completed实验需要run及原始结果路径；planned记录不应带虚构成绩。ready须有必要环境/输入清单和预算，blocked/stopped保留原因。
+文献成绩、静态代码审查、CPU测试、真实模型执行和科学结论分别记录。`completed`须有真实运行证据；准备完成不等同模型运行或能力通过。planned/blocked/unknown不填造性能。
 
-指标、合法序列、split、裁判、预算或采样策略改变时增加版本和原因；正式测试不参与选择最佳seed/阈值/基线。生成计划与RGB实际事件分开，三态观测、所有失败及重试保留。
+冻结模型、权重、代码、字集、提示、seed、输入权限、数据分组及生成参数；记录实际RGB、完整原答、全部尝试、失败、时间/内存和成本边界。几何权限G0/G1分开，模型自报计划不替代实际RGB事件。
 
-每次运行记录代码/权重/数据revision、T/P/O与G0/G1输入权限、源组划分、训练与推理seed、共享/冻结参数、曝光/计算、硬件、完整命令、全部媒体、人工/自动标签、失败/未知与端到端成本。
+改变数据、指标、阈值、采样或协议时另建版本，保留旧预测与失败。暴露数据只作开发/回归，不能重新当新保留集；独立真人结论不得代填或升级成其未覆盖的金标。
 
-不提交私有稿件、字体、未许可数据、模型权重、凭据和原始个人笔迹；已有匿名稿过滤保持。维护权威源数据后再生成导出，不以重渲染覆盖手工证据。新发现的摘要级来源先登记阅读范围，不能自动计为全文完成。
+不批量移动已被引用的数据目录，不删除旧分支/证据，不用`reset --hard`或强推整理仓库。改入口时先保留必要的原文快照并说明变动。私有证据留在忽略目录，公开登记只提供定位、资格和必要版本信息。
 
-## 检查命令
+## 必要检查
+
+按改动选择已有检查，避免为纯文档修改重复模型运行、权重哈希或新增实现镜像测试。
 
 ```bash
-python scripts/validate_research_v2.py
-python -m unittest tests.test_research_v2 -v
-python scripts/validate_research_plan.py
-python -m unittest tests.test_research_plan tests.test_stroke_metrics -v
-python scripts/validate_catalog.py
+.venv/bin/python scripts/validate_catalog.py
+.venv/bin/python scripts/validate_research_plan.py
+.venv/bin/python scripts/validate_research_v2.py
+.venv/bin/python scripts/validate_stage_release.py
+# 代码变更时按影响范围选择测试；需要完整回归时：
+.venv/bin/python -m unittest discover -s tests -v
 ```
 
-有相应本地依赖时再运行全部测试。检查不验证外部链接、实际授权、模型性能或科学正确性。提交前重新读HEAD；使用期望SHA防并发覆盖，禁止force更新。
+工程检查通过不授予科学验收、GPU/训练、远端推送或main合并权限。本仓库Git操作使用`lljjcc426 <3115250840@qq.com>`。整理前本页原文见[导航快照](archive/workspace_navigation_2026-11-02/CONTRIBUTING.md.txt)。
