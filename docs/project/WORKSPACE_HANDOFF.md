@@ -2,6 +2,8 @@
 
 ## S0–S1追加交接（2026-11-02）
 
+2026-11-03：[第一批20字审核已接收](../research/paired_strokes_v1/batch_01_review_receipt_2026-11-03.md)，累计36字/130笔、128条实际记录；合格pilot为20对（18/1/1），仍220字待审。六字关系unknown及单笔不适用保持原样；用户指出肉眼难以核对阈值，已补充11组数值说明，未替代实际人工资格。后续可优先交PAIR/E3/E5，关系未知或待填单列。下文240待审为准备时快照。
+
 最新补齐见[全量报告](../research/paired_strokes_v1/s0_s1_completion_2026-11-02.md)：S0完成，S1 CPU工作完整覆盖PRE-01至PRE-07，新增对照后2232条离线请求，原1504条主清单和阈值保留。208项CPU测试与一个浏览器工作流通过；240字/2189笔的12批审核包已准备，实际新审核仍为0。不能称全量S0–S1已完成，剩余实际独立审核须交还；原16字不重审。PAIR只核对图文规范序列，不升级E3/E4/E5；新的合格pilot导出按原train/validation/test分开。没有模型调用或训练。
 
 当前实际分支为`codex/research/new`。用户已直接授权静态图文配对S0–S1，本轮CPU交付见[执行报告](../research/paired_strokes_v1/execution_report_2026-11-02.md)和[协议](../research/paired_strokes_v1/protocol.md)。256字候选配对及评价工具已实现；后续已收到16字/54笔独立审核，见[接收报告](../research/paired_strokes_v1/human_review_receipt_2026-11-02.md)。E3/E5各16字通过，E4为14字通过、“未”unknown、“一”不适用；D-SMOKE数据侧16对具备资格，240个pilot候选仍待审，无正式保留集。1504条请求未执行模型推理，模型分值保持null。新模型权重、GPU/MPS调用、训练、远端推送、main及S2–S6没有授权。P0/P1/Batch A状态与历史原文保留。下文为此前整理交接快照。

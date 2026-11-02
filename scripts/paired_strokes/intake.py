@@ -1,8 +1,10 @@
 """Validate actual exported human decisions once, archive, and refresh coverage."""
 import argparse
 from collections import Counter
+from datetime import datetime
 import json
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from .data import digest, read_jsonl, training_view, write_json, write_jsonl
 from .gold import qualify
@@ -119,9 +121,14 @@ def refresh(dataset):
                   remaining_unreviewed_pilot_candidates=len(pilot_ids) - pilot_pair_reviewed,
                   gold_request_coverage=coverage, model_metrics=None)
     characters = {r['id']: r['character'] for r in rows}
+    latest_review = max((r['annotated_at'] for r in reviews), default=None)
+    if latest_review:
+        status['last_review_exported_at'] = latest_review
+        status['date'] = datetime.fromisoformat(latest_review.replace('Z', '+00:00')).astimezone(ZoneInfo('Asia/Shanghai')).date().isoformat()
     status['reviewer_notes'] = [{k: r[k] for k in ('sample_id', 'facet', 'verdict', 'reviewer_notes')}
                               | {'character': characters[r['sample_id']]} for r in reviews if r.get('reviewer_notes')]
     status['CPU_deliverables'] = 'complete_with_PRE01_to_PRE07_controls_and_strata'
+    status['unknown_policy'] = 'Preserve E4 unknown at whole-character facet scope; single-stroke E4 is not applicable; no partial promotion or threshold adjustment'
     status['S1'] = ('cpu_complete_pilot_independent_review_pending' if pilot_pair_reviewed < len(pilot_ids)
                     else 'pilot_pairs_audited_additional_spatial_review_pending' if pilot_spatial_reviewed < len(pilot_ids)
                     else 'complete_with_documented_gold_limitations')

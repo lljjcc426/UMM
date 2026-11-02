@@ -1,0 +1,35 @@
+{
+  "entry_validation": {
+    "passed": true,
+    "completed_manual_decisions": 300,
+    "choices": {
+      "accepted": 289,
+      "unknown": 11
+    },
+    "facet_records": 80,
+    "pending": 0
+  },
+  "arithmetic_explanation": {
+    "pairs": 11,
+    "matches_frozen_computation": true,
+    "counts_as_human_gold": false
+  },
+  "models_executed": 0,
+  "new_independent_reviewers": 0,
+  "new_human_records": 80,
+  "passed": true,
+  "cpu_regression": {
+    "passed": true,
+    "tests": 26,
+    "command": ".venv/bin/python -m unittest tests.test_paired_strokes -v",
+    "log": "cpu_tests.log"
+  },
+  "catalog": {
+    "passed": true,
+    "markdown_files_checked": 1002,
+    "errors": []
+  },
+  "git_diff_check": {
+    "passed": true
+  }
+}
