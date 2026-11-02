@@ -2,7 +2,7 @@
 
 研究目标是生成内容、笔画方向与笔画先后正确的汉字书写视频。本仓库同时保留原生视频模型实验、理解—生成诊断、受控执行工程原型与文献资料，几类结果分别记录。
 
-**当前分支：`exp/p1-process-diagnostic`。2026-11-02：Batch A的24次调用及只读科学复核已完成，正在交接下一项实验。新实验尚未启动；Batch B/C训练未获批准。**
+**当前分支：`codex/research/new`。2026-11-02：已执行静态汉字图文配对S0–S1的CPU数据与评测工具，独立逐笔真值待补；没有模型调用或训练。Batch B/C及本方案S2–S6执行未获批准。**
 
 先阅读[当前状态](docs/project/STATUS.md)和[实验交接](docs/project/WORKSPACE_HANDOFF.md)。P0/P1维持有限负结果结项，Batch A的工程完整性不代表模型能力通过。
 
@@ -10,6 +10,7 @@
 
 | 内容 | 入口 |
 |---|---|
+| 静态字图与有序笔形配对：S0–S1实际交付与真值缺口 | [执行报告](docs/research/paired_strokes_v1/execution_report_2026-11-02.md) · [冻结协议](docs/research/paired_strokes_v1/protocol.md) · [候选数据](data/research/paired_strokes_v1/README.md) |
 | 下一轮实验的起点、资源与待解决事项 | [工作区交接](docs/project/WORKSPACE_HANDOFF.md) · [新实验计划模板](templates/experiment_plan.md) |
 | Batch A科学结论与FIT-01准入判断 | [只读复核报告](docs/research/next/batch_A_scientific_review_2026-11-01.md) |
 | Batch A全部调用、环境、资源与备份 | [执行报告](docs/research/next/batch_A_results_2026-11-01.md) · [实际执行登记](data/research/runs/diagnostic_batch_A_2026-11-01/execution_summary.json) |

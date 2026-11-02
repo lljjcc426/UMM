@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "checks": {
+    "catalog": {
+      "command": [
+        ".venv/bin/python",
+        "scripts/validate_catalog.py"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "wall_seconds": 0.156761292,
+      "log": "data/research/paired_strokes_v1/catalog.log"
+    },
+    "full_regression": {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "passed": true,
+      "exit_code": 0,
+      "wall_seconds": 7.680475,
+      "log": "data/research/paired_strokes_v1/full_regression.log",
+      "tests": 204,
+      "reported_seconds": 7.578
+    },
+    "research_v1": {
+      "passed": true,
+      "evidence": "data/research/paired_strokes_v1/research_v1_validation.json"
+    },
+    "research_v2": {
+      "passed": true,
+      "evidence": "data/research/paired_strokes_v1/research_v2_validation.json"
+    },
+    "stage_gate": {
+      "passed": true,
+      "evidence": "data/research/paired_strokes_v1/stage_validation.json"
+    }
+  },
+  "focused_tests": {
+    "passed": true,
+    "tests": 22,
+    "log": "data/research/paired_strokes_v1/focused_tests.log"
+  },
+  "initial_failures": [
+    {
+      "check": "focused_tests",
+      "reason": "1 test fixture omitted printed PDF page footer; fixture corrected; no source/data repair"
+    },
+    {
+      "check": "catalog/full_regression_initial",
+      "reason": "Execution report was not yet created during first check; final files now present",
+      "evidence": "data/research/paired_strokes_v1/full_regression_initial.log"
+    }
+  ],
+  "gold_acceptance": {
+    "actual_independent_reviews": 0,
+    "E3": null,
+    "E4": null,
+    "E5": null
+  },
+  "model_metrics": null,
+  "model_calls": 0,
+  "GPU_MPS_calls": 0,
+  "training": 0,
+  "remote_pushes": 0,
+  "existing_files_deleted": [],
+  "packaging": {
+    "review_zip": "private/paired_strokes_v1_2026-11-02/S1_independent_stroke_review_16chars.zip",
+    "review_characters": 16,
+    "review_strokes": 54,
+    "official_pages_used": 7,
+    "review_records_submitted": 0,
+    "license_verbatim_whitespace": "Two upstream APL lines retain original trailing spaces; excluded only from whitespace check. License text unchanged.",
+    "existing_files_deleted": []
+  }
+}

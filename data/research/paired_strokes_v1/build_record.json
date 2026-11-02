@@ -1,0 +1,69 @@
+{
+  "protocol": "paired-strokes-v1",
+  "data_status": "development_candidates_built",
+  "S0": "completed_with_documented_source_limitations",
+  "S1": "cpu_pipeline_complete_independent_gold_pending",
+  "graphics_revision": "bddc96d41bef78427ed0e034e9f7e31d71fd1b92",
+  "graphics_hash": "a28c478b5178e98f67f510b2d52fde08a69dc664654ef43498253b9b764d46ee",
+  "norm_text_hash": "3d9fbeee0c8f6e5824c761ca14c6e3cb735a438d62c8a144d5b3b0f1cc2cc77b",
+  "graphics_rows": 9574,
+  "norm_records_parsed": 7832,
+  "norm_index_entries": 8105,
+  "norm_blocks_rejected": 270,
+  "eligible_before_exposure_filter": 3434,
+  "source_rejection_counts": {
+    "normative_text_unavailable_or_rejected": 2915,
+    "outside_first_level_scope_v1": 3209,
+    "norm_and_svg_stroke_count_disputed": 16
+  },
+  "historical_exposure_characters": 647,
+  "exposure_sources": [
+    "data/research/datasets/p0_stroke_synthetic_v1/templates.json",
+    "hanzi_video/assets/catalog.json"
+  ],
+  "pairs": 256,
+  "strokes": 2243,
+  "partitions": {
+    "audit_development": 16,
+    "train_development": 192,
+    "validation_development": 24,
+    "test_development": 24
+  },
+  "strata": {
+    "1-3": 19,
+    "4-6": 57,
+    "7-10": 90,
+    ">10": 90
+  },
+  "requests": 1504,
+  "requests_by_metric": {
+    "E2": 256,
+    "E6": 776,
+    "E6R": 256,
+    "E3": 54,
+    "E5": 54,
+    "E4": 108
+  },
+  "requests_by_condition": {
+    "image_only": 256,
+    "positive": 256,
+    "same_char_wrong_type": 256,
+    "masked_sequence_character_hidden": 256,
+    "unmarked_image": 54,
+    "normative_endpoint_displacement": 54,
+    "repeated_type": 78,
+    "same_char_wrong_order": 252,
+    "other_type": 30,
+    "same_sequence_other_character_OCR_control": 6,
+    "same_sequence_character_hidden_compatible_control": 6
+  },
+  "independent_accepted_gold": 0,
+  "qualified_D_SMOKE": 0,
+  "qualified_D_PILOT": 0,
+  "model_calls": 0,
+  "GPU_MPS_calls": 0,
+  "training": 0,
+  "main_changes": 0,
+  "remote_pushes": 0,
+  "wall_seconds": 1.8444706250011222
+}

@@ -1,5 +1,11 @@
 # Codex 项目执行规范
 
+## 当前静态图文配对 S0–S1（2026-11-02）
+
+用户直接要求“先执行 S0–S1：数据来源、配对构建、独立笔画级真值和评测器”，授权本轮本地CPU数据与评价工具、既有合法缓存复用、官方来源/许可/模型元信息查证及本地提交。实际分支为`codex/research/new`，起点`cdda20c8`；下文`exp/p1-process-diagnostic`为此前交接快照。本轮没有新GPU/MPS调用、模型权重下载、训练、付费资源、远端推送或main操作授权，不自动启动S2–S6或正式P2。
+
+入口`docs/research/paired_strokes_v1/execution_report_2026-11-02.md`与`protocol.md`；独立登记`data/research/paired_strokes_v1/`。已构建256字/2243笔五类主笔形图文候选、192/24/24开发划分与16字审核区、候选mask/路径/关系、1504条未执行请求和CPU评测器。独立逐笔审核提交为0，E3/E4/E5正式分值须保持null，D-SMOKE/D-PILOT合格数量为0；不能把SVG自动标签、AI预审或旧粗筛升级为独立真值。S1为CPU流程完成、独立真值待补。P0/P1/Batch A历史证据与正式状态不变，附件中P1“人审尚待完成”为旧快照，不重复索取旧审核。
+
 ## 当前工作区交接（2026-11-02）
 
 当前工作分支仍为`exp/p1-process-diagnostic`。Batch A的追加只读科学复核已完成，见`docs/research/next/batch_A_scientific_review_2026-11-01.md`；工程完整性与模型能力结论分开，FIT-01尚未准入训练执行。下一任务先读`docs/project/WORKSPACE_HANDOFF.md`和`docs/research/next/README.md`。本轮仅整理导航、保存既有复核成果和本地提交，不授予新GPU/MPS调用、训练、下载、远端推送或main操作。历史数据、阈值、人审、失败与P0/P1正式状态保持不变。

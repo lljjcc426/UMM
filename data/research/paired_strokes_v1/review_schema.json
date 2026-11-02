@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "independent per-facet audit",
+  "type": "object",
+  "required": [
+    "sample_id",
+    "gold_revision",
+    "facet",
+    "reviewer_id",
+    "reviewer_kind",
+    "independent_of_label_construction",
+    "norm_reference",
+    "stroke_ids",
+    "verdict",
+    "evidence"
+  ],
+  "properties": {
+    "sample_id": {
+      "type": "string"
+    },
+    "gold_revision": {
+      "type": "string"
+    },
+    "facet": {
+      "enum": [
+        "E3",
+        "E4",
+        "E5"
+      ]
+    },
+    "reviewer_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewer_kind": {
+      "const": "human"
+    },
+    "independent_of_label_construction": {
+      "const": true
+    },
+    "norm_reference": {
+      "type": "object"
+    },
+    "stroke_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "uniqueItems": true
+    },
+    "verdict": {
+      "enum": [
+        "accepted",
+        "disputed",
+        "unknown"
+      ]
+    },
+    "evidence": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "$comment": "The pending review template is deliberately not a valid accepted review. Reviews must describe actual independent work; no generated records count as submissions."
+}

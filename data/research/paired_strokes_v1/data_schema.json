@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "paired-strokes-v1 trainer-facing pair",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "model_inputs",
+    "training_targets"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "model_inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "image"
+      ],
+      "properties": {
+        "image": {
+          "type": "string",
+          "pattern": "^media/[a-f0-9]{16}\\.png$"
+        }
+      }
+    },
+    "training_targets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "description"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "GF0023 five-class names separated by U+3001, terminal character; no literal EOF token"
+        }
+      }
+    }
+  },
+  "$comment": "This schema describes trainer exports. Full provenance lives in manifest.jsonl; geometry/answers/reviews live in evaluation_only/."
+}
