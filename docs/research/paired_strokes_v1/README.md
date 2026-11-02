@@ -2,6 +2,8 @@
 
 本轮执行记录见[报告](execution_report_2026-11-02.md)，可复现定义见[协议](protocol.md)。当前为 CPU 数据与评测器准备；独立逐笔金标尚缺，S1未取得完整科学准入。
 
+2026-11-02：用户可以安排独立审核者，已提供离线填写、进度恢复及JSON导出的新版审核包。转交步骤与文件变更见[审核交接说明](human_review_guide.md)。实际审核提交仍为0。
+
 | 产物 | 入口 |
 |---|---|
 | 256字图文候选、来源、规范及分组 | [manifest](../../../data/research/paired_strokes_v1/manifest.jsonl) |
