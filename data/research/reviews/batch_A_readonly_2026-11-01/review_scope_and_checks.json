@@ -1,0 +1,29 @@
+{
+  "review_created_at_utc": "2026-11-01T16:15:59.033116+00:00",
+  "reviewed_commit": "a1c2d5fbe3f00d80cf1ad00d8819ea322e05cdad",
+  "branch": "exp/p1-process-diagnostic",
+  "new_model_calls": 0,
+  "training_runs": 0,
+  "network_or_SSH_calls": 0,
+  "historical_tracked_file_changes": false,
+  "request_count": 24,
+  "raw_answer_count": 20,
+  "native_output_videos": 4,
+  "archive_index_files": 724,
+  "all_index_files_present_and_size_matches": true,
+  "formal_scientific_status_unchanged": true,
+  "formal_primary_metrics": null,
+  "FIT_01": {
+    "decision": "prepare_only_not_admitted_to_execution",
+    "Batch_B_authorized": false,
+    "Batch_C_authorized": false
+  },
+  "uncertainties": [
+    "native image/official positive controls absent",
+    "strict=False load key coverage absent",
+    "no runtime post-ViT feature trace",
+    "fixed temporal grid interval differs from sampled PTS",
+    "local decoder not bit-identical to original decoder",
+    "no new independent human/gold/holdout evidence"
+  ]
+}
