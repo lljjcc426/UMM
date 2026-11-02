@@ -2,6 +2,8 @@
 
 冻结日期：2026-11-02。范围为用户明确要求的 S0–S1 本地 CPU 工作。实际分支 `codex/research/new`，起点 `cdda20c8c6f54fa4c843523459db7f43243c4753`。P0/P1/Batch A 原记录、有限负结果、阈值及人审资格不变；本协议不自动启动正式 P2。
 
+同日后续已接收16字/54笔独立审核，见[接收报告](human_review_receipt_2026-11-02.md)。本页保留最初构建时数量和资格快照，评测定义、容差及整字资格规则不变；当前状态以`data/research/paired_strokes_v1/current_status.json`为准。
+
 ## 研究问题和范围
 
 候选假设是正确的 `(I,D)` 配对训练相对普通 Image→D SFT、文本学习及独立支路学习是否提供额外收益，能否迁移到重复笔型的实例身份和相对位置。S0–S1 构建检验所需的数据和评价工具，模型增益尚无结果。
@@ -32,23 +34,23 @@ SVG 与规范笔数不一致的 16 字进入 `source_rejections.jsonl`。发布�
 
 本次 256 字：16 个审核开发字，以及 240 个额外 pilot 候选字。16 字为一、二、三、十、土、士、木、未、末、口、日、田、人、大、中、永，共 54 笔，保留既有开发暴露身份。
 
-240 字按种子 `20261102`、笔数层分配为 192/24/24 个 `train_development / validation_development / test_development`。三组均为开发分区，完整数据已经参与工具开发，不称新的正式保留集；D-MAIN 尚未建立。规范/许可和独立人工核查齐备的 D-SMOKE、D-PILOT 合格数量目前均为 0。
+240 字按种子 `20261102`、笔数层分配为 192/24/24 个 `train_development / validation_development / test_development`。三组均为开发分区，完整数据已经参与工具开发，不称新的正式保留集；D-MAIN 尚未建立。构建时规范/许可和独立人工核查齐备的 D-SMOKE、D-PILOT 合格数量均为 0；同日审核后D-SMOKE数据侧为16对，D-PILOT仍为0。
 
 额外 240 字排除已知历史 647 字暴露集合，包括 P0 全部 640 个模板、工程目录、Batch A/重启准备目标及本次审核字。验证与开发测试的不同字符，仍只表示本次划分的字符隔离；未来模型是否预训练见过无法保证。正式后训练字符 OOD 必须在实际训练前结合最终训练清单再次锁定。
 
 `char_id / glyph_template_id / source_record_id / group_id` 及相同图像不能跨分区。所有模板扰动继承其 group。没有未见真实字体或新采集源，风格 OOD、双轴 OOD 留空。原图和 mask 在生成时各登记一次哈希，不进行重复全缓存扫描。
 
-`manifest.jsonl` 保存规范、许可、分组及资格。`training_pairs.jsonl` 仅导出 192 个训练候选的 `id / model_inputs.image / training_targets.description`，对应 `data_schema.json`。训练端只应读取该导出；不读取完整 manifest、源码子集或 `evaluation_only`。图片名为不含字符的 opaque ID，PNG Notice 只有许可与修改说明。
+`manifest.jsonl` 保存规范、许可、分组及构建时资格。`training_pairs.jsonl` 仅导出 192 个训练候选的 `id / model_inputs.image / training_targets.description`，对应 `data_schema.json`；同日审核后另存相同窄格式的`smoke_pairs_reviewed.jsonl`。训练端只应读取这类导出，不读取完整 manifest、源码子集或 `evaluation_only`。图片名为不含字符的 opaque ID，PNG Notice 只有许可与修改说明。
 
 ## 独立逐笔真值
 
 `evaluation_only/geometry.jsonl` 与 256 个压缩 mask 文件包含 2243 个 SVG 笔画实例、归一化有向路径、起终点与关系。其资格统一为 `source_derived_unreviewed`。训练所用规范序列和这份候选几何分别取自规范文本与 SVG；几何本身仍与渲染图同源，不能据此宣称独立来源或独立审核已完成。
 
-独立审核需由实际审核者对照规范原页，逐笔确认实例、次序、方向和适用关系，并记录身份、范围、证据、版本及争议。`review_template.jsonl` 提供16字×E3/E4/E5的48条待填记录，`reviews.jsonl` 当前为空。只有实际发生的独立人工审核可提交 accepted；AI预审、程序输出、旧粗筛及单元测试虚构审核者均不算提交。资格与 gold revision、规范引用、全部实例覆盖相绑定，争议阻止相应指标准入。
+独立审核需由实际审核者对照规范原页，逐笔确认实例、次序、方向和适用关系，并记录身份、范围、证据、版本及争议。`review_template.jsonl` 提供16字×E3/E4/E5的48条待填记录，`reviews.jsonl` 构建时为空，同日后续已接收48条实际审核记录。只有实际发生的独立人工审核可提交 accepted；AI预审、程序输出、旧粗筛及单元测试虚构审核者均不算提交。资格与 gold revision、规范引用、全部实例覆盖相绑定，争议阻止相应指标准入。
 
 审核包位于 `private/paired_strokes_v1_2026-11-02/review/index.html`，含每笔轮廓、候选编号、绿色起点、红色终点及独立规范原页。只有16个简单开发字进入首批空间/方向请求；复杂字 masks 已准备，尚无相应正式审核或得分。
 
-**当前独立接受真值为0，E3/E4/E5正式分值保持 null。**若审核发现实例顺序错位，须修正候选绑定并升版本再审核，禁止通过改预测答案或自动通过修复。
+**初始构建时独立接受真值为0；同日后续审核现已归档16字/54笔，E4保留“未”的unknown与“一”的不适用。**当前无模型预测，E3/E4/E5模型分值仍保持null。若审核发现实例顺序错位，须修正候选绑定并升版本再审核，禁止通过改预测答案或自动通过修复。
 
 ## 固定评价定义
 

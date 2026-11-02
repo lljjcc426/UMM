@@ -9,6 +9,7 @@ const {pathToFileURL} = require('url');
   const root = path.resolve('private/paired_strokes_v1_2026-11-02');
   const form = path.join(root, 'S1_independent_stroke_review_form_v1/index.html');
   const output = path.join(root, 'form_ui_test');
+  const reviewsBefore = fs.readFileSync('data/research/paired_strokes_v1/evaluation_only/reviews.jsonl','utf8');
   fs.mkdirSync(output, {recursive:true});
   const browser = await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless:true});
   const context = await browser.newContext({acceptDownloads:true, viewport:{width:1280,height:1000}});
@@ -57,13 +58,13 @@ const {pathToFileURL} = require('url');
   const other = await fresh.newPage();
   await other.goto(pathToFileURL(form).href);
   assert(await other.locator('select[data-key]').evaluateAll(elements => elements.every(e => e.value === '')));
-  assert.equal(fs.readFileSync('data/research/paired_strokes_v1/evaluation_only/reviews.jsonl','utf8'), '');
+  assert.equal(fs.readFileSync('data/research/paired_strokes_v1/evaluation_only/reviews.jsonl','utf8'), reviewsBefore);
   assert.deepEqual(errors, []);
   const result = {passed:true, decision_fields:total, characters:16, strokes:54,
     checks:['all decisions initially blank','all local images load','partial export preserves pending items',
       'identity and direction export independently','single-stroke E4 stays not applicable',
       'dispute is preserved','draft survives reload','export imports back','fresh reviewer is blank'],
-    actual_human_submissions:0, synthetic_exports_private:true};
+    new_human_submissions_created:0, synthetic_exports_private:true};
   fs.writeFileSync('data/research/paired_strokes_v1/review_form_checks.json',JSON.stringify(result,null,2)+'\n');
   console.log(JSON.stringify(result,null,2));
   await browser.close();

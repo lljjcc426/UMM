@@ -1,11 +1,12 @@
 # 汉字笔画图文配对 S0–S1
 
-本轮执行记录见[报告](execution_report_2026-11-02.md)，可复现定义见[协议](protocol.md)。当前为 CPU 数据与评测器准备；独立逐笔金标尚缺，S1未取得完整科学准入。
+本轮执行记录见[原报告](execution_report_2026-11-02.md)，可复现定义见[协议](protocol.md)。已收到16字/54笔独立审核，结果和范围见[接收报告](human_review_receipt_2026-11-02.md)：E3/E5各16字通过，E4共14字通过、“未”unknown、“一”不适用。D-SMOKE数据侧16对具备资格，其余240字待审，无正式保留集或模型得分。
 
-2026-11-02：用户可以安排独立审核者，已提供离线填写、进度恢复及JSON导出的新版审核包。转交步骤与文件变更见[审核交接说明](human_review_guide.md)。实际审核提交仍为0。
+审核包的转交步骤与准备时文件变更见[审核交接说明](human_review_guide.md)。构建与审核包准备记录中的0保留为历史快照；最新人审数量见[current_status](../../../data/research/paired_strokes_v1/current_status.json)。
 
 | 产物 | 入口 |
 |---|---|
+| 已归档审核、当前资格与16对D-SMOKE | [实际审核](../../../data/research/paired_strokes_v1/evaluation_only/reviews.jsonl) · [最新状态](../../../data/research/paired_strokes_v1/current_status.json) · [16对导出](../../../data/research/paired_strokes_v1/smoke_pairs_reviewed.jsonl) |
 | 256字图文候选、来源、规范及分组 | [manifest](../../../data/research/paired_strokes_v1/manifest.jsonl) |
 | 192条窄训练导出 | [training_pairs](../../../data/research/paired_strokes_v1/training_pairs.jsonl) · [schema](../../../data/research/paired_strokes_v1/data_schema.json) |
 | 来源许可与实际使用 | [source_licenses](../../../data/research/paired_strokes_v1/source_licenses.csv) |

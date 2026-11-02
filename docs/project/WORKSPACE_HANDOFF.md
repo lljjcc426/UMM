@@ -2,7 +2,7 @@
 
 ## S0–S1追加交接（2026-11-02）
 
-当前实际分支为`codex/research/new`。用户已直接授权静态图文配对S0–S1，本轮CPU交付见[执行报告](../research/paired_strokes_v1/execution_report_2026-11-02.md)和[协议](../research/paired_strokes_v1/protocol.md)。256字候选配对及评价工具已实现，独立逐笔真值为0，S1完整科学门槛待补；1504条请求未执行模型推理。新模型权重、GPU/MPS调用、训练、远端推送、main及S2–S6没有授权。P0/P1/Batch A状态与历史原文保留。下文为此前整理交接快照。
+当前实际分支为`codex/research/new`。用户已直接授权静态图文配对S0–S1，本轮CPU交付见[执行报告](../research/paired_strokes_v1/execution_report_2026-11-02.md)和[协议](../research/paired_strokes_v1/protocol.md)。256字候选配对及评价工具已实现；后续已收到16字/54笔独立审核，见[接收报告](../research/paired_strokes_v1/human_review_receipt_2026-11-02.md)。E3/E5各16字通过，E4为14字通过、“未”unknown、“一”不适用；D-SMOKE数据侧16对具备资格，240个pilot候选仍待审，无正式保留集。1504条请求未执行模型推理，模型分值保持null。新模型权重、GPU/MPS调用、训练、远端推送、main及S2–S6没有授权。P0/P1/Batch A状态与历史原文保留。下文为此前整理交接快照。
 
 整理日期：2026-11-02。当前分支`exp/p1-process-diagnostic`，整理前HEAD为`a1c2d5fbe3f00d80cf1ad00d8819ea322e05cdad`。本轮保存上一轮未提交的复核材料并更新导航；没有开始新实验。
 

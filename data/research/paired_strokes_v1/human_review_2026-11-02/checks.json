@@ -1,0 +1,32 @@
+{
+  "review_intake": {
+    "passed": true,
+    "details": "intake_record.json",
+    "manual_decisions_checked": 200,
+    "facet_records_checked": 48
+  },
+  "cpu_regression": {
+    "command": ".venv/bin/python -m unittest tests.test_paired_strokes -v",
+    "passed": true,
+    "tests": 22,
+    "log": "cpu_tests.log"
+  },
+  "model_metrics": null,
+  "new_model_calls": 0,
+  "review_form_script_syntax": {
+    "command": "node --check scripts/paired_strokes/check_review_form.cjs",
+    "passed": true,
+    "browser_workflow_repeated": false
+  },
+  "catalog_validation": {
+    "command": ".venv/bin/python scripts/validate_catalog.py",
+    "passed": true,
+    "report": "reports/validation.json",
+    "markdown_files_checked": 1000,
+    "errors": []
+  },
+  "git_diff_check": {
+    "command": "git diff --check",
+    "passed": true
+  }
+}

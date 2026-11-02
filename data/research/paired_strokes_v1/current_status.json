@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-02",
+  "S0": "completed_with_documented_source_limitations",
+  "S1": "independent_audited_development_gold_ready_with_relation_unknown",
+  "independent_reviewers": 1,
+  "reviewed_characters": 16,
+  "reviewed_strokes": 54,
+  "completed_manual_decisions": 200,
+  "records_received": 48,
+  "E3_accepted_characters": 16,
+  "E4_accepted_characters": 14,
+  "E4_unknown_characters": 1,
+  "E4_not_applicable_characters": 1,
+  "E5_accepted_characters": 16,
+  "qualified_D_SMOKE_pairs": 16,
+  "D_SMOKE_status": "data_ready_not_fit_executed",
+  "qualified_D_PILOT": 0,
+  "remaining_unreviewed_pilot_candidates": 240,
+  "formal_holdout_characters": 0,
+  "gold_request_coverage": {
+    "E3": {
+      "requests": 54,
+      "scorable": 54,
+      "by_condition": {
+        "unmarked_image": {
+          "scorable": 54
+        }
+      }
+    },
+    "E4": {
+      "requests": 108,
+      "ambiguous_gold": 18,
+      "scorable": 84,
+      "unqualified_gold": 6,
+      "by_condition": {
+        "repeated_type": {
+          "ambiguous_gold": 14,
+          "scorable": 58,
+          "unqualified_gold": 6
+        },
+        "other_type": {
+          "ambiguous_gold": 4,
+          "scorable": 26
+        }
+      }
+    },
+    "E5": {
+      "requests": 54,
+      "scorable": 54,
+      "by_condition": {
+        "normative_endpoint_displacement": {
+          "scorable": 54
+        }
+      }
+    }
+  },
+  "reviewer_notes": [
+    {
+      "sample_id": "465a1d3fe7badc02",
+      "character": "未",
+      "facet": "E3",
+      "verdict": "accepted",
+      "reviewer_notes": "蓝色第2笔，相对橙色第4笔的中线更长：未知（容差带）；可能是长一点但没有差别不大\n\n"
+    },
+    {
+      "sample_id": "465a1d3fe7badc02",
+      "character": "未",
+      "facet": "E4",
+      "verdict": "unknown",
+      "reviewer_notes": "蓝色第2笔，相对橙色第4笔的中线更长：未知（容差带）；可能是长一点但没有差别不大\n\n"
+    },
+    {
+      "sample_id": "465a1d3fe7badc02",
+      "character": "未",
+      "facet": "E5",
+      "verdict": "accepted",
+      "reviewer_notes": "蓝色第2笔，相对橙色第4笔的中线更长：未知（容差带）；可能是长一点但没有差别不大\n\n"
+    }
+  ],
+  "unknown_policy": "Preserve 未 E4 unknown at whole-character facet scope; no partial promotion or threshold adjustment",
+  "geometry_provenance": "source-derived geometry independently audited for listed development identities/directions; not independently drawn pixel masks",
+  "model_metrics": null,
+  "model_calls": 0,
+  "GPU_MPS_calls": 0,
+  "training": 0,
+  "remote_pushes": 0,
+  "main_changes": 0,
+  "historical_scientific_state_changes": []
+}

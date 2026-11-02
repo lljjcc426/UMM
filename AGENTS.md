@@ -4,7 +4,7 @@
 
 用户直接要求“先执行 S0–S1：数据来源、配对构建、独立笔画级真值和评测器”，授权本轮本地CPU数据与评价工具、既有合法缓存复用、官方来源/许可/模型元信息查证及本地提交。实际分支为`codex/research/new`，起点`cdda20c8`；下文`exp/p1-process-diagnostic`为此前交接快照。本轮没有新GPU/MPS调用、模型权重下载、训练、付费资源、远端推送或main操作授权，不自动启动S2–S6或正式P2。
 
-入口`docs/research/paired_strokes_v1/execution_report_2026-11-02.md`与`protocol.md`；独立登记`data/research/paired_strokes_v1/`。已构建256字/2243笔五类主笔形图文候选、192/24/24开发划分与16字审核区、候选mask/路径/关系、1504条未执行请求和CPU评测器。独立逐笔审核提交为0，E3/E4/E5正式分值须保持null，D-SMOKE/D-PILOT合格数量为0；不能把SVG自动标签、AI预审或旧粗筛升级为独立真值。S1为CPU流程完成、独立真值待补。P0/P1/Batch A历史证据与正式状态不变，附件中P1“人审尚待完成”为旧快照，不重复索取旧审核。
+入口`docs/research/paired_strokes_v1/human_review_receipt_2026-11-02.md`、原`execution_report_2026-11-02.md`与`protocol.md`；独立登记`data/research/paired_strokes_v1/`。已构建256字/2243笔五类主笔形图文候选、192/24/24开发划分与16字审核区、候选mask/路径/关系、1504条未执行请求和CPU评测器。现已收到审核者1的16字/54笔独立审核：200项完整选择、48条记录，E3/E5各16字通过，E4共14字通过，“未”unknown、“一”不适用；保留原话和整字资格规则。可评分标签E3/E5各54项、E4为84项，另18项几何未知及6项审核资格不足。D-SMOKE数据侧合格16对，FIT未执行；其余240字待审、合格D-PILOT为0、正式保留集为0。最新状态见`current_status.json`，原构建/审核包准备记录中的0为历史快照。没有模型预测，E3/E4/E5模型分值仍为null；单人审核不冒充双人一致性或独立手绘mask。不能把SVG自动标签、AI预审或旧粗筛升级为独立真值。P0/P1/Batch A历史证据与正式状态不变，附件中P1“人审尚待完成”为旧快照，不重复索取旧审核。
 
 ## 当前工作区交接（2026-11-02）
 
