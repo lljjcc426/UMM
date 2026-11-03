@@ -52,6 +52,8 @@ jobs:
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
           persist-credentials: false
+      - name: Fetch fixed S2 preparation baseline for frozen input comparison
+        run: git fetch --no-tags --depth=1 origin 7c843c37a7d360b9482dd6104e3795966134450d
       - name: Set up isolated test runtime
         run: |
           python3 -m venv .venv-ci

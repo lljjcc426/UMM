@@ -58,6 +58,8 @@
 
 后续如需补充下载批准，下载与文件落盘应单独办理，运行器仍只读取已完整准备的本地检查点。每个模型使用[冻结环境](../../../configs/research/paired_strokes_v1/s2_models.json)的独立Python环境，不在本机CPU测试环境安装模型依赖。
 
+Git工作区须包含固定基线对象，供入口逐文件对照。浅克隆先执行`git fetch --no-tags --depth=1 origin 7c843c37a7d360b9482dd6104e3795966134450d`；CI已接入此步骤，只获取该固定提交。运行器本身不联网补取基线。首轮CI因浅克隆缺该对象失败，已据此修正工作流。
+
 ```bash
 /approved/model-env/bin/python -m scripts.paired_strokes.s2_runner \
   --model qwen3-vl-4b-instruct \
@@ -107,4 +109,4 @@ E6各负例条件数量不平衡，须同时按条件报告分母；E3/E4/E5按�
 .venv/bin/python scripts/validate_stage_release.py
 ```
 
-本次新增运行器`s2_runner.py`、原生适配`s2_native.py`、监控`s2_watchdog.py`、文件清单`s2_checkpoint_files.json`、两份CPU测试及本报告。修改AGENTS、主README、项目STATUS/WORKSPACE_HANDOFF及本目录README，更新当前入口和授权边界。**没有删除既有文件**；S0–S1数据、全部原审核、冻结S2文件和历史报告均保留。本次交付不产生任何模型能力结论。
+本次新增运行器`s2_runner.py`、原生适配`s2_native.py`、监控`s2_watchdog.py`、文件清单`s2_checkpoint_files.json`、两份CPU测试及本报告。修改AGENTS、主README、项目STATUS/WORKSPACE_HANDOFF及本目录README，更新当前入口和授权边界；修改`validate-research.yml`，为浅克隆获取固定基线。**没有删除既有文件**；S0–S1数据、全部原审核、冻结S2文件和历史报告均保留。本次交付不产生任何模型能力结论。
