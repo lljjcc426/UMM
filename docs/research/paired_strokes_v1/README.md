@@ -1,6 +1,8 @@
 # 汉字笔画图文配对 S0–S1
 
-S0–S1已完成当前256字/2243笔开发范围。[审核接收](batch_01_review_receipt_2026-11-03.md)已纳入用户对剩余220字的审核确认，沿用原记录格式；D-SMOKE16对、D-PILOT240对（192/24/24），剩余审核任务0。E3/E5各256字通过，E4为247通过/7未知/2不适用，原未知项保留。
+最新：[S2 CPU准备及真值资格审核报告](s2_preparation_audit_2026-11-03.md)。S0–S1工程交付获初步认可，现有256字/2243笔和开发划分保留。36字/130笔具逐项审核记录；220字概括确认用于开发配对接受，E3/E4/E5不自动取得独立真值资格。当前E3/E5各36字通过，E4为27通过/7未知/2不适用。
+
+S2每模型36条请求、四模型最多144次，覆盖规范笔数/序列、实例、六种空间关系、方向、配对及视觉正控；尚无实际模型调用。D-SMOKE16对、D-PILOT240对（192/24/24）配对数据保留，正式保留集为0。
 
 [CPU补齐报告](s0_s1_completion_2026-11-02.md)记录2232条完整离线请求。原[执行报告](execution_report_2026-11-02.md)和[协议](protocol.md)保留构建定义；当前仍无正式保留集或模型得分。
 
@@ -8,6 +10,7 @@ S0–S1已完成当前256字/2243笔开发范围。[审核接收](batch_01_revie
 
 | 产物 | 入口 |
 |---|---|
+| S2接口核验、少量请求与逐模型GPU申请 | [模型配置](../../../configs/research/paired_strokes_v1/s2_models.json) · [准备登记](../../../data/research/paired_strokes_v1/s2_preflight_v1/preparation.json) |
 | CPU验收、完整评测套件、240字审核批次 | [验收登记](../../../data/research/paired_strokes_v1/s1_completion_2026-11-02/acceptance.json) · [套件](../../../data/research/paired_strokes_v1/complete_suite_v1/preparation.json) · [批次](../../../data/research/paired_strokes_v1/s1_completion_2026-11-02/review_batches.json) |
 | 已归档审核、当前资格与16对D-SMOKE | [实际审核](../../../data/research/paired_strokes_v1/evaluation_only/reviews.jsonl) · [最新状态](../../../data/research/paired_strokes_v1/current_status.json) · [16对导出](../../../data/research/paired_strokes_v1/smoke_pairs_reviewed.jsonl) |
 | 256字图文候选、来源、规范及分组 | [manifest](../../../data/research/paired_strokes_v1/manifest.jsonl) |

@@ -9,7 +9,7 @@ from PIL import Image
 from scripts.paired_strokes.data import (description, parse_norm, read_jsonl,
                                          training_view, validate_manifest)
 from scripts.paired_strokes.evaluate import evaluate, grouped_interval, parse_prediction, sequence_metrics
-from scripts.paired_strokes.gold import direction, qualify, spatial_relations
+from scripts.paired_strokes.gold import direction, qualify, review_keys, spatial_relations
 from scripts.paired_strokes.intake import validate_payload
 
 ROOT = Path(__file__).resolve().parents[1] / 'data/research/paired_strokes_v1'
@@ -127,7 +127,8 @@ class PairedStrokeTest(unittest.TestCase):
         review = {'sample_id': item['id'], 'facet': 'E3', 'gold_revision': item['gold_revision'],
                   'verdict': 'accepted', 'reviewer_kind': 'AI', 'reviewer_id': 'synthetic_fixture',
                   'independent_of_label_construction': True, 'norm_reference': item['norm_reference'],
-                  'stroke_ids': item['stroke_ids'], 'evidence': 'unit-test-only'}
+                  'stroke_ids': item['stroke_ids'], 'evidence': 'unit-test-only',
+                  'item_decisions': {k: 'accepted' for k in review_keys(item, 'E3')}}
         self.assertFalse(qualify(item, [review], 'E3'))
         review['reviewer_kind'] = 'human'
         self.assertTrue(qualify(item, [review], 'E3'))
@@ -145,9 +146,54 @@ class PairedStrokeTest(unittest.TestCase):
         review = {'sample_id': item['id'], 'facet': 'E3', 'gold_revision': item['gold_revision'],
                   'verdict': 'accepted', 'reviewer_kind': 'human', 'reviewer_id': 'unit-test-fictional',
                   'independent_of_label_construction': True, 'norm_reference': item['norm_reference'],
-                  'stroke_ids': item['stroke_ids'], 'evidence': 'unit-test fixture, never saved as real review'}
+                  'stroke_ids': item['stroke_ids'], 'evidence': 'unit-test fixture, never saved as real review',
+                  'item_decisions': {k: 'accepted' for k in review_keys(item, 'E3')}}
         metrics = self.score([request], [{'id': request['id'], 'output': {'point': point}}], [review])['metrics']
         self.assertEqual(metrics['E3']['accuracy'], 1)
+
+    def test_summary_confirmation_never_qualifies_geometry(self):
+        reviews = read_jsonl(ROOT / 'evaluation_only/reviews.jsonl')
+        summaries = [r for r in reviews if not r['item_decisions']]
+        self.assertTrue(summaries)
+        for review in summaries:
+            item = self.geometry[review['sample_id']]
+            self.assertEqual(qualify(item, [review], review['facet']), review['facet'] == 'PAIR')
+
+    def test_geometry_requires_complete_accepted_facet_choices(self):
+        item = next(g for g in self.geometry.values() if len(g['stroke_ids']) > 1)
+        base = {'sample_id': item['id'], 'gold_revision': item['gold_revision'],
+                'verdict': 'accepted', 'reviewer_kind': 'human', 'reviewer_id': 'unit-test-only',
+                'independent_of_label_construction': True, 'norm_reference': item['norm_reference'],
+                'stroke_ids': item['stroke_ids'], 'evidence': 'unit-test-only'}
+        for facet in ('E3', 'E4', 'E5'):
+            keys = review_keys(item, facet)
+            record = {**base, 'facet': facet, 'item_decisions': {k: 'accepted' for k in keys}}
+            self.assertTrue(qualify(item, [record], facet))
+            record['item_decisions'].pop(keys[-1])
+            self.assertFalse(qualify(item, [record], facet))
+            record['item_decisions'][keys[-1]] = 'unknown'
+            self.assertFalse(qualify(item, [record], facet))
+
+    def test_summary_outputs_are_excluded_from_formal_denominators(self):
+        requests, reviews, predictions = [], [], []
+        for metric in ('E3', 'E4', 'E5'):
+            req = next(r for r in self.requests if r['metric'] == metric)
+            item = self.geometry[req['sample_id']]
+            requests.append(req)
+            reviews.append({'sample_id': item['id'], 'gold_revision': item['gold_revision'],
+                            'facet': metric, 'verdict': 'accepted', 'reviewer_kind': 'human',
+                            'reviewer_id': 'unit-test-only', 'independent_of_label_construction': True,
+                            'norm_reference': item['norm_reference'], 'stroke_ids': item['stroke_ids'],
+                            'evidence': 'unit-test summary only', 'item_decisions': {}})
+            output = {'point': [.5, .5]} if metric == 'E3' else {'answer': True} if metric == 'E4' else {'direction': 'right'}
+            predictions.append({'id': req['id'], 'output': output})
+        result = self.score(requests, predictions, reviews)
+        for metric in ('E3', 'E4', 'E5'):
+            report = result['metrics'][metric]
+            self.assertEqual(report['eligible'], 0)
+            self.assertIsNone(report['accuracy'])
+            self.assertEqual(report['statuses'], {'unqualified_gold': 1})
+            self.assertEqual(report['output_statuses'], {'valid': 1})
 
     def test_source_masks_match_actual_input_pixels(self):
         for row in self.rows[::32]:

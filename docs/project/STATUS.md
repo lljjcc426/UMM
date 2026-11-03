@@ -2,11 +2,11 @@
 
 更新：2026-11-03。当前工作分支：`codex/research/new`。入口：[S0–S1](../research/paired_strokes_v1/README.md)、[工作区交接](WORKSPACE_HANDOFF.md)。
 
-## 静态图文配对 S0–S1
+## S0–S1工程交付与S2准备
 
-当前256字/2243笔开发范围已完成来源核查、配对构建、审核接收及CPU评测器。D-SMOKE16对、D-PILOT240对（192/24/24），剩余审核任务0；原7字关系未知和2字不适用保留。完整离线套件2232条，尚无模型结果或正式保留集。见[审核接收](../research/paired_strokes_v1/batch_01_review_receipt_2026-11-03.md)和[验收登记](../../data/research/paired_strokes_v1/s1_completion_2026-11-02/acceptance.json)。
+S0–S1工程交付获初步认可，256字/2243笔配对保留。真值资格已修正：36字/130笔有实际逐项记录，220字概括确认仅接受开发配对；E3/E5各36字通过，E4为27通过/7未知/2不适用。原1008条审核和未知项均保留，D-SMOKE16对、D-PILOT240对（192/24/24）配对导出不变。
 
-用户已要求GitHub跟进，本轮推送成果并准备草稿PR；基线为`exp/p1-process-diagnostic`。下文保留此前实验状态。
+S2 CPU准备完成：四模型官方检查点/接口静态核验，每模型36个固定请求、四模型最多144次及逐模型GPU申请。未下载新权重、执行模型或训练；无正式保留集。见[S2审核报告](../research/paired_strokes_v1/s2_preparation_audit_2026-11-03.md)。PR #5保持草稿可审查，实际GPU执行和main合并未授权。下文保留此前实验状态。
 
 ## Batch A执行与科学复核
 
@@ -33,6 +33,6 @@
 
 ## 下一项实验
 
-S0–S1已交付。后续S2–S6、Batch B/C、新GPU/MPS调用、训练及main合并仍需新的执行授权。
+S2当前限CPU准备。实际模型评测、后续S3–S6、Batch B/C、新GPU/MPS调用、训练及main合并仍需新的执行授权。
 
 当前目录说明、私有证据路径及下一任务须继承的限制见[WORKSPACE_HANDOFF.md](WORKSPACE_HANDOFF.md)。整理前的完整STATUS原文保存在[历史导航快照](../../archive/workspace_navigation_2026-11-02/STATUS.md.txt)。本页为导航更新，不改写阶段发布文件或旧实验登记。

@@ -7,7 +7,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from .data import digest, read_jsonl, training_view, write_json, write_jsonl
-from .gold import qualify
+from .gold import qualify, review_keys
 
 
 def review_rows(dataset, revision):
@@ -42,7 +42,7 @@ def validate_payload(payload, rows, geometry, include_pair=False):
             if value:
                 completed += 1
                 choices[value] += 1
-        facets = {'E3': identities, 'E4': identities + pairs, 'E5': identities + directions}
+        facets = {facet: review_keys(item, facet) for facet in ('E3', 'E4', 'E5')}
         if include_pair:
             facets = {'PAIR': sequence, **facets}
         for facet, keys in facets.items():
@@ -102,7 +102,10 @@ def refresh(dataset):
         coverage[metric] = {'requests': sum(counts.values()), **counts,
                             'by_condition': {k: dict(v) for k, v in by_condition.items()}}
     accepted = {m: sum(qualify(g, reviews, m) for g in geometry.values()) for m in ('E3', 'E4', 'E5')}
-    completed_facets = {(r['sample_id'], r['facet']) for r in reviews}
+    itemwise = [r for r in reviews if all(k in r.get('item_decisions', {})
+                                        for k in review_keys(geometry[r['sample_id']], r['facet']))]
+    summaries = [r for r in reviews if r not in itemwise]
+    completed_facets = {(r['sample_id'], r['facet']) for r in itemwise}
     pilot_ids = {r['id'] for r in rows if r['split'] != 'audit_development'}
     pilot_pair_reviewed = sum((sid, 'PAIR') in completed_facets or (sid, 'E3') in completed_facets for sid in pilot_ids)
     pilot_spatial_reviewed = sum(all((sid, f) in completed_facets for f in ('E3', 'E4', 'E5')) for sid in pilot_ids)
@@ -118,8 +121,13 @@ def refresh(dataset):
                   E3_accepted_characters=accepted['E3'], E4_accepted_characters=accepted['E4'], E5_accepted_characters=accepted['E5'],
                   E4_unknown_characters=len(e4_unknown), E4_not_applicable_characters=len(e4_na),
                   qualified_D_SMOKE_pairs=len(smoke), qualified_D_PILOT=len(pilot),
-                  remaining_unreviewed_pilot_candidates=len(pilot_ids) - pilot_pair_reviewed,
+                  remaining_unreviewed_pilot_candidates=len(pilot_ids) - len(pilot),
                   gold_request_coverage=coverage, model_metrics=None)
+    status['review_evidence'] = {
+        'itemwise_records': len(itemwise), 'itemwise_characters': len({r['sample_id'] for r in itemwise}),
+        'summary_records': len(summaries), 'summary_characters': len({r['sample_id'] for r in summaries}),
+        'summary_scope': 'development_pair_acceptance_only_not_E3_E4_E5_gold'}
+    status['gold_qualification_rule'] = 'itemwise-facet-v2'
     characters = {r['id']: r['character'] for r in rows}
     latest_review = max((r['annotated_at'] for r in reviews), default=None)
     if latest_review:
@@ -129,8 +137,7 @@ def refresh(dataset):
                               | {'character': characters[r['sample_id']]} for r in reviews if r.get('reviewer_notes')]
     status['CPU_deliverables'] = 'complete_with_PRE01_to_PRE07_controls_and_strata'
     status['unknown_policy'] = 'Preserve E4 unknown at whole-character facet scope; single-stroke E4 is not applicable; no partial promotion or threshold adjustment'
-    status['S1'] = ('cpu_complete_pilot_independent_review_pending' if pilot_pair_reviewed < len(pilot_ids)
-                    else 'pilot_pairs_audited_additional_spatial_review_pending' if pilot_spatial_reviewed < len(pilot_ids)
+    status['S1'] = ('engineering_complete_with_limited_independent_gold' if pilot_spatial_reviewed < len(pilot_ids)
                     else 'complete_with_documented_gold_limitations')
     status['paired_characters_audited'] = len(paired)
     status['pilot_characters_with_completed_spatial_review'] = pilot_spatial_reviewed
@@ -145,10 +152,10 @@ def refresh(dataset):
     write_json(dataset / 's1_completion_2026-11-02/acceptance.json', {
         'S0': status['S0'], 'S1_CPU_deliverables': 'complete',
         'S1_all_selected_candidate_audits_complete': pilot_pair_reviewed == len(pilot_ids) == pilot_spatial_reviewed,
-        'overall': 'complete_with_documented_gold_limitations' if pilot_pair_reviewed == len(pilot_ids) == pilot_spatial_reviewed
-                   else 'CPU_complete_independent_pilot_audits_pending',
+        'overall': status['S1'], 'engineering_delivery_complete': True,
+        'review_evidence': status['review_evidence'], 'gold_qualification_rule': status['gold_qualification_rule'],
         'selected_pairs': len(rows), 'qualified_D_SMOKE': len(smoke), 'qualified_D_PILOT': len(pilot),
-        'pilot_pair_reviews_remaining': len(pilot_ids) - pilot_pair_reviewed,
+        'pilot_pair_reviews_remaining': len(pilot_ids) - len(pilot),
         'pilot_spatial_reviews_remaining': len(pilot_ids) - pilot_spatial_reviewed,
         'unknown_and_disputed_policy': 'Completed review is distinct from accepted gold; never force a positive verdict',
         'gold_request_coverage': coverage, 'model_metrics': None,

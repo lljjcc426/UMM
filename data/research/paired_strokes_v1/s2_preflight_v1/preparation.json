@@ -1,0 +1,38 @@
+{
+  "version": "s2-preflight-v1",
+  "date": "2026-11-03",
+  "status": "prepared_not_executed",
+  "characters": [
+    "士",
+    "木",
+    "口",
+    "永"
+  ],
+  "requests_per_model": 36,
+  "four_model_maximum_calls": 144,
+  "actual_calls": 0,
+  "by_metric": {
+    "VPC": 4,
+    "E8": 4,
+    "E2": 8,
+    "E3": 4,
+    "E5": 4,
+    "E4": 8,
+    "E6": 4
+  },
+  "by_permission": {
+    "health_only": 8,
+    "main": 24,
+    "text_only": 4
+  },
+  "E1": "derived from E2 sequence length, unchanged frozen definition",
+  "visual_positive_control_gate": "first four requests; same prompt within each image pair; require 4/4",
+  "models": "../../../../configs/research/paired_strokes_v1/s2_models.json",
+  "formal_holdout_characters": 0,
+  "all_hanzi_split": "audit_development; existing splits unchanged",
+  "scope": "development pre-training preflight; no final generalization or model-capability claim",
+  "maximum_total_GPU_hours_if_all_four_later_authorized": 4,
+  "GPU_MPS_calls": 0,
+  "weights_downloaded": false,
+  "training": 0
+}

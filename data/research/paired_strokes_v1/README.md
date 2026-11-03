@@ -1,9 +1,12 @@
 # paired-strokes-v1 开发数据
 
-256字、2243笔、1504条原主请求，完整套件2232条。最新状态见`current_status.json`，初始构建快照见`build_record.json`；定义见[协议](../../../docs/research/paired_strokes_v1/protocol.md)。2026-11-03已接收用户对剩余220字的审核确认，累计256字/2243笔、1008条审核记录；E3/E5各256字通过，E4为247通过/7未知/2不适用。D-SMOKE16对、D-PILOT240对，剩余审核任务0。全部仍属开发数据，无正式保留集。
+256字、2243笔、1504条原主请求，完整套件2232条。最新状态见`current_status.json`，初始构建快照见`build_record.json`；定义见[协议](../../../docs/research/paired_strokes_v1/protocol.md)。当前工程交付保留初步审核认可。实际逐项审核为36字/130笔、128条记录；另880条记录来自220字概括确认，仅用于开发配对接受。E3/E5各36字通过，E4为27通过/7未知/2不适用。D-SMOKE16对、D-PILOT240对的配对导出保留，正式保留集为0。
+
+S2准备和资格修正见[审核报告](../../../docs/research/paired_strokes_v1/s2_preparation_audit_2026-11-03.md)，真实模型调用为0。
 
 | 文件/目录 | 内容与读取权限 |
 |---|---|
+| `s2_preflight_v1/` | 每模型36条冻结训练前请求、独立标签、4张视觉正控图、逐模型GPU申请与CPU检查；尚未执行 |
 | `complete_suite_v1/` | 2232条完整离线请求与标签、PRE-01至PRE-07、72张oracle高亮图和分层；额外权限单列，主表仍只用原1504条 |
 | `s1_completion_2026-11-02/` | CPU与人审分别验收、240字分批登记、208项CPU/浏览器/接收检查、未执行资源提案 |
 | `current_status.json`、`human_review_2026-11-02/` | 当前人审数量、原件来源、未知项和按指标资格叠加登记，不批量升级原构建快照 |
@@ -21,7 +24,7 @@
 | `evaluation_only/geometry.jsonl`、`evaluation_only/masks/` | 构建时的mask/路径/关系候选及版本；后续逐指标资格另读审核记录，不改写来源快照 |
 | `evaluation_only/normative_extracts.jsonl` | 规范数字编码与页码事实，独立于SVG提取 |
 | `evaluation_only/sequence_collisions.jsonl` | 同序列异字碰撞；去尾字兼容，不能标成负例 |
-| `evaluation_only/reviews.jsonl` | 审核者1的1008条记录：999条accepted、9条unknown（含2条不适用）；原128条保留，另880条来自用户在本聊天的审核确认，原表单500项选择不变 |
+| `evaluation_only/reviews.jsonl` | 审核者1的1008条记录：999条accepted、9条unknown（含2条不适用）；原128条保留，另880条来自用户在本聊天的审核确认，概括确认不授予E3/E4/E5资格；原表单500项选择不变 |
 | `evaluation_only/review_template.jsonl`、`review_schema.json` | 48条待填审核记录及正式审核字段要求；待填记录不算提交 |
 | `source_rejections.jsonl` | 逐字排除/冲突原因，保留全来源分母 |
 | `build_record.json`、`scope_record.json`、`verification.json`、`*.log` | 构建、授权范围、实际验证与失败说明 |

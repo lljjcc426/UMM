@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "independent per-facet audit",
+  "title": "human review records; metric eligibility checked separately",
   "type": "object",
   "required": [
     "sample_id",
@@ -60,7 +60,14 @@
     "evidence": {
       "type": "string",
       "minLength": 1
+    },
+    "item_decisions": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": ["accepted", "disputed", "unknown"]
+      },
+      "description": "Actual manual choices only. Empty summary confirmations are retained but cannot qualify E3/E4/E5."
     }
   },
-  "$comment": "PAIR audits the glyph and normative five-class description only; it never qualifies instance/direction metrics. The pending review template is deliberately not a valid accepted review. Reviews must describe actual independent work; no generated records count as submissions."
+  "$comment": "PAIR accepts development glyph/description pairs only. E3/E4/E5 eligibility additionally requires every facet-specific item_decisions key to be accepted, checked by gold.qualify. Original summary records remain archived without gold eligibility. The pending template is not an accepted review."
 }
