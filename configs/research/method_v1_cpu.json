@@ -1,0 +1,58 @@
+{
+  "id": "method_v1_cpu_integration",
+  "status": "CPU_interface_checked_not_trained",
+  "integration_base": "713ab5b01dfb1cbcea93761d07218a261b9e12e7",
+  "frozen_S2_baseline": "7c843c37a7d360b9482dd6104e3795966134450d",
+  "dataset": {
+    "root": "data/research/paired_strokes_v1",
+    "train_export": "training_pairs.jsonl",
+    "train": 192,
+    "validation_development": 24,
+    "test_development": 24,
+    "audit_development": 16,
+    "formal_holdout": 0,
+    "model_input": "original RGB only; no SVG, stroke masks, geometry, character ID or gold description",
+    "target": "unchanged full five-class ordered description including terminal character",
+    "strong_gold": {"E3": 36, "E4": 27, "E5": 36}
+  },
+  "CPU_contract": {
+    "model": "TinyPairedStrokeModel, random CPU interface only",
+    "torch": "2.8.0",
+    "input_size": [256, 256],
+    "patch_size": 16,
+    "patch_coordinates": "2D normalized x/y from image grid, no target geometry",
+    "width": 32,
+    "heads": 4,
+    "batch_size": 8,
+    "gradient_batches_per_mode": 1,
+    "optimizer_steps": 0,
+    "pretrained_weights": false,
+    "character_output_implemented": false,
+    "program_neural_decoder_implemented": false,
+    "coarse_token_ids": {"PAD": 0, "horizontal": 1, "vertical": 2, "left_falling": 3, "dot": 4, "turn": 5, "MASK": 6, "BOS": 7, "EOS": 8}
+  },
+  "method_order": [
+    {"id": "M0", "role": "frozen pretrained Image-to-Description; execution after separate S2 authorization"},
+    {"id": "M1", "mode": "sft", "objective": "ordinary Image-to-full-Description SFT", "priority": "first actual training baseline"},
+    {"id": "M2", "mode": "global", "objective": "M1 plus symmetric global image/text InfoNCE"},
+    {"id": "M3", "mode": "cross", "objective": "M2 with causal text-to-visual cross-attention"},
+    {"id": "M4", "mode": "ordered", "objective": "M3 plus ordered query slots; slots are not independently qualified stroke instances"}
+  ],
+  "actual_training": {
+    "status": "proposal_only_not_authorized",
+    "backbone": null,
+    "selection": "after real S2 controls, understanding results and measured single-device training feasibility",
+    "required_common_controls": ["same fixed pretrained checkpoint", "native tokenizer and EOS", "same RGB and full descriptions", "same development partitions", "same image resolution and token budget", "frozen optimizer, seeds and updates", "explicit trained/frozen parameter groups and compute costs"],
+    "not_implemented_claims": ["a strong pretrained SFT baseline", "full bidirectional fusion", "masked visual reconstruction", "independent instance alignment", "model program generation"]
+  },
+  "program_transfer": {
+    "renderer": "scripts.p0.geometry.stroke_geometry + hanzi_video.render.mask_frames/render_masks_video",
+    "G0": "source/template oracle executor control; no model ability claim",
+    "G1": "separately disclosed unordered geometry assistance; do not mix with G2",
+    "G2": "raw model program from RGB only, before/after training under identical inputs; no reference SVG, target description or gold correction",
+    "failure_accounting": "one original output per fixed slot; parse, render, decode failures and unavailable gold retained",
+    "evaluation": "actual decoded RGB; renderer-enforced temporal execution is not evidence of normative model order",
+    "generalization": "new independent character/font/backbone experiments require separate frozen splits, data permission and qualified labels"
+  },
+  "permissions": {"GPU_MPS": false, "download_weights": false, "training": false, "merge_main": false}
+}

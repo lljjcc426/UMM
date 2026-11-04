@@ -1,5 +1,11 @@
 # 科研分支治理与阶段合并标准
 
+## 当前S0–S1 GitHub跟进（2026-11-03）
+
+用户已要求“github跟进”。推送`codex/research/new`，以本轮起点`exp/p1-process-diagnostic`建立草稿PR，保留连续历史并明确本轮差异；更新相关Issue。此项不包含main合并或下一阶段执行。下文为此前分支与授权快照。
+
+后续已授权S2的CPU代码与实验准备，真值资格修正及报告继续在PR #5审核；见[S2审核报告](../research/paired_strokes_v1/s2_preparation_audit_2026-11-03.md)。新权重下载、GPU推理、训练及main合并仍未授权。
+
 ## 最新交接与本地整理（2026-11-02）
 
 工作分支仍为`exp/p1-process-diagnostic`；Batch A运行及追加科学复核分别保存，不把工程完成记为能力通过。当前导航与下一任务边界见[WORKSPACE_HANDOFF](WORKSPACE_HANDOFF.md)。本轮保存复核材料、整理入口并做本地提交；未创建下一实验分支，未修改或同步main、其他分支及工作树。原未推送P1结项和工程提交继续保留在连续历史。

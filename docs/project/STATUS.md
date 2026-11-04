@@ -1,6 +1,14 @@
 # 当前状态
 
-更新：2026-11-02。当前工作分支：`exp/p1-process-diagnostic`。入口：[工作区交接](WORKSPACE_HANDOFF.md)、[当前研究导航](../research/next/README.md)。
+更新：2026-11-04。当前工作分支：`codex/research/new`。入口：[S0–S1](../research/paired_strokes_v1/README.md)、[工作区交接](WORKSPACE_HANDOFF.md)。
+
+CPU图文方法已接入真实192字/1752笔，原SVG重建192/192一致，四种随机CPU模块各处理192图并验证首批梯度，参数更新0。共享渲染器的3段程序视频均可解码，无模型生成。全库255项（基础环境250通过/5可选torch跳过），独立CPU方法20项全部通过。见[本轮接入报告](../research/paired_strokes_v1/method_cpu_integration_2026-11-04.md)。下一步独立授权后执行S2，之后才选择实际可训练底座做普通SFT及方法对照，再验证同信息条件下程序迁移。尚未执行真实模型、下载权重、训练或合并main。
+
+## S0–S1工程交付与S2准备
+
+S0–S1工程交付获初步认可，256字/2243笔配对保留。真值资格已修正：36字/130笔有实际逐项记录，220字概括确认仅接受开发配对；E3/E5各36字通过，E4为27通过/7未知/2不适用。原1008条审核和未知项均保留，D-SMOKE16对、D-PILOT240对（192/24/24）配对导出不变。
+
+S2基线`7c843c37`已获审核通过。原生运行器、离线加载审计、4正控放行及资源watchdog实现完成，全库235项CPU测试通过。每模型36条队列和四份GPU申请保留，最多144次未执行；扩大覆盖1740槽/模型仅为提案。未下载新权重、执行模型或训练，无正式保留集。见[运行器CPU审核报告](../research/paired_strokes_v1/s2_runner_preparation_2026-11-03.md)和[原准备审核](../research/paired_strokes_v1/s2_preparation_audit_2026-11-03.md)。PR #5保持草稿，实际GPU执行和main合并未授权。下文保留此前实验状态。
 
 ## Batch A执行与科学复核
 
@@ -27,6 +35,6 @@
 
 ## 下一项实验
 
-当前仅完成仓库整理与本地保存，尚未启动新实验。新任务的目标、模型/数据、精确请求或训练配方、资源、验收和分支由下一次明确授权确定。Batch B/C、额外GPU/MPS调用、远端推送和main合并仍未授权。
+S2当前限CPU准备。实际模型评测、后续S3–S6、Batch B/C、新GPU/MPS调用、训练及main合并仍需新的执行授权。
 
 当前目录说明、私有证据路径及下一任务须继承的限制见[WORKSPACE_HANDOFF.md](WORKSPACE_HANDOFF.md)。整理前的完整STATUS原文保存在[历史导航快照](../../archive/workspace_navigation_2026-11-02/STATUS.md.txt)。本页为导航更新，不改写阶段发布文件或旧实验登记。

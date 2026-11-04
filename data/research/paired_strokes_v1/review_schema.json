@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "human review records; metric eligibility checked separately",
+  "type": "object",
+  "required": [
+    "sample_id",
+    "gold_revision",
+    "facet",
+    "reviewer_id",
+    "reviewer_kind",
+    "independent_of_label_construction",
+    "norm_reference",
+    "stroke_ids",
+    "verdict",
+    "evidence"
+  ],
+  "properties": {
+    "sample_id": {
+      "type": "string"
+    },
+    "gold_revision": {
+      "type": "string"
+    },
+    "facet": {
+      "enum": [
+        "PAIR",
+        "E3",
+        "E4",
+        "E5"
+      ]
+    },
+    "reviewer_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewer_kind": {
+      "const": "human"
+    },
+    "independent_of_label_construction": {
+      "const": true
+    },
+    "norm_reference": {
+      "type": "object"
+    },
+    "stroke_ids": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "uniqueItems": true
+    },
+    "verdict": {
+      "enum": [
+        "accepted",
+        "disputed",
+        "unknown"
+      ]
+    },
+    "evidence": {
+      "type": "string",
+      "minLength": 1
+    },
+    "item_decisions": {
+      "type": "object",
+      "additionalProperties": {
+        "enum": ["accepted", "disputed", "unknown"]
+      },
+      "description": "Actual manual choices only. Empty summary confirmations are retained but cannot qualify E3/E4/E5."
+    }
+  },
+  "$comment": "PAIR accepts development glyph/description pairs only. E3/E4/E5 eligibility additionally requires every facet-specific item_decisions key to be accepted, checked by gold.qualify. Original summary records remain archived without gold eligibility. The pending template is not an accepted review."
+}

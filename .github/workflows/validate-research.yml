@@ -20,6 +20,7 @@ on:
       - 'scripts/**'
       - 'tests/**'
       - 'hanzi_video/**'
+      - 'method_v1/**'
       - 'requirements.txt'
       - '.github/**'
   pull_request:
@@ -36,6 +37,7 @@ on:
       - 'scripts/**'
       - 'tests/**'
       - 'hanzi_video/**'
+      - 'method_v1/**'
       - 'requirements.txt'
       - '.github/**'
   workflow_dispatch:
@@ -52,6 +54,8 @@ jobs:
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
           persist-credentials: false
+      - name: Fetch fixed S2 preparation baseline for frozen input comparison
+        run: git fetch --no-tags --depth=1 origin 7c843c37a7d360b9482dd6104e3795966134450d
       - name: Set up isolated test runtime
         run: |
           python3 -m venv .venv-ci
@@ -66,15 +70,37 @@ jobs:
       - name: Run full regression tests
         run: .venv-ci/bin/python -m unittest discover -s tests -v
 
+  method-cpu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CUDA_VISIBLE_DEVICES: ''
+    steps:
+      - name: Checkout pinned action
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - name: Use Python 3.12 for the isolated CPU interface runtime
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Install CPU runtime libraries, without model weights
+        run: |
+          python -m venv .venv-method
+          .venv-method/bin/python -m pip install --disable-pip-version-check -r requirements.txt
+          .venv-method/bin/python -m pip install --disable-pip-version-check --index-url https://download.pytorch.org/whl/cpu -r method_v1/requirements-cpu.txt
+      - name: Check real data, gradients and shared program rendering on CPU
+        run: .venv-method/bin/python -m unittest tests.test_method_v1 tests.test_method_integration -v
+
   # Draft review checks evidence; non-draft research PRs also require approval.
   validate:
-    needs: engineering
+    needs: [engineering, method-cpu]
     if: ${{ always() }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - name: Require engineering checks to pass
-        if: needs.engineering.result != 'success'
+      - name: Require engineering and CPU method checks to pass
+        if: needs.engineering.result != 'success' || needs.method-cpu.result != 'success'
         run: exit 1
       - name: Checkout pinned action
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09

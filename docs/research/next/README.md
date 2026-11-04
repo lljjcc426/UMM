@@ -1,5 +1,7 @@
 # 当前研究入口：理解—生成诊断
 
+2026-11-02新增任务：[静态图文配对S0–S1](../paired_strokes_v1/README.md)已完成CPU候选配对与评价工具，并已[归档16字/54笔独立审核](../paired_strokes_v1/human_review_receipt_2026-11-02.md)；“未”的关系保持unknown，其余240字仍待审。实际工作分支为`codex/research/new`；S2–S6未执行、未授权。下表继续保存此前Batch A诊断入口。
+
 更新：2026-11-02。当前分支`exp/p1-process-diagnostic`。先读[工作区交接](../../project/WORKSPACE_HANDOFF.md)，再读下表。本目录按批次保存计划、执行及复核，准备时的未执行状态不能覆盖后续真实运行。
 
 | 顺序 | 材料 | 用途 |

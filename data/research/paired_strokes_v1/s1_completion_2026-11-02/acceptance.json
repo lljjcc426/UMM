@@ -1,0 +1,67 @@
+{
+  "S0": "completed_with_documented_source_limitations",
+  "S1_CPU_deliverables": "complete",
+  "S1_all_selected_candidate_audits_complete": false,
+  "overall": "engineering_complete_with_limited_independent_gold",
+  "engineering_delivery_complete": true,
+  "review_evidence": {
+    "itemwise_records": 128,
+    "itemwise_characters": 36,
+    "summary_records": 880,
+    "summary_characters": 220,
+    "summary_scope": "development_pair_acceptance_only_not_E3_E4_E5_gold"
+  },
+  "gold_qualification_rule": "itemwise-facet-v2",
+  "selected_pairs": 256,
+  "qualified_D_SMOKE": 16,
+  "qualified_D_PILOT": 240,
+  "pilot_pair_reviews_remaining": 0,
+  "pilot_spatial_reviews_remaining": 220,
+  "unknown_and_disputed_policy": "Completed review is distinct from accepted gold; never force a positive verdict",
+  "gold_request_coverage": {
+    "E3": {
+      "requests": 54,
+      "scorable": 54,
+      "by_condition": {
+        "unmarked_image": {
+          "scorable": 54
+        }
+      }
+    },
+    "E4": {
+      "requests": 108,
+      "ambiguous_gold": 18,
+      "scorable": 84,
+      "unqualified_gold": 6,
+      "by_condition": {
+        "repeated_type": {
+          "ambiguous_gold": 14,
+          "scorable": 58,
+          "unqualified_gold": 6
+        },
+        "other_type": {
+          "ambiguous_gold": 4,
+          "scorable": 26
+        }
+      }
+    },
+    "E5": {
+      "requests": 54,
+      "scorable": 54,
+      "by_condition": {
+        "normative_endpoint_displacement": {
+          "scorable": 54
+        }
+      }
+    }
+  },
+  "model_metrics": null,
+  "not_required_to_finish_S0_S1": [
+    "S2 model inference",
+    "S3 FIT",
+    "S4 D-MAIN and training",
+    "new independent fonts when unavailable"
+  ],
+  "checks": "checks.json",
+  "review_batches": "review_batches.json"
+}

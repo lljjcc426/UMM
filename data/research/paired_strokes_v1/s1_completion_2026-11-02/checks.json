@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "cpu_tests": {
+    "command": ".venv/bin/python -m unittest discover -v",
+    "count": 208,
+    "passed": true,
+    "log": "cpu_tests.log"
+  },
+  "browser_workflow": {
+    "passed": true,
+    "record": "browser_check.json"
+  },
+  "browser_export_intake": {
+    "passed": true,
+    "record": "intake_browser_check.json",
+    "check_only": true
+  },
+  "visual_review": {
+    "review_page": "private/paired_strokes_v1_2026-11-02/completion_ui_check/pilot_review.png",
+    "reference_physical_pages": [
+      10,
+      311
+    ],
+    "passed": true,
+    "counts_as_human_gold": false
+  },
+  "real_independent_records": 48,
+  "new_human_submissions_created": 0,
+  "model_metrics": null,
+  "original_review_compatibility": {
+    "passed": true,
+    "record": "original_review_compatibility.json",
+    "check_only": true
+  },
+  "catalog": {
+    "passed": true,
+    "markdown_files_checked": 1001,
+    "report": "reports/validation.json"
+  },
+  "research_v1": {
+    "passed": true,
+    "record": "research_v1_check.json"
+  },
+  "research_v2": {
+    "passed": true,
+    "record": "research_v2_check.json"
+  },
+  "stage_development_gate": {
+    "passed": true,
+    "record": "stage_development_check.json",
+    "scientific_merge_authorized": false
+  },
+  "git_diff_check": {
+    "passed": true
+  },
+  "final_paired_regression": {
+    "passed": true,
+    "tests": 26,
+    "log": "final_paired_tests.log",
+    "reason": "after evaluation-only label/media isolation and status refresh changes"
+  }
+}

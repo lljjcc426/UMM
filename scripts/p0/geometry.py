@@ -46,24 +46,28 @@ def flatten_path(path):
 def transform(points, size):
     points = np.asarray(points, dtype=float).copy()
     points[:, 1] = 900-points[:, 1]
-    return 10 + points*(size-20)/1024
+    return 10 + points*(np.asarray(size)-20)/1024
 
 
-def stroke_geometry(template, renderer='outline', size=128):
+def stroke_geometry(template, renderer='outline', size=128, centerline_widths=None):
+    """Rasterize source paths; optional (width,height) and program line widths."""
     masks, progress_maps = [], []
-    yy, xx = np.mgrid[:size, :size]
-    for path, median in zip(template['strokes'], template['medians']):
+    w, h = (size, size) if isinstance(size, int) else size
+    yy, xx = np.mgrid[:h, :w]
+    for index, (path, median) in enumerate(zip(template['strokes'], template['medians'])):
         outline = transform(flatten_path(path), size)
         center = transform(median, size)
-        image = Image.new('L', (size, size), 0)
+        image = Image.new('L', (w, h), 0)
         draw = ImageDraw.Draw(image)
         if renderer == 'outline':
             draw.polygon([tuple(p) for p in outline], fill=255)
         elif renderer == 'centerline':
             vertices = [tuple(p) for p in center]
-            draw.line(vertices, fill=255, width=5, joint='curve')
+            width = centerline_widths[index] if centerline_widths is not None else 5
+            draw.line(vertices, fill=255, width=width, joint='curve')
+            radius = max(1, width // 2)
             for x, y in [vertices[0], vertices[-1]]:
-                draw.ellipse((x-2, y-2, x+2, y+2), fill=255)
+                draw.ellipse((x-radius, y-radius, x+radius, y+radius), fill=255)
         else:
             raise ValueError(renderer)
         mask = np.asarray(image) > 0
@@ -71,8 +75,8 @@ def stroke_geometry(template, renderer='outline', size=128):
         total = lengths.sum()
         if total <= 0:
             raise ValueError('Zero-length median')
-        best_distance = np.full((size, size), np.inf)
-        progress = np.zeros((size, size), dtype=np.float32)
+        best_distance = np.full((h, w), np.inf)
+        progress = np.zeros((h, w), dtype=np.float32)
         cumulative = 0.
         for a, b, length in zip(center, center[1:], lengths):
             if length == 0:

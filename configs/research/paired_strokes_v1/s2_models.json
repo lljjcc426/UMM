@@ -1,0 +1,299 @@
+{
+  "checked_on": "2026-11-03",
+  "status": "official_source_and_metadata_audited_not_runtime_verified",
+  "selection": "retain S0 frozen official checkpoint revisions; pin official source separately",
+  "models": [
+    {
+      "key": "internvl-u",
+      "id": "InternVL-U/InternVL-U",
+      "revision": "f012d760e69712bb47f7d3d09a24280f346cee01",
+      "family": "internvlu",
+      "source_repository": "OpenGVLab/InternVL-U",
+      "source_revision": "018a59c1b69690a33698234128aa04e9b3f46c71",
+      "license": "MIT",
+      "weight_bytes": 8755820366,
+      "weight_files": [
+        "generation_decoder/model.safetensors",
+        "vae/diffusion_pytorch_model.safetensors",
+        "vlm/model.safetensors"
+      ],
+      "source_evidence": [
+        "https://huggingface.co/InternVL-U/InternVL-U/blob/f012d760e69712bb47f7d3d09a24280f346cee01/README.md",
+        "https://github.com/OpenGVLab/InternVL-U/tree/018a59c1b69690a33698234128aa04e9b3f46c71",
+        "https://huggingface.co/InternVL-U/InternVL-U/blob/f012d760e69712bb47f7d3d09a24280f346cee01/model_index.json",
+        "https://huggingface.co/InternVL-U/InternVL-U/blob/f012d760e69712bb47f7d3d09a24280f346cee01/processor/processor_config.json",
+        "https://huggingface.co/InternVL-U/InternVL-U/blob/f012d760e69712bb47f7d3d09a24280f346cee01/vlm/config.json",
+        "https://github.com/OpenGVLab/InternVL-U/blob/018a59c1b69690a33698234128aa04e9b3f46c71/internvlu/pipeline_internvlu.py",
+        "https://github.com/OpenGVLab/InternVL-U/blob/018a59c1b69690a33698234128aa04e9b3f46c71/internvlu/processing_internvlu.py",
+        "https://github.com/OpenGVLab/InternVL-U/blob/018a59c1b69690a33698234128aa04e9b3f46c71/internvlu/vlm/modeling_internvlu_chat.py"
+      ],
+      "model_load_path": "explicit local snapshot of this exact revision; HF_HUB_OFFLINE=1 and local_files_only=True",
+      "input_image": "PIL RGB from the original 256x256 PNG; no crop, highlighting or answer overlay",
+      "output_format": "native generated text; prompt requests JSON; no native JSON guarantee, extraction, repair or second attempt",
+      "runtime_verified": false,
+      "weights_downloaded": false,
+      "processor_executed": false,
+      "tokenizer_executed": false,
+      "GPU_MPS_calls": 0,
+      "actual_memory_or_speed": null,
+      "loader": "internvlu.InternVLUPipeline.from_pretrained(local_snapshot, torch_dtype=torch.bfloat16, local_files_only=True); pipeline.to(\"cuda\")",
+      "components": {
+        "vlm": "internvlu.vlm.InternVLUChatModel",
+        "generation_decoder": "internvlu.diffusion.InternVLUGenerationDecoder",
+        "vae": "diffusers.AutoencoderKLQwenImage",
+        "processor": "internvlu.processing_internvlu.InternVLUProcessor"
+      },
+      "checkpoint_layout": {
+        "model_index": "model_index.json",
+        "model_config": "vlm/config.json",
+        "processor_config": "processor/processor_config.json",
+        "tokenizer": "processor/"
+      },
+      "call": "pipeline(**native_arguments(\"internvlu\", model_inputs, dataset))",
+      "output": "generate_output[0] is the continuation from language_model.generate(inputs_embeds=..., without input_ids); decode directly with pipeline.processor.tokenizer, no input-length slicing",
+      "image_processor": {
+        "class": "GotOcr2ImageProcessorFast",
+        "size": [
+          448,
+          448
+        ],
+        "crop_to_patches": false,
+        "image_seq_length": 256
+      },
+      "environment": {
+        "python": "3.10",
+        "torch": "2.6.0+cu124",
+        "torchvision": "0.21.0+cu124",
+        "transformers": "4.52.3",
+        "diffusers": "0.35.1",
+        "flash_attn": "2.7.4.post1",
+        "other_dependencies": "official requirements.txt; complete resolved environment must be captured before approval execution"
+      },
+      "loading_audit": "full pipeline, original VLM plus generation modules; capture per-component load logs and key coverage; embedded Qwen3 path is configuration history, not a substitute checkpoint"
+    },
+    {
+      "key": "ovis-u1-3b",
+      "id": "ATH-MaaS/Ovis-U1-3B",
+      "revision": "cbc005ddff7376a20bc98a89136d088e0f7e1623",
+      "family": "ovis_u1",
+      "source_repository": "ATH-MaaS/Ovis-U1",
+      "source_revision": "55b7ce25507aa6da3cec0b786c1f9a31e781d8ab",
+      "license": "apache-2.0",
+      "weight_bytes": 10247417940,
+      "weight_files": [
+        "model-00001-of-00003.safetensors",
+        "model-00002-of-00003.safetensors",
+        "model-00003-of-00003.safetensors"
+      ],
+      "source_evidence": [
+        "https://huggingface.co/ATH-MaaS/Ovis-U1-3B/blob/cbc005ddff7376a20bc98a89136d088e0f7e1623/README.md",
+        "https://github.com/ATH-MaaS/Ovis-U1/tree/55b7ce25507aa6da3cec0b786c1f9a31e781d8ab",
+        "https://huggingface.co/ATH-MaaS/Ovis-U1-3B/blob/cbc005ddff7376a20bc98a89136d088e0f7e1623/config.json",
+        "https://huggingface.co/ATH-MaaS/Ovis-U1-3B/blob/cbc005ddff7376a20bc98a89136d088e0f7e1623/preprocessor_config.json",
+        "https://huggingface.co/ATH-MaaS/Ovis-U1-3B/blob/cbc005ddff7376a20bc98a89136d088e0f7e1623/modeling_ovis_u1.py",
+        "https://github.com/ATH-MaaS/Ovis-U1/blob/55b7ce25507aa6da3cec0b786c1f9a31e781d8ab/test_img_to_txt.py"
+      ],
+      "model_load_path": "explicit local snapshot of this exact revision; HF_HUB_OFFLINE=1 and local_files_only=True",
+      "input_image": "PIL RGB from the original 256x256 PNG; no crop, highlighting or answer overlay",
+      "output_format": "native generated text; prompt requests JSON; no native JSON guarantee, extraction, repair or second attempt",
+      "runtime_verified": false,
+      "weights_downloaded": false,
+      "processor_executed": false,
+      "tokenizer_executed": false,
+      "GPU_MPS_calls": 0,
+      "actual_memory_or_speed": null,
+      "loader": "transformers.AutoModelForCausalLM.from_pretrained(local_snapshot, torch_dtype=torch.bfloat16, trust_remote_code=True, local_files_only=True, output_loading_info=True); model.eval().to(\"cuda\").to(torch.bfloat16)",
+      "components": {
+        "model": "modeling_ovis_u1.OvisU1",
+        "configuration": "configuration_ovis_u1.OvisU1Config",
+        "processor": "model.preprocess_inputs plus model.get_visual_tokenizer()",
+        "tokenizer": "model.get_text_tokenizer()"
+      },
+      "checkpoint_layout": {
+        "model_config": "config.json",
+        "processor_config": "preprocessor_config.json",
+        "tokenizer": "checkpoint root"
+      },
+      "call": "model.preprocess_inputs(**native_arguments(\"ovis_u1\", model_inputs, dataset)); form native attention_mask and batched tensors; model.generate(input_ids, pixel_values=..., grid_thws=..., attention_mask=..., **decoding)",
+      "output": "model.generate returns llm.generate(inputs=None, inputs_embeds=...); decode generated IDs directly, do not remove input length",
+      "image_processor": {
+        "class": "CLIPImageProcessor with AIMv2 visual tokenizer",
+        "min_pixels": 200704,
+        "max_pixels": 2408448,
+        "patch_size": 14,
+        "hidden_stride": 2,
+        "square_256_expected_resize": [
+          448,
+          448
+        ]
+      },
+      "environment": {
+        "python": "3.10",
+        "torch": "2.4.0",
+        "transformers": "4.51.3",
+        "accelerate": "1.1.0",
+        "deepspeed": "0.15.4",
+        "other_dependencies": "official requirements.txt; complete resolved environment must be captured before approval execution"
+      },
+      "loading_audit": "output_loading_info=True; capture missing/unexpected/mismatched keys and original config auto_map",
+      "important_input_override": "propagate_exception=True; official single-image example uses False and can replace failures with mock images",
+      "metadata_parameters": {
+        "parameters": {
+          "BF16": 2164776960,
+          "F32": 1479431407
+        },
+        "total": 3644208367
+      }
+    },
+    {
+      "key": "qwen3-vl-4b-instruct",
+      "id": "Qwen/Qwen3-VL-4B-Instruct",
+      "revision": "ebb281ec70b05090aa6165b016eac8ec08e71b17",
+      "family": "qwen3_vl",
+      "source_repository": "QwenLM/Qwen3-VL",
+      "source_revision": "96588727e44c78b25ba03ea03b8e12f7e64fd0da",
+      "license": "apache-2.0",
+      "weight_bytes": 8875719344,
+      "weight_files": [
+        "model-00001-of-00002.safetensors",
+        "model-00002-of-00002.safetensors"
+      ],
+      "source_evidence": [
+        "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/blob/ebb281ec70b05090aa6165b016eac8ec08e71b17/README.md",
+        "https://github.com/QwenLM/Qwen3-VL/tree/96588727e44c78b25ba03ea03b8e12f7e64fd0da",
+        "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/blob/ebb281ec70b05090aa6165b016eac8ec08e71b17/config.json",
+        "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/blob/ebb281ec70b05090aa6165b016eac8ec08e71b17/preprocessor_config.json",
+        "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/blob/ebb281ec70b05090aa6165b016eac8ec08e71b17/chat_template.json",
+        "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/blob/ebb281ec70b05090aa6165b016eac8ec08e71b17/generation_config.json",
+        "https://github.com/huggingface/transformers/blob/v4.57.1/src/transformers/models/qwen3_vl/processing_qwen3_vl.py"
+      ],
+      "model_load_path": "explicit local snapshot of this exact revision; HF_HUB_OFFLINE=1 and local_files_only=True",
+      "input_image": "PIL RGB from the original 256x256 PNG; no crop, highlighting or answer overlay",
+      "output_format": "native generated text; prompt requests JSON; no native JSON guarantee, extraction, repair or second attempt",
+      "runtime_verified": false,
+      "weights_downloaded": false,
+      "processor_executed": false,
+      "tokenizer_executed": false,
+      "GPU_MPS_calls": 0,
+      "actual_memory_or_speed": null,
+      "loader": "transformers.Qwen3VLForConditionalGeneration.from_pretrained(local_snapshot, dtype=torch.bfloat16, device_map={\"\":\"cuda:0\"}, attn_implementation=\"sdpa\", local_files_only=True, output_loading_info=True); AutoProcessor.from_pretrained(local_snapshot, local_files_only=True)",
+      "components": {
+        "model": "Qwen3VLForConditionalGeneration",
+        "processor": "Qwen3VLProcessor through AutoProcessor",
+        "tokenizer": "processor.tokenizer"
+      },
+      "checkpoint_layout": {
+        "model_config": "config.json",
+        "processor_config": "preprocessor_config.json",
+        "chat_template": "chat_template.json",
+        "generation_defaults": "generation_config.json"
+      },
+      "call": "processor.apply_chat_template(**native_arguments(\"qwen3_vl\", model_inputs, dataset)); move returned tensors to model.device; model.generate(**inputs, **decoding)",
+      "output": "remove each exact inputs.input_ids prefix from generated_ids; processor.batch_decode(..., skip_special_tokens=True, clean_up_tokenization_spaces=False)",
+      "image_processor": {
+        "class": "Qwen2VLImageProcessorFast",
+        "patch_size": 16,
+        "temporal_patch_size": 2,
+        "merge_size": 2,
+        "min_pixels": 65536,
+        "max_pixels": 16777216,
+        "square_256_expected_resize": [
+          256,
+          256
+        ]
+      },
+      "environment": {
+        "python": "3.10",
+        "torch": "2.6.0+cu124",
+        "torchvision": "0.21.0+cu124",
+        "transformers": "4.57.1",
+        "attention": "sdpa; optional flash attention not used",
+        "other_dependencies": "accelerate and tokenizer/Pillow dependencies; capture exact resolved versions before approval execution"
+      },
+      "generation_defaults_override": "checkpoint do_sample=True/temperature0.7/top_p0.8; explicitly use do_sample=False, num_beams=1, max_new_tokens=128",
+      "loading_audit": "output_loading_info=True; capture missing/unexpected/mismatched keys; no quantization or alternate base model",
+      "metadata_parameters": {
+        "parameters": {
+          "BF16": 4437815808
+        },
+        "total": 4437815808
+      }
+    },
+    {
+      "key": "qwen3-vl-8b-instruct",
+      "id": "Qwen/Qwen3-VL-8B-Instruct",
+      "revision": "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b",
+      "family": "qwen3_vl",
+      "source_repository": "QwenLM/Qwen3-VL",
+      "source_revision": "96588727e44c78b25ba03ea03b8e12f7e64fd0da",
+      "license": "apache-2.0",
+      "weight_bytes": 17534339512,
+      "weight_files": [
+        "model-00001-of-00004.safetensors",
+        "model-00002-of-00004.safetensors",
+        "model-00003-of-00004.safetensors",
+        "model-00004-of-00004.safetensors"
+      ],
+      "source_evidence": [
+        "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct/blob/0c351dd01ed87e9c1b53cbc748cba10e6187ff3b/README.md",
+        "https://github.com/QwenLM/Qwen3-VL/tree/96588727e44c78b25ba03ea03b8e12f7e64fd0da",
+        "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct/blob/0c351dd01ed87e9c1b53cbc748cba10e6187ff3b/config.json",
+        "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct/blob/0c351dd01ed87e9c1b53cbc748cba10e6187ff3b/preprocessor_config.json",
+        "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct/blob/0c351dd01ed87e9c1b53cbc748cba10e6187ff3b/chat_template.json",
+        "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct/blob/0c351dd01ed87e9c1b53cbc748cba10e6187ff3b/generation_config.json",
+        "https://github.com/huggingface/transformers/blob/v4.57.1/src/transformers/models/qwen3_vl/processing_qwen3_vl.py"
+      ],
+      "model_load_path": "explicit local snapshot of this exact revision; HF_HUB_OFFLINE=1 and local_files_only=True",
+      "input_image": "PIL RGB from the original 256x256 PNG; no crop, highlighting or answer overlay",
+      "output_format": "native generated text; prompt requests JSON; no native JSON guarantee, extraction, repair or second attempt",
+      "runtime_verified": false,
+      "weights_downloaded": false,
+      "processor_executed": false,
+      "tokenizer_executed": false,
+      "GPU_MPS_calls": 0,
+      "actual_memory_or_speed": null,
+      "loader": "transformers.Qwen3VLForConditionalGeneration.from_pretrained(local_snapshot, dtype=torch.bfloat16, device_map={\"\":\"cuda:0\"}, attn_implementation=\"sdpa\", local_files_only=True, output_loading_info=True); AutoProcessor.from_pretrained(local_snapshot, local_files_only=True)",
+      "components": {
+        "model": "Qwen3VLForConditionalGeneration",
+        "processor": "Qwen3VLProcessor through AutoProcessor",
+        "tokenizer": "processor.tokenizer"
+      },
+      "checkpoint_layout": {
+        "model_config": "config.json",
+        "processor_config": "preprocessor_config.json",
+        "chat_template": "chat_template.json",
+        "generation_defaults": "generation_config.json"
+      },
+      "call": "processor.apply_chat_template(**native_arguments(\"qwen3_vl\", model_inputs, dataset)); move returned tensors to model.device; model.generate(**inputs, **decoding)",
+      "output": "remove each exact inputs.input_ids prefix from generated_ids; processor.batch_decode(..., skip_special_tokens=True, clean_up_tokenization_spaces=False)",
+      "image_processor": {
+        "class": "Qwen2VLImageProcessorFast",
+        "patch_size": 16,
+        "temporal_patch_size": 2,
+        "merge_size": 2,
+        "min_pixels": 65536,
+        "max_pixels": 16777216,
+        "square_256_expected_resize": [
+          256,
+          256
+        ]
+      },
+      "environment": {
+        "python": "3.10",
+        "torch": "2.6.0+cu124",
+        "torchvision": "0.21.0+cu124",
+        "transformers": "4.57.1",
+        "attention": "sdpa; optional flash attention not used",
+        "other_dependencies": "accelerate and tokenizer/Pillow dependencies; capture exact resolved versions before approval execution"
+      },
+      "generation_defaults_override": "checkpoint do_sample=True/temperature0.7/top_p0.8; explicitly use do_sample=False, num_beams=1, max_new_tokens=128",
+      "loading_audit": "output_loading_info=True; capture missing/unexpected/mismatched keys; no quantization or alternate base model",
+      "metadata_parameters": {
+        "parameters": {
+          "BF16": 8767123696
+        },
+        "total": 8767123696
+      }
+    }
+  ]
+}

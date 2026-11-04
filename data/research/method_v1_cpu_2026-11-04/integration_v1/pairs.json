@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "partitions": {
+    "train_development": 192,
+    "validation_development": 24,
+    "test_development": 24,
+    "audit_development": 16
+  },
+  "checks": [
+    "character",
+    "image_sha256",
+    "id"
+  ],
+  "training_pairs": 192,
+  "training_strokes": 1752,
+  "same_sequence_different_character_groups": [
+    {
+      "sequence": [
+        1,
+        2,
+        1,
+        5,
+        4,
+        3,
+        1,
+        1,
+        3,
+        4
+      ],
+      "ids": [
+        "adbf7cbc7abd3ab3",
+        "b38a9eff939f9a1b"
+      ]
+    }
+  ],
+  "model_inputs": [
+    "RGB image"
+  ],
+  "supervision": [
+    "original full description including terminal character"
+  ],
+  "evaluation_only_loaded": false,
+  "formal_holdout_characters": 0
+}

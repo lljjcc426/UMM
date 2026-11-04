@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-03",
+  "CPU_tests": {
+    "command": ".venv/bin/python -m unittest tests.test_paired_strokes tests.test_s2_preparation -q",
+    "tests": 37,
+    "passed": true
+  },
+  "preservation": {
+    "base_commit": "fde088a5",
+    "git_diff_unchanged": true,
+    "scope": [
+      "manifest",
+      "splits",
+      "reviews raw text",
+      "geometry and masks",
+      "source subset",
+      "original media",
+      "original requests/labels",
+      "complete_suite_v1",
+      "original model metadata",
+      "reviewed pair exports"
+    ],
+    "original_reviews": 1008,
+    "itemwise_records": 128,
+    "summary_records": 880,
+    "manual_choices": 500
+  },
+  "qualification": {
+    "rule": "itemwise-facet-v2",
+    "accepted_E3_characters": 36,
+    "accepted_E4_characters": 27,
+    "accepted_E5_characters": 36,
+    "E4_unknown": 7,
+    "E4_not_applicable": 2,
+    "original_request_coverage_unchanged": true
+  },
+  "source_audit": {
+    "official_checkpoints": 4,
+    "fixed_revisions_preserved": true,
+    "native_processor_loader_and_output": "official source audited",
+    "critical_dependency_modules_at_declared_tags": "source files verified present",
+    "runtime_verified": false
+  },
+  "S2_queue": {
+    "per_model": 36,
+    "main": 24,
+    "health_only": 8,
+    "text_only": 4,
+    "four_model_maximum": 144,
+    "fixed_applications": 4
+  },
+  "actual_model_calls": 0,
+  "GPU_MPS_calls": 0,
+  "training": 0,
+  "weights_downloaded": false,
+  "model_metrics": null,
+  "formal_holdout_characters": 0,
+  "catalog": {
+    "passed": true,
+    "markdown_files_checked": 1003,
+    "external_links_not_availability_tested": true
+  }
+}
