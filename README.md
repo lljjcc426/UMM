@@ -2,7 +2,7 @@
 
 研究目标是生成内容、笔画方向与笔画先后正确的汉字书写视频。本仓库同时保留原生视频模型实验、理解—生成诊断、受控执行工程原型与文献资料，几类结果分别记录。
 
-**当前分支：`codex/research/new`。2026-11-03：`7c843c37`的S2 CPU准备获审核通过；原生运行器、资源watchdog及CPU检查已完成。四模型各36次申请仍未执行，无模型结果或正式保留集。S0–S1配对与原审核保留。**
+**当前分支：`codex/research/new`。2026-11-04：CPU方法工具已接入原192条训练导出，SVG重建192/192一致，四种随机CPU模块完成真实RGB特征/梯度检查，参数更新0。下一步按独立GPU授权执行S2；四模型各36次仍未执行，无正式保留集。**
 
 先阅读[当前状态](docs/project/STATUS.md)和[实验交接](docs/project/WORKSPACE_HANDOFF.md)。P0/P1维持有限负结果结项，Batch A的工程完整性不代表模型能力通过。
 
@@ -10,6 +10,7 @@
 
 | 内容 | 入口 |
 |---|---|
+| CPU图文方法接入、真实192样本与后续执行顺序 | [接入报告](docs/research/paired_strokes_v1/method_cpu_integration_2026-11-04.md) · [运行工具](method_v1/README.md) · [原附件与新证据](data/research/method_v1_cpu_2026-11-04/README.md) |
 | S2原生运行器、资源限制与扩大覆盖提案 | [CPU审核报告](docs/research/paired_strokes_v1/s2_runner_preparation_2026-11-03.md) · [运行入口](scripts/paired_strokes/s2_runner.py) · [固定检查点文件清单](configs/research/paired_strokes_v1/s2_checkpoint_files.json) |
 | S2训练前评测准备与真值资格修正 | [审核报告](docs/research/paired_strokes_v1/s2_preparation_audit_2026-11-03.md) · [四模型配置](configs/research/paired_strokes_v1/s2_models.json) · [请求与GPU申请](data/research/paired_strokes_v1/s2_preflight_v1/preparation.json) |
 | 静态字图与有序笔形配对：S0–S1数据与评价工具 | [审核接收](docs/research/paired_strokes_v1/batch_01_review_receipt_2026-11-03.md) · [CPU补齐](docs/research/paired_strokes_v1/s0_s1_completion_2026-11-02.md) · [冻结协议](docs/research/paired_strokes_v1/protocol.md) · [数据入口](data/research/paired_strokes_v1/README.md) |

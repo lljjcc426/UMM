@@ -1,6 +1,8 @@
 # 当前状态
 
-更新：2026-11-03。当前工作分支：`codex/research/new`。入口：[S0–S1](../research/paired_strokes_v1/README.md)、[工作区交接](WORKSPACE_HANDOFF.md)。
+更新：2026-11-04。当前工作分支：`codex/research/new`。入口：[S0–S1](../research/paired_strokes_v1/README.md)、[工作区交接](WORKSPACE_HANDOFF.md)。
+
+CPU图文方法已接入真实192字/1752笔，原SVG重建192/192一致，四种随机CPU模块各处理192图并验证首批梯度，参数更新0。共享渲染器的3段程序视频均可解码，无模型生成。全库255项（基础环境250通过/5可选torch跳过），独立CPU方法20项全部通过。见[本轮接入报告](../research/paired_strokes_v1/method_cpu_integration_2026-11-04.md)。下一步独立授权后执行S2，之后才选择实际可训练底座做普通SFT及方法对照，再验证同信息条件下程序迁移。尚未执行真实模型、下载权重、训练或合并main。
 
 ## S0–S1工程交付与S2准备
 
